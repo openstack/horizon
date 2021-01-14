@@ -1,0 +1,18 @@
+---
+features:
+  - |
+    [:bug:`1795851`] Operators now can control whether the links of
+    "Download OpenRC" and "Download clouds.yaml" are displayed or not
+    via new settings ``SHOW_OPENRC_FILE`` and ``SHOW_OPENSTACK_CLOUDS_YAML``.
+    ``openrc`` and ``clouds.yaml`` files provided by horizon now assume
+    the basic simple deployment and do not cover keystone authentication
+    like saml2, openid and so on. The default ``openrc`` and ``clouds.yaml``
+    from horizon do not make sense for such environments.
+
+    Custom templates for ``clouds.yaml`` and ``openrc`` files can be
+    configured now via ``OPENSTACK_CLOUDS_YAML_CUSTOM_TEMPLATE`` and
+    ``OPENRC_CUSTOM_TEMPLATE`` settings. For more detail, see the
+    `Settings Reference <https://docs.openstack.org/horizon/latest/configuration/settings.html>`__.
+
+    ``ADD_TEMPLATE_DIRS`` setting is also added so that operators can place
+    custom templates for ``clouds.yaml`` at deployment-specific paths.

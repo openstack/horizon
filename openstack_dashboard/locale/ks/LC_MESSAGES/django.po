@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: horizon VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2018-09-21 05:00+0000\n"
+"POT-Creation-Date: 2020-09-09 01:42+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -1033,6 +1033,9 @@ msgstr "شیریو   اِنسٹنسِز"
 msgid "Edit Network"
 msgstr "شیریئو نیٹ وئرک"
 
+msgid "Edit Policy"
+msgstr "شیریئو پآلیسی"
+
 msgid "Edit Port"
 msgstr "شیریئو پورٹ"
 
@@ -1224,10 +1227,6 @@ msgstr ""
 "نا کامیاب ایجنٹ جمع کئرنہٕ خآطرہ %(agent_name)s نیٹ وئرک خآطرہ   %(network)s."
 
 #, python-format
-msgid "Failed to create network \"%(network)s\": %(reason)s"
-msgstr " نیٹ وئرک\"%(network)s\": %(reason)s  آو نہ کامیابی سآن بٰناونہٕ "
-
-#, python-format
 msgid "Failed to create network %s"
 msgstr "نا کامیاب نیٹ وئرک بَناونہٖ خآطرہ %s"
 
@@ -1284,20 +1283,12 @@ msgstr ""
 "کوٹاز"
 
 #, python-format
-msgid "Failed to retrieve network %s for a subnet"
-msgstr "ناکامیاب نیٹ وئرک سب نیٹ %sخآطرہ واپس اَنہِ خآطرہ"
-
-#, python-format
 msgid "Failed to update network %s"
 msgstr "ناکامیاب نیٹ وئرک%s  اَپڈیٹ کئرنہ خآطرہ"
 
 #, python-format
 msgid "Failed to update router %s"
 msgstr "نا کامیاب گئو راوٹر  اَپڈیٹ کئرنہٖ خٲطرہ %s"
-
-#, python-format
-msgid "Failed to update subnet \"%(sub)s\":  %(reason)s"
-msgstr "ناکامیاب  سب نیٹ اَپڈیٹ کئرنہٖ خآطرہ \"%(sub)s\":  %(reason)s"
 
 msgid "Fault"
 msgstr "غلطی"
@@ -1332,19 +1323,8 @@ msgstr "فِلوئر اِنتِخٲب"
 msgid "Flavor Details"
 msgstr "فِلیور تَفصیل"
 
-#, python-format
-msgid "Flavor Details: %(name)s\">%(name)s"
-msgstr "فِلیوئر تَفصیل: %(name)s\">%(name)s"
-
 msgid "Flavor ID ="
 msgstr "فِلوئر ID ="
-
-msgid ""
-"Flavor ID should be UUID4 or integer. Leave this field blank or use 'auto' "
-"to set a random UUID4."
-msgstr ""
-"فلیوئرID  گئژہ آسون UUID4 یا اِنٹیجر ترایئو یہٕ فیلڈ خآلی یا اِستعمال کئریو  "
-"آٹو سیٹ کئرنہٖ خآطرہ اَکھ ' رینڈم  ' UUID4."
 
 msgid "Flavor Information"
 msgstr "فِلیوئر تَفصیل"
@@ -2903,13 +2883,6 @@ msgstr ""
 "چُھ نوشنل سروِس یَتینس  اینکریپشن  چُھ چآلوو <strong>Control Location</strong> "
 "(مِثآل فرینٹ-اینڈ=نووا). ڈیفالٹ ویلیو چُھ 'front-end.'"
 
-msgid ""
-"The <strong>Key Size</strong> is the size of the encryption key, in bits (e."
-"g., 128, 256). If the field is left empty, the provider default will be used."
-msgstr ""
-"چُھ سآیز اینکریپشن کی ہُند <strong>Key Size</strong> ، بِٹس مَنز (مِثآل., 128, "
-"256). اگر فیلڈ خٲلی آسہ  پروویڈر ڈیفآلٹ  گژہ اِستعمال"
-
 msgid "The Aggregate was updated."
 msgstr " ایگریگیٹ آو اَپڈیٹ کئرنہٕ"
 
@@ -3014,9 +2987,6 @@ msgstr "  اِنسٹنس پورٹ چُھ گوڈے جوڈیتہ بیکَس فلو
 msgid "The specified port is invalid."
 msgstr "کوڈ چُھ نہ واجِب وَضاحت کئریتھ"
 
-msgid "The state to start the network in."
-msgstr "سِٹیٹ شُروعات  کئرنچ نیٹ وئرک ہُند"
-
 #, python-format
 msgid "The subnet in the Network Address is too small (/%s)."
 msgstr "سب نیٹ نیٹ وئرک ایڈریس چُھ لَکوٹ (/%s)."
@@ -3052,9 +3022,6 @@ msgid ""
 msgstr ""
 "یہٕ والیوم چُھ حآلی مَنز جوڈیتھ اَکس اِنسٹئنسِز سیتھ ۔ کونہٕ حآلس مَنز ، بَناوُن اَکہٕ "
 "سِنیپ شآٹس اَکہٕ جوڈمیت والیم سیتھ ہیکہٕ نَتیجہٕ کئریتھ  کئریپٹِڈ سِنیپ شآٹس مِنز"
-
-msgid "Time since created"
-msgstr "وَقت یئنہٕ بَناومُت"
 
 msgid "Timezone"
 msgstr "ٹآئم زون"
@@ -3327,9 +3294,6 @@ msgstr "نا قابِلIP ایڈریس اَنہٕ  خآطرہ  نیوٹران پ
 msgid "Unable to retrieve IP addresses from Neutron."
 msgstr "نا قابِل واپس اَنہٕ خآطرہ ایڈریس نیوٹران پئٹھ"
 
-msgid "Unable to retrieve Nova availability zones."
-msgstr "نا قابِل نووا دَستیاب زون وپس  اَنہٕ خآطرہ"
-
 msgid "Unable to retrieve QoS Spec association."
 msgstr "نا قابِل واپس اَنہٕ خآطرہ QoS سپیک رآبطہٕ"
 
@@ -3347,10 +3311,6 @@ msgstr "نا قابِل واپس اِنہٕ ٕ خآطرہ  QoS سِپیک لِس
 
 msgid "Unable to retrieve QoS specs"
 msgstr "نا قابِل واپس اَنہٕ خآطرہ   QoS  سِپیکس"
-
-#, python-format
-msgid "Unable to retrieve a list of external networks \"%s\"."
-msgstr "نا قابِل نیبرِم  نیٹوئرک واپس أنہٕ خآطرہ \"%s\""
 
 msgid "Unable to retrieve agent list."
 msgstr "نا قابِل واپس اَنہٕ خآطرہ  ایجینٹ لِسٹ"
@@ -3853,10 +3813,6 @@ msgstr "یوزر"
 msgid "User \"%s\" was successfully created."
 msgstr "یوزر \"%s\"  ٲو کامیابی سٲن بَناوان"
 
-#, python-format
-msgid "User %s has no role defined for that project."
-msgstr "یوزر%s چُھ نہٕ کاہ کئردار پرزوجیکٹ خٲطرہ"
-
 msgid "User Credentials Details"
 msgstr "اِستعمال کریو کریڈینشل  تَفصیل"
 
@@ -3868,9 +3824,6 @@ msgstr "یوزر نآو"
 
 msgid "User Settings"
 msgstr "یوزر سیٹینگس"
-
-msgid "User has been updated successfully."
-msgstr "یوزر ٲو کامیابی اَپڈیٹ کئرنئ"
 
 #, python-format
 msgid "User name \"%s\" is already used."

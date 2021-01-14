@@ -13,8 +13,6 @@
 #    under the License.
 
 from cinderclient.v2 import availability_zones
-from cinderclient.v2 import cgsnapshots
-from cinderclient.v2 import consistencygroups
 from cinderclient.v2.contrib import list_extensions as cinder_list_extensions
 from cinderclient.v2 import pools
 from cinderclient.v2 import qos_specs
@@ -30,6 +28,7 @@ from cinderclient.v2 import volumes
 from cinderclient.v3 import group_snapshots
 from cinderclient.v3 import group_types
 from cinderclient.v3 import groups
+from cinderclient.v3 import messages
 
 from openstack_dashboard import api
 from openstack_dashboard.api import cinder as cinder_api
@@ -38,6 +37,7 @@ from openstack_dashboard.usage import quotas as usage_quotas
 
 
 def data(TEST):
+    TEST.cinder_messages = utils.TestDataContainer()
     TEST.cinder_services = utils.TestDataContainer()
     TEST.cinder_volumes = utils.TestDataContainer()
     TEST.cinder_volume_backups = utils.TestDataContainer()
@@ -55,9 +55,6 @@ def data(TEST):
     TEST.cinder_availability_zones = utils.TestDataContainer()
     TEST.cinder_volume_transfers = utils.TestDataContainer()
     TEST.cinder_pools = utils.TestDataContainer()
-    TEST.cinder_consistencygroups = utils.TestDataContainer()
-    TEST.cinder_cgroup_volumes = utils.TestDataContainer()
-    TEST.cinder_cg_snapshots = utils.TestDataContainer()
     TEST.cinder_groups = utils.TestDataContainer()
     TEST.cinder_group_types = utils.TestDataContainer()
     TEST.cinder_group_snapshots = utils.TestDataContainer()
@@ -99,6 +96,7 @@ def data(TEST):
          'display_description': 'Volume description',
          'created_at': '2014-01-27 10:30:00',
          'volume_type': None,
+         'bootable': 'false',
          'attachments': []})
     nameless_volume = volumes.Volume(
         volumes.VolumeManager(None),
@@ -110,6 +108,7 @@ def data(TEST):
          "device": "/dev/hda",
          "created_at": '2010-11-21 18:34:25',
          "volume_type": 'vol_type_1',
+         'bootable': 'true',
          "attachments": []})
     other_volume = volumes.Volume(
         volumes.VolumeManager(None),
@@ -120,7 +119,9 @@ def data(TEST):
          'display_description': '',
          'created_at': '2013-04-01 10:30:00',
          'volume_type': None,
-         'attachments': [{"id": "1", "server_id": '1',
+         'bootable': 'true',
+         'attachments': [{"id": "21023e92-8008-1234-8059-7f2293ff3889",
+                          "server_id": '1',
                           "device": "/dev/hda"}]})
     volume_with_type = volumes.Volume(
         volumes.VolumeManager(None),
@@ -132,7 +133,9 @@ def data(TEST):
          'display_description': '',
          'created_at': '2013-04-01 10:30:00',
          'volume_type': 'vol_type_2',
-         'attachments': [{"id": "2", "server_id": '2',
+         'bootable': 'false',
+         'attachments': [{"id": "7dcb47fd-07d9-42c2-9647-be5eab799ebe",
+                          "server_id": '2',
                           "device": "/dev/hdb"}]})
     non_bootable_volume = volumes.Volume(
         volumes.VolumeManager(None),
@@ -143,8 +146,9 @@ def data(TEST):
          'display_description': '',
          'created_at': '2013-04-01 10:30:00',
          'volume_type': None,
-         'bootable': False,
-         'attachments': [{"id": "1", "server_id": '1',
+         'bootable': 'false',
+         'attachments': [{"id": "21023e92-8008-1234-8059-7f2293ff3890",
+                          "server_id": '1',
                           "device": "/dev/hda"}]})
 
     volume.bootable = 'true'
@@ -205,6 +209,7 @@ def data(TEST):
          'display_name': 'test snapshot',
          'display_description': 'volume snapshot',
          'size': 40,
+         'created_at': '2014-01-27 10:30:00',
          'status': 'available',
          'volume_id': '11023e92-8008-4c8b-8059-7f2293ff3887'})
     snapshot2 = vol_snaps.Snapshot(
@@ -213,6 +218,7 @@ def data(TEST):
          'name': '',
          'description': 'v2 volume snapshot description',
          'size': 80,
+         'created_at': '2014-01-27 10:30:00',
          'status': 'available',
          'volume_id': '31023e92-8008-4c8b-8059-7f2293ff1234'})
     snapshot3 = vol_snaps.Snapshot(
@@ -221,6 +227,7 @@ def data(TEST):
          'name': '',
          'description': 'v2 volume snapshot description 2',
          'size': 80,
+         'created_at': '2014-01-27 10:30:00',
          'status': 'available',
          'volume_id': '31023e92-8008-4c8b-8059-7f2293ff1234'})
     snapshot4 = vol_snaps.Snapshot(
@@ -229,6 +236,7 @@ def data(TEST):
          'name': '',
          'description': 'v2 volume snapshot with metadata description',
          'size': 80,
+         'created_at': '2014-01-27 10:30:00',
          'status': 'available',
          'volume_id': '31023e92-8008-4c8b-8059-7f2293ff1234',
          'metadata': {'snapshot_meta_key': 'snapshot_meta_value'}})
@@ -270,6 +278,7 @@ def data(TEST):
          'size': 10,
          'status': 'available',
          'container_name': 'volumebackups',
+         'snapshot_id': None,
          'volume_id': '11023e92-8008-4c8b-8059-7f2293ff3887'})
 
     volume_backup2 = vol_backups.VolumeBackup(
@@ -279,6 +288,7 @@ def data(TEST):
          'description': 'volume backup 2',
          'size': 20,
          'status': 'available',
+         'snapshot_id': snapshot2.id,
          'container_name': 'volumebackups',
          'volume_id': '31023e92-8008-4c8b-8059-7f2293ff1234'})
 
@@ -288,6 +298,7 @@ def data(TEST):
          'name': 'backup3',
          'description': 'volume backup 3',
          'size': 20,
+         'snapshot_id': None,
          'status': 'available',
          'container_name': 'volumebackups',
          'volume_id': '31023e92-8008-4c8b-8059-7f2293ff1234'})
@@ -456,49 +467,6 @@ def data(TEST):
     TEST.cinder_pools.add(pool1)
     TEST.cinder_pools.add(pool2)
 
-    # volume consistency groups
-    cgroup_1 = consistencygroups.Consistencygroup(
-        consistencygroups.ConsistencygroupManager(None),
-        {'id': u'1',
-         'name': u'cg_1',
-         'description': 'cg 1 description',
-         'volume_types': ['1'],
-         'volume_type_names': []})
-
-    cgroup_2 = consistencygroups.Consistencygroup(
-        consistencygroups.ConsistencygroupManager(None),
-        {'id': u'2',
-         'name': u'cg_2',
-         'description': 'cg 2 description',
-         'volume_types': ['1'],
-         'volume_type_names': []})
-
-    TEST.cinder_consistencygroups.add(cgroup_1)
-    TEST.cinder_consistencygroups.add(cgroup_2)
-
-    volume_for_consistency_group = volumes.Volume(
-        volumes.VolumeManager(None),
-        {'id': "11023e92-8008-4c8b-8059-7f2293ff3881",
-         'status': 'available',
-         'size': 40,
-         'name': 'Volume name',
-         'display_description': 'Volume description',
-         'created_at': '2014-01-27 10:30:00',
-         'volume_type': 'vol_type_1',
-         'attachments': [],
-         'consistencygroup_id': u'1'})
-    TEST.cinder_cgroup_volumes.add(api.cinder.Volume(
-        volume_for_consistency_group))
-
-    # volume consistency group snapshots
-    cg_snapshot_1 = cgsnapshots.Cgsnapshot(
-        cgsnapshots.CgsnapshotManager(None),
-        {'id': u'1',
-         'name': u'cg_ss_1',
-         'description': 'cg_ss 1 description',
-         'consistencygroup_id': u'1'})
-    TEST.cinder_cg_snapshots.add(cg_snapshot_1)
-
     group_type_1 = group_types.GroupType(
         group_types.GroupTypeManager(None),
         {
@@ -581,3 +549,41 @@ def data(TEST):
 
     TEST.cinder_volume_snapshots_with_groups.add(
         api.cinder.VolumeSnapshot(snapshot5))
+
+    # Cinder Messages
+    messages_1 = messages.Message(
+        messages.MessageManager(None),
+        {'created_at': '2020-07-08T17:12:06.000000',
+         'event_id': 'VOLUME_VOLUME_001_001',
+         'guaranteed_until': '2020-08-07T17:12:06.000000',
+         'id': '2d2bb0d7-af28-4566-9a65-6d987c19093c',
+         'resource_type': 'VOLUME',
+         'resource_uuid': '6d53d143-e10f-440a-a65f-16a6b6d068f7',
+         'message_level': 'ERROR',
+         'user_message': 'schedule allocate volume:An unknown error occurred.'
+         })
+    messages_2 = messages.Message(
+        messages.MessageManager(None),
+        {'created_at': '2020-07-12T12:56:43.000000',
+         'event_id': 'VOLUME_VOLUME_SNAPSHOT_009_015',
+         'guaranteed_until': '2020-08-11T12:56:43.000000',
+         'id': 'd360b4e2-bda5-4289-b673-714a90cde80b',
+         'resource_type': 'VOLUME_SNAPSHOT',
+         'resource_uuid': '761634b0-fa1c-4e59-b8ad-d720807cb355',
+         'message_level': 'ERROR',
+         'user_message': 'create snapshot:Snapshot is busy.'})
+    messages_3 = messages.Message(
+        messages.MessageManager(None),
+        {'created_at': '2020-09-24T11:03:31.000000',
+         'event_id': 'VOLUME_VOLUME_001_003',
+         'guaranteed_until': '2020-10-24T11:03:31.000000',
+         'id': '1f481885-9e1b-4d67-bdb5-b9db461391d3',
+         'resource_type': 'VOLUME',
+         'resource_uuid': 'f227c02d-91d7-4c3f-90d8-d8f261d0331a',
+         'message_level': 'ERROR',
+         'user_message': ('schedule allocate volume:'
+                          'Could not find any available weighted backend.'),
+         })
+    TEST.cinder_messages.add(api.cinder.Message(messages_1))
+    TEST.cinder_messages.add(api.cinder.Message(messages_2))
+    TEST.cinder_messages.add(api.cinder.Message(messages_3))

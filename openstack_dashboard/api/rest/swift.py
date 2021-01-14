@@ -20,7 +20,6 @@ from django.http import StreamingHttpResponse
 from django.utils.http import urlunquote
 from django.views.decorators.csrf import csrf_exempt
 from django.views import generic
-import six
 
 from horizon import exceptions
 from openstack_dashboard import api
@@ -39,6 +38,27 @@ class Info(generic.View):
         """Get information about the Swift installation."""
         capabilities = api.swift.swift_get_capabilities(request)
         return {'info': capabilities}
+
+
+@urls.register
+class Policies(generic.View):
+    """API for information about available container storage policies"""
+    url_regex = r'swift/policies/$'
+
+    @rest_utils.ajax()
+    def get(self, request):
+        """List available container storage policies"""
+
+        capabilities = api.swift.swift_get_capabilities(request)
+        policies = capabilities['swift']['policies']
+
+        for policy in policies:
+            display_name = \
+                api.swift.get_storage_policy_display_name(policy['name'])
+            if display_name:
+                policy["display_name"] = display_name
+
+        return {'policies': policies}
 
 
 @urls.register
@@ -83,6 +103,9 @@ class Container(generic.View):
 
         if 'is_public' in request.DATA:
             metadata['is_public'] = request.DATA['is_public']
+
+        if 'storage_policy' in request.DATA:
+            metadata['storage_policy'] = request.DATA['storage_policy']
 
         # This will raise an exception if the container already exists
         try:
@@ -227,8 +250,6 @@ class Object(generic.View):
             filename = "%s%s" % (filename, ext)
         response = StreamingHttpResponse(obj.data)
         safe = filename.replace(",", "")
-        if six.PY2:
-            safe = safe.encode('utf-8')
         response['Content-Disposition'] = 'attachment; filename="%s"' % safe
         response['Content-Type'] = 'application/octet-stream'
         response['Content-Length'] = obj.bytes

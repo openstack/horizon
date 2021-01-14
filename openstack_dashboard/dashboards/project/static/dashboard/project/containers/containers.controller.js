@@ -59,6 +59,9 @@
                                 $location,
                                 $q) {
     var ctrl = this;
+    ctrl.defaultPolicy = '';
+    ctrl.policies = []; // on ctrl scope to be included in tests
+    ctrl.policyOptions = [];
     ctrl.model = containersModel;
     ctrl.model.initialize();
     ctrl.baseRoute = baseRoute;
@@ -85,6 +88,7 @@
     ctrl.createContainer = createContainer;
     ctrl.createContainerAction = createContainerAction;
     ctrl.selectContainer = selectContainer;
+    ctrl.setDefaultPolicyAndOptions = setDefaultPolicyAndOptions;
 
     //////////
     function checkContainerNameConflict(containerName) {
@@ -169,6 +173,34 @@
         });
     }
 
+    function getPolicyOptions() {
+      //  get the details for available storage policies
+      swiftAPI.getPolicyDetails().then(setDefaultPolicyAndOptions);
+      return ctrl.policyOptions;
+    }
+
+    function setDefaultPolicyAndOptions(data) {
+      ctrl.policies = data.data.policies;
+      ctrl.defaultPolicy = ctrl.policies[0].name; // set the first option as default policy
+      angular.forEach(ctrl.policies, function(policy) {
+        //  set the correct default policy as per the API data
+        if (policy.default) {
+          ctrl.defaultPolicy = policy.name;
+        }
+
+        var displayName = policy.name;
+
+        if (policy.display_name) {
+          displayName = policy.display_name + ' (' + policy.name + ')';
+        }
+
+        ctrl.policyOptions.push({
+          value: policy.name,
+          name: displayName
+        });
+      });
+    }
+
     var createContainerSchema = {
       type: 'object',
       properties: {
@@ -178,6 +210,11 @@
           pattern: '^[^/]+$',
           description: gettext('Container name must not contain "/".')
         },
+        policy: {
+          title: gettext('Storage Policy'),
+          type: 'string',
+          default: ctrl.defaultPolicy
+        },
         public: {
           title: gettext('Container Access'),
           type: 'boolean',
@@ -186,7 +223,7 @@
             'gain access to your objects in the container.')
         }
       },
-      required: ['name']
+      required: ['name', 'policy']
     };
 
     var createContainerForm = [
@@ -208,6 +245,11 @@
                 }
               },
               {
+                key: 'policy',
+                type: 'select',
+                titleMap: getPolicyOptions()
+              },
+              {
                 key: 'public',
                 type: 'radiobuttons',
                 disableSuccessState: true,
@@ -223,7 +265,7 @@
     ];
 
     function createContainer() {
-      var model = {name: '', public: false};
+      var model = {public: false};
       var config = {
         title: gettext('Create Container'),
         schema: createContainerSchema,
@@ -232,13 +274,14 @@
         size: 'md',
         helpUrl: basePath + 'create-container.help.html'
       };
+      config.schema.properties.policy.default = ctrl.defaultPolicy;
       return modalFormService.open(config).then(function then() {
         return ctrl.createContainerAction(model);
       });
     }
 
     function createContainerAction(model) {
-      return swiftAPI.createContainer(model.name, model.public).then(
+      return swiftAPI.createContainer(model.name, model.public, model.policy).then(
         function success() {
           toastService.add('success', interpolate(
             gettext('Container %(name)s created.'), model, true

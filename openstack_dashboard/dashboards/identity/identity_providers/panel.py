@@ -12,11 +12,10 @@
 # License for the specific language governing permissions and limitations
 # under the License.
 
+from django.conf import settings
 from django.utils.translation import ugettext_lazy as _
 
 import horizon
-
-from openstack_dashboard.api import keystone
 
 
 class IdentityProviders(horizon.Panel):
@@ -26,5 +25,4 @@ class IdentityProviders(horizon.Panel):
 
     @staticmethod
     def can_register():
-        return (keystone.VERSIONS.active >= 3 and
-                keystone.is_federation_management_enabled())
+        return settings.OPENSTACK_KEYSTONE_FEDERATION_MANAGEMENT

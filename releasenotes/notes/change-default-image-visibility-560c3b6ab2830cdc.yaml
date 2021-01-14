@@ -1,0 +1,6 @@
+---
+other:
+  - |
+    The default visibility when creating new images has been changed from
+    `private` to `shared` to bring it inline with the default changing in
+    Glance since Image API v2.5.

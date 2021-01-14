@@ -19,7 +19,7 @@
  integration tests can use to understand what dashboard/panel group is
  currently open (and whether or not it needs to click it to proceed to some
  other dashboard/panel group). The need for this code arises from 2 facts:
-  * since https://review.openstack.org/#/c/209259/ sidebar's expand/collapse
+  * since https://review.opendev.org/#/c/209259/ sidebar's expand/collapse
   behavior doesn't rely on JS code (pure CSS instead) - which is good;
   * to match dashboard/panel group header _before_ the 'li.panel-collapse.in'
   we need '!' selector which will be supported only in CSS4 (not going soon).

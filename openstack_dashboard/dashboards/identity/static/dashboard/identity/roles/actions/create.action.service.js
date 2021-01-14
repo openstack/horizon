@@ -51,6 +51,21 @@
     gettext,
     toast
   ) {
+    var invalidMsg = gettext("Role already exists.");
+    var roles = [];
+    var form = [
+      {
+        key: "name",
+        validationMessage: {
+          rolesExists: invalidMsg
+        },
+        $validators: {
+          rolesExists: function (name) {
+            return (roles.indexOf(name) === -1);
+          }
+        }
+      }
+    ];
     var service = {
       allowed: allowed,
       perform: perform,
@@ -69,12 +84,13 @@
     }
 
     function perform() {
-      var model = {name: ''};
+      getRoles();
+      var model = {};
 
       var config = {
         title: gettext('Create Role'),
         schema: schema,
-        form: ['*'],
+        form: form,
         model: model,
         size: 'md'
       };
@@ -93,6 +109,16 @@
       return actionResultService.getActionResult()
         .created(resourceType, role.id)
         .result;
+    }
+
+    function getRoles() {
+      keystoneAPI.getRoles().then(function(response) {
+        roles = response.data.items.map(getName);
+      });
+    }
+
+    function getName(item) {
+      return item.name;
     }
 
   }

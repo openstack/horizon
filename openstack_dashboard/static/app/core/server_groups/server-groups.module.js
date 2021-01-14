@@ -44,7 +44,9 @@
                serverGroupsService,
                registry) {
     registry.getResourceType(serverGroupResourceType)
-      .setNames(gettext('Server Group'), gettext('Server Groups'))
+      .setNames('Server Group', 'Server Groups',
+                ngettext('Server Group', 'Server Groups', 1))
+      .setDefaultIndexUrl('/project/server_groups/')
       .setProperties(serverGroupProperties())
       .setListFunction(serverGroupsService.getServerGroupsPromise)
       .tableColumns
@@ -52,6 +54,7 @@
         id: 'name',
         priority: 1,
         sortDefault: true,
+        classes: "word-wrap",
         urlFunction: serverGroupsService.getDetailsPath
       })
       // The name is not unique, so we need to show the ID to

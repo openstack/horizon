@@ -15,19 +15,17 @@
 #    WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
 #    License for the specific language governing permissions and limitations
 #    under the License.
+from unittest import mock
 
-from __future__ import absolute_import
 
-import mock
-import six
-
+from django.test.utils import override_settings
 from openstack_dashboard import api
 from openstack_dashboard.test import helpers as test
 
 
 class RoleAPITests(test.APIMockTestCase):
     def setUp(self):
-        super(RoleAPITests, self).setUp()
+        super().setUp()
         self.role = self.roles.member
         self.roles = self.roles.list()
 
@@ -72,35 +70,65 @@ class RoleAPITests(test.APIMockTestCase):
 
 
 class ServiceAPITests(test.APIMockTestCase):
-    def test_service_wrapper(self):
+    @override_settings(OPENSTACK_ENDPOINT_TYPE='internalURL')
+    def test_service_wrapper_for_internal_endpoint_type(self):
         catalog = self.service_catalog
         identity_data = api.base.get_service_from_catalog(catalog, "identity")
+        # 'Service' class below requires 'id', so populate it here.
         identity_data['id'] = 1
-        region = identity_data["endpoints"][0]["region"]
-        service = api.keystone.Service(identity_data, region)
-        self.assertEqual(u"identity (native backend)", six.text_type(service))
-        self.assertEqual(identity_data["endpoints"][0]["region"],
-                         service.region)
-        self.assertEqual("http://int.keystone.example.com:5000/v3",
+        service = api.keystone.Service(identity_data, "RegionOne")
+        self.assertEqual(u"identity (native backend)", str(service))
+        self.assertEqual("RegionOne", service.region)
+        self.assertEqual("http://int.keystone.example.com/identity/v3",
                          service.url)
-        self.assertEqual("http://public.keystone.example.com:5000/v3",
+        self.assertEqual("http://public.keystone.example.com/identity/v3",
                          service.public_url)
         self.assertEqual("int.keystone.example.com", service.host)
 
-    def test_service_wrapper_service_in_region(self):
+    @override_settings(OPENSTACK_ENDPOINT_TYPE='publicURL')
+    def test_service_wrapper_for_public_endpoint_type(self):
+        catalog = self.service_catalog
+        identity_data = api.base.get_service_from_catalog(catalog, "identity")
+        # 'Service' class below requires 'id', so populate it here.
+        identity_data['id'] = 1
+        service = api.keystone.Service(identity_data, "RegionOne")
+        self.assertEqual(u"identity (native backend)", str(service))
+        self.assertEqual("RegionOne", service.region)
+        self.assertEqual("http://public.keystone.example.com/identity/v3",
+                         service.url)
+        self.assertEqual("http://public.keystone.example.com/identity/v3",
+                         service.public_url)
+        self.assertEqual("public.keystone.example.com", service.host)
+
+    @override_settings(OPENSTACK_ENDPOINT_TYPE='internalURL')
+    def test_service_wrapper_in_region_for_internal_endpoint_type(self):
         catalog = self.service_catalog
         compute_data = api.base.get_service_from_catalog(catalog, "compute")
+        # 'Service' class below requires 'id', so populate it here.
         compute_data['id'] = 1
-        region = compute_data["endpoints"][1]["region"]
-        service = api.keystone.Service(compute_data, region)
-        self.assertEqual(u"compute", six.text_type(service))
-        self.assertEqual(compute_data["endpoints"][1]["region"],
-                         service.region)
+        service = api.keystone.Service(compute_data, 'RegionTwo')
+        self.assertEqual(u"compute", str(service))
+        self.assertEqual("RegionTwo", service.region)
         self.assertEqual("http://int.nova2.example.com:8774/v2",
                          service.url)
         self.assertEqual("http://public.nova2.example.com:8774/v2",
                          service.public_url)
         self.assertEqual("int.nova2.example.com", service.host)
+
+    @override_settings(OPENSTACK_ENDPOINT_TYPE='publicURL')
+    def test_service_wrapper_service_in_region_for_public_endpoint_type(self):
+        catalog = self.service_catalog
+        compute_data = api.base.get_service_from_catalog(catalog, "compute")
+        # 'Service' class below requires 'id', so populate it here.
+        compute_data['id'] = 1
+        service = api.keystone.Service(compute_data, 'RegionTwo')
+        self.assertEqual(u"compute", str(service))
+        self.assertEqual("RegionTwo", service.region)
+        self.assertEqual("http://public.nova2.example.com:8774/v2",
+                         service.url)
+        self.assertEqual("http://public.nova2.example.com:8774/v2",
+                         service.public_url)
+        self.assertEqual("public.nova2.example.com", service.host)
 
 
 class APIVersionTests(test.APIMockTestCase):

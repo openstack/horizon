@@ -14,13 +14,14 @@
 
 import datetime
 import logging
+from unittest import mock
 
 from django.test import tag
 from django.test.utils import override_settings
 from django.urls import reverse
 from django.utils import timezone
 
-import mock
+import pytest
 
 from horizon.workflows import views
 
@@ -54,7 +55,7 @@ class TenantsViewTests(test.BaseAdminViewTests):
 
         res = self.client.get(INDEX_URL)
         self.assertTemplateUsed(res, 'identity/projects/index.html')
-        self.assertItemsEqual(res.context['table'].data, self.tenants.list())
+        self.assertCountEqual(res.context['table'].data, self.tenants.list())
 
         self.mock_tenant_list.assert_called_once_with(test.IsHttpRequest(),
                                                       domain=None,
@@ -86,7 +87,7 @@ class TenantsViewTests(test.BaseAdminViewTests):
 
         res = self.client.get(INDEX_URL)
         self.assertTemplateUsed(res, 'identity/projects/index.html')
-        self.assertItemsEqual(res.context['table'].data, domain_tenants)
+        self.assertCountEqual(res.context['table'].data, domain_tenants)
         self.assertContains(res, "<em>test_domain:</em>")
 
         self.mock_tenant_list.assert_called_once_with(test.IsHttpRequest(),
@@ -102,7 +103,7 @@ class TenantsViewTests(test.BaseAdminViewTests):
         res = self.client.get(INDEX_URL)
         self.assertTemplateUsed(res, 'identity/projects/index.html')
         projects = res.context['table'].data
-        self.assertItemsEqual(projects, [])
+        self.assertCountEqual(projects, [])
 
 
 class ProjectsViewNonAdminTests(test.TestCase):
@@ -118,7 +119,7 @@ class ProjectsViewNonAdminTests(test.TestCase):
 
         res = self.client.get(INDEX_URL)
         self.assertTemplateUsed(res, 'identity/projects/index.html')
-        self.assertItemsEqual(res.context['table'].data, self.tenants.list())
+        self.assertCountEqual(res.context['table'].data, self.tenants.list())
 
         self.mock_tenant_list.assert_called_once_with(test.IsHttpRequest(),
                                                       user=self.user.id,
@@ -540,15 +541,12 @@ class UpdateProjectWorkflowTests(test.BaseAdminViewTests):
                                        'role_list',
                                        'role_assignments_list')})
     def test_update_project_get(self):
-        keystone_api_version = api.keystone.VERSIONS.active
-
         project = self.tenants.first()
         default_role = self.roles.first()
         domain_id = project.domain_id
         users = self._get_all_users(domain_id)
         groups = self._get_all_groups(domain_id)
         roles = self.roles.list()
-        proj_users = self._get_proj_users(project.id)
         role_assignments = self._get_proj_role_assignment(project.id)
 
         self.mock_tenant_get.return_value = project
@@ -563,13 +561,7 @@ class UpdateProjectWorkflowTests(test.BaseAdminViewTests):
         self.mock_role_list.return_value = roles
         self.mock_group_list.return_value = groups
 
-        if keystone_api_version >= 3:
-            self.mock_role_assignments_list.return_value = role_assignments
-        else:
-            retvals_user_list.append(proj_users)
-            expected_user_list.append(
-                mock.call(test.IsHttpRequest(), project=self.tenant.id))
-            self.mock_roles_for_user.return_value = roles
+        self.mock_role_assignments_list.return_value = role_assignments
 
         url = reverse('horizon:identity:projects:update',
                       args=[self.tenant.id])
@@ -608,16 +600,10 @@ class UpdateProjectWorkflowTests(test.BaseAdminViewTests):
         self.mock_group_list.assert_called_once_with(
             test.IsHttpRequest(), domain=domain_id)
 
-        if keystone_api_version >= 3:
-            self.assert_mock_multiple_calls_with_same_arguments(
-                self.mock_role_assignments_list, 2,
-                mock.call(test.IsHttpRequest(), project=self.tenant.id))
-            self.mock_roles_for_user.assert_not_called()
-        else:
-            self.mock_roles_for_user.assert_has_calls(
-                [mock.call(test.IsHttpRequest(), user.id, self.tenant.id)
-                 for user in proj_users])
-            self.mock_role_assignments_list.assert_not_called()
+        self.assert_mock_multiple_calls_with_same_arguments(
+            self.mock_role_assignments_list, 2,
+            mock.call(test.IsHttpRequest(), project=self.tenant.id))
+        self.mock_roles_for_user.assert_not_called()
 
     @test.create_mocks({api.keystone: ('tenant_get',
                                        'domain_get',
@@ -635,13 +621,10 @@ class UpdateProjectWorkflowTests(test.BaseAdminViewTests):
                                        'role_list',
                                        'role_assignments_list')})
     def test_update_project_save(self):
-        keystone_api_version = api.keystone.VERSIONS.active
-
         project = self.tenants.first()
         default_role = self.roles.first()
         domain_id = project.domain_id
         users = self._get_all_users(domain_id)
-        proj_users = self._get_proj_users(project.id)
         groups = self._get_all_groups(domain_id)
         roles = self.roles.list()
         role_assignments = self._get_proj_role_assignment(project.id)
@@ -668,16 +651,6 @@ class UpdateProjectWorkflowTests(test.BaseAdminViewTests):
         retvals_roles_for_user = []
         expected_roles_for_user = []
         self.mock_roles_for_user.side_effect = retvals_roles_for_user
-
-        if keystone_api_version < 3:
-            retvals_user_list.append(proj_users)
-            expected_user_list.append(
-                mock.call(test.IsHttpRequest(),
-                          project=self.tenant.id))
-            for user in proj_users:
-                retvals_roles_for_user.append(roles)
-                expected_roles_for_user.append(
-                    mock.call(test.IsHttpRequest(), user.id, self.tenant.id))
 
         workflow_data[USER_ROLE_PREFIX + "1"] = ['3']  # admin role
         workflow_data[USER_ROLE_PREFIX + "2"] = ['2']  # member role
@@ -715,95 +688,67 @@ class UpdateProjectWorkflowTests(test.BaseAdminViewTests):
         expected_remove_group_role = []
         self.mock_remove_group_role.side_effect = retvals_remove_group_role
 
-        if keystone_api_version >= 3:
-            # admin role with attempt to remove current admin, results in
-            # warning message
-            workflow_data[USER_ROLE_PREFIX + "1"] = ['3']
+        # admin role with attempt to remove current admin, results in
+        # warning message
+        workflow_data[USER_ROLE_PREFIX + "1"] = ['3']
 
-            # member role
-            workflow_data[USER_ROLE_PREFIX + "2"] = ['1', '3']
+        # member role
+        workflow_data[USER_ROLE_PREFIX + "2"] = ['1', '3']
 
-            # admin role
-            workflow_data[GROUP_ROLE_PREFIX + "1"] = ['2', '3']
+        # admin role
+        workflow_data[GROUP_ROLE_PREFIX + "1"] = ['2', '3']
 
-            # member role
-            workflow_data[GROUP_ROLE_PREFIX + "2"] = ['1', '2', '3']
-            self.mock_role_assignments_list.return_value = role_assignments
-            # Give user 1 role 2
-            retvals_add_tenant_user_role.append(None)
-            expected_add_tenant_user_role.append(
-                mock.call(test.IsHttpRequest(),
-                          project=self.tenant.id,
-                          user='1',
-                          role='2',))
-            # remove role 2 from user 2
-            retvals_remove_tenant_user_role.append(None)
-            expected_remove_tenant_user_role.append(
-                mock.call(test.IsHttpRequest(),
-                          project=self.tenant.id,
-                          user='2',
-                          role='2'))
+        # member role
+        workflow_data[GROUP_ROLE_PREFIX + "2"] = ['1', '2', '3']
+        self.mock_role_assignments_list.return_value = role_assignments
+        # Give user 1 role 2
+        retvals_add_tenant_user_role.append(None)
+        expected_add_tenant_user_role.append(
+            mock.call(test.IsHttpRequest(),
+                      project=self.tenant.id,
+                      user='1',
+                      role='2',))
+        # remove role 2 from user 2
+        retvals_remove_tenant_user_role.append(None)
+        expected_remove_tenant_user_role.append(
+            mock.call(test.IsHttpRequest(),
+                      project=self.tenant.id,
+                      user='2',
+                      role='2'))
 
-            # Give user 3 role 1
-            retvals_add_tenant_user_role.append(None)
-            expected_add_tenant_user_role.append(
-                mock.call(test.IsHttpRequest(),
-                          project=self.tenant.id,
-                          user='3',
-                          role='1'))
-            retvals_group_list.append(groups)
-            expected_group_list.append(
-                mock.call(test.IsHttpRequest(),
-                          domain=self.domain.id,
-                          project=self.tenant.id))
-            retvals_roles_for_group.append(roles)
-            expected_roles_for_group.append(
-                mock.call(test.IsHttpRequest(),
-                          group='1',
-                          project=self.tenant.id))
-            retvals_remove_group_role.append(None)
-            expected_remove_group_role.append(
-                mock.call(test.IsHttpRequest(),
-                          project=self.tenant.id,
-                          group='1',
-                          role='1'))
-            retvals_roles_for_group.append(roles)
-            expected_roles_for_group.append(
-                mock.call(test.IsHttpRequest(),
-                          group='2',
-                          project=self.tenant.id))
-            retvals_roles_for_group.append(roles)
-            expected_roles_for_group.append(
-                mock.call(test.IsHttpRequest(),
-                          group='3',
-                          project=self.tenant.id))
-        else:
-            retvals_user_list.append(proj_users)
-            expected_user_list.append(
-                mock.call(test.IsHttpRequest(),
-                          project=self.tenant.id))
-
-            # admin user - try to remove all roles on current project, warning
-            retvals_roles_for_user.append(roles)
-            expected_roles_for_group.append(
-                mock.call(test.IsHttpRequest(), '1', self.tenant.id))
-
-            # member user 1 - has role 1, will remove it
-            retvals_roles_for_user.append((roles[1],))
-            expected_roles_for_group.append(
-                mock.call(test.IsHttpRequest(), '2', self.tenant.id))
-
-            # member user 3 - has role 2
-            retvals_roles_for_user.append((roles[0],))
-            expected_roles_for_group.append(
-                mock.call(test.IsHttpRequest(), '3', self.tenant.id))
-            # add role 2
-            retvals_add_tenant_user_role.append(self.exceptions.keystone)
-            expected_add_tenant_user_role.append(
-                mock.call(test.IsHttpRequest(),
-                          project=self.tenant.id,
-                          user='3',
-                          role='2'))
+        # Give user 3 role 1
+        retvals_add_tenant_user_role.append(None)
+        expected_add_tenant_user_role.append(
+            mock.call(test.IsHttpRequest(),
+                      project=self.tenant.id,
+                      user='3',
+                      role='1'))
+        retvals_group_list.append(groups)
+        expected_group_list.append(
+            mock.call(test.IsHttpRequest(),
+                      domain=self.domain.id,
+                      project=self.tenant.id))
+        retvals_roles_for_group.append(roles)
+        expected_roles_for_group.append(
+            mock.call(test.IsHttpRequest(),
+                      group='1',
+                      project=self.tenant.id))
+        retvals_remove_group_role.append(None)
+        expected_remove_group_role.append(
+            mock.call(test.IsHttpRequest(),
+                      project=self.tenant.id,
+                      group='1',
+                      role='1'))
+        retvals_roles_for_group.append(roles)
+        expected_roles_for_group.append(
+            mock.call(test.IsHttpRequest(),
+                      group='2',
+                      project=self.tenant.id))
+        retvals_roles_for_group.append(roles)
+        expected_roles_for_group.append(
+            mock.call(test.IsHttpRequest(),
+                      group='3',
+                      project=self.tenant.id))
 
         # submit form data
         project_data = {"domain_id": project._info["domain_id"],
@@ -858,12 +803,9 @@ class UpdateProjectWorkflowTests(test.BaseAdminViewTests):
         _check_mock_calls(self.mock_remove_group_role,
                           expected_remove_group_role)
 
-        if keystone_api_version >= 3:
-            self.assert_mock_multiple_calls_with_same_arguments(
-                self.mock_role_assignments_list, 3,
-                mock.call(test.IsHttpRequest(), project=self.tenant.id))
-        else:
-            self.mock_role_assignments_list.assert_not_called()
+        self.assert_mock_multiple_calls_with_same_arguments(
+            self.mock_role_assignments_list, 3,
+            mock.call(test.IsHttpRequest(), project=self.tenant.id))
 
     @test.create_mocks({api.keystone: ('tenant_get',)})
     def test_update_project_get_error(self):
@@ -894,8 +836,6 @@ class UpdateProjectWorkflowTests(test.BaseAdminViewTests):
                                        'role_list',
                                        'role_assignments_list')})
     def test_update_project_tenant_update_error(self):
-        keystone_api_version = api.keystone.VERSIONS.active
-
         project = self.tenants.first()
         default_role = self.roles.first()
         domain_id = project.domain_id
@@ -924,16 +864,7 @@ class UpdateProjectWorkflowTests(test.BaseAdminViewTests):
         expected_roles_for_user = []
         self.mock_roles_for_user.side_effect = retvals_roles_for_user
 
-        if keystone_api_version >= 3:
-            self.mock_role_assignments_list.return_value = role_assignments
-        else:
-            retvals_user_list.append(proj_users)
-            expected_roles_for_user.append(
-                mock.call(test.IsHttpRequest(), project=self.tenant.id))
-            for user in proj_users:
-                retvals_roles_for_user.append(roles)
-                expected_roles_for_user.append(
-                    mock.call(test.IsHttpRequest(), user.id, self.tenant.id))
+        self.mock_role_assignments_list.return_value = role_assignments
 
         role_ids = [role.id for role in roles]
         for user in proj_users:
@@ -991,12 +922,9 @@ class UpdateProjectWorkflowTests(test.BaseAdminViewTests):
         self.assertEqual(len(expected_roles_for_user),
                          self.mock_roles_for_user.call_count)
 
-        if keystone_api_version >= 3:
-            self.assert_mock_multiple_calls_with_same_arguments(
-                self.mock_role_assignments_list, 2,
-                mock.call(test.IsHttpRequest(), project=self.tenant.id))
-        else:
-            self.mock_role_assignments_list.assert_not_called()
+        self.assert_mock_multiple_calls_with_same_arguments(
+            self.mock_role_assignments_list, 2,
+            mock.call(test.IsHttpRequest(), project=self.tenant.id))
 
         self.mock_get_effective_domain_id.assert_called_once_with(
             test.IsHttpRequest())
@@ -1239,6 +1167,8 @@ class UsageViewTests(test.BaseAdminViewTests):
     def test_usage_csv(self):
         self._test_usage_csv(nova_stu_enabled=True)
 
+    # nova_stu_enable=False is specified below, so we need this.
+    @override_settings(OPENSTACK_USE_SIMPLE_TENANT_USAGE=False)
     def test_usage_csv_disabled(self):
         self._test_usage_csv(nova_stu_enabled=False)
 
@@ -1246,12 +1176,10 @@ class UsageViewTests(test.BaseAdminViewTests):
     def test_usage_csv_1_day(self):
         self._test_usage_csv(nova_stu_enabled=True, overview_days_range=1)
 
-    @test.create_mocks({api.nova: ('usage_get',
-                                   'extension_supported')})
+    @test.create_mocks({api.nova: ('usage_get',)})
     def _test_usage_csv(self, nova_stu_enabled=True, overview_days_range=None):
         now = timezone.now()
         usage_obj = api.nova.NovaUsage(self.usages.first())
-        self.mock_extension_supported.return_value = nova_stu_enabled
         if overview_days_range:
             start_day = now - datetime.timedelta(days=overview_days_range)
         else:
@@ -1269,13 +1197,10 @@ class UsageViewTests(test.BaseAdminViewTests):
         self.assertTemplateUsed(res, 'project/overview/usage.csv')
 
         self.assertIsInstance(res.context['usage'], usage.ProjectUsage)
-        hdr = ('Instance Name,VCPUs,RAM (MB),Disk (GB),Usage (Hours),'
-               'Time since created (Seconds),State')
+        hdr = ('"Instance Name","VCPUs","RAM (MB)","Disk (GB)",'
+               '"Usage (Hours)","Age (Seconds)","State"')
         self.assertContains(res, '%s\r\n' % hdr)
 
-        self.assert_mock_multiple_calls_with_same_arguments(
-            self.mock_extension_supported, 2,
-            mock.call('SimpleTenantUsage', test.IsHttpRequest()))
         if nova_stu_enabled:
             self.mock_usage_get.assert_called_once_with(test.IsHttpRequest(),
                                                         self.tenant.id,
@@ -1283,15 +1208,39 @@ class UsageViewTests(test.BaseAdminViewTests):
         else:
             self.mock_usage_get.assert_not_called()
 
+    @test.create_mocks({api.nova: ('usage_get',)})
+    def test_usage_csv_quoting(self):
+        # Explicitly test the values of the third usage for correct quoting
+        usage_obj = api.nova.NovaUsage(self.usages.list()[2])
+        self.mock_usage_get.return_value = usage_obj
+
+        project_id = self.usages.list()[2].tenant_id
+        csv_url = reverse('horizon:identity:projects:usage',
+                          args=[project_id]) + "?format=csv"
+        res = self.client.get(csv_url)
+
+        self.assertIsInstance(res.context['usage'], usage.ProjectUsage)
+        hdr = ('"Instance Name","VCPUs","RAM (MB)","Disk (GB)",'
+               '"Usage (Hours)","Age (Seconds)","State"')
+        self.assertContains(res, '%s\r\n' % hdr)
+        usage_1_quoted = ('"=cmd|\' /C calc\'!A0","1","512","0","122.87",'
+                          '"442321","Active"')
+        self.assertContains(res, '%s\r\n' % usage_1_quoted)
+        usage_2_quoted = ('"=cmd|\' /C calc\'!A0","1","512","0","2.61",'
+                          '"9367","Active"')
+        self.assertContains(res, '%s\r\n' % usage_2_quoted)
+
 
 class DetailProjectViewTests(test.BaseAdminViewTests):
 
-    @test.create_mocks({api.keystone: ('tenant_get',),
+    @test.create_mocks({api.keystone: ('tenant_get', 'domain_get'),
                         quotas: ('enabled_quotas',)})
     def test_detail_view(self):
         project = self.tenants.first()
+        domain = self.domains.first()
 
         self.mock_tenant_get.return_value = project
+        self.mock_domain_get.return_value = domain
         self.mock_enabled_quotas.return_value = ('instances',)
 
         res = self.client.get(PROJECT_DETAIL_URL, args=[project.id])
@@ -1304,6 +1253,8 @@ class DetailProjectViewTests(test.BaseAdminViewTests):
 
         self.mock_tenant_get.assert_called_once_with(test.IsHttpRequest(),
                                                      self.tenant.id)
+        self.mock_domain_get.assert_called_once_with(test.IsHttpRequest(),
+                                                     domain.id)
         self.mock_enabled_quotas.assert_called_once_with(test.IsHttpRequest())
 
     @test.create_mocks({api.keystone: ('tenant_get',)})
@@ -1319,7 +1270,7 @@ class DetailProjectViewTests(test.BaseAdminViewTests):
         self.mock_tenant_get.assert_called_once_with(test.IsHttpRequest(),
                                                      self.tenant.id)
 
-    @test.create_mocks({api.keystone: ('tenant_get',),
+    @test.create_mocks({api.keystone: ('tenant_get', 'domain_get'),
                         quotas: ('enabled_quotas',)})
     def test_detail_view_overview_tab(self):
         """Test the overview tab of the detail view .
@@ -1327,8 +1278,10 @@ class DetailProjectViewTests(test.BaseAdminViewTests):
         Test the overview tab using directly the url targeting the tab.
         """
         project = self.tenants.first()
+        domain = self.domains.first()
 
         self.mock_tenant_get.return_value = project
+        self.mock_domain_get.return_value = domain
         self.mock_enabled_quotas.return_value = ('instances',)
 
         # Url of the overview tab of the detail view
@@ -1348,6 +1301,8 @@ class DetailProjectViewTests(test.BaseAdminViewTests):
 
         self.mock_tenant_get.assert_called_once_with(test.IsHttpRequest(),
                                                      self.tenant.id)
+        self.mock_domain_get.assert_called_once_with(test.IsHttpRequest(),
+                                                     domain.id)
         self.mock_enabled_quotas.assert_called_once_with(test.IsHttpRequest())
 
     def _get_users_in_group(self, group_id):
@@ -1375,6 +1330,7 @@ class DetailProjectViewTests(test.BaseAdminViewTests):
         return roles
 
     @test.create_mocks({api.keystone: ('tenant_get',
+                                       'domain_get',
                                        'user_list',
                                        'get_project_users_roles',
                                        'get_project_groups_roles',
@@ -1383,6 +1339,7 @@ class DetailProjectViewTests(test.BaseAdminViewTests):
                         quotas: ('enabled_quotas',)})
     def test_detail_view_users_tab(self):
         project = self.tenants.first()
+        domain = self.domains.first()
         users = self.users.filter(domain_id=project.domain_id)
         groups = self.groups.filter(domain_id=project.domain_id)
         role_assignments = self.role_assignments.filter(
@@ -1394,6 +1351,7 @@ class DetailProjectViewTests(test.BaseAdminViewTests):
 
         # Prepare mocks
         self.mock_tenant_get.return_value = project
+        self.mock_domain_get.return_value = domain
         self.mock_enabled_quotas.return_value = ('instances',)
         self.mock_role_list.return_value = self.roles.list()
 
@@ -1432,17 +1390,19 @@ class DetailProjectViewTests(test.BaseAdminViewTests):
 
         users_id_observed = [user.id for user in
                              res.context["userstable_table"].data]
-        self.assertItemsEqual(users_expected.keys(), users_id_observed)
+        self.assertCountEqual(users_expected.keys(), users_id_observed)
 
         # Check the users groups and roles
         for user in res.context["userstable_table"].data:
-            self.assertItemsEqual(users_expected[user.id]["roles"],
+            self.assertCountEqual(users_expected[user.id]["roles"],
                                   user.roles)
-            self.assertItemsEqual(users_expected[user.id]["roles_from_groups"],
+            self.assertCountEqual(users_expected[user.id]["roles_from_groups"],
                                   user.roles_from_groups)
 
         self.mock_tenant_get.assert_called_once_with(test.IsHttpRequest(),
                                                      self.tenant.id)
+        self.mock_domain_get.assert_called_once_with(test.IsHttpRequest(),
+                                                     domain.id)
         self.mock_enabled_quotas.assert_called_once_with(test.IsHttpRequest())
         self.mock_role_list.assert_called_once_with(test.IsHttpRequest())
         self.mock_group_list.assert_called_once_with(test.IsHttpRequest())
@@ -1456,13 +1416,16 @@ class DetailProjectViewTests(test.BaseAdminViewTests):
         self.mock_user_list.assert_has_calls(calls)
 
     @test.create_mocks({api.keystone: ("tenant_get",
+                                       "domain_get",
                                        "role_list",),
                         quotas: ('enabled_quotas',)})
     def test_detail_view_users_tab_exception(self):
         project = self.tenants.first()
+        domain = self.domains.first()
 
         # Prepare mocks
         self.mock_tenant_get.return_value = project
+        self.mock_domain_get.return_value = domain
         self.mock_enabled_quotas.return_value = ('instances',)
         self.mock_role_list.side_effect = self.exceptions.keystone
 
@@ -1483,16 +1446,20 @@ class DetailProjectViewTests(test.BaseAdminViewTests):
 
         self.mock_tenant_get.assert_called_once_with(test.IsHttpRequest(),
                                                      self.tenant.id)
+        self.mock_domain_get.assert_called_once_with(test.IsHttpRequest(),
+                                                     domain.id)
         self.mock_enabled_quotas.assert_called_once_with(test.IsHttpRequest())
         self.mock_role_list.assert_called_once_with(test.IsHttpRequest())
 
     @test.create_mocks({api.keystone: ("tenant_get",
+                                       "domain_get",
                                        "get_project_groups_roles",
                                        "role_list",
                                        "group_list"),
                         quotas: ('enabled_quotas',)})
     def test_detail_view_groups_tab(self):
         project = self.tenants.first()
+        domain = self.domains.first()
         groups = self.groups.filter(domain_id=project.domain_id)
         role_assignments = self.role_assignments.filter(
             scope={'project': {'id': project.id}})
@@ -1501,6 +1468,7 @@ class DetailProjectViewTests(test.BaseAdminViewTests):
 
         # Prepare mocks
         self.mock_tenant_get.return_value = project
+        self.mock_domain_get.return_value = domain
         self.mock_enabled_quotas.return_value = ('instances',)
         self.mock_get_project_groups_roles.return_value = project_groups_roles
         self.mock_group_list.return_value = groups
@@ -1527,7 +1495,7 @@ class DetailProjectViewTests(test.BaseAdminViewTests):
                               res.context["groupstable_table"].data]
 
         # Check the group is displayed
-        self.assertItemsEqual(groups_id_observed, groups_expected.keys())
+        self.assertCountEqual(groups_id_observed, groups_expected.keys())
 
         # Check the groups roles
         for group in res.context["groupstable_table"].data:
@@ -1535,6 +1503,8 @@ class DetailProjectViewTests(test.BaseAdminViewTests):
 
         self.mock_tenant_get.assert_called_once_with(test.IsHttpRequest(),
                                                      self.tenant.id)
+        self.mock_domain_get.assert_called_once_with(test.IsHttpRequest(),
+                                                     domain.id)
         self.mock_enabled_quotas.assert_called_once_with(test.IsHttpRequest())
         self.mock_role_list.assert_called_once_with(test.IsHttpRequest())
         self.mock_group_list.assert_called_once_with(test.IsHttpRequest())
@@ -1542,13 +1512,16 @@ class DetailProjectViewTests(test.BaseAdminViewTests):
             test.IsHttpRequest(), project=project.id)
 
     @test.create_mocks({api.keystone: ("tenant_get",
+                                       "domain_get",
                                        "get_project_groups_roles"),
                         quotas: ('enabled_quotas',)})
     def test_detail_view_groups_tab_exception(self):
         project = self.tenants.first()
+        domain = self.domains.first()
 
         # Prepare mocks
         self.mock_tenant_get.return_value = project
+        self.mock_domain_get.return_value = domain
         self.mock_enabled_quotas.return_value = ('instances',)
         self.mock_get_project_groups_roles.side_effect = \
             self.exceptions.keystone
@@ -1570,11 +1543,16 @@ class DetailProjectViewTests(test.BaseAdminViewTests):
 
         self.mock_tenant_get.assert_called_once_with(test.IsHttpRequest(),
                                                      self.tenant.id)
+        self.mock_domain_get.assert_called_once_with(test.IsHttpRequest(),
+                                                     domain.id)
         self.mock_enabled_quotas.assert_called_once_with(test.IsHttpRequest())
         self.mock_get_project_groups_roles.assert_called_once_with(
             test.IsHttpRequest(), project=project.id)
 
 
+@pytest.mark.skip('This test was always skipped for selenium, '
+                  'because it falls under SkipIf SKIP_UNITTEST')
+@pytest.mark.selenium
 @tag('selenium')
 class SeleniumTests(test.SeleniumAdminTestCase, test.TestCase):
     @test.create_mocks({api.keystone: ('get_default_domain',

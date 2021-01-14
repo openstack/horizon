@@ -34,9 +34,11 @@ LOG = logging.getLogger(__name__)
 class CreateForm(forms.SelfHandlingForm):
     name = forms.CharField(max_length=255, label=_("Router Name"),
                            required=False)
-    admin_state_up = forms.BooleanField(label=_("Enable Admin State"),
-                                        initial=True,
-                                        required=False)
+    admin_state_up = forms.BooleanField(
+        label=_("Enable Admin State"),
+        initial=True,
+        required=False,
+        help_text=_("If checked, the router will be enabled."))
     external_network = forms.ThemableChoiceField(label=_("External Network"),
                                                  required=False)
     enable_snat = forms.BooleanField(label=_("Enable SNAT"),
@@ -53,7 +55,7 @@ class CreateForm(forms.SelfHandlingForm):
     failure_url = 'horizon:project:routers:index'
 
     def __init__(self, request, *args, **kwargs):
-        super(CreateForm, self).__init__(request, *args, **kwargs)
+        super().__init__(request, *args, **kwargs)
         self.dvr_allowed = api.neutron.get_feature_permission(self.request,
                                                               "dvr", "create")
         if self.dvr_allowed:
@@ -136,7 +138,8 @@ class CreateForm(forms.SelfHandlingForm):
             if (self.ha_allowed and data['ha'] != 'server_default'):
                 params['ha'] = (data['ha'] == 'enabled')
             router = api.neutron.router_create(request, **params)
-            message = _('Router %s was successfully created.') % data['name']
+            message = (_('Router %s was successfully created.') %
+                       router.name_or_id)
             messages.success(request, message)
             return router
         except Exception as exc:
@@ -144,7 +147,10 @@ class CreateForm(forms.SelfHandlingForm):
             if exc.status_code == 409:
                 msg = _('Quota exceeded for resource router.')
             else:
-                msg = _('Failed to create router "%s".') % data['name']
+                if data["name"]:
+                    msg = _('Failed to create router "%s".') % data['name']
+                else:
+                    msg = _('Failed to create router.')
             redirect = reverse(self.failure_url)
             exceptions.handle(request, msg, redirect=redirect)
             return False
@@ -152,15 +158,17 @@ class CreateForm(forms.SelfHandlingForm):
 
 class UpdateForm(forms.SelfHandlingForm):
     name = forms.CharField(label=_("Name"), required=False)
-    admin_state = forms.BooleanField(label=_("Enable Admin State"),
-                                     required=False)
+    admin_state = forms.BooleanField(
+        label=_("Enable Admin State"),
+        required=False,
+        help_text=_("If checked, the router will be enabled."))
     mode = forms.ThemableChoiceField(label=_("Router Type"))
     ha = forms.BooleanField(label=_("High Availability Mode"), required=False)
 
     redirect_url = reverse_lazy('horizon:project:routers:index')
 
     def __init__(self, request, *args, **kwargs):
-        super(UpdateForm, self).__init__(request, *args, **kwargs)
+        super().__init__(request, *args, **kwargs)
         self.dvr_allowed = api.neutron.get_feature_permission(self.request,
                                                               "dvr", "update")
         if not self.dvr_allowed:
@@ -196,11 +204,12 @@ class UpdateForm(forms.SelfHandlingForm):
             router = api.neutron.router_update(request,
                                                self.initial['router_id'],
                                                **params)
-            msg = _('Router %s was successfully updated.') % data['name']
+            msg = _('Router %s was successfully updated.') % router.name_or_id
             messages.success(request, msg)
             return router
         except Exception as exc:
             LOG.info('Failed to update router %(id)s: %(exc)s',
                      {'id': self.initial['router_id'], 'exc': exc})
-            msg = _('Failed to update router %s') % data['name']
+            name_or_id = data['name'] or self.initial['router_id']
+            msg = _('Failed to update router %s') % name_or_id
             exceptions.handle(request, msg, redirect=self.redirect_url)

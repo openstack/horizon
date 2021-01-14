@@ -15,6 +15,7 @@
 
 import json
 
+from django.utils import encoding
 from django.utils.translation import ugettext_lazy as _
 from django.views.decorators.debug import sensitive_variables
 
@@ -76,7 +77,7 @@ class SetFlavorChoiceAction(workflows.Action):
         except Exception:
             exceptions.handle(self.request,
                               _("Unable to retrieve quota information."))
-        return super(SetFlavorChoiceAction, self).get_help_text(extra)
+        return super().get_help_text(extra)
 
 
 class SetFlavorChoice(workflows.Step):
@@ -96,7 +97,9 @@ class ResizeInstance(workflows.Workflow):
     default_steps = (SetFlavorChoice, create_instance.SetAdvanced)
 
     def format_status_message(self, message):
-        return message % self.context.get('name', 'unknown instance')
+        if "%s" in message:
+            return message % self.context.get('name', 'unknown instance')
+        return message
 
     @sensitive_variables('context')
     def handle(self, request, context):
@@ -106,6 +109,6 @@ class ResizeInstance(workflows.Workflow):
         try:
             api.nova.server_resize(request, instance_id, flavor, disk_config)
             return True
-        except Exception:
-            exceptions.handle(request)
+        except Exception as e:
+            self.failure_message = encoding.force_text(e)
             return False

@@ -17,14 +17,15 @@ import logging
 
 from django.conf import settings
 from django.http import HttpResponse
+from django import shortcuts
 from django import template
 from django.template.defaultfilters import title
 from django import urls
 from django.utils.http import urlencode
 from django.utils.safestring import mark_safe
+from django.utils.text import format_lazy
 from django.utils.translation import npgettext_lazy
 from django.utils.translation import pgettext_lazy
-from django.utils.translation import string_concat
 from django.utils.translation import ugettext_lazy as _
 from django.utils.translation import ungettext_lazy
 import netaddr
@@ -83,6 +84,7 @@ def is_deleting(instance):
 class DeleteInstance(policy.PolicyTargetMixin, tables.DeleteAction):
     policy_rules = (("compute", "os_compute_api:servers:delete"),)
     help_text = _("Deleted instances are not recoverable.")
+    default_message_level = "info"
 
     @staticmethod
     def action_present(count):
@@ -135,12 +137,11 @@ class RebootInstance(policy.PolicyTargetMixin, tables.BatchAction):
         )
 
     def allowed(self, request, instance=None):
-        if instance is not None:
-            return ((instance.status in ACTIVE_STATES or
-                     instance.status == 'SHUTOFF') and
-                    not is_deleting(instance))
-        else:
+        if instance is None:
             return True
+        return ((instance.status in ACTIVE_STATES or
+                 instance.status == 'SHUTOFF') and
+                not is_deleting(instance))
 
     def action(self, request, obj_id):
         api.nova.server_reboot(request, obj_id, soft_reboot=False)
@@ -171,8 +172,51 @@ class SoftRebootInstance(RebootInstance):
     def allowed(self, request, instance=None):
         if instance is not None:
             return instance.status in ACTIVE_STATES
-        else:
-            return True
+        return True
+
+
+class RescueInstance(policy.PolicyTargetMixin, tables.LinkAction):
+    name = "rescue"
+    verbose_name = _("Rescue Instance")
+    policy_rules = (("compute", "os_compute_api:os-rescue"),)
+    classes = ("btn-rescue", "ajax-modal")
+    url = "horizon:project:instances:rescue"
+
+    def get_link_url(self, datum):
+        instance_id = self.table.get_object_id(datum)
+        return urls.reverse(self.url, args=[instance_id])
+
+    def allowed(self, request, instance):
+        return instance.status in ACTIVE_STATES
+
+
+class UnRescueInstance(tables.BatchAction):
+    name = 'unrescue'
+    classes = ("btn-unrescue",)
+
+    @staticmethod
+    def action_present(count):
+        return ungettext_lazy(
+            u"Unrescue Instance",
+            u"Unrescue Instances",
+            count
+        )
+
+    @staticmethod
+    def action_past(count):
+        return ungettext_lazy(
+            u"Unrescued Instance",
+            u"Unrescued Instances",
+            count
+        )
+
+    def action(self, request, obj_id):
+        api.nova.server_unrescue(request, obj_id)
+
+    def allowed(self, request, instance=None):
+        if instance:
+            return instance.status == "RESCUE"
+        return False
 
 
 class TogglePause(tables.BatchAction):
@@ -210,9 +254,6 @@ class TogglePause(tables.BatchAction):
         )
 
     def allowed(self, request, instance=None):
-        if not api.nova.extension_supported('AdminActions',
-                                            request):
-            return False
         if not instance:
             return False
         self.paused = instance.status == "PAUSED"
@@ -277,9 +318,6 @@ class ToggleSuspend(tables.BatchAction):
         )
 
     def allowed(self, request, instance=None):
-        if not api.nova.extension_supported('AdminActions',
-                                            request):
-            return False
         if not instance:
             return False
         self.suspended = instance.status == "SUSPENDED"
@@ -344,8 +382,6 @@ class ToggleShelve(tables.BatchAction):
         )
 
     def allowed(self, request, instance=None):
-        if not api.nova.extension_supported('Shelve', request):
-            return False
         if not instance:
             return False
         if not request.user.is_superuser and getattr(
@@ -388,7 +424,7 @@ class LaunchLink(tables.LinkAction):
 
     def __init__(self, attrs=None, **kwargs):
         kwargs['preempt'] = True
-        super(LaunchLink, self).__init__(attrs, **kwargs)
+        super().__init__(attrs, **kwargs)
 
     def allowed(self, request, datum):
         try:
@@ -403,9 +439,11 @@ class LaunchLink(tables.LinkAction):
             if instances_available <= 0 or cores_available <= 0 \
                     or ram_available <= 0:
                 if "disabled" not in self.classes:
-                    self.classes = [c for c in self.classes] + ['disabled']
-                    self.verbose_name = string_concat(self.verbose_name, ' ',
-                                                      _("(Quota exceeded)"))
+                    self.classes = list(self.classes) + ['disabled']
+                    self.verbose_name = format_lazy(
+                        '{verbose_name} {quota_exceeded}',
+                        verbose_name=self.verbose_name,
+                        quota_exceeded=_("(Quota exceeded)"))
             else:
                 self.verbose_name = _("Launch Instance")
                 classes = [c for c in self.classes if c != "disabled"]
@@ -435,7 +473,7 @@ class LaunchLinkNG(LaunchLink):
             'ng-controller': 'LaunchInstanceModalController as modal',
             'ng-click': ngclick
         })
-        return super(LaunchLinkNG, self).get_default_attrs()
+        return super().get_default_attrs()
 
     def get_link_url(self, datum=None):
         return "javascript:void(0);"
@@ -482,6 +520,7 @@ class EditInstanceSecurityGroups(EditInstance):
 class EditPortSecurityGroups(tables.LinkAction):
     name = "edit_port_secgroups"
     verbose_name = _("Edit Port Security Groups")
+    policy_rules = (("network", "update_security_group"),)
     url = "horizon:project:instances:detail"
     icon = "pencil"
 
@@ -513,11 +552,12 @@ class ConsoleLink(policy.PolicyTargetMixin, tables.LinkAction):
     def allowed(self, request, instance=None):
         # We check if ConsoleLink is allowed only if settings.CONSOLE_TYPE is
         # not set at all, or if it's set to any value other than None or False.
-        return bool(getattr(settings, 'CONSOLE_TYPE', True)) and \
-            instance.status in ACTIVE_STATES and not is_deleting(instance)
+        return (bool(settings.CONSOLE_TYPE) and
+                instance.status in ACTIVE_STATES and
+                not is_deleting(instance))
 
     def get_link_url(self, datum):
-        base_url = super(ConsoleLink, self).get_link_url(datum)
+        base_url = super().get_link_url(datum)
         tab_query_string = tabs.ConsoleTab(
             tabs.InstanceDetailTabs).get_query_string()
         return "?".join([base_url, tab_query_string])
@@ -534,7 +574,7 @@ class LogLink(policy.PolicyTargetMixin, tables.LinkAction):
         return instance.status in ACTIVE_STATES and not is_deleting(instance)
 
     def get_link_url(self, datum):
-        base_url = super(LogLink, self).get_link_url(datum)
+        base_url = super().get_link_url(datum)
         tab_query_string = tabs.LogTab(
             tabs.InstanceDetailTabs).get_query_string()
         return "?".join([base_url, tab_query_string])
@@ -574,8 +614,15 @@ class ConfirmResize(policy.PolicyTargetMixin, tables.Action):
     def allowed(self, request, instance):
         return instance.status == 'VERIFY_RESIZE'
 
-    def single(self, table, request, instance):
-        api.nova.server_confirm_resize(request, instance)
+    def single(self, table, request, obj_id):
+        instance = table.get_object_by_id(obj_id)
+        try:
+            api.nova.server_confirm_resize(request, instance.id)
+        except Exception:
+            exceptions.handle(request,
+                              _('Unable to confirm resize instance "%s".')
+                              % (instance.name or instance.id))
+        return shortcuts.redirect(request.get_full_path())
 
 
 class RevertResize(policy.PolicyTargetMixin, tables.Action):
@@ -587,8 +634,14 @@ class RevertResize(policy.PolicyTargetMixin, tables.Action):
     def allowed(self, request, instance):
         return instance.status == 'VERIFY_RESIZE'
 
-    def single(self, table, request, instance):
-        api.nova.server_revert_resize(request, instance)
+    def single(self, table, request, obj_id):
+        instance = table.get_object_by_id(obj_id)
+        try:
+            api.nova.server_revert_resize(request, instance.id)
+        except Exception:
+            exceptions.handle(request,
+                              _('Unable to revert resize instance "%s".')
+                              % (instance.name or instance.id))
 
 
 class RebuildInstance(policy.PolicyTargetMixin, tables.LinkAction):
@@ -616,10 +669,7 @@ class DecryptInstancePassword(tables.LinkAction):
     url = "horizon:project:instances:decryptpassword"
 
     def allowed(self, request, instance):
-        enable = getattr(settings,
-                         'OPENSTACK_ENABLE_PASSWORD_RETRIEVE',
-                         False)
-        return (enable and
+        return (settings.OPENSTACK_ENABLE_PASSWORD_RETRIEVE and
                 (instance.status in ACTIVE_STATES or
                  instance.status == 'SHUTOFF') and
                 not is_deleting(instance) and
@@ -695,7 +745,7 @@ class UpdateMetadata(policy.PolicyTargetMixin, tables.LinkAction):
 
     def __init__(self, attrs=None, **kwargs):
         kwargs['preempt'] = True
-        super(UpdateMetadata, self).__init__(attrs, **kwargs)
+        super().__init__(attrs, **kwargs)
 
     def get_link_url(self, datum):
         instance_id = self.table.get_object_id(datum)
@@ -728,7 +778,8 @@ def get_instance_error(instance):
     message = instance_fault_to_friendly_message(instance)
     preamble = _('Failed to perform requested operation on instance "%s", the '
                  'instance has an error status') % instance.name or instance.id
-    message = string_concat(preamble, ': ', message)
+    message = format_lazy('{preamble}: {message}',
+                          preamble=preamble, message=message)
     return message
 
 
@@ -844,8 +895,6 @@ class LockInstance(policy.PolicyTargetMixin, tables.BatchAction):
     def allowed(self, request, instance):
         if getattr(instance, 'locked', False):
             return False
-        if not api.nova.extension_supported('AdminActions', request):
-            return False
         if not api.nova.is_feature_available(request, "locked_attribute"):
             return False
         return True
@@ -877,8 +926,6 @@ class UnlockInstance(policy.PolicyTargetMixin, tables.BatchAction):
     # to only allow locked instances to be unlocked
     def allowed(self, request, instance):
         if not getattr(instance, 'locked', True):
-            return False
-        if not api.nova.extension_supported('AdminActions', request):
             return False
         if not api.nova.is_feature_available(request, "locked_attribute"):
             return False
@@ -1237,7 +1284,7 @@ class InstancesTable(tables.DataTable):
                           verbose_name=_("Power State"),
                           display_choices=POWER_DISPLAY_CHOICES)
     created = tables.Column("created",
-                            verbose_name=_("Time since created"),
+                            verbose_name=_("Age"),
                             filters=(filters.parse_isotime,
                                      filters.timesince_sortable),
                             attrs={'data-type': 'timesince'})
@@ -1249,9 +1296,9 @@ class InstancesTable(tables.DataTable):
         row_class = UpdateRow
         table_actions_menu = (StartInstance, StopInstance, SoftRebootInstance)
         launch_actions = ()
-        if getattr(settings, 'LAUNCH_INSTANCE_LEGACY_ENABLED', False):
+        if settings.LAUNCH_INSTANCE_LEGACY_ENABLED:
             launch_actions = (LaunchLink,) + launch_actions
-        if getattr(settings, 'LAUNCH_INSTANCE_NG_ENABLED', True):
+        if settings.LAUNCH_INSTANCE_NG_ENABLED:
             launch_actions = (LaunchLinkNG,) + launch_actions
         table_actions = launch_actions + (DeleteInstance,
                                           InstancesFilterAction)
@@ -1263,6 +1310,7 @@ class InstancesTable(tables.DataTable):
                        EditInstanceSecurityGroups,
                        EditPortSecurityGroups,
                        ConsoleLink, LogLink,
+                       RescueInstance, UnRescueInstance,
                        TogglePause, ToggleSuspend, ToggleShelve,
                        ResizeLink, LockInstance, UnlockInstance,
                        SoftRebootInstance, RebootInstance,

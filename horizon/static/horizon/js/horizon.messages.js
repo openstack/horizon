@@ -12,8 +12,11 @@
  * under the License.
  */
 
-horizon.alert = function (type, message, extra_tags) {
+horizon.alert = function (type, message, extra_tags, details) {
   var safe = false;
+  var arr = extractDetail(message);
+  var message = arr[0];
+  var details = arr[1];
   // Check if the message is tagged as safe.
   if (typeof(extra_tags) !== "undefined" && $.inArray('safe', extra_tags.split(' ')) !== -1) {
     safe = true;
@@ -32,15 +35,28 @@ horizon.alert = function (type, message, extra_tags) {
     type = 'danger';
   }
 
+  function extractDetail(str) {
+    return str.split('\u2026');
+  }
+
+  var id = horizon.uuid.generate();
   var template = horizon.templates.compiled_templates["#alert_message_template"],
     params = {
       "type": type || 'default',
+      "id": id,
       "type_display": type_display,
       "message": message,
-      "safe": safe
+      "safe": safe,
+      "details": details
     };
   var this_alert = $(template.render(params)).hide().prependTo("#main_content .messages").fadeIn(100);
   horizon.autoDismissAlert(this_alert);
+
+  // NOTE: messages template engine doesn't support conditional rendering yet
+  // So it's a temporary work-around to hide details link when details is empty.
+  if (details === undefined || details === "") {
+    this_alert.find("#details_link").remove();
+  }
   return this_alert;
 };
 

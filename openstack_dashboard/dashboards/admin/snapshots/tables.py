@@ -15,7 +15,6 @@ from django.utils.translation import ugettext_lazy as _
 from horizon import exceptions
 from horizon import tables
 
-from openstack_dashboard.api import cinder
 from openstack_dashboard.api import keystone
 
 from openstack_dashboard.dashboards.project.snapshots \
@@ -35,12 +34,11 @@ class UpdateVolumeSnapshotStatus(tables.LinkAction):
                      "update_snapshot_status"),)
 
 
-class UpdateRow(tables.Row):
+class UpdateRow(snapshots_tables.UpdateRow):
     ajax = True
 
     def get_data(self, request, snapshot_id):
-        snapshot = cinder.volume_snapshot_get(request, snapshot_id)
-        snapshot._volume = cinder.volume_get(request, snapshot.volume_id)
+        snapshot = super().get_data(request, snapshot_id)
         snapshot.host_name = getattr(snapshot._volume,
                                      'os-vol-host-attr:host')
         tenant_id = getattr(snapshot._volume,
@@ -49,7 +47,7 @@ class UpdateRow(tables.Row):
             tenant = keystone.tenant_get(request, tenant_id)
             snapshot.tenant_name = getattr(tenant, "name")
         except Exception:
-            msg = _('Unable to retrieve volume project information.')
+            msg = _('Unable to retrieve volume snapshot project information.')
             exceptions.handle(request, msg)
 
         return snapshot
@@ -63,6 +61,10 @@ class VolumeSnapshotsTable(volumes_tables.VolumesTableBase):
         link="horizon:admin:volumes:detail")
     host = tables.Column("host_name", verbose_name=_("Host"))
     tenant = tables.Column("tenant_name", verbose_name=_("Project"))
+    group_snapshot = snapshots_tables.GroupSnapshotNameColumn(
+        "name",
+        verbose_name=_("Group Snapshot"),
+        link="horizon:admin:vg_snapshots:detail")
 
     class Meta(object):
         name = "volume_snapshots"
@@ -77,7 +79,7 @@ class VolumeSnapshotsTable(volumes_tables.VolumesTableBase):
         row_class = UpdateRow
         status_columns = ("status",)
         columns = ('tenant', 'host', 'name', 'description', 'size', 'status',
-                   'volume_name',)
+                   'group_snapshot', 'volume_name',)
 
 
 class VolumeDetailsSnapshotsTable(VolumeSnapshotsTable):

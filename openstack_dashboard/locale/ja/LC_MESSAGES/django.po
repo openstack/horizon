@@ -4,19 +4,20 @@
 # Yuko Katabami <yukokatabami@gmail.com>, 2016. #zanata
 # Akihiro Motoki <amotoki@gmail.com>, 2017. #zanata
 # Yuko Katabami <yukokatabami@gmail.com>, 2017. #zanata
-# Akihiro Motoki <amotoki@gmail.com>, 2018. #zanata
-# Shu Muto <shu.mutow@gmail.com>, 2018. #zanata
 # Yuko Katabami <yukokatabami@gmail.com>, 2018. #zanata
+# Akihiro Motoki <amotoki@gmail.com>, 2019. #zanata
+# Yuko Katabami <yukokatabami@gmail.com>, 2019. #zanata
+# Yuko Katabami <yukokatabami@gmail.com>, 2020. #zanata
 msgid ""
 msgstr ""
 "Project-Id-Version: horizon VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2018-09-29 05:45+0000\n"
+"POT-Creation-Date: 2020-11-23 00:41+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2018-09-13 08:04+0000\n"
-"Last-Translator: Shu Muto <shu.mutow@gmail.com>\n"
+"PO-Revision-Date: 2020-10-13 11:12+0000\n"
+"Last-Translator: Yuko Katabami <yukokatabami@gmail.com>\n"
 "Language-Team: Japanese\n"
 "Language: ja\n"
 "X-Generator: Zanata 4.3.3\n"
@@ -41,6 +42,49 @@ msgstr ""
 "\n"
 "      %(used)s / %(quota)s 使用中\n"
 "      "
+
+msgid ""
+"\n"
+"  If a snapshot is specified here only the specified snapshot of the volume\n"
+"  will be backed up.\n"
+"  </p>\n"
+"  "
+msgstr ""
+"\n"
+" ここでスナップショットを指定すると、指定したボリュームのスナップショットの"
+"バックアップだけが\n"
+"作成されます。\n"
+"  </p>\n"
+"  "
+
+msgid ""
+"\n"
+"  If no container name is provided, a default container named volumebackups\n"
+"  will be provisioned for you.\n"
+"  Backups will be the same size as the volume they originate from.\n"
+"  "
+msgstr ""
+"\n"
+"コンテナー名が指定されなかった場合、デフォルトでは volumebackups という\n"
+"名前のコンテナーが作成されます。\n"
+"バックアップはバックアップ対象のボリュームと同じ大きさになります。\n"
+"  "
+
+msgid ""
+"\n"
+"  Volume Backups are stored using one of cinder-backup drivers\n"
+"  (object storage service, Ceph, NFS, etc ...).\n"
+"  You must have one of these services activated in order to create a "
+"backup.\n"
+"  "
+msgstr ""
+"\n"
+"ボリュームバックアップは cinder-backup ドライバー (オブジェクトストレージサー"
+"ビス、Ceph、NFS 等)\n"
+"のいずれかを使って格納されます。\n"
+"バックアップを作成するには、これらのサービスの 1 つを有効にしなければいけませ"
+"ん。\n"
+"  "
 
 msgid " - End"
 msgstr " - 末尾"
@@ -108,6 +152,10 @@ msgid "%(pool_name)s %(cidr)s"
 msgstr "%(pool_name)s %(cidr)s"
 
 #, python-format
+msgid "%(role)s  (through group %(group)s)"
+msgstr "%(role)s  (グループ %(group)s から)"
+
+#, python-format
 msgid "%(type)s (%(backend)s backend)"
 msgstr "%(type)s (%(backend)s バックエンド)"
 
@@ -161,6 +209,9 @@ msgstr "%sGiB"
 msgid "%sMB"
 msgstr "%sMB"
 
+msgid "(No IP address)"
+msgstr "(IP アドレスなし)"
+
 msgid "(Quota exceeded)"
 msgstr "(クォータを超過しました)"
 
@@ -173,6 +224,12 @@ msgstr "、プロジェクトグループの更新"
 msgid "-"
 msgstr "-"
 
+msgid "1 (icmp) should be specified for IPv4 instead of 58."
+msgstr "IPv4 には 58 ではなく 1 (icmp) を指定する必要があります。"
+
+msgid "58 (ipv6-icmp) should be specified for IPv6 instead of 1."
+msgstr "IPv6 には 1 ではなく 58 (ipv6-icmp) を指定する必要があります。"
+
 #, python-format
 msgid "<a href=\"%(instance_url)s\">%(instance_name)s</a> on %(device)s"
 msgstr "<a href=\"%(instance_url)s\">%(instance_name)s</a> の %(device)s"
@@ -180,6 +237,77 @@ msgstr "<a href=\"%(instance_url)s\">%(instance_name)s</a> の %(device)s"
 #, python-format
 msgid "<a href=\"%(volume_url)s\">%(volume_label)s</a> on %(volume_device)s"
 msgstr "%(volume_device)s (<a href=\"%(volume_url)s\">%(volume_label)s</a>)"
+
+msgid ""
+"<b>Access Rules</b>: If you want more fine-grained access control "
+"delegation, you can create one or more access rules for this application "
+"credential. The list of access rules must be a JSON- or YAML-formatted list "
+"of rules each containing a service type, an HTTP method, and a URL path, for "
+"example: <br /> <code> [ <br /> &nbsp;&nbsp;{\"service\": \"compute\", <br /"
+"> &nbsp;&nbsp;\"method\": \"POST\", <br /> &nbsp;&nbsp;\"path\": \"/v2.1/"
+"servers\"} <br /> ] <br /> </code> or: <br /> <code> - service: compute <br /"
+"> &nbsp;&nbsp;method: POST <br /> &nbsp;&nbsp;path: /v2.1/servers </code>"
+msgstr ""
+"<b>アクセスルール</b>: アクセス制御の移譲をより細かい粒度にしたい場合には、こ"
+"のアプリケーション認証情報に対して 1 つまたは複数のアクセスルールを作成するこ"
+"とができます。アクセスルールは、JSON または YAML 形式のルール一覧で、各ルール"
+"にサービスタイプ、HTTP メソッド、URL パスが含まれる必要があります。例: <br /"
+"> <code> [ <br /> &nbsp;&nbsp;{\"service\": \"compute\", <br /> &nbsp;&nbsp;"
+"\"method\": \"POST\", <br /> &nbsp;&nbsp;\"path\": \"/v2.1/servers\"} <br /"
+"> ] <br /> </code> or: <br /> <code> - service: compute <br /> &nbsp;&nbsp;"
+"method: POST <br /> &nbsp;&nbsp;path: /v2.1/servers </code>"
+
+msgid ""
+"<b>Expiration Date/Time</b>: You may give the application credential an "
+"expiration. The expiration will be in UTC. If you provide an expiration date "
+"with no expiration time, the time will be assumed to be 00:00:00. If you "
+"provide an expiration time with no expiration date, the date will be assumed "
+"to be today."
+msgstr ""
+"<b>有効期限 (日付/時刻)</b>: アプリケーション認証情報の有効期限を設定できま"
+"す。有効期限は UTC で設定してください。期限時刻なしで期限日を設定すると、期限"
+"時刻は 00:00:00 に設定されます。期限日なしで期限時刻を設定すると、期限日は今"
+"日に設定されます。"
+
+msgid ""
+"<b>Kubernetes Namespace</b>: You can optionally provide a Kubernetes "
+"Namespace. It will be included in the kubeconfig file which can be "
+"downloaded from the next screen."
+msgstr ""
+"<b>Kubernetes 名前空間</b>: オプションとして、Kubernetes 名前空間を指定するこ"
+"とができます。この設定は、次の画面からダウンロードすることのできる "
+"kubeconfig ファイルに反映されます。"
+
+msgid ""
+"<b>Roles</b>: You may select one or more roles for this application "
+"credential. If you do not select any, all of the roles you have assigned on "
+"the current project will be applied to the application credential."
+msgstr ""
+"<b>ロール</b>: アプリケーション認証情報のロールを一つ以上選択できます。何も選"
+"択しない場合は、現在のプロジェクトに割り当てられているすべてのロールがアプリ"
+"ケーション認証情報に適用されます。"
+
+msgid ""
+"<b>Secret</b>: You may provide your own secret, or one will be generated for "
+"you. Once your application credential is created, the secret will be "
+"revealed once. If you lose the secret, you will have to generate a new "
+"application credential."
+msgstr ""
+"<b>シークレット</b>: シークレットキーは、ユーザーが提供することもできますが、"
+"システムで生成することもできます。アプリケーション認証情報が作成されると、"
+"シークレットキーが一度だけ提示されます。シークレットキーを紛失した場合は、新"
+"しいアプリケーション認証情報を生成する必要があります。"
+
+msgid ""
+"<b>Unrestricted</b>: By default, for security reasons, application "
+"credentials are forbidden from being used for creating additional "
+"application credentials or keystone trusts. If your application credential "
+"needs to be able to perform these actions, check \"unrestricted\"."
+msgstr ""
+"<b>無制限</b>: デフォルトでは、セキュリティー上の理由から、追加のアプリケー"
+"ション認証情報や Keystone 認証の作成にアプリケーション認証情報を使用すること"
+"は禁止されています。アプリケーション認証情報がこれらのアクションを実行できる"
+"必要がある場合は、「無制限」をチェックしてください。"
 
 msgid ""
 "<b>Warning:</b> If you change security groups here, the change will be "
@@ -191,6 +319,10 @@ msgstr ""
 "インターフェースに変更が適用されます。このインスタンスが複数のインターフェー"
 "スを持ち、ポート毎に異なるセキュリティーグループが適用されている場合は、代わ"
 "りに「ポートのセキュリティーグループの編集」アクションを使用してください。"
+
+#, python-format
+msgid "<span class='word-wrap'>Flavor Details: %(name)s</span>\">%(name)s"
+msgstr "<span class='word-wrap'>フレーバーの詳細: %(name)s</span>\">%(name)s"
 
 msgid "A brief description of the security group rule you are adding"
 msgstr "追加しようとしているセキュリティーグループルールの簡単な説明"
@@ -280,11 +412,20 @@ msgstr "ボリュームの譲渡の受理"
 msgid "Access & Security"
 msgstr "アクセスとセキュリティー"
 
+msgid "Access Rules"
+msgstr "アクセスルール"
+
+msgid "Access rules must be a valid JSON or YAML list."
+msgstr "アクセスルールは、有効な JSON または YAML の一覧である必要があります。"
+
 msgid "Action"
 msgstr "アクション"
 
 msgid "Action Log"
 msgstr "アクションログ"
+
+msgid "Action and Object Type"
+msgstr "アクションおよびオブジェクトタイプ"
 
 msgctxt "Current status of a Floating IP"
 msgid "Active"
@@ -347,6 +488,9 @@ msgstr "ルータールートの追加"
 
 msgid "Add Rule"
 msgstr "ルールの追加"
+
+msgid "Add Rule (Quota exceeded)"
+msgstr "ルールの追加 (クォータを超過しました)"
 
 msgid "Add Static Route"
 msgstr "静的ルートの追加"
@@ -411,15 +555,6 @@ msgid "Add static route to the router."
 msgstr "静的ルートをルーターに追加します。"
 
 msgid ""
-"Add volume types to this consistency group. Multiple volume types can be "
-"added to the same consistency group only if they are associated with same "
-"back end."
-msgstr ""
-"ボリューム種別をこの整合性グループに追加します。同じバックエンドに関連付けら"
-"れている場合には、複数のボリューム種別を同じ整合性グループに追加することがで"
-"きます。"
-
-msgid ""
 "Add volume types to this group. Multiple volume types can be added to the "
 "same group only if they are associated with same back end."
 msgstr ""
@@ -431,23 +566,11 @@ msgid "Add, modify or remove the QoS Spec associated with this volume type."
 msgstr ""
 "このボリューム種別に関連付けられている QoS スペックを追加、変更、削除します。"
 
-msgid "Add/Remove Consistency Group Volumes"
-msgstr "整合性グループボリュームの追加/削除"
-
 msgid "Add/Remove Group Volumes"
 msgstr "ボリュームグループのボリュームの追加/削除"
 
 msgid "Add/Remove Hosts to Aggregate"
 msgstr "アグリゲートのホストの追加/削除"
-
-msgid ""
-"Add/remove volumes to/from this consistency group. Only volumes associated "
-"with the volume type(s) assigned to this consistency group will be available "
-"for selection."
-msgstr ""
-"この整合性グループにボリュームを追加または削除します。この整合性グループに割"
-"り当てられているボリューム種別に関連付けられたボリュームのみを選択することが"
-"できます。"
 
 msgid ""
 "Add/remove volumes to/from this group. Only volumes associated with the "
@@ -515,6 +638,12 @@ msgstr ""
 "インスタンス起動後に秘密鍵を使ってログインします(ユーザー名は起動したイメージ"
 "によって異なります)"
 
+msgid "Age"
+msgstr "経過時間"
+
+msgid "Age (Seconds)"
+msgstr "経過時間 (秒)"
+
 #, python-format
 msgid "Agent %s was successfully added."
 msgstr "エージェント %s が正常に追加されました。"
@@ -557,13 +686,6 @@ msgstr "利用可能な全ボリューム"
 
 msgid "All ports"
 msgstr "すべてのポート"
-
-msgid ""
-"All selected volume types must be associated with the same volume backend "
-"name."
-msgstr ""
-"選択したボリューム種別がすべて同じボリュームバックエンド名に関連付けられてい"
-"る必要があります。"
 
 msgid "Allocate Floating IP"
 msgstr "Floating IP の確保"
@@ -663,10 +785,6 @@ msgstr "関連リソース種別"
 
 msgid "At least one network must be specified."
 msgstr "ネットワークを少なくとも 1 つ指定する必要があります。"
-
-msgid "At least one volume type must be assigned to a consistency group."
-msgstr ""
-"整合性グループには、ボリューム種別を少なくとも 1 つ割り当てる必要があります。"
 
 msgid "At least one volume type must be assigned to a group."
 msgstr ""
@@ -773,14 +891,6 @@ msgstr ""
 msgid "Available"
 msgstr "利用可能"
 
-msgctxt "Current status of Consistency Group"
-msgid "Available"
-msgstr "利用可能"
-
-msgctxt "Current status of Consistency Group Snapshot"
-msgid "Available"
-msgstr "利用可能"
-
 msgctxt "Current status of Volume Group"
 msgid "Available"
 msgstr "利用可能"
@@ -804,6 +914,13 @@ msgid "Available networks"
 msgstr "利用可能なネットワーク"
 
 msgctxt "Current status of a Volume"
+msgid "Awaiting Transfer"
+msgstr "譲渡待ち"
+
+msgid "Back-End Example:"
+msgstr "バックエンドの例:"
+
+msgctxt "Current status of a Volume"
 msgid "Backing Up"
 msgstr "バックアップ中"
 
@@ -812,6 +929,9 @@ msgstr "バックアップ名"
 
 msgid "Backup Size (GiB)"
 msgstr "バックアップサイズ (GiB)"
+
+msgid "Backup Snapshot"
+msgstr "スナップショットのバックアップ"
 
 msgid "Backups"
 msgstr "バックアップ"
@@ -891,15 +1011,11 @@ msgid "Building"
 msgstr "作成中"
 
 msgid ""
-"By default, for security reasons, application credentials are forbidden from "
-"being used for creating additional application credentials or keystone "
-"trusts. If your application credential needs to be able to perform these "
-"actions, check \"unrestricted\"."
+"By default, group type is created as public. To create a private group type, "
+"uncheck this field."
 msgstr ""
-"セキュリティー上の理由から、デフォルトではアプリケーション認証情報を追加のア"
-"プリケーション認証情報や Keystone 認証の作成への使用は禁止されています。アプ"
-"リケーション認証情報がこれらのアクションを実行できる必要がある場合は、「無制"
-"限」をチェックしてください。"
+"デフォルトでは、グループ種別はパブリックで作成されます。プライベートなグルー"
+"プ種別を作成するには、このフィールドのチェックを外してください。"
 
 msgid ""
 "By default, volume type is created as public. To create a private volume "
@@ -975,13 +1091,6 @@ msgstr "指定時刻以降に更新"
 
 msgid "Changing password is not supported."
 msgstr "パスワードの変更はサポートされていません。"
-
-msgid ""
-"Check the &quot;Delete Volumes&quot; box to also delete any volumes "
-"associated with this consistency group."
-msgstr ""
-"この整合性グループに関連付けられているボリュームも削除するには、&quot;ボ"
-"リュームの削除&quot; のボックスにチェックを付けてください。"
 
 msgid ""
 "Check the &quot;Delete Volumes&quot; box to also delete any volumes "
@@ -1074,18 +1183,8 @@ msgstr[0] "ゲートウェイを削除しました"
 msgid "Click here to show only console"
 msgstr "コンソールのみを表示するにはここをクリックします"
 
-msgid "Clone Consistency Group"
-msgstr "整合性グループのクローン作成"
-
 msgid "Clone Group"
 msgstr "ボリュームグループのクローン作成"
-
-msgid ""
-"Clone each of the volumes in the source Consistency Group, and then add them "
-"to a newly created Consistency Group."
-msgstr ""
-"ソースの整合性グループ内の各ボリュームをクローン作成してから、新規作成した整"
-"合性グループに追加します。"
 
 msgid ""
 "Clone each of the volumes in the source Group, and then add them to a newly "
@@ -1093,6 +1192,10 @@ msgid ""
 msgstr ""
 "ソースのボリュームグループ内の各ボリュームをクローン作成してから、新規作成し"
 "たボリュームグループに追加します。"
+
+#, python-format
+msgid "Cloning volume group \"%s\"."
+msgstr "ボリュームグループ \"%s\" をクローン中"
 
 msgid "Close"
 msgstr "閉じる"
@@ -1131,6 +1234,9 @@ msgstr ""
 "起動時にインスタンスに接続される特別なコンフィグドライブにメタデータを書き込"
 "むように OpenStack に指定します。"
 
+msgid "Confirm"
+msgstr "確認"
+
 msgid "Confirm Admin Password"
 msgstr "管理者パスワード (確認)"
 
@@ -1157,21 +1263,6 @@ msgstr "リサイズ/マイグレーションの確認待ち"
 msgctxt "Task status of an Instance"
 msgid "Confirming Resize or Migrate"
 msgstr "リサイズ/マイグレーションの確定中"
-
-msgid "Consistency Group"
-msgstr "整合性グループ"
-
-msgid "Consistency Group Information"
-msgstr "整合性グループの情報"
-
-msgid "Consistency Group Name"
-msgstr "整合性グループ名"
-
-msgid "Consistency Group Snapshots"
-msgstr "整合性グループのスナップショット"
-
-msgid "Consistency Groups"
-msgstr "整合性グループ"
 
 msgid "Console"
 msgstr "コンソール"
@@ -1208,11 +1299,6 @@ msgstr ""
 "キーペア、セキュリティーグループやその他の仕組みを使用して、インスタンスへの"
 "アクセスを制御します。"
 
-msgid "Cookies may be turned off. Make sure cookies are enabled and try again."
-msgstr ""
-"クッキーが無効になっている可能性があります。クッキーを有効にしてから再度お試"
-"しください。"
-
 msgid "Copy Data"
 msgstr "データのコピー"
 
@@ -1235,6 +1321,9 @@ msgctxt "Action log of an instance"
 msgid "Create"
 msgstr "作成"
 
+msgid "Create A RBAC Policy"
+msgstr "RBAC ポリシーの作成"
+
 msgid "Create An Image"
 msgstr "イメージの作成"
 
@@ -1243,12 +1332,6 @@ msgstr "アプリケーション認証情報の作成"
 
 msgid "Create Backup"
 msgstr "バックアップの作成"
-
-msgid "Create Consistency Group"
-msgstr "整合性グループの作成"
-
-msgid "Create Consistency Group Snapshot"
-msgstr "整合性グループのスナップショットの作成"
 
 msgid "Create Domain"
 msgstr "ドメインの作成"
@@ -1271,9 +1354,19 @@ msgstr "グループの作成"
 msgid "Create Group Snapshot"
 msgstr "ボリュームグループのスナップショットの作成"
 
+msgid "Create Group Type"
+msgstr "グループ種別の作成"
+
+msgid "Create Group Type Spec"
+msgstr "グループ種別スペックの作成"
+
 msgid "Create Host Aggregate"
 msgstr "ホストアグリゲートの作成"
 
+msgid "Create Image"
+msgstr "イメージの作成"
+
+msgctxt "Action log of an instance"
 msgid "Create Image"
 msgstr "イメージの作成"
 
@@ -1303,6 +1396,9 @@ msgstr "プロトコルの作成"
 
 msgid "Create QoS Spec"
 msgstr "QoS スペックの作成"
+
+msgid "Create RBAC Policy"
+msgstr "RBAC ポリシーの作成"
 
 msgid "Create Role"
 msgstr "ロールの作成"
@@ -1343,9 +1439,6 @@ msgstr "ボリュームの作成"
 msgid "Create Volume Backup"
 msgstr "ボリュームバックアップの作成"
 
-msgid "Create Volume Consistency Group"
-msgstr "ボリュームの整合性グループの作成"
-
 msgid "Create Volume Group"
 msgstr "ボリュームグループの作成"
 
@@ -1367,12 +1460,8 @@ msgstr "ボリューム種別の暗号化設定の作成"
 msgid "Create Volume Type Extra Spec"
 msgstr "ボリューム種別の追加スペックの作成"
 
-msgid ""
-"Create a Consistency Group that will contain newly created volumes cloned "
-"from each of the snapshots in the source Consistency Group Snapshot."
-msgstr ""
-"ソースの整合性グループのスナップショット内の各スナップショットからクローンし"
-"て新規作成したボリュームが含まれる整合性グループを作成します。"
+msgid "Create a Group Type"
+msgstr "グループ種別の作成"
 
 msgid ""
 "Create a Group that will contain newly created volumes cloned from each of "
@@ -1387,6 +1476,9 @@ msgstr "メタデータ名前空間の作成"
 msgid "Create a New Volume"
 msgstr "新規ボリュームの作成"
 
+msgid "Create a RBAC Policy"
+msgstr "RBAC ポリシーの作成"
+
 msgid "Create a Router"
 msgstr "ルーターの作成"
 
@@ -1400,15 +1492,20 @@ msgid "Create a new \"extra spec\" key-value pair for a volume type."
 msgstr ""
 "ボリューム種別に対する「追加スペック」のキーと値のペアを新規作成します。 "
 
+msgid "Create a new \"group type spec\" key-value pair for a group type."
+msgstr ""
+"グループ種別に対する「グループ種別スペック」のキーと値のペアを新規作成しま"
+"す。 "
+
 #, python-format
 msgid ""
 "Create a new \"spec\" key-value pair for QoS Spec \"%(qos_spec_name)s\". "
-"Valid key names are expected in the QoS specs. The acceptable values for key "
-"are <tt>\"minIOPS\", \"maxIOPS\" and \"burstIOPS\"</tt>."
+"Valid key names are expected in the QoS specs. Refer to Cinder documentation "
+"for the supported front-end and back-end keys."
 msgstr ""
-"QoS スペック \"%(qos_spec_name)s\" に新しいキーと値のペアを作成します。 QoS "
-"スペックでは、有効なキー名が必要です。キー名に許容される値は、 <tt>\"minIOPS"
-"\" 、 \"maxIOPS\" 、 \"burstIOPS\"</tt>です。"
+"QoS スペック \"%(qos_spec_name)s\" に新しいキーと値のペアを作成します。QoS ス"
+"ペックでは、有効なキー名が必要です。サポートされるフロントエンドおよびバック"
+"エンドキーについては、Cinder のドキュメントを参照してください。"
 
 msgid "Create a new application credential."
 msgstr "新しいアプリケーション認証情報を作成します。"
@@ -1432,9 +1529,6 @@ msgstr ""
 msgid "Create a project to organize users."
 msgstr "プロジェクトを作成して、ユーザーをまとめることができます。"
 
-msgid "Create a snapshot for each volume contained in the Consistency Group."
-msgstr "整合性グループに含まれる各ボリュームのスナップショットを作成します。"
-
 msgid "Create a snapshot for each volume contained in the Group."
 msgstr ""
 "ボリュームグループに含まれる各ボリュームのスナップショットを作成します。"
@@ -1456,9 +1550,16 @@ msgctxt "Created time"
 msgid "Created"
 msgstr "作成時刻"
 
+msgid "Created At"
+msgstr "作成時刻"
+
 #, python-format
 msgid "Created extra spec \"%s\"."
 msgstr "追加スペック \"%s\" を作成しました。"
+
+#, python-format
+msgid "Created group type spec \"%s\"."
+msgstr "グループ種別スペック \"%s\" を作成しました。"
 
 #, python-format
 msgid "Created network \"%s\"."
@@ -1479,9 +1580,6 @@ msgstr "新しいホストアグリゲート \"%s\" が作成されました。"
 #, python-format
 msgid "Created new project \"%s\"."
 msgstr "新規プロジェクト \"%s\" を作成しました。"
-
-msgid "Created new volume consistency group"
-msgstr "新しいボリュームの整合性グループを作成しました"
 
 msgid "Created new volume group"
 msgstr "新しいボリュームグループを作成しました"
@@ -1521,14 +1619,6 @@ msgstr "作成中"
 msgctxt "Current status of a Volume Backup"
 msgid "Creating"
 msgstr "作成中"
-
-#, python-format
-msgid "Creating consistency group \"%s\"."
-msgstr "整合性グループ \"%s\" を作成します。"
-
-#, python-format
-msgid "Creating consistency group snapshot \"%s\"."
-msgstr "整合性グループのスナップショット \"%s\" を作成中"
 
 msgid ""
 "Creating encryption for a volume type causes all volumes with that volume "
@@ -1664,9 +1754,6 @@ msgid "Delete Application Credential"
 msgid_plural "Delete Application Credentials"
 msgstr[0] "アプリケーション認証情報の削除"
 
-msgid "Delete Consistency Group"
-msgstr "整合性グループの削除"
-
 msgid "Delete DHCP Agent"
 msgid_plural "Delete DHCP Agents"
 msgstr[0] "DHCP エージェントの削除"
@@ -1690,6 +1777,10 @@ msgstr[0] "フレーバーの削除"
 msgid "Delete Group"
 msgid_plural "Delete Groups"
 msgstr[0] "グループの削除"
+
+msgid "Delete Group Type"
+msgid_plural "Delete Group Types"
+msgstr[0] "グループ種別の削除"
 
 msgid "Delete Host Aggregate"
 msgid_plural "Delete Host Aggregates"
@@ -1738,6 +1829,10 @@ msgstr[0] "プロトコルの削除"
 msgid "Delete QoS Spec"
 msgid_plural "Delete QoS Specs"
 msgstr[0] "QoS スペックの削除"
+
+msgid "Delete RBAC Policy"
+msgid_plural "Delete RBAC Policies"
+msgstr[0] "RBAC ポリシーの削除"
 
 msgid "Delete Role"
 msgid_plural "Delete Roles"
@@ -1844,6 +1939,10 @@ msgid "Deleted Group"
 msgid_plural "Deleted Groups"
 msgstr[0] "グループを削除しました"
 
+msgid "Deleted Group Type"
+msgid_plural "Deleted Group Types"
+msgstr[0] "グループ種別を削除しました"
+
 msgid "Deleted Host Aggregate"
 msgid_plural "Deleted Host Aggregates"
 msgstr[0] "ホストアグリゲートを削除しました"
@@ -1887,6 +1986,13 @@ msgstr[0] "プロトコルを削除しました"
 msgid "Deleted QoS Spec"
 msgid_plural "Deleted QoS Specs"
 msgstr[0] "QoS スペックの削除"
+
+msgid "Deleted RBAC Policy"
+msgid_plural "Deleted RBAC Policies"
+msgstr[0] "RBAC ポリシーを削除しました"
+
+msgid "Deleted RBAC policy is not recoverable."
+msgstr "削除された RBAC ポリシーは元に戻すことはできません。"
 
 msgid "Deleted Role"
 msgid_plural "Deleted Roles"
@@ -1947,6 +2053,10 @@ msgstr ""
 "削除されたボリュームは元に戻せません。ボリュームに格納されたデータはすべて削"
 "除されます。"
 
+msgctxt "Current status of Volume Group"
+msgid "Deleting"
+msgstr "削除中"
+
 msgctxt "Current status of a Volume"
 msgid "Deleting"
 msgstr "削除中"
@@ -1960,18 +2070,17 @@ msgid "Deleting"
 msgstr "削除中"
 
 #, python-format
-msgid "Deleting volume consistency group \"%s\""
-msgstr "ボリュームの整合性グループ \"%s\" を削除中"
-
-#, python-format
 msgid "Deleting volume group \"%s\""
 msgstr "ボリュームグループ \"%s\" を削除中"
 
+msgid "Deprecated Settings"
+msgstr "非推奨の設定"
+
+msgid "Deprecated settings: {}."
+msgstr "非推奨の設定: {}"
+
 msgid "Description"
 msgstr "説明"
-
-msgid "Description is required."
-msgstr "説明は必要です。"
 
 msgid "Description:"
 msgstr "説明:"
@@ -2106,9 +2215,6 @@ msgstr[0] "ユーザーを無効にしました"
 msgid "Disabled compute service for host: %s."
 msgstr "ホスト %s のコンピュートサービスを無効にしました。"
 
-msgid "Disassocaite"
-msgstr "割り当て解除"
-
 msgid "Disassociate"
 msgstr "割り当て解除"
 
@@ -2238,6 +2344,9 @@ msgstr "OpenStack RC ファイルのダウンロード"
 msgid "Download clouds.yaml"
 msgstr "clouds.yaml のダウンロード"
 
+msgid "Download kubeconfig file"
+msgstr "kubeconfig ファイルのダウンロード"
+
 msgid "Download openrc file"
 msgstr "openrc ファイルのダウンロード"
 
@@ -2271,9 +2380,6 @@ msgstr "編集"
 msgid "Edit Access"
 msgstr "アクセス権の編集"
 
-msgid "Edit Consistency Group"
-msgstr "整合性グループの編集"
-
 msgid "Edit Consumer"
 msgstr "使用者の編集"
 
@@ -2289,6 +2395,16 @@ msgstr "フレーバーの編集"
 
 msgid "Edit Group"
 msgstr "グループの編集"
+
+msgid "Edit Group Type"
+msgstr "グループ種別の編集"
+
+msgid "Edit Group Type Spec"
+msgstr "グループ種別スペックの編集"
+
+#, python-format
+msgid "Edit Group Type Spec Value: %s"
+msgstr "グループ種別スペック値の編集: %s"
 
 msgid "Edit Host Aggregate"
 msgstr "ホストアグリゲートの編集"
@@ -2310,6 +2426,9 @@ msgstr "名前空間属性の編集"
 
 msgid "Edit Network"
 msgstr "ネットワークの編集"
+
+msgid "Edit Policy"
+msgstr "ポリシーの編集"
 
 msgid "Edit Port"
 msgstr "ポートの編集"
@@ -2505,14 +2624,6 @@ msgstr "一時ディスク"
 msgid "Ephemeral Disk (GB)"
 msgstr "一時ディスク (GB)"
 
-msgctxt "Current status of Consistency Group"
-msgid "Error"
-msgstr "エラー"
-
-msgctxt "Current status of Consistency Group Snapshot"
-msgid "Error"
-msgstr "エラー"
-
 msgctxt "Current status of Volume Group"
 msgid "Error"
 msgstr "エラー"
@@ -2602,20 +2713,17 @@ msgstr "ホストの追加、削除中にエラーがありました。"
 msgid "Error writing zipfile: %(exc)s"
 msgstr "zip ファイルの書き込みに失敗しました: %(exc)s"
 
-msgid "Errors occurred in deleting consistency group."
-msgstr "整合性グループの削除でエラーが発生しました。"
-
 msgid "Errors occurred in deleting group."
 msgstr "ボリュームグループの削除でエラーが発生しました。"
-
-msgid "Errors occurred in removing volumes from consistency group."
-msgstr "整合性グループからのボリュームの削除でエラーが発生しました。"
 
 msgid "Errors occurred in removing volumes from group."
 msgstr "ボリュームグループからのボリュームの削除でエラーが発生しました。"
 
 msgid "Ether Type"
 msgstr "Ethernet タイプ"
+
+msgid "Euca2ools state"
+msgstr "Euca2ools の状態"
 
 msgid "Evacuate Host"
 msgstr "ホストからの退避"
@@ -2625,8 +2733,8 @@ msgid ""
 msgstr ""
 "サーバーを選択したダウン中のホストから稼働中の移動先ホストに退避します。"
 
-msgid "Example:"
-msgstr "例:"
+msgid "Event Id"
+msgstr "イベント ID"
 
 msgid ""
 "Example: For <tt>mod_shib</tt> this would be <tt>Shib-Identity-Provider</"
@@ -2734,9 +2842,8 @@ msgid "Failed to add project %(project)s to volume type access."
 msgstr ""
 "ボリューム種別のアクセス権にプロジェクト %(project)s を追加できませんでした。"
 
-#, python-format
-msgid "Failed to add route: %s"
-msgstr "ルートの追加に失敗しました: %s"
+msgid "Failed to add route"
+msgstr "ルートの追加に失敗しました。"
 
 msgid "Failed to check if description field is supported."
 msgstr "説明フィールドがサポートされているか確認できませんでした。"
@@ -2754,9 +2861,12 @@ msgid "Failed to check if nova supports \"auto_allocated_network\"."
 msgstr ""
 "Nova が auto_allocated_network に対応しているかを確認できませんでした。"
 
+msgid "Failed to create a rbac policy."
+msgstr "RBAC ポリシーの作成に失敗しました。"
+
 #, python-format
-msgid "Failed to create network \"%(network)s\": %(reason)s"
-msgstr "ネットワーク \"%(network)s\" の作成に失敗しました: %(reason)s"
+msgid "Failed to create network \"%s\"."
+msgstr "ネットワーク \"%s\" の作成に失敗しました"
 
 #, python-format
 msgid "Failed to create network %s"
@@ -2770,15 +2880,17 @@ msgstr "ポート \"%s\" の作成に失敗しました。"
 msgid "Failed to create router \"%s\"."
 msgstr "ルーター \"%s\" を作成できません。"
 
-#, python-format
-msgid "Failed to create subnet \"%(sub)s\" for network \"%(net)s\": %(reason)s"
-msgstr ""
-"ネットワーク \"%(net)s\" のサブネット \"%(sub)s\" の作成に失敗しました: "
-"%(reason)s"
+msgid "Failed to create router."
+msgstr "ルーターを作成できません。"
 
 #, python-format
-msgid "Failed to create subnet \"%(sub)s\": %(reason)s"
-msgstr "サブネット \"%(sub)s\" の作成に失敗しました:  %(reason)s"
+msgid "Failed to create subnet \"%(sub)s\" for network \"%(net)s\"."
+msgstr ""
+"ネットワーク \"%(net)s\" のサブネット \"%(sub)s\" の作成に失敗しました。"
+
+#, python-format
+msgid "Failed to create subnet \"%(sub)s\"."
+msgstr "サブネット \"%(sub)s\" の作成に失敗しました。"
 
 #, python-format
 msgid "Failed to delete network \"%s\""
@@ -2800,6 +2912,9 @@ msgstr "ホスト %s からの退避に失敗しました。"
 msgid "Failed to evacuate instances: %s"
 msgstr "インスタンスの退避に失敗しました: %s"
 
+msgid "Failed to get attached volume."
+msgstr "接続されているボリュームを取得できませんでした。"
+
 msgid "Failed to get availability zone list."
 msgstr "アベイラビリティーゾーンの一覧を取得できません。"
 
@@ -2810,15 +2925,8 @@ msgstr "インスタンスのインターフェース一覧を取得できませ
 msgid "Failed to get mapping list %s"
 msgstr "マッピング一覧 %s の取得に失敗しました。"
 
-msgid "Failed to get network list {0}"
-msgstr "ネットワーク一覧を取得できません: {0}"
-
 msgid "Failed to get network list."
 msgstr "ネットワーク一覧を取得できません。"
-
-#, python-format
-msgid "Failed to get network list: %s"
-msgstr "ネットワーク一覧を取得できません: %s"
 
 msgid "Failed to live migrate instance to a new host."
 msgstr "新しいホストへのインスタンスのライブマイグレーションに失敗しました。"
@@ -2878,13 +2986,8 @@ msgstr ""
 "ボリューム種別のアクセス権からプロジェクト %(project)s を削除できませんでし"
 "た。"
 
-#, python-format
-msgid "Failed to retrieve network %s for a subnet"
-msgstr "サブネットのネットワーク %s の取得に失敗しました"
-
-#, python-format
-msgid "Failed to set gateway: %s"
-msgstr "ゲートウェイの設定に失敗しました: %s"
+msgid "Failed to set gateway."
+msgstr "ゲートウェイの設定に失敗しました。"
 
 #, python-format
 msgid "Failed to update network %s"
@@ -2895,12 +2998,16 @@ msgid "Failed to update port \"%s\"."
 msgstr "ポート「%s」の更新に失敗しました。"
 
 #, python-format
+msgid "Failed to update rbac policy %s"
+msgstr "RBAC ポリシー %s の更新に失敗しました。"
+
+#, python-format
 msgid "Failed to update router %s"
 msgstr "ルーター %s の更新に失敗しました。"
 
 #, python-format
-msgid "Failed to update subnet \"%(sub)s\":  %(reason)s"
-msgstr "サブネット \"%(sub)s\" の更新に失敗しました:  %(reason)s"
+msgid "Failed to update subnet \"%s\"."
+msgstr "サブネット \"%s\" の更新に失敗しました。"
 
 msgid "False"
 msgstr "False"
@@ -2951,22 +3058,11 @@ msgstr "フレーバーの選択"
 msgid "Flavor Details"
 msgstr "フレーバーの詳細"
 
-#, python-format
-msgid "Flavor Details: %(name)s\">%(name)s"
-msgstr "フレーバーの詳細: %(name)s\">%(name)s"
-
 msgid "Flavor ID"
 msgstr "フレーバー ID"
 
 msgid "Flavor ID ="
 msgstr "フレーバー ID ="
-
-msgid ""
-"Flavor ID should be UUID4 or integer. Leave this field blank or use 'auto' "
-"to set a random UUID4."
-msgstr ""
-"フレーバー ID は UUID4 か整数でなければなりません。ランダムな UUID4 を使うに"
-"はこのフィールドを空欄にするか 'auto' を指定してください。"
 
 msgid "Flavor Information"
 msgstr "フレーバー情報"
@@ -3068,6 +3164,9 @@ msgstr "ここから、ネットワークに DHCP エージェントを追加で
 msgid "From here you can allocate a floating IP to a specific project."
 msgstr "指定したプロジェクトに対して Floating IP を確保できます。"
 
+msgid "From here you can create a rbac policy."
+msgstr "ここから、RBAC ポリシーを作成できます。"
+
 msgid "From here you can create a snapshot of a volume."
 msgstr "ここから、ボリュームスナップショットを作成できます。"
 
@@ -3076,6 +3175,9 @@ msgstr "コンピュートの標準のクォータ (上限) を更新できま�
 
 msgid "From here you can update the default volume quotas (max limits)."
 msgstr "ボリュームの標準のクォータ (上限) を更新できます。"
+
+msgid "Front-End Example:"
+msgstr "フロントエンドの例:"
 
 msgid "GB"
 msgstr "GB"
@@ -3109,6 +3211,10 @@ msgstr "グラフ"
 
 msgid "Group"
 msgstr "グループ"
+
+#, python-format
+msgid "Group \"%s\" already exists."
+msgstr "グループ \"%s\" はすでに存在します。"
 
 #, python-format
 msgid "Group \"%s\" was successfully created."
@@ -3147,8 +3253,44 @@ msgstr "ボリュームグループのスナップショット"
 msgid "Group Type"
 msgstr "グループタイプ"
 
+msgid "Group Type Specs"
+msgstr "グループ種別スペック"
+
+#, python-format
+msgid "Group Type: %(group_type_name)s"
+msgstr "グループ種別: %(group_type_name)s"
+
+#, python-format
+msgid "Group Type: %(group_type_name)s "
+msgstr "グループ種別: %(group_type_name)s "
+
+msgid "Group Types"
+msgstr "グループ種別"
+
 msgid "Group has been updated successfully."
 msgstr "グループが正常に更新されました。"
+
+msgid ""
+"Group type is a type or label that can be selected at group creation time in "
+"OpenStack. It usually maps to a set of capabilities of the storage back-end "
+"driver to be used for this group. Examples: \"Performance\", \"SSD\", "
+"\"Backup\", etc. This is equivalent to the <tt>cinder type-create</tt> "
+"command. Once the group type gets created, click the \"View Specs\" button "
+"to set up specs key-value pair(s) for that group type."
+msgstr ""
+"グループ種別は OpenStack でグループを作成する際に選択する種別を示すラベルで"
+"す。通常、グループ種別は、作成するグループが使用する、バックエンドのストレー"
+"ジドライバーが持つ機能セットにマッピングされます。例えば「性能」、「SSD」、"
+"「バックアップ」などです。これは <tt>cinder type-create</tt> コマンドに相当し"
+"ます。グループ種別を作成した後は、「スペックの表示」ボタンをクリックして、こ"
+"のグループ種別のスペックのキーと値のペアを設定します。"
+
+#, python-format
+msgid "Group type name \"%s\" already exists."
+msgstr "グループ種別 \"%s\" はすでに存在します。"
+
+msgid "Group type name can not be empty."
+msgstr "グループ種別名を空にすることはできません。"
 
 msgid ""
 "Group which the new volume belongs to. Choose 'No group' if the new volume "
@@ -3174,6 +3316,9 @@ msgid ""
 msgstr ""
 "グループを使うと、複数のユーザーに対するアクセス権やロールの割り当てを一度に"
 "行うことができます。グループの名前と説明を編集します。"
+
+msgid "Guaranteed Until"
+msgstr "保証期限"
 
 #. Translators: High Availability mode of Neutron router
 msgid "HA mode"
@@ -3328,6 +3473,13 @@ msgid ""
 msgstr "このサブネットの DNS サーバーの IP アドレス一覧。1 行につき 1 項目。"
 
 msgid ""
+"IP address of Gateway (e.g. 192.168.0.254) If you do not want to use a "
+"gateway, check 'Disable Gateway' below."
+msgstr ""
+"ゲートウェイの IP アドレス (例: 192.168.0.254)。ゲートウェイを使用する必要が"
+"なければ、下の「ゲートウェイなし」をチェックします。"
+
+msgid ""
 "IP address of Gateway (e.g. 192.168.0.254) The default value is the first IP "
 "of the network address (e.g. 192.168.0.1 for 192.168.0.0/24, 2001:DB8::1 for "
 "2001:DB8::/48). If you use the default, leave blank. If you do not want to "
@@ -3392,6 +3544,15 @@ msgid ""
 msgstr ""
 "「ボリューム種別の指定なし」を選択した場合、ボリュームはボリューム種別の指定"
 "なしで作成されます。"
+
+msgid "If checked, the network will be enabled."
+msgstr "チェックをつけると、ネットワークが有効になります。"
+
+msgid "If checked, the port will be enabled."
+msgstr "チェックをつけると、ポートが有効になります。"
+
+msgid "If checked, the router will be enabled."
+msgstr "チェックをつけると、ルーターが有効になります。"
 
 msgid "If checked, the selected floating IP will be released at the same time."
 msgstr "チェックをつけると、選択された Floating IP は同時に解放されます。"
@@ -3466,6 +3627,9 @@ msgstr "イメージスナップショット取得待ち"
 msgid "Image Source"
 msgstr "イメージソース"
 
+msgid "Image Type"
+msgstr "イメージ種別"
+
 msgctxt "Task status of an Instance"
 msgid "Image Uploading"
 msgstr "イメージアップロード中"
@@ -3494,14 +3658,6 @@ msgstr "名前空間のインポート"
 
 msgid "Import Public Key"
 msgstr "公開鍵のインポート"
-
-msgctxt "Current status of Consistency Group"
-msgid "In-use"
-msgstr "使用中"
-
-msgctxt "Current status of Consistency Group Snapshot"
-msgid "In-use"
-msgstr "使用中"
 
 msgctxt "Current status of Volume Group"
 msgid "In-use"
@@ -3673,6 +3829,9 @@ msgstr "キーペア名"
 msgid "Key Pair Name ="
 msgstr "キーペア名 ="
 
+msgid "Key Pair Type"
+msgstr "キーペア種別"
+
 msgid "Key Pairs"
 msgstr "キーペア"
 
@@ -3682,6 +3841,16 @@ msgstr ""
 
 msgid "Key Size (bits)"
 msgstr "キーサイズ (ビット)"
+
+msgid "Key Type"
+msgstr "鍵種別"
+
+msgid ""
+"Key names can only contain alphanumeric characters, underscores, periods, "
+"colons and hyphens"
+msgstr ""
+"キー名に使用できるのは、英数字、アンダースコアー、ピリオド、コロン、およびハ"
+"イフンのみです。"
 
 msgid ""
 "Key pair name may only contain letters, numbers, underscores, spaces, and "
@@ -3693,21 +3862,41 @@ msgstr ""
 msgid "Key pair to use for authentication."
 msgstr "認証に使用するキーペア。"
 
+#, python-format
+msgid ""
+"Key with name \"%s\" already exists. Use Edit to update the value, else "
+"create key with different name."
+msgstr ""
+"名前が \"%s\" のキーはすでに存在します。「編集」を使用して値を更新してくださ"
+"い。あるいは、別の名前のキーを作成してください。"
+
 msgid "Key-Value Pairs"
 msgstr "キーと値のペア"
 
-msgid "Key: burstIOPS and Value:5000 (number value bigger than minIOPS)"
+msgid "Key: burstIOPS and Value: 5000 (number value bigger than minIOPS)"
 msgstr "キー: burstIOPS と 値: 5000 (minIOPS より大きい数値)"
 
-msgid "Key: maxIOPS and Value:5000 (number value bigger than minIOPS)"
+msgid "Key: maxIOPS and Value: 5000 (number value bigger than minIOPS)"
 msgstr "キー: maxIOPS と 値: 5000 (minIOPS より大きい数値)"
 
-msgid "Key: minIOPS and Value:20 (number value less than maxIOPS)"
+msgid "Key: minIOPS and Value: 20 (number value less than maxIOPS)"
 msgstr "キー: minIOPS と 値: 20 (maxIOPS 未満の数値)"
+
+msgid "Key: size_iops_sec and Value: 16"
+msgstr "キー: size_iops_sec と 値: 16"
+
+msgid "Key: total_bytes_sec_max and Value: 512000"
+msgstr "キー: total_bytes_sec_max と 値: 512000"
+
+msgid "Key: total_iops_sec and Value: 5000"
+msgstr "キー: total_iops_sec と 値: 5000"
 
 msgctxt "Current status of an Image"
 msgid "Killed"
 msgstr "強制終了"
+
+msgid "Kubernetes Namespace"
+msgstr "Kubernetes 名前空間"
 
 msgid "L3 Agent"
 msgstr "L3 エージェント"
@@ -3721,6 +3910,9 @@ msgstr "最終更新"
 
 msgid "Launch"
 msgstr "起動"
+
+msgid "Launch Index"
+msgstr "インデックスの起動"
 
 msgid "Launch Instance"
 msgstr "インスタンスの起動"
@@ -3778,9 +3970,16 @@ msgstr "ローカルストレージ (総量)"
 msgid "Local Storage (used)"
 msgstr "ローカルストレージ (使用中)"
 
+msgctxt "Action log of an instance"
+msgid "Lock"
+msgstr "ロック"
+
 msgid "Lock Instance"
 msgid_plural "Lock Instances"
 msgstr[0] "インスタンスのロック"
+
+msgid "Lock password"
+msgstr "パスワードのロック"
 
 msgctxt "Locked status of an instance"
 msgid "Locked"
@@ -3920,6 +4119,9 @@ msgstr "メモリー使用量"
 msgid "Message"
 msgstr "メッセージ"
 
+msgid "Message Level"
+msgstr "メッセージレベル"
+
 msgid "Messages"
 msgstr "メッセージ"
 
@@ -3935,12 +4137,19 @@ msgstr "メタデータ定義"
 msgid "Metadata Items"
 msgstr "メタデータ項目数"
 
+msgid "Method"
+msgstr "メソッド"
+
 msgid "MidoNet"
 msgstr "MidoNet"
 
 msgid "MidoNet Uplink"
 msgstr "MidoNet のアップリンク"
 
+msgid "Migrate"
+msgstr "マイグレーション"
+
+msgctxt "Action log of an instance"
 msgid "Migrate"
 msgstr "マイグレーション"
 
@@ -4006,6 +4215,9 @@ msgstr "最小ディスク (GB)"
 msgid "Minimum RAM (MB)"
 msgstr "最小メモリー (MB)"
 
+msgid "Missing required settings: {}."
+msgstr "必須の設定が定義されていません: {}"
+
 #, python-format
 msgid "Modified domain \"%s\"."
 msgstr "ドメイン \"%s\" を変更しました。"
@@ -4044,17 +4256,14 @@ msgstr "クォータの変更"
 msgid "Modify dashboard settings for your user."
 msgstr "ユーザーのダッシュボード設定を変更できます。"
 
+msgid "Modify group type name, description, and public status."
+msgstr "グループ種別の名前、説明、およびパブリックステータスを変更します。"
+
 msgid "Modify name and description of a volume."
 msgstr "ボリュームの名前と説明を変更します。"
 
 msgid "Modify the name and description of a snapshot."
 msgstr "スナップショットの名前と説明を変更します。"
-
-msgid "Modify the name and description of a volume consistency group snapshot."
-msgstr "ボリュームの整合性グループのスナップショットの名前と説明を変更します。"
-
-msgid "Modify the name and description of a volume consistency group."
-msgstr "ボリュームの整合性グループの名前と説明を変更します。"
 
 msgid "Modify the name and description of a volume group."
 msgstr "ボリュームのボリュームグループの名前と説明を変更します。"
@@ -4220,6 +4429,9 @@ msgstr "新しいサイズ (GiB)"
 msgid "New name cannot be empty."
 msgstr "新しい名前を空にすることはできません。"
 
+msgid "New name conflicts with another group type."
+msgstr "新しい名前は別のグループ種別で使われています。"
+
 msgid "New name conflicts with another volume type."
 msgstr "新しい名前は別のボリューム種別で使われています。"
 
@@ -4377,6 +4589,9 @@ msgstr "セキュリティーグループがありません。"
 msgid "No server groups available"
 msgstr "サーバーグループがありません。"
 
+msgid "No snapshot for this volume"
+msgstr "このボリュームにはスナップショットはありません"
+
 msgid "No snapshots available"
 msgstr "利用可能なスナップショットがありません"
 
@@ -4489,8 +4704,17 @@ msgstr "または、秘密鍵をコピーして貼り付けてください"
 msgid "OVA - Open Virtual Appliance"
 msgstr "OVA - オープン仮想アプライアンス"
 
+msgid "Object"
+msgstr "オブジェクト"
+
+msgid "Object ID"
+msgstr "オブジェクト ID"
+
 msgid "Object Store"
 msgstr "オブジェクトストア"
+
+msgid "Object Type"
+msgstr "オブジェクトタイプ"
 
 msgid "Old Flavor"
 msgstr "現在のフレーバー"
@@ -4520,17 +4744,8 @@ msgstr "開放するポート/ポート範囲:"
 msgid "OpenStack Profiler"
 msgstr "OpenStack Profiler"
 
-msgid "OpenStack RC File (Identity API v2.0)"
-msgstr "OpenStack RC ファイル (Identity API v2.0)"
-
-msgid "OpenStack RC File (Identity API v3)"
-msgstr "OpenStack RC ファイル (Identity API v3)"
-
-msgid "OpenStack RC File v2"
-msgstr "OpenStack RC ファイル v2"
-
-msgid "OpenStack RC File v3"
-msgstr "OpenStack RC ファイル v3"
+msgid "OpenStack RC File"
+msgstr "OpenStack RC ファイル"
 
 msgid "OpenStack clouds.yaml File"
 msgstr "OpenStack clouds.yaml ファイル"
@@ -4596,14 +4811,23 @@ msgctxt "Current status of an Instance"
 msgid "Password"
 msgstr "パスワード設定中"
 
+msgid "Password Expires At"
+msgstr "パスワード有効期限"
+
 msgid "Password changed. Please log in again to continue."
 msgstr "パスワードが変更されました。続行するには、再度ログインしてください。"
 
 msgid "Password changed. Please log in to continue."
 msgstr "パスワードが変更されました。続行するには、ログインしてください。"
 
+msgid "Password is locked."
+msgstr "パスワードがロックされています。"
+
 msgid "Passwords do not match."
 msgstr "パスワードが一致しません。"
+
+msgid "Path"
+msgstr "パス"
 
 msgctxt "Action log of an instance"
 msgid "Pause"
@@ -4635,6 +4859,11 @@ msgstr "削除待ち"
 
 msgid "Per Volume Size (GiB)"
 msgstr "1 ボリュームあたりのサイズ (GiB)"
+
+msgid "Perform a check to see if the application is ready for upgrade."
+msgstr ""
+"アプリケーションをアップグレードする準備が整っているかどうかの確認を実施しま"
+"す。"
 
 msgid "Physical Network"
 msgstr "物理ネットワーク"
@@ -4725,12 +4954,6 @@ msgstr "イメージの削除を禁止します。"
 
 msgid "Primary Project"
 msgstr "主プロジェクト"
-
-msgid "Primary Project ID"
-msgstr "主プロジェクト ID"
-
-msgid "Primary Project Name"
-msgstr "主プロジェクト名"
 
 msgid "Private Key File"
 msgstr "秘密鍵ファイル"
@@ -4836,6 +5059,9 @@ msgstr "QCOW2 - QEMU エミュレーター"
 msgid "QOS Policy ID"
 msgstr "QoS ポリシー ID"
 
+msgid "QoS Policy"
+msgstr "QoS ポリシー"
+
 #, python-format
 msgid "QoS Spec name \"%s\" already exists."
 msgstr "QoS スペック \"%s\" はすでに存在します。"
@@ -4878,6 +5104,9 @@ msgstr "処理待ち"
 msgid "Quota Name"
 msgstr "クォータ名"
 
+msgid "Quota exceeded for creating snapshots"
+msgstr "スナップショット作成のクォータを超過しました"
+
 msgid "Quota exceeded for resource router."
 msgstr "ルーターのクォータを超過しました。"
 
@@ -4903,6 +5132,16 @@ msgstr "メモリー (利用可能: %(avail)s, 要求: %(req)s)"
 
 msgid "RBAC Policies"
 msgstr "RBAC ポリシー"
+
+#, python-format
+msgid "RBAC Policy %s was successfully updated."
+msgstr "RBACポリシー %s が正常に更新されました。"
+
+msgid "RBAC Policy Details"
+msgstr "RBAC ポリシーの詳細"
+
+msgid "RBAC Policy was successfully created."
+msgstr "RBAC ポリシーが正常に作成されました。"
 
 msgid "RX/TX Factor"
 msgstr "RX/TX 係数"
@@ -5041,9 +5280,6 @@ msgid "Remove User"
 msgid_plural "Remove Users"
 msgstr[0] "ユーザーの削除"
 
-msgid "Remove Volumes from Consistency Group"
-msgstr "整合性グループからのボリュームの削除"
-
 msgid "Remove Volumes from Group"
 msgstr "ボリュームグループからのボリュームの削除"
 
@@ -5058,10 +5294,6 @@ msgstr ""
 "キーペアを削除すると、OpenStack リソースが孤立する可能性があります。キーペア"
 "がどこでも使用されていないことが確認できない場合には、そのキーペアは削除すべ"
 "きではありません。"
-
-#, python-format
-msgid "Removing volumes from volume consistency group \"%s\""
-msgstr "ボリュームの整合性グループ \"%s\" からボリュームを削除中"
 
 #, python-format
 msgid "Removing volumes from volume group \"%s\""
@@ -5097,9 +5329,19 @@ msgstr ""
 "要求があったスナップショットを作成すると、許可されたクォータを超えてしまいま"
 "す。"
 
+msgid "Required Settings"
+msgstr "必須の設定"
+
+msgctxt "Action log of an instance"
+msgid "Rescue"
+msgstr "レスキュー"
+
 msgctxt "Current status of an Instance"
 msgid "Rescue"
 msgstr "レスキュー中"
+
+msgid "Rescue Instance"
+msgstr "インスタンスのレスキュー"
 
 msgctxt "Current status of an Instance"
 msgid "Rescued"
@@ -5108,6 +5350,9 @@ msgstr "レスキュー済み"
 msgctxt "Task status of an Instance"
 msgid "Rescuing"
 msgstr "レスキュー中"
+
+msgid "Reservation ID"
+msgstr "予約の ID"
 
 msgctxt "Current status of a Volume"
 msgid "Reserved"
@@ -5238,6 +5483,9 @@ msgstr "ロール名"
 msgid "Role Name ="
 msgstr "ロール名 ="
 
+msgid "Role assignments"
+msgstr "ロール割り当て"
+
 msgid "Role created successfully."
 msgstr "ロールが正常に作成されました。"
 
@@ -5246,6 +5494,9 @@ msgstr "ロールが正常に更新されました。"
 
 msgid "Roles"
 msgstr "ロール"
+
+msgid "Roles from Groups"
+msgstr "グループからのロール"
 
 msgid "Root Disk"
 msgstr "ルートディスク"
@@ -5318,6 +5569,9 @@ msgstr "SLAAC: アドレスを外部のルーターから取得"
 msgid "SNAT"
 msgstr "SNAT"
 
+msgid "SSH Key"
+msgstr "SSH 鍵"
+
 msgid "SSH key pairs can be generated with the ssh-keygen command:"
 msgstr "SSH キーペアは ssh-keygen コマンドを使って生成できます。"
 
@@ -5330,6 +5584,10 @@ msgstr "変更の保存"
 #, python-format
 msgid "Saved extra spec \"%s\"."
 msgstr "追加スペック \"%s\" を保存しました。"
+
+#, python-format
+msgid "Saved group type spec \"%s\"."
+msgstr "グループ種別スペック \"%s\" を保存しました。"
 
 #, python-format
 msgid "Saved spec \"%s\"."
@@ -5454,11 +5712,17 @@ msgstr "ボリュームスナップショットの選択"
 msgid "Select a New Flavor"
 msgstr "新しいフレーバーを選択してください"
 
+msgid "Select a QoS policy"
+msgstr "QoS ポリシーを選択してください"
+
 msgid "Select a floating IP to disassociate"
 msgstr "割り当て解除する Floating IP を選択してください"
 
 msgid "Select a key pair"
 msgstr "キーペアを選択してください"
+
+msgid "Select a network"
+msgstr "ネットワークを選択してください"
 
 msgid "Select a new QoS spec"
 msgstr "新しい QoS スペックを選択してください"
@@ -5474,9 +5738,6 @@ msgstr "新しいホストを選択してください"
 
 msgid "Select a new status"
 msgstr "新しいステータスを選択してください"
-
-msgid "Select a new volume type"
-msgstr "新しいボリューム種別を選択してください"
 
 msgid "Select a pool"
 msgstr "プールを選択してください"
@@ -5505,6 +5766,9 @@ msgstr "このインスタンスから切断するボリュームを選択して
 msgid "Select a volume to restore to."
 msgstr "リストア先のボリュームを選択してください。"
 
+msgid "Select action and object type"
+msgstr "アクションおよびオブジェクトタイプを選択してください"
+
 msgid "Select an IP address"
 msgstr "IP アドレスを選択してください"
 
@@ -5525,6 +5789,9 @@ msgstr "ネットワークの選択"
 
 msgid "Select networks for your instance."
 msgstr "インスタンスのネットワークを選択します。"
+
+msgid "Select snapshot to backup (Optional)"
+msgstr "バックアップを作成するスナップショットを選択してください (オプション)"
 
 msgid "Select source"
 msgstr "ソースを選択してください"
@@ -5655,11 +5922,21 @@ msgstr "共有"
 msgid "Shared ="
 msgstr "共有 ="
 
+msgid "Shared Network"
+msgstr "共有ネットワーク"
+
+msgid "Shared QoS Policy"
+msgstr "共有 QoS ポリシー"
+
 msgid "Shared Storage"
 msgstr "共有ストレージ"
 
 msgid "Shared with Project"
 msgstr "プロジェクトと共有"
+
+msgctxt "Action log of an instance"
+msgid "Shelve"
+msgstr "退避"
 
 msgid "Shelve Instance"
 msgid_plural "Shelve Instances"
@@ -5730,9 +6007,6 @@ msgstr "起動するイメージの容量"
 msgid "Size(GiB) ="
 msgstr "サイズ (GiB) ="
 
-msgid "Slash is not allowed at the beginning or end of your string."
-msgstr "文字列の先頭または末尾にスラッシュを使用することはできません。"
-
 msgid "Slash is not an allowed character."
 msgstr "スラッシュ (/) は使用できません。"
 
@@ -5768,12 +6042,6 @@ msgstr "スナップショットを指定しなければいけません。"
 
 msgid "Snapshots"
 msgstr "スナップショット"
-
-msgid ""
-"Snapshots can only be created for Consistency Groups that contain volumes."
-msgstr ""
-"スナップショットを作成できるのは、ボリュームが含まれている整合性グループのみ"
-"です。"
 
 msgid "Snapshots can only be created for Groups that contain volumes."
 msgstr ""
@@ -5870,6 +6138,9 @@ msgstr ""
 
 msgid "Specify an image to upload to the Image Service."
 msgstr "イメージサービスにアップロードするイメージを指定します。"
+
+msgid "Specify network address"
+msgstr "ネットワークアドレスを指定してください"
 
 msgid "Specify the MAC address for the new port"
 msgstr "新規ポートの MAC アドレスを指定します"
@@ -5992,6 +6263,10 @@ msgid "Successfully created encryption for volume type: %s"
 msgstr "ボリューム種別の暗号化設定 %s を正常に作成しました。"
 
 #, python-format
+msgid "Successfully created group type: %s"
+msgstr "グループ種別 %s を正常に作成しました。"
+
+#, python-format
 msgid "Successfully created security group: %s"
 msgstr "セキュリティーグループ %s を正常に作成しました。"
 
@@ -6028,6 +6303,9 @@ msgstr "QoS スペックの使用者を正常に更新しました。"
 msgid "Successfully recreated ec2 credentials."
 msgstr "EC2 認証情報の再作成に成功しました。"
 
+msgid "Successfully rescued instance"
+msgstr "インスタンスを正常にレスキューしました"
+
 #, python-format
 msgid ""
 "Successfully sent the request to change the volume type to \"%(vtype)s\" for "
@@ -6063,6 +6341,9 @@ msgstr "アグリゲートの更新に成功しました: \"%s\""
 #, python-format
 msgid "Successfully updated encryption for volume type: %s"
 msgstr "ボリューム種別の暗号化設定 %s を正常に更新しました。"
+
+msgid "Successfully updated group type."
+msgstr "グループ種別を正常に更新しました。"
 
 #, python-format
 msgid "Successfully updated security group: %s"
@@ -6115,8 +6396,17 @@ msgstr "システム"
 msgid "System Information"
 msgstr "システム情報"
 
+msgid "System Scope"
+msgstr "システムスコープ"
+
 msgid "Target Host"
 msgstr "移動先ホスト"
+
+msgid "Target Project"
+msgstr "ターゲットプロジェクト"
+
+msgid "Target Tenant"
+msgstr "ターゲットテナント"
 
 msgid "Task"
 msgstr "タスク"
@@ -6173,10 +6463,10 @@ msgstr ""
 
 msgid ""
 "The <strong>Key Size</strong> is the size of the encryption key, in bits (e."
-"g., 128, 256). If the field is left empty, the provider default will be used."
+"g., 256). If the field is left empty, the provider default will be used."
 msgstr ""
-"<strong>キーサイズ</strong>は暗号鍵のビット単位のサイズです (例: 128、256)。"
-"このフィールドを空欄にすると、プロバイダーのデフォルトが使用されます。"
+"<strong>キーサイズ</strong>は暗号鍵のビット単位のサイズです (例: 256)。この"
+"フィールドを空欄にすると、プロバイダーのデフォルトが使用されます。"
 
 msgid ""
 "The <strong>Provider</strong> is the encryption provider format (e.g. 'luks' "
@@ -6328,6 +6618,9 @@ msgstr "秘密鍵で暗号化されたインスタンスのパスワード"
 msgid "The instance(s) will be shut off."
 msgstr "インスタンスが停止されます。"
 
+msgid "The key must match the following the regex: '^[a-zA-Z0-9-_:. /]'"
+msgstr "キーは次の正規表現と一致している必要があります: '^[a-zA-Z0-9-_:. /]'"
+
 #, python-format
 msgid ""
 "The key pair &quot;%(keypair_name)s&quot; should download automatically. If "
@@ -6351,16 +6644,8 @@ msgstr ""
 "初期値は 0 (最小値なし) です。"
 
 #, python-format
-msgid "The name \"%s\" is already used by another consistency group."
-msgstr "\"%s\" という名前はすでに別の整合性グループで使用されています。"
-
-#, python-format
 msgid "The name \"%s\" is already used by another flavor."
 msgstr "\"%s\" という名前はすでに他のフレーバーにより使用されています。"
-
-#, python-format
-msgid "The name \"%s\" is already used by another group."
-msgstr "\"%s\" という名前はすでに別のボリュームグループで使用されています。"
 
 #, python-format
 msgid "The name \"%s\" is already used by another host aggregate."
@@ -6381,6 +6666,16 @@ msgstr ""
 
 msgid "The new availability zone can't be empty"
 msgstr "アベイラビリティーゾーンは空にできません"
+
+msgid "The new type must be different from the current volume type."
+msgstr "新しい種別は現在のボリューム種別とは違うものでなければいけません。"
+
+msgid "The output format"
+msgstr "出力フォーマット"
+
+#, python-format
+msgid "The password does not match the requirements: %s"
+msgstr "パスワードが要求を満たしません: %s"
 
 msgid "The physical mechanism by which the virtual network is implemented."
 msgstr "仮想ネットワークを実装する物理メカニズム"
@@ -6431,14 +6726,17 @@ msgstr ""
 "要求されたインスタンスを起動できません。クォータが超過します。利用可能な"
 "クォータは %(avail)s ですが、要求された値は %(req)s です。"
 
+msgid ""
+"The rescue mode is only for emergency purpose, for example in case of a "
+"system or access failure."
+msgstr ""
+"レスキューモードは、システムやアクセスの障害の場合などの緊急用途に限ります。"
+
 msgid "The specified floating IP no longer exists."
 msgstr "指定された Floating IP はもう存在しません。"
 
 msgid "The specified port is invalid."
 msgstr "指定されたポートは無効です。"
-
-msgid "The state to start the network in."
-msgstr "ネットワークの開始時の状態"
 
 msgid ""
 "The status of a volume is normally managed automatically.  In some "
@@ -6520,13 +6818,6 @@ msgstr ""
 
 msgid ""
 "This action will unassign all volumes that are currently contained in this "
-"consistency group."
-msgstr ""
-"このアクションにより、この整合性グループに現在含まれている全ボリュームの割り"
-"当てが解除されます。"
-
-msgid ""
-"This action will unassign all volumes that are currently contained in this "
 "group."
 msgstr ""
 "このアクションにより、このボリュームグループに現在含まれている全ボリュームの"
@@ -6583,14 +6874,14 @@ msgstr ""
 msgid "This volume type is used by one or more volumes."
 msgstr "このボリューム種別は１つ以上のボリュームで使用されています。"
 
-msgid "Time Since Created"
-msgstr "作成後経過時間"
-
-msgid "Time since created"
-msgstr "作成後経過時間"
-
-msgid "Time since created (Seconds)"
-msgstr "作成後経過時間 (秒)"
+msgid ""
+"This will shut down your instance and mount the root disk to a temporary "
+"server. Then, you will be able to connect to this server, repair the system "
+"configuration or recover your data."
+msgstr ""
+"これによりインスタンスがシャットダウンされ、ルートディスクが一時サーバーにマ"
+"ウントされます。その後、このサーバーに接続して、システム設定の修復やデータの"
+"復元が可能です。"
 
 msgid "Time since update"
 msgstr "更新後経過時間"
@@ -6613,6 +6904,11 @@ msgstr ""
 msgid "To exit the fullscreen mode, click the browser's back button."
 msgstr ""
 "フルスクリーンモードを終了するには、ブラウザーの戻るボタンをクリックして下さ"
+"い。"
+
+msgid "To make group type private, uncheck this field."
+msgstr ""
+"グループ種別をプライベートにするには、このフィールドのチェックを外してくださ"
 "い。"
 
 msgid "To make volume type private, uncheck this field."
@@ -6646,7 +6942,7 @@ msgid "Topology"
 msgstr "トポロジー"
 
 msgid "Total Active RAM (MB):"
-msgstr "使用中の合計メモリー量 (GB):"
+msgstr "使用中の合計メモリー量 (MB):"
 
 msgid "Total Disk"
 msgstr "合計ディスク"
@@ -6781,17 +7077,15 @@ msgstr ""
 "ルーター \"%(name)s\" のゲートウェイを削除できません。よくある原因は、この"
 "ゲートウェイを使用している Floating IP が存在することです。"
 
-msgid "Unable to clone consistency group."
-msgstr "整合性グループのクローンを作成できません。"
-
-msgid "Unable to clone empty consistency group."
-msgstr "空の整合性グループのクローンは作成できません。"
-
 msgid "Unable to clone empty group."
 msgstr "空のボリュームグループのクローンは作成できません。"
 
 msgid "Unable to clone group."
 msgstr "ボリュームグループのクローンを作成できません。"
+
+#, python-format
+msgid "Unable to confirm resize instance \"%s\"."
+msgstr "インスタンス \"%s\" のリサイズを確認できません。"
 
 msgid "Unable to connect to Neutron."
 msgstr "Neutron に接続できません。"
@@ -6801,20 +7095,6 @@ msgstr "QoS スペックを作成できません。"
 
 msgid "Unable to create application credential."
 msgstr "アプリケーション認証情報を作成できません。"
-
-#, python-format
-msgid "Unable to create consistency group \"%s\" from snapshot."
-msgstr "整合性グループ \"%s\" をスナップショットから作成できません"
-
-msgid "Unable to create consistency group due to exceeding volume quota limit."
-msgstr ""
-"ボリュームのクォータの上限を超えているため、整合性グループを作成できません。"
-
-msgid "Unable to create consistency group snapshot."
-msgstr "整合性グループのスナップショットを作成できません。"
-
-msgid "Unable to create consistency group."
-msgstr "整合性グループを作成できません。"
 
 #, python-format
 msgid "Unable to create domain \"%s\"."
@@ -6841,6 +7121,12 @@ msgstr ""
 
 msgid "Unable to create group snapshot."
 msgstr "ボリュームグループのスナップショットを作成できません。"
+
+msgid "Unable to create group type spec."
+msgstr "グループ種別スペックを作成できません。"
+
+msgid "Unable to create group type."
+msgstr "グループ種別を作成できません。"
 
 msgid "Unable to create group."
 msgstr "グループを作成できません。"
@@ -6898,11 +7184,6 @@ msgstr "セキュリティーグループを作成できません: %s"
 
 msgid "Unable to create snapshot."
 msgstr "スナップショットを作成できません。"
-
-msgid "Unable to create snapshot. Consistency group must contain volumes."
-msgstr ""
-"スナップショットを作成できません。整合性グループにはボリュームが含まれる必要"
-"があります。"
 
 msgid "Unable to create snapshot. group must contain volumes."
 msgstr ""
@@ -6985,11 +7266,23 @@ msgstr "Floating IP %s の割り当てを解除できませんでした"
 msgid "Unable to disassociate floating IP."
 msgstr "Floating IP の割り当てを解除できません。"
 
-msgid "Unable to display consistency group."
-msgstr "整合性グループを表示できません。"
+msgid "Unable to display role assignment through groups."
+msgstr "グループからのロール割り当てを表示できません。"
 
-msgid "Unable to display group."
-msgstr "ボリュームグループを表示できません。"
+msgid "Unable to display the groups of this project."
+msgstr "このプロジェクトのグループを表示できません。"
+
+msgid "Unable to display the groups of this user."
+msgstr "このユーザーのグループを表示できません。"
+
+msgid "Unable to display the role assignments of this user."
+msgstr "このユーザーのロール割り当てを表示できません。"
+
+msgid "Unable to display the users of this project."
+msgstr "このプロジェクトのユーザーを表示できません。"
+
+msgid "Unable to edit group type spec."
+msgstr "グループ種別スペックを編集できません。"
 
 msgid "Unable to edit spec."
 msgstr "スペックを更新できません。"
@@ -7002,6 +7295,12 @@ msgstr "ボリュームを拡張できません。"
 
 msgid "Unable to fetch EC2 credentials."
 msgstr "EC2 認証情報を取得できません"
+
+msgid "Unable to fetch snapshot"
+msgstr "スナップショットを取得できません"
+
+msgid "Unable to fetch snapshots"
+msgstr "スナップショットを取得できません"
 
 msgid "Unable to find default role."
 msgstr "デフォルトのロールが見つかりません。"
@@ -7031,18 +7330,12 @@ msgstr "cinder のクォータ情報を取得できません。"
 msgid "Unable to get cinder services list."
 msgstr "Cinder のサービス一覧を取得できません。"
 
-msgid "Unable to get consistency group list"
-msgstr "整合性グループの一覧を取得できません"
-
 #, python-format
 msgid "Unable to get console for instance \"%s\"."
 msgstr "インスタンス \"%s\" のコンソールを取得できません。"
 
 msgid "Unable to get flavor list"
 msgstr "フレーバーの一覧を取得できません"
-
-msgid "Unable to get group list"
-msgstr "ボリュームグループの一覧を取得できません"
 
 msgid "Unable to get host aggregate list"
 msgstr "ホストアグリゲート一覧を取得できません。"
@@ -7082,9 +7375,6 @@ msgstr "利用可能なボリューム種別を取得できません"
 msgid "Unable to get the available volumes"
 msgstr "利用可能なボリュームを取得できません"
 
-msgid "Unable to get volume type list"
-msgstr "ボリューム種別の一覧を取得できません"
-
 msgid "Unable to import key pair."
 msgstr "キーペアをインポートできません。"
 
@@ -7103,9 +7393,6 @@ msgid "Unable to load console. Please reload page to try again."
 msgstr ""
 "コンソールをロードできません。もう一度試すには、ページを再読み込みしてくださ"
 "い。"
-
-msgid "Unable to load the specified consistency group."
-msgstr "指定した整合性グループをロードできません。"
 
 msgid "Unable to load the specified group."
 msgstr "指定したボリュームグループをロードできません。"
@@ -7169,6 +7456,9 @@ msgstr ""
 "認証プロバイダーを登録できません。指定した認証プロバイダーの ID と接続相手の "
 "ID がすでに使用されていないかどうかを確認してください。"
 
+msgid "Unable to rescue instance"
+msgstr "インスタンスをレスキューできません"
+
 #, python-format
 msgid "Unable to resize instance \"%s\"."
 msgstr "インスタンス \"%s\" をリサイズできません。"
@@ -7200,9 +7490,6 @@ msgstr "インスタンス \"%s\" のネットワーク情報を取得できま�
 msgid "Unable to retrieve Neutron quota information."
 msgstr "Neutron のクォータ情報を取得できません。"
 
-msgid "Unable to retrieve Nova availability zones."
-msgstr "Nova のアベイラビリティーゾーンを取得できません。"
-
 msgid "Unable to retrieve Nova server groups."
 msgstr "Nova のサーバーグループを取得できません。"
 
@@ -7224,9 +7511,11 @@ msgstr "QoS スペック一覧を取得できません。"
 msgid "Unable to retrieve QoS specs"
 msgstr "QoS スペックを取得できません"
 
-#, python-format
-msgid "Unable to retrieve a list of external networks \"%s\"."
-msgstr "外部ネットワーク一覧を取得できません: \"%s\""
+msgid "Unable to retrieve RBAC policies."
+msgstr "RBAC ポリシーの一覧を取得できません。"
+
+msgid "Unable to retrieve a list of external networks."
+msgstr "外部ネットワーク一覧を取得できません。"
 
 msgid "Unable to retrieve agent list."
 msgstr "エージェントの一覧を取得できません。"
@@ -7253,20 +7542,14 @@ msgstr "アベイラビリティーゾーンを取得できません。"
 msgid "Unable to retrieve backup details."
 msgstr "バックアップの詳細を取得できません。"
 
+msgid "Unable to retrieve community images."
+msgstr "コミュニティーイメージを取得できません。"
+
 msgid "Unable to retrieve compute host information."
 msgstr "コンピュートホストの情報を取得できません。"
 
 msgid "Unable to retrieve compute limit information."
 msgstr "コンピュートのリソース上限情報を取得できません。"
-
-msgid "Unable to retrieve consistency group details."
-msgstr "整合性グループの詳細を取得できません。"
-
-msgid "Unable to retrieve consistency group information."
-msgstr "整合性グループの情報を取得できません。"
-
-msgid "Unable to retrieve consistency group snapshot details."
-msgstr "整合性グループのスナップショットの詳細を取得できません。"
 
 msgid "Unable to retrieve default compute quotas."
 msgstr "コンピュートのデフォルトのクォータを取得できません。"
@@ -7291,6 +7574,10 @@ msgid "Unable to retrieve details for network \"%s\"."
 msgstr "ネットワーク \"%s\" の詳細を取得できません。"
 
 #, python-format
+msgid "Unable to retrieve details for rbac_policy \"%s\"."
+msgstr "RBAC ポリシー \"%s\" の詳細を取得できません。"
+
+#, python-format
 msgid "Unable to retrieve details for router \"%s\"."
 msgstr "ルーター \"%s\" の詳細を取得できません。"
 
@@ -7305,9 +7592,6 @@ msgstr "ドメインの一覧を取得できません。"
 
 msgid "Unable to retrieve encryption type."
 msgstr "  ボリューム種別の暗号化設定を取得できません。"
-
-msgid "Unable to retrieve extensions information"
-msgstr "拡張機能の情報を取得できません。"
 
 msgid "Unable to retrieve extensions information."
 msgstr "API 拡張機能の情報を取得できません。"
@@ -7364,8 +7648,30 @@ msgstr "グループ一覧を取得できません。後からもう一度お試
 msgid "Unable to retrieve group snapshot details."
 msgstr "ボリュームグループのスナップショットの詳細を取得できません。"
 
+msgid "Unable to retrieve group snapshot project information."
+msgstr "グループスナップショットのプロジェクト情報を取得できません。"
+
 msgid "Unable to retrieve group snapshots."
 msgstr "ボリュームグループのスナップショットの一覧を取得できません。"
+
+msgid "Unable to retrieve group type details."
+msgstr "グループ種別の詳細を取得できません。"
+
+#, python-format
+msgid "Unable to retrieve group type for: \"%s\""
+msgstr "グループ種別 \"%s\" を取得できません。"
+
+msgid "Unable to retrieve group type name."
+msgstr "グループ種別名を取得できません。"
+
+msgid "Unable to retrieve group type spec details."
+msgstr "グループ種別スペックの詳細を取得できません。"
+
+msgid "Unable to retrieve group type spec list."
+msgstr "グループ種別スペックの一覧を取得できません。"
+
+msgid "Unable to retrieve group type."
+msgstr "グループ種別を取得できません。"
 
 msgid "Unable to retrieve group types."
 msgstr "ボリュームグループタイプの一覧を取得できません。"
@@ -7400,14 +7706,14 @@ msgstr "認証プロバイダー一覧を取得できません。"
 msgid "Unable to retrieve image details."
 msgstr "イメージの詳細を取得できません。"
 
+msgid "Unable to retrieve image format list."
+msgstr "イメージ形式の一覧を取得できません。"
+
 msgid "Unable to retrieve image list."
 msgstr "イメージの一覧を取得できません。"
 
 msgid "Unable to retrieve image."
 msgstr "イメージ情報を取得できません。"
-
-msgid "Unable to retrieve images"
-msgstr "イメージ一覧を取得できません"
 
 msgid "Unable to retrieve images for the current project."
 msgstr "このプロジェクトのイメージ一覧を取得できません。"
@@ -7417,6 +7723,15 @@ msgstr "イメージ一覧を取得できません。"
 
 msgid "Unable to retrieve information about the networks' projects."
 msgstr "ネットワークのプロジェクトに関する情報を取得できません。"
+
+msgid "Unable to retrieve information about the policies' networks."
+msgstr "ポリシーのネットワークに関する情報を取得できません。"
+
+msgid "Unable to retrieve information about the policies' projects."
+msgstr "ポリシーのプロジェクトに関する情報を取得できません。"
+
+msgid "Unable to retrieve information about the policies' qos policies."
+msgstr "ポリシーの QoS ポリシーに関する情報を取得できません。"
 
 msgid "Unable to retrieve instance action list."
 msgstr "インスタンスのアクション一覧を取得できません。"
@@ -7496,6 +7811,9 @@ msgstr "プロジェクトの詳細を取得できません。"
 msgid "Unable to retrieve project domain."
 msgstr "プロジェクトドメインを取得できません。"
 
+msgid "Unable to retrieve project information of volume snapshots."
+msgstr "ボリュームスナップショットのプロジェクト情報を取得できません。"
+
 msgid "Unable to retrieve project information."
 msgstr "プロジェクト情報を取得できません。"
 
@@ -7513,6 +7831,9 @@ msgstr "公開イメージの一覧を取得できません。"
 
 msgid "Unable to retrieve quota information."
 msgstr "クォータ情報を取得できません。"
+
+msgid "Unable to retrieve rbac policy details."
+msgstr "RBAC ポリシーの詳細を取得できません。"
 
 msgid "Unable to retrieve role list."
 msgstr "ロール一覧を取得できません。"
@@ -7559,6 +7880,9 @@ msgstr "スナップショットの詳細を取得できません。"
 msgid "Unable to retrieve snapshot list."
 msgstr "スナップショット一覧を取得できません。"
 
+msgid "Unable to retrieve snapshot messages."
+msgstr "スナップショットのメッセージを取得できません。"
+
 msgid "Unable to retrieve subnet details"
 msgstr "サブネットの詳細を取得できません。"
 
@@ -7592,6 +7916,9 @@ msgstr "ユーザーの詳細を取得できません。"
 msgid "Unable to retrieve user domain role assignments."
 msgstr "ドメインのユーザーのロール割り当てを取得できません。"
 
+msgid "Unable to retrieve user domain."
+msgstr "ユーザードメインを取得できません。"
+
 msgid "Unable to retrieve user information."
 msgstr "ユーザー情報を取得できません。"
 
@@ -7613,17 +7940,14 @@ msgstr "バージョン情報を取得できません。"
 msgid "Unable to retrieve volume backups."
 msgstr "ボリュームバックアップ一覧を取得できません。"
 
-msgid "Unable to retrieve volume consistency group snapshots."
-msgstr "整合性グループのスナップショットの一覧を取得できません。"
-
-msgid "Unable to retrieve volume consistency groups."
-msgstr "ボリュームの整合性グループを取得できません。"
-
 msgid "Unable to retrieve volume details."
 msgstr "ボリュームの詳細を取得できません。"
 
 msgid "Unable to retrieve volume encryption details."
 msgstr "ボリュームの暗号化の詳細を取得できません。"
+
+msgid "Unable to retrieve volume group project information."
+msgstr "ボリュームグループのプロジェクト情報を取得できません。"
 
 msgid "Unable to retrieve volume group snapshots."
 msgstr "ボリュームグループのスナップショットの一覧を取得できません。"
@@ -7660,6 +7984,9 @@ msgstr "ボリュームのプロジェクト情報を取得できません。"
 
 msgid "Unable to retrieve volume quota information."
 msgstr "ボリュームのクォータ情報を取得できません。"
+
+msgid "Unable to retrieve volume snapshot project information."
+msgstr "ボリュームスナップショットのプロジェクト情報を取得できません。"
 
 msgid "Unable to retrieve volume snapshot."
 msgstr "ボリュームスナップショットの詳細を取得できません。"
@@ -7707,11 +8034,12 @@ msgstr "ボリューム情報を取得できません。"
 msgid "Unable to retrieve volume/instance attachment information"
 msgstr "ボリューム / インスタンスの接続情報を取得できません。"
 
-msgid "Unable to retrieve volumes availability zones."
-msgstr "ボリュームアベイラビリティーゾーンを取得できません。"
-
 msgid "Unable to retrieve volumes."
 msgstr "ボリュームの一覧を取得できません。"
+
+#, python-format
+msgid "Unable to revert resize instance \"%s\"."
+msgstr "インスタンス \"%s\" のリサイズを元に戻せません。"
 
 msgid "Unable to set Domain Context."
 msgstr "ドメインコンテキストを設定できません。"
@@ -7744,6 +8072,9 @@ msgstr "ボリュームのデフォルトクォータを更新できません。
 msgid "Unable to update encrypted volume type."
 msgstr "ボリューム種別の暗号化設定を更新できません。"
 
+msgid "Unable to update group type."
+msgstr "グループ種別を更新できません。"
+
 msgid "Unable to update group."
 msgstr "グループを更新できません。"
 
@@ -7760,6 +8091,9 @@ msgstr ""
 #, python-format
 msgid "Unable to update image \"%s\"."
 msgstr "イメージ \"%s\" を更新できません。"
+
+msgid "Unable to update instance security group."
+msgstr "インスタンスのセキュリティーグループを更新できません。"
 
 msgid "Unable to update mapping."
 msgstr "マッピングを更新できません。"
@@ -7795,9 +8129,6 @@ msgstr "ユーザーのパスワードを更新できません。"
 msgid "Unable to update the user."
 msgstr "ユーザーを更新できません。"
 
-msgid "Unable to update volume consistency group."
-msgstr "ボリュームの整合性グループを更新できません。"
-
 msgid "Unable to update volume group."
 msgstr "ボリュームグループを更新できません。"
 
@@ -7817,9 +8148,6 @@ msgstr "ボリューム種別を更新できません。"
 msgid "Unable to update volume."
 msgstr "ボリュームを更新できません。"
 
-msgid "Unable to update volumes for consistency group"
-msgstr "整合性グループのボリュームを更新できません。"
-
 msgid "Unable to update volumes for group"
 msgstr "ボリュームグループのボリュームを更新できません。"
 
@@ -7836,6 +8164,9 @@ msgstr "Neutron が仮想 NIC の種別の拡張機能に対応しているか�
 msgid "Unknown"
 msgstr "不明"
 
+msgid "Unknown Settings"
+msgstr "不明な設定"
+
 msgid "Unknown instance"
 msgstr "不明なインスタンス"
 
@@ -7845,8 +8176,15 @@ msgstr "不明なインスタンス"
 msgid "Unknown resource type for detail API."
 msgstr "詳細 API で不明なリソース種別が指定されました。"
 
+msgid "Unknown settings: {}."
+msgstr "不明な設定: {}"
+
 msgid "Unknown volume (None)"
 msgstr "不明なボリューム"
+
+msgctxt "Action log of an instance"
+msgid "Unlock"
+msgstr "ロック解除"
 
 msgid "Unlock Instance"
 msgid_plural "Unlock Instances"
@@ -7874,6 +8212,18 @@ msgid "Unregistered Identity Provider"
 msgid_plural "Unregistered Identity Providers"
 msgstr[0] "認証プロバイダーが登録解除されました"
 
+msgctxt "Action log of an instance"
+msgid "Unrescue"
+msgstr "レスキューからの復帰"
+
+msgid "Unrescue Instance"
+msgid_plural "Unrescue Instances"
+msgstr[0] "インスタンスのレスキューからの復帰"
+
+msgid "Unrescued Instance"
+msgid_plural "Unrescued Instances"
+msgstr[0] "インスタンスをレスキューから復帰しました"
+
 msgctxt "Task status of an Instance"
 msgid "Unrescuing"
 msgstr "アンレスキュー中"
@@ -7883,6 +8233,10 @@ msgstr "無制限"
 
 msgid "Unrestricted (dangerous)"
 msgstr "無制限 (危険)"
+
+msgctxt "Action log of an instance"
+msgid "Unshelve"
+msgstr "復元"
 
 msgid "Unshelve Instance"
 msgid_plural "Unshelve Instances"
@@ -7939,6 +8293,9 @@ msgstr "メタデータの更新"
 msgid "Update Network"
 msgstr "ネットワークの更新"
 
+msgid "Update RBAC Policy"
+msgstr "RBAC ポリシーの更新"
+
 msgid "Update Role"
 msgstr "ロールの更新"
 
@@ -7978,6 +8335,10 @@ msgid "Update the \"extra spec\" value for \"%(key)s\""
 msgstr "「追加スペック」の \"%(key)s\" の値を更新します。"
 
 #, python-format
+msgid "Update the \"group type spec\" value for \"%(key)s\""
+msgstr "「グループ種別スペック」の \"%(key)s\" の値を更新します。"
+
+#, python-format
 msgid "Update the spec value for \"%(key)s\""
 msgstr "スペック \"%(key)s\" の値を更新します。"
 
@@ -7991,12 +8352,12 @@ msgstr "最終更新"
 msgid "Updated subnet \"%s\"."
 msgstr "サブネット \"%s\" を更新しました。"
 
-#, python-format
-msgid "Updated volumes for consistency group \"%s\"."
-msgstr "整合性グループ \"%s\" のボリュームを更新しました。"
-
 msgid "Updated volumes for group."
 msgstr "ボリュームグループのボリュームを更新しました。"
+
+msgctxt "Current status of Volume Group"
+msgid "Updating"
+msgstr "更新中"
 
 msgctxt "Task status of an Instance"
 msgid "Updating Password"
@@ -8012,10 +8373,6 @@ msgstr ""
 #, python-format
 msgid "Updating volume \"%s\""
 msgstr "ボリューム \"%s\" を更新中"
-
-#, python-format
-msgid "Updating volume consistency group \"%s\""
-msgstr "ボリュームの整合性グループ \"%s\" を更新中"
 
 #, python-format
 msgid "Updating volume group \"%s\""
@@ -8056,9 +8413,6 @@ msgstr "期間中の使用状況レポート:"
 msgid "Use Server Default"
 msgstr "デフォルト設定を使用"
 
-msgid "Use a consistency group as source"
-msgstr "整合性グループをソースとして使用する"
-
 msgid "Use a group as source"
 msgstr "ボリュームグループをソースとして使用する"
 
@@ -8086,15 +8440,18 @@ msgid "User"
 msgstr "ユーザー"
 
 #, python-format
+msgid "User \"%s\" has been updated successfully."
+msgstr "ユーザー \"%s\" が正常に更新されました。"
+
+#, python-format
 msgid "User \"%s\" was successfully created."
 msgstr "ユーザー \"%s\" を作成しました。"
 
-#, python-format
-msgid "User %s has no role defined for that project."
-msgstr "ユーザー %s はこのプロジェクトではロールが定義されていません。"
-
 msgid "User Credentials Details"
 msgstr "ユーザー認証情報の詳細"
+
+msgid "User Data"
+msgstr "ユーザーデータ"
 
 msgid "User Details"
 msgstr "ユーザーの詳細"
@@ -8105,6 +8462,9 @@ msgstr "ユーザー ID"
 msgid "User ID ="
 msgstr "ユーザー ID ="
 
+msgid "User Message"
+msgstr "ユーザーメッセージ"
+
 msgid "User Name"
 msgstr "ユーザー名"
 
@@ -8113,9 +8473,6 @@ msgstr "ユーザー名 ="
 
 msgid "User Settings"
 msgstr "ユーザー設定"
-
-msgid "User has been updated successfully."
-msgstr "ユーザーが正常に更新されました。"
 
 #, python-format
 msgid "User name \"%s\" is already used."
@@ -8200,6 +8557,9 @@ msgstr "ログの参照"
 msgid "View Routers"
 msgstr "ルーターの表示"
 
+msgid "View Specs"
+msgstr "スペックの表示"
+
 msgid "View Usage"
 msgstr "使用状況の表示"
 
@@ -8221,9 +8581,6 @@ msgstr "ボリュームバックアップ:"
 
 msgid "Volume Backups"
 msgstr "ボリュームバックアップ"
-
-msgid "Volume Consistency Groups"
-msgstr "ボリュームの整合性グループ"
 
 msgid "Volume Encryption Details"
 msgstr "ボリュームの暗号化の詳細"
@@ -8320,24 +8677,6 @@ msgid ""
 msgstr ""
 "ボリュームを %(req)iGiB に拡張できません。拡張できる最大サイズは "
 "%(max_size)iGiB です。"
-
-msgid "Volume consistency groups can not be deleted if they contain volumes."
-msgstr ""
-"ボリュームが含まれている場合には、ボリュームの整合性グループは削除できませ"
-"ん。"
-
-msgid ""
-"Volume consistency groups provide a mechanism for creating snapshots of "
-"multiple volumes at the same point-in-time to ensure data consistency\n"
-"\n"
-"A consistency group can support more than one volume type, but it can only "
-"contain volumes hosted by the same back end."
-msgstr ""
-"ボリュームの整合性グループは、複数のボリュームスナップショットを同一時点に作"
-"成してデータの整合性を確保するためのメカニズムを提供します。\n"
-"\n"
-"整合性グループは、複数のボリューム種別をサポートすることが可能ですが、グルー"
-"プに入れることができるのは、同じバックエンドがホストするボリュームのみです。"
 
 msgid "Volume groups can not be deleted if they contain volumes."
 msgstr ""
@@ -8467,6 +8806,9 @@ msgstr ""
 "ボリュームの状態が「使用中」の場合、ボリュームをイメージにアップロードするに"
 "は「強制アップロード」にチェックを付けてください。"
 
+msgid "X509 Certificate"
+msgstr "X509 証明書"
+
 msgid "Yes"
 msgstr "はい"
 
@@ -8551,33 +8893,20 @@ msgstr ""
 msgid "You have selected:"
 msgstr "以下の項目を選択しました。"
 
-msgid ""
-"You may give the application credential an expiration. The expiration will "
-"be in UTC. If you provide an expiration date with no expiration time, the "
-"time will be assumed to be 00:00:00. If you provide an expiration time with "
-"no expiration date, the date will be assumed to be today."
-msgstr ""
-"アプリケーション認証情報の有効期限を設定できます。有効期限は UTC で設定してく"
-"ださい。期限時刻なしで期限日を設定すると、期限時刻は 00:00:00 に設定されま"
-"す。期限日なしで期限時刻を設定すると、期限日は今日に設定されます。"
-
 msgid "You may have mistyped the address or the page may have moved."
 msgstr ""
 "入力したアドレスが間違っているか、またはそのページが移動された可能性がありま"
 "す。"
 
+msgid ""
+"You may optionally select an image and set a password on the rescue instance "
+"server."
+msgstr ""
+"オプションとして、イメージを選択してインスタンスレスキュー用サーバーにパス"
+"ワードを設定することができます。"
+
 msgid "You may optionally set a password on the rebuilt instance."
 msgstr "追加で、再作成するインスタンスのパスワードを設定することができます。"
-
-msgid ""
-"You may provide your own secret, or one will be generated for you. Once your "
-"application credential is created, the secret will be revealed once. If you "
-"lose the secret, you will have to generate a new application credential."
-msgstr ""
-"シークレットキーは、ユーザーが提供することもできますが、システムで生成するこ"
-"ともできます。アプリケーション認証情報が作成されると、シークレットキーが一度"
-"だけ提示されます。シークレットキーを紛失した場合は、新しいアプリケーション認"
-"証情報を生成する必要があります。"
 
 msgid ""
 "You may reset the gateway later by using the set gateway action, but the "
@@ -8586,14 +8915,8 @@ msgstr ""
 "「ゲートウェイの設定」で再度ゲートウェイを設定することはできますが、ゲート"
 "ウェイ側の IP アドレスが変更される可能性があります。"
 
-msgid ""
-"You may select one or more roles for this application credential. If you do "
-"not select any, all of the roles you have assigned on the current project "
-"will be applied to the application credential."
-msgstr ""
-"アプリケーション認証情報のロールを一つ以上選択できます。何も選択しない場合"
-"は、現在のプロジェクトに割り当てられているすべてのロールがアプリケーション認"
-"証情報に適用されます。"
+msgid "You may update the editable properties of the RBAC policy here."
+msgstr "RBAC ポリシーの変更可能な属性を更新できます。"
 
 msgid "You may update the editable properties of your network here."
 msgstr "ネットワークの編集可能な属性をここから更新できます。"
@@ -8670,14 +8993,32 @@ msgstr "例: Yes / No"
 msgid "e.g. Yes/No"
 msgstr "例: Yes/No"
 
+msgid ""
+"flavor id can only contain alphanumeric characters, underscores, periods, "
+"hyphens, spaces."
+msgstr ""
+"フレーバーの  ID に使用できるのは、英数字、アンダースコアー、ピリオド、ハイフ"
+"ン、空白文字のみです。"
+
 msgid "front-end"
 msgstr "フロントエンド"
 
 msgid "instance"
 msgstr "インスタンス"
 
+#, python-format
+msgid ""
+"key with name \"%s\" already exists.Use Edit to update the value, else "
+"create key with different name."
+msgstr ""
+"名前が \"%s\" のキーはすでに存在します。「編集」を使用して値を更新してくださ"
+"い。あるいは、別の名前のキーを作成してください。"
+
 msgid "no"
 msgstr "いいえ"
+
+msgid "rbac policy quota exceeded."
+msgstr "RBAC ポリシーのクォータが超過しました。"
 
 msgid "undefined"
 msgstr "未定義"

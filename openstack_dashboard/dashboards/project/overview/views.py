@@ -36,7 +36,7 @@ class ProjectUsageCsvRenderer(csvbase.BaseCsvResponse):
 
     columns = [_("Instance Name"), _("VCPUs"), _("RAM (MB)"),
                _("Disk (GB)"), _("Usage (Hours)"),
-               _("Time since created (Seconds)"), _("State")]
+               _("Age (Seconds)"), _("State")]
 
     def get_row_data(self):
 
@@ -60,7 +60,7 @@ class ProjectOverview(usage.ProjectUsageView):
     csv_response_class = ProjectUsageCsvRenderer
 
     def get_data(self):
-        super(ProjectOverview, self).get_data()
+        super().get_data()
         return self.usage.get_instances()
 
 

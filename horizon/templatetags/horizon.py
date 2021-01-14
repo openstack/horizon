@@ -12,8 +12,6 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
-from __future__ import absolute_import
-
 from collections import OrderedDict
 
 from django.conf import settings
@@ -25,7 +23,6 @@ from django.utils.translation import ugettext_lazy as _
 
 from horizon.base import Horizon
 from horizon import conf
-from horizon.contrib import bootstrap_datepicker
 
 
 register = template.Library()
@@ -144,31 +141,28 @@ def horizon_dashboard_nav(context):
 def quota(val, units=None):
     if val == float("inf"):
         return _("(No Limit)")
-    elif units is not None:
+    if units is not None:
         return "%s %s %s" % (val, force_text(units),
                              force_text(_("Available")))
-    else:
-        return "%s %s" % (val, force_text(_("Available")))
+    return "%s %s" % (val, force_text(_("Available")))
 
 
 @register.filter
 def quotainf(val, units=None):
     if val == float("inf"):
         return '-1'
-    elif units is not None:
+    if units is not None:
         return "%s %s" % (val, units)
-    else:
-        return val
+    return val
 
 
 @register.simple_tag
 def quotapercent(used, limit):
     if used >= limit or limit == 0:
         return 100
-    elif limit == float("inf"):
+    if limit == float("inf"):
         return '[%s, true]' % used
-    else:
-        return round((float(used) / float(limit)) * 100)
+    return round((float(used) / float(limit)) * 100)
 
 
 class JSTemplateNode(template.Node):
@@ -206,14 +200,13 @@ def load_config():
 
 @register.simple_tag
 def datepicker_locale():
-    locale_mapping = getattr(settings, 'DATEPICKER_LOCALES',
-                             bootstrap_datepicker.LOCALE_MAPPING)
+    locale_mapping = settings.DATEPICKER_LOCALES
     return locale_mapping.get(translation.get_language(), 'en')
 
 
 @register.simple_tag
 def template_cache_age():
-    return getattr(settings, 'NG_TEMPLATE_CACHE_AGE', 0)
+    return settings.NG_TEMPLATE_CACHE_AGE
 
 
 @register.tag

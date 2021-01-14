@@ -36,7 +36,7 @@ class GroupSnapshots(horizon.Panel):
         request = context['request']
         try:
             return (
-                super(GroupSnapshots, self).allowed(context) and
+                super().allowed(context) and
                 request.user.has_perms(self.permissions) and
                 policy.check(self.policy_rules, request) and
                 api.cinder.get_microversion(request, 'groups')

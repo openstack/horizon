@@ -22,14 +22,14 @@ Installation
 
    .. code-block:: console
 
-     $ git clone https://git.openstack.org/openstack/horizon -b stable/<release> --depth=1
+     $ git clone https://opendev.org/openstack/horizon -b stable/<release> --depth=1
      $ cd horizon
 
 #. Install the horizon python module into your system
 
    .. code-block:: console
 
-     $ sudo pip install -c http://git.openstack.org/cgit/openstack/requirements/plain/upper-constraints.txt?h=stable/<release> .
+     $ sudo pip install -c https://opendev.org/openstack/requirements/raw/branch/stable/<release>/upper-constraints.txt .
 
 Configuration
 =============
@@ -66,7 +66,7 @@ GNU ``gettext`` tool is required to compile message catalogs.
 
 .. code-block:: console
 
-  $ sudo apt-get install gettext
+  $ sudo apt install gettext
   $ ./manage.py compilemessages
 
 Static Assets
@@ -96,7 +96,7 @@ read the `Django logging directive`_ and the `Python logging directive`_
 documentation. Horizon is built on Python and Django.
 
 .. _Django logging directive: https://docs.djangoproject.com/en/dev/topics/logging
-.. _Python logging directive: http://docs.python.org/2/library/logging.html
+.. _Python logging directive: https://docs.python.org/2/library/logging.html
 
 Session Storage
 ---------------
@@ -114,8 +114,10 @@ Memcached
 
   SESSION_ENGINE = 'django.contrib.sessions.backends.cache'
   CACHES = {
-      'BACKEND': 'django.core.cache.backends.memcached.MemcachedCache'
-      'LOCATION': 'my_memcached_host:11211',
+      'default': {
+          'BACKEND': 'django.core.cache.backends.memcached.MemcachedCache',
+          'LOCATION': 'controller:11211',
+      }
   }
 
 External caching using an application such as memcached offers persistence
@@ -170,7 +172,7 @@ Deployment
 
    .. code-block:: console
 
-     $ sudo apt-get install apache2 libapache2-mod-wsgi
+     $ sudo apt install apache2 libapache2-mod-wsgi
 
    You can either use the provided ``openstack_dashboard/wsgi.py`` or
    generate a ``openstack_dashboard/horizon_wsgi.py`` file with the following
@@ -185,7 +187,7 @@ Deployment
    For apache2 web server, you may need to create
    ``/etc/apache2/sites-available/horizon.conf``.
    The template in DevStack is a good example of the file.
-   http://git.openstack.org/cgit/openstack-dev/devstack/tree/files/apache-horizon.template
+   https://opendev.org/openstack/devstack/src/branch/master/files/apache-horizon.template
    Or you can automatically generate an apache configuration file. If you
    previously generated an ``openstack_dashboard/horizon_wsgi.py`` file it will
    use that, otherwise will default to using ``openstack_dashboard/wsgi.py``

@@ -26,7 +26,7 @@ class MultiTableMixin(object):
     data_method_pattern = "get_%s_data"
 
     def __init__(self, *args, **kwargs):
-        super(MultiTableMixin, self).__init__(*args, **kwargs)
+        super().__init__(*args, **kwargs)
         self.table_classes = getattr(self, "table_classes", [])
         self._data = {}
         self._tables = {}
@@ -76,8 +76,7 @@ class MultiTableMixin(object):
             cls_name = self.__class__.__name__
             raise NotImplementedError("You must define a %s method "
                                       "in %s." % (func_name, cls_name))
-        else:
-            return func
+        return func
 
     def assign_type_string(self, data, type_name, data_type):
         for datum in data:
@@ -103,7 +102,7 @@ class MultiTableMixin(object):
         return self._tables
 
     def get_context_data(self, **kwargs):
-        context = super(MultiTableMixin, self).get_context_data(**kwargs)
+        context = super().get_context_data(**kwargs)
         tables = self.get_tables()
         for name, table in tables.items():
             context["%s_table" % name] = table
@@ -275,7 +274,7 @@ class DataTableView(MultiTableView):
         return self.table
 
     def get_context_data(self, **kwargs):
-        context = super(DataTableView, self).get_context_data(**kwargs)
+        context = super().get_context_data(**kwargs)
         if hasattr(self, "table"):
             context[self.context_object_name] = self.table
         return context
@@ -355,7 +354,7 @@ class MixedDataTableView(DataTableView):
                     type_string)
 
     def get_table(self):
-        self.table = super(MixedDataTableView, self).get_table()
+        self.table = super().get_table()
         if not self.table._meta.mixed_data_type:
             raise AttributeError('You must have at least two elements in '
                                  'the data_types attribute '
@@ -366,7 +365,7 @@ class MixedDataTableView(DataTableView):
 
 class PagedTableMixin(object):
     def __init__(self, *args, **kwargs):
-        super(PagedTableMixin, self).__init__(*args, **kwargs)
+        super().__init__(*args, **kwargs)
         self._has_prev_data = False
         self._has_more_data = False
 
@@ -384,8 +383,51 @@ class PagedTableMixin(object):
         prev_marker = self.request.GET.get(meta.prev_pagination_param, None)
         if prev_marker:
             return prev_marker, "asc"
-        else:
-            marker = self.request.GET.get(meta.pagination_param, None)
-            if marker:
-                return marker, "desc"
-            return None, "desc"
+        marker = self.request.GET.get(meta.pagination_param, None)
+        if marker:
+            return marker, "desc"
+        return None, "desc"
+
+
+class PagedTableWithPageMenu(object):
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self._current_page = 1
+        self._number_of_pages = 0
+        self._total_of_entries = 0
+        self._page_size = 0
+
+    def handle_table(self, table):
+        name = table.name
+        self._tables[name]._meta.current_page = self.current_page
+        self._tables[name]._meta.number_of_pages = self.number_of_pages
+        return super().handle_table(table)
+
+    def has_prev_data(self, table):
+        return self._current_page > 1
+
+    def has_more_data(self, table):
+        return self._current_page < self._number_of_pages
+
+    def current_page(self, table=None):
+        return self._current_page
+
+    def number_of_pages(self, table=None):
+        return self._number_of_pages
+
+    def current_offset(self, table):
+        return self._current_page * self._page_size + 1
+
+    def get_page_param(self, table):
+        try:
+            meta = self.table_class._meta
+        except AttributeError:
+            meta = self.table_classes[0]._meta
+
+        return meta.pagination_param
+
+    def _get_page_number(self):
+        page_number = self.request.GET.get(self.get_page_param(None), None)
+        if page_number:
+            return int(page_number)
+        return 1

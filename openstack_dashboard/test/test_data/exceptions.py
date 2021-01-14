@@ -17,7 +17,6 @@ import glanceclient.exc as glance_exceptions
 from keystoneclient import exceptions as keystone_exceptions
 from neutronclient.common import exceptions as neutron_exceptions
 from novaclient import exceptions as nova_exceptions
-import six
 from swiftclient import client as swift_exceptions
 
 from openstack_dashboard.test.test_data import utils
@@ -44,12 +43,8 @@ def create_stubbed_exception(cls, status_code=500):
     def fake_str(self):
         return str(self.message)
 
-    def fake_unicode(self):
-        return six.text_type(self.message)
-
     cls.__init__ = fake_init_exception
     cls.__str__ = fake_str
-    cls.__unicode__ = fake_unicode
     cls.silence_logging = True
     return cls(status_code, msg)
 

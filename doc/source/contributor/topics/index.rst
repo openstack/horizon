@@ -8,6 +8,7 @@ the following topic guides.
 .. toctree::
    :maxdepth: 1
 
+   code-style
    workflows
    tables
    policy
@@ -16,5 +17,9 @@ the following topic guides.
    testing
    javascript_testing
    styling
+   release-notes
    translation
+   profiling
+   ini-based-configuration
    packaging
+   devstack

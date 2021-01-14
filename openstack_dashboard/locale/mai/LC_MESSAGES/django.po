@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: horizon VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2018-09-21 05:00+0000\n"
+"POT-Creation-Date: 2020-09-09 01:42+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -1075,6 +1075,9 @@ msgstr "इंस्टांस संपादित करू "
 msgid "Edit Network"
 msgstr "सँजाल संपादित करू"
 
+msgid "Edit Policy"
+msgstr "नीति संपादित करू"
+
 msgid "Edit Port"
 msgstr "पोर्ट संपादित करू"
 
@@ -1269,10 +1272,6 @@ msgid "Failed to add agent %(agent_name)s for network %(network)s."
 msgstr "संजाल %(network)s क लेल एजेंट %(agent_name)s जोड़ब मे बिफल रहल."
 
 #, python-format
-msgid "Failed to create network \"%(network)s\": %(reason)s"
-msgstr "सँजाल बनाबै मे बिफल \"%(network)s\": %(reason)s"
-
-#, python-format
 msgid "Failed to create network %s"
 msgstr "सँजाल %s निर्माण मे बिफल "
 
@@ -1329,20 +1328,12 @@ msgstr ""
 "बिफल."
 
 #, python-format
-msgid "Failed to retrieve network %s for a subnet"
-msgstr "सबनेट क लेल सँजाल  %s केँ पाबै मे बिफल"
-
-#, python-format
 msgid "Failed to update network %s"
 msgstr "%s सँजाल अद्यतन करबामे बिफल"
 
 #, python-format
 msgid "Failed to update router %s"
 msgstr "राउटर %s केँ अपडेट करबामे बिफल रहल"
-
-#, python-format
-msgid "Failed to update subnet \"%(sub)s\":  %(reason)s"
-msgstr " \"%(sub)s\" सबनेट अपडेट करबामे बिफल:  %(reason)s"
 
 msgid "Fault"
 msgstr "दोष"
@@ -1381,19 +1372,8 @@ msgstr "फ्लेवर चुनाव "
 msgid "Flavor Details"
 msgstr "फ्लेवर विवरण"
 
-#, python-format
-msgid "Flavor Details: %(name)s\">%(name)s"
-msgstr "फ्लेवर क विवरण: %(name)s\">%(name)s"
-
 msgid "Flavor ID ="
 msgstr "फ्लेवर ID ="
-
-msgid ""
-"Flavor ID should be UUID4 or integer. Leave this field blank or use 'auto' "
-"to set a random UUID4."
-msgstr ""
-"फ्लेवर आईडी अंक अथवा  UUID4 होनाइ चाही. एहि क्षेत्र केँ खाली राखू अथवा यादृच्छिक UUID4 "
-"सेट करै क लेल 'स्वतः' क उपयोग करू."
 
 msgid "Flavor Information"
 msgstr "फ्लेवर जानकारी"
@@ -3131,13 +3111,6 @@ msgstr ""
 "<strong>नियंत्रण स्थान</strong> ओ अनुमानित सेवा अछि जतए गोपन पूरा कएल जाइत "
 "अछि(जहिना, फ्रंट-एंड=नोवा). पूर्वनिर्धारित मान 'फ्रंट-एंड' अछि."
 
-msgid ""
-"The <strong>Key Size</strong> is the size of the encryption key, in bits (e."
-"g., 128, 256). If the field is left empty, the provider default will be used."
-msgstr ""
-"<strong>बटन आकार</strong> बिट्स मे गोपन बटन क आकार अछि (जहिना, 128, 256 बिट्स). "
-"जँ एहि फील्ड केँ खाली छोड़ा जाइत अछि तँ प्रदाता पूर्वनिर्धारित क उपयोग कएल जएताह."
-
 msgid "The Aggregate was updated."
 msgstr "सकल अद्यतन कएल गेल छल."
 
@@ -3241,9 +3214,6 @@ msgstr "अनुरोधित दृष्टांत पोर्ट पह
 msgid "The specified port is invalid."
 msgstr "निर्दिष्ट पोर्ट अमान्य अछि."
 
-msgid "The state to start the network in."
-msgstr "ओ स्थिति जकरामे संजाल प्रारंभ कएल जएताह."
-
 #, python-format
 msgid "The subnet in the Network Address is too small (/%s)."
 msgstr "सँजाल पता मे सबनेट (/% s) बहुत छोट अछि."
@@ -3279,9 +3249,6 @@ msgid ""
 msgstr ""
 "ई मात्रा वर्तमान मे एकटा इंस्टेंस सँ जुड़ल भेलहुँ अछि. किछु मामला मे, एकटा संलग्न वाल्यूम सँ "
 "एकटा स्नैपशाट बनाने क एकटा भ्रष्ट स्नैपशाट मे परिणाम कए सकैत अछि."
-
-msgid "Time since created"
-msgstr "निर्माण क समय सँ समय"
 
 msgid "Timezone"
 msgstr "समयक्षेत्र"
@@ -3556,9 +3523,6 @@ msgstr ""
 msgid "Unable to retrieve IP addresses from Neutron."
 msgstr "न्यूट्रान सँ IP पता केँ फिनु प्राप्त करबामे असमर्थ."
 
-msgid "Unable to retrieve Nova availability zones."
-msgstr "नोवा उपलब्धता क्षेत्र केँ पुनर्प्राप्त करबामे असमर्थ."
-
 msgid "Unable to retrieve QoS Spec association."
 msgstr "QoS विनिर्देश संबद्धता पुनर्प्राप्त करबामे असमर्थ."
 
@@ -3576,10 +3540,6 @@ msgstr "QoS विनिर्देश सूची पुनर्प्रा
 
 msgid "Unable to retrieve QoS specs"
 msgstr "QoS विनिर्देश पुनर्प्राप्त करबामे असमर्थ"
-
-#, python-format
-msgid "Unable to retrieve a list of external networks \"%s\"."
-msgstr "\"%s\" बाह्य संजाल क एकटा सूची प्राप्त करबामे असमर्थ"
 
 msgid "Unable to retrieve agent list."
 msgstr "प्रतिनिधि सूची केँ प्राप्त करबामे असमर्थ."
@@ -4092,10 +4052,6 @@ msgstr "प्रयोक्ता"
 msgid "User \"%s\" was successfully created."
 msgstr "प्रयोक्ता \"%s\" सफलतापूर्वक बनाएल गेल छल."
 
-#, python-format
-msgid "User %s has no role defined for that project."
-msgstr " एहि परियोजना क लेल प्रयोक्ता %s क कोनो परिभाषित भूमिका नहि अछि."
-
 msgid "User Credentials Details"
 msgstr "प्रयोक्ता क्रेडेंशियल क विवरण"
 
@@ -4107,9 +4063,6 @@ msgstr "प्रयोक्ता"
 
 msgid "User Settings"
 msgstr "प्रयोक्ता निर्धारण"
-
-msgid "User has been updated successfully."
-msgstr "प्रयोक्ता क सफलतापूर्वक अद्यतन कएल गेल अछि."
 
 #, python-format
 msgid "User name \"%s\" is already used."

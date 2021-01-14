@@ -12,8 +12,7 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
-import mock
-import six
+from unittest import mock
 
 from django.urls import reverse
 
@@ -25,7 +24,9 @@ APP_CREDS_INDEX_URL = reverse('horizon:identity:application_credentials:index')
 
 
 class ApplicationCredentialViewTests(test.TestCase):
-    def test_application_credential_create_get(self):
+    @mock.patch.object(api.keystone, 'get_identity_api_version')
+    def test_application_credential_create_get(self, mock_identity_version):
+        mock_identity_version.return_value = (3, 13)
         url = reverse('horizon:identity:application_credentials:create')
         res = self.client.get(url)
 
@@ -33,11 +34,14 @@ class ApplicationCredentialViewTests(test.TestCase):
                                 'identity/application_credentials/create.html')
 
     @mock.patch.object(api.keystone, 'application_credential_create')
+    @mock.patch.object(api.keystone, 'get_identity_api_version')
     @mock.patch.object(api.keystone, 'application_credential_list')
     def test_application_credential_create(self, mock_app_cred_list,
+                                           mock_identity_version,
                                            mock_app_cred_create):
         new_app_cred = self.application_credentials.first()
         mock_app_cred_create.return_value = new_app_cred
+        mock_identity_version.return_value = (3, 13)
         data = {
             'name': new_app_cred.name,
             'description': new_app_cred.description
@@ -47,7 +51,8 @@ class ApplicationCredentialViewTests(test.TestCase):
             'description': new_app_cred.description,
             'expires_at': new_app_cred.expires_at,
             'roles': None,
-            'unrestricted': None,
+            'access_rules': None,
+            'unrestricted': False,
             'secret': None
         }
 
@@ -59,6 +64,21 @@ class ApplicationCredentialViewTests(test.TestCase):
 
         mock_app_cred_create.assert_called_once_with(test.IsHttpRequest(),
                                                      **api_data)
+
+    @mock.patch.object(api.keystone, 'application_credential_list')
+    def test_application_credential_detail_list(self, mock_app_cred_list):
+        app_creds = self.application_credentials.list()
+        mock_app_cred_list.return_value = app_creds
+
+        res = self.client.get(
+            reverse('horizon:identity:application_credentials:index'))
+
+        self.assertTemplateUsed(
+            res, 'identity/application_credentials/index.html')
+        self.assertListEqual(res.context['table'].data, app_creds)
+        self.assertContains(res, 'Member, admin')
+        mock_app_cred_list.assert_called_once_with(test.IsHttpRequest(),
+                                                   filters={})
 
     @mock.patch.object(api.keystone, 'application_credential_get')
     def test_application_credential_detail_get(self, mock_app_cred_get):
@@ -74,7 +94,7 @@ class ApplicationCredentialViewTests(test.TestCase):
         self.assertEqual(res.context['application_credential'].name,
                          app_cred.name)
         mock_app_cred_get.assert_called_once_with(test.IsHttpRequest(),
-                                                  six.text_type(app_cred.id))
+                                                  str(app_cred.id))
 
     @mock.patch.object(api.keystone, 'application_credential_get')
     def test_application_credential_detail_get_with_exception(
@@ -88,15 +108,18 @@ class ApplicationCredentialViewTests(test.TestCase):
         res = self.client.get(url)
         self.assertRedirectsNoFollow(res, APP_CREDS_INDEX_URL)
         mock_app_cred_get.assert_called_once_with(test.IsHttpRequest(),
-                                                  six.text_type(app_cred.id))
+                                                  app_cred.id)
 
     @mock.patch.object(api.keystone, 'application_credential_create')
+    @mock.patch.object(api.keystone, 'get_identity_api_version')
     @mock.patch.object(api.keystone, 'application_credential_list')
     def test_application_credential_openrc(self, mock_app_cred_list,
+                                           mock_identity_version,
                                            mock_app_cred_create):
 
         new_app_cred = self.application_credentials.first()
         mock_app_cred_create.return_value = new_app_cred
+        mock_identity_version.return_value = (3, 13)
         data = {
             'name': new_app_cred.name,
             'description': new_app_cred.description
@@ -114,12 +137,15 @@ class ApplicationCredentialViewTests(test.TestCase):
             res, 'identity/application_credentials/openrc.sh.template')
 
     @mock.patch.object(api.keystone, 'application_credential_create')
+    @mock.patch.object(api.keystone, 'get_identity_api_version')
     @mock.patch.object(api.keystone, 'application_credential_list')
     def test_application_credential_cloudsyaml(self, mock_app_cred_list,
+                                               mock_identity_version,
                                                mock_app_cred_create):
 
         new_app_cred = self.application_credentials.first()
         mock_app_cred_create.return_value = new_app_cred
+        mock_identity_version.return_value = (3, 13)
         data = {
             'name': new_app_cred.name,
             'description': new_app_cred.description

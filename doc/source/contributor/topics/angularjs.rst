@@ -18,7 +18,7 @@ The tooling for AngularJS testing and code linting relies on npm, the
 node package manager, and thus relies on Node.js. While it is not a
 prerequisite to developing with Horizon, it is advisable to install Node.js,
 either through `downloading <https://nodejs.org/download/>`_ or
-`via a package manager <https://github.com/joyent/node/wiki/Installing-Node.js-via-package-manager>`_.
+`via a package manager <https://github.com/nodejs/node-v0.x-archive/wiki/Installing-Node.js-via-package-manager>`_.
 
 Once you have npm available on your system, run ``npm install`` from the
 horizon root directory.
@@ -46,7 +46,7 @@ specific directory or file with ``eslint file.js``.
 Horizon includes a `.eslintrc` in its root directory, that is used by the
 local tests. An explanation of the options, and details of others you may want
 to use, can be found in the
-`ESLint user guide <http://eslint.org/docs/user-guide/configuring>`_.
+`ESLint user guide <https://eslint.org/docs/user-guide/configuring>`_.
 
 Application Structure
 =====================
@@ -84,8 +84,8 @@ Code that isn't shared beyond a single dashboard is placed in
 enabled or disabled using Horizon's plugin mechanism. Therefore no dashboards
 other than ``mydashboard`` can safely use this code.
 
-The ``openstack_dashboard/dashboards/static`` directory structure determines
-how the code is deployed and matches the module structure.
+The ``openstack_dashboard/dashboards/mydashboard/static`` directory structure
+determines how the code is deployed and matches the module structure.
 For example:
 ::
 

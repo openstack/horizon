@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: horizon VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2018-09-21 05:00+0000\n"
+"POT-Creation-Date: 2020-09-09 01:42+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -1033,6 +1033,9 @@ msgstr "انسٹانس كی ترمیم كریں"
 msgid "Edit Network"
 msgstr "نیٹ ورک میں ترمیم کریں"
 
+msgid "Edit Policy"
+msgstr "پالیسی ترمیم كریں"
+
 msgid "Edit Port"
 msgstr "پورٹ كی ترمیم كریں"
 
@@ -1224,10 +1227,6 @@ msgstr ""
 "نیٹ ورک %(network)s کے لئے ایجنٹ %(agent_name)s شامل کرنے میں ناکام رہا."
 
 #, python-format
-msgid "Failed to create network \"%(network)s\": %(reason)s"
-msgstr "نیٹ ورك \"%(network)s\" كی تخلیق میں ناكام : %(reason)s"
-
-#, python-format
 msgid "Failed to create network %s"
 msgstr "نیٹ ورک %s تعمیر میں ناکام"
 
@@ -1286,20 +1285,12 @@ msgstr ""
 "کرنے میں ناکام."
 
 #, python-format
-msgid "Failed to retrieve network %s for a subnet"
-msgstr "سب نیٹ کے لئے نیٹ ورک %s کو پانے میں ناکام"
-
-#, python-format
 msgid "Failed to update network %s"
 msgstr "%s نیٹ ورک کو اپ ڈیٹ کرنے میں ناکام"
 
 #, python-format
 msgid "Failed to update router %s"
 msgstr "%s کو روٹر اپ ڈیٹ كرنے میں ناکام"
-
-#, python-format
-msgid "Failed to update subnet \"%(sub)s\":  %(reason)s"
-msgstr "\"%(sub)s\":  %(reason)s سب نیٹ طرف کرنے میں ناکام :"
 
 msgid "Fault"
 msgstr "قصور"
@@ -1334,19 +1325,8 @@ msgstr "فلوركا انتخاب"
 msgid "Flavor Details"
 msgstr "فلور تفصیلات"
 
-#, python-format
-msgid "Flavor Details: %(name)s\">%(name)s"
-msgstr "فلور تفصیلات : %(name)s\">%(name)s"
-
 msgid "Flavor ID ="
 msgstr "فلیور ID ="
-
-msgid ""
-"Flavor ID should be UUID4 or integer. Leave this field blank or use 'auto' "
-"to set a random UUID4."
-msgstr ""
-"فلیور شناخت پوائنٹس یا UUID4 ہونا چاہئے. اس علاقے کو خالی رکھیں یا بے ترتیب "
-"UUID4 قائم کرنے کے لئے 'خود بخود' کا استعمال کریں."
 
 msgid "Flavor Information"
 msgstr "فلیور معلومات"
@@ -2922,14 +2902,6 @@ msgstr ""
 "<strong> کنٹرول مقام </strong> وہ متوقع سروس ہے جہاں اینكرپشن مکمل کیا جاتا "
 "ہے (جیسے، فرنٹ-اینڈ = نووا). ڈیفالٹ ویلیو 'فرنٹ-اینڈ' ہے."
 
-msgid ""
-"The <strong>Key Size</strong> is the size of the encryption key, in bits (e."
-"g., 128, 256). If the field is left empty, the provider default will be used."
-msgstr ""
-"<strong> بٹن سائز </strong> بٹس میں انكرپشن بٹن کا سائز ہے (جیسے، 128، 256 "
-"بٹس). اگر اس فیلڈ کو خالی چھوڑا جاتا ہے تو فراہم کرنے والے ڈیفالٹ کا استعمال "
-"کیا جائے گا."
-
 msgid "The Aggregate was updated."
 msgstr "مجموعی اپ ڈیٹ کیا گیا تھا."
 
@@ -3037,9 +3009,6 @@ msgstr "درخواست مثالی پورٹ پہلے سے دیگر فلوٹینگ
 msgid "The specified port is invalid."
 msgstr "مخصوص پورٹ غیر معتبر ہے."
 
-msgid "The state to start the network in."
-msgstr "وہ حالت جس میں نیٹ ورک شروع کیا جائے گا."
-
 #, python-format
 msgid "The subnet in the Network Address is too small (/%s)."
 msgstr "نیٹ ورک پتہ میں سب نیٹ (/%s) بہت چھوٹا ہے."
@@ -3075,9 +3044,6 @@ msgid ""
 msgstr ""
 "یہ ولیوم اس وقت ایک انسٹانس سے منسلک ہے. بعض صورتوں میں، ایک منسلک ولیوم سے "
 "اسنیپ شاٹ كی تخلیق كرنے میں بدعنوان ترین تصویر کے نتیجے میں کر سکتے ہیں."
-
-msgid "Time since created"
-msgstr "وقت کے بعد سے تخلیق"
 
 msgid "Timezone"
 msgstr "ٹائم زون"
@@ -3355,9 +3321,6 @@ msgstr ""
 msgid "Unable to retrieve IP addresses from Neutron."
 msgstr "نیوٹران سے IP ایڈریس کو دوبارہ حاصل کرنے کے قابل نہیں"
 
-msgid "Unable to retrieve Nova availability zones."
-msgstr "نووا دستیابی زونس کو بازیافت کرنے میں ناقابل."
-
 msgid "Unable to retrieve QoS Spec association."
 msgstr "QoS خفیہ كاری وابستگی بازیافت کرنے کے قابل نہیں."
 
@@ -3375,10 +3338,6 @@ msgstr "QoS تصریح فہرست بازیافت کرنے کے قابل نہیں
 
 msgid "Unable to retrieve QoS specs"
 msgstr "QoS  بازیافت کرنے کے قابل نہیں"
-
-#, python-format
-msgid "Unable to retrieve a list of external networks \"%s\"."
-msgstr " \"%s\" بیرونی نیٹ ورک کی ایک فہرست حاصل کرنے میں ناقابل ۔"
 
 msgid "Unable to retrieve agent list."
 msgstr "نمائندے فہرست کو حاصل کرنے کے قابل نہیں."
@@ -3882,10 +3841,6 @@ msgstr "صارف"
 msgid "User \"%s\" was successfully created."
 msgstr "صارف \"%s\"  کامیابی بنایا گیا تھا."
 
-#, python-format
-msgid "User %s has no role defined for that project."
-msgstr "اس منصوبے کے لئے صارف %s کا کوئی وضاحت کردار نہیں ہے."
-
 msgid "User Credentials Details"
 msgstr "صارف کی تصدیق ی تفصیلات"
 
@@ -3897,9 +3852,6 @@ msgstr "صارف نام"
 
 msgid "User Settings"
 msgstr "صارف سیٹینگس"
-
-msgid "User has been updated successfully."
-msgstr "صارف کا کامیابی سے اپ ڈیٹ کیا گیا ہے."
 
 #, python-format
 msgid "User name \"%s\" is already used."

@@ -19,6 +19,8 @@ from horizon import tabs
 
 from openstack_dashboard.api import cinder
 from openstack_dashboard.dashboards.project.snapshots import tables
+from openstack_dashboard.dashboards.project.volumes \
+    import tables as vol_messages_tables
 
 
 class OverviewTab(tabs.Tab):
@@ -77,6 +79,28 @@ class SnapshotTab(tabs.TableTab):
         return snapshots
 
 
+class VolumeMessagesTab(tabs.TableTab):
+    table_classes = (vol_messages_tables.VolumeMessagesTable,)
+    name = _("Messages")
+    slug = "messages_tab"
+    template_name = ("horizon/common/_detail_table.html")
+    preload = False
+
+    def get_volume_messages_data(self):
+        messages = []
+        volume = self.tab_group.kwargs['volume'].id
+        try:
+            vol_msgs = cinder.message_list(self.request, search_opts={
+                'resource_type': 'volume', 'resource_uuid': volume})
+            for vol_msg in vol_msgs:
+                messages.append(vol_msg)
+
+        except Exception:
+            exceptions.handle(self.request, _("Unable to retrieve "
+                                              "volume messages."))
+        return messages
+
+
 class VolumeDetailTabs(tabs.DetailTabsGroup):
     slug = "volume_details"
-    tabs = (OverviewTab, SnapshotTab)
+    tabs = (OverviewTab, SnapshotTab, VolumeMessagesTab)

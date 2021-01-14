@@ -105,8 +105,7 @@ class VolumeTypeEncryptionDetailView(views.HorizonTemplateView):
     page_title = _("Volume Type Encryption Details")
 
     def get_context_data(self, **kwargs):
-        context = super(VolumeTypeEncryptionDetailView, self).\
-            get_context_data(**kwargs)
+        context = super().get_context_data(**kwargs)
         context["volume_type_encryption"] = self.get_data()
         return context
 
@@ -149,8 +148,7 @@ class CreateVolumeTypeEncryptionView(forms.ModalFormView):
         return self.name
 
     def get_context_data(self, **kwargs):
-        context = super(CreateVolumeTypeEncryptionView, self).\
-            get_context_data(**kwargs)
+        context = super().get_context_data(**kwargs)
         context['volume_type_id'] = self.kwargs['volume_type_id']
         args = (self.kwargs['volume_type_id'],)
         context['submit_url'] = reverse(self.submit_url, args=args)
@@ -186,7 +184,7 @@ class EditVolumeTypeView(forms.ModalFormView):
         return volume_type
 
     def get_context_data(self, **kwargs):
-        context = super(EditVolumeTypeView, self).get_context_data(**kwargs)
+        context = super().get_context_data(**kwargs)
         context['volume_type'] = self.get_data()
 
         return context
@@ -240,8 +238,7 @@ class UpdateVolumeTypeEncryptionView(forms.ModalFormView):
         return self.name
 
     def get_context_data(self, **kwargs):
-        context = super(UpdateVolumeTypeEncryptionView, self).\
-            get_context_data(**kwargs)
+        context = super().get_context_data(**kwargs)
         context['volume_type_id'] = self.kwargs['volume_type_id']
         args = (self.kwargs['volume_type_id'],)
         context['submit_url'] = reverse(self.submit_url, args=args)
@@ -278,8 +275,7 @@ class EditQosSpecConsumerView(forms.ModalFormView):
     page_title = _("Edit QoS Spec Consumer")
 
     def get_context_data(self, **kwargs):
-        context = super(EditQosSpecConsumerView, self).\
-            get_context_data(**kwargs)
+        context = super().get_context_data(**kwargs)
         context['qos_spec_id'] = self.kwargs["qos_spec_id"]
         args = (self.kwargs['qos_spec_id'],)
         context['submit_url'] = reverse(self.submit_url, args=args)
@@ -313,8 +309,7 @@ class ManageQosSpecAssociationView(forms.ModalFormView):
     page_title = _("Associate QoS Spec with Volume Type")
 
     def get_context_data(self, **kwargs):
-        context = super(ManageQosSpecAssociationView, self).\
-            get_context_data(**kwargs)
+        context = super().get_context_data(**kwargs)
         context['type_id'] = self.kwargs["type_id"]
         args = (self.kwargs['type_id'],)
         context['submit_url'] = reverse(self.submit_url, args=args)
@@ -389,7 +384,7 @@ class EditAccessView(forms.ModalFormView):
     page_title = _("Edit Volume Type Access")
 
     def get_context_data(self, **kwargs):
-        context = super(EditAccessView, self).get_context_data(**kwargs)
+        context = super().get_context_data(**kwargs)
         context['volume_type_id'] = self.kwargs["volume_type_id"]
         args = (self.kwargs['volume_type_id'],)
         context['submit_url'] = reverse(self.submit_url, args=args)

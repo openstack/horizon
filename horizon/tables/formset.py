@@ -11,10 +11,8 @@
 #    under the License.
 
 import collections
+import itertools
 import logging
-import sys
-
-import six
 
 from django import template
 from django.template import loader
@@ -29,7 +27,7 @@ class FormsetCell(horizon_tables.Cell):
     """A DataTable cell that knows about its field from the formset."""
 
     def __init__(self, *args, **kwargs):
-        super(FormsetCell, self).__init__(*args, **kwargs)
+        super().__init__(*args, **kwargs)
         try:
             self.field = (self.row.form or {})[self.column.name]
         except KeyError:
@@ -38,8 +36,7 @@ class FormsetCell(horizon_tables.Cell):
             if self.field.errors:
                 self.attrs['class'] = (self.attrs.get('class', '') +
                                        ' error form-group')
-                self.attrs['title'] = ' '.join(
-                    six.text_type(error) for error in self.field.errors)
+                self.attrs['title'] = ' '.join(self.field.errors)
 
 
 class FormsetRow(horizon_tables.Row):
@@ -49,16 +46,16 @@ class FormsetRow(horizon_tables.Row):
 
     def __init__(self, column, datum, form):
         self.form = form
-        super(FormsetRow, self).__init__(column, datum)
+        super().__init__(column, datum)
         if not self.cells:
             # We need to be able to handle empty rows, because there may
             # be extra empty forms in a formset. The original DataTable breaks
             # on this, because it sets self.cells to [], but later expects a
             # OrderedDict. We just fill self.cells with empty Cells.
             cells = []
-            for column in self.table.columns.values():
-                cell = self.table._meta.cell_class(None, column, self)
-                cells.append((column.name or column.auto, cell))
+            for col in self.table.columns.values():
+                cell = self.table._meta.cell_class(None, col, self)
+                cells.append((col.name or col.auto, cell))
             self.cells = collections.OrderedDict(cells)
 
     def render(self):
@@ -75,7 +72,7 @@ class FormsetDataTableMixin(object):
     formset_class = None
 
     def __init__(self, *args, **kwargs):
-        super(FormsetDataTableMixin, self).__init__(*args, **kwargs)
+        super().__init__(*args, **kwargs)
         self._formset = None
 
         # Override Meta settings, because we need custom Form and Cell classes,
@@ -136,27 +133,25 @@ class FormsetDataTableMixin(object):
             else:
                 formset = self.get_formset()
                 formset.is_valid()
-            for datum, form in six.moves.zip_longest(self.filtered_data,
+            for datum, form in itertools.zip_longest(self.filtered_data,
                                                      formset):
                 row = self._meta.row_class(self, datum, form)
                 if self.get_object_id(datum) == self.current_item_id:
                     self.selected = True
                     row.classes.append('current_selected')
                 rows.append(row)
-        except Exception:
+        except Exception as e:
             # Exceptions can be swallowed at the template level here,
             # re-raising as a TemplateSyntaxError makes them visible.
             LOG.exception("Error while rendering table rows.")
-            exc_info = sys.exc_info()
-            raise six.reraise(template.TemplateSyntaxError, exc_info[1],
-                              exc_info[2])
+            raise template.TemplateSyntaxError from e
         return rows
 
     def get_object_id(self, datum):
         # We need to support ``None`` when there are more forms than data.
         if datum is None:
             return None
-        return super(FormsetDataTableMixin, self).get_object_id(datum)
+        return super().get_object_id(datum)
 
 
 class FormsetDataTable(FormsetDataTableMixin, horizon_tables.DataTable):

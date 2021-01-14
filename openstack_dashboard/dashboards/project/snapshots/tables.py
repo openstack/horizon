@@ -56,7 +56,7 @@ class LaunchSnapshotNG(LaunchSnapshot):
 
     def __init__(self, attrs=None, **kwargs):
         kwargs['preempt'] = True
-        super(LaunchSnapshot, self).__init__(attrs, **kwargs)
+        super().__init__(attrs, **kwargs)
 
     def get_link_url(self, datum):
         url = reverse(self.url)
@@ -101,6 +101,8 @@ class DeleteVolumeSnapshot(policy.PolicyTargetMixin, tables.DeleteAction):
             # Can't delete snapshot if part of group snapshot
             if getattr(datum, 'group_snapshot_id', None):
                 return False
+            if datum.status == 'backing-up':
+                return False
         return True
 
 
@@ -142,16 +144,33 @@ class CreateVolumeFromSnapshot(tables.LinkAction):
         return False
 
 
+class CreateBackup(policy.PolicyTargetMixin, tables.LinkAction):
+    name = "backups"
+    verbose_name = _("Create Backup")
+    url = "horizon:project:volumes:create_snapshot_backup"
+    classes = ("ajax-modal",)
+    policy_rules = (("volume", "backup:create"),)
+
+    def get_link_url(self, datum):
+        snap_id = self.table.get_object_id(datum)
+        url = reverse(self.url, args=(datum.volume_id, snap_id))
+        return url
+
+    def allowed(self, request, snapshot=None):
+        return (cinder.volume_backup_supported(request) and
+                snapshot.status == 'available')
+
+
 class UpdateMetadata(tables.LinkAction):
     name = "update_metadata"
     verbose_name = _("Update Metadata")
-
+    policy_rules = (("volume", "volume:update_snapshot_metadata"),)
     ajax = False
     attrs = {"ng-controller": "MetadataModalHelperController as modal"}
 
     def __init__(self, **kwargs):
         kwargs['preempt'] = True
-        super(UpdateMetadata, self).__init__(**kwargs)
+        super().__init__(**kwargs)
 
     def get_link_url(self, datum):
         obj_id = self.table.get_object_id(datum)
@@ -224,20 +243,16 @@ class VolumeDetailsSnapshotsTable(volume_tables.VolumesTableBase):
         table_actions = (VolumeSnapshotsFilterAction, DeleteVolumeSnapshot,)
 
         launch_actions = ()
-        if getattr(settings, 'LAUNCH_INSTANCE_LEGACY_ENABLED', False):
+        if settings.LAUNCH_INSTANCE_LEGACY_ENABLED:
             launch_actions = (LaunchSnapshot,) + launch_actions
-        if getattr(settings, 'LAUNCH_INSTANCE_NG_ENABLED', True):
+        if settings.LAUNCH_INSTANCE_NG_ENABLED:
             launch_actions = (LaunchSnapshotNG,) + launch_actions
 
         row_actions = ((CreateVolumeFromSnapshot,) + launch_actions +
-                       (EditVolumeSnapshot, DeleteVolumeSnapshot,
+                       (EditVolumeSnapshot, DeleteVolumeSnapshot, CreateBackup,
                         UpdateMetadata))
         row_class = UpdateRow
         status_columns = ("status",)
-        permissions = [
-            ('openstack.services.volume', 'openstack.services.volumev2',
-             'openstack.services.volumev3'),
-        ]
 
 
 class VolumeSnapshotsTable(VolumeDetailsSnapshotsTable):
@@ -248,3 +263,21 @@ class VolumeSnapshotsTable(VolumeDetailsSnapshotsTable):
 
     class Meta(VolumeDetailsSnapshotsTable.Meta):
         pass
+
+
+class SnapshotMessagesTable(tables.DataTable):
+    message_id = tables.Column("id", verbose_name=_("ID"))
+    message_level = tables.Column("message_level",
+                                  verbose_name=_("Message Level"))
+    event_id = tables.Column("event_id",
+                             verbose_name=_("Event Id"))
+    user_message = tables.Column("user_message",
+                                 verbose_name=_("User Message"))
+    created_at = tables.Column("created_at",
+                               verbose_name=_("Created At"))
+    guaranteed_until = tables.Column("guaranteed_until",
+                                     verbose_name=_("Guaranteed Until"))
+
+    class Meta(object):
+        name = "snapshot_messages"
+        verbose_name = _("Messages")

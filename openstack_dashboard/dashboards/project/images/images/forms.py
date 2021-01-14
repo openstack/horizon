@@ -26,7 +26,6 @@ from django.forms import ValidationError
 from django.forms.widgets import HiddenInput
 from django.template import defaultfilters
 from django.utils.translation import ugettext_lazy as _
-import six
 
 from horizon import exceptions
 from horizon import forms
@@ -36,8 +35,8 @@ from openstack_dashboard import api
 from openstack_dashboard import policy
 
 
-IMAGE_BACKEND_SETTINGS = getattr(settings, 'OPENSTACK_IMAGE_BACKEND', {})
-IMAGE_FORMAT_CHOICES = IMAGE_BACKEND_SETTINGS.get('image_formats', [])
+IMAGE_BACKEND_SETTINGS = settings.OPENSTACK_IMAGE_BACKEND
+IMAGE_FORMAT_CHOICES = IMAGE_BACKEND_SETTINGS['image_formats']
 
 
 class ImageURLField(forms.URLField):
@@ -46,8 +45,10 @@ class ImageURLField(forms.URLField):
 
 if api.glance.get_image_upload_mode() == 'direct':
     FileField = forms.ExternalFileField
-    CreateParent = six.with_metaclass(forms.ExternalUploadMeta,
-                                      forms.SelfHandlingForm)
+
+    class CreateParent(forms.SelfHandlingForm,
+                       metaclass=forms.ExternalUploadMeta):
+        pass
 else:
     FileField = forms.FileField
     CreateParent = forms.SelfHandlingForm
@@ -146,7 +147,7 @@ class CreateImageForm(CreateParent):
         required=False)
 
     def __init__(self, request, *args, **kwargs):
-        super(CreateImageForm, self).__init__(request, *args, **kwargs)
+        super().__init__(request, *args, **kwargs)
 
         if (api.glance.get_image_upload_mode() == 'off' or
                 not policy.check((("image", "upload_image"),), request)):
@@ -158,7 +159,7 @@ class CreateImageForm(CreateParent):
         if api.glance.VERSIONS.active >= 2:
             # NOTE: GlanceV2 doesn't support copy-from feature, sorry!
             self._hide_is_copying()
-            if not getattr(settings, 'IMAGES_ALLOW_LOCATION', False):
+            if not settings.IMAGES_ALLOW_LOCATION:
                 self._hide_url_source_type()
                 if (api.glance.get_image_upload_mode() == 'off' or not
                         policy.check((("image", "upload_image"),), request)):
@@ -174,7 +175,8 @@ class CreateImageForm(CreateParent):
         if not policy.check((("image", "publicize_image"),), request):
             self._hide_is_public()
 
-        self.fields['disk_format'].choices = IMAGE_FORMAT_CHOICES
+        self.fields['disk_format'].choices = \
+            api.glance.get_image_formats(request)
 
         try:
             kernel_images = api.glance.image_list_detailed(
@@ -233,7 +235,7 @@ class CreateImageForm(CreateParent):
         self.fields['is_copying'].initial = False
 
     def clean(self):
-        data = super(CreateImageForm, self).clean()
+        data = super().clean()
 
         # The image_file key can be missing based on particular upload
         # conditions. Code defensively for it here...
@@ -244,11 +246,12 @@ class CreateImageForm(CreateParent):
         if not image_url and not image_file:
             msg = _("An image file or an external location must be specified.")
             if source_type == 'file':
-                raise ValidationError({'image_file': [msg, ]})
+                error_msg = {'image_file': [msg, ]}
             else:
-                raise ValidationError({'image_url': [msg, ]})
-        else:
-            return data
+                error_msg = {'image_url': [msg, ]}
+            raise ValidationError(error_msg)
+
+        return data
 
     def handle(self, request, data):
         meta = api.glance.create_image_metadata(data)
@@ -331,7 +334,7 @@ class UpdateImageForm(forms.SelfHandlingForm):
     protected = forms.BooleanField(label=_("Protected"), required=False)
 
     def __init__(self, request, *args, **kwargs):
-        super(UpdateImageForm, self).__init__(request, *args, **kwargs)
+        super().__init__(request, *args, **kwargs)
         self.fields['disk_format'].choices = [(value, name) for value,
                                               name in IMAGE_FORMAT_CHOICES
                                               if value]

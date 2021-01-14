@@ -2,31 +2,34 @@
 
 <div class="detail">
   <dl class="dl-horizontal">
-    {% if domain_id %}
-      <dt>{% trans "Domain ID" %}</dt>
-      <dd>{{ domain_id }}</dd>
-    {% endif %}
-    {% if domain_name %}
-      <dt>{% trans "Domain Name" %}</dt>
-      <dd>{{ domain_name }}</dd>
-    {% endif %}
-    <dt>{% trans "User Name" %}</dt>
-    <dd data-display="{{ user.name|default:user.id }}">{{ user.name }}</dd>
-    {% if description %}
-      <dt>{% trans "Description" %}</dt>
-      <dd>{{ description }}</dd>
-    {% endif %}
+    <dt>{% trans "Name" %}</dt>
+    <dd data-display="{{ user.name|default:user.id }}" class="word-wrap">{{ user.name }}</dd>
     <dt>{% trans "ID" %}</dt>
     <dd>{{ user.id }}</dd>
+    {% if domain_name %}
+      <dt>{% trans "Domain Name" %}</dt>
+      <dd class="word-wrap">{{ domain_name }}</dd>
+    {% endif %}
+    <dt>{% trans "Domain ID" %}</dt>
+    <dd>{{ user.domain_id }}</dd>
+    <dt>{% trans "Description" %}</dt>
+    <dd>{{ user.description|default:_("-") }}</dd>
     <dt>{% trans "Email" %}</dt>
-    <dd>{{ user.email|default:_("None") }}</dd>
+    <dd>{{ user.email|default:_("-") }}</dd>
     <dt>{% trans "Enabled" %}</dt>
     <dd>{{ user.enabled|yesno|capfirst }}</dd>
-    <dt>{% trans "Primary Project ID" %}</dt>
-    <dd>{{ user.project_id }}</dd>
-    {% if tenant_name %}
-      <dt>{% trans "Primary Project Name" %}</dt>
-      <dd>{{ tenant_name }}</dd>
+    <dt>{% trans "Password Expires At" %}</dt>
+    <dd>{{ user.password_expires_at }}</dd>
+    <dt>{% trans "Lock password" %}</dt>
+    <dd>{{ lock_password|yesno:"yes,no"|capfirst }}</dd>
+    <dt>{% trans "Primary Project" %}</dt>
+    {% if user.project_id %}
+      <dd class="word-wrap">
+        <a href="{% url 'horizon:identity:projects:detail' project_id=user.project_id %}">
+        {{ project_name|default:user.project_id }}</a>
+      </dd>
+    {% else %}
+      <dd>{% trans "-" %}</dd>
     {% endif %}
     {% if extras %}
       {% for key, value in extras.items %}

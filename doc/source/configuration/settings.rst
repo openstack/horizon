@@ -7,7 +7,7 @@ Settings Reference
 Introduction
 ============
 
-Horizon's settings broadly fall into three categories:
+Horizon's settings broadly fall into four categories:
 
 * `General Settings`_: this includes visual settings like the modal backdrop
   style, bug url and theme configuration, as well as settings that affect every
@@ -21,6 +21,8 @@ Horizon's settings broadly fall into three categories:
   should read the `Django settings documentation
   <https://docs.djangoproject.com/en/dev/topics/settings/>`_ to see the other
   options available to you.
+* `Other Settings`_: settings which do not fall into any of the above
+  categories.
 
 To modify your settings, you have two options:
 
@@ -480,9 +482,8 @@ Default:
 .. code-block:: python
 
     {
-        "data-processing": 1.1,
         "identity": 3,
-        "volume": 2,
+        "volume": 3,
         "compute": 2
     }
 
@@ -493,17 +494,44 @@ OpenStack dashboard to use a specific API version for a given service API.
 
     The version should be formatted as it appears in the URL for the
     service API. For example, the identity service APIs have inconsistent
-    use of the decimal point, so valid options would be "2.0" or "3".
+    use of the decimal point, so valid options would be "3".
     For example:
 
     .. code-block:: python
 
         OPENSTACK_API_VERSIONS = {
-            "data-processing": 1.1,
             "identity": 3,
-            "volume": 2,
+            "volume": 3,
             "compute": 2
         }
+
+OPENSTACK_CLOUDS_YAML_CUSTOM_TEMPLATE
+-------------------------------------
+
+.. versionadded:: 15.0.0(Stein)
+
+Default: ``None``
+
+Example:: ``my-clouds.yaml.template``
+
+A template name for a custom user's ``clouds.yaml`` file.
+``None`` means the default template for ``clouds.yaml`` is used.
+
+If the default template is not suitable for your deployment,
+you can provide your own clouds.yaml by specifying this setting.
+
+The default template is defined as `clouds.yaml.template
+<https://opendev.org/openstack/horizon/src/branch/master/openstack_dashboard/dashboards/project/api_access/templates/api_access/clouds.yaml.template>`__
+and available context parameters are found in ``_get_openrc_credentials()``
+and ``download_clouds_yaml_file()`` functions in
+`openstack_dashboard/dashboards/project/api_access/views.py
+<https://opendev.org/openstack/horizon/src/branch/master/openstack_dashboard/dashboards/project/api_access/views.py>`__.
+
+.. note::
+
+   Your template needs to be placed in the search paths of Django templates.
+   You may need to configure `ADD_TEMPLATE_DIRS`_ setting
+   to contain a path where your template exists.
 
 OPENSTACK_CLOUDS_YAML_NAME
 --------------------------
@@ -552,6 +580,37 @@ basic deployment.
 If you have multiple regions you should use the `AVAILABLE_REGIONS`_ setting
 instead.
 
+OPENRC_CUSTOM_TEMPLATE
+----------------------
+
+.. versionadded:: 15.0.0(Stein)
+
+Default: ``None``
+
+Example:: ``my-openrc.sh.template``
+
+A template name for a custom user's ``openrc`` file.
+``None`` means the default template for ``openrc`` is used.
+
+If the default template is not suitable for your deployment,
+for example, if your deployment uses saml2, openid and so on
+for authentication, the default ``openrc`` would not be sufficient.
+You can provide your own clouds.yaml by specifying this setting.
+
+The default template is defined as `openrc.sh.template
+<https://opendev.org/openstack/horizon/src/branch/master/openstack_dashboard/dashboards/project/api_access/templates/api_access/openrc.sh.template>`__
+and available context parameters are found in ``_get_openrc_credentials()``
+and ``download_rc_file()`` functions in
+`openstack_dashboard/dashboards/project/api_access/views.py
+<https://opendev.org/openstack/horizon/src/branch/master/openstack_dashboard/dashboards/project/api_access/views.py>`__.
+
+.. note::
+
+   Your template needs to be placed in the search paths of Django templates.
+   Check ``TEMPLATES[0]['DIRS']``.
+   You may need to specify somewhere your template exist
+   to ``DIRS`` in ``TEMPLATES`` setting.
+
 OPENSTACK_PROFILER
 ------------------
 
@@ -576,14 +635,14 @@ in that dictionary are:
 * ``"notifier_connection_string"`` is a url to which trace messages are sent by
   Horizon. For other components it is usually the only URL specified in config,
   because other components act mostly as traces producers. Example:
-  ``"notifier_connection_string": "mongodb://%s' % OPENSTACK_HOST"``.
+  ``"notifier_connection_string": "mongodb://%s" % OPENSTACK_HOST``.
 * ``"receiver_connection_string"`` is a url from which traces are retrieved by
   Horizon, needed because Horizon is not only the traces producer, but also a
   consumer. Having 2 settings which usually contain the same value is legacy
   feature from older versions of osprofiler when OpenStack components could use
   oslo.messaging for notifications and the trace client used ceilometer as a
   receiver backend. By default Horizon uses the same URL pointing to a MongoDB
-  cluster for both purposes, since ceilometer was too slow for using with UI.
+  cluster for both purposes.
   Example: ``"receiver_connection_string": "mongodb://%s" % OPENSTACK_HOST``.
 
 .. _osprofiler documentation: https://docs.openstack.org/osprofiler/latest/user/integration.html#how-to-initialize-profiler-to-get-one-trace-across-all-services
@@ -769,13 +828,14 @@ Default:
 .. code-block:: python
 
     [
-        'OPENSTACK_HYPERVISOR_FEATURES',
+        'CREATE_IMAGE_DEFAULTS',
+        'DEFAULT_BOOT_SOURCE',
+        'ENFORCE_PASSWORD_CHECK',
         'LAUNCH_INSTANCE_DEFAULTS',
+        'OPENSTACK_HYPERVISOR_FEATURES',
         'OPENSTACK_IMAGE_FORMATS',
         'OPENSTACK_KEYSTONE_BACKEND',
         'OPENSTACK_KEYSTONE_DEFAULT_DOMAIN',
-        'CREATE_IMAGE_DEFAULTS',
-        'ENFORCE_PASSWORD_CHECK'
     ]
 
 This setting allows you to expose configuration values over Horizons internal
@@ -798,6 +858,16 @@ in `AVAILABLE_THEMES`_, but a brander may wish to simply inherit from an
 existing theme and not allow that parent theme to be selected by the user.
 ``SELECTABLE_THEMES`` takes the exact same format as ``AVAILABLE_THEMES``.
 
+SESSION_REFRESH
+---------------
+
+.. versionadded:: 15.0.0(Stein)
+
+Default: ``True``
+
+Control whether the SESSION_TIMEOUT period is refreshed due to activity. If
+False, SESSION_TIMEOUT acts as a hard limit.
+
 SESSION_TIMEOUT
 ---------------
 
@@ -805,9 +875,14 @@ SESSION_TIMEOUT
 
 Default: ``"3600"``
 
-This SESSION_TIMEOUT is a method to supercede the token timeout with a shorter
-horizon session timeout (in seconds).  So if your token expires in 60 minutes,
-a value of 1800 will log users out after 30 minutes.
+This SESSION_TIMEOUT is a method to supercede the token timeout with a
+shorter horizon session timeout (in seconds). If SESSION_REFRESH is True (the
+default) SESSION_TIMEOUT acts like an idle timeout rather than being a hard
+limit, but will never exceed the token expiry. If your token expires in 60
+minutes, a value of 1800 will log users out after 30 minutes of inactivity,
+or 60 minutes with activity. Setting SESSION_REFRESH to False will make
+SESSION_TIMEOUT act like a hard limit on session times.
+
 
 MEMOIZED_MAX_SIZE_DEFAULT
 -------------------------
@@ -820,16 +895,34 @@ MEMOIZED_MAX_SIZE_DEFAULT allows setting a global default to help control
 memory usage when caching. It should at least be 2 x the number of threads
 with a little bit of extra buffer.
 
+SHOW_OPENRC_FILE
+----------------
 
-SHOW_KEYSTONE_V2_RC
---------------------
+.. versionadded:: 15.0.0(Stein)
 
-.. versionadded:: 13.0.0(Queens)
+Default:: ``True``
 
-Default: ``True``
-
-Controls whether the keystone v2 openrc file is accessible from the user
+Controls whether the keystone openrc file is accesible from the user
 menu and the api access panel.
+
+.. seealso::
+
+   `OPENRC_CUSTOM_TEMPLATE`_ to provide a custom ``openrc``.
+
+SHOW_OPENSTACK_CLOUDS_YAML
+--------------------------
+
+.. versionadded:: 15.0.0(Stein)
+
+Default:: ``True``
+
+Controls whether clouds.yaml is accesible from the user
+menu and the api access panel.
+
+.. seealso::
+
+   `OPENSTACK_CLOUDS_YAML_CUSTOM_TEMPLATE`_ to provide a custom
+   ``clouds.yaml``.
 
 THEME_COLLECTION_DIR
 --------------------
@@ -858,15 +951,12 @@ USER_MENU_LINKS
 
 .. versionadded:: 13.0.0(Queens)
 
-Default::
+Default:
+
+.. code-block:: python
 
   [
-    {'name': _('OpenStack RC File v2'),
-     'icon_classes': ['fa-download', ],
-     'url': 'horizon:project:api_access:openrcv2',
-     'external': False,
-     },
-    {'name': _('OpenStack RC File v3'),
+    {'name': _('OpenStack RC File'),
      'icon_classes': ['fa-download', ],
      'url': 'horizon:project:api_access:openrc',
      'external': False,
@@ -1094,6 +1184,19 @@ supported image formats.
 Keystone
 --------
 
+ALLOW_USERS_CHANGE_EXPIRED_PASSWORD
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. versionadded:: 16.0.0(Train)
+
+Default: ``True``
+
+When enabled, this setting lets users change their password after it has
+expired or when it is required to be changed on first use. Disabling it will
+force such users to either use the command line interface to change their
+password, or contact the system administrator.
+
+
 AUTHENTICATION_PLUGINS
 ~~~~~~~~~~~~~~~~~~~~~~
 
@@ -1130,7 +1233,7 @@ AVAILABLE_REGIONS
 Default: ``None``
 
 A list of tuples which define multiple regions. The tuple format is
-``('http://{{ keystone_host }}:5000/v3', '{{ region_name }}')``. If any regions
+``('http://{{ keystone_host }}/identity/v3', '{{ region_name }}')``. If any regions
 are specified the login form will have a dropdown selector for authenticating
 to the appropriate region, and there will be a region switcher dropdown in
 the site header when logged in.
@@ -1226,7 +1329,7 @@ Default: ``["admin"]``
 
 The list of roles that have administrator privileges in this OpenStack
 installation. This check is very basic and essentially only works with
-keystone v2.0 and v3 with the default policy file. The setting assumes there
+keystone v3 with the default policy file. The setting assumes there
 is a common ``admin`` like role(s) across services. Example uses of this
 setting are:
 
@@ -1336,27 +1439,19 @@ OPENSTACK_KEYSTONE_URL
 
 .. versionadded:: 2011.3(Diablo)
 
+.. versionchanged:: 17.1.0(Ussuri)
+
+   The default value was changed to ``"http://%s/identity/v3" % OPENSTACK_HOST``
+
 .. seealso::
 
   Horizon's `OPENSTACK_HOST`_ documentation
 
-Default: ``"http://%s:5000/v3" % OPENSTACK_HOST``
+Default: ``"http://%s/identity/v3" % OPENSTACK_HOST``
 
 The full URL for the Keystone endpoint used for authentication. Unless you
 are using HTTPS, running your Keystone server on a nonstandard port, or using
 a nonstandard URL scheme you shouldn't need to touch this setting.
-
-OPENSTACK_TOKEN_HASH_ALGORITHM
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-.. versionadded:: 2014.2(Juno)
-
-Default: ``"md5"``
-
-The hash algorithm to use for authentication tokens. This must match the hash
-algorithm that the identity (Keystone) server and the auth_token middleware
-are using. Allowed values are the algorithms supported by Python's hashlib
-library.
 
 PASSWORD_EXPIRES_WARNING_THRESHOLD_DAYS
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -1644,7 +1739,8 @@ Default:
         'enable_fip_topology_check': True,
         'enable_ha_router': False,
         'enable_ipv6': True,
-        'enable_quotas': False,
+        'enable_quotas': True,
+        'enable_rbac_policy': True,
         'enable_router': True,
         'extra_provider_types': {},
         'physical_networks': [],
@@ -1743,11 +1839,25 @@ will only expose IPv4 configuration for networks.
 enable_quotas
 #############
 
-Default: ``False``
+.. versionchanged:: 17.0.0(Ussuri)
+
+   The default value was changed to ``True``
+
+Default: ``True``
 
 Enable support for Neutron quotas feature. To make this feature work
 appropriately, you need to use Neutron plugins with quotas extension support
 and quota_driver should be DbQuotaDriver (default config).
+
+enable_rbac_policy
+##################
+
+.. versionadded:: 15.0.0(Stein)
+
+Default: ``True``
+
+Set this to True to enable RBAC Policies panel that provide the ability for
+users to use RBAC function. This option only affects when Neutron is enabled.
 
 enable_router
 #############
@@ -1943,28 +2053,19 @@ This setting specifies the type of in-browser console used to access the VMs.
 Valid values are  ``"AUTO"``, ``"VNC"``, ``"SPICE"``, ``"RDP"``,
 ``"SERIAL"``, ``"MKS"``, and ``None``.
 
-ENABLE_FLAVOR_EDIT
-~~~~~~~~~~~~~~~~~~
+DEFAULT_BOOT_SOURCE
+~~~~~~~~~~~~~~~~~~~
 
-.. versionadded:: 12.0.0(Pike)
+.. versionadded:: 18.1.0(Ussuri)
 
-.. deprecated:: 12.0.0(Pike)
+Default: ``image``
 
-Default: ``False``
+A default instance boot source. Allowed values are:
 
-This setting enables the ability to edit flavors.
-
-.. warning::
-
-  Historically, Horizon has provided the ability to edit Flavors by deleting
-  and creating a new one with the same information. This is not supported in
-  the Nova API and causes unexpected issues and breakages. To avoid breaking
-  standard deprecation procedure, this code is still in Horizon, but disabled
-  by default. It will be removed during the 14.0.0 ('R') release cycle.
-
-  See `this email thread
-  <http://lists.openstack.org/pipermail/openstack-dev/2017-August/120540.html>`_
-  for further information.
+* ``image`` - boot instance from image (default option)
+* ``snapshot`` - boot instance from instance snapshot
+* ``volume`` - boot instance from volume
+* ``volume_snapshot`` - boot instance from volume snapshot
 
 INSTANCE_LOG_LENGTH
 ~~~~~~~~~~~~~~~~~~~
@@ -2211,16 +2312,17 @@ Note that when disabling the query to neutron it takes some time until
 associated floating IPs are visible in the project instance table and
 users may reload the table to check them.
 
-OPENSTACK_NOVA_EXTENSIONS_BLACKLIST
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+OPENSTACK_USE_SIMPLE_TENANT_USAGE
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-.. versionadded:: 8.0.0(Liberty)
+.. versionadded:: 19.0.0(Wallaby)
 
-Default: ``[]``
+Default: ``True``
 
-Ignore all listed Nova extensions, and behave as if they were unsupported.
-Can be used to selectively disable certain costly extensions for performance
-reasons.
+This setting controls whether ``SimpleTenantUsage`` nova API is used in the
+usage overview. According to feedbacks to the horizon team, the usage of
+``SimpleTenantUsage`` can cause performance issues in the nova API in larger
+deployments. Try to set this to ``False`` for such cases.
 
 Swift
 -----
@@ -2236,6 +2338,19 @@ This setting specifies the size of the chunk (in bytes) for downloading objects
 from Swift. Do not make it very large (higher than several dozens of Megabytes,
 exact number depends on your connection speed), otherwise you may encounter
 socket timeout. The default value is 524288 bytes (or 512 Kilobytes).
+
+
+SWIFT_STORAGE_POLICY_DISPLAY_NAMES
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. versionadded:: 18.3.0(Ussuri)
+
+Default: ``{}``
+
+A dictionary mapping from the swift storage policy name to an alternate,
+user friendly display name which will be rendered on the dashboard. If
+no display is specified for a storage policy, the storage
+policy name will be used verbatim.
 
 Django Settings
 ===============
@@ -2401,6 +2516,15 @@ Horizon's usage of the ``TEMPLATES`` involves 3 further settings below;
 it is generally advised to use those before attempting to alter the
 ``TEMPLATES`` setting itself.
 
+ADD_TEMPLATE_DIRS
+-----------------
+
+.. versionadded:: 15.0.0(Stein)
+
+Template directories defined here will be added to ``DIRS`` option
+of Django ``TEMPLATES`` setting. It is useful when you would like to
+load deployment-specific templates.
+
 ADD_TEMPLATE_LOADERS
 ~~~~~~~~~~~~~~~~~~~~
 
@@ -2432,3 +2556,51 @@ After the whole settings process has gone through, TEMPLATE_LOADERS will be:
     TEMPLATE_LOADERS += (
         ('django.template.loaders.cached.Loader', CACHED_TEMPLATE_LOADERS),
     ) + tuple(ADD_TEMPLATE_LOADERS)
+
+Other Settings
+==============
+
+KUBECONFIG_ENABLED
+------------------
+
+.. versionadded:: TBD
+
+Default: ``False``
+
+Kubernetes clusters can use Keystone as an external identity provider.
+Horizon can generate a ``kubeconfig`` file from the application credentials
+control panel which can be used for authenticating with a Kubernetes cluster.
+This setting enables this behavior.
+
+.. seealso::
+
+   `KUBECONFIG_KUBERNETES_URL`_ and `KUBECONFIG_CERTIFICATE_AUTHORITY_DATA`_
+   to provide parameters for the ``kubeconfig`` file.
+
+KUBECONFIG_KUBERNETES_URL
+-------------------------
+
+.. versionadded:: TBD
+
+Default: ``""``
+
+A Kubernetes API endpoint URL to be included in the generated ``kubeconfig``
+file.
+
+.. seealso::
+
+   `KUBECONFIG_ENABLED`_ to enable the ``kubeconfig`` file generation.
+
+KUBECONFIG_CERTIFICATE_AUTHORITY_DATA
+-------------------------------------
+
+.. versionadded:: TBD
+
+Default: ``""``
+
+Kubernetes API endpoint certificate authority data to be included in the
+generated ``kubeconfig`` file.
+
+.. seealso::
+
+   `KUBECONFIG_ENABLED`_ to enable the ``kubeconfig`` file generation.

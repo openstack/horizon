@@ -17,6 +17,7 @@ from horizon import exceptions
 from horizon import tabs
 
 from openstack_dashboard import api
+from openstack_dashboard import policy
 
 from openstack_dashboard.dashboards.identity.projects.groups \
     import tables as groups_tables
@@ -32,15 +33,32 @@ class OverviewTab(tabs.Tab):
 
     def get_context_data(self, request):
         project = self.tab_group.kwargs['project']
-        context = {"project": project}
+        return {
+            "project": project,
+            "domain_name": self._get_domain_name(project),
+            "extras": self._get_extras(project),
+        }
 
-        if api.keystone.VERSIONS.active >= 3:
-            extra_info = getattr(settings, 'PROJECT_TABLE_EXTRA_INFO', {})
-            context['extras'] = dict(
-                (display_key, getattr(project, key, ''))
-                for key, display_key in extra_info.items())
+    def _get_domain_name(self, project):
+        domain_name = ''
+        try:
+            if policy.check((("identity", "identity:get_domain"),),
+                            self.request):
+                domain = api.keystone.domain_get(
+                    self.request, project.domain_id)
+                domain_name = domain.name
+            else:
+                domain = api.keystone.get_default_domain(self.request)
+                domain_name = domain.get('name')
+        except Exception:
+            exceptions.handle(self.request,
+                              _('Unable to retrieve project domain.'))
+        return domain_name
 
-        return context
+    def _get_extras(self, project):
+        extra_info = settings.PROJECT_TABLE_EXTRA_INFO
+        return dict((display_key, getattr(project, key, ''))
+                    for key, display_key in extra_info.items())
 
 
 class UsersTab(tabs.TableTab):

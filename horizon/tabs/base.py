@@ -15,9 +15,6 @@
 from collections import OrderedDict
 import logging
 import operator
-import sys
-
-import six
 
 from django.conf import settings
 from django.template.loader import render_to_string
@@ -105,7 +102,7 @@ class TabGroup(html.HTMLElement):
         return self._active
 
     def __init__(self, request, **kwargs):
-        super(TabGroup, self).__init__()
+        super().__init__()
         if not hasattr(self, "tabs"):
             raise NotImplementedError('%s must declare a "tabs" attribute.'
                                       % self.__class__)
@@ -190,7 +187,7 @@ class TabGroup(html.HTMLElement):
 
         Defaults to ``["nav", "nav-tabs", "ajax-tabs"]``.
         """
-        default_classes = super(TabGroup, self).get_default_classes()
+        default_classes = super().get_default_classes()
         default_classes.extend(CSS_TAB_GROUP_CLASSES)
         return default_classes
 
@@ -201,7 +198,6 @@ class TabGroup(html.HTMLElement):
         is the fallback handler. By default it's a no-op, but it exists
         to make redirecting or raising exceptions possible for subclasses.
         """
-        pass
 
     def _set_active_tab(self):
         marked_active = None
@@ -313,11 +309,10 @@ class Tab(html.HTMLElement):
     permissions = []
 
     def __init__(self, tab_group, request=None):
-        super(Tab, self).__init__()
+        super().__init__()
         # Priority: constructor, class-defined, fallback
         if not self.name:
             raise ValueError("%s must have a name." % self.__class__.__name__)
-        self.name = six.text_type(self.name)  # Force unicode.
         if not self.slug:
             raise ValueError("%s must have a slug." % self.__class__.__name__)
         self.tab_group = tab_group
@@ -372,9 +367,8 @@ class Tab(html.HTMLElement):
             context = self.data
         except exceptions.Http302:
             raise
-        except Exception:
-            exc_type, exc_value, exc_traceback = sys.exc_info()
-            raise six.reraise(TemplateSyntaxError, exc_value, exc_traceback)
+        except Exception as e:
+            raise TemplateSyntaxError from e
         return render_to_string(self.get_template_name(self.request), context)
 
     def get_id(self):
@@ -399,7 +393,7 @@ class Tab(html.HTMLElement):
         If the tab is not enabled, the classes the class ``"disabled"``
         will be added.
         """
-        default_classes = super(Tab, self).get_default_classes()
+        default_classes = super().get_default_classes()
         if self.is_active():
             default_classes.extend(CSS_ACTIVE_TAB_CLASSES)
         if not self._enabled:
@@ -456,7 +450,6 @@ class Tab(html.HTMLElement):
 
         The default behavior is to ignore POST data.
         """
-        pass
 
 
 class TableTab(Tab):
@@ -475,18 +468,23 @@ class TableTab(Tab):
         need to define a corresponding ``get_{{ table_name }}_data`` method
         as with :class:`~horizon.tables.MultiTableView`.
     """
-    table_classes = None
+    table_classes = []
 
     def __init__(self, tab_group, request):
-        super(TableTab, self).__init__(tab_group, request)
+        super().__init__(tab_group, request)
         if not self.table_classes:
             class_name = self.__class__.__name__
             raise NotImplementedError("You must define a table_class "
                                       "attribute on %s" % class_name)
         # Instantiate our table classes but don't assign data yet
-        table_instances = [(table._meta.name,
-                            table(request, **tab_group.kwargs))
-                           for table in self.table_classes]
+        if self._allowed:
+            table_instances = [(table._meta.name,
+                                table(request, **tab_group.kwargs))
+                               for table in self.table_classes]
+        else:
+            # When a corresponding tab is not allowed, there is no need to
+            # instantiate table classes (Related to bug 1791296).
+            table_instances = []
         self._tables = OrderedDict(table_instances)
         self._table_data_loaded = False
 
@@ -524,7 +522,7 @@ class TableTab(Tab):
         If only one table class is provided, a shortcut ``table`` context
         variable is also added containing the single table.
         """
-        context = super(TableTab, self).get_context_data(request, **kwargs)
+        context = super().get_context_data(request, **kwargs)
         # If the data hasn't been manually loaded before now,
         # make certain it's loaded before setting the context.
         self.load_table_data()

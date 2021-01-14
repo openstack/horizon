@@ -72,7 +72,8 @@
       detailsTemplateUrl: basePath + 'keypair/keypair-details.html',
       columns: [
         {id: 'name', title: gettext('Name'), priority: 1},
-        {id: 'fingerprint', title: gettext('Fingerprint'), priority: 2}
+        {id: 'type', title: gettext('Type'), priority: 2},
+        {id: 'fingerprint', title: gettext('Fingerprint'), priority: 3}
       ]
     };
 
@@ -87,6 +88,10 @@
     }, {
       label: gettext('Fingerprint'),
       name: 'fingerprint',
+      singleton: true
+    }, {
+      label: gettext('Type'),
+      name: 'type',
       singleton: true
     }];
 

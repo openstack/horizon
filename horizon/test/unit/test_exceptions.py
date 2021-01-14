@@ -25,7 +25,9 @@ class HandleTests(test.TestCase):
         # Japanese translation of:
         # 'Because the container is not empty, it can not be deleted.'
 
-        expected = ['error', force_text(translated_unicode), '']
+        expected = ['error', force_text(translated_unicode +
+                                        exceptions.SEPERATOR +
+                                        translated_unicode), '']
 
         req = self.request
         req.META['HTTP_X_REQUESTED_WITH'] = 'XMLHttpRequest'
@@ -37,7 +39,7 @@ class HandleTests(test.TestCase):
         # The real test here is to make sure the handle method doesn't throw a
         # UnicodeEncodeError, but making sure the message is correct and
         # useful as well.
-        self.assertItemsEqual(req.horizon['async_messages'], [expected])
+        self.assertCountEqual(req.horizon['async_messages'], [expected])
 
     def test_handle_message_as_recoverable(self):
         # tests that if a message is passed to handle that it is treated
@@ -57,6 +59,35 @@ class HandleTests(test.TestCase):
         # message part of the first message. There should be only one message
         # in this test case.
         self.assertIn(message, req.horizon['async_messages'][0][1])
-        # verifies that the exec message which in this case is not trusted
-        # is not in the message content.
-        self.assertNotIn(exc_msg, req.horizon['async_messages'][0][1])
+        # verifies that the exec message which in this case is in the
+        # message content.
+        self.assertIn(exc_msg, req.horizon['async_messages'][0][1])
+
+    def test_handle_exception_with_empty_details(self):
+        message = u"Couldn't make the thing"
+        details = ""
+        expected = ['error', message, '']
+        req = self.request
+        req.META['HTTP_X_REQUESTED_WITH'] = 'XMLHttpRequest'
+
+        try:
+            raise Exception(message)
+        except Exception:
+            exceptions.handle(req, message, details=details)
+
+        self.assertCountEqual(req.horizon['async_messages'], [expected])
+
+    def test_handle_exception_with_details(self):
+        message = u"Couldn't make the thing"
+        exc_msg = u"Exception string"
+        details = "custom detail message"
+        expected = ['error', message + exceptions.SEPERATOR + details, '']
+        req = self.request
+        req.META['HTTP_X_REQUESTED_WITH'] = 'XMLHttpRequest'
+
+        try:
+            raise Exception(exc_msg)
+        except Exception:
+            exceptions.handle(req, message, details=details)
+
+        self.assertCountEqual(req.horizon['async_messages'], [expected])

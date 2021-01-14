@@ -14,23 +14,20 @@
 import datetime
 import logging
 import re
+from urllib import parse
 
 from django.conf import settings
 from django.contrib import auth
 from django.contrib.auth import models
 from django.utils import timezone
-from keystoneauth1.identity import v2 as v2_auth
 from keystoneauth1.identity import v3 as v3_auth
 from keystoneauth1 import session
 from keystoneauth1 import token_endpoint
-from keystoneclient.v2_0 import client as client_v2
 from keystoneclient.v3 import client as client_v3
-from six.moves.urllib import parse as urlparse
 
+from openstack_auth import defaults
 
 LOG = logging.getLogger(__name__)
-
-_TOKEN_TIMEOUT_MARGIN = getattr(settings, 'TOKEN_TIMEOUT_MARGIN', 0)
 
 """
 We need the request object to get the user, so we'll slightly modify the
@@ -93,7 +90,7 @@ def is_token_valid(token, margin=None):
     if expiration is None:
         return False
     if margin is None:
-        margin = getattr(settings, 'TOKEN_TIMEOUT_MARGIN', 0)
+        margin = settings.TOKEN_TIMEOUT_MARGIN
     expiration = expiration - datetime.timedelta(seconds=margin)
     if settings.USE_TZ and timezone.is_naive(expiration):
         # Presumes that the Keystone is using UTC.
@@ -101,78 +98,47 @@ def is_token_valid(token, margin=None):
     return expiration > timezone.now()
 
 
-# From django.contrib.auth.views
-# Added in Django 1.4.3, 1.5b2
-# Vendored here for compatibility with old Django versions.
-def is_safe_url(url, host=None):
-    """Return ``True`` if the url is a safe redirection.
-
-    The safe redirection means that it doesn't point to a different host.
-    Always returns ``False`` on an empty url.
-    """
-    if not url:
-        return False
-    netloc = urlparse.urlparse(url)[1]
-    return not netloc or netloc == host
+# NOTE(amotoki):
+# This is a copy from openstack_dashboard.utils.settings.get_dict_config().
+# This copy is needed to look up defaults for openstack_auth.defaults
+# instead of openstack_dashboard.defaults.
+# TODO(amotoki): This copy might be cleanup if we can use oslo.config
+# for openstack_auth configurations.
+def _get_dict_config(name, key):
+    config = getattr(settings, name)
+    if key in config:
+        return config[key]
+    return getattr(defaults, name)[key]
 
 
 # Helper for figuring out keystone version
 # Implementation will change when API version discovery is available
 def get_keystone_version():
-    return getattr(settings, 'OPENSTACK_API_VERSIONS', {}).get('identity', 3)
+    return _get_dict_config('OPENSTACK_API_VERSIONS', 'identity')
 
 
-def get_session():
-    insecure = getattr(settings, 'OPENSTACK_SSL_NO_VERIFY', False)
-    verify = getattr(settings, 'OPENSTACK_SSL_CACERT', True)
+def get_session(**kwargs):
+    insecure = settings.OPENSTACK_SSL_NO_VERIFY
+    verify = settings.OPENSTACK_SSL_CACERT
 
     if insecure:
         verify = False
 
-    return session.Session(verify=verify)
+    return session.Session(verify=verify, **kwargs)
 
 
 def get_keystone_client():
-    if get_keystone_version() < 3:
-        return client_v2
-    else:
-        return client_v3
+    return client_v3
 
 
-def is_websso_enabled():
-    """Websso is supported in Keystone version 3."""
-    websso_enabled = getattr(settings, 'WEBSSO_ENABLED', False)
-    keystonev3_plus = (get_keystone_version() >= 3)
-    return websso_enabled and keystonev3_plus
-
-
-def is_websso_default_redirect():
-    """Checks if the websso default redirect is available.
-
-    As with websso, this is only supported in Keystone version 3.
-    """
-    websso_default_redirect = getattr(settings,
-                                      'WEBSSO_DEFAULT_REDIRECT', False)
-    keystonev3_plus = (get_keystone_version() >= 3)
-    return websso_default_redirect and keystonev3_plus
-
-
-def get_websso_default_redirect_protocol():
-    return getattr(settings, 'WEBSSO_DEFAULT_REDIRECT_PROTOCOL', None)
-
-
-def get_websso_default_redirect_region():
-    return getattr(settings, 'WEBSSO_DEFAULT_REDIRECT_REGION',
-                   settings.OPENSTACK_KEYSTONE_URL)
-
-
-def get_websso_default_redirect_logout():
-    return getattr(settings, 'WEBSSO_DEFAULT_REDIRECT_LOGOUT', None)
+def allow_expired_passowrd_change():
+    """Checks if users should be able to change their expired passwords."""
+    return getattr(settings, 'ALLOW_USERS_CHANGE_EXPIRED_PASSWORD', True)
 
 
 def build_absolute_uri(request, relative_url):
     """Ensure absolute_uri are relative to WEBROOT."""
-    webroot = getattr(settings, 'WEBROOT', '')
+    webroot = settings.WEBROOT
     if webroot.endswith("/") and relative_url.startswith("/"):
         webroot = webroot[:-1]
 
@@ -239,7 +205,7 @@ def get_websso_url(request, auth_url, websso_auth):
 
     """
     origin = build_absolute_uri(request, '/auth/websso/')
-    idp_mapping = getattr(settings, 'WEBSSO_IDP_MAPPING', {})
+    idp_mapping = settings.WEBSSO_IDP_MAPPING
     idp_id, protocol_id = idp_mapping.get(websso_auth,
                                           (None, websso_auth))
 
@@ -259,7 +225,7 @@ def get_websso_url(request, auth_url, websso_auth):
 
 def has_in_url_path(url, subs):
     """Test if any of `subs` strings is present in the `url` path."""
-    scheme, netloc, path, query, fragment = urlparse.urlsplit(url)
+    scheme, netloc, path, query, fragment = parse.urlsplit(url)
     return any([sub in path for sub in subs])
 
 
@@ -271,17 +237,17 @@ def url_path_replace(url, old, new, count=None):
     occurrences are replaced.
     """
     args = []
-    scheme, netloc, path, query, fragment = urlparse.urlsplit(url)
+    scheme, netloc, path, query, fragment = parse.urlsplit(url)
     if count is not None:
         args.append(count)
-    return urlparse.urlunsplit((
+    return parse.urlunsplit((
         scheme, netloc, path.replace(old, new, *args), query, fragment))
 
 
 def url_path_append(url, suffix):
-    scheme, netloc, path, query, fragment = urlparse.urlsplit(url)
+    scheme, netloc, path, query, fragment = parse.urlsplit(url)
     path = (path + suffix).replace('//', '/')
-    return urlparse.urlunsplit((scheme, netloc, path, query, fragment))
+    return parse.urlunsplit((scheme, netloc, path, query, fragment))
 
 
 def _augment_url_with_version(auth_url):
@@ -294,26 +260,24 @@ def _augment_url_with_version(auth_url):
     the identity URLs returned by Keystone might no longer contain API
     versions, leaving the version choice up to the user.
     """
-    if has_in_url_path(auth_url, ["/v2.0", "/v3"]):
+    if has_in_url_path(auth_url, ["/v3"]):
         return auth_url
 
-    if get_keystone_version() >= 3:
-        return url_path_append(auth_url, "/v3")
-    else:
-        return url_path_append(auth_url, "/v2.0")
+    return url_path_append(auth_url, "/v3")
 
 
 def fix_auth_url_version_prefix(auth_url):
     """Fix up the auth url if an invalid or no version prefix was given.
 
-    People still give a v2 auth_url even when they specify that they want v3
-    authentication. Fix the URL to say v3 in this case and add version if it is
+    Fix the URL to say v3 in this case and add version if it is
     missing entirely. This should be smarter and use discovery.
+    Until version discovery is implemented we need this method to get
+    everything working.
     """
     auth_url = _augment_url_with_version(auth_url)
 
     url_fixed = False
-    if get_keystone_version() >= 3 and has_in_url_path(auth_url, ["/v2.0"]):
+    if has_in_url_path(auth_url, ["/v2.0"]):
         url_fixed = True
         auth_url = url_path_replace(auth_url, "/v2.0", "/v3", 1)
 
@@ -325,28 +289,21 @@ def clean_up_auth_url(auth_url):
 
     # NOTE(mnaser): This drops the query and fragment because we're only
     #               trying to extract the Keystone URL.
-    scheme, netloc, path, query, fragment = urlparse.urlsplit(auth_url)
-    return urlparse.urlunsplit((
+    scheme, netloc, path, query, fragment = parse.urlsplit(auth_url)
+    return parse.urlunsplit((
         scheme, netloc, re.sub(r'/auth.*', '', path), '', ''))
 
 
 def get_token_auth_plugin(auth_url, token, project_id=None, domain_name=None):
-    if get_keystone_version() >= 3:
-        if domain_name:
-            return v3_auth.Token(auth_url=auth_url,
-                                 token=token,
-                                 domain_name=domain_name,
-                                 reauthenticate=False)
-        else:
-            return v3_auth.Token(auth_url=auth_url,
-                                 token=token,
-                                 project_id=project_id,
-                                 reauthenticate=False)
-    else:
-        return v2_auth.Token(auth_url=auth_url,
+    if domain_name:
+        return v3_auth.Token(auth_url=auth_url,
                              token=token,
-                             tenant_id=project_id,
+                             domain_name=domain_name,
                              reauthenticate=False)
+    return v3_auth.Token(auth_url=auth_url,
+                         token=token,
+                         project_id=project_id,
+                         reauthenticate=False)
 
 
 def get_project_list(*args, **kwargs):
@@ -356,9 +313,7 @@ def get_project_list(*args, **kwargs):
     auth = token_endpoint.Token(auth_url, kwargs['token'])
     client = get_keystone_client().Client(session=sess, auth=auth)
 
-    if get_keystone_version() < 3:
-        projects = client.tenants.list()
-    elif is_federated:
+    if is_federated:
         projects = client.federation.projects.list()
     else:
         projects = client.projects.list(user=kwargs.get('user_id'))
@@ -403,11 +358,9 @@ def default_services_region(service_catalog, request=None,
         if request:
             region_options.append(request.COOKIES.get('services_region'))
         if ks_endpoint:
-            default_service_regions = getattr(
-                settings, 'DEFAULT_SERVICE_REGIONS', {})
+            default_service_regions = settings.DEFAULT_SERVICE_REGIONS
             region_options.append(default_service_regions.get(ks_endpoint))
-        region_options.append(
-            getattr(settings, 'DEFAULT_SERVICE_REGIONS', {}).get('*'))
+        region_options.append(settings.DEFAULT_SERVICE_REGIONS.get('*'))
 
         for region in region_options:
             if region in available_regions:
@@ -442,7 +395,7 @@ def get_endpoint_region(endpoint):
 
 
 def using_cookie_backed_sessions():
-    engine = getattr(settings, 'SESSION_ENGINE', '')
+    engine = settings.SESSION_ENGINE
     return "signed_cookies" in engine
 
 
@@ -459,8 +412,7 @@ def get_admin_roles():
 
     """
     admin_roles = {role.lower() for role
-                   in getattr(settings, 'OPENSTACK_KEYSTONE_ADMIN_ROLES',
-                              ['admin'])}
+                   in settings.OPENSTACK_KEYSTONE_ADMIN_ROLES}
     return admin_roles
 
 
@@ -507,9 +459,7 @@ def get_client_ip(request):
     :returns: Possible client ip address
     :rtype: string
     """
-    _SECURE_PROXY_ADDR_HEADER = getattr(
-        settings, 'SECURE_PROXY_ADDR_HEADER', False
-    )
+    _SECURE_PROXY_ADDR_HEADER = settings.SECURE_PROXY_ADDR_HEADER
     if _SECURE_PROXY_ADDR_HEADER:
         return request.META.get(
             _SECURE_PROXY_ADDR_HEADER,
@@ -547,10 +497,8 @@ def store_initial_k2k_session(auth_url, request, scoped_auth_ref,
         providers = getattr(providers, '_service_providers', None)
 
     if providers:
-        keystone_idp_name = getattr(settings, 'KEYSTONE_PROVIDER_IDP_NAME',
-                                    'Local Keystone')
-        keystone_idp_id = getattr(
-            settings, 'KEYSTONE_PROVIDER_IDP_ID', 'localkeystone')
+        keystone_idp_name = settings.KEYSTONE_PROVIDER_IDP_NAME
+        keystone_idp_id = settings.KEYSTONE_PROVIDER_IDP_ID
         keystone_identity_provider = {'name': keystone_idp_name,
                                       'id': keystone_idp_id}
         # (edtubill) We will use the IDs as the display names

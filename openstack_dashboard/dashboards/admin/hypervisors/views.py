@@ -31,7 +31,7 @@ class AdminIndexView(tabs.TabbedTableView):
     page_title = _("All Hypervisors")
 
     def get_context_data(self, **kwargs):
-        context = super(AdminIndexView, self).get_context_data(**kwargs)
+        context = super().get_context_data(**kwargs)
         try:
             context["stats"] = api.nova.hypervisor_stats(self.request)
         except Exception:
@@ -65,7 +65,7 @@ class AdminDetailView(tables.DataTableView):
         return instances
 
     def get_context_data(self, **kwargs):
-        context = super(AdminDetailView, self).get_context_data(**kwargs)
+        context = super().get_context_data(**kwargs)
         hypervisor_name = self.kwargs['hypervisor'].split('_', 1)[1]
         breadcrumb = [(hypervisor_name, None)]
         context['custom_breadcrumb'] = breadcrumb

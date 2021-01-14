@@ -3,17 +3,19 @@
 <div class="detail">
   <dl class="dl-horizontal">
     <dt>{% trans "Name" %}</dt>
-    <dd data-display="{{ snapshot.name|default:snapshot.id }}">{{ snapshot.name }}</dd>
+    <dd data-display="{{ snapshot.name|default:snapshot.id }}" class="word-wrap">{{ snapshot.name }}</dd>
     <dt>{% trans "ID" %}</dt>
     <dd>{{ snapshot.id }}</dd>
     {% if snapshot.description %}
     <dt>{% trans "Description" %}</dt>
     <dd>{{ snapshot.description }}</dd>
     {% endif %}
+    <dt>{% trans "Project ID" %}</dt>
+    <dd>{{ snapshot.project_id|default:_("-") }}</dd>
     <dt>{% trans "Status" %}</dt>
-    <dd>{{ snapshot.status|capfirst }}</dd>
+    <dd>{{ snapshot.status|replace_underscores|capfirst }}</dd>
     <dt>{% trans "Volume" %}</dt>
-    <dd>
+    <dd class="word-wrap">
       <a href="{{ snapshot.volume_url }}">
         {% if volume.name %}
           {{ volume.name }}

@@ -16,10 +16,6 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
-from __future__ import absolute_import
-
-from django.conf import settings
-
 from horizon import exceptions
 
 from openstack_dashboard.api import base as api_base
@@ -83,25 +79,55 @@ class APIVersionTests(test.TestCase):
         self.assertEqual(api_base.Version('1.0'), version)
 
     def test_greater(self):
-        version1 = api_base.Version('1.0')
+        version10 = api_base.Version('1.0')
         version12 = api_base.Version('1.2')
         version120 = api_base.Version('1.20')
-        self.assertGreater(version12, version1)
+        self.assertGreater(version12, version10)
         self.assertGreater(version120, version12)
-        self.assertEqual(version12, 1)  # sic!
-        self.assertGreater(1.2, version1)
+        self.assertGreater(version12, 1)
+        self.assertGreater(1.2, version10)
         self.assertGreater(version120, 1.2)
         self.assertGreater('1.20', version12)
 
     def test_dict(self):
-        version1 = api_base.Version('1.0')
-        version1b = api_base.Version('1.0')
-        self.assertIn(version1, {version1b: 1})
+        test_dict = {api_base.Version('1.0'): 1}
+
+        self.assertIn(api_base.Version('1'), test_dict)
+        self.assertIn(api_base.Version('1.0'), test_dict)
+        self.assertIn(api_base.Version('1.0.0'), test_dict)
+        self.assertIn(api_base.Version(1), test_dict)
+        self.assertIn(api_base.Version(1.0), test_dict)
+
+        self.assertNotIn(api_base.Version('1.2'), test_dict)
+        self.assertNotIn(api_base.Version('1.20'), test_dict)
+
+        test_dict = {api_base.Version('1.2'): 1}
+        self.assertIn(api_base.Version('1.2'), test_dict)
+        self.assertIn(api_base.Version('1.2.0'), test_dict)
+        self.assertIn(api_base.Version(1.2), test_dict)
+
+        self.assertNotIn(api_base.Version('1'), test_dict)
+        self.assertNotIn(api_base.Version('1.0'), test_dict)
+        self.assertNotIn(api_base.Version('1.0.0'), test_dict)
+        self.assertNotIn(api_base.Version(1), test_dict)
+        self.assertNotIn(api_base.Version(1.0), test_dict)
+        self.assertNotIn(api_base.Version('1.20'), test_dict)
 
     def test_text(self):
-        version1 = api_base.Version('1.0')
-        self.assertEqual("1.0", str(version1))
-        self.assertEqual("Version('1.0')", repr(version1))
+        version10 = api_base.Version('1.0')
+        self.assertEqual("1.0", str(version10))
+        self.assertEqual("Version('1.0')", repr(version10))
+
+    def test_major_minor(self):
+        version1 = api_base.Version('1')
+        version10 = api_base.Version('1.0')
+        version120 = api_base.Version('1.20')
+        self.assertEqual(1, version1.major)
+        self.assertEqual(0, version1.minor)
+        self.assertEqual(1, version10.major)
+        self.assertEqual(0, version10.minor)
+        self.assertEqual(1, version120.major)
+        self.assertEqual(20, version120.minor)
 
 
 # Wrapper classes that only define _attrs don't need extra testing.
@@ -203,22 +229,23 @@ class APIDictWrapperTests(test.TestCase):
 class ApiVersionTests(test.TestCase):
 
     def setUp(self):
-        super(ApiVersionTests, self).setUp()
-        self.previous_settings = settings.OPENSTACK_API_VERSIONS
-        settings.OPENSTACK_API_VERSIONS = {
-            "data-processing": 1.1,
-            "identity": "2.0",
-            "volume": 1
-        }
-        # Make sure cached data from other tests doesn't interfere
-        cinder.VERSIONS.clear_active_cache()
-        keystone.VERSIONS.clear_active_cache()
-        glance.VERSIONS.clear_active_cache()
+        super().setUp()
+        override = self.settings(
+            OPENSTACK_API_VERSIONS={
+                "data-processing": 1.1,
+                "identity": "3",
+                "volume": 1
+            }
+        )
+        override.enable()
+        self.addCleanup(override.disable)
 
-    def tearDown(self):
-        super(ApiVersionTests, self).tearDown()
-        settings.OPENSTACK_API_VERSIONS = self.previous_settings
+        # Make sure cached data from other tests doesn't interfere
+        self._clear_version_cache()
         # Clear out our bogus data so it doesn't interfere
+        self.addCleanup(self._clear_version_cache)
+
+    def _clear_version_cache(self):
         cinder.VERSIONS.clear_active_cache()
         keystone.VERSIONS.clear_active_cache()
         glance.VERSIONS.clear_active_cache()
@@ -236,7 +263,7 @@ class ApiVersionTests(test.TestCase):
             self.fail("ConfigurationError raised inappropriately.")
 
 
-class ApiHelperTests(test.TestCase):
+class ApiHelperTests(test.APITestCase):
     """Tests for functions that don't use one of the api objects."""
 
     def test_url_for(self):
@@ -285,7 +312,7 @@ class ApiHelperTests(test.TestCase):
         self.request.user.services_region = "bogus_value"
         url = api_base.url_for(self.request, 'identity',
                                endpoint_type='adminURL')
-        self.assertEqual('http://admin.keystone.example.com:5000/v3', url)
+        self.assertEqual('http://admin.keystone.example.com/identity/v3', url)
 
         self.request.user.services_region = "bogus_value"
         with self.assertRaises(exceptions.ServiceCatalogException):

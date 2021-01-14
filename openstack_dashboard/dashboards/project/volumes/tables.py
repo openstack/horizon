@@ -20,9 +20,9 @@ from django.urls import reverse
 from django.utils import html
 from django.utils.http import urlencode
 from django.utils import safestring
+from django.utils.text import format_lazy
 from django.utils.translation import npgettext_lazy
 from django.utils.translation import pgettext_lazy
-from django.utils.translation import string_concat
 from django.utils.translation import ugettext_lazy as _
 from django.utils.translation import ungettext_lazy
 
@@ -33,6 +33,7 @@ from horizon import tables
 from openstack_dashboard import api
 from openstack_dashboard.api import cinder
 from openstack_dashboard import policy
+from openstack_dashboard.usage import quotas
 
 DELETABLE_STATES = ("available", "error", "error_extending")
 
@@ -74,7 +75,7 @@ class LaunchVolumeNG(LaunchVolume):
 
     def __init__(self, attrs=None, **kwargs):
         kwargs['preempt'] = True
-        super(LaunchVolume, self).__init__(attrs, **kwargs)
+        super().__init__(attrs, **kwargs)
 
     def get_link_url(self, datum):
         url = reverse(self.url)
@@ -92,6 +93,7 @@ class LaunchVolumeNG(LaunchVolume):
 class DeleteVolume(VolumePolicyTargetMixin, tables.DeleteAction):
     help_text = _("Deleted volumes are not recoverable. "
                   "All data stored in the volume will be removed.")
+    default_message_level = "info"
 
     @staticmethod
     def action_present(count):
@@ -138,7 +140,7 @@ class CreateVolume(tables.LinkAction):
 
     def __init__(self, attrs=None, **kwargs):
         kwargs['preempt'] = True
-        super(CreateVolume, self).__init__(attrs, **kwargs)
+        super().__init__(attrs, **kwargs)
 
     def allowed(self, request, volume=None):
         limits = api.cinder.tenant_absolute_limits(request)
@@ -150,9 +152,11 @@ class CreateVolume(tables.LinkAction):
 
         if gb_available <= 0 or volumes_available <= 0:
             if "disabled" not in self.classes:
-                self.classes = [c for c in self.classes] + ['disabled']
-                self.verbose_name = string_concat(self.verbose_name, ' ',
-                                                  _("(Quota exceeded)"))
+                self.classes = list(self.classes) + ['disabled']
+                self.verbose_name = format_lazy(
+                    '{verbose_name} {quota_exceeded}',
+                    verbose_name=self.verbose_name,
+                    quota_exceeded=_("(Quota exceeded)"))
         else:
             self.verbose_name = _("Create Volume")
             classes = [c for c in self.classes if c != "disabled"]
@@ -172,7 +176,7 @@ class ExtendVolume(VolumePolicyTargetMixin, tables.LinkAction):
     policy_rules = (("volume", "volume:extend"),)
 
     def allowed(self, request, volume=None):
-        return volume.status == "available"
+        return volume.status in ['available', 'in-use']
 
 
 class EditAttachments(tables.LinkAction):
@@ -223,9 +227,11 @@ class CreateSnapshot(VolumePolicyTargetMixin, tables.LinkAction):
                                limits.get('totalSnapshotsUsed', 0))
 
         if snapshots_available <= 0 and "disabled" not in self.classes:
-            self.classes = [c for c in self.classes] + ['disabled']
-            self.verbose_name = string_concat(self.verbose_name, ' ',
-                                              _("(Quota exceeded)"))
+            self.classes = list(self.classes) + ['disabled']
+            self.verbose_name = format_lazy(
+                '{verbose_name} {quota_exceeded}',
+                verbose_name=self.verbose_name,
+                quota_exceeded=_("(Quota exceeded)"))
         return volume.status in ("available", "in-use")
 
 
@@ -301,6 +307,24 @@ class AcceptTransfer(tables.LinkAction):
     icon = "exchange"
     policy_rules = (("volume", "volume:accept_transfer"),)
     ajax = True
+
+    def allowed(self, request, volume=None):
+        usages = quotas.tenant_quota_usages(request,
+                                            targets=('volumes', 'gigabytes'))
+        gb_available = usages['gigabytes']['available']
+        volumes_available = usages['volumes']['available']
+        if gb_available <= 0 or volumes_available <= 0:
+            if "disabled" not in self.classes:
+                self.classes = list(self.classes) + ['disabled']
+                self.verbose_name = format_lazy(
+                    '{verbose_name} {quota_exceeded}',
+                    verbose_name=self.verbose_name,
+                    quota_exceeded=_("(Quota exceeded)"))
+        else:
+            self.verbose_name = _("Accept Transfer")
+            classes = [c for c in self.classes if c != "disabled"]
+            self.classes = classes
+        return True
 
     def single(self, table, request, object_id=None):
         return HttpResponse(self.render())
@@ -421,10 +445,9 @@ def get_volume_type(volume):
 def get_encrypted_value(volume):
     if not hasattr(volume, 'encrypted') or volume.encrypted is None:
         return _("-")
-    elif volume.encrypted is False:
+    if volume.encrypted is False:
         return _("No")
-    else:
-        return _("Yes")
+    return _("Yes")
 
 
 def get_encrypted_link(volume):
@@ -471,6 +494,8 @@ class VolumesTableBase(tables.DataTable):
                                       u"Maintenance")),
         ("reserved", pgettext_lazy("Current status of a Volume",
                                    u"Reserved")),
+        ("awaiting-transfer", pgettext_lazy("Current status of a Volume",
+                                            u"Awaiting Transfer")),
     )
     name = tables.Column("name",
                          verbose_name=_("Name"),
@@ -503,12 +528,13 @@ class VolumesFilterAction(tables.FilterAction):
 class UpdateMetadata(tables.LinkAction):
     name = "update_metadata"
     verbose_name = _("Update Metadata")
+    policy_rules = (("volume", "volume:update_volume_metadata"),)
     ajax = False
     attrs = {"ng-controller": "MetadataModalHelperController as modal"}
 
     def __init__(self, **kwargs):
         kwargs['preempt'] = True
-        super(UpdateMetadata, self).__init__(**kwargs)
+        super().__init__(**kwargs)
 
     def get_link_url(self, datum):
         obj_id = self.table.get_object_id(datum)
@@ -547,9 +573,9 @@ class VolumesTable(VolumesTableBase):
                          VolumesFilterAction)
 
         launch_actions = ()
-        if getattr(settings, 'LAUNCH_INSTANCE_LEGACY_ENABLED', False):
+        if settings.LAUNCH_INSTANCE_LEGACY_ENABLED:
             launch_actions = (LaunchVolume,) + launch_actions
-        if getattr(settings, 'LAUNCH_INSTANCE_NG_ENABLED', True):
+        if settings.LAUNCH_INSTANCE_NG_ENABLED:
             launch_actions = (LaunchVolumeNG,) + launch_actions
 
         row_actions = ((EditVolume, ExtendVolume,) +
@@ -591,7 +617,7 @@ class DetachVolume(tables.BatchAction):
         attachment = self.table.get_object_by_id(obj_id)
         api.nova.instance_volume_detach(request,
                                         attachment.get('server_id', None),
-                                        obj_id)
+                                        attachment['id'])
 
     def get_success_url(self, request):
         return reverse('horizon:project:volumes:index')
@@ -610,7 +636,7 @@ class AttachmentsTable(tables.DataTable):
                            verbose_name=_("Device"))
 
     def get_object_id(self, obj):
-        return obj['id']
+        return obj['attachment_id']
 
     def get_object_display(self, attachment):
         instance_name = get_attachment_name(self.request, attachment)
@@ -620,7 +646,7 @@ class AttachmentsTable(tables.DataTable):
 
     def get_object_by_id(self, obj_id):
         for obj in self.data:
-            if self.get_object_id(obj) == obj_id:
+            if obj['attachment_id'] == obj_id:
                 return obj
         raise ValueError('No match found for the id "%s".' % obj_id)
 
@@ -629,3 +655,21 @@ class AttachmentsTable(tables.DataTable):
         verbose_name = _("Attachments")
         table_actions = (DetachVolume,)
         row_actions = (DetachVolume,)
+
+
+class VolumeMessagesTable(tables.DataTable):
+    message_id = tables.Column("id", verbose_name=_("ID"))
+    message_level = tables.Column("message_level",
+                                  verbose_name=_("Message Level"))
+    event_id = tables.Column("event_id",
+                             verbose_name=_("Event Id"))
+    user_message = tables.Column("user_message",
+                                 verbose_name=_("User Message"))
+    created_at = tables.Column("created_at",
+                               verbose_name=_("Created At"))
+    guaranteed_until = tables.Column("guaranteed_until",
+                                     verbose_name=_("Guaranteed Until"))
+
+    class Meta(object):
+        name = "volume_messages"
+        verbose_name = _("Messages")

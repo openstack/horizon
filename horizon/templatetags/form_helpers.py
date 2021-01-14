@@ -80,3 +80,10 @@ def wrapper_classes(field):
     if is_multiple_checkbox(field):
         classes.append('multiple-checkbox')
     return ' '.join(classes)
+
+
+@register.filter
+def get_range(val):
+    if val:
+        return range(1, val + 1)
+    return []

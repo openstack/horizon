@@ -15,7 +15,6 @@ from operator import itemgetter
 
 from django.conf import settings
 from django.utils.translation import ugettext_lazy as _
-import six
 
 from horizon import exceptions
 
@@ -49,7 +48,7 @@ def sort_flavor_list(request, flavors, with_menu_label=True):
                         '"ram" instead.', sort_key)
             return getattr(flavor, 'ram')
     try:
-        flavor_sort = getattr(settings, 'CREATE_INSTANCE_FLAVOR_SORT', {})
+        flavor_sort = settings.CREATE_INSTANCE_FLAVOR_SORT
         sort_key = flavor_sort.get('key', 'ram')
         rev = flavor_sort.get('reverse', False)
         if not callable(sort_key):
@@ -67,16 +66,6 @@ def sort_flavor_list(request, flavors, with_menu_label=True):
     except Exception:
         exceptions.handle(request,
                           _('Unable to sort instance flavors.'))
-        return []
-
-
-def availability_zone_list(request):
-    """Utility method to retrieve a list of availability zones."""
-    try:
-        return api.nova.availability_zone_list(request)
-    except Exception:
-        exceptions.handle(request,
-                          _('Unable to retrieve Nova availability zones.'))
         return []
 
 
@@ -112,8 +101,8 @@ def network_field_data(request, include_empty_option=False, with_cidr=False,
         try:
             networks = api.neutron.network_list_for_tenant(
                 request, tenant_id, **extra_params)
-        except Exception as e:
-            msg = _('Failed to get network list {0}').format(six.text_type(e))
+        except Exception:
+            msg = _('Failed to get network list.')
             exceptions.handle(request, msg)
 
         _networks = []

@@ -22,7 +22,6 @@
       var model, scope, settings, $q, glance, IMAGE, VOLUME, VOLUME_SNAPSHOT, INSTANCE_SNAPSHOT;
       var cinderEnabled = false;
       var neutronEnabled = false;
-      var novaExtensionsEnabled = false;
       var ifAllowedResolve = true;
 
       var novaApi = {
@@ -135,10 +134,10 @@
             var images = [
               {container_format: 'aki', properties: {}},
               {container_format: 'ari', properties: {}},
-              {container_format: 'ami', properties: {}},
-              {container_format: 'raw', properties: {}},
-              {container_format: 'ami', properties: {image_type: 'image'}},
-              {container_format: 'raw', properties: {image_type: 'image'}},
+              {container_format: 'ami', properties: {}, name: 'ami_image'},
+              {container_format: 'raw', properties: {}, name: 'raw_image'},
+              {container_format: 'ami', properties: {image_type: 'image'}, id: '1'},
+              {container_format: 'raw', properties: {image_type: 'image'}, id: '2'},
               {container_format: 'ami', properties: {
                 block_device_mapping: '[{"source_type": "snapshot"}]'}},
               {container_format: 'raw', properties: {
@@ -160,67 +159,22 @@
           }
         });
 
-        beforeEach(function () {
-          settings = {
-            LAUNCH_INSTANCE_DEFAULTS: {
-              create_volume: true,
-              hide_create_volume: false,
-              config_drive: false,
-              disable_image: false,
-              disable_instance_snapshot: false,
-              disable_volume: false,
-              disable_volume_snapshot: false
-            }
-          };
-          IMAGE = {type: 'image', label: 'Image'};
-          VOLUME = {type: 'volume', label: 'Volume'};
-          VOLUME_SNAPSHOT = {type: 'volume_snapshot', label: 'Volume Snapshot'};
-          INSTANCE_SNAPSHOT = {type: 'snapshot', label: 'Instance Snapshot'};
-        });
-
-        $provide.value('horizon.app.core.openstack-service-api.nova', novaApi);
-      }));
-
-      beforeEach(module('horizon.dashboard.project.workflow.launch-instance'));
-
-      beforeEach(module(function($provide) {
-        $provide.value('horizon.app.core.openstack-service-api.glance', {
-          getImages: function() {
-            var images = [
-              {container_format: 'aki', properties: {} },
-              {container_format: 'ari', properties: {} },
-              {container_format: 'ami', properties: {} },
-              {container_format: 'raw', properties: {} },
-              {container_format: 'ami', properties: {image_type: 'image'}},
-              {container_format: 'raw', properties: {image_type: 'image'}},
-              {container_format: 'ami', properties: {
-                block_device_mapping: '[{"source_type": "snapshot"}]'}},
-              {container_format: 'raw', properties: {
-                block_device_mapping: '[{"source_type": "snapshot"}]'}}
-            ];
-
-            var deferred = $q.defer();
-            deferred.resolve({ data: { items: images } });
-
-            return deferred.promise;
+        settings = {
+          LAUNCH_INSTANCE_DEFAULTS: {
+            create_volume: true,
+            hide_create_volume: false,
+            config_drive: false,
+            disable_image: false,
+            disable_instance_snapshot: false,
+            disable_volume: false,
+            disable_volume_snapshot: false
           },
-          getNamespaces: function() {
-            var namespaces = [ 'ns-1', 'ns-2' ];
-
-            var deferred = $q.defer();
-            deferred.resolve({ data: { items: namespaces } });
-
-            return deferred.promise;
-          }
-        });
-
-        beforeEach(function() {
-          settings = {
-            LAUNCH_INSTANCE_DEFAULTS: {
-              config_drive: false
-            }
-          };
-        });
+          DEFAULT_BOOT_SOURCE: 'image'
+        };
+        IMAGE = {type: 'image', label: 'Image', selected: true};
+        VOLUME = {type: 'volume', label: 'Volume', selected: false};
+        VOLUME_SNAPSHOT = {type: 'volume_snapshot', label: 'Volume Snapshot', selected: false};
+        INSTANCE_SNAPSHOT = {type: 'snapshot', label: 'Instance Snapshot', selected: false};
 
         $provide.value('horizon.app.core.openstack-service-api.nova', novaApi);
 
@@ -291,20 +245,6 @@
             var deferred = $q.defer();
 
             deferred.resolve();
-
-            return deferred.promise;
-          }
-        });
-
-        $provide.value('horizon.app.core.openstack-service-api.novaExtensions', {
-          ifNameEnabled: function() {
-            var deferred = $q.defer();
-
-            if (novaExtensionsEnabled) {
-              deferred.resolve();
-            } else {
-              deferred.reject();
-            }
 
             return deferred.promise;
           }
@@ -430,14 +370,50 @@
           expect(model.initialized).toBe(true);
           expect(model.newInstanceSpec).toBeDefined();
 
-          expect(model.images.length).toBe(4);
-          expect(model.imageSnapshots.length).toBe(2);
-          expect(model.availabilityZones.length).toBe(3); // 2 + 1 for 'nova pick'
-          expect(model.flavors.length).toBe(2);
-          expect(model.keypairs.length).toBe(2);
-          expect(model.securityGroups.length).toBe(2);
-          expect(model.novaLimits.maxTotalInstances).toBe(10);
-          expect(model.novaLimits.totalInstancesUsed).toBe(0);
+          var expectedImages = [
+            {container_format: 'ami', properties: {}, name: 'ami_image', name_or_id: 'ami_image'},
+            {container_format: 'raw', properties: {}, name: 'raw_image', name_or_id: 'raw_image'},
+            {container_format: 'ami', properties: {image_type: 'image'}, id: '1', name_or_id: '1'},
+            {container_format: 'raw', properties: {image_type: 'image'}, id: '2', name_or_id: '2'}
+          ];
+          expect(model.images).toEqual(expectedImages);
+
+          var expectedSnapshots = [
+            {
+              container_format: 'ami',
+              properties: {block_device_mapping: '[{"source_type": "snapshot"}]'}
+            },
+            {
+              container_format: 'raw',
+              properties: {block_device_mapping: '[{"source_type": "snapshot"}]'}
+            }
+          ];
+          expect(model.imageSnapshots).toEqual(expectedSnapshots);
+
+          var expectedZones = [
+            {'label': 'Any Availability Zone', 'value': ''},
+            {'label': 'zone-1', 'value': 'zone-1'},
+            {'label': 'zone-2', 'value': 'zone-2'}
+          ];
+          expect(model.availabilityZones).toEqual(expectedZones);
+
+          var expectedFlavors = ['flavor-1', 'flavor-2'];
+          expect(model.flavors).toEqual(expectedFlavors);
+
+          var expectedKeypairs = [
+            {'name': 'key-1', id: 'li_keypair:key-1'},
+            {'name': 'key-2', id: 'li_keypair:key-2'}
+          ];
+          expect(model.keypairs).toEqual(expectedKeypairs);
+
+          var expectedSecurityGroups = [
+            {name: 'security-group-1'},
+            {name: 'security-group-2'}
+          ];
+          expect(model.securityGroups).toEqual(expectedSecurityGroups);
+
+          var expectedLimits = {maxTotalInstances: 10, totalInstancesUsed: 0};
+          expect(model.novaLimits).toEqual(expectedLimits);
         });
 
         it('should have networks & no volumes if neutron enabled & cinder disabled', function() {
@@ -471,15 +447,6 @@
           expect(model.networks.length).toBe(2);
           expect(model.volumes.length).toBe(2);
           expect(model.volumeSnapshots.length).toBe(2);
-        });
-
-        it('should disable create volume from image if nova extensions disabled', function() {
-          cinderEnabled = true;
-          novaExtensionsEnabled = false;
-          model.initialize(true);
-          scope.$apply();
-
-          expect(model.allowCreateVolumeFromImage).toBe(false);
         });
 
         it('should default config_drive to false', function() {
@@ -629,6 +596,7 @@
           neutronEnabled = true;
           model.initialize(true);
           scope.$apply();
+          expect(model.newInstanceSpec.ports.length).toBe(0);
         });
 
         it('should have the proper entries in allowedBootSources', function() {
@@ -850,7 +818,7 @@
         // This is here to ensure that as people add/change items, they
         // don't forget to implement tests for them.
         it('has the right number of properties', function() {
-          expect(Object.keys(model.newInstanceSpec).length).toBe(23);
+          expect(Object.keys(model.newInstanceSpec).length).toBe(22);
         });
 
         it('sets availability zone to null', function() {
@@ -923,7 +891,6 @@
 
         it('sets volume options appropriately', function() {
           expect(model.newInstanceSpec.vol_create).toBe(false);
-          expect(model.newInstanceSpec.vol_device_name).toBe('vda');
           expect(model.newInstanceSpec.vol_delete_on_instance_delete).toBe(false);
           expect(model.newInstanceSpec.vol_size).toBe(1);
         });
@@ -946,7 +913,6 @@
           model.newInstanceSpec.scheduler_hints = {};
           model.newInstanceSpec.vol_create = true;
           model.newInstanceSpec.vol_delete_on_instance_delete = true;
-          model.newInstanceSpec.vol_device_name = "volTestName";
           model.newInstanceSpec.vol_size = 10;
           model.newInstanceSpec.server_groups = [];
 
@@ -982,7 +948,6 @@
         it('should set final spec in format required for Block Device Mapping v2', function() {
           var finalSpec = model.createInstance();
           var expectedBlockDevice = [{
-            device_name: 'volTestName',
             source_type: 'image',
             destination_type: 'volume',
             delete_on_termination: true,
@@ -1014,8 +979,6 @@
           model.newInstanceSpec.vol_delete_on_instance_delete = 'yep';
 
           var finalSpec = model.createInstance();
-          expect(finalSpec.block_device_mapping.volTestName)
-            .toBe('imAnID:vol::yep');
           expect(finalSpec.source_id).toBe('');
         });
 
@@ -1025,7 +988,6 @@
 
           var finalSpec = model.createInstance();
           var expectedBlockDevice = [{
-            device_name: 'volTestName',
             source_type: 'image',
             destination_type: 'volume',
             delete_on_termination: true,
@@ -1043,8 +1005,6 @@
           model.newInstanceSpec.vol_delete_on_instance_delete = 'yep';
 
           var finalSpec = model.createInstance();
-          expect(finalSpec.block_device_mapping.volTestName)
-            .toBe('imAnID:snap::yep');
           expect(finalSpec.source_id).toBe('');
         });
 
@@ -1099,15 +1059,6 @@
           ];
 
           expect(finalSpec.nics).toEqual(finalNetworks);
-        });
-
-        it('provides null for device_name when falsy', function() {
-          model.newInstanceSpec.source_type.type = 'image';
-          model.newInstanceSpec.vol_device_name = false;
-          model.newInstanceSpec.vol_create = true;
-
-          var finalSpec = model.createInstance();
-          expect(finalSpec.block_device_mapping_v2[0].device_name).toBeNull();
         });
 
         it('should not have meta property if no metadata specified', function() {

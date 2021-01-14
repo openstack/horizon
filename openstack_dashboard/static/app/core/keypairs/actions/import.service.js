@@ -49,7 +49,11 @@
         "name": {
           title: gettext("Key Pair Name"),
           type: "string",
-          pattern: "^[A-Za-z0-9 -]+$"
+          pattern: "^[A-Za-z0-9 _-]+$"
+        },
+        "key_type": {
+          title: gettext("Key Type"),
+          type: "string"
         },
         "public_key": {
           title: gettext("Public Key"),
@@ -109,7 +113,7 @@
     function perform() {
       getKeypairs();
       model = {
-        name: "",
+        key_type: "ssh",
         public_key: ""
       };
       var config = {

@@ -1,0 +1,16 @@
+{% extends "horizon/common/_modal_form.html" %}
+{% load i18n %}
+
+{% block modal-body-right %}
+  <h3>{% trans "Description:" %}</h3>
+  <p>{% blocktrans trimmed %}
+      Group type is a type or label that can be selected at group creation
+      time in OpenStack. It usually maps to a set of capabilities of the storage
+      back-end driver to be used for this group. Examples: "Performance",
+      "SSD", "Backup", etc. This is equivalent to the
+      <tt>cinder type-create</tt> command. Once the group type gets created,
+      click the "View Specs" button to set up specs key-value
+      pair(s) for that group type.
+     {% endblocktrans %}
+  </p>
+{% endblock %}

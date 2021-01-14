@@ -84,9 +84,12 @@ class Keypairs(generic.View):
         """
         if 'public_key' in request.DATA:
             new = api.nova.keypair_import(request, request.DATA['name'],
-                                          request.DATA['public_key'])
+                                          request.DATA['public_key'],
+                                          request.DATA['key_type'])
         else:
-            new = api.nova.keypair_create(request, request.DATA['name'])
+            new = api.nova.keypair_create(request,
+                                          request.DATA['name'],
+                                          request.DATA['key_type'])
         return rest_utils.CreatedResponse(
             '/api/nova/keypairs/%s' % utils_http.urlquote(new.name),
             new.to_dict()
@@ -117,15 +120,12 @@ class Services(generic.View):
     def get(self, request):
         """Get a list of nova services.
 
-        Will return HTTP 501 status code if the service_list extension is
-        not supported.
+        Will return HTTP 501 status code if the compute service is enabled.
         """
-        if api.base.is_service_enabled(request, 'compute') \
-           and api.nova.extension_supported('Services', request):
+        if api.base.is_service_enabled(request, 'compute'):
             result = api.nova.service_list(request)
             return {'items': [u.to_dict() for u in result]}
-        else:
-            raise rest_utils.AjaxError(501, '')
+        raise rest_utils.AjaxError(501, '')
 
 
 @urls.register
@@ -307,7 +307,7 @@ class ConsoleOutput(generic.View):
         log_length = request.DATA.get('length', 100)
         console_lines = api.nova.server_console_output(request, server_id,
                                                        tail_length=log_length)
-        return {"lines": [x for x in console_lines.split('\n')]}
+        return {"lines": console_lines.split('\n')}
 
 
 @urls.register
@@ -345,7 +345,7 @@ class Servers(generic.View):
         :param name: The new server name.
         :param source_id: The ID of the image to use.
         :param flavor_id: The ID of the flavor to use.
-        :param key_name: (optional extension) name of previously created
+        :param key_name: (optional) name of previously created
                       keypair to inject into the instance.
         :param user_data: user data to pass to be exposed by the metadata
                       server this can be a file type object as well or a
@@ -497,25 +497,6 @@ class ServerMetadata(generic.View):
             api.nova.server_metadata_update(request, server_id, updated)
         if removed:
             api.nova.server_metadata_delete(request, server_id, removed)
-
-
-@urls.register
-class Extensions(generic.View):
-    """API for nova extensions."""
-    url_regex = r'nova/extensions/$'
-
-    @rest_utils.ajax()
-    def get(self, request):
-        """Get a list of extensions.
-
-        The listing result is an object with property "items". Each item is
-        an image.
-
-        Example GET:
-        http://localhost/api/nova/extensions
-        """
-        result = api.nova.list_extensions(request)
-        return {'items': [e.to_dict() for e in result]}
 
 
 @urls.register
@@ -724,27 +705,27 @@ class DefaultQuotaSets(generic.View):
         Example GET:
         http://localhost/api/nova/quota-sets/defaults/
         """
-        if api.base.is_service_enabled(request, 'compute'):
-            quota_set = api.nova.default_quota_get(request,
-                                                   request.user.tenant_id)
-
-            disabled_quotas = quotas.get_disabled_quotas(request)
-
-            filtered_quotas = [quota for quota in quota_set
-                               if quota.name not in disabled_quotas]
-
-            result = [{
-                'display_name': quotas.QUOTA_NAMES.get(
-                    quota.name,
-                    quota.name.replace("_", " ").title()
-                ) + '',
-                'name': quota.name,
-                'limit': quota.limit
-            } for quota in filtered_quotas]
-
-            return {'items': result}
-        else:
+        if not api.base.is_service_enabled(request, 'compute'):
             raise rest_utils.AjaxError(501, _('Service Nova is disabled.'))
+
+        quota_set = api.nova.default_quota_get(request,
+                                               request.user.tenant_id)
+
+        disabled_quotas = quotas.get_disabled_quotas(request)
+
+        filtered_quotas = [quota for quota in quota_set
+                           if quota.name not in disabled_quotas]
+
+        result = [{
+            'display_name': quotas.QUOTA_NAMES.get(
+                quota.name,
+                quota.name.replace("_", " ").title()
+            ) + '',
+            'name': quota.name,
+            'limit': quota.limit
+        } for quota in filtered_quotas]
+
+        return {'items': result}
 
     @rest_utils.ajax(data_required=True)
     def patch(self, request):

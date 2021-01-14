@@ -35,6 +35,15 @@
       expect(actionHasId(actions, 'batchDeleteImageAction')).toBe(true);
     });
 
+    it('registers item action', function() {
+      var actions = registry.getResourceType('OS::Glance::Image').itemActions;
+      expect(actionHasId(actions, 'launchInstanceService')).toBe(true);
+      expect(actionHasId(actions, 'createVolumeAction')).toBe(true);
+      expect(actionHasId(actions, 'editAction')).toBe(true);
+      expect(actionHasId(actions, 'updateMetadataService')).toBe(true);
+      expect(actionHasId(actions, 'deleteImageAction')).toBe(true);
+    });
+
     function actionHasId(list, value) {
       return list.filter(matchesId).length === 1;
 

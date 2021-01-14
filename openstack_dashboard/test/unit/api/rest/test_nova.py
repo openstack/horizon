@@ -14,10 +14,10 @@
 
 import json
 from json import loads as to_json
+from unittest import mock
 import uuid
 
 from django.conf import settings
-import mock
 
 from openstack_dashboard import api
 from openstack_dashboard.api.base import Quota
@@ -217,33 +217,45 @@ class NovaRestTestCase(test.TestCase):
 
     @test.create_mocks({api.nova: ['keypair_create']})
     def test_keypair_create(self):
-        request = self.mock_rest_request(body='''{"name": "Ni!"}''')
+        request = self.mock_rest_request(body='''{"name": "Ni!",
+                                                  "key_type": "ssh"}''')
         new = self.mock_keypair_create.return_value
-        new.to_dict.return_value = {'name': 'Ni!', 'public_key': 'sekrit'}
+        new.to_dict.return_value = {'name': 'Ni!',
+                                    'key_type': 'ssh',
+                                    'public_key': 'sekrit'}
         new.name = 'Ni!'
         with mock.patch.object(settings, 'DEBUG', True):
             response = nova.Keypairs().post(request)
         self.assertStatusCode(response, 201)
-        self.assertEqual({"name": "Ni!", "public_key": "sekrit"},
+        self.assertEqual({"name": "Ni!",
+                          "key_type": "ssh",
+                          "public_key": "sekrit"},
                          response.json)
         self.assertEqual('/api/nova/keypairs/Ni%21', response['location'])
-        self.mock_keypair_create.assert_called_once_with(request, 'Ni!')
+        self.mock_keypair_create.assert_called_once_with(request, 'Ni!', 'ssh')
 
     @test.create_mocks({api.nova: ['keypair_import']})
     def test_keypair_import(self):
         request = self.mock_rest_request(body='''
-            {"name": "Ni!", "public_key": "hi"}
+            {"name": "Ni!", "public_key": "hi", "key_type": "ssh"}
         ''')
         new = self.mock_keypair_import.return_value
-        new.to_dict.return_value = {'name': 'Ni!', 'public_key': 'hi'}
+        new.to_dict.return_value = {'name': 'Ni!',
+                                    'public_key': 'hi',
+                                    'key_type': 'ssh'}
         new.name = 'Ni!'
         with mock.patch.object(settings, 'DEBUG', True):
             response = nova.Keypairs().post(request)
         self.assertStatusCode(response, 201)
-        self.assertEqual({"name": "Ni!", "public_key": "hi"},
+        self.assertEqual({"name": "Ni!",
+                          "public_key": "hi",
+                          "key_type": "ssh"},
                          response.json)
         self.assertEqual('/api/nova/keypairs/Ni%21', response['location'])
-        self.mock_keypair_import.assert_called_once_with(request, 'Ni!', 'hi')
+        self.mock_keypair_import.assert_called_once_with(request,
+                                                         'Ni!',
+                                                         'hi',
+                                                         'ssh')
 
     @test.create_mocks({api.nova: ['keypair_get']})
     def test_keypair_get(self):
@@ -470,25 +482,6 @@ class NovaRestTestCase(test.TestCase):
         self.mock_server_metadata_delete.assert_called_once_with(
             request, '1', ['c', 'd']
         )
-
-    #
-    # Extensions
-    #
-    @test.create_mocks({api.nova: ['list_extensions']})
-    @mock.patch.object(settings,
-                       'OPENSTACK_NOVA_EXTENSIONS_BLACKLIST', ['baz'])
-    def _test_extension_list(self):
-        request = self.mock_rest_request()
-        self.mock_list_extensions.return_value = [
-            mock.Mock(**{'to_dict.return_value': {'name': 'foo'}}),
-            mock.Mock(**{'to_dict.return_value': {'name': 'bar'}}),
-            mock.Mock(**{'to_dict.return_value': {'name': 'baz'}}),
-        ]
-        response = nova.Extensions().get(request)
-        self.assertStatusCode(response, 200)
-        self.assertEqual({"items": [{"name": "foo"}, {"name": "bar"}]},
-                         response.json)
-        self.mock_list_extensions.assert_called_once_with(request)
 
     #
     # Flavors
@@ -886,8 +879,7 @@ class NovaRestTestCase(test.TestCase):
     #
 
     @test.create_mocks({api.base: ['is_service_enabled'],
-                        api.nova: ['service_list',
-                                   'extension_supported']})
+                        api.nova: ['service_list']})
     def test_services_get(self):
         request = self.mock_rest_request(GET={})
         self.mock_service_list.return_value = [
@@ -895,7 +887,6 @@ class NovaRestTestCase(test.TestCase):
             mock.Mock(**{'to_dict.return_value': {'id': '2'}})
         ]
         self.mock_is_service_enabled.return_value = True
-        self.mock_extension_supported.return_value = True
 
         response = nova.Services().get(request)
 
@@ -905,8 +896,6 @@ class NovaRestTestCase(test.TestCase):
         self.mock_service_list.assert_called_once_with(request)
         self.mock_is_service_enabled.assert_called_once_with(request,
                                                              'compute')
-        self.mock_extension_supported.assert_called_once_with(
-            'Services', request)
 
     @mock.patch.object(api.base, 'is_service_enabled')
     def test_services_get_disabled(self, mock_is_service_enabled):

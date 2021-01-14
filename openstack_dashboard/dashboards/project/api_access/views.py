@@ -24,8 +24,6 @@ from django.template.loader import render_to_string
 from django.urls import reverse_lazy
 from django.utils.translation import ugettext_lazy as _
 
-from openstack_auth import utils
-
 from horizon import exceptions
 from horizon import forms
 from horizon import messages
@@ -75,16 +73,19 @@ def _get_openrc_credentials(request):
     keystone_url = api.base.url_for(request,
                                     'identity',
                                     endpoint_type='publicURL')
-    credentials = dict(tenant_id=request.user.tenant_id,
-                       tenant_name=request.user.tenant_name,
-                       auth_url=keystone_url,
-                       user=request.user,
-                       interface='public',
-                       os_endpoint_type='publicURL',
-                       region=getattr(request.user, 'services_region') or "")
-    return credentials
+    return {
+        'tenant_id': request.user.tenant_id,
+        'tenant_name': request.user.tenant_name,
+        'auth_url': keystone_url,
+        'user': request.user,
+        'interface': 'public',
+        'os_endpoint_type': 'publicURL',
+        'auth_type': request.session.get('auth_type'),
+        'region': getattr(request.user, 'services_region') or "",
+    }
 
 
+# TODO(stephenfin): Migrate to CBV
 def download_ec2_bundle(request):
     tenant_name = request.user.tenant_name
 
@@ -117,18 +118,11 @@ def download_ec2_bundle(request):
     return response
 
 
-def download_rc_file_v2(request):
-    template = 'project/api_access/openrc_v2.sh.template'
-    context = _get_openrc_credentials(request)
-    context['os_identity_api_version'] = 2
-    context['os_auth_version'] = 2
-    return _download_rc_file_for_template(request, context, template)
-
-
+# TODO(stephenfin): Migrate to CBV
 def download_rc_file(request):
-    template = 'project/api_access/openrc.sh.template'
-    context = _get_openrc_credentials(request)
+    template = settings.OPENRC_CUSTOM_TEMPLATE
 
+    context = _get_openrc_credentials(request)
     # make v3 specific changes
     context['user_domain_name'] = request.user.user_domain_name
     try:
@@ -136,34 +130,25 @@ def download_rc_file(request):
     except KeyError:
         project_domain_id = ''
     context['project_domain_id'] = project_domain_id
-    # sanity fix for removing v2.0 from the url if present
-    context['auth_url'], _ = utils.fix_auth_url_version_prefix(
-        context['auth_url'])
     context['os_identity_api_version'] = 3
     context['os_auth_version'] = 3
     return _download_rc_file_for_template(request, context, template)
 
 
+# TODO(stephenfin): Migrate to CBV
 def download_clouds_yaml_file(request):
-    template = 'project/api_access/clouds.yaml.template'
+    template = settings.OPENSTACK_CLOUDS_YAML_CUSTOM_TEMPLATE
+
     context = _get_openrc_credentials(request)
-    context['cloud_name'] = getattr(
-        settings, "OPENSTACK_CLOUDS_YAML_NAME", 'openstack')
-    context['profile'] = getattr(
-        settings, "OPENSTACK_CLOUDS_YAML_PROFILE", None)
+    context['cloud_name'] = settings.OPENSTACK_CLOUDS_YAML_NAME
+    context['profile'] = settings.OPENSTACK_CLOUDS_YAML_PROFILE
     context['regions'] = [
-        region_tuple[1] for region_tuple in getattr(
-            settings, "AVAILABLE_REGIONS", [])
+        region_tuple[1] for region_tuple in settings.AVAILABLE_REGIONS
     ]
 
-    if utils.get_keystone_version() >= 3:
-        # make v3 specific changes
-        context['user_domain_name'] = request.user.user_domain_name
-        # sanity fix for removing v2.0 from the url if present
-        context['auth_url'], _ = utils.fix_auth_url_version_prefix(
-            context['auth_url'])
-        context['os_identity_api_version'] = 3
-        context['os_auth_version'] = 3
+    context['user_domain_name'] = request.user.user_domain_name
+    context['os_identity_api_version'] = 3
+    context['os_auth_version'] = 3
 
     return _download_rc_file_for_template(request, context, template,
                                           'clouds.yaml')
@@ -194,7 +179,7 @@ class CredentialsView(forms.ModalFormMixin, views.HorizonTemplateView):
     page_title = _("User Credentials Details")
 
     def get_context_data(self, **kwargs):
-        context = super(CredentialsView, self).get_context_data(**kwargs)
+        context = super().get_context_data(**kwargs)
         try:
             context['openrc_creds'] = _get_openrc_credentials(self.request)
         except Exception:

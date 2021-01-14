@@ -17,9 +17,6 @@ import logging
 from django.urls import reverse
 from django.utils.translation import ugettext_lazy as _
 
-from horizon import exceptions
-
-from openstack_dashboard import api
 from openstack_dashboard.dashboards.project.networks.subnets \
     import workflows as project_workflows
 from openstack_dashboard.dashboards.project.networks import workflows \
@@ -52,28 +49,22 @@ class CreateSubnet(project_workflows.CreateSubnet):
 
     def get_success_url(self):
         return reverse("horizon:admin:networks:detail",
-                       args=(self.context.get('network_id'),))
+                       args=(self.context['network'].id,))
 
     def get_failure_url(self):
         return reverse("horizon:admin:networks:detail",
-                       args=(self.context.get('network_id'),))
+                       args=(self.context['network'].id,))
 
     def handle(self, request, data):
-        try:
-            # We must specify tenant_id of the network which a subnet is
-            # created for if admin user does not belong to the tenant.
-            network = api.neutron.network_get(request,
-                                              self.context['network_id'])
-        except Exception as e:
-            LOG.info('Failed to retrieve network %(id)s for a subnet: %(exc)s',
-                     {'id': data['network_id'], 'exc': e})
-            msg = (_('Failed to retrieve network %s for a subnet') %
-                   data['network_id'])
-            redirect = self.get_failure_url()
-            exceptions.handle(request, msg, redirect=redirect)
-        subnet = self._create_subnet(request, data,
-                                     tenant_id=network.tenant_id)
-        return True if subnet else False
+        network = self.context_seed['network']
+        # NOTE: network argument is required to show error message correctly.
+        # NOTE: We must specify tenant_id of the network which a subnet is
+        # created for if admin user does not belong to the tenant.
+        subnet = self._create_subnet(
+            request, data,
+            network=network,
+            tenant_id=network.tenant_id)
+        return bool(subnet)
 
 
 class UpdateSubnetInfoAction(project_workflows.UpdateSubnetInfoAction):

@@ -28,11 +28,11 @@ class MessageRegion(baseregion.BaseRegion):
 
     def __init__(self, driver, conf, level=SUCCESS):
         self._default_src_locator = self._msg_locator(level)
-        # NOTE(tsufiev): we cannot use self._turn_off_implicit_wait() at this
-        # point, because the instance is not initialized by ancestor's __init__
-        driver.implicitly_wait(0.1)
+        # NOTE(nhelgeson): Running selenium on remote servers
+        # requires extra time to wait for message to pop up.
+        driver.implicitly_wait(conf.selenium.message_implicit_wait)
         try:
-            super(MessageRegion, self).__init__(driver, conf)
+            super().__init__(driver, conf)
         except NoSuchElementException:
             self.src_elem = None
         finally:

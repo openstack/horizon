@@ -10,18 +10,12 @@
 # License for the specific language governing permissions and limitations
 # under the License.
 
-from __future__ import division
-
-from csv import DictWriter
-from csv import writer
-
+import csv
+import io
 
 from django.http import HttpResponse
 from django.http import StreamingHttpResponse
 from django import template as django_template
-import six
-
-from six import StringIO
 
 
 class CsvDataMixin(object):
@@ -34,14 +28,15 @@ class CsvDataMixin(object):
         will be shown in the result file. Optional.
     """
     def __init__(self):
-        self.out = StringIO()
-        super(CsvDataMixin, self).__init__()
+        self.out = io.StringIO()
+        super().__init__()
         if hasattr(self, "columns"):
             columns = [self.encode(col) for col in self.columns]
-            self.writer = DictWriter(self.out, columns)
+            self.writer = csv.DictWriter(self.out, columns,
+                                         quoting=csv.QUOTE_ALL)
             self.is_dict = True
         else:
-            self.writer = writer(self.out)
+            self.writer = csv.writer(self.out, quoting=csv.QUOTE_ALL)
             self.is_dict = False
 
     def write_csv_header(self):
@@ -62,12 +57,7 @@ class CsvDataMixin(object):
             self.writer.writerow([self.encode(col) for col in args])
 
     def encode(self, value):
-        value = six.text_type(value)
-        if six.PY2:
-            # csv and StringIO cannot work with mixed encodings,
-            # so encode all with utf-8
-            value = value.encode('utf-8')
-        return value
+        return str(value)
 
 
 class BaseCsvResponse(CsvDataMixin, HttpResponse):
@@ -75,7 +65,7 @@ class BaseCsvResponse(CsvDataMixin, HttpResponse):
     """Base CSV response class. Provides handling of CSV data."""
 
     def __init__(self, request, template, context, content_type, **kwargs):
-        super(BaseCsvResponse, self).__init__()
+        super().__init__()
         self['Content-Disposition'] = 'attachment; filename="%s"' % (
             kwargs.get("filename", "export.csv"),)
         self['Content-Type'] = content_type
@@ -107,7 +97,7 @@ class BaseCsvStreamingResponse(CsvDataMixin, StreamingHttpResponse):
     """Base CSV Streaming class. Provides streaming response for CSV data."""
 
     def __init__(self, request, template, context, content_type, **kwargs):
-        super(BaseCsvStreamingResponse, self).__init__()
+        super().__init__()
         self['Content-Disposition'] = 'attachment; filename="%s"' % (
             kwargs.get("filename", "export.csv"),)
         self['Content-Type'] = content_type

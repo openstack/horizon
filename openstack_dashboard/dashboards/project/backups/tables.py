@@ -44,6 +44,24 @@ class BackupVolumeNameColumn(tables.Column):
             return reverse(self.link, args=(volume_id,))
 
 
+class SnapshotColumn(tables.Column):
+    def get_raw_data(self, backup):
+        snapshot = backup.snapshot
+        if snapshot:
+            snapshot_name = snapshot.name
+            snapshot_name = html.escape(snapshot_name)
+        elif backup.snapshot_id:
+            snapshot_name = _("Unknown")
+        else:
+            return None
+        return safestring.mark_safe(snapshot_name)
+
+    def get_link_url(self, backup):
+        if backup.snapshot:
+            return reverse('horizon:project:snapshots:detail',
+                           args=(backup.snapshot_id,))
+
+
 class DeleteBackup(tables.DeleteAction):
     help_text = _("Deleted volume backups are not recoverable.")
     policy_rules = (("volume", "backup:delete"),)
@@ -103,6 +121,14 @@ class UpdateRow(tables.Row):
                                               backup.volume_id)
         except Exception:
             pass
+        if backup.snapshot_id is not None:
+            try:
+                backup.snapshot = cinder.volume_snapshot_get(
+                    request, backup.snapshot_id)
+            except Exception:
+                pass
+        else:
+            backup.snapshot = None
         return backup
 
 
@@ -148,12 +174,23 @@ class BackupsTable(tables.DataTable):
     volume_name = BackupVolumeNameColumn("name",
                                          verbose_name=_("Volume Name"),
                                          link="horizon:project:volumes:detail")
+    snapshot = SnapshotColumn("snapshot",
+                              verbose_name=_("Snapshot"),
+                              link="horizon:project:snapshots:detail")
+
+    def current_page(self):
+        return self._meta.current_page()
+
+    def number_of_pages(self):
+        return self._meta.number_of_pages()
+
+    def get_pagination_string(self):
+        return '?%s=' % self._meta.pagination_param
 
     class Meta(object):
         name = "volume_backups"
         verbose_name = _("Volume Backups")
-        pagination_param = 'backup_marker'
-        prev_pagination_param = 'prev_backup_marker'
+        pagination_param = 'page'
         status_columns = ("status",)
         row_class = UpdateRow
         table_actions = (DeleteBackup,)

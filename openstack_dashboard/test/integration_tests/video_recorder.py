@@ -26,19 +26,21 @@ class VideoRecorder(object):
     def __init__(self, width, height, display='0.0', frame_rate=15):
         self.is_launched = False
         self.file_path = mktemp() + '.mp4'
-        # avconv -f x11grab -r 15 -s 1920x1080 -i :0.0 -codec libx264 out.mp4
-        self._cmd = ['avconv', '-f', 'x11grab', '-r', str(frame_rate),
-                     '-s', '{}x{}'.format(width, height),
+        # ffmpeg -video_size 1921x1080 -framerate 15 -f x11grab -i :0.0
+        self._cmd = ['ffmpeg',
+                     '-video_size', '{}x{}'.format(width, height),
+                     '-framerate', str(frame_rate),
+                     '-f', 'x11grab',
                      '-i', ':{}'.format(display),
-                     '-codec', 'libx264', self.file_path]
+                     self.file_path]
 
     def start(self):
         if self.is_launched:
             LOG.warning('Video recording is running already')
             return
 
-        if not os.environ.get('AVCONV_INSTALLED', False):
-            LOG.error("avconv isn't installed. Video recording is skipped")
+        if not os.environ.get('FFMPEG_INSTALLED', False):
+            LOG.error("ffmpeg isn't installed. Video recording is skipped")
             return
 
         fnull = open(os.devnull, 'w')

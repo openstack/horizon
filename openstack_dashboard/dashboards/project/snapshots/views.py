@@ -102,7 +102,7 @@ class UpdateView(forms.ModalFormView):
         return self._object
 
     def get_context_data(self, **kwargs):
-        context = super(UpdateView, self).get_context_data(**kwargs)
+        context = super().get_context_data(**kwargs)
         context['snapshot'] = self.get_object()
         success_url = self.request.GET.get('success_url', "")
         args = (self.kwargs['snapshot_id'],)
@@ -131,7 +131,7 @@ class DetailView(tabs.TabView):
     volume_url = 'horizon:project:volumes:detail'
 
     def get_context_data(self, **kwargs):
-        context = super(DetailView, self).get_context_data(**kwargs)
+        context = super().get_context_data(**kwargs)
         snapshot = self.get_data()
         snapshot.volume_url = reverse(self.volume_url,
                                       args=(snapshot.volume_id,))

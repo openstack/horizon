@@ -22,7 +22,6 @@ import os
 import sys
 import warnings
 
-from django.utils.translation import pgettext_lazy
 from django.utils.translation import ugettext_lazy as _
 
 from horizon.utils.escape import monkeypatch_escape
@@ -36,10 +35,13 @@ from openstack_dashboard.utils import settings as settings_utils
 
 monkeypatch_escape()
 
+# Load default values
+# pylint: disable=wrong-import-position
+from openstack_dashboard.defaults import *  # noqa: E402,F403,H303
+
 _LOG = logging.getLogger(__name__)
 
-warnings.formatwarning = lambda message, category, *args, **kwargs: \
-    '%s: %s' % (category.__name__, message)
+warnings.filterwarnings("default", category=DeprecationWarning)
 
 ROOT_PATH = os.path.dirname(os.path.abspath(__file__))
 
@@ -47,21 +49,6 @@ if ROOT_PATH not in sys.path:
     sys.path.append(ROOT_PATH)
 
 DEBUG = False
-
-SITE_BRANDING = 'OpenStack Dashboard'
-
-WEBROOT = '/'
-LOGIN_URL = None
-LOGOUT_URL = None
-LOGIN_ERROR = None
-LOGIN_REDIRECT_URL = None
-MEDIA_ROOT = None
-MEDIA_URL = None
-STATIC_ROOT = None
-STATIC_URL = None
-SELECTABLE_THEMES = None
-INTEGRATION_TESTS_SUPPORT = False
-NG_TEMPLATE_CACHE_AGE = 2592000
 
 ROOT_URLCONF = 'openstack_dashboard.urls'
 
@@ -85,28 +72,6 @@ HORIZON_CONFIG = {
     'external_templates': [],
     'plugins': [],
     'integration_tests_support': INTEGRATION_TESTS_SUPPORT
-}
-
-# The OPENSTACK_IMAGE_BACKEND settings can be used to customize features
-# in the OpenStack Dashboard related to the Image service, such as the list
-# of supported image formats.
-OPENSTACK_IMAGE_BACKEND = {
-    'image_formats': [
-        ('', _('Select format')),
-        ('aki', _('AKI - Amazon Kernel Image')),
-        ('ami', _('AMI - Amazon Machine Image')),
-        ('ari', _('ARI - Amazon Ramdisk Image')),
-        ('docker', _('Docker')),
-        ('iso', _('ISO - Optical Disk Image')),
-        ('ova', _('OVA - Open Virtual Appliance')),
-        ('ploop', _('PLOOP - Virtuozzo/Parallels Loopback Disk')),
-        ('qcow2', _('QCOW2 - QEMU Emulator')),
-        ('raw', _('Raw')),
-        ('vdi', _('VDI - Virtual Disk Image')),
-        ('vhd', _('VHD - Virtual Hard Disk')),
-        ('vhdx', _('VHDX - Large Virtual Hard Disk')),
-        ('vmdk', _('VMDK - Virtual Machine Disk')),
-    ]
 }
 
 MIDDLEWARE = (
@@ -135,6 +100,7 @@ CACHED_TEMPLATE_LOADERS = [
 ]
 
 ADD_TEMPLATE_LOADERS = []
+ADD_TEMPLATE_DIRS = []
 
 TEMPLATES = [
     {
@@ -194,33 +160,25 @@ INSTALLED_APPS = [
 ]
 
 AUTHENTICATION_BACKENDS = ('openstack_auth.backend.KeystoneBackend',)
-AUTHENTICATION_URLS = ['openstack_auth.urls']
 AUTH_USER_MODEL = 'openstack_auth.User'
 MESSAGE_STORAGE = 'django.contrib.messages.storage.fallback.FallbackStorage'
 
-SESSION_ENGINE = 'django.contrib.sessions.backends.signed_cookies'
+SESSION_ENGINE = 'django.contrib.sessions.backends.cache'
+CACHES = {
+    'default': {
+        'BACKEND': 'django.core.cache.backends.memcached.MemcachedCache',
+        'LOCATION': '127.0.0.1:11211',
+    },
+}
+
 SESSION_COOKIE_HTTPONLY = True
 SESSION_EXPIRE_AT_BROWSER_CLOSE = True
 SESSION_COOKIE_SECURE = False
-
-# SESSION_TIMEOUT is a method to supersede the token timeout with a shorter
-# horizon session timeout (in seconds).  So if your token expires in 60
-# minutes, a value of 1800 will log users out after 30 minutes
-SESSION_TIMEOUT = 3600
-
-# When using cookie-based sessions, log error when the session cookie exceeds
-# the following size (common browsers drop cookies above a certain size):
-SESSION_COOKIE_MAX_SIZE = 4093
 
 # when doing upgrades, it may be wise to stick to PickleSerializer
 # NOTE(berendt): Check during the K-cycle if this variable can be removed.
 #                https://bugs.launchpad.net/horizon/+bug/1349463
 SESSION_SERIALIZER = 'django.contrib.sessions.serializers.PickleSerializer'
-
-# MEMOIZED_MAX_SIZE_DEFAULT allows setting a global default to help control
-# memory usage when caching. It should at least be 2 x the number of threads
-# with a little bit of extra buffer.
-MEMOIZED_MAX_SIZE_DEFAULT = 25
 
 CSRF_FAILURE_VIEW = 'openstack_dashboard.views.csrf_failure'
 
@@ -250,121 +208,19 @@ USE_I18N = True
 USE_L10N = True
 USE_TZ = True
 
-LOCALE_PATHS = [
-    'horizon/locale',
-    'openstack_dashboard/locale',
-]
-
-# Set OPENSTACK_CLOUDS_YAML_NAME to provide a nicer name for this cloud for
-# the clouds.yaml file than "openstack".
-OPENSTACK_CLOUDS_YAML_NAME = 'openstack'
-# If this cloud has a vendor profile in os-client-config, put it's name here.
-OPENSTACK_CLOUDS_YAML_PROFILE = ''
-
-OPENSTACK_KEYSTONE_DEFAULT_ROLE = '_member_'
-
 DEFAULT_EXCEPTION_REPORTER_FILTER = 'horizon.exceptions.HorizonReporterFilter'
-
-POLICY_FILES_PATH = os.path.join(ROOT_PATH, "conf")
-# Map of local copy of service policy files
-POLICY_FILES = {
-    'identity': 'keystone_policy.json',
-    'compute': 'nova_policy.json',
-    'volume': 'cinder_policy.json',
-    'image': 'glance_policy.json',
-    'network': 'neutron_policy.json',
-}
-# Services for which horizon has extra policies are defined
-# in POLICY_DIRS by default.
-POLICY_DIRS = {
-    'compute': ['nova_policy.d'],
-    'volume': ['cinder_policy.d'],
-}
 
 SECRET_KEY = None
 LOCAL_PATH = None
 
-SECURITY_GROUP_RULES = {
-    'all_tcp': {
-        'name': _('All TCP'),
-        'ip_protocol': 'tcp',
-        'from_port': '1',
-        'to_port': '65535',
-    },
-    'all_udp': {
-        'name': _('All UDP'),
-        'ip_protocol': 'udp',
-        'from_port': '1',
-        'to_port': '65535',
-    },
-    'all_icmp': {
-        'name': _('All ICMP'),
-        'ip_protocol': 'icmp',
-        'from_port': '-1',
-        'to_port': '-1',
-    },
-}
-
 ADD_INSTALLED_APPS = []
-
-USER_MENU_LINKS = [
-    {'name': _('OpenStack RC File v2'),
-     'icon_classes': ['fa-download', ],
-     'url': 'horizon:project:api_access:openrcv2'
-     },
-    {'name': _('OpenStack RC File v3'),
-     'icon_classes': ['fa-download', ],
-     'url': 'horizon:project:api_access:openrc'
-     }
-]
-
-# 'key', 'label', 'path'
-AVAILABLE_THEMES = [
-    (
-        'default',
-        pgettext_lazy('Default style theme', 'Default'),
-        'themes/default'
-    ), (
-        'material',
-        pgettext_lazy("Google's Material Design style theme", "Material"),
-        'themes/material'
-    ),
-]
-
-# The default theme if no cookie is present
-DEFAULT_THEME = 'default'
-
-# Theme Static Directory
-THEME_COLLECTION_DIR = 'themes'
-
-# Theme Cookie Name
-THEME_COOKIE_NAME = 'theme'
-
-POLICY_CHECK_FUNCTION = 'openstack_auth.policy.check'
 
 CSRF_COOKIE_AGE = None
 
 COMPRESS_OFFLINE_CONTEXT = 'horizon.themes.offline_context'
 
-SHOW_KEYSTONE_V2_RC = True
-
-# Dictionary of currently available angular features
-ANGULAR_FEATURES = {
-    'images_panel': True,
-    'key_pairs_panel': True,
-    'flavors_panel': False,
-    'domains_panel': False,
-    'users_panel': False,
-    'groups_panel': False,
-    'roles_panel': True
-}
-
 # Notice all customizable configurations should be above this line
 XSTATIC_MODULES = settings_utils.BASE_XSTATIC_MODULES
-
-OPENSTACK_PROFILER = {
-    'enabled': False
-}
 
 if not LOCAL_PATH:
     LOCAL_PATH = os.path.join(ROOT_PATH, 'local')
@@ -386,6 +242,8 @@ except ImportError:
 # configure templates
 if not TEMPLATES[0]['DIRS']:
     TEMPLATES[0]['DIRS'] = [os.path.join(ROOT_PATH, 'templates')]
+
+TEMPLATES[0]['DIRS'] += ADD_TEMPLATE_DIRS
 
 # configure template debugging
 TEMPLATES[0]['OPTIONS']['debug'] = DEBUG
@@ -409,16 +267,20 @@ if os.path.exists(LOCAL_SETTINGS_DIR_PATH):
             if filename.endswith(".py"):
                 try:
                     with open(os.path.join(dirpath, filename)) as f:
+                        # pylint: disable=exec-used
                         exec(f.read())
-                except Exception as e:
+                except Exception:
                     _LOG.exception(
                         "Can not exec settings snippet %s", filename)
 
-# The purpose of OPENSTACK_IMAGE_FORMATS is to provide a simple object
-# that does not contain the lazy-loaded translations, so the list can
-# be sent as JSON to the client-side (Angular).
-OPENSTACK_IMAGE_FORMATS = [fmt for (fmt, name)
-                           in OPENSTACK_IMAGE_BACKEND['image_formats']]
+if USER_MENU_LINKS is None:
+    USER_MENU_LINKS = []
+    if SHOW_OPENRC_FILE:
+        USER_MENU_LINKS.append({
+            'name': _('OpenStack RC File'),
+            'icon_classes': ['fa-download', ],
+            'url': 'horizon:project:api_access:openrc',
+        })
 
 if not WEBROOT.endswith('/'):
     WEBROOT += '/'
@@ -463,6 +325,7 @@ if not SECRET_KEY:
         LOCAL_PATH = os.path.join(os.path.dirname(os.path.abspath(__file__)),
                                   'local')
 
+    # pylint: disable=ungrouped-imports
     from horizon.utils import secret_key
     SECRET_KEY = secret_key.generate_or_read_from_file(os.path.join(LOCAL_PATH,
                                                        '.secret_key_store'))
@@ -483,8 +346,6 @@ settings_utils.update_dashboards(
 )
 INSTALLED_APPS[0:0] = ADD_INSTALLED_APPS
 
-NG_TEMPLATE_CACHE_AGE = NG_TEMPLATE_CACHE_AGE if not DEBUG else 0
-
 # Include xstatic_modules specified in plugin
 XSTATIC_MODULES += HORIZON_CONFIG['xstatic_modules']
 
@@ -498,7 +359,7 @@ HORIZON_COMPRESS_OFFLINE_CONTEXT_BASE = {
     'WEBROOT': WEBROOT,
     'STATIC_URL': STATIC_URL,
     'HORIZON_CONFIG': HORIZON_CONFIG,
-    'NG_TEMPLATE_CACHE_AGE': NG_TEMPLATE_CACHE_AGE,
+    'NG_TEMPLATE_CACHE_AGE': NG_TEMPLATE_CACHE_AGE if not DEBUG else 0,
 }
 
 if DEBUG:

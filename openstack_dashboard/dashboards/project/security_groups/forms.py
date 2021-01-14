@@ -23,8 +23,6 @@ from django.forms import ValidationError
 from django.urls import reverse
 from django.utils.translation import ugettext_lazy as _
 
-import six
-
 from horizon import exceptions
 from horizon import forms
 from horizon import messages
@@ -32,6 +30,7 @@ from horizon.utils import validators as utils_validators
 
 from openstack_dashboard import api
 from openstack_dashboard.utils import filters
+from openstack_dashboard.utils import settings as setting_utils
 
 
 class GroupBase(forms.SelfHandlingForm):
@@ -67,10 +66,9 @@ class GroupBase(forms.SelfHandlingForm):
             sg = self._call_network_api(request, data)
             messages.success(request, self.success_message % sg.name)
             return sg
-        except Exception as e:
+        except Exception:
             redirect = reverse("horizon:project:security_groups:index")
-            error_msg = self.error_message % e
-            exceptions.handle(request, error_msg, redirect=redirect)
+            exceptions.handle(request, self.error_message, redirect=redirect)
 
 
 class CreateGroup(GroupBase):
@@ -230,17 +228,18 @@ class AddRule(forms.SelfHandlingForm):
                          mask=True,
                          widget=forms.TextInput(
                              attrs={'class': 'switched',
+                                    'data-required-when-shown': 'true',
                                     'data-switch-on': 'remote',
                                     'data-remote-cidr': _('CIDR')}))
 
-    security_group = forms.ChoiceField(label=_('Security Group'),
-                                       required=False,
-                                       widget=forms.ThemableSelectWidget(
-                                           attrs={
-                                               'class': 'switched',
-                                               'data-switch-on': 'remote',
-                                               'data-remote-sg': _('Security '
-                                                                   'Group')}))
+    security_group = forms.ChoiceField(
+        label=_('Security Group'),
+        required=False,
+        widget=forms.ThemableSelectWidget(attrs={
+            'class': 'switched',
+            'data-required-when-shown': 'true',
+            'data-switch-on': 'remote',
+            'data-remote-sg': _('Security Group')}))
     # When cidr is used ethertype is determined from IP version of cidr.
     # When source group, ethertype needs to be specified explicitly.
     ethertype = forms.ChoiceField(label=_('Ether Type'),
@@ -255,7 +254,7 @@ class AddRule(forms.SelfHandlingForm):
 
     def __init__(self, *args, **kwargs):
         sg_list = kwargs.pop('sg_list', [])
-        super(AddRule, self).__init__(*args, **kwargs)
+        super().__init__(*args, **kwargs)
         # Determine if there are security groups available for the
         # remote group option; add the choices and enable the option if so.
         if sg_list:
@@ -268,7 +267,7 @@ class AddRule(forms.SelfHandlingForm):
         # parameter. If 'backend' is used, error message should be emitted.
         backend = 'neutron'
 
-        rules_dict = getattr(settings, 'SECURITY_GROUP_RULES', [])
+        rules_dict = settings.SECURITY_GROUP_RULES
         common_rules = [
             (k, rules_dict[k]['name'])
             for k in rules_dict
@@ -295,8 +294,8 @@ class AddRule(forms.SelfHandlingForm):
             ('all', _('All ports')),
         ]
 
-        if not getattr(settings, 'OPENSTACK_NEUTRON_NETWORK',
-                       {}).get('enable_ipv6', True):
+        if not setting_utils.get_dict_config('OPENSTACK_NEUTRON_NETWORK',
+                                             'enable_ipv6'):
             self.fields['cidr'].version = forms.IPv4
             self.fields['ethertype'].widget = forms.TextInput(
                 attrs={'readonly': 'readonly'})
@@ -390,15 +389,44 @@ class AddRule(forms.SelfHandlingForm):
         rule_menu = cleaned_data.get('rule_menu')
         if rule_menu == 'icmp':
             self._clean_rule_icmp(cleaned_data, rule_menu)
-        elif rule_menu == 'tcp' or rule_menu == 'udp':
+        elif rule_menu in ('tcp', 'udp'):
             self._clean_rule_tcp_udp(cleaned_data, rule_menu)
         elif rule_menu == 'custom':
             self._clean_rule_custom(cleaned_data, rule_menu)
         else:
             self._apply_rule_menu(cleaned_data, rule_menu)
 
+    def _adjust_ip_protocol_of_icmp(self, data):
+        # Note that this needs to be called after IPv4/IPv6 is determined.
+        try:
+            ip_protocol = int(data['ip_protocol'])
+        except ValueError:
+            # string representation of IP protocol
+            ip_protocol = data['ip_protocol']
+        is_ipv6 = data['ethertype'] == 'IPv6'
+
+        if isinstance(ip_protocol, int):
+            # When IP protocol number is specified, we assume a user
+            # knows more detail on IP protocol number,
+            # so a warning message on a mismatch between IP proto number
+            # and IP version is displayed.
+            if is_ipv6 and ip_protocol == 1:
+                msg = _('58 (ipv6-icmp) should be specified for IPv6 '
+                        'instead of 1.')
+                self._errors['ip_protocol'] = self.error_class([msg])
+            elif not is_ipv6 and ip_protocol == 58:
+                msg = _('1 (icmp) should be specified for IPv4 '
+                        'instead of 58.')
+                self._errors['ip_protocol'] = self.error_class([msg])
+        else:
+            # ICMPv6 uses different an IP protocol name and number.
+            # To allow 'icmp' for both IPv4 and IPv6 in the form,
+            # we need to replace 'icmp' with 'ipv6-icmp' based on IP version.
+            if is_ipv6 and ip_protocol == 'icmp':
+                data['ip_protocol'] = 'ipv6-icmp'
+
     def clean(self):
-        cleaned_data = super(AddRule, self).clean()
+        cleaned_data = super().clean()
 
         self._clean_rule_menu(cleaned_data)
 
@@ -431,6 +459,8 @@ class AddRule(forms.SelfHandlingForm):
                 ip_ver = netaddr.IPNetwork(cidr).version
                 cleaned_data['ethertype'] = 'IPv6' if ip_ver == 6 else 'IPv4'
 
+        self._adjust_ip_protocol_of_icmp(cleaned_data)
+
         return cleaned_data
 
     def handle(self, request, data):
@@ -451,9 +481,7 @@ class AddRule(forms.SelfHandlingForm):
                 data['cidr'],
                 data['security_group'],
                 **params)
-            messages.success(request,
-                             _('Successfully added rule: %s')
-                             % six.text_type(rule))
+            messages.success(request, _('Successfully added rule: %s') % rule)
             return rule
         except exceptions.Conflict as error:
             exceptions.handle(request, error, redirect=redirect)

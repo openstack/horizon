@@ -10,8 +10,9 @@
 # License for the specific language governing permissions and limitations
 # under the License.
 
+from unittest import mock
+
 from django.urls import reverse
-import mock
 
 from horizon import exceptions
 
@@ -42,9 +43,9 @@ class VolumeTypeTests(test.BaseAdminViewTests):
         self.assertTemplateUsed(
             res, 'admin/volume_types/volume_types_tables.html')
         volume_types = res.context['volume_types_table'].data
-        self.assertItemsEqual(volume_types, self.cinder_volume_types.list())
+        self.assertCountEqual(volume_types, self.cinder_volume_types.list())
         qos_specs = res.context['qos_specs_table'].data
-        self.assertItemsEqual(qos_specs, self.cinder_qos_specs.list())
+        self.assertCountEqual(qos_specs, self.cinder_qos_specs.list())
 
         self.mock_volume_type_list_with_qos_associations.\
             assert_called_once_with(test.IsHttpRequest())

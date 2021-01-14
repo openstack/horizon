@@ -12,18 +12,18 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
-from django.conf import settings
 from django.utils.translation import ugettext_lazy as _
 from openstack_auth import utils
 
 import horizon
+from horizon.utils import settings as utils_settings
 
 
 class Admin(horizon.Dashboard):
     name = _("Admin")
     slug = "admin"
 
-    if getattr(settings, 'POLICY_CHECK_FUNCTION', None):
+    if utils_settings.import_setting("POLICY_CHECK_FUNCTION"):
         policy_rules = (('identity', 'admin_required'),
                         ('image', 'context_is_admin'),
                         ('volume', 'context_is_admin'),

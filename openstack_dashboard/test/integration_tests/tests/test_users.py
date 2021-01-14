@@ -9,8 +9,6 @@
 #    WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
 #    License for the specific language governing permissions and limitations
 #    under the License.
-
-from openstack_dashboard.test.integration_tests import decorators
 from openstack_dashboard.test.integration_tests import helpers
 from openstack_dashboard.test.integration_tests.regions import messages
 
@@ -19,7 +17,6 @@ class TestUser(helpers.AdminTestCase):
 
     USER_NAME = helpers.gen_random_resource_name("user")
 
-    @decorators.skip_because(bugs=['1774697'])
     def test_create_delete_user(self):
         users_page = self.home_pg.go_to_identity_userspage()
         password = self.TEST_PASSWORD

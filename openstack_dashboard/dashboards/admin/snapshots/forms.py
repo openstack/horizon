@@ -33,25 +33,27 @@ STATUS_CHOICES = tuple(
 
 
 def populate_status_choices(current_status, status_choices):
-    status_choices = [status for status in status_choices
-                      if status[0] != current_status]
-    status_choices.insert(0, ("", _("Select a new status")))
+    choices = []
+    for status in status_choices:
+        if status[0] == current_status:
+            choices.append((status[0], _("%s (current)") % status[1]))
+        else:
+            choices.append(status)
 
-    return status_choices
+    choices.insert(0, ("", _("Select a new status")))
+    return choices
 
 
 class UpdateStatus(forms.SelfHandlingForm):
     status = forms.ThemableChoiceField(label=_("Status"))
 
     def __init__(self, request, *args, **kwargs):
-        # Obtain the localized status to use as initial value, has to be done
-        # before super() otherwise the initial value will get overwritten back
-        # to the raw value
+        # Initial values have to be operated before super() otherwise the
+        # initial values will get overwritten back to the raw value
         current_status = kwargs['initial']['status']
-        choices = dict(STATUS_CHOICES)
-        kwargs['initial']['status'] = choices[current_status]
+        kwargs['initial'].pop('status')
 
-        super(UpdateStatus, self).__init__(request, *args, **kwargs)
+        super().__init__(request, *args, **kwargs)
 
         self.fields['status'].choices = populate_status_choices(
             current_status, STATUS_CHOICES)

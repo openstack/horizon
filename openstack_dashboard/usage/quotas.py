@@ -135,6 +135,9 @@ class QuotaUsage(dict):
     def __repr__(self):
         return repr(dict(self.usages))
 
+    def __bool__(self):
+        return bool(self.usages)
+
     def get(self, key, default=None):
         return self.usages.get(key, default)
 
@@ -175,7 +178,12 @@ def get_default_quota_data(request, disabled_quotas=None, tenant_id=None):
         disabled_quotas = get_disabled_quotas(request)
 
     if NOVA_QUOTA_FIELDS - disabled_quotas:
-        quotasets.append(nova.default_quota_get(request, tenant_id))
+        try:
+            quotasets.append(nova.default_quota_get(request, tenant_id))
+        except Exception:
+            disabled_quotas.update(NOVA_QUOTA_FIELDS)
+            msg = _('Unable to retrieve Nova quota information.')
+            exceptions.handle(request, msg)
 
     if CINDER_QUOTA_FIELDS - disabled_quotas:
         try:
@@ -210,7 +218,12 @@ def get_tenant_quota_data(request, disabled_quotas=None, tenant_id=None):
         disabled_quotas = get_disabled_quotas(request)
 
     if NOVA_QUOTA_FIELDS - disabled_quotas:
-        quotasets.append(nova.tenant_quota_get(request, tenant_id))
+        try:
+            quotasets.append(nova.tenant_quota_get(request, tenant_id))
+        except Exception:
+            disabled_quotas.update(NOVA_QUOTA_FIELDS)
+            msg = _('Unable to retrieve Nova quota information.')
+            exceptions.handle(request, msg)
 
     if CINDER_QUOTA_FIELDS - disabled_quotas:
         try:
@@ -221,7 +234,12 @@ def get_tenant_quota_data(request, disabled_quotas=None, tenant_id=None):
             exceptions.handle(request, msg)
 
     if NEUTRON_QUOTA_FIELDS - disabled_quotas:
-        quotasets.append(neutron.tenant_quota_get(request, tenant_id))
+        try:
+            quotasets.append(neutron.tenant_quota_get(request, tenant_id))
+        except Exception:
+            disabled_quotas.update(NEUTRON_QUOTA_FIELDS)
+            msg = _('Unable to retrieve Neutron quota information.')
+            exceptions.handle(request, msg)
 
     qs = base.QuotaSet()
     for quota in itertools.chain(*quotasets):
@@ -238,9 +256,6 @@ def get_tenant_quota_data(request, disabled_quotas=None, tenant_id=None):
 @profiler.trace
 def get_disabled_quotas(request, targets=None):
     if targets:
-        if set(targets) - QUOTA_FIELDS:
-            raise ValueError('Unknown quota field names are included: %s'
-                             % set(targets) - QUOTA_FIELDS)
         candidates = set(targets)
     else:
         candidates = QUOTA_FIELDS
@@ -336,57 +351,13 @@ def _get_tenant_network_usages(request, usages, disabled_quotas, tenant_id):
     if not enabled_quotas:
         return
 
-    if neutron.is_extension_supported(request, 'quota_details'):
-        details = neutron.tenant_quota_detail_get(request, tenant_id)
-        for quota_name in NEUTRON_QUOTA_FIELDS:
-            if quota_name in disabled_quotas:
-                continue
-            detail = details[quota_name]
-            usages.add_quota(base.Quota(quota_name, detail['limit']))
-            usages.tally(quota_name, detail['used'] + detail['reserved'])
-    else:
-        _get_tenant_network_usages_legacy(
-            request, usages, disabled_quotas, tenant_id)
-
-
-def _get_neutron_quota_data(request, qs, disabled_quotas, tenant_id):
-    tenant_id = tenant_id or request.user.tenant_id
-    neutron_quotas = neutron.tenant_quota_get(request, tenant_id)
-
+    details = neutron.tenant_quota_detail_get(request, tenant_id)
     for quota_name in NEUTRON_QUOTA_FIELDS:
-        if quota_name not in disabled_quotas:
-            quota_data = neutron_quotas.get(quota_name).limit
-            qs.add(base.QuotaSet({quota_name: quota_data}))
-
-    return qs
-
-
-def _get_tenant_network_usages_legacy(request, usages, disabled_quotas,
-                                      tenant_id):
-    qs = base.QuotaSet()
-    _get_neutron_quota_data(request, qs, disabled_quotas, tenant_id)
-    for quota in qs:
-        usages.add_quota(quota)
-
-    # TODO(amotoki): Add security_group_rule?
-    resource_lister = {
-        'network': (neutron.network_list, {'tenant_id': tenant_id}),
-        'subnet': (neutron.subnet_list, {'tenant_id': tenant_id}),
-        'port': (neutron.port_list, {'tenant_id': tenant_id}),
-        'router': (neutron.router_list, {'tenant_id': tenant_id}),
-        'floatingip': (neutron.tenant_floating_ip_list, {}),
-        'security_group': (neutron.security_group_list, {}),
-    }
-
-    for quota_name, lister_info in resource_lister.items():
-        if quota_name not in disabled_quotas:
-            lister = lister_info[0]
-            kwargs = lister_info[1]
-            try:
-                resources = lister(request, **kwargs)
-            except Exception:
-                resources = []
-            usages.tally(quota_name, len(resources))
+        if quota_name in disabled_quotas:
+            continue
+        detail = details[quota_name]
+        usages.add_quota(base.Quota(quota_name, detail['limit']))
+        usages.tally(quota_name, detail['used'] + detail['reserved'])
 
 
 @profiler.trace

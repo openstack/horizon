@@ -12,8 +12,9 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+from unittest import mock
+
 from django.conf import settings
-import mock
 from oslo_serialization import jsonutils
 
 from openstack_dashboard import api
@@ -29,10 +30,10 @@ class KeystoneRestTestCase(test.TestCase):
     @test.create_mocks({api.keystone: ['get_version']})
     def test_version_get(self):
         request = self.mock_rest_request()
-        self.mock_get_version.return_value = '2.0'
+        self.mock_get_version.return_value = '3'
         response = keystone.Version().get(request)
         self.assertStatusCode(response, 200)
-        self.assertEqual(response.json, {"version": "2.0"})
+        self.assertEqual(response.json, {"version": "3"})
         self.mock_get_version.assert_called_once_with()
 
     #
@@ -606,6 +607,7 @@ class KeystoneRestTestCase(test.TestCase):
             '"domain_id": "domain123", "description": "sekrit", '
             '"enabled": false}',
             {
+                'name': 'bob',
                 'description': 'sekrit',
                 'domain': 'domain123',
                 'enabled': False
@@ -616,6 +618,7 @@ class KeystoneRestTestCase(test.TestCase):
         self._test_project_create(
             '{"name": "bob"}',
             {
+                'name': 'bob',
                 'description': None,
                 'domain': None,
                 'enabled': True
@@ -623,7 +626,7 @@ class KeystoneRestTestCase(test.TestCase):
         )
 
     @test.create_mocks({api.keystone: ['tenant_create']})
-    def _test_project_create(self, supplied_body, expected_call):
+    def _test_project_create(self, supplied_body, expected_args):
         request = self.mock_rest_request(body=supplied_body)
         self.mock_tenant_create.return_value.id = 'project123'
         self.mock_tenant_create.return_value.to_dict.return_value = {
@@ -636,8 +639,8 @@ class KeystoneRestTestCase(test.TestCase):
                          '/api/keystone/projects/project123')
         self.assertEqual(response.json,
                          {"id": "project123", "name": "bob"})
-        self.mock_tenant_create.assert_called_once_with(request, 'bob',
-                                                        **expected_call)
+        self.mock_tenant_create.assert_called_once_with(request,
+                                                        **expected_args)
 
     @test.create_mocks({api.keystone: ['tenant_delete']})
     def test_project_delete_many(self):

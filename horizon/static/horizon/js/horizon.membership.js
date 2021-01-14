@@ -252,7 +252,7 @@ horizon.membership = {
   generate_html: function(step_slug) {
     var data_id, data = horizon.membership.data[step_slug];
     for (data_id in data) {
-      if(data.hasOwnProperty(data_id)){
+      if (data.hasOwnProperty(data_id)) {
         var display_name = data[data_id];
         var role_ids = this.get_member_roles(step_slug, data_id);
         if (role_ids.length > 0) {
@@ -491,7 +491,7 @@ horizon.membership = {
 
       // prevent filter inputs from submitting form on 'enter'
       $form.find('.' + step_slug + '_membership').keydown(function(event){
-        if(event.keyCode === 13) {
+        if (event.keyCode === 13) {
           event.preventDefault();
           return false;
         }

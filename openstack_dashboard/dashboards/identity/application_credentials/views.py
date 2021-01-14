@@ -19,8 +19,6 @@ from django.urls import reverse
 from django.urls import reverse_lazy
 from django.utils.translation import ugettext_lazy as _
 
-from openstack_auth import utils
-
 from horizon import exceptions
 from horizon import forms
 from horizon import tables
@@ -28,6 +26,7 @@ from horizon.utils import memoized
 from horizon import views
 
 from openstack_dashboard import api
+from openstack_dashboard.utils import settings as setting_utils
 
 from openstack_dashboard.dashboards.identity.application_credentials \
     import forms as project_forms
@@ -54,9 +53,9 @@ class IndexView(tables.DataTableView):
         # If filter_first is set and if there are not other filters
         # selected, then search criteria must be provided
         # and return an empty list
-        filter_first = getattr(settings, 'FILTER_DATA_FIRST', {})
-        if (filter_first.get('identity.application_credentials', False) and
-                not filters):
+        if (setting_utils.get_dict_config(
+                'FILTER_DATA_FIRST',
+                'identity.application_credentials') and not filters):
             self._needs_filter_first = True
             return app_creds
 
@@ -83,9 +82,14 @@ class CreateView(forms.ModalFormView):
     page_title = _("Create Application Credential")
 
     def get_form_kwargs(self):
-        kwargs = super(CreateView, self).get_form_kwargs()
+        kwargs = super().get_form_kwargs()
         kwargs['next_view'] = CreateSuccessfulView
         return kwargs
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['kubeconfig_enabled'] = settings.KUBECONFIG_ENABLED
+        return context
 
 
 class CreateSuccessfulView(forms.ModalFormView):
@@ -98,15 +102,20 @@ class CreateSuccessfulView(forms.ModalFormView):
     cancel_label = _("Close")
     download_openrc_label = _("Download openrc file")
     download_clouds_yaml_label = _("Download clouds.yaml")
+    download_kubeconfig_label = _("Download kubeconfig file")
 
     def get_context_data(self, **kwargs):
-        context = super(CreateSuccessfulView, self).get_context_data(**kwargs)
+        context = super().get_context_data(**kwargs)
         context['download_openrc_label'] = self.download_openrc_label
         context['download_clouds_yaml_label'] = self.download_clouds_yaml_label
+        context['download_kubeconfig_label'] = self.download_kubeconfig_label
         context['download_openrc_url'] = reverse(
             'horizon:identity:application_credentials:download_openrc')
         context['download_clouds_yaml_url'] = reverse(
             'horizon:identity:application_credentials:download_clouds_yaml')
+        if settings.KUBECONFIG_ENABLED:
+            context['download_kubeconfig_url'] = reverse(
+                'horizon:identity:application_credentials:download_kubeconfig')
         return context
 
     def get_initial(self):
@@ -122,16 +131,21 @@ def _get_context(request):
     auth_url = api.base.url_for(request,
                                 'identity',
                                 endpoint_type='publicURL')
-    auth_url, url_fixed = utils.fix_auth_url_version_prefix(auth_url)
     interface = 'public'
     region = getattr(request.user, 'services_region', '')
     app_cred = request.session['application_credential']
-    context = dict(auth_url=auth_url,
-                   interface=interface,
-                   region=region,
-                   application_credential_id=app_cred['id'],
-                   application_credential_name=app_cred['name'],
-                   application_credential_secret=app_cred['secret'])
+    context = {
+        'auth_url': auth_url,
+        'interface': interface,
+        'region': region,
+        'user': request.user,
+        'application_credential_id': app_cred['id'],
+        'application_credential_name': app_cred['name'],
+        'application_credential_secret': app_cred['secret'],
+        'kubernetes_namespace': app_cred['kubernetes_namespace'],
+        'kubernetes_url': settings.KUBECONFIG_KUBERNETES_URL,
+        'kubernetes_certificate_authority_data':
+            settings.KUBECONFIG_CERTIFICATE_AUTHORITY_DATA}
     return context
 
 
@@ -167,12 +181,20 @@ def download_clouds_yaml_file(request):
     return _render_attachment(filename, template, context, request)
 
 
+def download_kubeconfig_file(request):
+    context = _get_context(request)
+    template = 'identity/application_credentials/kubeconfig.template'
+    filename = 'app-cred-%s-kubeconfig' % context['application_credential_name']
+    response = _render_attachment(filename, template, context, request)
+    return response
+
+
 class DetailView(views.HorizonTemplateView):
     template_name = 'identity/application_credentials/detail.html'
     page_title = "{{ application_credential.name }}"
 
     def get_context_data(self, **kwargs):
-        context = super(DetailView, self).get_context_data(**kwargs)
+        context = super().get_context_data(**kwargs)
         app_cred = self.get_data()
         table = project_tables.ApplicationCredentialsTable(self.request)
         context["application_credential"] = app_cred

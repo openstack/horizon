@@ -45,6 +45,7 @@ def data(TEST):
     TEST.neutron_quota_usages = utils.TestDataContainer()
     TEST.ip_availability = utils.TestDataContainer()
     TEST.qos_policies = utils.TestDataContainer()
+    TEST.rbac_policies = utils.TestDataContainer()
     TEST.tp_ports = utils.TestDataContainer()
     TEST.neutron_availability_zones = utils.TestDataContainer()
 
@@ -66,6 +67,7 @@ def data(TEST):
     TEST.api_monitors = utils.TestDataContainer()
     TEST.api_extensions = utils.TestDataContainer()
     TEST.api_ip_availability = utils.TestDataContainer()
+    TEST.api_rbac_policies = utils.TestDataContainer()
     TEST.api_qos_policies = utils.TestDataContainer()
     TEST.api_tp_trunks = utils.TestDataContainer()
     TEST.api_tp_ports = utils.TestDataContainer()
@@ -496,6 +498,10 @@ def data(TEST):
                    'description': 'NotDefault',
                    'id': '443a4d7a-4bd2-4474-9a77-02b35c9f8c95',
                    'name': 'another_group'}
+    sec_group_empty = {'tenant_id': '1',
+                       'description': 'SG without rules',
+                       'id': 'f205f3bc-d402-4e40-b004-c62401e19b4b',
+                       'name': 'empty_group'}
 
     def add_rule_to_group(secgroup, default_only=True):
         rule_egress_ipv4 = {
@@ -548,6 +554,16 @@ def data(TEST):
             'tenant_id': secgroup['tenant_id'],
             'description': 'Ingress HTTP from SG #1',
         }
+        rule_ip_proto = {
+            'id': uuidutils.generate_uuid(),
+            'direction': u'ingress', 'ethertype': u'IPv4',
+            'port_range_min': None, 'port_range_max': None,
+            'protocol': u'99', 'remote_group_id': None,
+            'remote_ip_prefix': u'0.0.0.0/24',
+            'security_group_id': secgroup['id'],
+            'tenant_id': secgroup['tenant_id'],
+            'description': 'Ingress custom IP protocol 99',
+        }
         rule_all_tcp = {
             'id': uuidutils.generate_uuid(),
             'direction': u'egress', 'ethertype': u'IPv4',
@@ -561,25 +577,28 @@ def data(TEST):
 
         rules = []
         if not default_only:
-            rules += [rule_tcp_80, rule_icmp, rule_group, rule_all_tcp]
+            rules += [rule_tcp_80, rule_icmp, rule_group, rule_all_tcp,
+                      rule_ip_proto]
         rules += [rule_egress_ipv4, rule_egress_ipv6]
         secgroup['security_group_rules'] = rules
 
     add_rule_to_group(sec_group_1, default_only=False)
     add_rule_to_group(sec_group_2)
     add_rule_to_group(sec_group_3)
+    # NOTE: sec_group_empty is a SG without rules,
+    # so we don't call add_rule_to_group.
 
-    groups = [sec_group_1, sec_group_2, sec_group_3]
+    groups = [sec_group_1, sec_group_2, sec_group_3, sec_group_empty]
     sg_name_dict = dict([(sg['id'], sg['name']) for sg in groups])
     for sg in groups:
         # Neutron API.
         TEST.api_security_groups.add(sg)
-        for rule in sg['security_group_rules']:
+        for rule in sg.get('security_group_rules', []):
             TEST.api_security_group_rules.add(copy.copy(rule))
         # OpenStack Dashboard internaly API.
         TEST.security_groups.add(
             neutron.SecurityGroup(copy.deepcopy(sg), sg_name_dict))
-        for rule in sg['security_group_rules']:
+        for rule in sg.get('security_group_rules', []):
             TEST.security_group_rules.add(
                 neutron.SecurityGroupRule(copy.copy(rule), sg_name_dict))
 
@@ -772,6 +791,26 @@ def data(TEST):
                     'tenant_id': '1'}
     TEST.api_qos_policies.add(policy_dict1)
     TEST.qos_policies.add(neutron.QoSPolicy(policy_dict1))
+
+    # rbac policies
+    rbac_policy_dict = {"project_id": "1",
+                        "object_type": "network",
+                        "id": "7f27e61a-9863-448a-a769-eb922fdef3f8",
+                        "object_id": "82288d84-e0a5-42ac-95be-e6af08727e42",
+                        "target_tenant": "2",
+                        "action": "access_as_external",
+                        "tenant_id": "1"}
+    TEST.api_rbac_policies.add(rbac_policy_dict)
+    TEST.rbac_policies.add(neutron.RBACPolicy(rbac_policy_dict))
+    rbac_policy_dict1 = {"project_id": "1",
+                         "object_type": "qos_policy",
+                         "id": "7f27e61a-9863-448a-a769-eb922fdef3f8",
+                         "object_id": "a21dcd22-7189-cccc-aa32-22adafaf16a7",
+                         "target_tenant": "2",
+                         "action": "access_as_shared",
+                         "tenant_id": "1"}
+    TEST.api_rbac_policies.add(rbac_policy_dict1)
+    TEST.rbac_policies.add(neutron.RBACPolicy(rbac_policy_dict1))
 
     # TRUNKPORT
     #

@@ -39,11 +39,17 @@ class AddAllowedAddressPair(policy.PolicyTargetMixin, tables.LinkAction):
         ("network", "update_port:allowed_address_pairs"),
     )
 
+    def get_policy_target(self, request, datum=None):
+        policy_target = super().get_policy_target(request, datum)
+        policy_target["network:tenant_id"] = (
+            self.table.kwargs['port'].tenant_id)
+
+        return policy_target
+
     def get_link_url(self, port=None):
         if port:
             return reverse(self.url, args=(port.id,))
-        else:
-            return reverse(self.url, args=(self.table.kwargs.get('port_id'),))
+        return reverse(self.url, args=(self.table.kwargs.get('port_id'),))
 
 
 class DeleteAllowedAddressPair(tables.DeleteAction):
@@ -67,6 +73,13 @@ class DeleteAllowedAddressPair(tables.DeleteAction):
         ("network", "update_port"),
         ("network", "update_port:allowed_address_pairs"),
     )
+
+    def get_policy_target(self, request, datum=None):
+        policy_target = super().get_policy_target(request, datum)
+        policy_target["network:tenant_id"] = (
+            self.table.kwargs['port'].tenant_id)
+
+        return policy_target
 
     def delete(self, request, ip_address):
         try:

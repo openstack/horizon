@@ -174,6 +174,6 @@ following settings in your local_settings.py::
 
 ..  _Bootstrap: http://getbootstrap.com/customize/
 ..  _Bootswatch: http://bootswatch.com
-..  _Bootswatchr: http://bootswatchr.com/create#!
+..  _Bootswatchr: https://codepen.io/technabors/pen/eWPXEd
 ..  _Paintstrap: http://paintstrap.com
 ..  _Google's Material Design: https://www.google.com/design/spec/material-design/introduction.html

@@ -12,9 +12,9 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
-from django.urls import reverse
+from unittest import mock
 
-import mock
+from django.urls import reverse
 
 from openstack_dashboard import api
 from openstack_dashboard.dashboards.project.routers import tests as r_test
@@ -55,7 +55,7 @@ class RouterMixin(r_test.RouterMixin):
         return res
 
     def _check_get_detail(self, router, extraroute=True):
-        super(RouterMixin, self)._check_get_detail(router, extraroute)
+        super()._check_get_detail(router, extraroute)
         self.mock_is_extension_supported.assert_any_call(
             test.IsHttpRequest(), 'l3_agent_scheduler')
         if self.support_l3_agent:
@@ -88,7 +88,7 @@ class RouterTests(RouterMixin, r_test.RouterTestCase, test.BaseAdminViewTests):
 
         self.assertTemplateUsed(res, INDEX_TEMPLATE)
         routers = res.context['table'].data
-        self.assertItemsEqual(routers, self.routers.list())
+        self.assertCountEqual(routers, self.routers.list())
 
         self.mock_router_list.assert_called_once_with(test.IsHttpRequest())
         self.mock_tenant_list.assert_called_once_with(test.IsHttpRequest())
@@ -143,7 +143,7 @@ class RouterTests(RouterMixin, r_test.RouterTestCase, test.BaseAdminViewTests):
 
         self.assertTemplateUsed(res, INDEX_TEMPLATE)
         routers = res.context['table'].data
-        self.assertItemsEqual(routers, self.routers.list())
+        self.assertCountEqual(routers, self.routers.list())
 
         self.mock_agent_list.assert_called_once_with(
             test.IsHttpRequest(), id=agent.id)
@@ -191,7 +191,7 @@ class RouterTests(RouterMixin, r_test.RouterTestCase, test.BaseAdminViewTests):
 
     @test.create_mocks({api.neutron: ('list_l3_agent_hosting_router',)})
     def test_router_detail(self):
-        super(RouterTests, self).test_router_detail()
+        super().test_router_detail()
 
     @test.create_mocks({api.neutron: ('router_list',
                                       'network_list',
@@ -305,7 +305,7 @@ class RouterTests(RouterMixin, r_test.RouterTestCase, test.BaseAdminViewTests):
         res = self.client.get(self.INDEX_URL)
         self.assertTemplateUsed(res, INDEX_TEMPLATE)
         routers = res.context['table'].data
-        self.assertItemsEqual(routers, [])
+        self.assertCountEqual(routers, [])
 
         self.assert_mock_multiple_calls_with_same_arguments(
             self.mock_tenant_quota_usages, 2,
@@ -329,7 +329,7 @@ class RouterTests(RouterMixin, r_test.RouterTestCase, test.BaseAdminViewTests):
         res = self.client.get(self.INDEX_URL)
         self.assertTemplateUsed(res, INDEX_TEMPLATE)
         routers = res.context['table'].data
-        self.assertItemsEqual(routers, [])
+        self.assertCountEqual(routers, [])
 
         self.assert_mock_multiple_calls_with_same_arguments(
             self.mock_tenant_quota_usages, 2,
@@ -358,8 +358,8 @@ class RouterRouteTests(RouterMixin,
 
     @test.create_mocks({api.neutron: ('list_l3_agent_hosting_router',)})
     def test_extension_hides_without_routes(self):
-        super(RouterRouteTests, self).test_extension_hides_without_routes()
+        super().test_extension_hides_without_routes()
 
     @test.create_mocks({api.neutron: ('list_l3_agent_hosting_router',)})
     def test_routerroute_detail(self):
-        super(RouterRouteTests, self).test_routerroute_detail()
+        super().test_routerroute_detail()

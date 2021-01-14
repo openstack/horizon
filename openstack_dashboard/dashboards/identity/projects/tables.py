@@ -10,6 +10,7 @@
 # License for the specific language governing permissions and limitations
 # under the License.
 
+from django.conf import settings
 from django.template import defaultfilters as filters
 from django.urls import reverse
 from django.utils.http import urlencode
@@ -62,12 +63,11 @@ class UpdateMembersLink(tables.LinkAction):
         return "?".join([base_url, param])
 
     def allowed(self, request, project):
-        if api.keystone.is_multi_domain_enabled():
+        if settings.OPENSTACK_KEYSTONE_MULTIDOMAIN_SUPPORT:
             # domain admin or cloud admin = True
             # project admin or member = False
             return api.keystone.is_domain_admin(request)
-        else:
-            return super(UpdateMembersLink, self).allowed(request, project)
+        return super().allowed(request, project)
 
 
 class UpdateGroupsLink(tables.LinkAction):
@@ -79,12 +79,11 @@ class UpdateGroupsLink(tables.LinkAction):
     policy_rules = (("identity", "identity:list_groups"),)
 
     def allowed(self, request, project):
-        if api.keystone.is_multi_domain_enabled():
+        if settings.OPENSTACK_KEYSTONE_MULTIDOMAIN_SUPPORT:
             # domain admin or cloud admin = True
             # project admin or member = False
             return api.keystone.is_domain_admin(request)
-        else:
-            return super(UpdateGroupsLink, self).allowed(request, project)
+        return super().allowed(request, project)
 
     def get_link_url(self, project):
         step = 'update_group_members'
@@ -114,12 +113,11 @@ class CreateProject(tables.LinkAction):
     policy_rules = (('identity', 'identity:create_project'),)
 
     def allowed(self, request, project):
-        if api.keystone.is_multi_domain_enabled():
+        if settings.OPENSTACK_KEYSTONE_MULTIDOMAIN_SUPPORT:
             # domain admin or cloud admin = True
             # project admin or member = False
             return api.keystone.is_domain_admin(request)
-        else:
-            return api.keystone.keystone_can_edit_project()
+        return api.keystone.keystone_can_edit_project()
 
 
 class UpdateProject(policy.PolicyTargetMixin, tables.LinkAction):
@@ -132,12 +130,11 @@ class UpdateProject(policy.PolicyTargetMixin, tables.LinkAction):
     policy_target_attrs = (("target.project.domain_id", "domain_id"),)
 
     def allowed(self, request, project):
-        if api.keystone.is_multi_domain_enabled():
+        if settings.OPENSTACK_KEYSTONE_MULTIDOMAIN_SUPPORT:
             # domain admin or cloud admin = True
             # project admin or member = False
             return api.keystone.is_domain_admin(request)
-        else:
-            return api.keystone.keystone_can_edit_project()
+        return api.keystone.keystone_can_edit_project()
 
 
 class ModifyQuotas(tables.LinkAction):
@@ -149,11 +146,8 @@ class ModifyQuotas(tables.LinkAction):
     policy_rules = (('compute', "os_compute_api:os-quota-sets:update"),)
 
     def allowed(self, request, datum):
-        if api.keystone.VERSIONS.active < 3:
-            return True
-        else:
-            return (api.keystone.is_cloud_admin(request) and
-                    quotas.enabled_quotas(request))
+        return (api.keystone.is_cloud_admin(request) and
+                quotas.enabled_quotas(request))
 
     def get_link_url(self, project):
         step = 'update_quotas'
@@ -180,11 +174,11 @@ class DeleteTenantsAction(policy.PolicyTargetMixin, tables.DeleteAction):
         )
 
     policy_rules = (("identity", "identity:delete_project"),)
-    policy_target_attrs = ("target.project.domain_id", "domain_id"),
+    policy_target_attrs = (("target.project.domain_id", "domain_id"),)
 
     def allowed(self, request, project):
-        if api.keystone.is_multi_domain_enabled() \
-                and not api.keystone.is_domain_admin(request):
+        if (settings.OPENSTACK_KEYSTONE_MULTIDOMAIN_SUPPORT and
+                not api.keystone.is_domain_admin(request)):
             return False
         return api.keystone.keystone_can_edit_project()
 
@@ -192,19 +186,15 @@ class DeleteTenantsAction(policy.PolicyTargetMixin, tables.DeleteAction):
         api.keystone.tenant_delete(request, obj_id)
 
     def handle(self, table, request, obj_ids):
-        response = \
-            super(DeleteTenantsAction, self).handle(table, request, obj_ids)
+        response = super().handle(table, request, obj_ids)
         return response
 
 
 class TenantFilterAction(tables.FilterAction):
-    if api.keystone.VERSIONS.active < 3:
-        filter_type = "query"
-    else:
-        filter_type = "server"
-        filter_choices = (('name', _("Project Name ="), True),
-                          ('id', _("Project ID ="), True),
-                          ('enabled', _("Enabled ="), True, _('e.g. Yes/No')))
+    filter_type = "server"
+    filter_choices = (('name', _("Project Name ="), True),
+                      ('id', _("Project ID ="), True),
+                      ('enabled', _("Enabled ="), True, _('e.g. Yes/No')))
 
 
 class UpdateRow(tables.Row):
@@ -226,11 +216,8 @@ class TenantsTable(tables.DataTable):
                                     widget=forms.Textarea(attrs={'rows': 4}),
                                     required=False))
     id = tables.Column('id', verbose_name=_('Project ID'))
-
-    if api.keystone.VERSIONS.active >= 3:
-        domain_name = tables.Column(
-            'domain_name', verbose_name=_('Domain Name'))
-
+    domain_name = tables.Column(
+        'domain_name', verbose_name=_('Domain Name'))
     enabled = tables.Column('enabled', verbose_name=_('Enabled'), status=True,
                             filters=(filters.yesno, filters.capfirst),
                             form_field=forms.BooleanField(
@@ -247,10 +234,8 @@ class TenantsTable(tables.DataTable):
         return None
 
     def __init__(self, request, data=None, needs_form_wrapper=None, **kwargs):
-        super(TenantsTable,
-              self).__init__(request, data=data,
-                             needs_form_wrapper=needs_form_wrapper,
-                             **kwargs)
+        super().__init__(request, data=data,
+                         needs_form_wrapper=needs_form_wrapper, **kwargs)
         # see the comment above about ugly monkey patches
         self.columns['name'].get_link_url = self.get_project_detail_link
 

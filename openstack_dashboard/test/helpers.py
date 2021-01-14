@@ -17,10 +17,11 @@
 #    under the License.
 
 from functools import wraps
-from importlib import import_module
+import importlib
 import logging
 import os
 import traceback
+from unittest import mock
 
 from django.conf import settings
 from django.contrib.messages.storage import default_storage
@@ -30,12 +31,9 @@ from django.test import tag
 from django import urls
 from django.utils import http
 
-import mock
 from openstack_auth import user
 from openstack_auth import utils
 from requests.packages.urllib3.connection import HTTPConnection
-import six
-from six import moves
 
 from horizon import base
 from horizon import conf
@@ -99,7 +97,6 @@ def create_mocks(target_methods):
             api.nova: [
                 'usage_get',
                 ('tenant_absolute_limits', 'nova_tenant_absolute_limits'),
-                'extension_supported',
             ],
             api.cinder: [
                 ('tenant_absolute_limits', 'cinder_tenant_absolute_limits'),
@@ -111,7 +108,6 @@ def create_mocks(target_methods):
             self.mock_nova_tenant_absolute_limits.return_value = ...
             self.mock_cinder_tenant_absolute_limits.return_value = ...
             ...
-            self.mock_extension_supported.assert_has_calls(....)
 
     """
     def wrapper(function):
@@ -136,7 +132,7 @@ def _apply_panel_mocks(patchers=None):
     """Global mocks on panels that get called on all views."""
     if patchers is None:
         patchers = {}
-    mocked_methods = getattr(settings, 'TEST_GLOBAL_MOCKS_ON_PANELS', {})
+    mocked_methods = settings.TEST_GLOBAL_MOCKS_ON_PANELS
     for name, mock_config in mocked_methods.items():
         method = mock_config['method']
         mock_params = {}
@@ -151,14 +147,14 @@ def _apply_panel_mocks(patchers=None):
 
 class RequestFactoryWithMessages(RequestFactory):
     def get(self, *args, **kwargs):
-        req = super(RequestFactoryWithMessages, self).get(*args, **kwargs)
+        req = super().get(*args, **kwargs)
         req.user = utils.get_user(req)
         req.session = []
         req._messages = default_storage(req)
         return req
 
     def post(self, *args, **kwargs):
-        req = super(RequestFactoryWithMessages, self).post(*args, **kwargs)
+        req = super().post(*args, **kwargs)
         req.user = utils.get_user(req)
         req.session = []
         req._messages = default_storage(req)
@@ -203,10 +199,10 @@ class TestCase(horizon_helpers.TestCase):
 
         self.patchers = _apply_panel_mocks()
 
-        super(TestCase, self).setUp()
+        super().setUp()
 
     def _setup_test_data(self):
-        super(TestCase, self)._setup_test_data()
+        super()._setup_test_data()
         test_utils.load_test_data(self)
         self.context = {
             'authorized_tenants': self.tenants.list(),
@@ -234,7 +230,7 @@ class TestCase(horizon_helpers.TestCase):
         self.setActiveUser(**base_kwargs)
 
     def _setup_request(self):
-        super(TestCase, self)._setup_request()
+        super()._setup_request()
         self.request.session['token'] = self.token.id
 
     def tearDown(self):
@@ -242,7 +238,7 @@ class TestCase(horizon_helpers.TestCase):
         context_processors.openstack = self._real_context_processor
         utils.get_user = self._real_get_user
         mock.patch.stopall()
-        super(TestCase, self).tearDown()
+        super().tearDown()
 
         # cause a test failure if an unmocked API call was attempted
         if self.missing_mocks:
@@ -273,7 +269,7 @@ class TestCase(horizon_helpers.TestCase):
         Asserts that the given response issued a 302 redirect without
         processing the view which is redirected to.
         """
-        loc = six.text_type(response._headers.get('location', None)[1])
+        loc = str(response._headers.get('location', None)[1])
         loc = http.urlunquote(loc)
         expected_url = http.urlunquote(expected_url)
         self.assertEqual(loc, expected_url)
@@ -308,7 +304,7 @@ class TestCase(horizon_helpers.TestCase):
             assert len(errors) == count, \
                 "%d errors were found on the form, %d expected" % \
                 (len(errors), count)
-            if message and message not in six.text_type(errors):
+            if message and message not in str(errors):
                 self.fail("Expected message not found, instead found: %s"
                           % ["%s: %s" % (key, [e for e in field_errors]) for
                              (key, field_errors) in errors.items()])
@@ -332,13 +328,11 @@ class TestCase(horizon_helpers.TestCase):
     def getAndAssertTableRowAction(self, response, table_name,
                                    action_name, row_id):
         table = response.context[table_name + '_table']
-        rows = list(moves.filter(lambda x: x.id == row_id,
-                                 table.data))
+        rows = list(filter(lambda x: x.id == row_id, table.data))
         self.assertEqual(1, len(rows),
                          "Did not find a row matching id '%s'" % row_id)
         row_actions = table.get_row_actions(rows[0])
-        actions = list(moves.filter(lambda x: x.name == action_name,
-                                    row_actions))
+        actions = list(filter(lambda x: x.name == action_name, row_actions))
 
         msg_args = (action_name, table_name, row_id)
         self.assertGreater(
@@ -356,8 +350,7 @@ class TestCase(horizon_helpers.TestCase):
 
         table = response.context[table_name + '_table']
         table_actions = table.get_table_actions()
-        actions = list(moves.filter(lambda x: x.name == action_name,
-                                    table_actions))
+        actions = list(filter(lambda x: x.name == action_name, table_actions))
         msg_args = (action_name, table_name)
         self.assertGreater(
             len(actions), 0,
@@ -400,6 +393,34 @@ class TestCase(horizon_helpers.TestCase):
             0, len(errors),
             "Unexpected errors were found on the workflow: %s" % errors)
 
+    def assertWorkflowErrors(self, response, count=0, message=None,
+                             context_name="workflow"):
+        """Check for workflow errors.
+
+        Asserts that the response does contain a workflow in its
+        context, and that workflow has errors, if count were given,
+        it must match the exact numbers of errors
+        """
+        context = getattr(response, "context", {})
+        self.assertIn(context_name, context,
+                      msg="The response did not contain a workflow.")
+        errors = {}
+        for step in response.context[context_name].steps:
+            errors.update(step.action._errors)
+        if count:
+            self.assertEqual(
+                count, len(errors),
+                "%d errors were found on the workflow, %d expected" %
+                (len(errors), count))
+            if message and message not in str(errors):
+                self.fail("Expected message not found, instead found: %s"
+                          % ["%s: %s" % (key, [e for e in field_errors]) for
+                             (key, field_errors) in errors.items()])
+        else:
+            self.assertGreater(
+                len(errors), 0,
+                "No errors were found on the workflow")
+
 
 class BaseAdminViewTests(TestCase):
     """Sets an active user with the "admin" role.
@@ -409,11 +430,11 @@ class BaseAdminViewTests(TestCase):
     def setActiveUser(self, *args, **kwargs):
         if "roles" not in kwargs:
             kwargs['roles'] = [self.roles.admin._info]
-        super(BaseAdminViewTests, self).setActiveUser(*args, **kwargs)
+        super().setActiveUser(*args, **kwargs)
 
     def setSessionValues(self, **kwargs):
         settings.SESSION_ENGINE = 'django.contrib.sessions.backends.file'
-        engine = import_module(settings.SESSION_ENGINE)
+        engine = importlib.import_module(settings.SESSION_ENGINE)
         store = engine.SessionStore()
         for key in kwargs:
             store[key] = kwargs[key]
@@ -423,11 +444,10 @@ class BaseAdminViewTests(TestCase):
         self.client.cookies[settings.SESSION_COOKIE_NAME] = store.session_key
 
 
-# NOTE(adriant): APITestCase was only needed for some openstack_auth
-# monkeypatching. With the new monkeypatch middleware from openstack_auth this
-# is not needed.
-# TODO(adriant): Clean up APITestCase usage in horizon plugins.
-APITestCase = TestCase
+class APITestCase(TestCase):
+    def setUp(self):
+        super().setUp()
+        utils.patch_middleware_get_user()
 
 
 # APIMockTestCase was introduced to support mox to mock migration smoothly
@@ -441,19 +461,20 @@ APIMockTestCase = APITestCase
 # Need this to test both Glance API V1 and V2 versions
 class ResetImageAPIVersionMixin(object):
     def setUp(self):
-        super(ResetImageAPIVersionMixin, self).setUp()
+        super().setUp()
         api.glance.VERSIONS.clear_active_cache()
 
     def tearDown(self):
         api.glance.VERSIONS.clear_active_cache()
-        super(ResetImageAPIVersionMixin, self).tearDown()
+        super().tearDown()
 
 
+@horizon_helpers.pytest_mark('selenium')
 @tag('selenium')
 class SeleniumTestCase(horizon_helpers.SeleniumTestCase):
 
     def setUp(self):
-        super(SeleniumTestCase, self).setUp()
+        super().setUp()
 
         test_utils.load_test_data(self)
 
@@ -497,7 +518,7 @@ class SeleniumAdminTestCase(SeleniumTestCase):
     def setActiveUser(self, *args, **kwargs):
         if "roles" not in kwargs:
             kwargs['roles'] = [self.roles.admin._info]
-        super(SeleniumAdminTestCase, self).setActiveUser(*args, **kwargs)
+        super().setActiveUser(*args, **kwargs)
 
 
 def my_custom_sort(flavor):
@@ -510,6 +531,14 @@ def my_custom_sort(flavor):
     return sort_order[flavor.name]
 
 
+# TODO(amotoki): Investigate a way to run PluginTestCase with the main
+# unit tests. Currently we fail to find a way to clean up urlpatterns and
+# Site registry touched by setUp() cleanly. As a workaround, we run
+# PluginTestCase as a separate test process. Hopefully this workaround has gone
+# in future. For more detail, see bugs 1809983, 1866666 and
+# https://review.opendev.org/#/c/627640/.
+@horizon_helpers.pytest_mark('plugin_test')
+@tag('plugin-test')
 class PluginTestCase(TestCase):
     """Test case for testing plugin system of Horizon.
 
@@ -518,7 +547,7 @@ class PluginTestCase(TestCase):
     configuration.
     """
     def setUp(self):
-        super(PluginTestCase, self).setUp()
+        super().setUp()
         self.old_horizon_config = conf.HORIZON_CONFIG
         conf.HORIZON_CONFIG = conf.LazySettings()
         base.Horizon._urls()
@@ -531,14 +560,14 @@ class PluginTestCase(TestCase):
             self._discovered_panels[dash] = panels
 
     def tearDown(self):
-        super(PluginTestCase, self).tearDown()
+        super().tearDown()
         conf.HORIZON_CONFIG = self.old_horizon_config
         # Destroy our singleton and re-create it.
         base.HorizonSite._instance = None
         del base.Horizon
         base.Horizon = base.HorizonSite()
         # Reload the convenience references to Horizon stored in __init__
-        moves.reload_module(import_module("horizon"))
+        importlib.reload(importlib.import_module("horizon"))
         # Re-register our original dashboards and panels.
         # This is necessary because autodiscovery only works on the first
         # import, and calling reload introduces innumerable additional
@@ -558,7 +587,7 @@ class PluginTestCase(TestCase):
         only for testing and should never be used on a live site.
         """
         urls.clear_url_caches()
-        moves.reload_module(import_module(settings.ROOT_URLCONF))
+        importlib.reload(importlib.import_module(settings.ROOT_URLCONF))
         base.Horizon._urls()
 
 

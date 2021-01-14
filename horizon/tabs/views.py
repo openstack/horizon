@@ -45,7 +45,7 @@ class TabView(views.HorizonTemplateView):
 
     def get_context_data(self, **kwargs):
         """Adds the ``tab_group`` variable to the context data."""
-        context = super(TabView, self).get_context_data(**kwargs)
+        context = super().get_context_data(**kwargs)
         try:
             tab_group = self.get_tabs(self.request, **kwargs)
             context["tab_group"] = tab_group
@@ -63,8 +63,7 @@ class TabView(views.HorizonTemplateView):
         if self.request.is_ajax():
             if tab_group.selected:
                 return http.HttpResponse(tab_group.selected.render())
-            else:
-                return http.HttpResponse(tab_group.render())
+            return http.HttpResponse(tab_group.render())
         return self.render_to_response(context)
 
     def get(self, request, *args, **kwargs):
@@ -74,7 +73,7 @@ class TabView(views.HorizonTemplateView):
 
 class TabbedTableView(tables.MultiTableMixin, TabView):
     def __init__(self, *args, **kwargs):
-        super(TabbedTableView, self).__init__(*args, **kwargs)
+        super().__init__(*args, **kwargs)
         self.table_classes = []
         self._table_dict = {}
 

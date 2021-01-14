@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: horizon VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2018-09-21 05:00+0000\n"
+"POT-Creation-Date: 2020-09-09 01:42+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -1084,6 +1084,9 @@ msgstr "நிகழ்வை திருத்து"
 msgid "Edit Network"
 msgstr "பிணையத்தை திருத்து"
 
+msgid "Edit Policy"
+msgstr "கொள்கையை திருத்து"
+
 msgid "Edit Port"
 msgstr "துறையை திருத்து"
 
@@ -1281,10 +1284,6 @@ msgid "Failed to add agent %(agent_name)s for network %(network)s."
 msgstr "பிணைய %(network)s -ற்கான முகவர் %(agent_name)s-ஐ சேர்க்க முடியவில்லை."
 
 #, python-format
-msgid "Failed to create network \"%(network)s\": %(reason)s"
-msgstr "பிணையம் \"%(network)s\"-ஐ உருவாக்குவதில் தோல்வி: %(reason)s"
-
-#, python-format
 msgid "Failed to create network %s"
 msgstr "பிணையம் %s -ஐ உருவாக்குவதில் தோல்வி"
 
@@ -1342,20 +1341,12 @@ msgstr ""
 "%s பிராஜக்டு உறுப்பினர்கள் மாற்றியமைத்து பிராஜக்டு ஒதுக்கீட்டளவுகளை புதுப்பிப்பதில் தோல்வி"
 
 #, python-format
-msgid "Failed to retrieve network %s for a subnet"
-msgstr "ஒரு உபவலைக்கு பிணையம் \"%s\" -ஐ மீட்க முடியவில்லை."
-
-#, python-format
 msgid "Failed to update network %s"
 msgstr "பிணையம் %s -ஐ புதுப்பிப்பதில் தோல்வி"
 
 #, python-format
 msgid "Failed to update router %s"
 msgstr "திசைவி %s -ஐ புதுப்பிப்பதில் தோல்வி"
-
-#, python-format
-msgid "Failed to update subnet \"%(sub)s\":  %(reason)s"
-msgstr "உபவலை %(sub)s\"-ஐ புதுப்பிப்பதில் தோல்வி: %(reason)s "
 
 msgid "Fault"
 msgstr "தவறு"
@@ -1394,19 +1385,8 @@ msgstr "இயல்பு தேர்வு"
 msgid "Flavor Details"
 msgstr "இயல்பு விவரங்கள்"
 
-#, python-format
-msgid "Flavor Details: %(name)s\">%(name)s"
-msgstr "இயல்பு விவரங்கள்: %(name)s\">%(name)s"
-
 msgid "Flavor ID ="
 msgstr "இயல்பு ஐடி ="
-
-msgid ""
-"Flavor ID should be UUID4 or integer. Leave this field blank or use 'auto' "
-"to set a random UUID4."
-msgstr ""
-"இயல்பு ஐடி UUID4 அல்லது முழு எண்ணாக இருக்க வேண்டும். இந்த புலத்தை வெற்றாக விடவும் "
-"அல்லது ஒரு சீரற்ற UUID4 அமைக்க 'தானியங்கி' பயன்படுத்தவும்."
 
 msgid "Flavor Information"
 msgstr "இயல்பு தகவல்"
@@ -3165,13 +3145,6 @@ msgstr ""
 "<strong>கட்டுப்பாட்டு இருப்பிடம்</strong> குறியாக்கம் செய்யப்படுகின்ற உத்தேச சேவையாக "
 "உள்ளது (எ.கா., முன்-முனை-நோவா). முன்னிருப்பு மதிப்பு 'முன்-முனை'"
 
-msgid ""
-"The <strong>Key Size</strong> is the size of the encryption key, in bits (e."
-"g., 128, 256). If the field is left empty, the provider default will be used."
-msgstr ""
-" <strong>முக்கிய அளவு</strong> என்பது பைட்டுகளில் (எ.கா., 128, 256) குறியாக்க "
-"விசையின் அளவு, . புலம் காலியாக விடப்பட்டால், வழங்குநர் முன்னிருப்பானது பயன்படுத்தப்படும்."
-
 msgid "The Aggregate was updated."
 msgstr "திரள் புதுப்பிக்கப்பட்டது."
 
@@ -3281,9 +3254,6 @@ msgstr ""
 msgid "The specified port is invalid."
 msgstr "குறிப்பிடப்பட்ட துறை செல்லுபடியாகாதது"
 
-msgid "The state to start the network in."
-msgstr "பிணையத்தை தொடங்கி இருக்கவேண்டிய நிலைமை."
-
 #, python-format
 msgid "The subnet in the Network Address is too small (/%s)."
 msgstr "பிணைய முகவரி உள்ள உபவலை மிகவும் சிறியதாக உள்ளது (/%s)."
@@ -3321,9 +3291,6 @@ msgstr ""
 "இந்த தொகுதி தற்போது ஒரு நிகழ்வுடன் இணைக்கப்பட்டுள்ளது. சில சந்தர்ப்பங்களில், ஒரு "
 "இணைக்கப்பட்ட தொகுதியில் இருந்து ஸ்னாப்ஷாட்டை உருவாக்குவது பிழையுடனுள்ள ஸ்னாப்ஷாட்டை "
 "ஏற்படுத்தலாம்."
-
-msgid "Time since created"
-msgstr "உருவாக்கப்பட்டதிலிருந்து நேரம்"
 
 msgid "Timezone"
 msgstr "நேரமண்டலம்"
@@ -3603,9 +3570,6 @@ msgstr ""
 msgid "Unable to retrieve IP addresses from Neutron."
 msgstr "நியூட்ரானில் இருந்து ஐபி முகவரிகளை மீட்க முடியவில்லை"
 
-msgid "Unable to retrieve Nova availability zones."
-msgstr "நோவா கிடைக்கும் மண்டலங்களை மீட்க முடியவில்லை."
-
 msgid "Unable to retrieve QoS Spec association."
 msgstr "QoS விவரக்குறிப்பு தொடர்பை மீட்க முடியவில்லை."
 
@@ -3623,10 +3587,6 @@ msgstr "QoS விவரக்குறிப்பு பட்டியை ம
 
 msgid "Unable to retrieve QoS specs"
 msgstr "QoS விவரக்குறிப்பை மீட்க முடியவில்லை."
-
-#, python-format
-msgid "Unable to retrieve a list of external networks \"%s\"."
-msgstr "வெளிப்புற பிணையங்கள் \"%s\"-இன் பட்டியை பெற முடியவில்லை."
 
 msgid "Unable to retrieve agent list."
 msgstr "முகவர் பட்டியை மீட்க முடியவில்லை."
@@ -4140,10 +4100,6 @@ msgstr "பயனர்"
 msgid "User \"%s\" was successfully created."
 msgstr "பங்கு \"%s\" வெற்றிகரமாக உருவாக்கப்பட்டது."
 
-#, python-format
-msgid "User %s has no role defined for that project."
-msgstr "பயனர் %s -ற்கு அந்த பிராஜக்டில் வரையறுக்கப்பட்ட எந்த பங்கும் இல்லை."
-
 msgid "User Credentials Details"
 msgstr "பயனர் சான்றுகளின் விவரங்கள்"
 
@@ -4155,9 +4111,6 @@ msgstr "பயனர் பெயர்"
 
 msgid "User Settings"
 msgstr "பயனர் அமைவுகள்"
-
-msgid "User has been updated successfully."
-msgstr "பயனர் வெற்றிகரமாக புதுப்பிக்கப்பட்டது"
 
 #, python-format
 msgid "User name \"%s\" is already used."

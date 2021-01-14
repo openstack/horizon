@@ -20,24 +20,25 @@ from django_pyscss import DjangoScssCompiler
 from scss.namespace import Namespace
 from scss.types import String
 
-import six
-
 
 class HorizonScssFilter(DjangoScssFilter):
     def __init__(self, *args, **kwargs):
-        super(HorizonScssFilter, self).__init__(*args, **kwargs)
+        super().__init__(*args, **kwargs)
 
         self.namespace = Namespace()
 
         # Add variables to the SCSS Global Namespace Here
         self.namespace.set_variable(
             '$static_url',
-            String(six.text_type(getattr(settings, 'STATIC_URL', '/static/')))
+            String(settings.STATIC_URL)
         )
 
     # Create a compiler with the right namespace
     @property
     def compiler(self):
         return DjangoScssCompiler(
+            # output_style is 'nested' by default, which is crazy. See:
+            # https://github.com/Kronuz/pyScss/issues/243
+            output_style='compact',  # or 'compressed'
             namespace=self.namespace
         )

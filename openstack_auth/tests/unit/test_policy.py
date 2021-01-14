@@ -11,9 +11,10 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+from unittest import mock
+
 from django import http
 from django import test
-import mock
 
 from openstack_auth import policy
 from openstack_auth import user
@@ -27,6 +28,15 @@ class PolicyLoaderTestCase(test.TestCase):
         self.assertEqual(2, len(enforcer))
         self.assertIn('identity', enforcer)
         self.assertIn('compute', enforcer)
+
+    def test_nonexisting_policy_file_load(self):
+        policy_files = {
+            'dinosaur': 'no_godzilla.json',
+        }
+        policy.reset()
+        with self.settings(POLICY_FILES=policy_files):
+            enforcer = policy._get_enforcer()
+            self.assertEqual(0, len(enforcer))
 
     def test_policy_reset(self):
         policy._get_enforcer()

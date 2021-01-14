@@ -12,7 +12,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-import mock
+from unittest import mock
 
 from django.core.management import call_command
 from django.core.management import CommandError
@@ -29,8 +29,9 @@ class CommandsTestCase(TestCase):
     def test_startpanel_usage_correct(self, handle):
         call_command('startpanel', 'test_dash', '--dashboard=foo.bar')
 
-        handle.assert_called_with(panel_name='test_dash', dashboard='foo.bar',
-                                  extensions=["py", "tmpl", "html"],
-                                  files=[], no_color=False, pythonpath=None,
-                                  settings=None, skip_checks=True, target=None,
-                                  template=None, traceback=False, verbosity=1)
+        handle.assert_called_with(
+            panel_name='test_dash', dashboard='foo.bar',
+            extensions=["py", "tmpl", "html"],
+            files=[], force_color=False, no_color=False, pythonpath=None,
+            settings=None, skip_checks=True, target=None,
+            template=None, traceback=False, verbosity=1)

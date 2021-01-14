@@ -37,6 +37,7 @@ class SnapshotsView(tables.PagedTableMixin, tables.DataTableView):
     page_title = _("Volume Snapshots")
 
     def get_data(self):
+        needs_gs = False
         if cinder.is_volume_service_enabled(self.request):
             try:
                 marker, sort_dir = self._get_marker()
@@ -54,19 +55,37 @@ class SnapshotsView(tables.PagedTableMixin, tables.DataTableView):
                 exceptions.handle(self.request, _("Unable to retrieve "
                                                   "volume snapshots."))
 
+            needs_gs = any(getattr(snapshot, 'group_snapshot_id', None)
+                           for snapshot in snapshots)
+            if needs_gs:
+                try:
+                    group_snapshots = cinder.group_snapshot_list(
+                        self.request, search_opts={'all_tenants': True})
+                    group_snapshots = dict((gs.id, gs) for gs
+                                           in group_snapshots)
+                except Exception:
+                    group_snapshots = {}
+                    exceptions.handle(self.request,
+                                      _("Unable to retrieve group snapshots."))
             # Gather our tenants to correlate against volume IDs
             try:
                 tenants, has_more = keystone.tenant_list(self.request)
             except Exception:
                 tenants = []
-                msg = _('Unable to retrieve volume project information.')
+                msg = _('Unable to retrieve project '
+                        'information of volume snapshots.')
                 exceptions.handle(self.request, msg)
 
-            tenant_dict = dict([(t.id, t) for t in tenants])
+            tenant_dict = dict((t.id, t) for t in tenants)
             for snapshot in snapshots:
                 volume = volumes.get(snapshot.volume_id)
-                tenant_id = getattr(volume,
-                                    'os-vol-tenant-attr:tenant_id', None)
+                if needs_gs:
+                    group_snapshot = group_snapshots.get(
+                        snapshot.group_snapshot_id)
+                    snapshot.group_snapshot = group_snapshot
+                else:
+                    snapshot.group_snapshot = None
+                tenant_id = snapshot.project_id
                 tenant = tenant_dict.get(tenant_id, None)
                 snapshot._volume = volume
                 snapshot.tenant_name = getattr(tenant, "name", None)
@@ -75,8 +94,7 @@ class SnapshotsView(tables.PagedTableMixin, tables.DataTableView):
 
         else:
             snapshots = []
-        return sorted(snapshots,
-                      key=lambda snapshot: snapshot.tenant_name or '')
+        return snapshots
 
 
 class UpdateStatusView(forms.ModalFormView):
@@ -101,7 +119,7 @@ class UpdateStatusView(forms.ModalFormView):
         return self._object
 
     def get_context_data(self, **kwargs):
-        context = super(UpdateStatusView, self).get_context_data(**kwargs)
+        context = super().get_context_data(**kwargs)
         context['snapshot_id'] = self.kwargs["snapshot_id"]
         args = (self.kwargs['snapshot_id'],)
         context['submit_url'] = reverse(self.submit_url, args=args)
@@ -118,7 +136,7 @@ class DetailView(views.DetailView):
     volume_url = 'horizon:admin:volumes:detail'
 
     def get_context_data(self, **kwargs):
-        context = super(DetailView, self).get_context_data(**kwargs)
+        context = super().get_context_data(**kwargs)
         snapshot = self.get_data()
         snapshot.volume_url = reverse(self.volume_url,
                                       args=(snapshot.volume_id,))

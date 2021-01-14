@@ -45,7 +45,7 @@
 
   function run(registry, nova, basePath, resourceType, keypairsService) {
     registry.getResourceType(resourceType)
-      .setNames(gettext('Key Pair'), gettext('Key Pairs'))
+      .setNames('Key Pair', 'Key Pairs', ngettext('Key Pair', 'Key Pairs', 1))
       // for detail summary view on table row.
       .setSummaryTemplateUrl(basePath + 'details/drawer.html')
       .setDefaultIndexUrl('/project/key_pairs/')
@@ -56,11 +56,16 @@
         id: 'name',
         priority: 1,
         sortDefault: true,
+        classes: "word-wrap",
         urlFunction: keypairsService.urlFunction
       })
       .append({
-        id: 'fingerprint',
+        id: 'type',
         priority: 2
+      })
+      .append({
+        id: 'fingerprint',
+        priority: 3
       });
 
     // for magic-search
@@ -77,6 +82,7 @@
       'id': {},
       'keypair_id': {label: gettext('ID'), filters: ['noValue'] },
       'name': {label: gettext('Name'), filters: ['noName'] },
+      'type': {label: gettext('Type'), filters: ['noValue']},
       'fingerprint': {label: gettext('Fingerprint'), filters: ['noValue'] },
       'created_at': {label: gettext('Created'), filters: ['mediumDate'] },
       'user_id': {label: gettext('User ID'), filters: ['noValue'] },

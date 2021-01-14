@@ -62,7 +62,7 @@ limitations under the License.
         socket.onopen = function() {
           scope.$apply(scope.status);
           // initialize by "hitting enter"
-          socket.send(String.fromCharCode(13));
+          socket.send(str2ab(String.fromCharCode(13)));
         };
         socket.onclose = function() {
           scope.$apply(scope.status);
@@ -111,7 +111,7 @@ limitations under the License.
         resizeTerminal();
 
         term.on('data', function(data) {
-          socket.send(data);
+          socket.send(str2ab(data));
         });
 
         socket.onmessage = function(e) {
@@ -141,4 +141,12 @@ limitations under the License.
     };
   }
 
+  function str2ab(str) {
+    var buf = new ArrayBuffer(str.length); // 2 bytes for each char
+    var bufView = new Uint8Array(buf);
+    for (var i = 0, strLen = str.length; i < strLen; i++) {
+      bufView[i] = str.charCodeAt(i);
+    }
+    return buf;
+  }
 }());

@@ -49,7 +49,7 @@ class HostaggregatesPage(basepage.BaseNavigationPage):
     HOST_AGGREGATES_TABLE_NAME_COLUMN = 'Name'
 
     def __init__(self, driver, conf):
-        super(HostaggregatesPage, self).__init__(driver, conf)
+        super().__init__(driver, conf)
         self._page_title = "Host Aggregates"
 
     @property

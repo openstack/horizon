@@ -115,7 +115,7 @@ Install and configure components
      .. path /etc/openstack-dashboard/local_settings.py
      .. code-block:: python
 
-        OPENSTACK_KEYSTONE_URL = "http://%s:5000/v3" % OPENSTACK_HOST
+        OPENSTACK_KEYSTONE_URL = "http://%s/identity/v3" % OPENSTACK_HOST
 
      .. end
 
@@ -136,7 +136,7 @@ Install and configure components
         OPENSTACK_API_VERSIONS = {
             "identity": 3,
             "image": 2,
-            "volume": 2,
+            "volume": 3,
         }
 
      .. end
@@ -174,9 +174,6 @@ Install and configure components
             'enable_ipv6': False,
             'enable_distributed_router': False,
             'enable_ha_router': False,
-            'enable_lb': False,
-            'enable_firewall': False,
-            'enable_vpn': False,
             'enable_fip_topology_check': False,
         }
 

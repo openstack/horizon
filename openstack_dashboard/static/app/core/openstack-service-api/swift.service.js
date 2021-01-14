@@ -47,6 +47,7 @@
       getObjectDetails:getObjectDetails,
       getObjects: getObjects,
       getObjectURL: getObjectURL,
+      getPolicyDetails: getPolicyDetails,
       setContainerAccess: setContainerAccess,
       uploadObject: uploadObject
     };
@@ -90,6 +91,23 @@
     }
 
     /**
+     * @name getPolicyDetails
+     * @description
+     * Fetch all the storage policy details with display names and storage values.
+     *
+     * @returns {Object} The result of the object passed to the Swift /policies call.
+     *
+     */
+    function getPolicyDetails() {
+      return apiService.get('/api/swift/policies/').error(function() {
+        toastService.add(
+          'error',
+          gettext('Unable to fetch the policy details.')
+        );
+      });
+    }
+
+    /**
      * @name getContainers
      * @description
      * Get the list of containers for this account
@@ -130,13 +148,14 @@
      * @name createContainer
      * @param {Object} container - The container
      * @param {boolean} isPublic - Whether the container should be public
+     * @param {string} policy - The storage policy for the container.
      * @description
      * Creates the named container with the is_public flag set to isPublic.
      * @returns {Object} The result of the creation call
      *
      */
-    function createContainer(container, isPublic) {
-      var data = {is_public: false};
+    function createContainer(container, isPublic, policy) {
+      var data = {is_public: false, storage_policy: policy};
 
       if (isPublic) {
         data.is_public = true;

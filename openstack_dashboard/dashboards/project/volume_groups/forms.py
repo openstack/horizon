@@ -28,17 +28,6 @@ class UpdateForm(forms.SelfHandlingForm):
                                   label=_("Description"),
                                   required=False)
 
-    def clean(self):
-        cleaned_data = super(UpdateForm, self).clean()
-        new_desc = cleaned_data.get('description')
-        old_desc = self.initial['description']
-        if old_desc and not new_desc:
-            error_msg = _("Description is required.")
-            self._errors['description'] = self.error_class([error_msg])
-            return cleaned_data
-
-        return cleaned_data
-
     def handle(self, request, data):
         group_id = self.initial['group_id']
 
@@ -58,6 +47,8 @@ class UpdateForm(forms.SelfHandlingForm):
 
 
 class RemoveVolsForm(forms.SelfHandlingForm):
+    failure_url = 'horizon:project:volume_groups:index'
+
     def handle(self, request, data):
         group_id = self.initial['group_id']
         name = self.initial['name']
@@ -79,7 +70,7 @@ class RemoveVolsForm(forms.SelfHandlingForm):
             return True
 
         except Exception:
-            redirect = reverse("horizon:project:volume_groups:index")
+            redirect = reverse(self.failure_url)
             exceptions.handle(request,
                               _('Errors occurred in removing volumes '
                                 'from group.'),
@@ -89,6 +80,7 @@ class RemoveVolsForm(forms.SelfHandlingForm):
 class DeleteForm(forms.SelfHandlingForm):
     delete_volumes = forms.BooleanField(label=_("Delete Volumes"),
                                         required=False)
+    failure_url = 'horizon:project:volume_groups:index'
 
     def handle(self, request, data):
         group_id = self.initial['group_id']
@@ -103,7 +95,7 @@ class DeleteForm(forms.SelfHandlingForm):
             return True
 
         except Exception:
-            redirect = reverse("horizon:project:volume_groups:index")
+            redirect = reverse(self.failure_url)
             exceptions.handle(request, _('Errors occurred in deleting group.'),
                               redirect=redirect)
 
@@ -136,7 +128,7 @@ class CreateSnapshotForm(forms.SelfHandlingForm):
                 search_opts = {'group_id': group_id}
                 volumes = cinder.volume_list(request,
                                              search_opts=search_opts)
-                if len(volumes) == 0:
+                if not volumes:
                     msg = _('Unable to create snapshot. '
                             'group must contain volumes.')
 
@@ -169,13 +161,13 @@ class CloneGroupForm(forms.SelfHandlingForm):
                               _('Unable to load the specified group.'))
 
     def __init__(self, request, *args, **kwargs):
-        super(CloneGroupForm, self).__init__(request, *args, **kwargs)
+        super().__init__(request, *args, **kwargs)
         self.prepare_group_source_field(request)
 
     def handle(self, request, data):
         group_id = self.initial['group_id']
         try:
-            message = _('Creating consistency group "%s".') % data['name']
+            message = _('Cloning volume group "%s".') % data['name']
             group = cinder.group_create_from_source(
                 request,
                 data['name'],
@@ -190,7 +182,7 @@ class CloneGroupForm(forms.SelfHandlingForm):
 
             search_opts = {'group_id': group_id}
             volumes = cinder.volume_list(request, search_opts=search_opts)
-            if len(volumes) == 0:
+            if not volumes:
                 msg = _('Unable to clone empty group.')
 
             exceptions.handle(request,

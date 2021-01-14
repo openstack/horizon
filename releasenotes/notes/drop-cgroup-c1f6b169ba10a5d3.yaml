@@ -1,0 +1,8 @@
+---
+upgrade:
+  - |
+    Cinder consistency group support in horizon has been dropped
+    in Train release. It was deprecated in Pike release in Cinder
+    and deprecated in Stein release in Horizon.
+    The feature is superseded by the generic group feature and
+    horizon provides full support of the generic group.

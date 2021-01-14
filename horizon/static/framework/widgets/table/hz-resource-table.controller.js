@@ -27,7 +27,8 @@
     'horizon.framework.widgets.magic-search.events',
     'horizon.framework.widgets.magic-search.service',
     'horizon.framework.util.actions.action-result.service',
-    'horizon.framework.conf.resource-type-registry.service'
+    'horizon.framework.conf.resource-type-registry.service',
+    'horizon.app.core.openstack-service-api.settings'
   ];
 
   function controller(
@@ -37,10 +38,13 @@
     magicSearchEvents,
     searchService,
     actionResultService,
-    registry
+    registry,
+    settings
   ) {
     var ctrl = this;
+
     var lastSearchQuery = {};
+    var timerRunning = false;
 
     // 'Public' Controller members
     ctrl.actionResultHandler = actionResultHandler;
@@ -50,6 +54,11 @@
     ctrl.items = [];
     ctrl.itemsSrc = [];
     ctrl.itemInTransitionFunction = itemInTransitionFunction;
+    ctrl.ajaxPollInterval = 2500;
+    settings.getSetting('AJAX_POLL_INTERVAL').then(
+      function (response) {
+        ctrl.ajaxPollInterval = response;
+      });
 
     // Watch for changes to search bar
     $scope.$on(magicSearchEvents.SERVER_SEARCH_UPDATED, handleServerSearch);
@@ -171,6 +180,7 @@
 
     function onLoad(response) {
       ctrl.itemsSrc = response.data.items;
+      timerRunning = false;
     }
 
     function actionResultHandler(returnValue) {
@@ -236,7 +246,12 @@
     }
 
     function itemInTransitionFunction(item) {
-      return ctrl.resourceType.itemInTransitionFunction(item);
+      var itemInTransition = ctrl.resourceType.itemInTransitionFunction(item);
+      if (ctrl.ajaxPollInterval && itemInTransition && !timerRunning) {
+        timerRunning = true;
+        setTimeout(listResources, ctrl.ajaxPollInterval);
+      }
+      return itemInTransition;
     }
   }
 

@@ -16,7 +16,6 @@ import math
 import re
 
 from oslo_utils import units
-import six
 
 from django.conf import settings
 from django.contrib.auth import logout
@@ -31,7 +30,7 @@ def _lazy_join(separator, strings):
                            for s in strings])
 
 
-lazy_join = lazy(_lazy_join, six.text_type)
+lazy_join = lazy(_lazy_join, str)
 
 
 def bytes_to_gigabytes(bytes):
@@ -44,9 +43,7 @@ def add_logout_reason(request, response, reason, status='success'):
     # Store the translated string in the cookie
     lang = translation.get_language_from_request(request)
     with translation.override(lang):
-        reason = six.text_type(reason)
-        if six.PY2:
-            reason = reason.encode('utf-8')
+        reason = str(reason)
         response.set_cookie('logout_reason', reason, max_age=10)
         response.set_cookie('logout_status', status, max_age=10)
 
@@ -101,19 +98,19 @@ def save_config_value(request, response, key, value):
 
 
 def get_page_size(request):
+    # NOTE(amotoki): The default value is defined in
+    # openstack_dashboard/defaults.py. To aviod circular reference,
+    # the hardcoded value 20 is used here.
+    # TODO(amotoki): Decide where API_RESULT_PAGE_SIZE should be defined,
+    # horizon or openstack_dashboard.
     return get_config_value(request, 'API_RESULT_PAGE_SIZE', 20)
-
-
-def get_log_length(request):
-    return get_config_value(request, 'INSTANCE_LOG_LENGTH', 35)
 
 
 def get_timezone(request):
     # Session and cookie store timezone as django_timezone.
     # In case there is no timezone neither in session nor in cookie,
     # use default value from settings file where it's called TIME_ZONE.
-    return get_config_value(request, 'django_timezone',
-                            getattr(settings, 'TIME_ZONE', 'UTC'))
+    return get_config_value(request, 'django_timezone', settings.TIME_ZONE)
 
 
 def get_language(request):

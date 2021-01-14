@@ -17,10 +17,10 @@
 #    under the License.
 
 from datetime import datetime
+from urllib import parse
 
 import functools
 
-import six.moves.urllib.parse as urlparse
 import swiftclient
 
 from django.conf import settings
@@ -32,7 +32,7 @@ from openstack_dashboard.api import base
 from openstack_dashboard.contrib.developer.profiler import api as profiler
 
 FOLDER_DELIMITER = "/"
-CHUNK_SIZE = getattr(settings, 'SWIFT_FILE_TRANSFER_CHUNK_SIZE', 512 * 1024)
+CHUNK_SIZE = settings.SWIFT_FILE_TRANSFER_CHUNK_SIZE
 # Swift ACL
 GLOBAL_READ_ACL = ".r:*"
 LIST_CONTENTS_ACL = ".rlistings"
@@ -56,7 +56,7 @@ class Container(base.APIDictWrapper):
 
 class StorageObject(base.APIDictWrapper):
     def __init__(self, apidict, container_name, orig_name=None, data=None):
-        super(StorageObject, self).__init__(apidict)
+        super().__init__(apidict)
         self.container_name = container_name
         self.orig_name = orig_name
         self.data = data
@@ -68,7 +68,7 @@ class StorageObject(base.APIDictWrapper):
 
 class PseudoFolder(base.APIDictWrapper):
     def __init__(self, apidict, container_name):
-        super(PseudoFolder, self).__init__(apidict)
+        super().__init__(apidict)
         self.container_name = container_name
 
     @property
@@ -104,6 +104,13 @@ def _objectify(items, container_name):
     return objects
 
 
+def get_storage_policy_display_name(name):
+    """Gets the user friendly display name for a storage policy"""
+
+    display_names = settings.SWIFT_STORAGE_POLICY_DISPLAY_NAMES
+    return display_names.get(name)
+
+
 def _metadata_to_header(metadata):
     headers = {}
     public = metadata.get('is_public')
@@ -114,13 +121,17 @@ def _metadata_to_header(metadata):
     elif public is False:
         headers['x-container-read'] = ""
 
+    storage_policy = metadata.get("storage_policy")
+    if storage_policy:
+        headers["x-storage-policy"] = storage_policy
+
     return headers
 
 
 def swift_api(request):
     endpoint = base.url_for(request, 'object-store')
-    cacert = getattr(settings, 'OPENSTACK_SSL_CACERT', None)
-    insecure = getattr(settings, 'OPENSTACK_SSL_NO_VERIFY', False)
+    cacert = settings.OPENSTACK_SSL_CACERT
+    insecure = settings.OPENSTACK_SSL_NO_VERIFY
     return swiftclient.client.Connection(None,
                                          request.user.username,
                                          None,
@@ -128,7 +139,7 @@ def swift_api(request):
                                          preauthurl=endpoint,
                                          cacert=cacert,
                                          insecure=insecure,
-                                         auth_version="2.0")
+                                         auth_version="3")
 
 
 @profiler.trace
@@ -152,7 +163,7 @@ def swift_object_exists(request, container_name, object_name):
 @profiler.trace
 @safe_swift_exception
 def swift_get_containers(request, marker=None, prefix=None):
-    limit = getattr(settings, 'API_RESULT_LIMIT', 1000)
+    limit = settings.API_RESULT_LIMIT
     headers, containers = swift_api(request).get_account(limit=limit + 1,
                                                          marker=marker,
                                                          prefix=prefix,
@@ -160,8 +171,7 @@ def swift_get_containers(request, marker=None, prefix=None):
     container_objs = [Container(c) for c in containers]
     if(len(container_objs) > limit):
         return (container_objs[0:-1], True)
-    else:
-        return (container_objs, False)
+    return (container_objs, False)
 
 
 @profiler.trace
@@ -175,13 +185,17 @@ def swift_get_container(request, container_name, with_data=True):
     timestamp = None
     is_public = False
     public_url = None
+    storage_policy = headers.get("x-storage-policy")
+    storage_policy_display_name = \
+        get_storage_policy_display_name(storage_policy)
+
     try:
         is_public = GLOBAL_READ_ACL in headers.get('x-container-read', '')
         if is_public:
             swift_endpoint = base.url_for(request,
                                           'object-store',
                                           endpoint_type='publicURL')
-            parameters = urlparse.quote(container_name.encode('utf8'))
+            parameters = parse.quote(container_name.encode('utf8'))
             public_url = swift_endpoint + '/' + parameters
         ts_float = float(headers.get('x-timestamp'))
         timestamp = datetime.utcfromtimestamp(ts_float).isoformat()
@@ -194,25 +208,33 @@ def swift_get_container(request, container_name, with_data=True):
         'timestamp': timestamp,
         'data': data,
         'is_public': is_public,
+        'storage_policy': {
+            "name": storage_policy,
+        },
         'public_url': public_url,
     }
+
+    if storage_policy_display_name:
+        container_info['storage_policy']['display_name'] = \
+            get_storage_policy_display_name(storage_policy)
+
     return Container(container_info)
 
 
 @profiler.trace
 @safe_swift_exception
-def swift_create_container(request, name, metadata=({})):
+def swift_create_container(request, name, metadata=None):
     if swift_container_exists(request, name):
         raise exceptions.AlreadyExists(name, 'container')
-    headers = _metadata_to_header(metadata)
+    headers = _metadata_to_header(metadata or {})
     swift_api(request).put_container(name, headers=headers)
     return Container({'name': name})
 
 
 @profiler.trace
 @safe_swift_exception
-def swift_update_container(request, name, metadata=({})):
-    headers = _metadata_to_header(metadata)
+def swift_update_container(request, name, metadata=None):
+    headers = _metadata_to_header(metadata or {})
     swift_api(request).post_container(name, headers=headers)
     return Container({'name': name})
 
@@ -236,7 +258,7 @@ def swift_delete_container(request, name):
 @safe_swift_exception
 def swift_get_objects(request, container_name, prefix=None, marker=None,
                       limit=None):
-    limit = limit or getattr(settings, 'API_RESULT_LIMIT', 1000)
+    limit = limit or settings.API_RESULT_LIMIT
     kwargs = dict(prefix=prefix,
                   marker=marker,
                   limit=limit + 1,
@@ -248,8 +270,7 @@ def swift_get_objects(request, container_name, prefix=None, marker=None,
 
     if(len(object_objs) > limit):
         return (object_objs[0:-1], True)
-    else:
-        return (object_objs, False)
+    return (object_objs, False)
 
 
 @profiler.trace
@@ -279,14 +300,14 @@ def wildcard_search(string, q):
     q_list = q.split('*')
     if all(map(lambda x: x == '', q_list)):
         return True
-    elif q_list[0] not in string:
+    if q_list[0] not in string:
         return False
+
+    if q_list[0] == '':
+        tail = string
     else:
-        if q_list[0] == '':
-            tail = string
-        else:
-            head, delimiter, tail = string.partition(q_list[0])
-        return wildcard_search(tail, '*'.join(q_list[1:]))
+        head, delimiter, tail = string.partition(q_list[0])
+    return wildcard_search(tail, '*'.join(q_list[1:]))
 
 
 @profiler.trace

@@ -16,10 +16,9 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
-from __future__ import absolute_import
-from __future__ import division
-
+import _thread as thread
 import collections
+from collections import abc
 import itertools
 import json
 import logging
@@ -29,33 +28,23 @@ from django.conf import settings
 from django.core.files.uploadedfile import InMemoryUploadedFile
 from django.core.files.uploadedfile import SimpleUploadedFile
 from django.core.files.uploadedfile import TemporaryUploadedFile
+from django.utils.translation import ugettext_lazy as _
 
-import glanceclient as glance_client
-import six
-from six.moves import _thread as thread
+from glanceclient.v2 import client
 
-from horizon.utils import functions as utils
+
+from horizon import messages
 from horizon.utils.memoized import memoized
 from openstack_dashboard.api import base
 from openstack_dashboard.contrib.developer.profiler import api as profiler
+from openstack_dashboard.utils import settings as utils
 
 
 LOG = logging.getLogger(__name__)
 VERSIONS = base.APIVersionManager("image", preferred_version=2)
 
-try:
-    from glanceclient.v2 import client as glance_client_v2
-    VERSIONS.load_supported_version(2, {"client": glance_client_v2,
-                                        "version": 2})
-except ImportError:
-    pass
-
-try:
-    from glanceclient.v1 import client as glance_client_v1
-    VERSIONS.load_supported_version(1, {"client": glance_client_v1,
-                                        "version": 1})
-except ImportError:
-    pass
+VERSIONS.load_supported_version(2, {"client": client,
+                                    "version": 2})
 
 # TODO(e0ne): remove this workaround once glanceclient will raise
 # RequestURITooLong exception
@@ -78,15 +67,11 @@ class Image(base.APIResourceWrapper):
     _ext_attrs = {"file", "locations", "schema", "tags", "virtual_size",
                   "kernel_id", "ramdisk_id", "image_url"}
 
-    def __init__(self, apiresource):
-        super(Image, self).__init__(apiresource)
-
     def __getattribute__(self, attr):
         # Because Glance v2 treats custom properties as normal
         # attributes, we need to be more flexible than the resource
-        # wrappers usually allow. In v1 they were defined under a
-        # "properties" attribute.
-        if VERSIONS.active >= 2 and attr == "properties":
+        # wrappers usually allow.
+        if attr == "properties":
             return {k: v for (k, v) in self._apiresource.items()
                     if self.property_visible(k)}
         try:
@@ -119,17 +104,12 @@ class Image(base.APIResourceWrapper):
     def property_visible(self, prop_name, show_ext_attrs=False):
         if show_ext_attrs:
             return prop_name not in self._attrs
-        else:
-            return prop_name not in (self._attrs | self._ext_attrs)
+        return prop_name not in (self._attrs | self._ext_attrs)
 
     def to_dict(self, show_ext_attrs=False):
-        # When using v1 Image objects (including when running unit tests
-        # for v2), self._apiresource is not iterable. In that case,
-        # the properties are included in the apiresource dict, so
-        # just return that dict.
-        if not isinstance(self._apiresource, collections.Iterable):
+        if not isinstance(self._apiresource, abc.Iterable):
             return self._apiresource.to_dict()
-        image_dict = super(Image, self).to_dict()
+        image_dict = super().to_dict()
         image_dict['is_public'] = self.is_public
         image_dict['properties'] = {
             k: self._apiresource[k] for k in self._apiresource
@@ -144,22 +124,15 @@ class Image(base.APIResourceWrapper):
 
 
 @memoized
-def glanceclient(request, version=None):
+def glanceclient(request):
     api_version = VERSIONS.get_active_version()
 
     url = base.url_for(request, 'image')
-    insecure = getattr(settings, 'OPENSTACK_SSL_NO_VERIFY', False)
-    cacert = getattr(settings, 'OPENSTACK_SSL_CACERT', None)
+    insecure = settings.OPENSTACK_SSL_NO_VERIFY
+    cacert = settings.OPENSTACK_SSL_CACERT
 
-    # TODO(jpichon): Temporarily keep both till we update the API calls
-    # to stop hardcoding a version in this file. Once that's done we
-    # can get rid of the deprecated 'version' parameter.
-    if version is None:
-        return api_version['client'].Client(url, token=request.user.token.id,
-                                            insecure=insecure, cacert=cacert)
-    else:
-        return glance_client.Client(version, url, token=request.user.token.id,
-                                    insecure=insecure, cacert=cacert)
+    return api_version['client'].Client(url, token=request.user.token.id,
+                                        insecure=insecure, cacert=cacert)
 
 
 # Note: Glance is adding more than just public and private in Newton or later
@@ -186,74 +159,29 @@ def _normalize_is_public_filter(filters):
     if not filters:
         return
 
-    # Glance v1 uses filter 'is_public' (True, False).
     # Glance v2 uses filter 'visibility' ('public', 'private', ...).
-    if VERSIONS.active >= 2:
-        if 'is_public' in filters:
-            # Glance v2: Replace 'is_public' with 'visibility'.
-            visibility = PUBLIC_TO_VISIBILITY_MAP[filters['is_public']]
-            del filters['is_public']
-            if visibility is not None:
-                filters['visibility'] = visibility
-    elif 'visibility' in filters:
-        # Glance v1: Replace 'visibility' with 'is_public'.
-        filters['is_public'] = filters['visibility'] == "public"
-        del filters['visibility']
+    if 'is_public' in filters:
+        # Glance v2: Replace 'is_public' with 'visibility'.
+        visibility = PUBLIC_TO_VISIBILITY_MAP[filters['is_public']]
+        del filters['is_public']
+        if visibility is not None:
+            filters['visibility'] = visibility
 
 
 def _normalize_owner_id_filter(filters):
     if not filters:
         return
 
-    # Glance v1 uses filter 'property-owner_id' (Project ID).
     # Glance v2 uses filter 'owner' (Project ID).
-    if VERSIONS.active >= 2:
-        if 'property-owner_id' in filters:
-            # Glance v2: Replace 'property-owner_id' with 'owner'.
-            filters['owner'] = filters['property-owner_id']
-            del filters['property-owner_id']
-    elif 'owner' in filters:
-        # Glance v1: Replace 'owner' with 'property-owner_id'.
-        filters['property-owner_id'] = filters['owner']
-        del filters['owner']
+    if 'property-owner_id' in filters:
+        # Glance v2: Replace 'property-owner_id' with 'owner'.
+        filters['owner'] = filters['property-owner_id']
+        del filters['property-owner_id']
 
 
 def _normalize_list_input(filters, **kwargs):
     _normalize_is_public_filter(filters)
     _normalize_owner_id_filter(filters)
-
-    if VERSIONS.active < 2:
-        # Glance v1 client processes some keywords specifically.
-        # Others, it just takes as a nested dict called filters.
-        # This results in the following being passed into the glance client:
-        # {
-        #    'is_public': u'true',
-        #    'sort_key': u'name',
-        #    'sort_dir': u'asc',
-        #    'filters': {
-        #        u'min_disk': u'0',
-        #        u'name': u'mysql',
-        #       'properties': {
-        #           u'os_shutdown_timeout': u'1'
-        #       }
-        #    }
-        # }
-        v1_keywords = ['page_size', 'limit', 'sort_dir', 'sort_key', 'marker',
-                       'is_public', 'return_req_id', 'paginate']
-
-        filters = {}
-        properties = {}
-        for key, value in iter(kwargs.items()):
-            if key in v1_keywords:
-                continue
-            else:
-                filters[key] = value
-            del kwargs[key]
-
-        if properties:
-            filters['properties'] = properties
-        if filters:
-            kwargs['filters'] = filters
 
 
 @profiler.trace
@@ -312,7 +240,7 @@ def image_list_detailed(request, marker=None, sort_dir='desc',
 
     :param sort_key:
 
-        The name of key by by which the resulting image list throughout all
+        The name of key by which the resulting image list throughout all
         pages (if pagination is enabled) will be sorted. Defaults to
         'created_at'.
 
@@ -331,7 +259,7 @@ def image_list_detailed(request, marker=None, sort_dir='desc',
         Set this flag to True when it's necessary to get a reversed list of
         images from Glance (used for navigating the images list back in UI).
     """
-    limit = getattr(settings, 'API_RESULT_LIMIT', 1000)
+    limit = settings.API_RESULT_LIMIT
     page_size = utils.get_page_size(request)
 
     if paginate:
@@ -392,12 +320,6 @@ def image_list_detailed(request, marker=None, sort_dir='desc',
 def image_update(request, image_id, **kwargs):
     image_data = kwargs.get('data', None)
     try:
-        # Horizon doesn't support purging image properties. Make sure we don't
-        # unintentionally remove properties when using v1. We don't need a
-        # similar setting for v2 because you have to specify which properties
-        # to remove, and the default is nothing gets removed.
-        if VERSIONS.active < 2:
-            kwargs['purge_props'] = False
         return Image(glanceclient(request).images.update(
             image_id, **kwargs))
     finally:
@@ -413,8 +335,34 @@ def image_update(request, image_id, **kwargs):
                             {'file': filename, 'e': e})
 
 
+def get_image_formats(request):
+    image_format_choices = settings.OPENSTACK_IMAGE_BACKEND['image_formats']
+    try:
+        glance_schemas = get_image_schemas(request)
+        glance_formats = \
+            glance_schemas['properties']['disk_format']['enum']
+        supported_formats = []
+        for value, name in image_format_choices:
+            if value in glance_formats:
+                supported_formats.append((value, name))
+            else:
+                LOG.warning('OPENSTACK_IMAGE_BACKEND has a format "%s" '
+                            'unsupported by glance', value)
+    except Exception:
+        supported_formats = image_format_choices
+        msg = _('Unable to retrieve image format list.')
+        messages.error(request, msg)
+
+    return supported_formats
+
+
+@profiler.trace
+def get_image_schemas(request):
+    return glanceclient(request).schemas.get('image').raw()
+
+
 def get_image_upload_mode():
-    mode = getattr(settings, 'HORIZON_IMAGES_UPLOAD_MODE', 'legacy')
+    mode = settings.HORIZON_IMAGES_UPLOAD_MODE
     if mode not in ('off', 'legacy', 'direct'):
         LOG.warning('HORIZON_IMAGES_UPLOAD_MODE has an unrecognized value of '
                     '"%s", reverting to default "legacy" value', mode)
@@ -424,17 +372,14 @@ def get_image_upload_mode():
 
 class ExternallyUploadedImage(Image):
     def __init__(self, apiresource, request):
-        super(ExternallyUploadedImage, self).__init__(apiresource)
+        super().__init__(apiresource)
         image_endpoint = base.url_for(request, 'image', 'publicURL')
-        if VERSIONS.active >= 2:
-            upload_template = "%s/v2/images/%s/file"
-        else:
-            upload_template = "%s/v1/images/%s"
+        upload_template = "%s/v2/images/%s/file"
         self._url = upload_template % (image_endpoint, self.id)
         self._token_id = request.user.token.id
 
     def to_dict(self):
-        base_dict = super(ExternallyUploadedImage, self).to_dict()
+        base_dict = super().to_dict()
         base_dict.update({
             'upload_url': self._url,
             'token_id': self._token_id
@@ -457,8 +402,8 @@ def create_image_metadata(data):
     meta = {'protected': data.get('protected', False),
             'disk_format': data.get('disk_format', 'raw'),
             'container_format': data.get('container_format', 'bare'),
-            'min_disk': data.get('min_disk', 0),
-            'min_ram': data.get('min_ram', 0),
+            'min_disk': data.get('min_disk') or 0,
+            'min_ram': data.get('min_ram') or 0,
             'name': data.get('name', '')}
 
     # Glance does not really do anything with container_format at the
@@ -474,6 +419,10 @@ def create_image_metadata(data):
         # 'raw' as the disk format and 'docker' as the container format.
         meta['disk_format'] = 'raw'
         meta['container_format'] = 'docker'
+    elif meta['disk_format'] == 'vhd':
+        # If the user wishes to upload a vhd using Horizon, then
+        # 'ovf' must be the container format
+        meta['container_format'] = 'ovf'
     elif meta['disk_format'] == 'ova':
         # If the user wishes to upload an OVA using Horizon, then
         # 'ova' must be the container format and 'vmdk' must be the disk
@@ -493,16 +442,13 @@ def create_image_metadata(data):
     _handle_unknown_properties(data, properties)
 
     if ('visibility' in data and
-            data['visibility'] not in ['public', 'private', 'shared']):
+            data['visibility'] not in ['public', 'private', 'community',
+                                       'shared']):
         raise KeyError('invalid visibility option: %s' % data['visibility'])
     _normalize_is_public_filter(data)
 
-    if VERSIONS.active < 2:
-        meta['properties'] = properties
-        meta['is_public'] = data.get('is_public', False)
-    else:
-        meta['visibility'] = data.get('visibility', 'private')
-        meta.update(properties)
+    meta['visibility'] = data.get('visibility', 'private')
+    meta.update(properties)
 
     return meta
 
@@ -536,48 +482,44 @@ def image_create(request, **kwargs):
     some time and is handed off to a separate thread.
     """
     data = kwargs.pop('data', None)
-    location = None
-    if VERSIONS.active >= 2:
-        location = kwargs.pop('location', None)
+    location = kwargs.pop('location', None)
 
     image = glanceclient(request).images.create(**kwargs)
     if location is not None:
         glanceclient(request).images.add_location(image.id, location, {})
 
     if data:
-        if isinstance(data, six.string_types):
+        if isinstance(data, str):
             # The image data is meant to be uploaded externally, return a
             # special wrapper to bypass the web server in a subsequent upload
             return ExternallyUploadedImage(image, request)
-        elif isinstance(data, TemporaryUploadedFile):
+
+        if isinstance(data, TemporaryUploadedFile):
             # Hack to fool Django, so we can keep file open in the new thread.
-            if six.PY2:
-                data.file.close_called = True
-            else:
-                data.file._closer.close_called = True
+            data.file._closer.close_called = True
         elif isinstance(data, InMemoryUploadedFile):
             # Clone a new file for InMemeoryUploadedFile.
             # Because the old one will be closed by Django.
             data = SimpleUploadedFile(data.name,
                                       data.read(),
                                       data.content_type)
-        if VERSIONS.active < 2:
-            thread.start_new_thread(image_update,
-                                    (request, image.id),
-                                    {'data': data})
-        else:
-            def upload():
+
+        def upload():
+            try:
+                return glanceclient(request).images.upload(image.id, data)
+            finally:
                 try:
-                    return glanceclient(request).images.upload(image.id, data)
-                finally:
                     filename = str(data.file.name)
+                except AttributeError:
+                    pass
+                else:
                     try:
                         os.remove(filename)
                     except OSError as e:
                         LOG.warning('Failed to remove temporary image file '
                                     '%(file)s (%(e)s)',
                                     {'file': filename, 'e': e})
-            thread.start_new_thread(upload, ())
+        thread.start_new_thread(upload, ())
 
     return Image(image)
 
@@ -585,9 +527,9 @@ def image_create(request, **kwargs):
 @profiler.trace
 def image_update_properties(request, image_id, remove_props=None, **kwargs):
     """Add or update a custom property of an image."""
-    return glanceclient(request, '2').images.update(image_id,
-                                                    remove_props,
-                                                    **kwargs)
+    return glanceclient(request).images.update(image_id,
+                                               remove_props,
+                                               **kwargs)
 
 
 @profiler.trace
@@ -629,10 +571,7 @@ class Namespace(BaseGlanceMetadefAPIResourceWrapper):
 
     @property
     def public(self):
-        if getattr(self._apiresource, 'visibility') == 'public':
-            return True
-        else:
-            return False
+        return getattr(self._apiresource, 'visibility') == 'public'
 
 
 def filter_properties_target(namespaces_iter,
@@ -657,15 +596,14 @@ def filter_properties_target(namespaces_iter,
 
 @memoized
 def metadefs_namespace_get(request, namespace, resource_type=None, wrap=False):
-    namespace = glanceclient(request, '2').\
+    namespace = glanceclient(request).\
         metadefs_namespace.get(namespace, resource_type=resource_type)
     # There were problems with using the wrapper class in
     # nested json serialization. So sometimes, it is not desirable
     # to wrap.
     if wrap:
         return Namespace(namespace)
-    else:
-        return namespace
+    return namespace
 
 
 @profiler.trace
@@ -700,12 +638,9 @@ def metadefs_namespace_list(request,
     """
     # Listing namespaces requires the v2 API. If not supported we return an
     # empty array so callers don't need to worry about version checking.
-    if get_version() < 2:
-        return [], False, False
-
     if filters is None:
         filters = {}
-    limit = getattr(settings, 'API_RESULT_LIMIT', 1000)
+    limit = settings.API_RESULT_LIMIT
     page_size = utils.get_page_size(request)
 
     if paginate:
@@ -719,7 +654,7 @@ def metadefs_namespace_list(request,
     kwargs['sort_dir'] = sort_dir
     kwargs['sort_key'] = sort_key
 
-    namespaces_iter = glanceclient(request, '2').metadefs_namespace.list(
+    namespaces_iter = glanceclient(request).metadefs_namespace.list(
         page_size=request_size, limit=limit, **kwargs)
 
     # Filter the namespaces based on the provided properties_target since this
@@ -771,34 +706,31 @@ def metadefs_namespace_full_list(request, resource_type, filters=None,
 
 @profiler.trace
 def metadefs_namespace_create(request, namespace):
-    return glanceclient(request, '2').metadefs_namespace.create(**namespace)
+    return glanceclient(request).metadefs_namespace.create(**namespace)
 
 
 @profiler.trace
 def metadefs_namespace_update(request, namespace_name, **properties):
-    return glanceclient(request, '2').metadefs_namespace.update(
+    return glanceclient(request).metadefs_namespace.update(
         namespace_name,
         **properties)
 
 
 @profiler.trace
 def metadefs_namespace_delete(request, namespace_name):
-    return glanceclient(request, '2').metadefs_namespace.delete(namespace_name)
+    return glanceclient(request).metadefs_namespace.delete(namespace_name)
 
 
 @profiler.trace
 def metadefs_resource_types_list(request):
     # Listing Resource Types requires the v2 API. If not supported we return
     # an empty array so callers don't need to worry about version checking.
-    if get_version() < 2:
-        return []
-    else:
-        return glanceclient(request, '2').metadefs_resource_type.list()
+    return glanceclient(request).metadefs_resource_type.list()
 
 
 @profiler.trace
 def metadefs_namespace_resource_types(request, namespace_name):
-    resource_types = glanceclient(request, '2').metadefs_resource_type.get(
+    resource_types = glanceclient(request).metadefs_resource_type.get(
         namespace_name)
 
     # metadefs_resource_type.get() returns generator, converting it to list
@@ -809,7 +741,7 @@ def metadefs_namespace_resource_types(request, namespace_name):
 def metadefs_namespace_add_resource_type(request,
                                          namespace_name,
                                          resource_type):
-    return glanceclient(request, '2').metadefs_resource_type.associate(
+    return glanceclient(request).metadefs_resource_type.associate(
         namespace_name, **resource_type)
 
 
@@ -817,7 +749,7 @@ def metadefs_namespace_add_resource_type(request,
 def metadefs_namespace_remove_resource_type(request,
                                             namespace_name,
                                             resource_type_name):
-    glanceclient(request, '2').metadefs_resource_type.deassociate(
+    glanceclient(request).metadefs_resource_type.deassociate(
         namespace_name, resource_type_name)
 
 

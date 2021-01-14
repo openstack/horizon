@@ -12,8 +12,10 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
+from urllib import parse
+
 from django import urls
-from django.utils.translation import string_concat
+from django.utils.text import format_lazy
 from django.utils.translation import ugettext_lazy as _
 from django.utils.translation import ungettext_lazy
 
@@ -46,7 +48,7 @@ class DeleteKeyPairs(tables.DeleteAction):
         )
 
     def delete(self, request, obj_id):
-        api.nova.keypair_delete(request, obj_id)
+        api.nova.keypair_delete(request, parse.unquote(obj_id))
 
 
 class QuotaKeypairMixin(object):
@@ -55,14 +57,15 @@ class QuotaKeypairMixin(object):
         usages.tally('key_pairs', len(self.table.data))
         if usages['key_pairs']['available'] <= 0:
             if "disabled" not in self.classes:
-                self.classes = [c for c in self.classes] + ['disabled']
-                self.verbose_name = string_concat(self.verbose_name, ' ',
-                                                  _("(Quota exceeded)"))
+                self.classes = list(self.classes) + ['disabled']
+                self.verbose_name = format_lazy(
+                    '{verbose_name} {quota_exceeded}',
+                    verbose_name=self.verbose_name,
+                    quota_exceeded=_("(Quota exceeded)"))
             return False
-        else:
-            classes = [c for c in self.classes if c != "disabled"]
-            self.classes = classes
-            return True
+        classes = [c for c in self.classes if c != "disabled"]
+        self.classes = classes
+        return True
 
 
 class ImportKeyPair(QuotaKeypairMixin, tables.LinkAction):
@@ -74,7 +77,7 @@ class ImportKeyPair(QuotaKeypairMixin, tables.LinkAction):
     policy_rules = (("compute", "os_compute_api:os-keypairs:create"),)
 
     def allowed(self, request, keypair=None):
-        if super(ImportKeyPair, self).allowed(request, keypair):
+        if super().allowed(request, keypair):
             self.verbose_name = _("Import Public Key")
         return True
 
@@ -94,13 +97,13 @@ class CreateLinkNG(QuotaKeypairMixin, tables.LinkAction):
             'ng-controller': 'KeypairController as modal',
             'ng-click': ngclick
         })
-        return super(CreateLinkNG, self).get_default_attrs()
+        return super().get_default_attrs()
 
     def get_link_url(self, datum=None):
         return "javascript:void(0);"
 
     def allowed(self, request, keypair=None):
-        if super(CreateLinkNG, self).allowed(request, keypair):
+        if super().allowed(request, keypair):
             self.verbose_name = _("Create Key Pair")
         return True
 
@@ -118,10 +121,11 @@ class KeyPairsTable(tables.DataTable):
     detail_link = "horizon:project:key_pairs:detail"
     name = tables.Column("name", verbose_name=_("Key Pair Name"),
                          link=detail_link)
+    key_type = tables.Column("type", verbose_name=_("Key Pair Type"))
     fingerprint = tables.Column("fingerprint", verbose_name=_("Fingerprint"))
 
     def get_object_id(self, keypair):
-        return keypair.name
+        return parse.quote(keypair.name)
 
     class Meta(object):
         name = "keypairs"

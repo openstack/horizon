@@ -17,11 +17,10 @@
 #    under the License.
 
 from socket import timeout as socket_timeout
+from unittest import mock
 
 from django.test.utils import override_settings
 from django.urls import reverse
-
-import mock
 
 from openstack_dashboard import api
 from openstack_dashboard.dashboards.identity.users import tabs
@@ -69,11 +68,11 @@ class UsersViewTests(test.BaseAdminViewTests):
 
         res = self.client.get(USERS_INDEX_URL)
         self.assertTemplateUsed(res, 'identity/users/index.html')
-        self.assertItemsEqual(res.context['table'].data, users)
+        self.assertCountEqual(res.context['table'].data, users)
 
         if domain_id:
             for user in res.context['table'].data:
-                self.assertItemsEqual(user.domain_id, domain_id)
+                self.assertCountEqual(user.domain_id, domain_id)
 
         if with_domain:
             self.mock_get_effective_domain_id.assert_not_called()
@@ -127,6 +126,12 @@ class UsersViewTests(test.BaseAdminViewTests):
                     'enabled': True,
                     'confirm_password': user.password,
                     'phone_num': phone_number}
+
+        # django.test.client doesn't like None fields in forms
+        for key in list(formData):
+            if formData[key] is None:
+                del formData[key]
+
         res = self.client.post(USER_CREATE_URL, formData)
 
         self.assertNoFormErrors(res)
@@ -138,18 +143,16 @@ class UsersViewTests(test.BaseAdminViewTests):
         ])
         self.assertEqual(2, self.mock_get_default_domain.call_count)
 
-        if api.keystone.VERSIONS.active >= 3:
-            self.mock_tenant_list.assert_called_once_with(
-                test.IsHttpRequest(), domain=domain.id)
-        else:
-            self.mock_tenant_list.assert_called_once_with(
-                test.IsHttpRequest(), user=None)
+        self.mock_tenant_list.assert_called_once_with(
+            test.IsHttpRequest(), domain=domain.id)
 
         kwargs = {'phone_num': phone_number}
         self.mock_user_create.assert_called_once_with(
-            test.IsHttpRequest(), name=user.name, description=user.description,
-            email=user.email, password=user.password, project=self.tenant.id,
-            enabled=True, domain=domain_id, **kwargs)
+            test.IsHttpRequest(), name=user.name,
+            description=user.description, email=user.email,
+            password=user.password, project=self.tenant.id,
+            enabled=True, domain=domain_id, options={'lock_password': False},
+            **kwargs)
         self.mock_role_list.assert_called_once_with(test.IsHttpRequest())
         self.mock_get_default_role.assert_called_once_with(
             test.IsHttpRequest())
@@ -195,6 +198,12 @@ class UsersViewTests(test.BaseAdminViewTests):
                     'project': self.tenant.id,
                     'role_id': self.roles.first().id,
                     'confirm_password': user.password}
+
+        # django.test.client doesn't like None fields in forms
+        for key in list(formData):
+            if formData[key] is None:
+                del formData[key]
+
         res = self.client.post(USER_CREATE_URL, formData)
 
         self.assertNoFormErrors(res)
@@ -204,12 +213,8 @@ class UsersViewTests(test.BaseAdminViewTests):
             mock.call(test.IsHttpRequest()),
             mock.call(test.IsHttpRequest(), False),
         ])
-        if api.keystone.VERSIONS.active >= 3:
-            self.mock_tenant_list.assert_called_once_with(
-                test.IsHttpRequest(), domain=domain.id)
-        else:
-            self.mock_tenant_list.assert_called_once_with(
-                test.IsHttpRequest(), user=user.id)
+        self.mock_tenant_list.assert_called_once_with(
+            test.IsHttpRequest(), domain=domain.id)
         self.mock_user_create.assert_called_once_with(
             test.IsHttpRequest(),
             name=user.name,
@@ -218,7 +223,8 @@ class UsersViewTests(test.BaseAdminViewTests):
             password=user.password,
             project=self.tenant.id,
             enabled=True,
-            domain=domain_id)
+            domain=domain_id,
+            options={'lock_password': False})
         self.mock_role_list.assert_called_once_with(test.IsHttpRequest())
         self.mock_get_default_role.assert_called_once_with(
             test.IsHttpRequest())
@@ -250,6 +256,11 @@ class UsersViewTests(test.BaseAdminViewTests):
                     'role_id': self.roles.first().id,
                     'confirm_password': "doesntmatch"}
 
+        # django.test.client doesn't like None fields in forms
+        for key in list(formData):
+            if formData[key] is None:
+                del formData[key]
+
         res = self.client.post(USER_CREATE_URL, formData)
 
         self.assertFormError(res, "form", None, ['Passwords do not match.'])
@@ -257,14 +268,9 @@ class UsersViewTests(test.BaseAdminViewTests):
         self.assert_mock_multiple_calls_with_same_arguments(
             self.mock_get_default_domain, 2,
             mock.call(test.IsHttpRequest()))
-        if api.keystone.VERSIONS.active >= 3:
-            self.assert_mock_multiple_calls_with_same_arguments(
-                self.mock_tenant_list, 2,
-                mock.call(test.IsHttpRequest(), domain=domain_id))
-        else:
-            self.assert_mock_multiple_calls_with_same_arguments(
-                self.mock_tenant_list, 2,
-                mock.call(test.IsHttpRequest(), user=None))
+        self.assert_mock_multiple_calls_with_same_arguments(
+            self.mock_tenant_list, 2,
+            mock.call(test.IsHttpRequest(), domain=domain_id))
         self.assert_mock_multiple_calls_with_same_arguments(
             self.mock_role_list, 2,
             mock.call(test.IsHttpRequest()))
@@ -296,6 +302,11 @@ class UsersViewTests(test.BaseAdminViewTests):
                     'role_id': self.roles.first().id,
                     'confirm_password': 'four'}
 
+        # django.test.client doesn't like None fields in forms
+        for key in list(formData):
+            if formData[key] is None:
+                del formData[key]
+
         res = self.client.post(USER_CREATE_URL, formData)
 
         self.assertFormError(
@@ -305,14 +316,9 @@ class UsersViewTests(test.BaseAdminViewTests):
         self.assert_mock_multiple_calls_with_same_arguments(
             self.mock_get_default_domain, 2,
             mock.call(test.IsHttpRequest()))
-        if api.keystone.VERSIONS.active >= 3:
-            self.assert_mock_multiple_calls_with_same_arguments(
-                self.mock_tenant_list, 2,
-                mock.call(test.IsHttpRequest(), domain=domain_id))
-        else:
-            self.assert_mock_multiple_calls_with_same_arguments(
-                self.mock_tenant_list, 2,
-                mock.call(test.IsHttpRequest(), user=None))
+        self.assert_mock_multiple_calls_with_same_arguments(
+            self.mock_tenant_list, 2,
+            mock.call(test.IsHttpRequest(), domain=domain_id))
         self.assert_mock_multiple_calls_with_same_arguments(
             self.mock_role_list, 2,
             mock.call(test.IsHttpRequest()))
@@ -344,6 +350,11 @@ class UsersViewTests(test.BaseAdminViewTests):
                     'role_id': self.roles.first().id,
                     'confirm_password': 'MoreThanEighteenChars'}
 
+        # django.test.client doesn't like None fields in forms
+        for key in list(formData):
+            if formData[key] is None:
+                del formData[key]
+
         res = self.client.post(USER_CREATE_URL, formData)
 
         self.assertFormError(
@@ -353,20 +364,80 @@ class UsersViewTests(test.BaseAdminViewTests):
         self.assert_mock_multiple_calls_with_same_arguments(
             self.mock_get_default_domain, 2,
             mock.call(test.IsHttpRequest()))
-        if api.keystone.VERSIONS.active >= 3:
-            self.assert_mock_multiple_calls_with_same_arguments(
-                self.mock_tenant_list, 2,
-                mock.call(test.IsHttpRequest(), domain=domain_id))
-        else:
-            self.assert_mock_multiple_calls_with_same_arguments(
-                self.mock_tenant_list, 2,
-                mock.call(test.IsHttpRequest(), user=None))
+        self.assert_mock_multiple_calls_with_same_arguments(
+            self.mock_tenant_list, 2,
+            mock.call(test.IsHttpRequest(), domain=domain_id))
         self.assert_mock_multiple_calls_with_same_arguments(
             self.mock_role_list, 2,
             mock.call(test.IsHttpRequest()))
         self.assert_mock_multiple_calls_with_same_arguments(
             self.mock_get_default_role, 2,
             mock.call(test.IsHttpRequest()))
+
+    @test.create_mocks({api.keystone: ('user_create',
+                                       'get_default_domain',
+                                       'tenant_list',
+                                       'add_tenant_user_role',
+                                       'get_default_role',
+                                       'roles_for_user',
+                                       'role_list')})
+    def test_create_lock_pass(self):
+        user = self.users.get(id="1")
+        domain = self._get_default_domain()
+        domain_id = user.domain_id
+
+        role = self.roles.first()
+
+        self.mock_get_default_domain.return_value = domain
+        self.mock_tenant_list.return_value = [self.tenants.list(), False]
+
+        self.mock_user_create.return_value = user
+        self.mock_role_list.return_value = self.roles.list()
+        self.mock_get_default_role.return_value = role
+        self.mock_roles_for_user.return_value = []
+        self.mock_add_tenant_user_role.return_value = None
+
+        formData = {'method': 'CreateUserForm',
+                    'domain_id': domain_id,
+                    'name': user.name,
+                    'description': user.description,
+                    'email': user.email,
+                    'password': user.password,
+                    'project': self.tenant.id,
+                    'role_id': self.roles.first().id,
+                    'enabled': True,
+                    'confirm_password': user.password,
+                    'lock_password': True}
+        res = self.client.post(USER_CREATE_URL, formData)
+
+        self.assertNoFormErrors(res)
+        self.assertMessageCount(success=1)
+
+        self.mock_get_default_domain.assert_has_calls([
+            mock.call(test.IsHttpRequest()),
+            mock.call(test.IsHttpRequest(), False),
+        ])
+        self.assertEqual(2, self.mock_get_default_domain.call_count)
+
+        if api.keystone.VERSIONS.active >= 3:
+            self.mock_tenant_list.assert_called_once_with(
+                test.IsHttpRequest(), domain=domain.id)
+        else:
+            self.mock_tenant_list.assert_called_once_with(
+                test.IsHttpRequest(), user=None)
+
+        self.mock_user_create.assert_called_once_with(
+            test.IsHttpRequest(), name=user.name,
+            options={'lock_password': True}, description=user.description,
+            email=user.email, password=user.password, project=self.tenant.id,
+            enabled=True, domain=domain.id)
+        self.mock_role_list.assert_called_once_with(test.IsHttpRequest())
+        self.mock_get_default_role.assert_called_once_with(
+            test.IsHttpRequest())
+        self.mock_roles_for_user.assert_called_once_with(
+            test.IsHttpRequest(), user.id, self.tenant.id)
+        self.mock_add_tenant_user_role.assert_called_once_with(
+            test.IsHttpRequest(), self.tenant.id, user.id, role.id)
 
     @override_settings(USER_TABLE_EXTRA_INFO={'phone_num': 'Phone Number'})
     @test.create_mocks({api.keystone: ('user_get',
@@ -399,16 +470,14 @@ class UsersViewTests(test.BaseAdminViewTests):
                                                    admin=True)
         self.mock_domain_get.assert_called_once_with(test.IsHttpRequest(),
                                                      domain_id)
-        if api.keystone.VERSIONS.active >= 3:
-            self.mock_tenant_list.assert_called_once_with(
-                test.IsHttpRequest(), domain=domain.id)
-        else:
-            self.mock_tenant_list.assert_called_once_with(
-                test.IsHttpRequest(), user=user.id)
+        self.mock_tenant_list.assert_called_once_with(
+            test.IsHttpRequest(), domain=domain.id)
         kwargs = {'phone_num': phone_number}
         self.mock_user_update.assert_called_once_with(test.IsHttpRequest(),
                                                       user.id,
                                                       email=user.email,
+                                                      options={'lock_password':
+                                                               False},
                                                       name=user.name,
                                                       **kwargs)
 
@@ -442,15 +511,13 @@ class UsersViewTests(test.BaseAdminViewTests):
                                                    admin=True)
         self.mock_domain_get.assert_called_once_with(test.IsHttpRequest(),
                                                      domain_id)
-        if api.keystone.VERSIONS.active >= 3:
-            self.mock_tenant_list.assert_called_once_with(
-                test.IsHttpRequest(), domain=domain.id)
-        else:
-            self.mock_tenant_list.assert_called_once_with(
-                test.IsHttpRequest(), user=user.id)
+        self.mock_tenant_list.assert_called_once_with(
+            test.IsHttpRequest(), domain=domain.id)
         self.mock_user_update.assert_called_once_with(test.IsHttpRequest(),
                                                       user.id,
                                                       email=user.email,
+                                                      options={'lock_password':
+                                                               False},
                                                       name=user.name,
                                                       project=new_project_id)
 
@@ -483,15 +550,13 @@ class UsersViewTests(test.BaseAdminViewTests):
                                                    admin=True)
         self.mock_domain_get.assert_called_once_with(test.IsHttpRequest(),
                                                      domain_id)
-        if api.keystone.VERSIONS.active >= 3:
-            self.mock_tenant_list.assert_called_once_with(
-                test.IsHttpRequest(), domain=domain.id)
-        else:
-            self.mock_tenant_list.assert_called_once_with(
-                test.IsHttpRequest(), user=user.id)
+        self.mock_tenant_list.assert_called_once_with(
+            test.IsHttpRequest(), domain=domain.id)
         self.mock_user_update.assert_called_once_with(test.IsHttpRequest(),
                                                       user.id,
                                                       email=user.email or "",
+                                                      options={'lock_password':
+                                                               False},
                                                       name=user.name,
                                                       project=self.tenant.id)
 
@@ -523,12 +588,42 @@ class UsersViewTests(test.BaseAdminViewTests):
                                                    admin=True)
         self.mock_domain_get.assert_called_once_with(test.IsHttpRequest(),
                                                      domain_id)
-        if api.keystone.VERSIONS.active >= 3:
-            self.mock_tenant_list.assert_called_once_with(
-                test.IsHttpRequest(), domain=domain.id)
-        else:
-            self.mock_tenant_list.assert_called_once_with(
-                test.IsHttpRequest(), user=user.id)
+        self.mock_tenant_list.assert_called_once_with(
+            test.IsHttpRequest(), domain=domain.id)
+        self.assert_mock_multiple_calls_with_same_arguments(
+            self.mock_keystone_can_edit_user, 2,
+            mock.call())
+
+    @test.create_mocks({api.keystone: ('user_get',
+                                       'domain_get',
+                                       'tenant_list',
+                                       'keystone_can_edit_user', )})
+    def test_update_with_locked_password(self):
+        user = self.users.get(id="6")
+        domain_id = user.domain_id
+        domain = self.domains.get(id=domain_id)
+
+        self.mock_user_get.return_value = user
+        self.mock_domain_get.return_value = domain
+        self.mock_tenant_list.return_value = [self.tenants.list(), False]
+        self.mock_keystone_can_edit_user.return_value = False
+
+        formData = {'method': 'UpdateUserForm',
+                    'id': user.id,
+                    'name': user.name,
+                    'project': self.tenant.id, }
+
+        res = self.client.post(USER_UPDATE_URL, formData)
+
+        self.assertNoFormErrors(res)
+        self.assertMessageCount(error=1)
+
+        self.mock_user_get.assert_called_once_with(test.IsHttpRequest(), '1',
+                                                   admin=True)
+        self.mock_domain_get.assert_called_once_with(test.IsHttpRequest(),
+                                                     domain_id)
+        self.mock_tenant_list.assert_called_once_with(
+            test.IsHttpRequest(), domain=domain.id)
         self.assert_mock_multiple_calls_with_same_arguments(
             self.mock_keystone_can_edit_user, 2,
             mock.call())
@@ -552,8 +647,33 @@ class UsersViewTests(test.BaseAdminViewTests):
 
         self.assertNoFormErrors(res)
 
-        self.mock_user_get.assert_called_once_with(test.IsHttpRequest(), '1',
-                                                   admin=False)
+        self.mock_user_get.assert_called_with(test.IsHttpRequest(), '1',
+                                              admin=False)
+        self.assertEqual(self.mock_user_get.call_count, 1)
+        self.mock_user_update_password.assert_called_once_with(
+            test.IsHttpRequest(), user.id, test_password, admin=False)
+
+    @test.create_mocks({api.keystone: ('user_get',
+                                       'user_update_password')})
+    def test_change_locked_password(self):
+        user = self.users.get(id="6")
+        test_password = 'normalpwd'
+
+        self.mock_user_get.return_value = user
+        self.mock_user_update_password.return_value = None
+
+        formData = {'method': 'ChangePasswordForm',
+                    'id': user.id,
+                    'name': user.name,
+                    'password': test_password,
+                    'confirm_password': test_password}
+
+        res = self.client.post(USER_CHANGE_PASSWORD_URL, formData)
+        self.assertRedirectsNoFollow(res, USERS_INDEX_URL)
+
+        self.mock_user_get.assert_called_with(test.IsHttpRequest(), '1',
+                                              admin=False)
+        self.assertEqual(self.mock_user_get.call_count, 1)
         self.mock_user_update_password.assert_called_once_with(
             test.IsHttpRequest(), user.id, test_password, admin=False)
 
@@ -579,8 +699,9 @@ class UsersViewTests(test.BaseAdminViewTests):
 
         self.assertFormError(res, "form", None,
                              ['The admin password is incorrect.'])
-        self.mock_user_get.assert_called_once_with(test.IsHttpRequest(), '1',
-                                                   admin=False)
+        self.mock_user_get.assert_called_with(test.IsHttpRequest(), '1',
+                                              admin=False)
+        self.assertEqual(self.mock_user_get.call_count, 1)
         self.mock_user_verify_admin_password.assert_called_once_with(
             test.IsHttpRequest(), admin_password)
 
@@ -864,7 +985,7 @@ class UsersViewTests(test.BaseAdminViewTests):
         self.assertTemplateUsed(res, 'identity/users/_detail_overview.html')
         self.assertEqual(res.context['user'].name, user.name)
         self.assertEqual(res.context['user'].id, user.id)
-        self.assertEqual(res.context['tenant_name'], tenant.name)
+        self.assertEqual(res.context['project_name'], tenant.name)
 
         self.mock_domain_get.assert_called_once_with(test.IsHttpRequest(), '1')
         self.mock_user_get.assert_called_once_with(test.IsHttpRequest(), '1',
@@ -914,13 +1035,207 @@ class UsersViewTests(test.BaseAdminViewTests):
         self.assertTemplateUsed(res, 'identity/users/_detail_overview.html')
         self.assertEqual(res.context['user'].name, user.name)
         self.assertEqual(res.context['user'].id, user.id)
-        self.assertEqual(res.context['tenant_name'], tenant.name)
+        self.assertEqual(res.context['project_name'], tenant.name)
 
         self.mock_domain_get.assert_called_once_with(test.IsHttpRequest(), '1')
         self.mock_user_get.assert_called_once_with(test.IsHttpRequest(), '1',
                                                    admin=False)
         self.mock_tenant_get.assert_called_once_with(test.IsHttpRequest(),
                                                      user.project_id)
+
+    @test.create_mocks({api.keystone: ('domain_get',
+                                       'user_get',
+                                       'tenant_get',
+                                       'role_assignments_list',
+                                       'group_list')})
+    def test_detail_view_role_assignments_tab(self):
+        """Test the role assignments tab of the detail view ."""
+        domain = self._get_default_domain()
+        user = self.users.get(id="1")
+        tenant = self.tenants.get(id=user.project_id)
+        user_role_assignments = self.role_assignments.filter(
+            user={'id': user.id})
+        user_group = self.groups.first()
+        group_role_assignments = self.role_assignments.filter(
+            group={'id': user_group.id})
+
+        self.mock_domain_get.return_value = domain
+        self.mock_user_get.return_value = user
+        self.mock_tenant_get.return_value = tenant
+        self.mock_group_list.return_value = [user_group]
+
+        def _role_assignments_list_side_effect(request, user=None, group=None,
+                                               include_subtree=False,
+                                               include_names=True):
+            # role assignments should be called twice, once with the user and
+            # another one with the group.
+            if group:
+                return group_role_assignments
+            return user_role_assignments
+
+        self.mock_role_assignments_list.side_effect = \
+            _role_assignments_list_side_effect
+
+        # Url of the role assignment tab of the detail view
+        url = USER_DETAIL_URL % [user.id]
+        detail_view = tabs.UserDetailTabs(self.request, user=user)
+        role_assignments_tab_link = "?%s=%s" % (
+            detail_view.param_name,
+            detail_view.get_tab("roleassignments").get_id()
+        )
+        url += role_assignments_tab_link
+
+        res = self.client.get(url)
+
+        # Check the template expected has been used
+        self.assertTemplateUsed(res,
+                                "horizon/common/_detail_table.html")
+
+        # Check the table contains the expected data
+        role_assignments_expected = user_role_assignments
+        role_assignments_expected.extend(group_role_assignments)
+        role_assignments_observed = res.context["table"].data
+        self.assertCountEqual(role_assignments_expected,
+                              role_assignments_observed)
+
+        self.mock_domain_get.assert_called_once_with(test.IsHttpRequest(), '1')
+        self.mock_user_get.assert_called_once_with(test.IsHttpRequest(), '1',
+                                                   admin=False)
+        self.mock_tenant_get.assert_called_once_with(test.IsHttpRequest(),
+                                                     user.project_id)
+        # role assignments should be called twice, once with the user and
+        # another one with the group.
+        calls = [mock.call(test.IsHttpRequest(), user=user,
+                           include_subtree=False, include_names=True),
+                 mock.call(test.IsHttpRequest(), group=user_group,
+                           include_subtree=False, include_names=True), ]
+        self.mock_role_assignments_list.assert_has_calls(calls)
+
+    @test.create_mocks({api.keystone: ('domain_get',
+                                       'user_get',
+                                       'tenant_get',
+                                       'role_assignments_list')})
+    def test_detail_view_role_assignments_tab_with_exception(self):
+        """Test the role assignments tab with exception.
+
+        The table is displayed empty and an error message pop if the role
+        assignment request fails.
+        """
+        domain = self._get_default_domain()
+        user = self.users.get(id="1")
+        tenant = self.tenants.get(id=user.project_id)
+
+        self.mock_domain_get.return_value = domain
+        self.mock_user_get.return_value = user
+        self.mock_tenant_get.return_value = tenant
+        self.mock_role_assignments_list.side_effect = self.exceptions.keystone
+
+        # Url of the role assignment tab of the detail view
+        url = USER_DETAIL_URL % [user.id]
+        detail_view = tabs.UserDetailTabs(self.request, user=user)
+        role_assignments_tab_link = "?%s=%s" % (
+            detail_view.param_name,
+            detail_view.get_tab("roleassignments").get_id()
+        )
+        url += role_assignments_tab_link
+
+        res = self.client.get(url)
+
+        # Check the role assignment table is empty
+        self.assertEqual(res.context["table"].data, [])
+        # Check one error message is displayed
+        self.assertMessageCount(res, error=1)
+
+        self.mock_domain_get.assert_called_once_with(test.IsHttpRequest(), '1')
+        self.mock_user_get.assert_called_once_with(test.IsHttpRequest(), '1',
+                                                   admin=False)
+        self.mock_tenant_get.assert_called_once_with(test.IsHttpRequest(),
+                                                     user.project_id)
+        self.mock_role_assignments_list.assert_called_once_with(
+            test.IsHttpRequest(), user=user, include_subtree=False,
+            include_names=True)
+
+    @test.create_mocks({api.keystone: ('domain_get',
+                                       'user_get',
+                                       'tenant_get',
+                                       'group_list')})
+    def test_detail_view_groups_tab(self):
+        """Test the groups tab of the detail view ."""
+        domain = self._get_default_domain()
+        user = self.users.get(id="1")
+        tenant = self.tenants.get(id=user.project_id)
+        groups = self.groups.list()
+
+        self.mock_domain_get.return_value = domain
+        self.mock_user_get.return_value = user
+        self.mock_tenant_get.return_value = tenant
+        self.mock_group_list.return_value = groups
+
+        # Url of the role assignment tab of the detail view
+        url = USER_DETAIL_URL % [user.id]
+        detail_view = tabs.UserDetailTabs(self.request, user=user)
+        group_tab_link = "?%s=%s" % (detail_view.param_name,
+                                     detail_view.get_tab("groups").get_id())
+        url += group_tab_link
+
+        res = self.client.get(url)
+
+        # Check the template expected has been used
+        self.assertTemplateUsed(res, "horizon/common/_detail_table.html")
+
+        # Check the table contains the good data
+        groups_expected = groups
+        groups_observed = res.context["table"].data
+        self.assertCountEqual(groups_expected, groups_observed)
+
+        self.mock_domain_get.assert_called_once_with(test.IsHttpRequest(), '1')
+        self.mock_user_get.assert_called_once_with(test.IsHttpRequest(), '1',
+                                                   admin=False)
+        self.mock_tenant_get.assert_called_once_with(test.IsHttpRequest(),
+                                                     user.project_id)
+        self.mock_group_list.assert_called_once_with(test.IsHttpRequest(),
+                                                     user=user.id)
+
+    @test.create_mocks({api.keystone: ('domain_get',
+                                       'user_get',
+                                       'tenant_get',
+                                       'group_list')})
+    def test_detail_view_groups_tab_with_exception(self):
+        """Test the groups tab of the detail view .
+
+        The table is displayed empty and an error message pop if the groups
+        request fails.
+        """
+        domain = self._get_default_domain()
+        user = self.users.get(id="1")
+        tenant = self.tenants.get(id=user.project_id)
+
+        self.mock_domain_get.return_value = domain
+        self.mock_user_get.return_value = user
+        self.mock_tenant_get.return_value = tenant
+        self.mock_group_list.side_effect = self.exceptions.keystone
+
+        # Url of the role assignment tab of the detail view
+        url = USER_DETAIL_URL % [user.id]
+        detail_view = tabs.UserDetailTabs(self.request, user=user)
+        group_tab_link = "?%s=%s" % (detail_view.param_name,
+                                     detail_view.get_tab("groups").get_id())
+        url += group_tab_link
+
+        res = self.client.get(url)
+
+        # Check the groups table is empty
+        self.assertEqual(res.context["table"].data, [])
+        # Check one error message is displayed
+        self.assertMessageCount(res, error=1)
+
+        self.mock_domain_get.assert_called_once_with(test.IsHttpRequest(), '1')
+        self.mock_user_get.assert_called_once_with(test.IsHttpRequest(), '1',
+                                                   admin=False)
+        self.mock_tenant_get.assert_called_once_with(test.IsHttpRequest(),
+                                                     user.project_id)
+        self.mock_group_list.assert_called_once_with(test.IsHttpRequest(),
+                                                     user=user.id)
 
     @test.create_mocks({api.keystone: ('user_get',
                                        'domain_get',
@@ -985,15 +1300,13 @@ class UsersViewTests(test.BaseAdminViewTests):
                                                    admin=True)
         self.mock_domain_get.assert_called_once_with(test.IsHttpRequest(),
                                                      domain_id)
-        if api.keystone.VERSIONS.active >= 3:
-            self.mock_tenant_list.assert_called_once_with(test.IsHttpRequest(),
-                                                          domain=domain.id)
-        else:
-            self.mock_tenant_list.assert_called_once_with(test.IsHttpRequest(),
-                                                          user=user.id)
+        self.mock_tenant_list.assert_called_once_with(test.IsHttpRequest(),
+                                                      domain=domain.id)
         self.mock_user_update.assert_called_once_with(test.IsHttpRequest(),
                                                       user.id,
                                                       email=user.email,
+                                                      options={'lock_password':
+                                                               False},
                                                       name=user.name,
                                                       description='changed')
 
@@ -1002,7 +1315,7 @@ class UsersViewTests(test.BaseAdminViewTests):
         res = self.client.get(USERS_INDEX_URL)
         self.assertTemplateUsed(res, 'identity/users/index.html')
         users = res.context['table'].data
-        self.assertItemsEqual(users, [])
+        self.assertCountEqual(users, [])
 
 
 class SeleniumTests(test.SeleniumAdminTestCase):

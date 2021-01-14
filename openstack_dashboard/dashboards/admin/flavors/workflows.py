@@ -27,11 +27,10 @@ from openstack_dashboard import api
 
 
 class CreateFlavorInfoAction(workflows.Action):
-    _flavor_id_regex = (r'^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-'
-                        r'[0-9a-fA-F]{4}-[0-9a-fA-F]{12}|[0-9]+|auto$')
-    _flavor_id_help_text = _("Flavor ID should be UUID4 or integer. "
-                             "Leave this field blank or use 'auto' to set "
-                             "a random UUID4.")
+    _flavor_id_regex = (r'^[a-zA-Z0-9. _-]+$')
+    _flavor_id_help_text = _("flavor id can only contain alphanumeric "
+                             "characters, underscores, periods, hyphens, "
+                             "spaces.")
     name = forms.CharField(
         label=_("Name"),
         max_length=255)
@@ -39,13 +38,17 @@ class CreateFlavorInfoAction(workflows.Action):
                                  regex=_flavor_id_regex,
                                  required=False,
                                  initial='auto',
+                                 max_length=255,
                                  help_text=_flavor_id_help_text)
     vcpus = forms.IntegerField(label=_("VCPUs"),
-                               min_value=1)
+                               min_value=1,
+                               max_value=2147483647)
     memory_mb = forms.IntegerField(label=_("RAM (MB)"),
-                                   min_value=1)
+                                   min_value=1,
+                                   max_value=2147483647)
     disk_gb = forms.IntegerField(label=_("Root Disk (GB)"),
-                                 min_value=0)
+                                 min_value=0,
+                                 max_value=2147483647)
     eph_gb = forms.IntegerField(label=_("Ephemeral Disk (GB)"),
                                 required=False,
                                 initial=0,
@@ -73,7 +76,7 @@ class CreateFlavorInfoAction(workflows.Action):
         return name
 
     def clean(self):
-        cleaned_data = super(CreateFlavorInfoAction, self).clean()
+        cleaned_data = super().clean()
         name = cleaned_data.get('name')
         flavor_id = cleaned_data.get('flavor_id')
 
@@ -82,7 +85,7 @@ class CreateFlavorInfoAction(workflows.Action):
         except Exception:
             flavors = []
             msg = _('Unable to get flavor list')
-            exceptions.check_message(["Connection", "refused"], msg)
+            exceptions.handle(self.request, msg)
             raise
         if flavors is not None and name is not None:
             for flavor in flavors:
@@ -111,7 +114,7 @@ class CreateFlavorInfo(workflows.Step):
 
 class FlavorAccessAction(workflows.MembershipAction):
     def __init__(self, request, *args, **kwargs):
-        super(FlavorAccessAction, self).__init__(request, *args, **kwargs)
+        super().__init__(request, *args, **kwargs)
         err_msg = _('Unable to retrieve flavor access list. '
                     'Please try again later.')
         context = args[0]

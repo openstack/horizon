@@ -21,6 +21,8 @@ from openstack_dashboard.dashboards.admin.aggregates import constants
 
 
 class DeleteAggregateAction(tables.DeleteAction):
+    policy_rules = (("compute", "os_compute_api:os-aggregates:delete"),)
+
     @staticmethod
     def action_present(count):
         return ungettext_lazy(
@@ -37,6 +39,11 @@ class DeleteAggregateAction(tables.DeleteAction):
             count
         )
 
+    def allowed(self, request, aggregate):
+        if aggregate and aggregate.hosts:
+            return False
+        return True
+
     def delete(self, request, obj_id):
         api.nova.aggregate_delete(request, obj_id)
 
@@ -46,6 +53,7 @@ class CreateAggregateAction(tables.LinkAction):
     verbose_name = _("Create Host Aggregate")
     url = constants.AGGREGATES_CREATE_URL
     classes = ("ajax-modal",)
+    policy_rules = (("compute", "os_compute_api:os-aggregates:create"),)
     icon = "plus"
 
 
@@ -61,17 +69,18 @@ class UpdateMetadataAction(tables.LinkAction):
     name = "update-metadata"
     verbose_name = _("Update Metadata")
     ajax = False
+    policy_rules = (("compute", "os_compute_api:os-aggregates:set_metadata"),)
     icon = "pencil"
     attrs = {"ng-controller": "MetadataModalHelperController as modal"}
 
     def __init__(self, attrs=None, **kwargs):
         kwargs['preempt'] = True
-        super(UpdateMetadataAction, self).__init__(attrs, **kwargs)
+        super().__init__(attrs, **kwargs)
 
     def get_link_url(self, datum):
-        image_id = self.table.get_object_id(datum)
+        aggregate_id = self.table.get_object_id(datum)
         self.attrs['ng-click'] = (
-            "modal.openMetadataModal('aggregate', '%s', true)" % image_id)
+            "modal.openMetadataModal('aggregate', '%s', true)" % aggregate_id)
         return "javascript:void(0);"
 
 
@@ -80,6 +89,7 @@ class UpdateAggregateAction(tables.LinkAction):
     verbose_name = _("Edit Host Aggregate")
     url = constants.AGGREGATES_UPDATE_URL
     classes = ("ajax-modal",)
+    policy_rules = (("compute", "os_compute_api:os-aggregates:update"),)
     icon = "pencil"
 
 
@@ -104,7 +114,7 @@ class AvailabilityZoneFilterAction(tables.FilterAction):
 
 
 def get_aggregate_hosts(aggregate):
-    return [host for host in aggregate.hosts]
+    return aggregate.hosts
 
 
 def get_metadata(aggregate):

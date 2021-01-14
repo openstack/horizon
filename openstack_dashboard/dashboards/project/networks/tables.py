@@ -93,7 +93,7 @@ class CreateNetwork(tables.LinkAction):
         # usages["network"] is empty
         if usages.get('network', {}).get('available', 1) <= 0:
             if "disabled" not in self.classes:
-                self.classes = [c for c in self.classes] + ["disabled"]
+                self.classes = list(self.classes) + ['disabled']
                 self.verbose_name = _("Create Network (Quota exceeded)")
         else:
             self.verbose_name = _("Create Network")
@@ -135,7 +135,7 @@ class CreateSubnet(subnet_tables.SubnetPolicyTargetMixin, tables.LinkAction):
         # usages["subnet'] is empty
         if usages.get('subnet', {}).get('available', 1) <= 0:
             if 'disabled' not in self.classes:
-                self.classes = [c for c in self.classes] + ['disabled']
+                self.classes = list(self.classes) + ['disabled']
                 self.verbose_name = _('Create Subnet (Quota exceeded)')
         else:
             self.verbose_name = _('Create Subnet')
@@ -171,8 +171,7 @@ STATUS_DISPLAY_CHOICES = (
 def get_availability_zones(network):
     if 'availability_zones' in network and network.availability_zones:
         return ', '.join(network.availability_zones)
-    else:
-        return _("-")
+    return _("-")
 
 
 class ProjectNetworksFilterAction(tables.FilterAction):
@@ -207,11 +206,8 @@ class NetworksTable(tables.DataTable):
                                        verbose_name=_("Availability Zones"))
 
     def __init__(self, request, data=None, needs_form_wrapper=None, **kwargs):
-        super(NetworksTable, self).__init__(
-            request,
-            data=data,
-            needs_form_wrapper=needs_form_wrapper,
-            **kwargs)
+        super().__init__(request, data=data,
+                         needs_form_wrapper=needs_form_wrapper, **kwargs)
         try:
             if not api.neutron.is_extension_supported(
                     request, "network_availability_zone"):

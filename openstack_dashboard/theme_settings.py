@@ -62,6 +62,6 @@ def get_available_themes(available_themes, default_theme, selectable_themes):
         default_theme = selectable_themes[0][0]
         logging.warning("Your DEFAULT_THEME is not configured in your "
                         "selectable themes, therefore using %s as your "
-                        "default theme." % default_theme)
+                        "default theme.", default_theme)
 
     return new_theme_list, selectable_themes, default_theme

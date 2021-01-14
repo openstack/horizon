@@ -121,7 +121,7 @@
      * The minimum memory size required to boot the image. Optional.
      *
      * @param {boolean} image.visibility
-     * values of 'public', 'private', and 'shared' are valid. Required.
+     * values of 'public', 'private', 'shared' and 'community' are valid. Required.
      *
      * @param {boolean} image.protected
      * True if the image is protected, false otherwise. Required.
@@ -217,7 +217,7 @@
      * The minimum memory size required to boot the image. Optional.
      *
      * @param {boolean} image.visibility
-     * Values of 'public', 'private', and 'shared' are valid. Required.
+     * Values of 'public', 'private', 'shared' and 'community' are valid. Required.
      *
      * @param {boolean} image.protected
      * True if the image is protected, false otherwise. Required.

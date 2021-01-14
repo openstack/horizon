@@ -26,7 +26,6 @@ from django.urls import reverse_lazy
 from django.utils.decorators import method_decorator
 from django.utils import encoding
 from django.utils.translation import ugettext_lazy as _
-from django.views.decorators.cache import cache_control
 from django.views.decorators.cache import never_cache
 from django.views import generic
 
@@ -62,10 +61,6 @@ class VolumeTableMixIn(object):
                 cinder.volume_list_paged(self.request, marker=marker,
                                          search_opts=search_opts,
                                          sort_dir=sort_dir, paginate=True)
-
-            if sort_dir == "asc":
-                volumes.reverse()
-
             return volumes
         except Exception:
             exceptions.handle(self.request,
@@ -92,7 +87,7 @@ class VolumeTableMixIn(object):
                 self.request, search_opts=search_opts)
             if snapshots:
                 # extract out the volume ids
-                volume_ids = set([(s.volume_id) for s in snapshots])
+                volume_ids = set(s.volume_id for s in snapshots)
         except Exception:
             exceptions.handle(self.request,
                               _("Unable to retrieve snapshot list."))
@@ -108,13 +103,14 @@ class VolumeTableMixIn(object):
                     attached_instance_ids.append(server_id)
         return attached_instance_ids
 
-    def _get_groups(self, volumes):
+    def _get_groups(self, volumes, search_opts=None):
         needs_group = False
         if volumes and hasattr(volumes[0], 'group_id'):
             needs_group = True
         if needs_group:
             try:
-                groups_list = cinder.group_list(self.request)
+                groups_list = cinder.group_list(self.request,
+                                                search_opts=search_opts)
                 groups = dict((g.id, g) for g in groups_list)
             except Exception:
                 groups = {}
@@ -192,7 +188,7 @@ class DetailView(tabs.TabbedTableView):
     page_title = "{{ volume.name|default:volume.id }}"
 
     def get_context_data(self, **kwargs):
-        context = super(DetailView, self).get_context_data(**kwargs)
+        context = super().get_context_data(**kwargs)
         volume, snapshots = self.get_data()
         table = volume_tables.VolumesTable(self.request)
         context["volume"] = volume
@@ -227,18 +223,6 @@ class DetailView(tabs.TabbedTableView):
             exceptions.handle(self.request,
                               _('Unable to retrieve volume details.'),
                               redirect=redirect)
-        try:
-            volume.messages = cinder.message_list(
-                self.request,
-                {'resource_type': 'volume', 'resource_uuid': volume.id},
-            )
-        except Exception:
-            volume.messages = []
-            exceptions.handle(
-                self.request,
-                _('Unable to retrieve volume messages.'),
-                ignore=True,
-            )
         return volume, snapshots
 
     def get_redirect_url(self):
@@ -259,7 +243,7 @@ class CreateView(forms.ModalFormView):
     page_title = _("Create Volume")
 
     def get_initial(self):
-        initial = super(CreateView, self).get_initial()
+        initial = super().get_initial()
         self.default_vol_type = None
         try:
             self.default_vol_type = cinder.volume_type_default(self.request)
@@ -269,7 +253,7 @@ class CreateView(forms.ModalFormView):
         return initial
 
     def get_context_data(self, **kwargs):
-        context = super(CreateView, self).get_context_data(**kwargs)
+        context = super().get_context_data(**kwargs)
         try:
             context['usages'] = quotas.tenant_quota_usages(
                 self.request, targets=('volumes', 'gigabytes'))
@@ -325,7 +309,7 @@ class ExtendView(forms.ModalFormView):
         return self._object
 
     def get_context_data(self, **kwargs):
-        context = super(ExtendView, self).get_context_data(**kwargs)
+        context = super().get_context_data(**kwargs)
         context['volume'] = self.get_object()
         args = (self.kwargs['volume_id'],)
         context['submit_url'] = reverse(self.submit_url, args=args)
@@ -353,7 +337,7 @@ class CreateSnapshotView(forms.ModalFormView):
     page_title = _("Create Volume Snapshot")
 
     def get_context_data(self, **kwargs):
-        context = super(CreateSnapshotView, self).get_context_data(**kwargs)
+        context = super().get_context_data(**kwargs)
         context['volume_id'] = self.kwargs['volume_id']
         args = (self.kwargs['volume_id'],)
         context['submit_url'] = reverse(self.submit_url, args=args)
@@ -402,7 +386,7 @@ class UploadToImageView(forms.ModalFormView):
         return volume
 
     def get_context_data(self, **kwargs):
-        context = super(UploadToImageView, self).get_context_data(**kwargs)
+        context = super().get_context_data(**kwargs)
         context['volume'] = self.get_data()
         args = (self.kwargs['volume_id'],)
         context['submit_url'] = reverse(self.submit_url, args=args)
@@ -426,7 +410,7 @@ class CreateTransferView(forms.ModalFormView):
     page_title = _("Create Volume Transfer")
 
     def get_context_data(self, *args, **kwargs):
-        context = super(CreateTransferView, self).get_context_data(**kwargs)
+        context = super().get_context_data(**kwargs)
         volume_id = self.kwargs['volume_id']
         context['volume_id'] = volume_id
         context['submit_url'] = reverse(self.submit_url, args=[volume_id])
@@ -436,7 +420,7 @@ class CreateTransferView(forms.ModalFormView):
         return {'volume_id': self.kwargs["volume_id"]}
 
     def get_form_kwargs(self):
-        kwargs = super(CreateTransferView, self).get_form_kwargs()
+        kwargs = super().get_form_kwargs()
         kwargs['next_view'] = ShowTransferView
         return kwargs
 
@@ -476,7 +460,7 @@ class ShowTransferView(forms.ModalFormView):
                                   _('Unable to retrieve volume transfer.'))
 
     def get_context_data(self, **kwargs):
-        context = super(ShowTransferView, self).get_context_data(**kwargs)
+        context = super().get_context_data(**kwargs)
         context['transfer_id'] = self.kwargs['transfer_id']
         context['auth_key'] = self.kwargs['auth_key']
         context['download_label'] = self.download_label
@@ -513,7 +497,7 @@ class UpdateView(forms.ModalFormView):
         return self._object
 
     def get_context_data(self, **kwargs):
-        context = super(UpdateView, self).get_context_data(**kwargs)
+        context = super().get_context_data(**kwargs)
         context['volume'] = self.get_object()
         args = (self.kwargs['volume_id'],)
         context['submit_url'] = reverse(self.submit_url, args=args)
@@ -569,10 +553,10 @@ class EditAttachmentsView(tables.DataTableView, forms.ModalFormView):
     @memoized.memoized_method
     def get_form(self, **kwargs):
         form_class = kwargs.get('form_class', self.get_form_class())
-        return super(EditAttachmentsView, self).get_form(form_class)
+        return super().get_form(form_class)
 
     def get_context_data(self, **kwargs):
-        context = super(EditAttachmentsView, self).get_context_data(**kwargs)
+        context = super().get_context_data(**kwargs)
         context['form'] = self.get_form()
         volume = self.get_object()
         args = (self.kwargs['volume_id'],)
@@ -597,8 +581,7 @@ class EditAttachmentsView(tables.DataTableView, forms.ModalFormView):
         form = self.get_form()
         if form.is_valid():
             return self.form_valid(form)
-        else:
-            return self.get(request, *args, **kwargs)
+        return self.get(request, *args, **kwargs)
 
 
 class RetypeView(forms.ModalFormView):
@@ -626,7 +609,7 @@ class RetypeView(forms.ModalFormView):
         return volume
 
     def get_context_data(self, **kwargs):
-        context = super(RetypeView, self).get_context_data(**kwargs)
+        context = super().get_context_data(**kwargs)
         context['volume'] = self.get_data()
         args = (self.kwargs['volume_id'],)
         context['submit_url'] = reverse(self.submit_url, args=args)
@@ -645,7 +628,7 @@ class EncryptionDetailView(generic.TemplateView):
     page_title = _("Volume Encryption Details: {{ volume.name }}")
 
     def get_context_data(self, **kwargs):
-        context = super(EncryptionDetailView, self).get_context_data(**kwargs)
+        context = super().get_context_data(**kwargs)
         volume = self.get_volume_data()
         context["encryption_metadata"] = self.get_encryption_data()
         context["volume"] = volume
@@ -686,10 +669,6 @@ class EncryptionDetailView(generic.TemplateView):
 
 
 class DownloadTransferCreds(generic.View):
-    # TODO(Itxaka): Remove cache_control in django >= 1.9
-    # https://code.djangoproject.com/ticket/13008
-    @method_decorator(cache_control(max_age=0, no_cache=True,
-                                    no_store=True, must_revalidate=True))
     @method_decorator(never_cache)
     def get(self, request, transfer_id, auth_key):
         try:
@@ -701,7 +680,8 @@ class DownloadTransferCreds(generic.View):
             'id': transfer_id,
             'auth_key': auth_key,
         }}
-        response = shortcuts.render_to_response(
+        response = shortcuts.render(
+            request,
             'project/volumes/download_transfer_creds.html',
             context, content_type='application/text')
         response['Content-Disposition'] = (

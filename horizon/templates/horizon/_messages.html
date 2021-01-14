@@ -1,4 +1,4 @@
-{% load i18n %}
+{% load i18n splitfilter %}
 <div class="messages">
 <toast></toast>
 {% for message in messages %}
@@ -31,8 +31,19 @@
       <a class="close" data-dismiss="alert" href="#">
         <span class="fa fa-times"></span>
       </a>
-      <p><strong>{% trans "Error: " %}</strong>{{ message }}</p>
+      <p>
+        {% with message.message|split_message as messages %}
+        <strong>{% trans "Error: " %}</strong>{{ messages|first }}
+          {% if messages|length > 1 %}
+            <a href="#message_details" data-toggle="collapse"
+             data-target="#message_details_{{ forloop.counter }}">Details</a>
+            <div id="message_details_{{ forloop.counter }}" class="collapse">
+              {{ messages|last }}
+            </div>
+          {% endif %}
+      </p>
     </div>
+    {% endwith %}
   {% endif %}
 {% endfor %}
 </div>

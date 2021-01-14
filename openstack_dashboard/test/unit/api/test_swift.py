@@ -15,10 +15,7 @@
 #    WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
 #    License for the specific language governing permissions and limitations
 #    under the License.
-
-from __future__ import absolute_import
-
-import mock
+from unittest import mock
 
 from horizon import exceptions
 
@@ -95,6 +92,34 @@ class SwiftApiTests(test.APIMockTestCase):
                                              metadata=(metadata))
 
         swift_api.head_container.assert_called_once_with(container.name)
+
+    def test_swift_create_container_with_storage_policy(self, mock_swiftclient):
+        metadata = {'is_public': True, 'storage_policy': 'nz-o1-mr-r3'}
+        container = self.containers.first()
+        swift_api = mock_swiftclient.return_value
+        swift_api.head_container.return_value = container
+
+        headers = api.swift._metadata_to_header(metadata=(metadata))
+        self.assertEqual(headers["x-storage-policy"], 'nz-o1-mr-r3')
+
+        with self.assertRaises(exceptions.AlreadyExists):
+            api.swift.swift_create_container(self.request,
+                                             container.name,
+                                             metadata=(metadata))
+
+        swift_api.head_container.assert_called_once_with(container.name)
+
+    def test_metadata_to_headers(self, mock_swiftclient):
+        metadata = {'is_public': True, 'storage_policy': 'nz-o1-mr-r3'}
+        headers = api.swift._metadata_to_header(metadata=(metadata))
+        self.assertEqual(headers["x-storage-policy"], 'nz-o1-mr-r3')
+        self.assertEqual(headers["x-container-read"], '.r:*,.rlistings')
+
+    def test_metadata_to_headers_without_metadata(self, mock_swiftclient):
+        metadata = {}
+        headers = api.swift._metadata_to_header(metadata=(metadata))
+        self.assertNotIn("x-storage-policy", headers)
+        self.assertNotIn("x-container-read", headers)
 
     def test_swift_update_container(self, mock_swiftclient):
         metadata = {'is_public': True}

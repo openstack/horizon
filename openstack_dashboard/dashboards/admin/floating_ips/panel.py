@@ -13,10 +13,11 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
-from django.conf import settings
 from django.utils.translation import ugettext_lazy as _
 
 import horizon
+
+from openstack_dashboard.utils import settings as setting_utils
 
 
 class AdminFloatingIps(horizon.Panel):
@@ -27,5 +28,5 @@ class AdminFloatingIps(horizon.Panel):
 
     @staticmethod
     def can_register():
-        network_config = getattr(settings, 'OPENSTACK_NEUTRON_NETWORK', {})
-        return network_config.get('enable_router', True)
+        return setting_utils.get_dict_config(
+            'OPENSTACK_NEUTRON_NETWORK', 'enable_router')

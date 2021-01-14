@@ -59,7 +59,7 @@ class Command(TemplateCommand):
                                "Python module and cannot be used as an app "
                                "name. Please try another name." % dash_name)
 
-        super(Command, self).handle('dash', dash_name, **options)
+        super().handle('dash', dash_name, **options)
 
         target = options.pop("target", None)
         if not target:

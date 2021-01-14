@@ -47,6 +47,9 @@ class CreateGroupForm(forms.SelfHandlingForm):
             messages.success(request,
                              _('Group "%s" was successfully created.')
                              % data['name'])
+        except exceptions.Conflict:
+            msg = _('Group "%s" already exists.') % data['name']
+            messages.error(request, msg)
         except Exception:
             exceptions.handle(request, _('Unable to create group.'))
             return False
@@ -72,6 +75,9 @@ class UpdateGroupForm(forms.SelfHandlingForm):
                                       description=data['description'])
             messages.success(request,
                              _('Group has been updated successfully.'))
+        except exceptions.Conflict:
+            msg = _('Group "%s" already exists.') % data['name']
+            messages.error(request, msg)
         except Exception:
             exceptions.handle(request, _('Unable to update the group.'))
             return False

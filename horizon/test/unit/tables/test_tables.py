@@ -16,6 +16,7 @@
 #    under the License.
 
 import unittest
+from unittest import mock
 import uuid
 
 from django import forms
@@ -25,9 +26,6 @@ from django.template import defaultfilters
 from django.test.utils import override_settings
 from django.urls import reverse
 from django.utils.translation import ungettext_lazy
-
-import mock
-import six
 
 from horizon import exceptions
 from horizon import tables
@@ -88,6 +86,15 @@ TEST_DATA_7 = (
                'not wrapped optional'),
 )
 
+TEST_DATA_8 = (
+    FakeObject('1', 'object_1', 'value_1',
+               'started', 'optional_1', 'excluded_1'),
+    FakeObject('2', 'object_1', 'value_1',
+               'half', 'optional_1', 'excluded_1'),
+    FakeObject('3', 'object_1', 'value_1',
+               'finished', 'optional_1', 'excluded_1'),
+)
+
 
 class MyLinkAction(tables.LinkAction):
     name = "login"
@@ -123,6 +130,14 @@ class MyRowSelectable(tables.Row):
 
     def can_be_selected(self, datum):
         return datum.value != 'DELETED'
+
+
+class MyRowSortable(tables.Row):
+    ajax = True
+
+    @classmethod
+    def get_data(cls, request, obj_id):
+        return TEST_DATA_8[0]
 
 
 class MyRow(tables.Row):
@@ -302,6 +317,23 @@ class MyTable(tables.DataTable):
                        MyBatchActionWithHelpText)
 
 
+class MyProgressTable(MyTable):
+    tooltip_dict = {'started': {'percent': '10%'},
+                    'half': {'percent': '50%'},
+                    'finished': {'percent': '100%'}}
+    status = tables.Column('status', truncate=35,
+                           status=True,
+                           cell_attributes_getter=tooltip_dict.get)
+
+    class Meta(object):
+        name = "my_table"
+        verbose_name = "My Table"
+        status_columns = ["status"]
+        columns = ('id', 'name', 'value', 'optional', 'status')
+        row_class = MyRowSortable
+        column_class = MyColumn
+
+
 class TableWithColumnsPolicy(tables.DataTable):
     name = tables.Column('name')
     restricted = tables.Column('restricted',
@@ -387,7 +419,7 @@ class DataTableTests(test.TestCase):
         self.assertTrue(self.table._meta.actions_column)
         self.assertTrue(self.table._meta.multi_select)
         # Test for verbose_name
-        self.assertEqual(u"My Table", six.text_type(self.table))
+        self.assertEqual(u"My Table", str(self.table))
         # Column ordering and exclusion.
         # This should include auto-columns for multi_select and actions,
         # but should not contain the excluded column.
@@ -466,7 +498,7 @@ class DataTableTests(test.TestCase):
         class TempTable(MyTable):
             class Meta(object):
                 columns = ('id',)
-                table_actions = (MyFilterAction, MyAction,)
+                table_actions = (MyFilterAction, MyAction, MyBatchAction)
                 row_actions = (MyAction, MyLinkAction,)
                 actions_column = False
         self.table = TempTable(self.request, TEST_DATA)
@@ -494,7 +526,7 @@ class DataTableTests(test.TestCase):
         class TempTable(MyTable):
             class Meta(object):
                 columns = ('id',)
-                table_actions = (MyFilterAction, MyAction,)
+                table_actions = (MyFilterAction, MyAction, MyBatchAction)
         self.table = TempTable(self.request, TEST_DATA)
         self.assertQuerysetEqual(self.table.columns.values(),
                                  ['<Column: multi_select>',
@@ -516,7 +548,7 @@ class DataTableTests(test.TestCase):
 
             class Meta(object):
                 name = "temp_table"
-                table_actions = (MyFilterAction, MyAction,)
+                table_actions = (MyFilterAction, MyAction, MyBatchAction)
                 row_actions = (MyAction, MyLinkAction,)
 
         self.table = TempTable(self.request, TEST_DATA)
@@ -569,8 +601,8 @@ class DataTableTests(test.TestCase):
         self.assertEqual('1', row.cells['id'].data)  # Standard attr access
         self.assertEqual('custom object_1', row.cells['name'].data)  # Callable
         # name and verbose_name
-        self.assertEqual("Id", six.text_type(id_col))
-        self.assertEqual("Verbose Name", six.text_type(name_col))
+        self.assertEqual("Id", str(id_col))
+        self.assertEqual("Verbose Name", str(name_col))
         # sortable
         self.assertFalse(id_col.sortable)
         self.assertNotIn("sortable", id_col.get_final_attrs().get('class', ""))
@@ -634,7 +666,7 @@ class DataTableTests(test.TestCase):
         row = self.table.get_rows()[0]
 
         self.assertEqual(35, len(row.cells['status'].data))
-        self.assertEqual(u'A Status that is longer than 35 ...',
+        self.assertEqual(u'A Status that is longer than 35 ch…',
                          row.cells['status'].data)
 
     def test_table_rendering(self):
@@ -715,6 +747,31 @@ class DataTableTests(test.TestCase):
         self.assertNotContains(resp_optional, '<ul>')
         self.assertNotContains(resp_optional, '</ul>')
 
+    def test_progress_bar_rendering(self):
+        self.table = MyProgressTable(self.request, TEST_DATA_8)
+        row = self.table.get_rows()[0]
+        status_cell0 = row.cells['status']
+        row = self.table.get_rows()[1]
+        status_cell1 = row.cells['status']
+        row = self.table.get_rows()[2]
+        status_cell2 = row.cells['status']
+
+        # Check if is cell is rendered correctly.
+        status_cell0_rendered = status_cell0.render()
+        resp = http.HttpResponse(status_cell0_rendered)
+        self.assertContains(resp, 'warning', 1)
+        self.assertContains(resp, 'percent="10%"', 1)
+
+        status_cell1_rendered = status_cell1.render()
+        resp = http.HttpResponse(status_cell1_rendered)
+        self.assertContains(resp, 'warning', 1)
+        self.assertContains(resp, 'percent="50%"', 1)
+
+        status_cell2_rendered = status_cell2.render()
+        resp = http.HttpResponse(status_cell2_rendered)
+        self.assertContains(resp, 'warning', 1)
+        self.assertContains(resp, 'percent="100%"', 1)
+
     def test_inline_edit_mod_checkbox_with_label(self):
         class TempTable(MyTable):
             name = tables.Column(get_name,
@@ -762,7 +819,7 @@ class DataTableTests(test.TestCase):
         self.assertIsNone(handled)
         self.assertQuerysetEqual(self.table.filtered_data,
                                  ['FakeObject: object_2'],
-                                 transform=six.text_type)
+                                 transform=str)
 
         # with empty filter string, it should return all data
         req = self.factory.post('/my_url/', {action_string: ''})
@@ -774,7 +831,7 @@ class DataTableTests(test.TestCase):
                                   'FakeObject: object_2',
                                   'FakeObject: object_3',
                                   u'FakeObject: öbject_4'],
-                                 transform=six.text_type)
+                                 transform=str)
 
         # with unknown value it should return empty list
         req = self.factory.post('/my_url/', {action_string: 'horizon'})
@@ -830,15 +887,13 @@ class DataTableTests(test.TestCase):
         req = self.factory.get('/my_url/')
         self.table = MyTable(req, TEST_DATA_3)
         toggle_action = self.table.get_row_actions(TEST_DATA_3[0])[2]
-        self.assertEqual("Batch Item",
-                         six.text_type(toggle_action.verbose_name))
+        self.assertEqual("Batch Item", toggle_action.verbose_name)
 
         # Batch action with custom help text
         req = self.factory.get('/my_url/')
         self.table = MyTable(req, TEST_DATA_3)
         toggle_action = self.table.get_row_actions(TEST_DATA_3[0])[4]
-        self.assertEqual("BatchHelp Item",
-                         six.text_type(toggle_action.verbose_name))
+        self.assertEqual("BatchHelp Item", toggle_action.verbose_name)
 
         # Single object toggle action
         # GET page - 'up' to 'down'
@@ -846,8 +901,7 @@ class DataTableTests(test.TestCase):
         self.table = MyTable(req, TEST_DATA_3)
         self.assertEqual(5, len(self.table.get_row_actions(TEST_DATA_3[0])))
         toggle_action = self.table.get_row_actions(TEST_DATA_3[0])[3]
-        self.assertEqual("Down Item",
-                         six.text_type(toggle_action.verbose_name))
+        self.assertEqual("Down Item", toggle_action.verbose_name)
 
         # Toggle from status 'up' to 'down'
         # POST page
@@ -868,7 +922,7 @@ class DataTableTests(test.TestCase):
         self.table = MyTable(req, TEST_DATA_2)
         self.assertEqual(4, len(self.table.get_row_actions(TEST_DATA_2[0])))
         toggle_action = self.table.get_row_actions(TEST_DATA_2[0])[2]
-        self.assertEqual("Up Item", six.text_type(toggle_action.verbose_name))
+        self.assertEqual("Up Item", toggle_action.verbose_name)
 
         # POST page
         action_string = "my_table__toggle__2"
@@ -949,7 +1003,7 @@ class DataTableTests(test.TestCase):
         self.assertIsNone(handled)
         self.assertQuerysetEqual(self.table.filtered_data,
                                  ['FakeObject: object_2'],
-                                 transform=six.text_type)
+                                 transform=str)
 
         # Ensure filtering respects the request method, e.g. no filter here
         req = self.factory.get('/my_url/', {action_string: '2'})
@@ -961,7 +1015,7 @@ class DataTableTests(test.TestCase):
                                   'FakeObject: object_2',
                                   'FakeObject: object_3',
                                   u'FakeObject: öbject_4'],
-                                 transform=six.text_type)
+                                 transform=str)
 
         # Updating and preemptive actions
         params = {"table": "my_table", "action": "row_update", "obj_id": "1"}
@@ -987,16 +1041,12 @@ class DataTableTests(test.TestCase):
 
         # Verbose names
         table_actions = self.table.get_table_actions()
-        self.assertEqual("Filter",
-                         six.text_type(table_actions[0].verbose_name))
-        self.assertEqual("Delete Me",
-                         six.text_type(table_actions[1].verbose_name))
+        self.assertEqual("Filter", table_actions[0].verbose_name)
+        self.assertEqual("Delete Me", table_actions[1].verbose_name)
 
         row_actions = self.table.get_row_actions(TEST_DATA[0])
-        self.assertEqual("Delete Me",
-                         six.text_type(row_actions[0].verbose_name))
-        self.assertEqual("Log In",
-                         six.text_type(row_actions[1].verbose_name))
+        self.assertEqual("Delete Me", row_actions[0].verbose_name)
+        self.assertEqual("Log In", row_actions[1].verbose_name)
 
     def test_server_filtering(self):
         filter_value_param = "my_table__filter__q"
@@ -1011,7 +1061,7 @@ class DataTableTests(test.TestCase):
         self.assertIsNone(handled)
         self.assertQuerysetEqual(self.table.filtered_data,
                                  ['FakeObject: object_2'],
-                                 transform=six.text_type)
+                                 transform=str)
 
         # Ensure API filtering does not filter on server, e.g. no filter here
         req = self.factory.post('/my_url/')
@@ -1025,7 +1075,7 @@ class DataTableTests(test.TestCase):
                                   'FakeObject: object_2',
                                   'FakeObject: object_3',
                                   u'FakeObject: öbject_4'],
-                                 transform=six.text_type)
+                                 transform=str)
 
     def test_column_uniqueness(self):
         table1 = MyTable(self.request)
@@ -1136,8 +1186,8 @@ class DataTableTests(test.TestCase):
         self.assertEqual('1', row.cells['id'].data)  # Standard attr access
         self.assertEqual('custom object_1', row.cells['name'].data)  # Callable
         # name and verbose_name
-        self.assertEqual("Id", six.text_type(id_col))
-        self.assertEqual("Verbose Name", six.text_type(name_col))
+        self.assertEqual("Id", str(id_col))
+        self.assertEqual("Verbose Name", str(name_col))
         self.assertIn("sortable", name_col.get_final_attrs().get('class', ""))
         # hidden
         self.assertTrue(id_col.hidden)
@@ -1319,7 +1369,7 @@ class DataTableViewTests(test.TestCase):
                                   'FakeObject: object_2',
                                   'FakeObject: object_3',
                                   u'FakeObject: öbject_4'],
-                                 transform=six.text_type)
+                                 transform=str)
         self.assertEqual(req.session.get(self.fil_value_param), 'up')
         self.assertEqual(req.session.get(self.fil_field_param), 'status')
 

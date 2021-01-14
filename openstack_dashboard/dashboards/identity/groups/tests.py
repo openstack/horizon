@@ -12,9 +12,9 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
-from django.urls import reverse
+from unittest import mock
 
-import mock
+from django.urls import reverse
 
 from openstack_dashboard import api
 from openstack_dashboard.test import helpers as test
@@ -55,10 +55,10 @@ class GroupsViewTests(test.BaseAdminViewTests):
         res = self.client.get(GROUPS_INDEX_URL)
 
         self.assertTemplateUsed(res, constants.GROUPS_INDEX_VIEW_TEMPLATE)
-        self.assertItemsEqual(res.context['table'].data, groups)
+        self.assertCountEqual(res.context['table'].data, groups)
         if domain_id:
             for group in res.context['table'].data:
-                self.assertItemsEqual(group.domain_id, domain_id)
+                self.assertCountEqual(group.domain_id, domain_id)
 
         self.assertContains(res, 'Create Group')
         self.assertContains(res, 'Edit')
@@ -83,10 +83,10 @@ class GroupsViewTests(test.BaseAdminViewTests):
         res = self.client.get(GROUPS_INDEX_URL)
 
         self.assertTemplateUsed(res, constants.GROUPS_INDEX_VIEW_TEMPLATE)
-        self.assertItemsEqual(res.context['table'].data, groups)
+        self.assertCountEqual(res.context['table'].data, groups)
         if domain.id:
             for group in res.context['table'].data:
-                self.assertItemsEqual(group.domain_id, domain.id)
+                self.assertCountEqual(group.domain_id, domain.id)
 
         self.assertContains(res, 'Create Group')
         self.assertContains(res, 'Edit')
@@ -110,7 +110,7 @@ class GroupsViewTests(test.BaseAdminViewTests):
         res = self.client.get(GROUPS_INDEX_URL)
 
         self.assertTemplateUsed(res, constants.GROUPS_INDEX_VIEW_TEMPLATE)
-        self.assertItemsEqual(res.context['table'].data, groups)
+        self.assertCountEqual(res.context['table'].data, groups)
 
         self.assertNotContains(res, 'Create Group')
         self.assertNotContains(res, 'Edit')
@@ -239,19 +239,14 @@ class GroupsViewTests(test.BaseAdminViewTests):
         res = self.client.get(GROUP_MANAGE_URL)
 
         self.assertTemplateUsed(res, constants.GROUPS_MANAGE_VIEW_TEMPLATE)
-        self.assertItemsEqual(res.context['table'].data, group_members)
+        self.assertCountEqual(res.context['table'].data, group_members)
 
         self.mock_group_get.assert_called_once_with(test.IsHttpRequest(),
                                                     group.id)
-        if api.keystone.VERSIONS.active >= 3:
-            self.mock_get_effective_domain_id.assert_called_once_with(
-                test.IsHttpRequest())
-            self.mock_user_list.assert_called_once_with(
-                test.IsHttpRequest(), group=group.id, domain=domain_id)
-        else:
-            self.mock_get_effective_domain_id.assert_not_called()
-            self.mock_user_list.assert_called_once_with(
-                test.IsHttpRequest(), group=group.id)
+        self.mock_get_effective_domain_id.assert_called_once_with(
+            test.IsHttpRequest())
+        self.mock_user_list.assert_called_once_with(
+            test.IsHttpRequest(), group=group.id, domain=domain_id)
 
     @test.create_mocks({api.keystone: ('get_effective_domain_id',
                                        'user_list',
@@ -271,15 +266,10 @@ class GroupsViewTests(test.BaseAdminViewTests):
         self.assertRedirectsNoFollow(res, GROUP_MANAGE_URL)
         self.assertMessageCount(success=1)
 
-        if api.keystone.VERSIONS.active >= 3:
-            self.mock_get_effective_domain_id.assert_called_once_with(
-                test.IsHttpRequest())
-            self.mock_user_list.assert_called_once_with(
-                test.IsHttpRequest(), group=group.id, domain=domain_id)
-        else:
-            self.mock_get_effective_domain_id.assert_not_called()
-            self.mock_user_list.assert_called_once_with(
-                test.IsHttpRequest(), group=group.id)
+        self.mock_get_effective_domain_id.assert_called_once_with(
+            test.IsHttpRequest())
+        self.mock_user_list.assert_called_once_with(
+            test.IsHttpRequest(), group=group.id, domain=domain_id)
 
         self.mock_remove_group_user.assert_called_once_with(
             test.IsHttpRequest(),
@@ -326,4 +316,4 @@ class GroupsViewTests(test.BaseAdminViewTests):
         res = self.client.get(GROUPS_INDEX_URL)
         self.assertTemplateUsed(res, constants.GROUPS_INDEX_VIEW_TEMPLATE)
         groups = res.context['table'].data
-        self.assertItemsEqual(groups, [])
+        self.assertCountEqual(groups, [])

@@ -160,14 +160,14 @@ module.exports = function (config) {
 
     frameworks: ['jasmine'],
 
-    browsers: ['Chrome'],
+    browsers: ['Firefox'],
 
     browserNoActivityTimeout: 60000,
 
     reporters: ['progress', 'coverage', 'threshold'],
 
     plugins: [
-      'karma-chrome-launcher',
+      'karma-firefox-launcher',
       'karma-jasmine',
       'karma-ng-html2js-preprocessor',
       'karma-coverage',
@@ -178,6 +178,12 @@ module.exports = function (config) {
     coverageReporter: {
       type: 'html',
       dir: '../cover/openstack_dashboard'
+    },
+
+    client: {
+      jasmine: {
+        random: false
+      }
     },
 
     // Coverage threshold values.

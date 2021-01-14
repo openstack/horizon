@@ -23,26 +23,35 @@ INDEX_URL = constants.AGGREGATES_INDEX_URL
 
 
 class UpdateAggregateForm(forms.SelfHandlingForm):
+    use_required_attribute = False
+
     name = forms.CharField(label=_("Name"),
                            max_length=255)
-    availability_zone = forms.CharField(label=_("Availability Zone"),
-                                        required=False,
-                                        max_length=255)
+    availability_zone = forms.CharField(
+        label=_("Availability Zone"),
+        max_length=255,
+        # This message is used when the initial value is non-empty.
+        # Once AZ is set, nova API does not allow us to clear it.
+        error_messages={
+            'required': _("The new availability zone can't be empty"),
+        },
+    )
+
+    def __init__(self, request, *args, **kwargs):
+        super().__init__(request, *args, **kwargs)
+        old_availability_zone = self.initial['availability_zone']
+        if not old_availability_zone:
+            self.fields['availability_zone'].required = False
 
     def handle(self, request, data):
         id = self.initial['id']
-        old_availability_zone = self.initial['availability_zone']
         name = data['name']
         availability_zone = data['availability_zone']
+
         aggregate = {'name': name}
-        try:
-            if availability_zone:
-                aggregate['availability_zone'] = availability_zone
-            elif old_availability_zone:
-                raise ValueError
-        except Exception:
-            exceptions.handle(request,
-                              _('The new availability zone can\'t be empty'))
+        if availability_zone:
+            aggregate['availability_zone'] = availability_zone
+
         try:
             api.nova.aggregate_update(request, id, aggregate)
             message = (_('Successfully updated aggregate: "%s."')

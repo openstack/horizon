@@ -10,8 +10,6 @@
 # License for the specific language governing permissions and limitations
 # under the License.
 
-from __future__ import division
-
 import datetime
 
 from django.conf import settings
@@ -41,11 +39,10 @@ class BaseUsage(object):
 
     @property
     def first_day(self):
-        days_range = getattr(settings, 'OVERVIEW_DAYS_RANGE', 1)
+        days_range = settings.OVERVIEW_DAYS_RANGE
         if days_range:
             return self.today.date() - datetime.timedelta(days=days_range)
-        else:
-            return datetime.date(self.today.year, self.today.month, 1)
+        return datetime.date(self.today.year, self.today.month, 1)
 
     @staticmethod
     def get_start(year, month, day):
@@ -59,7 +56,8 @@ class BaseUsage(object):
 
     def get_instances(self):
         instance_list = []
-        [instance_list.extend(u.server_usages) for u in self.usage_list]
+        for u in self.usage_list:
+            instance_list.extend(u.server_usages)
         return instance_list
 
     def get_date_range(self):
@@ -114,7 +112,7 @@ class BaseUsage(object):
         return []
 
     def summarize(self, start, end):
-        if not api.nova.extension_supported('SimpleTenantUsage', self.request):
+        if not settings.OPENSTACK_USE_SIMPLE_TENANT_USAGE:
             return
 
         if start <= end and start <= self.today:
@@ -165,7 +163,7 @@ class ProjectUsage(BaseUsage):
              'hours', 'local_gb')
 
     def __init__(self, request, project_id=None):
-        super(ProjectUsage, self).__init__(request, project_id)
+        super().__init__(request, project_id)
         self.limits = {}
         self.quotas = {}
 

@@ -15,10 +15,12 @@
 
 import collections
 import copy
+from unittest import mock
 
+from django.test.utils import override_settings
 from django.urls import reverse
 
-import mock
+from openstack_auth import utils as auth_utils
 
 from horizon.workflows import views
 
@@ -279,7 +281,7 @@ class NetworkPortTests(test.TestCase):
         self.assertTemplateUsed(res, 'horizon/common/_detail.html')
         self.assertEqual(res.context['port'].id, port.id)
         address_pairs = res.context['allowed_address_pairs_table'].data
-        self.assertItemsEqual(port.allowed_address_pairs, address_pairs)
+        self.assertCountEqual(port.allowed_address_pairs, address_pairs)
 
         self.mock_port_get.assert_called_once_with(test.IsHttpRequest(),
                                                    port.id)
@@ -287,6 +289,66 @@ class NetworkPortTests(test.TestCase):
                                             'mac-learning': 2})
         self.mock_network_get.assert_called_once_with(
             test.IsHttpRequest(), network.id)
+
+    @override_settings(POLICY_CHECK_FUNCTION='openstack_auth.policy.check')
+    @test.create_mocks({api.neutron: ('port_get',
+                                      'network_get',
+                                      'is_extension_supported')})
+    def test_add_allowed_address_pair_button_shown_to_network_owner(self):
+        port = self.ports.first()
+
+        url = reverse('horizon:project:networks:ports:addallowedaddresspairs',
+                      args=[port.id])
+        classes = 'btn data-table-action btn-default ajax-modal'
+        link_name = "Add Allowed Address Pair"
+
+        expected_string = \
+            '<a id="allowed_address_pairs__action_AddAllowedAddressPair" ' \
+            'class="%s" href="%s" title="Add Allowed Address Pair">' \
+            '<span class="fa fa-plus"></span> %s</a>' \
+            % (classes, url, link_name)
+
+        res = self.client.get(reverse('horizon:project:networks:ports:detail',
+                                      args=[port.id]))
+
+        self.assertTemplateUsed(res, 'horizon/common/_detail_tab_group.html')
+        self.assertIn(expected_string, res.context_data['tab_group'].render())
+
+    @override_settings(POLICY_CHECK_FUNCTION='openstack_auth.policy.check')
+    @test.create_mocks({api.neutron: ('port_get',
+                                      'network_get',
+                                      'is_extension_supported')})
+    def test_add_allowed_address_pair_button_disabled_to_other_tenant(self):
+        # Current user tenant_id is 1 so select port whose tenant_id is
+        # other than 1 for checking "Add Allowed Address Pair" button is not
+        # displayed on the screen.
+        user = auth_utils.get_user(self.request)
+
+        # select port such that tenant_id is different from user's tenant_id.
+        port = [p for p in self.ports.list()
+                if p.tenant_id != user.tenant_id][0]
+
+        self._stub_is_extension_supported(
+            {'allowed-address-pairs': False, 'mac-learning': False})
+
+        with mock.patch('openstack_auth.utils.get_user', return_value=user):
+            url = reverse(
+                'horizon:project:networks:ports:addallowedaddresspairs',
+                args=[port.id])
+            classes = 'btn data-table-action btn-default ajax-modal'
+            link_name = "Add Allowed Address Pair"
+
+            expected_string = \
+                '<a id="allowed_address_pairs__action_AddAllowedAddressPair" ' \
+                'class="%s" href="%s" title="Add Allowed Address Pair">' \
+                '<span class="fa fa-plus"></span> %s</a>' \
+                % (classes, url, link_name)
+
+            res = self.client.get(reverse(
+                'horizon:project:networks:ports:detail', args=[port.id]))
+
+            self.assertNotIn(
+                expected_string, res.context_data['tab_group'].render())
 
     @test.create_mocks({api.neutron: ('port_get',
                                       'port_update')})
@@ -344,6 +406,65 @@ class NetworkPortTests(test.TestCase):
         res = self.client.post(url, form_data)
         self.assertFormErrors(res, 1)
         self.assertContains(res, "Incorrect format for IP address")
+
+    @override_settings(POLICY_CHECK_FUNCTION='openstack_auth.policy.check')
+    @test.create_mocks({api.neutron: ('port_get',
+                                      'network_get',
+                                      'port_update',
+                                      'is_extension_supported')})
+    def test_delete_address_pair_button_shown_to_network_owner(self):
+        port = self.ports.first()
+        classes = 'data-table-action btn-danger btn'
+
+        expected_string = \
+            '<button data-batch-action="true" ' \
+            'id="allowed_address_pairs__action_delete" ' \
+            'class="%s" name="action" help_text="This action cannot be ' \
+            'undone." type="submit" value="allowed_address_pairs__delete">' \
+            '<span class="fa fa-trash"></span>' \
+            ' Delete</button>' \
+            % (classes)
+
+        res = self.client.get(reverse(
+            'horizon:project:networks:ports:detail', args=[port.id]))
+
+        self.assertTemplateUsed(res, 'horizon/common/_detail_tab_group.html')
+        self.assertIn(expected_string, res.context_data['tab_group'].render())
+
+    @override_settings(POLICY_CHECK_FUNCTION='openstack_auth.policy.check')
+    @test.create_mocks({api.neutron: ('port_get',
+                                      'network_get',
+                                      'is_extension_supported')})
+    def test_delete_address_pair_button_disabled_to_other_tenant(self):
+        # Current user tenant_id is 1 so select port whose tenant_id is
+        # other than 1 for checking "Delete Allowed Address Pair" button is
+        # not displayed on the screen.
+        user = auth_utils.get_user(self.request)
+
+        # select port such that tenant_id is different from user's tenant_id.
+        port = [p for p in self.ports.list()
+                if p.tenant_id != user.tenant_id][0]
+
+        self._stub_is_extension_supported(
+            {'allowed-address-pairs': False, 'mac-learning': False})
+
+        with mock.patch('openstack_auth.utils.get_user', return_value=user):
+            classes = 'data-table-action btn-danger btn'
+
+            expected_string = \
+                '<button data-batch-action="true" ' \
+                'id="allowed_address_pairs__action_delete" ' \
+                'class="%s" name="action" help_text="This action cannot be ' \
+                'undone." type="submit" ' \
+                'value="allowed_address_pairs__delete">' \
+                '<span class="fa fa-trash"></span>' \
+                ' Delete</button>' % (classes)
+
+            res = self.client.get(reverse(
+                'horizon:project:networks:ports:detail', args=[port.id]))
+
+            self.assertNotIn(
+                expected_string, res.context_data['tab_group'].render())
 
     @test.create_mocks({api.neutron: ('port_get',
                                       'is_extension_supported',
@@ -421,6 +542,37 @@ class NetworkPortTests(test.TestCase):
                                             'port-security': 1})
         self.mock_security_group_list.assert_called_once_with(
             test.IsHttpRequest(), tenant_id='1')
+
+    @test.create_mocks({api.neutron: ('network_get',
+                                      'security_group_list',
+                                      'is_extension_supported')})
+    def test_port_create_on_network_from_different_tenant(self):
+        network = self.networks.list()[1]
+        tenant_id = self.request.user.tenant_id
+        # Ensure the network belongs to a different tenant
+        self.assertNotEqual(tenant_id, network.tenant_id)
+
+        self.mock_network_get.return_value = self.networks.first()
+        self._stub_is_extension_supported({'binding': False,
+                                           'mac-learning': False,
+                                           'port-security': True})
+        self.mock_security_group_list.return_value = \
+            self.security_groups.list()
+
+        url = reverse('horizon:project:networks:addport',
+                      args=[network.id])
+        res = self.client.get(url)
+
+        self.assertTemplateUsed(res, views.WorkflowView.template_name)
+        self.assert_mock_multiple_calls_with_same_arguments(
+            self.mock_network_get, 2,
+            mock.call(test.IsHttpRequest(), network.id))
+        self._check_is_extension_supported({'binding': 1,
+                                            'mac-learning': 1,
+                                            'port-security': 1})
+        # Check the new port belongs to a tenant of the login user
+        self.mock_security_group_list.assert_called_once_with(
+            test.IsHttpRequest(), tenant_id=tenant_id)
 
     def test_port_create_post(self):
         self._test_port_create_post()
@@ -500,6 +652,74 @@ class NetworkPortTests(test.TestCase):
             **extension_kwargs)
         self.mock_security_group_list.assert_called_once_with(
             test.IsHttpRequest(), tenant_id='1')
+
+    @test.create_mocks({api.neutron: ('network_get',
+                                      'security_group_list',
+                                      'is_extension_supported')})
+    def test_port_create_post_designated_subnet(self):
+        network = self.networks.first()
+        port = self.ports.first()
+        self.mock_network_get.return_value = self.networks.first()
+        self._stub_is_extension_supported({'binding': False,
+                                           'mac-learning': False,
+                                           'port-security': False})
+        self.mock_security_group_list.return_value = \
+            self.security_groups.list()
+        form_data = {'network_id': port.network_id,
+                     'network_name': network.name,
+                     'name': port.name,
+                     'admin_state': port.admin_state_up,
+                     'device_id': port.device_id,
+                     'device_owner': port.device_owner,
+                     'specify_ip': 'subnet_id',
+                     'subnet_id': "",
+                     'mac_address': port.mac_address}
+        url = reverse('horizon:project:networks:addport',
+                      args=[port.network_id])
+        res = self.client.post(url, form_data)
+        self.assertFormErrors(res, 1)
+        self.assertContains(res, "This field is required.")
+        self._check_is_extension_supported({'binding': 1,
+                                            'mac-learning': 1,
+                                            'port-security': 1})
+        self.mock_security_group_list.assert_called_once_with(
+            test.IsHttpRequest(), tenant_id='1')
+        self.mock_network_get.assert_called_with(test.IsHttpRequest(),
+                                                 network.id)
+
+    @test.create_mocks({api.neutron: ('network_get',
+                                      'security_group_list',
+                                      'is_extension_supported')})
+    def test_port_create_post_designated_fixed_ip(self):
+        network = self.networks.first()
+        port = self.ports.first()
+        self.mock_network_get.return_value = self.networks.first()
+        self._stub_is_extension_supported({'binding': False,
+                                           'mac-learning': False,
+                                           'port-security': False})
+        self.mock_security_group_list.return_value = \
+            self.security_groups.list()
+        form_data = {'network_id': port.network_id,
+                     'network_name': network.name,
+                     'name': port.name,
+                     'admin_state': port.admin_state_up,
+                     'device_id': port.device_id,
+                     'device_owner': port.device_owner,
+                     'specify_ip': 'fixed_ip',
+                     'fixed_ip': "",
+                     'mac_address': port.mac_address}
+        url = reverse('horizon:project:networks:addport',
+                      args=[port.network_id])
+        res = self.client.post(url, form_data)
+        self.assertFormErrors(res, 1)
+        self.assertContains(res, "This field is required.")
+        self._check_is_extension_supported({'binding': 1,
+                                            'mac-learning': 1,
+                                            'port-security': 1})
+        self.mock_security_group_list.assert_called_once_with(
+            test.IsHttpRequest(), tenant_id='1')
+        self.mock_network_get.assert_called_with(test.IsHttpRequest(),
+                                                 network.id)
 
     def test_port_create_post_exception(self):
         self._test_port_create_post_exception()

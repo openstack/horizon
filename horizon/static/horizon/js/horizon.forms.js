@@ -27,6 +27,7 @@ horizon.forms = {
       var dataSize = parseInt($option.data("size"), 10) || -1;
       if (volSize < dataSize) {
         $volSize.val(dataSize);
+        $volSize.trigger('input');
       }
     });
   },
@@ -44,6 +45,7 @@ horizon.forms = {
       var dataSize = parseInt($option.data("size"), 10) || -1;
       if (volSize < dataSize) {
         $volSize.val(dataSize);
+        $volSize.trigger('input');
       }
     });
   },
@@ -60,6 +62,7 @@ horizon.forms = {
       var dataSize = parseInt($option.data("size"), 10) || -1;
       var minDiskSize = parseInt($option.data("min_disk"), 10) || 1;
       $volSize.val(Math.max(minDiskSize, dataSize));
+      $volSize.trigger('input');
     });
   },
 
@@ -275,7 +278,7 @@ horizon.forms.init_themable_select = function ($elem) {
     }
 
     // Set the select if necessary
-    if($select.val() !== value) {
+    if ($select.val() !== value) {
       $select.val(value).change();
     }
   });
@@ -365,25 +368,28 @@ horizon.forms.getSpinnerValue = function(val, defaultVal) {
   return isNaN(val) ? defaultVal : val;
 };
 
-horizon.forms.checkSpinnerValue = function($input) {
-  var val = $input.attr('value');
-  var max = horizon.forms.getSpinnerValue($input.attr('max'), Number.MAX_SAFE_INTEGER);
-  var min = horizon.forms.getSpinnerValue($input.attr('min'), 0);
+horizon.forms.checkSpinnerValue = function($inputs) {
+  $inputs.each(function (index, input) {
+    var $input = $(input);
+    var val = $input.attr('value');
+    var max = horizon.forms.getSpinnerValue($input.attr('max'), Number.MAX_SAFE_INTEGER);
+    var min = horizon.forms.getSpinnerValue($input.attr('min'), 0);
 
-  var $parent = $input.parents('.themable-spinner');
-  var $up = $parent.find('.spinner-up');
-  var $down = $parent.find('.spinner-down');
+    var $parent = $input.parents('.themable-spinner');
+    var $up = $parent.find('.spinner-up');
+    var $down = $parent.find('.spinner-down');
 
-  $parent.find('.themable-spinner-btn').removeAttr('disabled');
-  if (val <= min) {
+    $parent.find('.themable-spinner-btn').removeAttr('disabled');
+    if (val <= min) {
 
-    // Disable if we've hit the min
-    $down.attr('disabled', true);
-  } else if (val >= max) {
+      // Disable if we've hit the min
+      $down.attr('disabled', true);
+    } else if (val >= max) {
 
-    // Disable if we've hit the max
-    $up.attr('disabled', true);
-  }
+      // Disable if we've hit the max
+      $up.attr('disabled', true);
+    }
+  });
 };
 
 horizon.forms.init_themable_spinner = function ($elem) {
@@ -514,7 +520,7 @@ horizon.addInitFunction(horizon.forms.init = function () {
           }
         } else {
           //If the input is a checkbox no need to replace html for label since it has another structure
-          if($input.attr('type') !== "checkbox"){
+          if ($input.attr('type') !== "checkbox") {
             $('label[for=' + $input.attr('id') + ']').html(data);
           }
           $input.closest('.form-group').show();
@@ -562,7 +568,7 @@ horizon.addInitFunction(horizon.forms.init = function () {
         var hide_tab = String($switchable.data('hide-tab')).split(',');
         for (var i = 0, len = hide_tab.length; i < len; i++) {
           var tab = $('*[data-target="#'+ hide_tab[i] +'"]').parent();
-          if(checked == hide_on) {
+          if (checked == hide_on) {
             // If the checkbox is not checked then hide the tab
             tab.hide();
           } else if (!tab.is(':visible')) {
@@ -573,11 +579,11 @@ horizon.addInitFunction(horizon.forms.init = function () {
 
         // hide/show button-next or button-final
         var $btnfinal = $('.button-final');
-        if(checked == hide_on) {
+        if (checked == hide_on) {
           $('.button-next').hide();
           $btnfinal.show();
           $btnfinal.data('show-on-tab', $fieldset.prop('id'));
-        } else{
+        } else {
           $btnfinal.hide();
           $('.button-next').show();
           $btnfinal.removeData('show-on-tab');
@@ -625,29 +631,6 @@ horizon.addInitFunction(horizon.forms.init = function () {
         $('.button-next').show();
       }
     }
-  });
-
-  // Handle field toggles for the Create Volume source type field
-  function update_volume_source_displayed_fields (field) {
-    var $this = $(field),
-      base_type = $this.val();
-
-    $this.find("option").each(function () {
-      if (this.value !== base_type) {
-        $("#id_" + this.value).closest(".form-group").hide();
-      } else {
-        $("#id_" + this.value).closest(".form-group").show();
-      }
-    });
-  }
-
-  $document.on('change', '#id_volume_source_type', function () {
-    update_volume_source_displayed_fields(this);
-  });
-
-  $('#id_volume_source_type').change();
-  horizon.modals.addModalInitFunction(function (modal) {
-    $(modal).find("#id_volume_source_type").change();
   });
 
   /* Help tooltips */

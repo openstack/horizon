@@ -1,15 +1,17 @@
-# Dmytriy Rabotjagov <noonedeadpunk@ya.ru>, 2018. #zanata
+# Dmitriy Rabotyagov <noonedeadpunk@ya.ru>, 2018. #zanata
 # Ilya Alekseyev <ilyaalekseyev@acm.org>, 2018. #zanata
+# Roman Gorshunov <roman.gorshunov@att.com>, 2019. #zanata
+# Dmitriy Rabotyagov <noonedeadpunk@ya.ru>, 2020. #zanata
 msgid ""
 msgstr ""
 "Project-Id-Version: horizon VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2018-10-25 19:11+0000\n"
+"POT-Creation-Date: 2020-01-08 17:20+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2018-10-25 01:50+0000\n"
-"Last-Translator: Dmytriy Rabotjagov <noonedeadpunk@ya.ru>\n"
+"PO-Revision-Date: 2020-01-08 12:42+0000\n"
+"Last-Translator: Dmitriy Rabotyagov <noonedeadpunk@ya.ru>\n"
 "Language-Team: Russian\n"
 "Language: ru\n"
 "X-Generator: Zanata 4.3.3\n"
@@ -22,6 +24,9 @@ msgstr "Произошла ошибка аутентификации. Пожал
 msgid "Authenticate using"
 msgstr "Аутентифицировать с использованием"
 
+msgid "Confirm password"
+msgstr "Подтвердите пароль"
+
 msgid "Could not find service provider ID on keystone."
 msgstr "Не удалось найти ID поставщика служб в Keystone."
 
@@ -32,13 +37,16 @@ msgid "Domain"
 msgstr "Домен"
 
 msgid "Identity provider authentication failed."
-msgstr "Неудачная аутентификация провайдера идентификации."
+msgstr "Провайдер идентификации не смог аутентифицироваться."
 
 msgid "Invalid credentials."
-msgstr "Неправильные учётные данные."
+msgstr "Неверные учётные данные."
 
 msgid "K2K Federation not setup for this session"
 msgstr "K2K федерация не установлена для этой сессии"
+
+msgid "New password"
+msgstr "Новый пароль"
 
 msgid ""
 "No authentication backend could be determined to handle the provided "
@@ -46,37 +54,53 @@ msgid ""
 msgstr ""
 "Невозможно определить backend для обработки предоставленных учётных данных."
 
+msgid "Old password and new password must be different."
+msgstr "Новый пароль должен отличаться от старого."
+
+msgid "Original password"
+msgstr "Текущий пароль"
+
 msgid "Password"
 msgstr "Пароль"
 
+msgid "Password changed. Please log in to continue."
+msgstr "Пароль изменен. Пожалуйста войдите в систему для продолжения."
+
+msgid "Password expired."
+msgstr "Срок действия пароля истёк."
+
+msgid "Passwords do not match."
+msgstr "Пароли не совпадают."
+
 #, python-format
 msgid "Please consider changing your password, it will expire in %s minutes"
-msgstr "Пожалуйста измените свой пароль, он устареет через %s минут"
+msgstr "Пожалуйста, измените свой пароль, он устареет через %s минут"
 
 #, python-format
 msgid "Project switch failed for user \"%(username)s\"."
-msgstr "Не удалось переключить проект для пользователя \"%(username)s\"."
+msgstr "Не удалось сменить проект для пользователя \"%(username)s\"."
 
 msgid "Region"
 msgstr "Регион"
 
 #, python-format
 msgid "Service provider authentication failed. %s"
-msgstr "Неудачная аутентикация поставщика службы. %s"
+msgstr "Поставщик службы не смог аутентифицироваться. %s"
 
 #, python-format
-msgid "Switch to Keystone Provider \"%(keystone_provider)s\"successful."
-msgstr "Переключение на провайдер Keystone \"%(keystone_provider)s\" успешно."
+msgid "Switch to Keystone Provider \"%(keystone_provider)s\" successful."
+msgstr ""
+"Переключение на провайдер Keystone \"%(keystone_provider)s\" прошло успешно."
 
 #, python-format
 msgid "Switch to project \"%(project_name)s\" successful."
-msgstr "Переключение на проект \"%(project_name)s\" выполнено успешно."
+msgstr "Смена проекта на \"%(project_name)s\" выполнена успешно."
 
 msgid "The authentication token issued by the Identity service has expired."
-msgstr "Токен аутентификации выпущенный сервисом идентификации устарел."
+msgstr "Токен аутентификации выданный сервисом идентификации устарел."
 
 msgid "Unable to establish connection to keystone endpoint."
-msgstr "Невозможно установить соединение с точкой доступа keystone."
+msgstr "Невозможно установить соединение с точкой доступа Keystone."
 
 msgid "Unable to retrieve authorized domains."
 msgstr "Не удалось получить авторизованные домены."
@@ -84,11 +108,14 @@ msgstr "Не удалось получить авторизованные дом
 msgid "Unable to retrieve authorized projects."
 msgstr "Невозможно получить авторизованные проекты"
 
+msgid "Unable to update the user password."
+msgstr "Не удалось изменить пароль пользователя."
+
 msgid "User Name"
 msgstr "Имя пользователя"
 
 msgid "You are not authorized for any projects or domains."
-msgstr "Вы не авторизованы ни в одном проекте или домене."
+msgstr "Вы не авторизованы ни в одном из проектов или доменов."
 
-msgid "You are not authorized for any projects."
-msgstr "Вы не авторизованы ни в одном проекте."
+msgid "Your password has expired. Please set a new password."
+msgstr "Срок действия вашего пароля истёк. Пожалуйста, задайте новый пароль."

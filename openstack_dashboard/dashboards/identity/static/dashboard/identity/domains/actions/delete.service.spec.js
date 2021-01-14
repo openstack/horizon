@@ -89,7 +89,7 @@
     }));
 
     describe('perform method and pass only', function() {
-      it('should open the delete modal', function() {
+      it('should open the delete modal', function(done) {
         spyOn(deleteModalService, 'open').and.callThrough();
         spyOn(keystoneAPI, 'deleteDomain');
         deleteModalService.onlyPass = true;
@@ -102,9 +102,12 @@
         var deleteFunction = contextArg.deleteEntity;
 
         deleteFunction(domain.id);
+
+        expect(deleteModalService.open).toHaveBeenCalled();
+        done();
       });
 
-      it('should pass and fail in a function that delete domain by item action', function() {
+      it('should pass and fail in a function that delete domain by item action', function(done) {
         spyOn(deleteModalService, 'open').and.callThrough();
         spyOn(keystoneAPI, 'deleteDomain');
         deleteModalService.onlyPass = false;
@@ -117,9 +120,12 @@
         var deleteFunction = contextArg.deleteEntity;
 
         deleteFunction(domain.id);
+
+        expect(deleteModalService.open).toHaveBeenCalled();
+        done();
       });
 
-      it('should pass and fail in a function that delete domain by batch action', function() {
+      it('should pass and fail in a function that delete domain by batch action', function(done) {
         spyOn(deleteModalService, 'open').and.callThrough();
         spyOn(keystoneAPI, 'deleteDomain');
         deleteModalService.onlyPass = false;
@@ -132,6 +138,9 @@
         var deleteFunction = contextArg.deleteEntity;
 
         deleteFunction(domain.id);
+
+        expect(deleteModalService.open).toHaveBeenCalled();
+        done();
       });
 
       it('fail to policy check because of no privilege', function() {

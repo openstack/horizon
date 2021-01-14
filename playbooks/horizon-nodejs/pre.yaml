@@ -1,0 +1,10 @@
+- hosts: all
+  roles:
+    # package.json needs to run 'tox' as command, ensure that it's
+    # installed and can be used globally.
+    - role: ensure-tox
+      ensure_global_symlinks: True
+    # nodejs jobs in some horizon plugins requires extra packages in the jobs.
+    # It is nice to define a specific bindep profile for them.
+    - role: bindep
+      bindep_profile: nodejs

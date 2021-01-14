@@ -1,0 +1,9 @@
+- hosts: all
+  roles:
+    # Ensure sibling packages are installed into "npm" tox env.
+    # "tox" role installs sibling packages based on required-projects
+    # configuration in zuul.yaml.
+    - role: tox
+      vars:
+        tox_envlist: npm
+        tox_extra_args: "-vv --notest"

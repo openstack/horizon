@@ -44,16 +44,17 @@
       }
     };
 
-    var $q, scope, $location, $rootScope, controller,
+    var $q, scope, $location, $httpBackend, $rootScope, controller,
       modalFormService, simpleModal, swiftAPI, toast;
 
     beforeEach(module('horizon.dashboard.project.containers', function($provide) {
       $provide.value('horizon.dashboard.project.containers.containers-model', fakeModel);
     }));
 
-    beforeEach(inject(function ($injector, _$q_, _$rootScope_) {
+    beforeEach(inject(function ($injector, _$httpBackend_, _$q_, _$rootScope_) {
       controller = $injector.get('$controller');
       $q = _$q_;
+      $httpBackend = _$httpBackend_;
       $location = $injector.get('$location');
       $rootScope = _$rootScope_;
       scope = $rootScope.$new();
@@ -105,6 +106,7 @@
       ctrl.toggleAccess(container);
 
       expect(swiftAPI.setContainerAccess).toHaveBeenCalledWith('spam', true);
+      $httpBackend.expectGET('/dashboard/api/swift/policies/').respond({});
 
       deferred.resolve();
       $rootScope.$apply();
@@ -121,6 +123,7 @@
       ctrl.toggleAccess(container);
 
       expect(swiftAPI.setContainerAccess).toHaveBeenCalledWith('spam', false);
+      $httpBackend.expectGET('/dashboard/api/swift/policies/').respond({});
 
       deferred.resolve();
       $rootScope.$apply();
@@ -146,6 +149,7 @@
       expect(spec.body).toBeDefined();
       expect(spec.submit).toBeDefined();
       expect(spec.cancel).toBeDefined();
+      $httpBackend.expectGET('/dashboard/api/swift/policies/').respond({});
 
       // when the modal is resolved, make sure delete is called
       deferred.resolve();
@@ -158,10 +162,12 @@
       var deferred = $q.defer();
       spyOn(swiftAPI, 'deleteContainer').and.returnValue(deferred.promise);
       spyOn($location, 'path');
+      $httpBackend.expectGET('/dashboard/api/swift/policies/').respond({});
 
       var ctrl = createController();
       ctrl.model.container = {name: 'one'};
       createController().deleteContainerAction(fakeModel.containers[1]);
+      $httpBackend.expectGET('/dashboard/api/swift/policies/').respond({});
 
       deferred.resolve();
       $rootScope.$apply();
@@ -183,6 +189,8 @@
       ctrl.model.container = {name: 'two'};
       ctrl.deleteContainerAction(fakeModel.containers[1]);
 
+      $httpBackend.expectGET('/dashboard/api/swift/policies/').respond({});
+
       deferred.resolve();
       $rootScope.$apply();
       expect($location.path).toHaveBeenCalledWith('base ham');
@@ -203,10 +211,47 @@
       expect(config.schema).toBeDefined();
       expect(config.form).toBeDefined();
 
+      $httpBackend.expectGET('/dashboard/api/swift/policies/').respond({});
+
       // when the modal is resolved, make sure create is called
       deferred.resolve();
       $rootScope.$apply();
-      expect(ctrl.createContainerAction).toHaveBeenCalledWith({name: '', public: false});
+      expect(ctrl.createContainerAction).toHaveBeenCalledWith({public: false});
+    });
+
+    it('should preselect default policy in create container dialog', function test() {
+      var deferred = $q.defer();
+      spyOn(modalFormService, 'open').and.returnValue(deferred.promise);
+      $httpBackend.expectGET('/dashboard/api/swift/policies/').respond();
+
+      var ctrl = createController();
+      var policyOptions = {
+        data: {
+          policies: [
+            {
+              name: 'nz--o1--mr-r3'
+            },
+            {
+              display_name: 'Single Region nz-por-1',
+              default: true,
+              name: 'nz-por-1--o1--sr-r3'
+            }
+          ]
+        }
+      };
+
+      ctrl.setDefaultPolicyAndOptions(policyOptions);
+
+      $httpBackend.expectGET('/dashboard/api/swift/policies/').respond();
+
+      ctrl.createContainer();
+      expect(modalFormService.open).toHaveBeenCalled();
+      var config = modalFormService.open.calls.mostRecent().args[0];
+      expect(config.schema.properties.policy.default).toBe(
+        'nz-por-1--o1--sr-r3'
+      );
+
+      deferred.resolve();
     });
 
     it('should check for container existence - with presence', function test() {
@@ -221,6 +266,7 @@
       d.then(function result() { resolved = true; }, function () { rejected = true; });
 
       expect(swiftAPI.getContainer).toHaveBeenCalledWith('spam', true);
+      $httpBackend.expectGET('/dashboard/api/swift/policies/').respond({});
 
       // we found something
       deferred.resolve();
@@ -240,6 +286,7 @@
       d.then(function result() { resolved = true; }, function () { rejected = true; });
 
       expect(swiftAPI.getContainer).toHaveBeenCalledWith('spam', true);
+      $httpBackend.expectGET('/dashboard/api/swift/policies/').respond({});
 
       // we did not find something
       deferred.reject();
@@ -261,6 +308,7 @@
       spyOn(swiftAPI, 'createContainer').and.returnValue(deferred.promise);
 
       createController().createContainerAction({name: 'spam', public: true});
+      $httpBackend.expectGET('/dashboard/api/swift/policies/').respond({});
 
       deferred.resolve();
       $rootScope.$apply();
@@ -271,6 +319,7 @@
 
     it('should call getContainers when filters change', function test() {
       spyOn(fakeModel, 'getContainers').and.callThrough();
+      $httpBackend.expectGET('/dashboard/api/swift/policies/').respond({});
       var ctrl = createController();
       ctrl.filterEventTrigeredBySearchBar = true;
       scope.cc = ctrl;

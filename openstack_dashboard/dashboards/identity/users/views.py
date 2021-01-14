@@ -43,6 +43,7 @@ from openstack_dashboard.dashboards.identity.users \
 from openstack_dashboard.dashboards.identity.users \
     import tabs as user_tabs
 from openstack_dashboard.utils import identity
+from openstack_dashboard.utils import settings as setting_utils
 
 LOG = logging.getLogger(__name__)
 
@@ -67,8 +68,8 @@ class IndexView(tables.DataTableView):
             # If filter_first is set and if there are not other filters
             # selected, then search criteria must be provided
             # and return an empty list
-            filter_first = getattr(settings, 'FILTER_DATA_FIRST', {})
-            if filter_first.get('identity.users', False) and len(filters) == 0:
+            if (setting_utils.get_dict_config(
+                    'FILTER_DATA_FIRST', 'identity.users') and not filters):
                 self._needs_filter_first = True
                 return users
 
@@ -94,10 +95,9 @@ class IndexView(tables.DataTableView):
             msg = _("Insufficient privilege level to view user information.")
             messages.info(self.request, msg)
 
-        if api.keystone.VERSIONS.active >= 3:
-            domain_lookup = api.keystone.domain_lookup(self.request)
-            for u in users:
-                u.domain_name = domain_lookup.get(u.domain_id)
+        domain_lookup = api.keystone.domain_lookup(self.request)
+        for u in users:
+            u.domain_name = domain_lookup.get(u.domain_id)
         return users
 
 
@@ -109,9 +109,6 @@ class UpdateView(forms.ModalFormView):
     submit_url = "horizon:identity:users:update"
     success_url = reverse_lazy('horizon:identity:users:index')
     page_title = _("Update User")
-
-    def dispatch(self, *args, **kwargs):
-        return super(UpdateView, self).dispatch(*args, **kwargs)
 
     @memoized.memoized_method
     def get_object(self):
@@ -125,30 +122,30 @@ class UpdateView(forms.ModalFormView):
                               redirect=redirect)
 
     def get_context_data(self, **kwargs):
-        context = super(UpdateView, self).get_context_data(**kwargs)
+        context = super().get_context_data(**kwargs)
         args = (self.kwargs['user_id'],)
         context['submit_url'] = reverse(self.submit_url, args=args)
         return context
 
     def get_initial(self):
         user = self.get_object()
+        options = getattr(user, "options", {})
         domain_id = getattr(user, "domain_id", None)
         domain_name = ''
         # Retrieve the domain name where the project belongs
-        if api.keystone.VERSIONS.active >= 3:
-            try:
-                if policy.check((("identity", "identity:get_domain"),),
-                                self.request):
-                    domain = api.keystone.domain_get(self.request, domain_id)
-                    domain_name = domain.name
+        try:
+            if policy.check((("identity", "identity:get_domain"),),
+                            self.request):
+                domain = api.keystone.domain_get(self.request, domain_id)
+                domain_name = domain.name
 
-                else:
-                    domain = api.keystone.get_default_domain(self.request)
-                    domain_name = domain.get('name')
+            else:
+                domain = api.keystone.get_default_domain(self.request)
+                domain_name = domain.get('name')
 
-            except Exception:
-                exceptions.handle(self.request,
-                                  _('Unable to retrieve project domain.'))
+        except Exception:
+            exceptions.handle(self.request,
+                              _('Unable to retrieve project domain.'))
 
         data = {'domain_id': domain_id,
                 'domain_name': domain_name,
@@ -156,10 +153,10 @@ class UpdateView(forms.ModalFormView):
                 'name': user.name,
                 'project': user.project_id,
                 'email': getattr(user, 'email', None),
-                'description': getattr(user, 'description', None)}
-        if api.keystone.VERSIONS.active >= 3:
-            for key in getattr(settings, 'USER_TABLE_EXTRA_INFO', {}):
-                data[key] = getattr(user, key, None)
+                'description': getattr(user, 'description', None),
+                'lock_password': options.get("lock_password", False)}
+        for key in settings.USER_TABLE_EXTRA_INFO:
+            data[key] = getattr(user, key, None)
         return data
 
 
@@ -175,10 +172,10 @@ class CreateView(forms.ModalFormView):
     @method_decorator(sensitive_post_parameters('password',
                                                 'confirm_password'))
     def dispatch(self, *args, **kwargs):
-        return super(CreateView, self).dispatch(*args, **kwargs)
+        return super().dispatch(*args, **kwargs)
 
     def get_form_kwargs(self):
-        kwargs = super(CreateView, self).get_form_kwargs()
+        kwargs = super().get_form_kwargs()
         try:
             roles = api.keystone.role_list(self.request)
         except Exception:
@@ -205,49 +202,13 @@ class DetailView(tabs.TabView):
     page_title = "{{ user.name }}"
 
     def get_context_data(self, **kwargs):
-        context = super(DetailView, self).get_context_data(**kwargs)
+        context = super().get_context_data(**kwargs)
         user = self.get_data()
-        tenant = self.get_tenant(user.project_id)
         table = project_tables.UsersTable(self.request)
-        domain_id = getattr(user, "domain_id", None)
-        domain_name = ''
-        if api.keystone.VERSIONS.active >= 3:
-            try:
-                if policy.check((("identity", "identity:get_domain"),),
-                                self.request):
-                    domain = api.keystone.domain_get(
-                        self.request, domain_id)
-                    domain_name = domain.name
-                else:
-                    domain = api.keystone.get_default_domain(self.request)
-                    domain_name = domain.get('name')
-            except Exception:
-                exceptions.handle(self.request,
-                                  _('Unable to retrieve project domain.'))
-            context["description"] = getattr(user, "description", _("None"))
-            extra_info = getattr(settings, 'USER_TABLE_EXTRA_INFO', {})
-            context['extras'] = dict(
-                (display_key, getattr(user, key, ''))
-                for key, display_key in extra_info.items())
         context["user"] = user
-        if tenant:
-            context["tenant_name"] = tenant.name
-        context["domain_id"] = domain_id
-        context["domain_name"] = domain_name
         context["url"] = self.get_redirect_url()
         context["actions"] = table.render_row_actions(user)
         return context
-
-    @memoized.memoized_method
-    def get_tenant(self, project_id):
-        tenant = None
-        if project_id:
-            try:
-                tenant = api.keystone.tenant_get(self.request, project_id)
-            except Exception as e:
-                LOG.error('Failed to get tenant %(project_id)s: %(reason)s',
-                          {'project_id': project_id, 'reason': e})
-        return tenant
 
     @memoized.memoized_method
     def get_data(self):
@@ -281,7 +242,7 @@ class ChangePasswordView(forms.ModalFormView):
     @method_decorator(sensitive_post_parameters('password',
                                                 'confirm_password'))
     def dispatch(self, *args, **kwargs):
-        return super(ChangePasswordView, self).dispatch(*args, **kwargs)
+        return super().dispatch(*args, **kwargs)
 
     @memoized.memoized_method
     def get_object(self):
@@ -295,7 +256,7 @@ class ChangePasswordView(forms.ModalFormView):
                               redirect=redirect)
 
     def get_context_data(self, **kwargs):
-        context = super(ChangePasswordView, self).get_context_data(**kwargs)
+        context = super().get_context_data(**kwargs)
         args = (self.kwargs['user_id'],)
         context['submit_url'] = reverse(self.submit_url, args=args)
         return context

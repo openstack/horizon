@@ -12,11 +12,11 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
+from unittest import mock
+
 from django.conf import settings
 from django.test.utils import override_settings
 from django.urls import reverse
-
-import mock
 
 from openstack_dashboard import api
 from openstack_dashboard.test import helpers as test
@@ -27,12 +27,15 @@ INDEX_TEMPLATE = 'horizon/common/_data_table_view.html'
 
 
 class ImageCreateViewTest(test.BaseAdminViewTests):
+    @mock.patch.object(api.glance, 'get_image_schemas')
     @mock.patch.object(api.glance, 'image_list_detailed')
     def test_admin_image_create_view_uses_admin_template(self,
-                                                         mock_image_list):
+                                                         mock_image_list,
+                                                         mock_schemas_list):
         filters1 = {'disk_format': 'aki'}
         filters2 = {'disk_format': 'ari'}
 
+        mock_schemas_list.return_value = self.image_schemas.first()
         mock_image_list.return_value = [self.images.list(), False, False]
 
         res = self.client.get(
@@ -75,7 +78,7 @@ class ImagesViewTest(test.BaseAdminViewTests):
         res = self.client.get(reverse('horizon:admin:images:index'))
         self.assertTemplateUsed(res, INDEX_TEMPLATE)
         images = res.context['table'].data
-        self.assertItemsEqual(images, [])
+        self.assertCountEqual(images, [])
 
     @override_settings(API_RESULT_PAGE_SIZE=2)
     @mock.patch.object(api.glance, 'image_list_detailed')

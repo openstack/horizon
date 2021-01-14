@@ -33,7 +33,7 @@ class AddProtocolForm(forms.SelfHandlingForm):
     mapping_id = forms.ThemableChoiceField(label=_("Mapping ID"))
 
     def __init__(self, request, *args, **kwargs):
-        super(AddProtocolForm, self).__init__(request, *args, **kwargs)
+        super().__init__(request, *args, **kwargs)
         self.populate_mapping_id_choices(request)
 
     def populate_mapping_id_choices(self, request):

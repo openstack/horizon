@@ -101,7 +101,7 @@
     }));
 
     describe('perform method and pass only', function() {
-      it('should open the delete modal', function() {
+      it('should open the delete modal', function(done) {
         spyOn(deleteModalService, 'open').and.callThrough();
         spyOn(keystoneAPI, 'deleteGroup');
         deleteModalService.onlyPass = true;
@@ -114,9 +114,12 @@
         var deleteFunction = contextArg.deleteEntity;
 
         deleteFunction(group.id);
+
+        expect(deleteModalService.open).toHaveBeenCalled();
+        done();
       });
 
-      it('should pass and fail in a function that delete group by item action', function() {
+      it('should pass and fail in a function that delete group by item action', function(done) {
         spyOn(deleteModalService, 'open').and.callThrough();
         spyOn(keystoneAPI, 'deleteGroup');
         deleteModalService.onlyPass = false;
@@ -129,9 +132,12 @@
         var deleteFunction = contextArg.deleteEntity;
 
         deleteFunction(group.id);
+
+        expect(deleteModalService.open).toHaveBeenCalled();
+        done();
       });
 
-      it('should pass and fail in a function that delete group by batch action', function() {
+      it('should pass and fail in a function that delete group by batch action', function(done) {
         spyOn(deleteModalService, 'open').and.callThrough();
         spyOn(keystoneAPI, 'deleteGroup');
         deleteModalService.onlyPass = false;
@@ -144,6 +150,9 @@
         var deleteFunction = contextArg.deleteEntity;
 
         deleteFunction(group.id);
+
+        expect(deleteModalService.open).toHaveBeenCalled();
+        done();
       });
 
       it('should call policy check', function() {

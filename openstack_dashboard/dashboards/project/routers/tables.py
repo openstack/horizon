@@ -89,7 +89,7 @@ class CreateRouter(tables.LinkAction):
         # usages['router'] is empty
         if usages.get('router', {}).get('available', 1) <= 0:
             if "disabled" not in self.classes:
-                self.classes = [c for c in self.classes] + ["disabled"]
+                self.classes = list(self.classes) + ['disabled']
                 self.verbose_name = _("Create Router (Quota exceeded)")
         else:
             self.verbose_name = _("Create Router")
@@ -183,15 +183,13 @@ class UpdateRow(tables.Row):
 def get_external_network(router):
     if router.external_gateway_info:
         return router.external_gateway_info['network']
-    else:
-        return _("-")
+    return _("-")
 
 
 def get_availability_zones(router):
     if 'availability_zones' in router and router.availability_zones:
         return ', '.join(router.availability_zones)
-    else:
-        return _("-")
+    return _("-")
 
 
 class RoutersFilterAction(tables.FilterAction):
@@ -237,11 +235,8 @@ class RoutersTable(tables.DataTable):
                                        verbose_name=_("Availability Zones"))
 
     def __init__(self, request, data=None, needs_form_wrapper=None, **kwargs):
-        super(RoutersTable, self).__init__(
-            request,
-            data=data,
-            needs_form_wrapper=needs_form_wrapper,
-            **kwargs)
+        super().__init__(request, data=data,
+                         needs_form_wrapper=needs_form_wrapper, **kwargs)
         if not api.neutron.get_feature_permission(request, "dvr", "get"):
             del self.columns["distributed"]
         if not api.neutron.get_feature_permission(request, "l3-ha", "get"):

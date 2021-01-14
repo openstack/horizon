@@ -40,7 +40,7 @@ class FloatingIpAllocate(forms.SelfHandlingForm):
                                required=False)
 
     def __init__(self, request, *args, **kwargs):
-        super(FloatingIpAllocate, self).__init__(request, *args, **kwargs)
+        super().__init__(request, *args, **kwargs)
         floating_pool_list = kwargs.get('initial', {}).get('pool_list', [])
         self.fields['pool'].choices = floating_pool_list
 
@@ -56,7 +56,8 @@ class FloatingIpAllocate(forms.SelfHandlingForm):
             # Prevent allocating more IP than the quota allows
             usages = quotas.tenant_quota_usages(request,
                                                 targets=('floatingip', ))
-            if usages['floatingip']['available'] <= 0:
+            if ('floatingip' in usages and
+                    usages['floatingip']['available'] <= 0):
                 error_message = _('You are already using all of your available'
                                   ' floating IPs.')
                 self.api_error(error_message)

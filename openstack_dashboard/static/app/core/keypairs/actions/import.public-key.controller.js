@@ -35,7 +35,14 @@
   function importPublicKeyController($scope) {
     var ctrl = this;
     ctrl.title = $scope.schema.properties.public_key.title;
+    ctrl.key_types = {
+      'ssh': gettext("SSH Key"),
+      'x509': gettext("X509 Certificate")
+    };
     ctrl.public_key = "";
+    ctrl.onKeyTypeChange = function (keyType) {
+      $scope.model.key_type = keyType;
+    };
     ctrl.onPublicKeyChange = function (publicKey) {
       $scope.model.public_key = publicKey;
     };

@@ -33,6 +33,6 @@ class UpdateDefaultQuotasView(workflows.WorkflowView):
     workflow_class = project_workflows.UpdateDefaultQuotas
 
     def get_initial(self):
-        initial = super(UpdateDefaultQuotasView, self).get_initial()
+        initial = super().get_initial()
         initial['disabled_quotas'] = quotas.get_disabled_quotas(self.request)
         return initial

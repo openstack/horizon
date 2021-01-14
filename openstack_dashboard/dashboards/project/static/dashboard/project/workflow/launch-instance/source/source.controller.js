@@ -33,11 +33,6 @@
   LaunchInstanceSourceController.$inject = [
     '$scope',
     'horizon.dashboard.project.workflow.launch-instance.boot-source-types',
-    'bytesFilter',
-    'dateFilter',
-    'decodeFilter',
-    'diskFormatFilter',
-    'gbFilter',
     'horizon.dashboard.project.workflow.launch-instance.basePath',
     'horizon.framework.widgets.transfer-table.events',
     'horizon.framework.widgets.magic-search.events'
@@ -45,17 +40,13 @@
 
   function LaunchInstanceSourceController($scope,
     bootSourceTypes,
-    bytesFilter,
-    dateFilter,
-    decodeFilter,
-    diskFormatFilter,
-    gbFilter,
     basePath,
     events,
     magicSearchEvents
   ) {
 
     var ctrl = this;
+    ctrl.volumeSizeError = gettext('Volume size is required and must be an integer');
 
     // Error text for invalid fields
     /*eslint-disable max-len */
@@ -77,8 +68,6 @@
     /*
      * Transfer table
      */
-    ctrl.tableHeadCells = [];
-    ctrl.tableBodyCells = [];
     ctrl.tableData = {
       available: [],
       allocated: selection,
@@ -86,7 +75,21 @@
       displayedAllocated: []
     };
     ctrl.helpText = {};
-    ctrl.sourceDetails = basePath + 'source/source-details.html';
+
+    ctrl.availableTableConfig = {
+      selectAll: false,
+      trackId: 'id',
+      detailsTemplateUrl: basePath + 'source/source-details.html',
+      columns: []
+    };
+
+    ctrl.allocatedTableConfig = angular.copy(ctrl.availableTableConfig);
+    ctrl.allocatedTableConfig.noItemsMessage = gettext(
+      'Select an item from Available items below');
+
+    ctrl.tableLimits = {
+      maxAllocation: 1
+    };
 
     var bootSources = {
       image: {
@@ -98,19 +101,19 @@
       snapshot: {
         available: $scope.model.imageSnapshots,
         allocated: selection,
-        displayedAvailable: [],
+        displayedAvailable: $scope.model.imageSnapshots,
         displayedAllocated: selection
       },
       volume: {
         available: $scope.model.volumes,
         allocated: selection,
-        displayedAvailable: [],
+        displayedAvailable: $scope.model.volumes,
         displayedAllocated: selection
       },
       volume_snapshot: {
         available: $scope.model.volumeSnapshots,
         allocated: selection,
-        displayedAvailable: [],
+        displayedAvailable: $scope.model.volumeSnapshots,
         displayedAllocated: selection
       }
     };
@@ -129,72 +132,79 @@
       { label: gettext('VMDK'), key: 'vmdk' }
     ];
 
-    // Mapping for dynamic table headers
-    var tableHeadCellsMap = {
+    var diskFormatsObj = diskFormats.reduce(function (acc, cur) {
+      acc[cur.key] = cur.label;
+      return acc;
+    }, {});
+
+    function getImageDiskFormat(key) {
+      return diskFormatsObj[key];
+    }
+
+    function getVolumeDiskFormat(data) {
+      return diskFormatsObj[data.disk_format];
+    }
+
+    var statuses = [
+          { label: gettext('Available'), key: 'available' },
+          { label: gettext('Creating'), key: 'creating' },
+          { label: gettext('Deleting'), key: 'deleting' },
+          { label: gettext('Error'), key: 'error' },
+          { label: gettext('Error Deleting'), key: 'error_deleting' }
+    ];
+
+    var statusesObj = statuses.reduce(function (acc, cur) {
+      acc[cur.key] = cur.label;
+      return acc;
+    }, {});
+
+    function getStatus(status) {
+      return statusesObj[status];
+    }
+
+    // Mapping for dynamic table columns
+    var tableColumnsMap = {
       image: [
-        { text: gettext('Name') },
-        { text: gettext('Updated') },
-        { text: gettext('Size') },
-        { text: gettext('Type') },
-        { text: gettext('Visibility') }
+        { id: 'name_or_id', title: gettext('Name'), priority: 1 },
+        { id: 'updated_at', title: gettext('Updated'), filters: ['simpleDate'], priority: 2 },
+        { id: 'size', title: gettext('Size'), filters: ['bytes'], priority: 2 },
+        { id: 'disk_format', title: gettext('Type'), filters: [getImageDiskFormat], priority: 2 },
+        { id: 'visibility', title: gettext('Visibility'), filters: [getVisibility], priority: 2 }
       ],
       snapshot: [
-        { text: gettext('Name') },
-        { text: gettext('Updated') },
-        { text: gettext('Size') },
-        { text: gettext('Type') },
-        { text: gettext('Visibility') }
+        { id: 'name', title: gettext('Name'), priority: 1 },
+        { id: 'updated_at', title: gettext('Updated'), filters: ['simpleDate'], priority: 2 },
+        { id: 'size', title: gettext('Size'), filters: ['bytes'], priority: 2 },
+        { id: 'disk_format', title: gettext('Type'), filters: [getImageDiskFormat], priority: 2 },
+        { id: 'visibility', title: gettext('Visibility'), filters: [getVisibility], priority: 2 }
       ],
       volume: [
-        { text: gettext('Name') },
-        { text: gettext('Description') },
-        { text: gettext('Size') },
-        { text: gettext('Type') },
-        { text: gettext('Availability Zone') }
+        { id: 'name', title: gettext('Name'), priority: 1 },
+        { id: 'description', title: gettext('Description'), filters: ['noValue'], priority: 2 },
+        { id: 'size', title: gettext('Size'), filters: ['gb'], priority: 2 },
+        { id: 'volume_image_metadata', title: gettext('Type'),
+          filters: [getVolumeDiskFormat], priority: 2 },
+        { id: 'availability_zone', title: gettext('Availability Zone'), priority: 2 }
       ],
       volume_snapshot: [
-        { text: gettext('Name') },
-        { text: gettext('Description') },
-        { text: gettext('Size') },
-        { text: gettext('Created') },
-        { text: gettext('Status') }
+        { id: 'name', title: gettext('Name'), priority: 1 },
+        { id: 'description', title: gettext('Description'), filters: ['noValue'], priority: 2 },
+        { id: 'size', title: gettext('Size'), filters: ['gb'], priority: 2 },
+        { id: 'created_at', title: gettext('Created'), filters: ['simpleDate'], priority: 2 },
+        { id: 'status', title: gettext('Status'), filters: [getStatus], priority: 2 }
       ]
     };
 
     // Map Visibility data so we can decode true/false to Public/Private
-    var _visibilitymap = { true: gettext('Public'), false: gettext('Private') };
-
-    // Mapping for dynamic table data
-    var tableBodyCellsMap = {
-      image: [
-        { key: 'name', classList: ['hi-light', 'word-break'] },
-        { key: 'updated_at', filter: dateFilter, filterArg: 'short' },
-        { key: 'size', filter: bytesFilter, classList: ['number'] },
-        { key: 'disk_format', filter: diskFormatFilter, filterRawData: true },
-        { key: 'is_public', filter: decodeFilter, filterArg: _visibilitymap }
-      ],
-      snapshot: [
-        { key: 'name', classList: ['hi-light', 'word-break'] },
-        { key: 'updated_at', filter: dateFilter, filterArg: 'short' },
-        { key: 'size', filter: bytesFilter, classList: ['number'] },
-        { key: 'disk_format', filter: diskFormatFilter, filterRawData: true },
-        { key: 'is_public', filter: decodeFilter, filterArg: _visibilitymap }
-      ],
-      volume: [
-        { key: 'name', classList: ['hi-light', 'word-break'] },
-        { key: 'description' },
-        { key: 'size', filter: gbFilter, classList: ['number'] },
-        { key: 'volume_image_metadata', filter: diskFormatFilter },
-        { key: 'availability_zone' }
-      ],
-      volume_snapshot: [
-        { key: 'name', classList: ['hi-light', 'word-break'] },
-        { key: 'description' },
-        { key: 'size', filter: gbFilter, classList: ['number'] },
-        { key: 'created_at', filter: dateFilter, filterArg: 'short' },
-        { key: 'status' }
-      ]
+    var _visibilitymap = { 'public': gettext('Public'),
+                           'private': gettext('Private'),
+                           'shared': gettext('Shared'),
+                           'community': gettext('Community')
     };
+
+    function getVisibility(visibility) {
+      return _visibilitymap[visibility];
+    }
 
     /**
      * Creates a map of functions that sort by the key at a given index for
@@ -203,8 +213,8 @@
     ctrl.sortByField = [];
 
     var sortFunction = function(columnIndex, comparedObject) {
-      var cell = tableBodyCellsMap[ctrl.currentBootSource];
-      var key = cell[columnIndex].key;
+      var cell = tableColumnsMap[ctrl.currentBootSource];
+      var key = cell[columnIndex].id;
       return comparedObject[key];
     };
 
@@ -252,13 +262,7 @@
         label: gettext('Status'),
         name: 'status',
         singleton: true,
-        options: [
-          { label: gettext('Available'), key: 'available' },
-          { label: gettext('Creating'), key: 'creating' },
-          { label: gettext('Deleting'), key: 'deleting' },
-          { label: gettext('Error'), key: 'error' },
-          { label: gettext('Error Deleting'), key: 'error_deleting' }
-        ]
+        options: statuses
       },
       type: {
         label: gettext('Type'),
@@ -273,11 +277,13 @@
       },
       visibility: {
         label: gettext('Visibility'),
-        name: 'is_public',
+        name: 'visibility',
         singleton: true,
         options: [
-          { label: gettext('Public'), key: 'true' },
-          { label: gettext('Private'), key: 'false' }
+          { label: gettext('Public'), key: 'public' },
+          { label: gettext('Private'), key: 'private' },
+          { label: gettext('Shared With Project'), key: 'shared' },
+          { label: gettext('Community'), key: 'community' }
         ]
       },
       volumeType: {
@@ -402,8 +408,8 @@
     );
 
     // When the allowedboot list changes, change the source_type
-    // and update the table for the new source selection. Only done
-    // with the first item for the list
+    // and update the table for the new source selection. The devault value is
+    // set by the DEFAULT_BOOT_SOURCE config option.
     // The boot source is changed only if the selected value is not included
     // in the updated list (newValue)
     var allowedBootSourcesWatcher = $scope.$watchCollection(
@@ -412,13 +418,14 @@
       },
       function changeBootSource(newValue) {
         if (angular.isArray(newValue) && newValue.length > 0 ) {
-          if (!$scope.model.newInstanceSpec.source_type ||
-              newValue.filter(function(value) {
-                return value.type === $scope.model.newInstanceSpec.source_type.type;
-              }).length === 0) {
-            updateBootSourceSelection(newValue[0].type);
-            $scope.model.newInstanceSpec.source_type = newValue[0];
+          var opt = newValue[0];
+          for (var index = 0; index < newValue.length; index++) {
+            if (newValue[index].selected) {
+              opt = newValue[index];
+            }
           }
+          updateBootSourceSelection(opt.type);
+          $scope.model.newInstanceSpec.source_type = opt;
         }
       }
     );
@@ -471,8 +478,7 @@
     function changeBootSource(key, preSelection) {
       updateDataSource(key, preSelection);
       updateHelpText(key);
-      updateTableHeadCells(key);
-      updateTableBodyCells(key);
+      updateTableColumns(key);
       updateFacets(key);
     }
 
@@ -494,12 +500,9 @@
       });
     }
 
-    function updateTableHeadCells(key) {
-      refillArray(ctrl.tableHeadCells, tableHeadCellsMap[key]);
-    }
-
-    function updateTableBodyCells(key) {
-      refillArray(ctrl.tableBodyCells, tableBodyCellsMap[key]);
+    function updateTableColumns(key) {
+      refillArray(ctrl.availableTableConfig.columns, tableColumnsMap[key]);
+      refillArray(ctrl.allocatedTableConfig.columns, tableColumnsMap[key]);
     }
 
     function updateFacets(key) {
@@ -525,7 +528,7 @@
 
       if (source && ctrl.currentBootSource === bootSourceTypes.IMAGE ||
           source && ctrl.currentBootSource === bootSourceTypes.INSTANCE_SNAPSHOT ) {
-        var imageGb = source.size * 1e-9;
+        var imageGb = source.size / 1073741824.0;
         var imageDisk = source.min_disk;
         ctrl.minVolumeSize = Math.ceil(Math.max(imageGb, imageDisk));
         if ($scope.model.newInstanceSpec.vol_size < ctrl.minVolumeSize) {
@@ -533,10 +536,10 @@
         }
         var volumeSizeText = gettext('The volume size must be at least %(minVolumeSize)s GB');
         var volumeSizeObj = { minVolumeSize: ctrl.minVolumeSize };
-        ctrl.volumeSizeError = interpolate(volumeSizeText, volumeSizeObj, true);
+        ctrl.minVolumeSizeError = interpolate(volumeSizeText, volumeSizeObj, true);
       } else {
         ctrl.minVolumeSize = 0;
-        ctrl.volumeSizeError = gettext('Volume size is required and must be an integer');
+        ctrl.minVolumeSizeError = gettext('Volume size is required and must be an integer');
       }
     }
 

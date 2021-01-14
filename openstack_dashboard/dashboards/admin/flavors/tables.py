@@ -29,6 +29,8 @@ from openstack_dashboard import api
 
 
 class DeleteFlavor(tables.DeleteAction):
+    policy_rules = (("compute", "os_compute_api:os-flavor-manage:delete"),)
+
     @staticmethod
     def action_present(count):
         return ungettext_lazy(
@@ -54,6 +56,7 @@ class CreateFlavor(tables.LinkAction):
     verbose_name = _("Create Flavor")
     url = "horizon:admin:flavors:create"
     classes = ("ajax-modal",)
+    policy_rules = (("compute", "os_compute_api:os-flavor-manage:create"),)
     icon = "plus"
 
 
@@ -66,7 +69,7 @@ class UpdateMetadata(tables.LinkAction):
 
     def __init__(self, **kwargs):
         kwargs['preempt'] = True
-        super(UpdateMetadata, self).__init__(**kwargs)
+        super().__init__(**kwargs)
 
     def get_link_url(self, datum):
         obj_id = self.table.get_object_id(datum)
@@ -88,6 +91,7 @@ class ModifyAccess(tables.LinkAction):
     verbose_name = _("Modify Access")
     url = "horizon:admin:flavors:update"
     classes = ("ajax-modal",)
+    policy_rules = (("compute", "os_compute_api:os-flavor-manage:update"),)
     icon = "pencil"
 
     def get_link_url(self, flavor):

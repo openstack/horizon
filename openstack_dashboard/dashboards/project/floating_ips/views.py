@@ -59,10 +59,11 @@ class AllocateView(forms.ModalFormView):
         return obj.ip
 
     def get_context_data(self, **kwargs):
-        context = super(AllocateView, self).get_context_data(**kwargs)
+        context = super().get_context_data(**kwargs)
         try:
             context['usages'] = quotas.tenant_quota_usages(
-                self.request, targets=('floatingip', ))
+                self.request, targets=('floatingip', )
+            )
         except Exception:
             exceptions.handle(self.request)
         return context
@@ -110,7 +111,7 @@ class IndexView(tables.DataTableView):
             floating_ip_pools = []
             exceptions.handle(self.request,
                               _('Unable to retrieve floating IP pools.'))
-        pool_dict = dict([(obj.id, obj.name) for obj in floating_ip_pools])
+        pool_dict = dict((obj.id, obj.name) for obj in floating_ip_pools)
 
         attached_instance_ids = [ip.instance_id for ip in floating_ips
                                  if ip.instance_id is not None]
@@ -126,7 +127,7 @@ class IndexView(tables.DataTableView):
                 exceptions.handle(self.request,
                                   _('Unable to retrieve instance list.'))
 
-            instances_dict = dict([(obj.id, obj.name) for obj in instances])
+            instances_dict = dict((obj.id, obj.name) for obj in instances)
 
         for ip in floating_ips:
             ip.instance_name = instances_dict.get(ip.instance_id)

@@ -1,0 +1,12 @@
+<div ng-controller="horizon.app.core.keypairs.actions.CreateKeypairController as ctrl" class="form-group">
+  <label class="control-label required">
+    <translate>Key Type</translate>
+    <span class="hz-icon-required fa fa-asterisk"></span>
+  </label>
+  <select class="form-control switchable ng-pristine ng-untouched ng-valid"
+          ng-model="key_type"
+          ng-options="val as label for (val, label) in ctrl.key_types"
+          name="key-type"
+          ng-change="ctrl.onKeyTypeChange(key_type)">
+  </select>
+</div>

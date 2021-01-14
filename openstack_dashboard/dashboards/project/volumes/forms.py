@@ -40,8 +40,8 @@ from openstack_dashboard.dashboards.project.images import utils
 from openstack_dashboard.dashboards.project.instances import tables
 from openstack_dashboard.usage import quotas
 
-IMAGE_BACKEND_SETTINGS = getattr(settings, 'OPENSTACK_IMAGE_BACKEND', {})
-IMAGE_FORMAT_CHOICES = IMAGE_BACKEND_SETTINGS.get('image_formats', [])
+IMAGE_BACKEND_SETTINGS = settings.OPENSTACK_IMAGE_BACKEND
+IMAGE_FORMAT_CHOICES = IMAGE_BACKEND_SETTINGS['image_formats']
 VALID_DISK_FORMATS = ('raw', 'vmdk', 'vdi', 'qcow2', 'vhd', 'vhdx')
 DEFAULT_CONTAINER_FORMAT = 'bare'
 
@@ -90,21 +90,33 @@ class CreateForm(forms.SelfHandlingForm):
     snapshot_source = forms.ChoiceField(
         label=_("Use snapshot as a source"),
         widget=forms.ThemableSelectWidget(
-            attrs={'class': 'snapshot-selector'},
+            attrs={'class': 'snapshot-selector switched',
+                   'data-switch-on': 'source',
+                   'data-source-snapshot_source':
+                       _("Use snapshot as a source"),
+                   'data-required-when-shown': 'true'},
             data_attrs=('size', 'name'),
             transform=lambda x: "%s (%s GiB)" % (x.name, x.size)),
         required=False)
     image_source = forms.ChoiceField(
         label=_("Use image as a source"),
         widget=forms.ThemableSelectWidget(
-            attrs={'class': 'image-selector'},
+            attrs={'class': 'image-selector switched',
+                   'data-switch-on': 'source',
+                   'data-source-image_source':
+                       _("Use image as a source"),
+                   'data-required-when-shown': 'true'},
             data_attrs=('size', 'name', 'min_disk'),
             transform=lambda x: "%s (%s)" % (x.name, filesizeformat(x.bytes))),
         required=False)
     volume_source = forms.ChoiceField(
         label=_("Use a volume as source"),
         widget=forms.ThemableSelectWidget(
-            attrs={'class': 'image-selector'},
+            attrs={'class': 'image-selector switched',
+                   'data-switch-on': 'source',
+                   'data-source-volume_source':
+                       _("Use a volume as source"),
+                   'data-required-when-shown': 'true'},
             data_attrs=('size', 'name'),
             transform=lambda x: "%s (%s GiB)" % (x.name, x.size)),
         required=False)
@@ -283,7 +295,7 @@ class CreateForm(forms.SelfHandlingForm):
         self.fields['group'].choices = group_choices
 
     def __init__(self, request, *args, **kwargs):
-        super(CreateForm, self).__init__(request, *args, **kwargs)
+        super().__init__(request, *args, **kwargs)
         volume_types = []
         try:
             volume_types = cinder.volume_type_list(request)
@@ -311,7 +323,7 @@ class CreateForm(forms.SelfHandlingForm):
         self._populate_group_choices(request)
 
     def clean(self):
-        cleaned_data = super(CreateForm, self).clean()
+        cleaned_data = super().clean()
         source_type = self.cleaned_data.get('volume_source_type')
         if (source_type == 'image_source' and
                 not cleaned_data.get('image_source')):
@@ -390,6 +402,7 @@ class CreateForm(forms.SelfHandlingForm):
                 # Create from volume
                 volume = self.get_volume(request, data["volume_source"])
                 volume_id = volume.id
+                volume_type = None
 
                 if data['size'] < volume.size:
                     error_message = (_('The volume size cannot be less than '
@@ -407,7 +420,7 @@ class CreateForm(forms.SelfHandlingForm):
                 params = {'req': data['size'],
                           'avail': availableGB}
                 raise ValidationError(error_message % params)
-            elif availableVol <= 0:
+            if availableVol <= 0:
                 error_message = _('You are already using all of your available'
                                   ' volumes.')
                 raise ValidationError(error_message)
@@ -465,7 +478,7 @@ class AttachForm(forms.SelfHandlingForm):
                                          "select a device name."))
 
     def __init__(self, *args, **kwargs):
-        super(AttachForm, self).__init__(*args, **kwargs)
+        super().__init__(*args, **kwargs)
 
         # Hide the device field if the hypervisor doesn't support it.
         if not nova.can_set_mount_point():
@@ -526,14 +539,15 @@ class AttachForm(forms.SelfHandlingForm):
 
 
 class CreateSnapshotForm(forms.SelfHandlingForm):
-    name = forms.CharField(max_length=255, label=_("Snapshot Name"))
+    name = forms.CharField(max_length=255, label=_("Snapshot Name"),
+                           required=False)
     description = forms.CharField(max_length=255,
                                   widget=forms.Textarea(attrs={'rows': 4}),
                                   label=_("Description"),
                                   required=False)
 
     def __init__(self, request, *args, **kwargs):
-        super(CreateSnapshotForm, self).__init__(request, *args, **kwargs)
+        super().__init__(request, *args, **kwargs)
 
         # populate volume_id
         volume_id = kwargs.get('initial', {}).get('volume_id', [])
@@ -545,18 +559,18 @@ class CreateSnapshotForm(forms.SelfHandlingForm):
             volume = cinder.volume_get(request,
                                        data['volume_id'])
             force = False
-            message = _('Creating volume snapshot "%s".') % data['name']
+            message = _('Creating volume snapshot "%s".')
             if volume.status == 'in-use':
                 force = True
                 message = _('Forcing to create snapshot "%s" '
-                            'from attached volume.') % data['name']
+                            'from attached volume.')
             snapshot = cinder.volume_snapshot_create(request,
                                                      data['volume_id'],
                                                      data['name'],
                                                      data['description'],
                                                      force=force)
 
-            messages.info(request, message)
+            messages.info(request, message % snapshot.name)
             return snapshot
         except Exception as e:
             redirect = reverse("horizon:project:volumes:index")
@@ -573,7 +587,7 @@ class CreateTransferForm(forms.SelfHandlingForm):
 
     def __init__(self, *args, **kwargs):
         self.next_view = kwargs.pop('next_view', None)
-        super(CreateTransferForm, self).__init__(*args, **kwargs)
+        super().__init__(*args, **kwargs)
 
     def clean_name(self):
         cleaned_name = self.cleaned_data['name']
@@ -657,8 +671,8 @@ class UpdateForm(forms.SelfHandlingForm):
     def handle(self, request, data):
         volume_id = self.initial['volume_id']
         try:
-            cinder.volume_update(request, volume_id, data['name'],
-                                 data['description'])
+            volume = cinder.volume_update(request, volume_id, data['name'],
+                                          data['description'])
         except Exception:
             redirect = reverse("horizon:project:volumes:index")
             exceptions.handle(request,
@@ -676,7 +690,8 @@ class UpdateForm(forms.SelfHandlingForm):
                                   _('Unable to set bootable flag on volume.'),
                                   redirect=redirect)
 
-        message = _('Updating volume "%s"') % data['name']
+        name_or_id = volume["volume"]["name"] or volume["volume"]["id"]
+        message = _('Updating volume "%s"') % name_or_id
         messages.info(request, message)
         return True
 
@@ -696,7 +711,7 @@ class UploadToImageForm(forms.SelfHandlingForm):
         required=False)
 
     def __init__(self, request, *args, **kwargs):
-        super(UploadToImageForm, self).__init__(request, *args, **kwargs)
+        super().__init__(request, *args, **kwargs)
 
         # 'vhd','iso','aki','ari' and 'ami' disk formats are supported by
         # glance, but not by qemu-img. qemu-img supports 'vpc', 'cloop', 'cow'
@@ -704,7 +719,7 @@ class UploadToImageForm(forms.SelfHandlingForm):
         # I can only use 'raw', 'vmdk', 'vdi' or 'qcow2' so qemu-img will not
         # have issues when processes image request from cinder.
         disk_format_choices = [(value, name) for value, name
-                               in IMAGE_FORMAT_CHOICES
+                               in glance.get_image_formats(request)
                                if value in VALID_DISK_FORMATS]
         self.fields['disk_format'].choices = disk_format_choices
         self.fields['disk_format'].initial = 'raw'
@@ -753,7 +768,7 @@ class ExtendForm(forms.SelfHandlingForm):
     new_size = forms.IntegerField(label=_("New Size (GiB)"))
 
     def clean(self):
-        cleaned_data = super(ExtendForm, self).clean()
+        cleaned_data = super().clean()
         new_size = cleaned_data.get('new_size')
         orig_size = self.initial['orig_size']
         if new_size <= orig_size:
@@ -804,7 +819,7 @@ class RetypeForm(forms.SelfHandlingForm):
                                          required=False)
 
     def __init__(self, request, *args, **kwargs):
-        super(RetypeForm, self).__init__(request, *args, **kwargs)
+        super().__init__(request, *args, **kwargs)
 
         try:
             volume_types = cinder.volume_type_list(request)
@@ -814,15 +829,22 @@ class RetypeForm(forms.SelfHandlingForm):
             exceptions.handle(request, error_message, redirect=redirect_url)
 
         origin_type = self.initial['volume_type']
-        types_list = [(t.name, t.name)
-                      for t in volume_types
-                      if t.name != origin_type]
+        type_list = [(t.name,
+                      _("%s (current)") % t.name
+                      if origin_type == t.name else t.name)
+                     for t in volume_types]
 
-        if types_list:
-            types_list.insert(0, ("", _("Select a new volume type")))
-        else:
-            types_list.insert(0, ("", _("No other volume types available")))
-        self.fields['volume_type'].choices = sorted(types_list)
+        if not type_list:
+            type_list.insert(0, ("", _("No other volume types available")))
+        self.fields['volume_type'].choices = sorted(type_list)
+
+    def clean_volume_type(self):
+        volume_type = self.cleaned_data.get("volume_type")
+        if self.initial['volume_type'] == volume_type:
+            msg = _('The new type must be different from the '
+                    'current volume type.')
+            raise forms.ValidationError(msg)
+        return volume_type
 
     def handle(self, request, data):
         volume_id = self.initial['id']

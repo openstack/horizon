@@ -1,0 +1,59 @@
+# Rodrigo Loures <rmoraesloures@gmail.com>, 2018. #zanata
+msgid ""
+msgstr ""
+"Project-Id-Version: horizon 16.0.0.0b2.dev26\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-06-24 03:59-0500\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"PO-Revision-Date: 2018-10-19 10:05+0000\n"
+"Last-Translator: Rodrigo Loures <rmoraesloures@gmail.com>\n"
+"Language-Team: Portuguese (Brazil)\n"
+"Language: pt_BR\n"
+"X-Generator: Zanata 4.3.3\n"
+"Plural-Forms: nplurals=2; plural=(n != 1)\n"
+
+msgid ":ref:`genindex`"
+msgstr ":ref:`genindex`"
+
+msgid ":ref:`modindex`"
+msgstr ":ref:`modindex`"
+
+msgid "Dashboard"
+msgstr "Dashboard"
+
+msgid "Glossary"
+msgstr "Glossário"
+
+msgid "Horizon"
+msgstr "Horizon"
+
+msgid "Horizon: The OpenStack Dashboard Project"
+msgstr "Horizon: o projeto de Dashboard do Openstack"
+
+msgid "How to use Horizon in your own projects."
+msgstr "Como usar o Horizon nos seus próprios projetos."
+
+msgid "Information"
+msgstr "Informação"
+
+msgid "Introduction"
+msgstr "Introdução"
+
+msgid "Panel"
+msgstr "Painel"
+
+msgid "Project"
+msgstr "Projeto"
+
+msgid "Release Notes"
+msgstr "Notas de versão"
+
+msgid "To learn what you need to know to get going, see the :ref:`quickstart`."
+msgstr ""
+"Para aprender o que você precisa saber para iniciar, veja o :ref:"
+"`quickstart`."
+
+msgid "Using Horizon"
+msgstr "Usando o Horizon"

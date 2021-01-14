@@ -10,10 +10,11 @@
 # License for the specific language governing permissions and limitations
 # under the License.
 
+from unittest import mock
+
 import django
 from django.conf import settings
 from django.urls import reverse
-import mock
 from novaclient.v2 import flavors
 
 from openstack_dashboard import api
@@ -34,7 +35,7 @@ class FlavorsViewTests(test.BaseAdminViewTests):
 
         res = self.client.get(reverse(constants.FLAVORS_INDEX_URL))
         self.assertTemplateUsed(res, constants.FLAVORS_TEMPLATE_NAME)
-        self.assertItemsEqual(res.context['table'].data, self.flavors.list())
+        self.assertCountEqual(res.context['table'].data, self.flavors.list())
 
         self.mock_flavor_list_paged.assert_called_once_with(
             test.IsHttpRequest(), None, marker=None, paginate=True,
@@ -57,13 +58,13 @@ class FlavorsViewTests(test.BaseAdminViewTests):
         # get all
         res = self.client.get(reverse(constants.FLAVORS_INDEX_URL))
         self.assertTemplateUsed(res, constants.FLAVORS_TEMPLATE_NAME)
-        self.assertItemsEqual(res.context['table'].data,
+        self.assertCountEqual(res.context['table'].data,
                               self.flavors.list()[:5])
 
         # get first page with 2 items
         res = self.client.get(reverse(constants.FLAVORS_INDEX_URL))
         self.assertTemplateUsed(res, constants.FLAVORS_TEMPLATE_NAME)
-        self.assertItemsEqual(res.context['table'].data,
+        self.assertCountEqual(res.context['table'].data,
                               self.flavors.list()[:2])
 
         # get second page (items 2-4)
@@ -71,7 +72,7 @@ class FlavorsViewTests(test.BaseAdminViewTests):
                            flavors_list[2].id])
         url = "?".join([reverse(constants.FLAVORS_INDEX_URL), params])
         res = self.client.get(url)
-        self.assertItemsEqual(res.context['table'].data,
+        self.assertCountEqual(res.context['table'].data,
                               self.flavors.list()[2:4])
 
         self.mock_flavor_list_paged.assert_has_calls([
@@ -108,13 +109,13 @@ class FlavorsViewTests(test.BaseAdminViewTests):
         # get all
         res = self.client.get(reverse(constants.FLAVORS_INDEX_URL))
         self.assertTemplateUsed(res, constants.FLAVORS_TEMPLATE_NAME)
-        self.assertItemsEqual(res.context['table'].data,
+        self.assertCountEqual(res.context['table'].data,
                               self.flavors.list()[:3])
         # get first page with 2 items
         res = self.client.get(reverse(constants.FLAVORS_INDEX_URL))
         self.assertEqual(len(res.context['table'].data),
                          settings.API_RESULT_PAGE_SIZE)
-        self.assertItemsEqual(res.context['table'].data,
+        self.assertCountEqual(res.context['table'].data,
                               self.flavors.list()[:2])
         params = "=".join([tables.FlavorsTable._meta.pagination_param,
                            flavors_list[2].id])
@@ -122,7 +123,7 @@ class FlavorsViewTests(test.BaseAdminViewTests):
         res = self.client.get(url)
         # get second page (item 3)
         self.assertEqual(len(res.context['table'].data), 1)
-        self.assertItemsEqual(res.context['table'].data,
+        self.assertCountEqual(res.context['table'].data,
                               self.flavors.list()[2:3])
 
         params = "=".join([tables.FlavorsTable._meta.prev_pagination_param,
@@ -132,7 +133,7 @@ class FlavorsViewTests(test.BaseAdminViewTests):
         # prev back to get first page with 2 items
         self.assertEqual(len(res.context['table'].data),
                          settings.API_RESULT_PAGE_SIZE)
-        self.assertItemsEqual(res.context['table'].data,
+        self.assertCountEqual(res.context['table'].data,
                               self.flavors.list()[:2])
 
         self.mock_flavor_list_paged.assert_has_calls([
@@ -161,7 +162,7 @@ class FlavorsViewTests(test.BaseAdminViewTests):
     @test.create_mocks({api.nova: ('flavor_list_paged',),
                         flavors.Flavor: ('get_keys',), })
     def test_index_form_action_with_pagination(self):
-        page_size = getattr(settings, 'API_RESULT_PAGE_SIZE', 1)
+        page_size = settings.API_RESULT_PAGE_SIZE
         flavors_list = self.flavors.list()[:2]
         self.mock_flavor_list_paged.side_effect = [
             (flavors_list[:page_size], False, False),
@@ -431,9 +432,9 @@ class CreateFlavorWorkflowTests(BaseFlavorWorkflowTests):
 
         workflow_data = self._get_workflow_data(flavor)
         # Swap field empty
-        workflow_data['swap'] = None
+        del workflow_data['swap_mb']
         # Ephemeral field empty
-        workflow_data['eph'] = None
+        del workflow_data['eph_gb']
 
         url = reverse(constants.FLAVORS_CREATE_URL)
         res = self.client.post(url, workflow_data)

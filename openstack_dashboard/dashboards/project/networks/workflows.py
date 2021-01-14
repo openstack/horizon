@@ -28,6 +28,7 @@ from horizon import workflows
 from openstack_dashboard import api
 from openstack_dashboard.dashboards.project.networks.subnets import utils
 from openstack_dashboard import policy
+from openstack_dashboard.utils import settings as setting_utils
 
 
 LOG = logging.getLogger(__name__)
@@ -41,7 +42,7 @@ class CreateNetworkInfoAction(workflows.Action):
         label=_("Enable Admin State"),
         initial=True,
         required=False,
-        help_text=_("The state to start the network in."))
+        help_text=_("If checked, the network will be enabled."))
     shared = forms.BooleanField(label=_("Shared"), initial=False,
                                 required=False)
     with_subnet = forms.BooleanField(label=_("Create Subnet"),
@@ -66,8 +67,7 @@ class CreateNetworkInfoAction(workflows.Action):
                     "selecting all availability zones"))
 
     def __init__(self, request, *args, **kwargs):
-        super(CreateNetworkInfoAction, self).__init__(request,
-                                                      *args, **kwargs)
+        super().__init__(request, *args, **kwargs)
         if not policy.check((("network", "create_network:shared"),), request):
             self.fields['shared'].widget = forms.HiddenInput()
         try:
@@ -141,9 +141,12 @@ class CreateSubnetInfoAction(workflows.Action):
     cidr = forms.IPField(label=_("Network Address"),
                          required=False,
                          initial="",
+                         error_messages={
+                             'required': _('Specify "Network Address" or '
+                                           'clear "Create Subnet" checkbox '
+                                           'in previous step.')},
                          widget=forms.TextInput(attrs={
                              'class': 'switched',
-                             'data-required-when-shown': 'true',
                              'data-switch-on': 'source',
                              'data-source-manual': _("Network Address"),
                          }),
@@ -200,17 +203,9 @@ class CreateSubnetInfoAction(workflows.Action):
                       ' the "Subnet Details" tab.')
 
     def __init__(self, request, context, *args, **kwargs):
-        super(CreateSubnetInfoAction, self).__init__(request, context, *args,
-                                                     **kwargs)
-        if 'with_subnet' in context:
-            self.fields['with_subnet'] = forms.BooleanField(
-                initial=context['with_subnet'],
-                required=False,
-                widget=forms.HiddenInput()
-            )
-
-        if not getattr(settings, 'OPENSTACK_NEUTRON_NETWORK',
-                       {}).get('enable_ipv6', True):
+        super().__init__(request, context, *args, **kwargs)
+        if not setting_utils.get_dict_config('OPENSTACK_NEUTRON_NETWORK',
+                                             'enable_ipv6'):
             self.fields['ip_version'].widget = forms.HiddenInput()
             self.fields['ip_version'].initial = 4
 
@@ -235,10 +230,10 @@ class CreateSubnetInfoAction(workflows.Action):
             # Populate data-fields for switching the prefixlen field
             # when user selects a subnetpool other than
             # "Provider default pool"
-            for (id, name) in self.fields['subnetpool'].choices:
-                if not len(id):
+            for (id_, name) in self.fields['subnetpool'].choices:
+                if not id_:
                     continue
-                key = 'data-subnetpool-' + id
+                key = 'data-subnetpool-' + id_
                 self.fields['prefixlen'].widget.attrs[key] = \
                     _('Network Mask')
         else:
@@ -265,7 +260,7 @@ class CreateSubnetInfoAction(workflows.Action):
         if not self.check_subnet_range:
             return
 
-        allowed_cidr = getattr(settings, "ALLOWED_PRIVATE_SUBNET_CIDR", {})
+        allowed_cidr = settings.ALLOWED_PRIVATE_SUBNET_CIDR
         version_str = 'ipv%s' % ip_version
         allowed_ranges = allowed_cidr.get(version_str, [])
         if allowed_ranges:
@@ -279,7 +274,7 @@ class CreateSubnetInfoAction(workflows.Action):
                         'allowed': range_str})
                 raise forms.ValidationError(msg)
 
-    def _check_subnet_data(self, cleaned_data, is_create=True):
+    def _check_subnet_data(self, cleaned_data):
         cidr = cleaned_data.get('cidr')
         ip_version = int(cleaned_data.get('ip_version'))
         gateway_ip = cleaned_data.get('gateway_ip')
@@ -296,7 +291,9 @@ class CreateSubnetInfoAction(workflows.Action):
             msg = _('Specify "Network Address" or '
                     'clear "Create Subnet" checkbox in previous step.')
             raise forms.ValidationError(msg)
-        if cidr:
+        if address_source == 'subnetpool' and 'cidr' in self._errors:
+            del self._errors['cidr']
+        elif cidr:
             subnet = netaddr.IPNetwork(cidr)
             if subnet.version != ip_version:
                 msg = _('Network Address and IP version are inconsistent.')
@@ -312,18 +309,18 @@ class CreateSubnetInfoAction(workflows.Action):
             if netaddr.IPAddress(gateway_ip).version is not ip_version:
                 msg = _('Gateway IP and IP version are inconsistent.')
                 raise forms.ValidationError(msg)
-        if not is_create and not no_gateway and not gateway_ip:
-            msg = _('Specify IP address of gateway or '
-                    'check "Disable Gateway" checkbox.')
-            raise forms.ValidationError(msg)
         if no_gateway and 'gateway_ip' in self._errors:
             del self._errors['gateway_ip']
 
+    def _remove_fields_errors(self):
+        self._errors = {}
+
     def clean(self):
-        cleaned_data = super(CreateSubnetInfoAction, self).clean()
-        with_subnet = cleaned_data.get('with_subnet')
+        with_subnet = self.initial.get('with_subnet')
         if not with_subnet:
-            return cleaned_data
+            self._remove_fields_errors()
+            return None
+        cleaned_data = super().clean()
         self._check_subnet_data(cleaned_data)
         return cleaned_data
 
@@ -381,10 +378,9 @@ class CreateSubnetDetailAction(workflows.Action):
         help_text = _('Specify additional attributes for the subnet.')
 
     def __init__(self, request, context, *args, **kwargs):
-        super(CreateSubnetDetailAction, self).__init__(request, context,
-                                                       *args, **kwargs)
-        if not getattr(settings, 'OPENSTACK_NEUTRON_NETWORK',
-                       {}).get('enable_ipv6', True):
+        super().__init__(request, context, *args, **kwargs)
+        if not setting_utils.get_dict_config('OPENSTACK_NEUTRON_NETWORK',
+                                             'enable_ipv6'):
             self.fields['ipv6_modes'].widget = forms.HiddenInput()
 
     def populate_ipv6_modes_choices(self, request, context):
@@ -448,7 +444,7 @@ class CreateSubnetDetailAction(workflows.Action):
             self._convert_ip_address(route[1], "host_routes")
 
     def clean(self):
-        cleaned_data = super(CreateSubnetDetailAction, self).clean()
+        cleaned_data = super().clean()
         self._check_allocation_pools(cleaned_data.get('allocation_pools'))
         self._check_host_routes(cleaned_data.get('host_routes'))
         self._check_dns_nameservers(cleaned_data.get('dns_nameservers'))
@@ -496,8 +492,7 @@ class CreateNetwork(workflows.Workflow):
             return network
         except Exception as e:
             LOG.info('Failed to create network: %s', e)
-            msg = (_('Failed to create network "%(network)s": %(reason)s') %
-                   {"network": data['net_name'], "reason": e})
+            msg = _('Failed to create network "%s".') % data['net_name']
             redirect = self.get_failure_url()
             exceptions.handle(request, msg, redirect=redirect)
             return False
@@ -555,9 +550,9 @@ class CreateNetwork(workflows.Workflow):
                 params['gateway_ip'] = None
             elif data['gateway_ip']:
                 params['gateway_ip'] = data['gateway_ip']
-            if 'subnetpool' in data and len(data['subnetpool']):
+            if 'subnetpool' in data and data['subnetpool']:
                 params['subnetpool_id'] = data['subnetpool']
-                if 'prefixlen' in data and len(data['prefixlen']):
+                if 'prefixlen' in data and data['prefixlen']:
                     params['prefixlen'] = data['prefixlen']
 
             self._setup_subnet_parameters(params, data)
@@ -566,19 +561,18 @@ class CreateNetwork(workflows.Workflow):
             self.context['subnet_id'] = subnet.id
             LOG.debug('Subnet "%s" was successfully created.', data['cidr'])
             return subnet
-        except Exception as e:
+        except Exception:
             if network_name:
                 msg = _('Failed to create subnet "%(sub)s" for network '
-                        '"%(net)s": %(reason)s')
+                        '"%(net)s".')
             else:
-                msg = _('Failed to create subnet "%(sub)s": %(reason)s')
+                msg = _('Failed to create subnet "%(sub)s".')
             if no_redirect:
                 redirect = None
             else:
                 redirect = self.get_failure_url()
             exceptions.handle(request,
-                              msg % {"sub": data['cidr'], "net": network_name,
-                                     "reason": e},
+                              msg % {"sub": data['cidr'], "net": network_name},
                               redirect=redirect)
             return False
 
@@ -607,9 +601,10 @@ class CreateNetwork(workflows.Workflow):
         # If we do not need to create a subnet, return here.
         if not data['with_subnet']:
             return True
-        subnet = self._create_subnet(request, data, network, no_redirect=True)
+        subnet = self._create_subnet(request, data, network, no_redirect=True,
+                                     tenant_id=network.tenant_id)
         if subnet:
             return True
-        else:
-            self._delete_network(request, network)
-            return False
+
+        self._delete_network(request, network)
+        return False

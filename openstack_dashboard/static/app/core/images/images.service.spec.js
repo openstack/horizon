@@ -95,11 +95,11 @@
         spyOn(glance, 'getVersion').and.returnValue(deferredVersion.promise);
         spyOn(session, 'get').and.returnValue(deferredSession.promise);
         var result = service.getImagesPromise({});
-        deferred.resolve({data: {items: [{id: 1, updated_at: 'jul1'}]}});
+        deferred.resolve({data: {items: [{id: 1, updated_at: 'jul1', status: 'active'}]}});
         deferredVersion.resolve({data: {version: '2'}});
         deferredSession.resolve({project_id: '12'});
         $timeout.flush();
-        expect(result.$$state.value.data.items[0].trackBy).toBe('1jul1');
+        expect(result.$$state.value.data.items[0].trackBy).toBe('1jul1active');
       }));
     });
 

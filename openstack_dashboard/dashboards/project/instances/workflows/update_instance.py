@@ -46,8 +46,9 @@ class UpdateInstanceSecurityGroupsAction(sg_base.BaseSecurityGroupsAction):
         try:
             api.neutron.server_update_security_groups(request, instance_id,
                                                       wanted_groups)
-        except Exception as e:
-            exceptions.handle(request, str(e))
+        except Exception:
+            exceptions.handle(request, _('Unable to update instance security'
+                                         ' group.'))
             return False
         return True
 
@@ -77,9 +78,7 @@ class UpdateInstanceInfoAction(workflows.Action):
     )
 
     def __init__(self, request, *args, **kwargs):
-        super(UpdateInstanceInfoAction, self).__init__(request,
-                                                       *args,
-                                                       **kwargs)
+        super().__init__(request, *args, **kwargs)
         if not api.nova.is_feature_available(request, "instance_description"):
             del self.fields["description"]
 

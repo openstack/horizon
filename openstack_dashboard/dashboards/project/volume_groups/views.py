@@ -34,10 +34,7 @@ from openstack_dashboard.dashboards.project.volume_groups \
 from openstack_dashboard.dashboards.project.volume_groups \
     import workflows as vol_group_workflows
 
-CGROUP_INFO_FIELDS = ("name",
-                      "description")
-
-INDEX_URL = "horizon:project:cgroups:index"
+INDEX_URL = "horizon:project:volume_groups:index"
 
 
 class IndexView(tables.DataTableView):
@@ -80,7 +77,7 @@ class UpdateView(forms.ModalFormView):
                 'description': group.description}
 
     def get_context_data(self, **kwargs):
-        context = super(UpdateView, self).get_context_data(**kwargs)
+        context = super().get_context_data(**kwargs)
         context['group_id'] = self.kwargs['group_id']
         args = (self.kwargs['group_id'],)
         context['submit_url'] = reverse(self.submit_url, args=args)
@@ -110,7 +107,7 @@ class RemoveVolumesView(forms.ModalFormView):
                 'name': group.name}
 
     def get_context_data(self, **kwargs):
-        context = super(RemoveVolumesView, self).get_context_data(**kwargs)
+        context = super().get_context_data(**kwargs)
         context['group_id'] = self.kwargs['group_id']
         args = (self.kwargs['group_id'],)
         context['submit_url'] = reverse(self.submit_url, args=args)
@@ -141,7 +138,7 @@ class DeleteView(forms.ModalFormView):
                 'name': group.name}
 
     def get_context_data(self, **kwargs):
-        context = super(DeleteView, self).get_context_data(**kwargs)
+        context = super().get_context_data(**kwargs)
         context['group_id'] = self.kwargs['group_id']
         args = (self.kwargs['group_id'],)
         context['submit_url'] = reverse(self.submit_url, args=args)
@@ -162,7 +159,7 @@ class ManageView(workflows.WorkflowView):
     workflow_class = vol_group_workflows.UpdateGroupWorkflow
 
     def get_context_data(self, **kwargs):
-        context = super(ManageView, self).get_context_data(**kwargs)
+        context = super().get_context_data(**kwargs)
         context['group_id'] = self.kwargs["group_id"]
         return context
 
@@ -193,7 +190,7 @@ class CreateSnapshotView(forms.ModalFormView):
     success_url = reverse_lazy('horizon:project:vg_snapshots:index')
 
     def get_context_data(self, **kwargs):
-        context = super(CreateSnapshotView, self).get_context_data(**kwargs)
+        context = super().get_context_data(**kwargs)
         context['group_id'] = self.kwargs['group_id']
         args = (self.kwargs['group_id'],)
         context['submit_url'] = reverse(self.submit_url, args=args)
@@ -203,16 +200,16 @@ class CreateSnapshotView(forms.ModalFormView):
             volumes = api.cinder.volume_list(self.request,
                                              search_opts=search_opts)
             num_volumes = len(volumes)
-            usages = quotas.tenant_limit_usages(self.request)
+            usages = quotas.tenant_quota_usages(
+                self.request, targets=('snapshots', 'gigabytes'))
 
-            if usages['totalSnapshotsUsed'] + num_volumes > \
-                    usages['maxTotalSnapshots']:
+            if (usages['snapshots']['used'] + num_volumes >
+                    usages['snapshots']['quota']):
                 raise ValueError(_('Unable to create snapshots due to '
                                    'exceeding snapshot quota limit.'))
-            else:
-                usages['numRequestedItems'] = num_volumes
-                context['usages'] = usages
 
+            context['numRequestedItems'] = num_volumes
+            context['usages'] = usages
         except ValueError as e:
             exceptions.handle(self.request, e.message)
             return None
@@ -234,7 +231,7 @@ class CloneGroupView(forms.ModalFormView):
     success_url = reverse_lazy('horizon:project:volume_groups:index')
 
     def get_context_data(self, **kwargs):
-        context = super(CloneGroupView, self).get_context_data(**kwargs)
+        context = super().get_context_data(**kwargs)
         context['group_id'] = self.kwargs['group_id']
         args = (self.kwargs['group_id'],)
         context['submit_url'] = reverse(self.submit_url, args=args)
@@ -246,16 +243,16 @@ class CloneGroupView(forms.ModalFormView):
             volumes = api.cinder.volume_list(self.request,
                                              search_opts=search_opts)
             num_volumes = len(volumes)
-            usages = quotas.tenant_limit_usages(self.request)
+            usages = quotas.tenant_quota_usages(
+                self.request, targets=('volumes', 'gigabytes'))
 
-            if usages['totalVolumesUsed'] + num_volumes > \
-                    usages['maxTotalVolumes']:
+            if (usages['volumes']['used'] + num_volumes >
+                    usages['volumes']['quota']):
                 raise ValueError(_('Unable to create group due to '
                                    'exceeding volume quota limit.'))
-            else:
-                usages['numRequestedItems'] = num_volumes
-                context['usages'] = usages
 
+            context['numRequestedItems'] = num_volumes
+            context['usages'] = usages
         except ValueError as e:
             exceptions.handle(self.request, e.message)
             return None
@@ -274,7 +271,7 @@ class DetailView(tabs.TabView):
     page_title = "{{ group.name|default:group.id }}"
 
     def get_context_data(self, **kwargs):
-        context = super(DetailView, self).get_context_data(**kwargs)
+        context = super().get_context_data(**kwargs)
         group = self.get_data()
         table = vol_group_tables.GroupsTable(self.request)
         context["group"] = group

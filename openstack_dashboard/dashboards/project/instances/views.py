@@ -40,6 +40,7 @@ from horizon import workflows
 
 from openstack_dashboard import api
 from openstack_dashboard.utils import filters
+from openstack_dashboard.utils import settings as setting_utils
 
 from openstack_dashboard.dashboards.project.instances \
     import console as project_console
@@ -59,9 +60,12 @@ from openstack_dashboard.views import get_url_with_pagination
 LOG = logging.getLogger(__name__)
 
 
-class IndexView(tables.DataTableView):
+class IndexView(tables.PagedTableMixin, tables.DataTableView):
     table_class = project_tables.InstancesTable
     page_title = _("Instances")
+
+    def has_prev_data(self, table):
+        return getattr(self, "_prev", False)
 
     def has_more_data(self, table):
         return self._more
@@ -70,7 +74,7 @@ class IndexView(tables.DataTableView):
         # Gather our flavors to correlate our instances to them
         try:
             flavors = api.nova.flavor_list(self.request)
-            return dict([(str(flavor.id), flavor) for flavor in flavors])
+            return dict((str(flavor.id), flavor) for flavor in flavors)
         except Exception:
             exceptions.handle(self.request, ignore=True)
             return {}
@@ -78,20 +82,34 @@ class IndexView(tables.DataTableView):
     def _get_images(self):
         # Gather our images to correlate our instances to them
         try:
+            # Community images have to be retrieved separately and merged,
+            # because their visibility has to be explicitly defined in the
+            # API call and the Glance API currently does not support filtering
+            # by multiple values in the visibility field.
             # TODO(gabriel): Handle pagination.
             images = api.glance.image_list_detailed(self.request)[0]
-            return dict([(str(image.id), image) for image in images])
+            community_images = api.glance.image_list_detailed(
+                self.request, filters={'visibility': 'community'})[0]
+            image_map = {
+                image.id: image for image in images
+            }
+            # Images have to be filtered by their uuids; some users
+            # have default access to certain community images.
+            for image in community_images:
+                image_map.setdefault(image.id, image)
+            return image_map
         except Exception:
             exceptions.handle(self.request, ignore=True)
             return {}
 
-    def _get_instances(self, search_opts):
+    def _get_instances(self, search_opts, sort_dir):
         try:
-            instances, self._more = api.nova.server_list(
+            instances, self._more, self._prev = api.nova.server_list_paged(
                 self.request,
-                search_opts=search_opts)
+                search_opts=search_opts,
+                sort_dir=sort_dir)
         except Exception:
-            self._more = False
+            self._more = self._prev = False
             instances = []
             exceptions.handle(self.request,
                               _('Unable to retrieve instances.'))
@@ -108,8 +126,7 @@ class IndexView(tables.DataTableView):
         # nova network info cache is not synced. Precisely there is no
         # need to check IP addresses of all servers. It is sufficient to
         # fetch IP address information for servers recently updated.
-        if not getattr(settings,
-                       'OPENSTACK_INSTANCE_RETRIEVE_IP_ADDRESSES', True):
+        if not settings.OPENSTACK_INSTANCE_RETRIEVE_IP_ADDRESSES:
             return instances
         try:
             api.network.servers_update_addresses(self.request, instances)
@@ -121,13 +138,23 @@ class IndexView(tables.DataTableView):
 
         return instances
 
+    def _get_volumes(self):
+        # Gather our volumes to get their image metadata for instance
+        try:
+            volumes = api.cinder.volume_list(self.request)
+            return dict((str(volume.id), volume) for volume in volumes)
+        except Exception:
+            exceptions.handle(self.request, ignore=True)
+            return {}
+
     def get_data(self):
-        marker = self.request.GET.get(
-            project_tables.InstancesTable._meta.pagination_param, None)
+        marker, sort_dir = self._get_marker()
         search_opts = self.get_filters({'marker': marker, 'paginate': True})
 
-        image_dict, flavor_dict = futurist_utils.call_functions_parallel(
-            self._get_images, self._get_flavors)
+        image_dict, flavor_dict, volume_dict = \
+            futurist_utils.call_functions_parallel(
+                self._get_images, self._get_flavors, self._get_volumes
+            )
 
         non_api_filter_info = (
             ('image_name', 'image', image_dict.values()),
@@ -137,21 +164,11 @@ class IndexView(tables.DataTableView):
             self._more = False
             return []
 
-        instances = self._get_instances(search_opts)
+        instances = self._get_instances(search_opts, sort_dir)
 
         # Loop through instances to get flavor info.
         for instance in instances:
-            if hasattr(instance, 'image'):
-                # Instance from image returns dict
-                if isinstance(instance.image, dict):
-                    image_id = instance.image.get('id')
-                    if image_id in image_dict:
-                        instance.image = image_dict[image_id]
-                    # In case image not found in image_dict, set name to empty
-                    # to avoid fallback API call to Glance in api/nova.py
-                    # until the call is deprecated in api itself
-                    else:
-                        instance.image['name'] = _("-")
+            self._populate_image_info(instance, image_dict, volume_dict)
 
             flavor_id = instance.flavor["id"]
             if flavor_id in flavor_dict:
@@ -163,6 +180,49 @@ class IndexView(tables.DataTableView):
                          flavor_id, instance.id)
 
         return instances
+
+    def _populate_image_info(self, instance, image_dict, volume_dict):
+        if not hasattr(instance, 'image'):
+            return
+        # Instance from image returns dict
+        if isinstance(instance.image, dict):
+            image_id = instance.image.get('id')
+            if image_id in image_dict:
+                instance.image = image_dict[image_id]
+            # In case image not found in image_dict, set name to empty
+            # to avoid fallback API call to Glance in api/nova.py
+            # until the call is deprecated in api itself
+            else:
+                instance.image['name'] = _("-")
+        # Otherwise trying to get image from volume metadata
+        else:
+            instance_volumes = [
+                attachment
+                for volume in volume_dict.values()
+                for attachment in volume.attachments
+                if attachment['server_id'] == instance.id
+            ]
+            # While instance from volume is being created,
+            # it does not have volumes
+            if not instance_volumes:
+                return
+            # Sorting attached volumes by device name (eg '/dev/sda')
+            instance_volumes.sort(key=lambda attach: attach['device'])
+            # Getting volume object, which is as attached
+            # as the first device
+            boot_volume = volume_dict[instance_volumes[0]['id']]
+            # There is a case where volume_image_metadata contains
+            # only fields other than 'image_id' (See bug 1834747),
+            # so we try to populate image information only when it is found.
+            volume_metadata = getattr(boot_volume, "volume_image_metadata", {})
+            image_id = volume_metadata.get('image_id')
+            if image_id:
+                try:
+                    instance.image = image_dict[image_id]
+                except KeyError:
+                    # KeyError occurs when volume was created from image and
+                    # then this image is deleted.
+                    pass
 
 
 def process_non_api_filters(search_opts, non_api_filter_info):
@@ -204,14 +264,15 @@ class LaunchInstanceView(workflows.WorkflowView):
     workflow_class = project_workflows.LaunchInstance
 
     def get_initial(self):
-        initial = super(LaunchInstanceView, self).get_initial()
+        initial = super().get_initial()
         initial['project_id'] = self.request.user.tenant_id
         initial['user_id'] = self.request.user.id
-        defaults = getattr(settings, 'LAUNCH_INSTANCE_DEFAULTS', {})
-        initial['config_drive'] = defaults.get('config_drive', False)
+        initial['config_drive'] = setting_utils.get_dict_config(
+            'LAUNCH_INSTANCE_DEFAULTS', 'config_drive')
         return initial
 
 
+# TODO(stephenfin): Migrate to CBV
 def console(request, instance_id):
     data = _('Unable to get log for instance "%s".') % instance_id
     tail = request.GET.get('length')
@@ -228,8 +289,9 @@ def console(request, instance_id):
     return http.HttpResponse(data.encode('utf-8'), content_type='text/plain')
 
 
+# TODO(stephenfin): Migrate to CBV
 def auto_console(request, instance_id):
-    console_type = getattr(settings, 'CONSOLE_TYPE', 'AUTO')
+    console_type = settings.CONSOLE_TYPE
     try:
         instance = api.nova.server_get(request, instance_id)
         console_url = project_console.get_console(request, console_type,
@@ -241,6 +303,7 @@ def auto_console(request, instance_id):
         exceptions.handle(request, msg, redirect=redirect)
 
 
+# TODO(stephenfin): Migrate to CBV
 def vnc(request, instance_id):
     try:
         instance = api.nova.server_get(request, instance_id)
@@ -252,6 +315,7 @@ def vnc(request, instance_id):
         exceptions.handle(request, msg, redirect=redirect)
 
 
+# TODO(stephenfin): Migrate to CBV
 def mks(request, instance_id):
     try:
         instance = api.nova.server_get(request, instance_id)
@@ -263,6 +327,7 @@ def mks(request, instance_id):
         exceptions.handle(request, msg, redirect=redirect)
 
 
+# TODO(stephenfin): Migrate to CBV
 def spice(request, instance_id):
     try:
         instance = api.nova.server_get(request, instance_id)
@@ -275,6 +340,7 @@ def spice(request, instance_id):
         exceptions.handle(request, msg, redirect=redirect)
 
 
+# TODO(stephenfin): Migrate to CBV
 def rdp(request, instance_id):
     try:
         instance = api.nova.server_get(request, instance_id)
@@ -290,7 +356,7 @@ class SerialConsoleView(generic.TemplateView):
     template_name = 'serial_console.html'
 
     def get_context_data(self, **kwargs):
-        context = super(SerialConsoleView, self).get_context_data(**kwargs)
+        context = super().get_context_data(**kwargs)
         instance = None
         try:
             instance = api.nova.server_get(self.request,
@@ -320,7 +386,7 @@ class UpdateView(workflows.WorkflowView):
     success_url = reverse_lazy("horizon:project:instances:index")
 
     def get_context_data(self, **kwargs):
-        context = super(UpdateView, self).get_context_data(**kwargs)
+        context = super().get_context_data(**kwargs)
         context["instance_id"] = self.kwargs['instance_id']
         return context
 
@@ -335,7 +401,7 @@ class UpdateView(workflows.WorkflowView):
             exceptions.handle(self.request, msg, redirect=redirect)
 
     def get_initial(self):
-        initial = super(UpdateView, self).get_initial()
+        initial = super().get_initial()
         instance = self.get_object()
         initial.update({'instance_id': self.kwargs['instance_id'],
                         'name': getattr(instance, 'name', ''),
@@ -352,7 +418,7 @@ class RebuildView(forms.ModalFormView):
     submit_label = page_title
 
     def get_context_data(self, **kwargs):
-        context = super(RebuildView, self).get_context_data(**kwargs)
+        context = super().get_context_data(**kwargs)
         context['instance_id'] = self.kwargs['instance_id']
         context['can_set_server_password'] = api.nova.can_set_server_password()
         return context
@@ -381,7 +447,7 @@ class DecryptPasswordView(forms.ModalFormView):
     page_title = _("Retrieve Instance Password")
 
     def get_context_data(self, **kwargs):
-        context = super(DecryptPasswordView, self).get_context_data(**kwargs)
+        context = super().get_context_data(**kwargs)
         context['instance_id'] = self.kwargs['instance_id']
         context['keypair_name'] = self.kwargs['keypair_name']
         return context
@@ -396,10 +462,10 @@ class DisassociateView(forms.ModalFormView):
     template_name = 'project/instances/disassociate.html'
     success_url = reverse_lazy('horizon:project:instances:index')
     page_title = _("Disassociate floating IP")
-    submit_label = _("Disassocaite")
+    submit_label = _("Disassociate")
 
     def get_context_data(self, **kwargs):
-        context = super(DisassociateView, self).get_context_data(**kwargs)
+        context = super().get_context_data(**kwargs)
         context['instance_id'] = self.kwargs['instance_id']
         return context
 
@@ -416,7 +482,7 @@ class DetailView(tabs.TabView):
     volume_url = 'horizon:project:volumes:detail'
 
     def get_context_data(self, **kwargs):
-        context = super(DetailView, self).get_context_data(**kwargs)
+        context = super().get_context_data(**kwargs)
         instance = self.get_data()
         if instance.image:
             instance.image_url = reverse(self.image_url,
@@ -520,7 +586,7 @@ class ResizeView(workflows.WorkflowView):
     success_url = reverse_lazy("horizon:project:instances:index")
 
     def get_context_data(self, **kwargs):
-        context = super(ResizeView, self).get_context_data(**kwargs)
+        context = super().get_context_data(**kwargs)
         context["instance_id"] = self.kwargs['instance_id']
         return context
 
@@ -560,7 +626,7 @@ class ResizeView(workflows.WorkflowView):
                               redirect=redirect)
 
     def get_initial(self):
-        initial = super(ResizeView, self).get_initial()
+        initial = super().get_initial()
         _object = self.get_object()
         if _object:
             initial.update(
@@ -581,7 +647,7 @@ class AttachInterfaceView(forms.ModalFormView):
     success_url = reverse_lazy('horizon:project:instances:index')
 
     def get_context_data(self, **kwargs):
-        context = super(AttachInterfaceView, self).get_context_data(**kwargs)
+        context = super().get_context_data(**kwargs)
         context['instance_id'] = self.kwargs['instance_id']
         return context
 
@@ -614,7 +680,7 @@ class AttachVolumeView(forms.ModalFormView):
                 "volume_list": volume_list}
 
     def get_context_data(self, **kwargs):
-        context = super(AttachVolumeView, self).get_context_data(**kwargs)
+        context = super().get_context_data(**kwargs)
         context['instance_id'] = self.kwargs['instance_id']
         return context
 
@@ -634,7 +700,7 @@ class DetachVolumeView(forms.ModalFormView):
         return {"instance_id": self.kwargs["instance_id"]}
 
     def get_context_data(self, **kwargs):
-        context = super(DetachVolumeView, self).get_context_data(**kwargs)
+        context = super().get_context_data(**kwargs)
         context['instance_id'] = self.kwargs['instance_id']
         return context
 
@@ -648,7 +714,7 @@ class DetachInterfaceView(forms.ModalFormView):
     success_url = reverse_lazy('horizon:project:instances:index')
 
     def get_context_data(self, **kwargs):
-        context = super(DetachInterfaceView, self).get_context_data(**kwargs)
+        context = super().get_context_data(**kwargs)
         context['instance_id'] = self.kwargs['instance_id']
         return context
 
@@ -675,6 +741,25 @@ class UpdatePortView(port_views.UpdateView):
             exceptions.handle(self.request, msg, redirect=redirect)
 
     def get_initial(self):
-        initial = super(UpdatePortView, self).get_initial()
+        initial = super().get_initial()
         initial['instance_id'] = self.kwargs['instance_id']
         return initial
+
+
+class RescueView(forms.ModalFormView):
+    form_class = project_forms.RescueInstanceForm
+    template_name = 'project/instances/rescue.html'
+    submit_label = _("Confirm")
+    submit_url = "horizon:project:instances:rescue"
+    success_url = reverse_lazy('horizon:project:instances:index')
+    page_title = _("Rescue Instance")
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context["instance_id"] = self.kwargs['instance_id']
+        args = (self.kwargs['instance_id'],)
+        context['submit_url'] = reverse(self.submit_url, args=args)
+        return context
+
+    def get_initial(self):
+        return {'instance_id': self.kwargs["instance_id"]}

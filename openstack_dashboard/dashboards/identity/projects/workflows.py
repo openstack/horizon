@@ -43,7 +43,6 @@ LOG = logging.getLogger(__name__)
 
 INDEX_URL = "horizon:identity:projects:index"
 ADD_USER_URL = "horizon:identity:projects:create_user"
-PROJECT_GROUP_ENABLED = keystone.VERSIONS.active >= 3
 PROJECT_USER_MEMBER_SLUG = "update_members"
 PROJECT_GROUP_MEMBER_SLUG = "update_group_members"
 COMMON_HORIZONTAL_TEMPLATE = "identity/projects/_common_horizontal_form.html"
@@ -54,7 +53,7 @@ class CommonQuotaAction(workflows.Action):
     _quota_fields = None
 
     def __init__(self, request, *args, **kwargs):
-        super(CommonQuotaAction, self).__init__(request, *args, **kwargs)
+        super().__init__(request, *args, **kwargs)
         disabled_quotas = self.initial['disabled_quotas']
         for field in disabled_quotas:
             if field in self.fields:
@@ -62,7 +61,7 @@ class CommonQuotaAction(workflows.Action):
                 self.fields[field].widget = forms.HiddenInput()
 
     def clean(self):
-        cleaned_data = super(CommonQuotaAction, self).clean()
+        cleaned_data = super().clean()
         usages = quotas.tenant_quota_usages(
             self.request, tenant_id=self.initial['project_id'],
             targets=tuple(self._quota_fields))
@@ -229,19 +228,15 @@ class CreateProjectInfoAction(workflows.Action):
                                  initial=True)
 
     def __init__(self, request, *args, **kwargs):
-        super(CreateProjectInfoAction, self).__init__(request,
-                                                      *args,
-                                                      **kwargs)
-        # For keystone V3, display the two fields in read-only
-        if keystone.VERSIONS.active >= 3:
-            readonlyInput = forms.TextInput(attrs={'readonly': 'readonly'})
-            self.fields["domain_id"].widget = readonlyInput
-            self.fields["domain_name"].widget = readonlyInput
-            self.add_extra_fields()
+        super().__init__(request, *args, **kwargs)
+        readonlyInput = forms.TextInput(attrs={'readonly': 'readonly'})
+        self.fields["domain_id"].widget = readonlyInput
+        self.fields["domain_name"].widget = readonlyInput
+        self.add_extra_fields()
 
     def add_extra_fields(self):
         # add extra column defined by setting
-        EXTRA_INFO = getattr(settings, 'PROJECT_TABLE_EXTRA_INFO', {})
+        EXTRA_INFO = settings.PROJECT_TABLE_EXTRA_INFO
         for key, value in EXTRA_INFO.items():
             form = forms.CharField(label=value, required=False,)
             self.fields[key] = form
@@ -262,17 +257,14 @@ class CreateProjectInfo(workflows.Step):
                    "enabled")
 
     def __init__(self, workflow):
-        super(CreateProjectInfo, self).__init__(workflow)
-        if keystone.VERSIONS.active >= 3:
-            EXTRA_INFO = getattr(settings, 'PROJECT_TABLE_EXTRA_INFO', {})
-            self.contributes += tuple(EXTRA_INFO.keys())
+        super().__init__(workflow)
+        EXTRA_INFO = settings.PROJECT_TABLE_EXTRA_INFO
+        self.contributes += tuple(EXTRA_INFO.keys())
 
 
 class UpdateProjectMembersAction(workflows.MembershipAction):
     def __init__(self, request, *args, **kwargs):
-        super(UpdateProjectMembersAction, self).__init__(request,
-                                                         *args,
-                                                         **kwargs)
+        super().__init__(request, *args, **kwargs)
         err_msg = _('Unable to retrieve user list. Please try again later.')
         # Use the domain_id from the project
         domain_id = self.initial.get("domain_id", None)
@@ -286,8 +278,7 @@ class UpdateProjectMembersAction(workflows.MembershipAction):
             default_role = keystone.get_default_role(self.request)
             # Default role is necessary to add members to a project
             if default_role is None:
-                default = getattr(settings,
-                                  "OPENSTACK_KEYSTONE_DEFAULT_ROLE", None)
+                default = settings.OPENSTACK_KEYSTONE_DEFAULT_ROLE
                 msg = (_('Could not find default role "%s" in Keystone') %
                        default)
                 raise exceptions.NotFound(msg)
@@ -369,9 +360,7 @@ class UpdateProjectMembers(workflows.UpdateMembersStep):
 
 class UpdateProjectGroupsAction(workflows.MembershipAction):
     def __init__(self, request, *args, **kwargs):
-        super(UpdateProjectGroupsAction, self).__init__(request,
-                                                        *args,
-                                                        **kwargs)
+        super().__init__(request, *args, **kwargs)
         err_msg = _('Unable to retrieve group list. Please try again later.')
         # Use the domain_id from the project
         domain_id = self.initial.get("domain_id", None)
@@ -384,8 +373,7 @@ class UpdateProjectGroupsAction(workflows.MembershipAction):
             default_role = api.keystone.get_default_role(self.request)
             # Default role is necessary to add members to a project
             if default_role is None:
-                default = getattr(settings,
-                                  "OPENSTACK_KEYSTONE_DEFAULT_ROLE", None)
+                default = settings.OPENSTACK_KEYSTONE_DEFAULT_ROLE
                 msg = (_('Could not find default role "%s" in Keystone') %
                        default)
                 raise exceptions.NotFound(msg)
@@ -480,32 +468,24 @@ class CreateProject(workflows.Workflow):
 
     def __init__(self, request=None, context_seed=None, entry_point=None,
                  *args, **kwargs):
-        if PROJECT_GROUP_ENABLED:
-            self.default_steps = (CreateProjectInfo,
-                                  UpdateProjectMembers,
-                                  UpdateProjectGroups)
-        super(CreateProject, self).__init__(request=request,
-                                            context_seed=context_seed,
-                                            entry_point=entry_point,
-                                            *args,
-                                            **kwargs)
+        self.default_steps = (CreateProjectInfo,
+                              UpdateProjectMembers,
+                              UpdateProjectGroups)
+        super().__init__(request=request, context_seed=context_seed,
+                         entry_point=entry_point, *args, **kwargs)
 
     def format_status_message(self, message):
         if "%s" in message:
             return message % self.context.get('name', 'unknown project')
-        else:
-            return message
+        return message
 
     def _create_project(self, request, data):
         # create the project
         domain_id = data['domain_id']
         try:
             # add extra information
-            if keystone.VERSIONS.active >= 3:
-                EXTRA_INFO = getattr(settings, 'PROJECT_TABLE_EXTRA_INFO', {})
-                kwargs = dict((key, data.get(key)) for key in EXTRA_INFO)
-            else:
-                kwargs = {}
+            EXTRA_INFO = settings.PROJECT_TABLE_EXTRA_INFO
+            kwargs = dict((key, data.get(key)) for key in EXTRA_INFO)
 
             desc = data['description']
             self.object = api.keystone.tenant_create(request,
@@ -547,10 +527,7 @@ class CreateProject(workflows.Workflow):
                     users_added += 1
                 users_to_add -= users_added
         except Exception:
-            if PROJECT_GROUP_ENABLED:
-                group_msg = _(", add project groups")
-            else:
-                group_msg = ""
+            group_msg = _(", add project groups")
             exceptions.handle(request,
                               _('Failed to add %(users_to_add)s project '
                                 'members%(group_msg)s and set project quotas.')
@@ -593,8 +570,7 @@ class CreateProject(workflows.Workflow):
             return False
         project_id = project.id
         self._update_project_members(request, data, project_id)
-        if PROJECT_GROUP_ENABLED:
-            self._update_project_groups(request, data, project_id)
+        self._update_project_groups(request, data, project_id)
         return True
 
 
@@ -605,15 +581,14 @@ class UpdateProjectInfoAction(CreateProjectInfoAction):
                                   widget=forms.HiddenInput())
 
     def __init__(self, request, initial, *args, **kwargs):
-        super(UpdateProjectInfoAction, self).__init__(
-            request, initial, *args, **kwargs)
+        super().__init__(request, initial, *args, **kwargs)
         if initial['project_id'] == request.user.project_id:
             self.fields['enabled'].widget.attrs['disabled'] = True
             self.fields['enabled'].help_text = _(
                 'You cannot disable your current project')
 
     def clean(self):
-        cleaned_data = super(UpdateProjectInfoAction, self).clean()
+        cleaned_data = super().clean()
         # NOTE(tsufiev): in case the current project is being edited, its
         # 'enabled' field is disabled to prevent changing the field value
         # which is always `True` for the current project (because the user
@@ -641,10 +616,9 @@ class UpdateProjectInfo(workflows.Step):
                    "enabled")
 
     def __init__(self, workflow):
-        super(UpdateProjectInfo, self).__init__(workflow)
-        if keystone.VERSIONS.active >= 3:
-            EXTRA_INFO = getattr(settings, 'PROJECT_TABLE_EXTRA_INFO', {})
-            self.contributes += tuple(EXTRA_INFO.keys())
+        super().__init__(workflow)
+        EXTRA_INFO = settings.PROJECT_TABLE_EXTRA_INFO
+        self.contributes += tuple(EXTRA_INFO.keys())
 
 
 class UpdateProject(workflows.Workflow):
@@ -659,22 +633,17 @@ class UpdateProject(workflows.Workflow):
 
     def __init__(self, request=None, context_seed=None, entry_point=None,
                  *args, **kwargs):
-        if PROJECT_GROUP_ENABLED:
-            self.default_steps = (UpdateProjectInfo,
-                                  UpdateProjectMembers,
-                                  UpdateProjectGroups)
+        self.default_steps = (UpdateProjectInfo,
+                              UpdateProjectMembers,
+                              UpdateProjectGroups)
 
-        super(UpdateProject, self).__init__(request=request,
-                                            context_seed=context_seed,
-                                            entry_point=entry_point,
-                                            *args,
-                                            **kwargs)
+        super().__init__(request=request, context_seed=context_seed,
+                         entry_point=entry_point, *args, **kwargs)
 
     def format_status_message(self, message):
         if "%s" in message:
             return message % self.context.get('name', 'unknown project')
-        else:
-            return message
+        return message
 
     @memoized.memoized_method
     def _get_available_roles(self, request):
@@ -687,11 +656,8 @@ class UpdateProject(workflows.Workflow):
             project_id = data['project_id']
 
             # add extra information
-            if keystone.VERSIONS.active >= 3:
-                EXTRA_INFO = getattr(settings, 'PROJECT_TABLE_EXTRA_INFO', {})
-                kwargs = dict((key, data.get(key)) for key in EXTRA_INFO)
-            else:
-                kwargs = {}
+            EXTRA_INFO = settings.PROJECT_TABLE_EXTRA_INFO
+            kwargs = dict((key, data.get(key)) for key in EXTRA_INFO)
 
             return api.keystone.tenant_update(
                 request,
@@ -752,7 +718,7 @@ class UpdateProject(workflows.Workflow):
                                     if role.name.lower() in _admin_roles]
         admin_roles = [role for role in current_role_ids
                        if role in available_admin_role_ids]
-        if len(admin_roles):
+        if admin_roles:
             removing_admin = any([role in current_role_ids
                                   for role in admin_roles])
         else:
@@ -767,8 +733,7 @@ class UpdateProject(workflows.Workflow):
                     'administrative role manually via the CLI.')
             messages.warning(request, msg)
             return True
-        else:
-            return False
+        return False
 
     def _update_project_members(self, request, data, project_id):
         # update project members
@@ -794,7 +759,7 @@ class UpdateProject(workflows.Workflow):
                                                domain=data['domain_id'])
             users_dict = {user.id: user.name for user in all_users}
 
-            for user_id in users_roles.keys():
+            for user_id in users_roles:
                 # Don't remove roles if the user isn't in the domain
                 if user_id not in users_dict:
                     users_to_modify -= 1
@@ -834,10 +799,7 @@ class UpdateProject(workflows.Workflow):
                 users_to_modify -= users_added
             return True
         except Exception:
-            if PROJECT_GROUP_ENABLED:
-                group_msg = _(", update project groups")
-            else:
-                group_msg = ""
+            group_msg = _(", update project groups")
             exceptions.handle(request,
                               _('Failed to modify %(users_to_modify)s'
                                 ' project members%(group_msg)s and '
@@ -902,9 +864,9 @@ class UpdateProject(workflows.Workflow):
             for role in available_roles:
                 groups_added = 0
                 field_name = member_step.get_member_field_name(role.id)
+                project_group_ids = [x.id for x in project_groups]
                 for group_id in data[field_name]:
-                    if not list(filter(lambda x: group_id == x.id,
-                                       project_groups)):
+                    if group_id not in project_group_ids:
                         api.keystone.add_group_role(request,
                                                     role=role.id,
                                                     group=group_id,
@@ -937,10 +899,9 @@ class UpdateProject(workflows.Workflow):
         if not ret:
             return False
 
-        if PROJECT_GROUP_ENABLED:
-            ret = self._update_project_groups(request, data,
-                                              project_id, domain_id)
-            if not ret:
-                return False
+        ret = self._update_project_groups(request, data,
+                                          project_id, domain_id)
+        if not ret:
+            return False
 
         return True

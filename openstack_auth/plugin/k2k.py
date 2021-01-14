@@ -44,13 +44,10 @@ class K2KAuthPlugin(base.BasePlugin):
 
         # Avoid mutable default arg for plugins
         plugins = plugins or []
+        if not service_provider:
+            return
 
-        # service_provider being None prevents infinite recursion
-        if utils.get_keystone_version() < 3 or not service_provider:
-            return None
-
-        keystone_idp_id = getattr(settings, 'KEYSTONE_PROVIDER_IDP_ID',
-                                  'localkeystone')
+        keystone_idp_id = settings.KEYSTONE_PROVIDER_IDP_ID
         if service_provider == keystone_idp_id:
             return None
 
@@ -70,7 +67,8 @@ class K2KAuthPlugin(base.BasePlugin):
             self, unscoped_idp_auth)
         try:
             scoped_idp_auth, __ = self.get_project_scoped_auth(
-                unscoped_idp_auth, unscoped_auth_ref)
+                unscoped_idp_auth, unscoped_auth_ref,
+                recent_project=kwargs['recent_project'])
         except exceptions.KeystoneAuthException as idp_excp:
             idp_exception = idp_excp
 
@@ -95,7 +93,7 @@ class K2KAuthPlugin(base.BasePlugin):
         We attempt to get the auth ref. If it fails and if the K2K auth plugin
         was being used then we will prepend a message saying that the error was
         on the service provider side.
-        :param: unscoped_auth: Keystone auth plugin for unscoped user
+        :param unscoped_auth: Keystone auth plugin for unscoped user
         :returns: keystoneclient.access.AccessInfo object
         """
         try:

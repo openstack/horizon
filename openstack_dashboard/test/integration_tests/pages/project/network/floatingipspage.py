@@ -58,7 +58,7 @@ class FloatingipsPage(basepage.BaseNavigationPage):
         by.By.CSS_SELECTOR, '.alert.alert-success.alert-dismissable.fade.in>p')
 
     def __init__(self, driver, conf):
-        super(FloatingipsPage, self).__init__(driver, conf)
+        super().__init__(driver, conf)
         self._page_title = "Floating IPs"
 
     def _get_row_with_floatingip(self, floatingip):

@@ -1,18 +1,38 @@
 # Akihiro Motoki <amotoki@gmail.com>, 2018. #zanata
+# Akihiro Motoki <amotoki@gmail.com>, 2019. #zanata
+# Michele Valsecchi <mvalsecc@redhat.com>, 2019. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 15.0.0.0b2.dev33\n"
+"Project-Id-Version: horizon 19.0.1.dev6\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-11-06 17:10-0600\n"
+"POT-Creation-Date: 2020-12-15 21:05+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2018-08-14 09:34+0000\n"
-"Last-Translator: Akihiro Motoki <amotoki@gmail.com>\n"
+"PO-Revision-Date: 2019-10-01 01:21+0000\n"
+"Last-Translator: Michele Valsecchi <mvalsecc@redhat.com>\n"
 "Language-Team: Japanese\n"
 "Language: ja\n"
 "X-Generator: Zanata 4.3.3\n"
 "Plural-Forms: nplurals=1; plural=0\n"
+
+msgid ":launchpad:`neutron-vpnaas-dashboard`"
+msgstr ":launchpad:`neutron-vpnaas-dashboard`"
+
+msgid ":opendev-repo:`openstack/neutron-vpnaas-dashboard`"
+msgstr ":opendev-repo:`openstack/neutron-vpnaas-dashboard`"
+
+msgid ":opendev-repo:`openstack/octavia-dashboard`"
+msgstr ":opendev-repo:`openstack/octavia-dashboard`"
+
+msgid ":opendev-repo:`openstack/sahara-dashboard`"
+msgstr ":opendev-repo:`openstack/sahara-dashboard`"
+
+msgid ":storyboard:`openstack/octavia-dashboard`"
+msgstr ":storyboard:`openstack/octavia-dashboard`"
+
+msgid ":storyboard:`openstack/sahara-dashboard`"
+msgstr ":storyboard:`openstack/sahara-dashboard`"
 
 msgid ""
 "ALLOWED_HOSTS can also be ['*'] to accept all hosts. This may be useful for "
@@ -52,12 +72,6 @@ msgstr ""
 "``admin`` ユーザーまたは ``demo`` ユーザーと ``default`` ドメインのクレデン"
 "シャルで認証を行います。"
 
-msgid "BGPVPN Dashboard"
-msgstr "BGPVPN Dashboard"
-
-msgid "Blazar Dashboard"
-msgstr "Blazar Dashboard"
-
 msgid "Bug Tracker"
 msgstr "バグ管理システム"
 
@@ -66,9 +80,6 @@ msgstr "キャッシュ付きデータベース"
 
 msgid "Clone Horizon"
 msgstr "horizon を取得します。"
-
-msgid "Cloudkitty Dashboard"
-msgstr "Cloudkitty Dashboard"
 
 msgid "Comment out any other session storage configuration."
 msgstr "それ以外のすべてのセッションストレージ設定をコメントアウトします。"
@@ -105,9 +116,6 @@ msgstr ""
 msgid "Configure the web server:"
 msgstr "ウェブサーバーを設定します。"
 
-msgid "Congress Dashboard"
-msgstr "Congress Dashboard"
-
 msgid ""
 "Create ``openstack_dashboard/local/local_settings.py``. It is usually a good "
 "idea to copy ``openstack_dashboard/local/local_settings.py.example`` and "
@@ -130,12 +138,6 @@ msgstr ""
 "既存のセクションとオプションを編集するのではなく、追加する必要があるかもしれ"
 "ません。また、設定のスニペットにある 省略 (``...``) は、保持すべきデフォルト"
 "の設定オプションを意味します。"
-
-msgid "Designate Dashboard"
-msgstr "Designate Dashboard"
-
-msgid "Django 1.11 or 2.0"
-msgstr "Django 1.11 または 2.0"
 
 msgid ""
 "Do not edit the ``ALLOWED_HOSTS`` parameter under the Ubuntu configuration "
@@ -186,15 +188,6 @@ msgstr ""
 "システム要件については :ref:`こちら <system-requirements>` を参照してくださ"
 "い。"
 
-msgid "Freezer Web UI"
-msgstr "Freezer Web UI"
-
-msgid "Group Based Policy UI"
-msgstr "Group Based Policy UI"
-
-msgid "Heat Dashboard"
-msgstr "Heat Dashboard"
-
 msgid "Horizon plugins"
 msgstr "horizon プラグイン"
 
@@ -244,20 +237,8 @@ msgstr "パッケージからのインストール"
 msgid "Installing from Source"
 msgstr "ソースからのインストール"
 
-msgid "Ironic UI"
-msgstr "Ironic UI"
-
-msgid "Karbor Dashboard"
-msgstr "Karbor Dashboard"
-
 msgid "Logging"
 msgstr "ログ"
-
-msgid "Magnum UI"
-msgstr "Magnum UI"
-
-msgid "Manila UI"
-msgstr "Manila UI"
 
 msgid "Manual installation"
 msgstr "手動でのインストール"
@@ -268,32 +249,11 @@ msgstr "memcached"
 msgid "Memcached service running and accessible"
 msgstr "memcached サービスが動作していてアクセスできること"
 
-msgid "Mistral Dashboard"
-msgstr "Mistral Dashboard"
-
-msgid "Monasca UI"
-msgstr "Monasca UI"
-
-msgid "Murano Dashboard"
-msgstr "Murano Dashboard"
-
-msgid "Neutron FWaaS Dashboard"
-msgstr "Neutron FWaaS Dashboard"
-
-msgid "Neutron LBaaS Dashboard"
-msgstr "Neutron LBaaS Dashboard"
-
-msgid "Neutron VPNaaS Dashboard"
-msgstr "Neutron VPNaaS Dashboard"
-
 msgid "Next Steps"
 msgstr "次の手順"
 
 msgid "Next steps"
 msgstr "次の手順"
-
-msgid "Octavia Dashboard"
-msgstr "Octavia Dashboard"
 
 msgid "Optionally, configure the time zone:"
 msgstr "必要であれば、タイムゾーンを設定します。"
@@ -314,9 +274,6 @@ msgstr ""
 "IP アドレス、ユーザー名、パスワードのユーザーへの通知。接続で SSL 証明書に関"
 "する問題がある場合、サーバーの IP アドレスがドメイン名を指すようにして、ユー"
 "ザーがドメイン名にアクセスするようにします。"
-
-msgid "Python 2.7 or 3.5"
-msgstr "Python 2.7 または 3.5"
 
 msgid "Python memcached module installed"
 msgstr "python の memcached モジュールがインストールされていること"
@@ -342,15 +299,6 @@ msgstr "ウェブサーバー設定のプロンプトに答えます。"
 msgid "Restart the web server and session storage service:"
 msgstr "ウェブサーバーとセッションストレージサービスを再起動します。"
 
-msgid "Sahara Dashboard"
-msgstr "Sahara Dashboard"
-
-msgid "Searchlight UI"
-msgstr "Searchlight UI"
-
-msgid "Senlin Dashboard"
-msgstr "Senlin Dashboard"
-
 msgid "Session Storage"
 msgstr "セッションストレージ"
 
@@ -367,17 +315,14 @@ msgstr ""
 msgid "Set to your domain name(s)"
 msgstr "使用するドメイン名に設定します。"
 
-msgid "Solum Dashboard"
-msgstr "Solum Dashboard"
+msgid "Settings"
+msgstr "設定"
 
 msgid "Static Assets"
 msgstr "静的なファイル"
 
 msgid "System Requirements"
 msgstr "システム要件"
-
-msgid "Tacker UI"
-msgstr "Tacker UI"
 
 msgid ""
 "The ``systemctl restart`` command starts each service if not currently "
@@ -454,15 +399,6 @@ msgstr ""
 msgid "Translations"
 msgstr "翻訳"
 
-msgid "TripleO UI"
-msgstr "TripleO UI"
-
-msgid "Trove Dashboard"
-msgstr "Trove Dashboard"
-
-msgid "URL"
-msgstr "URL"
-
 msgid "Verify operation for Debian"
 msgstr "動作検証 (Debian)"
 
@@ -478,20 +414,8 @@ msgstr "動作検証 (openSUSE, SUSE Linux Enterprise)"
 msgid "Verify operation of the dashboard."
 msgstr "ダッシュボードの動作を検証します。"
 
-msgid "Vitrage Dashboard"
-msgstr "Vitrage Dashboard"
-
-msgid "Watcher Dashboard"
-msgstr "Watcher Dashboard"
-
 msgid "Your OpenStack environment now includes the dashboard."
 msgstr "OpenStack 環境にダッシュボードが追加されました。"
-
-msgid "Zaqar UI"
-msgstr "Zaqar UI"
-
-msgid "Zun UI"
-msgstr "Zun UI"
 
 msgid "``ALLOWED_HOSTS``"
 msgstr "``ALLOWED_HOSTS``"
@@ -543,180 +467,3 @@ msgstr "`nova <https://docs.openstack.org/nova/latest/>`_: コンピュート"
 msgid "`swift <https://docs.openstack.org/swift/latest/>`_: Object Storage"
 msgstr ""
 "`swift <https://docs.openstack.org/swift/latest/>`_: オブジェクトストレージ"
-
-msgid "https://github.com/openstack/blazar-dashboard"
-msgstr "https://github.com/openstack/blazar-dashboard"
-
-msgid "https://github.com/openstack/cloudkitty-dashboard"
-msgstr "https://github.com/openstack/cloudkitty-dashboard"
-
-msgid "https://github.com/openstack/congress-dashboard"
-msgstr "https://github.com/openstack/congress-dashboard"
-
-msgid "https://github.com/openstack/designate-dashboard"
-msgstr "https://github.com/openstack/designate-dashboard"
-
-msgid "https://github.com/openstack/freezer-web-ui"
-msgstr "https://github.com/openstack/freezer-web-ui"
-
-msgid "https://github.com/openstack/group-based-policy-ui"
-msgstr "https://github.com/openstack/group-based-policy-ui"
-
-msgid "https://github.com/openstack/heat-dashboard"
-msgstr "https://github.com/openstack/heat-dashboard"
-
-msgid "https://github.com/openstack/ironic-ui"
-msgstr "https://github.com/openstack/ironic-ui"
-
-msgid "https://github.com/openstack/karbor-dashboard"
-msgstr "https://github.com/openstack/karbor-dashboard"
-
-msgid "https://github.com/openstack/magnum-ui"
-msgstr "https://github.com/openstack/magnum-ui"
-
-msgid "https://github.com/openstack/manila-ui"
-msgstr "https://github.com/openstack/manila-ui"
-
-msgid "https://github.com/openstack/mistral-dashboard"
-msgstr "https://github.com/openstack/mistral-dashboard"
-
-msgid "https://github.com/openstack/monasca-ui"
-msgstr "https://github.com/openstack/monasca-ui"
-
-msgid "https://github.com/openstack/murano-dashboard"
-msgstr "https://github.com/openstack/murano-dashboard"
-
-msgid "https://github.com/openstack/networking-bgpvpn"
-msgstr "https://github.com/openstack/networking-bgpvpn"
-
-msgid "https://github.com/openstack/neutron-fwaas-dashboard"
-msgstr "https://github.com/openstack/neutron-fwaas-dashboard"
-
-msgid "https://github.com/openstack/neutron-lbaas-dashboard"
-msgstr "https://github.com/openstack/neutron-lbaas-dashboard"
-
-msgid "https://github.com/openstack/neutron-vpnaas-dashboard"
-msgstr "https://github.com/openstack/neutron-vpnaas-dashboard"
-
-msgid "https://github.com/openstack/octavia-dashboard"
-msgstr "https://github.com/openstack/octavia-dashboard"
-
-msgid "https://github.com/openstack/sahara-dashboard"
-msgstr "https://github.com/openstack/sahara-dashboard"
-
-msgid "https://github.com/openstack/searchlight-ui"
-msgstr "https://github.com/openstack/searchlight-ui"
-
-msgid "https://github.com/openstack/senlin-dashboard"
-msgstr "https://github.com/openstack/senlin-dashboard"
-
-msgid "https://github.com/openstack/solum-dashboard"
-msgstr "https://github.com/openstack/solum-dashboard"
-
-msgid "https://github.com/openstack/tacker-horizon"
-msgstr "https://github.com/openstack/tacker-horizon"
-
-msgid "https://github.com/openstack/tripleo-ui/"
-msgstr "https://github.com/openstack/tripleo-ui/"
-
-msgid "https://github.com/openstack/trove-dashboard"
-msgstr "https://github.com/openstack/trove-dashboard"
-
-msgid "https://github.com/openstack/vitrage-dashboard"
-msgstr "https://github.com/openstack/vitrage-dashboard"
-
-msgid "https://github.com/openstack/watcher-dashboard"
-msgstr "https://github.com/openstack/watcher-dashboard"
-
-msgid "https://github.com/openstack/zaqar-ui"
-msgstr "https://github.com/openstack/zaqar-ui"
-
-msgid "https://github.com/openstack/zun-ui"
-msgstr "https://github.com/openstack/zun-ui"
-
-msgid "https://launchpad.net/bgpvpn"
-msgstr "https://launchpad.net/bgpvpn"
-
-msgid "https://launchpad.net/blazar"
-msgstr "https://launchpad.net/blazar"
-
-msgid "https://launchpad.net/cloudkitty"
-msgstr "https://launchpad.net/cloudkitty"
-
-msgid "https://launchpad.net/congress"
-msgstr "https://launchpad.net/congress"
-
-msgid "https://launchpad.net/designate-dashboard"
-msgstr "https://launchpad.net/designate-dashboard"
-
-msgid "https://launchpad.net/freezer"
-msgstr "https://launchpad.net/freezer"
-
-msgid "https://launchpad.net/group-based-policy-ui"
-msgstr "https://launchpad.net/group-based-policy-ui"
-
-msgid "https://launchpad.net/ironic-ui"
-msgstr "https://launchpad.net/ironic-ui"
-
-msgid "https://launchpad.net/karbor-dashboard"
-msgstr "https://launchpad.net/karbor-dashboard"
-
-msgid "https://launchpad.net/magnum-ui"
-msgstr "https://launchpad.net/magnum-ui"
-
-msgid "https://launchpad.net/manila-ui"
-msgstr "https://launchpad.net/manila-ui"
-
-msgid "https://launchpad.net/mistral"
-msgstr "https://launchpad.net/mistral"
-
-msgid "https://launchpad.net/monasca"
-msgstr "https://launchpad.net/monasca"
-
-msgid "https://launchpad.net/murano"
-msgstr "https://launchpad.net/murano"
-
-msgid "https://launchpad.net/neutron-fwaas-dashboard"
-msgstr "https://launchpad.net/neutron-fwaas-dashboard"
-
-msgid "https://launchpad.net/neutron-vpnaas-dashboard"
-msgstr "https://launchpad.net/neutron-vpnaas-dashboard"
-
-msgid "https://launchpad.net/senlin-dashboard"
-msgstr "https://launchpad.net/senlin-dashboard"
-
-msgid "https://launchpad.net/solum"
-msgstr "https://launchpad.net/solum"
-
-msgid "https://launchpad.net/tacker"
-msgstr "https://launchpad.net/tacker"
-
-msgid "https://launchpad.net/tripleo"
-msgstr "https://launchpad.net/tripleo"
-
-msgid "https://launchpad.net/trove-dashboard"
-msgstr "https://launchpad.net/trove-dashboard"
-
-msgid "https://launchpad.net/vitrage-dashboard"
-msgstr "https://launchpad.net/vitrage-dashboard"
-
-msgid "https://launchpad.net/watcher-dashboard"
-msgstr "https://launchpad.net/watcher-dashboard"
-
-msgid "https://launchpad.net/zaqar-ui"
-msgstr "https://launchpad.net/zaqar-ui"
-
-msgid "https://launchpad.net/zun-ui"
-msgstr "https://launchpad.net/zun-ui"
-
-msgid "https://storyboard.openstack.org/#!/project/907"
-msgstr "https://storyboard.openstack.org/#!/project/907"
-
-msgid "https://storyboard.openstack.org/#!/project/909"
-msgstr "https://storyboard.openstack.org/#!/project/909"
-
-msgid "https://storyboard.openstack.org/#!/project/936"
-msgstr "https://storyboard.openstack.org/#!/project/936"
-
-msgid "https://storyboard.openstack.org/#!/project/992"
-msgstr "https://storyboard.openstack.org/#!/project/992"

@@ -145,21 +145,12 @@ far beyond the scope of this documentation.
       }
 
 #. After configuring the ``local_settings.py`` file as shown, you can run the
-   :command:`manage.py syncdb` command to populate this newly created
+   :command:`manage.py migrate` command to populate this newly created
    database.
 
    .. code-block:: console
 
-      # /usr/share/openstack-dashboard/manage.py syncdb
-
-#. The following output is returned:
-
-   .. code-block:: console
-
-      Installing custom SQL ...
-      Installing indexes ...
-      DEBUG:django.db.backends:(0.008) CREATE INDEX `django_session_c25c2c28` ON `django_session` (`expire_date`);; args=()
-      No fixtures found.
+      # /usr/share/openstack-dashboard/manage.py migrate
 
 #. To avoid a warning when you restart Apache on Ubuntu, create a
    ``blackhole`` directory in the Dashboard directory, as follows.

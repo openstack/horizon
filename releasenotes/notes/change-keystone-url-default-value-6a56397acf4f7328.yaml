@@ -1,0 +1,6 @@
+---
+other:
+  - |
+    The default `OPENSTACK_KEYSTONE_URL` value has been changed to
+    ``"http://%s/identity/v3" % OPENSTACK_HOST`` from
+    ``"http://%s:5000/v3" % OPENSTACK_HOST``.

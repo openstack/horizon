@@ -13,11 +13,9 @@
 # License for the specific language governing permissions and limitations
 # under the License.
 
-from __future__ import absolute_import
-
 import os
 
-from six.moves.urllib.request import pathname2url
+from urllib.request import pathname2url
 
 from django.conf import settings
 from django.contrib.staticfiles.storage import staticfiles_storage

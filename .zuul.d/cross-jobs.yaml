@@ -1,0 +1,35 @@
+- project-template:
+    name: horizon-cross-jobs
+    check:
+      jobs:
+        - horizon-cross-manila-ui-python:
+            voting: false
+        - horizon-cross-ironic-ui-npm:
+            voting: false
+        - horizon-cross-heat-dashboard-python:
+            voting: false
+
+- job:
+    name: horizon-cross-manila-ui-python
+    parent: openstack-tox-py38
+    vars:
+      zuul_work_dir: "{{ zuul.projects['opendev.org/openstack/manila-ui'].src_dir }}"
+    required-projects:
+      - openstack/manila-ui
+
+- job:
+    name: horizon-cross-ironic-ui-npm
+    parent: horizon-nodejs10-run-test
+    pre-run: playbooks/cross-jobs/phantomjs-deps.yaml
+    vars:
+      zuul_work_dir: "{{ zuul.projects['opendev.org/openstack/ironic-ui'].src_dir }}"
+    required-projects:
+      - openstack/ironic-ui
+
+- job:
+    name: horizon-cross-heat-dashboard-python
+    parent: openstack-tox-py38
+    vars:
+      zuul_work_dir: "{{ zuul.projects['opendev.org/openstack/heat-dashboard'].src_dir }}"
+    required-projects:
+      - openstack/heat-dashboard

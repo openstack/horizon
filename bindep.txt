@@ -1,4 +1,5 @@
 # selenium tests
+ffmpeg [selenium]
 firefox [selenium]
 xvfb [selenium platform:dpkg]
 # already part of xorg-x11-server on openSUSE

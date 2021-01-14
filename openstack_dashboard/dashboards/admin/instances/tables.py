@@ -42,6 +42,10 @@ class AdminLogLink(project_tables.LogLink):
     url = "horizon:admin:instances:detail"
 
 
+class RescueInstance(project_tables.RescueInstance):
+    url = "horizon:admin:instances:rescue"
+
+
 class MigrateInstance(policy.PolicyTargetMixin, tables.BatchAction):
     name = "migrate"
     classes = ("btn-migrate",)
@@ -90,7 +94,7 @@ class LiveMigrateInstance(policy.PolicyTargetMixin,
 
 class AdminUpdateRow(project_tables.UpdateRow):
     def get_data(self, request, instance_id):
-        instance = super(AdminUpdateRow, self).get_data(request, instance_id)
+        instance = super().get_data(request, instance_id)
         try:
             tenant = api.keystone.tenant_get(request,
                                              instance.tenant_id,
@@ -178,7 +182,7 @@ class AdminInstancesTable(tables.DataTable):
                           verbose_name=_("Power State"),
                           display_choices=project_tables.POWER_DISPLAY_CHOICES)
     created = tables.Column("created",
-                            verbose_name=_("Time since created"),
+                            verbose_name=_("Age"),
                             filters=(filters.parse_isotime,
                                      filters.timesince_sortable),
                             attrs={'data-type': 'timesince'})
@@ -190,7 +194,9 @@ class AdminInstancesTable(tables.DataTable):
         table_actions = (project_tables.DeleteInstance,
                          AdminInstanceFilterAction)
         row_class = AdminUpdateRow
-        row_actions = (project_tables.ConfirmResize,
+        row_actions = (RescueInstance,
+                       project_tables.UnRescueInstance,
+                       project_tables.ConfirmResize,
                        project_tables.RevertResize,
                        AdminEditInstance,
                        AdminConsoleLink,

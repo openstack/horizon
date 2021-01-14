@@ -11,7 +11,8 @@
 #    under the License.
 import time
 
-from openstack_dashboard.test.integration_tests import decorators
+import pytest
+
 from openstack_dashboard.test.integration_tests import helpers
 from openstack_dashboard.test.integration_tests.regions import messages
 
@@ -63,7 +64,7 @@ class TestVolumesBasic(helpers.TestCase):
         volumes_page = self.volumes_page
         volumes_page.delete_volume(new_name)
         self.assertTrue(
-            volumes_page.find_message_and_dismiss(messages.SUCCESS))
+            volumes_page.find_message_and_dismiss(messages.INFO))
         self.assertFalse(
             volumes_page.find_message_and_dismiss(messages.ERROR))
         self.assertTrue(volumes_page.is_volume_deleted(new_name))
@@ -106,8 +107,13 @@ class TestVolumesBasic(helpers.TestCase):
                          range(count)]
         for volume_name in volumes_names:
             volumes_page.create_volume(volume_name)
-            volumes_page.find_message_and_dismiss(messages.INFO)
+            self.assertTrue(
+                volumes_page.find_message_and_dismiss(messages.INFO))
+            self.assertFalse(
+                volumes_page.find_message_and_dismiss(messages.ERROR))
             self.assertTrue(volumes_page.is_volume_present(volume_name))
+            self.assertTrue(volumes_page.is_volume_status(volume_name,
+                                                          'Available'))
 
         first_page_definition = {'Next': True, 'Prev': False,
                                  'Count': items_per_page,
@@ -143,7 +149,10 @@ class TestVolumesBasic(helpers.TestCase):
 
         volumes_page = self.volumes_page
         volumes_page.delete_volumes(volumes_names)
-        volumes_page.find_message_and_dismiss(messages.SUCCESS)
+        self.assertTrue(
+            volumes_page.find_message_and_dismiss(messages.INFO))
+        self.assertFalse(
+            volumes_page.find_message_and_dismiss(messages.ERROR))
         self.assertTrue(volumes_page.are_volumes_deleted(volumes_names))
 
 
@@ -166,7 +175,7 @@ class TestVolumesAdvanced(helpers.TestCase):
     def volumes_page(self):
         return self.home_pg.go_to_project_volumes_volumespage()
 
-    @decorators.skip_because(bugs=['1774697'])
+    @pytest.mark.skip(reason="Bug 1774697")
     def test_manage_volume_attachments(self):
         """This test case checks attach/detach actions for volume
 
@@ -234,7 +243,7 @@ class TestVolumesActions(helpers.TestCase):
         return self.home_pg.go_to_project_volumes_volumespage()
 
     def setUp(self):
-        super(TestVolumesActions, self).setUp()
+        super().setUp()
         volumes_page = self.volumes_page
         volumes_page.create_volume(self.VOLUME_NAME)
         self.assertTrue(
@@ -249,7 +258,7 @@ class TestVolumesActions(helpers.TestCase):
             volumes_page = self.volumes_page
             volumes_page.delete_volume(self.VOLUME_NAME)
             self.assertTrue(
-                volumes_page.find_message_and_dismiss(messages.SUCCESS))
+                volumes_page.find_message_and_dismiss(messages.INFO))
             self.assertFalse(
                 volumes_page.find_message_and_dismiss(messages.ERROR))
             self.assertTrue(
@@ -279,7 +288,7 @@ class TestVolumesActions(helpers.TestCase):
         new_size = volumes_page.get_size(self.VOLUME_NAME)
         self.assertLess(orig_size, new_size)
 
-    @decorators.skip_because(bugs=['1774697'])
+    @pytest.mark.skip(reason="Bug 1847715")
     def test_volume_upload_to_image(self):
         """This test case checks upload volume to image functionality:
 
@@ -308,14 +317,14 @@ class TestVolumesActions(helpers.TestCase):
                              all_formats[disk_format])
             images_page.delete_image(self.IMAGE_NAME)
             self.assertTrue(images_page.find_message_and_dismiss(
-                messages.SUCCESS))
+                messages.INFO))
             self.assertFalse(images_page.find_message_and_dismiss(
                 messages.ERROR))
             self.assertFalse(images_page.is_image_present(self.IMAGE_NAME))
             self.volumes_page = \
                 self.home_pg.go_to_project_volumes_volumespage()
 
-    @decorators.skip_because(bugs=['1774697'])
+    @pytest.mark.skip(reason="Bug 1774697")
     def test_volume_launch_as_instance(self):
         """This test case checks launch volume as instance functionality:
 

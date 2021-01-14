@@ -12,11 +12,12 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
+from unittest import mock
+
 from django.conf import settings
 from django.test.utils import override_settings
 
 import cinderclient as cinder_client
-import mock
 
 from openstack_dashboard import api
 from openstack_dashboard.test import helpers as test
@@ -394,7 +395,7 @@ class CinderApiTests(test.APIMockTestCase):
         qos_associations_mock.assert_called_once_with(qos_specs_only_one[0].id)
         self.assertEqual(associate_spec, qos_specs_only_one[0].name)
 
-    @mock.patch.object(api.cinder, 'cinderclient')
+    @mock.patch.object(api.cinder, '_cinderclient_with_features')
     def test_absolute_limits_with_negative_values(self, mock_cinderclient):
         values = {"maxTotalVolumes": -1, "totalVolumesUsed": -1}
         expected_results = {"maxTotalVolumes": float("inf"),
@@ -417,10 +418,12 @@ class CinderApiTests(test.APIMockTestCase):
 
         ret_val = api.cinder.tenant_absolute_limits(self.request)
 
-        for key in expected_results.keys():
+        for key in expected_results:
             self.assertEqual(expected_results[key], ret_val[key])
 
         mock_limit.assert_called_once()
+        mock_cinderclient.assert_called_once_with(
+            self.request, ['limits_project_id_query'], message=test.IsA(str))
 
     @mock.patch.object(api.cinder, 'cinderclient')
     def test_pool_list(self, mock_cinderclient):
@@ -444,90 +447,24 @@ class CinderApiTests(test.APIMockTestCase):
         self.assertEqual(default_volume_type, volume_type)
         cinderclient.volume_types.default.assert_called_once()
 
-    @mock.patch.object(api.cinder, 'cinderclient')
-    def test_cgroup_list(self, mock_cinderclient):
-        cgroups = self.cinder_consistencygroups.list()
-        cinderclient = mock_cinderclient.return_value
+    @test.create_mocks({
+        api.cinder: [('_cinderclient_with_features', 'cinderclient'), ]})
+    def test_cinder_message_list(self):
+        search_opts = {'resource_type': 'VOLUME',
+                       'resource_uuid': '6d53d143-e10f-440a-a65f-16a6b6d068f7'}
+        messages = self.cinder_messages.list()
+        cinderclient = self.mock_cinderclient.return_value
+        messages_mock = cinderclient.messages.list
+        messages_mock.return_value = messages
 
-        mock_cgs = cinderclient.consistencygroups.list
-        mock_cgs.return_value = cgroups
-
-        api_cgroups = api.cinder.volume_cgroup_list(self.request)
-
-        self.assertEqual(len(cgroups), len(api_cgroups))
-        mock_cgs.assert_called_once_with(search_opts=None)
-
-    @mock.patch.object(api.cinder, 'cinderclient')
-    def test_cgroup_get(self, mock_cinderclient):
-        cgroup = self.cinder_consistencygroups.first()
-        cinderclient = mock_cinderclient.return_value
-
-        mock_cg = cinderclient.consistencygroups.get
-        mock_cg.return_value = cgroup
-
-        api_cgroup = api.cinder.volume_cgroup_get(self.request, cgroup.id)
-
-        mock_cg.assert_called_once_with(cgroup.id)
-        self.assertEqual(api_cgroup.name, cgroup.name)
-        self.assertEqual(api_cgroup.description, cgroup.description)
-        self.assertEqual(api_cgroup.volume_types, cgroup.volume_types)
-
-    @mock.patch.object(api.cinder, 'cinderclient')
-    def test_cgroup_list_with_vol_type_names(self, mock_cinderclient):
-        cgroups = self.cinder_consistencygroups.list()
-        volume_types_list = self.cinder_volume_types.list()
-        cinderclient = mock_cinderclient.return_value
-
-        mock_cgs = cinderclient.consistencygroups.list
-        mock_cgs.return_value = cgroups
-
-        mock_volume_types = cinderclient.volume_types.list
-        mock_volume_types.return_value = volume_types_list
-
-        api_cgroups = api.cinder.volume_cgroup_list_with_vol_type_names(
-            self.request)
-
-        mock_cgs.assert_called_once_with(search_opts=None)
-        mock_volume_types.assert_called_once()
-        self.assertEqual(len(cgroups), len(api_cgroups))
-        for i in range(len(api_cgroups[0].volume_type_names)):
-            self.assertEqual(volume_types_list[i].name,
-                             api_cgroups[0].volume_type_names[i])
-
-    @mock.patch.object(api.cinder, 'cinderclient')
-    def test_cgsnapshot_list(self, mock_cinderclient):
-        cgsnapshots = self.cinder_cg_snapshots.list()
-        cinderclient = mock_cinderclient.return_value
-
-        mock_cg_snapshots = cinderclient.cgsnapshots.list
-        mock_cg_snapshots.return_value = cgsnapshots
-
-        api_cgsnapshots = api.cinder.volume_cg_snapshot_list(self.request)
-
-        mock_cg_snapshots.assert_called_once_with(search_opts=None)
-        self.assertEqual(len(cgsnapshots), len(api_cgsnapshots))
-
-    @mock.patch.object(api.cinder, 'cinderclient')
-    def test_cgsnapshot_get(self, mock_cinderclient):
-        cgsnapshot = self.cinder_cg_snapshots.first()
-        cinderclient = mock_cinderclient.return_value
-
-        mock_cg_snapshot = cinderclient.cgsnapshots.get
-        mock_cg_snapshot.return_value = cgsnapshot
-
-        api_cgsnapshot = api.cinder.volume_cg_snapshot_get(self.request,
-                                                           cgsnapshot.id)
-        mock_cg_snapshot.assert_called_once_with(cgsnapshot.id)
-        self.assertEqual(api_cgsnapshot.name, cgsnapshot.name)
-        self.assertEqual(api_cgsnapshot.description, cgsnapshot.description)
-        self.assertEqual(api_cgsnapshot.consistencygroup_id,
-                         cgsnapshot.consistencygroup_id)
+        api.cinder.message_list(self.request, search_opts=search_opts)
+        messages_mock.assert_called_once_with(search_opts)
 
 
 class CinderApiVersionTests(test.TestCase):
 
     def setUp(self):
-        super(CinderApiVersionTests, self).setUp()
+        super().setUp()
         # The version is set when the module is loaded. Reset the
         # active version each time so that we can test with different
         # versions.

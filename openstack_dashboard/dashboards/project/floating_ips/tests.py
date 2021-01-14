@@ -17,11 +17,10 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
+from unittest import mock
+
 from django.urls import reverse
 from django.utils.http import urlencode
-
-import mock
-import six
 
 from openstack_dashboard import api
 from openstack_dashboard.test import helpers as test
@@ -293,8 +292,7 @@ class FloatingIpViewTests(test.TestCase):
         allocate_action = self.getAndAssertTableAction(res, 'floating_ips',
                                                        'allocate')
         self.assertEqual(set(['ajax-modal']), set(allocate_action.classes))
-        self.assertEqual('Allocate IP To Project',
-                         six.text_type(allocate_action.verbose_name))
+        self.assertEqual('Allocate IP To Project', allocate_action.verbose_name)
         self.assertIsNone(allocate_action.policy_rules)
 
         url = 'horizon:project:floating_ips:allocate'
@@ -337,7 +335,7 @@ class FloatingIpViewTests(test.TestCase):
         self.assertIn('disabled', allocate_action.classes,
                       'The create button should be disabled')
         self.assertEqual('Allocate IP To Project (Quota exceeded)',
-                         six.text_type(allocate_action.verbose_name))
+                         allocate_action.verbose_name)
 
         self.mock_tenant_floating_ip_list.assert_called_once_with(
             test.IsHttpRequest())
@@ -353,19 +351,13 @@ class FloatingIpViewTests(test.TestCase):
         )
 
     @test.create_mocks({api.neutron: ('floating_ip_pools_list',
-                                      'tenant_floating_ip_list',
-                                      'is_extension_supported',
-                                      'is_router_enabled',
-                                      'tenant_quota_get'),
-                        api.base: ('is_service_enabled',)})
+                                      'is_extension_supported'),
+                        quotas: ('tenant_quota_usages',)})
     @test.update_settings(OPENSTACK_NEUTRON_NETWORK={'enable_quotas': True})
     def test_correct_quotas_displayed(self):
-        self.mock_is_service_enabled.return_value = True
         self.mock_is_extension_supported.side_effect = [False, True, False]
-        self.mock_is_router_enabled.return_value = True
-        self.mock_tenant_quota_get.return_value = self.neutron_quotas.first()
-        self.mock_tenant_floating_ip_list.return_value = \
-            self.floating_ips.list()
+        self.mock_tenant_quota_usages.return_value = \
+            self.neutron_quota_usages.first()
         self.mock_floating_ip_pools_list.return_value = self.pools.list()
 
         url = reverse('%s:allocate' % NAMESPACE)
@@ -373,19 +365,9 @@ class FloatingIpViewTests(test.TestCase):
         self.assertEqual(res.context['usages']['floatingip']['quota'],
                          self.neutron_quotas.first().get('floatingip').limit)
 
-        self.mock_is_service_enabled.assert_called_once_with(
-            test.IsHttpRequest(), 'network')
-        self.assertEqual(3, self.mock_is_extension_supported.call_count)
-        self.mock_is_extension_supported.assert_has_calls([
-            mock.call(test.IsHttpRequest(), 'dns-integration'),
-            mock.call(test.IsHttpRequest(), 'quotas'),
-            mock.call(test.IsHttpRequest(), 'quota_details'),
-        ])
-        self.mock_is_router_enabled.assert_called_once_with(
-            test.IsHttpRequest())
-        self.mock_tenant_quota_get.assert_called_once_with(
-            test.IsHttpRequest(), self.tenant.id)
-        self.mock_tenant_floating_ip_list.assert_called_once_with(
-            test.IsHttpRequest())
+        self.mock_is_extension_supported.assert_called_once_with(
+            test.IsHttpRequest(), 'dns-integration')
+        self.mock_tenant_quota_usages.assert_called_once_with(
+            test.IsHttpRequest(), targets=('floatingip',))
         self.mock_floating_ip_pools_list.assert_called_once_with(
             test.IsHttpRequest())

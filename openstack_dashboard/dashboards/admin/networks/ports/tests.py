@@ -14,10 +14,10 @@
 #    under the License.
 
 import collections
+from unittest import mock
 
+from django.test.utils import override_settings
 from django.urls import reverse
-
-import mock
 
 from horizon.workflows import views
 
@@ -124,6 +124,40 @@ class NetworkPortTests(test.BaseAdminViewTests):
             mock.call(test.IsHttpRequest(), network.id))
         self.mock_security_group_list.assert_called_once_with(
             test.IsHttpRequest(), tenant_id='1')
+        self._check_is_extension_supported(
+            {'mac-learning': 1,
+             'binding': 1,
+             'port-security': 1})
+
+    @test.create_mocks({api.neutron: ('network_get',
+                                      'is_extension_supported',
+                                      'security_group_list',)})
+    def test_port_create_on_network_from_different_tenant(self):
+        network = self.networks.list()[1]
+        tenant_id = self.request.user.tenant_id
+        # Ensure the network belongs to a different tenant
+        self.assertNotEqual(tenant_id, network.tenant_id)
+
+        self.mock_network_get.return_value = network
+        self.mock_security_group_list.return_value = \
+            self.security_groups.list()
+        self._stub_is_extension_supported(
+            {'mac-learning': False,
+             'binding': False,
+             'port-security': True})
+
+        url = reverse('horizon:admin:networks:addport',
+                      args=[network.id])
+        res = self.client.get(url)
+
+        self.assertTemplateUsed(res, views.WorkflowView.template_name)
+
+        self.assert_mock_multiple_calls_with_same_arguments(
+            self.mock_network_get, 2,
+            mock.call(test.IsHttpRequest(), network.id))
+        # Check the new port belongs to a tenant of the network
+        self.mock_security_group_list.assert_called_once_with(
+            test.IsHttpRequest(), tenant_id=network.tenant_id)
         self._check_is_extension_supported(
             {'mac-learning': 1,
              'binding': 1,
@@ -613,3 +647,50 @@ class NetworkPortTests(test.BaseAdminViewTests):
         self._check_is_extension_supported(
             {'network-ip-availability': 1,
              'mac-learning': 1})
+
+    @override_settings(POLICY_CHECK_FUNCTION='openstack_auth.policy.check')
+    @test.create_mocks({api.neutron: ('port_get',
+                                      'network_get',
+                                      'is_extension_supported')})
+    def test_add_allowed_address_pair_button_shown(self):
+        port = self.ports.first()
+        url = reverse('horizon:project:networks:ports:addallowedaddresspairs',
+                      args=[port.id])
+        classes = 'btn data-table-action btn-default ajax-modal'
+        link_name = "Add Allowed Address Pair"
+
+        expected_string = \
+            '<a id="allowed_address_pairs__action_AddAllowedAddressPair" ' \
+            'class="%s" href="%s" title="Add Allowed Address Pair">' \
+            '<span class="fa fa-plus"></span> %s</a>' \
+            % (classes, url, link_name)
+
+        res = self.client.get(reverse('horizon:project:networks:ports:detail',
+                                      args=[port.id]))
+
+        self.assertTemplateUsed(res, 'horizon/common/_detail_tab_group.html')
+        self.assertIn(expected_string, res.context_data['tab_group'].render())
+
+    @override_settings(POLICY_CHECK_FUNCTION='openstack_auth.policy.check')
+    @test.create_mocks({api.neutron: ('port_get',
+                                      'network_get',
+                                      'port_update',
+                                      'is_extension_supported')})
+    def test_delete_address_pair_button_shown(self):
+        port = self.ports.first()
+        classes = 'data-table-action btn-danger btn'
+
+        expected_string = \
+            '<button data-batch-action="true" ' \
+            'id="allowed_address_pairs__action_delete" ' \
+            'class="%s" name="action" help_text="This action cannot be ' \
+            'undone." type="submit" value="allowed_address_pairs__delete">' \
+            '<span class="fa fa-trash"></span>' \
+            ' Delete</button>' \
+            % (classes)
+
+        res = self.client.get(reverse(
+            'horizon:project:networks:ports:detail', args=[port.id]))
+
+        self.assertTemplateUsed(res, 'horizon/common/_detail_tab_group.html')
+        self.assertIn(expected_string, res.context_data['tab_group'].render())

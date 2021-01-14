@@ -16,6 +16,7 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
+from django.conf import settings
 from django.utils.translation import ugettext_lazy as _
 
 import horizon
@@ -30,7 +31,7 @@ class Users(horizon.Panel):
                     ("identity", "identity:list_users"))
 
     def can_access(self, context):
-        if keystone.is_multi_domain_enabled() \
-                and not keystone.is_domain_admin(context['request']):
+        if (settings.OPENSTACK_KEYSTONE_MULTIDOMAIN_SUPPORT and
+                not keystone.is_domain_admin(context['request'])):
             return False
-        return super(Users, self).can_access(context)
+        return super().can_access(context)

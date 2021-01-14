@@ -1,6 +1,6 @@
 <div class="metadata-tree">
   <div class="row">
-    <p class="col-md-12">
+    <p class="col-sm-11">
       <span ng-bind="::ctrl.text.help"></span>
     </p>
   </div>
@@ -121,9 +121,9 @@
     <div ng-show="ctrl.tree.selected">
       <p>
         <strong>
-          <span ng-bind="ctrl.tree.selected.label"></span>
+          <span ng-bind="ctrl.tree.selected.label" class="word-wrap"></span>
         </strong>
-        <span ng-show="ctrl.tree.selected.leaf">(<em><span ng-bind="ctrl.tree.selected.leaf.name"></span></em>)</span>
+        <span ng-show="ctrl.tree.selected.leaf" class="word-wrap">(<em><span ng-bind="ctrl.tree.selected.leaf.name"></span></em>)</span>
       </p>
 
       <p><span ng-bind="ctrl.tree.selected.description"></span></p>

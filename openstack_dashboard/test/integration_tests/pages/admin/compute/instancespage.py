@@ -15,4 +15,5 @@ from openstack_dashboard.test.integration_tests.pages.project.compute \
 
 
 class InstancesPage(instancespage.InstancesPage):
-    pass
+
+    INSTANCES_TABLE_NAME_COLUMN = 'Name'

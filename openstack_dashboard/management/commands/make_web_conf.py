@@ -10,8 +10,6 @@
 # License for the specific language governing permissions and limitations
 # under the License.
 
-from __future__ import print_function
-
 import multiprocessing
 import os
 import re
@@ -19,8 +17,6 @@ import socket
 import subprocess
 import sys
 import warnings
-
-import six
 
 from django.conf import settings
 from django.core.management import base
@@ -60,11 +56,8 @@ def _getattr(obj, name, default):
     attr does not exist, here, we return `default` even if attr evaluates to
     None or False.
     """
-    value = getattr(obj, name, default)
-    if value:
-        return value
-    else:
-        return default
+    value = getattr(obj, name, default) or default
+    return value
 
 
 context = template.Context({
@@ -78,6 +71,7 @@ context = template.Context({
     'SSLKEY': '/etc/pki/tls/private/ca.key',
     'CACERT': None,
     'PROCESSES': multiprocessing.cpu_count() + 1,
+    'PYTHON_EXEC': sys.executable,
 })
 
 context['PROJECT_ROOT'] = os.path.dirname(context['PROJECT_PATH'])
@@ -117,7 +111,7 @@ for cmd in APACHE2_VERSION_CMDS:
         try:
             reg = re.compile(cmd[1])
             output = subprocess.check_output(cmd[0], stderr=subprocess.STDOUT)
-            if isinstance(output, six.binary_type):
+            if isinstance(output, bytes):
                 output = output.decode()
             res = reg.search(output)
             if res:

@@ -17,60 +17,69 @@ from oslo_config import cfg
 
 DashboardGroup = [
     cfg.StrOpt('dashboard_url',
-               default='http://localhost/',
-               help="Where the dashboard can be found"),
+               default='http://localhost/dashboard/',
+               help='Where the dashboard can be found'),
     cfg.StrOpt('help_url',
                default='https://docs.openstack.org/',
-               help="Dashboard help page url"),
+               help='Dashboard help page url'),
 ]
 
 IdentityGroup = [
     cfg.StrOpt('username',
                default='demo',
-               help="Username to use for non-admin API requests."),
+               help='Username to use for non-admin API requests.'),
     cfg.StrOpt('password',
                default='secretadmin',
-               help="API key to use when authenticating.",
+               help='API key to use when authenticating.',
                secret=True),
     cfg.StrOpt('domain',
                default=None,
-               help="Domain name to use if required for login"),
+               help='Domain name to use if required for login'),
     cfg.StrOpt('home_project',
                default='demo',
-               help="Project to keep all objects belonging to a regular user."
+               help='Project to keep all objects belonging to a regular user.'
                ),
     cfg.StrOpt('admin_username',
                default='admin',
-               help="Administrative Username to use for admin API "
-               "requests."),
+               help='Administrative Username to use for admin API requests.'),
     cfg.StrOpt('admin_password',
                default='secretadmin',
-               help="API key to use when authenticating as admin.",
+               help='API key to use when authenticating as admin.',
                secret=True),
     cfg.StrOpt('admin_home_project',
                default='admin',
-               help="Project to keep all objects belonging to an admin user."),
+               help='Project to keep all objects belonging to an admin user.'),
     cfg.StrOpt('default_keystone_role',
-               default='Member',
-               help="Name of default role every user gets in his new project"),
+               default='member',
+               help='Name of default role every user gets in his new project.'),
     cfg.StrOpt('default_keystone_admin_role',
                default='admin',
-               help="Name of the role that grants admin rights to a user in "
-                    "his project"),
+               help=('Name of the role that grants admin rights to a user in '
+                     'his project')),
+    cfg.IntOpt('unique_last_password_count',
+               # The default value is chosen to match the value of
+               # [security_compliance] unique_last_password_count in DevStack
+               # as the first target of the integration tests is the gate.
+               # Note that the default value of unique_last_password_count
+               # in keystone may differ, so you might need
+               # to change this parameter.
+               default=2,
+               help=('The number of passwords for a user that must be unique '
+                     'before an old password can be used. '
+                     'This should match the keystone configuration option '
+                     '"[security_compliance] unique_last_password_count".')),
 ]
 
 ImageGroup = [
     cfg.StrOpt('panel_type',
-               default='legacy',
+               default='angular',
                help='type/version of images panel'),
     cfg.StrOpt('http_image',
                default='http://download.cirros-cloud.net/0.3.1/'
                        'cirros-0.3.1-x86_64-uec.tar.gz',
                help='http accessible image'),
     cfg.ListOpt('images_list',
-                default=['cirros-0.3.4-x86_64-uec',
-                         'cirros-0.3.4-x86_64-uec-kernel',
-                         'cirros-0.3.4-x86_64-uec-ramdisk'],
+                default=['cirros-0.3.5-x86_64-disk'],
                 help='default list of images')
 ]
 
@@ -78,29 +87,48 @@ NetworkGroup = [
     cfg.StrOpt('network_cidr',
                default='10.100.0.0/16',
                help='The cidr block to allocate tenant ipv4 subnets from'),
+    cfg.StrOpt(
+        'external_network',
+        # Devstack default external network is 'public' but it
+        # can be changed as per available external network.
+        default='public',
+        help='The external network for a router creation.'),
 ]
 
 AvailableServiceGroup = [
     cfg.BoolOpt('neutron',
-                default=True),
+                default=True,
+                help='Whether neutron is expected to be available'),
 ]
 
 SeleniumGroup = [
-    cfg.IntOpt('implicit_wait',
-               default=10,
-               help="Implicit wait timeout in seconds"),
-    cfg.IntOpt('explicit_wait',
-               default=300,
-               help="Explicit wait timeout in seconds"),
-    cfg.IntOpt('page_timeout',
-               default=30,
-               help="Page load timeout in seconds"),
-    cfg.StrOpt('screenshots_directory',
-               default="integration_tests_screenshots",
-               help="Output screenshot directory"),
-    cfg.BoolOpt('maximize_browser',
-                default=True,
-                help="Is the browser size maximized for each test?"),
+    cfg.FloatOpt(
+        'message_implicit_wait',
+        default=0.1,
+        help='Timeout in seconds to wait for message confirmation modal'),
+    cfg.IntOpt(
+        'implicit_wait',
+        default=10,
+        help=('Implicit timeout to wait until element become available, '
+              'It is used for every find_element, find_elements call.')),
+    cfg.IntOpt(
+        'explicit_wait',
+        default=90,
+        help=('Explicit timeout is used for long lasting operations, '
+              'Methods using explicit timeout are usually prefixed with '
+              '"wait"')),
+    cfg.IntOpt(
+        'page_timeout',
+        default=60,
+        help='Timeout in seconds to wait for a page to become available'),
+    cfg.StrOpt(
+        'screenshots_directory',
+        default='test_reports',
+        help='Output directory for screenshots'),
+    cfg.BoolOpt(
+        'maximize_browser',
+        default=True,
+        help='Maximize the browser window at the start of each test or not'),
 ]
 
 FlavorsGroup = [
@@ -118,13 +146,13 @@ ScenarioGroup = [
 InstancesGroup = [
     cfg.StrOpt('available_zone',
                default='nova',
-               help="Zone to be selected for launch Instances"),
+               help='Availability zone to be selected for launch instances'),
     cfg.StrOpt('image_name',
-               default='cirros-0.3.4-x86_64-uec (24.0 MB)',
-               help="Boot Source to be selected for launch Instances"),
+               default='cirros-0.5.1-x86_64-disk (15.6 MB)',
+               help='Boot Source to be selected for launch Instances'),
     cfg.StrOpt('flavor',
                default='m1.tiny',
-               help="Flavor to be selected for launch Instances"),
+               help='Flavor to be selected for launch instances'),
 ]
 
 VolumeGroup = [
@@ -133,18 +161,29 @@ VolumeGroup = [
                help='Default volume type'),
     cfg.StrOpt('volume_size',
                default='1',
-               help='Default volume size ')
+               help='Default volume size '),
+    cfg.BoolOpt('allow_delete_snapshot_before_volume',
+                default=True,
+                help='Set to False to disallow running the volume test where '
+                     'first snapshot is deleted and then volume booted from '
+                     'this snapshot is deleted, but instead run only the test '
+                     'that deletes volume first and then snapshot. '
+                     'Set to True to run both tests.')
 ]
 
 PluginGroup = [
-    cfg.BoolOpt('is_plugin',
-                default='False',
-                help="Set to true if this is a plugin"),
-    cfg.MultiStrOpt('plugin_page_path',
-                    default='',
-                    help='Additional path to look for plugin page content'),
-    cfg.MultiStrOpt('plugin_page_structure',
-                    default='')
+    cfg.BoolOpt(
+        'is_plugin',
+        default='False',
+        help='Set to true if this is a plugin'),
+    cfg.MultiStrOpt(
+        'plugin_page_path',
+        default='',
+        help='Additional path to look for plugin page content'),
+    cfg.MultiStrOpt(
+        'plugin_page_structure',
+        default='',
+        help=('JSON string to define the page structure for the plugin')),
 ]
 
 
@@ -153,13 +192,11 @@ def _get_config_files():
         os.path.abspath(os.path.dirname(os.path.dirname(__file__))),
         'integration_tests')
     conf_file = os.environ.get('HORIZON_INTEGRATION_TESTS_CONFIG_FILE',
-                               "%s/horizon.conf" % conf_dir)
-    config_files = [conf_file]
+                               '%s/horizon.conf' % conf_dir)
     local_config = os.environ.get('HORIZON_INTEGRATION_TESTS_LOCAL_CONFIG',
-                                  "%s/local-horizon.conf" % conf_dir)
-    if os.path.isfile(local_config):
-        config_files.append(local_config)
-    return config_files
+                                  '%s/local-horizon.conf' % conf_dir)
+    config_files = [conf_file, local_config]
+    return [f for f in config_files if os.path.isfile(f)]
 
 
 def get_config():
@@ -178,3 +215,19 @@ def get_config():
     cfg.CONF.register_opts(VolumeGroup, group="volume")
 
     return cfg.CONF
+
+
+def list_opts():
+    return [
+        ("dashboard", DashboardGroup),
+        ("selenium", SeleniumGroup),
+        ("flavors", FlavorsGroup),
+        ("image", ImageGroup),
+        ("identity", IdentityGroup),
+        ("network", NetworkGroup),
+        ("service_available", AvailableServiceGroup),
+        ("scenario", ScenarioGroup),
+        ("launch_instances", InstancesGroup),
+        ("plugin", PluginGroup),
+        ("volume", VolumeGroup),
+    ]

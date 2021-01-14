@@ -7,11 +7,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: horizon VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2018-09-29 05:45+0000\n"
+"POT-Creation-Date: 2020-11-23 00:41+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2016-11-24 08:41+0000\n"
+"PO-Revision-Date: 2016-11-23 12:52+0000\n"
 "Last-Translator: Stanislav Ulrych <stanislav.ulrych@ultimum.io>\n"
 "Language-Team: Czech\n"
 "Language: cs\n"
@@ -314,32 +314,13 @@ msgstr ""
 msgid "Add static route to the router."
 msgstr "Přidat statickou cestu k routeru."
 
-msgid ""
-"Add volume types to this consistency group. Multiple volume types can be "
-"added to the same consistency group only if they are associated with same "
-"back end."
-msgstr ""
-"Přidá typy svazků do této konzistenční skupiny. Více typů svazků může být "
-"přidáno do konzistenční skupiny pouze pokud jsou na stejném backendu."
-
 msgid "Add, modify or remove the QoS Spec associated with this volume type."
 msgstr ""
 "Přidejte, změňte, nebo odstraňte QoS specifikaci přidruženou k tomuto typu "
 "svazku."
 
-msgid "Add/Remove Consistency Group Volumes"
-msgstr "Přidat/Odebrat konzistenční skupinu svazků"
-
 msgid "Add/Remove Hosts to Aggregate"
 msgstr "Přidat/odstranit hostitele z agregátu"
-
-msgid ""
-"Add/remove volumes to/from this consistency group. Only volumes associated "
-"with the volume type(s) assigned to this consistency group will be available "
-"for selection."
-msgstr ""
-"Přidat/odebrat svazky z/do konzistenční skupiny. Pouze svazky s asociovaným "
-"typem svazku budou dostupné pro výběr."
 
 msgid "Added User"
 msgid_plural "Added Users"
@@ -441,13 +422,6 @@ msgstr "Všechny dostupné typy svazků"
 msgid "All available volumes"
 msgstr "Všechny dostupné svazky"
 
-msgid ""
-"All selected volume types must be associated with the same volume backend "
-"name."
-msgstr ""
-"Všechny vybrané typy svazků musí být spojené se stejným názvem svazku "
-"backend."
-
 msgid "Allocate Floating IP"
 msgstr "Přidělit plovoucí IP"
 
@@ -523,9 +497,6 @@ msgstr "Přidružené typy prostředků"
 
 msgid "At least one network must be specified."
 msgstr "Musí být zadána alespoň jedna síť."
-
-msgid "At least one volume type must be assigned to a consistency group."
-msgstr "Do konzistenční skupiny musí být přiřazen nejméně jeden typ svazku."
 
 msgid "Attach Interface"
 msgstr "Připojit rozhraní"
@@ -609,14 +580,6 @@ msgstr "Zóna dostupnosti"
 
 msgid "Available"
 msgstr "Dostupné"
-
-msgctxt "Current status of Consistency Group"
-msgid "Available"
-msgstr "Dostupný"
-
-msgctxt "Current status of Consistency Group Snapshot"
-msgid "Available"
-msgstr "Dostupný"
 
 msgctxt "Current status of a Volume"
 msgid "Available"
@@ -770,13 +733,6 @@ msgstr "Změn od"
 msgid "Changing password is not supported."
 msgstr "Změna hesla není podporována."
 
-msgid ""
-"Check the &quot;Delete Volumes&quot; box to also delete any volumes "
-"associated with this consistency group."
-msgstr ""
-"Zašrktněte &quot;Smazat svazky&quot; ke smazání svazků asociovaných s touto "
-"konzistenční skupinou."
-
 msgid "Checksum"
 msgstr "Kontrolní součet"
 
@@ -860,16 +816,6 @@ msgstr[2] "Brány vyčištěny"
 msgid "Click here to show only console"
 msgstr "Klikněte zde pro zobrazení pouze konzole"
 
-msgid "Clone Consistency Group"
-msgstr "Klonovat konzistenční skupinu"
-
-msgid ""
-"Clone each of the volumes in the source Consistency Group, and then add them "
-"to a newly created Consistency Group."
-msgstr ""
-"Naklonuje všechny svazky ve zdrojové konzistenční skupině a přidá je do nově "
-"vytvořené konzistenční skupiny."
-
 msgid "Close"
 msgstr "Zavřít"
 
@@ -931,21 +877,6 @@ msgstr "Potvrdit nebo Vrátit zpět Změnu velikosti/Přesun"
 msgctxt "Task status of an Instance"
 msgid "Confirming Resize or Migrate"
 msgstr "Potvrzování Změny velikosti nebo Migrace"
-
-msgid "Consistency Group"
-msgstr "Konzistenční skupina"
-
-msgid "Consistency Group Information"
-msgstr "Informace o konzisteční skupině"
-
-msgid "Consistency Group Name"
-msgstr "Název konzistenční skupiny"
-
-msgid "Consistency Group Snapshots"
-msgstr "Snapshoty konzistenční skupiny"
-
-msgid "Consistency Groups"
-msgstr "Konzistenční skupiny"
 
 msgid "Console"
 msgstr "Konzole"
@@ -1009,12 +940,6 @@ msgstr "Vytvořit obraz"
 
 msgid "Create Backup"
 msgstr "Vytvořit zálohu"
-
-msgid "Create Consistency Group"
-msgstr "Vytvořit konzistenční skupinu"
-
-msgid "Create Consistency Group Snapshot"
-msgstr "Vytvořit snímek konzistenční skupiny"
 
 msgid "Create Domain"
 msgstr "Vytvořit doménu"
@@ -1100,9 +1025,6 @@ msgstr "Vytvořit svazek"
 msgid "Create Volume Backup"
 msgstr "Vytvořit zálohu svazku"
 
-msgid "Create Volume Consistency Group"
-msgstr "Vytvořit konzistenční skupinu svazků"
-
 msgid "Create Volume Snapshot"
 msgstr "Vytvořit snapshot svazku"
 
@@ -1120,13 +1042,6 @@ msgstr "Vytvořit šifrování typu svazku"
 
 msgid "Create Volume Type Extra Spec"
 msgstr "Vytvořit dodatečnou specifikaci typu svazku"
-
-msgid ""
-"Create a Consistency Group that will contain newly created volumes cloned "
-"from each of the snapshots in the source Consistency Group Snapshot."
-msgstr ""
-"Vytvoří konzistenční skupinu která bude obsahovat nově vytvořené svazky "
-"naklonované ze snímků svazků ve zdrojové konzistenční skupině."
 
 msgid "Create a Metadata Namespace"
 msgstr "Vytvořit jmenný prostor metadat"
@@ -1166,9 +1081,6 @@ msgstr ""
 
 msgid "Create a project to organize users."
 msgstr "Vytvořte projekt pro zorganizování uživatelů."
-
-msgid "Create a snapshot for each volume contained in the Consistency Group."
-msgstr "Vytvoří snapshot pro každý svazek v konzistenční skupině."
 
 msgid ""
 "Create a subnet associated with the network. Advanced configuration is "
@@ -1211,9 +1123,6 @@ msgstr "Vytvořen nový agregát hostitelů \"%s\"."
 msgid "Created new project \"%s\"."
 msgstr "Vytvořen nový projekt \"%s\"."
 
-msgid "Created new volume consistency group"
-msgstr "Vytvořena nová konzistenční skupina svazků"
-
 #, python-format
 msgid "Created spec \"%s\"."
 msgstr "Vytvořena specifikace \"%s\"."
@@ -1248,14 +1157,6 @@ msgstr "Vytváření"
 msgctxt "Current status of a Volume Backup"
 msgid "Creating"
 msgstr "Vytváření"
-
-#, python-format
-msgid "Creating consistency group \"%s\"."
-msgstr "Vytváření konzistenční skupiny \"%s\"."
-
-#, python-format
-msgid "Creating consistency group snapshot \"%s\"."
-msgstr "Vytváření snapshotu \"%s\" konzistenční skupiny. "
 
 msgid ""
 "Creating encryption for a volume type causes all volumes with that volume "
@@ -1377,9 +1278,6 @@ msgid_plural "Delete"
 msgstr[0] "Smazat"
 msgstr[1] "Smazat"
 msgstr[2] "Smazat"
-
-msgid "Delete Consistency Group"
-msgstr "Smazat konzistenční skupinu"
 
 msgid "Delete DHCP Agent"
 msgid_plural "Delete DHCP Agents"
@@ -1784,15 +1682,8 @@ msgctxt "Task status of an Instance"
 msgid "Deleting"
 msgstr "Mazání"
 
-#, python-format
-msgid "Deleting volume consistency group \"%s\""
-msgstr "Mazání svazku konzistenční skupiny \"%s\""
-
 msgid "Description"
 msgstr "Popis"
-
-msgid "Description is required."
-msgstr "Je vyžadován Popis."
 
 msgid "Description:"
 msgstr "Popis:"
@@ -2073,9 +1964,6 @@ msgstr ""
 msgid "Edit"
 msgstr "Upravit"
 
-msgid "Edit Consistency Group"
-msgstr "Upravit konzistenční skupinu"
-
 msgid "Edit Consumer"
 msgstr "Upravit spotřebitele"
 
@@ -2106,6 +1994,9 @@ msgstr "Editovat namespace"
 
 msgid "Edit Network"
 msgstr "Upravit síť"
+
+msgid "Edit Policy"
+msgstr "Upravit politiku"
 
 msgid "Edit Port"
 msgstr "Upravit port"
@@ -2268,14 +2159,6 @@ msgstr "Efemérní disk"
 msgid "Ephemeral Disk (GB)"
 msgstr "Efemérní disk (GB)"
 
-msgctxt "Current status of Consistency Group"
-msgid "Error"
-msgstr "Chyba"
-
-msgctxt "Current status of Consistency Group Snapshot"
-msgid "Error"
-msgstr "Chyba"
-
 msgctxt "Current status of a Floating IP"
 msgid "Error"
 msgstr "Chyba"
@@ -2356,12 +2239,6 @@ msgstr "Chyba při přidávání nebo odstraňování hostitelů."
 #, python-format
 msgid "Error writing zipfile: %(exc)s"
 msgstr "Chyba při zapisování zip souboru: %(exc)s"
-
-msgid "Errors occurred in deleting consistency group."
-msgstr "Při mazání konzistenční skupiny nastala chyba."
-
-msgid "Errors occurred in removing volumes from consistency group."
-msgstr "Při odebírání svazků z konzistenční skupiny nastala chyba."
 
 msgid "Ether Type"
 msgstr "Typ ethernetu"
@@ -2451,10 +2328,6 @@ msgstr ""
 "Nelze zkontrolovat, zda je podporováno rozšíření network-ip-availability."
 
 #, python-format
-msgid "Failed to create network \"%(network)s\": %(reason)s"
-msgstr "Nelze vytvořit síť \"%(network)s\": %(reason)s"
-
-#, python-format
 msgid "Failed to create network %s"
 msgstr "Vytváření sítě %s selhalo"
 
@@ -2485,9 +2358,6 @@ msgstr "Nelze vyklidit instance: %s"
 #, python-format
 msgid "Failed to get mapping list %s"
 msgstr "Nelze získat seznam mapování %s"
-
-msgid "Failed to get network list {0}"
-msgstr "Nelze získat seznam sítí {0}"
 
 msgid "Failed to get network list."
 msgstr "Nelze získat seznam sítí."
@@ -2540,10 +2410,6 @@ msgstr ""
 "stavu"
 
 #, python-format
-msgid "Failed to retrieve network %s for a subnet"
-msgstr "Nelze získat síť %s pro podsíť"
-
-#, python-format
 msgid "Failed to update network %s"
 msgstr "Aktualizace sítě %s selhala"
 
@@ -2554,10 +2420,6 @@ msgstr "Aktualizace portu \"%s\" selhala."
 #, python-format
 msgid "Failed to update router %s"
 msgstr "Aktualizace routeru %s selhala"
-
-#, python-format
-msgid "Failed to update subnet \"%(sub)s\":  %(reason)s"
-msgstr "Nelze aktualizovat podsíť \"%(sub)s\": %(reason)s"
 
 msgid "False"
 msgstr "Nepravda"
@@ -2602,22 +2464,11 @@ msgstr "Výběr typu"
 msgid "Flavor Details"
 msgstr "Podrobnosit typu"
 
-#, python-format
-msgid "Flavor Details: %(name)s\">%(name)s"
-msgstr "Podrobnosti typu: %(name)s\">%(name)s"
-
 msgid "Flavor ID"
 msgstr "ID typu"
 
 msgid "Flavor ID ="
 msgstr "ID typu = "
-
-msgid ""
-"Flavor ID should be UUID4 or integer. Leave this field blank or use 'auto' "
-"to set a random UUID4."
-msgstr ""
-"ID typu by mělo mít formát UUID4 nebo celého čísla. Pro nastavení náhodného "
-"UUID4 nechejte toto pole prázdné, nebo použijte 'auto'."
 
 msgid "Flavor Information"
 msgstr "Informace o typu"
@@ -3071,14 +2922,6 @@ msgstr "Importovat klíč"
 
 msgid "Import Namespace"
 msgstr "Importovat jmenný prostor"
-
-msgctxt "Current status of Consistency Group"
-msgid "In-use"
-msgstr "Používá se"
-
-msgctxt "Current status of Consistency Group Snapshot"
-msgid "In-use"
-msgstr "Používá se"
 
 msgctxt "Current status of a Volume"
 msgid "In-use"
@@ -3577,12 +3420,6 @@ msgstr "Změňte název a popis svazku."
 
 msgid "Modify the name and description of a snapshot."
 msgstr "Změňte název a popis snapshotu."
-
-msgid "Modify the name and description of a volume consistency group snapshot."
-msgstr "Upravit název a popis snímků konzistenční skupiny svazků"
-
-msgid "Modify the name and description of a volume consistency group."
-msgstr "Změňte název a popis svazku konzistenční skupiny."
 
 msgid "Modify volume type name, description, and public status."
 msgstr "Změnit typ svazku, popis a veřejný status."
@@ -4153,12 +3990,6 @@ msgstr "Zamezí odstranění obrazu."
 msgid "Primary Project"
 msgstr "Primární projekt"
 
-msgid "Primary Project ID"
-msgstr "ID primárního projektu"
-
-msgid "Primary Project Name"
-msgstr "Název primárního projektu"
-
 msgid "Private Key File"
 msgstr "Soubor s privátním klíčem"
 
@@ -4437,9 +4268,6 @@ msgstr[0] "Odstranit uživatele"
 msgstr[1] "Odstranit uživatele"
 msgstr[2] "Odstranit uživatele"
 
-msgid "Remove Volumes from Consistency Group"
-msgstr "Odebrat svazky z konzistenční skupiny"
-
 msgid "Removed User"
 msgid_plural "Removed Users"
 msgstr[0] "Uživatel odstraněn"
@@ -4452,10 +4280,6 @@ msgid ""
 msgstr ""
 "Odstraněním klíče mohou zdroje OpenStack zůstat osiřelé. Pokud si nejste "
 "jistí, zda je klíč používán, neodstraňujte ho."
-
-#, python-format
-msgid "Removing volumes from volume consistency group \"%s\""
-msgstr "Odebírání svazků ze svazku konzistenční skupiny \"%s\""
 
 msgid "Report Bug"
 msgstr "Nahlásit chybu"
@@ -4837,9 +4661,6 @@ msgstr "Vyberte nového hostitele"
 msgid "Select a new status"
 msgstr "Vyberte nový stav"
 
-msgid "Select a new volume type"
-msgstr "Vyberte nový typ svazku"
-
 msgid "Select a pool"
 msgstr "Vyberte zásobu"
 
@@ -5080,9 +4901,6 @@ msgstr "Velikost obrazu pro spuštění."
 msgid "Size(GiB) ="
 msgstr "Velikost (GiB)"
 
-msgid "Slash is not allowed at the beginning or end of your string."
-msgstr "Lomítko na začátku nebo na konci řetězce není povolena."
-
 msgid "Slash is not an allowed character."
 msgstr "Lomítko není povolený znak."
 
@@ -5114,12 +4932,6 @@ msgstr "Svazky snímků"
 
 msgid "Snapshot source must be specified"
 msgstr "Zdroj snapshotu musí být zadán"
-
-msgid ""
-"Snapshots can only be created for Consistency Groups that contain volumes."
-msgstr ""
-"Snapshoty mohou být vytvořeny pouze pro konzistenční skupinu obsahující "
-"svazky."
 
 msgctxt "Task status of an Instance"
 msgid "Snapshotting"
@@ -5487,14 +5299,6 @@ msgstr ""
 "<strong>Ovládací místo</strong> je pomyslná služba, kde se provádí šifrování "
 "(např., rozhraní=Nova). Výchozí hodnota je 'front-end'."
 
-msgid ""
-"The <strong>Key Size</strong> is the size of the encryption key, in bits (e."
-"g., 128, 256). If the field is left empty, the provider default will be used."
-msgstr ""
-"<strong>Velikost klíče</strong> je velikost šifrovacího klíče v bitech "
-"(např. 128,256). Pokud je pole ponecháno prázdné, bude použita výchozí "
-"hodnota poskytovatele."
-
 msgid "The Aggregate was updated."
 msgstr "Agregát byl aktualizován."
 
@@ -5610,10 +5414,6 @@ msgstr ""
 "zadána, je výchozí hodnota 0 (žádné minimum)."
 
 #, python-format
-msgid "The name \"%s\" is already used by another consistency group."
-msgstr "Název \"%s\" již je používán jinou konzistenční skupinou."
-
-#, python-format
 msgid "The name \"%s\" is already used by another flavor."
 msgstr "Název \"%s\" je už používán jinou konfigurací."
 
@@ -5668,9 +5468,6 @@ msgstr "Port požadované instance již je přidružen k jiné plovoucí IP adre
 
 msgid "The specified port is invalid."
 msgstr "Zadaný port je neplatný."
-
-msgid "The state to start the network in."
-msgstr "Stav, v kterém sít spustit."
 
 #, python-format
 msgid "The subnet in the Network Address is too small (/%s)."
@@ -5727,11 +5524,6 @@ msgstr ""
 "Toto nelze vrátit. Současné přihlašovací údaje EC2 budou smazány a nebude "
 "možné je obnovit."
 
-msgid ""
-"This action will unassign all volumes that are currently contained in this "
-"consistency group."
-msgstr "Odebere všechny svazky z této konzistenční skupiny."
-
 msgid "This application requires JavaScript to be enabled in your web browser."
 msgstr ""
 "Tato aplikace vyžaduje povolení JavaScriptu ve vašem internetovém prohlížeči."
@@ -5755,15 +5547,6 @@ msgstr ""
 
 msgid "This volume type is used by one or more volumes."
 msgstr "Tento typ svazku je používaný jiným svazkem."
-
-msgid "Time Since Created"
-msgstr "Doba od vytvoření"
-
-msgid "Time since created"
-msgstr "Doba od vytvoření"
-
-msgid "Time since created (Seconds)"
-msgstr "Doba od vytvoření (ve vteřinách)"
 
 msgid "Time since update"
 msgstr "Čas od aktualizace"
@@ -5920,31 +5703,11 @@ msgstr "Nelze změnit heslo"
 msgid "Unable to change the volume type for volume: \"%s\""
 msgstr "Nelze změnit typ svazku \"%s\""
 
-msgid "Unable to clone consistency group."
-msgstr "Nelze klonovat konzistenční skupinu"
-
-msgid "Unable to clone empty consistency group."
-msgstr "Nelze klonovat prázdnou konzistenční skupinu"
-
 msgid "Unable to connect to Neutron."
 msgstr "Nelze se připojit k Neutronu."
 
 msgid "Unable to create QoS Spec."
 msgstr "Nelze vytvořit specifikaci QoS."
-
-#, python-format
-msgid "Unable to create consistency group \"%s\" from snapshot."
-msgstr "Nelze vytvořit konzistenční skupinu \"%s\" ze snapshotu."
-
-msgid "Unable to create consistency group due to exceeding volume quota limit."
-msgstr ""
-"Konzistenční skupinu nelze vytvořit z důvodu překročení limitu objemu kvóty."
-
-msgid "Unable to create consistency group snapshot."
-msgstr "Nelze vytvořit snapshot konzistenční skupiny."
-
-msgid "Unable to create consistency group."
-msgstr "Nelze vytvořit skupinu jednostnosti."
 
 #, python-format
 msgid "Unable to create domain \"%s\"."
@@ -6014,9 +5777,6 @@ msgstr "Nelze vytvořit bezpečnostní skupinu: %s"
 msgid "Unable to create snapshot."
 msgstr "Nelze vytvořit snapshot."
 
-msgid "Unable to create snapshot. Consistency group must contain volumes."
-msgstr "Nelze vytvořit snapshot. Konzistenční skupina musí obsahovat svazky."
-
 msgid "Unable to create snapshots due to exceeding snapshot quota limit."
 msgstr "Nelze vytvořit snapshoty kvůli překročení kvót."
 
@@ -6066,9 +5826,6 @@ msgstr "Nelze zjistit, zda šifrování typu svazku je podporováno."
 msgid "Unable to disassociate floating IP."
 msgstr "Nelze odloučit plovoucí IP."
 
-msgid "Unable to display consistency group."
-msgstr "Nelze zobrazit konzistenční skupinu."
-
 msgid "Unable to edit spec."
 msgstr "Nelze upravit specifikaci."
 
@@ -6101,9 +5858,6 @@ msgstr "Nelze získat konzoli VNC instance \"%s\"."
 
 msgid "Unable to get cinder services list."
 msgstr "Nelze získat seznam služeb cinder."
-
-msgid "Unable to get consistency group list"
-msgstr "Nelze získat seznam konzistenčních skupin."
 
 msgid "Unable to get flavor list"
 msgstr "Nelze získat seznam typů"
@@ -6140,9 +5894,6 @@ msgstr "Nelze získat dostupné typy svazků"
 msgid "Unable to get the available volumes"
 msgstr "Nelze získat dostupné svazky"
 
-msgid "Unable to get volume type list"
-msgstr "Nelze získat seznam typu svazků"
-
 msgid "Unable to import key pair."
 msgstr "Klíč nelze importovat."
 
@@ -6158,9 +5909,6 @@ msgstr "Nelze získat informace o agentech dhcp hostujících síť."
 
 msgid "Unable to load console. Please reload page to try again."
 msgstr "Konzole nelze načíst. Zkuste obnovit stránku, prosím."
-
-msgid "Unable to load the specified consistency group."
-msgstr "Nelze načíst zadanou konzistenční skupinu."
 
 #, python-format
 msgid "Unable to load the specified image. %s"
@@ -6244,9 +5992,6 @@ msgstr "Nelze získat stav naučení MAC adres"
 msgid "Unable to retrieve Network information for instance \"%s\"."
 msgstr "Nelze získat síťové informace pro instanci \"%s\"."
 
-msgid "Unable to retrieve Nova availability zones."
-msgstr "Nelze získat zóny dostupnosti Nova."
-
 msgid "Unable to retrieve Nova server groups."
 msgstr "Nelze získat bezpečnostní skupiny serverů Nova."
 
@@ -6267,10 +6012,6 @@ msgstr "Nelze získat seznam specifikací QoS."
 
 msgid "Unable to retrieve QoS specs"
 msgstr "Nelze získat specifikace QoS"
-
-#, python-format
-msgid "Unable to retrieve a list of external networks \"%s\"."
-msgstr "Nelze získat seznam externích sítí \"%s\"."
 
 msgid "Unable to retrieve agent list."
 msgstr "Nelze získat seznam agentů."
@@ -6296,15 +6037,6 @@ msgstr "Nelze získat informace o hostiteli výpočtu."
 
 msgid "Unable to retrieve compute limit information."
 msgstr "Nelze získat informace o omezení výpočtů."
-
-msgid "Unable to retrieve consistency group details."
-msgstr "Nelze získat podrobnosti konzistenční skupiny"
-
-msgid "Unable to retrieve consistency group information."
-msgstr "Nelze získat informace o konzistenční skupině."
-
-msgid "Unable to retrieve consistency group snapshot details."
-msgstr "Nelze získat podrobnosti snapshotu konzistenční skupiny."
 
 #, python-format
 msgid "Unable to retrieve details for instance \"%s\"."
@@ -6333,9 +6065,6 @@ msgstr "Nelze získat seznam domén."
 
 msgid "Unable to retrieve encryption type."
 msgstr "Nelze získat typ šifrování."
-
-msgid "Unable to retrieve extensions information"
-msgstr "Nelze získat informace o rozšířeních"
 
 msgid "Unable to retrieve extensions information."
 msgstr "Nelze získat informace o rozšířeních."
@@ -6411,9 +6140,6 @@ msgstr "Nele získat seznam obrazů."
 
 msgid "Unable to retrieve image."
 msgstr "Nelze získat obraz."
-
-msgid "Unable to retrieve images"
-msgstr "Nelze získat obrazy"
 
 msgid "Unable to retrieve images for the current project."
 msgstr "Nelze získat obrazy pro aktuální projekt."
@@ -6596,12 +6322,6 @@ msgstr "Nelze získat informace o verzi."
 msgid "Unable to retrieve volume backups."
 msgstr "Nelze získat zálohy svazku."
 
-msgid "Unable to retrieve volume consistency group snapshots."
-msgstr "Nelze získat snapshoty svazku konzistenční skupiny."
-
-msgid "Unable to retrieve volume consistency groups."
-msgstr "Nelze získat svazek konzistenčních skupin."
-
 msgid "Unable to retrieve volume details."
 msgstr "Nelze získat podrobnosti svazku."
 
@@ -6670,9 +6390,6 @@ msgstr "Nelze získat svazek."
 
 msgid "Unable to retrieve volume/instance attachment information"
 msgstr "Nelze získat informace o připojení svazku/instance."
-
-msgid "Unable to retrieve volumes availability zones."
-msgstr "Nelze získat zóny dostupnosti svazků."
 
 msgid "Unable to set Domain Context."
 msgstr "Nelze nastavit kontext domény."
@@ -6748,9 +6465,6 @@ msgstr "Nelze aktualizovat heslo uživatele."
 msgid "Unable to update the user."
 msgstr "Nelze aktualizovat uživatele."
 
-msgid "Unable to update volume consistency group."
-msgstr "Nelze aktualizovat svazek konzistenční skupiny."
-
 msgid "Unable to update volume snapshot status."
 msgstr "Nelze aktualizovat stav snapshotu svazku."
 
@@ -6766,9 +6480,6 @@ msgstr "Nelze aktualizovat typ svazku."
 
 msgid "Unable to update volume."
 msgstr "Nelze aktualizovat svazek."
-
-msgid "Unable to update volumes for consistency group"
-msgstr "Nelze aktualizovat svazek v konzistenční skupině"
 
 #, python-format
 msgid "Unable to upload volume to image for volume: \"%s\""
@@ -6932,10 +6643,6 @@ msgstr "Aktualizováno"
 msgid "Updated subnet \"%s\"."
 msgstr "Podsíť \"%s\" aktualizována."
 
-#, python-format
-msgid "Updated volumes for consistency group \"%s\"."
-msgstr "Konzistenční skupina %s aktualizována"
-
 msgctxt "Task status of an Instance"
 msgid "Updating Password"
 msgstr "Aktualizace hesla"
@@ -6950,10 +6657,6 @@ msgstr ""
 #, python-format
 msgid "Updating volume \"%s\""
 msgstr "Aktualizace svazku \"%s\""
-
-#, python-format
-msgid "Updating volume consistency group \"%s\""
-msgstr "Aktualizace svazku konzistenční skupiny \"%s\""
 
 #, python-format
 msgid "Updating volume snapshot \"%s\""
@@ -6990,9 +6693,6 @@ msgstr "Zpráva o využití za období:"
 msgid "Use Server Default"
 msgstr "Použít výchozí serveru"
 
-msgid "Use a consistency group as source"
-msgstr "Použít konzistenční skupinu jako zdroj"
-
 msgid "Use a volume as source"
 msgstr "Použít svazek jako zdroj"
 
@@ -7016,10 +6716,6 @@ msgstr "Uživatel"
 msgid "User \"%s\" was successfully created."
 msgstr "Uživatel \"%s\" byl úspěšně vytvořen."
 
-#, python-format
-msgid "User %s has no role defined for that project."
-msgstr "Uživatel %s nemá pro tento projekt určenu roli."
-
 msgid "User Credentials Details"
 msgstr "Přihlašovací údaje uživatele."
 
@@ -7040,9 +6736,6 @@ msgstr "Uživatelské jméno ="
 
 msgid "User Settings"
 msgstr "Uživatelská nastavení"
-
-msgid "User has been updated successfully."
-msgstr "Uživatel byl úspěšně aktualizován."
 
 #, python-format
 msgid "User name \"%s\" is already used."
@@ -7144,9 +6837,6 @@ msgstr "Záloha svazku:"
 msgid "Volume Backups"
 msgstr "Zálohy svazku"
 
-msgid "Volume Consistency Groups"
-msgstr "Konzistenční skupina svazků"
-
 msgid "Volume Encryption Details"
 msgstr "Podrobnosti šifrování svazku"
 
@@ -7228,22 +6918,6 @@ msgstr "Typ svazku: %(volume_type_name)s "
 
 msgid "Volume Types"
 msgstr "Typy svazků"
-
-msgid "Volume consistency groups can not be deleted if they contain volumes."
-msgstr "Konzistenční skupina nemůže být smazána pokud obsahuje svazky."
-
-msgid ""
-"Volume consistency groups provide a mechanism for creating snapshots of "
-"multiple volumes at the same point-in-time to ensure data consistency\n"
-"\n"
-"A consistency group can support more than one volume type, but it can only "
-"contain volumes hosted by the same back end."
-msgstr ""
-"Konzistenční skupina svazku poskytuje mechanismus pro vytváření snapshotů "
-"více svazků v totožném časovém okamžiku z důvodu zajištění konzistence\n"
-"\n"
-"Konzistenční skupina může obsahovat více typů svazků, ale všechny svazky "
-"musí být na totožném backendu."
 
 msgid "Volume is Unencrypted"
 msgstr "Svazek není zašifrován"

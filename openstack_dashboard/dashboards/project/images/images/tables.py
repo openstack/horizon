@@ -67,7 +67,7 @@ class LaunchImageNG(LaunchImage):
 
     def __init__(self, attrs=None, **kwargs):
         kwargs['preempt'] = True
-        super(LaunchImage, self).__init__(attrs, **kwargs)
+        super().__init__(attrs, **kwargs)
 
     def get_link_url(self, datum):
         imageId = self.table.get_object_id(datum)
@@ -85,6 +85,7 @@ class DeleteImage(tables.DeleteAction):
     # NOTE: The bp/add-batchactions-help-text
     # will add appropriate help text to some batch/delete actions.
     help_text = _("Deleted images are not recoverable.")
+    default_message_level = "info"
 
     @staticmethod
     def action_present(count):
@@ -173,7 +174,7 @@ class UpdateMetadata(tables.LinkAction):
 
     def __init__(self, attrs=None, **kwargs):
         kwargs['preempt'] = True
-        super(UpdateMetadata, self).__init__(attrs, **kwargs)
+        super().__init__(attrs, **kwargs)
 
     def get_link_url(self, datum):
         image_id = self.table.get_object_id(datum)
@@ -189,7 +190,7 @@ class UpdateMetadata(tables.LinkAction):
 
 
 def filter_tenants():
-    return getattr(settings, 'IMAGES_LIST_FILTER_TENANTS', [])
+    return settings.IMAGES_LIST_FILTER_TENANTS
 
 
 def filter_tenant_ids():
@@ -280,7 +281,7 @@ class UpdateRow(tables.Row):
         return image
 
     def load_cells(self, image=None):
-        super(UpdateRow, self).load_cells(image)
+        super().load_cells(image)
         # Tag the row with the image category for client-side filtering.
         image = self.datum
         my_tenant_id = self.table.request.user.tenant_id
@@ -346,9 +347,9 @@ class ImagesTable(tables.DataTable):
         verbose_name = _("Images")
         table_actions = (OwnerFilter, CreateImage, DeleteImage,)
         launch_actions = ()
-        if getattr(settings, 'LAUNCH_INSTANCE_LEGACY_ENABLED', False):
+        if settings.LAUNCH_INSTANCE_LEGACY_ENABLED:
             launch_actions = (LaunchImage,) + launch_actions
-        if getattr(settings, 'LAUNCH_INSTANCE_NG_ENABLED', True):
+        if settings.LAUNCH_INSTANCE_NG_ENABLED:
             launch_actions = (LaunchImageNG,) + launch_actions
         row_actions = launch_actions + (CreateVolumeFromImage,
                                         EditImage, UpdateMetadata,

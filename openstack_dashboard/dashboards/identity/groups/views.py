@@ -12,7 +12,6 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
-from django.conf import settings
 from django.urls import reverse
 from django.urls import reverse_lazy
 from django.utils.translation import ugettext_lazy as _
@@ -32,6 +31,7 @@ from openstack_dashboard.dashboards.identity.groups \
 from openstack_dashboard.dashboards.identity.groups \
     import tables as project_tables
 from openstack_dashboard.utils import identity
+from openstack_dashboard.utils import settings as setting_utils
 
 
 class IndexView(tables.DataTableView):
@@ -53,9 +53,8 @@ class IndexView(tables.DataTableView):
             # If filter_first is set and if there are not other filters
             # selected, then search criteria must be provided and
             # return an empty list
-            filter_first = getattr(settings, 'FILTER_DATA_FIRST', {})
-            if filter_first.get('identity.groups', False) \
-                    and len(filters) == 0:
+            if (setting_utils.get_dict_config(
+                    'FILTER_DATA_FIRST', 'identity.groups') and not filters):
                 self._needs_filter_first = True
                 return groups
 
@@ -104,7 +103,7 @@ class UpdateView(forms.ModalFormView):
                               redirect=redirect)
 
     def get_context_data(self, **kwargs):
-        context = super(UpdateView, self).get_context_data(**kwargs)
+        context = super().get_context_data(**kwargs)
         args = (self.get_object().id,)
         context['submit_url'] = reverse(self.submit_url, args=args)
         return context
@@ -145,7 +144,7 @@ class ManageMembersView(GroupManageMixin, tables.DataTableView):
     page_title = _("Group Management: {{ group.name }}")
 
     def get_context_data(self, **kwargs):
-        context = super(ManageMembersView, self).get_context_data(**kwargs)
+        context = super().get_context_data(**kwargs)
         context['group'] = self._get_group()
         return context
 
@@ -166,7 +165,7 @@ class NonMembersView(GroupManageMixin, forms.ModalFormMixin,
     table_class = project_tables.GroupNonMembersTable
 
     def get_context_data(self, **kwargs):
-        context = super(NonMembersView, self).get_context_data(**kwargs)
+        context = super().get_context_data(**kwargs)
         context['group'] = self._get_group()
         return context
 

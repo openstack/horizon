@@ -10,7 +10,6 @@
 # License for the specific language governing permissions and limitations
 # under the License.
 
-from django.conf import settings
 from django import template
 from django.template import defaultfilters as filters
 from django import urls
@@ -20,6 +19,7 @@ from django.utils.translation import ugettext_lazy as _
 from horizon import tables
 from horizon.utils import filters as utils_filters
 from openstack_dashboard import api
+from openstack_dashboard.utils import settings as setting_utils
 
 
 SERVICE_ENABLED = "enabled"
@@ -59,8 +59,7 @@ def show_endpoints(datanum):
     if 'endpoints' in datanum:
         template_name = 'admin/info/_cell_endpoints_v2.html'
         context = None
-        if (len(datanum['endpoints']) > 0 and
-                "publicURL" in datanum['endpoints'][0]):
+        if (datanum['endpoints'] and "publicURL" in datanum['endpoints'][0]):
             context = datanum['endpoints'][0]
         else:
             # this is a keystone v3 version of endpoints
@@ -188,8 +187,8 @@ class NetworkL3AgentRoutersLinkAction(tables.LinkAction):
     verbose_name = _("View Routers")
 
     def allowed(self, request, datum):
-        network_config = getattr(settings, 'OPENSTACK_NEUTRON_NETWORK', {})
-        if not network_config.get('enable_router', True):
+        if not setting_utils.get_dict_config('OPENSTACK_NEUTRON_NETWORK',
+                                             'enable_router'):
             return False
         # Determine whether this action is allowed for the current request.
         return datum.agent_type == "L3 agent"
@@ -215,11 +214,9 @@ class NetworkAgentsTable(tables.DataTable):
                                                  filters.timesince))
 
     def __init__(self, request, data=None, needs_form_wrapper=None, **kwargs):
-        super(NetworkAgentsTable, self).__init__(
-            request,
-            data=data,
-            needs_form_wrapper=needs_form_wrapper,
-            **kwargs)
+        super().__init__(request, data=data,
+                         needs_form_wrapper=needs_form_wrapper,
+                         **kwargs)
 
         availability_zone_supported = api.neutron.is_extension_supported(
             request,

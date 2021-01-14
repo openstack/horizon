@@ -22,7 +22,7 @@ horizon.datatables = {
     var requests = [];
 
     // do nothing if there are no rows to update.
-    if($rows_to_update.length <= 0) { return; }
+    if ($rows_to_update.length <= 0) { return; }
 
     // Do not update this row if the action column is expanded
     if ($rows_to_update.find('.actions_column .btn-group.open').length) {
@@ -50,7 +50,7 @@ horizon.datatables = {
                 // existing count minus one for the row we're removing
                 row_count = horizon.datatables.update_footer_count($table, -1);
 
-                if(row_count === 0) {
+                if (row_count === 0) {
                   colspan = $table.find('.table_column_header th').length;
                   template = horizon.templates.compiled_templates["#empty_row_template"];
                   params = {
@@ -85,8 +85,12 @@ horizon.datatables = {
                 .addClass('progress progress-striped active')
                 .appendTo($container);
 
+              // Incomplete progress bar addition
+              $width = $new_row.find('[percent]:first').attr('percent') || "100%";
+
               $(document.createElement('div'))
                 .addClass('progress-bar')
+                .css("width", $width)
                 .appendTo($progress);
 
               // if action/confirm is required, show progress-bar with "?"
@@ -100,12 +104,12 @@ horizon.datatables = {
             }
 
             // Only replace row if the html content has changed
-            if($new_row.html() !== $row.html()) {
+            if ($new_row.html() !== $row.html()) {
 
               // Directly accessing the checked property of the element
               // is MUCH faster than using jQuery's helper method
               var $checkbox = $row.find('.table-row-multi-select');
-              if($checkbox.length && $checkbox[0].checked) {
+              if ($checkbox.length && $checkbox[0].checked) {
                 // Preserve the checkbox if it's already clicked
                 $new_row.find('.table-row-multi-select').prop('checked', true);
               }
@@ -142,7 +146,7 @@ horizon.datatables = {
       $table.attr('decay_constant', decay_constant);
       var next_poll = interval * decay_constant;
       // Limit the interval to 30 secs
-      if(next_poll > 30 * 1000) { next_poll = 30 * 1000; }
+      if (next_poll > 30 * 1000) { next_poll = 30 * 1000; }
       setTimeout(horizon.datatables.update, next_poll);
     });
   },
@@ -160,7 +164,7 @@ horizon.datatables = {
           var $new_action = $(data);
 
           // Only replace row if the html content has changed
-          if($new_action.html() != $action.html()) {
+          if ($new_action.html() != $action.html()) {
             $action.replaceWith($new_action);
           }
         }
@@ -292,11 +296,11 @@ horizon.datatables.confirm = function(action) {
       name_string = " \"" + $action.closest("tr").attr("data-display") + "\"";
       name_array = [name_string];
     }
-  } else{
+  } else {
     // Probably we are getting the action from a detail view, so we try to get
     // the data-display from a dd element instead
     $data_display = $('dd[data-display]');
-    if($data_display.length > 0) {
+    if ($data_display.length > 0) {
       name_string = ' "' + $('dd[data-display]').attr("data-display") + '"';
       name_array = [name_string];
     }
@@ -471,7 +475,7 @@ $.tablesorter.addParser({
     // numerically comparable to other strings.
     s = s.toUpperCase();
     var value = 0.0;
-    for(var i = 0; i < s.length; i++) {
+    for (var i = 0; i < s.length; i++) {
       var char_offset = 1.0 / Math.pow(100, i);
       value = value + (s.charCodeAt(i) * char_offset);
     }
@@ -597,8 +601,24 @@ horizon.datatables.add_table_checkboxes = function($parent) {
   });
 };
 
+horizon.datatables.update_header_checkbox = function(table) {
+  var $multi_select_checkbox = table.find('.multi-select-header');
+
+  var $checkboxes = table.find('tbody tr:visible .table-row-multi-select');
+  if ($checkboxes.length == 0) {
+    $multi_select_checkbox.prop('checked', false);
+    $multi_select_checkbox.attr('disabled', true);
+  } else {
+    $multi_select_checkbox.removeAttr('disabled');
+    var not_checked = $checkboxes.not(':checked').length;
+    $multi_select_checkbox.prop('checked', not_checked == 0);
+  }
+};
+
 horizon.datatables.set_table_query_filter = function (parent) {
-  horizon.datatables.qs = {};
+  if (typeof horizon.datatables.qs === "undefined"){
+    horizon.datatables.qs = {};
+  }
   $(parent).find('table').each(function (index, elm) {
     var input = $($(elm).find('div.table_search.client input')),
         table_selector;
@@ -634,6 +654,7 @@ horizon.datatables.set_table_query_filter = function (parent) {
           horizon.datatables.update_footer_count(table);
           horizon.datatables.add_no_results_row(table);
           horizon.datatables.fix_row_striping(table);
+          horizon.datatables.update_header_checkbox(table);
         },
         prepareQuery: function (val) {
           return new RegExp(horizon.string.escapeRegex(val), "i");

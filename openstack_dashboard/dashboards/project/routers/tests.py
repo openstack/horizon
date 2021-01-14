@@ -11,12 +11,11 @@
 #    WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
 #    License for the specific language governing permissions and limitations
 #    under the License.
+
 import copy
+from unittest import mock
 
 from django.urls import reverse
-
-import mock
-import six
 
 from openstack_dashboard import api
 from openstack_dashboard.test import helpers as test
@@ -99,7 +98,7 @@ class RouterTestCase(object):
 
         self.assertTemplateUsed(res, INDEX_TEMPLATE)
         routers = res.context['table'].data
-        self.assertItemsEqual(routers, self.routers.list())
+        self.assertCountEqual(routers, self.routers.list())
 
         self.mock_router_list.assert_called_once_with(
             test.IsHttpRequest(), tenant_id=self.tenant.id)
@@ -176,7 +175,7 @@ class RouterTestCase(object):
 
         self.assertTemplateUsed(res, 'horizon/common/_detail.html')
         ports = res.context['interfaces_table'].data
-        self.assertItemsEqual(ports, [self.ports.first()])
+        self.assertCountEqual(ports, [self.ports.first()])
 
         self._check_get_detail(router)
 
@@ -1070,16 +1069,19 @@ class RouterRouteTestCase(object):
         self.assertTemplateUsed(res, 'horizon/common/_detail.html')
         routes = res.context['extra_routes_table'].data
         routes_dict = [r._apidict for r in routes]
-        self.assertItemsEqual(routes_dict, router['routes'])
+        self.assertCountEqual(routes_dict, router['routes'])
 
         self._check_get_detail(router, extraroute=True)
 
     @test.create_mocks({api.neutron: ('router_get',
                                       'router_update')})
-    def _test_router_addrouterroute(self, raise_error=False):
+    def _test_router_addrouterroute(self, ipv6=False, raise_error=False):
         pre_router = self.routers_with_routes.first()
         post_router = copy.deepcopy(pre_router)
-        route = {'nexthop': '10.0.0.5', 'destination': '40.0.1.0/24'}
+        if ipv6:
+            route = {'nexthop': 'fdb6:b88a:488e::5', 'destination': '2002::/64'}
+        else:
+            route = {'nexthop': '10.0.0.5', 'destination': '40.0.1.0/24'}
         post_router['routes'].insert(0, route)
         self.mock_router_get.return_value = pre_router
         if raise_error:
@@ -1110,6 +1112,16 @@ class RouterRouteTestCase(object):
     def test_router_addrouterroute_exception(self):
         if self.DASHBOARD == 'project':
             self._test_router_addrouterroute(raise_error=True)
+            self.assertMessageCount(error=1)
+
+    def test_router_addrouteripv6route(self):
+        if self.DASHBOARD == 'project':
+            self._test_router_addrouterroute(ipv6=True)
+            self.assertMessageCount(success=1)
+
+    def test_router_addrouteripv6route_exception(self):
+        if self.DASHBOARD == 'project':
+            self._test_router_addrouterroute(ipv6=True, raise_error=True)
             self.assertMessageCount(error=1)
 
     @test.create_mocks({api.neutron: ('router_get',
@@ -1175,7 +1187,7 @@ class RouterViewTests(RouterMixin, test.TestCase):
         self.assertTemplateUsed(res, INDEX_TEMPLATE)
 
         routers = res.context['routers_table'].data
-        self.assertItemsEqual(routers, self.routers.list())
+        self.assertCountEqual(routers, self.routers.list())
 
         create_action = self.getAndAssertTableAction(res, 'routers', 'create')
         self.assertIn('disabled', create_action.classes,
@@ -1208,7 +1220,7 @@ class RouterViewTests(RouterMixin, test.TestCase):
         self.assertTemplateUsed(res, INDEX_TEMPLATE)
 
         routers = res.context['routers_table'].data
-        self.assertItemsEqual(routers, self.routers.list())
+        self.assertCountEqual(routers, self.routers.list())
 
         create_action = self.getAndAssertTableAction(res, 'routers', 'create')
         self.assertFalse('disabled' in create_action.classes,
@@ -1241,12 +1253,11 @@ class RouterViewTests(RouterMixin, test.TestCase):
         self.assertTemplateUsed(res, INDEX_TEMPLATE)
 
         routers = res.context['routers_table'].data
-        self.assertItemsEqual(routers, self.routers.list())
+        self.assertCountEqual(routers, self.routers.list())
 
         create_action = self.getAndAssertTableAction(res, 'routers', 'create')
         self.assertEqual(set(['ajax-modal']), set(create_action.classes))
-        self.assertEqual('Create Router',
-                         six.text_type(create_action.verbose_name))
+        self.assertEqual('Create Router', create_action.verbose_name)
         self.assertEqual('horizon:project:routers:create', create_action.url)
         self.assertEqual((('network', 'create_router'),),
                          create_action.policy_rules)

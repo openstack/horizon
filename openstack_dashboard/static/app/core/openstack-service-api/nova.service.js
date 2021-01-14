@@ -65,7 +65,6 @@
       hardRebootServer: hardRebootServer,
       startServer: startServer,
       stopServer: stopServer,
-      getExtensions: getExtensions,
       getFlavors: getFlavors,
       getFlavor: getFlavor,
       getFlavorExtraSpecs: getFlavorExtraSpecs,
@@ -532,38 +531,6 @@
     function stopServer(serverId, suppressError) {
       return serverStateOperation('stop', serverId, suppressError,
         gettext('Unable to stop the server with id: %(id)s'));
-    }
-
-    /**
-     * @name getExtensions
-     * @param {Object} config - A configuration object
-     * @description
-     * Returns a list of enabled extensions.
-     *
-     * The listing result is an object with property "items". Each item is
-     * an extension.
-     * @example
-     * The following is an example response:
-     *
-     *  {
-     *    "items": [
-     *      {
-     *        "alias": "NMN",
-     *        "description": "Multiple network support.",
-     *        "links": [],
-     *        "name": "Multinic",
-     *        "namespace": "http://docs.openstack.org/compute/ext/multinic/api/v1.1",
-     *        "updated": "2011-06-09T00:00:00Z"
-     *      }
-     *    ]
-     *  }
-     * @returns {Object} The list of enable extensions
-     */
-    function getExtensions(config) {
-      return apiService.get('/api/nova/extensions/', config)
-        .error(function () {
-          toastService.add('error', gettext('Unable to retrieve the extensions.'));
-        });
     }
 
     /**

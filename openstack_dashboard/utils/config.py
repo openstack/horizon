@@ -15,8 +15,6 @@ This module contains utility functions for loading Horizon's
 configuration from .ini files using the oslo.config library.
 """
 
-import six
-
 from oslo_config import cfg
 
 # XXX import the actual config groups here
@@ -45,7 +43,7 @@ def apply_config(config, target):
 
 
 def apply_config_group(config_group, target, prefix=None):
-    for key, value in six.iteritems(config_group):
+    for key, value in config_group.items():
         name = key.upper()
         if prefix:
             name = '_'.join([prefix.upper(), name])

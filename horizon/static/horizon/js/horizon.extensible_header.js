@@ -25,7 +25,7 @@ horizon.extensible_header = {
         $('#extensible-header').replaceWith($(data));
 
         selected = horizon.cookies.get('selected_header');
-        if(selected && $('#header-list #' + selected).length){
+        if (selected && $('#header-list #' + selected).length) {
           $old_primary = $('#primary-extensible-header > a');
           $new_primary = $('#header-list #' + selected);
 

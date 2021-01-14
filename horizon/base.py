@@ -25,6 +25,7 @@ import copy
 from importlib import import_module
 import inspect
 import logging
+import operator
 import os
 
 from django.conf import settings
@@ -32,12 +33,10 @@ from django.conf.urls import include
 from django.conf.urls import url
 from django.core.exceptions import ImproperlyConfigured
 from django.urls import reverse
-from django.utils.encoding import python_2_unicode_compatible
 from django.utils.functional import empty
 from django.utils.functional import SimpleLazyObject
 from django.utils.module_loading import module_has_submodule
 from django.utils.translation import ugettext_lazy as _
-import six
 
 from horizon import conf
 from horizon.decorators import _current_component
@@ -105,12 +104,11 @@ class NotRegistered(Exception):
     pass
 
 
-@python_2_unicode_compatible
 class HorizonComponent(object):
-    policy_rules = None
+    policy_rules = tuple()
 
     def __init__(self):
-        super(HorizonComponent, self).__init__()
+        super().__init__()
         if not self.slug:
             raise ImproperlyConfigured('Every %s must have a slug.'
                                        % self.__class__)
@@ -189,7 +187,7 @@ class Registry(object):
         """
         if not inspect.isclass(cls):
             raise ValueError('Only classes may be registered.')
-        elif not issubclass(cls, self._registerable_class):
+        if not issubclass(cls, self._registerable_class):
             raise ValueError('Only %s classes or subclasses may be registered.'
                              % self._registerable_class.__name__)
 
@@ -209,7 +207,7 @@ class Registry(object):
             raise ValueError('Only %s classes or subclasses may be '
                              'unregistered.' % self._registerable_class)
 
-        if cls not in self._registry.keys():
+        if cls not in self._registry:
             raise NotRegistered('%s is not registered' % cls)
 
         del self._registry[cls]
@@ -235,11 +233,10 @@ class Registry(object):
                                    "slug": cls,
                                    "parent": parent,
                                    "name": self.slug})
-        else:
-            slug = getattr(cls, "slug", cls)
-            raise NotRegistered('%(type)s with slug "%(slug)s" is not '
-                                'registered.' % {"type": class_name,
-                                                 "slug": slug})
+        slug = getattr(cls, "slug", cls)
+        raise NotRegistered('%(type)s with slug "%(slug)s" is not '
+                            'registered.' % {"type": class_name,
+                                             "slug": slug})
 
 
 class Panel(HorizonComponent):
@@ -275,7 +272,6 @@ class Panel(HorizonComponent):
         Default: ``None``.
 
     .. attribute:: nav
-    .. method:: nav(context)
 
         The ``nav`` attribute can be either a boolean value or a callable
         which accepts a ``RequestContext`` object as a single argument
@@ -341,7 +337,6 @@ class Panel(HorizonComponent):
         return urlpatterns, self.slug, self.slug
 
 
-@six.python_2_unicode_compatible
 class PanelGroup(object):
     """A container for a set of :class:`~horizon.Panel` classes.
 
@@ -456,7 +451,6 @@ class Dashboard(Registry, HorizonComponent):
         which are not connected to specific panels. Default: ``None``.
 
     .. attribute:: nav
-    .. method:: nav(context)
 
         The ``nav`` attribute can be either a boolean value or a callable
         which accepts a ``RequestContext`` object as a single argument
@@ -482,7 +476,7 @@ class Dashboard(Registry, HorizonComponent):
         return "<Dashboard: %s>" % self.slug
 
     def __init__(self, *args, **kwargs):
-        super(Dashboard, self).__init__(*args, **kwargs)
+        super().__init__(*args, **kwargs)
         self._panel_groups = None
 
     def get_panel(self, panel):
@@ -519,7 +513,7 @@ class Dashboard(Registry, HorizonComponent):
                 panel_groups.append((panel_group.slug, panel_group))
 
         # Deal with leftovers (such as add-on registrations)
-        if len(registered):
+        if registered:
             slugs = [panel.slug for panel in registered.values()]
             new_group = PanelGroup(self,
                                    slug="other",
@@ -564,13 +558,13 @@ class Dashboard(Registry, HorizonComponent):
         urlpatterns.append(
             url(r'', _wrapped_include(default_panel._decorated_urls)))
 
-        # Require login if not public.
-        if not self.public:
-            _decorate_urlconf(urlpatterns, require_auth)
         # Apply access controls to all views in the patterns
         permissions = getattr(self, 'permissions', [])
         _decorate_urlconf(urlpatterns, require_perms, permissions)
         _decorate_urlconf(urlpatterns, _current_component, dashboard=self)
+        # Require login if not public.
+        if not self.public:
+            _decorate_urlconf(urlpatterns, require_auth)
 
         # Return the three arguments to django.conf.urls.include
         return urlpatterns, self.slug, self.slug
@@ -584,15 +578,15 @@ class Dashboard(Registry, HorizonComponent):
         panel_groups = []
         # If we have a flat iterable of panel names, wrap it again so
         # we have a consistent structure for the next step.
-        if all([isinstance(i, six.string_types) for i in self.panels]):
+        if all([isinstance(i, str) for i in self.panels]):
             self.panels = [self.panels]
 
         # Now iterate our panel sets.
         default_created = False
         for panel_set in self.panels:
             # Instantiate PanelGroup classes.
-            if not isinstance(panel_set, collections.Iterable) and \
-                    issubclass(panel_set, PanelGroup):
+            if (not isinstance(panel_set, collections.abc.Iterable) and
+                    issubclass(panel_set, PanelGroup)):
                 panel_group = panel_set(self)
             # Check for nested tuples, and convert them to PanelGroups
             elif not isinstance(panel_set, PanelGroup):
@@ -769,12 +763,12 @@ class Site(Registry, HorizonComponent):
                 dashboard = self._registered(item)
                 dashboards.append(dashboard)
                 registered.pop(dashboard.__class__)
-            if len(registered):
-                extra = sorted(registered.values())
+            if registered:
+                extra = sorted(registered.values(),
+                               key=operator.attrgetter('name'))
                 dashboards.extend(extra)
             return dashboards
-        else:
-            return sorted(self._registry.values())
+        return sorted(self._registry.values())
 
     def get_default_dashboard(self):
         """Returns the default :class:`~horizon.Dashboard` instance.
@@ -785,10 +779,9 @@ class Site(Registry, HorizonComponent):
         """
         if self.default_dashboard:
             return self._registered(self.default_dashboard)
-        elif len(self._registry):
+        if self._registry:
             return self.get_dashboards()[0]
-        else:
-            raise NotRegistered("No dashboard modules have been registered.")
+        raise NotRegistered("No dashboard modules have been registered.")
 
     def get_user_home(self, user):
         """Returns the default URL for a particular user.
@@ -815,18 +808,16 @@ class Site(Registry, HorizonComponent):
         if user_home:
             if callable(user_home):
                 return user_home(user)
-            elif isinstance(user_home, six.string_types):
+            if isinstance(user_home, str):
                 # Assume we've got a URL if there's a slash in it
                 if '/' in user_home:
                     return user_home
-                else:
-                    mod, func = user_home.rsplit(".", 1)
-                    return getattr(import_module(mod), func)(user)
+                mod, func = user_home.rsplit(".", 1)
+                return getattr(import_module(mod), func)(user)
             # If it's not callable and not a string, it's wrong.
             raise ValueError('The user_home setting must be either a string '
                              'or a callable object (e.g. a function).')
-        else:
-            return self.get_absolute_url()
+        return self.get_absolute_url()
 
     def get_absolute_url(self):
         """Returns the default URL for Horizon's URLconf.
@@ -1032,7 +1023,7 @@ class HorizonSite(Site):
 
     def __new__(cls, *args, **kwargs):
         if not cls._instance:
-            cls._instance = super(Site, cls).__new__(cls, *args, **kwargs)
+            cls._instance = super().__new__(cls, *args, **kwargs)
         return cls._instance
 
 

@@ -52,6 +52,7 @@ class NavigationAccordionRegion(baseregion.BaseRegion):
     _menu_list_locator = (by.By.CSS_SELECTOR, 'a')
     _expanded_menu_class = ""
     _transitioning_menu_class = 'collapsing'
+    _form_body_locator = (by.By.CSS_SELECTOR, 'body')
 
     def _get_first_level_item_locator(self, text):
         return (by.By.XPATH,
@@ -78,6 +79,10 @@ class NavigationAccordionRegion(baseregion.BaseRegion):
             return None
 
     @property
+    def get_form_body(self):
+        return self._get_element(*self._form_body_locator)
+
+    @property
     def security_groups(self):
         return self._get_element(*self._project_security_groups_locator)
 
@@ -97,6 +102,12 @@ class NavigationAccordionRegion(baseregion.BaseRegion):
             else:
                 status = self._expanded_menu_class is not classes
             return status and self._transitioning_menu_class not in classes
+        self._wait_until(predicate)
+
+    def _wait_until_modal_dialog_close(self):
+        def predicate(d):
+            classes = self.get_form_body.get_attribute('class')
+            return classes and "modal-open" not in classes
         self._wait_until(predicate)
 
     def _click_menu_item(self, text, loc_craft_func, get_selected_func=None,
@@ -123,10 +134,11 @@ class NavigationAccordionRegion(baseregion.BaseRegion):
         """
         is_already_within_required_item = False
         selected_item = None
+        self._wait_until_modal_dialog_close()
         if get_selected_func is not None:
             selected_item = get_selected_func()
             if selected_item:
-                if text != selected_item.text:
+                if text != selected_item.text and selected_item.text:
                     # In case different item was chosen previously, collapse
                     # it. Otherwise selenium will complain with
                     # MoveTargetOutOfBoundsException
@@ -280,6 +292,15 @@ class TabbedMenuRegion(baseregion.BaseRegion):
         self._get_elements(*self._tab_locator)[index].click()
 
 
+class WizardMenuRegion(baseregion.BaseRegion):
+
+    _step_locator = (by.By.CSS_SELECTOR, 'li > a')
+    _default_src_locator = (by.By.CSS_SELECTOR, 'div > .nav.nav-pills')
+
+    def switch_to(self, index=0):
+        self._get_elements(*self._step_locator)[index].click()
+
+
 class ProjectDropDownRegion(DropDownMenuRegion):
     _menu_items_locator = (
         by.By.CSS_SELECTOR, 'ul.context-selection li > a')
@@ -360,20 +381,17 @@ class MembershipMenuRegion(baseregion.BaseRegion):
     def _is_role_selected(role):
         return 'selected' == role.get_attribute('class')
 
-    @staticmethod
-    def _get_hidden_text(role):
-        return role.get_attribute('textContent')
-
     def get_member_available_roles(self, name, allocated_members=None,
                                    strip=True):
         roles = self._get_member_all_roles(name, allocated_members)
-        return [(self._get_hidden_text(role).strip() if strip else role)
+        return [(role.text.strip() if strip else role)
                 for role in roles if not self._is_role_selected(role)]
 
     def get_member_allocated_roles(self, name, allocated_members=None,
                                    strip=True):
+        self.open_member_roles_dropdown(name, allocated_members)
         roles = self._get_member_all_roles(name, allocated_members)
-        return [(self._get_hidden_text(role).strip() if strip else role)
+        return [(role.text.strip() if strip else role)
                 for role in roles if self._is_role_selected(role)]
 
     def open_member_roles_dropdown(self, name, allocated_members=None):
@@ -405,3 +423,36 @@ class MembershipMenuRegion(baseregion.BaseRegion):
         self._switch_member_roles(
             name, roles2remove, self.get_member_allocated_roles,
             allocated_members=allocated_members)
+
+
+class InstanceAvailableResourceMenuRegion(baseregion.BaseRegion):
+    _available_table_locator = (
+        by.By.CSS_SELECTOR,
+        'div.step:not(.ng-hide) div.transfer-available table')
+    _available_table_row_locator = (by.By.CSS_SELECTOR,
+                                    "tbody > tr.ng-scope:not(.detail-row)")
+    _available_table_column_locator = (by.By.TAG_NAME, "td")
+    _action_column_btn_locator = (by.By.CSS_SELECTOR,
+                                  "td.actions_column button")
+
+    def transfer_available_resource(self, resource_name):
+        available_table = self._get_element(*self._available_table_locator)
+        rows = available_table.find_elements(
+            *self._available_table_row_locator)
+        for row in rows:
+            cols = row.find_elements(*self._available_table_column_locator)
+            if len(cols) > 1 and self._get_column_text(cols) in resource_name:
+                row_selector_btn = row.find_element(
+                    *self._action_column_btn_locator)
+                row_selector_btn.click()
+                break
+
+    def _get_column_text(self, cols):
+        return cols[2].text.strip()
+
+
+class InstanceFlavorMenuRegion(InstanceAvailableResourceMenuRegion):
+    _action_column_btn_locator = (by.By.CSS_SELECTOR, "td.action-col button")
+
+    def _get_column_text(self, cols):
+        return cols[1].text.strip()

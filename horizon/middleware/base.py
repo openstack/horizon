@@ -19,8 +19,11 @@
 Middleware provided and used by Horizon.
 """
 
+import datetime
 import json
 import logging
+
+import pytz
 
 from django.conf import settings
 from django.contrib.auth import REDIRECT_FIELD_NAME
@@ -47,12 +50,12 @@ class HorizonMiddleware(object):
         self.get_response = get_response
 
     def __call__(self, request):
-        self.process_request(request)
+        self._process_request(request)
         response = self.get_response(request)
-        response = self.process_response(request, response)
+        response = self._process_response(request, response)
         return response
 
-    def process_request(self, request):
+    def _process_request(self, request):
         """Adds data necessary for Horizon to function to the request."""
 
         request.horizon = {'dashboard': None,
@@ -64,6 +67,15 @@ class HorizonMiddleware(object):
             # it is CRITICAL to perform this check as early as possible
             # to avoid creating too many sessions
             return None
+
+        # Since we know the user is present and authenticated, lets refresh the
+        # session expiry if configured to do so.
+        if settings.SESSION_REFRESH:
+            timeout = settings.SESSION_TIMEOUT
+            token_life = request.user.token.expires - datetime.datetime.now(
+                pytz.utc)
+            session_time = min(timeout, int(token_life.total_seconds()))
+            request.session.set_expiry(session_time)
 
         if request.is_ajax():
             # if the request is Ajax we do not want to proceed, as clients can
@@ -78,10 +90,8 @@ class HorizonMiddleware(object):
             settings.SESSION_ENGINE ==
             'django.contrib.sessions.backends.signed_cookies'
         ):
-            max_cookie_size = getattr(
-                settings, 'SESSION_COOKIE_MAX_SIZE', None)
-            session_cookie_name = getattr(
-                settings, 'SESSION_COOKIE_NAME', None)
+            max_cookie_size = settings.SESSION_COOKIE_MAX_SIZE
+            session_cookie_name = settings.SESSION_COOKIE_NAME
             session_key = request.COOKIES.get(session_cookie_name)
             if max_cookie_size is not None and session_key is not None:
                 cookie_size = sum((
@@ -147,11 +157,11 @@ class HorizonMiddleware(object):
             return shortcuts.redirect(exception.location)
 
     @staticmethod
-    def copy_headers(src, dst, headers):
+    def _copy_headers(src, dst, headers):
         for header in headers:
             dst[header] = src[header]
 
-    def process_response(self, request, response):
+    def _process_response(self, request, response):
         """Convert HttpResponseRedirect to HttpResponse if request is via ajax.
 
         This is to allow ajax request to redirect url.
@@ -189,8 +199,8 @@ class HorizonMiddleware(object):
                 redirect_response['X-Horizon-Location'] = response['location']
                 upload_url_key = 'X-File-Upload-URL'
                 if upload_url_key in response:
-                    self.copy_headers(response, redirect_response,
-                                      (upload_url_key, 'X-Auth-Token'))
+                    self._copy_headers(response, redirect_response,
+                                       (upload_url_key, 'X-Auth-Token'))
                 return redirect_response
             if queued_msgs:
                 # TODO(gabriel): When we have an async connection to the

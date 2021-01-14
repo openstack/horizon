@@ -31,6 +31,7 @@ from horizon.tables.views import MixedDataTableView
 from horizon.tables.views import MultiTableMixin
 from horizon.tables.views import MultiTableView
 from horizon.tables.views import PagedTableMixin
+from horizon.tables.views import PagedTableWithPageMenu
 
 
 __all__ = [
@@ -50,4 +51,5 @@ __all__ = [
     'MultiTableMixin',
     'MultiTableView',
     'PagedTableMixin',
+    'PagedTableWithPageMenu',
 ]

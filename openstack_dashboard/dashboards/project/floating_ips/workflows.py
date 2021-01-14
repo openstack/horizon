@@ -23,8 +23,8 @@ from horizon.utils import memoized
 from horizon import workflows
 
 from openstack_dashboard import api
+from openstack_dashboard import policy
 from openstack_dashboard.utils import filters
-
 
 ALLOCATE_URL = "horizon:project:floating_ips:allocate"
 
@@ -34,8 +34,7 @@ class AssociateIPAction(workflows.Action):
     ip_id = forms.ThemableDynamicTypedChoiceField(
         label=_("IP Address"),
         coerce=filters.get_int_or_uuid,
-        empty_value=None,
-        add_item_link=ALLOCATE_URL
+        empty_value=None
     )
     instance_id = forms.ThemableChoiceField(
         label=_("Port to be associated")
@@ -47,7 +46,7 @@ class AssociateIPAction(workflows.Action):
                       "the selected instance or port.")
 
     def __init__(self, *args, **kwargs):
-        super(AssociateIPAction, self).__init__(*args, **kwargs)
+        super().__init__(*args, **kwargs)
 
         # If AssociateIP is invoked from instance menu, instance_id parameter
         # is passed in URL. In Neutron based Floating IP implementation
@@ -56,6 +55,11 @@ class AssociateIPAction(workflows.Action):
         # and set the initial value of instance_id ChoiceField.
         q_instance_id = self.request.GET.get('instance_id')
         q_port_id = self.request.GET.get('port_id')
+
+        if policy.check((("network", "create_floatingip"),),
+                        request=self.request):
+            self.fields['ip_id'].widget.add_item_link = ALLOCATE_URL
+
         if q_instance_id:
             targets = self._get_target_list(q_instance_id)
             # Setting the initial value here is required to avoid a situation
@@ -131,7 +135,7 @@ class AssociateIP(workflows.Step):
     contributes = ("ip_id", "instance_id", "ip_address")
 
     def contribute(self, data, context):
-        context = super(AssociateIP, self).contribute(data, context)
+        context = super().contribute(data, context)
         ip_id = data.get('ip_id', None)
         if ip_id:
             ip_choices = dict(self.action.fields['ip_id'].choices)
@@ -152,8 +156,7 @@ class IPAssociationWorkflow(workflows.Workflow):
         if "%s" in message:
             return message % self.context.get('ip_address',
                                               _('unknown IP address'))
-        else:
-            return message
+        return message
 
     def handle(self, request, data):
         try:

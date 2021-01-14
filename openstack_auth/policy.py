@@ -27,7 +27,7 @@ from openstack_auth import utils as auth_utils
 LOG = logging.getLogger(__name__)
 
 _ENFORCER = None
-_BASE_PATH = getattr(settings, 'POLICY_FILES_PATH', '')
+_BASE_PATH = settings.POLICY_FILES_PATH
 
 
 def _get_policy_conf(policy_file, policy_dirs=None):
@@ -35,7 +35,6 @@ def _get_policy_conf(policy_file, policy_dirs=None):
     # Passing [] is required. Otherwise oslo.config looks up sys.argv.
     conf([])
     policy_opts.set_defaults(conf)
-    policy_file = os.path.join(_BASE_PATH, policy_file)
     conf.set_default('policy_file', policy_file, 'oslo_policy')
     # Policy Enforcer has been updated to take in a policy directory
     # as a config option. However, the default value in is set to
@@ -43,30 +42,48 @@ def _get_policy_conf(policy_file, policy_dirs=None):
     # value to empty list for now.
     if policy_dirs is None:
         policy_dirs = []
-    policy_dirs = [os.path.join(_BASE_PATH, policy_dir)
-                   for policy_dir in policy_dirs]
     conf.set_default('policy_dirs', policy_dirs, 'oslo_policy')
     return conf
+
+
+def _get_policy_file_with_full_path(service):
+    policy_files = settings.POLICY_FILES
+    policy_file = os.path.join(_BASE_PATH, policy_files[service])
+    policy_dirs = settings.POLICY_DIRS.get(service, [])
+    policy_dirs = [os.path.join(_BASE_PATH, policy_dir)
+                   for policy_dir in policy_dirs]
+    return policy_file, policy_dirs
 
 
 def _get_enforcer():
     global _ENFORCER
     if not _ENFORCER:
         _ENFORCER = {}
-        policy_files = getattr(settings, 'POLICY_FILES', {})
-        policy_dirs = getattr(settings, 'POLICY_DIRS', {})
+        policy_files = settings.POLICY_FILES
         for service in policy_files.keys():
-            conf = _get_policy_conf(policy_file=policy_files[service],
-                                    policy_dirs=policy_dirs.get(service, []))
+            policy_file, policy_dirs = _get_policy_file_with_full_path(service)
+            conf = _get_policy_conf(policy_file, policy_dirs)
             enforcer = policy.Enforcer(conf)
-            # Ensure enforcer.policy_path is populated.
-            enforcer.load_rules()
-            if os.path.isfile(enforcer.policy_path):
+            try:
+                enforcer.load_rules()
+            except IOError:
+                # Just in case if we have permission denied error which is not
+                # handled by oslo.policy now. It will handled in the code like
+                # we don't have any policy file: allow action from the Horizon
+                # side.
+                LOG.warning("Cannot load a policy file '%s' for service '%s' "
+                            "due to IOError. One possible reason is "
+                            "permission denied.", policy_file, service)
+            # Ensure enforcer.rules is populated.
+            if enforcer.rules:
                 LOG.debug("adding enforcer for service: %s", service)
                 _ENFORCER[service] = enforcer
             else:
-                LOG.warning("policy file for service: %s not found at %s",
-                            (service, enforcer.policy_path))
+                locations = policy_file
+                if policy_dirs:
+                    locations += ' and files under %s' % policy_dirs
+                LOG.warning("No policy rules for service '%s' in %s",
+                            service, locations)
     return _ENFORCER
 
 
@@ -199,7 +216,6 @@ def _user_to_credentials(user):
     if not hasattr(user, "_credentials"):
         roles = [role['name'] for role in user.roles]
         user._credentials = {'user_id': user.id,
-                             'token': user.token,
                              'username': user.username,
                              'project_id': user.project_id,
                              'tenant_id': user.project_id,

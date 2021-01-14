@@ -24,7 +24,7 @@ class OverviewPage(basepage.BaseNavigationPage):
     _date_form_locator = (by.By.ID, 'date_form')
 
     def __init__(self, driver, conf):
-        super(OverviewPage, self).__init__(driver, conf)
+        super().__init__(driver, conf)
         self._page_title = 'Instance Overview'
 
     @property

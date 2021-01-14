@@ -13,8 +13,8 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
-import mock
-from mock import patch
+from unittest import mock
+from unittest.mock import patch
 
 from django.conf import settings
 from django.core.exceptions import MiddlewareNotUsed
@@ -22,6 +22,7 @@ from django.http import HttpResponseRedirect
 from django import test as django_test
 from django.test.utils import override_settings
 
+from horizon import defaults
 from horizon import middleware
 from horizon.test import helpers as test
 
@@ -32,7 +33,7 @@ class OperationLogMiddlewareTest(django_test.TestCase):
     http_referer = u'/dashboard/test_http_referer'
 
     def setUp(self):
-        super(OperationLogMiddlewareTest, self).setUp()
+        super().setUp()
         self.factory = test.RequestFactoryWithMessages()
 
     def test_middleware_not_used(self):
@@ -93,7 +94,7 @@ class OperationLogMiddlewareTest(django_test.TestCase):
             self.assertIn(data, logging_str)
 
     @override_settings(OPERATION_LOG_ENABLED=True)
-    @override_settings(OPERATION_LOG_OPTIONS={'target_methods': ['GET']})
+    @test.update_settings(OPERATION_LOG_OPTIONS={'target_methods': ['GET']})
     @patch(('horizon.middleware.operation_log.OperationLogMiddleware.'
             'OPERATION_LOG'))
     def test_process_response_for_get(self, mock_logger):
@@ -153,7 +154,7 @@ class OperationLogMiddlewareTest(django_test.TestCase):
             self.assertIn(data, logging_str)
 
     @override_settings(OPERATION_LOG_ENABLED=True)
-    @override_settings(OPERATION_LOG_OPTIONS={'target_methods': ['GET']})
+    @test.update_settings(OPERATION_LOG_OPTIONS={'target_methods': ['GET']})
     @patch(('horizon.middleware.operation_log.OperationLogMiddleware.'
             'OPERATION_LOG'))
     def test_get_log_format(self, mock_logger):
@@ -161,7 +162,9 @@ class OperationLogMiddlewareTest(django_test.TestCase):
         olm = middleware.OperationLogMiddleware(get_response)
         request, _ = self._test_ready_for_get()
 
-        self.assertEqual(olm._default_format, olm._get_log_format(request))
+        self.assertEqual(
+            defaults.OPERATION_LOG_OPTIONS['format'],
+            olm._get_log_format(request))
 
     @override_settings(OPERATION_LOG_ENABLED=True)
     @patch(('horizon.middleware.operation_log.OperationLogMiddleware.'

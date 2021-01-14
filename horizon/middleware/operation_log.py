@@ -15,12 +15,14 @@
 import json
 import logging
 import re
+from urllib import parse
 
 from django.conf import settings
 from django.contrib import messages as django_messages
 from django.core.exceptions import MiddlewareNotUsed
 
-import six.moves.urllib.parse as urlparse
+
+from horizon.utils import settings as setting_utils
 
 LOG = logging.getLogger(__name__)
 
@@ -44,7 +46,7 @@ class OperationLogMiddleware(object):
     - ``http status``
     - ``request parameters``
 
-    and log format is defined OPERATION_LOG_OPTIONS.
+    and log format is defined in OPERATION_LOG_OPTIONS.
     """
 
     @property
@@ -53,38 +55,31 @@ class OperationLogMiddleware(object):
         return self._logger
 
     def __init__(self, get_response):
-        if not getattr(settings, "OPERATION_LOG_ENABLED", False):
+        if not settings.OPERATION_LOG_ENABLED:
             raise MiddlewareNotUsed
 
         self.get_response = get_response
 
         # set configurations
-        _log_option = getattr(settings, "OPERATION_LOG_OPTIONS", {})
         _available_methods = ['POST', 'GET', 'PUT', 'DELETE']
-        _methods = _log_option.get("target_methods", ['POST'])
-        self._default_format = (
-            "[%(client_ip)s] [%(domain_name)s]"
-            " [%(domain_id)s] [%(project_name)s]"
-            " [%(project_id)s] [%(user_name)s] [%(user_id)s]"
-            " [%(request_scheme)s] [%(referer_url)s] [%(request_url)s]"
-            " [%(message)s] [%(method)s] [%(http_status)s] [%(param)s]")
-        _default_ignored_urls = ['/js/', '/static/', '^/api/']
-        _default_mask_fields = ['password', 'current_password',
-                                'new_password', 'confirm_password']
+        _methods = setting_utils.get_dict_config(
+            'OPERATION_LOG_OPTIONS', 'target_methods')
         self.target_methods = [x for x in _methods if x in _available_methods]
-        self.mask_fields = _log_option.get("mask_fields", _default_mask_fields)
-        self.format = _log_option.get("format", self._default_format)
+        self.mask_fields = setting_utils.get_dict_config(
+            'OPERATION_LOG_OPTIONS', 'mask_fields')
+        self.format = setting_utils.get_dict_config(
+            'OPERATION_LOG_OPTIONS', 'format')
         self._logger = logging.getLogger('horizon.operation_log')
-
-        ignored_urls = _log_option.get("ignore_urls", _default_ignored_urls)
-        self._ignored_urls = [re.compile(url) for url in ignored_urls]
+        self._ignored_urls = [re.compile(url) for url
+                              in setting_utils.get_dict_config(
+                                  'OPERATION_LOG_OPTIONS', 'ignore_urls')]
 
     def __call__(self, request):
         response = self.get_response(request)
-        response = self.process_response(request, response)
+        response = self._process_response(request, response)
         return response
 
-    def process_response(self, request, response):
+    def _process_response(self, request, response):
         """Log user operation."""
         log_format = self._get_log_format(request)
         if not log_format:
@@ -128,7 +123,7 @@ class OperationLogMiddleware(object):
         method = request.method.upper()
         if not (method in self.target_methods):
             return
-        request_url = urlparse.unquote(request.path)
+        request_url = parse.unquote(request.path)
         for rule in self._ignored_urls:
             if rule.search(request_url):
                 return
@@ -139,8 +134,8 @@ class OperationLogMiddleware(object):
         user = request.user
         referer_url = None
         try:
-            referer_dic = urlparse.urlsplit(
-                urlparse.unquote(request.META.get('HTTP_REFERER')))
+            referer_dic = parse.urlsplit(
+                parse.unquote(request.META.get('HTTP_REFERER')))
             referer_url = referer_dic[2]
             if referer_dic[3]:
                 referer_url += "?" + referer_dic[3]
@@ -148,7 +143,7 @@ class OperationLogMiddleware(object):
                 referer_url = referer_url.decode('utf-8')
         except Exception:
             pass
-        request_url = urlparse.unquote(request.path)
+        request_url = parse.unquote(request.path)
         if request.META['QUERY_STRING']:
             request_url += '?' + request.META['QUERY_STRING']
         return {
@@ -182,7 +177,7 @@ class OperationLogMiddleware(object):
 
         # when a file uploaded (E.g create image)
         files = request.FILES.values()
-        if len(list(files)) > 0:
+        if list(files):
             filenames = ', '.join(
                 [up_file.name for up_file in files])
             params['file_name'] = filenames

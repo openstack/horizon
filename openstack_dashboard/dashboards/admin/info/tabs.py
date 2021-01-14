@@ -66,7 +66,6 @@ class NovaServicesTab(tabs.TableTab):
             services = nova.service_list(self.tab_group.request)
         except Exception:
             msg = _('Unable to get nova services list.')
-            exceptions.check_message(["Connection", "refused"], msg)
             exceptions.handle(self.request, msg)
             services = []
         return services
@@ -87,7 +86,6 @@ class CinderServicesTab(tabs.TableTab):
             services = cinder.service_list(self.tab_group.request)
         except Exception:
             msg = _('Unable to get cinder services list.')
-            exceptions.check_message(["Connection", "refused"], msg)
             exceptions.handle(self.request, msg)
             services = []
         return services
@@ -113,7 +111,6 @@ class NetworkAgentsTab(tabs.TableTab):
             agents = neutron.agent_list(self.tab_group.request)
         except Exception:
             msg = _('Unable to get network agents list.')
-            exceptions.check_message(["Connection", "refused"], msg)
             exceptions.handle(self.request, msg)
             agents = []
         return agents

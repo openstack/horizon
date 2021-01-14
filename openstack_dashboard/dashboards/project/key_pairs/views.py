@@ -81,6 +81,6 @@ class DetailView(views.HorizonTemplateView):
 
     def get_context_data(self, **kwargs):
         """Gets the context data for keypair."""
-        context = super(DetailView, self).get_context_data(**kwargs)
+        context = super().get_context_data(**kwargs)
         context['keypair'] = self._get_data()
         return context

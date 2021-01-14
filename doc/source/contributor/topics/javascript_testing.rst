@@ -26,7 +26,7 @@ that they are testing. See the :ref:`js_file_structure` section or the
 .. _Jasmine: https://jasmine.github.io/2.3/introduction.html
 .. _Karma: https://karma-runner.github.io/
 .. _PhantomJS: http://phantomjs.org/
-.. _ESLint: http://eslint.org/
+.. _ESLint: https://eslint.org/
 
 Running Tests
 =============

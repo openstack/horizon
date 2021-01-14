@@ -39,10 +39,9 @@ def get_fixed_ips(port):
 def get_attached(port):
     if port['device_owner']:
         return port['device_owner']
-    elif port['device_id']:
+    if port['device_id']:
         return _('Attached')
-    else:
-        return _('Detached')
+    return _('Detached')
 
 
 class UpdatePort(policy.PolicyTargetMixin, tables.LinkAction):
@@ -92,7 +91,7 @@ class CreatePort(tables.LinkAction):
         # usages["port"] is empty
         if usages.get('port', {}).get('available', 1) <= 0:
             if "disabled" not in self.classes:
-                self.classes = [c for c in self.classes] + ["disabled"]
+                self.classes = list(self.classes) + ['disabled']
                 self.verbose_name = _("Create Port (Quota exceeded)")
         else:
             # If the port is deleted, the usage of port will less than
@@ -162,8 +161,8 @@ class PortsTable(tables.DataTable):
         hidden_title = False
 
     def __init__(self, request, data=None, needs_form_wrapper=None, **kwargs):
-        super(PortsTable, self).__init__(request, data=data,
-                                         needs_form_wrapper=needs_form_wrapper,
-                                         **kwargs)
+        super().__init__(request, data=data,
+                         needs_form_wrapper=needs_form_wrapper,
+                         **kwargs)
         if not api.neutron.is_extension_supported(request, 'mac-learning'):
             del self.columns['mac_state']

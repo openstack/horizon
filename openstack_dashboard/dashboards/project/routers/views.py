@@ -76,8 +76,8 @@ class IndexView(tables.DataTableView):
                                                 **search_opts)
             ext_net_dict = OrderedDict((n['id'], n.name_or_id)
                                        for n in ext_nets)
-        except Exception as e:
-            msg = _('Unable to retrieve a list of external networks "%s".') % e
+        except Exception:
+            msg = _('Unable to retrieve a list of external networks.')
             exceptions.handle(self.request, msg)
             ext_net_dict = {}
         return ext_net_dict
@@ -146,7 +146,7 @@ class DetailView(tabs.TabbedTableView):
         return ports
 
     def get_context_data(self, **kwargs):
-        context = super(DetailView, self).get_context_data(**kwargs)
+        context = super().get_context_data(**kwargs)
         router = self._get_data()
         table = rtables.RoutersTable(self.request)
 
@@ -181,7 +181,7 @@ class CreateView(forms.ModalFormView):
     submit_url = reverse_lazy("horizon:project:routers:create")
 
     def get_context_data(self, **kwargs):
-        context = super(CreateView, self).get_context_data(**kwargs)
+        context = super().get_context_data(**kwargs)
         context['enable_snat_allowed'] = self.initial['enable_snat_allowed']
         return context
 
@@ -189,7 +189,7 @@ class CreateView(forms.ModalFormView):
         enable_snat_allowed = api.neutron.get_feature_permission(
             self.request, 'ext-gw-mode', 'create_router_enable_snat')
         self.initial['enable_snat_allowed'] = enable_snat_allowed
-        return super(CreateView, self).get_initial()
+        return super().get_initial()
 
 
 class UpdateView(forms.ModalFormView):
@@ -202,7 +202,7 @@ class UpdateView(forms.ModalFormView):
     submit_url = "horizon:project:routers:update"
 
     def get_context_data(self, **kwargs):
-        context = super(UpdateView, self).get_context_data(**kwargs)
+        context = super().get_context_data(**kwargs)
         args = (self.kwargs['router_id'],)
         context["router_id"] = self.kwargs['router_id']
         context['submit_url'] = reverse(self.submit_url, args=args)

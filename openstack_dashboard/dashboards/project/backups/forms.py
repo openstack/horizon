@@ -40,20 +40,58 @@ class CreateBackupForm(forms.SelfHandlingForm):
         validators=[containers_utils.no_slash_validator],
         required=False)
     volume_id = forms.CharField(widget=forms.HiddenInput())
+    snapshot_id = forms.ThemableChoiceField(label=_("Backup Snapshot"),
+                                            required=False)
+
+    def __init__(self, request, *args, **kwargs):
+        super().__init__(request, *args, **kwargs)
+        if kwargs['initial'].get('snapshot_id'):
+            snap_id = kwargs['initial']['snapshot_id']
+            try:
+                snapshot = api.cinder.volume_snapshot_get(request, snap_id)
+                self.fields['snapshot_id'].choices = [(snapshot.id,
+                                                       snapshot.name)]
+                self.fields['snapshot_id'].initial = snap_id
+            except Exception:
+                redirect = reverse('horizon:project:snapshots:index')
+                exceptions.handle(request, _('Unable to fetch snapshot'),
+                                  redirect=redirect)
+        else:
+            try:
+                sop = {'volume_id': kwargs['initial']['volume_id']}
+                snapshots = api.cinder.volume_snapshot_list(request,
+                                                            search_opts=sop)
+
+                snapshots.sort(key=operator.attrgetter('id', 'created_at'))
+                snapshotChoices = [[snapshot.id, snapshot.name]
+                                   for snapshot in snapshots]
+                if not snapshotChoices:
+                    snapshotChoices.insert(0, ('',
+                                           _("No snapshot for this volume")))
+                else:
+                    snapshotChoices.insert(
+                        0, ('',
+                            _("Select snapshot to backup (Optional)")))
+                self.fields['snapshot_id'].choices = snapshotChoices
+
+            except Exception:
+                redirect = reverse('horizon:project:volumes:index')
+                exceptions.handle(request, _('Unable to fetch snapshots'),
+                                  redirect=redirect)
 
     def handle(self, request, data):
-
         try:
             volume = api.cinder.volume_get(request, data['volume_id'])
+            snapshot_id = data['snapshot_id'] or None
             force = False
             if volume.status == 'in-use':
                 force = True
-            backup = api.cinder.volume_backup_create(request,
-                                                     data['volume_id'],
-                                                     data['container_name'],
-                                                     data['name'],
-                                                     data['description'],
-                                                     force=force)
+            backup = api.cinder.volume_backup_create(
+                request, data['volume_id'],
+                data['container_name'], data['name'],
+                data['description'], force=force,
+                snapshot_id=snapshot_id
+            )
 
             message = _('Creating volume backup "%s"') % data['name']
             messages.info(request, message)
@@ -73,7 +111,7 @@ class RestoreBackupForm(forms.SelfHandlingForm):
     backup_name = forms.CharField(widget=forms.HiddenInput())
 
     def __init__(self, request, *args, **kwargs):
-        super(RestoreBackupForm, self).__init__(request, *args, **kwargs)
+        super().__init__(request, *args, **kwargs)
 
         try:
             search_opts = {'status': 'available'}

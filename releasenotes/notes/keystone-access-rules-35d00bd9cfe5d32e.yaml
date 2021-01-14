@@ -1,0 +1,8 @@
+---
+features:
+  - |
+    Adds support for access rules for application credentials. Fine-grained
+    restrictions can now be applied to application credentials by supplying a
+    list of access rules upon creation. See the `keystone documentation
+    <https://docs.openstack.org/api-ref/identity/v3/#application-credentials>`_
+    for more information.

@@ -30,7 +30,7 @@ from horizon.utils import functions
 
 
 class UserSettingsForm(forms.SelfHandlingForm):
-    max_value = getattr(settings, 'API_RESULT_LIMIT', 1000)
+    max_value = settings.API_RESULT_LIMIT
     language = forms.ChoiceField(label=_("Language"))
     timezone = forms.ChoiceField(label=_("Timezone"))
     pagesize = forms.IntegerField(label=_("Items Per Page"),
@@ -49,7 +49,7 @@ class UserSettingsForm(forms.SelfHandlingForm):
         return zones
 
     def __init__(self, *args, **kwargs):
-        super(UserSettingsForm, self).__init__(*args, **kwargs)
+        super().__init__(*args, **kwargs)
 
         # Languages
         def get_language_display_name(code, desc):
@@ -103,9 +103,8 @@ class UserSettingsForm(forms.SelfHandlingForm):
         response = shortcuts.redirect(request.build_absolute_uri())
 
         lang_code = data['language']
-        if lang_code and translation.check_for_language(lang_code):
-            response = functions.save_config_value(
-                request, response, settings.LANGUAGE_COOKIE_NAME, lang_code)
+        response = functions.save_config_value(
+            request, response, settings.LANGUAGE_COOKIE_NAME, lang_code)
 
         response = functions.save_config_value(
             request, response, 'django_timezone',

@@ -1,0 +1,52 @@
+{% load i18n sizeformat parse_date %}
+
+<div class="detail">
+  <dl class="dl-horizontal">
+    <dt>{% trans "Name" %}</dt>
+    <dd data-display="{{ vg_snapshot.name|default:vg_snapshot.id }}">{{ vg_snapshot.name }}</dd>
+    <dt>{% trans "ID" %}</dt>
+    <dd>{{ vg_snapshot.id }}</dd>
+    {% if vg_snapshot.description %}
+    <dt>{% trans "Description" %}</dt>
+    <dd>{{ vg_snapshot.description }}</dd>
+    {% endif %}
+    <dt>{% trans "Project ID" %}</dt>
+    <dd>{{ vg_snapshot.project_id|default:_("-") }}</dd>
+    <dt>{% trans "Status" %}</dt>
+    <dd>{{ vg_snapshot.status|capfirst }}</dd>
+    <dt>{% trans "Group" %}</dt>
+    <dd>
+      <a href="{% url 'horizon:admin:volume_groups:detail' vg_snapshot.group_id %}">
+        {% if vg_snapshot.vg_name %}
+          {{ vg_snapshot.vg_name }}
+        {% else %}
+          {{ vg_snapshot.group_id }}
+        {% endif %}
+      </a>
+    </dd>
+    <dt>{% trans "Group Type" %}</dt>
+    <dd>{{ vg_snapshot.group_type_id }}</dd>
+    <dt>{% trans "Created" %}</dt>
+    <dd>{{ vg_snapshot.created_at|parse_isotime }}</dd>
+  </dl>
+
+  <h4>{% trans "Snapshot Volume Types" %}</h4>
+  <hr class="header_rule">
+  <dl class="dl-horizontal">
+  {% for vol_type_names in vg_snapshot.volume_type_names %}
+    <dd>{{ vol_type_names }}</dd>
+  {% endfor %}
+  </dl>
+
+  <h4>{% trans "Snapshot Volumes" %}</h4>
+  <hr class="header_rule">
+  <dl class="dl-horizontal">
+  {% for vol_names in vg_snapshot.volume_names %}
+    <dd>{{ vol_names }}</dd>
+  {% empty %}
+    <dd>
+      <em>{% trans "No assigned volumes" %}</em>
+    </dd>
+  {% endfor %}
+  </dl>
+</div>

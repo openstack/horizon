@@ -33,6 +33,8 @@ LOG = logging.getLogger(__name__)
 KEYSTONE_CLIENT_ATTR = "_keystoneclient"
 
 
+# TODO(stephenfin): Subclass 'django.contrib.auth.backends.BaseBackend' once we
+# (only) support Django 3.0
 class KeystoneBackend(object):
     """Django authentication backend for use with ``django.contrib.auth``."""
 
@@ -42,26 +44,9 @@ class KeystoneBackend(object):
     @property
     def auth_plugins(self):
         if self._auth_plugins is None:
-            plugins = getattr(
-                settings,
-                'AUTHENTICATION_PLUGINS',
-                ['openstack_auth.plugin.password.PasswordPlugin',
-                 'openstack_auth.plugin.token.TokenPlugin'])
-
+            plugins = settings.AUTHENTICATION_PLUGINS
             self._auth_plugins = [import_string(p)() for p in plugins]
-
         return self._auth_plugins
-
-    def check_auth_expiry(self, auth_ref, margin=None):
-        if not utils.is_token_valid(auth_ref, margin):
-            msg = _("The authentication token issued by the Identity service "
-                    "has expired.")
-            LOG.warning("The authentication token issued by the Identity "
-                        "service appears to have expired before it was "
-                        "issued. This may indicate a problem with either your "
-                        "server or client configuration.")
-            raise exceptions.KeystoneAuthException(msg)
-        return True
 
     def get_user(self, user_id):
         """Returns the current user from the session data.
@@ -83,10 +68,34 @@ class KeystoneBackend(object):
             user = auth_user.create_user_from_token(self.request, token,
                                                     endpoint, services_region)
             return user
-        else:
-            return None
 
-    def authenticate(self, auth_url=None, **kwargs):
+        return None
+
+    def _check_auth_expiry(self, auth_ref, margin=None):
+        if not utils.is_token_valid(auth_ref, margin):
+            msg = _("The authentication token issued by the Identity service "
+                    "has expired.")
+            LOG.warning("The authentication token issued by the Identity "
+                        "service appears to have expired before it was "
+                        "issued. This may indicate a problem with either your "
+                        "server or client configuration.")
+            raise exceptions.KeystoneTokenExpiredException(msg)
+        return True
+
+    def _get_auth_backend(self, auth_url, **kwargs):
+        for plugin in self.auth_plugins:
+            unscoped_auth = plugin.get_plugin(auth_url=auth_url, **kwargs)
+            if unscoped_auth:
+                return plugin, unscoped_auth
+        else:
+            msg = _('No authentication backend could be determined to '
+                    'handle the provided credentials.')
+            LOG.warning('No authentication backend could be determined to '
+                        'handle the provided credentials. This is likely a '
+                        'configuration error that should be addressed.')
+            raise exceptions.KeystoneNoBackendException(msg)
+
+    def authenticate(self, request, auth_url=None, **kwargs):
         """Authenticates a user via the Keystone Identity API."""
         LOG.debug('Beginning user authentication')
 
@@ -100,22 +109,10 @@ class KeystoneBackend(object):
                         "version to use by Horizon. Using v3 endpoint for "
                         "authentication.")
 
-        for plugin in self.auth_plugins:
-            unscoped_auth = plugin.get_plugin(auth_url=auth_url, **kwargs)
-
-            if unscoped_auth:
-                break
-        else:
-            msg = _('No authentication backend could be determined to '
-                    'handle the provided credentials.')
-            LOG.warning('No authentication backend could be determined to '
-                        'handle the provided credentials. This is likely a '
-                        'configuration error that should be addressed.')
-            raise exceptions.KeystoneAuthException(msg)
+        plugin, unscoped_auth = self._get_auth_backend(auth_url, **kwargs)
 
         # the recent project id a user might have set in a cookie
         recent_project = None
-        request = kwargs.get('request')
         if request:
             # Grab recent_project found in the cookie, try to scope
             # to the last project used.
@@ -123,7 +120,7 @@ class KeystoneBackend(object):
         unscoped_auth_ref = plugin.get_access_info(unscoped_auth)
 
         # Check expiry for our unscoped auth ref.
-        self.check_auth_expiry(unscoped_auth_ref)
+        self._check_auth_expiry(unscoped_auth_ref)
 
         domain_name = kwargs.get('user_domain_name', None)
         domain_auth, domain_auth_ref = plugin.get_domain_scoped_auth(
@@ -152,13 +149,11 @@ class KeystoneBackend(object):
             scoped_auth = domain_auth
             scoped_auth_ref = domain_auth_ref
         elif not scoped_auth_ref and not domain_auth_ref:
-            msg = _('You are not authorized for any projects.')
-            if utils.get_keystone_version() >= 3:
-                msg = _('You are not authorized for any projects or domains.')
-            raise exceptions.KeystoneAuthException(msg)
+            msg = _('You are not authorized for any projects or domains.')
+            raise exceptions.KeystoneNoProjectsException(msg)
 
         # Check expiry for our new scoped token.
-        self.check_auth_expiry(scoped_auth_ref)
+        self._check_auth_expiry(scoped_auth_ref)
 
         # We want to try to use the same region we just logged into
         # which may or may not be the default depending upon the order
@@ -166,23 +161,17 @@ class KeystoneBackend(object):
         region_name = None
         id_endpoints = scoped_auth_ref.service_catalog.\
             get_endpoints(service_type='identity')
-        for id_endpoint in [cat for cat in id_endpoints['identity']]:
+        for id_endpoint in id_endpoints['identity']:
             if auth_url in id_endpoint.values():
                 region_name = id_endpoint['region']
                 break
 
-        interface = getattr(settings, 'OPENSTACK_ENDPOINT_TYPE', 'public')
+        interface = settings.OPENSTACK_ENDPOINT_TYPE
 
-        endpoint, url_fixed = utils.fix_auth_url_version_prefix(
-            scoped_auth_ref.service_catalog.url_for(
-                service_type='identity',
-                interface=interface,
-                region_name=region_name))
-        if url_fixed:
-            LOG.warning("The Keystone URL in service catalog points to a v2.0 "
-                        "Keystone endpoint, but v3 is specified as the API "
-                        "version to use by Horizon. Using v3 endpoint for "
-                        "authentication.")
+        endpoint = scoped_auth_ref.service_catalog.url_for(
+            service_type='identity',
+            interface=interface,
+            region_name=region_name)
 
         # If we made it here we succeeded. Create our User!
         unscoped_token = unscoped_auth_ref.auth_token
@@ -212,7 +201,7 @@ class KeystoneBackend(object):
                     request.session['domain_token'] = domain_auth_ref
 
             request.user = user
-            timeout = getattr(settings, "SESSION_TIMEOUT", 3600)
+            timeout = settings.SESSION_TIMEOUT
             token_life = user.token.expires - datetime.datetime.now(pytz.utc)
             session_time = min(timeout, int(token_life.total_seconds()))
             request.session.set_expiry(session_time)

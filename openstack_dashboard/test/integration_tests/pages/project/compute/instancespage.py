@@ -10,35 +10,32 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 import netaddr
+from selenium.webdriver.common import by
 
 from openstack_dashboard.test.integration_tests.pages import basepage
 from openstack_dashboard.test.integration_tests.regions import forms
+from openstack_dashboard.test.integration_tests.regions import menus
 from openstack_dashboard.test.integration_tests.regions import tables
-
-
-class LaunchInstanceForm(forms.TabbedFormRegion):
-    field_mappings = ((
-        "availability_zone", "name", "flavor",
-        "count", "source_type", "instance_snapshot_id",
-        "volume_id", "volume_snapshot_id", "image_id", "volume_size",
-        "vol_delete_on_instance_delete"),
-        ("keypair", "groups"),
-        ("script_source", "script_upload", "script_data"),
-        ("disk_config", "config_drive")
-    )
-
-    def __init__(self, driver, conf):
-        super(LaunchInstanceForm, self).__init__(
-            driver, conf, field_mappings=self.field_mappings)
 
 
 class InstancesTable(tables.TableRegion):
     name = "instances"
+    LAUNCH_INSTANCE_FORM_FIELDS = (
+        ("name", "count", "availability_zone"),
+        ("boot_source_type", "volume_size"),
+        {
+            'flavor': menus.InstanceFlavorMenuRegion
+        },
+        {
+            'network': menus.InstanceAvailableResourceMenuRegion
+        },
+    )
 
     @tables.bind_table_action('launch-ng')
     def launch_instance(self, launch_button):
         launch_button.click()
-        return LaunchInstanceForm(self.driver, self.conf)
+        return forms.WizardFormRegion(self.driver, self.conf,
+                                      self.LAUNCH_INSTANCE_FORM_FIELDS)
 
     @tables.bind_table_action('delete')
     def delete_instance(self, delete_button):
@@ -50,20 +47,25 @@ class InstancesPage(basepage.BaseNavigationPage):
 
     DEFAULT_FLAVOR = 'm1.tiny'
     DEFAULT_COUNT = 1
-    DEFAULT_BOOT_SOURCE = 'Boot from image'
+    DEFAULT_BOOT_SOURCE = 'Image'
     DEFAULT_VOLUME_NAME = None
     DEFAULT_SNAPSHOT_NAME = None
     DEFAULT_VOLUME_SNAPSHOT_NAME = None
-    DEFAULT_VOL_DELETE_ON_INSTANCE_DELETE = False
+    DEFAULT_VOL_DELETE_ON_INSTANCE_DELETE = True
     DEFAULT_SECURITY_GROUP = True
+    DEFAULT_NETWORK_TYPE = 'shared'
 
     INSTANCES_TABLE_NAME_COLUMN = 'Instance Name'
     INSTANCES_TABLE_STATUS_COLUMN = 'Status'
     INSTANCES_TABLE_IP_COLUMN = 'IP Address'
     INSTANCES_TABLE_IMAGE_NAME_COLUMN = 'Image Name'
 
+    SOURCE_STEP_INDEX = 1
+    FLAVOR_STEP_INDEX = 2
+    NETWORKS_STEP_INDEX = 3
+
     def __init__(self, driver, conf):
-        super(InstancesPage, self).__init__(driver, conf)
+        super().__init__(driver, conf)
         self._page_title = "Instances"
 
     def _get_row_with_instance_name(self, name):
@@ -71,8 +73,10 @@ class InstancesPage(basepage.BaseNavigationPage):
                                             name)
 
     def _get_rows_with_instances_names(self, names):
-        return [self.instances_table.get_row(
-            self.INSTANCES_TABLE_IMAGE_NAME_COLUMN, n) for n in names]
+        return [
+            self.instances_table.get_row(
+                self.INSTANCES_TABLE_IMAGE_NAME_COLUMN, n) for n in names
+        ]
 
     @property
     def instances_table(self):
@@ -96,19 +100,35 @@ class InstancesPage(basepage.BaseNavigationPage):
         instance_form = self.instances_table.launch_instance()
         instance_form.availability_zone.value = available_zone
         instance_form.name.text = instance_name
-        instance_form.flavor.text = flavor
         instance_form.count.value = instance_count
-        instance_form.source_type.text = boot_source
+        instance_form.switch_to(self.SOURCE_STEP_INDEX)
+        instance_form.boot_source_type.text = boot_source
         boot_source = self._get_source_name(instance_form, boot_source,
                                             self.conf.launch_instances)
         if not source_name:
-            source_name = boot_source[1]
-        boot_source[0].text = source_name
+            source_name = boot_source
+        menus.InstanceAvailableResourceMenuRegion(
+            self.driver, self.conf).transfer_available_resource(source_name)
         if device_size:
             instance_form.volume_size.value = device_size
         if vol_delete_on_instance_delete:
-            instance_form.vol_delete_on_instance_delete.mark()
+            self.vol_delete_on_instance_delete_click()
+        instance_form.switch_to(self.FLAVOR_STEP_INDEX)
+        instance_form.flavor.transfer_available_resource(flavor)
+        instance_form.switch_to(self.NETWORKS_STEP_INDEX)
+        instance_form.network.transfer_available_resource(
+            self.DEFAULT_NETWORK_TYPE)
         instance_form.submit()
+        instance_form.wait_till_wizard_disappears()
+
+    def vol_delete_on_instance_delete_click(self):
+        locator = (
+            by.By.XPATH,
+            '//label[contains(@ng-model, "vol_delete_on_instance_delete")]')
+        elements = self._get_elements(*locator)
+        for ele in elements:
+            if ele.text == 'Yes':
+                ele.click()
 
     def delete_instance(self, name):
         row = self._get_row_with_instance_name(name)
@@ -139,15 +159,14 @@ class InstancesPage(basepage.BaseNavigationPage):
                                                        ('Active', 'Error'))
         return status == 'Active'
 
-    def _get_source_name(self, instance, boot_source,
-                         conf):
-        if 'image' in boot_source:
-            return instance.image_id, conf.image_name
-        elif boot_source == 'Boot from volume':
+    def _get_source_name(self, instance, boot_source, conf):
+        if 'Image' in boot_source:
+            return conf.image_name
+        elif boot_source == 'Volume':
             return instance.volume_id, self.DEFAULT_VOLUME_NAME
-        elif boot_source == 'Boot from snapshot':
+        elif boot_source == 'Instance Snapshot':
             return instance.instance_snapshot_id, self.DEFAULT_SNAPSHOT_NAME
-        elif 'volume snapshot (creates a new volume)' in boot_source:
+        elif 'Volume Snapshot' in boot_source:
             return (instance.volume_snapshot_id,
                     self.DEFAULT_VOLUME_SNAPSHOT_NAME)
 

@@ -12,16 +12,16 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
-from django.conf import settings
 from django.conf.urls import url
 
 from horizon.browsers.views import AngularIndexView
 
 from openstack_dashboard.dashboards.identity.groups import panel
 from openstack_dashboard.dashboards.identity.groups import views
+from openstack_dashboard.utils import settings as setting_utils
 
 
-if settings.ANGULAR_FEATURES.get('groups_panel', False):
+if setting_utils.get_dict_config('ANGULAR_FEATURES', 'groups_panel'):
     title = panel.Groups.name
     urlpatterns = [
         url(r'^$', AngularIndexView.as_view(title=title), name='index'),

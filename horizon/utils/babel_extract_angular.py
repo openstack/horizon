@@ -13,15 +13,15 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
+from html import parser
 import re
 
 from oslo_utils import encodeutils
-from six.moves import html_parser
 
 
 # regex to find filter translation expressions
 filter_regex = re.compile(
-    r"""{\$\s*('([^']|\\')+'|"([^"]|\\")+")\s*\|\s*translate\s*\$}"""
+    r"""{\$\s*(::)?\s*('([^']|\\')+'|"([^"]|\\")+")\s*\|\s*translate\s*\$}"""
 )
 
 # browser innerHTML decodes some html entities automatically, so when
@@ -35,7 +35,7 @@ HTML_ENTITY_DECODED = {
 }
 
 
-class AngularGettextHTMLParser(html_parser.HTMLParser):
+class AngularGettextHTMLParser(parser.HTMLParser):
     """Parse HTML to find translate directives.
 
     Currently this parses for these forms of translation:
@@ -49,16 +49,14 @@ class AngularGettextHTMLParser(html_parser.HTMLParser):
     {$ 'content' | translate $}
         The string will be translated, minus expression handling (i.e. just
         bare strings are allowed.)
+    {$ ::'content' | translate $}
+        The string will be translated. As above.
     """
 
     def __init__(self):
-        try:
-            super(AngularGettextHTMLParser, self).__init__(
-                convert_charrefs=False
-            )
-        except TypeError:
-            # handle HTMLParser not being a type on Python 2
-            html_parser.HTMLParser.__init__(self)
+        super().__init__(
+            convert_charrefs=False
+        )
 
         self.in_translate = False
         self.inner_tags = []
@@ -73,14 +71,14 @@ class AngularGettextHTMLParser(html_parser.HTMLParser):
         self.line = self.getpos()[0]
         if tag == 'translate' or \
                 (attrs and 'translate' in [attr[0] for attr in attrs]):
-                self.in_translate = True
-                self.plural_form = ''
-                for attr, value in attrs:
-                    if attr == 'translate-plural':
-                        self.plural = True
-                        self.plural_form = value
-                    if attr == 'translate-comment':
-                        self.comments.append(value)
+            self.in_translate = True
+            self.plural_form = ''
+            for attr, value in attrs:
+                if attr == 'translate-plural':
+                    self.plural = True
+                    self.plural_form = value
+                if attr == 'translate-comment':
+                    self.comments.append(value)
         elif self.in_translate:
             s = tag
             if attrs:
@@ -94,7 +92,7 @@ class AngularGettextHTMLParser(html_parser.HTMLParser):
                 for match in filter_regex.findall(attr[1]):
                     if match:
                         self.strings.append(
-                            (self.line, u'gettext', match[0][1:-1], [])
+                            (self.line, u'gettext', match[1][1:-1], [])
                         )
 
     def handle_data(self, data):
@@ -103,7 +101,7 @@ class AngularGettextHTMLParser(html_parser.HTMLParser):
         else:
             for match in filter_regex.findall(data):
                 self.strings.append(
-                    (self.line, u'gettext', match[0][1:-1], [])
+                    (self.line, u'gettext', match[1][1:-1], [])
                 )
 
     def handle_entityref(self, name):
@@ -123,7 +121,7 @@ class AngularGettextHTMLParser(html_parser.HTMLParser):
 
     def handle_endtag(self, tag):
         if self.in_translate:
-            if len(self.inner_tags) > 0:
+            if self.inner_tags:
                 tag = self.inner_tags.pop()
                 self.data += "</%s>" % tag
                 return

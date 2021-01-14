@@ -18,6 +18,7 @@
 
 import collections
 import logging
+import re
 
 from django.conf import settings
 from django.forms import ValidationError
@@ -34,7 +35,6 @@ from horizon.utils import validators
 from openstack_dashboard import api
 
 LOG = logging.getLogger(__name__)
-PROJECT_REQUIRED = api.keystone.VERSIONS.active < 3
 
 
 class PasswordMixin(forms.SelfHandlingForm):
@@ -45,12 +45,13 @@ class PasswordMixin(forms.SelfHandlingForm):
         error_messages={'invalid': validators.password_validator_msg()})
     confirm_password = forms.CharField(
         label=_("Confirm Password"),
+        strip=False,
         widget=forms.PasswordInput(render_value=False))
     no_autocomplete = True
 
     def clean(self):
         '''Check to make sure password fields match.'''
-        data = super(forms.Form, self).clean()
+        data = super().clean()
         if 'password' in data and 'confirm_password' in data:
             if data['password'] != data['confirm_password']:
                 raise ValidationError(_('Passwords do not match.'))
@@ -59,7 +60,7 @@ class PasswordMixin(forms.SelfHandlingForm):
 
 class BaseUserForm(forms.SelfHandlingForm):
     def __init__(self, request, *args, **kwargs):
-        super(BaseUserForm, self).__init__(request, *args, **kwargs)
+        super().__init__(request, *args, **kwargs)
 
         # Populate project choices
         project_choices = []
@@ -71,12 +72,8 @@ class BaseUserForm(forms.SelfHandlingForm):
         default_project_id = kwargs['initial'].get('project', None)
 
         try:
-            if api.keystone.VERSIONS.active >= 3:
-                projects, has_more = api.keystone.tenant_list(
-                    request, domain=domain_id)
-            else:
-                projects, has_more = api.keystone.tenant_list(
-                    request, user=user_id)
+            projects, has_more = api.keystone.tenant_list(
+                request, domain=domain_id)
 
             for project in sorted(projects, key=lambda p: p.name.lower()):
                 if project.enabled:
@@ -95,14 +92,13 @@ class BaseUserForm(forms.SelfHandlingForm):
 
 class AddExtraColumnMixIn(object):
     def add_extra_fields(self, ordering=None):
-        if api.keystone.VERSIONS.active >= 3:
-            # add extra column defined by setting
-            EXTRA_INFO = getattr(settings, 'USER_TABLE_EXTRA_INFO', {})
-            for key, value in EXTRA_INFO.items():
-                self.fields[key] = forms.CharField(label=value,
-                                                   required=False)
-                if ordering:
-                    ordering.append(key)
+        # add extra column defined by setting
+        EXTRA_INFO = settings.USER_TABLE_EXTRA_INFO
+        for key, value in EXTRA_INFO.items():
+            self.fields[key] = forms.CharField(label=value,
+                                               required=False)
+            if ordering:
+                ordering.append(key)
 
 
 ADD_PROJECT_URL = "horizon:identity:projects:create"
@@ -125,22 +121,25 @@ class CreateUserForm(PasswordMixin, BaseUserForm, AddExtraColumnMixIn):
         label=_("Email"),
         required=False)
     project = forms.ThemableDynamicChoiceField(label=_("Primary Project"),
-                                               required=PROJECT_REQUIRED,
+                                               required=False,
                                                add_item_link=ADD_PROJECT_URL)
     role_id = forms.ThemableChoiceField(label=_("Role"),
-                                        required=PROJECT_REQUIRED)
+                                        required=False)
     enabled = forms.BooleanField(label=_("Enabled"),
                                  required=False,
                                  initial=True)
+    lock_password = forms.BooleanField(label=_("Lock password"),
+                                       required=False,
+                                       initial=False)
 
     def __init__(self, *args, **kwargs):
         roles = kwargs.pop('roles')
-        super(CreateUserForm, self).__init__(*args, **kwargs)
+        super().__init__(*args, **kwargs)
         # Reorder form fields from multiple inheritance
         ordering = ["domain_id", "domain_name", "name",
                     "description", "email", "password",
                     "confirm_password", "project", "role_id",
-                    "enabled"]
+                    "enabled", "lock_password"]
         self.add_extra_fields(ordering)
         self.fields = collections.OrderedDict(
             (key, self.fields[key]) for key in ordering)
@@ -151,13 +150,9 @@ class CreateUserForm(PasswordMixin, BaseUserForm, AddExtraColumnMixIn):
         self.fields['role_id'].choices = role_choices
 
         # For keystone V3, display the two fields in read-only
-        if api.keystone.VERSIONS.active >= 3:
-            readonlyInput = forms.TextInput(attrs={'readonly': 'readonly'})
-            self.fields["domain_id"].widget = readonlyInput
-            self.fields["domain_name"].widget = readonlyInput
-        # For keystone V2.0, hide description field
-        else:
-            self.fields["description"].widget = forms.HiddenInput()
+        readonlyInput = forms.TextInput(attrs={'readonly': 'readonly'})
+        self.fields["domain_id"].widget = readonlyInput
+        self.fields["domain_name"].widget = readonlyInput
 
     # We have to protect the entire "data" dict because it contains the
     # password and confirm_password strings.
@@ -171,11 +166,12 @@ class CreateUserForm(PasswordMixin, BaseUserForm, AddExtraColumnMixIn):
                 data['email'] = data['email'] or None
 
             # add extra information
-            if api.keystone.VERSIONS.active >= 3:
-                EXTRA_INFO = getattr(settings, 'USER_TABLE_EXTRA_INFO', {})
-                kwargs = dict((key, data.get(key)) for key in EXTRA_INFO)
-            else:
-                kwargs = {}
+            EXTRA_INFO = settings.USER_TABLE_EXTRA_INFO
+            kwargs = dict((key, data.get(key)) for key in EXTRA_INFO)
+
+            if "lock_password" in data:
+                kwargs.update({'options':
+                              {'lock_password': data['lock_password']}})
 
             new_user = \
                 api.keystone.user_create(request,
@@ -232,22 +228,21 @@ class UpdateUserForm(BaseUserForm, AddExtraColumnMixIn):
         label=_("Email"),
         required=False)
     project = forms.ThemableChoiceField(label=_("Primary Project"),
-                                        required=PROJECT_REQUIRED)
+                                        required=False)
+
+    lock_password = forms.BooleanField(label=_("Lock password"),
+                                       required=False,
+                                       initial=False)
 
     def __init__(self, request, *args, **kwargs):
-        super(UpdateUserForm, self).__init__(request, *args, **kwargs)
+        super().__init__(request, *args, **kwargs)
         self.add_extra_fields()
         if api.keystone.keystone_can_edit_user() is False:
             for field in ('name', 'email'):
                 self.fields.pop(field)
-        # For keystone V3, display the two fields in read-only
-        if api.keystone.VERSIONS.active >= 3:
-            readonlyInput = forms.TextInput(attrs={'readonly': 'readonly'})
-            self.fields["domain_id"].widget = readonlyInput
-            self.fields["domain_name"].widget = readonlyInput
-        # For keystone V2.0, hide description field
-        else:
-            self.fields["description"].widget = forms.HiddenInput()
+        readonlyInput = forms.TextInput(attrs={'readonly': 'readonly'})
+        self.fields["domain_id"].widget = readonlyInput
+        self.fields["domain_name"].widget = readonlyInput
 
     def handle(self, request, data):
         user = data.pop('id')
@@ -255,17 +250,22 @@ class UpdateUserForm(BaseUserForm, AddExtraColumnMixIn):
         data.pop('domain_id')
         data.pop('domain_name')
 
-        if not PROJECT_REQUIRED and 'project' not in self.changed_data:
+        if 'project' not in self.changed_data:
             data.pop('project')
 
         if 'description' not in self.changed_data:
             data.pop('description')
+        if 'lock_password' in data:
+            data.update({'options': {'lock_password': data['lock_password']}})
+            data.pop('lock_password')
+
         try:
             if "email" in data:
                 data['email'] = data['email']
             response = api.keystone.user_update(request, user, **data)
             messages.success(request,
-                             _('User has been updated successfully.'))
+                             _('User "%s" has been updated '
+                               'successfully.') % data['name'])
         except exceptions.Conflict:
             msg = _('User name "%s" is already used.') % data['name']
             messages.error(request, msg)
@@ -276,8 +276,8 @@ class UpdateUserForm(BaseUserForm, AddExtraColumnMixIn):
 
         if isinstance(response, http.HttpResponse):
             return response
-        else:
-            return True
+
+        return True
 
 
 class ChangePasswordForm(PasswordMixin, forms.SelfHandlingForm):
@@ -288,11 +288,12 @@ class ChangePasswordForm(PasswordMixin, forms.SelfHandlingForm):
         required=False)
 
     def __init__(self, request, *args, **kwargs):
-        super(ChangePasswordForm, self).__init__(request, *args, **kwargs)
+        super().__init__(request, *args, **kwargs)
 
-        if getattr(settings, 'ENFORCE_PASSWORD_CHECK', False):
+        if settings.ENFORCE_PASSWORD_CHECK:
             self.fields["admin_password"] = forms.CharField(
                 label=_("Admin Password"),
+                strip=False,
                 widget=forms.PasswordInput(render_value=False))
             # Reorder form fields from multiple inheritance
             self.fields.keyOrder = ["id", "name", "admin_password",
@@ -308,7 +309,7 @@ class ChangePasswordForm(PasswordMixin, forms.SelfHandlingForm):
         data.pop('confirm_password', None)
 
         # Verify admin password before changing user password
-        if getattr(settings, 'ENFORCE_PASSWORD_CHECK', False):
+        if settings.ENFORCE_PASSWORD_CHECK:
             admin_password = data.pop('admin_password')
             if not api.keystone.user_verify_admin_password(request,
                                                            admin_password):
@@ -325,11 +326,20 @@ class ChangePasswordForm(PasswordMixin, forms.SelfHandlingForm):
                     redirect=False)
             messages.success(request,
                              _('User password has been updated successfully.'))
-        except Exception:
+        except Exception as exc:
             response = exceptions.handle(request, ignore=True)
-            messages.error(request, _('Unable to update the user password.'))
+            match = re.match((r'The password does not match the '
+                              r'requirements:(.*?) [(]HTTP 400[)]'), str(exc),
+                             re.UNICODE | re.MULTILINE)
+            if match:
+                info = match.group(1)
+                messages.error(request, _('The password does not match the '
+                                          'requirements: %s') % info)
+            else:
+                messages.error(request,
+                               _('Unable to update the user password.'))
 
         if isinstance(response, http.HttpResponse):
             return response
-        else:
-            return True
+
+        return True

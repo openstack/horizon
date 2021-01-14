@@ -10,6 +10,8 @@
 # License for the specific language governing permissions and limitations
 # under the License.
 
+from urllib import parse
+
 from django.urls import reverse
 from django.utils.translation import ugettext_lazy as _
 from django.utils.translation import ungettext_lazy
@@ -49,12 +51,13 @@ class SpecDeleteKeyValuePair(tables.DeleteAction):
             count
         )
 
-    def delete(self, request, obj_ids):
+    def delete(self, request, obj_id):
         qos_spec_id = self.table.kwargs['qos_spec_id']
         # use "unset" api to remove this key-value pair from QOS Spec
+        key = parse.unquote(obj_id)
         api.cinder.qos_spec_unset_keys(request,
                                        qos_spec_id,
-                                       [obj_ids])
+                                       [key])
 
     # redirect to non-modal page
     def get_success_url(self, request=None):
@@ -83,7 +86,7 @@ class SpecsTable(tables.DataTable):
         row_actions = (SpecEditKeyValuePair, SpecDeleteKeyValuePair)
 
     def get_object_id(self, datum):
-        return datum.key
+        return parse.quote(datum.key)
 
     def get_object_display(self, datum):
         return datum.key

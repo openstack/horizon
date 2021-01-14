@@ -71,7 +71,7 @@
                $memoize,
                keystone) {
     registry.getResourceType(imageResourceType)
-      .setNames(gettext('Image'), gettext('Images'))
+      .setNames('Image', 'Images', ngettext('Image', 'Images', 1))
       .setSummaryTemplateUrl(basePath + 'details/drawer.html')
       .setDefaultIndexUrl('/project/images/')
       .setItemInTransitionFunction(imagesService.isInTransition)
@@ -89,6 +89,7 @@
         id: 'name',
         priority: 1,
         sortDefault: true,
+        classes: "word-wrap",
         urlFunction: imagesService.getDetailsPath
       })
       .append({
@@ -244,14 +245,14 @@
       name: gettext('Name'),
       owner: gettext('Owner'),
       tags: gettext('Tags'),
-      'updated_at': {label: gettext('Updated At'), filters: ['simpleDate'] },
+      'updated_at': {label: gettext('Updated At'), filters: ['mediumDate'] },
       virtual_size: gettext('Virtual Size'),
       visibility: gettext('Visibility'),
       description: gettext('Description'),
       architecture: gettext('Architecture'),
       kernel_id: gettext('Kernel ID'),
       ramdisk_id: gettext('Ramdisk ID'),
-      'created_at': {label: gettext('Created At'), filters: ['simpleDate'] },
+      'created_at': {label: gettext('Created At'), filters: ['mediumDate'] },
       container_format: { label: gettext('Container Format'), filters: ['uppercase'] },
       disk_format: { label: gettext('Disk Format'), filters: ['noValue', 'uppercase'] },
       is_public: { label: gettext('Is Public'), filters: ['yesno'] },

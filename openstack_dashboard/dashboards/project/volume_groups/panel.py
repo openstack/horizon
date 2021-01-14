@@ -36,7 +36,7 @@ class VolumeGroups(horizon.Panel):
         request = context['request']
         try:
             return (
-                super(VolumeGroups, self).allowed(context) and
+                super().allowed(context) and
                 request.user.has_perms(self.permissions) and
                 policy.check(self.policy_rules, request) and
                 api.cinder.get_microversion(request, 'groups')

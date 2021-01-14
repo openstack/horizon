@@ -30,21 +30,24 @@ from openstack_dashboard import api
 class PasswordForm(forms.SelfHandlingForm):
     current_password = forms.CharField(
         label=_("Current password"),
+        strip=False,
         widget=forms.PasswordInput(render_value=False))
     new_password = forms.RegexField(
         label=_("New password"),
+        strip=False,
         widget=forms.PasswordInput(render_value=False),
         regex=validators.password_validator(),
         error_messages={'invalid':
                         validators.password_validator_msg()})
     confirm_password = forms.CharField(
         label=_("Confirm new password"),
+        strip=False,
         widget=forms.PasswordInput(render_value=False))
     no_autocomplete = True
 
     def clean(self):
         '''Check to make sure password fields match.'''
-        data = super(PasswordForm, self).clean()
+        data = super().clean()
         if 'new_password' in data:
             if data['new_password'] != data.get('confirm_password', None):
                 raise ValidationError(_('Passwords do not match.'))
@@ -59,6 +62,13 @@ class PasswordForm(forms.SelfHandlingForm):
     @sensitive_variables('data')
     def handle(self, request, data):
         user_is_editable = api.keystone.keystone_can_edit_user()
+        user_id = request.user.id
+        user = api.keystone.user_get(self.request, user_id, admin=False)
+        options = getattr(user, "options", {})
+        lock_password = options.get("lock_password", False)
+        if lock_password:
+            messages.error(request, _('Password is locked.'))
+            return False
 
         if user_is_editable:
             try:

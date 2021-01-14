@@ -4,7 +4,8 @@
   <li class="dropdown-header">{% trans "Regions:" %}</li>
   {% for region in regions %}
   <li>
-    <a href="{% url 'switch_services_region' region %}?next={{ page_url }}" target="_self">
+    <a href="{% url 'switch_services_region' region %}{% if page_url %}?next={{ page_url }}{% endif %}"
+       target="_self">
       <span class="region-name dropdown-title">{{ region }}</span>
       {% if region == region_name %}
       <span class="fa fa-check"></span>

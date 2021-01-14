@@ -1,14 +1,16 @@
 # suhartono <cloudsuhartono@gmail.com>, 2017. #zanata
 # suhartono <cloudsuhartono@gmail.com>, 2018. #zanata
+# suhartono <cloudsuhartono@gmail.com>, 2019. #zanata
+# suhartono <cloudsuhartono@gmail.com>, 2020. #zanata
 msgid ""
 msgstr ""
 "Project-Id-Version: horizon VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2018-09-21 05:00+0000\n"
+"POT-Creation-Date: 2020-12-18 09:14+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2018-09-19 04:46+0000\n"
+"PO-Revision-Date: 2020-12-18 07:13+0000\n"
 "Last-Translator: suhartono <cloudsuhartono@gmail.com>\n"
 "Language-Team: Indonesian\n"
 "Language: id\n"
@@ -20,6 +22,12 @@ msgstr "Terjadi kesalahan saat melakukan otentikasi. Silakan coba lagi nanti."
 
 msgid "Authenticate using"
 msgstr "Otentikasi menggunakan"
+
+msgid "Confirm password"
+msgstr "Setujui kata sandi"
+
+msgid "Cookies may be turned off. Make sure cookies are enabled and try again."
+msgstr "Cookie mungkin dimatikan. Pastikan cookies diaktifkan dan coba lagi."
 
 msgid "Could not find service provider ID on keystone."
 msgstr "Tidak dapat menemukan ID penyedia layanan pada keystone."
@@ -39,6 +47,9 @@ msgstr "Kredensial tidak valid."
 msgid "K2K Federation not setup for this session"
 msgstr "K2K Federation tidak disiapkan untuk sesi ini"
 
+msgid "New password"
+msgstr "Kata sandi baru"
+
 msgid ""
 "No authentication backend could be determined to handle the provided "
 "credentials."
@@ -46,8 +57,23 @@ msgstr ""
 "Tidak ada backend otentikasi yang bisa ditentukan untuk menangani kredensial "
 "yang diberikan."
 
+msgid "Old password and new password must be different."
+msgstr "Kata sandi lama dan kata sandi baru harus berbeda."
+
+msgid "Original password"
+msgstr "Kata sandi asli"
+
 msgid "Password"
 msgstr "Password"
+
+msgid "Password changed. Please log in to continue."
+msgstr "Kata sandi berubah. Silahkan masuk untuk melanjutkan."
+
+msgid "Password expired."
+msgstr "Kata sandi kedaluwarsa."
+
+msgid "Passwords do not match."
+msgstr "Kata sandi tidak cocok."
 
 #, python-format
 msgid "Please consider changing your password, it will expire in %s minutes"
@@ -67,8 +93,8 @@ msgid "Service provider authentication failed. %s"
 msgstr "Otentikasi penyedia layanan gagal. %s"
 
 #, python-format
-msgid "Switch to Keystone Provider \"%(keystone_provider)s\"successful."
-msgstr "Beralih ke Keystone Provider \"%(keystone_provider)s\" berhasil."
+msgid "Switch to Keystone Provider \"%(keystone_provider)s\" successful."
+msgstr "Beralih ke Keystone Provider \"%(keystone_provider)s\" successful."
 
 #, python-format
 msgid "Switch to project \"%(project_name)s\" successful."
@@ -87,11 +113,14 @@ msgstr "Tidak dapat mengambil domain resmi."
 msgid "Unable to retrieve authorized projects."
 msgstr "Tidak dapat mengambil proyek resmi"
 
+msgid "Unable to update the user password."
+msgstr "Tidak dapat memperbarui kata sandi pengguna."
+
 msgid "User Name"
 msgstr "User Name"
 
 msgid "You are not authorized for any projects or domains."
 msgstr "Anda tidak berwenang untuk proyek atau domain apa pun."
 
-msgid "You are not authorized for any projects."
-msgstr "Anda tidak berwenang untuk proyek apa pun."
+msgid "Your password has expired. Please set a new password."
+msgstr "Kata sandi Anda telah kedaluwarsa. Silakan tentukan kata sandi baru."

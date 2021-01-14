@@ -81,6 +81,7 @@ module.exports = function (config) {
 
       // from jasmine_tests.py; only those that are deps for others
       'horizon/js/horizon.js',
+      'horizon/js/horizon.uuid.js',
 
       /**
        * First, list all the files that defines application's angular modules.
@@ -119,14 +120,14 @@ module.exports = function (config) {
 
     frameworks: ['jasmine'],
 
-    browsers: ['Chrome'],
+    browsers: ['Firefox'],
 
     browserNoActivityTimeout: 60000,
 
     reporters: ['progress', 'coverage', 'threshold'],
 
     plugins: [
-      'karma-chrome-launcher',
+      'karma-firefox-launcher',
       'karma-jasmine',
       'karma-ng-html2js-preprocessor',
       'karma-coverage',
@@ -138,12 +139,18 @@ module.exports = function (config) {
       dir: '../../cover/horizon'
     },
 
+    client: {
+      jasmine: {
+        random: false
+      }
+    },
+
     // Coverage threshold values.
     thresholdReporter: {
-      statements: 93, // target 100
+      statements: 92, // target 100
       branches: 84, // target 100
       functions: 91, // target 100
-      lines: 93 // target 100
+      lines: 92 // target 100
     }
   });
 };

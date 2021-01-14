@@ -26,7 +26,6 @@ from django import urls
 from django.utils.functional import Promise
 from django.utils.http import urlencode
 from django.utils.translation import ugettext_lazy as _
-import six
 
 from horizon import exceptions
 from horizon import messages
@@ -37,8 +36,6 @@ from horizon.utils import settings as utils_settings
 
 LOG = logging.getLogger(__name__)
 
-# For Bootstrap integration; can be overridden in settings.
-ACTION_CSS_CLASSES = ()
 STRING_SEPARATOR = "__"
 
 
@@ -51,7 +48,7 @@ class BaseActionMetaClass(type):
     parameters for the initializer of the object. The object is then
     initialized clean way. Similar principle is used in DataTableMetaclass.
     """
-    def __new__(mcs, name, bases, attrs):
+    def __new__(cls, name, bases, attrs):
         # Options of action are set as class attributes, loading them.
         options = {}
         if attrs:
@@ -74,22 +71,20 @@ class BaseActionMetaClass(type):
         # instantiating of the specific Action.
         attrs['base_options'] = options
 
-        return type.__new__(mcs, name, bases, attrs)
+        return type.__new__(cls, name, bases, attrs)
 
     def __call__(cls, *args, **kwargs):
         cls.base_options.update(kwargs)
         # Adding cls.base_options to each init call.
-        klass = super(BaseActionMetaClass, cls).__call__(
-            *args, **cls.base_options)
+        klass = super().__call__(*args, **cls.base_options)
         return klass
 
 
-@six.add_metaclass(BaseActionMetaClass)
-class BaseAction(html.HTMLElement):
+class BaseAction(html.HTMLElement, metaclass=BaseActionMetaClass):
     """Common base class for all ``Action`` classes."""
 
     def __init__(self, **kwargs):
-        super(BaseAction, self).__init__()
+        super().__init__()
         self.datum = kwargs.get('datum', None)
         self.table = kwargs.get('table', None)
         self.handles_multiple = kwargs.get('handles_multiple', False)
@@ -147,14 +142,13 @@ class BaseAction(html.HTMLElement):
 
         By default this method is a no-op.
         """
-        pass
 
     def get_default_classes(self):
         """Returns a list of the default classes for the action.
 
         Defaults to ``["btn", "btn-default", "btn-sm"]``.
         """
-        return getattr(settings, "ACTION_CSS_CLASSES", ACTION_CSS_CLASSES)
+        return settings.ACTION_CSS_CLASSES
 
     def get_default_attrs(self):
         """Returns a list of the default HTML attributes for the action.
@@ -263,7 +257,7 @@ class Action(BaseAction):
 
     def __init__(self, single_func=None, multiple_func=None, handle_func=None,
                  attrs=None, **kwargs):
-        super(Action, self).__init__(**kwargs)
+        super().__init__(**kwargs)
 
         self.method = kwargs.get('method', "POST")
         self.requires_input = kwargs.get('requires_input', True)
@@ -349,7 +343,7 @@ class LinkAction(BaseAction):
     ajax = False
 
     def __init__(self, attrs=None, **kwargs):
-        super(LinkAction, self).__init__(**kwargs)
+        super().__init__(**kwargs)
         self.method = kwargs.get('method', "GET")
         self.bound_url = kwargs.get('bound_url', None)
         self.name = kwargs.get('name', self.name)
@@ -377,12 +371,12 @@ class LinkAction(BaseAction):
 
     def render(self, **kwargs):
         action_dict = copy.copy(kwargs)
-        action_dict.update({"action": self, "is_single": True})
+        action_dict.update({"action": self, "is_single": True, "is_small": 0})
         return render_to_string("horizon/common/_data_table_action.html",
                                 action_dict)
 
     def associate_with_table(self, table):
-        super(LinkAction, self).associate_with_table(table)
+        super().associate_with_table(table)
         if self.ajax:
             self.attrs['data-update-url'] = self.get_ajax_update_url()
 
@@ -406,8 +400,7 @@ class LinkAction(BaseAction):
             if datum:
                 obj_id = self.table.get_object_id(datum)
                 return urls.reverse(self.url, args=(obj_id,))
-            else:
-                return urls.reverse(self.url)
+            return urls.reverse(self.url)
         except urls.NoReverseMatch as ex:
             LOG.info('No reverse found for "%(url)s": %(exception)s',
                      {'url': self.url, 'exception': ex})
@@ -474,7 +467,7 @@ class FilterAction(BaseAction):
     name = "filter"
 
     def __init__(self, **kwargs):
-        super(FilterAction, self).__init__(**kwargs)
+        super().__init__(**kwargs)
         self.method = kwargs.get('method', "POST")
         self.name = kwargs.get('name', self.name)
         self.verbose_name = kwargs.get('verbose_name', _("Filter"))
@@ -566,7 +559,7 @@ class FixedFilterAction(FilterAction):
     """A filter action with fixed buttons."""
 
     def __init__(self, **kwargs):
-        super(FixedFilterAction, self).__init__(**kwargs)
+        super().__init__(**kwargs)
         self.filter_type = kwargs.get('filter_type', "fixed")
         self.needs_preloading = kwargs.get('needs_preloading', True)
 
@@ -657,9 +650,10 @@ class BatchAction(Action):
     """
 
     help_text = _("This action cannot be undone.")
+    default_message_level = "success"
 
     def __init__(self, **kwargs):
-        super(BatchAction, self).__init__(**kwargs)
+        super().__init__(**kwargs)
 
         action_present_method = callable(getattr(self, 'action_present', None))
         action_past_method = callable(getattr(self, 'action_past', None))
@@ -687,9 +681,12 @@ class BatchAction(Action):
     def _allowed(self, request, datum=None):
         # Override the default internal action method to prevent batch
         # actions from appearing on tables with no data.
-        if not self.table.data and not datum:
+        # Updating single row of table by ajax prove that there is one
+        # data at least.
+        action = request.GET.get('action')
+        if action != 'row_update' and not self.table.data and not datum:
             return False
-        return super(BatchAction, self)._allowed(request, datum)
+        return super()._allowed(request, datum)
 
     def _get_action_name(self, items=None, past=False):
         """Retreive action name based on the number of items and `past` flag.
@@ -718,7 +715,7 @@ class BatchAction(Action):
             count = len(items)
 
         action_attr = getattr(self, "action_%s" % action_type)(count)
-        if isinstance(action_attr, (six.string_types, Promise)):
+        if isinstance(action_attr, (str, Promise)):
             action = action_attr
         else:
             toggle_selection = getattr(self, "current_%s_action" % action_type)
@@ -748,7 +745,7 @@ class BatchAction(Action):
 
     def get_default_attrs(self):
         """Returns a list of the default HTML attributes for the action."""
-        attrs = super(BatchAction, self).get_default_attrs()
+        attrs = super().get_default_attrs()
         attrs.update({'data-batch-action': 'true'})
         return attrs
 
@@ -798,8 +795,7 @@ class BatchAction(Action):
                     'Action %(action)s Failed for %(reason)s', {
                         'action': action_description, 'reason': ex})
 
-        # Begin with success message class, downgrade to info if problems.
-        success_message_level = messages.success
+        success_message_level = getattr(messages, self.default_message_level)
         if action_not_allowed:
             msg = _('You are not allowed to %(action)s: %(objs)s')
             params = {"action":
@@ -872,7 +868,7 @@ class DeleteAction(BatchAction):
     name = "delete"
 
     def __init__(self, **kwargs):
-        super(DeleteAction, self).__init__(**kwargs)
+        super().__init__(**kwargs)
         self.name = kwargs.get('name', self.name)
         self.icon = "trash"
         self.action_type = "danger"

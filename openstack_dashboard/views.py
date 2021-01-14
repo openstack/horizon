@@ -14,16 +14,15 @@
 
 from importlib import import_module
 import logging
+import urllib
 
 from django.conf import settings
 from django import http
 from django import shortcuts
 from django import urls
 from django.utils.encoding import smart_text
-from django.utils.translation import ugettext as _
 import django.views.decorators.vary
 from django.views.generic import TemplateView
-from six.moves import urllib
 
 import horizon
 from horizon import exceptions
@@ -32,7 +31,7 @@ from horizon import notifications
 LOG = logging.getLogger(__name__)
 
 
-MESSAGES_PATH = getattr(settings, 'MESSAGES_PATH', None)
+MESSAGES_PATH = settings.MESSAGES_PATH
 
 
 def get_user_home(user):
@@ -40,6 +39,7 @@ def get_user_home(user):
     return dashboard.get_absolute_url()
 
 
+# TODO(stephenfin): Migrate to CBV
 @django.views.decorators.vary.vary_on_cookie
 def splash(request):
     if not request.user.is_authenticated:
@@ -80,7 +80,7 @@ class ExtensibleHeaderView(TemplateView):
     template_name = 'header/_header_sections.html'
 
     def get_context_data(self, **kwargs):
-        context = super(ExtensibleHeaderView, self).get_context_data(**kwargs)
+        context = super().get_context_data(**kwargs)
         header_sections = []
         config = getattr(settings, 'HORIZON_CONFIG', {})
         for view_path in config.get("header_sections", []):
@@ -109,11 +109,6 @@ class ExtensibleHeaderView(TemplateView):
 
 
 def csrf_failure(request, reason=""):
-    if reason:
-        reason += " "
-    reason += _("Cookies may be turned off. "
-                "Make sure cookies are enabled and try again.")
-
     url = settings.LOGIN_URL + "?csrf_failure=%s" % urllib.parse.quote(reason)
     response = http.HttpResponseRedirect(url)
     return response

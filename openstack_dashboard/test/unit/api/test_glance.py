@@ -16,9 +16,10 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
+from unittest import mock
+
 from django.conf import settings
 from django.test.utils import override_settings
-import mock
 
 from openstack_dashboard import api
 from openstack_dashboard.api import base
@@ -27,7 +28,7 @@ from openstack_dashboard.test import helpers as test
 
 class GlanceApiTests(test.APIMockTestCase):
     def setUp(self):
-        super(GlanceApiTests, self).setUp()
+        super().setUp()
         api.glance.VERSIONS.clear_active_cache()
 
     @override_settings(API_RESULT_PAGE_SIZE=2)
@@ -70,7 +71,7 @@ class GlanceApiTests(test.APIMockTestCase):
         api_images = self.images_api.list()
         expected_images = self.images.list()  # Wrapped Images
         filters = {}
-        limit = getattr(settings, 'API_RESULT_LIMIT', 1000)
+        limit = settings.API_RESULT_LIMIT
 
         glanceclient = mock_glanceclient.return_value
         mock_images_list = glanceclient.images.list
@@ -95,7 +96,7 @@ class GlanceApiTests(test.APIMockTestCase):
         api_images = self.images_api.list()
         expected_images = self.images.list()  # Wrapped Images
         filters = {}
-        limit = getattr(settings, 'API_RESULT_LIMIT', 1000)
+        limit = settings.API_RESULT_LIMIT
         sort_dir = 'asc'
         sort_key = 'min_disk'
 
@@ -125,7 +126,7 @@ class GlanceApiTests(test.APIMockTestCase):
         # page_size images.
         filters = {}
         page_size = settings.API_RESULT_PAGE_SIZE
-        limit = getattr(settings, 'API_RESULT_LIMIT', 1000)
+        limit = settings.API_RESULT_LIMIT
 
         api_images = self.images_api.list()
         expected_images = self.images.list()  # Wrapped Images
@@ -165,7 +166,7 @@ class GlanceApiTests(test.APIMockTestCase):
         # more, prev should return False.
         filters = {}
         page_size = settings.API_RESULT_PAGE_SIZE
-        limit = getattr(settings, 'API_RESULT_LIMIT', 1000)
+        limit = settings.API_RESULT_LIMIT
 
         api_images = self.images_api.list()
         expected_images = self.images.list()  # Wrapped Images
@@ -191,7 +192,7 @@ class GlanceApiTests(test.APIMockTestCase):
         self.assertFalse(has_more)
         self.assertFalse(has_prev)
 
-    @override_settings(API_RESULT_PAGE_SIZE=9)
+    @override_settings(API_RESULT_PAGE_SIZE=10)
     @mock.patch.object(api.glance, 'glanceclient')
     def test_image_list_detailed_pagination_equal_page_size(self,
                                                             mock_glanceclient):
@@ -199,7 +200,7 @@ class GlanceApiTests(test.APIMockTestCase):
         # page_size images. more, prev should return False
         filters = {}
         page_size = settings.API_RESULT_PAGE_SIZE
-        limit = getattr(settings, 'API_RESULT_LIMIT', 1000)
+        limit = settings.API_RESULT_LIMIT
 
         api_images = self.images_api.list()
         expected_images = self.images.list()  # Wrapped Images
@@ -231,7 +232,7 @@ class GlanceApiTests(test.APIMockTestCase):
         # Tests getting a second page with a marker.
         filters = {}
         page_size = settings.API_RESULT_PAGE_SIZE
-        limit = getattr(settings, 'API_RESULT_LIMIT', 1000)
+        limit = settings.API_RESULT_LIMIT
         marker = 'nonsense'
 
         api_images = self.images_api.list()[page_size:]
@@ -270,7 +271,7 @@ class GlanceApiTests(test.APIMockTestCase):
         # Tests getting previous page with a marker.
         filters = {}
         page_size = settings.API_RESULT_PAGE_SIZE
-        limit = getattr(settings, 'API_RESULT_LIMIT', 1000)
+        limit = settings.API_RESULT_LIMIT
         marker = 'nonsense'
 
         api_images = self.images_api.list()[page_size:]
@@ -315,9 +316,22 @@ class GlanceApiTests(test.APIMockTestCase):
         self.assertIsNone(image.name)
 
     @mock.patch.object(api.glance, 'glanceclient')
+    def test_get_image_formats(self, mock_glanceclient):
+        glance_schemas = self.image_schemas.first()
+        glanceclient = mock_glanceclient.return_value
+        mock_schemas_list = glanceclient.schemas.get('image').raw()
+        mock_schemas_list.return_value = glance_schemas
+        disk_formats = [
+            item
+            for item in glance_schemas['properties']['disk_format']['enum']
+            if item
+        ]
+        self.assertListEqual(sorted(disk_formats), sorted(['raw', 'qcow2']))
+
+    @mock.patch.object(api.glance, 'glanceclient')
     def test_metadefs_namespace_list(self, mock_glanceclient):
         metadata_defs = self.metadata_defs.list()
-        limit = getattr(settings, 'API_RESULT_LIMIT', 1000)
+        limit = settings.API_RESULT_LIMIT
 
         glanceclient = mock_glanceclient.return_value
         mock_metadefs_list = glanceclient.metadefs_namespace.list
@@ -340,7 +354,7 @@ class GlanceApiTests(test.APIMockTestCase):
     def test_metadefs_namespace_list_with_properties_target(self,
                                                             mock_glanceclient):
         metadata_defs = self.metadata_defs.list()
-        limit = getattr(settings, 'API_RESULT_LIMIT', 1000)
+        limit = settings.API_RESULT_LIMIT
         filters = {'resource_types': ['OS::Cinder::Volume'],
                    'properties_target': 'user'}
 
@@ -358,18 +372,6 @@ class GlanceApiTests(test.APIMockTestCase):
                                                    sort_key='namespace')
         self.assertEqual(1, len(defs))
         self.assertEqual('namespace_4', defs[0].namespace)
-
-    @mock.patch.object(api.glance, 'get_version', return_value=1)
-    def test_metadefs_namespace_list_v1(self, mock_version):
-        defs, more, prev = api.glance.metadefs_namespace_list(self.request)
-        self.assertItemsEqual(defs, [])
-        self.assertFalse(more)
-        self.assertFalse(prev)
-
-    @mock.patch.object(api.glance, 'get_version', return_value=1)
-    def test_metadefs_resource_types_list_v1(self, mock_version):
-        res_types = api.glance.metadefs_resource_types_list(self.request)
-        self.assertItemsEqual(res_types, [])
 
     @mock.patch.object(api.glance, 'glanceclient')
     def _test_image_create_external_upload(self, mock_glanceclient,
@@ -393,38 +395,8 @@ class GlanceApiTests(test.APIMockTestCase):
         self.assertEqual(upload_url, actual_image.upload_url)
         self.assertEqual(self.request.user.token.id, actual_image.token_id)
 
-    @override_settings(OPENSTACK_API_VERSIONS={"image": 1})
-    def test_image_create_v1_external_upload(self):
-        self._test_image_create_external_upload(api_version=1)
-
     def test_image_create_v2_external_upload(self):
         self._test_image_create_external_upload()
-
-    @override_settings(OPENSTACK_API_VERSIONS={'image': 1})
-    def test_create_image_metadata_docker_v1(self):
-        form_data = {
-            'name': u'Docker image',
-            'description': u'Docker image test',
-            'source_type': u'url',
-            'image_url': u'/',
-            'disk_format': u'docker',
-            'architecture': u'x86-64',
-            'min_disk': 15,
-            'min_ram': 512,
-            'is_public': False,
-            'protected': False,
-            'is_copying': False
-        }
-        meta = api.glance.create_image_metadata(form_data)
-        self.assertEqual(meta['disk_format'], 'raw')
-        self.assertEqual(meta['container_format'], 'docker')
-        self.assertIn('properties', meta)
-        self.assertNotIn('description', meta)
-        self.assertNotIn('architecture', meta)
-        self.assertEqual(meta['properties']['description'],
-                         form_data['description'])
-        self.assertEqual(meta['properties']['architecture'],
-                         form_data['architecture'])
 
     def test_create_image_metadata_docker_v2(self):
         form_data = {
@@ -443,6 +415,27 @@ class GlanceApiTests(test.APIMockTestCase):
         meta = api.glance.create_image_metadata(form_data)
         self.assertEqual(meta['disk_format'], 'raw')
         self.assertEqual(meta['container_format'], 'docker')
+        self.assertNotIn('properties', meta)
+        self.assertEqual(meta['description'], form_data['description'])
+        self.assertEqual(meta['architecture'], form_data['architecture'])
+
+    def test_create_image_metadata_vhd(self):
+        form_data = {
+            'name': u'OVF image',
+            'description': u'OVF image test',
+            'source_type': u'url',
+            'image_url': u'/',
+            'disk_format': u'vhd',
+            'architecture': u'x86-64',
+            'min_disk': 15,
+            'min_ram': 512,
+            'is_public': False,
+            'protected': False,
+            'is_copying': False
+        }
+        meta = api.glance.create_image_metadata(form_data)
+        self.assertEqual(meta['disk_format'], 'vhd')
+        self.assertEqual(meta['container_format'], 'ovf')
         self.assertNotIn('properties', meta)
         self.assertEqual(meta['description'], form_data['description'])
         self.assertEqual(meta['architecture'], form_data['architecture'])

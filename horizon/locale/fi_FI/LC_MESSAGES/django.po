@@ -1,14 +1,15 @@
 # OpenStack Infra <zanata@openstack.org>, 2015. #zanata
+# Johan Guldmyr <johan.guldmyr@gmail.com>, 2019. #zanata
 msgid ""
 msgstr ""
 "Project-Id-Version: horizon VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2018-03-01 14:57+0000\n"
+"POT-Creation-Date: 2019-09-26 07:07+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2015-09-09 04:11+0000\n"
-"Last-Translator: Copied by Zanata <copied-by-zanata@zanata.org>\n"
+"PO-Revision-Date: 2019-09-26 07:47+0000\n"
+"Last-Translator: Johan Guldmyr <johan.guldmyr@gmail.com>\n"
 "Language-Team: Finnish (Finland)\n"
 "Language: fi_FI\n"
 "X-Generator: Zanata 4.3.3\n"
@@ -33,6 +34,18 @@ msgstr[0] "%(size)d Tavu"
 msgstr[1] "%(size)d Tavua"
 
 #, python-format
+msgid "%(usedphrase)s %(used)s (No Limit)"
+msgstr "%(usedphrase)s %(used)s (Rajaton)"
+
+#, fuzzy, python-format
+msgid "%(usedphrase)s %(used)s of %(available)s"
+msgstr "%(usedphrase)s %(used)s %(available)s:stä"
+
+#, python-format
+msgid "%s EB"
+msgstr "%s EB"
+
+#, python-format
 msgid "%s GB"
 msgstr "%s GB"
 
@@ -53,6 +66,14 @@ msgid "%s TB"
 msgstr "%s TB"
 
 #, python-format
+msgid "%s YB"
+msgstr "%s YB"
+
+#, python-format
+msgid "%s ZB"
+msgstr "%s ZB"
+
+#, python-format
 msgid "%s completed successfully."
 msgstr "%s tehtiin onnistuneesti."
 
@@ -62,6 +83,9 @@ msgstr "%s ei valmistunut."
 
 msgid "&laquo;&nbsp;Prev"
 msgstr "&laquo;&nbsp;Edellinen"
+
+msgid "(No Limit)"
+msgstr "(Rajaton)"
 
 msgid "-"
 msgstr "-"
@@ -94,8 +118,29 @@ msgstr "Saatavilla"
 msgid "Back"
 msgstr "Takaisin"
 
+#. Translators: test code, don't really have to translate
+msgid "Batch Item"
+msgid_plural "Batch Items"
+msgstr[0] "Sido Kohte"
+msgstr[1] "Sido Kohdetta"
+
+#. Translators: test code, don't really have to translate
+msgid "Batched Item"
+msgid_plural "Batched Items"
+msgstr[0] "Sidottu Kohde"
+msgstr[1] "Sidottu Kohdetta"
+
 msgid "Cancel"
 msgstr "Keskeytä"
+
+msgid "Change"
+msgstr "Vaihda"
+
+msgid "Change Password"
+msgstr "Vaihda salasanasi"
+
+msgid "Change password"
+msgstr "Vaihda salasanasi"
 
 #, python-format
 msgid "Displaying %(content_items)s item"
@@ -115,8 +160,27 @@ msgid_plural "Displaying %(nav_items)s items"
 msgstr[0] "Näytetään %(nav_items)s kohde"
 msgstr[1] "Näytetään %(nav_items)s kohdetta"
 
+#. Translators: test code, don't really have to translate
+msgid "Down Item"
+msgid_plural "Down Items"
+msgstr[0] "Kaada Kohde"
+msgstr[1] "Kaada Kohdetta"
+
+#. Translators: test code, don't really have to translate
+msgid "Downed Item"
+msgid_plural "Downed Items"
+msgstr[0] "Kaadettu Kohde"
+msgstr[1] "Kaadettu Kohdetta"
+
+#, fuzzy, python-format
+msgid "Error processing message json file '%(path)s': %(exception)s"
+msgstr "Virhe processoida viesti json tiedosto '%(path)s': %(exception)s"
+
 msgid "Error: "
 msgstr "Virhe:"
+
+msgid "Fake"
+msgstr "Jäljitelmä"
 
 msgid "Filter"
 msgstr "Suodatin"
@@ -124,11 +188,30 @@ msgstr "Suodatin"
 msgid "Horizon"
 msgstr "Horizon"
 
+msgid ""
+"If you are not sure which authentication method to use, contact your "
+"administrator."
+msgstr ""
+"Jos et ole varma mikä todennusmenetelmä tarvitset, ota yhteyttä ylläpitäjään."
+
 msgid "Incorrect format for IP address"
 msgstr "Väärä formaatti IP-osoitteelle"
 
+msgid "Infinity"
+msgstr "Loputtomuus"
+
 msgid "Info: "
 msgstr "Info:"
+
+msgid "Invalid MAC Address format"
+msgstr "Väärä MAC-osoite formaatti"
+
+msgid "Invalid metadata entry. Use comma-separated key=value pairs"
+msgstr "Virheellinen metadata. Käytä pilkulla erotettuja avain-arvo -pareja."
+
+#, python-format
+msgid "Invalid service catalog: %s"
+msgstr "Väärä palveluluettelo: %s"
 
 msgid "Invalid subnet mask"
 msgstr "Väärä aliverkon peite"
@@ -136,14 +219,31 @@ msgstr "Väärä aliverkon peite"
 msgid "Invalid version for IP address"
 msgstr "Väärä versio IP-osoitteesta"
 
+msgid "Keystone Providers:"
+msgstr "Keystone Tuottajat:"
+
 msgid "Limit Summary"
 msgstr "Rajoitusten yhteenveto"
+
+msgid "Log in"
+msgstr "Kirjaudu sisään"
 
 msgid "Login"
 msgstr "Kirjaudu"
 
+#, python-format
+msgid ""
+"Login as different user or go back to <a href=\"%(home_url)s\">home page</a>"
+msgstr ""
+"Kirjaudu sisään kuin eri käyttäjä vai mene takaisin <a href=\"%(home_url)s"
+"\">kotisivulle</a>"
+
 msgid "Members"
 msgstr "Jäsenet"
+
+#, python-format
+msgid "Message json file '%(path)s' is malformed. %(exception)s"
+msgstr "Viesti json tiedosto '%(path)s' on epämuotoinen. %(exception)s"
 
 msgid "More Actions"
 msgstr "Lisää Toimintoja"
@@ -173,6 +273,12 @@ msgstr "Ei käyttäjiä."
 msgid "None available."
 msgstr "Ei mitään saatavilla."
 
+msgid "Not a valid ICMP code"
+msgstr "ICMP-koodi on virheellinen"
+
+msgid "Not a valid ICMP type"
+msgstr "ICMP-tyyppi on virheellinen"
+
 msgid "Not a valid IP protocol number"
 msgstr "IP-protokollan numero on virheellinen"
 
@@ -188,11 +294,17 @@ msgstr "Toinen"
 msgid "Password is not accepted"
 msgstr "Salasanaa ei hyväksytty"
 
+msgid "Please confirm your selection."
+msgstr "Vahvista sinun valintasi."
+
 msgid "Please log in to continue."
 msgstr "Kirjaudu jatkaaksesi"
 
 msgid "Please select a row before taking that action."
 msgstr "Valitse rivi ennen toiminnon tekemistä."
+
+msgid "Please specify a search criteria first."
+msgstr "Valitse hakukriteria ensi"
 
 msgid "Processing..."
 msgstr "Käsitellään..."
@@ -231,6 +343,26 @@ msgstr "Onnistui:"
 msgid "Summary"
 msgstr "Yhteenveto"
 
+msgid ""
+"The current user has insufficient permission to complete the requested task."
+msgstr ""
+"The current user has insufficient permission to complete the requested task."
+
+msgid "The date should be in YYYY-MM-DD format."
+msgstr "Päivämäärän muoto pitää olla VVVV-kk-pv."
+
+msgid "The string may only contain ASCII printable characters."
+msgstr "Merkkijonossa on vaan ASCII tulostettava merkkiä"
+
+#, python-format
+msgid ""
+"The value of %(resource)s is %(name)s inside the template. When launching a "
+"stack from this interface, the value must start with \"http://\" or "
+"\"https://\""
+msgstr ""
+"%(resource)s asetetaan mallin kohdassa %(name)s. Kun tästä rajapinnasta "
+"käynnistetään pino, arvon pitää alkaa \"http://\" tai \"https://\""
+
 msgid "This Period's GB-Hours:"
 msgstr "Tämän ajanjakson GB-tunnit:"
 
@@ -254,6 +386,18 @@ msgstr "Ei oikeutettu: Yritä kirjautumista uudelleen."
 msgid "Unauthorized: %s"
 msgstr "Ei sallittu: %s"
 
+#. Translators: test code, don't really have to translate
+msgid "Up Item"
+msgid_plural "Up Items"
+msgstr[0] "Avaudu Kohde"
+msgstr[1] "Avaudu Kohdetta"
+
+#. Translators: test code, don't really have to translate
+msgid "Upped Item"
+msgid_plural "Upped Items"
+msgstr[0] "Avauduttu Kohde"
+msgstr[1] "Avauduttu Kohdetta"
+
 msgid "Usage Summary"
 msgstr "Käytön yhteenveto"
 
@@ -268,5 +412,11 @@ msgstr "Toiminto %(action)s ei ole sallittu: %(objs)s"
 msgid "You are not authorized to access %s"
 msgstr "Et ole oikeutettu päästäksesi %s"
 
+msgid "You are not authorized to access this page"
+msgstr "Et ole oikeutettu päästäksesi tämä sivulta"
+
 msgid "You do not have permission to access the resource:"
 msgstr "Sinulla ei ole oikeutta käyttää resurssia:"
+
+msgid "You have selected: [[selection]]. "
+msgstr "Olet valinnut: [[selection]]."

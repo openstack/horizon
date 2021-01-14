@@ -29,7 +29,7 @@ class LoginPage(pageobject.PageObject):
     _login_logout_reason_locator = (by.By.ID, 'logout_reason')
 
     def __init__(self, driver, conf):
-        super(LoginPage, self).__init__(driver, conf)
+        super().__init__(driver, conf)
         self._page_title = "Login"
 
     def is_login_page(self):
@@ -73,6 +73,7 @@ class LoginPage(pageobject.PageObject):
 
     def _do_login(self, user, password, login_method):
         if self.conf.identity.domain:
+            self.domain[0].clear()
             self.domain[0].send_keys(self.conf.identity.domain)
         if user == self.conf.identity.admin_username:
             if password is None:

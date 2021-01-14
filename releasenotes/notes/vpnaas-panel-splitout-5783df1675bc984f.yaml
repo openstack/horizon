@@ -8,4 +8,4 @@ upgrade:
     To continue to use VPNaaS dashboard, install ``neutron-vpnaas-dashboard``
     and set up the horizon plugin configuration file in ``enabled`` directory.
     For more information, see ``neutron-vpnaas-dashboard`` documentation
-    http://git.openstack.org/cgit/openstack/neutron-vpnaas-dashboard/tree/doc/source
+    https://opendev.org/openstack/neutron-vpnaas-dashboard/src/branch/master/doc/source

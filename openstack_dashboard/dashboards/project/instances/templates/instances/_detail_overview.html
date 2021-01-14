@@ -3,11 +3,13 @@
 <div class="detail">
   <dl class="dl-horizontal">
     <dt>{% trans "Name" %}</dt>
-    <dd data-display="{{ instance.name|default:instance.id }}">{{ instance.name }}</dd>
-    <dt>{% trans "Description" %}</dt>
-    <dd>{{ instance.description|default:_("-") }}</dd>
+    <dd data-display="{{ instance.name|default:instance.id }}" class="word-wrap">{{ instance.name }}</dd>
     <dt>{% trans "ID" %}</dt>
     <dd>{{ instance.id }}</dd>
+    <dt>{% trans "Description" %}</dt>
+    <dd>{{ instance.description|default:_("-") }}</dd>
+    <dt>{% trans "Project ID" %}</dt>
+    <dd>{{ instance.tenant_id|default:_("-") }}</dd>
     <dt>{% trans "Status" %}</dt>
     <dd>{{ instance.status_label|title }}</dd>
     {% if instance.locked != None %}
@@ -18,11 +20,27 @@
     <dd>{{ instance.availability_zone|default:_("-") }}</dd>
     <dt>{% trans "Created" %}</dt>
     <dd>{{ instance.created|parse_isotime }}</dd>
-    <dt>{% trans "Time Since Created" %}</dt>
+    <dt>{% trans "Age" %}</dt>
     <dd>{{ instance.created|parse_isotime|timesince }}</dd>
-    {% if instance.host_server %}
+    {% if instance.has_extended_attrs %}
       <dt>{% trans "Host" %}</dt>
-      <dd>{{ instance.host_server }}</dd>
+      <dd>{{ instance.host_server|default:_("-") }}</dd>
+      <dt>{% trans "Instance Name" %}</dt>
+      <dd>{{ instance.instance_name|default:_("-") }}</dd>
+      <dt>{% trans "Reservation ID" %}</dt>
+      <dd>{{ instance.reservation_id|default:_("-") }}</dd>
+      <dt>{% trans "Launch Index" %}</dt>
+      <dd>{{ instance.launch_index|default:_("-") }}</dd>
+      <dt>{% trans "Hostname" %}</dt>
+      <dd>{{ instance.hostname|default:_("-") }}</dd>
+      <dt>{% trans "Kernel ID" %}</dt>
+      <dd>{{ instance.kernel_id|default:_("-") }}</dd>
+      <dt>{% trans "Ramdisk ID" %}</dt>
+      <dd>{{ instance.ramdisk_id|default:_("-") }}</dd>
+      <dt>{% trans "Device Name" %}</dt>
+      <dd>{{ instance.root_device_name|default:_("-") }}</dd>
+      <dt>{% trans "User Data" %}</dt>
+      <dd>{{ instance.user_data|default:_("-") }}</dd>
     {% endif %}
   </dl>
 
@@ -46,7 +64,7 @@
   <dl class="dl-horizontal">
     {% if instance.full_flavor %}
       <dt>{% trans "Flavor Name" %}</dt>
-      <dd>{{ instance.full_flavor.name }}</dd>
+      <dd class="word-wrap">{{ instance.full_flavor.name }}</dd>
       <dt>{% trans "Flavor ID" %}</dt>
       <dd>{{ instance.full_flavor.id }}</dd>
       <dt>{% trans "RAM" %}</dt>
@@ -69,11 +87,19 @@
     <hr class="header_rule">
     <dl class="dl-horizontal">
       {% for network, ip_list in instance.addresses.items %}
-        <dt>{{ network|title }}</dt>
+        <dt>{{ network }}</dt>
         <dd>
-          {% for ip in ip_list %}
-            {% if not forloop.last %}{{ ip.addr }},&nbsp;{% else %}{{ ip.addr }}{% endif %}
-          {% endfor %}
+          {% if ip_list|length > 0 %}
+            {% for ip in ip_list %}
+              {% if not forloop.last %}
+                {{ ip.addr }},&nbsp;
+              {% else %}
+                {{ ip.addr }}
+              {% endif %}
+            {% endfor %}
+          {% else %}
+            {% trans "(No IP address)" %}
+          {% endif %}
         </dd>
       {% endfor %}
     </dl>
@@ -82,7 +108,7 @@
     <hr class="header_rule">
     <dl class="dl-horizontal">
       {% for group in instance.security_groups %}
-        <dt>{{ group.name }}</dt>
+        <dt class="word-wrap">{{ group.name }}</dt>
         <dd>
           <ul class="list-unstyled">
           {% for rule in group.rules %}
@@ -103,11 +129,11 @@
       <dt>{% trans "Key Name" %}</dt>
       {% trans "None" as default_key_name %}
       {% with formatted_default_key_name="<em>"|add:default_key_name|add:"</em>" %}
-        <dd>{{ instance.key_name|default:formatted_default_key_name }}</dd>
+        <dd class="word-wrap">{{ instance.key_name|default:formatted_default_key_name }}</dd>
       {% endwith %}
       {% if instance.image %}
         <dt>{% trans "Image Name" %}</dt>
-        <dd>
+        <dd class="word-wrap">
         {% if instance.image_name %}
           <a href="{{ instance.image_url }}">{{ instance.image_name }}</a>
         {% else %}
@@ -133,7 +159,7 @@
     <dl class="dl-horizontal">
     {% for volume in instance.volumes %}
         <dt>{% trans "Attached To" %}</dt>
-        <dd>
+        <dd class="word-wrap">
             {% url instance.volume_url volume.id as volume_url %}
             {% blocktrans trimmed with volume_label=volume.name|default:volume.id volume_device=volume.device %}
             <a href="{{ volume_url }}">{{ volume_label }}</a> on {{ volume_device }}

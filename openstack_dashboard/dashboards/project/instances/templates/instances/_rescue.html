@@ -1,0 +1,27 @@
+{% extends "horizon/common/_modal_form.html" %}
+{% load i18n %}
+
+{% block form_id %}rescue_instance_form{% endblock %}
+{% block form_action %}{% url "horizon:project:instances:rescue" instance_id %}{% endblock %}
+
+{% block modal_id %}rescue_instance_modal{% endblock %}
+{% block modal-header %}{% trans "Rescue Instance" %}{% endblock %}
+
+{% block modal-body %}
+<div class="left">
+  <fieldset>
+  {% include "horizon/common/_form_fields.html" %}
+  </fieldset>
+</div>
+<div class="right">
+  <h3>{% trans "Description:" %}</h3>
+  <p>{% trans "The rescue mode is only for emergency purpose, for example in case of a system or access failure." %}</p>
+  <p>
+  {% blocktrans trimmed %}
+    This will shut down your instance and mount the root disk to a temporary server.
+    Then, you will be able to connect to this server, repair the system configuration or recover your data.
+  {% endblocktrans %}
+  </p>
+  <p>{% trans "You may optionally select an image and set a password on the rescue instance server." %}</p>
+</div>
+{% endblock %}

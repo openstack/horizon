@@ -48,7 +48,7 @@ class NetworksPage(basepage.BaseNavigationPage):
     DETAILS_TAB_INDEX = 2
 
     def __init__(self, driver, conf):
-        super(NetworksPage, self).__init__(driver, conf)
+        super().__init__(driver, conf)
         self._page_title = "Networks"
 
     def _get_row_with_network_name(self, name):

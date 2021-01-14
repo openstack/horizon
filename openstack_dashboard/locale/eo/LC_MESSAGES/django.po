@@ -1,14 +1,16 @@
 # Georg Hennemann <georg.hennemann@t-systems.com>, 2017. #zanata
 # Georg Hennemann <georg.hennemann@t-systems.com>, 2018. #zanata
+# Georg Hennemann <georg.hennemann@t-systems.com>, 2019. #zanata
+# Georg Hennemann <georg.hennemann@t-systems.com>, 2020. #zanata
 msgid ""
 msgstr ""
 "Project-Id-Version: horizon VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2018-11-08 17:51+0000\n"
+"POT-Creation-Date: 2020-11-23 00:41+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2018-11-08 12:45+0000\n"
+"PO-Revision-Date: 2020-06-19 09:54+0000\n"
 "Last-Translator: Georg Hennemann <georg.hennemann@t-systems.com>\n"
 "Language-Team: Esperanto\n"
 "Language: eo\n"
@@ -34,6 +36,19 @@ msgstr ""
 "\n"
 "      %(used)s of %(quota)s Uzita\n"
 "      "
+
+msgid ""
+"\n"
+"  If a snapshot is specified here only the specified snapshot of the volume\n"
+"  will be backed up.\n"
+"  </p>\n"
+"  "
+msgstr ""
+"\n"
+"Se savkopio estas specifita ĉi tie nur la specifita savkopio de la volumo "
+"estos savita. \n"
+"  </p>\n"
+"  "
 
 msgid ""
 "\n"
@@ -128,6 +143,10 @@ msgid "%(pool_name)s %(cidr)s"
 msgstr "%(pool_name)s %(cidr)s"
 
 #, python-format
+msgid "%(role)s  (through group %(group)s)"
+msgstr "%(role)s  (per grupo %(group)s)"
+
+#, python-format
 msgid "%(type)s (%(backend)s backend)"
 msgstr "%(type)s (%(backend)s backend)"
 
@@ -181,6 +200,9 @@ msgstr "%sGiB"
 msgid "%sMB"
 msgstr "%sMB"
 
+msgid "(No IP address)"
+msgstr "(Neniu IP adreso)"
+
 msgid "(Quota exceeded)"
 msgstr "(Kvoto transpasita)"
 
@@ -193,6 +215,12 @@ msgstr ", ĝisdatigu projekto grupojn  "
 msgid "-"
 msgstr "-"
 
+msgid "1 (icmp) should be specified for IPv4 instead of 58."
+msgstr "1 (icmp) devus esti specifita anstatau ol IPv4 instead of 58."
+
+msgid "58 (ipv6-icmp) should be specified for IPv6 instead of 1."
+msgstr "58 (ipv6-icmp) devus esti specifity por IPv6 anstatau ol 1."
+
 #, python-format
 msgid "<a href=\"%(instance_url)s\">%(instance_name)s</a> on %(device)s"
 msgstr "<a href=\"%(instance_url)s\">%(instance_name)s</a> je %(device)s"
@@ -200,6 +228,77 @@ msgstr "<a href=\"%(instance_url)s\">%(instance_name)s</a> je %(device)s"
 #, python-format
 msgid "<a href=\"%(volume_url)s\">%(volume_label)s</a> on %(volume_device)s"
 msgstr "<a href=\"%(volume_url)s\">%(volume_label)s</a> on %(volume_device)s"
+
+msgid ""
+"<b>Access Rules</b>: If you want more fine-grained access control "
+"delegation, you can create one or more access rules for this application "
+"credential. The list of access rules must be a JSON- or YAML-formatted list "
+"of rules each containing a service type, an HTTP method, and a URL path, for "
+"example: <br /> <code> [ <br /> &nbsp;&nbsp;{\"service\": \"compute\", <br /"
+"> &nbsp;&nbsp;\"method\": \"POST\", <br /> &nbsp;&nbsp;\"path\": \"/v2.1/"
+"servers\"} <br /> ] <br /> </code> or: <br /> <code> - service: compute <br /"
+"> &nbsp;&nbsp;method: POST <br /> &nbsp;&nbsp;path: /v2.1/servers </code>"
+msgstr ""
+"<b>Aliro Roloj</b>: Se vi volas pli delikatan kontrolon de aliro, vi povas "
+"krei unu aŭ plurajn alirajn regulojn por ĉi tiu aplikaĵa rajtigo. La listo "
+"de aliraj reguloj devas esti JSON- aŭ YAML-formata listo de reguloj ĉiu "
+"enhavanta servan tipon, HTTP-metodon kaj URL-on, ekzemple: <br /> <code> "
+"[ <br /> &nbsp;&nbsp;{\"service\": \"compute\", <br /> &nbsp;&nbsp;\"method"
+"\": \"POST\", <br /> &nbsp;&nbsp;\"path\": \"/v2.1/servers\"} <br /> ] <br /"
+"> </code> or: <br /> <code> - service: compute <br /> &nbsp;&nbsp;method: "
+"POST <br /> &nbsp;&nbsp;path: /v2.1/servers </code>"
+
+msgid ""
+"<b>Expiration Date/Time</b>: You may give the application credential an "
+"expiration. The expiration will be in UTC. If you provide an expiration date "
+"with no expiration time, the time will be assumed to be 00:00:00. If you "
+"provide an expiration time with no expiration date, the date will be assumed "
+"to be today."
+msgstr ""
+"<b>Limdato/Tempo</b>: Vi rajtas doni al la aplikaĵa legitimaĵo limdaton. La "
+"limdato estos en UTC. Se vi provizos limdaton sen limtempo, la tempo estos "
+"supozata kiel 00:00:00. Se vi provizos limtempon sen limdato, la dato estos "
+"supozata hodiaŭ."
+
+msgid ""
+"<b>Kubernetes Namespace</b>: You can optionally provide a Kubernetes "
+"Namespace. It will be included in the kubeconfig file which can be "
+"downloaded from the next screen."
+msgstr ""
+"<b>Kubernetes Nomspaco</b>: Vi povas opcie doni Kubernetes Nomspacon. Estos "
+"inkudita en la kubeconfig dosiero kiu povas esti elshutita de sekvonta "
+"fenestro."
+
+msgid ""
+"<b>Roles</b>: You may select one or more roles for this application "
+"credential. If you do not select any, all of the roles you have assigned on "
+"the current project will be applied to the application credential."
+msgstr ""
+"<b>Roloj</b>: Vi povas elekti unu aŭ pli da roloj por ĉi tiu aplikaĵa "
+"rajtigo. Se vi ne elektas iun ajn, ĉiuj roloj, kiujn vi atribuis en la nuna "
+"projekto, estos aplikitaj al la aplikaĵa rajtigo."
+
+msgid ""
+"<b>Secret</b>: You may provide your own secret, or one will be generated for "
+"you. Once your application credential is created, the secret will be "
+"revealed once. If you lose the secret, you will have to generate a new "
+"application credential."
+msgstr ""
+"<b>Sekreto</b>: Vi povas provizi vian propran sekreton, aŭ oni generos unun "
+"por vi. Post kiam via aplikaĵo rajtigo estas kreita, la sekreto estos "
+"malkaŝita unufoje. Se vi perdos la sekreton, vi devos generi novan aplikaĵo "
+"rajtigon."
+
+msgid ""
+"<b>Unrestricted</b>: By default, for security reasons, application "
+"credentials are forbidden from being used for creating additional "
+"application credentials or keystone trusts. If your application credential "
+"needs to be able to perform these actions, check \"unrestricted\"."
+msgstr ""
+"<b>Nelimigita</b>: Defaulte, por sekurecaj kialoj, aplikaj legitimaĵoj estas "
+"malpermesataj de esti uzataj por krei pliajn aplikaĵajn legitimaĵojn aŭ "
+"'keystone trusts'. Se via aplika legitimaĵo bezonas plenumi ĉi tiujn agojn, "
+"kontrolu \"nelimigita\"."
 
 msgid ""
 "<b>Warning:</b> If you change security groups here, the change will be "
@@ -211,6 +310,10 @@ msgstr ""
 "ĉiuj interfacoj de la apero. Se vi havas multajn interfacojn en ĉi tiu apero "
 "kaj aplikas malsamajn sekurecajn grupojn per pordo, anstataŭe uzu \"Redaktu "
 "Pordo Sekurecajn Grupojn\"."
+
+#, python-format
+msgid "<span class='word-wrap'>Flavor Details: %(name)s</span>\">%(name)s"
+msgstr "<span class='word-wrap'>Variaĵo Detajloj: %(name)s</span>\">%(name)s"
 
 msgid "A brief description of the security group rule you are adding"
 msgstr "Mallonga priskribo de la regularo de sekureco grupo vi aldonas"
@@ -298,11 +401,20 @@ msgstr "Akceptu Volumo Transigon"
 msgid "Access & Security"
 msgstr "Aliro & Secureco"
 
+msgid "Access Rules"
+msgstr "Aliro Reguloj"
+
+msgid "Access rules must be a valid JSON or YAML list."
+msgstr "Aliro reguloj devas esti valida JSON au YAML listo."
+
 msgid "Action"
 msgstr "Ago"
 
 msgid "Action Log"
 msgstr "Ago Protokolo"
+
+msgid "Action and Object Type"
+msgstr "Ago kaj Objekto Tipo"
 
 msgctxt "Current status of a Floating IP"
 msgid "Active"
@@ -366,6 +478,9 @@ msgstr "Aldonu Enkursigila Kurson"
 msgid "Add Rule"
 msgstr "Aldoni Regulon"
 
+msgid "Add Rule (Quota exceeded)"
+msgstr "Aldonu Regulon (Kvoto transpasita)"
+
 msgid "Add Static Route"
 msgstr "Aldonu Statikan Kurson"
 
@@ -428,15 +543,6 @@ msgid "Add static route to the router."
 msgstr "Aldonu statikan kurson al la enkursigilo."
 
 msgid ""
-"Add volume types to this consistency group. Multiple volume types can be "
-"added to the same consistency group only if they are associated with same "
-"back end."
-msgstr ""
-"Aldonu volumo tipon al tiu kohereco grupo. Multaj volumo tipoj  povas esti "
-"aldonata al la sama kohereco grupo nur se ili estas atribuita kun la sama "
-"internaĵilo"
-
-msgid ""
 "Add volume types to this group. Multiple volume types can be added to the "
 "same group only if they are associated with same back end."
 msgstr ""
@@ -447,23 +553,11 @@ msgid "Add, modify or remove the QoS Spec associated with this volume type."
 msgstr ""
 "Aldonu, modifu aŭ forigu la QoS Specifon asociigita kun tiu volumo tipo."
 
-msgid "Add/Remove Consistency Group Volumes"
-msgstr "Aldonu/Forigu kohereco grupo volumojn"
-
 msgid "Add/Remove Group Volumes"
 msgstr "Aldonu/Forigu  Grupo volumojn"
 
 msgid "Add/Remove Hosts to Aggregate"
 msgstr "Aldonu/Forigu Gastigojn al al to Agregato"
-
-msgid ""
-"Add/remove volumes to/from this consistency group. Only volumes associated "
-"with the volume type(s) assigned to this consistency group will be available "
-"for selection."
-msgstr ""
-"Aldonu/Forigu volumojn al/de tiu koherenco grupo. Nur volumoj asociita kun "
-"la volumo tipo(j) atribuita al tiu koherenco grupo estos disponebla por "
-"selekti."
 
 msgid ""
 "Add/remove volumes to/from this group. Only volumes associated with the "
@@ -532,6 +626,12 @@ msgstr ""
 "Post lanĉi aperon, vi ensalutas uzante privatan ŝlosilon (la uzanto nomo "
 "povas esti alia dependa de la bildo kiun vi lanĉis):"
 
+msgid "Age"
+msgstr "Aĝo"
+
+msgid "Age (Seconds)"
+msgstr "Aĝo (Sekundoj)"
+
 #, python-format
 msgid "Agent %s was successfully added."
 msgstr "Agento %s sukcese aldonita."
@@ -574,13 +674,6 @@ msgstr "Ĉiuj disponeblaj volumoj"
 
 msgid "All ports"
 msgstr "Ĉiuj pordoj"
-
-msgid ""
-"All selected volume types must be associated with the same volume backend "
-"name."
-msgstr ""
-"Ĉiuj elektitaj volumo tipoj devas esti asociita kun la sama volumo "
-"internaĵilo nomo."
 
 msgid "Allocate Floating IP"
 msgstr "Asignu glidanta IP"
@@ -680,9 +773,6 @@ msgstr "Asociigitaj Risurco Tipoj"
 
 msgid "At least one network must be specified."
 msgstr "Almenaŭ unu reto devas esti difinita. "
-
-msgid "At least one volume type must be assigned to a consistency group."
-msgstr "Minimume unu volumo tipo devas esti atribuita je kohereco grupo. "
 
 msgid "At least one volume type must be assigned to a group."
 msgstr "Minimume unu volumo tipo devas esti atribuita je grupo. "
@@ -787,14 +877,6 @@ msgstr ""
 msgid "Available"
 msgstr "Disponebla"
 
-msgctxt "Current status of Consistency Group"
-msgid "Available"
-msgstr "Havebla"
-
-msgctxt "Current status of Consistency Group Snapshot"
-msgid "Available"
-msgstr "Havebla"
-
 msgctxt "Current status of Volume Group"
 msgid "Available"
 msgstr "Disponebla"
@@ -818,6 +900,13 @@ msgid "Available networks"
 msgstr "Disponeblaj retoj"
 
 msgctxt "Current status of a Volume"
+msgid "Awaiting Transfer"
+msgstr "Akceptanta Transigon"
+
+msgid "Back-End Example:"
+msgstr "Interna Ekzemplo:"
+
+msgctxt "Current status of a Volume"
 msgid "Backing Up"
 msgstr "Sekurkopii"
 
@@ -826,6 +915,9 @@ msgstr "Sekurkopio Nomo"
 
 msgid "Backup Size (GiB)"
 msgstr "Sekurkopio Grando (GiB)"
+
+msgid "Backup Snapshot"
+msgstr "Varma Savkopio"
 
 msgid "Backups"
 msgstr "Sekurkopiojn"
@@ -905,15 +997,11 @@ msgid "Building"
 msgstr "Konstruanta"
 
 msgid ""
-"By default, for security reasons, application credentials are forbidden from "
-"being used for creating additional application credentials or keystone "
-"trusts. If your application credential needs to be able to perform these "
-"actions, check \"unrestricted\"."
+"By default, group type is created as public. To create a private group type, "
+"uncheck this field."
 msgstr ""
-"Defaŭlte, por sekurecaj kialoj, aplikaj legitimaĵoj estas malpermesataj de "
-"esti uzataj por krei pliajn aplikaĵajn legitimaĵojn aŭ 'keystone trusts'. Se "
-"via aplika legitimaĵo bezonas plenumi ĉi tiujn agojn, kontrolu \"nelimigita"
-"\"."
+"Defaŭlte, grupo tipo estas kreita publike. Por krei privatan grupo tipon, "
+"malselektu tiun kampon."
 
 msgid ""
 "By default, volume type is created as public. To create a private volume "
@@ -985,13 +1073,6 @@ msgstr "Ŝanĝojn Depost"
 
 msgid "Changing password is not supported."
 msgstr "Ŝanĝi pasvorton ne estas subtenita."
-
-msgid ""
-"Check the &quot;Delete Volumes&quot; box to also delete any volumes "
-"associated with this consistency group."
-msgstr ""
-"Kontrolu la &quot;Forigu Volumoj&quot; skatolo por ke ankaŭ forigi iujn "
-"volumojn asociita kun tiu  kohereco grupo."
 
 msgid ""
 "Check the &quot;Delete Volumes&quot; box to also delete any volumes "
@@ -1088,18 +1169,8 @@ msgstr[1] "Vakigitaj Kluzoj"
 msgid "Click here to show only console"
 msgstr "Kliku ĉi tie por nur vidigi konzolon"
 
-msgid "Clone Consistency Group"
-msgstr "Klonu Kohereco Groupon"
-
 msgid "Clone Group"
 msgstr "Klonu Grupon"
-
-msgid ""
-"Clone each of the volumes in the source Consistency Group, and then add them "
-"to a newly created Consistency Group."
-msgstr ""
-"Klonu ĉiu de la volumoj en la fonto kohereco grupo, tiam aldonu ilin al nove "
-"kreita kohereco grupo."
 
 msgid ""
 "Clone each of the volumes in the source Group, and then add them to a newly "
@@ -1107,6 +1178,10 @@ msgid ""
 msgstr ""
 "Klonu ĉiu de la volumoj en la fonto grupo, tiam aldonu ilin al nove kreita "
 "grupo."
+
+#, python-format
+msgid "Cloning volume group \"%s\"."
+msgstr "Klonanta volumo grupo \"%s\"."
 
 msgid "Close"
 msgstr "Fermu"
@@ -1146,6 +1221,9 @@ msgstr ""
 "Konfiguru Openstack por skribi metadatumo al speciala konfigura diskingo kiu "
 "ligas al apero kiam ĝi praŝargas. "
 
+msgid "Confirm"
+msgstr "Konfirmu"
+
 msgid "Confirm Admin Password"
 msgstr "Konfirmu Admin Pasvorton"
 
@@ -1172,21 +1250,6 @@ msgstr "Konfirmu aŭ Malfaru Regrandigon/Migradon"
 msgctxt "Task status of an Instance"
 msgid "Confirming Resize or Migrate"
 msgstr "Konfirmi Regrandigon aŭ Migradon"
-
-msgid "Consistency Group"
-msgstr "Kohereco Grupo"
-
-msgid "Consistency Group Information"
-msgstr "Kohereco Grupo Informo"
-
-msgid "Consistency Group Name"
-msgstr "Kohereco Grupo Nomo"
-
-msgid "Consistency Group Snapshots"
-msgstr "Kohereco Grupo Savkopiojn"
-
-msgid "Consistency Groups"
-msgstr "Koherecoj Grupoj"
 
 msgid "Console"
 msgstr "Konsolo"
@@ -1223,11 +1286,6 @@ msgstr ""
 "Kontrolu aliron al vian aperon per ŝlosilaj paroj, secureca grupoj, kaj "
 "aliaj mekanismoj."
 
-msgid "Cookies may be turned off. Make sure cookies are enabled and try again."
-msgstr ""
-"Kuketoj povas esti malŝaltitaj. Certigu, ke kuketoj estas ebligitaj kaj "
-"provu denove."
-
 msgid "Copy Data"
 msgstr "Kopiu Datumo"
 
@@ -1250,6 +1308,9 @@ msgctxt "Action log of an instance"
 msgid "Create"
 msgstr "Kreu"
 
+msgid "Create A RBAC Policy"
+msgstr "Kreu RBAC Regularo"
+
 msgid "Create An Image"
 msgstr "Kreu Bildigon"
 
@@ -1258,12 +1319,6 @@ msgstr "Krei Aplikadon Legitimaĵon"
 
 msgid "Create Backup"
 msgstr "Krei Sekurkopion"
-
-msgid "Create Consistency Group"
-msgstr "Kreu Kohereco Grupo"
-
-msgid "Create Consistency Group Snapshot"
-msgstr "Kreu Kohereco Grupo Savkopio"
 
 msgid "Create Domain"
 msgstr "Kreu Domajnojn"
@@ -1286,9 +1341,19 @@ msgstr "Kreu Grupo"
 msgid "Create Group Snapshot"
 msgstr "Kreu Grupo Savkopion"
 
+msgid "Create Group Type"
+msgstr "Kreu Grupo Tipo"
+
+msgid "Create Group Type Spec"
+msgstr "Kreu Grupo Tipo Specifon"
+
 msgid "Create Host Aggregate"
 msgstr "Kreu Servilo Agregato"
 
+msgid "Create Image"
+msgstr "Kreu Bildon"
+
+msgctxt "Action log of an instance"
 msgid "Create Image"
 msgstr "Kreu Bildon"
 
@@ -1318,6 +1383,9 @@ msgstr "Kreu Protokolo"
 
 msgid "Create QoS Spec"
 msgstr "Kreu QoS Spec"
+
+msgid "Create RBAC Policy"
+msgstr "Kreu RBAC Regularo"
 
 msgid "Create Role"
 msgstr "Kreu Rolon"
@@ -1358,9 +1426,6 @@ msgstr "Kreu Volumon"
 msgid "Create Volume Backup"
 msgstr "Kreu Volumo Sekurkopio"
 
-msgid "Create Volume Consistency Group"
-msgstr "Kreu Volumo Kohereco Grupo"
-
 msgid "Create Volume Group"
 msgstr "Kreu Volumo Grupon"
 
@@ -1382,12 +1447,8 @@ msgstr "Kreu Volumo Tipo ĉifradon"
 msgid "Create Volume Type Extra Spec"
 msgstr "Kreu Volumo Tipo Ekstra Specifo"
 
-msgid ""
-"Create a Consistency Group that will contain newly created volumes cloned "
-"from each of the snapshots in the source Consistency Group Snapshot."
-msgstr ""
-"Kreu kohereco grupo kiu enhavas novajn kreitajn volumojn klonitaj de ĉiu el "
-"la savkopiojn en la fonta Kohereco Grupo Savkopio."
+msgid "Create a Group Type"
+msgstr "Kreu Grupo Tipo"
 
 msgid ""
 "Create a Group that will contain newly created volumes cloned from each of "
@@ -1402,6 +1463,9 @@ msgstr "Kreu Metadatuma Nomspaco"
 msgid "Create a New Volume"
 msgstr "Kreu novan Volumon."
 
+msgid "Create a RBAC Policy"
+msgstr "Kreu RBAC Regularo"
+
 msgid "Create a Router"
 msgstr "Kreu Enkursigilon"
 
@@ -1414,16 +1478,17 @@ msgstr "Kreu mapigon."
 msgid "Create a new \"extra spec\" key-value pair for a volume type."
 msgstr "Kreu novan \"ekstra spec\" klavo-valoro paro por volumo tipo."
 
+msgid "Create a new \"group type spec\" key-value pair for a group type."
+msgstr "Kreu novan \"grupo tipo spec\" klavo-valoro paron por grupo tipo."
+
 #, python-format
 msgid ""
 "Create a new \"spec\" key-value pair for QoS Spec \"%(qos_spec_name)s\". "
-"Valid key names are expected in the QoS specs. The acceptable values for key "
-"are <tt>\"minIOPS\", \"maxIOPS\" and \"burstIOPS\"</tt>."
+"Valid key names are expected in the QoS specs. Refer to Cinder documentation "
+"for the supported front-end and back-end keys."
 msgstr ""
 "Kreu novan \"spec\" ŝlosilo-valoro paron por QoS Spec \"%(qos_spec_name)s\". "
-"Validaj ŝlosilaj nomoj estas atenditaj en la QoS specoj. La akcepteblaj "
-"valoroj por ŝlosilo estas <tt>\"minIOPS\", \"maxIOPS\" kaj \"burstIOPS\"</"
-"tt>."
+"Validaj ŝlosilaj nomoj estas atenditaj en la QoS specifoj. "
 
 msgid "Create a new application credential."
 msgstr "Krei novan aplikado legitimaĵon."
@@ -1447,9 +1512,6 @@ msgstr ""
 
 msgid "Create a project to organize users."
 msgstr "Kreu projekton por organizi uzantojn."
-
-msgid "Create a snapshot for each volume contained in the Consistency Group."
-msgstr "Kreu savkopion por ĉiu volumo entenita en la Kohereco Grupo."
 
 msgid "Create a snapshot for each volume contained in the Group."
 msgstr "Kreu savkopion por ĉiu volumo entenita en la Grupo."
@@ -1476,6 +1538,10 @@ msgid "Created extra spec \"%s\"."
 msgstr "Kreita ekstra specifo \"%s\"."
 
 #, python-format
+msgid "Created group type spec \"%s\"."
+msgstr "Kreita grupo tipo specifon \"%s\"."
+
+#, python-format
 msgid "Created network \"%s\"."
 msgstr "Estas kreita reto \"%s\"."
 
@@ -1494,9 +1560,6 @@ msgstr "Nova servilo agregato kreita \"%s\"."
 #, python-format
 msgid "Created new project \"%s\"."
 msgstr "Estis kreita nova projekto \"%s\"."
-
-msgid "Created new volume consistency group"
-msgstr "Estas kreita nova volumo kohereco grupon"
 
 msgid "Created new volume group"
 msgstr "Kreita novan volumon grupon"
@@ -1536,14 +1599,6 @@ msgstr "Krei"
 msgctxt "Current status of a Volume Backup"
 msgid "Creating"
 msgstr "Estas kreanta"
-
-#, python-format
-msgid "Creating consistency group \"%s\"."
-msgstr "Kreantas Kohereco Grupo \"%s\"."
-
-#, python-format
-msgid "Creating consistency group snapshot \"%s\"."
-msgstr "Krei kohereco grupo savkopio \"%s\"."
 
 msgid ""
 "Creating encryption for a volume type causes all volumes with that volume "
@@ -1680,9 +1735,6 @@ msgid_plural "Delete Application Credentials"
 msgstr[0] "Forigu Aplikadon Legitimaĵon"
 msgstr[1] "Forigu Aplikadon Legitimaĵojn"
 
-msgid "Delete Consistency Group"
-msgstr "Forigu Kohereco Grupon"
-
 msgid "Delete DHCP Agent"
 msgid_plural "Delete DHCP Agents"
 msgstr[0] "Forigu DHCP Agenton"
@@ -1712,6 +1764,11 @@ msgid "Delete Group"
 msgid_plural "Delete Groups"
 msgstr[0] "Forigu Grupon"
 msgstr[1] "Forigu Grupojn"
+
+msgid "Delete Group Type"
+msgid_plural "Delete Group Types"
+msgstr[0] "Forigu Grupo Tipon"
+msgstr[1] "Forigu Grupo Tipojn"
 
 msgid "Delete Host Aggregate"
 msgid_plural "Delete Host Aggregates"
@@ -1772,6 +1829,11 @@ msgid "Delete QoS Spec"
 msgid_plural "Delete QoS Specs"
 msgstr[0] "Forigu QoS Specifo"
 msgstr[1] "Forigu QoS Specifojn"
+
+msgid "Delete RBAC Policy"
+msgid_plural "Delete RBAC Policies"
+msgstr[0] "Forigu RBAC Regularo"
+msgstr[1] "Forigu RBAC Regularoj"
 
 msgid "Delete Role"
 msgid_plural "Delete Roles"
@@ -1897,6 +1959,11 @@ msgid_plural "Deleted Groups"
 msgstr[0] "Forigita Grupo"
 msgstr[1] "Forigitaj Grupoj"
 
+msgid "Deleted Group Type"
+msgid_plural "Deleted Group Types"
+msgstr[0] "Forigita Grupo Tipo"
+msgstr[1] "Forigita Grupo Tipoj"
+
 msgid "Deleted Host Aggregate"
 msgid_plural "Deleted Host Aggregates"
 msgstr[0] "Forigigita Servilo Agregato"
@@ -1951,6 +2018,14 @@ msgid "Deleted QoS Spec"
 msgid_plural "Deleted QoS Specs"
 msgstr[0] "Forigita QoS Specifon"
 msgstr[1] "Forigitaj QoS Specifojn"
+
+msgid "Deleted RBAC Policy"
+msgid_plural "Deleted RBAC Policies"
+msgstr[0] "Forigita RBAC Regularo"
+msgstr[1] "Forigitaj RBAC Regularoj"
+
+msgid "Deleted RBAC policy is not recoverable."
+msgstr "Forigita RBAC regularo ne estas restaŭrebla."
 
 msgid "Deleted Role"
 msgid_plural "Deleted Roles"
@@ -2021,6 +2096,10 @@ msgstr ""
 "Forigitaj volumoj ne estas restaŭrebla. Ĉiuj datumo savita en la volumo "
 "estos viŝita.   "
 
+msgctxt "Current status of Volume Group"
+msgid "Deleting"
+msgstr "Foriganta"
+
 msgctxt "Current status of a Volume"
 msgid "Deleting"
 msgstr "Forigi"
@@ -2034,18 +2113,17 @@ msgid "Deleting"
 msgstr "Foriganta"
 
 #, python-format
-msgid "Deleting volume consistency group \"%s\""
-msgstr "Forigas volume koherenco grupo \"%s\""
-
-#, python-format
 msgid "Deleting volume group \"%s\""
 msgstr "Forigi volume grupo \"%s\""
 
+msgid "Deprecated Settings"
+msgstr "Evitinda Agordo"
+
+msgid "Deprecated settings: {}."
+msgstr "Evitinda Agordo: {}."
+
 msgid "Description"
 msgstr "Priskribo"
-
-msgid "Description is required."
-msgstr "Priskribo nepras."
 
 msgid "Description:"
 msgstr "Priskripo:"
@@ -2186,9 +2264,6 @@ msgstr[1] "Malebligitaj Uzantoj"
 msgid "Disabled compute service for host: %s."
 msgstr "Malvalidigita komputa servo por gastiganto: %s."
 
-msgid "Disassocaite"
-msgstr "Malasociigu"
-
 msgid "Disassociate"
 msgstr "Malasocigu"
 
@@ -2319,6 +2394,9 @@ msgstr "Elŝuti OpenStack RC Dosiero"
 msgid "Download clouds.yaml"
 msgstr "Elŝuti clouds.yaml"
 
+msgid "Download kubeconfig file"
+msgstr "Elŝuti kubeconfig dosieron"
+
 msgid "Download openrc file"
 msgstr "Elŝuti openrc dosieron"
 
@@ -2352,9 +2430,6 @@ msgstr "Redakti"
 msgid "Edit Access"
 msgstr "Redakti Aliro"
 
-msgid "Edit Consistency Group"
-msgstr "Redaktu Kohereco Group"
-
 msgid "Edit Consumer"
 msgstr "Redaktu Konsumanto"
 
@@ -2370,6 +2445,16 @@ msgstr "Redaktu Variaĵo"
 
 msgid "Edit Group"
 msgstr "Redaktu Grupo"
+
+msgid "Edit Group Type"
+msgstr "Agordu Grupo Tipon"
+
+msgid "Edit Group Type Spec"
+msgstr "Agordu Grupo Tipo Specifon"
+
+#, python-format
+msgid "Edit Group Type Spec Value: %s"
+msgstr "Redaktu Grupo Tipo Specifo Valoron: %s"
 
 msgid "Edit Host Aggregate"
 msgstr "Redaktu Servilo Agregato"
@@ -2391,6 +2476,9 @@ msgstr "Reduktu Nomspaco atributoj"
 
 msgid "Edit Network"
 msgstr "Redakti Reton"
+
+msgid "Edit Policy"
+msgstr "Redaktu Regularon"
 
 msgid "Edit Port"
 msgstr "Redaktu Pordon"
@@ -2588,14 +2676,6 @@ msgstr "Provizora Disko"
 msgid "Ephemeral Disk (GB)"
 msgstr "Provizora Disko (GB)"
 
-msgctxt "Current status of Consistency Group"
-msgid "Error"
-msgstr "Eraro"
-
-msgctxt "Current status of Consistency Group Snapshot"
-msgid "Error"
-msgstr "Eraro"
-
 msgctxt "Current status of Volume Group"
 msgid "Error"
 msgstr "Eraro"
@@ -2685,20 +2765,17 @@ msgstr "Eraro kiam aldoni au forigi Gastigojn."
 msgid "Error writing zipfile: %(exc)s"
 msgstr "Eraro skribi zipdosiero: %(exc)s"
 
-msgid "Errors occurred in deleting consistency group."
-msgstr "Eraroj okazis forigante koherenco grupo."
-
 msgid "Errors occurred in deleting group."
 msgstr "Eraroj okazis forigante grupo."
-
-msgid "Errors occurred in removing volumes from consistency group."
-msgstr "Eraroj okazis dum forigante volumojn de koherenco grupo."
 
 msgid "Errors occurred in removing volumes from group."
 msgstr "Eraroj okazis dum forigante volumojn de grupo."
 
 msgid "Ether Type"
 msgstr "Ether Tipo"
+
+msgid "Euca2ools state"
+msgstr "Euca2ools stato"
 
 msgid "Evacuate Host"
 msgstr "Evakui gastiganto"
@@ -2708,9 +2785,6 @@ msgid ""
 msgstr ""
 "Evakuiu la servilojn de la selektita malvalidigita gastiganto al aktiva "
 "celgastiganto."
-
-msgid "Example:"
-msgstr "Ekzemple:"
 
 msgid ""
 "Example: For <tt>mod_shib</tt> this would be <tt>Shib-Identity-Provider</"
@@ -2813,10 +2887,6 @@ msgstr "Malsukcesis aldoni interfacon: %s"
 msgid "Failed to add project %(project)s to volume type access."
 msgstr "Malsukcesis aldoni projekton %(project)s al volumo tipo aliro."
 
-#, python-format
-msgid "Failed to add route: %s"
-msgstr "Malsukcesis aldoni kurson: %s"
-
 msgid "Failed to check if description field is supported."
 msgstr "Malsukcesis kontroli ĉu priskribo kampo estas subtenata."
 
@@ -2829,9 +2899,8 @@ msgstr "Malsukcesis kontroli se Neutron subtenas \"auto_allocated_network\"."
 msgid "Failed to check if nova supports \"auto_allocated_network\"."
 msgstr "Malsukcesis kontroli se Nova subtenas \"auto_allocated_network\"."
 
-#, python-format
-msgid "Failed to create network \"%(network)s\": %(reason)s"
-msgstr "Malsukcesis krei  reton \"%(network)s\": %(reason)s"
+msgid "Failed to create a rbac policy."
+msgstr "Malsukcesis krei rbac regularo ."
 
 #, python-format
 msgid "Failed to create network %s"
@@ -2845,14 +2914,8 @@ msgstr "Malsukcesis krei pordon \"%s\"."
 msgid "Failed to create router \"%s\"."
 msgstr "Malsukcesis krei enkursigilo \"%s\"."
 
-#, python-format
-msgid "Failed to create subnet \"%(sub)s\" for network \"%(net)s\": %(reason)s"
-msgstr ""
-"Malsukcesis krei  subreton \"%(sub)s\" por reto \"%(net)s\": %(reason)s"
-
-#, python-format
-msgid "Failed to create subnet \"%(sub)s\": %(reason)s"
-msgstr "Malsukcesis krei  subreton \"%(sub)s\": %(reason)s"
+msgid "Failed to create router."
+msgstr "Malsukcesis krei enkursigilo."
 
 #, python-format
 msgid "Failed to delete network \"%s\""
@@ -2874,6 +2937,9 @@ msgstr "Malsukcesis  evakuii gastiganton: %s."
 msgid "Failed to evacuate instances: %s"
 msgstr "Malsukcesis to evakui instancojn: %s"
 
+msgid "Failed to get attached volume."
+msgstr "Malsukcesis ricevi kunligitan volumon."
+
 msgid "Failed to get availability zone list."
 msgstr "Malsukcesis trovi disponebleca zono listo."
 
@@ -2884,15 +2950,8 @@ msgstr "Malsukcesis akiri aperajn interfacojn."
 msgid "Failed to get mapping list %s"
 msgstr "Malsukcesis recevi mapiga listo %s"
 
-msgid "Failed to get network list {0}"
-msgstr "Neeblas ricevi reto listo {0}"
-
 msgid "Failed to get network list."
 msgstr "Malsukcesis ricevi reto listo."
-
-#, python-format
-msgid "Failed to get network list: %s"
-msgstr "Malsukcesis ricevi reto liston: %s"
 
 msgid "Failed to live migrate instance to a new host."
 msgstr "Malsukcesis tuja transmeto de la apero al freŝa gastiganto."
@@ -2950,14 +3009,6 @@ msgid "Failed to remove project %(project)s from volume type access."
 msgstr "Malsukcesis forigi projekton %(project)s de volumo tipo aliro."
 
 #, python-format
-msgid "Failed to retrieve network %s for a subnet"
-msgstr "Malsukcesis ricevi reton %s por la subreto"
-
-#, python-format
-msgid "Failed to set gateway: %s"
-msgstr "Malsukcesis agordi kluzon: %s"
-
-#, python-format
 msgid "Failed to update network %s"
 msgstr "Malsukcesis ĝisdatigi reto %s"
 
@@ -2966,12 +3017,12 @@ msgid "Failed to update port \"%s\"."
 msgstr "Malsukcesis ĝisdatigi pordo \"%s\"."
 
 #, python-format
-msgid "Failed to update router %s"
-msgstr "Malsukcesis ĝisdatigi enkursigilon %s"
+msgid "Failed to update rbac policy %s"
+msgstr "Malsukcesis ĝisdatigi rbac regularo  %s"
 
 #, python-format
-msgid "Failed to update subnet \"%(sub)s\":  %(reason)s"
-msgstr "Malsukcesis ĝisdatigi subreton \"%(sub)s\": %(reason)s"
+msgid "Failed to update router %s"
+msgstr "Malsukcesis ĝisdatigi enkursigilon %s"
 
 msgid "False"
 msgstr "Malprava"
@@ -3022,22 +3073,11 @@ msgstr "Variaĵo Elekto   "
 msgid "Flavor Details"
 msgstr "Variaĵo Detajloj"
 
-#, python-format
-msgid "Flavor Details: %(name)s\">%(name)s"
-msgstr "Variaĵo Detajloj: %(name)s\">%(name)s"
-
 msgid "Flavor ID"
 msgstr "Variaĵo ID"
 
 msgid "Flavor ID ="
 msgstr "Variaĵo ID ="
-
-msgid ""
-"Flavor ID should be UUID4 or integer. Leave this field blank or use 'auto' "
-"to set a random UUID4."
-msgstr ""
-"Variaĵo ID devus esti UUID4 aŭ entjero. Lasu tiun kampon malplena  blank aŭ "
-"uzu 'auto' por apliki  hazarda UUID4."
 
 msgid "Flavor Information"
 msgstr "Variaĵo Informo"
@@ -3138,6 +3178,9 @@ msgstr "De ĉi tie vi povas aldoni DHCP agenton por la reto."
 msgid "From here you can allocate a floating IP to a specific project."
 msgstr "De ĉi tie vi povas asigni glidanta IP al specifa projekto."
 
+msgid "From here you can create a rbac policy."
+msgstr "De ĉi tie vi povas krei rbac regularo."
+
 msgid "From here you can create a snapshot of a volume."
 msgstr "De ĉi tie vi povas krei savkopion de unu volumo."
 
@@ -3148,6 +3191,9 @@ msgstr ""
 msgid "From here you can update the default volume quotas (max limits)."
 msgstr ""
 "De ĉi-tie vi povas ĝisdatigi  la defaŭlt voluajn kvotojn (max limitoj)."
+
+msgid "Front-End Example:"
+msgstr "Fasada Ekzemplo:"
 
 msgid "GB"
 msgstr "GB"
@@ -3181,6 +3227,10 @@ msgstr "Diagramo"
 
 msgid "Group"
 msgstr "Grupo"
+
+#, python-format
+msgid "Group \"%s\" already exists."
+msgstr "Grupo \"%s\" jam ekzistas."
 
 #, python-format
 msgid "Group \"%s\" was successfully created."
@@ -3219,8 +3269,44 @@ msgstr "Grupo Savkopioj"
 msgid "Group Type"
 msgstr "Grupo Tipo"
 
+msgid "Group Type Specs"
+msgstr "Grupo Tipo Specifoj"
+
+#, python-format
+msgid "Group Type: %(group_type_name)s"
+msgstr "Grupo Tipo: %(group_type_name)s"
+
+#, python-format
+msgid "Group Type: %(group_type_name)s "
+msgstr "Grupo Tipo: %(group_type_name)s"
+
+msgid "Group Types"
+msgstr "Grupo Tipoj"
+
 msgid "Group has been updated successfully."
 msgstr "Grupo sukcese ĝisdatigita."
+
+msgid ""
+"Group type is a type or label that can be selected at group creation time in "
+"OpenStack. It usually maps to a set of capabilities of the storage back-end "
+"driver to be used for this group. Examples: \"Performance\", \"SSD\", "
+"\"Backup\", etc. This is equivalent to the <tt>cinder type-create</tt> "
+"command. Once the group type gets created, click the \"View Specs\" button "
+"to set up specs key-value pair(s) for that group type."
+msgstr ""
+"Grupo tipo estas tipo aŭ etikedo kiu povas esti selektita je grupo kreanta "
+"tempo en OpenStack. Ĝi kutime mapigas al aro da kapabloj de la memoro back-"
+"end pelilo uzonta por tiun grupon. Ekzemploj: \"Rendimento\", \"SSD\", "
+"\"Sekurkopio\", ktp. Tiu estas ekvivalenta al <tt>cinder tipo- krei</tt> "
+"komando. Kiam la grupo tipo estas kreita, kliku la \"Vidu Specifojn\" klavon "
+"por agordi specifajn klava-valoro paro(j)n por tiu grupo tipo."
+
+#, python-format
+msgid "Group type name \"%s\" already exists."
+msgstr "Grupo tipo nomo \"%s\" jam ekzistas."
+
+msgid "Group type name can not be empty."
+msgstr "Grupo tipo nomo ne povas esti malplena."
 
 msgid ""
 "Group which the new volume belongs to. Choose 'No group' if the new volume "
@@ -3403,6 +3489,13 @@ msgstr ""
 "IP adreso listo de DNS nomo serviloj por tiu subreto. Unu enigo po linio."
 
 msgid ""
+"IP address of Gateway (e.g. 192.168.0.254) If you do not want to use a "
+"gateway, check 'Disable Gateway' below."
+msgstr ""
+"IP adreso de kluzo  (e.g. 192.168.0.254). Se vi ne volas uzi kluzon, agordu  "
+"'Disable Gateway' sube."
+
+msgid ""
 "IP address of Gateway (e.g. 192.168.0.254) The default value is the first IP "
 "of the network address (e.g. 192.168.0.1 for 192.168.0.0/24, 2001:DB8::1 for "
 "2001:DB8::/48). If you use the default, leave blank. If you do not want to "
@@ -3467,6 +3560,15 @@ msgid ""
 msgstr ""
 "Se \"Neniu volumo tipo\" estas selektita, la volumo estos kreita sen volumo "
 "tipo."
+
+msgid "If checked, the network will be enabled."
+msgstr "Se markita, la reto estos estos ebligita."
+
+msgid "If checked, the port will be enabled."
+msgstr "Se markita, la pordo estos ebligita."
+
+msgid "If checked, the router will be enabled."
+msgstr "Se markita, la enkursigilo estos ebligita."
 
 msgid "If checked, the selected floating IP will be released at the same time."
 msgstr "Se markita, la selektita glita IP estos liberigita samtempe. "
@@ -3540,6 +3642,9 @@ msgstr "Bildo Savkopio Pritraktanta "
 msgid "Image Source"
 msgstr "Bildo Fonto"
 
+msgid "Image Type"
+msgstr "Bildo Tipo"
+
 msgctxt "Task status of an Instance"
 msgid "Image Uploading"
 msgstr "Bildo Alŝutanta"
@@ -3568,14 +3673,6 @@ msgstr "Importu Nomspacon"
 
 msgid "Import Public Key"
 msgstr "Importu Publikan Ŝlosilon"
-
-msgctxt "Current status of Consistency Group"
-msgid "In-use"
-msgstr "Esti-uzita"
-
-msgctxt "Current status of Consistency Group Snapshot"
-msgid "In-use"
-msgstr "Nune uzata"
 
 msgctxt "Current status of Volume Group"
 msgid "In-use"
@@ -3747,6 +3844,9 @@ msgstr "Klavo Paro Nomo"
 msgid "Key Pair Name ="
 msgstr "Klavo Paro Nomo ="
 
+msgid "Key Pair Type"
+msgstr "Ŝlosil Paro Tipo"
+
 msgid "Key Pairs"
 msgstr "Ŝlosilaj Paroj"
 
@@ -3756,6 +3856,16 @@ msgstr ""
 
 msgid "Key Size (bits)"
 msgstr "Ŝlosilo Grando (bitoj)"
+
+msgid "Key Type"
+msgstr "Ŝlosilo Tipo"
+
+msgid ""
+"Key names can only contain alphanumeric characters, underscores, periods, "
+"colons and hyphens"
+msgstr ""
+" Ŝlosilo nomoj nur enhavus  literciferajn signojn, substrekojn, punktojn, "
+"dupunktojn kaj dividstrekojn."
 
 msgid ""
 "Key pair name may only contain letters, numbers, underscores, spaces, and "
@@ -3767,21 +3877,41 @@ msgstr ""
 msgid "Key pair to use for authentication."
 msgstr "Ŝlosila paro uzonta por aŭtentigon."
 
+#, python-format
+msgid ""
+"Key with name \"%s\" already exists. Use Edit to update the value, else "
+"create key with different name."
+msgstr ""
+"ŝlosilo kun nomo \"%s\" jam ekzistas. Uzu Agordo por ĝisdatigi la valoron, "
+"aŭ kreu ŝlosilon kun alia nomo."
+
 msgid "Key-Value Pairs"
 msgstr "Klavo-Valoro Paroj"
 
-msgid "Key: burstIOPS and Value:5000 (number value bigger than minIOPS)"
-msgstr "Ŝlosilo: burstIOPS kaj Valoro:5000 (numera valoro pli ol minIOPS)"
+msgid "Key: burstIOPS and Value: 5000 (number value bigger than minIOPS)"
+msgstr "Ŝlosilo: maxIOPS kaj Valoro: 5000 (nombro pli granda ol minIOPS)"
 
-msgid "Key: maxIOPS and Value:5000 (number value bigger than minIOPS)"
-msgstr "Ŝlosilo: maxIOPS kaj Valoro:5000 (numera valoro pli ol minIOPS)"
+msgid "Key: maxIOPS and Value: 5000 (number value bigger than minIOPS)"
+msgstr "Ŝlosilo: maxIOPS kaj Valoro: 5000 (nombro pli granda ol minIOPS)"
 
-msgid "Key: minIOPS and Value:20 (number value less than maxIOPS)"
+msgid "Key: minIOPS and Value: 20 (number value less than maxIOPS)"
 msgstr "Ŝlosilo: minIOPS kaj Valoro:20 (numera valoro malpli ol maxIOPS)"
+
+msgid "Key: size_iops_sec and Value: 16"
+msgstr "Ŝlosilo: grando_iops_sek kaj Valoro:16"
+
+msgid "Key: total_bytes_sec_max and Value: 512000"
+msgstr "Ŝlosilo: total_bajtoj_sek_maks kaj Valoro: 512000"
+
+msgid "Key: total_iops_sec and Value: 5000"
+msgstr "Ŝlosilo: total_iops_sec kaj Valoro: 5000"
 
 msgctxt "Current status of an Image"
 msgid "Killed"
 msgstr "Ĉesigita  "
+
+msgid "Kubernetes Namespace"
+msgstr "Kubernetes Nomspaco"
 
 msgid "L3 Agent"
 msgstr "L3 Agento"
@@ -3851,10 +3981,17 @@ msgstr "Loka memorilo  (sume)"
 msgid "Local Storage (used)"
 msgstr "Loka memorilo  (uzita)"
 
+msgctxt "Action log of an instance"
+msgid "Lock"
+msgstr "Ŝlosi"
+
 msgid "Lock Instance"
 msgid_plural "Lock Instances"
 msgstr[0] "Ŝlosu  Aperon"
 msgstr[1] "Ŝlosu  Aperojn"
+
+msgid "Lock password"
+msgstr "Ŝlosu pasvorton"
 
 msgctxt "Locked status of an instance"
 msgid "Locked"
@@ -4010,6 +4147,9 @@ msgstr "Metadatumaj Difinoj"
 msgid "Metadata Items"
 msgstr "Metadatuma Elementoj"
 
+msgid "Method"
+msgstr "Metodo"
+
 msgid "MidoNet"
 msgstr "MidoNet"
 
@@ -4018,6 +4158,10 @@ msgstr "MidoNet Uplink"
 
 msgid "Migrate"
 msgstr "Migru"
+
+msgctxt "Action log of an instance"
+msgid "Migrate"
+msgstr "Migri"
 
 msgid "Migrate Host"
 msgstr "Transmetu Gastiganto"
@@ -4079,6 +4223,9 @@ msgstr "Minimuma Disko (GB)"
 msgid "Minimum RAM (MB)"
 msgstr "Minimuma RAM (MB)"
 
+msgid "Missing required settings: {}."
+msgstr "Mankanta bezonata agordo: {}."
+
 #, python-format
 msgid "Modified domain \"%s\"."
 msgstr "Modifkita domajno \"%s\"."
@@ -4117,17 +4264,14 @@ msgstr "Modifu Kvotojn"
 msgid "Modify dashboard settings for your user."
 msgstr "Modifu stirpanelo  agordojn por la uzanto."
 
+msgid "Modify group type name, description, and public status."
+msgstr "Modifu grupo tipo nomon, priskribon, kaj publikan staton."
+
 msgid "Modify name and description of a volume."
 msgstr "Modifu nomon kaj priskribon de volumo."
 
 msgid "Modify the name and description of a snapshot."
 msgstr "Modifu la nomon kaj priskribon de savkopio."
-
-msgid "Modify the name and description of a volume consistency group snapshot."
-msgstr "Modifu la nomojn kaj priskribojn de volumo kohereco grupo savkopio."
-
-msgid "Modify the name and description of a volume consistency group."
-msgstr "Modifu la nomojn kaj priskribojn de volumo kohereco grupo."
 
 msgid "Modify the name and description of a volume group."
 msgstr "Modifu la nomon kaj priskribon de volumo grupo."
@@ -4293,6 +4437,9 @@ msgstr "Nova Grando (GiB)"
 msgid "New name cannot be empty."
 msgstr "Nova nomo ne povas esti malplena."
 
+msgid "New name conflicts with another group type."
+msgstr "Nova nomo konfliktas kun alia grupo tipo."
+
 msgid "New name conflicts with another volume type."
 msgstr "Nova nomo konfliktas kun alia volumo tipo."
 
@@ -4449,6 +4596,9 @@ msgstr "Neniuj secureco grupoj trovitaj."
 msgid "No server groups available"
 msgstr "Neniuj servilo grupoj haveblaj"
 
+msgid "No snapshot for this volume"
+msgstr "Neniu savkopio por ĉi tiu volumo"
+
 msgid "No snapshots available"
 msgstr "Neniuj savkopioj disponeblaj."
 
@@ -4561,8 +4711,17 @@ msgstr "OR Kopii/Alglui vian Privatan Klavon"
 msgid "OVA - Open Virtual Appliance"
 msgstr "OVA - Nefermita Virtuala Aplikaĵo "
 
+msgid "Object"
+msgstr "Objekto"
+
+msgid "Object ID"
+msgstr "Objekto ID"
+
 msgid "Object Store"
 msgstr "Objekto Memorilo"
+
+msgid "Object Type"
+msgstr "Objekto Tipo"
 
 msgid "Old Flavor"
 msgstr "Malnova Variaĵo "
@@ -4592,17 +4751,8 @@ msgstr "Malferma Pordo/Pordo Intervalo:"
 msgid "OpenStack Profiler"
 msgstr "OpenStack Profililo   "
 
-msgid "OpenStack RC File (Identity API v2.0)"
-msgstr "OpenStack RC Dosiero (Identeco API v2.0)"
-
-msgid "OpenStack RC File (Identity API v3)"
-msgstr "OpenStack RC Dosiero (IdentecoAPI v3)"
-
-msgid "OpenStack RC File v2"
-msgstr "OpenStack RC File v2"
-
-msgid "OpenStack RC File v3"
-msgstr "OpenStack RC File v3"
+msgid "OpenStack RC File"
+msgstr "OpenStack RC Dosiero"
 
 msgid "OpenStack clouds.yaml File"
 msgstr "OpenStack clouds.yaml Dosiero"
@@ -4667,14 +4817,23 @@ msgctxt "Current status of an Instance"
 msgid "Password"
 msgstr "Pasvorto"
 
+msgid "Password Expires At"
+msgstr "Pasvorto Senvalidiĝas je"
+
 msgid "Password changed. Please log in again to continue."
 msgstr "Pasvorto ŝanĝita. Bonvolu ensaluti por daŭrigi."
 
 msgid "Password changed. Please log in to continue."
 msgstr "Pasvorto estas ŝanĝita. Bonvolu ensaluti por daŭrigi."
 
+msgid "Password is locked."
+msgstr "Pasvorto estas \tŝlosita."
+
 msgid "Passwords do not match."
 msgstr "Pasvortoj ne kongruas."
+
+msgid "Path"
+msgstr "Pado"
 
 msgctxt "Action log of an instance"
 msgid "Pause"
@@ -4708,6 +4867,9 @@ msgstr "Pritraktota Forigo"
 
 msgid "Per Volume Size (GiB)"
 msgstr "Per Volumo Grando (GiB)"
+
+msgid "Perform a check to see if the application is ready for upgrade."
+msgstr "Faru kontrolon por vidi ĉu la aplikaĵo pretas por ĝisdatigo."
 
 msgid "Physical Network"
 msgstr "Fisika reto"
@@ -4800,12 +4962,6 @@ msgstr "Preventu la forigon de la bildo."
 
 msgid "Primary Project"
 msgstr "Unua Projekto"
-
-msgid "Primary Project ID"
-msgstr "Ĉefa Projekto ID-o"
-
-msgid "Primary Project Name"
-msgstr "Ĉefa Projekto Nomo"
 
 msgid "Private Key File"
 msgstr "Privata  Ŝlosilo Dosiero"
@@ -4911,6 +5067,9 @@ msgstr "QCOW2 - QEMU Imitilo"
 msgid "QOS Policy ID"
 msgstr "QOS Regularo ID"
 
+msgid "QoS Policy"
+msgstr "QOS Regularo"
+
 #, python-format
 msgid "QoS Spec name \"%s\" already exists."
 msgstr "QoS Specifo Nomo \"%s\" jam ekzistas."
@@ -4982,6 +5141,16 @@ msgstr "RAM(Havebla: %(avail)s, Petita: %(req)s)"
 
 msgid "RBAC Policies"
 msgstr "RBAC Regularo  "
+
+#, python-format
+msgid "RBAC Policy %s was successfully updated."
+msgstr "RBAC Regularo  %s sukcese ĝisdatigita."
+
+msgid "RBAC Policy Details"
+msgstr "RBAC Regularo Detajloj"
+
+msgid "RBAC Policy was successfully created."
+msgstr "RBAC Regularo estis sukcese kreita."
 
 msgid "RX/TX Factor"
 msgstr "RX/TX Faktoro"
@@ -5123,9 +5292,6 @@ msgid_plural "Remove Users"
 msgstr[0] "Forigu Uzanton"
 msgstr[1] "Forigu Uzantojn"
 
-msgid "Remove Volumes from Consistency Group"
-msgstr "Forigu Volumojn de Kohereco Group"
-
 msgid "Remove Volumes from Group"
 msgstr "Forigu Volumojn de Grupo"
 
@@ -5140,10 +5306,6 @@ msgid ""
 msgstr ""
 "Forigu ŝlosilo paron povas lasi OpenStack risurcoj orfiniĝitaj. Vi ne devus "
 "forigu ŝlosilo paron krom vi estas certa ke ĝi ne estas ankoraŭ  uzita ie."
-
-#, python-format
-msgid "Removing volumes from volume consistency group \"%s\""
-msgstr "Forigante volumojn de volumo koherenco grup \"%s\""
 
 #, python-format
 msgid "Removing volumes from volume group \"%s\""
@@ -5177,9 +5339,19 @@ msgstr ""
 msgid "Requested snapshot would exceed the allowed quota."
 msgstr "Petita savkopio transpasus la permesita kvota."
 
+msgid "Required Settings"
+msgstr "Bezonata Agordo"
+
+msgctxt "Action log of an instance"
+msgid "Rescue"
+msgstr "Savi"
+
 msgctxt "Current status of an Instance"
 msgid "Rescue"
 msgstr "Savadita"
+
+msgid "Rescue Instance"
+msgstr "Savkopio apero"
 
 msgctxt "Current status of an Instance"
 msgid "Rescued"
@@ -5320,6 +5492,9 @@ msgstr "Rolo Nomo"
 msgid "Role Name ="
 msgstr "Rolo Nomo ="
 
+msgid "Role assignments"
+msgstr "Rol-atribuojn"
+
 msgid "Role created successfully."
 msgstr "Rolon sukcese kreita."
 
@@ -5403,6 +5578,9 @@ msgstr "SLAAC: Adreso malkovrita de ekstera Enkursigilo"
 msgid "SNAT"
 msgstr "SNAT"
 
+msgid "SSH Key"
+msgstr "SSH Ŝlosilo"
+
 msgid "SSH key pairs can be generated with the ssh-keygen command:"
 msgstr "SSH ŝlosilparoj povas esti generata kun la ssh-keygen komando:"
 
@@ -5415,6 +5593,10 @@ msgstr "Savu ŝanĝojn   "
 #, python-format
 msgid "Saved extra spec \"%s\"."
 msgstr "Estas konservita ekstra specifo \"%s\"."
+
+#, python-format
+msgid "Saved group type spec \"%s\"."
+msgstr "Konservis grupo specifon \"%s\"."
 
 #, python-format
 msgid "Saved spec \"%s\"."
@@ -5545,11 +5727,17 @@ msgstr "Elektu Volumo Savkopion"
 msgid "Select a New Flavor"
 msgstr "Elektu novan variaĵon"
 
+msgid "Select a QoS policy"
+msgstr "Elektu QOS Regularo"
+
 msgid "Select a floating IP to disassociate"
 msgstr "Elektu glitan IP adreson por malasocii.   "
 
 msgid "Select a key pair"
 msgstr "Elektu klavo paron"
+
+msgid "Select a network"
+msgstr "Elektu reton"
 
 msgid "Select a new QoS spec"
 msgstr "Elektu novan QoS spec"
@@ -5565,9 +5753,6 @@ msgstr "Elektu novan gastiganton"
 
 msgid "Select a new status"
 msgstr "Elektu novan staton"
-
-msgid "Select a new volume type"
-msgstr "Elektu novan volumo tipon"
 
 msgid "Select a pool"
 msgstr "Elektu komunaĵon "
@@ -5596,6 +5781,9 @@ msgstr "Elektu volumon por malligi de tiu apero."
 msgid "Select a volume to restore to."
 msgstr "Elektu Volumon por restaŭrigi. "
 
+msgid "Select action and object type"
+msgstr "Elekti ago kaj objekto tipon"
+
 msgid "Select an IP address"
 msgstr "Elektu IP adreson"
 
@@ -5616,6 +5804,9 @@ msgstr "Elektu reton"
 
 msgid "Select networks for your instance."
 msgstr "Elektu retojn por via apero."
+
+msgid "Select snapshot to backup (Optional)"
+msgstr "Elektu savkopion por stori (laŭvole)"
 
 msgid "Select source"
 msgstr "Elektu fonto"
@@ -5747,11 +5938,21 @@ msgstr "Kunhavigita"
 msgid "Shared ="
 msgstr "Opuza ="
 
+msgid "Shared Network"
+msgstr "Opuzata Reto"
+
+msgid "Shared QoS Policy"
+msgstr "Opuzata QOS Regularo"
+
 msgid "Shared Storage"
 msgstr "Kunhavigita   Memorilo"
 
 msgid "Shared with Project"
 msgstr "Opuza kun Projekto"
+
+msgctxt "Action log of an instance"
+msgid "Shelve"
+msgstr "Bretigi"
 
 msgid "Shelve Instance"
 msgid_plural "Shelve Instances"
@@ -5826,10 +6027,6 @@ msgstr "Grando de apero lanĉota."
 msgid "Size(GiB) ="
 msgstr "Grando (GiB) ="
 
-msgid "Slash is not allowed at the beginning or end of your string."
-msgstr ""
-"Suprenstreko ne estas permesita je la komenco aŭ fino de via tekstoĉeno."
-
 msgid "Slash is not an allowed character."
 msgstr "Suprenstreko ne estas permesita litero."
 
@@ -5864,11 +6061,6 @@ msgstr "Savkopio fonto devas esti difinita"
 
 msgid "Snapshots"
 msgstr "Savkopion"
-
-msgid ""
-"Snapshots can only be created for Consistency Groups that contain volumes."
-msgstr ""
-"Savkopion nur povas esti kreita por Kohereco grupoj kiuj enhavas volumojn."
 
 msgid "Snapshots can only be created for Groups that contain volumes."
 msgstr "Savkopion nur povas esti kreita por grupoj kiuj enhavas volumojn."
@@ -5962,6 +6154,9 @@ msgstr "Difinu IP adreson por la interfaco kreita (e.g. 192.168.0.254)."
 
 msgid "Specify an image to upload to the Image Service."
 msgstr "Specifu bildigon por alŝargi al Bildigo Servo."
+
+msgid "Specify network address"
+msgstr "Difinu reto adreso"
 
 msgid "Specify the MAC address for the new port"
 msgstr "Difinu la MAC adreso por la nova pordo"
@@ -6085,6 +6280,10 @@ msgid "Successfully created encryption for volume type: %s"
 msgstr "Sukcese kreita ĉifradon por volumo tipo: %s"
 
 #, python-format
+msgid "Successfully created group type: %s"
+msgstr "Sukcese kreita grupo tipon: %s   "
+
+#, python-format
 msgid "Successfully created security group: %s"
 msgstr "Sukcese kreita sekureco grupo: %s   "
 
@@ -6121,6 +6320,9 @@ msgstr "Sukcese modikita QoS Spec konsumanto."
 msgid "Successfully recreated ec2 credentials."
 msgstr "Sukcese rekreita  ec2 legitimaĵojn."
 
+msgid "Successfully rescued instance"
+msgstr "Sukcese savita apero"
+
 #, python-format
 msgid ""
 "Successfully sent the request to change the volume type to \"%(vtype)s\" for "
@@ -6156,6 +6358,9 @@ msgstr "Sucese ĝisdatigita agregato: \"%s.\""
 #, python-format
 msgid "Successfully updated encryption for volume type: %s"
 msgstr "Sukcese ĝisdatigita ĉifradon por volumo tipo: %s"
+
+msgid "Successfully updated group type."
+msgstr "Sukcese ĝisdatigita grupo tipon."
 
 #, python-format
 msgid "Successfully updated security group: %s"
@@ -6210,8 +6415,17 @@ msgstr "Sistemo"
 msgid "System Information"
 msgstr "Sistema Informo"
 
+msgid "System Scope"
+msgstr "Sistema Amplekso"
+
 msgid "Target Host"
 msgstr "Celo Gastiganto"
+
+msgid "Target Project"
+msgstr "Celo Projekto"
+
+msgid "Target Tenant"
+msgstr "Celgastiganto"
 
 msgid "Task"
 msgstr "Tasko"
@@ -6268,11 +6482,11 @@ msgstr ""
 
 msgid ""
 "The <strong>Key Size</strong> is the size of the encryption key, in bits (e."
-"g., 128, 256). If the field is left empty, the provider default will be used."
+"g., 256). If the field is left empty, the provider default will be used."
 msgstr ""
-"La <strong>Ŝlosilo Grando</strong> estas la grando de la ĉifrada ŝlosilo, en "
-"bitoj (ekz., 128, 256). Se la kampo ne estas plenigita, la provizanto "
-"defaulto estas uzata."
+"La <strong> Ŝlosilo Grando </strong> estas la grandeco de la ĉifrada "
+"ŝlosilo, en bitoj (ekz., 256). Se la kampo estas malplena, la provizanto "
+"defaŭlto estos uzata."
 
 msgid ""
 "The <strong>Provider</strong> is the encryption provider format (e.g. 'luks' "
@@ -6419,6 +6633,9 @@ msgstr "La apero pasvorto ĉifrita kun via publika klavo."
 msgid "The instance(s) will be shut off."
 msgstr "La apero(j) estas malŝaltota.   "
 
+msgid "The key must match the following the regex: '^[a-zA-Z0-9-_:. /]'"
+msgstr "La ŝlosilo devas kongrui kun la sekva regekso: '^ [a-zA-Z0-9-_:. /] '"
+
 #, python-format
 msgid ""
 "The key pair &quot;%(keypair_name)s&quot; should download automatically. If "
@@ -6442,16 +6659,8 @@ msgstr ""
 "valoro defaŭltas al 0 (neniu minimumo) "
 
 #, python-format
-msgid "The name \"%s\" is already used by another consistency group."
-msgstr "La nomo \"%s\" jam estas uzita de alia kohereco grupo."
-
-#, python-format
 msgid "The name \"%s\" is already used by another flavor."
 msgstr "La nomo \"%s\" jam estas uzita de alia variaĵo."
-
-#, python-format
-msgid "The name \"%s\" is already used by another group."
-msgstr "La nomo \"%s\" jam estas uzita de alia grupo."
 
 #, python-format
 msgid "The name \"%s\" is already used by another host aggregate."
@@ -6472,6 +6681,16 @@ msgstr ""
 
 msgid "The new availability zone can't be empty"
 msgstr "La nova disponebla zono ne povas esti malplena"
+
+msgid "The new type must be different from the current volume type."
+msgstr "La nova tipo devas esti malsama de la nuntempa volumo tipo."
+
+msgid "The output format"
+msgstr "La eligo formato"
+
+#, python-format
+msgid "The password does not match the requirements: %s"
+msgstr "Pasvorto ne kongruas kun postuloj: %s"
 
 msgid "The physical mechanism by which the virtual network is implemented."
 msgstr "La fisika mekanismo helpe de la virtuala reto estas realigita."
@@ -6521,14 +6740,18 @@ msgstr ""
 "La petita apero(j) ne povas esti lanĉita ĉar via kvoto estos transpasita: "
 "Havebla: %(avail)s, Petita: %(req)s."
 
+msgid ""
+"The rescue mode is only for emergency purpose, for example in case of a "
+"system or access failure."
+msgstr ""
+"La savkopio modo estas nur por krizaj okazoj, ekzemple en kazo de sistemo aŭ "
+"aliro eraro."
+
 msgid "The specified floating IP no longer exists."
 msgstr "La difinita glitaj IP ne plu ekzistas."
 
 msgid "The specified port is invalid."
 msgstr "La finita pordo nevalidas."
-
-msgid "The state to start the network in."
-msgstr "La stato por starti la reton en."
 
 msgid ""
 "The status of a volume is normally managed automatically.  In some "
@@ -6614,13 +6837,6 @@ msgstr ""
 
 msgid ""
 "This action will unassign all volumes that are currently contained in this "
-"consistency group."
-msgstr ""
-"Tiu ago malasociigos ĉiujn volumojn kiuj estas ĉi-momente entenita en la "
-"kohereco grupo."
-
-msgid ""
-"This action will unassign all volumes that are currently contained in this "
 "group."
 msgstr ""
 "Tiu ago malasociigos ĉiujn volumojn kiuj estas ĉi-momente entenita en tiu "
@@ -6673,14 +6889,14 @@ msgstr ""
 msgid "This volume type is used by one or more volumes."
 msgstr "Ĉi tiu voluma tipo estas uzita de unu aŭ pli da volumoj."
 
-msgid "Time Since Created"
-msgstr "Tempo ekde Kreado "
-
-msgid "Time since created"
-msgstr "Tempo ekde kreita"
-
-msgid "Time since created (Seconds)"
-msgstr "Tempo ekde kreado (Sekundoj)"
+msgid ""
+"This will shut down your instance and mount the root disk to a temporary "
+"server. Then, you will be able to connect to this server, repair the system "
+"configuration or recover your data."
+msgstr ""
+"Ĉi tio malŝaltos vian aperon kaj muntos la radikan diskon al provizora "
+"servilo. Poste, vi povos konekti al ĉi tiu servilo, ripari la sisteman "
+"agordon aŭ reakiri viajn datumojn."
 
 msgid "Time since update"
 msgstr "Tempo ekde ĝisdatigo"
@@ -6704,6 +6920,9 @@ msgstr ""
 msgid "To exit the fullscreen mode, click the browser's back button."
 msgstr ""
 "Por eliri la plenekranan reĝimon; kliku la reen butonon de la retumilo."
+
+msgid "To make group type private, uncheck this field."
+msgstr "Por fari grupo tipo privatan, malselektu tiun kampon."
 
 msgid "To make volume type private, uncheck this field."
 msgstr "Por fari volumo tipo privatan, malselektu tiun kampon."
@@ -6866,12 +7085,6 @@ msgstr ""
 "Neeblas klarigi la kluzon por enkursigilo %(name)s. La plej ebla kialo estas "
 "ĉar la kluzo estas postulita per unu aŭ pli glitaj IPoj"
 
-msgid "Unable to clone consistency group."
-msgstr "Neeblas kloni kohereco grupon."
-
-msgid "Unable to clone empty consistency group."
-msgstr "Neeblas kloni kohereco grupon."
-
 msgid "Unable to clone empty group."
 msgstr "Neeblas kloni malplena grupon."
 
@@ -6886,19 +7099,6 @@ msgstr "Neeblas krei QoS Specifon."
 
 msgid "Unable to create application credential."
 msgstr "Neeblas krei aplikada legitimaĵo."
-
-#, python-format
-msgid "Unable to create consistency group \"%s\" from snapshot."
-msgstr "Neeblas krei kohereco grupon \"%s\" de savkopio."
-
-msgid "Unable to create consistency group due to exceeding volume quota limit."
-msgstr "Neeblas krei kohereco grupon pro transpasita volumo kvota limito."
-
-msgid "Unable to create consistency group snapshot."
-msgstr "Neeblas krei kohereco grupo savkopio."
-
-msgid "Unable to create consistency group."
-msgstr "Neeblas krei kohereco grupon."
 
 #, python-format
 msgid "Unable to create domain \"%s\"."
@@ -6923,6 +7123,12 @@ msgstr "Neeblas krei grupon pro transpasita volumo kvota limito."
 
 msgid "Unable to create group snapshot."
 msgstr "Neeblas krei grupo savkopion."
+
+msgid "Unable to create group type spec."
+msgstr "Neeblas krei grupo tipo specifon."
+
+msgid "Unable to create group type."
+msgstr "Neeblas krei grupo tipon."
 
 msgid "Unable to create group."
 msgstr "Neeblas krei grupo."
@@ -6977,9 +7183,6 @@ msgstr "Nekapablas krei sekurecan grupon: %s"
 
 msgid "Unable to create snapshot."
 msgstr "Neeblas krei savkopion."
-
-msgid "Unable to create snapshot. Consistency group must contain volumes."
-msgstr "Neeblas krei savkopion. Kohereco grupo devas enhavi volumojn,"
 
 msgid "Unable to create snapshot. group must contain volumes."
 msgstr "Neeblas krei savkopion. grupo devas enhavi volumojn,"
@@ -7057,17 +7260,23 @@ msgstr "Neeblas malasocii glitan IP %s   "
 msgid "Unable to disassociate floating IP."
 msgstr "Neeblas malasocii glidanta IP.   "
 
-msgid "Unable to display consistency group."
-msgstr "Neeblas vidigi kohereco grupon."
-
-msgid "Unable to display group."
-msgstr "Neeblas vidigi grupon."
+msgid "Unable to display role assignment through groups."
+msgstr "Ne eblas montri la rol-atribuojn per grupoj."
 
 msgid "Unable to display the groups of this project."
 msgstr "Ne eblas montri la grupojn de ĉi tiu projekto."
 
+msgid "Unable to display the groups of this user."
+msgstr "Ne eblas montri la grupojn de ĉi tiu uzanto."
+
+msgid "Unable to display the role assignments of this user."
+msgstr "Ne eblas montri la rol-atribuojn de ĉi tiu uzanto."
+
 msgid "Unable to display the users of this project."
 msgstr "Ne eblas montri la uzantojn de ĉi tiu projekto."
+
+msgid "Unable to edit group type spec."
+msgstr "Neeblas redakti grupo tipo spec."
 
 msgid "Unable to edit spec."
 msgstr "Neeblas redakti specifon."
@@ -7080,6 +7289,12 @@ msgstr "Neeblas etendi volumon."
 
 msgid "Unable to fetch EC2 credentials."
 msgstr "Neeblas venigi EC2 legitimaĵojn."
+
+msgid "Unable to fetch snapshot"
+msgstr "Neeblas venigi la savkopion."
+
+msgid "Unable to fetch snapshots"
+msgstr "Neeblas venigi la savkopiojn."
 
 msgid "Unable to find default role."
 msgstr "Neeblas trovi defaŭltan rolon."
@@ -7109,18 +7324,12 @@ msgstr "Neeblas ricevi  Cinder kvota informon."
 msgid "Unable to get cinder services list."
 msgstr "Neeblas ricevi Cinder servo listo."
 
-msgid "Unable to get consistency group list"
-msgstr "Neeblas ricevi kohereco grupo liston."
-
 #, python-format
 msgid "Unable to get console for instance \"%s\"."
 msgstr "Neeblas ricevi konzolon por apero \"%s\"."
 
 msgid "Unable to get flavor list"
 msgstr "Neeblas ricevi variaĵo listo."
-
-msgid "Unable to get group list"
-msgstr "Neeblas ricevi grupo liston."
 
 msgid "Unable to get host aggregate list"
 msgstr "Neebla ricevi servilo agregato listo."
@@ -7160,9 +7369,6 @@ msgstr "Neeblas ricevi la haveblaj volumo tipojn."
 msgid "Unable to get the available volumes"
 msgstr "Neeblas ricevi la disponeblajn volumojn"
 
-msgid "Unable to get volume type list"
-msgstr "Neeblas ricevi volumo tipo liston."
-
 msgid "Unable to import key pair."
 msgstr "Neeblas importi ŝlosilo paron."
 
@@ -7178,9 +7384,6 @@ msgstr "Neeblas listigi dhcp agentoj gastiganto reto."
 
 msgid "Unable to load console. Please reload page to try again."
 msgstr "Neeblas ŝargi konzolon. Bonvolu reŝargu paĝon por provi denove."
-
-msgid "Unable to load the specified consistency group."
-msgstr "Neeblas ŝuti la specifita kohereco grupo."
 
 msgid "Unable to load the specified group."
 msgstr "Neeblas ŝuti la specifita grupo."
@@ -7244,6 +7447,9 @@ msgstr ""
 "Neeblas registri identeco provizanto. Bonvolu kontrolu ke la Identeco "
 "Provizanto ID-o kaj Defora ID-oj provizita ne jam estas uzata. "
 
+msgid "Unable to rescue instance"
+msgstr "Neeblas savi aperon"
+
 #, python-format
 msgid "Unable to resize instance \"%s\"."
 msgstr "Neeblas regrandiĝi aperon \"%s\"."
@@ -7273,9 +7479,6 @@ msgstr "Neeblas ricevi reto informon por apero \"%s\"."
 msgid "Unable to retrieve Neutron quota information."
 msgstr "Neeblas ricevi Neutron kvoto informon."
 
-msgid "Unable to retrieve Nova availability zones."
-msgstr "Neebla ricevi Nova disponeblo zonojn."
-
 msgid "Unable to retrieve Nova server groups."
 msgstr "Neeblas ricevi Nova servilo grupojn."
 
@@ -7297,9 +7500,8 @@ msgstr "Neeblas ricevi QoS specifo liston."
 msgid "Unable to retrieve QoS specs"
 msgstr "Neeblas ricevi QoS specifojn."
 
-#, python-format
-msgid "Unable to retrieve a list of external networks \"%s\"."
-msgstr "Neeblas ricevi liston de eksteraj retoj \"%s\"."
+msgid "Unable to retrieve RBAC policies."
+msgstr "Neeblas ricevi la RBAC regularojn."
 
 msgid "Unable to retrieve agent list."
 msgstr "Neeblas ricevi agento listo."
@@ -7326,20 +7528,14 @@ msgstr "Neebla ricevi disponeblo zonojn."
 msgid "Unable to retrieve backup details."
 msgstr "Neeblas ricevi sekurkopio detajlojn"
 
+msgid "Unable to retrieve community images."
+msgstr "Neeblas ricevi publikaj bildoj."
+
 msgid "Unable to retrieve compute host information."
 msgstr "Neeblas ricevi komputa gastiganto informojn."
 
 msgid "Unable to retrieve compute limit information."
 msgstr "Neeblas ricevi komputa limo informon."
-
-msgid "Unable to retrieve consistency group details."
-msgstr "Neeblas ricevi kohereco grupo detajlojn."
-
-msgid "Unable to retrieve consistency group information."
-msgstr "Neeblas ricevi kohereco grupo informojn."
-
-msgid "Unable to retrieve consistency group snapshot details."
-msgstr "Neeblas ricevi kohereco grupo savkopio detajlojn."
 
 msgid "Unable to retrieve default compute quotas."
 msgstr "Neeblas ricevi defaŭlt komputajn kvotojn."
@@ -7364,6 +7560,10 @@ msgid "Unable to retrieve details for network \"%s\"."
 msgstr "Neeblas ricevi detajlojn por  reto \"%s\"."
 
 #, python-format
+msgid "Unable to retrieve details for rbac_policy \"%s\"."
+msgstr "Neeblas ricevi detajlojn por rbac regularo \"%s\"."
+
+#, python-format
 msgid "Unable to retrieve details for router \"%s\"."
 msgstr "Neeblas ricevi detajlojn por enkursigilo \"%s\"."
 
@@ -7378,9 +7578,6 @@ msgstr "Neeblas ricevi domajno listo."
 
 msgid "Unable to retrieve encryption type."
 msgstr "Neeblas ricevi  ĉifradan tipon."
-
-msgid "Unable to retrieve extensions information"
-msgstr "Neeblas ricevi etendoj informon."
 
 msgid "Unable to retrieve extensions information."
 msgstr "Neeblas ricevi etendoj informon."
@@ -7436,8 +7633,30 @@ msgstr "Neeblas ricevi grupo listo. Bonvolu provu denove poste."
 msgid "Unable to retrieve group snapshot details."
 msgstr "Neeblas ricevi grupo savkopio detajlojn."
 
+msgid "Unable to retrieve group snapshot project information."
+msgstr "Neeblas ricevi grupo savkopio projekto informon."
+
 msgid "Unable to retrieve group snapshots."
 msgstr "Ne eblas ricevi grupajn savkopiojn."
+
+msgid "Unable to retrieve group type details."
+msgstr "Neeblas ricevi gruptipo detajlojn."
+
+#, python-format
+msgid "Unable to retrieve group type for: \"%s\""
+msgstr "Neeblas ricevi grupo tipo por: \"%s\""
+
+msgid "Unable to retrieve group type name."
+msgstr "Neeblas ricevi grupo tipo nomon."
+
+msgid "Unable to retrieve group type spec details."
+msgstr "Neeblas ricevi  gruptipo specifo detajlojn."
+
+msgid "Unable to retrieve group type spec list."
+msgstr "Neeblas ricevi  gruptipo specifo liston."
+
+msgid "Unable to retrieve group type."
+msgstr "Neeblas ricevi grupo tipon."
 
 msgid "Unable to retrieve group types."
 msgstr "Neeblas ricevi grupo tipojn."
@@ -7472,14 +7691,14 @@ msgstr "Neeblas recevi identeco provizanto liston."
 msgid "Unable to retrieve image details."
 msgstr "Neeblas ricevi bildo detajlojn"
 
+msgid "Unable to retrieve image format list."
+msgstr "Neeblas ricevi bildformatan liston."
+
 msgid "Unable to retrieve image list."
 msgstr "Neeblas ricevi bildigo listo."
 
 msgid "Unable to retrieve image."
 msgstr "Neeblas ricevi bildon."
-
-msgid "Unable to retrieve images"
-msgstr "Neeblas ricevi bildojn."
 
 msgid "Unable to retrieve images for the current project."
 msgstr "Neeblas ricevi bildigioj por la aktuala projekto."
@@ -7489,6 +7708,15 @@ msgstr "Neeblas ricevi bildojn."
 
 msgid "Unable to retrieve information about the networks' projects."
 msgstr "Neeblas trovi informojn pri la networks' projektoj."
+
+msgid "Unable to retrieve information about the policies' networks."
+msgstr "Neeblas trovi informojn pri la regularaj' retoj."
+
+msgid "Unable to retrieve information about the policies' projects."
+msgstr "Neeblas trovi informojn pri la regularoj' projektoj."
+
+msgid "Unable to retrieve information about the policies' qos policies."
+msgstr "Neeblas trovi informojn pri la politikoj' qos regularoj."
 
 msgid "Unable to retrieve instance action list."
 msgstr "Neeblas recevi apero ago liston."
@@ -7568,6 +7796,9 @@ msgstr "Neeblas ricevi projekto detajlojn."
 msgid "Unable to retrieve project domain."
 msgstr "Neeblas ricevi projekto domajnon."
 
+msgid "Unable to retrieve project information of volume snapshots."
+msgstr "Neeblas ricevi projekto informon de volumo savkopiojn."
+
 msgid "Unable to retrieve project information."
 msgstr "Neeblas ricevi projekto informojn."
 
@@ -7585,6 +7816,9 @@ msgstr "Neeblas ricevi publikaj bildigoj."
 
 msgid "Unable to retrieve quota information."
 msgstr "Neeblas ricevi kvota informon."
+
+msgid "Unable to retrieve rbac policy details."
+msgstr "Neeblas ricevi rbac regularo detajlojn."
 
 msgid "Unable to retrieve role list."
 msgstr "Neeblas ricevi rolo listo."
@@ -7662,6 +7896,9 @@ msgstr "Neeblas ricevi uzanto detajlojn"
 msgid "Unable to retrieve user domain role assignments."
 msgstr "Neeblas ricevi uzanto domajno rol-atribuojn."
 
+msgid "Unable to retrieve user domain."
+msgstr "Neeblas ricevi  uzanto domajnon."
+
 msgid "Unable to retrieve user information."
 msgstr "Neeblas ricevi uzanto informon."
 
@@ -7683,17 +7920,14 @@ msgstr "Neeblas ricevi versio informojn."
 msgid "Unable to retrieve volume backups."
 msgstr "Neeblas ricevi volumo sekurkopiojn."
 
-msgid "Unable to retrieve volume consistency group snapshots."
-msgstr "Neeblas ricevi volumo kohereco grupo savkopiojn."
-
-msgid "Unable to retrieve volume consistency groups."
-msgstr "Neeblas ricevi volumo kohereco grupojn."
-
 msgid "Unable to retrieve volume details."
 msgstr "Neeblas ricevi volumo detajlojn"
 
 msgid "Unable to retrieve volume encryption details."
 msgstr "Neeblas ricevi volumo ĉifrado detajlojn."
+
+msgid "Unable to retrieve volume group project information."
+msgstr "Neeblas ricevi volumgrupo projekto informon."
 
 msgid "Unable to retrieve volume group snapshots."
 msgstr "Neeblas ricevi volumo grupo savkopiojn."
@@ -7729,6 +7963,9 @@ msgstr "Neeblas ricevi volumo projekto informon."
 
 msgid "Unable to retrieve volume quota information."
 msgstr "Neeblas ricevi volumo kvoto informon."
+
+msgid "Unable to retrieve volume snapshot project information."
+msgstr "Neeblas ricevi volumo savkopio projekto informon."
 
 msgid "Unable to retrieve volume snapshot."
 msgstr "Neeblas ricevi volumo savkopion."
@@ -7776,9 +8013,6 @@ msgstr "Neeblas ricevi volumon."
 msgid "Unable to retrieve volume/instance attachment information"
 msgstr "Neeblas ricevi volomo/apero aldonaĵo informon."
 
-msgid "Unable to retrieve volumes availability zones."
-msgstr "Neebla ricevi volumoj disponeblaj zonojn."
-
 msgid "Unable to retrieve volumes."
 msgstr "Ne eblas ricevi volumojn."
 
@@ -7812,6 +8046,9 @@ msgstr "Neeblas ĝisdatigi defaŭlt volumajn kvotojn."
 
 msgid "Unable to update encrypted volume type."
 msgstr "Neeblas ĝisdatigi  ĉifrita volumo tipo."
+
+msgid "Unable to update group type."
+msgstr "Neeblas ĝisdatigi grupo tipon."
 
 msgid "Unable to update group."
 msgstr "Neeblas ĝisdatigi grupon."
@@ -7862,9 +8099,6 @@ msgstr "Neeblas ĝisdatigi uzanto pasvorto."
 msgid "Unable to update the user."
 msgstr "Neeblas ĝisdatigi uzanton."
 
-msgid "Unable to update volume consistency group."
-msgstr "Neeblas ĝisdatigi volumo koherenco grupo."
-
 msgid "Unable to update volume group."
 msgstr "Neeblas ĝisdatigi volumo grupo."
 
@@ -7884,9 +8118,6 @@ msgstr "Neeblas ĝisdatigi volumo tipo."
 msgid "Unable to update volume."
 msgstr "Neeblas ĝisdatigi volumon."
 
-msgid "Unable to update volumes for consistency group"
-msgstr "Neeblas ĝisdatigi volumoj por koherenco grupo"
-
 msgid "Unable to update volumes for group"
 msgstr "Neeblas ĝisdatigi volumoj por grupo"
 
@@ -7903,6 +8134,9 @@ msgstr "Nekapabla validi la VNIC tipo etendo  en Neutron"
 msgid "Unknown"
 msgstr "Nekonata"
 
+msgid "Unknown Settings"
+msgstr "Nekonata Agordo"
+
 msgid "Unknown instance"
 msgstr "Nekonata ekzemplero"
 
@@ -7912,8 +8146,15 @@ msgstr "Nekonata apero (Nenio)"
 msgid "Unknown resource type for detail API."
 msgstr "Nekonata risurco tipe por detajla API."
 
+msgid "Unknown settings: {}."
+msgstr "Nekonata Agordo: {}."
+
 msgid "Unknown volume (None)"
 msgstr "Nekonata volumo (Nenio)"
+
+msgctxt "Action log of an instance"
+msgid "Unlock"
+msgstr "Malŝlosi"
 
 msgid "Unlock Instance"
 msgid_plural "Unlock Instances"
@@ -7945,6 +8186,20 @@ msgid_plural "Unregistered Identity Providers"
 msgstr[0] "Malregistrita Identeco Provizanto"
 msgstr[1] "Malregistrita Identeco Provizantoj"
 
+msgctxt "Action log of an instance"
+msgid "Unrescue"
+msgstr "Malsavi"
+
+msgid "Unrescue Instance"
+msgid_plural "Unrescue Instances"
+msgstr[0] "Malsavi Aperon"
+msgstr[1] "Malsavi Aperojn"
+
+msgid "Unrescued Instance"
+msgid_plural "Unrescued Instances"
+msgstr[0] "Malsavita Apero"
+msgstr[1] "Malsavitaj Aperoj"
+
 msgctxt "Task status of an Instance"
 msgid "Unrescuing"
 msgstr "Malsavidanta"
@@ -7954,6 +8209,10 @@ msgstr "Nelimigita"
 
 msgid "Unrestricted (dangerous)"
 msgstr "Nelimigita (danĝera)"
+
+msgctxt "Action log of an instance"
+msgid "Unshelve"
+msgstr "malbretigi"
 
 msgid "Unshelve Instance"
 msgid_plural "Unshelve Instances"
@@ -8012,6 +8271,9 @@ msgstr "Ĝisdatigu Metadatumo"
 msgid "Update Network"
 msgstr "Ĝisdatigu Reton"
 
+msgid "Update RBAC Policy"
+msgstr "Ĝisdatigu RBAC Regularo"
+
 msgid "Update Role"
 msgstr "Ĝisdatigu Rolon"
 
@@ -8051,6 +8313,10 @@ msgid "Update the \"extra spec\" value for \"%(key)s\""
 msgstr "Ĝisdatigu la \"ekstra spec\" valoro por \"%(key)s\""
 
 #, python-format
+msgid "Update the \"group type spec\" value for \"%(key)s\""
+msgstr "Ĝisdatigu la \"grupo tipo spec\" valoro por \"%(key)s\""
+
+#, python-format
 msgid "Update the spec value for \"%(key)s\""
 msgstr "Ĝisdatigu la spec valoro por \"%(key)s\""
 
@@ -8064,12 +8330,12 @@ msgstr "Ĝisdatigita  Je"
 msgid "Updated subnet \"%s\"."
 msgstr "Ĝisdatigita subreto \"%s\"."
 
-#, python-format
-msgid "Updated volumes for consistency group \"%s\"."
-msgstr "Ĝisdatigitaj volumoj por  kohereco grupo \"%s\"."
-
 msgid "Updated volumes for group."
 msgstr "Ĝisdatigitaj volumoj por  grupo."
+
+msgctxt "Current status of Volume Group"
+msgid "Updating"
+msgstr "Ĝisdatiganta"
 
 msgctxt "Task status of an Instance"
 msgid "Updating Password"
@@ -8085,10 +8351,6 @@ msgstr ""
 #, python-format
 msgid "Updating volume \"%s\""
 msgstr "Ĝisdatigi volumon \"%s\""
-
-#, python-format
-msgid "Updating volume consistency group \"%s\""
-msgstr "Ĝisdatigante volume koherenco grup \"%s\""
 
 #, python-format
 msgid "Updating volume group \"%s\""
@@ -8129,9 +8391,6 @@ msgstr "Uzado Reporto por Periodo:"
 msgid "Use Server Default"
 msgstr "Uzu Servilo Defaŭlto"
 
-msgid "Use a consistency group as source"
-msgstr "Uzu kohereco grupo kiel fonto"
-
 msgid "Use a group as source"
 msgstr "Uzu grupon kiel fonto"
 
@@ -8159,12 +8418,12 @@ msgid "User"
 msgstr "Uzanto"
 
 #, python-format
-msgid "User \"%s\" was successfully created."
-msgstr "Uzanto \"%s\" sukcese kreita."
+msgid "User \"%s\" has been updated successfully."
+msgstr "Uzanto \"%s\" sukcese ĝisdatigita."
 
 #, python-format
-msgid "User %s has no role defined for that project."
-msgstr "Uzanto %s ne havas  difinitan rolon por tiu projekto."
+msgid "User \"%s\" was successfully created."
+msgstr "Uzanto \"%s\" sukcese kreita."
 
 msgid "User Credentials Details"
 msgstr "Uzanto legitimaĵo Detajlojn"
@@ -8186,9 +8445,6 @@ msgstr "Uzanto Nomo ="
 
 msgid "User Settings"
 msgstr "Uzanto Agordoj"
-
-msgid "User has been updated successfully."
-msgstr "Uzanto sukcese ĝisdatigita."
 
 #, python-format
 msgid "User name \"%s\" is already used."
@@ -8273,6 +8529,9 @@ msgstr "Vidu Protokolon  "
 msgid "View Routers"
 msgstr "Vidu enkursigilojn"
 
+msgid "View Specs"
+msgstr "Vidu  Specifojn"
+
 msgid "View Usage"
 msgstr "Vidu Uzaĵon"
 
@@ -8294,9 +8553,6 @@ msgstr "Volumo Sekurkopion:"
 
 msgid "Volume Backups"
 msgstr "Volumo Sekurkopiojn"
-
-msgid "Volume Consistency Groups"
-msgstr "Volumo Koherecoj Grupoj"
 
 msgid "Volume Encryption Details"
 msgstr "Volumo Ĉifrado Detajloj"
@@ -8393,23 +8649,6 @@ msgid ""
 msgstr ""
 "Volumo ne povas esti etendita al %(req)iGiB  ĉar la maksimuma grando ĝi  "
 "povas esti etendita estas %(max_size)iGiB."
-
-msgid "Volume consistency groups can not be deleted if they contain volumes."
-msgstr ""
-"Volumo Koherecoj Grupoj ne povas esti forigita se ili enhavas volumojn."
-
-msgid ""
-"Volume consistency groups provide a mechanism for creating snapshots of "
-"multiple volumes at the same point-in-time to ensure data consistency\n"
-"\n"
-"A consistency group can support more than one volume type, but it can only "
-"contain volumes hosted by the same back end."
-msgstr ""
-"Volumo kohereco grupoj provizas mekanismo por krei savkopiojn de multaj "
-"volumoj je la sama punkto-en-tempo por garantii datuma kohereco.\n"
-"\n"
-"Kohereco grupo povas subteni pli ol unu volumo tipon, sed ĝi povas enhavi "
-"nur volumoj gastigita de la sama internaĵilo."
 
 msgid "Volume groups can not be deleted if they contain volumes."
 msgstr "Volumo grupoj ne povas esti forigita se ili enhavas volumojn."
@@ -8540,6 +8779,9 @@ msgstr ""
 "Kiam la volumo stato estas \"en uzo\", vi povas uzi \"Devigi\" por alŝuti la "
 "volumon al bildo. "
 
+msgid "X509 Certificate"
+msgstr "X509 Ateston"
+
 msgid "Yes"
 msgstr "Jes"
 
@@ -8624,30 +8866,18 @@ msgstr ""
 msgid "You have selected:"
 msgstr "Vi elektis:"
 
-msgid ""
-"You may give the application credential an expiration. The expiration will "
-"be in UTC. If you provide an expiration date with no expiration time, the "
-"time will be assumed to be 00:00:00. If you provide an expiration time with "
-"no expiration date, the date will be assumed to be today."
-msgstr ""
-"Vi rajtas doni al la aplikaĵo legitimaĵo limdaton. La limdato estos en UTC. "
-"Se vi provizos limdaton sen limtempo, la tempo estos supozata kiel 00:00:00. "
-"Se vi provizos limtempon sen limdato, la dato estos supozita hodiaŭ."
-
 msgid "You may have mistyped the address or the page may have moved."
 msgstr "Vi eble mistajpis la adreson aŭ la paĝo eble movis."
 
+msgid ""
+"You may optionally select an image and set a password on the rescue instance "
+"server."
+msgstr ""
+"Vi rajtas elekti bildon kaj agordi pasvorton sur la savkopia apero de "
+"servilo."
+
 msgid "You may optionally set a password on the rebuilt instance."
 msgstr "Vi eble nedeviga volas krei pasvorton je la rekonstruita apero."
-
-msgid ""
-"You may provide your own secret, or one will be generated for you. Once your "
-"application credential is created, the secret will be revealed once. If you "
-"lose the secret, you will have to generate a new application credential."
-msgstr ""
-"Vi povas provizi vian propran sekreton, aŭ oni generos por vi. Post kiam via "
-"aplikaĵo estas kreita, la sekreto estos malkaŝita unufoje. Se vi perdos la "
-"sekreton, vi devos generi novan aplikaĵon."
 
 msgid ""
 "You may reset the gateway later by using the set gateway action, but the "
@@ -8656,14 +8886,8 @@ msgstr ""
 "Vi eble restarigus la kluzon poste uzonta la agordu kluzo agon, sed la kluzo "
 "IP eble ŝanĝigas."
 
-msgid ""
-"You may select one or more roles for this application credential. If you do "
-"not select any, all of the roles you have assigned on the current project "
-"will be applied to the application credential."
-msgstr ""
-"Vi povas elekti unu aŭ pli da roloj por ĉi tiu aplikaĵo. Se vi ne elektas "
-"iun ajn, ĉiuj roloj, kiujn vi atribuis en la nuna projekto, estos aplikitaj "
-"al la aplikaĵo."
+msgid "You may update the editable properties of the RBAC policy here."
+msgstr "Vi povus ĝisdatigi la redakteblaj ecoj de RBAC regularo ĉi tie."
 
 msgid "You may update the editable properties of your network here."
 msgstr "Vi povus ĝisdatigi la redaktiblaj ecoj de via reto ĉi tie."
@@ -8740,14 +8964,32 @@ msgstr "ekz. Jes / Ne"
 msgid "e.g. Yes/No"
 msgstr "ekz. Jes/Ne"
 
+msgid ""
+"flavor id can only contain alphanumeric characters, underscores, periods, "
+"hyphens, spaces."
+msgstr ""
+" speco id nur enhavus  literciferajn signojn, substrekojn, punktojn,"
+"dividstrekojn, blankspacojn."
+
 msgid "front-end"
 msgstr "fasada"
 
 msgid "instance"
 msgstr "apero"
 
+#, python-format
+msgid ""
+"key with name \"%s\" already exists.Use Edit to update the value, else "
+"create key with different name."
+msgstr ""
+"ŝlosilo kun nomo \"%s\" jam ekzistas. Uzu Agordo por ĝisdatigi la valoron, "
+"aŭ kreu ŝlosilon kun alia nomo."
+
 msgid "no"
 msgstr "ne"
+
+msgid "rbac policy quota exceeded."
+msgstr "rbac regulara kvoto transpasita."
 
 msgid "undefined"
 msgstr "nedifinita"

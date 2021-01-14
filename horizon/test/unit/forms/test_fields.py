@@ -209,7 +209,7 @@ class MACAddressFieldTests(test.TestCase):
         self.assertEqual(field.mac_address, "00:11:88:99:aa:ff")
 
 
-class TestChoiceFieldForm(forms.SelfHandlingForm):
+class ChoiceFieldForm(forms.SelfHandlingForm):
     title_dic = {"label1": {"title": "This is choice 1"},
                  "label2": {"title": "This is choice 2"},
                  "label3": {"title": "This is choice 3"}}
@@ -227,8 +227,7 @@ class TestChoiceFieldForm(forms.SelfHandlingForm):
             transform_html_attrs=title_dic.get))
 
     def __init__(self, request, *args, **kwargs):
-        super(TestChoiceFieldForm, self).__init__(request, *args,
-                                                  **kwargs)
+        super().__init__(request, *args, **kwargs)
         choices = ([('choice1', 'label1'),
                     ('choice2', 'label2')])
         self.fields['test_choices'].choices = choices
@@ -242,8 +241,8 @@ class ChoiceFieldTests(test.TestCase):
     template = 'horizon/common/_form_fields.html'
 
     def setUp(self):
-        super(ChoiceFieldTests, self).setUp()
-        self.form = TestChoiceFieldForm(self.request)
+        super().setUp()
+        self.form = ChoiceFieldForm(self.request)
 
     def _render_form(self):
         return shortcuts.render(self.request, self.template,
@@ -261,7 +260,7 @@ class ChoiceFieldTests(test.TestCase):
             count=1, html=True)
 
 
-class TestThemableChoiceFieldForm(forms.SelfHandlingForm):
+class ThemableChoiceFieldForm(forms.SelfHandlingForm):
     # It's POSSIBLE to combine this with the test helper form above, but
     # I fear we'd run into collisions where one test's desired output is
     # actually within a separate widget's output.
@@ -283,8 +282,7 @@ class TestThemableChoiceFieldForm(forms.SelfHandlingForm):
             transform_html_attrs=title_dic.get))
 
     def __init__(self, request, *args, **kwargs):
-        super(TestThemableChoiceFieldForm, self).__init__(request, *args,
-                                                          **kwargs)
+        super().__init__(request, *args, **kwargs)
         choices = ([('choice1', 'label1'),
                     ('choice2', 'label2')])
         self.fields['test_choices'].choices = choices
@@ -298,8 +296,8 @@ class ThemableChoiceFieldTests(test.TestCase):
     template = 'horizon/common/_form_fields.html'
 
     def setUp(self):
-        super(ThemableChoiceFieldTests, self).setUp()
-        self.form = TestThemableChoiceFieldForm(self.request)
+        super().setUp()
+        self.form = ThemableChoiceFieldForm(self.request)
 
     def _render_form(self):
         return shortcuts.render(self.request, self.template,

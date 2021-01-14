@@ -18,7 +18,6 @@ from django.utils.translation import ugettext_lazy as _
 
 from horizon import exceptions
 from horizon import tabs
-from horizon.utils import functions as utils
 
 from openstack_dashboard.dashboards.project.instances \
     import audit_tables as a_tables
@@ -26,6 +25,7 @@ from openstack_dashboard.dashboards.project.instances \
 from openstack_dashboard import api
 from openstack_dashboard.dashboards.project.instances import console
 from openstack_dashboard.dashboards.project.instances import interfaces_tables
+from openstack_dashboard.utils import settings as settings_utils
 
 
 class OverviewTab(tabs.Tab):
@@ -35,7 +35,18 @@ class OverviewTab(tabs.Tab):
                      "_detail_overview.html")
 
     def get_context_data(self, request):
-        return {"instance": self.tab_group.kwargs['instance']}
+        instance = self.tab_group.kwargs['instance']
+        if instance.volumes and not instance.image:
+            try:
+                volume = api.cinder.volume_get(
+                    self.request, volume_id=instance.volumes[0].volumeId)
+                instance.image = {
+                    'id': volume.volume_image_metadata['image_id'],
+                    'name': volume.volume_image_metadata['image_name']}
+            except Exception:
+                exceptions.handle(self.request,
+                                  _('Failed to get attached volume.'))
+        return {"instance": instance}
 
 
 class InterfacesTab(tabs.TableTab):
@@ -72,7 +83,7 @@ class LogTab(tabs.Tab):
 
     def get_context_data(self, request):
         instance = self.tab_group.kwargs['instance']
-        log_length = utils.get_log_length(request)
+        log_length = settings_utils.get_log_length(request)
         try:
             data = api.nova.server_console_output(request,
                                                   instance.id,
@@ -93,7 +104,7 @@ class ConsoleTab(tabs.Tab):
 
     def get_context_data(self, request):
         instance = self.tab_group.kwargs['instance']
-        console_type = getattr(settings, 'CONSOLE_TYPE', 'AUTO')
+        console_type = settings.CONSOLE_TYPE
         console_url = None
         try:
             console_type, console_url = console.get_console(
@@ -112,7 +123,7 @@ class ConsoleTab(tabs.Tab):
     def allowed(self, request):
         # The ConsoleTab is available if settings.CONSOLE_TYPE is not set at
         # all, or if it's set to any value other than None or False.
-        return bool(getattr(settings, 'CONSOLE_TYPE', True))
+        return bool(settings.CONSOLE_TYPE)
 
 
 class AuditTab(tabs.TableTab):

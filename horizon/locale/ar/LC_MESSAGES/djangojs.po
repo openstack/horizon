@@ -1,0 +1,422 @@
+# OpenStack Infra <zanata@openstack.org>, 2015. #zanata
+# Andreas Jaeger <jaegerandi@gmail.com>, 2018. #zanata
+# Majed Alangari <mangari@stcs.com.sa>, 2018. #zanata
+msgid ""
+msgstr ""
+"Project-Id-Version: horizon VERSION\n"
+"Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
+"POT-Creation-Date: 2019-09-03 20:32+0000\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"PO-Revision-Date: 2018-11-30 11:32+0000\n"
+"Last-Translator: Andreas Jaeger <jaegerandi@gmail.com>\n"
+"Language-Team: Arabic\n"
+"Language: ar\n"
+"X-Generator: Zanata 4.3.3\n"
+"Plural-Forms: nplurals=6; plural= n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 "
+"&& n%100<=10 ? 3 : n%100>=11 ? 4 : 5;\n"
+
+#, python-format
+msgid "%s GB"
+msgstr "%s GB"
+
+#, python-format
+msgid "%s KB"
+msgstr "%s KB"
+
+#, python-format
+msgid "%s MB"
+msgstr "%s MB"
+
+#, python-format
+msgid "%s TB"
+msgstr "%s TB"
+
+#, python-format
+msgid "%s bytes"
+msgstr "%s bytes"
+
+msgid "(Modified)"
+msgstr "(معدل)"
+
+msgid "-"
+msgstr "-"
+
+msgid "0 GB"
+msgstr "0 GB"
+
+msgid "0 MB"
+msgstr "0 MB"
+
+msgid "Active"
+msgstr "نشط"
+
+msgid "Add"
+msgstr "اضافة"
+
+msgid "Added"
+msgstr "مضاف"
+
+msgid "Additional items not allowed"
+msgstr "لا يسمح بإضافة المزيد"
+
+msgid "Additional properties not allowed"
+msgstr "لا يسمح بإضافة المزيد"
+
+msgid "Allocated"
+msgstr "مخصصة"
+
+msgid "An error occurred while updating."
+msgstr "حدث خطأ أثناء التحديث."
+
+msgid "An error occurred. Please try again later."
+msgstr "حدث خطأ. يرجى اعادة المحاولة لاحقا."
+
+msgid "Array items must be unique"
+msgstr "عناصر المصفوفة يجب ان تكون فريدة من نوعها"
+
+msgid "Available"
+msgstr "متوفر"
+
+msgid "Available Metadata"
+msgstr "البيانات الوصفية المتاحة"
+
+msgid "Back"
+msgstr "العودة"
+
+msgid "Cancel"
+msgstr "إلغاء"
+
+msgid "Click each item to get its description here."
+msgstr "انقر على العناصر لعرض التفاصيل"
+
+msgid "Click here for filters or full text search."
+msgstr "انقر هنا لعمليات الفرز والبحث"
+
+msgid "Click here to expand the row and view the errors."
+msgstr "انقر هنا لعرض الاخطاء"
+
+msgid "Click to see more details"
+msgstr "انقر لرؤية المزيد من التفاصيل"
+
+msgid "Click to show or hide"
+msgstr "انقر للإظهار أو الإخفاء"
+
+msgid "Close"
+msgstr "إغلاق"
+
+#, python-format
+msgid "Confirm %s"
+msgstr "تأكيد %s"
+
+#. Strings between {$ and $} should be left untranslated.
+msgid ""
+"Content size: {$ (textBytes || 0) | bytes $} of {$ ::maxBytes | bytes $}"
+msgstr ""
+"حجم المحتوى: {$ (textBytes || 0) | bytes $} of {$ ::maxBytes | bytes $}"
+
+msgid "Current Usage"
+msgstr "الاستهلاك الحالي"
+
+msgid "Custom"
+msgstr "مخصص"
+
+msgid "Danger"
+msgstr "خطر"
+
+msgid "Danger: "
+msgstr "خطر:"
+
+msgid "Data does not match any schemas from 'anyOf'"
+msgstr "البيانات لا تتطابق مع اي مخطط من 'anyOf' "
+
+msgid "Data does not match any schemas from 'oneOf'"
+msgstr "البيانات لا تتطابق مع اي مخطط من 'oneOf'"
+
+msgid "Data is valid against more than one schema from 'oneOf'"
+msgstr "  البيانات صالحة مع اكثر من مخطط من 'oneOf'"
+
+msgid "Data matches schema from 'not'"
+msgstr "البيانات تطابق المخطط 'not'"
+
+msgid "Delete"
+msgstr "حذف"
+
+#, python-format
+msgid "Deleted : %s."
+msgstr "تم حذف : %s"
+
+msgid "Dependency failed - key must exist"
+msgstr "خطأ في الاعتمادية - يجب توفير المفتاح"
+
+msgid "Detail Information"
+msgstr "تفاصيل المعلومات"
+
+#, python-format
+msgid "Displaying %(count)s of %(total)s items"
+msgstr "عرض %(count)s من  %(total)s عنصر"
+
+#, fuzzy, python-format
+msgid "Displaying %s item"
+msgid_plural "Displaying %s items"
+msgstr[0] " عرض )%s( عنصر"
+msgstr[1] " عرض )%s( عنصر"
+msgstr[2] "This needs translation as well"
+msgstr[3] "This needs translation as well"
+msgstr[4] "This needs translation as well"
+msgstr[5] "This needs translation as well"
+
+msgid "Duplicate keys are not allowed"
+msgstr "لا يسمح بتكرار المفاتيح"
+
+msgid "Error"
+msgstr "خطأ"
+
+msgid "Error: "
+msgstr "خطأ :"
+
+msgid "Example"
+msgstr "مثال"
+
+msgid "Existing Metadata"
+msgstr "البيانات الوصفية الموجودة"
+
+msgid "Expand to see allocated items"
+msgstr "قم بالتوسيع لمشاهدة العناصر المخصصة"
+
+msgid "Expand to see available items"
+msgstr "قم بالتوسيع لمشاهدة العناصر المتاحة"
+
+msgid "Filter"
+msgstr "انتقاء"
+
+msgid "Finish"
+msgstr "إنهاء"
+
+msgid "Flavor"
+msgstr "فئة الخادم"
+
+msgid "Format validation failed"
+msgstr " فشل في التحقق من التنسيق"
+
+msgid "Full Text Search"
+msgstr "البحث بالنص الكامل"
+
+msgid "Info"
+msgstr "معلومات"
+
+msgid "Integer required"
+msgstr "العدد الصحيح مطلوب"
+
+msgid "Invalid type, expected {$schema.type$}"
+msgstr "البيانات غير صالحة, المتوقع {$schema.type$}"
+
+msgid "Load {$ ::title $} from a file"
+msgstr "تحميل {$ ::title $} من ملف"
+
+msgid "Loading"
+msgstr "جاري التحميل"
+
+msgid "Max"
+msgstr "الحد الأعلى"
+
+msgid "Max length"
+msgstr "الحد الأعلى للطول"
+
+msgid "Min"
+msgstr "الحد الادنى"
+
+msgid "Min length"
+msgstr "الحد الأدنى للطول"
+
+msgid "Name"
+msgstr "إسم"
+
+msgid "Next"
+msgstr "التالي"
+
+msgid "No"
+msgstr "لا"
+
+msgid "No Limit"
+msgstr "غير محدود"
+
+msgid "No available items"
+msgstr "لا توجد عناصر متاحة"
+
+msgid "No available metadata"
+msgstr "لا توجد بيانات وصفية"
+
+msgid "No data available."
+msgstr "لا تتوفر بيانات."
+
+msgid "No existing metadata"
+msgstr "لا توجد بيانات وصفية"
+
+msgid "No items to display."
+msgstr "لا توجد عناصر للإظهار."
+
+msgid "No roles"
+msgstr "لا توجد أدوار"
+
+msgid "None"
+msgstr "لا يوجد"
+
+msgid "Notice: "
+msgstr "تنبيه:"
+
+msgid "Passwords do not match."
+msgstr "كلمات مرور غير مناسبة."
+
+msgid "Pattern mismatch"
+msgstr "اختلاف في النمط"
+
+msgid "Please Wait"
+msgstr "الرجاء الانتظار"
+
+msgid "Please confirm your selection. "
+msgstr "الرجاء تأكيد إختيارك"
+
+msgid "Prev"
+msgstr "السابق"
+
+msgid "Prompt"
+msgstr "التوجيه"
+
+msgid "Re-order items using drag and drop"
+msgstr "أعد ترتيب العناصر باستخدام السحب والإفلات"
+
+msgid "Remaining"
+msgstr "متبقي"
+
+msgid "Remove"
+msgstr "ازالة"
+
+msgid "Required"
+msgstr "مطلوب"
+
+msgid "Roles"
+msgstr "أدوار"
+
+msgid "Search in current results"
+msgstr "البحث في النتائج الحالية"
+
+msgid "Select an item from Available items below"
+msgstr "اختر أحد العناصر المتاحة أدناه"
+
+msgid "Select one"
+msgstr "اختر واحداً"
+
+msgid "Server Name"
+msgstr "اسم الخادم"
+
+msgid "Shutdown"
+msgstr "ايقاف التشغيل"
+
+msgid "Status"
+msgstr "الحالة"
+
+msgid "Submit"
+msgstr "رفع"
+
+msgid "Success"
+msgstr "نجاح"
+
+msgid "Success: "
+msgstr "تم الإجراء بنجاح :"
+
+msgid "Text"
+msgstr "نص"
+
+msgid ""
+"The action cannot be performed. The contents of this row have errors or are "
+"missing information."
+msgstr "لا يمكن تنفيذ هذه لعملية. يوجد اخطاء او نقص في المحتوى."
+
+msgid "The content is larger than the maximum byte size"
+msgstr "حجم المحتوى اكبر من لمسموح"
+
+msgid "The data in this field is invalid"
+msgstr "البيانات غير صالحة"
+
+msgid "There was a problem communicating with the server, please try again."
+msgstr "حدث مشكل أثناء الاتصال مع الحاسوب الخادم، يرجى إعادة المحاولة."
+
+msgid "There was an error submitting the form. Please try again."
+msgstr "حدث خطأ أثناء إرسال المعطيات , يرجى المحاولة مرة أخرى."
+
+msgid "Toggle navigation"
+msgstr "تعديل التنقل"
+
+#, python-format
+msgid "Unable to delete: %s."
+msgstr "غير قادر على حذف: %s"
+
+msgid "Unauthorized. Redirecting to login"
+msgstr "محضور. العودة الى صفحة االدخول"
+
+msgid "Unknown property (not in schema)"
+msgstr "خاصية غير معروفة (غير موجودة في المخطط)"
+
+msgid "Unlimited"
+msgstr "غير محدود"
+
+msgid "Uploading image"
+msgstr "تحميل صورة"
+
+msgid "Warning"
+msgstr "تنبيه"
+
+msgid "Warning: "
+msgstr "إنذار:"
+
+msgid "Working"
+msgstr "جاري العمل"
+
+msgid "Yes"
+msgstr "نعم"
+
+msgid ""
+"You can specify resource metadata by moving items from the left column to "
+"the right column. In the left column there are metadata definitions from the "
+"Glance Metadata Catalog. Use the \"Custom\" option to add metadata with "
+"the key of your choice."
+msgstr ""
+"يمكنك تحديد بيانات تعريف المصدر عن طريق نقل العناصر من العمود الأيسر إلى "
+"العمود الأيمن. يوجد في العمود الأيسر تعريفات بيانات التعريف من كتالوج Glance "
+"Metadata. استخدم خيار \"تخصيص\" لإضافة بيانات التعريف بالمفتاح الذي تختاره."
+
+msgid "description"
+msgstr "التفاصيل"
+
+msgid "m1.small"
+msgstr "m1.small"
+
+msgid "m1.tiny"
+msgstr "m1.tiny"
+
+#, python-format
+msgid "selected \"%s\""
+msgstr "تم اختيار \"%s\""
+
+msgid "{$schema.title$} is a required field"
+msgstr "{$schema.title$} حقل مطلوب"
+
+msgid "{$viewValue$} is equal to the exclusive maximum {$schema.maximum$}"
+msgstr "{$viewValue$} تساوي القيمة الكبرى ل {$schema.maximum$}"
+
+msgid "{$viewValue$} is equal to the exclusive minimum {$schema.minimum$}"
+msgstr "{$viewValue$} تساوي القيمة الصغرى ل {$schema.minimum$}"
+
+msgid "{$viewValue$} is greater than the allowed maximum of {$schema.maximum$}"
+msgstr "{$viewValue$} اكبر من اعلى قيمة مسموحة ل {$schema.maximum$}"
+
+msgid "{$viewValue$} is less than the allowed minimum of {$schema.minimum$}"
+msgstr "{$viewValue$} اقل من اضغر قيمة مسموحة ل {$schema.minimum$}"
+
+msgid "{$viewValue$} is not a multiple of {$schema.multipleOf$}"
+msgstr "{$viewValue$} ليست من مضاعفات {$schema.multipleOf$}"
+
+msgid "{$viewValue$} is not a valid number"
+msgstr "{$viewValue$} ليس رقم صالح للاستخدام"

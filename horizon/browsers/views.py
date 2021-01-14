@@ -12,6 +12,7 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
+from django.conf import settings
 from django.utils.translation import ugettext_lazy as _
 from django.views import generic
 
@@ -31,7 +32,7 @@ class ResourceBrowserView(MultiTableView):
         self.table_classes = (self.browser_class.navigation_table_class,
                               self.browser_class.content_table_class)
         self.navigation_selection = False
-        super(ResourceBrowserView, self).__init__(*args, **kwargs)
+        super().__init__(*args, **kwargs)
 
     @memoized.memoized_method
     def get_browser(self):
@@ -44,7 +45,7 @@ class ResourceBrowserView(MultiTableView):
         return browser
 
     def get_tables(self):
-        tables = super(ResourceBrowserView, self).get_tables()
+        tables = super().get_tables()
         # Tells the navigation table what is selected.
         navigation_table = tables[
             self.browser_class.navigation_table_class._meta.name]
@@ -54,7 +55,7 @@ class ResourceBrowserView(MultiTableView):
         return tables
 
     def get_context_data(self, **kwargs):
-        context = super(ResourceBrowserView, self).get_context_data(**kwargs)
+        context = super().get_context_data(**kwargs)
         browser = self.get_browser()
         context["%s_browser" % browser.name] = browser
         return context
@@ -77,8 +78,9 @@ class AngularIndexView(generic.TemplateView):
     page_title = None
 
     def get_context_data(self, **kwargs):
-        context = super(AngularIndexView, self).get_context_data(**kwargs)
+        context = super().get_context_data(**kwargs)
         context["title"] = self.title
+        context["csrf_http"] = settings.CSRF_COOKIE_HTTPONLY
         if self.page_title is None:
             context["page_title"] = self.title
         else:
@@ -95,11 +97,12 @@ class AngularDetailsView(generic.TemplateView):
     template_name = 'angular.html'
 
     def get_context_data(self, **kwargs):
-        context = super(AngularDetailsView, self).get_context_data(**kwargs)
+        context = super().get_context_data(**kwargs)
         # some parameters are needed for navigation side bar and breadcrumb.
         title = _("Horizon")
         context["title"] = title
         context["page_title"] = title
+        context["csrf_http"] = settings.CSRF_COOKIE_HTTPONLY
         # set default dashboard and panel
         dashboard = horizon.get_default_dashboard()
         self.request.horizon['dashboard'] = dashboard

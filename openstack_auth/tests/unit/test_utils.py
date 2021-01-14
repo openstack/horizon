@@ -11,7 +11,6 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-from django.conf import settings
 from django import http
 from django import test
 from django.test import client
@@ -55,41 +54,6 @@ class RoleTestCaseAdmin(test.TestCase):
 
 class UtilsTestCase(test.TestCase):
 
-    def test_fix_auth_url_version_v20(self):
-        settings.OPENSTACK_API_VERSIONS['identity'] = 2.0
-        test_urls = [
-            ("http://a/", ("http://a/v2.0", False)),
-            ("http://a", ("http://a/v2.0", False)),
-            ("http://a:8080/", ("http://a:8080/v2.0", False)),
-            ("http://a/v2.0", ("http://a/v2.0", False)),
-            ("http://a/v2.0/", ("http://a/v2.0/", False)),
-            ("http://a/identity", ("http://a/identity/v2.0", False)),
-            ("http://a/identity/", ("http://a/identity/v2.0", False)),
-            ("http://a:5000/identity/v2.0",
-             ("http://a:5000/identity/v2.0", False)),
-            ("http://a/identity/v2.0/", ("http://a/identity/v2.0/", False))
-        ]
-        for src, expected in test_urls:
-            self.assertEqual(expected, utils.fix_auth_url_version_prefix(src))
-
-    def test_fix_auth_url_version_v3(self):
-        settings.OPENSTACK_API_VERSIONS['identity'] = 3
-        test_urls = [
-            ("http://a/", ("http://a/v3", False)),
-            ("http://a", ("http://a/v3", False)),
-            ("http://a:8080/", ("http://a:8080/v3", False)),
-            ("http://a/v3", ("http://a/v3", False)),
-            ("http://a/v3/", ("http://a/v3/", False)),
-            ("http://a/v2.0/", ("http://a/v3/", True)),
-            ("http://a/v2.0", ("http://a/v3", True)),
-            ("http://a/identity", ("http://a/identity/v3", False)),
-            ("http://a:5000/identity/", ("http://a:5000/identity/v3", False)),
-            ("http://a/identity/v3", ("http://a/identity/v3", False)),
-            ("http://a/identity/v3/", ("http://a/identity/v3/", False))
-        ]
-        for src, expected in test_urls:
-            self.assertEqual(expected, utils.fix_auth_url_version_prefix(src))
-
     @override_settings(DEFAULT_SERVICE_REGIONS={
         'http://example.com': 'RegionThree', '*': 'RegionFour'})
     def test_default_services_region_precedence(self):
@@ -121,7 +85,7 @@ class UtilsTestCase(test.TestCase):
 class BehindProxyTestCase(test.TestCase):
 
     def setUp(self):
-        super(BehindProxyTestCase, self).setUp()
+        super().setUp()
         self.request = http.HttpRequest()
 
     def test_without_proxy(self):

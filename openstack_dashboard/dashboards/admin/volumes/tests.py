@@ -24,8 +24,6 @@ from openstack_dashboard.dashboards.project.volumes \
     import tables as volume_tables
 from openstack_dashboard.test import helpers as test
 
-from openstack_dashboard.dashboards.admin.snapshots import forms
-
 
 DETAIL_URL = ('horizon:admin:volumes:detail')
 INDEX_URL = reverse('horizon:admin:volumes:index')
@@ -39,7 +37,7 @@ class VolumeTests(test.BaseAdminViewTests):
             for att in volume.attachments:
                 if 'instance' in att:
                     del att['instance']
-        super(VolumeTests, self).tearDown()
+        super().tearDown()
 
     @test.create_mocks({
         api.nova: ['server_list'],
@@ -72,7 +70,7 @@ class VolumeTests(test.BaseAdminViewTests):
         self.mock_tenant_list.assert_called_once()
         self.assertTemplateUsed(res, 'horizon/common/_data_table_view.html')
         volumes = res.context['volumes_table'].data
-        self.assertItemsEqual(volumes, self.cinder_volumes.list())
+        self.assertCountEqual(volumes, self.cinder_volumes.list())
 
     def test_index_without_attachments(self):
         self._test_index(True)
@@ -118,7 +116,7 @@ class VolumeTests(test.BaseAdminViewTests):
         res = self.client.get(INDEX_URL)
         self.assertTemplateUsed(res, 'horizon/common/_data_table_view.html')
         volumes = res.context['volumes_table'].data
-        self.assertItemsEqual(volumes, [])
+        self.assertCountEqual(volumes, [])
 
     def _ensure_attachments_exist(self, volumes):
         volumes = copy.copy(volumes)
@@ -140,7 +138,7 @@ class VolumeTests(test.BaseAdminViewTests):
         res = self._test_index_paginated(None, "desc", expected_volumes, url,
                                          True, False)
         result = res.context['volumes_table'].data
-        self.assertItemsEqual(result, expected_volumes)
+        self.assertCountEqual(result, expected_volumes)
 
         # get second page
         expected_volumes = volumes[size:2 * size]
@@ -150,7 +148,7 @@ class VolumeTests(test.BaseAdminViewTests):
         res = self._test_index_paginated(marker, "desc", expected_volumes, url,
                                          True, True)
         result = res.context['volumes_table'].data
-        self.assertItemsEqual(result, expected_volumes)
+        self.assertCountEqual(result, expected_volumes)
 
         # get last page
         expected_volumes = volumes[-size:]
@@ -160,7 +158,7 @@ class VolumeTests(test.BaseAdminViewTests):
         res = self._test_index_paginated(marker, "desc", expected_volumes, url,
                                          False, True)
         result = res.context['volumes_table'].data
-        self.assertItemsEqual(result, expected_volumes)
+        self.assertCountEqual(result, expected_volumes)
 
     @override_settings(API_RESULT_PAGE_SIZE=2)
     def test_index_paginated_prev(self):
@@ -176,7 +174,7 @@ class VolumeTests(test.BaseAdminViewTests):
         res = self._test_index_paginated(marker, "asc", expected_volumes, url,
                                          False, True)
         result = res.context['volumes_table'].data
-        self.assertItemsEqual(result, expected_volumes)
+        self.assertCountEqual(result, expected_volumes)
 
         # back to first page
         expected_volumes = volumes[:size]
@@ -186,11 +184,11 @@ class VolumeTests(test.BaseAdminViewTests):
         res = self._test_index_paginated(marker, "asc", expected_volumes, url,
                                          True, False)
         result = res.context['volumes_table'].data
-        self.assertItemsEqual(result, expected_volumes)
+        self.assertCountEqual(result, expected_volumes)
 
     @test.create_mocks({api.cinder: ['volume_get', 'volume_reset_state']})
     def test_update_volume_status(self):
-        volume = self.volumes.first()
+        volume = self.cinder_volumes.first()
         form_data = {'status': 'error'}
 
         self.mock_volume_reset_state.return_value = None
@@ -365,14 +363,6 @@ class VolumeTests(test.BaseAdminViewTests):
             test.IsHttpRequest(), volume.id, host, False)
         self.assertRedirectsNoFollow(res, INDEX_URL)
 
-    def test_get_volume_status_choices_without_current(self):
-        current_status = 'available'
-        status_choices = forms.populate_status_choices(current_status,
-                                                       forms.STATUS_CHOICES)
-        self.assertEqual(len(status_choices), len(forms.STATUS_CHOICES))
-        self.assertNotIn(current_status,
-                         [status[0] for status in status_choices])
-
     @test.create_mocks({api.cinder: ['volume_get']})
     def test_update_volume_status_get(self):
         volume = self.cinder_volumes.get(name='v2_volume')
@@ -390,7 +380,7 @@ class VolumeTests(test.BaseAdminViewTests):
     @test.create_mocks({
         api.nova: ['server_get'],
         api.cinder: ['tenant_absolute_limits', 'volume_get',
-                     'volume_snapshot_list', 'message_list']})
+                     'volume_snapshot_list']})
     def test_detail_view_snapshot_tab(self):
         volume = self.cinder_volumes.first()
         server = self.servers.first()
@@ -404,7 +394,6 @@ class VolumeTests(test.BaseAdminViewTests):
         self.mock_tenant_absolute_limits.return_value = volume_limits
         self.mock_volume_get.return_value = volume
         self.mock_volume_snapshot_list.return_value = this_volume_snapshots
-        self.mock_message_list.return_value = []
 
         url = (reverse(DETAIL_URL, args=[volume.id]) + '?' +
                '='.join(['tab', 'volume_details__snapshots_tab']))
@@ -424,9 +413,3 @@ class VolumeTests(test.BaseAdminViewTests):
         self.mock_volume_snapshot_list.assert_called_once_with(
             test.IsHttpRequest(),
             search_opts={'volume_id': volume.id, 'all_tenants': True})
-        self.mock_message_list.assert_called_once_with(
-            test.IsHttpRequest(),
-            {
-                'resource_uuid': volume.id,
-                'resource_type': 'volume'
-            })

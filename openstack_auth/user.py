@@ -12,15 +12,11 @@
 # limitations under the License.
 
 import datetime
-import hashlib
 import logging
 
-from django.conf import settings
 from django.contrib.auth import models
 from django.db import models as db_models
 from keystoneauth1 import exceptions as keystone_exceptions
-from keystoneclient.common import cms as keystone_cms
-import six
 
 from openstack_auth import utils
 
@@ -43,6 +39,7 @@ def unset_session_user_variables(request):
     request.session['user_id'] = None
     request.session['region_endpoint'] = None
     request.session['services_region'] = None
+    request.session['auth_type'] = None
     # Update the user object cached in the request
     request._cached_user = None
     request.user = None
@@ -97,17 +94,6 @@ class Token(object):
         # Token-related attributes
         self.id = auth_ref.auth_token
         self.unscoped_token = unscoped_token
-        if self._is_pki_token(self.id):
-            algorithm = getattr(settings, 'OPENSTACK_TOKEN_HASH_ALGORITHM',
-                                'md5')
-            hasher = hashlib.new(algorithm)
-            hasher.update(self.id.encode('utf-8'))
-            self.id = hasher.hexdigest()
-            # Only hash unscoped token if needed
-            if self._is_pki_token(self.unscoped_token):
-                hasher = hashlib.new(algorithm)
-                hasher.update(self.unscoped_token.encode('utf-8'))
-                self.unscoped_token = hasher.hexdigest()
         self.expires = auth_ref.expires
 
         # Project-related attributes
@@ -130,13 +116,6 @@ class Token(object):
         self.is_federated = auth_ref.is_federated
         self.roles = [{'name': role} for role in auth_ref.role_names]
         self.serviceCatalog = auth_ref.service_catalog.catalog
-
-    def _is_pki_token(self, token):
-        """Determines if this is a pki-based token (pki or pkiz)"""
-        if token is None:
-            return False
-        return (keystone_cms.is_ans1_token(token) or
-                keystone_cms.is_pkiz(token))
 
 
 class User(models.AbstractBaseUser, models.AnonymousUser):
@@ -208,8 +187,7 @@ class User(models.AbstractBaseUser, models.AnonymousUser):
 
     .. attribute:: password_expires_at
 
-        Password expiration date. This attribute could be None when using
-        keystone version < 3.0 or if the feature is not enabled in keystone.
+        Password expiration date.
 
     """
 
@@ -285,10 +263,7 @@ class User(models.AbstractBaseUser, models.AnonymousUser):
     @property
     def is_authenticated(self):
         """Checks for a valid authentication."""
-        if (self.token is not None and utils.is_token_valid(self.token)):
-            return True
-        else:
-            return False
+        return self.token is not None and utils.is_token_valid(self.token)
 
     @property
     def is_anonymous(self):
@@ -355,11 +330,11 @@ class User(models.AbstractBaseUser, models.AnonymousUser):
                         regions.append(region)
         return regions
 
-    def save(*args, **kwargs):
+    def save(self, *args, **kwargs):
         # Presume we can't write to Keystone.
         pass
 
-    def delete(*args, **kwargs):
+    def delete(self, *args, **kwargs):
         # Presume we can't write to Keystone.
         pass
 
@@ -403,7 +378,7 @@ class User(models.AbstractBaseUser, models.AnonymousUser):
         if not perm_list:
             return True
         for perm in perm_list:
-            if isinstance(perm, six.string_types):
+            if isinstance(perm, str):
                 # check that the permission matches
                 if not self.has_perm(perm, obj):
                     return False

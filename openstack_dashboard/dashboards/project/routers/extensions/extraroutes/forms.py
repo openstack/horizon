@@ -29,8 +29,13 @@ LOG = logging.getLogger(__name__)
 
 
 class AddRouterRoute(forms.SelfHandlingForm):
-    destination = forms.IPField(label=_("Destination CIDR"), mask=True)
-    nexthop = forms.IPField(label=_("Next Hop"))
+    destination = forms.IPField(
+        version=forms.IPv4 | forms.IPv6,
+        label=_("Destination CIDR"),
+        mask=True)
+    nexthop = forms.IPField(
+        version=forms.IPv4 | forms.IPv6,
+        label=_("Next Hop"))
     failure_url = 'horizon:project:routers:detail'
 
     def handle(self, request, data, **kwargs):
@@ -48,12 +53,10 @@ class AddRouterRoute(forms.SelfHandlingForm):
             LOG.info('Invalid format for routes %(route)s: %(exc)s',
                      {'route': route, 'exc': e})
             msg = _('Invalid format for routes: %s') % e
-            messages.error(request, msg)
             redirect = reverse(self.failure_url, args=[router_id])
             exceptions.handle(request, msg, redirect=redirect)
         except Exception as e:
             LOG.info('Failed to add route: %s', e)
-            msg = _('Failed to add route: %s') % e
-            messages.error(request, msg)
+            msg = _('Failed to add route')
             redirect = reverse(self.failure_url, args=[router_id])
             exceptions.handle(request, msg, redirect=redirect)

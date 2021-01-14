@@ -24,7 +24,7 @@ class RouterOverviewPage(basepage.BaseNavigationPage):
                              'hr+dl.dl-horizontal>dt:nth-child(3)+dd>a')
 
     def __init__(self, driver, conf, router_name):
-        super(RouterOverviewPage, self).__init__(driver, conf)
+        super().__init__(driver, conf)
         self._page_title = router_name
 
     def is_router_name_present(self, router_name):

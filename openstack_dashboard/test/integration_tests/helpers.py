@@ -11,6 +11,7 @@
 # under the License.
 
 import contextlib
+import io
 import logging
 import os
 import shutil
@@ -25,10 +26,10 @@ from oslo_utils import uuidutils
 from selenium.webdriver.common import action_chains
 from selenium.webdriver.common import by
 from selenium.webdriver.common import keys
-from six import StringIO
 import testtools
 import xvfbwrapper
 
+from horizon.test import helpers
 from horizon.test import webdriver
 from openstack_dashboard.test.integration_tests import config
 from openstack_dashboard.test.integration_tests.pages import loginpage
@@ -44,14 +45,16 @@ ROOT_LOGGER.setLevel(logging.DEBUG)
 LOG = logging.getLogger(__name__)
 
 IS_SELENIUM_HEADLESS = os.environ.get('SELENIUM_HEADLESS', False)
+
 ROOT_PATH = os.path.dirname(os.path.abspath(config.__file__))
 
 SCREEN_SIZE = (None, None)
 
 if not subprocess.call('which xdpyinfo > /dev/null 2>&1', shell=True):
     try:
-        SCREEN_SIZE = subprocess.check_output('xdpyinfo | grep dimensions',
-                                              shell=True).split()[1].split('x')
+        SCREEN_SIZE = subprocess.check_output(
+            'xdpyinfo | grep dimensions',
+            shell=True).decode().split()[1].split('x')
     except subprocess.CalledProcessError:
         LOG.info("Can't run 'xdpyinfo'")
 else:
@@ -100,6 +103,7 @@ class AssertsMixin(object):
         return self.assertEqual(list(actual), [False] * len(actual))
 
 
+@helpers.pytest_mark('integration')
 @tag('integration')
 class BaseTestCase(testtools.TestCase):
 
@@ -189,7 +193,7 @@ class BaseTestCase(testtools.TestCase):
 
         self.addCleanup(cleanup)
 
-        super(BaseTestCase, self).setUp()
+        super().setUp()
 
     def addOnException(self, exception_handler):
 
@@ -198,7 +202,10 @@ class BaseTestCase(testtools.TestCase):
                 return
             return exception_handler(exc_info)
 
-        super(BaseTestCase, self).addOnException(wrapped_handler)
+        super().addOnException(wrapped_handler)
+
+    def __hash__(self):
+        return hash((type(self), self._testMethodName))
 
     def _configure_log(self):
         """Configure log to capture test logs include selenium logs.
@@ -207,7 +214,7 @@ class BaseTestCase(testtools.TestCase):
         """
         # clear other handlers to set target handler
         ROOT_LOGGER.handlers[:] = []
-        self._log_buffer = StringIO()
+        self._log_buffer = io.StringIO()
         stream_handler = logging.StreamHandler(stream=self._log_buffer)
         stream_handler.setLevel(logging.DEBUG)
         formatter = logging.Formatter(
@@ -217,9 +224,9 @@ class BaseTestCase(testtools.TestCase):
 
     @property
     def _test_report_dir(self):
-        report_dir = os.path.join(ROOT_PATH, 'test_reports',
-                                  '{}.{}'.format(self.__class__.__name__,
-                                                 self._testMethodName))
+        report_dir = os.path.join(
+            ROOT_PATH, self.CONFIG.selenium.screenshots_directory,
+            '{}.{}'.format(self.__class__.__name__, self._testMethodName))
         if not os.path.isdir(report_dir):
             os.makedirs(report_dir)
         return report_dir
@@ -256,7 +263,7 @@ class BaseTestCase(testtools.TestCase):
         test_log_path = os.path.join(self._test_report_dir, 'test.log')
         with self.log_exception("Attach test log"):
             with open(test_log_path, 'w') as f:
-                f.write(self._log_buffer.getvalue().encode('utf-8'))
+                f.write(self._log_buffer.getvalue())
 
     @contextlib.contextmanager
     def log_exception(self, label):
@@ -297,9 +304,10 @@ class BaseTestCase(testtools.TestCase):
         display html code generated/changed by javascript.
         """
         html_elem = self.driver.find_element_by_tag_name("html")
-        return html_elem.get_attribute("innerHTML").encode("utf-8")
+        return html_elem.get_property("innerHTML")
 
 
+@helpers.pytest_mark('integration')
 @tag('integration')
 class TestCase(BaseTestCase, AssertsMixin):
 
@@ -308,7 +316,7 @@ class TestCase(BaseTestCase, AssertsMixin):
     HOME_PROJECT = BaseTestCase.CONFIG.identity.home_project
 
     def setUp(self):
-        super(TestCase, self).setUp()
+        super().setUp()
         self.login_pg = loginpage.LoginPage(self.driver, self.CONFIG)
         self.login_pg.go_to_login_page()
         # TODO(schipiga): lets check that tests work without viewport changing,
@@ -337,5 +345,5 @@ class AdminTestCase(TestCase, AssertsMixin):
     HOME_PROJECT = BaseTestCase.CONFIG.identity.admin_home_project
 
     def setUp(self):
-        super(AdminTestCase, self).setUp()
+        super().setUp()
         self.home_pg.go_to_admin_overviewpage()

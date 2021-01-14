@@ -21,7 +21,6 @@ from openstack_dashboard import policy
 
 ENABLE = 0
 DISABLE = 1
-KEYSTONE_V2_ENABLED = api.keystone.VERSIONS.active < 3
 
 
 class CreateUserLink(tables.LinkAction):
@@ -54,15 +53,20 @@ class EditUserLink(policy.PolicyTargetMixin, tables.LinkAction):
         return api.keystone.keystone_can_edit_user()
 
 
-class ChangePasswordLink(tables.LinkAction):
+class ChangePasswordLink(policy.PolicyTargetMixin, tables.LinkAction):
     name = "change_password"
     verbose_name = _("Change Password")
     url = "horizon:identity:users:change_password"
     classes = ("ajax-modal",)
     icon = "key"
+    policy_rules = (("identity", "identity:update_user"),)
+    policy_target_attrs = (("user_id", "id"),
+                           ("target.user.domain_id", "domain_id"))
 
     def allowed(self, request, user):
-        return api.keystone.keystone_can_edit_user()
+        options = getattr(user, "options", {})
+        lock_password = options.get("lock_password", False)
+        return not lock_password and api.keystone.keystone_can_edit_user()
 
 
 class ToggleEnabled(policy.PolicyTargetMixin, tables.BatchAction):
@@ -155,13 +159,10 @@ class DeleteUsersAction(policy.PolicyTargetMixin, tables.DeleteAction):
 
 
 class UserFilterAction(tables.FilterAction):
-    if api.keystone.VERSIONS.active < 3:
-        filter_type = "query"
-    else:
-        filter_type = "server"
-        filter_choices = (("name", _("User Name ="), True),
-                          ("id", _("User ID ="), True),
-                          ("enabled", _("Enabled ="), True, _('e.g. Yes/No')))
+    filter_type = "server"
+    filter_choices = (("name", _("User Name ="), True),
+                      ("id", _("User ID ="), True),
+                      ("enabled", _("Enabled ="), True, _('e.g. Yes/No')))
 
 
 class UpdateRow(tables.Row):
@@ -183,7 +184,6 @@ class UsersTable(tables.DataTable):
                                  form_field=forms.CharField(required=False))
     description = tables.Column(lambda obj: getattr(obj, 'description', None),
                                 verbose_name=_('Description'),
-                                hidden=KEYSTONE_V2_ENABLED,
                                 form_field=forms.CharField(
                                     widget=forms.Textarea(attrs={'rows': 4}),
                                     required=False))
@@ -206,11 +206,9 @@ class UsersTable(tables.DataTable):
                             filters=(defaultfilters.yesno,
                                      defaultfilters.capfirst),
                             empty_value="False")
-
-    if api.keystone.VERSIONS.active >= 3:
-        domain_name = tables.Column('domain_name',
-                                    verbose_name=_('Domain Name'),
-                                    attrs={'data-type': 'uuid'})
+    domain_name = tables.Column('domain_name',
+                                verbose_name=_('Domain Name'),
+                                attrs={'data-type': 'uuid'})
 
     class Meta(object):
         name = "users"

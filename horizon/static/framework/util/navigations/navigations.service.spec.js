@@ -154,7 +154,16 @@
 
     describe('setBreadcrumb', function() {
       it('sets breadcrumb items from specified array', function() {
-        service.setBreadcrumb(breadcrumb);
+        service.setBreadcrumb(['Identity', 'Roles']);
+        expect(navigations.text('Identity').length).toBe(1);
+        expect(navigations.text('Roles').length).toBe(1);
+      });
+    });
+
+    describe('setAbsoluteURI', function() {
+      it('sets absolute uri', function() {
+        var url = service.setAbsoluteURI('/dashboard/', '/project/images/');
+        expect(url).toBe('/dashboard/project/images/');
       });
     });
 

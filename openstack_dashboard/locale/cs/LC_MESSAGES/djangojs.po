@@ -2,30 +2,25 @@
 # Zbyněk Schwarz <zbynek.schwarz@gmail.com>, 2015. #zanata
 # Lenka Husáková <lenka.husakova@ultimum.io>, 2016. #zanata
 # Stanislav Ulrych <stanislav.ulrych@ultimum.io>, 2016. #zanata
+# Lenka Husáková <lenka.husakova@ultimum.io>, 2020. #zanata
+# Stanislav Ulrych <stanislav.ulrych@ultimum.io>, 2020. #zanata
 msgid ""
 msgstr ""
 "Project-Id-Version: horizon VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2018-02-01 07:30+0000\n"
+"POT-Creation-Date: 2020-01-08 17:19+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2016-11-24 08:54+0000\n"
+"PO-Revision-Date: 2020-01-08 04:04+0000\n"
 "Last-Translator: Stanislav Ulrych <stanislav.ulrych@ultimum.io>\n"
 "Language-Team: Czech\n"
 "Language: cs\n"
-"X-Generator: Zanata 3.9.6\n"
+"X-Generator: Zanata 4.3.3\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2\n"
 
 msgid "#"
 msgstr "#"
-
-#, python-format
-msgid "%s instance launched."
-msgid_plural "%s instances launched."
-msgstr[0] "%s instance spuštěna."
-msgstr[1] "%s instance spuštěny."
-msgstr[2] "%s instancí spuštěno."
 
 msgid "1"
 msgstr "1"
@@ -485,17 +480,19 @@ msgstr ""
 "hostovaném operačním systému, můžete využít vlastní skript pro získání "
 "veřejného klíče, který pak přidáte do uživatelského účtu."
 
+#, fuzzy
 msgid "DNS Domain"
-msgstr "DNS doména"
+msgid_plural "DNS Domains"
+msgstr[0] "DNS doména"
+msgstr[1] ""
+msgstr[2] ""
 
-msgid "DNS Domains"
-msgstr "DNS domény"
-
+#, fuzzy
 msgid "DNS Record"
-msgstr "DNS záznam"
-
-msgid "DNS Records"
-msgstr "DNS záznamy"
+msgid_plural "DNS Records"
+msgstr[0] "DNS záznam"
+msgstr[1] ""
+msgstr[2] ""
 
 msgid "Danger"
 msgstr "Nebezpečí"
@@ -699,14 +696,15 @@ msgstr "Název souboru"
 msgid "Fingerprint"
 msgstr "Otisk"
 
+#, fuzzy
 msgid "Flavor"
-msgstr "Typ"
+msgid_plural "Flavors"
+msgstr[0] "Typ"
+msgstr[1] ""
+msgstr[2] ""
 
 msgid "Flavor Name"
 msgstr "Název typu"
-
-msgid "Flavors"
-msgstr "Typy"
 
 msgid ""
 "Flavors manage the sizing for the compute, memory and storage capacity of "
@@ -714,11 +712,12 @@ msgid ""
 msgstr ""
 "Typy určují velikost výpočetních, pamětních a úložných možností instance."
 
+#, fuzzy
 msgid "Floating IP"
-msgstr "Floating IP"
-
-msgid "Floating IPs"
-msgstr "Floating IPs"
+msgid_plural "Floating IPs"
+msgstr[0] "Floating IP"
+msgstr[1] ""
+msgstr[2] ""
 
 msgid "Focused input"
 msgstr "Zaměřený vstup"
@@ -752,11 +751,12 @@ msgstr ""
 " veřejný klíč v červeně vyznačeném rámečku do vašeho souboru \n"
 " <samp>.ssh/authorized_keys</samp>."
 
+#, fuzzy
 msgid "Group"
-msgstr "Skupina"
-
-msgid "Groups"
-msgstr "Skupiny"
+msgid_plural "Groups"
+msgstr[0] "Skupina"
+msgstr[1] ""
+msgstr[2] ""
 
 msgid "Hash"
 msgstr "Hash"
@@ -785,11 +785,12 @@ msgstr "Domů"
 msgid "Host ID"
 msgstr "ID hostitele"
 
+#, fuzzy
 msgid "Hypervisor"
-msgstr "Hypervizor"
-
-msgid "Hypervisors"
-msgstr "Hypervizory"
+msgid_plural "Hypervisors"
+msgstr[0] "Hypervizor"
+msgstr[1] ""
+msgstr[2] ""
 
 msgid "ID"
 msgstr "ID"
@@ -849,8 +850,12 @@ msgstr ""
 "že data instance jsou uložena při jejím smazání, pak vyberte jednu z "
 "následujících možností zavedení:"
 
+#, fuzzy
 msgid "Image"
-msgstr "Obraz"
+msgid_plural "Images"
+msgstr[0] "Obraz"
+msgstr[1] ""
+msgstr[2] ""
 
 #, python-format
 msgid "Image %s was successfully created."
@@ -880,9 +885,6 @@ msgstr "Sdílení obrazů"
 
 msgid "Image Source"
 msgstr "Zdroj obrazu"
-
-msgid "Images"
-msgstr "Obrazy"
 
 msgid "Impact on your quota"
 msgstr "Dopad na vaši kvótu"
@@ -917,8 +919,12 @@ msgstr "Úspěšný vstup"
 msgid "Input warning"
 msgstr "Varování ve vstupu"
 
+#, fuzzy
 msgid "Instance"
-msgstr "Instance"
+msgid_plural "Instances"
+msgstr[0] "Instance"
+msgstr[1] ""
+msgstr[2] ""
 
 msgid "Instance Name"
 msgstr "Název instance"
@@ -940,9 +946,6 @@ msgstr ""
 "    nebo snapshot svazku (pokud je to povoleno).\n"
 "    Můžete také použít persistentní úložiště vytvořením nového svazku."
 
-msgid "Instances"
-msgstr "Instance"
-
 msgid "Is Public"
 msgstr "Je veřejný"
 
@@ -955,11 +958,12 @@ msgstr "Kernel"
 msgid "Kernel ID"
 msgstr "ID kernelu"
 
+#, fuzzy
 msgid "Key Pair"
-msgstr "Klíč"
-
-msgid "Key Pairs"
-msgstr "Klíče"
+msgid_plural "Key Pairs"
+msgstr[0] "Klíč"
+msgstr[1] ""
+msgstr[2] ""
 
 msgid ""
 "Key Pairs are how you login to your instance after it is launched.\n"
@@ -1020,17 +1024,19 @@ msgstr "Hlavička položky výpisu skupin"
 msgid "List groups"
 msgstr "Výpis skupin"
 
+#, fuzzy
 msgid "Load Balancer Pool"
-msgstr "Zásobník load balancer"
+msgid_plural "Load Balancer Pools"
+msgstr[0] "Zásobník load balancer"
+msgstr[1] ""
+msgstr[2] ""
 
+#, fuzzy
 msgid "Load Balancer Pool Member"
-msgstr "Člen load balancer zásobníku"
-
-msgid "Load Balancer Pool Members"
-msgstr "Členové load balancer zásobníku"
-
-msgid "Load Balancer Pools"
-msgstr "Zásobníky load balancer"
+msgid_plural "Load Balancer Pool Members"
+msgstr[0] "Člen load balancer zásobníku"
+msgstr[1] ""
+msgstr[2] ""
 
 msgid "Loading"
 msgstr "Načítání"
@@ -1068,11 +1074,12 @@ msgstr "Zprávy"
 msgid "Metadata"
 msgstr "Metadata"
 
+#, fuzzy
 msgid "Metadata Definition"
-msgstr "Definice metadat"
-
-msgid "Metadata Definitions"
-msgstr "Definice metadat"
+msgid_plural "Metadata Definitions"
+msgstr[0] "Definice metadat"
+msgstr[1] ""
+msgstr[2] ""
 
 msgid ""
 "Metadata is a collection of key-value pairs associated with an instance.\n"
@@ -1150,35 +1157,46 @@ msgstr "Navigační lišta"
 msgid "Navs"
 msgstr "Navigace"
 
+#, fuzzy
 msgid "Network"
-msgstr "Síť"
+msgid_plural "Networks"
+msgstr[0] "Síť"
+msgstr[1] ""
+msgstr[2] ""
 
+#, fuzzy
 msgid "Network Health Monitor"
-msgstr "Síťový monitor zdraví"
-
-msgid "Network Health Monitors"
-msgstr "Síťové monitory zdraví"
+msgid_plural "Network Health Monitors"
+msgstr[0] "Síťový monitor zdraví"
+msgstr[1] ""
+msgstr[2] ""
 
 msgid "Network ID"
 msgstr "ID sítě"
 
+#, fuzzy
 msgid "Network Port"
-msgstr "Síťový port"
+msgid_plural "Network Ports"
+msgstr[0] "Síťový port"
+msgstr[1] ""
+msgstr[2] ""
 
 msgid "Network Ports"
 msgstr "Síťové porty"
 
+#, fuzzy
 msgid "Network Router"
-msgstr "Síťový router"
+msgid_plural "Network Routers"
+msgstr[0] "Síťový router"
+msgstr[1] ""
+msgstr[2] ""
 
-msgid "Network Routers"
-msgstr "Síťové routery"
-
+#, fuzzy
 msgid "Network Subnet"
-msgstr "Síťová podsíť"
-
-msgid "Network Subnets"
-msgstr "Síťové podsítě "
+msgid_plural "Network Subnets"
+msgstr[0] "Síťová podsíť"
+msgstr[1] ""
+msgstr[2] ""
 
 msgid "Network characteristics"
 msgstr "Prvky sítě"
@@ -1243,17 +1261,18 @@ msgstr "OVA"
 msgid "OVA - Open Virtual Appliance"
 msgstr "OVA - otevřené virtuální zařízení"
 
+#, fuzzy
 msgid "Object"
-msgstr "Objekt"
+msgid_plural "Objects"
+msgstr[0] "Objekt"
+msgstr[1] ""
+msgstr[2] ""
 
 msgid "Object Count"
 msgstr "Počet objektů"
 
 msgid "Object Details"
 msgstr "Podrobnosti objektu"
-
-msgid "Objects"
-msgstr "Objekty"
 
 msgid "Ok"
 msgstr "Ok"
@@ -1382,8 +1401,12 @@ msgstr "Profil"
 msgid "Progress bars"
 msgstr "Ukazatele průběhu"
 
+#, fuzzy
 msgid "Project"
-msgstr "Projekt"
+msgid_plural "Projects"
+msgstr[0] "Projekt"
+msgstr[1] ""
+msgstr[2] ""
 
 msgid "Project ID"
 msgstr "ID projektu"
@@ -1394,9 +1417,6 @@ msgid ""
 msgstr ""
 "Sítě projektu vytvářejí uživatelé.\n"
 "    Tyto projekty jsou zcela odděleny a patří ke konkrétním projektům."
-
-msgid "Projects"
-msgstr "Projekty"
 
 msgid "Properties:"
 msgstr "Vlastnosti:"
@@ -1462,11 +1482,12 @@ msgstr "Vzdálené"
 msgid "Right"
 msgstr "Vpravo"
 
+#, fuzzy
 msgid "Role"
-msgstr "Role"
-
-msgid "Roles"
-msgstr "Role"
+msgid_plural "Roles"
+msgstr[0] "Role"
+msgstr[1] ""
+msgstr[2] ""
 
 msgid "Root Disk"
 msgstr "Systémový disk"
@@ -1496,8 +1517,12 @@ msgstr "Hledat"
 msgid "Security"
 msgstr "Bezpečnost"
 
+#, fuzzy
 msgid "Security Group"
-msgstr "Bezpečnostní skupina"
+msgid_plural "Security Groups"
+msgstr[0] "Bezpečnostní skupina"
+msgstr[1] ""
+msgstr[2] ""
 
 msgid "Security Groups"
 msgstr "Bezpečnostní skupiny"
@@ -1681,17 +1706,19 @@ msgstr "Úspěšně importován klíč %(name)s."
 msgid "Swap Disk"
 msgstr "Swap disk"
 
+#, fuzzy
 msgid "Swift Account"
-msgstr "Účet Swift"
+msgid_plural "Swift Accounts"
+msgstr[0] "Účet Swift"
+msgstr[1] ""
+msgstr[2] ""
 
-msgid "Swift Accounts"
-msgstr "Účty Swift"
-
+#, fuzzy
 msgid "Swift Container"
-msgstr "Swift kontejner"
-
-msgid "Swift Containers"
-msgstr "Swift kontejnery"
+msgid_plural "Swift Containers"
+msgstr[0] "Swift kontejner"
+msgstr[1] ""
+msgstr[2] ""
 
 msgid "Table Columns:"
 msgstr "Sloupce tabulky:"
@@ -2394,17 +2421,18 @@ msgstr "Grafy využití"
 msgid "Use image as a source"
 msgstr "Použít obraz jako zdroj"
 
+#, fuzzy
 msgid "User"
-msgstr "Uživatel"
+msgid_plural "Users"
+msgstr[0] "Uživatel"
+msgstr[1] ""
+msgstr[2] ""
 
 msgid "User ID"
 msgstr "ID uživatele"
 
 msgid "User Name"
 msgstr "Uživatelské jméno"
-
-msgid "Users"
-msgstr "Uživatelé"
 
 msgid "VCPUS"
 msgstr "VCPUS"
@@ -2445,18 +2473,19 @@ msgstr "Připojit rozhraní virtuálních instancí do portů. "
 msgid "Visibility"
 msgstr "Viditelnost"
 
+#, fuzzy
 msgid "Volume"
-msgstr "Svazek"
+msgid_plural "Volumes"
+msgstr[0] "Svazek"
+msgstr[1] ""
+msgstr[2] ""
 
-#, python-format
-msgid "Volume %s was successfully created."
-msgstr "Svazek %s byl úspěšně vytvořen."
-
+#, fuzzy
 msgid "Volume Backup"
-msgstr "Záloha svazku"
-
-msgid "Volume Backups"
-msgstr "Zálohy svazku"
+msgid_plural "Volume Backups"
+msgstr[0] "Záloha svazku"
+msgstr[1] ""
+msgstr[2] ""
 
 msgid "Volume Details"
 msgstr "Podrobnosti svazku"
@@ -2464,20 +2493,18 @@ msgstr "Podrobnosti svazku"
 msgid "Volume Quota"
 msgstr "Kvóta svazků"
 
+#, fuzzy
 msgid "Volume Snapshot"
-msgstr "Snapshot svazku"
-
-msgid "Volume Snapshots"
-msgstr "Snapshoty svazku"
+msgid_plural "Volume Snapshots"
+msgstr[0] "Snapshot svazku"
+msgstr[1] ""
+msgstr[2] ""
 
 msgid "Volume Type Description:"
 msgstr "Popis typu svazku:"
 
 msgid "Volume size is required and must be an integer"
 msgstr "Velikost svazku je vyžadována a musí být celé číslo"
-
-msgid "Volumes"
-msgstr "Svazky"
 
 msgid "Volumes are block devices that can be attached to instances."
 msgstr "Svazky jsou bloková zařízení, která mohou být připojena k instancím."

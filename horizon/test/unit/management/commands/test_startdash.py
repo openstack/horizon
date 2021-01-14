@@ -12,7 +12,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-import mock
+from unittest import mock
 
 from django.core.management import call_command
 from django.core.management import CommandError
@@ -29,9 +29,9 @@ class CommandsTestCase(TestCase):
     def test_startdash_usage_correct(self, handle):
         call_command('startdash', 'test_dash')
 
-        handle.assert_called_with(dash_name='test_dash',
-                                  extensions=["py", "tmpl", "html", "js",
-                                              "css"],
-                                  files=[], no_color=False, pythonpath=None,
-                                  settings=None, skip_checks=True, target=None,
-                                  template=None, traceback=False, verbosity=1)
+        handle.assert_called_with(
+            dash_name='test_dash',
+            extensions=["py", "tmpl", "html", "js", "css"],
+            files=[], force_color=False, no_color=False, pythonpath=None,
+            settings=None, skip_checks=True, target=None, template=None,
+            traceback=False, verbosity=1)

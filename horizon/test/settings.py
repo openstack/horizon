@@ -19,12 +19,13 @@
 import os
 import socket
 
+from horizon.defaults import *  # noqa: F401,F403,H303
+from openstack_auth.defaults import *  # noqa: F401,F403,H303
 from openstack_dashboard.utils import settings as settings_utils
 
 socket.setdefaulttimeout(1)
 
 LOGIN_URL = '/auth/login/'
-LOGOUT_URL = '/auth/logout/'
 LOGIN_REDIRECT_URL = '/'
 
 ROOT_PATH = os.path.dirname(os.path.abspath(__file__))
@@ -85,6 +86,7 @@ TEMPLATES = [
                 'django.contrib.messages.context_processors.messages',
                 'horizon.context_processors.horizon',
             ],
+            'debug': True,
             'loaders': [
                 'django.template.loaders.filesystem.Loader',
                 'django.template.loaders.app_directories.Loader',
@@ -95,13 +97,11 @@ TEMPLATES = [
 ]
 
 STATIC_URL = '/static/'
-WEBROOT = '/'
 
 MESSAGE_STORAGE = 'django.contrib.messages.storage.cookie.CookieStorage'
 
 ROOT_URLCONF = 'horizon.test.urls'
 SITE_ID = 1
-SITE_BRANDING = 'Horizon'
 
 EMAIL_BACKEND = 'django.core.mail.backends.locmem.EmailBackend'
 SESSION_ENGINE = 'django.contrib.sessions.backends.signed_cookies'

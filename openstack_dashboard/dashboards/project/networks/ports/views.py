@@ -55,7 +55,7 @@ class CreateView(workflows.WorkflowView):
         network = self.get_network()
         return {"network_id": self.kwargs['network_id'],
                 "network_name": network.name,
-                "target_tenant_id": network.tenant_id}
+                "target_tenant_id": self.request.user.project_id}
 
 
 class DetailView(tabs.TabbedTableView):
@@ -90,7 +90,7 @@ class DetailView(tabs.TabbedTableView):
         return port
 
     def get_context_data(self, **kwargs):
-        context = super(DetailView, self).get_context_data(**kwargs)
+        context = super().get_context_data(**kwargs)
         port = self.get_data()
         network_url = "horizon:project:networks:detail"
         subnet_url = "horizon:project:networks:subnets:detail"
@@ -138,7 +138,8 @@ class DetailView(tabs.TabbedTableView):
         ]
         context["custom_breadcrumb"] = breadcrumb
         context["port"] = port
-        context["url"] = self.get_redirect_url()
+        context["url"] = reverse(
+            'horizon:project:networks:ports_tab', args=[port.network_id])
         context["actions"] = table.render_row_actions(port)
         return context
 
@@ -174,7 +175,7 @@ class UpdateView(workflows.WorkflowView):
                    'name': port['name'],
                    'admin_state': port['admin_state_up'],
                    'mac_address': port['mac_address'],
-                   'target_tenant_id': port['tenant_id']}
+                   "target_tenant_id": self.request.user.project_id}
         if port.get('binding__vnic_type'):
             initial['binding__vnic_type'] = port['binding__vnic_type']
         try:

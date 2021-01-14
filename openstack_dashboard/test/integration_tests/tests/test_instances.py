@@ -9,7 +9,8 @@
 #    WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
 #    License for the specific language governing permissions and limitations
 #    under the License.
-from openstack_dashboard.test.integration_tests import decorators
+import pytest
+
 from openstack_dashboard.test.integration_tests import helpers
 from openstack_dashboard.test.integration_tests.regions import messages
 
@@ -22,7 +23,10 @@ class TestInstances(helpers.TestCase):
     def instances_page(self):
         return self.home_pg.go_to_project_compute_instancespage()
 
-    @decorators.skip_because(bugs=['1774697'])
+    @property
+    def instance_table_name_column(self):
+        return 'Instance Name'
+
     def test_create_delete_instance(self):
         """tests the instance creation and deletion functionality:
 
@@ -34,21 +38,19 @@ class TestInstances(helpers.TestCase):
         instances_page = self.home_pg.go_to_project_compute_instancespage()
 
         instances_page.create_instance(self.INSTANCE_NAME)
-        self.assertTrue(
-            instances_page.find_message_and_dismiss(messages.SUCCESS))
+        self.assertTrue(instances_page.find_message_and_dismiss(messages.INFO))
         self.assertFalse(
             instances_page.find_message_and_dismiss(messages.ERROR))
         self.assertTrue(instances_page.is_instance_active(self.INSTANCE_NAME))
 
         instances_page = self.instances_page
         instances_page.delete_instance(self.INSTANCE_NAME)
-        self.assertTrue(
-            instances_page.find_message_and_dismiss(messages.SUCCESS))
+        self.assertTrue(instances_page.find_message_and_dismiss(messages.INFO))
         self.assertFalse(
             instances_page.find_message_and_dismiss(messages.ERROR))
         self.assertTrue(instances_page.is_instance_deleted(self.INSTANCE_NAME))
 
-    @decorators.skip_because(bugs=['1774697'])
+    @pytest.mark.skip(reason="Bug 1774697")
     def test_instances_pagination(self):
         """This test checks instance pagination
 
@@ -73,7 +75,7 @@ class TestInstances(helpers.TestCase):
         first_page_definition = {'Next': True, 'Prev': False,
                                  'Count': items_per_page,
                                  'Names': [instance_list[1]]}
-        second_page_definition = {'Next': False, 'Prev': False,
+        second_page_definition = {'Next': False, 'Prev': True,
                                   'Count': items_per_page,
                                   'Names': [instance_list[0]]}
         settings_page = self.home_pg.go_to_settings_usersettingspage()
@@ -111,7 +113,7 @@ class TestInstances(helpers.TestCase):
             instances_page.find_message_and_dismiss(messages.SUCCESS))
         self.assertTrue(instances_page.are_instances_deleted(instance_list))
 
-    @decorators.skip_because(bugs=['1774697'])
+    @pytest.mark.skip(reason="Bug 1774697")
     def test_instances_pagination_and_filtration(self):
         """This test checks instance pagination and filtration
 
@@ -184,7 +186,7 @@ class TestInstances(helpers.TestCase):
             instances_page.find_message_and_dismiss(messages.SUCCESS))
         self.assertTrue(instances_page.are_instances_deleted(instance_list))
 
-    @decorators.skip_because(bugs=['1774697'])
+    @pytest.mark.skip(reason="Bug 1774697")
     def test_filter_instances(self):
         """This test checks filtering of instances by Instance Name
 
@@ -241,9 +243,13 @@ class TestAdminInstances(helpers.AdminTestCase, TestInstances):
 
     @property
     def instances_page(self):
+        self.home_pg.go_to_admin_overviewpage()
         return self.home_pg.go_to_admin_compute_instancespage()
 
-    @decorators.skip_because(bugs=['1774697'])
+    @property
+    def instance_table_name_column(self):
+        return 'Name'
+
+    @pytest.mark.skip(reason="Bug 1774697")
     def test_instances_pagination_and_filtration(self):
-        super(TestAdminInstances, self).\
-            test_instances_pagination_and_filtration()
+        super().test_instances_pagination_and_filtration()

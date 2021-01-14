@@ -22,7 +22,8 @@ from openstack_dashboard.api import cinder
 
 
 class UpdateForm(forms.SelfHandlingForm):
-    name = forms.CharField(max_length=255, label=_("Snapshot Name"))
+    name = forms.CharField(max_length=255, label=_("Snapshot Name"),
+                           required=False)
     description = forms.CharField(max_length=255,
                                   widget=forms.Textarea(attrs={'rows': 4}),
                                   label=_("Description"),
@@ -31,12 +32,14 @@ class UpdateForm(forms.SelfHandlingForm):
     def handle(self, request, data):
         snapshot_id = self.initial['snapshot_id']
         try:
-            cinder.volume_snapshot_update(request,
-                                          snapshot_id,
-                                          data['name'],
-                                          data['description'])
+            snapshot = cinder.volume_snapshot_update(request,
+                                                     snapshot_id,
+                                                     data['name'],
+                                                     data['description'])
 
-            message = _('Updating volume snapshot "%s"') % data['name']
+            name_or_id = (snapshot["snapshot"]["name"] or
+                          snapshot["snapshot"]["id"])
+            message = _('Updating volume snapshot "%s"') % name_or_id
             messages.info(request, message)
             return True
         except Exception:

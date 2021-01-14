@@ -53,7 +53,7 @@ class CreateSubnet(proj_tables.SubnetPolicyTargetMixin, tables.LinkAction):
         # usages["subnet'] is empty
         if usages.get('subnet', {}).get('available', 1) <= 0:
             if 'disabled' not in self.classes:
-                self.classes = [c for c in self.classes] + ['disabled']
+                self.classes = list(self.classes) + ['disabled']
                 self.verbose_name = _('Create Subnet (Quota exceeded)')
         else:
             self.verbose_name = _('Create Subnet')
@@ -77,13 +77,11 @@ class UpdateSubnet(proj_tables.SubnetPolicyTargetMixin, tables.LinkAction):
 
 def subnet_ip_availability(availability):
     subnet_availability = availability.get("free_ips")
-    if subnet_availability:
-        if subnet_availability > 10000:
-            return ">10000"
-        else:
-            return str(subnet_availability)
-    else:
-        return str("Not Available")
+    if not subnet_availability:
+        return "Not Available"
+    if subnet_availability > 10000:
+        return ">10000"
+    return str(subnet_availability)
 
 
 class SubnetsTable(tables.DataTable):
@@ -122,10 +120,9 @@ class SubnetsTable(tables.DataTable):
         hidden_title = False
 
     def __init__(self, request, data=None, needs_form_wrapper=None, **kwargs):
-        super(SubnetsTable, self).__init__(
-            request, data=data,
-            needs_form_wrapper=needs_form_wrapper,
-            **kwargs)
+        super().__init__(request, data=data,
+                         needs_form_wrapper=needs_form_wrapper,
+                         **kwargs)
         if not api.neutron.is_extension_supported(request,
                                                   'network-ip-availability'):
             del self.columns['subnet_used_ips']
@@ -156,6 +153,8 @@ class SubnetsTab(project_tabs_subnets_tab):
                 subnet_used_ips = subnet_usage.get("used_ips")
                 subnet_total_ips = subnet_usage.get("total_ips")
                 subnet_free_ips = subnet_total_ips - subnet_used_ips
+                if subnet_free_ips < 0:
+                    subnet_free_ips = 0
                 for item in subnets_dict:
                     id = item.get("id")
                     if id == subnet_id:
@@ -168,7 +167,7 @@ class SubnetsTab(project_tabs_subnets_tab):
 
     def get_subnets_data(self):
         try:
-            subnets = super(SubnetsTab, self).get_subnets_data()
+            subnets = super().get_subnets_data()
             network_id = self.tab_group.kwargs['network_id']
 
             if api.neutron.is_extension_supported(self.request,

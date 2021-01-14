@@ -13,28 +13,38 @@
 import os
 import tempfile
 
-from django.utils.translation import pgettext_lazy
-
 from horizon.test.settings import *  # noqa: F403,H303
 from horizon.utils.escape import monkeypatch_escape
 from horizon.utils import secret_key
 
 from openstack_dashboard import enabled
 from openstack_dashboard import exceptions
+from openstack_dashboard import theme_settings
 from openstack_dashboard.utils import settings as settings_utils
 
 # this is used to protect from client XSS attacks, but it's worth
 # enabling in our test setup to find any issues it might cause
 monkeypatch_escape()
 
-TEST_DIR = os.path.dirname(os.path.abspath(__file__))
+# Load default values
+from openstack_dashboard.defaults import *  # noqa: E402,F403,H303
 
+WEBROOT = '/'
+
+# The following need to Set explicitly
+# as they defaults to None in openstack_dashboard.defaults.
+# TODO(amotoki): Move them to a common function.
+LOGIN_URL = '/auth/login/'
+LOGOUT_URL = '/auth/logout/'
+LOGIN_ERROR = '/auth/error/'
+LOGIN_REDIRECT_URL = '/'
+MEDIA_URL = '/media/'
+STATIC_URL = '/static/'
+
+TEST_DIR = os.path.dirname(os.path.abspath(__file__))
 ROOT_PATH = os.path.abspath(os.path.join(TEST_DIR, ".."))
 MEDIA_ROOT = os.path.abspath(os.path.join(ROOT_PATH, '..', 'media'))
-MEDIA_URL = '/media/'
 STATIC_ROOT = os.path.abspath(os.path.join(ROOT_PATH, '..', 'static'))
-STATIC_URL = '/static/'
-WEBROOT = '/'
 
 SECRET_KEY = secret_key.generate_or_read_from_file(
     os.path.join(tempfile.gettempdir(), '.secret_key_store'))
@@ -48,29 +58,8 @@ TEMPLATES[0]['OPTIONS']['context_processors'].append(
     'openstack_dashboard.context_processors.openstack'
 )
 
-# 'key', 'label', 'path'
-AVAILABLE_THEMES = [
-    (
-        'default',
-        pgettext_lazy('Default style theme', 'Default'),
-        'themes/default'
-    ), (
-        'material',
-        pgettext_lazy("Google's Material Design style theme", "Material"),
-        'themes/material'
-    ),
-]
-
-SELECTABLE_THEMES = [
-    (
-        'default',
-        pgettext_lazy('Default style theme', 'Default'),
-        'themes/default'
-    ),
-]
-
-# Theme Static Directory
-THEME_COLLECTION_DIR = 'themes'
+AVAILABLE_THEMES, SELECTABLE_THEMES, DEFAULT_THEME = \
+    theme_settings.get_available_themes(AVAILABLE_THEMES, 'default', None)
 
 COMPRESS_OFFLINE = False
 
@@ -105,11 +94,12 @@ HORIZON_CONFIG = {
     'js_files': [],
 }
 
-ANGULAR_FEATURES = {
-    'images_panel': False,  # Use the legacy panel so unit tests are still run
-    'flavors_panel': False,
-    'roles_panel': False,
-}
+# Use the legacy panel so unit tests are still run.
+# We need to set False for panels whose default implementation
+# is Angular-based.
+ANGULAR_FEATURES['images_panel'] = False
+ANGULAR_FEATURES['key_pairs_panel'] = False
+ANGULAR_FEATURES['roles_panel'] = False
 
 STATICFILES_DIRS = settings_utils.get_xstatic_dirs(
     settings_utils.BASE_XSTATIC_MODULES, HORIZON_CONFIG
@@ -124,74 +114,30 @@ settings_utils.update_dashboards(
     INSTALLED_APPS,
 )
 
-OPENSTACK_PROFILER = {'enabled': False}
-
 settings_utils.find_static_files(HORIZON_CONFIG, AVAILABLE_THEMES,
                                  THEME_COLLECTION_DIR, ROOT_PATH)
 
-# Set to 'legacy' or 'direct' to allow users to upload images to glance via
-# Horizon server. When enabled, a file form field will appear on the create
-# image form. If set to 'off', there will be no file form field on the create
-# image form. See documentation for deployment considerations.
-HORIZON_IMAGES_UPLOAD_MODE = 'legacy'
 IMAGES_ALLOW_LOCATION = True
 
 AVAILABLE_REGIONS = [
-    ('http://localhost:5000/v3', 'local'),
-    ('http://remote:5000/v3', 'remote'),
+    ('http://localhost/identity/v3', 'local'),
+    ('http://remote/identity/v3', 'remote'),
 ]
 
-OPENSTACK_API_VERSIONS = {
-    "identity": 3,
-    "image": 2
-}
-
-OPENSTACK_KEYSTONE_URL = "http://localhost:5000/v3"
-OPENSTACK_KEYSTONE_DEFAULT_ROLE = "_member_"
+OPENSTACK_KEYSTONE_URL = "http://localhost/identity/v3"
 
 OPENSTACK_KEYSTONE_MULTIDOMAIN_SUPPORT = True
 OPENSTACK_KEYSTONE_DEFAULT_DOMAIN = 'test_domain'
 OPENSTACK_KEYSTONE_FEDERATION_MANAGEMENT = True
 
-OPENSTACK_KEYSTONE_BACKEND = {
-    'name': 'native',
-    'can_edit_user': True,
-    'can_edit_group': True,
-    'can_edit_project': True,
-    'can_edit_domain': True,
-    'can_edit_role': True
-}
+OPENSTACK_CINDER_FEATURES['enable_backup'] = True
 
-OPENSTACK_CINDER_FEATURES = {
-    'enable_backup': True,
-}
+OPENSTACK_NEUTRON_NETWORK['enable_router'] = True
+# network quota is Enabled in specific tests only
+OPENSTACK_NEUTRON_NETWORK['enable_quotas'] = False
+OPENSTACK_NEUTRON_NETWORK['enable_distributed_router'] = False
 
-OPENSTACK_NEUTRON_NETWORK = {
-    'enable_router': True,
-    'enable_quotas': False,  # Enabled in specific tests only
-    'enable_distributed_router': False,
-}
-
-OPENSTACK_HYPERVISOR_FEATURES = {
-    'can_set_mount_point': False,
-    'can_set_password': True,
-}
-
-OPENSTACK_IMAGE_BACKEND = {
-    'image_formats': [
-        ('', 'Select format'),
-        ('aki', 'AKI - Amazon Kernel Image'),
-        ('ami', 'AMI - Amazon Machine Image'),
-        ('ari', 'ARI - Amazon Ramdisk Image'),
-        ('iso', 'ISO - Optical Disk Image'),
-        ('ploop', 'PLOOP - Virtuozzo/Parallels Loopback Disk'),
-        ('qcow2', 'QCOW2 - QEMU Emulator'),
-        ('raw', 'Raw'),
-        ('vdi', 'VDI'),
-        ('vhd', 'VHD'),
-        ('vmdk', 'VMDK')
-    ]
-}
+OPENSTACK_HYPERVISOR_FEATURES['can_set_password'] = True
 
 LOGGING['loggers'].update(
     {
@@ -254,6 +200,9 @@ POLICY_FILES = {
     'identity': 'keystone_policy.json',
     'compute': 'nova_policy.json'
 }
+# Tthe policy check is disabled by default in our test, and it is enabled
+# when we would like to test the policy check feature itself.
+POLICY_CHECK_FUNCTION = None
 
 # The openstack_auth.user.Token object isn't JSON-serializable ATM
 SESSION_SERIALIZER = 'django.contrib.sessions.serializers.PickleSerializer'
@@ -263,9 +212,6 @@ REST_API_SETTING_2 = 'bar'
 REST_API_SECURITY = 'SECURITY'
 REST_API_REQUIRED_SETTINGS = ['REST_API_SETTING_1']
 REST_API_ADDITIONAL_SETTINGS = ['REST_API_SETTING_2']
-
-ALLOWED_PRIVATE_SUBNET_CIDR = {'ipv4': [], 'ipv6': []}
-
 
 # --------------------
 # Test-only settings
@@ -280,16 +226,6 @@ TEST_GLOBAL_MOCKS_ON_PANELS = {
                    '.aggregates.panel.Aggregates.can_access'),
         'return_value': True,
     },
-    'cgroups': {
-        'method': ('openstack_dashboard.dashboards.project'
-                   '.cgroups.panel.CGroups.allowed'),
-        'return_value': True,
-    },
-    'cg_snapshots': {
-        'method': ('openstack_dashboard.dashboards.project'
-                   '.cg_snapshots.panel.CGSnapshots.allowed'),
-        'return_value': True,
-    },
     'domains': {
         'method': ('openstack_dashboard.dashboards.identity'
                    '.domains.panel.Domains.can_access'),
@@ -298,6 +234,11 @@ TEST_GLOBAL_MOCKS_ON_PANELS = {
     'qos': {
         'method': ('openstack_dashboard.dashboards.project'
                    '.network_qos.panel.NetworkQoS.can_access'),
+        'return_value': True,
+    },
+    'rbac_policies': {
+        'method': ('openstack_dashboard.dashboards.admin'
+                   '.rbac_policies.panel.RBACPolicies.can_access'),
         'return_value': True,
     },
     'server_groups': {

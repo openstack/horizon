@@ -10,11 +10,12 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
+import functools
 import importlib
 import json
+import types
 
 from selenium.webdriver.common import by
-import six
 
 from openstack_dashboard.test.integration_tests import config
 
@@ -82,9 +83,6 @@ class Navigation(object):
                                     "Volumes",
                                     "Backups",
                                     "Snapshots",
-                                    "Consistency Groups",
-                                    "Consistency Group Snapshots",
-
                                 )
                         },
                     "Network":
@@ -124,6 +122,7 @@ class Navigation(object):
                                     "Volumes",
                                     "Snapshots",
                                     "Volume Types",
+                                    "Group Types",
 
                                 )
                         },
@@ -315,8 +314,13 @@ class Navigation(object):
     @classmethod
     def _create_go_to_method(cls, path, class_name=None):
         go_to_method = Navigation.GoToMethodFactory(path, class_name)
-        inst_method = six.create_unbound_method(go_to_method, Navigation)
-        setattr(Navigation, inst_method.name, inst_method)
+        inst_method = types.MethodType(go_to_method, Navigation)
+
+        def _go_to_page(self, path):
+            return Navigation._go_to_page(self, path)
+
+        wrapped_go_to = functools.partialmethod(_go_to_page, path)
+        setattr(Navigation, inst_method.name, wrapped_go_to)
 
     @classmethod
     def unify_page_path(cls, path, preserve_spaces=True):

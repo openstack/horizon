@@ -45,7 +45,7 @@ class AddRouterRouteView(forms.ModalFormView):
             exceptions.handle(self.request, msg, redirect=redirect)
 
     def get_context_data(self, **kwargs):
-        context = super(AddRouterRouteView, self).get_context_data(**kwargs)
+        context = super().get_context_data(**kwargs)
         context['router'] = self.get_object()
         return context
 

@@ -32,8 +32,19 @@ class BackupOverviewTab(tabs.Tab):
                 volume = cinder.volume_get(request, backup.volume_id)
             except Exception:
                 volume = None
+            try:
+                if backup.snapshot_id:
+                    snapshot = cinder.volume_snapshot_get(request,
+                                                          backup.snapshot_id)
+                else:
+                    snapshot = None
+            except Exception:
+                snapshot = None
+
             return {'backup': backup,
-                    'volume': volume}
+                    'volume': volume,
+                    'snapshot': snapshot}
+
         except Exception:
             redirect = reverse('horizon:project:backups:index')
             exceptions.handle(self.request,

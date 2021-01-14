@@ -12,6 +12,7 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
+from django.conf import settings
 from django.utils.translation import ugettext_lazy as _
 
 import horizon
@@ -25,11 +26,7 @@ class Roles(horizon.Panel):
     policy_rules = (("identity", "identity:list_roles"),)
 
     def can_access(self, context):
-        if keystone.is_multi_domain_enabled() \
-                and not keystone.is_domain_admin(context['request']):
+        if (settings.OPENSTACK_KEYSTONE_MULTIDOMAIN_SUPPORT and
+                not keystone.is_domain_admin(context['request'])):
             return False
-        return super(Roles, self).can_access(context)
-
-    @staticmethod
-    def can_register():
-        return keystone.VERSIONS.active >= 3
+        return super().can_access(context)

@@ -13,13 +13,13 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
-from django.conf import settings
 from django.utils.translation import ugettext_lazy as _
 
 import horizon
+from horizon.utils import settings as horizon_settings
 
 
-if getattr(settings, 'OPENSTACK_PROFILER', {}).get('enabled', False):
+if horizon_settings.get_dict_config('OPENSTACK_PROFILER', 'enabled'):
     class Profiler(horizon.Panel):
         name = _("OpenStack Profiler")
         slug = 'profiler'

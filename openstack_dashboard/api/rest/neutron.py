@@ -27,7 +27,7 @@ from openstack_dashboard.usage import quotas
 class Networks(generic.View):
     """API for Neutron Networks
 
-    http://developer.openstack.org/api-ref-networking-v2.html
+    https://docs.openstack.org/api-ref/network/v2/index.html
     """
     url_regex = r'neutron/networks/$'
 
@@ -79,7 +79,7 @@ class Networks(generic.View):
 class Subnets(generic.View):
     """API for Neutron Subnets
 
-    http://developer.openstack.org/api-ref-networking-v2.html#subnets
+    https://docs.openstack.org/api-ref/network/v2/index.html#subnets
     """
     url_regex = r'neutron/subnets/$'
 
@@ -126,7 +126,7 @@ class Subnets(generic.View):
 class Ports(generic.View):
     """API for Neutron Ports
 
-    http://developer.openstack.org/api-ref-networking-v2.html#ports
+    https://docs.openstack.org/api-ref/network/v2/index.html#ports
     """
     url_regex = r'neutron/ports/$'
 
@@ -201,12 +201,11 @@ class Services(generic.View):
     @rest_utils.ajax()
     def get(self, request):
         """Get a list of agents"""
-        if api.base.is_service_enabled(request, 'network') and \
-           api.neutron.is_extension_supported(request, 'agent'):
+        if (api.base.is_service_enabled(request, 'network') and
+                api.neutron.is_extension_supported(request, 'agent')):
             result = api.neutron.agent_list(request, **request.GET.dict())
             return {'items': [n.to_dict() for n in result]}
-        else:
-            raise rest_utils.AjaxError(501, '')
+        raise rest_utils.AjaxError(501, '')
 
 
 @urls.register
@@ -225,7 +224,8 @@ class Extensions(generic.View):
         http://localhost/api/neutron/extensions
         """
         result = api.neutron.list_extensions(request)
-        return {'items': [e for e in result]}
+        # list_extensions can return a tuple, so list() is required.
+        return {'items': list(result)}
 
 
 class DefaultQuotaSets(generic.View):
@@ -234,22 +234,22 @@ class DefaultQuotaSets(generic.View):
 
     @rest_utils.ajax()
     def get(self, request):
-        if api.base.is_service_enabled(request, 'network'):
-            quota_set = api.neutron.tenant_quota_get(
-                request, request.user.tenant_id)
-
-            result = [{
-                'display_name': quotas.QUOTA_NAMES.get(
-                    quota.name,
-                    quota.name.replace('_', ' ').title()
-                ) + '',
-                'name': quota.name,
-                'limit': quota.limit
-            } for quota in quota_set]
-
-            return {'items': result}
-        else:
+        if not api.base.is_service_enabled(request, 'network'):
             raise rest_utils.AjaxError(501, _('Service Neutron is disabled.'))
+
+        quota_set = api.neutron.tenant_quota_get(
+            request, request.user.tenant_id)
+
+        result = [{
+            'display_name': quotas.QUOTA_NAMES.get(
+                quota.name,
+                quota.name.replace('_', ' ').title()
+            ) + '',
+            'name': quota.name,
+            'limit': quota.limit
+        } for quota in quota_set]
+
+        return {'items': result}
 
 
 @urls.register

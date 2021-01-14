@@ -57,7 +57,7 @@ class OverviewTab(tabs.Tab):
         return network
 
     def get_context_data(self, request, **kwargs):
-        context = super(OverviewTab, self).get_context_data(request, **kwargs)
+        context = super().get_context_data(request, **kwargs)
         network = self._get_data()
 
         context["network"] = network

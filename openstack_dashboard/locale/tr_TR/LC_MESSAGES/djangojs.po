@@ -3,16 +3,19 @@
 # evgin <evgind@gmail.com>, 2016. #zanata
 # işbaran akçayır <isbaran@gmail.com>, 2017. #zanata
 # yasemin demiral <yasemin.demiral@tubitak.gov.tr>, 2017. #zanata
+# Mücahit Büyükyılmaz <mucahit@deltanoc.com>, 2020. #zanata
+# işbaran akçayır <isbaran@gmail.com>, 2020. #zanata
+# yasemin demiral <yasemin.demiral@tubitak.gov.tr>, 2020. #zanata
 msgid ""
 msgstr ""
 "Project-Id-Version: horizon VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2018-09-07 04:25+0000\n"
+"POT-Creation-Date: 2020-01-08 17:19+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2017-08-16 11:43+0000\n"
-"Last-Translator: yasemin demiral <yasemin.demiral@tubitak.gov.tr>\n"
+"PO-Revision-Date: 2020-01-08 04:04+0000\n"
+"Last-Translator: Mücahit Büyükyılmaz <mucahit@deltanoc.com>\n"
 "Language-Team: Turkish (Turkey)\n"
 "Language: tr_TR\n"
 "X-Generator: Zanata 4.3.3\n"
@@ -20,12 +23,6 @@ msgstr ""
 
 msgid "#"
 msgstr "#"
-
-#, python-format
-msgid "%s instance launched."
-msgid_plural "%s instances launched."
-msgstr[0] "%s sanal makine başlatıldı."
-msgstr[1] "%s sanal makineleri başlatıldı."
 
 msgid "1"
 msgstr "1"
@@ -585,17 +582,17 @@ msgstr ""
 "<samp>cloud-init</samp> kuramıyorsanız özel bir betik ile bir açık anahtar "
 "alabilir ve onu kullanıcı hesabına ekletebilirsiniz."
 
+#, fuzzy
 msgid "DNS Domain"
-msgstr "DNS Domaini"
+msgid_plural "DNS Domains"
+msgstr[0] "DNS Domaini"
+msgstr[1] ""
 
-msgid "DNS Domains"
-msgstr "DNS Domainleri"
-
+#, fuzzy
 msgid "DNS Record"
-msgstr "DNS Kaydı"
-
-msgid "DNS Records"
-msgstr "DNS Kayıtları"
+msgid_plural "DNS Records"
+msgstr[0] "DNS Kaydı"
+msgstr[1] ""
 
 msgid "DSCP Mark"
 msgstr "DSCP Mark "
@@ -785,17 +782,17 @@ msgstr "Dağıtım Çizelgeleri"
 msgid "Docker"
 msgstr "Docker"
 
+#, fuzzy
 msgid "Domain"
-msgstr "Alan"
+msgid_plural "Domains"
+msgstr[0] "Alan"
+msgstr[1] ""
 
 msgid "Domain ID"
 msgstr "Alan ID"
 
 msgid "Domain Name"
 msgstr "Alan Adı"
-
-msgid "Domains"
-msgstr "Alanlar"
 
 msgid "Done"
 msgstr "Yapıldı"
@@ -899,14 +896,14 @@ msgstr "Dosyaadı"
 msgid "Fingerprint"
 msgstr "Parmak izi"
 
+#, fuzzy
 msgid "Flavor"
-msgstr "Şablon"
+msgid_plural "Flavors"
+msgstr[0] "Şablon"
+msgstr[1] ""
 
 msgid "Flavor Name"
 msgstr "Şablon Adı"
-
-msgid "Flavors"
-msgstr "Şablonlar"
 
 msgid ""
 "Flavors manage the sizing for the compute, memory and storage capacity of "
@@ -915,11 +912,11 @@ msgstr ""
 "Şablonlar sanal makinelerin hesaplama, bellek ve depolama kapasitelerini "
 "belirlerler."
 
+#, fuzzy
 msgid "Floating IP"
-msgstr "Değişken IP"
-
-msgid "Floating IPs"
-msgstr "Değişken IPler"
+msgid_plural "Floating IPs"
+msgstr[0] "Değişken IP"
+msgstr[1] ""
 
 msgid "Focused input"
 msgstr "Odaklanan Input"
@@ -967,11 +964,11 @@ msgstr "Genel Tablo Bakışı:"
 msgid "Global Actions:"
 msgstr "Global Aksiyonlar:"
 
+#, fuzzy
 msgid "Group"
-msgstr "Grup"
-
-msgid "Groups"
-msgstr "Gruplar"
+msgid_plural "Groups"
+msgstr[0] "Grup"
+msgstr[1] ""
 
 msgid "Hash"
 msgstr "Hash"
@@ -1003,11 +1000,11 @@ msgstr "Yatay Tanım Listesi"
 msgid "Host ID"
 msgstr "Host ID'si"
 
+#, fuzzy
 msgid "Hypervisor"
-msgstr "Hipervizör"
-
-msgid "Hypervisors"
-msgstr "Hipervizörler"
+msgid_plural "Hypervisors"
+msgstr[0] "Hipervizör"
+msgstr[1] ""
 
 msgid "ID"
 msgstr "ID"
@@ -1075,8 +1072,11 @@ msgstr ""
 "yani sanal makineyi silmeniz durumunda verilerin saklanmasını istediğinizde, "
 "aşağıdaki başlatma seçeneklerinden birini seçin:"
 
+#, fuzzy
 msgid "Image"
-msgstr "İmaj"
+msgid_plural "Images"
+msgstr[0] "İmaj"
+msgstr[1] ""
 
 #, python-format
 msgid "Image %s was successfully created."
@@ -1109,9 +1109,6 @@ msgstr "İmaj Kaynağı"
 
 msgid "Image from Other Project - Non-Public"
 msgstr "Başka Projeden İmaj - Açık-Değil"
-
-msgid "Images"
-msgstr "İmajlar"
 
 msgid "Impact on your quota"
 msgstr "Kotanıza etkisi"
@@ -1155,8 +1152,11 @@ msgstr "Input başarılı"
 msgid "Input warning"
 msgstr "Input uyarısı"
 
+#, fuzzy
 msgid "Instance"
-msgstr "Sanal Makine"
+msgid_plural "Instances"
+msgstr[0] "Sanal Makine"
+msgstr[1] ""
 
 msgid "Instance Name"
 msgstr "Sanal Makine Adı"
@@ -1178,9 +1178,6 @@ msgstr ""
 "    birim anlık görüntüsü üstünde bir birim (etkinse) seçebilirsiniz.\n"
 "    Ayrıca yeni bir birim oluşturarak kalıcı depolama da kullanabilirsiniz."
 
-msgid "Instances"
-msgstr "Sanal Makineler"
-
 msgid "Interfaces"
 msgstr "Arabirimler"
 
@@ -1199,14 +1196,14 @@ msgstr "Çekirdek"
 msgid "Kernel ID"
 msgstr "Kernel ID"
 
+#, fuzzy
 msgid "Key Pair"
-msgstr "Anahtar Çifti"
+msgid_plural "Key Pairs"
+msgstr[0] "Anahtar Çifti"
+msgstr[1] ""
 
 msgid "Key Pair Name"
 msgstr "Anahtar Çifti Adı"
-
-msgid "Key Pairs"
-msgstr "Anahtar Çiftleri"
 
 msgid ""
 "Key Pairs are how you login to your instance after it is launched.\n"
@@ -1282,17 +1279,17 @@ msgstr "Liste grupları"
 msgid "Live Edit Schema Form Examples"
 msgstr "Şablon Formu Canlı Düzenleme Örnekleri"
 
+#, fuzzy
 msgid "Load Balancer Pool"
-msgstr "Yük Dengeleyici Havuzu"
+msgid_plural "Load Balancer Pools"
+msgstr[0] "Yük Dengeleyici Havuzu"
+msgstr[1] ""
 
+#, fuzzy
 msgid "Load Balancer Pool Member"
-msgstr "Yük Dengeleyici Havuz Üyesi"
-
-msgid "Load Balancer Pool Members"
-msgstr "Yük Dengeleyici Havuz Üyeleri"
-
-msgid "Load Balancer Pools"
-msgstr "Yük Dengeleyici Havuzları"
+msgid_plural "Load Balancer Pool Members"
+msgstr[0] "Yük Dengeleyici Havuz Üyesi"
+msgstr[1] ""
 
 msgid "Load Function:"
 msgstr "Fonksiyon Yükle:"
@@ -1339,11 +1336,11 @@ msgstr "İletiler"
 msgid "Metadata"
 msgstr "Metaveri"
 
+#, fuzzy
 msgid "Metadata Definition"
-msgstr "Metaveri Tanımlaması"
-
-msgid "Metadata Definitions"
-msgstr "Metaveri Tanımlamaları"
+msgid_plural "Metadata Definitions"
+msgstr[0] "Metaveri Tanımlaması"
+msgstr[1] ""
 
 msgid ""
 "Metadata is a collection of key-value pairs associated with an instance.\n"
@@ -1426,35 +1423,41 @@ msgstr "Navbar"
 msgid "Navs"
 msgstr "Kılavuzlar"
 
+#, fuzzy
 msgid "Network"
-msgstr "Ağ"
+msgid_plural "Networks"
+msgstr[0] "Ağ"
+msgstr[1] ""
 
+#, fuzzy
 msgid "Network Health Monitor"
-msgstr "Ağ Sağlık İzleyicisi"
-
-msgid "Network Health Monitors"
-msgstr "Ağ Sağlık İzleyicileri"
+msgid_plural "Network Health Monitors"
+msgstr[0] "Ağ Sağlık İzleyicisi"
+msgstr[1] ""
 
 msgid "Network ID"
 msgstr "Ağ ID'si"
 
+#, fuzzy
 msgid "Network Port"
-msgstr "Ağ Portu"
+msgid_plural "Network Ports"
+msgstr[0] "Ağ Portu"
+msgstr[1] ""
 
 msgid "Network Ports"
 msgstr "Ağ Bağlantı Noktaları"
 
+#, fuzzy
 msgid "Network Router"
-msgstr "Ağ Yönlendiricisi"
+msgid_plural "Network Routers"
+msgstr[0] "Ağ Yönlendiricisi"
+msgstr[1] ""
 
-msgid "Network Routers"
-msgstr "Ağ Yönlendiricileri"
-
+#, fuzzy
 msgid "Network Subnet"
-msgstr "Ağ Alt Ağı"
-
-msgid "Network Subnets"
-msgstr "Ağ Alt Ağları"
+msgid_plural "Network Subnets"
+msgstr[0] "Ağ Alt Ağı"
+msgstr[1] ""
 
 msgid "Network characteristics"
 msgstr "Ağ Özellikleri"
@@ -1533,17 +1536,17 @@ msgstr "OVA"
 msgid "OVA - Open Virtual Appliance"
 msgstr "OVA - Open Virtual Appliance"
 
+#, fuzzy
 msgid "Object"
-msgstr "Nesne"
+msgid_plural "Objects"
+msgstr[0] "Nesne"
+msgstr[1] ""
 
 msgid "Object Count"
 msgstr "Nesne Sayısı"
 
 msgid "Object Details"
 msgstr "Nesne Ayrıntıları"
-
-msgid "Objects"
-msgstr "Nesneler"
 
 msgid "Ok"
 msgstr "Tamam"
@@ -1729,8 +1732,11 @@ msgstr "Profil"
 msgid "Progress bars"
 msgstr "İlerleme Çubuğu"
 
+#, fuzzy
 msgid "Project"
-msgstr "Proje"
+msgid_plural "Projects"
+msgstr[0] "Proje"
+msgstr[1] ""
 
 msgid "Project ID"
 msgstr "Proje ID"
@@ -1741,9 +1747,6 @@ msgid ""
 msgstr ""
 "Proje ağları kullanıcılar tarafından oluşturulur.\n"
 "    Bu ağlar tamamen yalıtılmışlardır ve projeye özellerdir."
-
-msgid "Projects"
-msgstr "Projeler"
 
 msgid "Properties:"
 msgstr "Özellikler:"
@@ -1779,11 +1782,11 @@ msgstr "QCOW2"
 msgid "QCOW2 - QEMU Emulator"
 msgstr "QCOW2 - QEMU Emulator"
 
-msgid "QoS Policies"
-msgstr "QoS İlkeleri"
-
+#, fuzzy
 msgid "QoS Policy"
-msgstr "QoS İlkesi"
+msgid_plural "QoS Policies"
+msgstr[0] "QoS İlkesi"
+msgstr[1] ""
 
 msgid "Queued"
 msgstr "Kuyrukta"
@@ -1830,8 +1833,11 @@ msgstr "Gözden Geçirme Sayısı "
 msgid "Right"
 msgstr "Sağ"
 
+#, fuzzy
 msgid "Role"
-msgstr "Rol"
+msgid_plural "Roles"
+msgstr[0] "Rol"
+msgstr[1] ""
 
 #, python-format
 msgid "Role %s was successfully created."
@@ -1839,9 +1845,6 @@ msgstr "Rol %s başarıyla oluşturuldu."
 
 msgid "Role updated successfully."
 msgstr "Rol başarıyla güncellendi."
-
-msgid "Roles"
-msgstr "Roller"
 
 msgid "Root Disk"
 msgstr "Root Diski"
@@ -1886,8 +1889,11 @@ msgstr "Kısımlar ve Alan kümeleri"
 msgid "Security"
 msgstr "Güvenlik"
 
+#, fuzzy
 msgid "Security Group"
-msgstr "Güvenlik Grubu"
+msgid_plural "Security Groups"
+msgstr[0] "Güvenlik Grubu"
+msgstr[1] ""
 
 msgid "Security Groups"
 msgstr "Güvenlik Grupları"
@@ -2119,17 +2125,17 @@ msgstr "Ayrıntı Görünümünü Destekler:"
 msgid "Swap Disk"
 msgstr "Swap Disk"
 
+#, fuzzy
 msgid "Swift Account"
-msgstr "Swift Hesabı"
+msgid_plural "Swift Accounts"
+msgstr[0] "Swift Hesabı"
+msgstr[1] ""
 
-msgid "Swift Accounts"
-msgstr "Swift Hesapları"
-
+#, fuzzy
 msgid "Swift Container"
-msgstr "Swift Konteyner"
-
-msgid "Swift Containers"
-msgstr "Swift Konteynerleri"
+msgid_plural "Swift Containers"
+msgstr[0] "Swift Konteyner"
+msgstr[1] ""
 
 msgid "Tab Array"
 msgstr "Sekme Dizisi"
@@ -2416,11 +2422,11 @@ msgstr "Toplam Mantıksal Sürücü Depolama"
 msgid "Total Volumes"
 msgstr "Toplam Birimler"
 
+#, fuzzy
 msgid "Trunk"
-msgstr "Trunk"
-
-msgid "Trunks"
-msgstr "Trunks"
+msgid_plural "Trunks"
+msgstr[0] "Trunk"
+msgstr[1] ""
 
 msgid "Type"
 msgstr "Tür"
@@ -2950,17 +2956,17 @@ msgstr ""
 "Şema her zaman JSON'dur. NOT: Veri modeli olmayan ögeler için şema elemanı "
 "gerekli değildir, kısımlar ve alan kümeleri gibi."
 
+#, fuzzy
 msgid "User"
-msgstr "Kullanıcı"
+msgid_plural "Users"
+msgstr[0] "Kullanıcı"
+msgstr[1] ""
 
 msgid "User ID"
 msgstr "Kullanıcı ID"
 
 msgid "User Name"
 msgstr "Kullanıcı Adı"
-
-msgid "Users"
-msgstr "Kullanıcılar"
 
 msgid "VCPUS"
 msgstr "VCPU'LAR"
@@ -3016,18 +3022,17 @@ msgstr "Sanal sunucular arabirimlerini bağlantı noktalarına bağlar."
 msgid "Visibility"
 msgstr "Görünürlük"
 
+#, fuzzy
 msgid "Volume"
-msgstr "Mantıksal Sürücü"
+msgid_plural "Volumes"
+msgstr[0] "Mantıksal Sürücü"
+msgstr[1] ""
 
-#, python-format
-msgid "Volume %s was successfully created."
-msgstr "Birim %s başarıyla oluşturuldu."
-
+#, fuzzy
 msgid "Volume Backup"
-msgstr "Mantıksal Sürücü Yedeği"
-
-msgid "Volume Backups"
-msgstr "Mantıksal Sürücü Yedekleri"
+msgid_plural "Volume Backups"
+msgstr[0] "Mantıksal Sürücü Yedeği"
+msgstr[1] ""
 
 msgid "Volume Details"
 msgstr "Mantıksal Sürücü Detayları"
@@ -3038,11 +3043,11 @@ msgstr "Mantıksal Sürücü Veri Kotası (GB)"
 msgid "Volume Size (GB)"
 msgstr "Birim Boyutu(GB)"
 
+#, fuzzy
 msgid "Volume Snapshot"
-msgstr "Mantıksal Sürücü Anlık Görüntüsü"
-
-msgid "Volume Snapshots"
-msgstr "Mantıksal Sürücü  Anlık Görüntüleri"
+msgid_plural "Volume Snapshots"
+msgstr[0] "Mantıksal Sürücü Anlık Görüntüsü"
+msgstr[1] ""
 
 msgid "Volume Type Description:"
 msgstr "Mantıksal Sürücü Türü Tanımı:"
@@ -3052,9 +3057,6 @@ msgstr "Mantıksal Sürücü ve Anlık Görüntü Kotası (GiB)"
 
 msgid "Volume size is required and must be an integer"
 msgstr "Mantıksal sürücü boyutu bir tam sayı olarak girilmelidir"
-
-msgid "Volumes"
-msgstr "Mantıksal Sürücüler"
 
 msgid "Volumes are block devices that can be attached to instances."
 msgstr "Mantıksal sürücüler sunuculara eklenebilen blok aygıtlardır."

@@ -35,21 +35,27 @@ MICROVERSION_FEATURES = {
         "servergroup_user_info": ["2.13", "2.60"],
         "multiattach": ["2.60"],
         "auto_allocated_network": ["2.37", "2.42"],
+        "key_types": ["2.2", "2.9"],
+        "key_type_list": ["2.9"],
     },
     "cinder": {
-        "groups": ["3.27", "3.43", "3.48"],
-        "consistency_groups": ["2.0", "3.10"],
-        "message_list": ["3.5", "3.29"]
+        "groups": ["3.27", "3.43", "3.48", "3.58"],
+        "message_list": ["3.5", "3.29"],
+        "limits_project_id_query": ["3.43", "3.50", "3.55"],
+        "extend_in_use_volume": ["3.42", "3.60"],
     }
 }
 
 
-# NOTE(robcresswell): Since each client implements their own wrapper class for
-# API objects, we'll need to allow that to be passed in. In the future this
-# should be replaced by some common handling in Oslo.
-def get_microversion_for_features(service, features, wrapper_class,
-                                  min_ver, max_ver):
-    """Retrieves that highest known functional microversion for features"""
+class MicroVersionNotFound(Exception):
+    def __init__(self, features):
+        self.features = features
+
+    def __str__(self):
+        return "Insufficient microversion for %s" % self.features
+
+
+def get_requested_versions(service, features):
     if not features:
         return None
     # Convert a single feature string into a list for backward compatibility.
@@ -67,10 +73,22 @@ def get_microversion_for_features(service, features, wrapper_class,
         feature_versions &= set(service_features[feature])
     if not feature_versions:
         return None
-
     # Sort version candidates from larger versins
     feature_versions = sorted(feature_versions, reverse=True,
                               key=lambda v: [int(i) for i in v.split('.')])
+    return feature_versions
+
+
+# NOTE(robcresswell): Since each client implements their own wrapper class for
+# API objects, we'll need to allow that to be passed in. In the future this
+# should be replaced by some common handling in Oslo.
+def get_microversion_for_features(service, features, wrapper_class,
+                                  min_ver, max_ver):
+    """Retrieves that highest known functional microversion for features"""
+    feature_versions = get_requested_versions(service, features)
+    if not feature_versions:
+        return None
+
     for version in feature_versions:
         microversion = wrapper_class(version)
         if microversion.matches(min_ver, max_ver):

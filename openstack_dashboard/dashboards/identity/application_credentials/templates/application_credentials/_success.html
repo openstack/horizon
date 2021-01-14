@@ -31,5 +31,11 @@
         <span class="fa fa-download"></span>
         {{ download_clouds_yaml_label }}
     </a>
+    {% if download_kubeconfig_url %}
+    <a href="{{ download_kubeconfig_url }}" class="btn btn-default">
+        <span class="fa fa-download"></span>
+        {{ download_kubeconfig_label }}
+    </a>
+    {% endif %}
     <a onClick="location.href='{{cancel_url}}'" href="{{ cancel_url }}" class="btn btn-default">{{ cancel_label }}</a>
 {% endblock %}

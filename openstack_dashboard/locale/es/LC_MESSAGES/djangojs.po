@@ -9,15 +9,19 @@
 # Alberto Molina Coballes <alb.molina@gmail.com>, 2017. #zanata
 # Zeus Arias Lucero <zeusariaslucero@gmail.com>, 2017. #zanata
 # Alberto Molina Coballes <alb.molina@gmail.com>, 2018. #zanata
+# Alberto Molina Coballes <alb.molina@gmail.com>, 2020. #zanata
+# Eddie Ramirez <djedi.r@gmail.com>, 2020. #zanata
+# OpenStack Infra <zanata@openstack.org>, 2020. #zanata
+# Zeus Arias Lucero <zeusariaslucero@gmail.com>, 2020. #zanata
 msgid ""
 msgstr ""
 "Project-Id-Version: horizon VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2018-09-07 04:25+0000\n"
+"POT-Creation-Date: 2020-01-08 17:19+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2018-02-13 04:47+0000\n"
+"PO-Revision-Date: 2020-01-08 04:04+0000\n"
 "Last-Translator: Alberto Molina Coballes <alb.molina@gmail.com>\n"
 "Language-Team: Spanish\n"
 "Language: es\n"
@@ -26,12 +30,6 @@ msgstr ""
 
 msgid "#"
 msgstr "#"
-
-#, python-format
-msgid "%s instance launched."
-msgid_plural "%s instances launched."
-msgstr[0] "%s instancia iniciada."
-msgstr[1] "%s instancias iniciadas."
 
 msgid "1"
 msgstr "1"
@@ -671,17 +669,17 @@ msgstr ""
 msgid "Customization Script"
 msgstr "Script personalizado"
 
+#, fuzzy
 msgid "DNS Domain"
-msgstr "Dominio DNS"
+msgid_plural "DNS Domains"
+msgstr[0] "Dominio DNS"
+msgstr[1] ""
 
-msgid "DNS Domains"
-msgstr "Dominios DNS"
-
+#, fuzzy
 msgid "DNS Record"
-msgstr "Registro DNS"
-
-msgid "DNS Records"
-msgstr "Registros DNS"
+msgid_plural "DNS Records"
+msgstr[0] "Registro DNS"
+msgstr[1] ""
 
 msgid "DSCP Mark"
 msgstr "DSCP Mark"
@@ -902,8 +900,11 @@ msgstr "Gráfica de distribución"
 msgid "Docker"
 msgstr "Docker"
 
+#, fuzzy
 msgid "Domain"
-msgstr "Dominio"
+msgid_plural "Domains"
+msgstr[0] "Dominio"
+msgstr[1] ""
 
 msgid "Domain ID"
 msgstr "ID de dominio"
@@ -913,9 +914,6 @@ msgstr "Id de dominio"
 
 msgid "Domain Name"
 msgstr "Nombre de dominio"
-
-msgid "Domains"
-msgstr "Dominios"
 
 msgid "Done"
 msgstr "Hecho"
@@ -1035,14 +1033,14 @@ msgstr "Nombre de fichero"
 msgid "Fingerprint"
 msgstr "Fingerprint"
 
+#, fuzzy
 msgid "Flavor"
-msgstr "Sabor"
+msgid_plural "Flavors"
+msgstr[0] "Sabor"
+msgstr[1] ""
 
 msgid "Flavor Name"
 msgstr "Nombre de tipo"
-
-msgid "Flavors"
-msgstr "Tipos"
 
 msgid ""
 "Flavors manage the sizing for the compute, memory and storage capacity of "
@@ -1051,11 +1049,11 @@ msgstr ""
 "Los sabores definen el tamaño que tendrá la instancia respecto a CPU, "
 "memoria y almacenamiento."
 
+#, fuzzy
 msgid "Floating IP"
-msgstr "IP flotante"
-
-msgid "Floating IPs"
-msgstr "IPs flotantes"
+msgid_plural "Floating IPs"
+msgstr[0] "IP flotante"
+msgstr[1] ""
 
 msgid "Focused input"
 msgstr "Entrada enfocada"
@@ -1095,11 +1093,11 @@ msgstr ""
 msgid "Global Actions:"
 msgstr "Acciones Globales:"
 
+#, fuzzy
 msgid "Group"
-msgstr "Grupo"
-
-msgid "Groups"
-msgstr "Grupos"
+msgid_plural "Groups"
+msgstr[0] "Grupo"
+msgstr[1] ""
 
 msgid "Hash"
 msgstr "Hash"
@@ -1128,11 +1126,11 @@ msgstr "Inicio"
 msgid "Host ID"
 msgstr "ID de host"
 
+#, fuzzy
 msgid "Hypervisor"
-msgstr "Hípervisor"
-
-msgid "Hypervisors"
-msgstr "Hípervisores"
+msgid_plural "Hypervisors"
+msgstr[0] "Hípervisor"
+msgstr[1] ""
 
 msgid "ID"
 msgstr "ID"
@@ -1204,8 +1202,11 @@ msgstr ""
 "significando que los datos de la instancia se guardarán cuando la instancia "
 "sea borrada, escoja uno de los siguientes orígenes de arranque:"
 
+#, fuzzy
 msgid "Image"
-msgstr "Imagen"
+msgid_plural "Images"
+msgstr[0] "Imagen"
+msgstr[1] ""
 
 #, python-format
 msgid "Image %s was successfully created."
@@ -1238,9 +1239,6 @@ msgstr "Origen de la imagen"
 
 msgid "Image from Other Project - Non-Public"
 msgstr "Imagen desde otro proyecto - No Publico"
-
-msgid "Images"
-msgstr "Imágenes"
 
 msgid "Impact on your quota"
 msgstr "Impacto en tu capacidad"
@@ -1281,8 +1279,11 @@ msgstr "Entrada correcta"
 msgid "Input warning"
 msgstr "Advertencia de entrada"
 
+#, fuzzy
 msgid "Instance"
-msgstr "Instancia"
+msgid_plural "Instances"
+msgstr[0] "Instancia"
+msgstr[1] ""
 
 msgid "Instance Name"
 msgstr "Nombre de la instancia"
@@ -1309,9 +1310,6 @@ msgstr ""
 "un\n"
 "    volumen nuevo."
 
-msgid "Instances"
-msgstr "Instancias"
-
 msgid "Interfaces"
 msgstr "Interfaces"
 
@@ -1330,14 +1328,14 @@ msgstr "Kernel"
 msgid "Kernel ID"
 msgstr "Kernel ID"
 
+#, fuzzy
 msgid "Key Pair"
-msgstr "Par de Claves"
+msgid_plural "Key Pairs"
+msgstr[0] "Par de Claves"
+msgstr[1] ""
 
 msgid "Key Pair Name"
 msgstr "Nombre de Par de Claves"
-
-msgid "Key Pairs"
-msgstr "Pares de claves"
 
 msgid ""
 "Key Pairs are how you login to your instance after it is launched.\n"
@@ -1423,17 +1421,17 @@ msgstr "Lista de encabezamientos de elemento de grupo"
 msgid "List groups"
 msgstr "Listar grupos"
 
+#, fuzzy
 msgid "Load Balancer Pool"
-msgstr "Agrupación de equilibradores de carga"
+msgid_plural "Load Balancer Pools"
+msgstr[0] "Agrupación de equilibradores de carga"
+msgstr[1] ""
 
+#, fuzzy
 msgid "Load Balancer Pool Member"
-msgstr "Miembro de agrupación de equilibradores de carga"
-
-msgid "Load Balancer Pool Members"
-msgstr "Miembros del banco de balanceadores de carga"
-
-msgid "Load Balancer Pools"
-msgstr "Agrupaciones de equilibradores de carga"
+msgid_plural "Load Balancer Pool Members"
+msgstr[0] "Miembro de agrupación de equilibradores de carga"
+msgstr[1] ""
 
 msgid "Load Function:"
 msgstr "Función de Carga:"
@@ -1486,11 +1484,11 @@ msgstr "Mensajes"
 msgid "Metadata"
 msgstr "Metadatos"
 
+#, fuzzy
 msgid "Metadata Definition"
-msgstr "Definición de metadatos"
-
-msgid "Metadata Definitions"
-msgstr "Definiciones de los metadatos"
+msgid_plural "Metadata Definitions"
+msgstr[0] "Definición de metadatos"
+msgstr[1] ""
 
 msgid "Metadata was successfully updated."
 msgstr "Metadatos actualizados correctamente."
@@ -1565,35 +1563,41 @@ msgstr "Barra de navegación"
 msgid "Navs"
 msgstr "Navs"
 
+#, fuzzy
 msgid "Network"
-msgstr "Red"
+msgid_plural "Networks"
+msgstr[0] "Red"
+msgstr[1] ""
 
+#, fuzzy
 msgid "Network Health Monitor"
-msgstr "Supervisor de estado de red"
-
-msgid "Network Health Monitors"
-msgstr "Supervisores de estado de red"
+msgid_plural "Network Health Monitors"
+msgstr[0] "Supervisor de estado de red"
+msgstr[1] ""
 
 msgid "Network ID"
 msgstr "ID de la red"
 
+#, fuzzy
 msgid "Network Port"
-msgstr "Puerto de red"
+msgid_plural "Network Ports"
+msgstr[0] "Puerto de red"
+msgstr[1] ""
 
 msgid "Network Ports"
 msgstr "Puertos de red"
 
+#, fuzzy
 msgid "Network Router"
-msgstr "Router"
+msgid_plural "Network Routers"
+msgstr[0] "Router"
+msgstr[1] ""
 
-msgid "Network Routers"
-msgstr "Routers"
-
+#, fuzzy
 msgid "Network Subnet"
-msgstr "Subred"
-
-msgid "Network Subnets"
-msgstr "Subredes"
+msgid_plural "Network Subnets"
+msgstr[0] "Subred"
+msgstr[1] ""
 
 msgid "Network characteristics"
 msgstr "Características de Red"
@@ -1663,17 +1667,17 @@ msgstr "OVA"
 msgid "OVA - Open Virtual Appliance"
 msgstr "OVA - Open Virtual Appliance"
 
+#, fuzzy
 msgid "Object"
-msgstr "Objeto"
+msgid_plural "Objects"
+msgstr[0] "Objeto"
+msgstr[1] ""
 
 msgid "Object Count"
 msgstr "Recuento de objetos"
 
 msgid "Object Details"
 msgstr "Detalles del objeto"
-
-msgid "Objects"
-msgstr "Objetos"
 
 msgid "Ok"
 msgstr "Aceptar"
@@ -1863,8 +1867,11 @@ msgstr "Perfil"
 msgid "Progress bars"
 msgstr "Barras de progreso"
 
+#, fuzzy
 msgid "Project"
-msgstr "Proyecto"
+msgid_plural "Projects"
+msgstr[0] "Proyecto"
+msgstr[1] ""
 
 msgid "Project ID"
 msgstr "ID del proyecto"
@@ -1875,9 +1882,6 @@ msgid ""
 msgstr ""
 "Redes de proyectos son creadas por los usuarios.\n"
 "Estas redes están totalmente aisladas y son específicas por proyecto."
-
-msgid "Projects"
-msgstr "Proyectos"
 
 msgid "Properties:"
 msgstr "Propiedades:"
@@ -1918,11 +1922,11 @@ msgstr "QCOW2"
 msgid "QCOW2 - QEMU Emulator"
 msgstr "QCOW2 - QEMU Emulator"
 
-msgid "QoS Policies"
-msgstr "Políticas QoS"
-
+#, fuzzy
 msgid "QoS Policy"
-msgstr "Política QoS"
+msgid_plural "QoS Policies"
+msgstr[0] "Política QoS"
+msgstr[1] ""
 
 msgid "Queued"
 msgstr "Encolado"
@@ -1966,8 +1970,11 @@ msgstr "Número de revisión"
 msgid "Right"
 msgstr "Derecha"
 
+#, fuzzy
 msgid "Role"
-msgstr "Rol"
+msgid_plural "Roles"
+msgstr[0] "Rol"
+msgstr[1] ""
 
 #, python-format
 msgid "Role %s was successfully created."
@@ -1975,9 +1982,6 @@ msgstr "El Rol %s se ha creado correctamente."
 
 msgid "Role updated successfully."
 msgstr "Rol actualizado correctamente."
-
-msgid "Roles"
-msgstr "Roles"
 
 msgid "Root Disk"
 msgstr "Disco raíz"
@@ -2019,8 +2023,11 @@ msgstr "Buscar"
 msgid "Security"
 msgstr "Seguridad"
 
+#, fuzzy
 msgid "Security Group"
-msgstr "Grupo de seguridad"
+msgid_plural "Security Groups"
+msgstr[0] "Grupo de seguridad"
+msgstr[1] ""
 
 msgid "Security Groups"
 msgstr "Grupos de Seguridad"
@@ -2272,17 +2279,17 @@ msgstr "URL de plantilla de resumen"
 msgid "Swap Disk"
 msgstr "Disco de intercambio (swap)"
 
+#, fuzzy
 msgid "Swift Account"
-msgstr "Cuenta Swift"
+msgid_plural "Swift Accounts"
+msgstr[0] "Cuenta Swift"
+msgstr[1] ""
 
-msgid "Swift Accounts"
-msgstr "Cuentas Swift"
-
+#, fuzzy
 msgid "Swift Container"
-msgstr "Contenedor Swift"
-
-msgid "Swift Containers"
-msgstr "Contenedores Swift"
+msgid_plural "Swift Containers"
+msgstr[0] "Contenedor Swift"
+msgstr[1] ""
 
 msgid "Table Columns:"
 msgstr "Columnas de la tabla:"
@@ -2523,8 +2530,11 @@ msgstr "Total de almacenamiento de volúmenes"
 msgid "Total Volumes"
 msgstr "Total de volúmenes"
 
+#, fuzzy
 msgid "Trunk"
-msgstr "Trunk"
+msgid_plural "Trunks"
+msgstr[0] "Trunk"
+msgstr[1] ""
 
 #, python-format
 msgid "Trunk %s was successfully created."
@@ -2533,9 +2543,6 @@ msgstr "El enlace troncal %s se ha creado correctamente."
 #, python-format
 msgid "Trunk %s was successfully edited."
 msgstr "Se ha editado correctamente el enlace troncal %s."
-
-msgid "Trunks"
-msgstr "Trunks"
 
 msgid "Type"
 msgstr "Tipo"
@@ -3106,8 +3113,11 @@ msgstr ""
 "elemento de esquema para elementos que no tienen modelo de datos, como "
 "secciones y \"fieldsets\"."
 
+#, fuzzy
 msgid "User"
-msgstr "Usuario"
+msgid_plural "Users"
+msgstr[0] "Usuario"
+msgstr[1] ""
 
 #, python-format
 msgid "User %s was successfully created."
@@ -3133,9 +3143,6 @@ msgstr "Usuario"
 
 msgid "User password has been updated successfully."
 msgstr "Se ha actualizado correctamente la contraseña."
-
-msgid "Users"
-msgstr "Usuarios"
 
 msgid "VCPUS"
 msgstr "VCPUS"
@@ -3185,18 +3192,17 @@ msgstr "Las instancias virtuales asocian sus interfaces a los puertos."
 msgid "Visibility"
 msgstr "Visibilidad"
 
+#, fuzzy
 msgid "Volume"
-msgstr "Volumen"
+msgid_plural "Volumes"
+msgstr[0] "Volumen"
+msgstr[1] ""
 
-#, python-format
-msgid "Volume %s was successfully created."
-msgstr "Volumen %s creado correctamente."
-
+#, fuzzy
 msgid "Volume Backup"
-msgstr "Copia de seguridad de volumen"
-
-msgid "Volume Backups"
-msgstr "Copias de seguridad de volumen"
+msgid_plural "Volume Backups"
+msgstr[0] "Copia de seguridad de volumen"
+msgstr[1] ""
 
 msgid "Volume Details"
 msgstr "Detalles del volumen"
@@ -3207,11 +3213,11 @@ msgstr "Cuota de volumen"
 msgid "Volume Size (GB)"
 msgstr "Tamaño de volumen (GB)"
 
+#, fuzzy
 msgid "Volume Snapshot"
-msgstr "Instantánea de Volumen"
-
-msgid "Volume Snapshots"
-msgstr "Instantáneas de volúmenes"
+msgid_plural "Volume Snapshots"
+msgstr[0] "Instantánea de Volumen"
+msgstr[1] ""
 
 msgid "Volume Type Description:"
 msgstr "Descripción del tipo de volumen:"
@@ -3221,9 +3227,6 @@ msgstr "Cuota de volumen y de instantánea (GiB)"
 
 msgid "Volume size is required and must be an integer"
 msgstr "Tamaño del volumen es necesario y debe ser un entero"
-
-msgid "Volumes"
-msgstr "Volúmenes"
 
 msgid "Volumes are block devices that can be attached to instances."
 msgstr ""

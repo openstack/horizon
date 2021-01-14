@@ -10,16 +10,20 @@
 # Frank Kloeker <eumel@arcor.de>, 2018. #zanata
 # Reik Keutterling <spielkind@gmail.com>, 2018. #zanata
 # Robert Simai <robert.simai@suse.com>, 2018. #zanata
-# Robin Naundorf <r.naundorf@fh-muenster.de>, 2018. #zanata
+# Andreas Jaeger <jaegerandi@gmail.com>, 2019. #zanata
+# Frank Kloeker <eumel@arcor.de>, 2019. #zanata
+# Robert Holling <r.holling@protonmail.ch>, 2019. #zanata
+# Robert Simai <robert.simai@suse.com>, 2019. #zanata
+# Andreas Jaeger <jaegerandi@gmail.com>, 2020. #zanata
 msgid ""
 msgstr ""
 "Project-Id-Version: horizon VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2018-10-26 14:58+0000\n"
+"POT-Creation-Date: 2020-11-23 00:41+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2018-10-28 01:47+0000\n"
+"PO-Revision-Date: 2020-10-05 06:42+0000\n"
 "Last-Translator: Andreas Jaeger <jaegerandi@gmail.com>\n"
 "Language-Team: German\n"
 "Language: de\n"
@@ -45,6 +49,19 @@ msgstr ""
 "\n"
 "      %(used)s von %(quota)s verwendet\n"
 "      "
+
+msgid ""
+"\n"
+"  If a snapshot is specified here only the specified snapshot of the volume\n"
+"  will be backed up.\n"
+"  </p>\n"
+"  "
+msgstr ""
+"\n"
+"Falls eine Schattenkopie hier angegeben wird, wird only diese Schattenkopie "
+"des Volume gesichert.\n"
+"</p>\n"
+" "
 
 msgid ""
 "\n"
@@ -140,6 +157,10 @@ msgid "%(pool_name)s %(cidr)s"
 msgstr "%(pool_name)s %(cidr)s"
 
 #, python-format
+msgid "%(role)s  (through group %(group)s)"
+msgstr "%(role)s  (durch Gruppe %(group)s)"
+
+#, python-format
 msgid "%(type)s (%(backend)s backend)"
 msgstr "%(type)s (%(backend)s Backend)"
 
@@ -193,6 +214,9 @@ msgstr "%s GiB"
 msgid "%sMB"
 msgstr "%s MB"
 
+msgid "(No IP address)"
+msgstr "(Keine IP-Adresse)"
+
 msgid "(Quota exceeded)"
 msgstr "(Kontingent überschritten)"
 
@@ -205,6 +229,12 @@ msgstr ", Projektgruppen aktualisieren"
 msgid "-"
 msgstr "-"
 
+msgid "1 (icmp) should be specified for IPv4 instead of 58."
+msgstr "1 (icmp) sollte für IPv4 anstelle von 58 angegeben werden."
+
+msgid "58 (ipv6-icmp) should be specified for IPv6 instead of 1."
+msgstr "58 (ipv6-icmp) sollte für IPv6 anstelle von 1 angegeben werden."
+
 #, python-format
 msgid "<a href=\"%(instance_url)s\">%(instance_name)s</a> on %(device)s"
 msgstr "<a href=\"%(instance_url)s\">%(instance_name)s</a> auf %(device)s"
@@ -212,6 +242,60 @@ msgstr "<a href=\"%(instance_url)s\">%(instance_name)s</a> auf %(device)s"
 #, python-format
 msgid "<a href=\"%(volume_url)s\">%(volume_label)s</a> on %(volume_device)s"
 msgstr "<a href=\"%(volume_url)s\">%(volume_label)s</a> auf %(volume_device)s"
+
+msgid ""
+"<b>Expiration Date/Time</b>: You may give the application credential an "
+"expiration. The expiration will be in UTC. If you provide an expiration date "
+"with no expiration time, the time will be assumed to be 00:00:00. If you "
+"provide an expiration time with no expiration date, the date will be assumed "
+"to be today."
+msgstr ""
+"<b>Expiration Date/Time</b>: Sie können den Applikations-Zugangsdaten ein "
+"Ablaufdatum mitgeben. Die Ablaufzeit entspricht UTC. Wenn Sie ein "
+"Ablaufdatum ohne Zeit angeben wird 00:00:00 angenommen. Wenn Sie eine "
+"Ablaufzeit ohne Datum angeben wird Heute als Datum angenommen."
+
+msgid ""
+"<b>Kubernetes Namespace</b>: You can optionally provide a Kubernetes "
+"Namespace. It will be included in the kubeconfig file which can be "
+"downloaded from the next screen."
+msgstr ""
+"<b>Kubernetes Namespace</b>: Sie können optional einen Kubernetes Namensraum "
+"angeben. Dieser wird zur kubeconfig-Datei hinzugefügt, welche Sie im "
+"folgenden Bildschirm herunterladen können."
+
+msgid ""
+"<b>Roles</b>: You may select one or more roles for this application "
+"credential. If you do not select any, all of the roles you have assigned on "
+"the current project will be applied to the application credential."
+msgstr ""
+"<b>Roles</b>: Sie können eine oder mehrere Rollen für die Applikations-"
+"Zugangsdaten auswählen. Wenn Sie keine auswählen, so werden alle dem "
+"aktuellen Projekt zugewiesenen Rollen auf die Applikations-Zugangsdaten "
+"angewendet."
+
+msgid ""
+"<b>Secret</b>: You may provide your own secret, or one will be generated for "
+"you. Once your application credential is created, the secret will be "
+"revealed once. If you lose the secret, you will have to generate a new "
+"application credential."
+msgstr ""
+"<b>Secret</b>: Sie können Ihr eigenes Geheimwort angeben oder es wird eines "
+"für Sie erstellt. Nachdem Sie Applikations-Zugangsdaten erstellt haben, wird "
+"das Geheimwort einmalig angezeigt. Wenn Sie dieses verlieren, so müssen Sie "
+"neue Applikations-Zugangsdaten erstellen."
+
+msgid ""
+"<b>Unrestricted</b>: By default, for security reasons, application "
+"credentials are forbidden from being used for creating additional "
+"application credentials or keystone trusts. If your application credential "
+"needs to be able to perform these actions, check \"unrestricted\"."
+msgstr ""
+"<b>Unrestricted</b>: Es ist aus Sicherheitsgründen in der "
+"Standardeinstellung verboten, dass mit Hilfe von Applikations-Zugangsdaten "
+"weitere Applikations-Zugangsdaten oder Keystone Trusts erzeugt werden. "
+"Sofern dies mit Ihren Applikations-Zugangsdaten möglich sein soll, markieren "
+"Sie \"unbeschränkt\"."
 
 msgid ""
 "<b>Warning:</b> If you change security groups here, the change will be "
@@ -224,6 +308,10 @@ msgstr ""
 "Interfaces in dieser Instanz und verwenden Sie verschiedene "
 "Sicherheitsgruppen pro Port, dann benutzen Sie stattdessen die \"Port "
 "Sicherheitsgruppen bearbeiten\" Aktion."
+
+#, python-format
+msgid "<span class='word-wrap'>Flavor Details: %(name)s</span>\">%(name)s"
+msgstr "<span class='word-wrap'>Variantendetails: %(name)s</span>\">%(name)s"
 
 msgid "A brief description of the security group rule you are adding"
 msgstr "Eine kurze Beschreibung der hinzuzufügenden Sicherheitsgruppenregel"
@@ -315,11 +403,20 @@ msgstr "Datenträgertransfer annehmen"
 msgid "Access & Security"
 msgstr "Zugriff & Sicherheit"
 
+msgid "Access Rules"
+msgstr "Zugriffsregeln"
+
+msgid "Access rules must be a valid JSON or YAML list."
+msgstr "Zugriffsregeln müssen eine JSON- oder YAML-Liste sein."
+
 msgid "Action"
 msgstr "Aktion"
 
 msgid "Action Log"
 msgstr "Aktionslog"
+
+msgid "Action and Object Type"
+msgstr "Aktion und Objekttyp"
 
 msgctxt "Current status of a Floating IP"
 msgid "Active"
@@ -383,6 +480,9 @@ msgstr "Routerroute hinzufügen"
 
 msgid "Add Rule"
 msgstr "Regel hinzufügen"
+
+msgid "Add Rule (Quota exceeded)"
+msgstr "Regel hinzufügen (Kontingent überschritten)"
 
 msgid "Add Static Route"
 msgstr "Statische Route hinzufügen"
@@ -448,15 +548,6 @@ msgid "Add static route to the router."
 msgstr "Statische Route zum Router hinzufügen."
 
 msgid ""
-"Add volume types to this consistency group. Multiple volume types can be "
-"added to the same consistency group only if they are associated with same "
-"back end."
-msgstr ""
-"Weisen Sie dieser Konsistenzgruppe Datenträgertypen zu. Mehrere "
-"Datenträgertypen können nur einer Konsistenzgruppe zugewiesen werden, wenn "
-"sie dasselbe Backend verwenden."
-
-msgid ""
 "Add volume types to this group. Multiple volume types can be added to the "
 "same group only if they are associated with same back end."
 msgstr ""
@@ -469,23 +560,11 @@ msgstr ""
 "Hinzufügen, verändern und entfernen der QoS Spezifikationen für diesen "
 "Datenträgertyp."
 
-msgid "Add/Remove Consistency Group Volumes"
-msgstr "Konsistenzgruppen-Datenträger hinzufügen/entfernen"
-
 msgid "Add/Remove Group Volumes"
 msgstr "Gruppen-Datenträger hinzufügen/entfernen"
 
 msgid "Add/Remove Hosts to Aggregate"
 msgstr "Hinzufügen/Entfernen von Hosts zum/vom Aggregat"
-
-msgid ""
-"Add/remove volumes to/from this consistency group. Only volumes associated "
-"with the volume type(s) assigned to this consistency group will be available "
-"for selection."
-msgstr ""
-"Hinzufügen/Entfernen von Datenträgern zu dieser Konsistenzgruppe. Es stehen "
-"nur Datenträger zur Auswahl, deren Datenträgertyp(en) dieser "
-"Konsistenzgruppe zugewiesen sind."
 
 msgid ""
 "Add/remove volumes to/from this group. Only volumes associated with the "
@@ -555,6 +634,12 @@ msgstr ""
 "Melden Sie sich nach Start der Instanz mit Ihrem privaten Schlüssel an (der "
 "Benutzername kann je nach gestartetem Abbild anders sein):"
 
+msgid "Age"
+msgstr "Alter"
+
+msgid "Age (Seconds)"
+msgstr "Alter (Sekunden)"
+
 #, python-format
 msgid "Agent %s was successfully added."
 msgstr "Agent %s wurde erfolgreich hinzugefügt."
@@ -597,13 +682,6 @@ msgstr "Alle verfügbaren Datenträger"
 
 msgid "All ports"
 msgstr "Alle Ports"
-
-msgid ""
-"All selected volume types must be associated with the same volume backend "
-"name."
-msgstr ""
-"Alle ausgewählten Datenträgertypen müssen dem selben Datenträger-Backend "
-"zugeordnet sein."
 
 msgid "Allocate Floating IP"
 msgstr "Floating IP belegen"
@@ -704,10 +782,6 @@ msgstr "Zugewiesene Ressourcetypen"
 
 msgid "At least one network must be specified."
 msgstr "Es muss mindestens ein Netzwerk angegeben werden."
-
-msgid "At least one volume type must be assigned to a consistency group."
-msgstr ""
-"Einer Konsistenzgruppe muss mindestens ein Datenträgertyp zugewiesen werden."
 
 msgid "At least one volume type must be assigned to a group."
 msgstr "Einer Gruppe muss mindestens ein Datenträgertyp zugewiesen werden."
@@ -812,14 +886,6 @@ msgstr ""
 msgid "Available"
 msgstr "Verfügbar"
 
-msgctxt "Current status of Consistency Group"
-msgid "Available"
-msgstr "Verfügbar"
-
-msgctxt "Current status of Consistency Group Snapshot"
-msgid "Available"
-msgstr "Verfügbar"
-
 msgctxt "Current status of Volume Group"
 msgid "Available"
 msgstr "Verfügbar"
@@ -843,6 +909,13 @@ msgid "Available networks"
 msgstr "Verfügbare Netzwerke"
 
 msgctxt "Current status of a Volume"
+msgid "Awaiting Transfer"
+msgstr "Warte auf Transfer"
+
+msgid "Back-End Example:"
+msgstr "Backend Beispiel:"
+
+msgctxt "Current status of a Volume"
 msgid "Backing Up"
 msgstr "Sichern"
 
@@ -851,6 +924,9 @@ msgstr "Name der Sicherung"
 
 msgid "Backup Size (GiB)"
 msgstr "Datensicherung Größe (GiB)"
+
+msgid "Backup Snapshot"
+msgstr "Sicherung der Schattenkopie"
 
 msgid "Backups"
 msgstr "Sicherungskopie"
@@ -930,15 +1006,11 @@ msgid "Building"
 msgstr "Aufbauend"
 
 msgid ""
-"By default, for security reasons, application credentials are forbidden from "
-"being used for creating additional application credentials or keystone "
-"trusts. If your application credential needs to be able to perform these "
-"actions, check \"unrestricted\"."
+"By default, group type is created as public. To create a private group type, "
+"uncheck this field."
 msgstr ""
-"Es ist aus Sicherheitsgründen in der Standardeinstellung verboten, dass mit "
-"Hilfe von Applikations-Zugangsdaten weitere Applikations-Zugangsdaten oder "
-"Keystone Trusts erzeugt werden. Sofern dies mit Ihren Applikations-"
-"Zugangsdaten möglich sein soll, markieren Sie \"unbeschränkt\"."
+"Ohne weitere Einstellung wird der Gruppentyp als öffentlich erstellt. Für "
+"einen privaten Gruppentyp entfernen Sie die Markierung."
 
 msgid ""
 "By default, volume type is created as public. To create a private volume "
@@ -1015,13 +1087,6 @@ msgstr "Änderungen bisher"
 
 msgid "Changing password is not supported."
 msgstr "Änderung des Passworts wird nicht unterstützt."
-
-msgid ""
-"Check the &quot;Delete Volumes&quot; box to also delete any volumes "
-"associated with this consistency group."
-msgstr ""
-"Wählen Sie &quot;Lösche Datenträger&quot; um auch alle mit dieser "
-"Konsistenzgruppe verbundenen Datenträger zu löschen."
 
 msgid ""
 "Check the &quot;Delete Volumes&quot; box to also delete any volumes "
@@ -1118,18 +1183,8 @@ msgstr[1] "Entfernte Gateways"
 msgid "Click here to show only console"
 msgstr "Klicken Sie hier, um nur die Konsole anzuzeigen."
 
-msgid "Clone Consistency Group"
-msgstr "Konsistenzgruppe klonen"
-
 msgid "Clone Group"
 msgstr "Gruppe klonen"
-
-msgid ""
-"Clone each of the volumes in the source Consistency Group, and then add them "
-"to a newly created Consistency Group."
-msgstr ""
-"Klone alle Datenträger in der Quell-Konsistenzgruppe und füge sie der neu "
-"erzeugten Konsistenzgruppe hinzu."
 
 msgid ""
 "Clone each of the volumes in the source Group, and then add them to a newly "
@@ -1137,6 +1192,10 @@ msgid ""
 msgstr ""
 "Klone alle Datenträger in der Quellgruppe und füge sie der neu erzeugten "
 "Gruppe hinzu."
+
+#, python-format
+msgid "Cloning volume group \"%s\"."
+msgstr "Klone Datenträgergruppe \"%s\"."
 
 msgid "Close"
 msgstr "Schließen"
@@ -1178,6 +1237,9 @@ msgstr ""
 "Konfigurationslaufwerk zu schreiben, das beim Start einer Instanz mit ihr "
 "verbunden wird."
 
+msgid "Confirm"
+msgstr "Bestätigen"
+
 msgid "Confirm Admin Password"
 msgstr "Administratorpasswort bestätigen"
 
@@ -1204,21 +1266,6 @@ msgstr "Größenänderung/Migration bestätigen oder zurücknehmen"
 msgctxt "Task status of an Instance"
 msgid "Confirming Resize or Migrate"
 msgstr "Größenänderung oder Migration wird bestätigt"
-
-msgid "Consistency Group"
-msgstr "Konsistenzgruppe"
-
-msgid "Consistency Group Information"
-msgstr "Konsistenzgruppeninformation"
-
-msgid "Consistency Group Name"
-msgstr "Konsistenzgruppe Name"
-
-msgid "Consistency Group Snapshots"
-msgstr "Konsistenzgruppen Schattenkopien"
-
-msgid "Consistency Groups"
-msgstr "Konsistenzgruppen"
 
 msgid "Console"
 msgstr "Konsole"
@@ -1255,11 +1302,6 @@ msgstr ""
 "Kontrollieren Sie den Zugriff auf Ihre Instanz durch Schlüsselpaare, "
 "Sicherheitsgruppen und andere Mechanismen."
 
-msgid "Cookies may be turned off. Make sure cookies are enabled and try again."
-msgstr ""
-"Cookies könnten deaktiviert sein. Stellen Sie sicher, dass Cookies aktiviert "
-"sind, und versuchen Sie es erneut."
-
 msgid "Copy Data"
 msgstr "Daten kopieren"
 
@@ -1282,6 +1324,9 @@ msgctxt "Action log of an instance"
 msgid "Create"
 msgstr "Erstellen"
 
+msgid "Create A RBAC Policy"
+msgstr "RBAC Richtlinie erstellen"
+
 msgid "Create An Image"
 msgstr "Abbild erstellen"
 
@@ -1290,12 +1335,6 @@ msgstr "Applikations-Zugangsdaten erstellen"
 
 msgid "Create Backup"
 msgstr "Sicherungskopie erstellen"
-
-msgid "Create Consistency Group"
-msgstr "Konsistenzgruppe erstellen"
-
-msgid "Create Consistency Group Snapshot"
-msgstr "Konsistenzgruppen Schattenkopie erstellen"
 
 msgid "Create Domain"
 msgstr "Domäne erstellen"
@@ -1318,9 +1357,19 @@ msgstr "Gruppe erstellen"
 msgid "Create Group Snapshot"
 msgstr "Gruppen-Schattenkopie erstellen"
 
+msgid "Create Group Type"
+msgstr "Gruppentyp erstellen"
+
+msgid "Create Group Type Spec"
+msgstr "Gruppentypspezifikation erstellen"
+
 msgid "Create Host Aggregate"
 msgstr "Hostaggregat erstellen"
 
+msgid "Create Image"
+msgstr "Abbild erstellen"
+
+msgctxt "Action log of an instance"
 msgid "Create Image"
 msgstr "Abbild erstellen"
 
@@ -1350,6 +1399,9 @@ msgstr "Protokoll erstellen"
 
 msgid "Create QoS Spec"
 msgstr "QoS-Spezifikation erstellen"
+
+msgid "Create RBAC Policy"
+msgstr "RBAC Richtlinie erstellen"
 
 msgid "Create Role"
 msgstr "Rolle erstellen"
@@ -1390,9 +1442,6 @@ msgstr "Datenträger erstellen"
 msgid "Create Volume Backup"
 msgstr "Datenträger-Sicherungskopie erzeugen"
 
-msgid "Create Volume Consistency Group"
-msgstr "Datenträger-Konsistenzgruppe erstellen"
-
 msgid "Create Volume Group"
 msgstr "Datenrträgergruppe erstellen"
 
@@ -1414,13 +1463,8 @@ msgstr "Datenträgertyp-Verschlüsselung erstellen"
 msgid "Create Volume Type Extra Spec"
 msgstr "Extra Spezifikation für Datenträgertyp erzeugen"
 
-msgid ""
-"Create a Consistency Group that will contain newly created volumes cloned "
-"from each of the snapshots in the source Consistency Group Snapshot."
-msgstr ""
-"Erzeuge eine Konsistenzgruppe, welche neu erzeugte Datenträger enthält, die "
-"von den jeweiligen Schattenkopien der Quelle Konsistenzgruppen-"
-"Schattenkopien geklont werden."
+msgid "Create a Group Type"
+msgstr "Gruppentyp erstellen"
 
 msgid ""
 "Create a Group that will contain newly created volumes cloned from each of "
@@ -1435,6 +1479,9 @@ msgstr "Metadaten-Namensraum erzeugen"
 msgid "Create a New Volume"
 msgstr "Neuen Datenträger erstellen"
 
+msgid "Create a RBAC Policy"
+msgstr "RBAC Richtlinie erstellen"
+
 msgid "Create a Router"
 msgstr "Router erstellen"
 
@@ -1447,16 +1494,21 @@ msgstr "Zuordnung erstellen."
 msgid "Create a new \"extra spec\" key-value pair for a volume type."
 msgstr "Neues \"extra spec\" Schlüssel-Wert-Paar für Datenträgertyp erzeugen."
 
+msgid "Create a new \"group type spec\" key-value pair for a group type."
+msgstr ""
+"Erzeugen Sie ein neues  \"group type spec\" Schlüsselpaar für einen "
+"Gruppentyp."
+
 #, python-format
 msgid ""
 "Create a new \"spec\" key-value pair for QoS Spec \"%(qos_spec_name)s\". "
-"Valid key names are expected in the QoS specs. The acceptable values for key "
-"are <tt>\"minIOPS\", \"maxIOPS\" and \"burstIOPS\"</tt>."
+"Valid key names are expected in the QoS specs. Refer to Cinder documentation "
+"for the supported front-end and back-end keys."
 msgstr ""
-"Neues Schlüssel-Wert-Paar \"Spezifikation\" für QoS-Spezifikation "
-"\"%(qos_spec_name)s\" erzeugen. In der QoS-Spezifikation  werden gültige "
-"Schlüsselnamen erwartet. Folgende Werte dürfen als Schlüssel verwendet "
-"werden:  <tt>\"minIOPS\", \"maxIOPS\" und \"burstIOPS\"</tt>. "
+"Erzeuge ein neues \"spec\" Schlüssel-Wert Paar für QoS Spec "
+"\"%(qos_spec_name)s\". Es werden gültige Schlüsselnamen in den QoS Specs "
+"erwartet. Lesen Sie die Cinder-Dokumentation zu unterstützten Frontend- und "
+"Backend-Schlüsseln."
 
 msgid "Create a new application credential."
 msgstr "Neue Applikations-Zugangsdaten erstellen."
@@ -1481,11 +1533,6 @@ msgstr ""
 msgid "Create a project to organize users."
 msgstr "Erzeugen Sie ein Projekt, um Benutzer zu verwalten."
 
-msgid "Create a snapshot for each volume contained in the Consistency Group."
-msgstr ""
-"Erzeuge eine Schattenkopie für alle in der Konsistenzgruppe enthaltenen "
-"Datenträger."
-
 msgid "Create a snapshot for each volume contained in the Group."
 msgstr ""
 "Erzeuge eine Schattenkopie für alle in der Gruppe enthaltenen Datenträger."
@@ -1507,9 +1554,16 @@ msgctxt "Created time"
 msgid "Created"
 msgstr "Erstellt"
 
+msgid "Created At"
+msgstr "Erstellt am"
+
 #, python-format
 msgid "Created extra spec \"%s\"."
 msgstr "Zusätzliche Spezifikation \"%s\" erstellt."
+
+#, python-format
+msgid "Created group type spec \"%s\"."
+msgstr "Gruppentypspezifikation \"%s\" erstellt."
 
 #, python-format
 msgid "Created network \"%s\"."
@@ -1530,9 +1584,6 @@ msgstr "Neues Hostaggregat \"%s\" erstellt."
 #, python-format
 msgid "Created new project \"%s\"."
 msgstr "Neues Projekt \"%s\" erstellt."
-
-msgid "Created new volume consistency group"
-msgstr "Neue Datenträger-Konsistenzgruppe wurde erstellt"
 
 msgid "Created new volume group"
 msgstr "Neue Datenträger wurde erstellt"
@@ -1573,14 +1624,6 @@ msgstr "Erzeuge"
 msgctxt "Current status of a Volume Backup"
 msgid "Creating"
 msgstr "Erzeuge"
-
-#, python-format
-msgid "Creating consistency group \"%s\"."
-msgstr "Erstelle Konsistenzgruppe \"%s\"."
-
-#, python-format
-msgid "Creating consistency group snapshot \"%s\"."
-msgstr "Erstelle Konsistenzgruppen-Schattenkopie \"%s\"."
 
 msgid ""
 "Creating encryption for a volume type causes all volumes with that volume "
@@ -1718,9 +1761,6 @@ msgid_plural "Delete Application Credentials"
 msgstr[0] "Applikations-Zugangsdaten löschen"
 msgstr[1] "Applikations-Zugangsdaten löschen"
 
-msgid "Delete Consistency Group"
-msgstr "Konsistenzgruppe löschen"
-
 msgid "Delete DHCP Agent"
 msgid_plural "Delete DHCP Agents"
 msgstr[0] "DHCP Agent löschen"
@@ -1750,6 +1790,11 @@ msgid "Delete Group"
 msgid_plural "Delete Groups"
 msgstr[0] "Gruppe löschen"
 msgstr[1] "Gruppen löschen"
+
+msgid "Delete Group Type"
+msgid_plural "Delete Group Types"
+msgstr[0] "Gruppentyp löschen"
+msgstr[1] "Gruppentypen löschen"
 
 msgid "Delete Host Aggregate"
 msgid_plural "Delete Host Aggregates"
@@ -1810,6 +1855,11 @@ msgid "Delete QoS Spec"
 msgid_plural "Delete QoS Specs"
 msgstr[0] "Lösche QoS Spezifikation"
 msgstr[1] "Lösche QoS Spezifikationen"
+
+msgid "Delete RBAC Policy"
+msgid_plural "Delete RBAC Policies"
+msgstr[0] "RBAC Richtlinie löschen"
+msgstr[1] "RBAC Richtlinien löschen"
 
 msgid "Delete Role"
 msgid_plural "Delete Roles"
@@ -1936,6 +1986,11 @@ msgid_plural "Deleted Groups"
 msgstr[0] "Gelöschte Gruppe"
 msgstr[1] "Gelöschte Gruppen"
 
+msgid "Deleted Group Type"
+msgid_plural "Deleted Group Types"
+msgstr[0] "Gelöschter Gruppentyp"
+msgstr[1] "Gelöschte Gruppentypen"
+
 msgid "Deleted Host Aggregate"
 msgid_plural "Deleted Host Aggregates"
 msgstr[0] "Gelöschtes Hostaggregat"
@@ -1990,6 +2045,14 @@ msgid "Deleted QoS Spec"
 msgid_plural "Deleted QoS Specs"
 msgstr[0] "Gelöschte QoS Spezifikation"
 msgstr[1] "Gelöschte QoS Spezifikationen"
+
+msgid "Deleted RBAC Policy"
+msgid_plural "Deleted RBAC Policies"
+msgstr[0] "Gelöschte RBAC Richtlinie"
+msgstr[1] "Gelöschte RBAC Richtlinien"
+
+msgid "Deleted RBAC policy is not recoverable."
+msgstr "Gelöschte RBAC Richtlinie ist nicht wiederherstellbar."
 
 msgid "Deleted Role"
 msgid_plural "Deleted Roles"
@@ -2062,6 +2125,10 @@ msgstr ""
 "Gelöschte Datenträger können nicht wiederhergestellt werden. Alle auf dem "
 "Datenträger gespeicherten Daten werden entfernt."
 
+msgctxt "Current status of Volume Group"
+msgid "Deleting"
+msgstr "Lösche"
+
 msgctxt "Current status of a Volume"
 msgid "Deleting"
 msgstr "Löschen"
@@ -2075,18 +2142,17 @@ msgid "Deleting"
 msgstr "Löscht"
 
 #, python-format
-msgid "Deleting volume consistency group \"%s\""
-msgstr "Lösche Datenträger-Konsistenzgruppe \"%s\""
-
-#, python-format
 msgid "Deleting volume group \"%s\""
 msgstr "Lösche Datenträgergruppe \"%s\""
 
+msgid "Deprecated Settings"
+msgstr "Überholte Einstellungen"
+
+msgid "Deprecated settings: {}."
+msgstr "Überholte Einstellungen: {}."
+
 msgid "Description"
 msgstr "Beschreibung"
-
-msgid "Description is required."
-msgstr "Beschreibung ist notwendig."
 
 msgid "Description:"
 msgstr "Beschreibung:"
@@ -2227,9 +2293,6 @@ msgstr[1] "Deaktivierte Benutzer"
 msgid "Disabled compute service for host: %s."
 msgstr "Compute-Dienst für den Host deaktiviert: %s."
 
-msgid "Disassocaite"
-msgstr "Trennen"
-
 msgid "Disassociate"
 msgstr "Trennen"
 
@@ -2361,6 +2424,9 @@ msgstr "OpenStack RC-Datei herunterladen"
 msgid "Download clouds.yaml"
 msgstr "clouds.yaml herunternladen"
 
+msgid "Download kubeconfig file"
+msgstr "kubeconfig Datei herunterladen"
+
 msgid "Download openrc file"
 msgstr "openrc-Datei herunterladen"
 
@@ -2395,9 +2461,6 @@ msgstr "Bearbeiten"
 msgid "Edit Access"
 msgstr "Zugriff bearbeiten"
 
-msgid "Edit Consistency Group"
-msgstr "Konsistenzgruppe bearbeiten"
-
 msgid "Edit Consumer"
 msgstr "Benutzer bearbeiten"
 
@@ -2413,6 +2476,16 @@ msgstr "Variante bearbeiten"
 
 msgid "Edit Group"
 msgstr "Gruppe bearbeiten"
+
+msgid "Edit Group Type"
+msgstr "Gruppentyp bearbeiten"
+
+msgid "Edit Group Type Spec"
+msgstr "Gruppentypspezifikation bearbeiten"
+
+#, python-format
+msgid "Edit Group Type Spec Value: %s"
+msgstr "Gruppentypspezifikation Wert bearbeiten: %s"
 
 msgid "Edit Host Aggregate"
 msgstr "Hostaggregat bearbeiten"
@@ -2434,6 +2507,9 @@ msgstr "Namensraum-Attribute bearbeiten"
 
 msgid "Edit Network"
 msgstr "Netzwerk bearbeiten"
+
+msgid "Edit Policy"
+msgstr "Richtlinie bearbeiten"
 
 msgid "Edit Port"
 msgstr "Port bearbeiten"
@@ -2635,14 +2711,6 @@ msgstr "Flüchtige Festplatte"
 msgid "Ephemeral Disk (GB)"
 msgstr "Flüchtige Festplatte (GB)"
 
-msgctxt "Current status of Consistency Group"
-msgid "Error"
-msgstr "Fehler"
-
-msgctxt "Current status of Consistency Group Snapshot"
-msgid "Error"
-msgstr "Fehler"
-
 msgctxt "Current status of Volume Group"
 msgid "Error"
 msgstr "Fehler"
@@ -2732,20 +2800,17 @@ msgstr "Fehler beim Hinzufügen oder Entfernen von Hosts."
 msgid "Error writing zipfile: %(exc)s"
 msgstr "Fehler beim Schreiben in Zipfile: %(exc)s"
 
-msgid "Errors occurred in deleting consistency group."
-msgstr "Fehler beim Löschen der Konsistenzgruppe."
-
 msgid "Errors occurred in deleting group."
 msgstr "Fehler beim Löschen der Gruppe."
-
-msgid "Errors occurred in removing volumes from consistency group."
-msgstr "Fehler beim Entfernen von Datenträgern aus der Konsistenzgruppe."
 
 msgid "Errors occurred in removing volumes from group."
 msgstr "Fehler beim Entfernen von Datenträgern aus der Gruppe."
 
 msgid "Ether Type"
 msgstr "Netzwerktyp"
+
+msgid "Euca2ools state"
+msgstr "Euca2ools Status"
 
 msgid "Evacuate Host"
 msgstr "Host evakuieren"
@@ -2756,8 +2821,8 @@ msgstr ""
 "Evakuiere die Server vom ausgewählten gestoppten Host auf einen aktiven "
 "Zielhost."
 
-msgid "Example:"
-msgstr "Beispiel:"
+msgid "Event Id"
+msgstr "Ereignis ID"
 
 msgid ""
 "Example: For <tt>mod_shib</tt> this would be <tt>Shib-Identity-Provider</"
@@ -2865,9 +2930,8 @@ msgid "Failed to add project %(project)s to volume type access."
 msgstr ""
 "Fehler beim Hinzufügen des Projekts %(project)s zum Datenträgertyp-Zugriff."
 
-#, python-format
-msgid "Failed to add route: %s"
-msgstr "Route konnte nicht hinzugefügt werden: %s"
+msgid "Failed to add route"
+msgstr "Fehler beim Hinzufügen der Route."
 
 msgid "Failed to check if description field is supported."
 msgstr "Fehler beim Prüfen, ob das Beschreibungsfeld unterstützt wird."
@@ -2885,9 +2949,12 @@ msgid "Failed to check if nova supports \"auto_allocated_network\"."
 msgstr ""
 "Fehler bei der Prüfung, ob Nova \"auto_alloocated_network\" unterstützt."
 
+msgid "Failed to create a rbac policy."
+msgstr "Fehler bei der Erstellung der RBAC Richtlinie."
+
 #, python-format
-msgid "Failed to create network \"%(network)s\": %(reason)s"
-msgstr "Netzwerk \"%(network)s\" konnte nicht angelegt werden: %(reason)s"
+msgid "Failed to create network \"%s\"."
+msgstr "Das Netzwerk \"%s\" konnte nicht erstellt werden."
 
 #, python-format
 msgid "Failed to create network %s"
@@ -2901,15 +2968,17 @@ msgstr "Port \"%s\" konnte nicht erstellt werden."
 msgid "Failed to create router \"%s\"."
 msgstr "Router \"%s\" konnte nicht angelegt werden."
 
-#, python-format
-msgid "Failed to create subnet \"%(sub)s\" for network \"%(net)s\": %(reason)s"
-msgstr ""
-"Fehler beim Erzeugen des Subnetzes \"%(sub)s\" für Netzwerk \"%(net)s\": "
-"%(reason)s"
+msgid "Failed to create router."
+msgstr "Fehler beim Erstellen des Routers."
 
 #, python-format
-msgid "Failed to create subnet \"%(sub)s\": %(reason)s"
-msgstr "Fehler beim Erzeugen des Subnetzes \"%(sub)s\": %(reason)s"
+msgid "Failed to create subnet \"%(sub)s\" for network \"%(net)s\"."
+msgstr ""
+"Fehler beim Erzeugen des Subnetzes \"%(sub)s\" für Netzwerk \"%(net)s\"."
+
+#, python-format
+msgid "Failed to create subnet \"%(sub)s\"."
+msgstr "Fehler beim Erzeugen des Subnetzes \"%(sub)s\"."
 
 #, python-format
 msgid "Failed to delete network \"%s\""
@@ -2931,6 +3000,9 @@ msgstr "Fehler beim Evakuieren des Hosts: %s"
 msgid "Failed to evacuate instances: %s"
 msgstr "Evakuierung von Instanzen fehlgeschlagen: %s"
 
+msgid "Failed to get attached volume."
+msgstr "Fehler beim abruf des zugewiesenen Datenträgers."
+
 msgid "Failed to get availability zone list."
 msgstr "Fehler beim Abruf der Liste der Verfügbarkeitszonen. "
 
@@ -2941,15 +3013,8 @@ msgstr "Fehler beim Abruf der Instanz-Interfaces."
 msgid "Failed to get mapping list %s"
 msgstr "Abrufen der Zuordnungsliste %s fehlgeschlagen."
 
-msgid "Failed to get network list {0}"
-msgstr "Fehler beim Abruf der Netzwerkliste {0}"
-
 msgid "Failed to get network list."
 msgstr "Fehler beim Abruf der Netzwerkliste."
-
-#, python-format
-msgid "Failed to get network list: %s"
-msgstr "Netzwerk-Liste konnte nicht gefunden werden: %s"
 
 msgid "Failed to live migrate instance to a new host."
 msgstr ""
@@ -3009,13 +3074,8 @@ msgid "Failed to remove project %(project)s from volume type access."
 msgstr ""
 "Fehler beim Entfernen des Projekts %(project)s vom Datenträgertyp-Zugriff."
 
-#, python-format
-msgid "Failed to retrieve network %s for a subnet"
-msgstr "Das Netzwerk %s für ein Subnetz konnte nicht abgerufen werden."
-
-#, python-format
-msgid "Failed to set gateway: %s"
-msgstr "Gateway konnte nicht gesetzt werden: %s"
+msgid "Failed to set gateway."
+msgstr "Fehler beim setzen des Gateways."
 
 #, python-format
 msgid "Failed to update network %s"
@@ -3026,12 +3086,16 @@ msgid "Failed to update port \"%s\"."
 msgstr "Port %s konnte nicht aktualisiert werden."
 
 #, python-format
+msgid "Failed to update rbac policy %s"
+msgstr "Fehler beim Atualisieren der rbac Richtlinie %s"
+
+#, python-format
 msgid "Failed to update router %s"
 msgstr "Aktualisierung des Routers %s fehlgeschlagen."
 
 #, python-format
-msgid "Failed to update subnet \"%(sub)s\":  %(reason)s"
-msgstr "Subnetz \"%(sub)s\" konnte nicht aktualisiert werden:  %(reason)s"
+msgid "Failed to update subnet \"%s\"."
+msgstr "Fehler beim aktualisieren des Subnetzes \"%s\"."
 
 msgid "False"
 msgstr "Falsch"
@@ -3083,22 +3147,11 @@ msgstr "Varianten Auswahl"
 msgid "Flavor Details"
 msgstr "Varianten-Details"
 
-#, python-format
-msgid "Flavor Details: %(name)s\">%(name)s"
-msgstr "Variantendetails: %(name)s\">%(name)s"
-
 msgid "Flavor ID"
 msgstr "Variante ID"
 
 msgid "Flavor ID ="
 msgstr "Variante ID ="
-
-msgid ""
-"Flavor ID should be UUID4 or integer. Leave this field blank or use 'auto' "
-"to set a random UUID4."
-msgstr ""
-"Varianten-ID sollte UUID4 oder ganzzahlig sein. Lassen Sie das Feld frei "
-"oder wählen Sie 'auto', um eine zufällige UUID4 zu setzen."
 
 msgid "Flavor Information"
 msgstr "Varianten Information"
@@ -3199,6 +3252,9 @@ msgstr "Hier können Sie DHCP Agenten für das Netzwerk hinzufügen."
 msgid "From here you can allocate a floating IP to a specific project."
 msgstr "Hier können Sie eine Floating IP einem bestimmten Projekt zuweisen."
 
+msgid "From here you can create a rbac policy."
+msgstr "Hier können Sie RBAC Richtlinien erstellen."
+
 msgid "From here you can create a snapshot of a volume."
 msgstr "Hier kann eine Schattenkopie eines Datenträger erstellt werden."
 
@@ -3210,6 +3266,9 @@ msgid "From here you can update the default volume quotas (max limits)."
 msgstr ""
 "Hier können Sie Standard-Datenträger-kontingente (maximale Limits) "
 "aktualisieren."
+
+msgid "Front-End Example:"
+msgstr "Frontend Beispiel:"
 
 msgid "GB"
 msgstr "GB"
@@ -3243,6 +3302,10 @@ msgstr "Graph"
 
 msgid "Group"
 msgstr "Gruppe"
+
+#, python-format
+msgid "Group \"%s\" already exists."
+msgstr "Gruppe \"%s\" bereits vorhanden."
 
 #, python-format
 msgid "Group \"%s\" was successfully created."
@@ -3281,8 +3344,46 @@ msgstr "Gruppen-Schattenkopien"
 msgid "Group Type"
 msgstr "Gruppentyp"
 
+msgid "Group Type Specs"
+msgstr "Gruppentypspezifikationen"
+
+#, python-format
+msgid "Group Type: %(group_type_name)s"
+msgstr "Gruppentyp: %(group_type_name)s"
+
+#, python-format
+msgid "Group Type: %(group_type_name)s "
+msgstr "Gruppentyp: %(group_type_name)s "
+
+msgid "Group Types"
+msgstr "Gruppentypen"
+
 msgid "Group has been updated successfully."
 msgstr "Gruppe wurde erfolgreich aktualisiert."
+
+msgid ""
+"Group type is a type or label that can be selected at group creation time in "
+"OpenStack. It usually maps to a set of capabilities of the storage back-end "
+"driver to be used for this group. Examples: \"Performance\", \"SSD\", "
+"\"Backup\", etc. This is equivalent to the <tt>cinder type-create</tt> "
+"command. Once the group type gets created, click the \"View Specs\" button "
+"to set up specs key-value pair(s) for that group type."
+msgstr ""
+"Der Gruppen Typ ist ein Typ oder eine Bezeichnung, die bei der Erstellung "
+"des Datenträgers in OpenStack ausgewählt werden kann. Sie bezieht sich "
+"üblicherweise auf eine Reihe von Fähigkeiten des Storage Backend Treibers, "
+"der für die Gruppe verwendet wird. Beispiele: \"Performance\", \"SSD\", "
+"\"Backup\", etc. Dies ist gleichbedeutend mit dem Kommando <tt>cinder type-"
+"create</tt>. Klicken Sie nach der Erzeugung der Gruppe auf \"Zusätzliche "
+"Spezifikationen anzeigen\", um auf die zusätzlichen Schlüssel-Wert-Paare für "
+"die Gruppe zuzugreifen."
+
+#, python-format
+msgid "Group type name \"%s\" already exists."
+msgstr "Gruppentypname \"%s\" ist schon vorhanden."
+
+msgid "Group type name can not be empty."
+msgstr "Der Gruppenname darf nicht leer sein."
 
 msgid ""
 "Group which the new volume belongs to. Choose 'No group' if the new volume "
@@ -3309,6 +3410,9 @@ msgstr ""
 "Gruppen werden verwendet, um Zugriff und Zugehörigkeiten zu Rollen für "
 "mehrere Benutzer gleichzeitig zu regeln. Bearbeiten Sie hier den "
 "Gruppennamen und deren Beschreibung."
+
+msgid "Guaranteed Until"
+msgstr "Garantiert bis"
 
 #. Translators: High Availability mode of Neutron router
 msgid "HA mode"
@@ -3467,6 +3571,13 @@ msgstr ""
 "IP-Adressenliste der DNS-Server für dieses Subnetz. Ein Eintrag pro Zeile."
 
 msgid ""
+"IP address of Gateway (e.g. 192.168.0.254) If you do not want to use a "
+"gateway, check 'Disable Gateway' below."
+msgstr ""
+"IP Adresse des Gateways (z.B. 192.168.0.254) Wenn Sie kein Gateway verwenden "
+"wollen markieren Sie unten 'Gateway deaktivieren'."
+
+msgid ""
 "IP address of Gateway (e.g. 192.168.0.254) The default value is the first IP "
 "of the network address (e.g. 192.168.0.1 for 192.168.0.0/24, 2001:DB8::1 for "
 "2001:DB8::/48). If you use the default, leave blank. If you do not want to "
@@ -3531,6 +3642,15 @@ msgid ""
 msgstr ""
 "Wenn \"Kein Datenträger-Typ\" ausgewählt ist, wird der Datenträger ohne "
 "Datenträger-Typ erstellt."
+
+msgid "If checked, the network will be enabled."
+msgstr "Wenn ausgewählt, wird das Netzwerk aktiviert."
+
+msgid "If checked, the port will be enabled."
+msgstr "Wenn ausgewählt, wird der Port aktiviert."
+
+msgid "If checked, the router will be enabled."
+msgstr "Wenn ausgewählt, wird der Router aktiviert."
 
 msgid "If checked, the selected floating IP will be released at the same time."
 msgstr "Falls markiert, wird die Floating IP gleichzeitig freigegeben."
@@ -3604,6 +3724,9 @@ msgstr "Abbild Schattenkopie wartet"
 msgid "Image Source"
 msgstr "Abbildquelle"
 
+msgid "Image Type"
+msgstr "Abbildtyp"
+
 msgctxt "Task status of an Instance"
 msgid "Image Uploading"
 msgstr "Abbild lädt hoch"
@@ -3632,14 +3755,6 @@ msgstr "Namensraum importieren"
 
 msgid "Import Public Key"
 msgstr "Öffentlichen Schlüssel importieren"
-
-msgctxt "Current status of Consistency Group"
-msgid "In-use"
-msgstr "In Verwendung"
-
-msgctxt "Current status of Consistency Group Snapshot"
-msgid "In-use"
-msgstr "In Verwendung"
 
 msgctxt "Current status of Volume Group"
 msgid "In-use"
@@ -3822,6 +3937,9 @@ msgstr "Schlüsselpaar-Name"
 msgid "Key Pair Name ="
 msgstr "Schlüsselpaarname ="
 
+msgid "Key Pair Type"
+msgstr "Schlüsselpaar Typ"
+
 msgid "Key Pairs"
 msgstr "Schlüsselpaare"
 
@@ -3833,6 +3951,16 @@ msgstr ""
 msgid "Key Size (bits)"
 msgstr "Schlüsselgröße (Bit)"
 
+msgid "Key Type"
+msgstr "Schlüsseltyp"
+
+msgid ""
+"Key names can only contain alphanumeric characters, underscores, periods, "
+"colons and hyphens"
+msgstr ""
+"Schlüsselnamen dürfen nur alphanumerische Zeichen, Unterstriche, Punkte, "
+"Doppelpunkte und Bindestriche enthalten"
+
 msgid ""
 "Key pair name may only contain letters, numbers, underscores, spaces, and "
 "hyphens and may not be white space."
@@ -3843,21 +3971,41 @@ msgstr ""
 msgid "Key pair to use for authentication."
 msgstr "Für die Authentifizierung zu verwendendes Schlüsselpaar."
 
+#, python-format
+msgid ""
+"Key with name \"%s\" already exists. Use Edit to update the value, else "
+"create key with different name."
+msgstr ""
+"Der Schlüssel mit dem Namen \"%s\" ist bereits vorhanden. Bearbeiten Sie den "
+"Wert oder erstellen Sie einen Schlüssel mit einem anderen Namen."
+
 msgid "Key-Value Pairs"
 msgstr "Schlüssel-Wert Paare"
 
-msgid "Key: burstIOPS and Value:5000 (number value bigger than minIOPS)"
-msgstr "Schlüssel: burstIOPS und Value:5000 (Zahlwert größer als minIOPS)"
+msgid "Key: burstIOPS and Value: 5000 (number value bigger than minIOPS)"
+msgstr "Schlüssel: burstIOPS und Wert: 5000 (Zahlenwert größer als minIOPS)"
 
-msgid "Key: maxIOPS and Value:5000 (number value bigger than minIOPS)"
-msgstr "Schlüssel: maxIOPS und Wert:5000 (Zahlwert größer als minIOPS)"
+msgid "Key: maxIOPS and Value: 5000 (number value bigger than minIOPS)"
+msgstr "Schlüssel: maxIOPS und Wert: 5000 (Zahlenwert größer als minIOPS)"
 
-msgid "Key: minIOPS and Value:20 (number value less than maxIOPS)"
-msgstr " Schlüssel: minIOPS und Wert:20 (Zahlwert kleiner als maxIOPS)"
+msgid "Key: minIOPS and Value: 20 (number value less than maxIOPS)"
+msgstr "Schlüssel: minIOPS und Wert: 20 (Zahlenwert kleiner als maxIOPS)"
+
+msgid "Key: size_iops_sec and Value: 16"
+msgstr "Schlüssel: size_iops_sec und Wert: 16"
+
+msgid "Key: total_bytes_sec_max and Value: 512000"
+msgstr "Schlüssel: total_bytes_sec_max und Wert: 512000"
+
+msgid "Key: total_iops_sec and Value: 5000"
+msgstr "Schlüssel: total_iops_sec und Wert: 5000"
 
 msgctxt "Current status of an Image"
 msgid "Killed"
 msgstr "Beendet"
+
+msgid "Kubernetes Namespace"
+msgstr "Kubernetes Namensraum"
 
 msgid "L3 Agent"
 msgstr "L3 Agent"
@@ -3871,6 +4019,9 @@ msgstr "Letzte Aktualisierung"
 
 msgid "Launch"
 msgstr "Start"
+
+msgid "Launch Index"
+msgstr "Start Index"
 
 msgid "Launch Instance"
 msgstr "Instanz starten"
@@ -3928,10 +4079,17 @@ msgstr "Lokaler Speicher (insgesamt)"
 msgid "Local Storage (used)"
 msgstr "Lokaler Speicher (belegt)"
 
+msgctxt "Action log of an instance"
+msgid "Lock"
+msgstr "Sperren"
+
 msgid "Lock Instance"
 msgid_plural "Lock Instances"
 msgstr[0] "Instanz sperren"
 msgstr[1] "Instanzen sperren"
+
+msgid "Lock password"
+msgstr "Passwort sperren"
 
 msgctxt "Locked status of an instance"
 msgid "Locked"
@@ -4072,6 +4230,9 @@ msgstr "Speicherbelegung"
 msgid "Message"
 msgstr "Nachricht"
 
+msgid "Message Level"
+msgstr "Benachrichtigungslevel"
+
 msgid "Messages"
 msgstr "Nachrichten"
 
@@ -4087,12 +4248,19 @@ msgstr "Metadaten-Definitionen"
 msgid "Metadata Items"
 msgstr "Metadaten Elemente"
 
+msgid "Method"
+msgstr "Methode"
+
 msgid "MidoNet"
 msgstr "MidoNet"
 
 msgid "MidoNet Uplink"
 msgstr "MidoNet Uplink"
 
+msgid "Migrate"
+msgstr "Migriere"
+
+msgctxt "Action log of an instance"
 msgid "Migrate"
 msgstr "Migriere"
 
@@ -4157,6 +4325,9 @@ msgstr "Minimum Festplatte (GB)"
 msgid "Minimum RAM (MB)"
 msgstr "Minimum RAM (MB)"
 
+msgid "Missing required settings: {}."
+msgstr "Fehlende erforderliche Einstellungen: {}."
+
 #, python-format
 msgid "Modified domain \"%s\"."
 msgstr "Domäne \"%s\" geändert."
@@ -4195,19 +4366,14 @@ msgstr "Kontingente bearbeiten"
 msgid "Modify dashboard settings for your user."
 msgstr "Verändern Sie Dashboard-Einstellungen für Ihren Benutzer."
 
+msgid "Modify group type name, description, and public status."
+msgstr "Ändern des Gruppentypnamens, Beschreibung und öffentlichem Status"
+
 msgid "Modify name and description of a volume."
 msgstr "Namen und Beschreibung eines Datenträgers ändern."
 
 msgid "Modify the name and description of a snapshot."
 msgstr "Name und Beschreibung einer Schattenkopie ändern."
-
-msgid "Modify the name and description of a volume consistency group snapshot."
-msgstr ""
-"Ändern des Namens oder der Beschreibung einer Datenträger-Konsistenzgruppen-"
-"Schattenkopie. "
-
-msgid "Modify the name and description of a volume consistency group."
-msgstr "Name und Beschreibung einer Datenträger-Konsistenzgruppe ändern."
 
 msgid "Modify the name and description of a volume group."
 msgstr "Name und Beschreibung einer Datenträgergruppe ändern."
@@ -4374,6 +4540,9 @@ msgstr "Neue Größe (GiB)"
 msgid "New name cannot be empty."
 msgstr "Neuer Name darf nicht leer sein."
 
+msgid "New name conflicts with another group type."
+msgstr "Der neue Name kollidiert mit einem anderen Gruppentyp."
+
 msgid "New name conflicts with another volume type."
 msgstr "Neuer Name kollidiert mit einem anderen Datenträgertypen."
 
@@ -4529,6 +4698,9 @@ msgstr "Keine Sicherheitsgruppen gefunden."
 msgid "No server groups available"
 msgstr "Keine Servergruppen verfügbar."
 
+msgid "No snapshot for this volume"
+msgstr "Keine Schattenkopie für diesen Datenträger"
+
 msgid "No snapshots available"
 msgstr "Keine Schattenkopien verfügbar"
 
@@ -4643,8 +4815,17 @@ msgstr "ODER kopieren und fügen Sie Ihren privaten Schlüssel ein"
 msgid "OVA - Open Virtual Appliance"
 msgstr "OVA - Open Virtual Appliance"
 
+msgid "Object"
+msgstr "Objekt"
+
+msgid "Object ID"
+msgstr "Objekt ID"
+
 msgid "Object Store"
 msgstr "Objektspeicher"
+
+msgid "Object Type"
+msgstr "Objekttyp"
 
 msgid "Old Flavor"
 msgstr "Alte Variante"
@@ -4674,17 +4855,8 @@ msgstr "Port/Portbereich öffnen:"
 msgid "OpenStack Profiler"
 msgstr "OpenStack Profiler"
 
-msgid "OpenStack RC File (Identity API v2.0)"
-msgstr "OpenStack RC-Datei (Identity API v2.0)"
-
-msgid "OpenStack RC File (Identity API v3)"
-msgstr "OpenStack RC-Datei (Identity API v3)"
-
-msgid "OpenStack RC File v2"
-msgstr "OpenStack RC Datei v2"
-
-msgid "OpenStack RC File v3"
-msgstr "OpenStack RC Datei v3"
+msgid "OpenStack RC File"
+msgstr "OpenStack RC Datei"
 
 msgid "OpenStack clouds.yaml File"
 msgstr "OpenStack clouds.yaml-Datei"
@@ -4749,14 +4921,23 @@ msgctxt "Current status of an Instance"
 msgid "Password"
 msgstr "Passwort"
 
+msgid "Password Expires At"
+msgstr "Passwort läuft ab"
+
 msgid "Password changed. Please log in again to continue."
 msgstr "Passwort geändert. Bitte melden Sie sich erneut an um fortzufahren."
 
 msgid "Password changed. Please log in to continue."
 msgstr "Passwort geändert. Bitte loggen Sie sich ein, um fortzufahren."
 
+msgid "Password is locked."
+msgstr "Passwort ist gesperrt."
+
 msgid "Passwords do not match."
 msgstr "Die Passwörter stimmen nicht überein."
+
+msgid "Path"
+msgstr "Pfad"
 
 msgctxt "Action log of an instance"
 msgid "Pause"
@@ -4790,6 +4971,10 @@ msgstr "Geplantes Löschen"
 
 msgid "Per Volume Size (GiB)"
 msgstr "Größe pro Datenträger (GiB)"
+
+msgid "Perform a check to see if the application is ready for upgrade."
+msgstr ""
+"Test ausführen um festzustellen, ob die Applikation bereit zum Upgrade ist."
 
 msgid "Physical Network"
 msgstr "Physikalisches Netzwerk"
@@ -4883,12 +5068,6 @@ msgstr "Löschen des Abbildes verhindern."
 
 msgid "Primary Project"
 msgstr "Primäres Projekt"
-
-msgid "Primary Project ID"
-msgstr "Primäre Projekt-ID"
-
-msgid "Primary Project Name"
-msgstr "Primärer Projektname"
 
 msgid "Private Key File"
 msgstr "Private Schlüssel-Datei"
@@ -4994,6 +5173,9 @@ msgstr "QCOW2 - QEMU Emulator"
 msgid "QOS Policy ID"
 msgstr "QoS-Richtlinien-ID"
 
+msgid "QoS Policy"
+msgstr "QoS-Richtlinie"
+
 #, python-format
 msgid "QoS Spec name \"%s\" already exists."
 msgstr "QoS Spezifikation mit dem Namen \"%s\" existiert bereits."
@@ -5068,6 +5250,16 @@ msgstr "RAM(Verfügbar: %(avail)s, Angefordert: %(req)s)"
 
 msgid "RBAC Policies"
 msgstr "RBAC-Richtlinien"
+
+#, python-format
+msgid "RBAC Policy %s was successfully updated."
+msgstr "RBAC Richtlinie %s wurde erfolgreich aktualisiert."
+
+msgid "RBAC Policy Details"
+msgstr "RBAC Richtliniendetails"
+
+msgid "RBAC Policy was successfully created."
+msgstr "RBAC Richtlinie wurde erfolgreich erstellt."
 
 msgid "RX/TX Factor"
 msgstr "RX/TX Faktor"
@@ -5211,9 +5403,6 @@ msgid_plural "Remove Users"
 msgstr[0] "Benutzer entfernen"
 msgstr[1] "Benutzer entfernen"
 
-msgid "Remove Volumes from Consistency Group"
-msgstr "Datenträger aus Konsistenzgruppe entfernen"
-
 msgid "Remove Volumes from Group"
 msgstr "Datenträger aus Gruppe entfernen"
 
@@ -5229,10 +5418,6 @@ msgstr ""
 "Wenn Sie ein Schlüsselpaar entfernen, können OpenStack-Ressourcen verwaisen. "
 "Entfernen Sie ein Schlüsselpaar nur, wenn Sie sicher sind, dass es nicht "
 "mehr verwendet wird."
-
-#, python-format
-msgid "Removing volumes from volume consistency group \"%s\""
-msgstr "Datenträger aus Konsistenzgruppe \"%s\" entfernen."
 
 #, python-format
 msgid "Removing volumes from volume group \"%s\""
@@ -5267,9 +5452,19 @@ msgid "Requested snapshot would exceed the allowed quota."
 msgstr ""
 "Die angeforderte Schattenkopie würde das erlaubte Kontingent überschreiten."
 
+msgid "Required Settings"
+msgstr "Erforderliche Einstellungen"
+
+msgctxt "Action log of an instance"
+msgid "Rescue"
+msgstr "Rettung"
+
 msgctxt "Current status of an Instance"
 msgid "Rescue"
 msgstr "Rette"
+
+msgid "Rescue Instance"
+msgstr "Instance retten"
 
 msgctxt "Current status of an Instance"
 msgid "Rescued"
@@ -5278,6 +5473,9 @@ msgstr "Gerettet"
 msgctxt "Task status of an Instance"
 msgid "Rescuing"
 msgstr "Start im Rescue Mode"
+
+msgid "Reservation ID"
+msgstr "Reservierungs ID"
 
 msgctxt "Current status of a Volume"
 msgid "Reserved"
@@ -5410,6 +5608,9 @@ msgstr "Rollenname"
 msgid "Role Name ="
 msgstr "Rollenname ="
 
+msgid "Role assignments"
+msgstr "Rollenzuordnungen"
+
 msgid "Role created successfully."
 msgstr "Rolle erfolgreich erstellt."
 
@@ -5494,6 +5695,9 @@ msgstr "SLAAC: Adresse vom externen Router erhalten"
 msgid "SNAT"
 msgstr "SNAT"
 
+msgid "SSH Key"
+msgstr "SSH Schlüssel"
+
 msgid "SSH key pairs can be generated with the ssh-keygen command:"
 msgstr "SSH Schlüsselpaare können mit dem Kommando ssh-keygen erzeugt werden:"
 
@@ -5506,6 +5710,10 @@ msgstr "Änderungen speichern"
 #, python-format
 msgid "Saved extra spec \"%s\"."
 msgstr "Zusätzliche Spezifikation \"%s\" gespeichert."
+
+#, python-format
+msgid "Saved group type spec \"%s\"."
+msgstr "Gruppentypspezifikation gespeichert \"%s\"."
 
 #, python-format
 msgid "Saved spec \"%s\"."
@@ -5636,11 +5844,17 @@ msgstr "Datenträgerschattenkopie auswählen"
 msgid "Select a New Flavor"
 msgstr "Neue Variante auswählen"
 
+msgid "Select a QoS policy"
+msgstr "QoS-Richtlinie auswählen"
+
 msgid "Select a floating IP to disassociate"
 msgstr "Floating IP zum Trennen auswählen"
 
 msgid "Select a key pair"
 msgstr "Wählen Sie ein Schlüsselpaar"
+
+msgid "Select a network"
+msgstr "Netzwerk auswählen"
 
 msgid "Select a new QoS spec"
 msgstr "Wählen Sie eine neue QoS Spezifikation"
@@ -5656,9 +5870,6 @@ msgstr "Wählen Sie einen neuen Host"
 
 msgid "Select a new status"
 msgstr "Wählen Sie einen neuen Status aus"
-
-msgid "Select a new volume type"
-msgstr "Wählen Sie einen neuen Datenträgertyp aus"
 
 msgid "Select a pool"
 msgstr "Wähle einen Pool."
@@ -5687,6 +5898,9 @@ msgstr "Wählen Sie einen Datenträger zum Ablösen von dieser Instanz aus."
 msgid "Select a volume to restore to."
 msgstr "Wählen Sie einen Datenträger für die Wiederherstellung."
 
+msgid "Select action and object type"
+msgstr "Aktion und Objekttyp auswählen"
+
 msgid "Select an IP address"
 msgstr "IP-Adresse wählen"
 
@@ -5707,6 +5921,9 @@ msgstr "Netzwerk auswählen"
 
 msgid "Select networks for your instance."
 msgstr "Wählen Sie die Netzwerke für Ihre Instanz."
+
+msgid "Select snapshot to backup (Optional)"
+msgstr "Wählen Sie eine Schattenkopie zum Sichern (optional)"
 
 msgid "Select source"
 msgstr "Quelle auswählen"
@@ -5839,11 +6056,21 @@ msgstr "Gemeinsam verwendet"
 msgid "Shared ="
 msgstr "Geteilt ="
 
+msgid "Shared Network"
+msgstr "Geteiltes Netzwerk"
+
+msgid "Shared QoS Policy"
+msgstr "Geteilte QoS-Richtlinie"
+
 msgid "Shared Storage"
 msgstr "Shared Storage"
 
 msgid "Shared with Project"
 msgstr "Mit Projekt geteilt"
+
+msgctxt "Action log of an instance"
+msgid "Shelve"
+msgstr "Ablegen"
 
 msgid "Shelve Instance"
 msgid_plural "Shelve Instances"
@@ -5918,10 +6145,6 @@ msgstr "Größe des zu startenden Abbildes."
 msgid "Size(GiB) ="
 msgstr "Größe (GiB) ="
 
-msgid "Slash is not allowed at the beginning or end of your string."
-msgstr ""
-"Ein Schrägstrich ist weder an Anfang noch am Ende der Zeichenkette erlaubt."
-
 msgid "Slash is not an allowed character."
 msgstr "Der Schrägstrich (Slash) ist kein erlaubtes Zeichen."
 
@@ -5956,12 +6179,6 @@ msgstr "Schattenkopiequelle muss angegeben werden"
 
 msgid "Snapshots"
 msgstr "Schattenkopien"
-
-msgid ""
-"Snapshots can only be created for Consistency Groups that contain volumes."
-msgstr ""
-"Schattenkopien können nur für Konsistenzgruppen erzeugt werden, die "
-"Datenträger enthalten."
 
 msgid "Snapshots can only be created for Groups that contain volumes."
 msgstr ""
@@ -6062,6 +6279,9 @@ msgstr ""
 
 msgid "Specify an image to upload to the Image Service."
 msgstr "Wählen Sie ein Abbild zum Hochladen aus."
+
+msgid "Specify network address"
+msgstr "\"Netzwerkadresse\" angeben"
 
 msgid "Specify the MAC address for the new port"
 msgstr "Geben Sie die MAC-Adresse für den neuen Port an"
@@ -6185,6 +6405,10 @@ msgid "Successfully created encryption for volume type: %s"
 msgstr "Verschlüsselung erfolgreich erstellt für Datenträgertyp: %s"
 
 #, python-format
+msgid "Successfully created group type: %s"
+msgstr "Gruppentyp erfolgreich erstellt: %s"
+
+#, python-format
 msgid "Successfully created security group: %s"
 msgstr "Sicherheitsgruppe %s erfolgreich erstellt."
 
@@ -6220,6 +6444,9 @@ msgstr "Verbraucher der QoS Spezifikation erfolgreich geändert."
 
 msgid "Successfully recreated ec2 credentials."
 msgstr "EC2-Zugangsdaten erfolgreich neu erzeugt."
+
+msgid "Successfully rescued instance"
+msgstr "Instanz erfolgreich gerettet"
 
 #, python-format
 msgid ""
@@ -6259,6 +6486,9 @@ msgstr "Aggregat \"%s\" wurde erfolgreich aktualisiert."
 #, python-format
 msgid "Successfully updated encryption for volume type: %s"
 msgstr "Erfolgreich Verschlüsselung aktualisiert für Datenträgertyp: %s"
+
+msgid "Successfully updated group type."
+msgstr "Gruppentyp erfolgreich aktualisiert."
 
 #, python-format
 msgid "Successfully updated security group: %s"
@@ -6313,8 +6543,17 @@ msgstr "System"
 msgid "System Information"
 msgstr "Systeminformation"
 
+msgid "System Scope"
+msgstr "Systemumfang"
+
 msgid "Target Host"
 msgstr "Zielhost"
+
+msgid "Target Project"
+msgstr "Zielprojekt"
+
+msgid "Target Tenant"
+msgstr "Ziel-Mandant"
 
 msgid "Task"
 msgstr "Aufgabe"
@@ -6374,10 +6613,10 @@ msgstr ""
 
 msgid ""
 "The <strong>Key Size</strong> is the size of the encryption key, in bits (e."
-"g., 128, 256). If the field is left empty, the provider default will be used."
+"g., 256). If the field is left empty, the provider default will be used."
 msgstr ""
 "Die <strong>Schlüssellänge</strong> ist die Länge des Schlüssels in Bit (z."
-"B. 128, 256). Wenn das Feld leer bleibt, wird die Standardeinstellung des "
+"B. 256). Wenn das Feld leer bleibt, wird die Standardeinstellung des "
 "Anbieters verwendet."
 
 msgid ""
@@ -6533,6 +6772,11 @@ msgstr ""
 msgid "The instance(s) will be shut off."
 msgstr "Die Instanz(en) wird (werden) heruntergefahren."
 
+msgid "The key must match the following the regex: '^[a-zA-Z0-9-_:. /]'"
+msgstr ""
+"Der Schlüssel muss dem folgenden regulären Ausdruck entsprechen: '^[a-zA-"
+"Z0-9-_:. /]'"
+
 #, python-format
 msgid ""
 "The key pair &quot;%(keypair_name)s&quot; should download automatically. If "
@@ -6556,17 +6800,8 @@ msgstr ""
 "angegeben, wird der Wert 0 (kein Minimum) verwendet."
 
 #, python-format
-msgid "The name \"%s\" is already used by another consistency group."
-msgstr ""
-"Der Name \"%s\" wird bereits von einer anderen Konsistenzgruppe verwendet."
-
-#, python-format
 msgid "The name \"%s\" is already used by another flavor."
 msgstr "Der Name \"%s\" wird bereits von einer anderen Variante verwendet."
-
-#, python-format
-msgid "The name \"%s\" is already used by another group."
-msgstr "Der Name \"%s\" wird bereits von einer anderen Gruppe verwendet."
 
 #, python-format
 msgid "The name \"%s\" is already used by another host aggregate."
@@ -6590,6 +6825,16 @@ msgstr ""
 
 msgid "The new availability zone can't be empty"
 msgstr "Die neue Verfügbarkeitszone darf nicht leer sein"
+
+msgid "The new type must be different from the current volume type."
+msgstr "Der neue Typ muss sich vom aktuellen Datenträgertyp unterscheiden."
+
+msgid "The output format"
+msgstr "Ausgabeformat"
+
+#, python-format
+msgid "The password does not match the requirements: %s"
+msgstr "Das Passwort entspricht nicht den Anforderungen: %s"
 
 msgid "The physical mechanism by which the virtual network is implemented."
 msgstr ""
@@ -6644,14 +6889,18 @@ msgstr ""
 "Die angeforderte Instanz kann nicht gestartet werden, da das Kontingent "
 "überschritten wird: verfügbar: %(avail)s, angefordert: %(req)s."
 
+msgid ""
+"The rescue mode is only for emergency purpose, for example in case of a "
+"system or access failure."
+msgstr ""
+"Der Rettungsmodus ist nur für Notfälle vorgesehen, z.B. in Falle eines "
+"System- oder Zugriffsfehlers."
+
 msgid "The specified floating IP no longer exists."
 msgstr "Die angegebene Floating IP existiert nicht mehr."
 
 msgid "The specified port is invalid."
 msgstr "Der angegebene Port ist nicht gültig."
-
-msgid "The state to start the network in."
-msgstr "Status, in dem das Netzwerk gestartet werden soll."
 
 msgid ""
 "The status of a volume is normally managed automatically.  In some "
@@ -6741,13 +6990,6 @@ msgstr ""
 
 msgid ""
 "This action will unassign all volumes that are currently contained in this "
-"consistency group."
-msgstr ""
-"Diese Aktion wird die Zuordnung aller Datenträger, die sich zur Zeit in der "
-"Konsistenzgruppe befinden, auflösen."
-
-msgid ""
-"This action will unassign all volumes that are currently contained in this "
 "group."
 msgstr ""
 "Diese Aktion wird die Zuordnung aller Datenträger auflösen, die sich zur "
@@ -6776,7 +7018,7 @@ msgstr ""
 "wählen Sie \"Sperre entfernen\" aus dem Aktionen-Menü."
 
 msgid "This instance is unlocked."
-msgstr "Die Instanz ist nicht entsperrt."
+msgstr "Die Instanz ist entsperrt."
 
 msgid "This is a test: "
 msgstr "Dies ist ein Test:"
@@ -6803,14 +7045,14 @@ msgid "This volume type is used by one or more volumes."
 msgstr ""
 "Dieser Datenträgertyp wird von einem oder mehreren Datenträgern verwendet."
 
-msgid "Time Since Created"
-msgstr "Zeit seit Erzeugung"
-
-msgid "Time since created"
-msgstr "Zeit seit Erzeugung"
-
-msgid "Time since created (Seconds)"
-msgstr "Zeit seit Erzeugung (Sekunden)"
+msgid ""
+"This will shut down your instance and mount the root disk to a temporary "
+"server. Then, you will be able to connect to this server, repair the system "
+"configuration or recover your data."
+msgstr ""
+"Dies wird die Instanz herunterfahren und die Root-Platte an einen temporären "
+"Server mounten. Sie können sich dann mit dem Server verbinden, die "
+"Systemkonfiguration reparieren oder Ihre Daten wiederherstellen."
 
 msgid "Time since update"
 msgstr "Zeit seit Update"
@@ -6835,6 +7077,9 @@ msgstr ""
 msgid "To exit the fullscreen mode, click the browser's back button."
 msgstr ""
 "Mit dem Zurück-Knopf des Browsers können Sie den Vollbildmodus verlassen."
+
+msgid "To make group type private, uncheck this field."
+msgstr "Entfernen Sie die Markierung, um den Gruppentyp auf Privat zu setzen."
 
 msgid "To make volume type private, uncheck this field."
 msgstr ""
@@ -7005,12 +7250,6 @@ msgstr ""
 "Fehler beim Löschen des Gateways für Router %(name)s. Wahrscheinlich wird "
 "das Gateway noch von floating IPs verwendet."
 
-msgid "Unable to clone consistency group."
-msgstr "Konsistenzgruppe kann nicht geklont werden."
-
-msgid "Unable to clone empty consistency group."
-msgstr "Leere Konsistenzgruppe kann nicht geklont werden."
-
 msgid "Unable to clone empty group."
 msgstr "Leere Gruppe kann nicht geklont werden."
 
@@ -7025,22 +7264,6 @@ msgstr "QoS Spezifikationen können nicht erzeugt werden."
 
 msgid "Unable to create application credential."
 msgstr "Applikations-Zugangsdaten können nicht erstellt werden."
-
-#, python-format
-msgid "Unable to create consistency group \"%s\" from snapshot."
-msgstr ""
-"Konsistenzgruppe \"%s\" kann aus Schattenkopie nicht hergestellt werden."
-
-msgid "Unable to create consistency group due to exceeding volume quota limit."
-msgstr ""
-"Konsistenzguppe kann nicht erstellt werden, da die Begrenzung des "
-"Datenträgerkontingents überschritten wird."
-
-msgid "Unable to create consistency group snapshot."
-msgstr "Konsistenzgruppen-Schattenkopie kann nicht erstellt werden."
-
-msgid "Unable to create consistency group."
-msgstr "Konsistenzgruppe kann nicht erstellt werden."
 
 #, python-format
 msgid "Unable to create domain \"%s\"."
@@ -7067,6 +7290,12 @@ msgstr ""
 
 msgid "Unable to create group snapshot."
 msgstr "Gruppen-Schattenkopie kann nicht erstellt werden."
+
+msgid "Unable to create group type spec."
+msgstr "Gruppentypspezifikation kann nicht erstellt werden."
+
+msgid "Unable to create group type."
+msgstr "Gruppentyp kann nicht erstellt werden."
 
 msgid "Unable to create group."
 msgstr "Gruppe kann nicht erstellt werden."
@@ -7126,11 +7355,6 @@ msgstr "Sicherheitsgruppe kann nicht erstellt werden: %s "
 
 msgid "Unable to create snapshot."
 msgstr "Schattenkopie kann nicht erstellt werden."
-
-msgid "Unable to create snapshot. Consistency group must contain volumes."
-msgstr ""
-"Schattenkopie kann nicht erstellt werden. Die Konsistenzgruppe muss "
-"Datenträger enthalten."
 
 msgid "Unable to create snapshot. group must contain volumes."
 msgstr ""
@@ -7216,17 +7440,23 @@ msgstr "Die Floating-IP-Adresse %s kann nicht getrennt werden"
 msgid "Unable to disassociate floating IP."
 msgstr "Floating IP kann nicht getrennt werden."
 
-msgid "Unable to display consistency group."
-msgstr "Konsistenzgruppe kann nicht angezeigt werden."
-
-msgid "Unable to display group."
-msgstr "Gruppe kann nicht angezeigt werden."
+msgid "Unable to display role assignment through groups."
+msgstr "Rollenzuweisungen durch Gruppen können nicht angezeigt werden."
 
 msgid "Unable to display the groups of this project."
 msgstr "Gruppen dieses Projekts können nicht angezeigt werden."
 
+msgid "Unable to display the groups of this user."
+msgstr "Rollen dieses Benutzers können nicht angezeigt werden."
+
+msgid "Unable to display the role assignments of this user."
+msgstr "Rollenzuordnungen dieses Benutzers können nicht angezeigt werden."
+
 msgid "Unable to display the users of this project."
 msgstr "Benutzer dieses Projekts können nicht angezeigt werden."
+
+msgid "Unable to edit group type spec."
+msgstr "Gruppentypspezifikation kann nicht bearbeitet werden."
 
 msgid "Unable to edit spec."
 msgstr "Die Spezifikation kann nicht bearbeitet werden."
@@ -7239,6 +7469,12 @@ msgstr "Datenträger kann nicht erweitert werden."
 
 msgid "Unable to fetch EC2 credentials."
 msgstr "EC2-Zugangsdaten können nicht heruntergeladen werden."
+
+msgid "Unable to fetch snapshot"
+msgstr "Schattenkopie kann nicht abgerufen werden"
+
+msgid "Unable to fetch snapshots"
+msgstr "Schattenkopien können nicht abgerufen werden"
 
 msgid "Unable to find default role."
 msgstr "Die Standardrolle kann nicht gefunden werden."
@@ -7268,18 +7504,12 @@ msgstr "Cinder-Kontingentinformationen können nicht abgerufen werden."
 msgid "Unable to get cinder services list."
 msgstr "Cinder-Dienstliste kann nicht abgerufen werden."
 
-msgid "Unable to get consistency group list"
-msgstr "Liste der Konsistenzgruppen kann nicht abgerufen werden"
-
 #, python-format
 msgid "Unable to get console for instance \"%s\"."
 msgstr "Konsole für die Instanz \"%s\" kann nicht aufgerufen werden."
 
 msgid "Unable to get flavor list"
 msgstr "Liste der Varianten kann nicht abgerufen werden"
-
-msgid "Unable to get group list"
-msgstr "Gruppenliste kann nicht abgerufen werden"
 
 msgid "Unable to get host aggregate list"
 msgstr "Hostaggregat-Liste kann nicht abgerufen werden"
@@ -7319,9 +7549,6 @@ msgstr "Verfügbare Datenträgertypen können nicht abgerufen werden."
 msgid "Unable to get the available volumes"
 msgstr "Verfügbare Datenträgertypen können nicht abgerufen werden."
 
-msgid "Unable to get volume type list"
-msgstr "Liste der Datenträgertypen kann nicht abgerufen werden."
-
 msgid "Unable to import key pair."
 msgstr "Schlüsselpaar kann nicht importiert werden."
 
@@ -7339,9 +7566,6 @@ msgid "Unable to load console. Please reload page to try again."
 msgstr ""
 "Konsole konnte nicht geladen werden. Bitte laden Sie die Seite für einen "
 "weiteren Versuch neu."
-
-msgid "Unable to load the specified consistency group."
-msgstr "Die angegebene Konsistenzgruppe kann nicht geladen werden."
 
 msgid "Unable to load the specified group."
 msgstr "Die angegebene Gruppe kann nicht geladen werden."
@@ -7412,6 +7636,9 @@ msgstr ""
 "ob die Identitätsanbieter-ID und die fernen IDs nicht bereits verwendet "
 "werden."
 
+msgid "Unable to rescue instance"
+msgstr "Instanz kann nicht gerettet werden"
+
 #, python-format
 msgid "Unable to resize instance \"%s\"."
 msgstr "Größe der Instanz \"%s\" kann nicht geändert werden."
@@ -7444,9 +7671,6 @@ msgstr ""
 msgid "Unable to retrieve Neutron quota information."
 msgstr "Neutron-Kontingentinformationen können nicht abgerufen werden."
 
-msgid "Unable to retrieve Nova availability zones."
-msgstr "Nova-Verfügbarkeitszonen können nicht abgerufen werden."
-
 msgid "Unable to retrieve Nova server groups."
 msgstr "Nova Servergruppen können nicht abgerufen werden."
 
@@ -7468,9 +7692,11 @@ msgstr "Die Liste der QoS Spezifikationen kann nicht abgerufen werden."
 msgid "Unable to retrieve QoS specs"
 msgstr "QoS Spezifikationen können nicht abgerufen werden"
 
-#, python-format
-msgid "Unable to retrieve a list of external networks \"%s\"."
-msgstr "Liste externer Netzwerke kann nicht abgerufen werden \"%s\"."
+msgid "Unable to retrieve RBAC policies."
+msgstr "Die RBAC Richtlinien können nicht abgerufen werden."
+
+msgid "Unable to retrieve a list of external networks."
+msgstr "Liste externer Netzwerke kann nicht abgerufen werden."
 
 msgid "Unable to retrieve agent list."
 msgstr "Agentenliste kann nicht abgerufen werden."
@@ -7497,21 +7723,14 @@ msgstr "Verfügbarkeitszonen können nicht abgerufen werden."
 msgid "Unable to retrieve backup details."
 msgstr "Details zur Sicherungskopie können nicht abgerufen werden."
 
+msgid "Unable to retrieve community images."
+msgstr "Community-Abbilder können nicht abgerufen werden."
+
 msgid "Unable to retrieve compute host information."
 msgstr "Compute Host Informationen können nicht abgerufen werden."
 
 msgid "Unable to retrieve compute limit information."
 msgstr "Compute-Begrenzungsinformationen können nicht abgerufen werden."
-
-msgid "Unable to retrieve consistency group details."
-msgstr "Konsistenzgruppendetails können nicht abgerufen werden."
-
-msgid "Unable to retrieve consistency group information."
-msgstr "Konsistenzgruppeninformationen können nicht abgerufen werden."
-
-msgid "Unable to retrieve consistency group snapshot details."
-msgstr ""
-"Details zur Konsistenzgruppen-Schattenkopie können nicht abgerufen werden."
 
 msgid "Unable to retrieve default compute quotas."
 msgstr "Standard-Compute-Kontingente können nicht abgerufen werden."
@@ -7538,6 +7757,10 @@ msgid "Unable to retrieve details for network \"%s\"."
 msgstr "Details zu Netzwerk \"%s\" können nicht abgerufen werden."
 
 #, python-format
+msgid "Unable to retrieve details for rbac_policy \"%s\"."
+msgstr "Details zu rbac Richtlinie \"%s\" können nicht angerufen werden."
+
+#, python-format
 msgid "Unable to retrieve details for router \"%s\"."
 msgstr "Details zum Router \"%s\" können nicht abgerufen werden."
 
@@ -7552,9 +7775,6 @@ msgstr "Domänen-Liste kann nicht abgerufen werden."
 
 msgid "Unable to retrieve encryption type."
 msgstr "Verschlüsselungstyp kann nicht abgerufen werden."
-
-msgid "Unable to retrieve extensions information"
-msgstr "Informationen zur Erweiterung konnten nicht abgerufen werden."
 
 msgid "Unable to retrieve extensions information."
 msgstr "Informationen zu Erweiterungen können nicht abgerufen werden."
@@ -7618,8 +7838,31 @@ msgstr ""
 msgid "Unable to retrieve group snapshot details."
 msgstr "Konnte Gruppenschattenkopie-Details nicht abrufen."
 
+msgid "Unable to retrieve group snapshot project information."
+msgstr ""
+"Projektinformationen zu Gruppenschattenkopien können nicht abgerufen werden."
+
 msgid "Unable to retrieve group snapshots."
 msgstr "Gruppen-Schattenkopie können nicht abgerufen werden."
+
+msgid "Unable to retrieve group type details."
+msgstr "Gruppentyp Details können nicht abgerufen werden."
+
+#, python-format
+msgid "Unable to retrieve group type for: \"%s\""
+msgstr "Gruppentyp für \"%s\" kann nicht abrufen werden."
+
+msgid "Unable to retrieve group type name."
+msgstr "Name des Gruppentyps kann nicht abgerufen werden."
+
+msgid "Unable to retrieve group type spec details."
+msgstr "Gruppentypspezifikation Details können nicht abgerufen werden."
+
+msgid "Unable to retrieve group type spec list."
+msgstr "Gruppentypspezifikationsliste kann nicht abgerufen werden."
+
+msgid "Unable to retrieve group type."
+msgstr "Gruppentyp kann nicht abgerufen werden."
 
 msgid "Unable to retrieve group types."
 msgstr "Gruppentypen können nicht abgerufen werden."
@@ -7654,14 +7897,14 @@ msgstr "Abruf der Identitätsanbieterliste nicht möglich."
 msgid "Unable to retrieve image details."
 msgstr "Abbilddetails können nicht abgerufen werden."
 
+msgid "Unable to retrieve image format list."
+msgstr "Abbildformatliste kann nicht abgerufen werden."
+
 msgid "Unable to retrieve image list."
 msgstr "Abbildliste kann nicht abgerufen werden."
 
 msgid "Unable to retrieve image."
 msgstr "Abbild kann nicht abgerufen werden."
-
-msgid "Unable to retrieve images"
-msgstr "Abbilder können nicht abgerufen werden"
 
 msgid "Unable to retrieve images for the current project."
 msgstr "Abbilder zum aktuellen Projekt können nicht abgerufen werden."
@@ -7671,6 +7914,19 @@ msgstr "Abbilder können nicht abgerufen werden."
 
 msgid "Unable to retrieve information about the networks' projects."
 msgstr "Informationen zu den Netzwerk-Projekten können nicht abgerufen werden."
+
+msgid "Unable to retrieve information about the policies' networks."
+msgstr ""
+"Informationen zu den Richtlinien-Netzwerken können nicht abgerufen werden."
+
+msgid "Unable to retrieve information about the policies' projects."
+msgstr ""
+"Informationen zu den Richtlinien-Projekten können nicht abgerufen werden."
+
+msgid "Unable to retrieve information about the policies' qos policies."
+msgstr ""
+"Informationen zu den QoS-Richtlinien der Richtlinien könne nicht abgerufen "
+"werden."
 
 msgid "Unable to retrieve instance action list."
 msgstr "Instanzen-Aktionsliste kann nicht abgerufen werden."
@@ -7750,6 +8006,11 @@ msgstr "Projektdetails können nicht abgerufen werden."
 msgid "Unable to retrieve project domain."
 msgstr "Projekt-Domäne kann nicht abgerufen werden."
 
+msgid "Unable to retrieve project information of volume snapshots."
+msgstr ""
+"Projektinformationen zu Datenträgerschattenkopien können nicht abgerufen "
+"werden."
+
 msgid "Unable to retrieve project information."
 msgstr "Projektinformationen können nicht abgerufen werden."
 
@@ -7767,6 +8028,9 @@ msgstr "Öffentliche Abbilder können nicht abgerufen werden."
 
 msgid "Unable to retrieve quota information."
 msgstr "Kontingent Informationen können nicht abgerufen werden."
+
+msgid "Unable to retrieve rbac policy details."
+msgstr "RBAC Richtliniendetails können nicht abgerufen werden."
 
 msgid "Unable to retrieve role list."
 msgstr "Rollenliste kann nicht abgerufen werden."
@@ -7815,6 +8079,9 @@ msgstr "Details zur Schattenkopie können nicht abgerufen werden."
 msgid "Unable to retrieve snapshot list."
 msgstr "Liste der Schattenkopien kann nicht abgerufen werden."
 
+msgid "Unable to retrieve snapshot messages."
+msgstr "Konnte Schattenkopie Nachrichten nicht abrufen."
+
 msgid "Unable to retrieve subnet details"
 msgstr "Subnetz-Details konnten nicht abgerufen werden"
 
@@ -7848,6 +8115,9 @@ msgstr "Benutzerdetails können nicht abgerufen werden."
 msgid "Unable to retrieve user domain role assignments."
 msgstr "Domänen-Rollenzuweisungen können nicht abgerufen werden."
 
+msgid "Unable to retrieve user domain."
+msgstr "Benutzerdomäne kann nicht abgerufen werden."
+
 msgid "Unable to retrieve user information."
 msgstr "Benutzerinformationen können nicht abgerufen werden."
 
@@ -7871,17 +8141,15 @@ msgstr "Versionsinformationen können nicht abgerufen werden."
 msgid "Unable to retrieve volume backups."
 msgstr "Datenträger-Sicherungskopien können nicht abgerufen werden."
 
-msgid "Unable to retrieve volume consistency group snapshots."
-msgstr "Konsistenzgruppen Schattenkopien können nicht abgerufen werden."
-
-msgid "Unable to retrieve volume consistency groups."
-msgstr "Datenträger-Konsistenzgruppen können nicht abgerufen werden."
-
 msgid "Unable to retrieve volume details."
 msgstr "Datenträger Details können nicht abgerufen werden."
 
 msgid "Unable to retrieve volume encryption details."
 msgstr "Verschlüsselungsdetails zum Datenträger können nicht abgerufen werden."
+
+msgid "Unable to retrieve volume group project information."
+msgstr ""
+"Gruppenprojektinformationen zum Datenträger können nicht aufgerufen werden."
 
 msgid "Unable to retrieve volume group snapshots."
 msgstr "Datenträgergruppen Schattenkopien können nicht abgerufen werden."
@@ -7919,6 +8187,11 @@ msgstr "Projektinformationen zum Datenträger können nicht aufgerufen werden."
 
 msgid "Unable to retrieve volume quota information."
 msgstr "Datenträgerkontingentinformationen können nicht abgerufen werden."
+
+msgid "Unable to retrieve volume snapshot project information."
+msgstr ""
+"Projektinformationen zu Datenträgerschattenkopien können nicht abgerufen "
+"werden."
 
 msgid "Unable to retrieve volume snapshot."
 msgstr "Datenträger-Schattenkopie kann nicht abgerufen werden."
@@ -7970,11 +8243,14 @@ msgid "Unable to retrieve volume/instance attachment information"
 msgstr ""
 "Zuweisungsinformationen Datenträger/Instanz können nicht abgerufen werden."
 
-msgid "Unable to retrieve volumes availability zones."
-msgstr "Datenträger-Verfügbarkeitszonen können nicht abgerufen werden."
-
 msgid "Unable to retrieve volumes."
 msgstr "Datenträger können nicht abgerufen werden."
+
+#, python-format
+msgid "Unable to revert resize instance \"%s\"."
+msgstr ""
+"Rückgängig machen der Änderung der Größe der Instanz \"%s\" ist nicht "
+"möglich."
 
 msgid "Unable to set Domain Context."
 msgstr "Domänen-Kontext kann nicht gesetzt werden."
@@ -8007,6 +8283,9 @@ msgstr "Standard-Datenträger-Kontingente können nicht aktualisieren werden."
 msgid "Unable to update encrypted volume type."
 msgstr "Aktualisieren von verschlüsselten Datenträgertypen nicht möglich."
 
+msgid "Unable to update group type."
+msgstr "Gruppentyp kann nicht aktualisiert werden."
+
 msgid "Unable to update group."
 msgstr "Gruppe kann nicht aktualisiert werden."
 
@@ -8023,6 +8302,9 @@ msgstr ""
 #, python-format
 msgid "Unable to update image \"%s\"."
 msgstr "Abbild \"%s\" konnte nicht aktualisiert werden."
+
+msgid "Unable to update instance security group."
+msgstr "Sicherheitsgruppe kann nicht aktualisiert werden."
 
 msgid "Unable to update mapping."
 msgstr "Zuordnung kann nicht aktualisiert werden."
@@ -8058,9 +8340,6 @@ msgstr "Das Benutzerpasswort kann nicht aktualisiert werden."
 msgid "Unable to update the user."
 msgstr "Benutzer kann nicht aktualisiert werden."
 
-msgid "Unable to update volume consistency group."
-msgstr "Datenträger-Konsistenzgruppe kann nicht aktualisiert werden."
-
 msgid "Unable to update volume group."
 msgstr "Datenträgergruppe kann nicht aktualisiert werden."
 
@@ -8080,9 +8359,6 @@ msgstr "Datenträgertyp konnte nicht aktualisiert werden."
 msgid "Unable to update volume."
 msgstr "Datenträger konnte nicht aktualisiert werden."
 
-msgid "Unable to update volumes for consistency group"
-msgstr "Datenträger für die Konsistenzgruppe können nicht aktualisiert werden"
-
 msgid "Unable to update volumes for group"
 msgstr "Datenträger für die Gruppe können nicht aktualisiert werden"
 
@@ -8100,6 +8376,9 @@ msgstr "VNIC Typenerweiterung in Neutron kann nicht überprüft werden"
 msgid "Unknown"
 msgstr "Unbekannt"
 
+msgid "Unknown Settings"
+msgstr "Unbekannte Einstellungen"
+
 msgid "Unknown instance"
 msgstr "Unbekannte Instanz"
 
@@ -8109,8 +8388,15 @@ msgstr "Unbekannte Instanz (Keine)"
 msgid "Unknown resource type for detail API."
 msgstr "Unbekannter Ressourcentyp für Details-API"
 
+msgid "Unknown settings: {}."
+msgstr "Unbekannte Einstellungen: {}."
+
 msgid "Unknown volume (None)"
 msgstr "Unbekannter Datenträger (None)"
+
+msgctxt "Action log of an instance"
+msgid "Unlock"
+msgstr "Entsperren"
 
 msgid "Unlock Instance"
 msgid_plural "Unlock Instances"
@@ -8142,6 +8428,20 @@ msgid_plural "Unregistered Identity Providers"
 msgstr[0] "Registrierung von Identitätsanbieter aufgehoben"
 msgstr[1] "Registrierung von Identitätsanbietern aufgehoben"
 
+msgctxt "Action log of an instance"
+msgid "Unrescue"
+msgstr "Aus Rettung entfernen"
+
+msgid "Unrescue Instance"
+msgid_plural "Unrescue Instances"
+msgstr[0] "Instanz aus Rettung entfernen"
+msgstr[1] "Instanzen aus Rettung entfernen"
+
+msgid "Unrescued Instance"
+msgid_plural "Unrescued Instances"
+msgstr[0] "Aus Rettung entfernte Instanz"
+msgstr[1] "Aus Rettung entfernte Instanzen"
+
 msgctxt "Task status of an Instance"
 msgid "Unrescuing"
 msgstr "Rescue Mode beenden"
@@ -8151,6 +8451,10 @@ msgstr "Unbeschränkt"
 
 msgid "Unrestricted (dangerous)"
 msgstr "Unbeschränkt (gefährlich)"
+
+msgctxt "Action log of an instance"
+msgid "Unshelve"
+msgstr "Aus Ablage holen"
 
 msgid "Unshelve Instance"
 msgid_plural "Unshelve Instances"
@@ -8209,6 +8513,9 @@ msgstr "Aktualisiere Metadaten"
 msgid "Update Network"
 msgstr "Netzwerk aktualisieren"
 
+msgid "Update RBAC Policy"
+msgstr "RBAC Richtlinie aktualisieren"
+
 msgid "Update Role"
 msgstr "Rolle aktualisieren"
 
@@ -8248,6 +8555,10 @@ msgid "Update the \"extra spec\" value for \"%(key)s\""
 msgstr "Den \"extra spec\" Wert für \"%(key)s\" aktualisieren"
 
 #, python-format
+msgid "Update the \"group type spec\" value for \"%(key)s\""
+msgstr "Aktualisieren Sie für \"group type spec\" den Wert für \"%(key)s\""
+
+#, python-format
 msgid "Update the spec value for \"%(key)s\""
 msgstr "Spezifikationswert für \"%(key)s\" aktualisieren"
 
@@ -8261,12 +8572,12 @@ msgstr "Aktualisiert am/um"
 msgid "Updated subnet \"%s\"."
 msgstr "Subnetz aktualisiert \"%s\"."
 
-#, python-format
-msgid "Updated volumes for consistency group \"%s\"."
-msgstr "Datenträger für Konsistenzgruppe \"%s\" aktualisiert."
-
 msgid "Updated volumes for group."
 msgstr "Aktualisierte Datenträger für Gruppe."
+
+msgctxt "Current status of Volume Group"
+msgid "Updating"
+msgstr "Aktualisiere"
 
 msgctxt "Task status of an Instance"
 msgid "Updating Password"
@@ -8282,10 +8593,6 @@ msgstr ""
 #, python-format
 msgid "Updating volume \"%s\""
 msgstr "Aktualisiere Datenträger \"%s\""
-
-#, python-format
-msgid "Updating volume consistency group \"%s\""
-msgstr "Datenträger-Konsistenzgruppe \"%s\" wird aktualisiert"
 
 #, python-format
 msgid "Updating volume group \"%s\""
@@ -8326,9 +8633,6 @@ msgstr "Verwendungsreport für den Zeitraum:"
 msgid "Use Server Default"
 msgstr "Serverstandard verwenden"
 
-msgid "Use a consistency group as source"
-msgstr "Verwenden einer Konsistenzgruppe als Quelle"
-
 msgid "Use a group as source"
 msgstr "Verwenden einer Gruppe als Quelle"
 
@@ -8356,15 +8660,18 @@ msgid "User"
 msgstr "Benutzer"
 
 #, python-format
+msgid "User \"%s\" has been updated successfully."
+msgstr "Benutzer \"%s\" wurde erfolgreich aktualisiert."
+
+#, python-format
 msgid "User \"%s\" was successfully created."
 msgstr "Der Benutzer \"%s\" wurde erfolgreich erstellt."
 
-#, python-format
-msgid "User %s has no role defined for that project."
-msgstr "Der Benutzer %s hat keine definierte Rolle für dieses Projekt."
-
 msgid "User Credentials Details"
 msgstr "Benutzeranmeldedatendetails"
+
+msgid "User Data"
+msgstr "Benutzerdaten"
 
 msgid "User Details"
 msgstr "Benutzerdetails"
@@ -8375,6 +8682,9 @@ msgstr "Benutzer ID"
 msgid "User ID ="
 msgstr "Benutzer-ID ="
 
+msgid "User Message"
+msgstr "Benutzernachricht"
+
 msgid "User Name"
 msgstr "Benutzername"
 
@@ -8383,9 +8693,6 @@ msgstr "Benutzername ="
 
 msgid "User Settings"
 msgstr "Benutzereinstellungen"
-
-msgid "User has been updated successfully."
-msgstr "Benutzer wurde erfolgreich aktualisiert."
 
 #, python-format
 msgid "User name \"%s\" is already used."
@@ -8471,6 +8778,9 @@ msgstr "Log anzeigen"
 msgid "View Routers"
 msgstr "Router ansehen"
 
+msgid "View Specs"
+msgstr "Spezifikationen betrachten"
+
 msgid "View Usage"
 msgstr "Auslastung anzeigen"
 
@@ -8492,9 +8802,6 @@ msgstr "Datenträger Sicherungskopie:"
 
 msgid "Volume Backups"
 msgstr "Datenträger Sicherungskopien"
-
-msgid "Volume Consistency Groups"
-msgstr "Datenträger-Konsistenzgruppen"
 
 msgid "Volume Encryption Details"
 msgstr "Details Datenträger-Verschlüsselung"
@@ -8591,25 +8898,6 @@ msgid ""
 msgstr ""
 "Der Datenträger kann nicht auf %(req)iGiB erwetert werden. Die Maximalgröße "
 "ist %(max_size)iGiB."
-
-msgid "Volume consistency groups can not be deleted if they contain volumes."
-msgstr ""
-"Datenträgerkonsistenzgruppen können nicht gelöscht werden, wenn sie "
-"Datenträger enthalten."
-
-msgid ""
-"Volume consistency groups provide a mechanism for creating snapshots of "
-"multiple volumes at the same point-in-time to ensure data consistency\n"
-"\n"
-"A consistency group can support more than one volume type, but it can only "
-"contain volumes hosted by the same back end."
-msgstr ""
-"Datenträgerkonsistenzgruppen stellen ein Verfahren bereit, mit dem "
-"Schattenkopien mehrerer Datenträger zum selben Zeitpunkt erstellt werden "
-"können, um Datenkonsistenz sicherzustellen.\n"
-"\n"
-"Eine Konsistenzgruppe kann mehr als einen Datenträgertyp unterstützen, sie "
-"kann jedoch nur Datenträger enthalten, die im selben Backend gehostet werden."
 
 msgid "Volume groups can not be deleted if they contain volumes."
 msgstr ""
@@ -8748,6 +9036,9 @@ msgstr ""
 "Sollte der Datenträgerstatus \"in Verwendung\" sein, können Sie \"Erzwingen"
 "\" verwenden, um das Hochladen des Datenträgers als Abbild zu erzwingen."
 
+msgid "X509 Certificate"
+msgstr "X509 Zertifikat"
+
 msgid "Yes"
 msgstr "Ja"
 
@@ -8834,34 +9125,20 @@ msgstr ""
 msgid "You have selected:"
 msgstr "Sie haben ausgewählt:"
 
-msgid ""
-"You may give the application credential an expiration. The expiration will "
-"be in UTC. If you provide an expiration date with no expiration time, the "
-"time will be assumed to be 00:00:00. If you provide an expiration time with "
-"no expiration date, the date will be assumed to be today."
-msgstr ""
-"Sie können den Applikations-Zugangsdaten ein Ablaufdatum mitgeben. Die "
-"Ablaufzeit entspricht UTC. Wenn Sie ein Ablaufdatum ohne Zeit angeben wird "
-"00:00:00 angenommen. Wenn Sie eine Ablaufzeit ohne Datum angeben wird Heute "
-"als Datum angenommen."
-
 msgid "You may have mistyped the address or the page may have moved."
 msgstr ""
 "Es könnte sein, daß Sie sich bei der Adresse vertippt haben oder daß die "
 "Seite entfernt wurde."
 
+msgid ""
+"You may optionally select an image and set a password on the rescue instance "
+"server."
+msgstr ""
+"Sie können optional ein Abbild auswählen und ein Passwort für den Instanz-"
+"Rettungsserver vergeben."
+
 msgid "You may optionally set a password on the rebuilt instance."
 msgstr "Sie können optional ein Passwort für die neu gebaute Instanz setzen."
-
-msgid ""
-"You may provide your own secret, or one will be generated for you. Once your "
-"application credential is created, the secret will be revealed once. If you "
-"lose the secret, you will have to generate a new application credential."
-msgstr ""
-"Sie können Ihr eigenes Geheimwort angeben oder es wird eines für Sie "
-"erstellt. Nachdem Sie Applikations-Zugangsdaten erstellt haben, wird das "
-"Geheimwort einmalig angezeigt. Wenn Sie dieses verlieren, so müssen Sie neue "
-"Applikations-Zugangsdaten erstellen."
 
 msgid ""
 "You may reset the gateway later by using the set gateway action, but the "
@@ -8870,14 +9147,10 @@ msgstr ""
 "Sie können das Gateway später durch die \"setze Gateway\" Aktion "
 "zurücksetzen, aber die IP-Adresse kann sich ändern."
 
-msgid ""
-"You may select one or more roles for this application credential. If you do "
-"not select any, all of the roles you have assigned on the current project "
-"will be applied to the application credential."
+msgid "You may update the editable properties of the RBAC policy here."
 msgstr ""
-"Sie können eine oder mehrere Rollen für die Applikations-Zugangsdaten "
-"auswählen. Wenn Sie keine auswählen, so werden alle dem aktuellen Projekt "
-"zugewiesenen Rollen auf die Applikations-Zugangsdaten angewendet."
+"Hier können Sie die editierbaren Eigenschaften ihrer RBAC Richtlinie "
+"aktualisiert."
 
 msgid "You may update the editable properties of your network here."
 msgstr "Sie können alle editierbaren Netzwerkeinstellungen hier aktualisieren."
@@ -8956,14 +9229,32 @@ msgstr "z.B. Ja / Nein"
 msgid "e.g. Yes/No"
 msgstr "z.B. Ja/Nein"
 
+msgid ""
+"flavor id can only contain alphanumeric characters, underscores, periods, "
+"hyphens, spaces."
+msgstr ""
+"Varianten ID darf nur alphanumerische Zeichen, Unterstriche, Punkte, "
+"Bindestriche und Leerzeichen enthalten."
+
 msgid "front-end"
 msgstr "Frontend"
 
 msgid "instance"
 msgstr "Instanz"
 
+#, python-format
+msgid ""
+"key with name \"%s\" already exists.Use Edit to update the value, else "
+"create key with different name."
+msgstr ""
+"Der Schlüssel mit dem Namen \"%s\" ist bereits vorhanden. Bearbeiten Sie den "
+"Wert oder erstellen Sie einen Schlüssel mit einem anderen Namen."
+
 msgid "no"
 msgstr "nein"
+
+msgid "rbac policy quota exceeded."
+msgstr "rbac Richtlinienkontingent überschritten."
 
 msgid "undefined"
 msgstr "undefiniert"

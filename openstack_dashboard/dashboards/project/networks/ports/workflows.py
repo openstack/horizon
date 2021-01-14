@@ -15,7 +15,6 @@
 
 import logging
 
-from django.conf import settings
 from django.urls import reverse
 from django.utils.translation import ugettext_lazy as _
 
@@ -26,6 +25,7 @@ from horizon import workflows
 from openstack_dashboard import api
 from openstack_dashboard.dashboards.project.networks.ports import sg_base
 from openstack_dashboard.utils import filters
+from openstack_dashboard.utils import settings as setting_utils
 
 
 LOG = logging.getLogger(__name__)
@@ -58,9 +58,11 @@ class CreatePortInfoAction(workflows.Action):
     name = forms.CharField(max_length=255,
                            label=_("Name"),
                            required=False)
-    admin_state = forms.BooleanField(label=_("Enable Admin State"),
-                                     initial=True,
-                                     required=False)
+    admin_state = forms.BooleanField(
+        label=_("Enable Admin State"),
+        initial=True,
+        required=False,
+        help_text=_("If checked, the port will be enabled."))
     device_id = forms.CharField(max_length=100, label=_("Device ID"),
                                 help_text=_("Device ID attached to the port"),
                                 required=False)
@@ -123,8 +125,7 @@ class CreatePortInfoAction(workflows.Action):
         required=False)
 
     def __init__(self, request, context, *args, **kwargs):
-        super(CreatePortInfoAction, self).__init__(
-            request, context, *args, **kwargs)
+        super().__init__(request, context, *args, **kwargs)
 
         # prepare subnet choices and input area for each subnet
         subnet_choices = self._get_subnet_choices(context)
@@ -158,9 +159,8 @@ class CreatePortInfoAction(workflows.Action):
         return is_supproted
 
     def _populate_vnic_type_choices(self, request):
-        neutron_settings = getattr(settings, 'OPENSTACK_NEUTRON_NETWORK', {})
-        supported_vnic_types = neutron_settings.get('supported_vnic_types',
-                                                    ['*'])
+        supported_vnic_types = setting_utils.get_dict_config(
+            'OPENSTACK_NEUTRON_NETWORK', 'supported_vnic_types')
         # When a list of VNIC types is empty, hide the corresponding field.
         if not supported_vnic_types:
             del self.fields['binding__vnic_type']
@@ -200,6 +200,20 @@ class CreatePortInfoAction(workflows.Action):
         return [(subnet.id, '%s %s' % (subnet.name_or_id, subnet.cidr))
                 for subnet in network.subnets
                 if isinstance(subnet, api.neutron.Subnet)]
+
+    def clean_subnet_id(self):
+        specify_ip = self.cleaned_data.get('specify_ip')
+        subnet_id = self.cleaned_data.get('subnet_id')
+        if specify_ip == "subnet_id" and not subnet_id:
+            raise forms.ValidationError(_("This field is required."))
+        return subnet_id
+
+    def clean_fixed_ip(self):
+        specify_ip = self.cleaned_data.get('specify_ip')
+        fixed_ip = self.cleaned_data.get('fixed_ip')
+        if specify_ip == "fixed_ip" and not fixed_ip:
+            raise forms.ValidationError(_("This field is required."))
+        return fixed_ip
 
     class Meta(object):
         name = _("Info")
@@ -290,17 +304,17 @@ class UpdatePortInfoAction(workflows.Action):
     name = forms.CharField(max_length=255,
                            label=_("Name"),
                            required=False)
-    admin_state = forms.BooleanField(label=_("Enable Admin State"),
-                                     required=False)
+    admin_state = forms.BooleanField(
+        label=_("Enable Admin State"),
+        required=False,
+        help_text=_("If checked, the port will be enabled."))
 
     def __init__(self, request, *args, **kwargs):
-        super(UpdatePortInfoAction, self).__init__(request, *args, **kwargs)
+        super().__init__(request, *args, **kwargs)
         try:
             if api.neutron.is_extension_supported(request, 'binding'):
-                neutron_settings = getattr(settings,
-                                           'OPENSTACK_NEUTRON_NETWORK', {})
-                supported_vnic_types = neutron_settings.get(
-                    'supported_vnic_types', ['*'])
+                supported_vnic_types = setting_utils.get_dict_config(
+                    'OPENSTACK_NEUTRON_NETWORK', 'supported_vnic_types')
                 if supported_vnic_types:
                     if supported_vnic_types == ['*']:
                         vnic_type_choices = api.neutron.VNIC_TYPES

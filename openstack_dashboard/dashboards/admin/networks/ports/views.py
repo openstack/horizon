@@ -29,12 +29,18 @@ class CreateView(project_views.CreateView):
     workflow_class = admin_workflows.CreatePort
     failure_url = 'horizon:admin:networks:detail'
 
+    def get_initial(self):
+        network = self.get_network()
+        return {"network_id": self.kwargs['network_id'],
+                "network_name": network.name,
+                "target_tenant_id": network.tenant_id}
+
 
 class DetailView(project_views.DetailView):
     tab_group_class = ports_tabs.PortDetailTabs
 
     def get_context_data(self, **kwargs):
-        context = super(DetailView, self).get_context_data(**kwargs)
+        context = super().get_context_data(**kwargs)
         port = context["port"]
         network_url = "horizon:admin:networks:detail"
         subnet_url = "horizon:admin:networks:subnets:detail"
@@ -64,7 +70,7 @@ class UpdateView(project_views.UpdateView):
     failure_url = 'horizon:admin:networks:detail'
 
     def get_initial(self):
-        initial = super(UpdateView, self).get_initial()
+        initial = super().get_initial()
         port = self._get_object()
         if 'binding__host_id' in port:
             initial['binding__host_id'] = port['binding__host_id']

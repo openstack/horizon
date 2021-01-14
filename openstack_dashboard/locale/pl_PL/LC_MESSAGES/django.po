@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: horizon VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2018-09-29 05:45+0000\n"
+"POT-Creation-Date: 2020-11-23 00:41+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -1693,6 +1693,9 @@ msgstr "Edycja atrybutów przestrzeni nazw"
 msgid "Edit Network"
 msgstr "Edytuj sieć"
 
+msgid "Edit Policy"
+msgstr "Edytuj zasadę"
+
 msgid "Edit Port"
 msgstr "Edytuj port"
 
@@ -1987,10 +1990,6 @@ msgid "Failed to add agent %(agent_name)s for network %(network)s."
 msgstr "Nie można dodać agenta %(agent_name)s dla sieci %(network)s."
 
 #, python-format
-msgid "Failed to create network \"%(network)s\": %(reason)s"
-msgstr "Nie można utworzyć sieci „%(network)s”: %(reason)s"
-
-#, python-format
 msgid "Failed to create network %s"
 msgstr "Błąd przy tworzeniu sieci %s"
 
@@ -2017,9 +2016,6 @@ msgstr "Nie można ewakuować hosta: %s."
 #, python-format
 msgid "Failed to evacuate instances: %s"
 msgstr "Nie można ewakuować instancji: %s"
-
-msgid "Failed to get network list {0}"
-msgstr "Nie można pobrać listy sieci {0}"
 
 msgid "Failed to get network list."
 msgstr "Nie można pobrać listy sieci."
@@ -2074,20 +2070,12 @@ msgstr ""
 "się w stanie błędu."
 
 #, python-format
-msgid "Failed to retrieve network %s for a subnet"
-msgstr "Nie można pobrać sieci %s dla podsieci"
-
-#, python-format
 msgid "Failed to update network %s"
 msgstr "Błąd przy aktualizacji sieci %s"
 
 #, python-format
 msgid "Failed to update router %s"
 msgstr "Nie można zaktualizować routera %s"
-
-#, python-format
-msgid "Failed to update subnet \"%(sub)s\":  %(reason)s"
-msgstr "Nie można zaktualizować podsieci „%(sub)s”: %(reason)s"
 
 msgid "False"
 msgstr "Fałsz"
@@ -2132,23 +2120,11 @@ msgstr "Wybór odmiany"
 msgid "Flavor Details"
 msgstr "Szczegóły odmiany"
 
-#, python-format
-msgid "Flavor Details: %(name)s\">%(name)s"
-msgstr "Szczegóły odmiany: %(name)s\">%(name)s"
-
 msgid "Flavor ID"
 msgstr "ID odmiany"
 
 msgid "Flavor ID ="
 msgstr "ID odmiany ="
-
-msgid ""
-"Flavor ID should be UUID4 or integer. Leave this field blank or use 'auto' "
-"to set a random UUID4."
-msgstr ""
-"ID odmiany powinno być w formacie UUID4 lub liczbą całkowitą. Należy "
-"pozostawić to pole puste lub wpisać „auto”, aby wygenerować losowy "
-"identyfikator UUID4."
 
 msgid "Flavor Information"
 msgstr "Informacje o odmianie"
@@ -4006,9 +3982,6 @@ msgstr "Wybierz nowego hosta"
 msgid "Select a new status"
 msgstr "Wybór nowego statusu"
 
-msgid "Select a new volume type"
-msgstr "Wybór nowego typu wolumenu"
-
 msgid "Select a pool"
 msgstr "Wybór puli"
 
@@ -4218,9 +4191,6 @@ msgstr "Rozmiar"
 
 msgid "Size of image to launch."
 msgstr "Rozmiar obrazu do uruchomienia."
-
-msgid "Slash is not allowed at the beginning or end of your string."
-msgstr "Slash nie jest dozwolony na początku lub końcu ciągu znaków."
 
 msgid "Slash is not an allowed character."
 msgstr "Ukośnik nie jest dozwolony."
@@ -4573,14 +4543,6 @@ msgstr ""
 "nastepuje szyfrowanie (np. ront-end=Nova). Domyślną wartością jest 'front-"
 "end'."
 
-msgid ""
-"The <strong>Key Size</strong> is the size of the encryption key, in bits (e."
-"g., 128, 256). If the field is left empty, the provider default will be used."
-msgstr ""
-"<strong>Rozmiar klucza</strong> oznacza rozmiar klucza szyfrującego w bitach "
-"(np. 128, 256). Jeśli to pole jest puste, zostanie wykorzystane domyślne "
-"ustawienie dostawcy."
-
 msgid "The Aggregate was updated."
 msgstr "Zaktualizowano agregat."
 
@@ -4739,9 +4701,6 @@ msgstr ""
 msgid "The specified port is invalid."
 msgstr "Podany port jest nieprawidłowy."
 
-msgid "The state to start the network in."
-msgstr "Stan, w którym należy uruchomić sieć."
-
 #, python-format
 msgid "The subnet in the Network Address is too small (/%s)."
 msgstr "Podsieć w adresie sieci jest zbyt mała (/%s)."
@@ -4798,15 +4757,6 @@ msgstr ""
 msgid "This volume type is used by one or more volumes."
 msgstr ""
 "Ten typ wolumenu jest wykorzystywany przez jeden, lub więcej, wolumenów."
-
-msgid "Time Since Created"
-msgstr "Czas od utworzenia"
-
-msgid "Time since created"
-msgstr "Czas od utworzenia"
-
-msgid "Time since created (Seconds)"
-msgstr "Czas od utworzenia (w sekundach)"
 
 msgid "Time since update"
 msgstr "Czas od ostatniej aktualizacji"
@@ -5200,9 +5150,6 @@ msgstr "Nie można pobrać adresu IP z Neutron."
 msgid "Unable to retrieve IP availability."
 msgstr "Nie można pobrać informacji o dostępności adresów IP."
 
-msgid "Unable to retrieve Nova availability zones."
-msgstr "Nie można pobrać stref dostępności Nova."
-
 msgid "Unable to retrieve QoS Spec association."
 msgstr "Nie można pobrać powiązań specyfikacji QoS."
 
@@ -5220,10 +5167,6 @@ msgstr "Nie można pobrać listy specyfikacji QoS."
 
 msgid "Unable to retrieve QoS specs"
 msgstr "Nie można pobrać specyfikacji QOS"
-
-#, python-format
-msgid "Unable to retrieve a list of external networks \"%s\"."
-msgstr "Nie można pobrać listy zewnętrznych sieci „%s”."
 
 msgid "Unable to retrieve agent list."
 msgstr "Nie udało się pobrać listy agentów"
@@ -5278,9 +5221,6 @@ msgstr "Nie można pobrać informacji o domenie."
 
 msgid "Unable to retrieve domain list."
 msgstr "Nie można pobrać listy domen."
-
-msgid "Unable to retrieve extensions information"
-msgstr "Nie można pobrać informacji o rozszerzeniach."
 
 msgid "Unable to retrieve extensions information."
 msgstr "Nie można pobrać informacji o rozszerzeniach."
@@ -5351,9 +5291,6 @@ msgstr "Nie można pobrać listy obrazów."
 
 msgid "Unable to retrieve image."
 msgstr "Nie można pobrać obrazu."
-
-msgid "Unable to retrieve images"
-msgstr "Nie można pobrać obrazów"
 
 msgid "Unable to retrieve images for the current project."
 msgstr "Nie można pobrać obrazów dla bieżącego projektu."
@@ -5598,9 +5535,6 @@ msgstr "Nie można pobrać wolumenu."
 
 msgid "Unable to retrieve volume/instance attachment information"
 msgstr "Nie można pobrać informacji o powiązaniu wolumenu z instancją"
-
-msgid "Unable to retrieve volumes availability zones."
-msgstr "Nie można pobrać stref dostępności volumenów."
 
 msgid "Unable to set Domain Context."
 msgstr "Nie można ustawić kontekstu domeny."
@@ -5867,10 +5801,6 @@ msgstr "Użytkownik"
 msgid "User \"%s\" was successfully created."
 msgstr "Użytkownik \"%s\" został utworzony."
 
-#, python-format
-msgid "User %s has no role defined for that project."
-msgstr "Użytkownik %s nie posiada zdefiniowanych ról dla tego projektu."
-
 msgid "User Credentials Details"
 msgstr "Szczegóły poświadczeń użytkownika"
 
@@ -5885,9 +5815,6 @@ msgstr "Nazwa użytkownika"
 
 msgid "User Settings"
 msgstr "Ustawienia użytkowników"
-
-msgid "User has been updated successfully."
-msgstr "Zaktualizowano użytkownika"
 
 #, python-format
 msgid "User name \"%s\" is already used."

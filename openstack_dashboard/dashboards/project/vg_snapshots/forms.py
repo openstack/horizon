@@ -45,9 +45,8 @@ class CreateGroupForm(forms.SelfHandlingForm):
                               _('Unable to load the specified snapshot.'))
 
     def __init__(self, request, *args, **kwargs):
-        super(CreateGroupForm, self).__init__(request, *args, **kwargs)
+        super().__init__(request, *args, **kwargs)
 
-        # populate cgroup_id
         vg_snapshot_id = kwargs.get('initial', {}).get('vg_snapshot_id', [])
         self.fields['vg_snapshot_id'] = forms.CharField(
             widget=forms.HiddenInput(),

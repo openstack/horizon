@@ -14,9 +14,9 @@
 #    under the License.
 
 import collections
+from unittest import mock
 
 from django.urls import reverse
-import mock
 
 from horizon.workflows import views
 
@@ -126,9 +126,8 @@ class NetworkSubnetTests(test.BaseAdminViewTests):
         redir_url = reverse(NETWORKS_DETAIL_URL, args=[subnet.network_id])
         self.assertRedirectsNoFollow(res, redir_url)
 
-        self.assert_mock_multiple_calls_with_same_arguments(
-            self.mock_network_get, 2,
-            mock.call(test.IsHttpRequest(), network.id))
+        self.mock_network_get.assert_called_once_with(test.IsHttpRequest(),
+                                                      network.id)
         self._check_is_extension_supported({'subnet_allocation': 1})
         self.mock_subnetpool_list.assert_called_once_with(test.IsHttpRequest())
         self.mock_subnet_create.assert_called_once_with(
@@ -184,9 +183,8 @@ class NetworkSubnetTests(test.BaseAdminViewTests):
         redir_url = reverse(NETWORKS_DETAIL_URL, args=[subnet.network_id])
         self.assertRedirectsNoFollow(res, redir_url)
 
-        self.assert_mock_multiple_calls_with_same_arguments(
-            self.mock_network_get, 2,
-            mock.call(test.IsHttpRequest(), network.id))
+        self.mock_network_get.assert_called_once_with(test.IsHttpRequest(),
+                                                      network.id)
         self._check_is_extension_supported({'subnet_allocation': 1})
         self.mock_subnetpool_list.assert_called_once_with(test.IsHttpRequest())
         self.mock_subnet_create.assert_called_once_with(
@@ -418,7 +416,7 @@ class NetworkSubnetTests(test.BaseAdminViewTests):
         res = self.client.get(url)
         self.assertTemplateUsed(res, 'horizon/common/_detail.html')
         subnets = res.context['subnets_table'].data
-        self.assertItemsEqual(subnets, [self.subnets.first()])
+        self.assertCountEqual(subnets, [self.subnets.first()])
 
         self._check_is_extension_supported(
             {'network-ip-availability': 2,

@@ -9,9 +9,8 @@
         <div class="col-xs-6 col-sm-6">
           <div class="form-group required"
                ng-class="{'has-error':imageForm.name.$invalid && imageForm.name.$dirty}">
-            <label class="control-label required" for="imageForm-name" translate>Image Name</label>
-            <input required
-                   id="imageForm-name" name="name"
+            <label class="control-label" for="imageForm-name" translate>Image Name</label>
+            <input id="imageForm-name" name="name"
                    type="text" class="form-control"
                    ng-model="ctrl.image.name"
                    ng-maxlength="ctrl.validationRules.fieldMaxLength"
@@ -48,7 +47,7 @@
               <span translate>Format</span>
               <span class="hz-icon-required fa fa-asterisk"></span>
             </label>
-            <select class="form-control switchable ng-pristine ng-untouched ng-valid" ng-required="true" id="imageForm-format" name="format" ng-model="ctrl.image_format" ng-options="key as label for (key, label) in ctrl.imageFormats" ng-change="ctrl.setFormats()">
+            <select class="form-control switchable ng-pristine ng-untouched ng-valid" ng-required="true" ng-disabled="ctrl.image.status !== 'queued'" id="imageForm-format" name="format" ng-model="ctrl.image_format" ng-options="key as label for (key, label) in ctrl.imageFormats" ng-change="ctrl.setFormats()">
             </select>
           </div>
         </div>
@@ -95,6 +94,10 @@
                    ng-required="true"
                    ng-pattern="ctrl.validationRules.integer" ng-model="ctrl.image.min_disk"
                    placeholder="{$ 'The minimum disk size required to boot the image. If unspecified, this value defaults to 0 (no minimum).'|translate $}">
+            <p class="help-block alert alert-danger"
+               ng-show="imageForm.min_disk.$invalid && imageForm.min_disk.$dirty">
+              <translate>min disk is required and must be an integer not less than 0</translate>
+            </p>
           </div>
         </div>
         <div class="col-xs-6 col-sm-3">
@@ -106,6 +109,10 @@
                    ng-required="true"
                    ng-pattern="ctrl.validationRules.integer" ng-model="ctrl.image.min_ram"
                    placeholder="{$ 'The minimum memory size required to boot the image. If unspecified, this value defaults to 0 (no minimum).'|translate $}">
+            <p class="help-block alert alert-danger"
+               ng-show="imageForm.min_ram.$invalid && imageForm.min_ram.$dirty">
+              <translate>min ram is required and must be an integer not less than 0</translate>
+            </p>
           </div>
         </div>
       </div>
@@ -115,7 +122,7 @@
 
     <div class="selected-source clearfix">
       <div class="row">
-        <div class="col-xs-6 col-sm-6" hz-if-policies="ctrl.allowPublicizeImage">
+        <div class="col-xs-6 col-sm-6">
           <div class="form-group">
             <label class="control-label required" translate>Visibility</label>
             <div class="form-field">

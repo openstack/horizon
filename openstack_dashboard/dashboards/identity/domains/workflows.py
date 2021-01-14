@@ -59,9 +59,7 @@ class CreateDomainInfo(workflows.Step):
 
 class UpdateDomainUsersAction(workflows.MembershipAction):
     def __init__(self, request, *args, **kwargs):
-        super(UpdateDomainUsersAction, self).__init__(request,
-                                                      *args,
-                                                      **kwargs)
+        super().__init__(request, *args, **kwargs)
         domain_id = self.initial.get("domain_id", '')
 
         # Get the default role
@@ -69,8 +67,7 @@ class UpdateDomainUsersAction(workflows.MembershipAction):
             default_role = api.keystone.get_default_role(self.request)
             # Default role is necessary to add members to a domain
             if default_role is None:
-                default = getattr(settings,
-                                  "OPENSTACK_KEYSTONE_DEFAULT_ROLE", None)
+                default = settings.OPENSTACK_KEYSTONE_DEFAULT_ROLE
                 msg = (_('Could not find default role "%s" in Keystone') %
                        default)
                 raise exceptions.NotFound(msg)
@@ -138,7 +135,7 @@ class UpdateDomainUsers(workflows.UpdateMembersStep):
     no_members_text = _("No users.")
 
     def contribute(self, data, context):
-        context = super(UpdateDomainUsers, self).contribute(data, context)
+        context = super().contribute(data, context)
         if data:
             try:
                 roles = api.keystone.role_list(self.workflow.request)
@@ -157,9 +154,7 @@ class UpdateDomainUsers(workflows.UpdateMembersStep):
 
 class UpdateDomainGroupsAction(workflows.MembershipAction):
     def __init__(self, request, *args, **kwargs):
-        super(UpdateDomainGroupsAction, self).__init__(request,
-                                                       *args,
-                                                       **kwargs)
+        super().__init__(request, *args, **kwargs)
         err_msg = _('Unable to retrieve group list. Please try again later.')
         domain_id = self.initial.get("domain_id", '')
 
@@ -168,8 +163,7 @@ class UpdateDomainGroupsAction(workflows.MembershipAction):
             default_role = api.keystone.get_default_role(self.request)
             # Default role is necessary to add members to a domain
             if default_role is None:
-                default = getattr(settings,
-                                  "OPENSTACK_KEYSTONE_DEFAULT_ROLE", None)
+                default = settings.OPENSTACK_KEYSTONE_DEFAULT_ROLE
                 msg = (_('Could not find default role "%s" in Keystone') %
                        default)
                 raise exceptions.NotFound(msg)
@@ -235,7 +229,7 @@ class UpdateDomainGroups(workflows.UpdateMembersStep):
     no_members_text = _("No groups.")
 
     def contribute(self, data, context):
-        context = super(UpdateDomainGroups, self).contribute(data, context)
+        context = super().contribute(data, context)
         if data:
             try:
                 roles = api.keystone.role_list(self.workflow.request)
@@ -327,7 +321,7 @@ class UpdateDomain(workflows.Workflow):
                                                domain=domain_id)
             users_dict = {user.id: user.name for user in all_users}
 
-            for user_id in users_roles.keys():
+            for user_id in users_roles:
                 # Don't remove roles if the user isn't in the domain
                 if user_id not in users_dict:
                     users_to_modify -= 1
@@ -368,7 +362,7 @@ class UpdateDomain(workflows.Workflow):
                 ]
                 admin_role_ids = [role for role in current_role_ids
                                   if role in available_admin_role_ids]
-                if len(admin_role_ids):
+                if admin_role_ids:
                     removing_admin = any([role in current_role_ids
                                           for role in admin_role_ids])
                 else:
@@ -472,8 +466,9 @@ class UpdateDomain(workflows.Workflow):
             for role in available_roles:
                 groups_added = 0
                 field_name = member_step.get_member_field_name(role.id)
+                domain_group_ids = [x.id for x in domain_groups]
                 for group_id in data[field_name]:
-                    if not filter(lambda x: group_id == x.id, domain_groups):
+                    if group_id not in domain_group_ids:
                         api.keystone.add_group_role(request,
                                                     role=role.id,
                                                     group=group_id,

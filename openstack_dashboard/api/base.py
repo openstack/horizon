@@ -16,12 +16,11 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
-from collections import Sequence
+import collections.abc
 import functools
 
 from django.conf import settings
 import semantic_version
-import six
 
 from horizon import exceptions
 
@@ -32,29 +31,49 @@ __all__ = ('APIResourceWrapper', 'APIDictWrapper',
 
 @functools.total_ordering
 class Version(object):
+    """A class to handle API version.
+
+    The current OpenStack APIs use the versioning of "<major>.<minor>",
+    so this class supports this style only.
+    """
+    # NOTE(amotoki): The implementation depends on the semantic_version library
+    # but we don't care the patch version in this class.
+
     def __init__(self, version):
-        self.version = semantic_version.Version(str(version), partial=True)
+        # NOTE(amotoki):
+        # All comparisons should use self.sem_ver as we would like to
+        # compare versions in the semantic versioning way.
+        # self.orig_ver should be used only in __str__ and __repr__
+        # to keep the original version information.
+        self.orig_ver = str(version)
+        self.sem_ver = semantic_version.Version.coerce(str(version))
+
+    @property
+    def major(self):
+        return self.sem_ver.major
+
+    @property
+    def minor(self):
+        return self.sem_ver.minor
 
     def __eq__(self, other):
-        return self.version == Version(other).version
+        return self.sem_ver == Version(other).sem_ver
 
     def __lt__(self, other):
-        return self.version < Version(other).version
+        return self.sem_ver < Version(other).sem_ver
 
     def __repr__(self):
-        return "Version('%s')" % self.version
+        return "Version('%s')" % self.orig_ver
 
     def __str__(self):
-        return str(self.version)
+        return str(self.orig_ver)
 
     def __hash__(self):
-        return hash(str(self.version))
+        return hash(str(self.sem_ver))
 
 
 class APIVersionManager(object):
     """Object to store and manage API versioning data and utility methods."""
-
-    SETTINGS_KEY = "OPENSTACK_API_VERSIONS"
 
     def __init__(self, service_type, preferred_version=None):
         self.service_type = service_type
@@ -82,7 +101,7 @@ class APIVersionManager(object):
     def get_active_version(self):
         if self._active is not None:
             return self.supported[self._active]
-        key = getattr(settings, self.SETTINGS_KEY, {}).get(self.service_type)
+        key = settings.OPENSTACK_API_VERSIONS.get(self.service_type)
         if key is None:
             # TODO(gabriel): support API version discovery here; we'll leave
             # the setting in as a way of overriding the latest available
@@ -92,7 +111,7 @@ class APIVersionManager(object):
         # Provide a helpful error message if the specified version isn't in the
         # supported list.
         if version not in self.supported:
-            choices = ", ".join(str(k) for k in six.iterkeys(self.supported))
+            choices = ", ".join(str(k) for k in self.supported)
             msg = ('%s is not a supported API version for the %s service, '
                    ' choices are: %s' % (version, self.service_type, choices))
             raise exceptions.ConfigurationError(msg)
@@ -201,7 +220,7 @@ class Quota(object):
         return "<Quota: (%s, %s)>" % (self.name, self.limit)
 
 
-class QuotaSet(Sequence):
+class QuotaSet(collections.abc.Sequence):
     """Wrapper for client QuotaSet objects.
 
     This turns the individual quotas into Quota objects
@@ -258,7 +277,7 @@ class QuotaSet(Sequence):
 
     def get(self, key, default=None):
         match = [quota for quota in self.items if quota.name == key]
-        return match.pop() if len(match) else Quota(key, default)
+        return match.pop() if match else Quota(key, default)
 
     def add(self, other):
         return self.__add__(other)
@@ -274,17 +293,9 @@ def get_service_from_catalog(catalog, service_type):
     return None
 
 
-def get_version_from_service(service):
-    if service and service.get('endpoints'):
-        endpoint = service['endpoints'][0]
-        if 'interface' in endpoint:
-            return 3
-        else:
-            return 2.0
-    return 2.0
-
-
 # Mapping of V2 Catalog Endpoint_type to V3 Catalog Interfaces
+# TODO(e0ne): remove this mapping once OPENSTACK_ENDPOINT_TYPE config option
+#  will be removed.
 ENDPOINT_TYPE_TO_INTERFACE = {
     'publicURL': 'public',
     'internalURL': 'internal',
@@ -296,39 +307,30 @@ def get_url_for_service(service, region, endpoint_type):
     if 'type' not in service:
         return None
 
-    identity_version = get_version_from_service(service)
     service_endpoints = service.get('endpoints', [])
     available_endpoints = [endpoint for endpoint in service_endpoints
                            if region == _get_endpoint_region(endpoint)]
-    """if we are dealing with the identity service and there is no endpoint
-    in the current region, it is okay to use the first endpoint for any
-    identity service endpoints and we can assume that it is global
-    """
+    # if we are dealing with the identity service and there is no endpoint
+    # in the current region, it is okay to use the first endpoint for any
+    # identity service endpoints and we can assume that it is global
     if service['type'] == 'identity' and not available_endpoints:
-        available_endpoints = [endpoint for endpoint in service_endpoints]
+        available_endpoints = service_endpoints
 
     for endpoint in available_endpoints:
         try:
-            if identity_version < 3:
-                return endpoint.get(endpoint_type)
-            else:
-                interface = \
-                    ENDPOINT_TYPE_TO_INTERFACE.get(endpoint_type, '')
-                if endpoint.get('interface') == interface:
-                    return endpoint.get('url')
-        except (IndexError, KeyError):
-            """it could be that the current endpoint just doesn't match the
-            type, continue trying the next one
-            """
+            interface = \
+                ENDPOINT_TYPE_TO_INTERFACE.get(endpoint_type, '')
+            if endpoint['interface'] == interface:
+                return endpoint['url']
+        except KeyError:
+            # it could be that the current endpoint just doesn't match the
+            # type, continue trying the next one
             pass
-    return None
 
 
 def url_for(request, service_type, endpoint_type=None, region=None):
-    endpoint_type = endpoint_type or getattr(settings,
-                                             'OPENSTACK_ENDPOINT_TYPE',
-                                             'publicURL')
-    fallback_endpoint_type = getattr(settings, 'SECONDARY_ENDPOINT_TYPE', None)
+    endpoint_type = endpoint_type or settings.OPENSTACK_ENDPOINT_TYPE
+    fallback_endpoint_type = settings.SECONDARY_ENDPOINT_TYPE
 
     catalog = request.user.service_catalog
     service = get_service_from_catalog(catalog, service_type)

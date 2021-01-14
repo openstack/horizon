@@ -1,0 +1,30 @@
+- job:
+    name: horizon-openstack-tox-base
+    parent: openstack-tox
+    irrelevant-files:
+      - ^.*\.rst$
+      - ^doc/.*$
+      - ^releasenotes/.*$
+      - ^.*/locale/.*$
+
+- job:
+    name: horizon-selenium-headless
+    parent: horizon-openstack-tox-base
+    pre-run: playbooks/horizon-selenium-headless/pre.yaml
+    vars:
+      tox_envlist: selenium-headless
+
+- job:
+    # Security testing for known issues
+    name: horizon-tox-bandit-baseline
+    parent: openstack-tox
+    timeout: 2400
+    vars:
+      tox_envlist: bandit-baseline
+    irrelevant-files:
+      - ^.*\.rst$
+      - ^.*/locale/.*$
+      - ^doc/.*$
+      - ^releasenotes/.*$
+      - ^setup.cfg$
+      - ^tools/.*$

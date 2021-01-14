@@ -10,8 +10,6 @@
 # License for the specific language governing permissions and limitations
 # under the License.
 
-import six
-
 from openstack_dashboard.test import helpers as test
 from openstack_dashboard import views
 
@@ -21,13 +19,13 @@ class DashboardViewsTest(test.TestCase):
         req = self.request
         url_string = 'horizon:project:instances:index'
         url = views.get_url_with_pagination(req, None, None, url_string, None)
-        self.assertEqual(six.text_type('/project/instances/'), url)
+        self.assertEqual('/project/instances/', url)
 
     def test_get_url_with_pagination_with_if(self):
         req = self.request
         url_string = 'horizon:project:instances:detail'
         url = views.get_url_with_pagination(req, None, None, url_string, 'id')
-        self.assertEqual(six.text_type('/project/instances/id/'), url)
+        self.assertEqual('/project/instances/id/', url)
 
     def test_get_url_with_pagination_next(self):
         req = self.request
@@ -35,7 +33,7 @@ class DashboardViewsTest(test.TestCase):
         req.GET.update({'next': 'id'})
         url = views.get_url_with_pagination(
             req, 'next', None, url_string, None)
-        self.assertEqual(six.text_type('/project/instances/?next=id'), url)
+        self.assertEqual('/project/instances/?next=id', url)
 
     def test_get_url_with_pagination_prev(self):
         req = self.request
@@ -43,7 +41,7 @@ class DashboardViewsTest(test.TestCase):
         req.GET.update({'prev': 'id'})
         url = views.get_url_with_pagination(
             req, None, 'prev', url_string, None)
-        self.assertEqual(six.text_type('/project/instances/?prev=id'), url)
+        self.assertEqual('/project/instances/?prev=id', url)
 
     def test_urls_ngdetails(self):
         resp = self.client.get("/ngdetails/")

@@ -1,13 +1,14 @@
 # suhartono <cloudsuhartono@gmail.com>, 2018. #zanata
+# suhartono <cloudsuhartono@gmail.com>, 2020. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 14.0.0.0rc2.dev99\n"
+"Project-Id-Version: horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-09-15 00:12-0500\n"
+"POT-Creation-Date: 2020-01-22 17:54+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2018-08-22 04:20+0000\n"
+"PO-Revision-Date: 2020-01-22 03:28+0000\n"
 "Last-Translator: suhartono <cloudsuhartono@gmail.com>\n"
 "Language-Team: Indonesian\n"
 "Language: id\n"
@@ -116,6 +117,9 @@ msgid ""
 msgstr ""
 "Digunakan dalam teks user-facing menggantikan istilah \"Tenant\" yang "
 "merupakan kata kunci Keystone."
+
+msgid "User Documentation"
+msgstr "Dokumentasi Pengguna"
 
 msgid "Using Horizon"
 msgstr "Menggunakan Horizon"

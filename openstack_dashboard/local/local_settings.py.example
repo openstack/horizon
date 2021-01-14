@@ -1,5 +1,17 @@
 # -*- coding: utf-8 -*-
 
+# ----------------------------------------------------------------------
+# NOTE: The default values of the settings are defined in
+# openstack_dashboard/defaults.py. Previously most available settings
+# were listed in this example file, but it is no longer true.
+# For available settings, see openstack_dashboard/defaults.py and
+# the horizon setting reference found at
+# https://docs.openstack.org/horizon/latest/configuration/settings.html.
+#
+# Django related settings and HORIZON_CONFIG still exist here.
+# Keep in my mind that they will be revisit in upcoming releases.
+# ----------------------------------------------------------------------
+
 import os
 
 from django.utils.translation import ugettext_lazy as _
@@ -21,18 +33,6 @@ DEBUG = True
 # for more information
 #COMPRESS_OFFLINE = not DEBUG
 
-# WEBROOT is the location relative to Webserver root
-# should end with a slash.
-WEBROOT = '/'
-#LOGIN_URL = WEBROOT + 'auth/login/'
-#LOGOUT_URL = WEBROOT + 'auth/logout/'
-#LOGIN_ERROR = WEBROOT + 'auth/error/'
-#
-# LOGIN_REDIRECT_URL can be used as an alternative for
-# HORIZON_CONFIG.user_home, if user_home is not set.
-# Do not set it to '/home/', as this will cause circular redirect loop
-#LOGIN_REDIRECT_URL = WEBROOT
-
 # If horizon is running in production (DEBUG is False), set this
 # with the list of host/domain names that the application can serve.
 # For more information see:
@@ -50,69 +50,6 @@ WEBROOT = '/'
 # settings to better secure the cookies from security exploits
 #CSRF_COOKIE_SECURE = True
 #SESSION_COOKIE_SECURE = True
-
-# The absolute path to the directory where message files are collected.
-# The message file must have a .json file extension. When the user logins to
-# horizon, the message files collected are processed and displayed to the user.
-#MESSAGES_PATH=None
-
-# Overrides for OpenStack API versions. Use this setting to force the
-# OpenStack dashboard to use a specific API version for a given service API.
-# Versions specified here should be integers or floats, not strings.
-# NOTE: The version should be formatted as it appears in the URL for the
-# service API. For example, The identity service APIs have inconsistent
-# use of the decimal point, so valid options would be 2.0 or 3.
-# Minimum compute version to get the instance locked status is 2.9.
-#OPENSTACK_API_VERSIONS = {
-#    "data-processing": 1.1,
-#    "identity": 3,
-#    "image": 2,
-#    "volume": 2,
-#    "compute": 2,
-#}
-
-# Set this to True if running on a multi-domain model. When this is enabled, it
-# will require the user to enter the Domain name in addition to the username
-# for login.
-#OPENSTACK_KEYSTONE_MULTIDOMAIN_SUPPORT = False
-
-# Set this to True if you want available domains displayed as a dropdown menu
-# on the login screen. It is strongly advised NOT to enable this for public
-# clouds, as advertising enabled domains to unauthenticated customers
-# irresponsibly exposes private information. This should only be used for
-# private clouds where the dashboard sits behind a corporate firewall.
-#OPENSTACK_KEYSTONE_DOMAIN_DROPDOWN = False
-
-# If OPENSTACK_KEYSTONE_DOMAIN_DROPDOWN is enabled, this option can be used to
-# set the available domains to choose from. This is a list of pairs whose first
-# value is the domain name and the second is the display name.
-#OPENSTACK_KEYSTONE_DOMAIN_CHOICES = (
-#  ('Default', 'Default'),
-#)
-
-# Overrides the default domain used when running on single-domain model
-# with Keystone V3. All entities will be created in the default domain.
-# NOTE: This value must be the name of the default domain, NOT the ID.
-# Also, you will most likely have a value in the keystone policy file like this
-#    "cloud_admin": "rule:admin_required and domain_id:<your domain id>"
-# This value must be the name of the domain whose ID is specified there.
-#OPENSTACK_KEYSTONE_DEFAULT_DOMAIN = 'Default'
-
-# Set this to True to enable panels that provide the ability for users to
-# manage Identity Providers (IdPs) and establish a set of rules to map
-# federation protocol attributes to Identity API attributes.
-# This extension requires v3.0+ of the Identity API.
-#OPENSTACK_KEYSTONE_FEDERATION_MANAGEMENT = False
-
-# Set Console type:
-# valid options are "AUTO"(default), "VNC", "SPICE", "RDP", "SERIAL", "MKS"
-# or None. Set to None explicitly if you want to deactivate the console.
-#CONSOLE_TYPE = "AUTO"
-
-# Toggle showing the openrc file for Keystone V2.
-# If set to false the link will be removed from the user dropdown menu
-# and the API Access page
-#SHOW_KEYSTONE_V2_RC = True
 
 # If provided, a "Report Bug" link will be displayed in the site header
 # which links to the value of this setting (ideally a URL containing
@@ -153,7 +90,9 @@ SECRET_KEY = secret_key.generate_or_read_from_file(
 
 # We recommend you use memcached for development; otherwise after every reload
 # of the django development server, you will have to login again. To use
-# memcached set CACHES to something like
+# memcached set CACHES to something like below.
+# For more information, see
+# https://docs.djangoproject.com/en/1.11/topics/http/sessions/.
 #CACHES = {
 #    'default': {
 #        'BACKEND': 'django.core.cache.backends.memcached.MemcachedCache',
@@ -161,11 +100,11 @@ SECRET_KEY = secret_key.generate_or_read_from_file(
 #    },
 #}
 
-CACHES = {
-    'default': {
-        'BACKEND': 'django.core.cache.backends.locmem.LocMemCache',
-    },
-}
+# If you use ``tox -e runserver`` for developments,then configure
+# SESSION_ENGINE to django.contrib.sessions.backends.signed_cookies
+# as shown below:
+#SESSION_ENGINE = 'django.contrib.sessions.backends.signed_cookies'
+
 
 # Send email to the console by default
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
@@ -178,359 +117,12 @@ EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 #EMAIL_HOST_USER = 'djangomail'
 #EMAIL_HOST_PASSWORD = 'top-secret!'
 
-# For multiple regions uncomment this configuration, and add (endpoint, title).
-#AVAILABLE_REGIONS = [
-#    ('http://cluster1.example.com:5000/v3', 'cluster1'),
-#    ('http://cluster2.example.com:5000/v3', 'cluster2'),
-#]
-
 OPENSTACK_HOST = "127.0.0.1"
-OPENSTACK_KEYSTONE_URL = "http://%s:5000/v3" % OPENSTACK_HOST
-OPENSTACK_KEYSTONE_DEFAULT_ROLE = "_member_"
-
-# For setting the default service region on a per-endpoint basis. Note that the
-# default value for this setting is {}, and below is just an example of how it
-# should be specified.
-# A key of '*' is an optional global default if no other key matches.
-#DEFAULT_SERVICE_REGIONS = {
-#    '*': 'RegionOne'
-#    OPENSTACK_KEYSTONE_URL: 'RegionTwo'
-#}
-
-# Enables keystone web single-sign-on if set to True.
-#WEBSSO_ENABLED = False
-
-# Authentication mechanism to be selected as default.
-# The value must be a key from WEBSSO_CHOICES.
-#WEBSSO_INITIAL_CHOICE = "credentials"
-
-# The list of authentication mechanisms which include keystone
-# federation protocols and identity provider/federation protocol
-# mapping keys (WEBSSO_IDP_MAPPING). Current supported protocol
-# IDs are 'saml2' and 'oidc'  which represent SAML 2.0, OpenID
-# Connect respectively.
-# Do not remove the mandatory credentials mechanism.
-# Note: The last two tuples are sample mapping keys to a identity provider
-# and federation protocol combination (WEBSSO_IDP_MAPPING).
-#WEBSSO_CHOICES = (
-#    ("credentials", _("Keystone Credentials")),
-#    ("oidc", _("OpenID Connect")),
-#    ("saml2", _("Security Assertion Markup Language")),
-#    ("acme_oidc", "ACME - OpenID Connect"),
-#    ("acme_saml2", "ACME - SAML2"),
-#)
-
-# A dictionary of specific identity provider and federation protocol
-# combinations. From the selected authentication mechanism, the value
-# will be looked up as keys in the dictionary. If a match is found,
-# it will redirect the user to a identity provider and federation protocol
-# specific WebSSO endpoint in keystone, otherwise it will use the value
-# as the protocol_id when redirecting to the WebSSO by protocol endpoint.
-# NOTE: The value is expected to be a tuple formatted as: (<idp_id>, <protocol_id>).
-#WEBSSO_IDP_MAPPING = {
-#    "acme_oidc": ("acme", "oidc"),
-#    "acme_saml2": ("acme", "saml2"),
-#}
-
-# Enables redirection on login to the identity provider defined on
-# WEBSSO_DEFAULT_REDIRECT_PROTOCOL and WEBSSO_DEFAULT_REDIRECT_REGION
-#WEBSSO_DEFAULT_REDIRECT = False
-
-# Specifies the protocol to use for default redirection on login
-#WEBSSO_DEFAULT_REDIRECT_PROTOCOL = None
-
-# Specifies the region to which the connection will be established on login
-#WEBSSO_DEFAULT_REDIRECT_REGION = OPENSTACK_KEYSTONE_URL
-
-# Enables redirection on logout to the method specified on the identity provider.
-# Once logout the client will be redirected to the address specified in this
-# variable.
-#WEBSSO_DEFAULT_REDIRECT_LOGOUT = None
-
-# If set this URL will be used for web single-sign-on authentication
-# instead of OPENSTACK_KEYSTONE_URL. This is needed in the deployment
-# scenarios where network segmentation is used per security requirement.
-# In this case, the controllers are not reachable from public network.
-# Therefore, user's browser will not be able to access OPENSTACK_KEYSTONE_URL
-# if it is set to the internal endpoint.
-#WEBSSO_KEYSTONE_URL = "http://keystone-public.example.com/v3"
-
-# The Keystone Provider drop down uses Keystone to Keystone federation
-# to switch between Keystone service providers.
-# Set display name for Identity Provider (dropdown display name)
-#KEYSTONE_PROVIDER_IDP_NAME = "Local Keystone"
-# This id is used for only for comparison with the service provider IDs. This ID
-# should not match any service provider IDs.
-#KEYSTONE_PROVIDER_IDP_ID = "localkeystone"
-
-# Disable SSL certificate checks (useful for self-signed certificates):
-#OPENSTACK_SSL_NO_VERIFY = True
-
-# The CA certificate to use to verify SSL connections
-#OPENSTACK_SSL_CACERT = '/path/to/cacert.pem'
-
-# The OPENSTACK_KEYSTONE_BACKEND settings can be used to identify the
-# capabilities of the auth backend for Keystone.
-# If Keystone has been configured to use LDAP as the auth backend then set
-# can_edit_user to False and name to 'ldap'.
-#
-# TODO(tres): Remove these once Keystone has an API to identify auth backend.
-OPENSTACK_KEYSTONE_BACKEND = {
-    'name': 'native',
-    'can_edit_user': True,
-    'can_edit_group': True,
-    'can_edit_project': True,
-    'can_edit_domain': True,
-    'can_edit_role': True,
-}
-
-# Setting this to True, will add a new "Retrieve Password" action on instance,
-# allowing Admin session password retrieval/decryption.
-#OPENSTACK_ENABLE_PASSWORD_RETRIEVE = False
-
-# The Launch Instance user experience has been significantly enhanced.
-# You can choose whether to enable the new launch instance experience,
-# the legacy experience, or both. The legacy experience will be removed
-# in a future release, but is available as a temporary backup setting to ensure
-# compatibility with existing deployments. Further development will not be
-# done on the legacy experience. Please report any problems with the new
-# experience via the Launchpad tracking system.
-#
-# Toggle LAUNCH_INSTANCE_LEGACY_ENABLED and LAUNCH_INSTANCE_NG_ENABLED to
-# determine the experience to enable.  Set them both to true to enable
-# both.
-#LAUNCH_INSTANCE_LEGACY_ENABLED = True
-#LAUNCH_INSTANCE_NG_ENABLED = False
-
-# A dictionary of settings which can be used to provide the default values for
-# properties found in the Launch Instance modal.
-#LAUNCH_INSTANCE_DEFAULTS = {
-#    'config_drive': False,
-#    'enable_scheduler_hints': True,
-#    'disable_image': False,
-#    'disable_instance_snapshot': False,
-#    'disable_volume': False,
-#    'disable_volume_snapshot': False,
-#    'create_volume': True,
-#}
-
-# The Xen Hypervisor has the ability to set the mount point for volumes
-# attached to instances (other Hypervisors currently do not). Setting
-# can_set_mount_point to True will add the option to set the mount point
-# from the UI.
-OPENSTACK_HYPERVISOR_FEATURES = {
-    'can_set_mount_point': False,
-    'can_set_password': False,
-    'requires_keypair': False,
-    'enable_quotas': True
-}
-
-# This settings controls whether IP addresses of servers are retrieved from
-# neutron in the project instance table. Setting this to ``False`` may mitigate
-# a performance issue in the project instance table in large deployments.
-#OPENSTACK_INSTANCE_RETRIEVE_IP_ADDRESSES = True
-
-# The OPENSTACK_CINDER_FEATURES settings can be used to enable optional
-# services provided by cinder that is not exposed by its extension API.
-OPENSTACK_CINDER_FEATURES = {
-    'enable_backup': False,
-}
-
-# The OPENSTACK_NEUTRON_NETWORK settings can be used to enable optional
-# services provided by neutron. Options currently available are load
-# balancer service, security groups, quotas, VPN service.
-OPENSTACK_NEUTRON_NETWORK = {
-    'enable_router': True,
-    'enable_quotas': True,
-    'enable_ipv6': True,
-    'enable_distributed_router': False,
-    'enable_ha_router': False,
-    'enable_fip_topology_check': True,
-
-    # Default dns servers you would like to use when a subnet is
-    # created.  This is only a default, users can still choose a different
-    # list of dns servers when creating a new subnet.
-    # The entries below are examples only, and are not appropriate for
-    # real deployments
-    # 'default_dns_nameservers': ["8.8.8.8", "8.8.4.4", "208.67.222.222"],
-
-    # Set which provider network types are supported. Only the network types
-    # in this list will be available to choose from when creating a network.
-    # Network types include local, flat, vlan, gre, vxlan and geneve.
-    # 'supported_provider_types': ['*'],
-
-    # You can configure available segmentation ID range per network type
-    # in your deployment.
-    # 'segmentation_id_range': {
-    #     'vlan': [1024, 2048],
-    #     'vxlan': [4094, 65536],
-    # },
-
-    # You can define additional provider network types here.
-    # 'extra_provider_types': {
-    #     'awesome_type': {
-    #         'display_name': 'Awesome New Type',
-    #         'require_physical_network': False,
-    #         'require_segmentation_id': True,
-    #     }
-    # },
-
-    # Set which VNIC types are supported for port binding. Only the VNIC
-    # types in this list will be available to choose from when creating a
-    # port.
-    # VNIC types include 'normal', 'direct', 'direct-physical', 'macvtap',
-    # 'baremetal' and 'virtio-forwarder'
-    # Set to empty list or None to disable VNIC type selection.
-    'supported_vnic_types': ['*'],
-
-    # Set list of available physical networks to be selected in the physical
-    # network field on the admin create network modal. If it's set to an empty
-    # list, the field will be a regular input field.
-    # e.g. ['default', 'test']
-    'physical_networks': [],
-
-}
-
-# The OPENSTACK_HEAT_STACK settings can be used to disable password
-# field required while launching the stack.
-OPENSTACK_HEAT_STACK = {
-    'enable_user_pass': True,
-}
-
-# The OPENSTACK_IMAGE_BACKEND settings can be used to customize features
-# in the OpenStack Dashboard related to the Image service, such as the list
-# of supported image formats.
-#OPENSTACK_IMAGE_BACKEND = {
-#    'image_formats': [
-#        ('', _('Select format')),
-#        ('aki', _('AKI - Amazon Kernel Image')),
-#        ('ami', _('AMI - Amazon Machine Image')),
-#        ('ari', _('ARI - Amazon Ramdisk Image')),
-#        ('docker', _('Docker')),
-#        ('iso', _('ISO - Optical Disk Image')),
-#        ('ova', _('OVA - Open Virtual Appliance')),
-#        ('qcow2', _('QCOW2 - QEMU Emulator')),
-#        ('raw', _('Raw')),
-#        ('vdi', _('VDI - Virtual Disk Image')),
-#        ('vhd', _('VHD - Virtual Hard Disk')),
-#        ('vhdx', _('VHDX - Large Virtual Hard Disk')),
-#        ('vmdk', _('VMDK - Virtual Machine Disk')),
-#    ],
-#}
-
-# The IMAGE_CUSTOM_PROPERTY_TITLES settings is used to customize the titles for
-# image custom property attributes that appear on image detail pages.
-IMAGE_CUSTOM_PROPERTY_TITLES = {
-    "architecture": _("Architecture"),
-    "kernel_id": _("Kernel ID"),
-    "ramdisk_id": _("Ramdisk ID"),
-    "image_state": _("Euca2ools state"),
-    "project_id": _("Project ID"),
-    "image_type": _("Image Type"),
-}
-
-# The IMAGE_RESERVED_CUSTOM_PROPERTIES setting is used to specify which image
-# custom properties should not be displayed in the Image Custom Properties
-# table.
-IMAGE_RESERVED_CUSTOM_PROPERTIES = []
-
-# Set to 'legacy' or 'direct' to allow users to upload images to glance via
-# Horizon server. When enabled, a file form field will appear on the create
-# image form. If set to 'off', there will be no file form field on the create
-# image form. See documentation for deployment considerations.
-#HORIZON_IMAGES_UPLOAD_MODE = 'legacy'
-
-# Allow a location to be set when creating or updating Glance images.
-# If using Glance V2, this value should be False unless the Glance
-# configuration and policies allow setting locations.
-#IMAGES_ALLOW_LOCATION = False
-
-# A dictionary of default settings for create image modal.
-#CREATE_IMAGE_DEFAULTS = {
-#    'image_visibility': "public",
-#}
-
-# OPENSTACK_ENDPOINT_TYPE specifies the endpoint type to use for the endpoints
-# in the Keystone service catalog. Use this setting when Horizon is running
-# external to the OpenStack environment. The default is 'publicURL'.
-#OPENSTACK_ENDPOINT_TYPE = "publicURL"
-
-# SECONDARY_ENDPOINT_TYPE specifies the fallback endpoint type to use in the
-# case that OPENSTACK_ENDPOINT_TYPE is not present in the endpoints
-# in the Keystone service catalog. Use this setting when Horizon is running
-# external to the OpenStack environment. The default is None. This
-# value should differ from OPENSTACK_ENDPOINT_TYPE if used.
-#SECONDARY_ENDPOINT_TYPE = None
-
-# The number of objects (Swift containers/objects or images) to display
-# on a single page before providing a paging element (a "more" link)
-# to paginate results.
-API_RESULT_LIMIT = 1000
-API_RESULT_PAGE_SIZE = 20
-
-# The size of chunk in bytes for downloading objects from Swift
-SWIFT_FILE_TRANSFER_CHUNK_SIZE = 512 * 1024
-
-# The default number of lines displayed for instance console log.
-INSTANCE_LOG_LENGTH = 35
-
-# Specify a maximum number of items to display in a dropdown.
-DROPDOWN_MAX_ITEMS = 30
+OPENSTACK_KEYSTONE_URL = "http://%s/identity/v3" % OPENSTACK_HOST
 
 # The timezone of the server. This should correspond with the timezone
 # of your entire OpenStack installation, and hopefully be in UTC.
 TIME_ZONE = "UTC"
-
-# When launching an instance, the menu of available flavors is
-# sorted by RAM usage, ascending. If you would like a different sort order,
-# you can provide another flavor attribute as sorting key. Alternatively, you
-# can provide a custom callback method to use for sorting. You can also provide
-# a flag for reverse sort. For more info, see
-# http://docs.python.org/2/library/functions.html#sorted
-#CREATE_INSTANCE_FLAVOR_SORT = {
-#    'key': 'name',
-#     # or
-#    'key': my_awesome_callback_method,
-#    'reverse': False,
-#}
-
-# Set this to True to display an 'Admin Password' field on the Change Password
-# form to verify that it is indeed the admin logged-in who wants to change
-# the password.
-#ENFORCE_PASSWORD_CHECK = False
-
-# Modules that provide /auth routes that can be used to handle different types
-# of user authentication. Add auth plugins that require extra route handling to
-# this list.
-#AUTHENTICATION_URLS = [
-#    'openstack_auth.urls',
-#]
-
-# The Horizon Policy Enforcement engine uses these values to load per service
-# policy rule files. The content of these files should match the files the
-# OpenStack services are using to determine role based access control in the
-# target installation.
-
-# Path to directory containing policy.json files
-#POLICY_FILES_PATH = os.path.join(ROOT_PATH, "conf")
-
-# Map of local copy of service policy files.
-# Please insure that your identity policy file matches the one being used on
-# your keystone servers. There is an alternate policy file that may be used
-# in the Keystone v3 multi-domain case, policy.v3cloudsample.json.
-# This file is not included in the Horizon repository by default but can be
-# found at
-# http://git.openstack.org/cgit/openstack/keystone/tree/etc/ \
-# policy.v3cloudsample.json
-# Having matching policy files on the Horizon and Keystone servers is essential
-# for normal operation. This holds true for all services and their policy files.
-#POLICY_FILES = {
-#    'identity': 'keystone_policy.json',
-#    'compute': 'nova_policy.json',
-#    'volume': 'cinder_policy.json',
-#    'image': 'glance_policy.json',
-#    'network': 'neutron_policy.json',
-#}
 
 # Change this patch to the appropriate list of tuples containing
 # a key, label and static directory containing two files:
@@ -538,6 +130,7 @@ TIME_ZONE = "UTC"
 #AVAILABLE_THEMES = [
 #    ('default', 'Default', 'themes/default'),
 #    ('material', 'Material', 'themes/material'),
+#    ('example', 'Example', 'themes/example'),
 #]
 
 LOGGING = {
@@ -568,7 +161,7 @@ LOGGING = {
         },
         'console': {
             # Set the level to "DEBUG" for verbose output logging.
-            'level': 'INFO',
+            'level': 'DEBUG' if DEBUG else 'INFO',
             'class': 'logging.StreamHandler',
             'formatter': 'console',
         },
@@ -780,135 +373,6 @@ SECURITY_GROUP_RULES = {
     },
 }
 
-# Deprecation Notice:
-#
-# The setting FLAVOR_EXTRA_KEYS has been deprecated.
-# Please load extra spec metadata into the Glance Metadata Definition Catalog.
-#
-# The sample quota definitions can be found in:
-# <glance_source>/etc/metadefs/compute-quota.json
-#
-# The metadata definition catalog supports CLI and API:
-#  $glance --os-image-api-version 2 help md-namespace-import
-#  $glance-manage db_load_metadefs <directory_with_definition_files>
-#
-# See Metadata Definitions on:
-# https://docs.openstack.org/glance/latest/user/glancemetadefcatalogapi.html
-
-# The hash algorithm to use for authentication tokens. This must
-# match the hash algorithm that the identity server and the
-# auth_token middleware are using. Allowed values are the
-# algorithms supported by Python's hashlib library.
-#OPENSTACK_TOKEN_HASH_ALGORITHM = 'md5'
-
-# AngularJS requires some settings to be made available to
-# the client side. Some settings are required by in-tree / built-in horizon
-# features. These settings must be added to REST_API_REQUIRED_SETTINGS in the
-# form of ['SETTING_1','SETTING_2'], etc.
-#
-# You may remove settings from this list for security purposes, but do so at
-# the risk of breaking a built-in horizon feature. These settings are required
-# for horizon to function properly. Only remove them if you know what you
-# are doing. These settings may in the future be moved to be defined within
-# the enabled panel configuration.
-# You should not add settings to this list for out of tree extensions.
-# See: https://wiki.openstack.org/wiki/Horizon/RESTAPI
-REST_API_REQUIRED_SETTINGS = ['OPENSTACK_HYPERVISOR_FEATURES',
-                              'LAUNCH_INSTANCE_DEFAULTS',
-                              'OPENSTACK_IMAGE_FORMATS',
-                              'OPENSTACK_KEYSTONE_BACKEND',
-                              'OPENSTACK_KEYSTONE_DEFAULT_DOMAIN',
-                              'CREATE_IMAGE_DEFAULTS',
-                              'ENFORCE_PASSWORD_CHECK']
-
-# Additional settings can be made available to the client side for
-# extensibility by specifying them in REST_API_ADDITIONAL_SETTINGS
-# !! Please use extreme caution as the settings are transferred via HTTP/S
-# and are not encrypted on the browser. This is an experimental API and
-# may be deprecated in the future without notice.
-#REST_API_ADDITIONAL_SETTINGS = []
-
-# DISALLOW_IFRAME_EMBED can be used to prevent Horizon from being embedded
-# within an iframe. Legacy browsers are still vulnerable to a Cross-Frame
-# Scripting (XFS) vulnerability, so this option allows extra security hardening
-# where iframes are not used in deployment. Default setting is True.
-# For more information see:
-# http://tinyurl.com/anticlickjack
-#DISALLOW_IFRAME_EMBED = True
-
 # Help URL can be made available for the client. To provide a help URL, edit the
 # following attribute to the URL of your choice.
 #HORIZON_CONFIG["help_url"] = "http://openstack.mycompany.org"
-
-# Settings for OperationLogMiddleware
-# OPERATION_LOG_ENABLED is flag to use the function to log an operation on
-# Horizon.
-# mask_targets is arrangement for appointing a target to mask.
-# method_targets is arrangement of HTTP method to output log.
-# format is the log contents.
-#OPERATION_LOG_ENABLED = False
-#OPERATION_LOG_OPTIONS = {
-#    'mask_fields': ['password'],
-#    'target_methods': ['POST'],
-#    'ignored_urls': ['/js/', '/static/', '^/api/'],
-#    'format': ("[%(client_ip)s] [%(domain_name)s]"
-#        " [%(domain_id)s] [%(project_name)s]"
-#        " [%(project_id)s] [%(user_name)s] [%(user_id)s] [%(request_scheme)s]"
-#        " [%(referer_url)s] [%(request_url)s] [%(message)s] [%(method)s]"
-#        " [%(http_status)s] [%(param)s]"),
-#}
-
-# The default date range in the Overview panel meters - either <today> minus N
-# days (if the value is integer N), or from the beginning of the current month
-# until today (if set to None). This setting should be used to limit the amount
-# of data fetched by default when rendering the Overview panel.
-#OVERVIEW_DAYS_RANGE = 1
-
-# To allow operators to require users provide a search criteria first
-# before loading any data into the views, set the following dict
-# attributes to True in each one of the panels you want to enable this feature.
-# Follow the convention <dashboard>.<view>
-#FILTER_DATA_FIRST = {
-#    'admin.instances': False,
-#    'admin.images': False,
-#    'admin.networks': False,
-#    'admin.routers': False,
-#    'admin.volumes': False,
-#    'identity.users': False,
-#    'identity.projects': False,
-#    'identity.groups': False,
-#    'identity.roles': False
-#}
-
-# Dict used to restrict user private subnet cidr range.
-# An empty list means that user input will not be restricted
-# for a corresponding IP version. By default, there is
-# no restriction for IPv4 or IPv6. To restrict
-# user private subnet cidr range set ALLOWED_PRIVATE_SUBNET_CIDR
-# to something like
-#ALLOWED_PRIVATE_SUBNET_CIDR = {
-#    'ipv4': ['10.0.0.0/8', '192.168.0.0/16'],
-#    'ipv6': ['fc00::/7']
-#}
-ALLOWED_PRIVATE_SUBNET_CIDR = {'ipv4': [], 'ipv6': []}
-
-# Projects and users can have extra attributes as defined by keystone v3.
-# Horizon has the ability to display these extra attributes via this setting.
-# If you'd like to display extra data in the project or user tables, set the
-# corresponding dict key to the attribute name, followed by the display name.
-# For more information, see horizon's customization
-# (https://docs.openstack.org/horizon/latest/configuration/customizing.html#horizon-customization-module-overrides)
-#PROJECT_TABLE_EXTRA_INFO = {
-#   'phone_num': _('Phone Number'),
-#}
-#USER_TABLE_EXTRA_INFO = {
-#   'phone_num': _('Phone Number'),
-#}
-
-# Password will have an expiration date when using keystone v3 and enabling the
-# feature.
-# This setting allows you to set the number of days that the user will be alerted
-# prior to the password expiration.
-# Once the password expires keystone will deny the access and users must
-# contact an admin to change their password.
-#PASSWORD_EXPIRES_WARNING_THRESHOLD_DAYS = 0

@@ -1,0 +1,4 @@
+- name: "Install Django"
+  command: ".tox/{{ tox_envlist }}/bin/python -m pip install django{{ django_version }}"
+  args:
+    chdir: "{{ zuul_work_dir }}"

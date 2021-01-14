@@ -11,10 +11,10 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-from django import test
-import mock
+from unittest import mock
 
-from openstack_auth.tests import data_v3
+from django import test
+
 from openstack_auth import user
 
 
@@ -37,17 +37,3 @@ class PermTestCase(test.TestCase):
             # perm1 AND (perm2 OR perm3)
             perm_list = ['perm1', ('perm2', 'perm3')]
             self.assertTrue(testuser.has_perms(perm_list))
-
-
-class UserTestCase(test.TestCase):
-
-    def setUp(self):
-        super(UserTestCase, self).setUp()
-        self.data = data_v3.generate_test_data(pki=True)
-
-    def test_unscoped_token_is_none(self):
-        created_token = user.Token(self.data.domain_scoped_access_info,
-                                   unscoped_token=None)
-        self.assertTrue(created_token._is_pki_token(
-                        self.data.domain_scoped_access_info.auth_token))
-        self.assertFalse(created_token._is_pki_token(None))

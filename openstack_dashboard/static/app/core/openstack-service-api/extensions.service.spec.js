@@ -17,7 +17,7 @@
 (function() {
   'use strict';
 
-  describe("novaExtensions", function() {
+  describe("extensions", function() {
     var q = {
       defer: function() {
         return {

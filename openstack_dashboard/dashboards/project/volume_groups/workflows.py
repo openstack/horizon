@@ -20,7 +20,6 @@ from openstack_dashboard import api
 from openstack_dashboard.api import cinder
 
 INDEX_URL = "horizon:project:volume_groups:index"
-CGROUP_VOLUME_MEMBER_SLUG = "update_members"
 
 
 def cinder_az_supported(request):
@@ -71,9 +70,7 @@ class AddGroupInfoAction(workflows.Action):
                    'data-source-image_source': _('Availability Zone')}))
 
     def __init__(self, request, *args, **kwargs):
-        super(AddGroupInfoAction, self).__init__(request,
-                                                 *args,
-                                                 **kwargs)
+        super().__init__(request, *args, **kwargs)
         self.fields['availability_zone'].choices = \
             availability_zones(request)
         try:
@@ -101,32 +98,6 @@ class AddGroupInfoAction(workflows.Action):
                       "same back end.")
         slug = "set_group_info"
 
-    def clean(self):
-        cleaned_data = super(AddGroupInfoAction, self).clean()
-        name = cleaned_data.get('name')
-
-        try:
-            groups = cinder.group_list(self.request)
-        except Exception:
-            msg = _('Unable to get group list')
-            exceptions.check_message(["Connection", "refused"], msg)
-            raise
-
-        if groups is not None and name is not None:
-            for group in groups:
-                if group.name.lower() == name.lower():
-                    # ensure new name has reasonable length
-                    formatted_name = name
-                    if len(name) > 20:
-                        formatted_name = name[:14] + "..." + name[-3:]
-                    raise forms.ValidationError(
-                        _('The name "%s" is already used by '
-                          'another group.')
-                        % formatted_name
-                    )
-
-        return cleaned_data
-
 
 class AddGroupInfoStep(workflows.Step):
     action_class = AddGroupInfoAction
@@ -137,9 +108,7 @@ class AddGroupInfoStep(workflows.Step):
 
 class AddVolumeTypesToGroupAction(workflows.MembershipAction):
     def __init__(self, request, *args, **kwargs):
-        super(AddVolumeTypesToGroupAction, self).__init__(request,
-                                                          *args,
-                                                          **kwargs)
+        super().__init__(request, *args, **kwargs)
         err_msg = _('Unable to get the available volume types')
 
         default_role_field_name = self.get_default_role_field_name()
@@ -164,7 +133,7 @@ class AddVolumeTypesToGroupAction(workflows.MembershipAction):
         slug = "add_vtypes_to_group"
 
     def clean(self):
-        cleaned_data = super(AddVolumeTypesToGroupAction, self).clean()
+        cleaned_data = super().clean()
         volume_types = cleaned_data.get('add_vtypes_to_group_role_member')
         if not volume_types:
             raise forms.ValidationError(
@@ -197,9 +166,7 @@ class AddVolTypesToGroupStep(workflows.UpdateMembersStep):
 
 class AddVolumesToGroupAction(workflows.MembershipAction):
     def __init__(self, request, *args, **kwargs):
-        super(AddVolumesToGroupAction, self).__init__(request,
-                                                      *args,
-                                                      **kwargs)
+        super().__init__(request, *args, **kwargs)
         err_msg = _('Unable to get the available volumes')
 
         default_role_field_name = self.get_default_role_field_name()

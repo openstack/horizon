@@ -16,7 +16,6 @@
 from django import forms
 from django.views.decorators.csrf import csrf_exempt
 from django.views import generic
-from six.moves import zip as izip
 
 from openstack_dashboard import api
 from openstack_dashboard.api.rest import urls
@@ -67,7 +66,8 @@ class Image(generic.View):
         :param min_disk: (optional) the minimum disk size
              for the image to boot with
         :param min_ram: (optional) the minimum ram for the image to boot with
-        :param visibility: (required) takes 'public', 'shared', and 'private'
+        :param visibility: (required) takes 'public', 'shared', 'private' and
+             'community'
         :param protected: (required) true if the image is protected
 
         Any parameters not listed above will be assigned as custom properties
@@ -149,7 +149,7 @@ class Images(generic.View):
 
         Any additional request parameters will be passed through the API as
         filters. There are v1/v2 complications which are being addressed as a
-        separate work stream: https://review.openstack.org/#/c/150084/
+        separate work stream: https://review.opendev.org/#/c/150084/
         """
 
         filters, kwargs = rest_utils.parse_filters_kwargs(request,
@@ -202,7 +202,8 @@ class Images(generic.View):
         :param min_disk: (optional) the minimum disk size
              for the image to boot with
         :param min_ram: (optional) the minimum ram for the image to boot with
-        :param visibility: (required) takes 'public', 'private', and 'shared'
+        :param visibility: (required) takes 'public', 'private', 'shared', and
+             'community'
         :param protected: (required) true if the image is protected
         :param import_data: (optional) true to copy the image data
             to the image service or use it from the current location
@@ -276,7 +277,7 @@ class MetadefsNamespaces(generic.View):
         )
 
         names = ('items', 'has_more_data', 'has_prev_data')
-        return dict(izip(names, api.glance.metadefs_namespace_full_list(
+        return dict(zip(names, api.glance.metadefs_namespace_full_list(
             request, filters=filters, **kwargs
         )))
 
@@ -302,8 +303,7 @@ class MetadefsResourceTypesList(generic.View):
         Any request parameters will be passed through the API as filters.
         """
         return {
-            'items': [resource_type for resource_type in
-                      api.glance.metadefs_resource_types_list(request)]
+            'items': api.glance.metadefs_resource_types_list(request)
         }
 
 

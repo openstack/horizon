@@ -1,0 +1,7 @@
+# The base contents come from zuul-jobs/playbooks/tox/run.yaml
+- hosts: all
+  roles:
+    # siblings modules are already handled, so we can skip it.
+    - role: tox
+      vars:
+        tox_install_siblings: false

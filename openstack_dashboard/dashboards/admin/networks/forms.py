@@ -14,7 +14,6 @@
 
 import logging
 
-from django.conf import settings
 from django.urls import reverse
 from django.utils.translation import ugettext_lazy as _
 
@@ -23,6 +22,7 @@ from horizon import forms
 from horizon import messages
 
 from openstack_dashboard import api
+from openstack_dashboard.utils import settings as setting_utils
 
 
 LOG = logging.getLogger(__name__)
@@ -118,9 +118,11 @@ class CreateNetwork(forms.SelfHandlingForm):
             'class': 'switched',
             'data-switch-on': 'network_type',
         }))
-    admin_state = forms.BooleanField(label=_("Enable Admin State"),
-                                     initial=True,
-                                     required=False)
+    admin_state = forms.BooleanField(
+        label=_("Enable Admin State"),
+        initial=True,
+        required=False,
+        help_text=_("If checked, the network will be enabled."))
     shared = forms.BooleanField(label=_("Shared"),
                                 initial=False, required=False)
     external = forms.BooleanField(label=_("External Network"),
@@ -151,7 +153,7 @@ class CreateNetwork(forms.SelfHandlingForm):
         return cls(request, *args, **kwargs)
 
     def __init__(self, request, *args, **kwargs):
-        super(CreateNetwork, self).__init__(request, *args, **kwargs)
+        super().__init__(request, *args, **kwargs)
         tenant_choices = [('', _("Select a project"))]
         tenants, has_more = api.keystone.tenant_list(request)
         for tenant in tenants:
@@ -169,15 +171,15 @@ class CreateNetwork(forms.SelfHandlingForm):
             is_extension_supported = False
 
         if is_extension_supported:
-            neutron_settings = getattr(settings,
-                                       'OPENSTACK_NEUTRON_NETWORK', {})
             self.seg_id_range = SEGMENTATION_ID_RANGE.copy()
-            seg_id_range = neutron_settings.get('segmentation_id_range')
+            seg_id_range = setting_utils.get_dict_config(
+                'OPENSTACK_NEUTRON_NETWORK', 'segmentation_id_range')
             if seg_id_range:
                 self.seg_id_range.update(seg_id_range)
 
             self.provider_types = PROVIDER_TYPES.copy()
-            extra_provider_types = neutron_settings.get('extra_provider_types')
+            extra_provider_types = setting_utils.get_dict_config(
+                'OPENSTACK_NEUTRON_NETWORK', 'extra_provider_types')
             if extra_provider_types:
                 self.provider_types.update(extra_provider_types)
 
@@ -188,8 +190,8 @@ class CreateNetwork(forms.SelfHandlingForm):
                 net_type for net_type in self.provider_types
                 if self.provider_types[net_type]['require_physical_network']]
 
-            supported_provider_types = neutron_settings.get(
-                'supported_provider_types', DEFAULT_PROVIDER_TYPES)
+            supported_provider_types = setting_utils.get_dict_config(
+                'OPENSTACK_NEUTRON_NETWORK', 'supported_provider_types')
             if supported_provider_types == ['*']:
                 supported_provider_types = DEFAULT_PROVIDER_TYPES
 
@@ -214,9 +216,8 @@ class CreateNetwork(forms.SelfHandlingForm):
                          for network_type in self.nettypes_with_seg_id)
             self.fields['segmentation_id'].widget.attrs.update(attrs)
 
-            physical_networks = getattr(settings,
-                                        'OPENSTACK_NEUTRON_NETWORK', {}
-                                        ).get('physical_networks', [])
+            physical_networks = setting_utils.get_dict_config(
+                'OPENSTACK_NEUTRON_NETWORK', 'physical_networks')
 
             if physical_networks:
                 self.fields['physical_network'] = forms.ThemableChoiceField(
@@ -238,7 +239,7 @@ class CreateNetwork(forms.SelfHandlingForm):
             network_type_choices = [
                 (net_type, self.provider_types[net_type]['display_name'])
                 for net_type in supported_provider_types]
-            if len(network_type_choices) == 0:
+            if not network_type_choices:
                 self._hide_provider_network_type()
             else:
                 self.fields['network_type'].choices = network_type_choices
@@ -292,7 +293,7 @@ class CreateNetwork(forms.SelfHandlingForm):
             exceptions.handle(request, msg, redirect=redirect)
 
     def clean(self):
-        cleaned_data = super(CreateNetwork, self).clean()
+        cleaned_data = super().clean()
         if api.neutron.is_extension_supported(self.request, 'provider'):
             self._clean_physical_network(cleaned_data)
             self._clean_segmentation_id(cleaned_data)
@@ -329,8 +330,10 @@ class CreateNetwork(forms.SelfHandlingForm):
 
 class UpdateNetwork(forms.SelfHandlingForm):
     name = forms.CharField(label=_("Name"), required=False)
-    admin_state = forms.BooleanField(label=_("Enable Admin State"),
-                                     required=False)
+    admin_state = forms.BooleanField(
+        label=_("Enable Admin State"),
+        required=False,
+        help_text=_("If checked, the network will be enabled."))
     shared = forms.BooleanField(label=_("Shared"), required=False)
     external = forms.BooleanField(label=_("External Network"), required=False)
     failure_url = 'horizon:admin:networks:index'
@@ -344,12 +347,14 @@ class UpdateNetwork(forms.SelfHandlingForm):
             network = api.neutron.network_update(request,
                                                  self.initial['network_id'],
                                                  **params)
-            msg = _('Network %s was successfully updated.') % data['name']
+            msg = (_('Network %s was successfully updated.') %
+                   network.name_or_id)
             messages.success(request, msg)
             return network
         except Exception as e:
             LOG.info('Failed to update network %(id)s: %(exc)s',
                      {'id': self.initial['network_id'], 'exc': e})
-            msg = _('Failed to update network %s') % data['name']
+            name_or_id = data['name'] or self.initial['network_id']
+            msg = _('Failed to update network %s') % name_or_id
             redirect = reverse(self.failure_url)
             exceptions.handle(request, msg, redirect=redirect)

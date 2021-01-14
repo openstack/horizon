@@ -19,13 +19,10 @@
 
 import collections
 import logging
-
-from oslo_utils import uuidutils
+from urllib import parse
 
 from django.conf import settings
 from django.utils.translation import ugettext_lazy as _
-import six
-import six.moves.urllib.parse as urlparse
 
 from keystoneauth1 import session
 from keystoneauth1 import token_endpoint
@@ -35,18 +32,16 @@ from openstack_auth import backend
 from openstack_auth import utils as auth_utils
 
 from horizon import exceptions
-from horizon import messages
-from horizon.utils import functions as utils
 
 from openstack_dashboard.api import base
 from openstack_dashboard.contrib.developer.profiler import api as profiler
 from openstack_dashboard import policy
+from openstack_dashboard.utils import settings as setting_utils
 
 
 LOG = logging.getLogger(__name__)
 DEFAULT_ROLE = None
-DEFAULT_DOMAIN = getattr(settings, 'OPENSTACK_KEYSTONE_DEFAULT_DOMAIN',
-                         'Default')
+DEFAULT_DOMAIN = settings.OPENSTACK_KEYSTONE_DEFAULT_DOMAIN
 
 
 # Set up our data structure for managing Identity API versions, and
@@ -59,43 +54,33 @@ class IdentityAPIVersionManager(base.APIVersionManager):
         return user
 
     def get_project_manager(self, *args, **kwargs):
-        if VERSIONS.active < 3:
-            manager = keystoneclient(*args, **kwargs).tenants
-        else:
-            manager = keystoneclient(*args, **kwargs).projects
-        return manager
+        return keystoneclient(*args, **kwargs).projects
 
 
 VERSIONS = IdentityAPIVersionManager(
     "identity", preferred_version=auth_utils.get_keystone_version())
 
 
-# Import from oldest to newest so that "preferred" takes correct precedence.
 try:
-    from keystoneclient.v2_0 import client as keystone_client_v2
-    VERSIONS.load_supported_version(2.0, {"client": keystone_client_v2})
-except ImportError:
-    pass
-
-try:
+    # pylint: disable=ungrouped-imports
     from keystoneclient.v3 import client as keystone_client_v3
     VERSIONS.load_supported_version(3, {"client": keystone_client_v3})
 except ImportError:
     pass
 
 
-@six.python_2_unicode_compatible
 class Service(base.APIDictWrapper):
     """Wrapper for a dict based on the service data from keystone."""
     _attrs = ['id', 'type', 'name']
 
     def __init__(self, service, region, *args, **kwargs):
-        super(Service, self).__init__(service, *args, **kwargs)
+        super().__init__(service, *args, **kwargs)
         self.public_url = base.get_url_for_service(service, region,
                                                    'publicURL')
-        self.url = base.get_url_for_service(service, region, 'internalURL')
+        self.url = base.get_url_for_service(service, region,
+                                            settings.OPENSTACK_ENDPOINT_TYPE)
         if self.url:
-            self.host = urlparse.urlparse(self.url).hostname
+            self.host = parse.urlparse(self.url).hostname
         else:
             self.host = None
         self.disabled = None
@@ -105,11 +90,10 @@ class Service(base.APIDictWrapper):
         if(self.type == "identity"):
             return _("%(type)s (%(backend)s backend)") \
                 % {"type": self.type, "backend": keystone_backend_name()}
-        else:
-            return self.type
+        return self.type
 
     def __repr__(self):
-        return "<Service: %s>" % six.text_type(self)
+        return "<Service: %s>" % self
 
 
 def _get_endpoint_url(request, endpoint_type, catalog=None):
@@ -121,7 +105,7 @@ def _get_endpoint_url(request, endpoint_type, catalog=None):
                    "Keystone endpoint, but v3 is specified as the API version "
                    "to use by Horizon. Using v3 endpoint for authentication.")
     else:
-        auth_url = getattr(settings, 'OPENSTACK_KEYSTONE_URL')
+        auth_url = settings.OPENSTACK_KEYSTONE_URL
         url = request.session.get('region_endpoint', auth_url)
         message = ("The OPENSTACK_KEYSTONE_URL setting points to a v2.0 "
                    "Keystone endpoint, but v3 is specified as the API version "
@@ -162,9 +146,13 @@ def keystoneclient(request, admin=False):
     user = request.user
     token_id = user.token.id
 
-    if is_multi_domain_enabled():
-        # Cloud Admin, Domain Admin or Mixed Domain Admin
-        if is_domain_admin(request):
+    if settings.OPENSTACK_KEYSTONE_MULTIDOMAIN_SUPPORT:
+        is_domain_context_specified = bool(
+            request.session.get("domain_context"))
+
+        # If user is Cloud Admin, Domain Admin or Mixed Domain Admin and there
+        # is no domain context specified, use domain scoped token
+        if is_domain_admin(request) and not is_domain_context_specified:
             domain_token = request.session.get('domain_token')
             if domain_token:
                 token_id = getattr(domain_token, 'auth_token', None)
@@ -174,9 +162,7 @@ def keystoneclient(request, admin=False):
             raise exceptions.NotAuthorized
         endpoint_type = 'adminURL'
     else:
-        endpoint_type = getattr(settings,
-                                'OPENSTACK_ENDPOINT_TYPE',
-                                'publicURL')
+        endpoint_type = settings.OPENSTACK_ENDPOINT_TYPE
 
     # Take care of client connection caching/fetching a new client.
     # Admin vs. non-admin clients are cached separately for token matching.
@@ -188,8 +174,8 @@ def keystoneclient(request, admin=False):
         conn = getattr(request, cache_attr)
     else:
         endpoint = _get_endpoint_url(request, endpoint_type)
-        verify = not getattr(settings, 'OPENSTACK_SSL_NO_VERIFY', False)
-        cacert = getattr(settings, 'OPENSTACK_SSL_CACERT', None)
+        verify = not settings.OPENSTACK_SSL_NO_VERIFY
+        cacert = settings.OPENSTACK_SSL_CACERT
         verify = verify and cacert
         LOG.debug("Creating a new keystoneclient connection to %s.", endpoint)
         remote_addr = request.environ.get('REMOTE_ADDR', '')
@@ -245,7 +231,7 @@ def domain_lookup(request):
             return dict((d.id, d.name) for d in domains)
         except Exception:
             LOG.warning("Pure project admin doesn't have a domain token")
-            return None
+            return {}
     else:
         domain = get_default_domain(request)
         return {domain.id: domain.name}
@@ -269,12 +255,9 @@ def tenant_create(request, name, description=None, enabled=None,
                   domain=None, **kwargs):
     manager = VERSIONS.get_project_manager(request, admin=True)
     try:
-        if VERSIONS.active < 3:
-            return manager.create(name, description, enabled, **kwargs)
-        else:
-            return manager.create(name, domain,
-                                  description=description,
-                                  enabled=enabled, **kwargs)
+        return manager.create(name, domain,
+                              description=description,
+                              enabled=enabled, **kwargs)
     except keystone_exceptions.Conflict:
         raise exceptions.Conflict()
 
@@ -291,8 +274,7 @@ def get_default_domain(request, get_name=True):
     """
     domain_id = request.session.get("domain_context", None)
     domain_name = request.session.get("domain_context_name", None)
-    # if running in Keystone V3 or later
-    if VERSIONS.active >= 3 and domain_id is None:
+    if domain_id is None:
         # if no domain context set, default to user's domain
         domain_id = request.user.user_domain_id
         domain_name = request.user.user_domain_name
@@ -349,9 +331,6 @@ def is_domain_admin(request):
 # tenant commands.
 @profiler.trace
 def tenant_get(request, project, admin=True):
-    if not uuidutils.is_uuid_like(project):
-        raise keystone_exceptions.NotFound()
-
     manager = VERSIONS.get_project_manager(request, admin=admin)
     try:
         return manager.get(project)
@@ -370,25 +349,13 @@ def tenant_delete(request, project):
 def tenant_list(request, paginate=False, marker=None, domain=None, user=None,
                 admin=True, filters=None):
     manager = VERSIONS.get_project_manager(request, admin=admin)
-    page_size = utils.get_page_size(request)
     tenants = []
-    limit = None
-    if paginate:
-        limit = page_size + 1
-
     has_more_data = False
 
     # if requesting the projects for the current user,
     # return the list from the cache
     if user == request.user.id:
         tenants = request.user.authorized_tenants
-
-    elif VERSIONS.active < 3:
-        tenants = manager.list(limit, marker)
-        if paginate and len(tenants) > page_size:
-            tenants.pop(-1)
-            has_more_data = True
-    # V3 API
     else:
         domain_id = get_effective_domain_id(request)
         kwargs = {
@@ -414,12 +381,8 @@ def tenant_update(request, project, name=None, description=None,
                   enabled=None, domain=None, **kwargs):
     manager = VERSIONS.get_project_manager(request, admin=True)
     try:
-        if VERSIONS.active < 3:
-            return manager.update(project, name, description, enabled,
-                                  **kwargs)
-        else:
-            return manager.update(project, name=name, description=description,
-                                  enabled=enabled, domain=domain, **kwargs)
+        return manager.update(project, name=name, description=description,
+                              enabled=enabled, domain=domain, **kwargs)
     except keystone_exceptions.Conflict:
         raise exceptions.Conflict()
 
@@ -427,16 +390,13 @@ def tenant_update(request, project, name=None, description=None,
 @profiler.trace
 def user_list(request, project=None, domain=None, group=None, filters=None):
     users = []
-    if VERSIONS.active < 3:
-        kwargs = {"tenant_id": project}
-    else:
-        kwargs = {
-            "project": project,
-            "domain": domain,
-            "group": group
-        }
-        if filters is not None:
-            kwargs.update(filters)
+    kwargs = {
+        "project": project,
+        "domain": domain,
+        "group": group
+    }
+    if filters is not None:
+        kwargs.update(filters)
     if 'id' in kwargs:
         try:
             users = [user_get(request, kwargs['id'])]
@@ -452,14 +412,10 @@ def user_create(request, name=None, email=None, password=None, project=None,
                 enabled=None, domain=None, description=None, **data):
     manager = keystoneclient(request, admin=True).users
     try:
-        if VERSIONS.active < 3:
-            user = manager.create(name, password, email, project, enabled)
-            return VERSIONS.upgrade_v2_user(user)
-        else:
-            return manager.create(name, password=password, email=email,
-                                  default_project=project, enabled=enabled,
-                                  domain=domain, description=description,
-                                  **data)
+        return manager.create(name, password=password, email=email,
+                              default_project=project, enabled=enabled,
+                              domain=domain, description=description,
+                              **data)
     except keystone_exceptions.Conflict:
         raise exceptions.Conflict()
 
@@ -471,9 +427,6 @@ def user_delete(request, user_id):
 
 @profiler.trace
 def user_get(request, user_id, admin=True):
-    if not uuidutils.is_uuid_like(user_id):
-        raise keystone_exceptions.NotFound()
-
     user = keystoneclient(request, admin=admin).users.get(user_id)
     return VERSIONS.upgrade_v2_user(user)
 
@@ -481,59 +434,20 @@ def user_get(request, user_id, admin=True):
 @profiler.trace
 def user_update(request, user, **data):
     manager = keystoneclient(request, admin=True).users
-    error = None
 
     if not keystone_can_edit_user():
         raise keystone_exceptions.ClientException(
-            405, _("Identity service does not allow editing user data."))
-
-    # The v2 API updates user model and default project separately
-    if VERSIONS.active < 3:
-        # Update user details
-        try:
-            user = manager.update(user, **data)
-        except keystone_exceptions.Conflict:
-            raise exceptions.Conflict()
-        except Exception:
-            error = exceptions.handle(request, ignore=True)
-
-        if "project" in data:
-            project = data.pop('project')
-
-            # Update default tenant
-            try:
-                user_update_tenant(request, user, project)
-                user.tenantId = project
-            except Exception:
-                error = exceptions.handle(request, ignore=True)
-
-            # Check for existing roles
-            # Show a warning if no role exists for the project
-            user_roles = roles_for_user(request, user, project)
-            if not user_roles:
-                messages.warning(request,
-                                 _('User %s has no role defined for '
-                                   'that project.')
-                                 % data.get('name', None))
-
-        if error is not None:
-            raise error
-
-    # v3 API is so much simpler...
-    else:
-        try:
-            user = manager.update(user, **data)
-        except keystone_exceptions.Conflict:
-            raise exceptions.Conflict()
+            _("Identity service does not allow editing user data."))
+    try:
+        user = manager.update(user, **data)
+    except keystone_exceptions.Conflict:
+        raise exceptions.Conflict()
 
 
 @profiler.trace
 def user_update_enabled(request, user, enabled):
     manager = keystoneclient(request, admin=True).users
-    if VERSIONS.active < 3:
-        manager.update_enabled(user, enabled)
-    else:
-        manager.update(user, enabled=enabled)
+    manager.update(user, enabled=enabled)
 
 
 @profiler.trace
@@ -541,23 +455,20 @@ def user_update_password(request, user, password, admin=True):
 
     if not keystone_can_edit_user():
         raise keystone_exceptions.ClientException(
-            405, _("Identity service does not allow editing user password."))
+            _("Identity service does not allow editing user password."))
 
     manager = keystoneclient(request, admin=admin).users
-    if VERSIONS.active < 3:
-        manager.update_password(user, password)
-    else:
-        manager.update(user, password=password)
+    manager.update(user, password=password)
 
 
 def user_verify_admin_password(request, admin_password):
     # attempt to create a new client instance with admin password to
     # verify if it's correct.
-    client = keystone_client_v2 if VERSIONS.active < 3 else keystone_client_v3
+    client = keystone_client_v3
     try:
         endpoint = _get_endpoint_url(request, 'publicURL')
-        insecure = getattr(settings, 'OPENSTACK_SSL_NO_VERIFY', False)
-        cacert = getattr(settings, 'OPENSTACK_SSL_CACERT', None)
+        insecure = settings.OPENSTACK_SSL_NO_VERIFY
+        cacert = settings.OPENSTACK_SSL_CACERT
         client.Client(
             username=request.user.username,
             password=admin_password,
@@ -574,29 +485,25 @@ def user_verify_admin_password(request, admin_password):
 @profiler.trace
 def user_update_own_password(request, origpassword, password):
     client = keystoneclient(request, admin=False)
-    if VERSIONS.active < 3:
-        client.user_id = request.user.id
-        return client.users.update_own_password(origpassword, password)
-    else:
-        client.users.client.session.auth.user_id = request.user.id
-        return client.users.update_password(origpassword, password)
+    client.users.client.session.auth.user_id = request.user.id
+    return client.users.update_password(origpassword, password)
 
 
 @profiler.trace
 def user_update_tenant(request, user, project, admin=True):
     manager = keystoneclient(request, admin=admin).users
-    if VERSIONS.active < 3:
-        return manager.update_tenant(user, project)
-    else:
-        return manager.update(user, project=project)
+    return manager.update(user, project=project)
 
 
 @profiler.trace
 def group_create(request, domain_id, name, description=None):
     manager = keystoneclient(request, admin=True).groups
-    return manager.create(domain=domain_id,
-                          name=name,
-                          description=description)
+    try:
+        return manager.create(domain=domain_id,
+                              name=name,
+                              description=description)
+    except keystone_exceptions.Conflict:
+        raise exceptions.Conflict()
 
 
 @profiler.trace
@@ -634,7 +541,7 @@ def group_list(request, domain=None, project=None, user=None, filters=None):
         project_groups = []
         for group in groups:
             roles = roles_for_group(request, group=group.id, project=project)
-            if roles and len(roles) > 0:
+            if roles:
                 project_groups.append(group)
         groups = project_groups
     return groups
@@ -643,9 +550,12 @@ def group_list(request, domain=None, project=None, user=None, filters=None):
 @profiler.trace
 def group_update(request, group_id, name=None, description=None):
     manager = keystoneclient(request, admin=True).groups
-    return manager.update(group=group_id,
-                          name=name,
-                          description=description)
+    try:
+        return manager.update(group=group_id,
+                              name=name,
+                              description=description)
+    except keystone_exceptions.Conflict:
+        raise exceptions.Conflict()
 
 
 @profiler.trace
@@ -692,9 +602,6 @@ def get_project_groups_roles(request, project):
 def role_assignments_list(request, project=None, user=None, role=None,
                           group=None, domain=None, effective=False,
                           include_subtree=True, include_names=False):
-    if VERSIONS.active < 3:
-        raise exceptions.NotAvailable
-
     if include_subtree:
         domain = None
 
@@ -754,10 +661,7 @@ def role_list(request, filters=None):
 def roles_for_user(request, user, project=None, domain=None):
     """Returns a list of user roles scoped to a project or domain."""
     manager = keystoneclient(request, admin=True).roles
-    if VERSIONS.active < 3:
-        return manager.roles_for_user(user, project)
-    else:
-        return manager.list(user=user, domain=domain, project=project)
+    return manager.list(user=user, domain=domain, project=project)
 
 
 @profiler.trace
@@ -796,26 +700,18 @@ def remove_domain_user_role(request, user, role, domain=None):
 @profiler.trace
 def get_project_users_roles(request, project):
     users_roles = collections.defaultdict(list)
-    if VERSIONS.active < 3:
-        project_users = user_list(request, project=project)
+    project_role_assignments = role_assignments_list(request,
+                                                     project=project)
+    for role_assignment in project_role_assignments:
+        if not hasattr(role_assignment, 'user'):
+            continue
+        user_id = role_assignment.user['id']
+        role_id = role_assignment.role['id']
 
-        for user in project_users:
-            roles = roles_for_user(request, user.id, project)
-            roles_ids = [role.id for role in roles]
-            users_roles[user.id].extend(roles_ids)
-    else:
-        project_role_assignments = role_assignments_list(request,
-                                                         project=project)
-        for role_assignment in project_role_assignments:
-            if not hasattr(role_assignment, 'user'):
-                continue
-            user_id = role_assignment.user['id']
-            role_id = role_assignment.role['id']
-
-            # filter by project_id
-            if ('project' in role_assignment.scope and
-                    role_assignment.scope['project']['id'] == project):
-                    users_roles[user_id].append(role_id)
+        # filter by project_id
+        if ('project' in role_assignment.scope and
+                role_assignment.scope['project']['id'] == project):
+            users_roles[user_id].append(role_id)
     return users_roles
 
 
@@ -824,11 +720,8 @@ def add_tenant_user_role(request, project=None, user=None, role=None,
                          group=None, domain=None):
     """Adds a role for a user on a tenant."""
     manager = keystoneclient(request, admin=True).roles
-    if VERSIONS.active < 3:
-        manager.add_user_role(user, role, project)
-    else:
-        manager.grant(role, user=user, project=project,
-                      group=group, domain=domain)
+    manager.grant(role, user=user, project=project,
+                  group=group, domain=domain)
 
 
 @profiler.trace
@@ -836,11 +729,8 @@ def remove_tenant_user_role(request, project=None, user=None, role=None,
                             group=None, domain=None):
     """Removes a given single role for a user from a tenant."""
     manager = keystoneclient(request, admin=True).roles
-    if VERSIONS.active < 3:
-        return manager.remove_user_role(user, role, project)
-    else:
-        return manager.revoke(role, user=user, project=project,
-                              group=group, domain=domain)
+    return manager.revoke(role, user=user, project=project,
+                          group=group, domain=domain)
 
 
 def remove_tenant_user(request, project=None, user=None, domain=None):
@@ -891,7 +781,7 @@ def get_default_role(request):
     to request. Supports lookup by name or id.
     """
     global DEFAULT_ROLE
-    default = getattr(settings, "OPENSTACK_KEYSTONE_DEFAULT_ROLE", None)
+    default = settings.OPENSTACK_KEYSTONE_DEFAULT_ROLE
     if default and DEFAULT_ROLE is None:
         try:
             roles = keystoneclient(request, admin=True).roles.list()
@@ -899,7 +789,7 @@ def get_default_role(request):
             roles = []
             exceptions.handle(request)
         for role in roles:
-            if role.id == default or role.name == default:
+            if default in (role.id, role.name):
                 DEFAULT_ROLE = role
                 break
     return DEFAULT_ROLE
@@ -910,9 +800,8 @@ def ec2_manager(request):
     if hasattr(client, 'ec2'):
         return client.ec2
 
-    # Keystoneclient 4.0 was released without the ec2 creds manager.
-    from keystoneclient.v2_0 import ec2
-    return ec2.CredentialsManager(client)
+    from keystoneclient.v3 import ec2
+    return ec2.EC2Manager(client)
 
 
 @profiler.trace
@@ -936,52 +825,39 @@ def delete_user_ec2_credentials(request, user_id, access_token):
 
 
 def keystone_can_edit_domain():
-    backend_settings = getattr(settings, "OPENSTACK_KEYSTONE_BACKEND", {})
-    can_edit_domain = backend_settings.get('can_edit_domain', True)
-    multi_domain_support = getattr(settings,
-                                   'OPENSTACK_KEYSTONE_MULTIDOMAIN_SUPPORT',
-                                   False)
+    can_edit_domain = setting_utils.get_dict_config(
+        'OPENSTACK_KEYSTONE_BACKEND', 'can_edit_domain')
+    multi_domain_support = settings.OPENSTACK_KEYSTONE_MULTIDOMAIN_SUPPORT
     return can_edit_domain and multi_domain_support
 
 
 def keystone_can_edit_user():
-    backend_settings = getattr(settings, "OPENSTACK_KEYSTONE_BACKEND", {})
-    return backend_settings.get('can_edit_user', True)
+    return setting_utils.get_dict_config(
+        'OPENSTACK_KEYSTONE_BACKEND', 'can_edit_user')
 
 
 def keystone_can_edit_project():
-    backend_settings = getattr(settings, "OPENSTACK_KEYSTONE_BACKEND", {})
-    return backend_settings.get('can_edit_project', True)
+    return setting_utils.get_dict_config(
+        'OPENSTACK_KEYSTONE_BACKEND', 'can_edit_project')
 
 
 def keystone_can_edit_group():
-    backend_settings = getattr(settings, "OPENSTACK_KEYSTONE_BACKEND", {})
-    return backend_settings.get('can_edit_group', True)
+    return setting_utils.get_dict_config(
+        'OPENSTACK_KEYSTONE_BACKEND', 'can_edit_group')
 
 
 def keystone_can_edit_role():
-    backend_settings = getattr(settings, "OPENSTACK_KEYSTONE_BACKEND", {})
-    return backend_settings.get('can_edit_role', True)
+    return setting_utils.get_dict_config(
+        'OPENSTACK_KEYSTONE_BACKEND', 'can_edit_role')
 
 
 def keystone_backend_name():
-    if hasattr(settings, "OPENSTACK_KEYSTONE_BACKEND"):
-        return settings.OPENSTACK_KEYSTONE_BACKEND['name']
-    else:
-        return 'unknown'
+    return setting_utils.get_dict_config(
+        'OPENSTACK_KEYSTONE_BACKEND', 'name') or 'unknown'
 
 
 def get_version():
     return VERSIONS.active
-
-
-def is_multi_domain_enabled():
-    return (VERSIONS.active >= 3 and
-            getattr(settings, 'OPENSTACK_KEYSTONE_MULTIDOMAIN_SUPPORT', False))
-
-
-def is_federation_management_enabled():
-    return getattr(settings, 'OPENSTACK_KEYSTONE_FEDERATION_MANAGEMENT', False)
 
 
 def identity_provider_create(request, idp_id, description=None,
@@ -1119,9 +995,14 @@ def application_credential_delete(request, application_credential_id):
 @profiler.trace
 def application_credential_create(request, name, secret=None,
                                   description=None, expires_at=None,
-                                  roles=None, unrestricted=False):
+                                  roles=None, unrestricted=False,
+                                  access_rules=None):
     user = request.user.id
     manager = keystoneclient(request).application_credentials
-    return manager.create(name=name, user=user, secret=secret,
-                          description=description, expires_at=expires_at,
-                          roles=roles, unrestricted=unrestricted)
+    try:
+        return manager.create(name=name, user=user, secret=secret,
+                              description=description, expires_at=expires_at,
+                              roles=roles, unrestricted=unrestricted,
+                              access_rules=access_rules)
+    except keystone_exceptions.Conflict:
+        raise exceptions.Conflict()

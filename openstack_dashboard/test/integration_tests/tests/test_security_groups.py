@@ -27,10 +27,18 @@ class TestSecuritygroup(helpers.TestCase):
 
     def _create_securitygroup(self):
         page = self.securitygroup_page
-        page.create_securitygroup(self.SEC_GROUP_NAME)
-        self.assertTrue(page.find_message_and_dismiss(messages.SUCCESS))
-        self.assertFalse(page.find_message_and_dismiss(messages.ERROR))
-        self.assertTrue(page.is_securitygroup_present(self.SEC_GROUP_NAME))
+        rule_page = page.create_securitygroup(self.SEC_GROUP_NAME)
+        if rule_page:
+            self.assertTrue(
+                rule_page.find_message_and_dismiss(messages.SUCCESS))
+            self.assertFalse(
+                rule_page.find_message_and_dismiss(messages.ERROR))
+            page = self.securitygroup_page
+            self.assertTrue(page.is_securitygroup_present(self.SEC_GROUP_NAME))
+        else:
+            self.assertTrue(page.find_message_and_dismiss(messages.SUCCESS))
+            self.assertFalse(page.find_message_and_dismiss(messages.ERROR))
+            self.assertTrue(page.is_securitygroup_present(self.SEC_GROUP_NAME))
 
     def _delete_securitygroup(self):
         page = self.securitygroup_page

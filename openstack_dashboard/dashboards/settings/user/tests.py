@@ -12,7 +12,6 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
-from django.conf import settings
 from django.urls import reverse
 
 from openstack_dashboard.test import helpers as test
@@ -32,9 +31,13 @@ class UserSettingsTest(test.TestCase):
 
     def test_display_language(self):
         # Add an unknown language to LANGUAGES list
-        settings.LANGUAGES += (('unknown', 'Unknown Language'),)
+        with self.modify_settings(
+                # NOTE: modify_settings take a list of values to append.
+                # We add a single entry but it is a tuple,
+                # so we need to wrap it as a list.
+                LANGUAGES={'append': [('unknown', 'Unknown Language')]}):
+            res = self.client.get(INDEX_URL)
 
-        res = self.client.get(INDEX_URL)
         # Known language
         self.assertContains(res, 'English')
         # Unknown language

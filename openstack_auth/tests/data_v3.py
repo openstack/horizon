@@ -17,7 +17,6 @@ import uuid
 from django.utils import datetime_safe
 from keystoneauth1.access import access
 from keystoneauth1.access import service_catalog
-from keystoneclient.common import cms
 from keystoneclient.v3 import domains
 from keystoneclient.v3 import projects
 from keystoneclient.v3 import roles
@@ -38,7 +37,7 @@ class TestResponse(requests.Response):
 
     def __init__(self, data):
         self._text = None
-        super(TestResponse, self).__init__()
+        super().__init__()
         if isinstance(data, dict):
             self.status_code = data.get('status_code', 200)
             self.headers = data.get('headers', None)
@@ -55,8 +54,7 @@ class TestResponse(requests.Response):
         return self._text
 
 
-def generate_test_data(pki=False, service_providers=False,
-                       endpoint='localhost'):
+def generate_test_data(service_providers=False, endpoint='localhost'):
     '''Builds a set of test_data data as returned by Keystone V2.'''
     test_data = TestDataContainer()
 
@@ -65,19 +63,19 @@ def generate_test_data(pki=False, service_providers=False,
         'id': uuid.uuid4().hex,
         'endpoints': [
             {
-                'url': 'http://admin.%s:5000/v3' % endpoint,
+                'url': 'http://admin.%s/identity/v3' % endpoint,
                 'region': 'RegionOne',
                 'interface': 'admin',
                 'id': uuid.uuid4().hex,
             },
             {
-                'url': 'http://internal.%s:5000/v3' % endpoint,
+                'url': 'http://internal.%s/identity/v3' % endpoint,
                 'region': 'RegionOne',
                 'interface': 'internal',
                 'id': uuid.uuid4().hex
             },
             {
-                'url': 'http://public.%s:5000/v3' % endpoint,
+                'url': 'http://public.%s/identity/v3' % endpoint,
                 'region': 'RegionOne',
                 'interface': 'public',
                 'id': uuid.uuid4().hex
@@ -179,12 +177,7 @@ def generate_test_data(pki=False, service_providers=False,
     # Tokens
     tomorrow = datetime_safe.datetime.now() + datetime.timedelta(days=1)
     expiration = datetime_safe.datetime.isoformat(tomorrow)
-    if pki:
-        # We don't need a real PKI token, but just the prefix to make the
-        # keystone client treat it as a PKI token
-        auth_token = cms.PKI_ASN1_PREFIX + uuid.uuid4().hex
-    else:
-        auth_token = uuid.uuid4().hex
+    auth_token = uuid.uuid4().hex
 
     auth_response_headers = {
         'X-Subject-Token': auth_token
@@ -221,7 +214,7 @@ def generate_test_data(pki=False, service_providers=False,
 
     sp_list = None
     if service_providers:
-        test_data.sp_auth_url = 'http://service_provider_endp:5000/v3'
+        test_data.sp_auth_url = 'http://service_provider_endp/identity/v3'
         test_data.service_provider_id = 'k2kserviceprovider'
         # The access info for the identity provider
         # should return a list of service providers

@@ -16,7 +16,6 @@
 Views for managing Neutron Routers.
 """
 
-from django.conf import settings
 from django.urls import reverse_lazy
 from django.utils.translation import ugettext_lazy as _
 
@@ -27,6 +26,7 @@ from openstack_dashboard.dashboards.admin.routers import forms as rforms
 from openstack_dashboard.dashboards.admin.routers import tables as rtbl
 from openstack_dashboard.dashboards.admin.routers import tabs as rtabs
 from openstack_dashboard.dashboards.project.routers import views as r_views
+from openstack_dashboard.utils import settings as setting_utils
 
 
 class IndexView(r_views.IndexView, n_views.IndexView):
@@ -50,8 +50,9 @@ class IndexView(r_views.IndexView, n_views.IndexView):
             # If admin_filter_first is set and if there are not other filters
             # selected, then search criteria must be provided and return an
             # empty list
-            filter_first = getattr(settings, 'FILTER_DATA_FIRST', {})
-            if filter_first.get('admin.routers', False) and not filters:
+            if (setting_utils.get_dict_config('FILTER_DATA_FIRST',
+                                              'admin.routers') and
+                    not filters):
                 self._needs_filter_first = True
                 return []
             self._needs_filter_first = False
@@ -83,7 +84,7 @@ class IndexView(r_views.IndexView, n_views.IndexView):
         return routers
 
     def get_filters(self, filters=None, filters_map=None):
-        filters = super(IndexView, self).get_filters(filters, filters_map)
+        filters = super().get_filters(filters, filters_map)
         if 'project' in filters:
             tenants = api.keystone.tenant_list(self.request)[0]
             tenants_filter_ids = [t.id for t in tenants
@@ -99,7 +100,7 @@ class DetailView(r_views.DetailView):
     network_url = 'horizon:admin:networks:detail'
 
     def get_context_data(self, **kwargs):
-        context = super(DetailView, self).get_context_data(**kwargs)
+        context = super().get_context_data(**kwargs)
         table = rtbl.RoutersTable(self.request)
         context["url"] = self.failure_url
         router = context["router"]

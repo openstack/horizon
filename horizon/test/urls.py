@@ -33,7 +33,8 @@ from horizon.test.jasmine import jasmine
 
 urlpatterns = [
     url(r'', horizon.base._wrapped_include(horizon.urls)),
-    url(r"auth/login/", views.login, {'template_name': "auth/login.html"},
+    url(r"auth/login/",
+        views.LoginView.as_view(template_name="auth/login.html"),
         name='login'),
     url(r'auth/', include('django.contrib.auth.urls')),
     url(r'^jasmine/.*?$', jasmine.dispatcher),

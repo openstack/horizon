@@ -33,11 +33,12 @@ _local = threading.local()
 
 # Get the themes from settings
 def get_selectable_themes():
-    return getattr(settings, 'SELECTABLE_THEMES', [])
+    return settings.SELECTABLE_THEMES
 
 
 # Get the themes from settings
 def get_themes():
+    # TODO(amotoki): Consider how to define the default value
     return getattr(settings, 'AVAILABLE_THEMES',
                    [(get_default_theme(),
                      get_default_theme(),
@@ -46,17 +47,17 @@ def get_themes():
 
 # Get the themes dir from settings
 def get_theme_dir():
-    return getattr(settings, 'THEME_COLLECTION_DIR', 'themes')
+    return settings.THEME_COLLECTION_DIR
 
 
 # Get the theme cookie name from settings
 def get_theme_cookie_name():
-    return getattr(settings, 'THEME_COOKIE_NAME', 'theme')
+    return settings.THEME_COOKIE_NAME
 
 
 # Get the default theme
 def get_default_theme():
-    return getattr(settings, 'DEFAULT_THEME', 'default')
+    return settings.DEFAULT_THEME
 
 
 # Find the theme tuple
@@ -71,12 +72,7 @@ def find_theme(theme_name):
 # Offline Context Generator
 def offline_context():
     for theme in get_themes():
-        base_context = \
-            getattr(
-                settings,
-                'HORIZON_COMPRESS_OFFLINE_CONTEXT_BASE',
-                {}
-            ).copy()
+        base_context = settings.HORIZON_COMPRESS_OFFLINE_CONTEXT_BASE.copy()
         base_context['THEME'] = theme[0]
         base_context['THEME_DIR'] = get_theme_dir()
         yield base_context
@@ -170,7 +166,7 @@ class ThemeTemplateLoader(filesystem_loader.Loader):
                 yield Origin(name=name,
                              template_name=template_name,
                              loader=self)
-
+        # pylint: disable=try-except-raise
         except UnicodeDecodeError:
             # The template dir name wasn't valid UTF-8.
             raise

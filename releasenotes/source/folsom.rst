@@ -65,7 +65,7 @@ Community
 
 .. _creating a dashboard: https://docs.openstack.org/horizon/latest/contributor/tutorials/dashboard.html#creating-a-dashboard
 .. _creating a panel: https://docs.openstack.org/horizon/latest/contributor/tutorials/dashboard.html#creating-a-panel
-.. _thorough set of documentation: http://wiki.openstack.org/Translations
+.. _thorough set of documentation: https://wiki.openstack.org/Translations
 
 Under The Hood
 --------------

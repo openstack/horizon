@@ -46,13 +46,13 @@ class ModalBackdropMixin(object):
     modal_backdrop = 'static'
 
     def __init__(self, *args, **kwargs):
-        super(ModalBackdropMixin, self).__init__(*args, **kwargs)
-        config = getattr(settings, 'HORIZON_CONFIG', {})
+        super().__init__(*args, **kwargs)
+        config = settings.HORIZON_CONFIG
         if 'modal_backdrop' in config:
             self.modal_backdrop = config['modal_backdrop']
 
     def get_context_data(self, **kwargs):
-        context = super(ModalBackdropMixin, self).get_context_data(**kwargs)
+        context = super().get_context_data(**kwargs)
         context['modal_backdrop'] = self.modal_backdrop
         return context
 
@@ -64,6 +64,8 @@ class ModalFormMixin(ModalBackdropMixin):
                 # Transform standard template name to ajax name (leading "_")
                 bits = list(os.path.split(self.template_name))
                 bits[1] = "".join(("_", bits[1]))
+                # NOTE: Looks like false-positive in pylint 2.6.0
+                # pylint: disable=no-value-for-parameter
                 self.ajax_template_name = os.path.join(*bits)
             template = self.ajax_template_name
         else:
@@ -71,7 +73,7 @@ class ModalFormMixin(ModalBackdropMixin):
         return template
 
     def get_context_data(self, **kwargs):
-        context = super(ModalFormMixin, self).get_context_data(**kwargs)
+        context = super().get_context_data(**kwargs)
         if self.request.is_ajax():
             context['hide'] = True
         if ADD_TO_FIELD_HEADER in self.request.META:
@@ -138,7 +140,7 @@ class ModalFormView(ModalFormMixin, views.HorizonFormView):
     cancel_url = None
 
     def get_context_data(self, **kwargs):
-        context = super(ModalFormView, self).get_context_data(**kwargs)
+        context = super().get_context_data(**kwargs)
         context['modal_id'] = self.modal_id
         context['modal_header'] = self.modal_header
         context['form_id'] = self.form_id
@@ -192,12 +194,17 @@ class ModalFormView(ModalFormMixin, views.HorizonFormView):
                 field_id = self.request.META[ADD_TO_FIELD_HEADER]
                 data = [self.get_object_id(handled),
                         self.get_object_display(handled)]
-                response = http.HttpResponse(json.dumps(data))
+                response = http.HttpResponse(
+                    json.dumps(data), content_type="text/plain")
                 response["X-Horizon-Add-To-Field"] = field_id
             elif isinstance(handled, http.HttpResponse):
                 return handled
             else:
-                success_url = self.get_success_url()
+                try:
+                    success_url = self.get_success_url_from_handled(handled)
+                except AttributeError:
+                    success_url = self.get_success_url()
+
                 response = http.HttpResponseRedirect(success_url)
                 if hasattr(handled, 'to_dict'):
                     obj_dict = handled.to_dict()
@@ -210,7 +217,7 @@ class ModalFormView(ModalFormMixin, views.HorizonFormView):
                 # and implemented.
                 response['X-Horizon-Location'] = success_url
             return response
-        else:
-            # If handled didn't return, we can assume something went
-            # wrong, and we should send back the form as-is.
-            return self.form_invalid(form)
+
+        # If handled didn't return, we can assume something went
+        # wrong, and we should send back the form as-is.
+        return self.form_invalid(form)

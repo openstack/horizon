@@ -21,11 +21,9 @@ import os
 from socket import timeout as socket_timeout
 import tempfile
 import unittest
+from unittest import mock
 
 from django.urls import reverse
-
-import mock
-import six
 
 from horizon import exceptions
 
@@ -41,7 +39,7 @@ CREATE_URL = reverse('horizon:project:images:images:create')
 
 class BaseImagesTestCase(test.TestCase):
     def setUp(self):
-        super(BaseImagesTestCase, self).setUp()
+        super().setUp()
         self.patcher = mock.patch.object(api.glance, 'image_list_detailed')
         self.mock_image_list = self.patcher.start()
 
@@ -59,7 +57,7 @@ class ImagesAndSnapshotsTests(BaseImagesTestCase):
         images_table = res.context['images_table']
         images = images_table.data
 
-        self.assertEqual(len(images), 9)
+        self.assertEqual(len(images), 10)
         row_actions = images_table.get_row_actions(images[0])
         self.assertEqual(len(row_actions), 5)
         row_actions = images_table.get_row_actions(images[1])
@@ -133,8 +131,7 @@ class ImagesAndSnapshotsTests(BaseImagesTestCase):
         row_actions = snaps.get_row_actions(snaps.data[2])
         # third instance - status queued, only delete is available
         self.assertEqual(len(row_actions), 1)
-        self.assertEqual(six.text_type(row_actions[0].verbose_name),
-                         u"Delete Image")
+        self.assertEqual(row_actions[0].verbose_name, u"Delete Image")
         self.assertEqual(str(row_actions[0]), "<DeleteImage: delete>")
 
         self.mock_image_list.assert_called_once_with(test.IsHttpRequest(),
@@ -155,9 +152,13 @@ class ImagesAndSnapshotsUtilsTests(BaseImagesTestCase):
         shared_images = [image for image in self.imagesV2.list()
                          if (image.status == 'active' and
                              image.visibility == 'shared')]
+        community_images = [image for image in self.imagesV2.list()
+                            if (image.status == 'active' and
+                                image.visibility == 'community')]
         self.mock_image_list.side_effect = [
             [public_images, False, False],
             [private_images, False, False],
+            [community_images, False, False],
             [shared_images, False, False]
         ]
 
@@ -167,6 +168,8 @@ class ImagesAndSnapshotsUtilsTests(BaseImagesTestCase):
             mock.call(test.IsHttpRequest(),
                       filters={'property-owner_id': self.tenant.id,
                                'status': 'active'}),
+            mock.call(test.IsHttpRequest(),
+                      filters={'visibility': 'community', 'status': 'active'}),
             mock.call(test.IsHttpRequest(),
                       filters={'visibility': 'shared', 'status': 'active'})
         ]
@@ -186,6 +189,9 @@ class ImagesAndSnapshotsUtilsTests(BaseImagesTestCase):
         private_images = [image for image in self.images.list()
                           if (image.status == 'active' and
                               not image.is_public)]
+        community_images = [image for image in self.imagesV2.list()
+                            if (image.status == 'active' and
+                                image.visibility == 'community')]
         shared_images = [image for image in self.imagesV2.list()
                          if (image.status == 'active' and
                              image.visibility == 'shared')]
@@ -193,6 +199,7 @@ class ImagesAndSnapshotsUtilsTests(BaseImagesTestCase):
         self.mock_image_list.side_effect = [
             [public_images, False, False],
             [private_images, False, False],
+            [community_images, False, False],
             [shared_images, False, False],
             [private_images, False, False]
         ]
@@ -203,6 +210,8 @@ class ImagesAndSnapshotsUtilsTests(BaseImagesTestCase):
             mock.call(test.IsHttpRequest(),
                       filters={'property-owner_id': self.tenant.id,
                                'status': 'active'}),
+            mock.call(test.IsHttpRequest(),
+                      filters={'visibility': 'community', 'status': 'active'}),
             mock.call(test.IsHttpRequest(),
                       filters={'visibility': 'shared', 'status': 'active'}),
             mock.call(test.IsHttpRequest(),
@@ -225,6 +234,9 @@ class ImagesAndSnapshotsUtilsTests(BaseImagesTestCase):
         self.assertEqual(
             len(private_images),
             len(images_cache['images_by_project'][self.tenant.id]))
+        self.assertEqual(
+            len(community_images),
+            len(images_cache['community_images']))
         self.assertEqual(
             len(shared_images),
             len(images_cache['shared_images']))
@@ -252,6 +264,9 @@ class ImagesAndSnapshotsUtilsTests(BaseImagesTestCase):
         private_images = [image for image in self.images.list()
                           if (image.status == 'active' and
                               not image.is_public)]
+        community_images = [image for image in self.imagesV2.list()
+                            if (image.status == 'active' and
+                                image.visibility == 'community')]
         shared_images = [image for image in self.imagesV2.list()
                          if (image.status == 'active' and
                              image.visibility == 'shared')]
@@ -259,7 +274,8 @@ class ImagesAndSnapshotsUtilsTests(BaseImagesTestCase):
         self.mock_image_list.side_effect = [
             self.exceptions.glance,
             [private_images, False, False],
-            [shared_images, False, False],
+            [community_images, False, False],
+            [shared_images, False, False]
         ]
 
         images_cache = {}
@@ -270,6 +286,8 @@ class ImagesAndSnapshotsUtilsTests(BaseImagesTestCase):
                       filters={'is_public': True, 'status': 'active'}),
             mock.call(test.IsHttpRequest(),
                       filters={'status': 'active', 'property-owner_id': '1'}),
+            mock.call(test.IsHttpRequest(),
+                      filters={'visibility': 'community', 'status': 'active'}),
             mock.call(test.IsHttpRequest(),
                       filters={'visibility': 'shared', 'status': 'active'})
         ]
@@ -287,6 +305,9 @@ class ImagesAndSnapshotsUtilsTests(BaseImagesTestCase):
             len(private_images),
             len(images_cache['images_by_project'][self.tenant.id]))
         self.assertEqual(
+            len(community_images),
+            len(images_cache['community_images']))
+        self.assertEqual(
             len(shared_images),
             len(images_cache['shared_images']))
 
@@ -297,6 +318,9 @@ class ImagesAndSnapshotsUtilsTests(BaseImagesTestCase):
         private_images = [image for image in self.images.list()
                           if (image.status == 'active' and
                               not image.is_public)]
+        community_images = [image for image in self.imagesV2.list()
+                            if (image.status == 'active' and
+                                image.visibility == 'community')]
         shared_images = [image for image in self.imagesV2.list()
                          if (image.status == 'active' and
                              image.visibility == 'shared')]
@@ -304,6 +328,7 @@ class ImagesAndSnapshotsUtilsTests(BaseImagesTestCase):
         self.mock_image_list.side_effect = [
             [public_images, False, False],
             self.exceptions.glance,
+            [community_images, False, False],
             [shared_images, False, False],
             [private_images, False, False]
         ]
@@ -317,6 +342,9 @@ class ImagesAndSnapshotsUtilsTests(BaseImagesTestCase):
             len(public_images),
             len(images_cache['public_images']))
         self.assertFalse(len(images_cache['images_by_project']))
+        self.assertEqual(
+            len(community_images),
+            len(images_cache['community_images']))
         self.assertEqual(
             len(shared_images),
             len(images_cache['shared_images']))
@@ -335,6 +363,9 @@ class ImagesAndSnapshotsUtilsTests(BaseImagesTestCase):
             len(private_images),
             len(images_cache['images_by_project'][self.tenant.id]))
         self.assertEqual(
+            len(community_images),
+            len(images_cache['community_images']))
+        self.assertEqual(
             len(shared_images),
             len(images_cache['shared_images']))
 
@@ -343,6 +374,8 @@ class ImagesAndSnapshotsUtilsTests(BaseImagesTestCase):
                       filters={'status': 'active', 'is_public': True}),
             mock.call(test.IsHttpRequest(),
                       filters={'status': 'active', 'property-owner_id': '1'}),
+            mock.call(test.IsHttpRequest(),
+                      filters={'status': 'active', 'visibility': 'community'}),
             mock.call(test.IsHttpRequest(),
                       filters={'status': 'active', 'visibility': 'shared'}),
             mock.call(test.IsHttpRequest(),

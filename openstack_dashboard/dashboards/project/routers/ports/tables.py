@@ -31,10 +31,9 @@ LOG = logging.getLogger(__name__)
 def get_device_owner(port):
     if port['device_owner'] == 'network:router_gateway':
         return _('External Gateway')
-    elif port['device_owner'] == 'network:router_interface':
+    if port['device_owner'] == 'network:router_interface':
         return _('Internal Interface')
-    else:
-        return ' '
+    return ' '
 
 
 class AddInterface(policy.PolicyTargetMixin, tables.LinkAction):
@@ -69,6 +68,12 @@ class RemoveInterface(policy.PolicyTargetMixin, tables.DeleteAction):
 
     failure_url = 'horizon:project:routers:detail'
     policy_rules = (("network", "remove_router_interface"),)
+
+    def allowed(self, request, datum=None):
+        if datum and datum.get('device_owner'):
+            if datum['device_owner'] == 'network:router_ha_interface':
+                return False
+        return True
 
     def delete(self, request, obj_id):
         try:

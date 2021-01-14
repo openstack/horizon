@@ -19,7 +19,6 @@ from django.template import defaultfilters
 from django.urls import reverse
 from django.utils.translation import ugettext_lazy as _
 from django.utils.translation import ungettext_lazy
-import six
 
 from horizon import exceptions
 from horizon import tables
@@ -71,7 +70,7 @@ class CreateGroup(tables.LinkAction):
                                             targets=('security_group', ))
         if usages['security_group'].get('available', 1) <= 0:
             if "disabled" not in self.classes:
-                self.classes = [c for c in self.classes] + ["disabled"]
+                self.classes = list(self.classes) + ['disabled']
                 self.verbose_name = _("Create Security Group (Quota exceeded)")
         else:
             self.verbose_name = _("Create Security Group")
@@ -135,6 +134,19 @@ class CreateRule(tables.LinkAction):
     def get_link_url(self):
         return reverse(self.url, args=[self.table.kwargs['security_group_id']])
 
+    def allowed(self, request, security_group=None):
+        usages = quotas.tenant_quota_usages(request,
+                                            targets=('security_group_rule', ))
+
+        self.classes = [c for c in self.classes if c != "disabled"]
+        if usages['security_group_rule'].get('available', 1) <= 0:
+            self.classes.append("disabled")
+            self.verbose_name = _("Add Rule (Quota exceeded)")
+        else:
+            self.verbose_name = _("Add Rule")
+
+        return True
+
 
 class DeleteRule(tables.DeleteAction):
     @staticmethod
@@ -168,8 +180,7 @@ def get_remote_ip_prefix(rule):
         else:
             range = rule.ip_range['cidr']
         return range
-    else:
-        return None
+    return None
 
 
 def get_remote_security_group(rule):
@@ -184,27 +195,25 @@ def get_port_range(rule):
     ip_proto = rule.ip_protocol
     if rule.from_port == rule.to_port:
         return check_rule_template(rule.from_port, ip_proto)
-    else:
-        return (u"%(from)s - %(to)s" %
-                {'from': check_rule_template(rule.from_port, ip_proto),
-                 'to': check_rule_template(rule.to_port, ip_proto)})
+    return (u"%(from)s - %(to)s" %
+            {'from': check_rule_template(rule.from_port, ip_proto),
+             'to': check_rule_template(rule.to_port, ip_proto)})
 
 
 def filter_direction(direction):
     if direction is None or direction.lower() == 'ingress':
         return _('Ingress')
-    else:
-        return _('Egress')
+    return _('Egress')
 
 
 def filter_protocol(protocol):
     if protocol is None:
         return _('Any')
-    return six.text_type.upper(protocol)
+    return protocol.upper()
 
 
 def check_rule_template(port, ip_proto):
-    rules_dict = getattr(settings, 'SECURITY_GROUP_RULES', {})
+    rules_dict = settings.SECURITY_GROUP_RULES
     if not rules_dict:
         return port
     templ_rule = [rule for rule in rules_dict.values()
@@ -240,7 +249,7 @@ class RulesTable(tables.DataTable):
         filters=(functools.partial(defaultfilters.default, arg=_("-")),))
 
     def __init__(self, request, *args, **kwargs):
-        super(RulesTable, self).__init__(request, *args, **kwargs)
+        super().__init__(request, *args, **kwargs)
         try:
             is_desc_supported = api.neutron.is_extension_supported(
                 self.request, 'standard-attr-description')
@@ -256,7 +265,7 @@ class RulesTable(tables.DataTable):
         return filters.get_int_or_uuid(obj_id)
 
     def get_object_display(self, rule):
-        return six.text_type(rule)
+        return str(rule)
 
     class Meta(object):
         name = "rules"

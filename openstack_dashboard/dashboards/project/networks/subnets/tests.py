@@ -13,8 +13,9 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
+from unittest import mock
+
 from django.urls import reverse
-import mock
 
 from horizon.workflows import views
 
@@ -185,7 +186,7 @@ class NetworkSubnetTests(test.TestCase):
     def test_subnet_create_post_with_additional_attributes(self):
         network = self.networks.list()[1]
         subnet = self.subnets.list()[2]
-        self.mock_network_get.return_value = self.networks.first()
+        self.mock_network_get.return_value = network
         self.mock_is_extension_supported.return_value = True
         self.mock_subnetpool_list.return_value = self.subnetpools.list()
         self.mock_subnet_create.return_value = subnet
@@ -336,7 +337,7 @@ class NetworkSubnetTests(test.TestCase):
         res = self.client.post(url, form_data)
 
         expected_msg = 'Network Address and IP version are inconsistent.'
-        self.assertFormErrors(res, 1, expected_msg)
+        self.assertWorkflowErrors(res, 1, expected_msg)
         self.assertTemplateUsed(res, views.WorkflowView.template_name)
 
         self.mock_network_get.assert_called_once_with(test.IsHttpRequest(),

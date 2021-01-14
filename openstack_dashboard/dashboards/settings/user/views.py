@@ -18,6 +18,7 @@ from django.utils.translation import ugettext_lazy as _
 from horizon import forms
 from horizon.utils import functions as utils
 from openstack_dashboard.dashboards.settings.user import forms as user_forms
+from openstack_dashboard.utils import settings as settings_utils
 
 
 class UserSettingsView(forms.ModalFormView):
@@ -33,8 +34,9 @@ class UserSettingsView(forms.ModalFormView):
         return {
             'language': utils.get_language(self.request),
             'timezone': utils.get_timezone(self.request),
-            'pagesize': utils.get_page_size(self.request),
-            'instance_log_length': utils.get_log_length(self.request)}
+            'pagesize': settings_utils.get_page_size(self.request),
+            'instance_log_length': settings_utils.get_log_length(self.request),
+        }
 
     def form_valid(self, form):
         return form.handle(self.request, form.cleaned_data)

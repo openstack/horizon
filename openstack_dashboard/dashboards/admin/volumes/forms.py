@@ -83,7 +83,7 @@ class ManageVolume(forms.SelfHandlingForm):
                     "should be marked as bootable"))
 
     def __init__(self, request, *args, **kwargs):
-        super(ManageVolume, self).__init__(request, *args, **kwargs)
+        super().__init__(request, *args, **kwargs)
         self.fields['id_type'].choices = [("source-name", _("Name"))] + \
                                          [("source-id", _("ID"))]
         volume_types = cinder.volume_type_list(request)
@@ -179,7 +179,7 @@ class MigrateVolume(forms.SelfHandlingForm):
                                          initial=False, required=False)
 
     def __init__(self, request, *args, **kwargs):
-        super(MigrateVolume, self).__init__(request, *args, **kwargs)
+        super().__init__(request, *args, **kwargs)
         initial = kwargs.get('initial', {})
         self.fields['host'].choices = self.populate_host_choices(request,
                                                                  initial)
@@ -217,14 +217,12 @@ class UpdateStatus(forms.SelfHandlingForm):
     status = forms.ThemableChoiceField(label=_("Status"))
 
     def __init__(self, request, *args, **kwargs):
-        # Obtain the localized status to use as initial value, has to be done
-        # before super() otherwise the initial value will get overwritten back
-        # to the raw value
+        # Initial values have to be operated before super() otherwise the
+        # initial values will get overwritten back to the raw value
         current_status = kwargs['initial']['status']
-        choices = dict(STATUS_CHOICES)
-        kwargs['initial']['status'] = choices[current_status]
+        kwargs['initial'].pop('status')
 
-        super(UpdateStatus, self).__init__(request, *args, **kwargs)
+        super().__init__(request, *args, **kwargs)
 
         self.fields['status'].choices = populate_status_choices(
             current_status, STATUS_CHOICES)

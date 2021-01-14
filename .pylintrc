@@ -2,15 +2,69 @@
 [MASTER]
 # Add <file or directory> to the black list. It should be a base name, not a
 # path. You may set this option multiple times.
-ignore=test
+ignore=test,tests,tests.py,local_settings.py,horizon_wsgi.py
 
 [Messages Control]
-# NOTE(justinsb): We might want to have a 2nd strict pylintrc in future
-# C0111: Don't require docstrings on every method
-# W0511: TODOs in code comments are fine.
-# W0142: *args and **kwargs are fine.
-# W0622: Redefining id is fine.
-disable=C0111,W0511,W0142,W0622
+disable=
+# "F" Fatal errors that prevent further processing
+# "I" Informational noise
+ locally-disabled,
+# "E" Error for important programming issues (likely bugs)
+ method-hidden,
+ no-member,
+ not-callable,
+# "W" Warnings for stylistic problems or minor programming issues
+ arguments-differ,
+ attribute-defined-outside-init,
+ bad-indentation,
+ broad-except,
+ fixme,
+ # python3 way: pylint suggests to follow PEP 3102
+ keyword-arg-before-vararg,  # TODO
+ pointless-string-statement,
+ protected-access,
+ # We should do it carefully considering PEP3134
+ raise-missing-from,  # TODO
+ redefined-builtin,
+ redefined-outer-name,
+ signature-differs,
+ super-init-not-called,
+ unidiomatic-typecheck,
+ unused-argument,
+ unused-wildcard-import,
+ useless-else-on-loop,
+ wildcard-import,
+# "C" Coding convention violations
+ abstract-method,
+ anomalous-backslash-in-string,
+ bad-builtin,
+ bad-continuation,
+ deprecated-lambda,
+ global-statement,
+ # Not a good idea to disable this globally
+ # Check one by one and add pylint disabled comment if needed
+ import-outside-toplevel,  # TODO
+ invalid-name,
+ missing-docstring,
+ superfluous-parens,
+ too-many-lines,
+ unused-variable,
+ # import order is checked by flake8 (and pylint rule is incompatible with it)
+ wrong-import-order,
+# "R" Refactor recommendations
+ duplicate-code,
+ inconsistent-return-statements,  # TODO
+ interface-not-implemented,
+ no-self-use,
+ too-many-ancestors,
+ too-many-arguments,
+ too-many-branches,
+ too-many-function-args,
+ too-many-instance-attributes,
+ too-many-locals,
+ too-many-return-statements,
+ too-many-statements,
+ useless-object-inheritance
 
 [Basic]
 # Variable names can be 1 to 31 characters long, with lowercase and underscores
@@ -29,6 +83,10 @@ module-rgx=(([a-z_][a-z0-9_]*)|([A-Z][a-zA-Z0-9]+)|(keystone-[a-z0-9_-]+))$
 # Don't require docstrings on tests.
 no-docstring-rgx=((__.*__)|([tT]est.*)|setUp|tearDown)$
 
+[Format]
+# Maximum number of characters on a single line.
+max-line-length=80
+
 [Design]
 max-public-methods=100
 min-public-methods=0
@@ -40,3 +98,11 @@ max-args=6
 # you should avoid to define new builtins when possible.
 # _ is used by our localization
 additional-builtins=_
+
+[typecheck]
+# List of module names for which member attributes should not be checked
+ignored-modules=six.moves,_MovedItems
+
+[reports]
+# Tells whether to display a full report or only the messages
+reports=no

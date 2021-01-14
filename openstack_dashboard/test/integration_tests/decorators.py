@@ -156,7 +156,7 @@ def skip_because(**kwargs):
     def actual_decoration(obj):
         skip_method = _get_skip_method(obj)
         bugs = kwargs.get("bugs")
-        if bugs and isinstance(bugs, collections.Iterable):
+        if bugs and isinstance(bugs, collections.abc.Iterable):
             for bug in bugs:
                 if not bug.isdigit():
                     raise ValueError("bug must be a valid bug number")

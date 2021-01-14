@@ -51,8 +51,7 @@ def timesince_or_never(dt, default=None):
 
     if isinstance(dt, datetime.date):
         return timesince(dt)
-    else:
-        return default
+    return default
 
 
 @register.filter

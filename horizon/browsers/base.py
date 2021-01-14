@@ -93,7 +93,7 @@ class ResourceBrowser(html.HTMLElement):
     breadcrumb_url = None
 
     def __init__(self, request, tables_dict=None, attrs=None, **kwargs):
-        super(ResourceBrowser, self).__init__()
+        super().__init__()
         self.name = self.name or self.__class__.__name__
         self.verbose_name = self.verbose_name or self.name.title()
         self.request = request

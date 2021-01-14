@@ -8,12 +8,20 @@ Running the integration tests
 
 #. Set up an OpenStack server
 
-#. Update the configuration file at `horizon.conf` or add overrides
-   to that file in `local-horizon.conf` which is ignored by git.
+#. Prepare the configuration file at `local-horizon.conf` if you need
+   to change the default configurations.
+   Note that `horizon.conf` can be used for the same purpose too
+   from the historical reason.
+
+   You can generate a sample configuration file by the following command::
+
+      $ oslo-config-generator \
+            --namespace openstack_dashboard_integration_tests
+            --output-file openstack_dashboard/test/integration_tests/horizon.conf.sample
 
 #. Run the tests. ::
 
-    $ tox -e py27integration
+    $ tox -e integration
 
 More information
 ----------------

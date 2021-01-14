@@ -18,8 +18,7 @@ import copy
 
 from django.conf import settings
 from django import http
-
-import six
+from django.test.utils import override_settings
 
 from horizon import exceptions
 from horizon import middleware
@@ -298,7 +297,7 @@ class TabTests(test.TestCase):
                                   'FakeObject: object_2',
                                   'FakeObject: object_3',
                                   u'FakeObject: öbject_4'],
-                                 transform=six.text_type)
+                                 transform=str)
         context = tab.get_context_data(self.request)
         # Make sure our table is loaded into the context correctly
         self.assertEqual(table, context['my_table_table'])
@@ -341,13 +340,14 @@ class TabTests(test.TestCase):
 
 class TabExceptionTests(test.TestCase):
     def setUp(self):
-        super(TabExceptionTests, self).setUp()
+        super().setUp()
         self._original_tabs = copy.copy(TabWithTableView.tab_group_class.tabs)
 
     def tearDown(self):
-        super(TabExceptionTests, self).tearDown()
+        super().tearDown()
         TabWithTableView.tab_group_class.tabs = self._original_tabs
 
+    @override_settings(SESSION_REFRESH=False)
     def test_tab_view_exception(self):
         TabWithTableView.tab_group_class.tabs.append(RecoverableErrorTab)
         view = TabWithTableView.as_view()
@@ -355,6 +355,7 @@ class TabExceptionTests(test.TestCase):
         res = view(req)
         self.assertMessageCount(res, error=1)
 
+    @override_settings(SESSION_REFRESH=False)
     def test_tab_302_exception(self):
         TabWithTableView.tab_group_class.tabs.append(RedirectExceptionTab)
         view = TabWithTableView.as_view()

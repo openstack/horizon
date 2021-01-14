@@ -92,7 +92,7 @@ class Command(TemplateCommand):
                                "Python module and cannot be used as an app "
                                "name. Please try another name." % panel_name)
 
-        super(Command, self).handle('panel', panel_name, target, **options)
+        super().handle('panel', panel_name, target, **options)
 
         if not target:
             target = os.path.join(os.curdir, panel_name)

@@ -28,7 +28,7 @@ class FormMixinTests(test.TestCase):
         view.kwargs = kwargs
         view.template_name = 'test_template'
         # Note(Itxaka): ModalFormView requires a form_class to behave properly
-        view.form_class = TestForm
+        view.form_class = FormForTesting
         return view
 
     def test_modal_form_mixin_hide_true_if_ajax(self):
@@ -58,18 +58,17 @@ class FormMixinTests(test.TestCase):
             self.assertNotIn('add_to_field', context)
 
     def test_template_name_change_based_on_ajax_request(self):
-            view = self._prepare_view(
-                forms.views.ModalFormView,
-                dict(HTTP_X_REQUESTED_WITH='XMLHttpRequest'))
-            self.assertEqual('_' + view.template_name,
-                             view.get_template_names())
+        view = self._prepare_view(
+            forms.views.ModalFormView,
+            dict(HTTP_X_REQUESTED_WITH='XMLHttpRequest'))
+        self.assertEqual('_' + view.template_name,
+                         view.get_template_names())
 
-            view = self._prepare_view(forms.views.ModalFormView, {})
-            self.assertEqual(view.template_name, view.get_template_names())
+        view = self._prepare_view(forms.views.ModalFormView, {})
+        self.assertEqual(view.template_name, view.get_template_names())
 
 
-class TestForm(forms.SelfHandlingForm):
-
+class FormForTesting(forms.SelfHandlingForm):
     name = forms.CharField(max_length=255)
 
     def handle(self, request, data):
@@ -81,10 +80,10 @@ class FormErrorTests(test.TestCase):
     template = 'horizon/common/_form_fields.html'
 
     def setUp(self):
-        super(FormErrorTests, self).setUp()
+        super().setUp()
         # Note(Itxaka): We pass data to the form so its bound and has the
         # proper cleaned_data fields
-        self.form = TestForm(self.request, data={'fake': 'data'})
+        self.form = FormForTesting(self.request, data={'fake': 'data'})
 
     def _render_form(self):
         return shortcuts.render(self.request, self.template,

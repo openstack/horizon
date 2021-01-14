@@ -31,7 +31,7 @@ class EvacuateHostView(forms.ModalFormView):
     submit_label = page_title
 
     def get_context_data(self, **kwargs):
-        context = super(EvacuateHostView, self).get_context_data(**kwargs)
+        context = super().get_context_data(**kwargs)
         context["compute_host"] = self.kwargs['compute_host']
         return context
 
@@ -47,7 +47,7 @@ class EvacuateHostView(forms.ModalFormView):
             exceptions.handle(self.request, msg, redirect=redirect)
 
     def get_initial(self):
-        initial = super(EvacuateHostView, self).get_initial()
+        initial = super().get_initial()
         hosts = self.get_active_compute_hosts_names()
         current_host = self.kwargs['compute_host']
         initial.update({'current_host': current_host,
@@ -64,12 +64,12 @@ class DisableServiceView(forms.ModalFormView):
     submit_label = page_title
 
     def get_context_data(self, **kwargs):
-        context = super(DisableServiceView, self).get_context_data(**kwargs)
+        context = super().get_context_data(**kwargs)
         context["compute_host"] = self.kwargs['compute_host']
         return context
 
     def get_initial(self):
-        initial = super(DisableServiceView, self).get_initial()
+        initial = super().get_initial()
         initial.update({'host': self.kwargs['compute_host']})
         return initial
 
@@ -83,12 +83,12 @@ class MigrateHostView(forms.ModalFormView):
     submit_label = page_title
 
     def get_context_data(self, **kwargs):
-        context = super(MigrateHostView, self).get_context_data(**kwargs)
+        context = super().get_context_data(**kwargs)
         context["compute_host"] = self.kwargs['compute_host']
         return context
 
     def get_initial(self):
-        initial = super(MigrateHostView, self).get_initial()
+        initial = super().get_initial()
         current_host = self.kwargs['compute_host']
 
         initial.update({

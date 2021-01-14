@@ -42,6 +42,7 @@ from openstack_dashboard.dashboards.identity.projects \
 from openstack_dashboard.dashboards.project.overview \
     import views as project_views
 from openstack_dashboard.utils import identity
+from openstack_dashboard.utils import settings as setting_utils
 
 PROJECT_INFO_FIELDS = ("domain_id",
                        "domain_name",
@@ -64,7 +65,7 @@ class TenantContextMixin(object):
                               redirect=reverse(INDEX_URL))
 
     def get_context_data(self, **kwargs):
-        context = super(TenantContextMixin, self).get_context_data(**kwargs)
+        context = super().get_context_data(**kwargs)
         context['tenant'] = self.get_object()
         return context
 
@@ -95,9 +96,8 @@ class IndexView(tables.DataTableView):
             # If filter_first is set and if there are not other filters
             # selected, then search criteria must be provided and
             # return an empty list
-            filter_first = getattr(settings, 'FILTER_DATA_FIRST', {})
-            if filter_first.get('identity.projects', False) and len(
-                    filters) == 0:
+            if (setting_utils.get_dict_config(
+                    'FILTER_DATA_FIRST', 'identity.projects') and not filters):
                 self._needs_filter_first = True
                 self._more = False
                 return tenants
@@ -131,10 +131,9 @@ class IndexView(tables.DataTableView):
                 _("Insufficient privilege level to view project information.")
             messages.info(self.request, msg)
 
-        if api.keystone.VERSIONS.active >= 3:
-            domain_lookup = api.keystone.domain_lookup(self.request)
-            for t in tenants:
-                t.domain_name = domain_lookup.get(t.domain_id)
+        domain_lookup = api.keystone.domain_lookup(self.request)
+        for t in tenants:
+            t.domain_name = domain_lookup.get(t.domain_id)
 
         return tenants
 
@@ -148,7 +147,7 @@ class ProjectUsageView(usage.UsageView):
     page_title = _("Project Usage")
 
     def get_data(self):
-        super(ProjectUsageView, self).get_data()
+        super().get_data()
         return self.usage.get_instances()
 
 
@@ -156,7 +155,7 @@ class CreateProjectView(workflows.WorkflowView):
     workflow_class = project_workflows.CreateProject
 
     def get_initial(self):
-        initial = super(CreateProjectView, self).get_initial()
+        initial = super().get_initial()
 
         # Set the domain of the project
         domain = api.keystone.get_default_domain(self.request)
@@ -170,7 +169,7 @@ class UpdateProjectView(workflows.WorkflowView):
     workflow_class = project_workflows.UpdateProject
 
     def get_initial(self):
-        initial = super(UpdateProjectView, self).get_initial()
+        initial = super().get_initial()
 
         project_id = self.kwargs['tenant_id']
         initial['project_id'] = project_id
@@ -182,28 +181,27 @@ class UpdateProjectView(workflows.WorkflowView):
             for field in PROJECT_INFO_FIELDS:
                 initial[field] = getattr(project_info, field, None)
 
-            if keystone.VERSIONS.active >= 3:
-                # get extra columns info
-                ex_info = getattr(settings, 'PROJECT_TABLE_EXTRA_INFO', {})
-                for ex_field in ex_info:
-                    initial[ex_field] = getattr(project_info, ex_field, None)
+            # get extra columns info
+            ex_info = settings.PROJECT_TABLE_EXTRA_INFO
+            for ex_field in ex_info:
+                initial[ex_field] = getattr(project_info, ex_field, None)
 
-                # Retrieve the domain name where the project belong
-                try:
-                    if policy.check((("identity", "identity:get_domain"),),
-                                    self.request):
-                        domain = api.keystone.domain_get(self.request,
-                                                         initial["domain_id"])
-                        initial["domain_name"] = domain.name
+            # Retrieve the domain name where the project belong
+            try:
+                if policy.check((("identity", "identity:get_domain"),),
+                                self.request):
+                    domain = api.keystone.domain_get(self.request,
+                                                     initial["domain_id"])
+                    initial["domain_name"] = domain.name
 
-                    else:
-                        domain = api.keystone.get_default_domain(self.request)
-                        initial["domain_name"] = domain.name
+                else:
+                    domain = api.keystone.get_default_domain(self.request)
+                    initial["domain_name"] = domain.name
 
-                except Exception:
-                    exceptions.handle(self.request,
-                                      _('Unable to retrieve project domain.'),
-                                      redirect=reverse(INDEX_URL))
+            except Exception:
+                exceptions.handle(self.request,
+                                  _('Unable to retrieve project domain.'),
+                                  redirect=reverse(INDEX_URL))
         except Exception:
             exceptions.handle(self.request,
                               _('Unable to retrieve project details.'),
@@ -215,7 +213,7 @@ class UpdateQuotasView(workflows.WorkflowView):
     workflow_class = project_workflows.UpdateQuota
 
     def get_initial(self):
-        initial = super(UpdateQuotasView, self).get_initial()
+        initial = super().get_initial()
         project_id = self.kwargs['tenant_id']
         initial['project_id'] = project_id
         try:
@@ -239,7 +237,7 @@ class DetailProjectView(tabs.TabView):
     page_title = "{{ project.name }}"
 
     def get_context_data(self, **kwargs):
-        context = super(DetailProjectView, self).get_context_data(**kwargs)
+        context = super().get_context_data(**kwargs)
         project = self.get_data()
         table = project_tables.TenantsTable(self.request)
         context["project"] = project

@@ -5,10 +5,14 @@
 <!DOCTYPE html>
 <html>
   <head>
+    {% block custom_analytics %}
+    {% endblock %}
     <meta content='IE=edge' http-equiv='X-UA-Compatible' />
     <meta content='text/html; charset=utf-8' http-equiv='Content-Type' />
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    {% include "horizon/_custom_meta.html" %}
+    {% block custom_metadata %}
+      {% include "horizon/_custom_meta.html" %}
+    {% endblock %}
     <title>{% block title %}{% endblock %} - {% site_branding %}</title>
     {% comment %} Load CSS sheets before Javascript  {% endcomment %}
     {% block css %}
@@ -17,7 +21,9 @@
     {% iframe_embed_settings %}
     {% include "horizon/_conf.html" %}
     {% include "horizon/client_side/_script_loader.html" %}
-    {% include "horizon/_custom_head_js.html" %}
+    {% block custom_head_js %}
+      {% include "horizon/_custom_head_js.html" %}
+    {% endblock %}
     {% block ng_route_base %} {% endblock %}
   </head>
   <body id="{% block body_id %}{% endblock %}" ng-app='horizon.app' ng-strict-di>

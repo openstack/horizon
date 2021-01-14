@@ -60,7 +60,7 @@
       //
       // We roughly follow the example discussed and presented here:
       // http://lists.openstack.org/pipermail/openstack-dev/2016-July/099368.html
-      // https://review.openstack.org/345145
+      // https://review.opendev.org/345145
       //
       // Though we deviate a bit in the use of stepModels. The example
       // has one model object per step, named after the workflow step's

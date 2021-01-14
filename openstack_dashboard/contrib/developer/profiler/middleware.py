@@ -21,16 +21,16 @@ from django.utils.translation import ugettext_lazy as _
 from osprofiler import _utils as profiler_utils
 from osprofiler import profiler
 from osprofiler import web
-import six
 
 from horizon import messages
+from horizon.utils import settings as horizon_settings
 from openstack_dashboard.contrib.developer.profiler import api
 
 _REQUIRED_KEYS = ("base_id", "hmac_key")
 _OPTIONAL_KEYS = ("parent_id",)
 
-PROFILER_CONF = getattr(settings, 'OPENSTACK_PROFILER', {})
-PROFILER_ENABLED = PROFILER_CONF.get('enabled', False)
+PROFILER_ENABLED = horizon_settings.get_dict_config(
+    'OPENSTACK_PROFILER', 'enabled')
 
 
 class ProfilerClientMiddleware(object):
@@ -42,7 +42,7 @@ class ProfilerClientMiddleware(object):
     def __init__(self, get_response):
         if not PROFILER_ENABLED:
             raise exceptions.MiddlewareNotUsed()
-        super(ProfilerClientMiddleware, self).__init__()
+        super().__init__()
         self.get_response = get_response
 
     def __call__(self, request):
@@ -60,7 +60,8 @@ class ProfilerClientMiddleware(object):
             return None
 
         if 'profile_page' in request.COOKIES:
-            hmac_key = PROFILER_CONF.get('keys')[0]
+            hmac_key = horizon_settings.get_dict_config(
+                'OPENSTACK_PROFILER', 'keys')[0]
             profiler.init(hmac_key)
             for hdr_key, hdr_value in web.get_trace_id_headers().items():
                 request.META[hdr_key] = hdr_value
@@ -69,11 +70,14 @@ class ProfilerClientMiddleware(object):
 
 class ProfilerMiddleware(object):
     def __init__(self, get_response):
-        self.name = PROFILER_CONF.get('facility_name', 'horizon')
-        self.hmac_keys = PROFILER_CONF.get('keys', [])
+        self.name = horizon_settings.get_dict_config(
+            'OPENSTACK_PROFILER', 'facility_name')
+        self.hmac_keys = horizon_settings.get_dict_config(
+            'OPENSTACK_PROFILER', 'keys')
         self.get_response = get_response
         if PROFILER_ENABLED:
-            api.init_notifier(PROFILER_CONF.get('notifier_connection_string'))
+            api.init_notifier(horizon_settings.get_dict_config(
+                'OPENSTACK_PROFILER', 'notifier_connection_string'))
         else:
             raise exceptions.MiddlewareNotUsed()
 
@@ -93,7 +97,7 @@ class ProfilerMiddleware(object):
     def _trace_is_valid(trace_info):
         if not isinstance(trace_info, dict):
             return False
-        trace_keys = set(six.iterkeys(trace_info))
+        trace_keys = trace_info.keys()
         if not all(k in trace_keys for k in _REQUIRED_KEYS):
             return False
         if trace_keys.difference(_REQUIRED_KEYS + _OPTIONAL_KEYS):

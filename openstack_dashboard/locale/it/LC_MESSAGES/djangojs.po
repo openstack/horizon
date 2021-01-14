@@ -2,29 +2,26 @@
 # Mattia Gandolfi <mgandolf@redhat.com>, 2015. #zanata
 # OpenStack Infra <zanata@openstack.org>, 2015. #zanata
 # Andreas Jaeger <jaegerandi@gmail.com>, 2016. #zanata
+# Alessandra <alessandra@translated.net>, 2020. #zanata
+# Andreas Jaeger <jaegerandi@gmail.com>, 2020. #zanata
+# Mattia Gandolfi <mgandolf@redhat.com>, 2020. #zanata
 msgid ""
 msgstr ""
 "Project-Id-Version: horizon VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2018-01-09 05:44+0000\n"
+"POT-Creation-Date: 2020-01-08 17:19+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2016-04-07 07:27+0000\n"
+"PO-Revision-Date: 2020-01-08 04:04+0000\n"
 "Last-Translator: Copied by Zanata <copied-by-zanata@zanata.org>\n"
 "Language-Team: Italian\n"
 "Language: it\n"
-"X-Generator: Zanata 3.9.6\n"
+"X-Generator: Zanata 4.3.3\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
 
 msgid "#"
 msgstr "#"
-
-#, python-format
-msgid "%s instance launched."
-msgid_plural "%s instances launched."
-msgstr[0] "%s istanza avviata."
-msgstr[1] "%s istanze avviate."
 
 msgid "1"
 msgstr "1"
@@ -355,17 +352,17 @@ msgstr ""
 "guest, è possibile utilizzare uno script personalizzato per visualizzare una "
 "chiave pubblica e aggiungerla all'account utente."
 
+#, fuzzy
 msgid "DNS Domain"
-msgstr "Dominio DNS"
+msgid_plural "DNS Domains"
+msgstr[0] "Dominio DNS"
+msgstr[1] ""
 
-msgid "DNS Domains"
-msgstr "Domini DNS"
-
+#, fuzzy
 msgid "DNS Record"
-msgstr "Record DNS"
-
-msgid "DNS Records"
-msgstr "Record DNS"
+msgid_plural "DNS Records"
+msgstr[0] "Record DNS"
+msgstr[1] ""
 
 msgid "Danger"
 msgstr "Pericolo"
@@ -524,14 +521,14 @@ msgstr "Nome file"
 msgid "Fingerprint"
 msgstr "Impronta digitale"
 
+#, fuzzy
 msgid "Flavor"
-msgstr "Flavor"
+msgid_plural "Flavors"
+msgstr[0] "Flavor"
+msgstr[1] ""
 
 msgid "Flavor Name"
 msgstr "Nome flavor"
-
-msgid "Flavors"
-msgstr "Flavor"
 
 msgid ""
 "Flavors manage the sizing for the compute, memory and storage capacity of "
@@ -652,14 +649,14 @@ msgstr ""
 "significa che i dati dell'istanza vengono salvati quando l'istanza viene "
 "eliminata, quindi selezionare una delle seguenti opzioni di avvio:"
 
+#, fuzzy
 msgid "Image"
-msgstr "Immagine"
+msgid_plural "Images"
+msgstr[0] "Immagine"
+msgstr[1] ""
 
 msgid "Image Name"
 msgstr "Nome dell'Immagine"
-
-msgid "Images"
-msgstr "Immagini"
 
 msgid "Impact on your quota"
 msgstr "Impatto sulla quota"
@@ -705,11 +702,11 @@ msgstr "Jumbotron"
 msgid "Kernel ID"
 msgstr "ID kernel"
 
+#, fuzzy
 msgid "Key Pair"
-msgstr "Coppia di chiavi"
-
-msgid "Key Pairs"
-msgstr "Coppie di chiavi"
+msgid_plural "Key Pairs"
+msgstr[0] "Coppia di chiavi"
+msgstr[1] ""
 
 msgid ""
 "Key Pairs are how you login to your instance after it is launched.\n"
@@ -772,17 +769,17 @@ msgstr "Elenca intestazioni elementi di gruppi"
 msgid "List groups"
 msgstr "Elenca gruppi"
 
+#, fuzzy
 msgid "Load Balancer Pool"
-msgstr "Pool di bilanciatori di carico"
+msgid_plural "Load Balancer Pools"
+msgstr[0] "Pool di bilanciatori di carico"
+msgstr[1] ""
 
+#, fuzzy
 msgid "Load Balancer Pool Member"
-msgstr "Membro del pool di bilanciatori di carico"
-
-msgid "Load Balancer Pool Members"
-msgstr "Membri del pool di bilanciatori di carico"
-
-msgid "Load Balancer Pools"
-msgstr "Pool di bilanciatori di carico"
+msgid_plural "Load Balancer Pool Members"
+msgstr[0] "Membro del pool di bilanciatori di carico"
+msgstr[1] ""
 
 msgid "Loading"
 msgstr "Caricamento"
@@ -814,11 +811,11 @@ msgstr "Messaggi"
 msgid "Metadata"
 msgstr "Metadati"
 
+#, fuzzy
 msgid "Metadata Definition"
-msgstr "Definizione di metadati"
-
-msgid "Metadata Definitions"
-msgstr "Definizioni di metadati"
+msgid_plural "Metadata Definitions"
+msgstr[0] "Definizione di metadati"
+msgstr[1] ""
 
 msgid "Middle"
 msgstr "Centro"
@@ -856,35 +853,41 @@ msgstr "Barra di navigazione"
 msgid "Navs"
 msgstr "Navs"
 
+#, fuzzy
 msgid "Network"
-msgstr "Rete"
+msgid_plural "Networks"
+msgstr[0] "Rete"
+msgstr[1] ""
 
+#, fuzzy
 msgid "Network Health Monitor"
-msgstr "Monitor di integrità di rete"
-
-msgid "Network Health Monitors"
-msgstr "Monitor di integrità di rete"
+msgid_plural "Network Health Monitors"
+msgstr[0] "Monitor di integrità di rete"
+msgstr[1] ""
 
 msgid "Network ID"
 msgstr "ID rete"
 
+#, fuzzy
 msgid "Network Port"
-msgstr "Porta di rete"
+msgid_plural "Network Ports"
+msgstr[0] "Porta di rete"
+msgstr[1] ""
 
 msgid "Network Ports"
 msgstr "Porte di rete"
 
+#, fuzzy
 msgid "Network Router"
-msgstr "Router di rete"
+msgid_plural "Network Routers"
+msgstr[0] "Router di rete"
+msgstr[1] ""
 
-msgid "Network Routers"
-msgstr "Router di rete"
-
+#, fuzzy
 msgid "Network Subnet"
-msgstr "Sottorete di rete"
-
-msgid "Network Subnets"
-msgstr "Sottoreti di rete"
+msgid_plural "Network Subnets"
+msgstr[0] "Sottorete di rete"
+msgstr[1] ""
 
 msgid "Network characteristics"
 msgstr "Caratteristiche di rete"
@@ -935,17 +938,17 @@ msgstr "Numero"
 msgid "OVA"
 msgstr "OVA"
 
+#, fuzzy
 msgid "Object"
-msgstr "Oggetto"
+msgid_plural "Objects"
+msgstr[0] "Oggetto"
+msgstr[1] ""
 
 msgid "Object Count"
 msgstr "Conteggio oggetti"
 
 msgid "Object Details"
 msgstr "Dettagli oggetto"
-
-msgid "Objects"
-msgstr "Oggetti"
 
 msgid "Older"
 msgstr "Più vecchio"
@@ -1057,8 +1060,11 @@ msgstr "Profilo"
 msgid "Progress bars"
 msgstr "Barre di avanzamento"
 
+#, fuzzy
 msgid "Project"
-msgstr "Progetto"
+msgid_plural "Projects"
+msgstr[0] "Progetto"
+msgstr[1] ""
 
 msgid "Project ID"
 msgstr "Identificativo del Progetto"
@@ -1832,18 +1838,17 @@ msgstr "Le istanze virtuali collegano le interfacce alle porte."
 msgid "Visibility"
 msgstr "Visibilità"
 
+#, fuzzy
 msgid "Volume"
-msgstr "Volume"
+msgid_plural "Volumes"
+msgstr[0] "Volume"
+msgstr[1] ""
 
-#, python-format
-msgid "Volume %s was successfully created."
-msgstr "Il volume %s è stato creato correttamente."
-
+#, fuzzy
 msgid "Volume Backup"
-msgstr "Backup volume"
-
-msgid "Volume Backups"
-msgstr "Backup volume"
+msgid_plural "Volume Backups"
+msgstr[0] "Backup volume"
+msgstr[1] ""
 
 msgid "Volume Details"
 msgstr "Dettagli del volume"
@@ -1851,20 +1856,17 @@ msgstr "Dettagli del volume"
 msgid "Volume Quota"
 msgstr "Quota volume"
 
+#, fuzzy
 msgid "Volume Snapshot"
-msgstr "Istantanea del volume"
-
-msgid "Volume Snapshots"
-msgstr "Istantanee volume"
+msgid_plural "Volume Snapshots"
+msgstr[0] "Istantanea del volume"
+msgstr[1] ""
 
 msgid "Volume Type Description:"
 msgstr "Descrizione del tipo di volume:"
 
 msgid "Volume size is required and must be an integer"
 msgstr "La dimensione del volume è obbligatoria e deve essere un numero intero"
-
-msgid "Volumes"
-msgstr "Volumi"
 
 msgid "Volumes are block devices that can be attached to instances."
 msgstr ""

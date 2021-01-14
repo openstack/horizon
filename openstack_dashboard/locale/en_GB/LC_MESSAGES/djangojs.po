@@ -4,15 +4,17 @@
 # Rob Cresswell <robert.cresswell@outlook.com>, 2016. #zanata
 # Andi Chandler <andi@gowling.com>, 2017. #zanata
 # Andi Chandler <andi@gowling.com>, 2018. #zanata
+# Andi Chandler <andi@gowling.com>, 2019. #zanata
+# Andi Chandler <andi@gowling.com>, 2020. #zanata
 msgid ""
 msgstr ""
 "Project-Id-Version: horizon VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2018-09-07 04:25+0000\n"
+"POT-Creation-Date: 2020-04-18 22:47+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2018-09-07 11:15+0000\n"
+"PO-Revision-Date: 2020-04-18 09:18+0000\n"
 "Last-Translator: Andi Chandler <andi@gowling.com>\n"
 "Language-Team: English (United Kingdom)\n"
 "Language: en_GB\n"
@@ -21,12 +23,6 @@ msgstr ""
 
 msgid "#"
 msgstr "#"
-
-#, python-format
-msgid "%s instance launched."
-msgid_plural "%s instances launched."
-msgstr[0] "%s instance launched."
-msgstr[1] "%s instances launched."
 
 msgid "1"
 msgstr "1"
@@ -735,6 +731,10 @@ msgstr "Created keypair: %s"
 msgid "Creating"
 msgstr "Creating"
 
+#, python-format
+msgid "Creating volume %s"
+msgstr "Creating volume %s"
+
 msgid "Custom Properties"
 msgstr "Custom Properties"
 
@@ -753,16 +753,14 @@ msgid "Customization Script"
 msgstr "Customisation Script"
 
 msgid "DNS Domain"
-msgstr "DNS Domain"
-
-msgid "DNS Domains"
-msgstr "DNS Domains"
+msgid_plural "DNS Domains"
+msgstr[0] "DNS Domain"
+msgstr[1] "DNS Domains"
 
 msgid "DNS Record"
-msgstr "DNS Record"
-
-msgid "DNS Records"
-msgstr "DNS Records"
+msgid_plural "DNS Records"
+msgstr[0] "DNS Record"
+msgstr[1] "DNS Records"
 
 msgid "DSCP Mark"
 msgstr "DSCP Mark"
@@ -1061,7 +1059,9 @@ msgid "Docker"
 msgstr "Docker"
 
 msgid "Domain"
-msgstr "Domain"
+msgid_plural "Domains"
+msgstr[0] "Domain"
+msgstr[1] "Domains"
 
 #, python-format
 msgid "Domain %s was successfully created."
@@ -1075,9 +1075,6 @@ msgstr "Domain Id"
 
 msgid "Domain Name"
 msgstr "Domain Name"
-
-msgid "Domains"
-msgstr "Domains"
 
 msgid ""
 "Domains provide separation between users and infrastructure used by "
@@ -1214,13 +1211,12 @@ msgid "Fingerprint"
 msgstr "Fingerprint"
 
 msgid "Flavor"
-msgstr "Flavour"
+msgid_plural "Flavors"
+msgstr[0] "Flavour"
+msgstr[1] "Flavours"
 
 msgid "Flavor Name"
 msgstr "Flavour Name"
-
-msgid "Flavors"
-msgstr "Flavours"
 
 msgid ""
 "Flavors manage the sizing for the compute, memory and storage capacity of "
@@ -1230,10 +1226,9 @@ msgstr ""
 "the instance."
 
 msgid "Floating IP"
-msgstr "Floating IP"
-
-msgid "Floating IPs"
-msgstr "Floating IPs"
+msgid_plural "Floating IPs"
+msgstr[0] "Floating IP"
+msgstr[1] "Floating IPs"
 
 msgid "Focused input"
 msgstr "Focused input"
@@ -1293,7 +1288,9 @@ msgid "Global Actions:"
 msgstr "Global Actions:"
 
 msgid "Group"
-msgstr "Group"
+msgid_plural "Groups"
+msgstr[0] "Group"
+msgstr[1] "Groups"
 
 #, python-format
 msgid "Group %s was successfully created."
@@ -1301,9 +1298,6 @@ msgstr "Group %s was successfully created."
 
 msgid "Group updated successfully."
 msgstr "Group updated successfully."
-
-msgid "Groups"
-msgstr "Groups"
 
 msgid "Hash"
 msgstr "Hash"
@@ -1336,10 +1330,9 @@ msgid "Host ID"
 msgstr "Host ID"
 
 msgid "Hypervisor"
-msgstr "Hypervisor"
-
-msgid "Hypervisors"
-msgstr "Hypervisors"
+msgid_plural "Hypervisors"
+msgstr[0] "Hypervisor"
+msgstr[1] "Hypervisors"
 
 msgid "ID"
 msgstr "ID"
@@ -1410,7 +1403,9 @@ msgstr ""
 "following boot options:"
 
 msgid "Image"
-msgstr "Image"
+msgid_plural "Images"
+msgstr[0] "Image"
+msgstr[1] "Images"
 
 #, python-format
 msgid "Image %s was successfully created."
@@ -1443,9 +1438,6 @@ msgstr "Image Source"
 
 msgid "Image from Other Project - Non-Public"
 msgstr "Image from Other Project - Non-Public"
-
-msgid "Images"
-msgstr "Images"
 
 msgid "Impact on your quota"
 msgstr "Impact on your quota"
@@ -1515,7 +1507,9 @@ msgstr ""
 "  the moment of bootup."
 
 msgid "Instance"
-msgstr "Instance"
+msgid_plural "Instances"
+msgstr[0] "Instance"
+msgstr[1] "Instances"
 
 msgid "Instance ID"
 msgstr "Instance ID"
@@ -1540,9 +1534,6 @@ msgstr ""
 "    a volume or a volume snapshot (if enabled).\n"
 "    You can also choose to use persistent storage by creating a new volume."
 
-msgid "Instances"
-msgstr "Instances"
-
 msgid "Interfaces"
 msgstr "Interfaces"
 
@@ -1562,13 +1553,12 @@ msgid "Kernel ID"
 msgstr "Kernel ID"
 
 msgid "Key Pair"
-msgstr "Key Pair"
+msgid_plural "Key Pairs"
+msgstr[0] "Key Pair"
+msgstr[1] "Key Pairs"
 
 msgid "Key Pair Name"
 msgstr "Key Pair Name"
-
-msgid "Key Pairs"
-msgstr "Key Pairs"
 
 msgid ""
 "Key Pairs are how you login to your instance after it is launched.\n"
@@ -1611,6 +1601,9 @@ msgstr ""
 "  Choose a key pair name you will recognize.\n"
 "  Names may only include alphanumeric characters, spaces, dashes and\n"
 "  underscores."
+
+msgid "Key Type"
+msgstr "Key Type"
 
 #, python-format
 msgid "Key pair %(name)s was successfully created."
@@ -1671,16 +1664,14 @@ msgid "Live Edit Schema Form Examples"
 msgstr "Live Edit Schema Form Examples"
 
 msgid "Load Balancer Pool"
-msgstr "Load Balancer Pool"
+msgid_plural "Load Balancer Pools"
+msgstr[0] "Load Balancer Pool"
+msgstr[1] "Load Balancer Pools"
 
 msgid "Load Balancer Pool Member"
-msgstr "Load Balancer Pool Member"
-
-msgid "Load Balancer Pool Members"
-msgstr "Load Balancer Pool Members"
-
-msgid "Load Balancer Pools"
-msgstr "Load Balancer Pools"
+msgid_plural "Load Balancer Pool Members"
+msgstr[0] "Load Balancer Pool Member"
+msgstr[1] "Load Balancer Pool Members"
 
 msgid "Load Function:"
 msgstr "Load Function:"
@@ -1737,10 +1728,9 @@ msgid "Metadata"
 msgstr "Metadata"
 
 msgid "Metadata Definition"
-msgstr "Metadata Definition"
-
-msgid "Metadata Definitions"
-msgstr "Metadata Definitions"
+msgid_plural "Metadata Definitions"
+msgstr[0] "Metadata Definition"
+msgstr[1] "Metadata Definitions"
 
 msgid ""
 "Metadata is a collection of key-value pairs associated with an instance.\n"
@@ -1834,34 +1824,35 @@ msgid "Navs"
 msgstr "Navs"
 
 msgid "Network"
-msgstr "Network"
+msgid_plural "Networks"
+msgstr[0] "Network"
+msgstr[1] "Networks"
 
 msgid "Network Health Monitor"
-msgstr "Network Health Monitor"
-
-msgid "Network Health Monitors"
-msgstr "Network Health Monitors"
+msgid_plural "Network Health Monitors"
+msgstr[0] "Network Health Monitor"
+msgstr[1] "Network Health Monitors"
 
 msgid "Network ID"
 msgstr "Network ID"
 
 msgid "Network Port"
-msgstr "Network Port"
+msgid_plural "Network Ports"
+msgstr[0] "Network Port"
+msgstr[1] "Network Ports"
 
 msgid "Network Ports"
 msgstr "Network Ports"
 
 msgid "Network Router"
-msgstr "Network Router"
-
-msgid "Network Routers"
-msgstr "Network Routers"
+msgid_plural "Network Routers"
+msgstr[0] "Network Router"
+msgstr[1] "Network Routers"
 
 msgid "Network Subnet"
-msgstr "Network Subnet"
-
-msgid "Network Subnets"
-msgstr "Network Subnets"
+msgid_plural "Network Subnets"
+msgstr[0] "Network Subnet"
+msgstr[1] "Network Subnets"
 
 msgid "Network characteristics"
 msgstr "Network characteristics"
@@ -1979,7 +1970,9 @@ msgid "OVA - Open Virtual Appliance"
 msgstr "OVA - Open Virtual Appliance"
 
 msgid "Object"
-msgstr "Object"
+msgid_plural "Objects"
+msgstr[0] "Object"
+msgstr[1] "Objects"
 
 #, python-format
 msgid "Object %(path)s has copied."
@@ -1990,9 +1983,6 @@ msgstr "Object Count"
 
 msgid "Object Details"
 msgstr "Object Details"
-
-msgid "Objects"
-msgstr "Objects"
 
 msgid "Ok"
 msgstr "Ok"
@@ -2185,7 +2175,9 @@ msgid "Progress bars"
 msgstr "Progress bars"
 
 msgid "Project"
-msgstr "Project"
+msgid_plural "Projects"
+msgstr[0] "Project"
+msgstr[1] "Projects"
 
 msgid "Project ID"
 msgstr "Project ID"
@@ -2196,9 +2188,6 @@ msgid ""
 msgstr ""
 "Project networks are created by users.\n"
 "    These networks are fully isolated and are project-specific."
-
-msgid "Projects"
-msgstr "Projects"
 
 msgid "Properties:"
 msgstr "Properties:"
@@ -2237,11 +2226,10 @@ msgstr "QCOW2"
 msgid "QCOW2 - QEMU Emulator"
 msgstr "QCOW2 - QEMU Emulator"
 
-msgid "QoS Policies"
-msgstr "QoS Policies"
-
 msgid "QoS Policy"
-msgstr "QoS Policy"
+msgid_plural "QoS Policies"
+msgstr[0] "QoS Policy"
+msgstr[1] "QoS Policies"
 
 msgid "Queued"
 msgstr "Queued"
@@ -2289,17 +2277,19 @@ msgid "Right"
 msgstr "Right"
 
 msgid "Role"
-msgstr "Role"
+msgid_plural "Roles"
+msgstr[0] "Role"
+msgstr[1] "Roles"
 
 #, python-format
 msgid "Role %s was successfully created."
 msgstr "Role %s was successfully created."
 
+msgid "Role already exists."
+msgstr "Role already exists."
+
 msgid "Role updated successfully."
 msgstr "Role updated successfully."
-
-msgid "Roles"
-msgstr "Roles"
 
 msgid "Root Disk"
 msgstr "Root Disk"
@@ -2309,6 +2299,9 @@ msgstr "Rule ID"
 
 msgid "Rules"
 msgstr "Rules"
+
+msgid "SSH Key"
+msgstr "SSH Key"
 
 msgid "STATUS"
 msgstr "STATUS"
@@ -2321,6 +2314,12 @@ msgstr "Save changes"
 
 msgid "Saving"
 msgstr "Saving"
+
+#, python-format
+msgid "Scheduled creation of %s instance."
+msgid_plural "Scheduled creation of %s instances."
+msgstr[0] "Scheduled creation of %s instance."
+msgstr[1] "Scheduled creation of %s instances."
 
 msgid "Scheduler Hints"
 msgstr "Scheduler Hints"
@@ -2345,7 +2344,9 @@ msgid "Security"
 msgstr "Security"
 
 msgid "Security Group"
-msgstr "Security Group"
+msgid_plural "Security Groups"
+msgstr[0] "Security Group"
+msgstr[1] "Security Groups"
 
 msgid "Security Groups"
 msgstr "Security Groups"
@@ -2481,11 +2482,16 @@ msgid "Separated link"
 msgstr "Separated link"
 
 msgid "Server Group"
-msgstr "Server Group"
+msgid_plural "Server Groups"
+msgstr[0] "Server Group"
+msgstr[1] "Server Groups"
 
 #, python-format
 msgid "Server Group %s was successfully created."
 msgstr "Server Group %s was successfully created."
+
+msgid "Server Group Members"
+msgstr "Server Group Members"
 
 msgid "Server Groups"
 msgstr "Server Groups"
@@ -2591,6 +2597,9 @@ msgstr "Status"
 msgid "Status: %s"
 msgstr "Status: %s"
 
+msgid "Storage Policy"
+msgstr "Storage Policy"
+
 msgid "Striped"
 msgstr "Striped"
 
@@ -2626,16 +2635,14 @@ msgid "Swap Disk"
 msgstr "Swap Disk"
 
 msgid "Swift Account"
-msgstr "Swift Account"
-
-msgid "Swift Accounts"
-msgstr "Swift Accounts"
+msgid_plural "Swift Accounts"
+msgstr[0] "Swift Account"
+msgstr[1] "Swift Accounts"
 
 msgid "Swift Container"
-msgstr "Swift Container"
-
-msgid "Swift Containers"
-msgstr "Swift Containers"
+msgid_plural "Swift Containers"
+msgstr[0] "Swift Container"
+msgstr[1] "Swift Containers"
 
 msgid "Tab Array"
 msgstr "Tab Array"
@@ -2977,7 +2984,9 @@ msgid "Total Volumes"
 msgstr "Total Volumes"
 
 msgid "Trunk"
-msgstr "Trunk"
+msgid_plural "Trunks"
+msgstr[0] "Trunk"
+msgstr[1] "Trunks"
 
 #, python-format
 msgid "Trunk %s was successfully created."
@@ -2986,9 +2995,6 @@ msgstr "Trunk %s was successfully created."
 #, python-format
 msgid "Trunk %s was successfully edited."
 msgstr "Trunk %s was successfully edited."
-
-msgid "Trunks"
-msgstr "Trunks"
 
 msgid "Type"
 msgstr "Type"
@@ -3242,6 +3248,9 @@ msgstr "Unable to edit volume type metadata."
 
 msgid "Unable to fetch the groups."
 msgstr "Unable to fetch the groups."
+
+msgid "Unable to fetch the policy details."
+msgstr "Unable to fetch the policy details."
 
 msgid "Unable to fetch the service catalog."
 msgstr "Unable to fetch the service catalog."
@@ -3610,7 +3619,9 @@ msgstr ""
 "data model, like sections and fieldsets."
 
 msgid "User"
-msgstr "User"
+msgid_plural "Users"
+msgstr[0] "User"
+msgstr[1] "Users"
 
 #, python-format
 msgid "User %s was successfully created."
@@ -3636,9 +3647,6 @@ msgstr "User Name"
 
 msgid "User password has been updated successfully."
 msgstr "User password has been updated successfully."
-
-msgid "Users"
-msgstr "Users"
 
 msgid "VCPUS"
 msgstr "VCPUS"
@@ -3695,17 +3703,14 @@ msgid "Visibility"
 msgstr "Visibility"
 
 msgid "Volume"
-msgstr "Volume"
-
-#, python-format
-msgid "Volume %s was successfully created."
-msgstr "Volume %s was successfully created."
+msgid_plural "Volumes"
+msgstr[0] "Volume"
+msgstr[1] "Volumes"
 
 msgid "Volume Backup"
-msgstr "Volume Backup"
-
-msgid "Volume Backups"
-msgstr "Volume Backups"
+msgid_plural "Volume Backups"
+msgstr[0] "Volume Backup"
+msgstr[1] "Volume Backups"
 
 msgid "Volume Details"
 msgstr "Volume Details"
@@ -3717,10 +3722,9 @@ msgid "Volume Size (GB)"
 msgstr "Volume Size (GB)"
 
 msgid "Volume Snapshot"
-msgstr "Volume Snapshot"
-
-msgid "Volume Snapshots"
-msgstr "Volume Snapshots"
+msgid_plural "Volume Snapshots"
+msgstr[0] "Volume Snapshot"
+msgstr[1] "Volume Snapshots"
 
 msgid "Volume Type Description:"
 msgstr "Volume Type Description:"
@@ -3731,8 +3735,8 @@ msgstr "Volume and Snapshot Quota (GiB)"
 msgid "Volume size is required and must be an integer"
 msgstr "Volume size is required and must be an integer"
 
-msgid "Volumes"
-msgstr "Volumes"
+msgid "Volume size is required and must be positive integer"
+msgstr "Volume size is required and must be positive integer"
 
 msgid "Volumes are block devices that can be attached to instances."
 msgstr "Volumes are block devices that can be attached to instances."
@@ -3801,6 +3805,9 @@ msgstr ""
 "    then the port is available for use. You can set the <b>Admin State</b> "
 "to <b>Down</b>\n"
 "    if you are not ready for other users to use the port."
+
+msgid "X509 Certificate"
+msgstr "X509 Certificate"
 
 msgid "XL Modal"
 msgstr "XL Modal"
@@ -3939,6 +3946,12 @@ msgstr "image"
 
 msgid "inherit"
 msgstr "inherit"
+
+msgid "min disk is required and must be an integer not less than 0"
+msgstr "min disk is required and must be an integer not less than 0"
+
+msgid "min ram is required and must be an integer not less than 0"
+msgstr "min ram is required and must be an integer not less than 0"
 
 #, python-format
 msgid "resource load failed: %s"

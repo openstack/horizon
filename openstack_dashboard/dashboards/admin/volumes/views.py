@@ -16,7 +16,6 @@
 Admin views for managing volumes and snapshots.
 """
 
-from django.conf import settings
 from django.urls import reverse
 from django.urls import reverse_lazy
 from django.utils.translation import ugettext_lazy as _
@@ -37,6 +36,7 @@ from openstack_dashboard.dashboards.admin.volumes \
 from openstack_dashboard.dashboards.project.volumes \
     import views as volumes_views
 from openstack_dashboard.utils import futurist_utils
+from openstack_dashboard.utils import settings as setting_utils
 
 
 class VolumesView(tables.PagedTableMixin, volumes_views.VolumeTableMixIn,
@@ -51,13 +51,13 @@ class VolumesView(tables.PagedTableMixin, volumes_views.VolumeTableMixIn,
         default_filters = {'all_tenants': True}
 
         filters = self.get_filters(default_filters.copy())
-        filter_first = getattr(settings, 'FILTER_DATA_FIRST', {})
         volumes = []
 
         self.table.needs_filter_first = False
 
-        if filter_first.get('admin.volumes', False) and \
-                len(filters) == len(default_filters):
+        if (setting_utils.get_dict_config('FILTER_DATA_FIRST',
+                                          'admin.volumes') and
+                len(filters) == len(default_filters)):
             self.table.needs_filter_first = True
             return volumes
 
@@ -100,6 +100,8 @@ class VolumesView(tables.PagedTableMixin, volumes_views.VolumeTableMixIn,
 
         def _task_get_volumes():
             volumes.extend(self._get_volumes(search_opts=filters))
+            # update group name for volumes
+            self._get_groups(volumes, search_opts={'all_tenants': True})
             attached_instance_ids.extend(
                 self._get_attached_instance_ids(volumes))
 
@@ -141,8 +143,7 @@ class VolumesView(tables.PagedTableMixin, volumes_views.VolumeTableMixIn,
         self.table = self._tables['volumes']
         self.handle_server_filter(self.request, table=self.table)
         self.update_server_filter_action(self.request, table=self.table)
-        filters = super(VolumesView, self).get_filters(filters,
-                                                       self.FILTERS_MAPPING)
+        filters = super().get_filters(filters, self.FILTERS_MAPPING)
         return filters
 
 
@@ -150,13 +151,13 @@ class DetailView(volumes_views.DetailView):
     tab_group_class = volumes_tabs.VolumeDetailTabs
 
     def get_context_data(self, **kwargs):
-        context = super(DetailView, self).get_context_data(**kwargs)
+        context = super().get_context_data(**kwargs)
         table = volumes_tables.VolumesTable(self.request)
         context["actions"] = table.render_row_actions(context["volume"])
         return context
 
     def get_search_opts(self, volume):
-        search_opts = super(DetailView, self).get_search_opts(volume)
+        search_opts = super().get_search_opts(volume)
         search_opts['all_tenants'] = True
         return search_opts
 
@@ -175,7 +176,7 @@ class ManageVolumeView(forms.ModalFormView):
     page_title = _("Manage Volume")
 
     def get_context_data(self, **kwargs):
-        context = super(ManageVolumeView, self).get_context_data(**kwargs)
+        context = super().get_context_data(**kwargs)
         return context
 
 
@@ -190,7 +191,7 @@ class UnmanageVolumeView(forms.ModalFormView):
     page_title = _("Unmanage Volume")
 
     def get_context_data(self, **kwargs):
-        context = super(UnmanageVolumeView, self).get_context_data(**kwargs)
+        context = super().get_context_data(**kwargs)
         args = (self.kwargs['volume_id'],)
         context['submit_url'] = reverse(self.submit_url, args=args)
         return context
@@ -224,7 +225,7 @@ class MigrateVolumeView(forms.ModalFormView):
     page_title = _("Migrate Volume")
 
     def get_context_data(self, **kwargs):
-        context = super(MigrateVolumeView, self).get_context_data(**kwargs)
+        context = super().get_context_data(**kwargs)
         args = (self.kwargs['volume_id'],)
         context['submit_url'] = reverse(self.submit_url, args=args)
         return context
@@ -267,7 +268,7 @@ class UpdateStatusView(forms.ModalFormView):
     page_title = _("Update Volume Status")
 
     def get_context_data(self, **kwargs):
-        context = super(UpdateStatusView, self).get_context_data(**kwargs)
+        context = super().get_context_data(**kwargs)
         context["volume_id"] = self.kwargs['volume_id']
         args = (self.kwargs['volume_id'],)
         context['submit_url'] = reverse(self.submit_url, args=args)

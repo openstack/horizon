@@ -3,13 +3,15 @@
 <div class="detail">
   <dl class="dl-horizontal">
     <dt>{% trans "Name" %}</dt>
-    <dd data-display="{{ volume.name|default:volume.id }}">{{ volume.name }}</dd>
+    <dd data-display="{{ volume.name|default:volume.id }}" class="word-wrap">{{ volume.name }}</dd>
     <dt>{% trans "ID" %}</dt>
     <dd>{{ volume.id }}</dd>
     {% if volume.description %}
     <dt>{% trans "Description" %}</dt>
     <dd>{{ volume.description }}</dd>
     {% endif %}
+    <dt>{% trans "Project ID" %}</dt>
+    <dd>{{ volume.tenant_id|default:_("-") }}</dd>
     <dt>{% trans "Status" %}</dt>
     <dd>{{ volume.status_label|capfirst }}</dd>
     <dt>{% trans "Group" %}</dt>
@@ -50,7 +52,7 @@
   <dl class="dl-horizontal">
   {% for attachment in volume.attachments %}
     <dt>{% trans "Attached To" %}</dt>
-    <dd>
+    <dd class="word-wrap">
       {% url detail_url.instance attachment.server_id as instance_url %}
       {% blocktrans trimmed with instance_name=attachment.instance.name device=attachment.device %}
       <a href="{{ instance_url }}">{{ instance_name }}</a> on {{ device }}
@@ -67,7 +69,7 @@
   <hr class="header_rule">
   <dl class="dl-horizontal">
     <dt>{% trans "Image" %}</dt>
-    <dd>
+    <dd class="word-wrap">
       {% url detail_url.image volume.volume_image_metadata.image_id as image_url %}
       <a href="{{ image_url }}">{{ volume.volume_image_metadata.image_name }}</a>
     </dd>
@@ -76,7 +78,7 @@
 
   <h4>{% trans "Metadata" %}</h4>
   <hr class="header_rule">
-  <dl class="dl-horizontal">
+  <dl class="dl-horizontal word-wrap">
   {% if volume.metadata.items %}
       {% for key, value in volume.metadata.items %}
           <dt>{{ key }}</dt>
@@ -96,29 +98,11 @@
   </dl>
   <dl>
       <dt>{% trans "Name" %}</dt>
-      <dd>{{ volume.transfer.name }}</dd>
+      <dd class="word-wrap">{{ volume.transfer.name }}</dd>
   </dl>
   <dl>
       <dt>{% trans "Created" context "Created time" %}</dt>
       <dd>{{ volume.transfer.created_at|parse_date }}</dd>
   </dl>
-{% endif %}
-
-{% if volume.messages %}
-  <h4>{% trans "Messages" %}</h4>
-  <hr class="header_rule">
-  <div>
-  {% for m in volume.messages %}
-    <div class="alert
-      {% if m.message_level == 'ERROR' %}alert-danger
-      {% elif m.message_level == 'WARNING' %}alert-warning
-      {% elif m.message_level == 'INFO' %}alert-info
-      {% else %}alert-success
-      {% endif %}
-    ">
-      {{ m.user_message }}
-    </div>
-  {% endfor %}
-  </div>
 {% endif %}
 </div>

@@ -116,10 +116,10 @@ class DeleteDomainsAction(tables.DeleteAction):
             msg = _('Domain "%s" must be disabled before it can be deleted.') \
                 % domain.name
             messages.error(request, msg)
-            raise keystoneclient_exceptions.ClientException(409, msg)
-        else:
-            LOG.info('Deleting domain "%s".', obj_id)
-            api.keystone.domain_delete(request, obj_id)
+            raise keystoneclient_exceptions.ClientException(msg)
+
+        LOG.info('Deleting domain "%s".', obj_id)
+        api.keystone.domain_delete(request, obj_id)
 
 
 class DisableDomainsAction(tables.BatchAction):
@@ -204,9 +204,7 @@ class EnableDomainsAction(tables.BatchAction):
 
 class DomainFilterAction(tables.FilterAction):
     def allowed(self, request, datum):
-        multidomain_support = getattr(settings,
-                                      'OPENSTACK_KEYSTONE_MULTIDOMAIN_SUPPORT',
-                                      False)
+        multidomain_support = settings.OPENSTACK_KEYSTONE_MULTIDOMAIN_SUPPORT
         return multidomain_support
 
     def filter(self, table, domains, filter_string):
@@ -229,9 +227,7 @@ class SetDomainContext(tables.Action):
     policy_rules = (('identity', 'identity:update_domain'),)
 
     def allowed(self, request, datum):
-        multidomain_support = getattr(settings,
-                                      'OPENSTACK_KEYSTONE_MULTIDOMAIN_SUPPORT',
-                                      False)
+        multidomain_support = settings.OPENSTACK_KEYSTONE_MULTIDOMAIN_SUPPORT
         if not multidomain_support:
             return False
 

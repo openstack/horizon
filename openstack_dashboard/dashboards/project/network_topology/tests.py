@@ -12,10 +12,11 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
+from unittest import mock
+
 import django.test
 from django.urls import reverse
 
-import mock
 from oslo_serialization import jsonutils
 
 from openstack_dashboard import api

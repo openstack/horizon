@@ -42,14 +42,15 @@
 
   function run(registry, keystone, roleResourceType) {
     registry.getResourceType(roleResourceType)
-      .setNames(gettext('Role'), gettext('Roles'))
+      .setNames('Role', 'Roles', ngettext('Role', 'Roles', 1))
       .setProperties(roleProperties())
       .setListFunction(listFunction)
       .tableColumns
       .append({
         id: 'name',
         priority: 1,
-        sortDefault: true
+        sortDefault: true,
+        classes: "word-wrap"
       })
       .append({
         id: 'id',

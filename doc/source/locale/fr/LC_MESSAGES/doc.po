@@ -1,0 +1,105 @@
+# François Magimel <magimel.francois@gmail.com>, 2018. #zanata
+# Cecilia Di Maulo <cecidimaulo@gmail.com>, 2019. #zanata
+msgid ""
+msgstr ""
+"Project-Id-Version: horizon 15.0.0.0b2.dev296\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-01-31 06:23-0600\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"PO-Revision-Date: 2019-01-31 01:08+0000\n"
+"Last-Translator: Cecilia Di Maulo <cecidimaulo@gmail.com>\n"
+"Language-Team: French\n"
+"Language: fr\n"
+"X-Generator: Zanata 4.3.3\n"
+"Plural-Forms: nplurals=2; plural=(n > 1)\n"
+
+msgid ":ref:`genindex`"
+msgstr ":ref:`genindex`"
+
+msgid ":ref:`modindex`"
+msgstr ":ref:`modindex`"
+
+msgid "Contributor Docs"
+msgstr "Documentation contributeurs"
+
+msgid "Dashboard"
+msgstr "Tableau de bord"
+
+msgid ""
+"For a more in-depth look at Horizon and its architecture, see the :ref:"
+"`contributor-intro`."
+msgstr ""
+"Pour une vision plus approfondie de Horizon et de son architecture, voir :"
+"ref:`contributor-intro`."
+
+msgid ""
+"For those wishing to develop Horizon itself, or go in-depth with building "
+"your own :class:`~horizon.Dashboard` or :class:`~horizon.Panel` classes, the "
+"following documentation is provided."
+msgstr ""
+"Pour ceux qui souhaitent développer Horizon même ou bien approfondir et "
+"créer leurs propres classes :class:`~horizon.Dashboard`ou :class:`~horizon."
+"Panel`, la documentation est fournie ici."
+
+msgid "Glossary"
+msgstr "Glossaire"
+
+msgid "Horizon"
+msgstr "Horizon"
+
+msgid ""
+"Horizon is the canonical implementation of `OpenStack's Dashboard <https://"
+"github.com/openstack/horizon>`_, which provides a web based user interface "
+"to OpenStack services including Nova, Swift, Keystone, etc."
+msgstr ""
+"Horizon est l'implémentation canonique du `tableau de bord d'OpenStack "
+"<https://github.com/openstack/horizon>`__ qui fournit une interface web pour "
+"les services OpenStack comme Nova, Swift, Keystone, etc."
+
+msgid "Horizon: The OpenStack Dashboard Project"
+msgstr "Horizon : le projet de tableau de bord d'OpenStack"
+
+msgid "How to use Horizon in your own projects."
+msgstr "Comment utiliser Horizon dans vos propres projets."
+
+msgid "Information"
+msgstr "Information"
+
+msgid "Introduction"
+msgstr "Introduction"
+
+msgid "Panel"
+msgstr "Panel"
+
+msgid "Project"
+msgstr "Projet"
+
+msgid "Release Notes"
+msgstr "Notes de versions"
+
+msgid "See https://docs.openstack.org/releasenotes/horizon/."
+msgstr "Voir https://docs.openstack.org/releasenotes/horizon/."
+
+msgid ""
+"The OpenStack dashboard project. Also the name of the top-level Python "
+"object which handles registration for the app."
+msgstr ""
+"Le projet de tableau de bord d'OpenStack. Aussi le nom de l'objet Python de "
+"haut niveau qui gère l'enregistrement de l'application."
+
+msgid "To learn what you need to know to get going, see the :ref:`quickstart`."
+msgstr ""
+"Pour apprendre ce dont vous avez besoin pour commencer, voir :ref:"
+"`quickstart`."
+
+msgid ""
+"Used in user-facing text in place of the term \"Tenant\" which is Keystone's "
+"word."
+msgstr ""
+"Utilisé dans l'interface utilisateur à la place du terme \"Tenant\" qui est "
+"un terme propre à Keystone. "
+
+msgid "Using Horizon"
+msgstr "Utiliser Horizon"

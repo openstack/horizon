@@ -329,16 +329,6 @@
         "testInput": [1]
       },
       {
-        "func": "getExtensions",
-        "method": "get",
-        "path": "/api/nova/extensions/",
-        "data": "config",
-        "error": "Unable to retrieve the extensions.",
-        "testInput": [
-          "config"
-        ]
-      },
-      {
         "func": "getFlavors",
         "method": "get",
         "path": "/api/nova/flavors/",

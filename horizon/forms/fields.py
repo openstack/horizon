@@ -12,11 +12,11 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
+import collections
 import itertools
 import re
 
 import netaddr
-import six
 
 from oslo_utils import uuidutils
 
@@ -28,7 +28,6 @@ from django.forms import widgets
 from django.template.loader import get_template
 from django import urls
 from django.utils.encoding import force_text
-from django.utils.encoding import python_2_unicode_compatible
 from django.utils.functional import Promise
 from django.utils import html
 from django.utils.safestring import mark_safe
@@ -81,10 +80,10 @@ class IPField(fields.Field):
         self.min_mask = kwargs.pop("mask_range_from", 0)
         self.version = kwargs.pop('version', IPv4)
 
-        super(IPField, self).__init__(*args, **kwargs)
+        super().__init__(*args, **kwargs)
 
     def validate(self, value):
-        super(IPField, self).validate(value)
+        super().validate(value)
         if not value and not self.required:
             return
 
@@ -110,7 +109,7 @@ class IPField(fields.Field):
                 raise ValidationError(self.invalid_mask_message)
 
     def clean(self, value):
-        super(IPField, self).clean(value)
+        super().clean(value)
         return str(getattr(self, "ip", ""))
 
 
@@ -121,13 +120,13 @@ class MultiIPField(IPField):
         if value:
             addresses = value.split(',')
             for ip in addresses:
-                super(MultiIPField, self).validate(ip)
+                super().validate(ip)
                 self.addresses.append(ip)
         else:
-            super(MultiIPField, self).validate(value)
+            super().validate(value)
 
     def clean(self, value):
-        super(MultiIPField, self).clean(value)
+        super().clean(value)
         return str(','.join(getattr(self, "addresses", [])))
 
 
@@ -140,7 +139,7 @@ class MACAddressField(fields.Field):
     .. xxxx.xxxx.xxxx
     """
     def validate(self, value):
-        super(MACAddressField, self).validate(value)
+        super().validate(value)
 
         if not value:
             return
@@ -154,7 +153,7 @@ class MACAddressField(fields.Field):
                                   code="invalid_mac")
 
     def clean(self, value):
-        super(MACAddressField, self).clean(value)
+        super().clean(value)
         return str(getattr(self, "mac_address", ""))
 
 
@@ -222,7 +221,7 @@ class SelectWidget(widgets.Widget):
         self.data_attrs = data_attrs
         self.transform = transform
         self.transform_html_attrs = transform_html_attrs
-        super(SelectWidget, self).__init__(attrs)
+        super().__init__(attrs)
 
     def render(self, name, value, attrs=None, renderer=None):
         if value is None:
@@ -277,7 +276,7 @@ class SelectWidget(widgets.Widget):
 
     def get_data_attrs(self, option_label):
         other_html = []
-        if not isinstance(option_label, (six.string_types, Promise)):
+        if not isinstance(option_label, (str, Promise)):
             for data_attr in self.data_attrs:
                 data_value = html.conditional_escape(
                     force_text(getattr(option_label,
@@ -286,9 +285,9 @@ class SelectWidget(widgets.Widget):
         return ' '.join(other_html)
 
     def transform_option_label(self, option_label):
-        if (not isinstance(option_label, (six.string_types, Promise)) and
+        if (not isinstance(option_label, (str, Promise)) and
                 callable(self.transform)):
-                    option_label = self.transform(option_label)
+            option_label = self.transform(option_label)
         return html.conditional_escape(force_text(option_label))
 
     def transform_option_html_attrs(self, option_label):
@@ -299,7 +298,7 @@ class SelectWidget(widgets.Widget):
 
 class ThemableSelectWidget(SelectWidget):
     """Bootstrap base select field widget."""
-    def render(self, name, value, attrs=None, choices=()):
+    def render(self, name, value, attrs=None, renderer=None, choices=()):
         # NOTE(woodnt): Currently the "attrs" contents are being added to the
         #               select that's hidden.  It's unclear whether this is the
         #               desired behavior.  In some cases, the attribute should
@@ -357,7 +356,7 @@ class DynamicSelectWidget(SelectWidget):
         add_item_url = self.get_add_item_url()
         if add_item_url is not None:
             self.attrs[self._data_add_url_attr] = add_item_url
-        return super(DynamicSelectWidget, self).render(*args, **kwargs)
+        return super().render(*args, **kwargs)
 
     def get_add_item_url(self):
         if callable(self.add_item_link):
@@ -366,8 +365,7 @@ class DynamicSelectWidget(SelectWidget):
             if self.add_item_link_args:
                 return urls.reverse(self.add_item_link,
                                     args=self.add_item_link_args)
-            else:
-                return urls.reverse(self.add_item_link)
+            return urls.reverse(self.add_item_link)
         except urls.NoReverseMatch:
             return self.add_item_link
 
@@ -395,7 +393,7 @@ class DynamicChoiceField(fields.ChoiceField):
                  add_item_link_args=None,
                  *args,
                  **kwargs):
-        super(DynamicChoiceField, self).__init__(*args, **kwargs)
+        super().__init__(*args, **kwargs)
         self.widget.add_item_link = add_item_link
         self.widget.add_item_link_args = add_item_link_args
 
@@ -406,13 +404,11 @@ class ThemableDynamicChoiceField(DynamicChoiceField):
 
 class DynamicTypedChoiceField(DynamicChoiceField, fields.TypedChoiceField):
     """Simple mix of ``DynamicChoiceField`` and ``TypedChoiceField``."""
-    pass
 
 
 class ThemableDynamicTypedChoiceField(ThemableDynamicChoiceField,
                                       fields.TypedChoiceField):
     """Simple mix of ``ThemableDynamicChoiceField`` & ``TypedChoiceField``."""
-    pass
 
 
 class ThemableCheckboxInput(widgets.CheckboxInput):
@@ -420,7 +416,7 @@ class ThemableCheckboxInput(widgets.CheckboxInput):
 
     It is used to allow a custom checkbox experience.
     """
-    def render(self, name, value, attrs=None):
+    def render(self, name, value, attrs=None, renderer=None):
         label_for = attrs.get('id', '')
 
         if not label_for:
@@ -429,7 +425,7 @@ class ThemableCheckboxInput(widgets.CheckboxInput):
 
         return html.format_html(
             u'<div class="themable-checkbox">{}<label for="{}"></label></div>',
-            super(ThemableCheckboxInput, self).render(name, value, attrs),
+            super().render(name, value, attrs),
             label_for
         )
 
@@ -437,7 +433,6 @@ class ThemableCheckboxInput(widgets.CheckboxInput):
 # NOTE(adriant): SubWidget was removed in Django 1.11 and thus has been moved
 # to our codebase until we redo how we handle widgets.
 @html.html_safe
-@python_2_unicode_compatible
 class SubWidget(object):
     """SubWidget class from django 1.10.7 codebase
 
@@ -460,7 +455,6 @@ class SubWidget(object):
 # Django 1.11 so ChoiceInput has been moved to our codebase until we redo how
 # we handle widgets.
 @html.html_safe
-@python_2_unicode_compatible
 class ChoiceInput(SubWidget):
     """ChoiceInput class from django 1.10.7 codebase
 
@@ -482,7 +476,7 @@ class ChoiceInput(SubWidget):
     def __str__(self):
         return self.render()
 
-    def render(self, name=None, value=None, attrs=None):
+    def render(self, name=None, value=None, attrs=None, renderer=None):
         if self.id_for_label:
             label_for = html.format_html(' for="{}"', self.id_for_label)
         else:
@@ -526,7 +520,7 @@ class ThemableCheckboxChoiceInput(ChoiceInput):
     input_type = 'checkbox'
 
     def __init__(self, *args, **kwargs):
-        super(ThemableCheckboxChoiceInput, self).__init__(*args, **kwargs)
+        super().__init__(*args, **kwargs)
         # NOTE(e0ne): Django sets default value to None
         if self.value:
             self.value = set(force_text(v) for v in self.value)
@@ -536,7 +530,8 @@ class ThemableCheckboxChoiceInput(ChoiceInput):
             return self.choice_value in self.value
         return False
 
-    def render(self, name=None, value=None, attrs=None, choices=()):
+    def render(self, name=None, value=None, attrs=None, renderer=None,
+               choices=()):
         if self.id_for_label:
             label_for = html.format_html(' for="{}"', self.id_for_label)
         else:
@@ -555,7 +550,7 @@ class ThemableCheckboxSelectMultiple(widgets.CheckboxSelectMultiple):
     outer_html = '<ul{id_attr}>{content}</ul>'
     inner_html = '<li>{choice_value}{sub_widgets}</li>'
 
-    def render(self, name=None, value=None, attrs=None):
+    def render(self, name=None, value=None, attrs=None, renderer=None):
         """Outputs a <ul> for this set of choice fields.
 
         If an id was given to the field, it is applied to the <ul> (each
@@ -575,8 +570,6 @@ class ThemableCheckboxSelectMultiple(widgets.CheckboxSelectMultiple):
                 if id_:
                     attrs_plus['id'] += '_{}'.format(i)
                 sub_ul_renderer = self.__class__(
-                    name=self.name,
-                    value=self.value,
                     attrs=attrs_plus,
                     choices=choice_label,
                 )
@@ -608,7 +601,7 @@ class ExternalFileField(fields.FileField):
     paired with ExternalUploadMeta metaclass embedded into the Form class.
     """
     def __init__(self, *args, **kwargs):
-        super(ExternalFileField, self).__init__(*args, **kwargs)
+        super().__init__(*args, **kwargs)
         self.widget.attrs.update({'data-external-upload': 'true'})
 
 
@@ -624,7 +617,16 @@ class ExternalUploadMeta(forms.DeclarativeFieldsMetaclass):
     process form clean() phase as usual. Actual file upload happens entirely
     on client-side.
     """
-    def __new__(mcs, name, bases, attrs):
+
+    @classmethod
+    def __prepare__(cls, name, bases):
+        # Required in python 3 to keep the form fields order.
+        # Without this method, the __new__(cls, name, bases, attrs) method
+        # receives a dict as attrs instead of OrderedDict.
+        # This method will be ignored by Python 2.
+        return collections.OrderedDict()
+
+    def __new__(cls, name, bases, attrs):
         def get_double_name(name):
             suffix = '__hidden'
             slen = len(suffix)
@@ -638,16 +640,15 @@ class ExternalUploadMeta(forms.DeclarativeFieldsMetaclass):
                 return value
             return _clean_method
 
-        new_attrs = {}
+        # An OrderedDict is required in python 3 to keep the form fields order.
+        new_attrs = collections.OrderedDict()
         for attr_name, attr in attrs.items():
             new_attrs[attr_name] = attr
             if isinstance(attr, ExternalFileField):
                 hidden_field = fields.CharField(widget=fields.HiddenInput,
                                                 required=False)
-                hidden_field.creation_counter = attr.creation_counter + 1000
                 new_attr_name = get_double_name(attr_name)
                 new_attrs[new_attr_name] = hidden_field
                 meth_name = 'clean_' + new_attr_name
                 new_attrs[meth_name] = make_clean_method(new_attr_name)
-        return super(ExternalUploadMeta, mcs).__new__(
-            mcs, name, bases, new_attrs)
+        return super().__new__(cls, name, bases, new_attrs)

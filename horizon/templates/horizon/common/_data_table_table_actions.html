@@ -39,7 +39,7 @@
     For each single action in the Table Actions area
   {% endcomment %}
   {% for action in table_actions_buttons %}
-    {% include "horizon/common/_data_table_action.html" with is_table_action=1 is_single=1 %}
+    {% include "horizon/common/_data_table_action.html" with is_table_action=1 is_single=1 is_small=0 %}
   {% endfor %}
 
   {% comment %}
@@ -58,7 +58,7 @@
       <ul class="dropdown-menu dropdown-menu-right">
       {% for action in table_actions_menu %}
         <li>
-          {% include "horizon/common/_data_table_action.html" with is_table_action=1 %}
+          {% include "horizon/common/_data_table_action.html" with is_table_action=1 is_small=0 %}
         </li>
       {% endfor %}
       </ul>

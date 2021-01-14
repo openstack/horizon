@@ -17,14 +17,12 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
-from importlib import import_module
-
-import six
-from six import moves
+import importlib
 
 from django.conf import settings
 from django.contrib.auth.models import User
 from django.core.exceptions import ImproperlyConfigured
+from django.test.utils import override_settings
 from django import urls
 
 import horizon
@@ -44,16 +42,15 @@ class MyDash(horizon.Dashboard):
     default_panel = "myslug"
 
 
+class MyOtherDash(horizon.Dashboard):
+    name = "My Other Dashboard"
+    slug = "mydash2"
+    default_panel = "myslug2"
+
+
 class MyPanel(horizon.Panel):
     name = "My Panel"
     slug = "myslug"
-    urls = 'horizon.test.test_dashboards.cats.kittens.urls'
-
-
-class AdminPanel(horizon.Panel):
-    name = "Admin Panel"
-    slug = "admin_panel"
-    permissions = ("horizon.test",)
     urls = 'horizon.test.test_dashboards.cats.kittens.urls'
 
 
@@ -73,7 +70,7 @@ class RbacYesAccessPanel(horizon.Panel):
 class BaseHorizonTests(test.TestCase):
 
     def setUp(self):
-        super(BaseHorizonTests, self).setUp()
+        super().setUp()
         # Adjust our horizon config and register our custom dashboards/panels.
         self.old_default_dash = settings.HORIZON_CONFIG['default_dashboard']
         settings.HORIZON_CONFIG['default_dashboard'] = 'cats'
@@ -96,7 +93,7 @@ class BaseHorizonTests(test.TestCase):
             self._discovered_panels[dash] = panels
 
     def tearDown(self):
-        super(BaseHorizonTests, self).tearDown()
+        super().tearDown()
         # Restore our settings
         settings.HORIZON_CONFIG['default_dashboard'] = self.old_default_dash
         settings.HORIZON_CONFIG['dashboards'] = self.old_dashboards
@@ -105,7 +102,7 @@ class BaseHorizonTests(test.TestCase):
         del base.Horizon
         base.Horizon = base.HorizonSite()
         # Reload the convenience references to Horizon stored in __init__
-        moves.reload_module(import_module("horizon"))
+        importlib.reload(importlib.import_module("horizon"))
         # Re-register our original dashboards and panels.
         # This is necessary because autodiscovery only works on the first
         # import, and calling reload introduces innumerable additional
@@ -125,7 +122,7 @@ class BaseHorizonTests(test.TestCase):
         Useful only for testing and should never be used on a live site.
         """
         urls.clear_url_caches()
-        moves.reload_module(import_module(settings.ROOT_URLCONF))
+        importlib.reload(importlib.import_module(settings.ROOT_URLCONF))
         base.Horizon._urls()
 
 
@@ -166,8 +163,34 @@ class HorizonTests(BaseHorizonTests):
         with self.assertRaises(base.NotRegistered):
             horizon.get_dashboard(MyDash)
 
+    def test_registry_two_dashboards(self):
+        "Verify registration of 2 dashboards"
+
+        # Registration
+        self.assertEqual(2, len(base.Horizon._registry))
+        horizon.register(MyDash)
+        horizon.register(MyOtherDash)
+        self.assertEqual(4, len(base.Horizon._registry))
+
+        # Retrieval
+        self.assertQuerysetEqual(horizon.get_dashboards(),
+                                 ['<Dashboard: cats>',
+                                  '<Dashboard: dogs>',
+                                  '<Dashboard: mydash>',
+                                  '<Dashboard: mydash2>'])
+
+        # Removal
+        self.assertEqual(4, len(base.Horizon._registry))
+        horizon.unregister(MyDash)
+        horizon.unregister(MyOtherDash)
+        self.assertEqual(2, len(base.Horizon._registry))
+        with self.assertRaises(base.NotRegistered):
+            horizon.get_dashboard(MyDash)
+        with self.assertRaises(base.NotRegistered):
+            horizon.get_dashboard(MyOtherDash)
+
     def test_site(self):
-        self.assertEqual("Horizon", six.text_type(base.Horizon))
+        self.assertEqual("Horizon", str(base.Horizon))
         self.assertEqual("<Site: horizon>", repr(base.Horizon))
         dash = base.Horizon.get_dashboard('cats')
         self.assertEqual(dash, base.Horizon.get_default_dashboard())
@@ -189,7 +212,6 @@ class HorizonTests(BaseHorizonTests):
         cats.register(MyPanel)
         self.assertQuerysetEqual(cats.get_panel_groups()['other'],
                                  ['<Panel: myslug>'])
-
         # Test that panels defined as a tuple still return a PanelGroup
         dogs = horizon.get_dashboard("dogs")
         self.assertQuerysetEqual(dogs.get_panel_groups().values(),
@@ -202,6 +224,8 @@ class HorizonTests(BaseHorizonTests):
         self.assertQuerysetEqual(dogs.get_panels(),
                                  ['<Panel: puppies>',
                                   '<Panel: myslug>'])
+        cats.unregister(MyPanel)
+        dogs.unregister(MyPanel)
 
     def test_panels(self):
         cats = horizon.get_dashboard("cats")
@@ -268,6 +292,7 @@ class HorizonTests(BaseHorizonTests):
         self.assertEqual(redirect_url,
                          resp["X-Horizon-Location"])
 
+    @override_settings(SESSION_REFRESH=False)
     def test_required_permissions(self):
         dash = horizon.get_dashboard("cats")
         panel = dash.get_panel('tigers')
@@ -324,12 +349,12 @@ class HorizonTests(BaseHorizonTests):
         settings.SECURE_PROXY_SSL_HEADER = None
 
 
-class GetUserHomeTests(BaseHorizonTests):
+class GetUserHomeTests(test.TestCase):
     """Test get_user_home parameters."""
 
     def setUp(self):
         self.orig_user_home = settings.HORIZON_CONFIG['user_home']
-        super(BaseHorizonTests, self).setUp()
+        super().setUp()
         self.original_username = "testname"
         self.test_user = User()
         self.test_user.username = self.original_username
@@ -337,6 +362,7 @@ class GetUserHomeTests(BaseHorizonTests):
     def tearDown(self):
         settings.HORIZON_CONFIG['user_home'] = self.orig_user_home
         conf.HORIZON_CONFIG._setup()
+        super().tearDown()
 
     def test_using_callable(self):
         def themable_user_fnc(user):
@@ -374,7 +400,7 @@ class CustomPanelTests(BaseHorizonTests):
     """
 
     def setUp(self):
-        super(CustomPanelTests, self).setUp()
+        super().setUp()
         settings.HORIZON_CONFIG['customization_module'] = \
             'horizon.test.customization.cust_test1'
         # refresh config
@@ -389,7 +415,7 @@ class CustomPanelTests(BaseHorizonTests):
         self._discovered_dashboards.append(Dogs)
         Dogs.register(Puppies)
         Cats.register(Tigers)
-        super(CustomPanelTests, self).tearDown()
+        super().tearDown()
         settings.HORIZON_CONFIG.pop('customization_module')
         # refresh config
         conf.HORIZON_CONFIG._setup()
@@ -415,18 +441,19 @@ class CustomPermissionsTests(BaseHorizonTests):
             'horizon.test.customization.cust_test2'
         # refresh config
         conf.HORIZON_CONFIG._setup()
-        super(CustomPermissionsTests, self).setUp()
+        super().setUp()
 
     def tearDown(self):
         # Restore permissions
         dogs = horizon.get_dashboard("dogs")
         puppies = dogs.get_panel("puppies")
         puppies.permissions = tuple([])
-        super(CustomPermissionsTests, self).tearDown()
+        super().tearDown()
         settings.HORIZON_CONFIG.pop('customization_module')
         # refresh config
         conf.HORIZON_CONFIG._setup()
 
+    @override_settings(SESSION_REFRESH=False)
     def test_customized_permissions(self):
         dogs = horizon.get_dashboard("dogs")
         panel = dogs.get_panel('puppies')
@@ -463,7 +490,7 @@ class CustomPermissionsTests(BaseHorizonTests):
 class RbacHorizonTests(test.TestCase):
 
     def setUp(self):
-        super(RbacHorizonTests, self).setUp()
+        super().setUp()
         # Adjust our horizon config and register our custom dashboards/panels.
         self.old_default_dash = settings.HORIZON_CONFIG['default_dashboard']
         settings.HORIZON_CONFIG['default_dashboard'] = 'cats'
@@ -487,7 +514,7 @@ class RbacHorizonTests(test.TestCase):
             self._discovered_panels[dash] = panels
 
     def tearDown(self):
-        super(RbacHorizonTests, self).tearDown()
+        super().tearDown()
         # Restore our settings
         settings.HORIZON_CONFIG['default_dashboard'] = self.old_default_dash
         settings.HORIZON_CONFIG['dashboards'] = self.old_dashboards
@@ -496,7 +523,7 @@ class RbacHorizonTests(test.TestCase):
         del base.Horizon
         base.Horizon = base.HorizonSite()
         # Reload the convenience references to Horizon stored in __init__
-        moves.reload_module(import_module("horizon"))
+        importlib.reload(importlib.import_module("horizon"))
 
         # Reset Cats and Dogs default_panel to default values
         Cats.default_panel = 'kittens'

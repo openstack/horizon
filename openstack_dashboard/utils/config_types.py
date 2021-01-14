@@ -18,8 +18,6 @@ import ast
 import os
 import re
 
-import six
-
 from django.utils import encoding
 from django.utils import functional
 from django.utils.module_loading import import_string
@@ -33,7 +31,7 @@ class Maybe(types.ConfigType):
     def __init__(self, type_):
         self.type_ = type_
         type_name = getattr(type_, 'type_name', 'unknown value')
-        super(Maybe, self).__init__('optional %s' % type_name)
+        super().__init__('optional %s' % type_name)
 
     def __call__(self, value):
         if value is None:
@@ -52,10 +50,10 @@ class URL(types.ConfigType):
     CLEAN_SLASH_RE = re.compile(r'(?<!:)//')
 
     def __init__(self):
-        super(URL, self).__init__('web URL')
+        super().__init__('web URL')
 
     def __call__(self, value):
-        if not isinstance(value, six.string_types):
+        if not isinstance(value, str):
             raise ValueError("Expected URL.")
         value = re.sub(self.CLEAN_SLASH_RE, '/', value)
         if not value.endswith('/'):
@@ -70,10 +68,10 @@ class Path(types.ConfigType):
     """A custom option type for a path to file."""
 
     def __init__(self):
-        super(Path, self).__init__('filesystem path')
+        super().__init__('filesystem path')
 
     def __call__(self, value):
-        if not isinstance(value, six.string_types):
+        if not isinstance(value, str):
             raise ValueError("Expected file path.")
         return os.path.normpath(value)
 
@@ -86,10 +84,10 @@ class Translate(types.ConfigType):
 
     def __init__(self, hint=None):
         self.hint = hint
-        super(Translate, self).__init__('translatable string')
+        super().__init__('translatable string')
 
     def __call__(self, value):
-        if not isinstance(value, six.string_types):
+        if not isinstance(value, str):
             return value
         return pgettext_lazy(value, self.hint)
 
@@ -103,14 +101,14 @@ class Literal(types.ConfigType):
 
     def __init__(self, spec=None):
         self.spec = spec
-        super(Literal, self).__init__('python literal')
+        super().__init__('python literal')
 
     def __call__(self, value):
-        if isinstance(value, six.string_types):
+        if isinstance(value, str):
             try:
                 value = ast.literal_eval(value)
             except SyntaxError as e:
-                six.raise_from(ValueError(e), e)
+                raise ValueError from e
         self.validate(value, self.spec)
         return self.update(value, self.spec)
 
@@ -127,7 +125,7 @@ class Literal(types.ConfigType):
                 for value in result.values():
                     self.validate(value, spec_value)
                 spec_key = next(iter(spec.keys()))
-                for key in result.keys():
+                for key in result:
                     self.validate(key, spec_key)
         if isinstance(spec, list):
             if not isinstance(result, list):
@@ -143,8 +141,8 @@ class Literal(types.ConfigType):
                                  (len(spec), result))
             for s, value in zip(spec, result):
                 self.validate(value, s)
-        if isinstance(spec, six.string_types):
-            if not isinstance(result, six.string_types):
+        if isinstance(spec, str):
+            if not isinstance(result, str):
                 raise ValueError('String expected, but %r found.' % result)
         if isinstance(spec, int):
             if not isinstance(result, int):
@@ -196,16 +194,16 @@ class Importable(types.ConfigType):
     """A custom option type for an importable python object."""
 
     def __init__(self):
-        super(Importable, self).__init__('importable python object')
+        super().__init__('importable python object')
 
     def __call__(self, value):
-        if not isinstance(value, six.string_types):
+        if not isinstance(value, str):
             # Already imported.
             return value
         try:
             return import_string(value)
         except ImportError as e:
-            six.raise_from(ValueError(e), e)
+            raise ValueError from e
 
     def _formatter(self, value):
         module = value.__module__

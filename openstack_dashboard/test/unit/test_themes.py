@@ -10,7 +10,9 @@
 # License for the specific language governing permissions and limitations
 # under the License.
 
-from openstack_dashboard import settings
+from django.conf import settings
+from django.test.utils import override_settings
+
 from openstack_dashboard.templatetags import themes
 from openstack_dashboard.test import helpers as test
 
@@ -23,6 +25,9 @@ class SelectableThemeTest(test.TestCase):
         # 'available' list
         self.assertEqual(selectable, available)
 
+    @override_settings(SELECTABLE_THEMES=[
+        ('default', 'Default', 'themes/default'),
+    ])
     def test_selectable_override(self):
         selectable = themes.themes()
         available = themes.settings.AVAILABLE_THEMES

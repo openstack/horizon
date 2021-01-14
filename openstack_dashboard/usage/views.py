@@ -12,6 +12,7 @@
 
 import collections
 
+from django.conf import settings
 from django.contrib.humanize.templatetags import humanize as humanize_filters
 from django.utils.translation import pgettext_lazy
 from django.utils.translation import ugettext_lazy as _
@@ -30,7 +31,7 @@ class UsageView(tables.DataTableView):
     page_title = _("Overview")
 
     def __init__(self, *args, **kwargs):
-        super(UsageView, self).__init__(*args, **kwargs)
+        super().__init__(*args, **kwargs)
         if not issubclass(self.usage_class, base.BaseUsage):
             raise AttributeError("You must specify a usage_class attribute "
                                  "which is a subclass of BaseUsage.")
@@ -60,14 +61,15 @@ class UsageView(tables.DataTableView):
             return []
 
     def get_context_data(self, **kwargs):
-        context = super(UsageView, self).get_context_data(**kwargs)
+        context = super().get_context_data(**kwargs)
         context['table'].kwargs['usage'] = self.usage
         context['form'] = self.usage.form
         context['usage'] = self.usage
 
         try:
-            context['simple_tenant_usage_enabled'] = \
-                api.nova.extension_supported('SimpleTenantUsage', self.request)
+            context['simple_tenant_usage_enabled'] = (
+                settings.OPENSTACK_USE_SIMPLE_TENANT_USAGE
+            )
         except Exception:
             context['simple_tenant_usage_enabled'] = True
         return context
@@ -87,6 +89,10 @@ class UsageView(tables.DataTableView):
         return resp
 
 
+def _check_network_allowed(request):
+    return api.neutron.is_quotas_extension_supported(request)
+
+
 ChartDef = collections.namedtuple(
     'ChartDef',
     ('quota_key', 'label', 'used_phrase', 'filters'))
@@ -99,6 +105,10 @@ ChartDef = collections.namedtuple(
 # - filters to be applied to the value
 #   If None is specified, the default filter 'intcomma' will be applied.
 #   if you want to apply no filters, specify an empty tuple or list.
+# - allowed:
+#   An optional argument used to determine if the chart section should be
+#   displayed. Can be a static value or a function, which is called dynamically
+#   with the request as it's first parameter.
 CHART_DEFS = [
     {
         'title': _("Compute"),
@@ -106,7 +116,7 @@ CHART_DEFS = [
             ChartDef("instances", _("Instances"), None, None),
             ChartDef("cores", _("VCPUs"), None, None),
             ChartDef("ram", _("RAM"), None, (sizeformat.mb_float_format,)),
-        ]
+        ],
     },
     {
         'title': _("Volume"),
@@ -115,7 +125,7 @@ CHART_DEFS = [
             ChartDef("snapshots", _("Volume Snapshots"), None, None),
             ChartDef("gigabytes", _("Volume Storage"), None,
                      (sizeformat.diskgbformat,)),
-        ]
+        ],
     },
     {
         'title': _("Network"),
@@ -129,7 +139,8 @@ CHART_DEFS = [
             ChartDef("network", _("Networks"), None, None),
             ChartDef("port", _("Ports"), None, None),
             ChartDef("router", _("Routers"), None, None),
-        ]
+        ],
+        'allowed': _check_network_allowed,
     },
 ]
 
@@ -147,12 +158,20 @@ class ProjectUsageView(UsageView):
     def _get_charts_data(self):
         chart_sections = []
         for section in CHART_DEFS:
-            chart_data = self._process_chart_section(section['charts'])
-            chart_sections.append({
-                'title': section['title'],
-                'charts': chart_data
-            })
+            if self._check_chart_allowed(section):
+                chart_data = self._process_chart_section(section['charts'])
+                chart_sections.append({
+                    'title': section['title'],
+                    'charts': chart_data
+                })
         return chart_sections
+
+    def _check_chart_allowed(self, chart_def):
+        result = True
+        if 'allowed' in chart_def:
+            allowed = chart_def['allowed']
+            result = allowed(self.request) if callable(allowed) else allowed
+        return result
 
     def _process_chart_section(self, chart_defs):
         charts = []
@@ -190,12 +209,12 @@ class ProjectUsageView(UsageView):
         return charts
 
     def get_context_data(self, **kwargs):
-        context = super(ProjectUsageView, self).get_context_data(**kwargs)
+        context = super().get_context_data(**kwargs)
         context['charts'] = self._get_charts_data()
         return context
 
     def get_data(self):
-        data = super(ProjectUsageView, self).get_data()
+        data = super().get_data()
         try:
             self.usage.get_limits()
         except Exception:

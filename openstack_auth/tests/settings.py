@@ -13,6 +13,8 @@
 
 import os
 
+from openstack_auth.defaults import *  # noqa: F403,H303
+
 ALLOWED_HOSTS = ['*']
 
 DATABASES = {'default': {'ENGINE': 'django.db.backends.sqlite3'}}
@@ -38,21 +40,13 @@ MIDDLEWARE = [
 
 AUTHENTICATION_BACKENDS = ['openstack_auth.backend.KeystoneBackend']
 
-OPENSTACK_KEYSTONE_URL = "http://localhost:5000/v3"
-
 ROOT_URLCONF = 'openstack_auth.tests.urls'
 
-LOGIN_REDIRECT_URL = '/'
+LOGIN_REDIRECT_URL = WEBROOT
 
 SECRET_KEY = 'badcafe'
 
-OPENSTACK_API_VERSIONS = {
-    "identity": 3
-}
-
 USE_TZ = True
-
-OPENSTACK_KEYSTONE_MULTIDOMAIN_SUPPORT = False
 
 OPENSTACK_KEYSTONE_DEFAULT_DOMAIN = 'domain'
 
@@ -73,27 +67,6 @@ TEMPLATES = [
         'APP_DIRS': True,
     },
 ]
-
-LOGGING = {
-    'version': 1,
-    'disable_existing_loggers': False,
-    'handlers': {
-        'null': {
-            'level': 'DEBUG',
-            'class': 'logging.NullHandler',
-        },
-        'test': {
-            'level': 'ERROR',
-            'class': 'logging.StreamHandler',
-        }
-    },
-    'loggers': {
-        'openstack_auth': {
-            'handlers': ['test'],
-            'propagate': False,
-        },
-    }
-}
 
 AUTH_USER_MODEL = 'openstack_auth.User'
 

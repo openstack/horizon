@@ -22,8 +22,6 @@ Template tags for customizing Horizon.
 
 from django.conf import settings
 from django import template
-from django.urls import reverse
-from django.utils.translation import ugettext_lazy as _
 
 
 register = template.Library()
@@ -31,7 +29,7 @@ register = template.Library()
 
 class SiteBrandingNode(template.Node):
     def render(self, context):
-        return getattr(settings, "SITE_BRANDING", _("Horizon"))
+        return settings.SITE_BRANDING
 
 
 @register.tag
@@ -46,8 +44,7 @@ def site_title(parser, token):
 
 @register.simple_tag
 def site_branding_link():
-    return getattr(settings, "SITE_BRANDING_LINK",
-                   reverse("horizon:user_home"))
+    return settings.SITE_BRANDING_LINK
 
 
 # TODO(jeffjapan): This is just an assignment tag version of the above, replace

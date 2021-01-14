@@ -49,7 +49,8 @@
                qosService,
                qosResourceType) {
     registry.getResourceType(qosResourceType)
-      .setNames(gettext('QoS Policy'), gettext('QoS Policies'))
+      .setNames('QoS Policy', 'QoS Policies',
+                ngettext('QoS Policy', 'QoS Policies', 1))
       .setSummaryTemplateUrl(basePath + 'details/drawer.html')
       .setDefaultIndexUrl('/project/network_qos/')
       .setProperties(qosProperties(qosService))

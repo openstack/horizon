@@ -10,6 +10,8 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
+import abc
+
 from django.utils.translation import ugettext_lazy as _
 
 from horizon import exceptions
@@ -21,9 +23,7 @@ from openstack_dashboard import api
 
 class BaseSecurityGroupsAction(workflows.MembershipAction):
     def __init__(self, request, *args, **kwargs):
-        super(BaseSecurityGroupsAction, self).__init__(request,
-                                                       *args,
-                                                       **kwargs)
+        super().__init__(request, *args, **kwargs)
         err_msg = _('Unable to retrieve security group list. '
                     'Please try again later.')
         context = args[0]
@@ -54,12 +54,8 @@ class BaseSecurityGroupsAction(workflows.MembershipAction):
             exceptions.handle(request, err_msg)
         self.fields[field_name].initial = sec_groups
 
+    @abc.abstractmethod
     def _get_initial_security_groups(self, context):
-        # This depends on each cases
-        pass
-
-    def handle(self, request, data):
-        # This depends on each cases
         pass
 
 

@@ -1,0 +1,11 @@
+---
+features:
+  - |
+    Django 2.2 is supported as experimental.
+    Django 1.11 (LTS) and 2.0 are supported as well as Stein release does
+    and Django 1.11 is still the primary supported version of Django.
+
+    Note that only horizon is verified with Django 2.2 and most horizon
+    plugins are not verified with Django 2.2. If you enable horizon plugins
+    in your environment, we would suggest to use Django 1.11 or 2.0.
+    Be careful when you enable horizon plugins with Django 2.2.

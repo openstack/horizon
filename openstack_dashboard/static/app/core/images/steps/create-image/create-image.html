@@ -16,11 +16,12 @@
           <div class="form-group required"
                ng-class="{'has-error':imageForm.name.$invalid && imageForm.name.$dirty}">
             <label class="control-label required" for="imageForm-name">
-              <translate>Image Name</translate><span class="hz-icon-required fa fa-asterisk"></span>
+              <translate>Image Name</translate>
             </label>
-            <input required id="imageForm-name" name="name"
+            <input id="imageForm-name" name="name"
                    type="text" class="form-control"
                    ng-model="ctrl.image.name"
+                   ng-disabled="viewModel.isSubmitting"
                    ng-maxlength="ctrl.validationRules.fieldMaxLength">
             <p class="help-block alert alert-danger"
                ng-show="imageForm.name.$invalid && imageForm.name.$dirty">
@@ -37,6 +38,7 @@
             <input id="imageForm-description" name="description"
                    type="text" class="form-control"
                    ng-model="ctrl.image.description"
+                   ng-disabled="viewModel.isSubmitting"
                    ng-maxlength="ctrl.validationRules.fieldMaxLength">
             <p class="help-block alert alert-danger"
                ng-show="imageForm.description.$invalid && imageForm.description.$dirty">
@@ -61,6 +63,7 @@
                 <label class="btn btn-default btn-toggle"
                        ng-repeat="option in ctrl.imageSourceOptions"
                        ng-model="ctrl.image.source_type"
+                       ng-disabled="viewModel.isSubmitting"
                        uib-btn-radio="option.value">{$ ::option.label $}</label>
               </div>
             </div>
@@ -78,6 +81,7 @@
                 <button class="btn btn-primary" ng-model="image_file"
                         ngf-select="ctrl.prepareUpload(image_file)"
                         name="image_file" ng-required="true"
+                        ng-disabled="viewModel.isSubmitting"
                         id="imageForm-image_file" translate>Browse...</button>
               </span>
               <input type="text" class="form-control" readonly ng-model="image_file.name">
@@ -103,6 +107,7 @@
             <input ng-required="true" id="imageForm-image_url" name="image_url"
                    type="text" class="form-control"
                    ng-model="ctrl.image.image_url"
+                   ng-disabled="viewModel.isSubmitting"
                    ng-maxlength="ctrl.validationRules.fieldMaxLength"
                    placeholder="{$ 'An external (HTTP) URL to load the image from'|translate $}">
             <p class="help-block alert alert-danger"
@@ -143,7 +148,11 @@
         <div class="col-xs-6 col-sm-6">
           <div class="form-group required">
             <label class="control-label required" for="imageForm-container_format" translate>Format</label><span class="hz-icon-required fa fa-asterisk"></span>
-            <select class="form-control switchable ng-pristine ng-untouched ng-valid" ng-required="true" id="imageForm-format" name="format" ng-model="ctrl.image_format" ng-options="key as label for (key, label) in ctrl.imageFormats" ng-change="ctrl.setFormats()">
+            <select class="form-control switchable ng-pristine ng-untouched ng-valid"
+                    ng-required="true" id="imageForm-format"
+                    name="format" ng-model="ctrl.image_format"
+                    ng-disabled="viewModel.isSubmitting"
+                    ng-options="key as label for (key, label) in ctrl.imageFormats" ng-change="ctrl.setFormats()">
             </select>
           </div>
         </div>
@@ -159,7 +168,7 @@
             <label class="control-label">
               <translate>Kernel</translate>
             </label>
-            <select class="form-control" id="imageForm-kernel" name="kernel" ng-model="ctrl.image.kernel">
+            <select class="form-control" id="imageForm-kernel" name="kernel" ng-disabled="viewModel.isSubmitting" ng-model="ctrl.image.kernel">
               <option value="" selected="selected" translate>Choose an image</option>
               <option ng-repeat="kernel in ctrl.kernelImages" value="{$ kernel.id $}">{$ kernel.name $}</option>
             </select>
@@ -170,7 +179,7 @@
             <label class="control-label" for="imageForm-ramdisk">
               <translate>Ramdisk</translate>
             </label>
-            <select class="form-control" id="imageForm-ramdisk" name="ramdisk" ng-model="ctrl.image.ramdisk">
+            <select class="form-control" id="imageForm-ramdisk" name="ramdisk" ng-disabled="viewModel.isSubmitting" ng-model="ctrl.image.ramdisk">
               <option value="" selected="selected" translate>Choose an image</option>
               <option ng-repeat="ramdisk in ctrl.ramdiskImages" value="{$ ramdisk.id $}">{$ ramdisk.name $}</option>
             </select>
@@ -184,6 +193,7 @@
             <input id="imageForm-architecture" name="architecture"
                    type="text" class="form-control"
                    ng-model="ctrl.image.architecture"
+                   ng-disabled="viewModel.isSubmitting"
                    ng-maxlength="ctrl.validationRules.fieldMaxLength">
           </div>
         </div>
@@ -198,6 +208,7 @@
                    ng-required="true"
                    ng-pattern="ctrl.validationRules.integer"
                    ng-model="ctrl.image.min_disk"
+                   ng-disabled="viewModel.isSubmitting"
                    min=0>
           </div>
         </div>
@@ -210,6 +221,7 @@
             <input id="imageForm-min_ram" name="min_ram"
                    type="number" class="form-control"
                    ng-required="true"
+                   ng-disabled="viewModel.isSubmitting"
                    ng-pattern="ctrl.validationRules.integer" ng-model="ctrl.image.min_ram"
                    min=0>
           </div>
@@ -221,7 +233,7 @@
 
     <div class="selected-source">
       <div class="row">
-        <div class="col-xs-6 col-sm-6" ng-show='ctrl.allowPublicizeImage'>
+        <div class="col-xs-6 col-sm-6">
           <div class="form-group">
             <label class="control-label required">
               <translate>Visibility</translate>

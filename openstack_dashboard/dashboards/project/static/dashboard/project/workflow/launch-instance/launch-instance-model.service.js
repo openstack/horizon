@@ -37,7 +37,6 @@
     'horizon.app.core.openstack-service-api.glance',
     'horizon.app.core.openstack-service-api.neutron',
     'horizon.app.core.openstack-service-api.nova',
-    'horizon.app.core.openstack-service-api.novaExtensions',
     'horizon.app.core.openstack-service-api.security-group',
     'horizon.app.core.openstack-service-api.serviceCatalog',
     'horizon.app.core.openstack-service-api.settings',
@@ -57,7 +56,6 @@
    * @param {Object} glanceAPI
    * @param {Object} neutronAPI
    * @param {Object} novaAPI
-   * @param {Object} novaExtensions
    * @param {Object} securityGroup
    * @param {Object} serviceCatalog
    * @param {Object} settings
@@ -81,7 +79,6 @@
     glanceAPI,
     neutronAPI,
     novaAPI,
-    novaExtensions,
     securityGroup,
     serviceCatalog,
     settings,
@@ -205,8 +202,6 @@
         // REQUIRED for JS logic
         hide_create_volume: false,
         vol_create: false,
-        // May be null
-        vol_device_name: 'vda',
         vol_delete_on_instance_delete: false,
         vol_size: 1
       };
@@ -249,6 +244,10 @@
         model.allowedBootSources.length = 0;
 
         var launchInstanceDefaults = settings.getSetting('LAUNCH_INSTANCE_DEFAULTS');
+        settings.getSetting('DEFAULT_BOOT_SOURCE').then(
+          function (response) {
+            model.defaultBootSource = response;
+          });
 
         promise = $q.all([
           novaAPI.getAvailabilityZones().then(onGetAvailabilityZones)
@@ -332,8 +331,10 @@
 
     function successMessage() {
       var numberInstances = model.newInstanceSpec.instance_count;
-      var message = ngettext('%s instance launched.', '%s instances launched.', numberInstances);
-      toast.add('success', interpolate(message, [numberInstances]));
+      var message = ngettext('Scheduled creation of %s instance.',
+                             'Scheduled creation of %s instances.',
+                             numberInstances);
+      toast.add('info', interpolate(message, [numberInstances]));
     }
 
     function cleanNullProperties(finalSpec) {
@@ -563,14 +564,11 @@
 
       if (enabledImage || enabledSnapshot) {
         var filter = {status: 'active', sort_key: 'name', sort_dir: 'asc'};
-        return glanceAPI.getImages(filter).then(function getEnabledImages(data) {
-          if (enabledImage) {
-            onGetImages(data);
+        glanceAPI.getImages(filter).then(
+          function(data) {
+            onGetImageSources(data, enabledImage, enabledSnapshot);
           }
-          if (enabledSnapshot) {
-            onGetSnapshots(data);
-          }
-        });
+        );
       }
     }
 
@@ -588,9 +586,7 @@
       }
       function onVolumeServiceEnabled() {
         model.volumeBootable = true;
-        novaExtensions
-          .ifNameEnabled('BlockDeviceMappingV2Boot')
-          .then(onBootToVolumeSupported);
+        model.allowCreateVolumeFromImage = true;
         if (!config || !config.disable_volume) {
           getVolumes().then(resolveVolumes, failVolumes);
           getAbsoluteLimits().then(resolveAbsoluteLimitsDeferred, resolveAbsoluteLimitsDeferred);
@@ -603,9 +599,6 @@
         } else {
           resolveVolumeSnapshots();
         }
-      }
-      function onBootToVolumeSupported() {
-        model.allowCreateVolumeFromImage = true;
       }
       function getVolumes() {
         return cinderAPI.getVolumes({status: 'available', bootable: 1})
@@ -664,25 +657,40 @@
              'image';
     }
 
-    function onGetImages(data) {
-      model.images.length = 0;
-      push.apply(model.images, data.data.items.filter(function (image) {
-        return isBootableImageType(image) && getImageType(image) !== 'snapshot';
-      }));
-      addAllowedBootSource(model.images, bootSourceTypes.IMAGE, gettext('Image'));
+    function isValidImage(image) {
+      return isBootableImageType(image) &&
+             (!image.properties || image.properties.image_type !== 'snapshot');
     }
 
-    function onGetSnapshots(data) {
-      model.imageSnapshots.length = 0;
-      push.apply(model.imageSnapshots, data.data.items.filter(function (image) {
-        return isBootableImageType(image) && getImageType(image) === 'snapshot';
-      }));
+    function isValidSnapshot(image) {
+      return getImageType(image) === 'snapshot' && isBootableImageType(image);
+    }
 
-      addAllowedBootSource(
-        model.imageSnapshots,
-        bootSourceTypes.INSTANCE_SNAPSHOT,
-        gettext('Instance Snapshot')
-      );
+    function onGetImageSources(data, enabledImage, enabledSnapshot) {
+      model.imageSnapshots.length = 0;
+      model.images.length = 0;
+
+      angular.forEach(data.data.items, function(image) {
+        if (isValidSnapshot(image) && enabledSnapshot) {
+          model.imageSnapshots.push(image);
+        } else if (isValidImage(image) && enabledImage) {
+          image.name_or_id = image.name || image.id;
+          model.images.push(image);
+        }
+      });
+
+      if (enabledImage) {
+        addAllowedBootSource(
+          model.images, bootSourceTypes.IMAGE, gettext('Image')
+        );
+      }
+
+      if (enabledSnapshot) {
+        addAllowedBootSource(
+          model.imageSnapshots, bootSourceTypes.INSTANCE_SNAPSHOT,
+          gettext('Instance Snapshot')
+        );
+      }
     }
 
     function onGetVolumes(data) {
@@ -715,10 +723,13 @@
 
     function addAllowedBootSource(rawTypes, type, label) {
       if (rawTypes) {
+        var selected = model.defaultBootSource === type;
         model.allowedBootSources.push({
           type: type,
-          label: label
+          label: label,
+          selected: selected
         });
+
         model.allowedBootSources.sort(function(a, b) {
           return a.type > b.type;
         });
@@ -737,10 +748,10 @@
           setFinalSpecBootImageToVolume(finalSpec);
           break;
         case bootSourceTypes.VOLUME:
-          setFinalSpecBootFromVolumeDevice(finalSpec, 'vol');
+          setFinalSpecBootFromVolumeDevice(finalSpec, 'volume');
           break;
         case bootSourceTypes.VOLUME_SNAPSHOT:
-          setFinalSpecBootFromVolumeDevice(finalSpec, 'snap');
+          setFinalSpecBootFromVolumeDevice(finalSpec, 'snapshot');
           break;
         default:
           $log.error("Unknown source type: " + finalSpec.source_type);
@@ -752,7 +763,6 @@
       // at launch time.
       delete finalSpec.source_type;
       delete finalSpec.vol_create;
-      delete finalSpec.vol_device_name;
       delete finalSpec.vol_delete_on_instance_delete;
       delete finalSpec.vol_size;
     }
@@ -760,11 +770,9 @@
     function setFinalSpecBootImageToVolume(finalSpec) {
       if (finalSpec.vol_create) {
         // Specify null to get Autoselection (not empty string)
-        var deviceName = finalSpec.vol_device_name ? finalSpec.vol_device_name : null;
         finalSpec.block_device_mapping_v2 = [];
         finalSpec.block_device_mapping_v2.push(
           {
-            'device_name': deviceName,
             'source_type': bootSourceTypes.IMAGE,
             'destination_type': bootSourceTypes.VOLUME,
             'delete_on_termination': finalSpec.vol_delete_on_instance_delete,
@@ -778,14 +786,16 @@
     }
 
     function setFinalSpecBootFromVolumeDevice(finalSpec, sourceType) {
-      finalSpec.block_device_mapping = {};
-      finalSpec.block_device_mapping[finalSpec.vol_device_name] = [
-        finalSpec.source_id,
-        ':',
-        sourceType,
-        '::',
-        finalSpec.vol_delete_on_instance_delete
-      ].join('');
+      finalSpec.block_device_mapping_v2 = [];
+      finalSpec.block_device_mapping_v2.push(
+        {
+          'source_type': sourceType,
+          'destination_type': bootSourceTypes.VOLUME,
+          'delete_on_termination': finalSpec.vol_delete_on_instance_delete,
+          'uuid': finalSpec.source_id,
+          'boot_index': '0'
+        }
+      );
 
       // Source ID must be empty for API
       finalSpec.source_id = '';

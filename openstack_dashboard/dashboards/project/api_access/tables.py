@@ -16,8 +16,6 @@ from django.conf import settings
 from django.template.defaultfilters import title
 from django.utils.translation import ugettext_lazy as _
 
-from openstack_auth import utils
-
 from horizon import tables
 from openstack_dashboard import api
 from openstack_dashboard.dashboards.project.api_access import forms
@@ -51,27 +49,19 @@ class DownloadCloudsYaml(tables.LinkAction):
     icon = "download"
     url = "horizon:project:api_access:clouds.yaml"
 
+    def allowed(self, request, datum=None):
+        return settings.SHOW_OPENSTACK_CLOUDS_YAML
+
 
 class DownloadOpenRC(tables.LinkAction):
     name = "download_openrc"
-    verbose_name = _("OpenStack RC File (Identity API v3)")
-    verbose_name_plural = _("OpenStack RC File (Identity API v3)")
+    verbose_name = _("OpenStack RC File")
+    verbose_name_plural = _("OpenStack RC File")
     icon = "download"
     url = "horizon:project:api_access:openrc"
 
     def allowed(self, request, datum=None):
-        return utils.get_keystone_version() >= 3
-
-
-class DownloadOpenRCv2(tables.LinkAction):
-    name = "download_openrc_v2"
-    verbose_name = _("OpenStack RC File (Identity API v2.0)")
-    verbose_name_plural = _("OpenStack RC File (Identity API v2.0)")
-    icon = "download"
-    url = "horizon:project:api_access:openrcv2"
-
-    def allowed(self, request, datum=None):
-        return settings.SHOW_KEYSTONE_V2_RC
+        return settings.SHOW_OPENRC_FILE
 
 
 class ViewCredentials(tables.LinkAction):
@@ -118,7 +108,6 @@ class EndpointsTable(tables.DataTable):
         multi_select = False
         table_actions = (ViewCredentials, RecreateCredentials)
         table_actions_menu = (DownloadCloudsYaml,
-                              DownloadOpenRCv2,
                               DownloadOpenRC,
                               DownloadEC2)
         table_actions_menu_label = _('Download OpenStack RC File')

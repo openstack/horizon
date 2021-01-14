@@ -12,12 +12,11 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 import copy
+from unittest import mock
 
-import mock
 import netaddr
 from neutronclient.common import exceptions as neutron_exc
 from oslo_utils import uuidutils
-import six
 
 from django.test.utils import override_settings
 
@@ -582,21 +581,24 @@ class NeutronApiTests(test.APIMockTestCase):
 
     @mock.patch.object(api.neutron, 'neutronclient')
     def test_port_create(self, mock_neutronclient):
-        port = {'port': self.api_ports.first()}
-        params = {'network_id': port['port']['network_id'],
-                  'tenant_id': port['port']['tenant_id'],
-                  'name': port['port']['name'],
-                  'device_id': port['port']['device_id']}
+        port = self.api_ports.first()
+        params = {'network_id': port['network_id'],
+                  'tenant_id': port['tenant_id'],
+                  'name': port['name'],
+                  'device_id': port['device_id']}
+        api_params = params.copy()
+        params['binding__vnic_type'] = port['binding:vnic_type']
+        api_params['binding:vnic_type'] = port['binding:vnic_type']
 
         neutronclient = mock_neutronclient.return_value
-        neutronclient.create_port.return_value = port
+        neutronclient.create_port.return_value = {'port': port}
 
         ret_val = api.neutron.port_create(self.request, **params)
 
         self.assertIsInstance(ret_val, api.neutron.Port)
-        self.assertEqual(api.neutron.Port(port['port']).id, ret_val.id)
+        self.assertEqual(api.neutron.Port(port).id, ret_val.id)
         neutronclient.create_port.assert_called_once_with(
-            body={'port': params})
+            body={'port': api_params})
 
     @mock.patch.object(api.neutron, 'neutronclient')
     def test_port_update(self, mock_neutronclient):
@@ -604,6 +606,9 @@ class NeutronApiTests(test.APIMockTestCase):
         port_id = port_data['id']
         params = {'name': port_data['name'],
                   'device_id': port_data['device_id']}
+        api_params = params.copy()
+        params['binding__vnic_type'] = port_data['binding:vnic_type']
+        api_params['binding:vnic_type'] = port_data['binding:vnic_type']
 
         neutronclient = mock_neutronclient.return_value
         neutronclient.update_port.return_value = {'port': port_data}
@@ -613,7 +618,7 @@ class NeutronApiTests(test.APIMockTestCase):
         self.assertIsInstance(ret_val, api.neutron.Port)
         self.assertEqual(api.neutron.Port(port_data).id, ret_val.id)
         neutronclient.update_port.assert_called_once_with(
-            port_id, body={'port': params})
+            port_id, body={'port': api_params})
 
     @mock.patch.object(api.neutron, 'neutronclient')
     def test_port_delete(self, mock_neutronclient):
@@ -1119,7 +1124,7 @@ class NeutronApiTests(test.APIMockTestCase):
 class NeutronApiSecurityGroupTests(test.APIMockTestCase):
 
     def setUp(self):
-        super(NeutronApiSecurityGroupTests, self).setUp()
+        super().setUp()
         neutronclient = mock.patch.object(api.neutron, 'neutronclient').start()
         self.qclient = neutronclient.return_value
         self.sg_dict = dict([(sg['id'], sg['name']) for sg
@@ -1150,9 +1155,11 @@ class NeutronApiSecurityGroupTests(test.APIMockTestCase):
     def _cmp_sg(self, exp_sg, ret_sg):
         self.assertEqual(exp_sg['id'], ret_sg.id)
         self.assertEqual(exp_sg['name'], ret_sg.name)
-        exp_rules = exp_sg['security_group_rules']
+        # When a SG has no rules, neutron API does not contain
+        # 'security_group_rules' field, so .get() method needs to be used.
+        exp_rules = exp_sg.get('security_group_rules', [])
         self.assertEqual(len(exp_rules), len(ret_sg.rules))
-        for (exprule, retrule) in six.moves.zip(exp_rules, ret_sg.rules):
+        for (exprule, retrule) in zip(exp_rules, ret_sg.rules):
             self._cmp_sg_rule(exprule, retrule)
 
     def _test_security_group_list(self, **params):
@@ -1166,7 +1173,7 @@ class NeutronApiSecurityGroupTests(test.APIMockTestCase):
 
         rets = api.neutron.security_group_list(self.request, **params)
         self.assertEqual(len(sgs), len(rets))
-        for (exp, ret) in six.moves.zip(sgs, rets):
+        for (exp, ret) in zip(sgs, rets):
             self._cmp_sg(exp, ret)
         self.qclient.list_security_groups.assert_called_once_with(**q_params)
 
@@ -1250,9 +1257,17 @@ class NeutronApiSecurityGroupTests(test.APIMockTestCase):
     def test_security_group_rule_create_without_desc(self):
         self._test_security_group_rule_create(with_desc=False)
 
-    def _test_security_group_rule_create(self, with_desc):
-        sg_rule = [r for r in self.api_security_group_rules.list()
-                   if r['protocol'] == 'tcp' and r['remote_ip_prefix']][0]
+    def test_security_group_rule_create_with_custom_protocol(self):
+        self._test_security_group_rule_create(custom_ip_proto=True)
+
+    def _test_security_group_rule_create(self, with_desc=False,
+                                         custom_ip_proto=False):
+        if custom_ip_proto:
+            sg_rule = [r for r in self.api_security_group_rules.list()
+                       if r['protocol'] == '99'][0]
+        else:
+            sg_rule = [r for r in self.api_security_group_rules.list()
+                       if r['protocol'] == 'tcp' and r['remote_ip_prefix']][0]
         sg_id = sg_rule['security_group_id']
         secgroup = [sg for sg in self.api_security_groups.list()
                     if sg['id'] == sg_id][0]
@@ -1344,7 +1359,7 @@ class NeutronApiSecurityGroupTests(test.APIMockTestCase):
 class NeutronApiFloatingIpTests(test.APIMockTestCase):
 
     def setUp(self):
-        super(NeutronApiFloatingIpTests, self).setUp()
+        super().setUp()
         neutronclient = mock.patch.object(api.neutron, 'neutronclient').start()
         self.qclient = neutronclient.return_value
 
@@ -1517,7 +1532,7 @@ class NeutronApiFloatingIpTests(test.APIMockTestCase):
             'enable_fip_topology_check': True,
         }
     )
-    @mock.patch.object(api.nova, 'novaclient')
+    @mock.patch.object(api._nova, 'novaclient')
     def test_floating_ip_target_list(self, mock_novaclient):
         ports = self.api_ports.list()
         # Port on the first subnet is connected to a router
@@ -1578,7 +1593,7 @@ class NeutronApiFloatingIpTests(test.APIMockTestCase):
         self.qclient.list_routers.assert_called_once_with()
         self.qclient.list_subnets.assert_called_once_with()
 
-    @mock.patch.object(api.nova, 'novaclient')
+    @mock.patch.object(api._nova, 'novaclient')
     def _test_target_floating_ip_port_by_instance(self, server, ports,
                                                   candidates, mock_novaclient):
         # list_ports and list_networks are called multiple times,

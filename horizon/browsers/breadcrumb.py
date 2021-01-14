@@ -20,7 +20,7 @@ from horizon.utils import html
 class Breadcrumb(html.HTMLElement):
     def __init__(self, request, template, root,
                  subfolder_path, url, attr=None):
-        super(Breadcrumb, self).__init__()
+        super().__init__()
         self.template = template
         self.request = request
         self.root = root

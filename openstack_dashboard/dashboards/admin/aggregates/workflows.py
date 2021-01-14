@@ -36,14 +36,14 @@ class SetAggregateInfoAction(workflows.Action):
         slug = "set_aggregate_info"
 
     def clean(self):
-        cleaned_data = super(SetAggregateInfoAction, self).clean()
+        cleaned_data = super().clean()
         name = cleaned_data.get('name', '')
 
         try:
             aggregates = api.nova.aggregate_details_list(self.request)
         except Exception:
             msg = _('Unable to get host aggregate list')
-            exceptions.check_message(["Connection", "refused"], msg)
+            exceptions.handle(self.request, msg)
             raise
         if aggregates is not None:
             for aggregate in aggregates:
@@ -64,9 +64,7 @@ class SetAggregateInfoStep(workflows.Step):
 
 class AddHostsToAggregateAction(workflows.MembershipAction):
     def __init__(self, request, *args, **kwargs):
-        super(AddHostsToAggregateAction, self).__init__(request,
-                                                        *args,
-                                                        **kwargs)
+        super().__init__(request, *args, **kwargs)
         err_msg = _('Unable to get the available hosts')
 
         default_role_field_name = self.get_default_role_field_name()
@@ -95,9 +93,7 @@ class AddHostsToAggregateAction(workflows.MembershipAction):
 
 class ManageAggregateHostsAction(workflows.MembershipAction):
     def __init__(self, request, *args, **kwargs):
-        super(ManageAggregateHostsAction, self).__init__(request,
-                                                         *args,
-                                                         **kwargs)
+        super().__init__(request, *args, **kwargs)
         err_msg = _('Unable to get the available hosts')
 
         default_role_field_name = self.get_default_role_field_name()

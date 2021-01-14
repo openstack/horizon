@@ -1,4 +1,4 @@
-<table st-table="row.security_group_rules" class="table table-condensed table-rsp security-group-details">
+<table st-table="item.security_group_rules" class="table table-condensed table-rsp security-group-details">
   <thead>
     <tr>
       <th st-sort="direction" st-sort-default translate>Direction</th>
@@ -10,7 +10,7 @@
     </tr>
   </thead>
   <tbody>
-    <tr ng-repeat="d in row.security_group_rules">
+    <tr ng-repeat="d in item.security_group_rules">
       <td>{$ d.direction | noValue $}</td>
       <td>{$ d.ethertype | noValue $}</td>
       <td>{$ d.protocol | noValue $}</td>

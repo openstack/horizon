@@ -1,5 +1,5 @@
 ==================
-The horizon Module
+The Horizon Module
 ==================
 
 .. module:: horizon

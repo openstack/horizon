@@ -17,7 +17,7 @@
   'use strict';
 
   angular
-    .module('horizon.framework.util.filters')
+    .module('horizon.framework.util.filters', ['ngCookies'])
     .filter('yesno', yesNoFilter)
     .filter('simpleDate', simpleDateFilter)
     .filter('mediumDate', mediumDateFilter)
@@ -53,10 +53,18 @@
    * @description
    * Evaluates given for display as a short date, returning '-' if empty.
    */
-  simpleDateFilter.$inject = ['$filter'];
-  function simpleDateFilter($filter) {
+  simpleDateFilter.$inject = [
+    '$cookies',
+    '$filter',
+    'horizon.framework.util.timezones.service'
+  ];
+  function simpleDateFilter($cookies, $filter, timeZoneService) {
     return function (input) {
-      return $filter('noValue')($filter('date')(input, 'short'));
+      var currentTimeZone = $cookies.get('django_timezone') || 'UTC';
+      currentTimeZone = currentTimeZone.replace(/^"(.*)"$/, '$1');
+      return timeZoneService.getTimeZoneOffset(currentTimeZone).then(function (timeZoneOffset) {
+        return $filter('noValue')($filter('date')(input, 'short', timeZoneOffset));
+      });
     };
   }
 
@@ -66,10 +74,26 @@
    * @description
    * Evaluates given for display as a medium date, returning '-' if empty.
    */
-  mediumDateFilter.$inject = ['$filter'];
-  function mediumDateFilter($filter) {
+  mediumDateFilter.$inject = [
+    '$cookies',
+    '$filter',
+    'horizon.framework.util.timezones.service'
+  ];
+  function mediumDateFilter($cookies, $filter, timeZoneService) {
     return function (input) {
-      return $filter('noValue')($filter('date')(input, 'medium'));
+      /*
+       * For the input time, we need to add "Z" to fit iso8601 time format
+       * so the filter can confirm that the input time is in UTC timezone.
+       */
+      input = $filter('noValue')(input);
+      if (input !== '-') {
+        input = input.slice(-1) !== 'Z' ? input + 'Z' : input;
+      }
+      var currentTimeZone = $cookies.get('django_timezone') || 'UTC';
+      currentTimeZone = currentTimeZone.replace(/^"(.*)"$/, '$1');
+      return timeZoneService.getTimeZoneOffset(currentTimeZone).then(function (timeZoneOffset) {
+        return $filter('noValue')($filter('date')(input, 'medium', timeZoneOffset));
+      });
     };
   }
 

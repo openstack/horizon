@@ -24,10 +24,6 @@ class ApplicationCredentialsPanel(horizon.Panel):
     slug = 'application_credentials'
     policy_rules = (('identity', 'identity:list_application_credentials'),)
 
-    @staticmethod
-    def can_register():
-        return keystone.VERSIONS.active >= 3
-
     def can_access(self, context):
         request = context['request']
         keystone_version = keystone.get_identity_api_version(request)

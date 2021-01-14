@@ -16,13 +16,11 @@
 #    WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
 #    License for the specific language governing permissions and limitations
 #    under the License.
-
-from __future__ import absolute_import
+from unittest import mock
 
 from django.conf import settings
 from django.test.utils import override_settings
 
-import mock
 from novaclient import api_versions
 from novaclient import exceptions as nova_exceptions
 from novaclient.v2 import flavor_access as nova_flavor_access
@@ -72,7 +70,7 @@ class ComputeApiTests(test.APIMockTestCase):
         # To handle upgrade_api
         mock_novaclient.api_version = api_versions.APIVersion(version)
 
-    @mock.patch.object(api.nova, 'novaclient')
+    @mock.patch.object(api._nova, 'novaclient')
     def test_server_reboot(self, mock_novaclient):
         server = self.servers.first()
         HARDNESS = servers.REBOOT_HARD
@@ -86,7 +84,7 @@ class ComputeApiTests(test.APIMockTestCase):
         novaclient.servers.reboot.assert_called_once_with(
             server.id, HARDNESS)
 
-    @mock.patch.object(api.nova, 'novaclient')
+    @mock.patch.object(api._nova, 'novaclient')
     def test_server_soft_reboot(self, mock_novaclient):
         server = self.servers.first()
         HARDNESS = servers.REBOOT_SOFT
@@ -100,7 +98,7 @@ class ComputeApiTests(test.APIMockTestCase):
         novaclient.servers.reboot.assert_called_once_with(
             server.id, HARDNESS)
 
-    @mock.patch.object(api.nova, 'novaclient')
+    @mock.patch.object(api._nova, 'novaclient')
     def test_server_vnc_console(self, mock_novaclient):
         server = self.servers.first()
         console = self.servers.vnc_console_data
@@ -117,7 +115,7 @@ class ComputeApiTests(test.APIMockTestCase):
         novaclient.servers.get_vnc_console.assert_called_once_with(
             server.id, console_type)
 
-    @mock.patch.object(api.nova, 'novaclient')
+    @mock.patch.object(api._nova, 'novaclient')
     def test_server_spice_console(self, mock_novaclient):
         server = self.servers.first()
         console = self.servers.spice_console_data
@@ -133,7 +131,7 @@ class ComputeApiTests(test.APIMockTestCase):
         novaclient.servers.get_spice_console.assert_called_once_with(
             server.id, console_type)
 
-    @mock.patch.object(api.nova, 'novaclient')
+    @mock.patch.object(api._nova, 'novaclient')
     def test_server_rdp_console(self, mock_novaclient):
         server = self.servers.first()
         console = self.servers.rdp_console_data
@@ -149,7 +147,7 @@ class ComputeApiTests(test.APIMockTestCase):
         novaclient.servers.get_rdp_console.assert_called_once_with(
             server.id, console_type)
 
-    @mock.patch.object(api.nova, 'novaclient')
+    @mock.patch.object(api._nova, 'novaclient')
     def test_server_mks_console(self, mock_novaclient):
         server = self.servers.first()
         console = self.servers.mks_console_data
@@ -167,7 +165,7 @@ class ComputeApiTests(test.APIMockTestCase):
         novaclient.servers.get_mks_console.assert_called_once_with(
             server.id, console_type)
 
-    @mock.patch.object(api.nova, 'novaclient')
+    @mock.patch.object(api._nova, 'novaclient')
     def test_server_list(self, mock_novaclient):
         servers = self.servers.list()
 
@@ -184,9 +182,9 @@ class ComputeApiTests(test.APIMockTestCase):
         novaclient.servers.list.assert_called_once_with(
             True, {'all_tenants': True})
 
-    @mock.patch.object(api.nova, 'novaclient')
+    @mock.patch.object(api._nova, 'novaclient')
     def test_server_list_pagination(self, mock_novaclient):
-        page_size = getattr(settings, 'API_RESULT_PAGE_SIZE', 20)
+        page_size = settings.API_RESULT_PAGE_SIZE
         servers = self.servers.list()
         novaclient = mock_novaclient.return_value
         self._mock_current_version(novaclient, '2.45')
@@ -204,12 +202,14 @@ class ComputeApiTests(test.APIMockTestCase):
             True,
             {'all_tenants': True,
              'marker': None,
-             'limit': page_size + 1})
+             'limit': page_size + 1},
+            sort_dirs=['desc', 'desc', 'desc'],
+            sort_keys=['created_at', 'display_name', 'uuid'])
 
     @override_settings(API_RESULT_PAGE_SIZE=1)
-    @mock.patch.object(api.nova, 'novaclient')
+    @mock.patch.object(api._nova, 'novaclient')
     def test_server_list_pagination_more(self, mock_novaclient):
-        page_size = getattr(settings, 'API_RESULT_PAGE_SIZE', 1)
+        page_size = settings.API_RESULT_PAGE_SIZE
         servers = self.servers.list()
         novaclient = mock_novaclient.return_value
         self._mock_current_version(novaclient, '2.45')
@@ -229,9 +229,11 @@ class ComputeApiTests(test.APIMockTestCase):
             True,
             {'all_tenants': True,
              'marker': None,
-             'limit': page_size + 1})
+             'limit': page_size + 1},
+            sort_dirs=['desc', 'desc', 'desc'],
+            sort_keys=['created_at', 'display_name', 'uuid'])
 
-    @mock.patch.object(api.nova, 'novaclient')
+    @mock.patch.object(api._nova, 'novaclient')
     def test_usage_get(self, mock_novaclient):
         novaclient = mock_novaclient.return_value
         self._mock_current_version(novaclient, '2.1')
@@ -245,7 +247,7 @@ class ComputeApiTests(test.APIMockTestCase):
         novaclient.usage.get.assert_called_once_with(
             self.tenant.id, 'start', 'end')
 
-    @mock.patch.object(api.nova, 'novaclient')
+    @mock.patch.object(api._nova, 'novaclient')
     def test_usage_get_paginated(self, mock_novaclient):
         novaclient = mock_novaclient.return_value
         self._mock_current_version(novaclient, '2.40')
@@ -265,7 +267,7 @@ class ComputeApiTests(test.APIMockTestCase):
                       marker=u'063cf7f3-ded1-4297-bc4c-31eae876cc93'),
         ])
 
-    @mock.patch.object(api.nova, 'novaclient')
+    @mock.patch.object(api._nova, 'novaclient')
     def test_usage_list(self, mock_novaclient):
         usages = self.usages.list()
 
@@ -280,7 +282,7 @@ class ComputeApiTests(test.APIMockTestCase):
         novaclient.versions.get_current.assert_called_once_with()
         novaclient.usage.list.assert_called_once_with('start', 'end', True)
 
-    @mock.patch.object(api.nova, 'novaclient')
+    @mock.patch.object(api._nova, 'novaclient')
     def test_usage_list_paginated(self, mock_novaclient):
         usages = self.usages.list()
 
@@ -302,7 +304,7 @@ class ComputeApiTests(test.APIMockTestCase):
                       marker=u'063cf7f3-ded1-4297-bc4c-31eae876cc93'),
         ])
 
-    @mock.patch.object(api.nova, 'novaclient')
+    @mock.patch.object(api._nova, 'novaclient')
     def test_server_get(self, mock_novaclient):
         server = self.servers.first()
 
@@ -315,7 +317,7 @@ class ComputeApiTests(test.APIMockTestCase):
         novaclient.versions.get_current.assert_called_once_with()
         novaclient.servers.get.assert_called_once_with(server.id)
 
-    @mock.patch.object(api.nova, 'novaclient')
+    @mock.patch.object(api._nova, 'novaclient')
     def test_server_metadata_update(self, mock_novaclient):
         server = self.servers.first()
         metadata = {'foo': 'bar'}
@@ -330,7 +332,7 @@ class ComputeApiTests(test.APIMockTestCase):
         novaclient.servers.set_meta.assert_called_once_with(server.id,
                                                             metadata)
 
-    @mock.patch.object(api.nova, 'novaclient')
+    @mock.patch.object(api._nova, 'novaclient')
     def test_server_metadata_delete(self, mock_novaclient):
         server = self.servers.first()
         keys = ['a', 'b']
@@ -344,7 +346,7 @@ class ComputeApiTests(test.APIMockTestCase):
         self.assertIsNone(ret_val)
         novaclient.servers.delete_meta.assert_called_once_with(server.id, keys)
 
-    @mock.patch.object(api.nova, 'novaclient')
+    @mock.patch.object(api._nova, 'novaclient')
     def _test_absolute_limits(self, values, expected_results, mock_novaclient):
         limits = mock.Mock()
         limits.absolute = []
@@ -359,7 +361,7 @@ class ComputeApiTests(test.APIMockTestCase):
 
         ret_val = api.nova.tenant_absolute_limits(self.request, reserved=True)
 
-        for key in expected_results.keys():
+        for key in expected_results:
             self.assertEqual(expected_results[key], ret_val[key])
         novaclient.limits.get.assert_called_once_with(reserved=True,
                                                       tenant_id=None)
@@ -389,7 +391,7 @@ class ComputeApiTests(test.APIMockTestCase):
                             }
         self._test_absolute_limits(values, expected_results)
 
-    @mock.patch.object(api.nova, 'novaclient')
+    @mock.patch.object(api._nova, 'novaclient')
     def test_cold_migrate_host_succeed(self, mock_novaclient):
         hypervisor = self.hypervisors.first()
         novaclient = mock_novaclient.return_value
@@ -403,7 +405,7 @@ class ComputeApiTests(test.APIMockTestCase):
         novaclient.hypervisors.search.assert_called_once_with('host', True)
         novaclient.servers.migrate.assert_called_once_with('test_uuid')
 
-    @mock.patch.object(api.nova, 'novaclient')
+    @mock.patch.object(api._nova, 'novaclient')
     def test_cold_migrate_host_fails(self, mock_novaclient):
         hypervisor = self.hypervisors.first()
         novaclient = mock_novaclient.return_value
@@ -417,7 +419,7 @@ class ComputeApiTests(test.APIMockTestCase):
         novaclient.hypervisors.search.assert_called_once_with('host', True)
         novaclient.servers.migrate.assert_called_once_with('test_uuid')
 
-    @mock.patch.object(api.nova, 'novaclient')
+    @mock.patch.object(api._nova, 'novaclient')
     def test_live_migrate_host_with_active_vm(self, mock_novaclient):
         hypervisor = self.hypervisors.first()
         server = self.servers.first()
@@ -439,7 +441,7 @@ class ComputeApiTests(test.APIMockTestCase):
         novaclient.servers.live_migrate.assert_called_once_with(
             server_uuid, None, True, True)
 
-    @mock.patch.object(api.nova, 'novaclient')
+    @mock.patch.object(api._nova, 'novaclient')
     def test_live_migrate_host_with_paused_vm(self, mock_novaclient):
         hypervisor = self.hypervisors.first()
         server = self.servers.list()[3]
@@ -460,7 +462,7 @@ class ComputeApiTests(test.APIMockTestCase):
         novaclient.servers.live_migrate.assert_called_once_with(
             server_uuid, None, True, True)
 
-    @mock.patch.object(api.nova, 'novaclient')
+    @mock.patch.object(api._nova, 'novaclient')
     def test_live_migrate_host_without_running_vm(self, mock_novaclient):
         hypervisor = self.hypervisors.first()
         server = self.servers.list()[1]
@@ -482,7 +484,7 @@ class ComputeApiTests(test.APIMockTestCase):
 
     """Flavor Tests"""
 
-    @mock.patch.object(api.nova, 'novaclient')
+    @mock.patch.object(api._nova, 'novaclient')
     def test_flavor_list_no_extras(self, mock_novaclient):
         flavors = self.flavors.list()
         novaclient = mock_novaclient.return_value
@@ -493,7 +495,7 @@ class ComputeApiTests(test.APIMockTestCase):
         self.assertEqual(len(flavors), len(api_flavors))
         novaclient.flavors.list.assert_called_once_with(is_public=True)
 
-    @mock.patch.object(api.nova, 'novaclient')
+    @mock.patch.object(api._nova, 'novaclient')
     def test_flavor_get_no_extras(self, mock_novaclient):
         flavor = self.flavors.list()[1]
         novaclient = mock_novaclient.return_value
@@ -504,10 +506,10 @@ class ComputeApiTests(test.APIMockTestCase):
         self.assertEqual(api_flavor.id, flavor.id)
         novaclient.flavors.get.assert_called_once_with(flavor.id)
 
-    @mock.patch.object(api.nova, 'novaclient')
+    @mock.patch.object(api._nova, 'novaclient')
     def _test_flavor_list_paged(self, mock_novaclient,
                                 reversed_order=False, paginate=True):
-        page_size = getattr(settings, 'API_RESULT_PAGE_SIZE', 20)
+        page_size = settings.API_RESULT_PAGE_SIZE
         flavors = self.flavors.list()
         order = 'asc' if reversed_order else 'desc'
         novaclient = mock_novaclient.return_value
@@ -530,9 +532,9 @@ class ComputeApiTests(test.APIMockTestCase):
                 is_public=True)
 
     @override_settings(API_RESULT_PAGE_SIZE=1)
-    @mock.patch.object(api.nova, 'novaclient')
+    @mock.patch.object(api._nova, 'novaclient')
     def test_flavor_list_pagination_more_and_prev(self, mock_novaclient):
-        page_size = getattr(settings, 'API_RESULT_PAGE_SIZE', 1)
+        page_size = settings.API_RESULT_PAGE_SIZE
         flavors = self.flavors.list()
         marker = flavors[0].id
         novaclient = mock_novaclient.return_value
@@ -564,7 +566,7 @@ class ComputeApiTests(test.APIMockTestCase):
     def test_flavor_list_paged_paginate_false(self):
         self._test_flavor_list_paged(paginate=False)
 
-    @mock.patch.object(api.nova, 'novaclient')
+    @mock.patch.object(api._nova, 'novaclient')
     def test_flavor_create(self, mock_novaclient):
         flavor = self.flavors.first()
 
@@ -592,7 +594,7 @@ class ComputeApiTests(test.APIMockTestCase):
             flavorid='auto', ephemeral=0, swap=0, is_public=True,
             rxtx_factor=1)
 
-    @mock.patch.object(api.nova, 'novaclient')
+    @mock.patch.object(api._nova, 'novaclient')
     def test_flavor_delete(self, mock_novaclient):
         flavor = self.flavors.first()
         novaclient = mock_novaclient.return_value
@@ -603,7 +605,7 @@ class ComputeApiTests(test.APIMockTestCase):
         self.assertIsNone(api_val)
         novaclient.flavors.delete.assert_called_once_with(flavor.id)
 
-    @mock.patch.object(api.nova, 'novaclient')
+    @mock.patch.object(api._nova, 'novaclient')
     def test_flavor_access_list(self, mock_novaclient):
         flavor_access = self.flavor_access.list()
         flavor = [f for f in self.flavors.list() if f.id ==
@@ -620,7 +622,7 @@ class ComputeApiTests(test.APIMockTestCase):
             self.assertEqual(access.flavor_id, flavor.id)
         novaclient.flavor_access.list.assert_called_once_with(flavor=flavor)
 
-    @mock.patch.object(api.nova, 'novaclient')
+    @mock.patch.object(api._nova, 'novaclient')
     def test_add_tenant_to_flavor(self, mock_novaclient):
         flavor_access = [self.flavor_access.first()]
         flavor = [f for f in self.flavors.list() if f.id ==
@@ -643,7 +645,7 @@ class ComputeApiTests(test.APIMockTestCase):
         novaclient.flavor_access.add_tenant_access.assert_called_once_with(
             flavor=flavor, tenant=tenant)
 
-    @mock.patch.object(api.nova, 'novaclient')
+    @mock.patch.object(api._nova, 'novaclient')
     def test_remove_tenant_from_flavor(self, mock_novaclient):
         flavor_access = [self.flavor_access.first()]
         flavor = [f for f in self.flavors.list() if f.id ==
@@ -663,7 +665,7 @@ class ComputeApiTests(test.APIMockTestCase):
         novaclient.flavor_access.remove_tenant_access.assert_called_once_with(
             flavor=flavor, tenant=tenant)
 
-    @mock.patch.object(api.nova, 'novaclient')
+    @mock.patch.object(api._nova, 'novaclient')
     def test_server_group_list(self, mock_novaclient):
         server_groups = self.server_groups.list()
 
@@ -676,7 +678,7 @@ class ComputeApiTests(test.APIMockTestCase):
         self.assertEqual(len(ret_val), len(server_groups))
         novaclient.server_groups.list.assert_called_once_with()
 
-    @mock.patch.object(api.nova, 'novaclient')
+    @mock.patch.object(api._nova, 'novaclient')
     def test_server_group_create(self, mock_novaclient):
         servergroup = self.server_groups.first()
         kwargs = {'name': servergroup.name, 'policies': servergroup.policies}
@@ -691,7 +693,7 @@ class ComputeApiTests(test.APIMockTestCase):
         novaclient.versions.get_current.assert_called_once_with()
         novaclient.server_groups.create.assert_called_once_with(**kwargs)
 
-    @mock.patch.object(api.nova, 'novaclient')
+    @mock.patch.object(api._nova, 'novaclient')
     def test_server_group_delete(self, mock_novaclient):
         servergroup_id = self.server_groups.first().id
         novaclient = mock_novaclient.return_value
@@ -702,7 +704,7 @@ class ComputeApiTests(test.APIMockTestCase):
         self.assertIsNone(api_val)
         novaclient.server_groups.delete.assert_called_once_with(servergroup_id)
 
-    @mock.patch.object(api.nova, 'novaclient')
+    @mock.patch.object(api._nova, 'novaclient')
     def test_server_group_get(self, mock_novaclient):
         servergroup = self.server_groups.first()
         novaclient = mock_novaclient.return_value
@@ -715,7 +717,7 @@ class ComputeApiTests(test.APIMockTestCase):
         novaclient.versions.get_current.assert_called_once_with()
         novaclient.server_groups.get.assert_called_once_with(servergroup.id)
 
-    @mock.patch.object(api.nova, 'novaclient')
+    @mock.patch.object(api._nova, 'novaclient')
     def test_tenant_quota_get(self, mock_novaclient):
         tenant_id = '10'
         quota_data = {
@@ -750,7 +752,7 @@ class ComputeApiTests(test.APIMockTestCase):
             self.assertEqual(quota_data[key], ret_val.get(key).limit)
         novaclient.quotas.get.assert_called_once_with(tenant_id)
 
-    @mock.patch.object(api.nova, 'novaclient')
+    @mock.patch.object(api._nova, 'novaclient')
     def test_availability_zone_list(self, mock_novaclient):
         novaclient = mock_novaclient.return_value
         detailed = False
@@ -764,8 +766,8 @@ class ComputeApiTests(test.APIMockTestCase):
         novaclient.availability_zones.list.assert_called_once_with(
             detailed=detailed)
 
-    @test.create_mocks({api.nova: ['get_microversion',
-                                   'novaclient']})
+    @test.create_mocks({api.nova: ['get_microversion'],
+                        api._nova: ['novaclient']})
     def _test_server_create(self, extra_kwargs=None, expected_kwargs=None):
         extra_kwargs = extra_kwargs or {}
         expected_kwargs = expected_kwargs or {}

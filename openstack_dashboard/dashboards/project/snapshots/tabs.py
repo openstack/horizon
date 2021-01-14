@@ -19,6 +19,8 @@ from horizon import exceptions
 from horizon import tabs
 
 from openstack_dashboard.api import cinder
+from openstack_dashboard.dashboards.project.snapshots \
+    import tables as snap_messages_tables
 
 
 class OverviewTab(tabs.Tab):
@@ -43,6 +45,29 @@ class OverviewTab(tabs.Tab):
         return reverse('horizon:project:snapshots:index')
 
 
+class SnapshotMessagesTab(tabs.TableTab):
+    table_classes = (snap_messages_tables.SnapshotMessagesTable,)
+    name = _("Messages")
+    slug = "messages_tab"
+    template_name = ("horizon/common/_detail_table.html")
+    preload = False
+
+    def get_snapshot_messages_data(self):
+        messages = []
+        snapshot = self.tab_group.kwargs['snapshot']
+        snap_id = snapshot.id
+        try:
+            snap_msgs = cinder.message_list(self.request, search_opts={
+                'resource_type': 'volume_snapshot', 'resource_uuid': snap_id})
+            for snap_msg in snap_msgs:
+                messages.append(snap_msg)
+
+        except Exception:
+            exceptions.handle(self.request, _("Unable to retrieve "
+                                              "snapshot messages."))
+        return messages
+
+
 class SnapshotDetailTabs(tabs.TabGroup):
     slug = "snapshot_details"
-    tabs = (OverviewTab,)
+    tabs = (OverviewTab, SnapshotMessagesTab)

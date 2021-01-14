@@ -18,7 +18,7 @@
 
 from django.conf import settings
 from django.template.defaultfilters import floatformat
-from django.utils import translation
+from django.utils.text import format_lazy
 from django.utils.translation import ugettext_lazy as _
 
 from horizon import exceptions
@@ -50,12 +50,12 @@ class GlobalOverview(usage.UsageView):
     csv_response_class = GlobalUsageCsvRenderer
 
     def get_context_data(self, **kwargs):
-        context = super(GlobalOverview, self).get_context_data(**kwargs)
-        context['monitoring'] = getattr(settings, 'EXTERNAL_MONITORING', [])
+        context = super().get_context_data(**kwargs)
+        context['monitoring'] = settings.EXTERNAL_MONITORING
         return context
 
     def get_data(self):
-        data = super(GlobalOverview, self).get_data()
+        data = super().get_data()
         # Pre-fill project names
         try:
             projects, has_more = api.keystone.tenant_list(self.request)
@@ -71,6 +71,7 @@ class GlobalOverview(usage.UsageView):
                 instance.project_name = getattr(project[0], "name", None)
             else:
                 deleted = _("Deleted")
-                instance.project_name = translation.string_concat(
-                    instance.tenant_id, " (", deleted, ")")
+                instance.project_name = format_lazy(
+                    '{tenant_id} ({deleted})',
+                    tenant_id=instance.tenant_id, deleted=deleted)
         return data

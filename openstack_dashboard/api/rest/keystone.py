@@ -56,7 +56,7 @@ class Users(generic.View):
 
         filters = rest_utils.parse_filters_kwargs(request,
                                                   self.client_keywords)[0]
-        if len(filters) == 0:
+        if not filters:
             filters = None
 
         result = api.keystone.user_list(
@@ -135,7 +135,7 @@ class User(generic.View):
         This method returns HTTP 204 (no content) on success.
         """
         if id == 'current':
-            raise django.http.HttpResponseNotFound('current')
+            return django.http.HttpResponseNotFound('current')
         api.keystone.user_delete(request, id)
 
     @rest_utils.ajax(data_required=True)
@@ -156,7 +156,7 @@ class User(generic.View):
         user = api.keystone.user_get(request, id)
 
         if 'password' in keys:
-            if getattr(settings, 'ENFORCE_PASSWORD_CHECK', False):
+            if settings.ENFORCE_PASSWORD_CHECK:
                 admin_password = request.DATA['admin_password']
                 if not api.keystone.user_verify_admin_password(request,
                                                                admin_password):
@@ -255,7 +255,7 @@ class Role(generic.View):
         This method returns HTTP 204 (no content) on success.
         """
         if id == 'default':
-            raise django.http.HttpResponseNotFound('default')
+            return django.http.HttpResponseNotFound('default')
         api.keystone.role_delete(request, id)
 
     @rest_utils.ajax(data_required=True)
@@ -355,7 +355,7 @@ class Domain(generic.View):
         This method returns HTTP 204 (no content) on success.
         """
         if id == 'default':
-            raise django.http.HttpResponseNotFound('default')
+            return django.http.HttpResponseNotFound('default')
         api.keystone.domain_delete(request, id)
 
     @rest_utils.ajax(data_required=True)
@@ -420,11 +420,11 @@ class Projects(generic.View):
 
         filters = rest_utils.parse_filters_kwargs(request,
                                                   self.client_keywords)[0]
-        if len(filters) == 0:
+        if not filters:
             filters = None
 
         paginate = request.GET.get('paginate') == 'true'
-        admin = False if request.GET.get('admin') == 'false' else True
+        admin = request.GET.get('admin') != 'false'
 
         result, has_more = api.keystone.tenant_list(
             request,
@@ -456,7 +456,6 @@ class Projects(generic.View):
             raise rest_utils.AjaxError(400, '"name" is required')
         new_project = api.keystone.tenant_create(
             request,
-            kwargs.pop('name'),
             **kwargs
         )
         return rest_utils.CreatedResponse(
@@ -578,7 +577,7 @@ class UserSession(generic.View):
     def get(self, request):
         """Get the current user session."""
         res = {k: getattr(request.user, k, None) for k in self.allowed_fields}
-        if getattr(settings, 'ENABLE_CLIENT_TOKEN', True):
+        if settings.ENABLE_CLIENT_TOKEN:
             res['token'] = request.user.token.id
         return res
 

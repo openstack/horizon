@@ -82,10 +82,10 @@
       it('initializes transfer table variables', function() {
         // NOTE: these are set by the default, not the initial values.
         // Arguably we shouldn't even set the original values.
-        expect(ctrl.tableHeadCells).toBeDefined();
-        expect(ctrl.tableHeadCells.length).toEqual(5);
-        expect(ctrl.tableBodyCells).toBeDefined();
-        expect(ctrl.tableBodyCells.length).toEqual(5);
+        expect(ctrl.availableTableConfig.columns).toBeDefined();
+        expect(ctrl.availableTableConfig.columns.length).toEqual(5);
+        expect(ctrl.allocatedTableConfig.columns).toBeDefined();
+        expect(ctrl.allocatedTableConfig.columns.length).toEqual(5);
         expect(ctrl.tableData).toBeDefined();
         expect(Object.keys(ctrl.tableData).length).toEqual(4);
         expect(ctrl.helpText).toBeDefined();
@@ -104,6 +104,77 @@
           displayedAllocated: sel
         });
       });
+
+      var executeBootSourcesTest = function (expectedBootResources, allowedBootSources, testType) {
+        describe('LaunchInstanceSourceControllerUsing' + testType, function () {
+          beforeEach(inject(function ($controller, $rootScope, _$browser_, $q) {
+            scope = $rootScope.$new();
+            spyOn(scope, '$watch').and.callThrough();
+            spyOn(scope, '$watchCollection').and.callThrough();
+            $browser = _$browser_;
+            deferred = $q.defer();
+            scope.initPromise = deferred.promise;
+
+            scope.model = {
+              allowedBootSources: allowedBootSources,
+              newInstanceSpec: {source: [], source_type: '', create_volume_default: true},
+              images: [{id: 'image-1'}, {id: 'image-2'}],
+              imageSnapshots: [{id: 'imageSnapshot-1'}],
+              volumes: [{id: 'volume-1'}, {id: 'volume-2'}],
+              volumeSnapshots: [{id: 'snapshot-2'}],
+              novaLimits: {
+                maxTotalInstances: 10,
+                totalInstancesUsed: 0
+              }
+            };
+
+            scope.launchInstanceSourceForm = {
+              'boot-source-type': {$setValidity: noop}
+            };
+
+            ctrl = $controller('LaunchInstanceSourceController', {$scope: scope});
+
+            scope.$apply();
+          }));
+
+          var iterationName = 'initializes table data to reflect "{0}" selection';
+          it(iterationName.replace("{0}", testType), function () {
+            var list = expectedBootResources; // Use scope's values.
+            var sel = []; // None selected.
+
+            expect(ctrl.tableData).toEqual({
+              available: list,
+              allocated: sel,
+              displayedAvailable: list,
+              displayedAllocated: sel
+            });
+          });
+        });
+      };
+
+      executeBootSourcesTest(
+          [{id: 'imageSnapshot-1'}],
+          [{type: 'snapshot', label: 'ImageSnapshot'},
+            {type: 'volume', label: 'Volume'},
+            {type: 'image', label: 'Image'},
+            {type: 'volume_snapshot', label: 'VolumeSnapshot'}],
+          "ImageSnapshot");
+
+      executeBootSourcesTest(
+          [{id: 'volume-1'}, {id: 'volume-2'}],
+          [{type: 'volume', label: 'Volume'},
+            {type: 'image', label: 'Image'},
+            {type: 'volume_snapshot', label: 'VolumeSnapshot'},
+            {type: 'snapshot', label: 'ImageSnapshot'}],
+          "UsingVolume");
+
+      executeBootSourcesTest(
+          [{id: 'snapshot-2'}],
+          [{type: 'volume_snapshot', label: 'volumeSnapshots'},
+            {type: 'volume', label: 'Volume'},
+            {type: 'image', label: 'Image'},
+            {type: 'snapshot', label: 'ImageSnapshot'}],
+          "VolumeSnapshot");
 
       it('defaults to first source type if none existing', function() {
         expect(scope.model.newInstanceSpec.source_type.type).toBe('image');
@@ -134,8 +205,10 @@
           expect(ctrl.currentBootSource).toBe('snapshot');
 
           // Change the allowed boot sources
-          scope.model.allowedBootSources = [{type: 'image', label: 'Image'},
-            {type: 'snapshot', label: 'Snapshot'}];
+          scope.model.allowedBootSources = [
+            {type: 'image', label: 'Image', selected: false},
+            {type: 'snapshot', label: 'Snapshot', selected: true}
+          ];
 
           scope.$apply();
 
@@ -154,7 +227,7 @@
           expect(ctrl.sourceFacets[1].name).toEqual('updated_at');
           expect(ctrl.sourceFacets[2].name).toEqual('size');
           expect(ctrl.sourceFacets[3].name).toEqual('disk_format');
-          expect(ctrl.sourceFacets[4].name).toEqual('is_public');
+          expect(ctrl.sourceFacets[4].name).toEqual('visibility');
         });
 
         it('should broadcast event when source type is changed', function() {
@@ -174,7 +247,7 @@
           expect(ctrl.sourceFacets[1].name).toEqual('updated_at');
           expect(ctrl.sourceFacets[2].name).toEqual('size');
           expect(ctrl.sourceFacets[3].name).toEqual('disk_format');
-          expect(ctrl.sourceFacets[4].name).toEqual('is_public');
+          expect(ctrl.sourceFacets[4].name).toEqual('visibility');
         });
 
         it('should change facets for volume source type', function() {
@@ -289,8 +362,8 @@
             // check table data
             expect(ctrl.tableData).toBeDefined();
             expect(Object.keys(ctrl.tableData)).toEqual(tableKeys);
-            expect(ctrl.tableHeadCells.length).toBeGreaterThan(0);
-            expect(ctrl.tableBodyCells.length).toBeGreaterThan(0);
+            expect(ctrl.availableTableConfig.columns.length).toBeGreaterThan(0);
+            expect(ctrl.allocatedTableConfig.columns.length).toBeGreaterThan(0);
           });
 
           it('updates the scope appropriately, with Cinder available', function() {

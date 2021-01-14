@@ -11,8 +11,8 @@
 #    under the License.
 
 import unittest
+from unittest import mock
 
-import mock
 
 from openstack_dashboard.api import microversions
 

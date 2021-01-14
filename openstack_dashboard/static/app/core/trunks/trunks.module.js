@@ -52,7 +52,7 @@
                trunksService,
                trunkResourceType) {
     registry.getResourceType(trunkResourceType)
-      .setNames(gettext('Trunk'), gettext('Trunks'))
+      .setNames('Trunk', 'Trunks', ngettext('Trunk', 'Trunks', 1))
       .setSummaryTemplateUrl(basePath + 'summary.html')
       .setDefaultIndexUrl('/project/trunks/')
       .setProperties(trunkProperties())
@@ -62,6 +62,7 @@
         id: 'name_or_id',
         priority: 1,
         sortDefault: true,
+        classes: "word-wrap",
         urlFunction: trunksService.getDetailsPath
       })
       .append({

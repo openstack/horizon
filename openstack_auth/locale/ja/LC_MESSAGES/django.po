@@ -1,17 +1,19 @@
+# Akihiro Motoki <amotoki@gmail.com>, 2018. #zanata
 # Yuko Katabami <yukokatabami@gmail.com>, 2018. #zanata
+# Takashi Kuroda <tkuroda@redhat.com>, 2019. #zanata
 msgid ""
 msgstr ""
 "Project-Id-Version: horizon VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2018-02-07 19:44+0000\n"
+"POT-Creation-Date: 2019-10-01 07:07+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2018-02-07 09:55+0000\n"
-"Last-Translator: Akihiro Motoki <amotoki@gmail.com>\n"
+"PO-Revision-Date: 2019-09-30 12:55+0000\n"
+"Last-Translator: Takashi Kuroda <tkuroda@redhat.com>\n"
 "Language-Team: Japanese\n"
 "Language: ja\n"
-"X-Generator: Zanata 3.9.6\n"
+"X-Generator: Zanata 4.3.3\n"
 "Plural-Forms: nplurals=1; plural=0\n"
 
 msgid "An error occurred authenticating. Please try again later."
@@ -20,8 +22,14 @@ msgstr "認証中にエラーが発生しました。後ほどもう一度お試
 msgid "Authenticate using"
 msgstr "使用する認証方法"
 
+msgid "Confirm password"
+msgstr "新しいパスワード (確認)"
+
 msgid "Could not find service provider ID on keystone."
 msgstr "keystone でサービスプロバイダー ID が見つかりません。"
+
+msgid "Default Region"
+msgstr "デフォルトリージョン"
 
 msgid "Domain"
 msgstr "ドメイン"
@@ -35,13 +43,31 @@ msgstr "認証情報が無効です。"
 msgid "K2K Federation not setup for this session"
 msgstr "このセッションには K2K フェデレーションは設定されていません。"
 
+msgid "New password"
+msgstr "新しいパスワード"
+
 msgid ""
 "No authentication backend could be determined to handle the provided "
 "credentials."
 msgstr "指定された認証情報を処理する認証バックエンドが決定できませんでした。"
 
+msgid "Old password and new password must be different."
+msgstr "新しいパスワードは古いパスワードと異なる必要があります。"
+
+msgid "Original password"
+msgstr "元のパスワード"
+
 msgid "Password"
 msgstr "パスワード"
+
+msgid "Password changed. Please log in to continue."
+msgstr "パスワードが変更されました。続行するには、ログインしてください。"
+
+msgid "Password expired."
+msgstr "パスワードの期限が切れました。"
+
+msgid "Passwords do not match."
+msgstr "パスワードが一致しません。"
 
 #, python-format
 msgid "Please consider changing your password, it will expire in %s minutes"
@@ -60,7 +86,7 @@ msgid "Service provider authentication failed. %s"
 msgstr "サービスプロバイダーの認証に失敗しました。%s"
 
 #, python-format
-msgid "Switch to Keystone Provider \"%(keystone_provider)s\"successful."
+msgid "Switch to Keystone Provider \"%(keystone_provider)s\" successful."
 msgstr ""
 "Keystone プロバイダー \"%(keystone_provider)s\" への切り替えが正常に完了しま"
 "した。"
@@ -81,11 +107,14 @@ msgstr "認証されたドメインを取得できません。"
 msgid "Unable to retrieve authorized projects."
 msgstr "権限を持っているプロジェクトの情報を取得できません。"
 
+msgid "Unable to update the user password."
+msgstr "ユーザーのパスワードを更新できません。"
+
 msgid "User Name"
 msgstr "ユーザー名"
 
 msgid "You are not authorized for any projects or domains."
 msgstr "どのプロジェクトやドメインに対しても権限がありません。"
 
-msgid "You are not authorized for any projects."
-msgstr "どのプロジェクトに対しても権限がありません。"
+msgid "Your password has expired. Please set a new password."
+msgstr "パスワードの期限が切れています。新しいパスワードを設定してください。"

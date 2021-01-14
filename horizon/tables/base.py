@@ -36,7 +36,6 @@ from django.utils.http import urlencode
 from django.utils.safestring import mark_safe
 from django.utils import termcolors
 from django.utils.translation import ugettext_lazy as _
-import six
 
 from horizon import conf
 from horizon import exceptions
@@ -46,6 +45,7 @@ from horizon.tables.actions import BatchAction
 from horizon.tables.actions import FilterAction
 from horizon.tables.actions import LinkAction
 from horizon.utils import html
+from horizon.utils import settings as utils_settings
 
 
 LOG = logging.getLogger(__name__)
@@ -53,7 +53,6 @@ PALETTE = termcolors.PALETTES[termcolors.DEFAULT_PALETTE]
 STRING_SEPARATOR = "__"
 
 
-@six.python_2_unicode_compatible
 class Column(html.HTMLElement):
     """A class which represents a single column in a :class:`.DataTable`.
 
@@ -306,14 +305,14 @@ class Column(html.HTMLElement):
 
         allowed_data_types = allowed_data_types or []
         self.classes = list(classes or getattr(self, "classes", []))
-        super(Column, self).__init__()
+        super().__init__()
         self.attrs.update(attrs or {})
 
         if callable(transform):
             self.transform = transform
             self.name = "<%s callable>" % transform.__name__
         else:
-            self.transform = six.text_type(transform)
+            self.transform = str(transform)
             self.name = self.transform
 
         # Empty string is a valid value for verbose_name
@@ -323,7 +322,7 @@ class Column(html.HTMLElement):
             else:
                 self.verbose_name = self.transform.title()
         else:
-            self.verbose_name = verbose_name
+            self.verbose_name = str(verbose_name)
 
         self.auto = auto
         self.sortable = sortable
@@ -351,7 +350,7 @@ class Column(html.HTMLElement):
 
         if summation is not None and summation not in self.summation_methods:
             raise ValueError(
-                "Summation method %(summation)s must be one of %(keys)s.",
+                "Summation method %(summation)s must be one of %(keys)s." %
                 {'summation': summation,
                  'keys': ", ".join(self.summation_methods.keys())})
         self.summation = summation
@@ -367,7 +366,7 @@ class Column(html.HTMLElement):
             self.classes.append('anchor')
 
     def __str__(self):
-        return six.text_type(self.verbose_name)
+        return self.verbose_name
 
     def __repr__(self):
         return '<%s: %s>' % (self.__class__.__name__, self.name)
@@ -380,7 +379,7 @@ class Column(html.HTMLElement):
         if not self.policy_rules:
             return True
 
-        policy_check = getattr(settings, "POLICY_CHECK_FUNCTION", None)
+        policy_check = utils_settings.import_setting("POLICY_CHECK_FUNCTION")
 
         if policy_check:
             return policy_check(self.policy_rules, request)
@@ -396,8 +395,8 @@ class Column(html.HTMLElement):
         if callable(self.transform):
             data = self.transform(datum)
         # Dict lookups
-        elif isinstance(datum, collections.Mapping) and \
-                self.transform in datum:
+        elif (isinstance(datum, collections.abc.Mapping) and
+              self.transform in datum):
             data = datum.get(self.transform)
         else:
             # Basic object lookups
@@ -439,7 +438,7 @@ class Column(html.HTMLElement):
                            "'%(data)s' on column '%(col_name)s'")
                     args = {'filter': filter_func.__name__,
                             'data': data,
-                            'col_name': six.text_type(self.verbose_name)}
+                            'col_name': self.verbose_name}
                     LOG.warning(msg, args)
 
         if data and self.truncate:
@@ -469,7 +468,7 @@ class Column(html.HTMLElement):
                 return None
         obj_id = self.table.get_object_id(datum)
         if callable(self.link):
-            if 'request' in inspect.getargspec(self.link).args:
+            if 'request' in inspect.getfullargspec(self.link).args:
                 return self.link(datum, request=self.table.request)
             return self.link(datum)
         try:
@@ -477,9 +476,9 @@ class Column(html.HTMLElement):
         except urls.NoReverseMatch:
             return self.link
 
-    if getattr(settings, 'INTEGRATION_TESTS_SUPPORT', False):
+    if settings.INTEGRATION_TESTS_SUPPORT:
         def get_default_attrs(self):
-            attrs = super(Column, self).get_default_attrs()
+            attrs = super().get_default_attrs()
             attrs.update({'data-selenium': self.name})
             return attrs
 
@@ -496,7 +495,7 @@ class Column(html.HTMLElement):
         data = [self.get_raw_data(datum) for datum in self.table.data]
         data = [raw_data for raw_data in data if raw_data is not None]
 
-        if len(data):
+        if data:
             try:
                 summation = summation_function(data)
                 for filter_func in self.filters:
@@ -511,7 +510,7 @@ class WrappingColumn(Column):
     """A column that wraps its contents. Useful for data like UUIDs or names"""
 
     def __init__(self, *args, **kwargs):
-        super(WrappingColumn, self).__init__(*args, **kwargs)
+        super().__init__(*args, **kwargs)
         self.classes.append('word-break')
 
 
@@ -581,7 +580,7 @@ class Row(html.HTMLElement):
     ajax_cell_action_name = "cell_update"
 
     def __init__(self, table, datum=None):
-        super(Row, self).__init__()
+        super().__init__()
         self.table = table
         self.datum = datum
         self.selected = False
@@ -653,8 +652,8 @@ class Row(html.HTMLElement):
     def status(self):
         column_names = self.table._meta.status_columns
         if column_names:
-            statuses = dict([(column_name, self.cells[column_name].status) for
-                             column_name in column_names])
+            statuses = dict((column_name, self.cells[column_name].status) for
+                            column_name in column_names)
             return self.table.calculate_row_status(statuses)
 
     @property
@@ -662,8 +661,7 @@ class Row(html.HTMLElement):
         column_names = self.table._meta.status_columns
         if column_names:
             return self.table.get_row_status_class(self.status)
-        else:
-            return ''
+        return ''
 
     def render(self):
         return render_to_string("horizon/common/_data_table_row.html",
@@ -711,7 +709,7 @@ class Cell(html.HTMLElement):
 
     def __init__(self, datum, column, row, attrs=None, classes=None):
         self.classes = classes or getattr(self, "classes", [])
-        super(Cell, self).__init__()
+        super().__init__()
         self.attrs.update(attrs or {})
 
         self.datum = datum
@@ -735,7 +733,7 @@ class Cell(html.HTMLElement):
             if len(data) > column.truncate:
                 self.attrs['data-toggle'] = 'tooltip'
                 self.attrs['title'] = data
-                if getattr(settings, 'INTEGRATION_TESTS_SUPPORT', False):
+                if settings.INTEGRATION_TESTS_SUPPORT:
                     self.attrs['data-selenium'] = data
         self.data = self.get_data(datum, column, row)
 
@@ -748,7 +746,7 @@ class Cell(html.HTMLElement):
                 widget = ThemableCheckboxInput(check_test=lambda value: False)
                 # Convert value to string to avoid accidental type conversion
                 data = widget.render('object_ids',
-                                     six.text_type(table.get_object_id(datum)),
+                                     table.get_object_id(datum),
                                      {'class': 'table-row-multi-select'})
             table._data_cache[column][table.get_object_id(datum)] = data
         elif column.auto == "form_field":
@@ -758,7 +756,7 @@ class Cell(html.HTMLElement):
 
             widget_name = "%s__%s" % \
                 (column.name,
-                 six.text_type(table.get_object_id(datum)))
+                 table.get_object_id(datum))
 
             # Create local copy of attributes, so it don't change column
             # class form_field_attributes
@@ -795,7 +793,7 @@ class Cell(html.HTMLElement):
     @property
     def id(self):
         return ("%s__%s" % (self.column.name,
-                six.text_type(self.row.table.get_object_id(self.datum))))
+                self.row.table.get_object_id(self.datum)))
 
     @property
     def value(self):
@@ -813,11 +811,8 @@ class Cell(html.HTMLElement):
                     data = self.column.empty_value(self.datum)
                 else:
                     data = self.column.empty_value
-        except Exception:
-            data = None
-            exc_info = sys.exc_info()
-            raise six.reraise(template.TemplateSyntaxError, exc_info[1],
-                              exc_info[2])
+        except Exception as e:
+            raise template.TemplateSyntaxError from e
 
         if self.url and not self.column.auto == "form_field":
             link_attrs = ' '.join(['%s="%s"' % (k, v) for (k, v) in
@@ -826,7 +821,7 @@ class Cell(html.HTMLElement):
             data = mark_safe('<a href="%s" %s>%s</a>' % (
                              (escape(self.url),
                               link_attrs,
-                              escape(six.text_type(data)))))
+                              escape(data))))
         return data
 
     @property
@@ -843,15 +838,16 @@ class Cell(html.HTMLElement):
         """Gets the status for the column based on the cell's data."""
         # Deal with status column mechanics based in this cell's data
         if hasattr(self, '_status'):
+            # pylint: disable=access-member-before-definition
             return self._status
 
         if self.column.status or \
                 self.column.name in self.column.table._meta.status_columns:
             # returns the first matching status found
-            data_status_lower = six.text_type(
+            data_status_lower = str(
                 self.column.get_raw_data(self.datum)).lower()
             for status_name, status_value in self.column.status_choices:
-                if six.text_type(status_name).lower() == data_status_lower:
+                if str(status_name).lower() == data_status_lower:
                     self._status = status_value
                     return self._status
         self._status = None
@@ -861,10 +857,9 @@ class Cell(html.HTMLElement):
         """Returns a css class name determined by the status value."""
         if status is True:
             return "status_up"
-        elif status is False:
+        if status is False:
             return "status_down"
-        else:
-            return "warning"
+        return "warning"
 
     def get_default_classes(self):
         """Returns a flattened string of the cell's CSS classes."""
@@ -1104,6 +1099,8 @@ class DataTableOptions(object):
         # Set self.filter if we have any FilterActions
         filter_actions = [action for action in self.table_actions if
                           issubclass(action, FilterAction)]
+        batch_actions = [action for action in self.table_actions if
+                         issubclass(action, BatchAction)]
         if len(filter_actions) > 1:
             raise NotImplementedError("Multiple filter actions are not "
                                       "currently supported.")
@@ -1128,15 +1125,15 @@ class DataTableOptions(object):
             getattr(options,
                     'table_actions_template',
                     'horizon/common/_data_table_table_actions.html')
-        self.context_var_name = six.text_type(getattr(options,
-                                                      'context_var_name',
-                                                      'table'))
+        self.context_var_name = getattr(options,
+                                        'context_var_name',
+                                        'table')
         self.actions_column = getattr(options,
                                       'actions_column',
                                       len(self.row_actions) > 0)
         self.multi_select = getattr(options,
                                     'multi_select',
-                                    len(self.table_actions) > 0)
+                                    len(batch_actions) > 0)
 
         # Set runtime table defaults; not configurable.
         self.has_prev_data = False
@@ -1170,7 +1167,7 @@ class DataTableOptions(object):
 
 class DataTableMetaclass(type):
     """Metaclass to add options to DataTable class and collect columns."""
-    def __new__(mcs, name, bases, attrs):
+    def __new__(cls, name, bases, attrs):
         # Process options from Meta
         class_name = name
         dt_attrs = {}
@@ -1242,12 +1239,10 @@ class DataTableMetaclass(type):
             opts._filter_action = actions_dict[opts._filter_action.name]
 
         # Create our new class!
-        return type.__new__(mcs, name, bases, dt_attrs)
+        return type.__new__(cls, name, bases, dt_attrs)
 
 
-@six.python_2_unicode_compatible
-@six.add_metaclass(DataTableMetaclass)
-class DataTable(object):
+class DataTable(object, metaclass=DataTableMetaclass):
     """A class which defines a table with all data and associated actions.
 
     .. attribute:: name
@@ -1300,9 +1295,19 @@ class DataTable(object):
 
         self.needs_summary_row = any([col.summation
                                       for col in self.columns.values()])
+        # For multi-process, we need to set the multi_column to be visible
+        # or hidden each time.
+        # Example: first process the multi_column visible but second
+        # process the column is hidden. Updating row by ajax will
+        # make the bug#1799151
+        if request.GET.get('action') == 'row_update':
+            bound_actions = self.get_table_actions()
+            batch_actions = [action for action in bound_actions
+                             if isinstance(action, BatchAction)]
+            self.set_multiselect_column_visibility(bool(batch_actions))
 
     def __str__(self):
-        return six.text_type(self._meta.verbose_name)
+        return str(self._meta.verbose_name)
 
     def __repr__(self):
         return '<%s: %s>' % (self.__class__.__name__, self._meta.name)
@@ -1459,17 +1464,13 @@ class DataTable(object):
 
         Uses :meth:`~horizon.tables.DataTable.get_object_id` internally.
         """
-        if not isinstance(lookup, six.text_type):
+        if not isinstance(lookup, str):
             lookup = str(lookup)
-            if six.PY2:
-                lookup = lookup.decode('utf-8')
         matches = []
         for datum in self.data:
             obj_id = self.get_object_id(datum)
-            if not isinstance(obj_id, six.text_type):
+            if not isinstance(obj_id, str):
                 obj_id = str(obj_id)
-                if six.PY2:
-                    obj_id = obj_id.decode('utf-8')
             if obj_id == lookup:
                 matches.append(datum)
         if len(matches) > 1:
@@ -1569,7 +1570,7 @@ class DataTable(object):
         if self._meta.table_actions_menu_label:
             extra_context['table_actions_menu_label'] = \
                 self._meta.table_actions_menu_label
-        self.set_multiselect_column_visibility(len(batch_actions) > 0)
+        self.set_multiselect_column_visibility(bool(batch_actions))
         return table_actions_template.render(extra_context, self.request)
 
     def render_row_actions(self, datum, row=False):
@@ -1640,7 +1641,7 @@ class DataTable(object):
                     obj_ids = [obj_id]
                 response = action.multiple(self, self.request, obj_ids)
             return response
-        elif action and action.requires_input and not (obj_id or obj_ids):
+        if action and action.requires_input and not (obj_id or obj_ids):
             messages.info(self.request,
                           _("Please select a row before taking that action."))
         return None
@@ -1685,8 +1686,7 @@ class DataTable(object):
                 if request.is_ajax():
                     if not error:
                         return HttpResponse(new_row.render())
-                    else:
-                        return HttpResponse(status=error.status_code)
+                    return HttpResponse(status=error.status_code)
             elif new_row.ajax_cell_action_name == action_name:
                 # inline edit of the cell actions
                 return self.inline_edit_handle(request, table_name,
@@ -1746,8 +1746,7 @@ class DataTable(object):
         if request.is_ajax():
             if not error:
                 return HttpResponse(cell.render())
-            else:
-                return HttpResponse(status=error.status_code)
+            return HttpResponse(status=error.status_code)
 
     def inline_update_action(self, request, datum, cell, obj_id, cell_name):
         """Handling update by POST of the cell."""
@@ -1904,10 +1903,9 @@ class DataTable(object):
         values = statuses.values()
         if any([status is False for status in values]):
             return False
-        elif any([status is None for status in values]):
+        if any([status is None for status in values]):
             return None
-        else:
-            return True
+        return True
 
     def get_row_status_class(self, status):
         """Returns a css class name determined by the status value.
@@ -1917,10 +1915,9 @@ class DataTable(object):
         """
         if status is True:
             return "status_up"
-        elif status is False:
+        if status is False:
             return "status_down"
-        else:
-            return "warning"
+        return "warning"
 
     def get_columns(self):
         """Returns this table's columns including auto-generated ones."""
@@ -1936,13 +1933,11 @@ class DataTable(object):
                     self.selected = True
                     row.classes.append('current_selected')
                 rows.append(row)
-        except Exception:
+        except Exception as e:
             # Exceptions can be swallowed at the template level here,
             # re-raising as a TemplateSyntaxError makes them visible.
             LOG.exception("Error while rendering table rows.")
-            exc_info = sys.exc_info()
-            raise six.reraise(template.TemplateSyntaxError, exc_info[1],
-                              exc_info[2])
+            raise template.TemplateSyntaxError from e
 
         return rows
 

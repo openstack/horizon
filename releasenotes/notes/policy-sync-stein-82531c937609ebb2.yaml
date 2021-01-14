@@ -1,0 +1,12 @@
+---
+upgrade:
+  - |
+    policy.json files for Cinder, Keystone Neutron and Nova are generated
+    according to
+    `Policy file maintenance <https://docs.openstack.org/horizon/latest/contributor/topics/policy.html#policy-file-maintenance/>`__.
+    Keystone changes to
+    `policy rules <https://docs.openstack.org/releasenotes/keystone/stein.html#prelude>__`,
+    are not compatible with the Horizon so we keystone_policy.json is not
+    updated. Please, be sure that new Keystone policies are compatible with
+    your deployment before syncing them.
+

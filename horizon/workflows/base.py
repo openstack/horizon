@@ -30,7 +30,6 @@ from django.utils.encoding import force_text
 from django.utils import module_loading
 from django.utils.translation import ugettext_lazy as _
 from openstack_auth import policy
-import six
 
 from horizon import base
 from horizon import exceptions
@@ -43,11 +42,11 @@ LOG = logging.getLogger(__name__)
 
 class WorkflowContext(dict):
     def __init__(self, workflow, *args, **kwargs):
-        super(WorkflowContext, self).__init__(*args, **kwargs)
+        super().__init__(*args, **kwargs)
         self._workflow = workflow
 
     def __setitem__(self, key, val):
-        super(WorkflowContext, self).__setitem__(key, val)
+        super().__setitem__(key, val)
         return self._workflow._trigger_handlers(key)
 
     def __delitem__(self, key):
@@ -61,27 +60,24 @@ class WorkflowContext(dict):
 
 
 class ActionMetaclass(forms.forms.DeclarativeFieldsMetaclass):
-    def __new__(mcs, name, bases, attrs):
+    def __new__(cls, name, bases, attrs):
         # Pop Meta for later processing
         opts = attrs.pop("Meta", None)
         # Create our new class
-        cls = super(ActionMetaclass, mcs).__new__(mcs, name, bases, attrs)
+        cls_ = super().__new__(cls, name, bases, attrs)
         # Process options from Meta
-        cls.name = getattr(opts, "name", name)
-        cls.slug = getattr(opts, "slug", slugify(name))
-        cls.permissions = getattr(opts, "permissions", ())
-        cls.policy_rules = getattr(opts, "policy_rules", ())
-        cls.progress_message = getattr(opts,
-                                       "progress_message",
-                                       _("Processing..."))
-        cls.help_text = getattr(opts, "help_text", "")
-        cls.help_text_template = getattr(opts, "help_text_template", None)
-        return cls
+        cls_.name = getattr(opts, "name", name)
+        cls_.slug = getattr(opts, "slug", slugify(name))
+        cls_.permissions = getattr(opts, "permissions", ())
+        cls_.policy_rules = getattr(opts, "policy_rules", ())
+        cls_.progress_message = getattr(opts, "progress_message",
+                                        _("Processing..."))
+        cls_.help_text = getattr(opts, "help_text", "")
+        cls_.help_text_template = getattr(opts, "help_text_template", None)
+        return cls_
 
 
-@six.python_2_unicode_compatible
-@six.add_metaclass(ActionMetaclass)
-class Action(forms.Form):
+class Action(forms.Form, metaclass=ActionMetaclass):
     """An ``Action`` represents an atomic logical interaction with the system.
 
     This is easier to understand with a conceptual example: in the context of
@@ -155,9 +151,9 @@ class Action(forms.Form):
 
     def __init__(self, request, context, *args, **kwargs):
         if request.method == "POST":
-            super(Action, self).__init__(request.POST, initial=context)
+            super().__init__(request.POST, initial=context)
         else:
-            super(Action, self).__init__(initial=context)
+            super().__init__(initial=context)
 
         if not hasattr(self, "handle"):
             raise AttributeError("The action %s must define a handle method."
@@ -217,7 +213,6 @@ class MembershipAction(Action):
         return self.slug + "_role_" + role_id
 
 
-@six.python_2_unicode_compatible
 class Step(object):
     """A wrapper around an action which defines its context in a workflow.
 
@@ -318,7 +313,7 @@ class Step(object):
         return force_text(self.name)
 
     def __init__(self, workflow):
-        super(Step, self).__init__()
+        super().__init__()
         self.workflow = workflow
 
         cls = self.__class__.__name__
@@ -349,7 +344,7 @@ class Step(object):
                     # If it's callable we know the function exists and is valid
                     self._handlers[key].append(possible_handler)
                     continue
-                elif not isinstance(possible_handler, six.string_types):
+                if not isinstance(possible_handler, str):
                     raise TypeError("Connection handlers must be either "
                                     "callables or strings.")
                 bits = possible_handler.split(".")
@@ -482,10 +477,10 @@ class Step(object):
 
 
 class WorkflowMetaclass(type):
-    def __new__(mcs, name, bases, attrs):
-        super(WorkflowMetaclass, mcs).__new__(mcs, name, bases, attrs)
+    def __new__(cls, name, bases, attrs):
+        super().__new__(cls, name, bases, attrs)
         attrs["_cls_registry"] = []
-        return type.__new__(mcs, name, bases, attrs)
+        return type.__new__(cls, name, bases, attrs)
 
 
 class UpdateMembersStep(Step):
@@ -522,13 +517,10 @@ class UpdateMembersStep(Step):
     def get_member_field_name(self, role_id):
         if issubclass(self.action_class, MembershipAction):
             return self.action.get_member_field_name(role_id)
-        else:
-            return self.slug + "_role_" + role_id
+        return self.slug + "_role_" + role_id
 
 
-@six.python_2_unicode_compatible
-@six.add_metaclass(WorkflowMetaclass)
-class Workflow(html.HTMLElement):
+class Workflow(html.HTMLElement, metaclass=WorkflowMetaclass):
     """A Workflow is a collection of Steps.
 
     Its interface is very straightforward, but it is responsible for handling
@@ -644,7 +636,7 @@ class Workflow(html.HTMLElement):
 
     def __init__(self, request=None, context_seed=None, entry_point=None,
                  *args, **kwargs):
-        super(Workflow, self).__init__(*args, **kwargs)
+        super().__init__(*args, **kwargs)
         if self.slug is None:
             raise AttributeError("The workflow %s must have a slug."
                                  % self.__class__.__name__)
@@ -676,9 +668,9 @@ class Workflow(html.HTMLElement):
         # registered and ordered.
         self.context = WorkflowContext(self)
         context_seed = context_seed or {}
-        clean_seed = dict([(key, val)
-                           for key, val in context_seed.items()
-                           if key in self.contributions | self.depends_on])
+        clean_seed = dict((key, val)
+                          for key, val in context_seed.items()
+                          if key in self.contributions | self.depends_on)
         self.context_seed = clean_seed
         self.context.update(clean_seed)
 
@@ -796,14 +788,13 @@ class Workflow(html.HTMLElement):
         """Registers a :class:`~horizon.workflows.Step` with the workflow."""
         if not inspect.isclass(step_class):
             raise ValueError('Only classes may be registered.')
-        elif not issubclass(step_class, cls._registerable_class):
+        if not issubclass(step_class, cls._registerable_class):
             raise ValueError('Only %s classes or subclasses may be registered.'
                              % cls._registerable_class.__name__)
         if step_class in cls._cls_registry:
             return False
-        else:
-            cls._cls_registry.append(step_class)
-            return True
+        cls._cls_registry.append(step_class)
+        return True
 
     @classmethod
     def unregister(cls, step_class):
@@ -859,7 +850,7 @@ class Workflow(html.HTMLElement):
                 data = step.action.handle(self.request, self.context)
                 if data is True or data is None:
                     continue
-                elif data is False:
+                if data is False:
                     partial = True
                 else:
                     self.context = step.contribute(data or {}, self.context)
@@ -900,12 +891,11 @@ class Workflow(html.HTMLElement):
         """
         if "%s" in message:
             return message % self.name
-        else:
-            return message
+        return message
 
     def verify_integrity(self):
         provided_keys = self.contributions | set(self.context_seed.keys())
-        if len(self.depends_on - provided_keys):
+        if self.depends_on - provided_keys:
             raise exceptions.NotAvailable(
                 _("The current user has insufficient permission to complete "
                   "the requested task."))

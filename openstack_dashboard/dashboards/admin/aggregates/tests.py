@@ -10,7 +10,7 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
-import mock
+from unittest import mock
 
 from django.urls import reverse
 from django.utils import html
@@ -192,25 +192,6 @@ class CreateAggregateWorkflowTests(BaseAggregateWorkflowTests):
 class AggregatesViewTests(test.BaseAdminViewTests):
 
     @test.create_mocks({
-        api.keystone: ['tenant_list'],
-        api.nova: ['extension_supported']})
-    def test_panel_not_available(self):
-        self.mock_tenant_list.return_value = self.tenants.list()
-        self.mock_extension_supported.return_value = False
-
-        self.patchers['aggregates'].stop()
-        res = self.client.get(reverse('horizon:admin:overview:index'))
-        self.assertNotIn(b'Host Aggregates', res.content)
-        self.mock_tenant_list.assert_called_once_with(test.IsHttpRequest())
-        self.assertEqual(self.mock_extension_supported.call_count, 3)
-        expected_calls = [mock.call(a, test.IsHttpRequest())
-                          for a in ['SimpleTenantUsage',
-                                    'SimpleTenantUsage',
-                                    'Aggregates']]
-        self.mock_extension_supported.assert_has_calls(
-            expected_calls)
-
-    @test.create_mocks({
         api.nova: ['aggregate_details_list',
                    'availability_zone_list']})
     def test_index(self):
@@ -220,9 +201,9 @@ class AggregatesViewTests(test.BaseAdminViewTests):
 
         res = self.client.get(reverse(constants.AGGREGATES_INDEX_URL))
         self.assertTemplateUsed(res, constants.AGGREGATES_INDEX_VIEW_TEMPLATE)
-        self.assertItemsEqual(res.context['host_aggregates_table'].data,
+        self.assertCountEqual(res.context['host_aggregates_table'].data,
                               self.aggregates.list())
-        self.assertItemsEqual(res.context['availability_zones_table'].data,
+        self.assertCountEqual(res.context['availability_zones_table'].data,
                               self.availability_zones.list())
         self.mock_aggregate_details_list.assert_called_once_with(
             test.IsHttpRequest())
@@ -266,12 +247,24 @@ class AggregatesViewTests(test.BaseAdminViewTests):
 
         self._test_generic_update_aggregate(form_data, aggregate)
 
-    def test_update_aggregate_fails_missing_fields(self):
+    def test_update_aggregate_fails_missing_name_field(self):
         aggregate = self.aggregates.first()
-        form_data = {'id': aggregate.id}
+        form_data = {'id': aggregate.id,
+                     'name': '',
+                     'availability_zone': aggregate.availability_zone}
 
         self._test_generic_update_aggregate(form_data, aggregate, 1,
                                             u'This field is required')
+
+    def test_update_aggregate_fails_missing_az_field(self):
+        aggregate = self.aggregates.first()
+        form_data = {'id': aggregate.id,
+                     'name': aggregate.name,
+                     'availability_zone': ''}
+
+        self._test_generic_update_aggregate(
+            form_data, aggregate, 1,
+            u'The new availability zone can&#39;t be empty')
 
 
 class ManageHostsTests(test.BaseAdminViewTests):

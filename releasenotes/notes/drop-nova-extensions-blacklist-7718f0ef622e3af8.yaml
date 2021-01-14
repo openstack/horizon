@@ -1,0 +1,9 @@
+---
+upgrade:
+  - |
+    ``OPENSTACK_NOVA_EXTENSIONS_BLACKLIST`` setting is now dropped.
+    If you specify ``SimpleTenantUsage`` in this setting, consider setting
+    ``OPENSTACK_USE_SIMPLE_TENANT_USAGE`` to ``False`` instead.
+    For other effective values in this setting, no replacement is
+    provided as nova provides all features in recent versions of nova API.
+    Note that you can enable/disable table actions via policy rules.

@@ -23,12 +23,14 @@
       $scope = $injector.get('$rootScope');
     }));
 
-    it('should return promise and it resolve filename after starting download file', function() {
+    it('should return a promise that resolves to a download file name', inject(function($timeout) {
       var promise = textDownload.downloadTextFile('content', 'download_file_name.txt');
+      promise.then(verifyContents);
       $scope.$apply();
-      promise.then(function(contents) {
+      $timeout.flush();
+      function verifyContents (contents) {
         expect(contents).toEqual('download_file_name.txt');
-      });
-    });
+      }
+    }));
   });
 })();

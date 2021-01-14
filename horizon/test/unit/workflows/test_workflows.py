@@ -12,11 +12,11 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
+from unittest import mock
+
 from django import forms
 from django import http
-import mock
-
-import six
+from django.test.utils import override_settings
 
 from horizon import base
 from horizon import exceptions
@@ -40,13 +40,13 @@ def extra_callback_func(request, context):
     return "extra"
 
 
-class TestActionOne(workflows.Action):
+class ActionOne(workflows.Action):
     project_id = forms.ChoiceField(label="Project")
     user_id = forms.ChoiceField(label="User")
 
     class Meta(object):
-        name = "Test Action One"
-        slug = "test_action_one"
+        name = "Action One"
+        slug = "action_one"
 
     def populate_project_id_choices(self, request, context):
         return [(PROJECT_ID, "test_project")]
@@ -58,28 +58,28 @@ class TestActionOne(workflows.Action):
         return {"foo": "bar"}
 
 
-class TestActionTwo(workflows.Action):
+class ActionTwo(workflows.Action):
     instance_id = forms.CharField(label="Instance")
 
     class Meta(object):
-        name = "Test Action Two"
-        slug = "test_action_two"
+        name = "Action Two"
+        slug = "action_two"
 
 
-class TestActionThree(workflows.Action):
+class ActionThree(workflows.Action):
     extra = forms.CharField(widget=forms.widgets.Textarea)
 
     class Meta(object):
-        name = "Test Action Three"
-        slug = "test_action_three"
+        name = "Action Three"
+        slug = "action_three"
 
 
-class TestActionFour(workflows.Action):
+class ActionFour(workflows.Action):
     field_four = forms.CharField(widget=forms.widgets.Textarea)
 
     class Meta(object):
-        name = "Test Action Four"
-        slug = "test_action_four"
+        name = "Action Four"
+        slug = "action_four"
 
 
 class AdminAction(workflows.Action):
@@ -91,12 +91,12 @@ class AdminAction(workflows.Action):
         permissions = ("horizon.test",)
 
 
-class TestDisabledAction(workflows.Action):
+class DisabledAction(workflows.Action):
     disabled_id = forms.CharField(label="Disabled")
 
     class Meta(object):
-        name = "Test Action Disabled"
-        slug = "test_action_disabled"
+        name = "Action Disabled"
+        slug = "action_disabled"
 
 
 class AdminForbiddenAction(workflows.Action):
@@ -108,13 +108,13 @@ class AdminForbiddenAction(workflows.Action):
         policy_rules = (('action', 'forbidden'),)
 
 
-class TestStepOne(workflows.Step):
-    action_class = TestActionOne
+class StepOne(workflows.Step):
+    action_class = ActionOne
     contributes = ("project_id", "user_id")
 
 
-class TestStepTwo(workflows.Step):
-    action_class = TestActionTwo
+class StepTwo(workflows.Step):
+    action_class = ActionTwo
     depends_on = ("project_id",)
     contributes = ("instance_id",)
     connections = {"project_id":
@@ -123,29 +123,29 @@ class TestStepTwo(workflows.Step):
                     "other_callback_func")}
 
 
-class TestStepThree(workflows.Step):
-    action_class = TestActionThree
+class StepThree(workflows.Step):
+    action_class = ActionThree
     depends_on = ("project_id",)
     contributes = ("extra_data",)
     connections = {"project_id": (extra_callback_func,)}
-    after = TestStepOne
-    before = TestStepTwo
+    after = StepOne
+    before = StepTwo
 
 
-class TestStepFour(workflows.Step):
-    action_class = TestActionFour
+class StepFour(workflows.Step):
+    action_class = ActionFour
     contributes = ("field_four",)
 
 
 class AdminStep(workflows.Step):
     action_class = AdminAction
     contributes = ("admin_id",)
-    after = TestStepOne
-    before = TestStepTwo
+    after = StepOne
+    before = StepTwo
 
 
-class TestDisabledStep(workflows.Step):
-    action_class = TestDisabledAction
+class DisabledStep(workflows.Step):
+    action_class = DisabledAction
     contributes = ("disabled_id",)
 
     def allowed(self, request):
@@ -156,125 +156,125 @@ class AdminForbiddenStep(workflows.Step):
     action_class = AdminForbiddenAction
 
 
-class TestWorkflow(workflows.Workflow):
+class WorkflowForTesting(workflows.Workflow):
     slug = "test_workflow"
-    default_steps = (TestStepOne, TestStepTwo)
+    default_steps = (StepOne, StepTwo)
 
 
-class TestWorkflowWithConfig(workflows.Workflow):
+class WorkflowWithConfig(workflows.Workflow):
     slug = "test_workflow"
-    default_steps = (TestStepOne,)
+    default_steps = (StepOne,)
 
 
-class TestWorkflowView(workflows.WorkflowView):
-    workflow_class = TestWorkflow
+class WorkflowViewForTesting(workflows.WorkflowView):
+    workflow_class = WorkflowForTesting
     template_name = "workflow.html"
 
 
-class TestFullscreenWorkflow(workflows.Workflow):
+class FullscreenWorkflow(workflows.Workflow):
     slug = 'test_fullscreen_workflow'
-    default_steps = (TestStepOne, TestStepTwo)
+    default_steps = (StepOne, StepTwo)
     fullscreen = True
 
 
-class TestFullscreenWorkflowView(workflows.WorkflowView):
-    workflow_class = TestFullscreenWorkflow
+class FullscreenWorkflowView(workflows.WorkflowView):
+    workflow_class = FullscreenWorkflow
     template_name = "workflow.html"
 
 
 class WorkflowsTests(test.TestCase):
     def setUp(self):
-        super(WorkflowsTests, self).setUp()
+        super().setUp()
         self.policy_patcher = mock.patch(
             'openstack_auth.policy.check', lambda action, request: True)
         self.policy_check = self.policy_patcher.start()
         self.addCleanup(mock.patch.stopall)
 
     def tearDown(self):
-        super(WorkflowsTests, self).tearDown()
+        super().tearDown()
         self._reset_workflow()
 
     def _reset_workflow(self):
-        TestWorkflow._cls_registry = []
+        WorkflowForTesting._cls_registry = []
 
     def test_workflow_construction(self):
-        TestWorkflow.register(TestStepThree)
-        flow = TestWorkflow(self.request)
+        WorkflowForTesting.register(StepThree)
+        flow = WorkflowForTesting(self.request)
         self.assertQuerysetEqual(flow.steps,
-                                 ['<TestStepOne: test_action_one>',
-                                  '<TestStepThree: test_action_three>',
-                                  '<TestStepTwo: test_action_two>'])
+                                 ['<StepOne: action_one>',
+                                  '<StepThree: action_three>',
+                                  '<StepTwo: action_two>'])
         self.assertEqual(set(['project_id']), flow.depends_on)
 
     @test.update_settings(HORIZON_CONFIG={'extra_steps': {
-        'horizon.test.unit.workflows.test_workflows.TestWorkflowWithConfig': (
-            'horizon.test.unit.workflows.test_workflows.TestStepTwo',
-            'horizon.test.unit.workflows.test_workflows.TestStepThree',
-            'horizon.test.unit.workflows.test_workflows.TestStepFour',
+        'horizon.test.unit.workflows.test_workflows.WorkflowWithConfig': (
+            'horizon.test.unit.workflows.test_workflows.StepTwo',
+            'horizon.test.unit.workflows.test_workflows.StepThree',
+            'horizon.test.unit.workflows.test_workflows.StepFour',
         ),
     }})
     def test_workflow_construction_with_config(self):
-        flow = TestWorkflowWithConfig(self.request)
-        # NOTE: TestStepThree must be placed between TestStepOne and
-        # TestStepTwo in honor of before/after of TestStepThree.
+        flow = WorkflowWithConfig(self.request)
+        # NOTE: StepThree must be placed between StepOne and
+        # StepTwo in honor of before/after of StepThree.
         self.assertQuerysetEqual(flow.steps,
-                                 ['<TestStepOne: test_action_one>',
-                                  '<TestStepThree: test_action_three>',
-                                  '<TestStepTwo: test_action_two>',
-                                  '<TestStepFour: test_action_four>',
+                                 ['<StepOne: action_one>',
+                                  '<StepThree: action_three>',
+                                  '<StepTwo: action_two>',
+                                  '<StepFour: action_four>',
                                   ])
 
     def test_step_construction(self):
-        step_one = TestStepOne(TestWorkflow(self.request))
+        step_one = StepOne(WorkflowForTesting(self.request))
         # Action slug is moved from Meta by metaclass, and
         # Step inherits slug from action.
-        self.assertEqual(TestActionOne.name, step_one.name)
-        self.assertEqual(TestActionOne.slug, step_one.slug)
+        self.assertEqual(ActionOne.name, step_one.name)
+        self.assertEqual(ActionOne.slug, step_one.slug)
         # Handlers should be empty since there are no connections.
         self.assertEqual(step_one._handlers, {})
 
-        step_two = TestStepTwo(TestWorkflow(self.request))
+        step_two = StepTwo(WorkflowForTesting(self.request))
         # Handlers should be populated since we do have connections.
         self.assertEqual([local_callback_func, other_callback_func],
                          step_two._handlers["project_id"])
 
     def test_step_invalid_connections_handlers_not_list_or_tuple(self):
-        class InvalidStepA(TestStepTwo):
+        class InvalidStepA(StepTwo):
             connections = {'project_id': {}}
 
-        class InvalidStepB(TestStepTwo):
+        class InvalidStepB(StepTwo):
             connections = {'project_id': ''}
 
         with self.assertRaises(TypeError):
-            InvalidStepA(TestWorkflow(self.request))
+            InvalidStepA(WorkflowForTesting(self.request))
 
         with self.assertRaises(TypeError):
-            InvalidStepB(TestWorkflow(self.request))
+            InvalidStepB(WorkflowForTesting(self.request))
 
     def test_step_invalid_connection_handler_not_string_or_callable(self):
-        class InvalidStepA(TestStepTwo):
+        class InvalidStepA(StepTwo):
             connections = {'project_id': (None,)}
 
-        class InvalidStepB(TestStepTwo):
+        class InvalidStepB(StepTwo):
             connections = {'project_id': (0,)}
 
         with self.assertRaises(TypeError):
-            InvalidStepA(TestWorkflow(self.request))
+            InvalidStepA(WorkflowForTesting(self.request))
 
         with self.assertRaises(TypeError):
-            InvalidStepB(TestWorkflow(self.request))
+            InvalidStepB(WorkflowForTesting(self.request))
 
     def test_step_invalid_callback(self):
         # This should raise an exception
-        class InvalidStep(TestStepTwo):
+        class InvalidStep(StepTwo):
             connections = {"project_id": ('local_callback_func',)}
 
         with self.assertRaises(ValueError):
-            InvalidStep(TestWorkflow(self.request))
+            InvalidStep(WorkflowForTesting(self.request))
 
     def test_connection_handlers_called(self):
-        TestWorkflow.register(TestStepThree)
-        flow = TestWorkflow(self.request)
+        WorkflowForTesting.register(StepThree)
+        flow = WorkflowForTesting(self.request)
 
         # This should set the value without any errors, but trigger nothing
         flow.context['does_not_exist'] = False
@@ -284,12 +284,12 @@ class WorkflowsTests(test.TestCase):
         # steps one and two, and one has no handlers, so we should see
         # a response from extra, then one from each of step two's handlers.
         val = flow.context.set('project_id', PROJECT_ID)
-        self.assertEqual([('test_action_three', 'extra'),
-                          ('test_action_two', 'one'),
-                          ('test_action_two', 'two')], val)
+        self.assertEqual([('action_three', 'extra'),
+                          ('action_two', 'one'),
+                          ('action_two', 'two')], val)
 
     def test_workflow_validation(self):
-        flow = TestWorkflow(self.request)
+        flow = WorkflowForTesting(self.request)
 
         # Missing items fail validation.
         with self.assertRaises(exceptions.WorkflowValidationError):
@@ -301,7 +301,7 @@ class WorkflowsTests(test.TestCase):
                 "instance_id": INSTANCE_ID}
         req = self.factory.post("/", seed)
         req.user = self.user
-        flow = TestWorkflow(req, context_seed={"project_id": PROJECT_ID})
+        flow = WorkflowForTesting(req, context_seed={"project_id": PROJECT_ID})
         for step in flow.steps:
             if not step.action.is_valid():
                 self.fail("Step %s was unexpectedly invalid: %s"
@@ -313,71 +313,71 @@ class WorkflowsTests(test.TestCase):
         self.assertTrue(flow.is_valid())
 
     def test_workflow_finalization(self):
-        flow = TestWorkflow(self.request)
+        flow = WorkflowForTesting(self.request)
         self.assertTrue(flow.finalize())
 
     def test_workflow_view(self):
-        view = TestWorkflowView.as_view()
+        view = WorkflowViewForTesting.as_view()
         req = self.factory.get("/")
         res = view(req)
         self.assertEqual(200, res.status_code)
 
     def test_workflow_registration(self):
         req = self.factory.get("/foo")
-        flow = TestWorkflow(req)
+        flow = WorkflowForTesting(req)
         self.assertQuerysetEqual(flow.steps,
-                                 ['<TestStepOne: test_action_one>',
-                                  '<TestStepTwo: test_action_two>'])
+                                 ['<StepOne: action_one>',
+                                  '<StepTwo: action_two>'])
 
-        TestWorkflow.register(TestStepThree)
-        flow = TestWorkflow(req)
+        WorkflowForTesting.register(StepThree)
+        flow = WorkflowForTesting(req)
         self.assertQuerysetEqual(flow.steps,
-                                 ['<TestStepOne: test_action_one>',
-                                  '<TestStepThree: test_action_three>',
-                                  '<TestStepTwo: test_action_two>'])
+                                 ['<StepOne: action_one>',
+                                  '<StepThree: action_three>',
+                                  '<StepTwo: action_two>'])
 
     def test_workflow_unregister_unexisting_workflow(self):
         with self.assertRaises(base.NotRegistered):
-            TestWorkflow.unregister(TestDisabledStep)
+            WorkflowForTesting.unregister(DisabledStep)
 
     def test_workflow_render(self):
-        TestWorkflow.register(TestStepThree)
+        WorkflowForTesting.register(StepThree)
         req = self.factory.get("/foo")
-        flow = TestWorkflow(req)
+        flow = WorkflowForTesting(req)
         output = http.HttpResponse(flow.render())
-        self.assertContains(output, six.text_type(flow.name))
-        self.assertContains(output, six.text_type(TestActionOne.name))
-        self.assertContains(output, six.text_type(TestActionTwo.name))
-        self.assertContains(output, six.text_type(TestActionThree.name))
+        self.assertContains(output, flow.name)
+        self.assertContains(output, ActionOne.name)
+        self.assertContains(output, ActionTwo.name)
+        self.assertContains(output, ActionThree.name)
 
     def test_has_permissions(self):
-        self.assertQuerysetEqual(TestWorkflow._cls_registry, [])
-        TestWorkflow.register(AdminStep)
-        flow = TestWorkflow(self.request)
+        self.assertQuerysetEqual(WorkflowForTesting._cls_registry, [])
+        WorkflowForTesting.register(AdminStep)
+        flow = WorkflowForTesting(self.request)
         step = AdminStep(flow)
 
-        self.assertItemsEqual(step.permissions,
+        self.assertCountEqual(step.permissions,
                               ("horizon.test",))
         self.assertQuerysetEqual(flow.steps,
-                                 ['<TestStepOne: test_action_one>',
-                                  '<TestStepTwo: test_action_two>'])
+                                 ['<StepOne: action_one>',
+                                  '<StepTwo: action_two>'])
 
         self.set_permissions(['test'])
         self.request.user = self.user
-        flow = TestWorkflow(self.request)
+        flow = WorkflowForTesting(self.request)
         self.assertQuerysetEqual(flow.steps,
-                                 ['<TestStepOne: test_action_one>',
+                                 ['<StepOne: action_one>',
                                   '<AdminStep: admin_action>',
-                                  '<TestStepTwo: test_action_two>'])
+                                  '<StepTwo: action_two>'])
 
     def test_has_allowed(self):
-        TestWorkflow.register(TestDisabledStep)
-        flow = TestWorkflow(self.request)
-        # Check TestDisabledStep is not included
-        # even though TestDisabledStep is registered.
+        WorkflowForTesting.register(DisabledStep)
+        flow = WorkflowForTesting(self.request)
+        # Check DisabledStep is not included
+        # even though DisabledStep is registered.
         self.assertQuerysetEqual(flow.steps,
-                                 ['<TestStepOne: test_action_one>',
-                                  '<TestStepTwo: test_action_two>'])
+                                 ['<StepOne: action_one>',
+                                  '<StepTwo: action_two>'])
 
     def test_step_is_hidden_on_policy(self):
         self.policy_patcher.stop()
@@ -388,16 +388,39 @@ class WorkflowsTests(test.TestCase):
             return True
 
         with mock.patch('openstack_auth.policy.check', policy_check):
-            TestWorkflow.register(AdminForbiddenStep)
-            flow = TestWorkflow(self.request)
+            WorkflowForTesting.register(AdminForbiddenStep)
+            flow = WorkflowForTesting(self.request)
             output = http.HttpResponse(flow.render())
-            self.assertNotContains(output,
-                                   six.text_type(AdminForbiddenAction.name))
+            self.assertNotContains(output, AdminForbiddenAction.name)
 
     def test_entry_point(self):
         req = self.factory.get("/foo")
-        flow = TestWorkflow(req)
-        self.assertEqual("test_action_one", flow.get_entry_point())
+        flow = WorkflowForTesting(req)
+        self.assertEqual("action_one", flow.get_entry_point())
 
-        flow = TestWorkflow(req, entry_point="test_action_two")
-        self.assertEqual("test_action_two", flow.get_entry_point())
+        flow = WorkflowForTesting(req, entry_point="action_two")
+        self.assertEqual("action_two", flow.get_entry_point())
+
+    @override_settings(ALLOWED_HOSTS=['localhost'])
+    def test_redirect_url_safe(self):
+        url = 'http://localhost/test'
+        view = WorkflowViewForTesting()
+        request = self.factory.get("/", data={
+            'next': url,
+        })
+        request.META['SERVER_NAME'] = "localhost"
+        view.request = request
+        context = view.get_context_data()
+        self.assertEqual(url, context['REDIRECT_URL'])
+
+    @override_settings(ALLOWED_HOSTS=['localhost'])
+    def test_redirect_url_unsafe(self):
+        url = 'http://evilcorp/test'
+        view = WorkflowViewForTesting()
+        request = self.factory.get("/", data={
+            'next': url,
+        })
+        request.META['SERVER_NAME'] = "localhost"
+        view.request = request
+        context = view.get_context_data()
+        self.assertIsNone(context['REDIRECT_URL'])

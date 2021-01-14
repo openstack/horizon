@@ -29,13 +29,13 @@ class MessageTests(test.TestCase):
         string = "Giant ants are attacking San Francisco!"
         expected = ["error", force_text(string), ""]
         self.assertIn("async_messages", req.horizon)
-        self.assertItemsEqual(req.horizon['async_messages'], [])
+        self.assertCountEqual(req.horizon['async_messages'], [])
         req.META['HTTP_X_REQUESTED_WITH'] = 'XMLHttpRequest'
         messages.error(req, string)
-        self.assertItemsEqual(req.horizon['async_messages'], [expected])
+        self.assertCountEqual(req.horizon['async_messages'], [expected])
         res = http.HttpResponse()
         res = middleware.HorizonMiddleware('dummy_get_response') \
-            .process_response(req, res)
+            ._process_response(req, res)
         self.assertEqual(json.dumps([expected]),
                          res['X-Horizon-Messages'])
 
@@ -44,12 +44,12 @@ class MessageTests(test.TestCase):
         string = mark_safe("We are now safe from ants! Go <a>here</a>!")
         expected = ["error", force_text(string), " safe"]
         self.assertIn("async_messages", req.horizon)
-        self.assertItemsEqual(req.horizon['async_messages'], [])
+        self.assertCountEqual(req.horizon['async_messages'], [])
         req.META['HTTP_X_REQUESTED_WITH'] = 'XMLHttpRequest'
         messages.error(req, string)
-        self.assertItemsEqual(req.horizon['async_messages'], [expected])
+        self.assertCountEqual(req.horizon['async_messages'], [expected])
         res = http.HttpResponse()
         res = middleware.HorizonMiddleware('dummy_get_response') \
-            .process_response(req, res)
+            ._process_response(req, res)
         self.assertEqual(json.dumps([expected]),
                          res['X-Horizon-Messages'])

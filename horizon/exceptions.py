@@ -20,8 +20,7 @@ import logging
 import os
 import sys
 
-import six
-
+from debtcollector import removals
 from django.core.management import color_style
 from django.utils import encoding
 from django.utils.translation import ugettext_lazy as _
@@ -32,6 +31,8 @@ from horizon import messages
 
 LOG = logging.getLogger(__name__)
 
+SEPERATOR = '\u2026'
+
 
 class HorizonReporterFilter(SafeExceptionReporterFilter):
     """Error report filter that's always active, even in DEBUG mode."""
@@ -41,7 +42,6 @@ class HorizonReporterFilter(SafeExceptionReporterFilter):
 
 class HorizonException(Exception):
     """Base exception class for distinguishing our own exception classes."""
-    pass
 
 
 class Http302(HorizonException):
@@ -108,10 +108,9 @@ class ServiceCatalogException(HorizonException):
     """
     def __init__(self, service_name):
         message = _('Invalid service catalog: %s') % service_name
-        super(ServiceCatalogException, self).__init__(message)
+        super().__init__(message)
 
 
-@six.python_2_unicode_compatible
 class AlreadyExists(HorizonException):
     """API resources tried to create already exists."""
     def __init__(self, name, resource_type):
@@ -125,7 +124,6 @@ class AlreadyExists(HorizonException):
         return self.msg % self.attrs
 
 
-@six.python_2_unicode_compatible
 class GetFileError(HorizonException):
     """Exception to be raised when the value of get_file is not expected.
 
@@ -149,17 +147,14 @@ class GetFileError(HorizonException):
 
 class ConfigurationError(HorizonException):
     """Exception to be raised when invalid settings have been provided."""
-    pass
 
 
 class NotAvailable(HorizonException):
     """Exception to be raised when something is not available."""
-    pass
 
 
 class WorkflowError(HorizonException):
     """Exception to be raised when something goes wrong in a workflow."""
-    pass
 
 
 class WorkflowValidationError(HorizonException):
@@ -168,12 +163,10 @@ class WorkflowValidationError(HorizonException):
     It is raised if required data is missing,
     or existing data is not valid.
     """
-    pass
 
 
 class MessageFailure(HorizonException):
     """Exception raised during message notification."""
-    pass
 
 
 class HandledException(HorizonException):
@@ -199,6 +192,7 @@ def error_color(msg):
     return color_style().ERROR_OUTPUT(msg)
 
 
+@removals.remove(message='Use exceptions.handle() instead', version='17.2.0')
 def check_message(keywords, message):
     """Checks an exception for given keywords and raises an error if found.
 
@@ -209,6 +203,8 @@ def check_message(keywords, message):
     exc_type, exc_value, exc_traceback = sys.exc_info()
     if set(str(exc_value).split(" ")).issuperset(set(keywords)):
         exc_value.message = message
+        # NOTE: This function is intended to call inside an except clause.
+        # pylint: disable=misplaced-bare-raise
         raise
 
 
@@ -266,8 +262,13 @@ HANDLE_EXC_METHODS = [
 ]
 
 
+def _append_detail(message, details):
+    return encoding.force_text(message) + SEPERATOR + \
+        encoding.force_text(details)
+
+
 def handle(request, message=None, redirect=None, ignore=False,
-           escalate=False, log_level=None, force_log=None):
+           escalate=False, log_level=None, force_log=None, details=None):
     """Centralized error handling for Horizon.
 
     Because Horizon consumes so many different APIs with completely
@@ -294,6 +295,9 @@ def handle(request, message=None, redirect=None, ignore=False,
     If the exception is not re-raised, an appropriate wrapper exception
     class indicating the type of exception that was encountered will be
     returned.
+    If details is None (default), take it from exception sys.exc_info.
+    If details is other string, then use that string explicitly or if details
+    is empty then suppress it.
     """
     exc_type, exc_value, exc_traceback = sys.exc_info()
     log_method = getattr(LOG, log_level or "exception")
@@ -322,6 +326,10 @@ def handle(request, message=None, redirect=None, ignore=False,
         user_message = encoding.force_text(message) % {"exc": log_entry}
     elif message:
         user_message = encoding.force_text(message)
+    if details is None:
+        user_message = _append_detail(user_message, exc_value)
+    elif details:
+        user_message = _append_detail(user_message, details)
 
     for exc_handler in HANDLE_EXC_METHODS:
         if issubclass(exc_type, exc_handler['exc']):
@@ -332,6 +340,8 @@ def handle(request, message=None, redirect=None, ignore=False,
                           exc_handler.get('escalate', escalate),
                           handled, force_silence, force_log,
                           log_method, log_entry, log_level)
+            # NOTE: pylint seems to get confused :(
+            # pylint: disable=using-constant-test
             if ret:
                 return ret  # return to normal code flow
 
@@ -345,7 +355,11 @@ def handle(request, message=None, redirect=None, ignore=False,
         ret = handle_recoverable(request, user_message, redirect, ignore,
                                  escalate, handled, force_silence, force_log,
                                  log_method, log_entry, log_level)
+        # NOTE: pylint seems to get confused :(
+        # pylint: disable=using-constant-test
         if ret:
             return ret
 
-    six.reraise(exc_type, exc_value, exc_traceback)
+    # NOTE: This function is intended to call inside an except clause.
+    # pylint: disable=misplaced-bare-raise
+    raise

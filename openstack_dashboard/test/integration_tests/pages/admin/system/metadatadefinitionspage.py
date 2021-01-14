@@ -38,16 +38,16 @@ class MetadatadefinitionsTable(tables.TableRegion):
 
 class MetadatadefinitionsPage(basepage.BaseNavigationPage):
 
-    NAMESPACE_TABLE_NAME_COLUMN = 'display_name'
-    NAMESPACE_TABLE_DESCRIPTION_COLUMN = 'description'
-    NAMESPACE_TABLE_RESOURCE_TYPES_COLUMN = 'resource_type_names'
-    NAMESPACE_TABLE_PUBLIC_COLUMN = 'public'
-    NAMESPACE_TABLE_PROTECTED_COLUMN = 'protected'
+    NAMESPACE_TABLE_NAME_COLUMN = 'Name'
+    NAMESPACE_TABLE_DESCRIPTION_COLUMN = 'Description'
+    NAMESPACE_TABLE_RESOURCE_TYPES_COLUMN = 'Resource Types'
+    NAMESPACE_TABLE_PUBLIC_COLUMN = 'Public'
+    NAMESPACE_TABLE_PROTECTED_COLUMN = 'Protected'
 
     boolean_mapping = {True: 'Yes', False: 'No'}
 
     def __init__(self, driver, conf):
-        super(MetadatadefinitionsPage, self).__init__(driver, conf)
+        super().__init__(driver, conf)
         self._page_title = "Metadata Definitions"
 
     def _get_row_with_namespace_name(self, name):

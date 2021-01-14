@@ -1,14 +1,16 @@
 # Georg Hennemann <georg.hennemann@t-systems.com>, 2017. #zanata
 # Georg Hennemann <georg.hennemann@t-systems.com>, 2018. #zanata
+# Georg Hennemann <georg.hennemann@t-systems.com>, 2019. #zanata
+# Georg Hennemann <georg.hennemann@t-systems.com>, 2020. #zanata
 msgid ""
 msgstr ""
 "Project-Id-Version: horizon VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2018-11-08 17:51+0000\n"
+"POT-Creation-Date: 2020-06-20 06:06+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2018-11-08 12:57+0000\n"
+"PO-Revision-Date: 2020-06-19 09:58+0000\n"
 "Last-Translator: Georg Hennemann <georg.hennemann@t-systems.com>\n"
 "Language-Team: Esperanto\n"
 "Language: eo\n"
@@ -17,12 +19,6 @@ msgstr ""
 
 msgid "#"
 msgstr "#"
-
-#, python-format
-msgid "%s instance launched."
-msgid_plural "%s instances launched."
-msgstr[0] "%s apero lanĉita."
-msgstr[1] "%s aperoj lanĉita."
 
 msgid "1"
 msgstr "1"
@@ -727,6 +723,10 @@ msgstr "Kreita ŝlosilparo: %s"
 msgid "Creating"
 msgstr "Krei"
 
+#, python-format
+msgid "Creating volume %s"
+msgstr "Krei volumo \"%s\""
+
 msgid "Custom Properties"
 msgstr "Propraj Ecoj"
 
@@ -746,16 +746,14 @@ msgid "Customization Script"
 msgstr "Tajlorado Skripto"
 
 msgid "DNS Domain"
-msgstr "DNS Domajno"
-
-msgid "DNS Domains"
-msgstr "DNS Domajnoj"
+msgid_plural "DNS Domains"
+msgstr[0] "DNS Domajno"
+msgstr[1] "DNS Domajnoj"
 
 msgid "DNS Record"
-msgstr "DNS Datumo"
-
-msgid "DNS Records"
-msgstr "DNS Datumoj"
+msgid_plural "DNS Records"
+msgstr[0] "DNS Datumo"
+msgstr[1] "DNS Datumoj"
 
 msgid "DSCP Mark"
 msgstr "DSCP Marko"
@@ -1054,7 +1052,9 @@ msgid "Docker"
 msgstr "Docker"
 
 msgid "Domain"
-msgstr "Domajno"
+msgid_plural "Domains"
+msgstr[0] "Domajno"
+msgstr[1] "Domajnoj"
 
 #, python-format
 msgid "Domain %s was successfully created."
@@ -1068,9 +1068,6 @@ msgstr "Domajno ID"
 
 msgid "Domain Name"
 msgstr "Domajno Nomo"
-
-msgid "Domains"
-msgstr "Domajnoj"
 
 msgid ""
 "Domains provide separation between users and infrastructure used by "
@@ -1207,13 +1204,12 @@ msgid "Fingerprint"
 msgstr "Fingrospuro"
 
 msgid "Flavor"
-msgstr "Variaĵo"
+msgid_plural "Flavors"
+msgstr[0] "Variaĵo"
+msgstr[1] "Variaĵoj"
 
 msgid "Flavor Name"
 msgstr "Variaĵo Nomo"
-
-msgid "Flavors"
-msgstr "Variaĵoj"
 
 msgid ""
 "Flavors manage the sizing for the compute, memory and storage capacity of "
@@ -1223,10 +1219,9 @@ msgstr ""
 "de la apero."
 
 msgid "Floating IP"
-msgstr "Glita IP"
-
-msgid "Floating IPs"
-msgstr "Glitaj IPs"
+msgid_plural "Floating IPs"
+msgstr[0] "Glita IP"
+msgstr[1] "Glitaj IP-oj"
 
 msgid "Focused input"
 msgstr "Fokusita Enigo"
@@ -1287,7 +1282,9 @@ msgid "Global Actions:"
 msgstr "Ĝeneralaj Agoj:"
 
 msgid "Group"
-msgstr "Grupo"
+msgid_plural "Groups"
+msgstr[0] "Grupo"
+msgstr[1] "Grupoj"
 
 #, python-format
 msgid "Group %s was successfully created."
@@ -1295,9 +1292,6 @@ msgstr "Grupo %s estis sukcese kreita."
 
 msgid "Group updated successfully."
 msgstr "Grupo ĝisdatigita sukcese."
-
-msgid "Groups"
-msgstr "Grupoj"
 
 msgid "Hash"
 msgstr "Haketaĵo"
@@ -1330,10 +1324,9 @@ msgid "Host ID"
 msgstr "Gastiganto ID"
 
 msgid "Hypervisor"
-msgstr "Virtuala-maŝinmonitoro"
-
-msgid "Hypervisors"
-msgstr "Virtualaj maŝinmonitoroj"
+msgid_plural "Hypervisors"
+msgstr[0] "Virtuala-maŝinmonitoro"
+msgstr[1] "Virtualaj-maŝinmonitoroj"
 
 msgid "ID"
 msgstr "ID"
@@ -1404,7 +1397,9 @@ msgstr ""
 "sekvantaj praŝargo fontojn:"
 
 msgid "Image"
-msgstr "Bildo"
+msgid_plural "Images"
+msgstr[0] "Bildo"
+msgstr[1] "Bildoj"
 
 #, python-format
 msgid "Image %s was successfully created."
@@ -1437,9 +1432,6 @@ msgstr "Bildo Fonto"
 
 msgid "Image from Other Project - Non-Public"
 msgstr "Bildo de alia Projekto - Ne-Publika"
-
-msgid "Images"
-msgstr "Bildoj"
 
 msgid "Impact on your quota"
 msgstr "Efekto je via kvoto."
@@ -1509,7 +1501,9 @@ msgstr ""
 " momento de praŝargo."
 
 msgid "Instance"
-msgstr "Apero"
+msgid_plural "Instances"
+msgstr[0] "Apero"
+msgstr[1] "Aperoj"
 
 msgid "Instance ID"
 msgstr "Apero ID"
@@ -1534,9 +1528,6 @@ msgstr ""
 " volumo aŭ volumo savkopio (se ebligita).\n"
 " Vi ankaŭ povas elekti uzi persistan memorilon per krei novan volumon."
 
-msgid "Instances"
-msgstr "Aperoj"
-
 msgid "Interfaces"
 msgstr "Interfacoj"
 
@@ -1556,13 +1547,12 @@ msgid "Kernel ID"
 msgstr "Kerno ID"
 
 msgid "Key Pair"
-msgstr "Ŝlosilo Paro"
+msgid_plural "Key Pairs"
+msgstr[0] "Ŝlosilo Paro"
+msgstr[1] "Ŝlosilo Paroj"
 
 msgid "Key Pair Name"
 msgstr "Ŝlosilparo Nomo"
-
-msgid "Key Pairs"
-msgstr "Ŝlosilo Paroj"
 
 msgid ""
 "Key Pairs are how you login to your instance after it is launched.\n"
@@ -1607,6 +1597,9 @@ msgstr ""
 "Ŝlosilaj Paroj estas kiel vi ensalutas al via apero post kiam ĝi estas "
 "lanĉita. Elektu ŝlosilpara nomon, kiun vi rekonos. Nomoj nur povas inkludi "
 "karakterojn litercifera, spacoj, streketoj kaj substrekoj."
+
+msgid "Key Type"
+msgstr "Ŝlosilo Tipo"
 
 #, python-format
 msgid "Key pair %(name)s was successfully created."
@@ -1667,16 +1660,14 @@ msgid "Live Edit Schema Form Examples"
 msgstr "Tuja RedaktSkemo FormularEkzemploj"
 
 msgid "Load Balancer Pool"
-msgstr "Ŝarĝodistribuilo Komunaĵo"
+msgid_plural "Load Balancer Pools"
+msgstr[0] "Ŝarĝodistribuila Komunaĵo"
+msgstr[1] "Ŝarĝodistribuilaj Komunaĵoj"
 
 msgid "Load Balancer Pool Member"
-msgstr "Ŝarĝodistribuilo Komunaĵo Membro"
-
-msgid "Load Balancer Pool Members"
-msgstr "Ŝarĝodistribuilo  Komunaĵo Membroj"
-
-msgid "Load Balancer Pools"
-msgstr "Ŝarĝodistribuilo Komunaĵoj"
+msgid_plural "Load Balancer Pool Members"
+msgstr[0] "Ŝarĝodistribuila Komunaĵmembro"
+msgstr[1] "Ŝarĝodistribuila Komunaĵmembroj"
 
 msgid "Load Function:"
 msgstr "Ŝarĝu Funkcion:"
@@ -1733,10 +1724,9 @@ msgid "Metadata"
 msgstr "Metadatumo"
 
 msgid "Metadata Definition"
-msgstr "Metadatumo Difino"
-
-msgid "Metadata Definitions"
-msgstr "Metadatumaj Difinoj"
+msgid_plural "Metadata Definitions"
+msgstr[0] "Metadatumo Difino"
+msgstr[1] "Metadatumo Difinoj"
 
 msgid ""
 "Metadata is a collection of key-value pairs associated with an instance.\n"
@@ -1832,34 +1822,35 @@ msgid "Navs"
 msgstr "Nav-oj"
 
 msgid "Network"
-msgstr "Reto"
+msgid_plural "Networks"
+msgstr[0] "Reto"
+msgstr[1] "Retoj"
 
 msgid "Network Health Monitor"
-msgstr "Reto Sano Monitoro"
-
-msgid "Network Health Monitors"
-msgstr "Reto Sano Monitoroj"
+msgid_plural "Network Health Monitors"
+msgstr[0] "Reta Sanmonitoro"
+msgstr[1] "Retaj Sanmonitoroj"
 
 msgid "Network ID"
 msgstr "Reto ID"
 
 msgid "Network Port"
-msgstr "Retpordo"
+msgid_plural "Network Ports"
+msgstr[0] "Retpordo"
+msgstr[1] "Retpordoj"
 
 msgid "Network Ports"
 msgstr "Retaj Pordoj"
 
 msgid "Network Router"
-msgstr "Reto Enkursigilo"
-
-msgid "Network Routers"
-msgstr "Reto Enkursigiloj"
+msgid_plural "Network Routers"
+msgstr[0] "Reta Enkursigilo"
+msgstr[1] "Retaj Enkursigiloj"
 
 msgid "Network Subnet"
-msgstr "Reto Subreto"
-
-msgid "Network Subnets"
-msgstr "Reto Subretoj"
+msgid_plural "Network Subnets"
+msgstr[0] "Reta Subreto"
+msgstr[1] "Retaj Subretoj"
 
 msgid "Network characteristics"
 msgstr "Reto karaktero:"
@@ -1976,7 +1967,9 @@ msgid "OVA - Open Virtual Appliance"
 msgstr "OVA - Nefermita Virtuala Aplikaĵo "
 
 msgid "Object"
-msgstr "Objekto"
+msgid_plural "Objects"
+msgstr[0] "Objekto"
+msgstr[1] "Objektoj"
 
 #, python-format
 msgid "Object %(path)s has copied."
@@ -1987,9 +1980,6 @@ msgstr "Objekto Nombro"
 
 msgid "Object Details"
 msgstr "Objekto Detajloj"
-
-msgid "Objects"
-msgstr "Objektoj"
 
 msgid "Ok"
 msgstr "Ok"
@@ -2182,7 +2172,9 @@ msgid "Progress bars"
 msgstr "Plenumskaloj"
 
 msgid "Project"
-msgstr "Projekto"
+msgid_plural "Projects"
+msgstr[0] "Projekto"
+msgstr[1] "Projektoj"
 
 msgid "Project ID"
 msgstr "Projekto ID"
@@ -2193,9 +2185,6 @@ msgid ""
 msgstr ""
 "Projekto retoj estas kreita pere de uzantoj.\n"
 " Tiuj retoj estas tute izolita kaj estas projekto-specifa."
-
-msgid "Projects"
-msgstr "Projektoj"
 
 msgid "Properties:"
 msgstr "Ecoj:"
@@ -2234,11 +2223,10 @@ msgstr "QCOW2"
 msgid "QCOW2 - QEMU Emulator"
 msgstr "QCOW2 - QEMU Imitilo"
 
-msgid "QoS Policies"
-msgstr "QoS Regularoj"
-
 msgid "QoS Policy"
-msgstr "QOS Regularo"
+msgid_plural "QoS Policies"
+msgstr[0] "QOS Regularo"
+msgstr[1] "QOS Regularoj"
 
 msgid "Queued"
 msgstr "Envicigita"
@@ -2286,17 +2274,19 @@ msgid "Right"
 msgstr "Dekstra"
 
 msgid "Role"
-msgstr "Rolo"
+msgid_plural "Roles"
+msgstr[0] "Rolo"
+msgstr[1] "Roloj"
 
 #, python-format
 msgid "Role %s was successfully created."
 msgstr "Rolo %s estis sukcese kreita."
 
+msgid "Role already exists."
+msgstr "Rolo jam ekzistas."
+
 msgid "Role updated successfully."
 msgstr "Rolon sukcese ĝisdatigita."
-
-msgid "Roles"
-msgstr "Roloj"
 
 msgid "Root Disk"
 msgstr "Radika Disko"
@@ -2306,6 +2296,9 @@ msgstr "Regulo ID"
 
 msgid "Rules"
 msgstr "Reguloj"
+
+msgid "SSH Key"
+msgstr "SSH Ŝlosilo"
 
 msgid "STATUS"
 msgstr "STATUSO"
@@ -2318,6 +2311,12 @@ msgstr "Savu ŝanĝojn "
 
 msgid "Saving"
 msgstr "Konservi"
+
+#, python-format
+msgid "Scheduled creation of %s instance."
+msgid_plural "Scheduled creation of %s instances."
+msgstr[0] "Vicigilita kreado de%s apero."
+msgstr[1] "Vicigilita kreado de %s aperoj."
 
 msgid "Scheduler Hints"
 msgstr "Planilo  Aludoj"
@@ -2342,7 +2341,9 @@ msgid "Security"
 msgstr "Secureco"
 
 msgid "Security Group"
-msgstr "Secureco Grupo"
+msgid_plural "Security Groups"
+msgstr[0] "Secureco Grupo"
+msgstr[1] "Secureco Grupoj"
 
 msgid "Security Groups"
 msgstr "Secureco Grupoj"
@@ -2479,11 +2480,16 @@ msgid "Separated link"
 msgstr "Apartita Ligo"
 
 msgid "Server Group"
-msgstr "Servilo Grupo"
+msgid_plural "Server Groups"
+msgstr[0] "Servilo Grupo"
+msgstr[1] "Servilo Grupoj"
 
 #, python-format
 msgid "Server Group %s was successfully created."
 msgstr "Servilo Grupo %s estis sukcese kreita."
+
+msgid "Server Group Members"
+msgstr "Servilogrupo Membroj"
 
 msgid "Server Groups"
 msgstr "Servilo Grupoj"
@@ -2588,6 +2594,9 @@ msgstr "Statuso"
 msgid "Status: %s"
 msgstr "Statuso: %s"
 
+msgid "Storage Policy"
+msgstr "Konservada Regularo"
+
 msgid "Striped"
 msgstr "Striita"
 
@@ -2623,16 +2632,14 @@ msgid "Swap Disk"
 msgstr "Permuto Disko"
 
 msgid "Swift Account"
-msgstr "Swift Konto"
-
-msgid "Swift Accounts"
-msgstr "Swift Kontoj"
+msgid_plural "Swift Accounts"
+msgstr[0] "Swift Konto"
+msgstr[1] "Swift Kontoj"
 
 msgid "Swift Container"
-msgstr "Swift Entenilo"
-
-msgid "Swift Containers"
-msgstr "Swift Enteniloj"
+msgid_plural "Swift Containers"
+msgstr[0] "Swift Entenilo"
+msgstr[1] "Swift Enteniloj"
 
 msgid "Tab Array"
 msgstr "Tabo Tabelo"
@@ -2978,7 +2985,9 @@ msgid "Total Volumes"
 msgstr "Totalaj Volumoj"
 
 msgid "Trunk"
-msgstr "Trunko"
+msgid_plural "Trunks"
+msgstr[0] "Trunko"
+msgstr[1] "Trunkoj"
 
 #, python-format
 msgid "Trunk %s was successfully created."
@@ -2987,9 +2996,6 @@ msgstr "Trunko %s estis sukcese kreita."
 #, python-format
 msgid "Trunk %s was successfully edited."
 msgstr "Trunko %s estis sukcese redaktita."
-
-msgid "Trunks"
-msgstr "Trunkoj"
 
 msgid "Type"
 msgstr "Tipo"
@@ -3243,6 +3249,9 @@ msgstr "Neeblas redakti volumo tipo metadatumon."
 
 msgid "Unable to fetch the groups."
 msgstr "Neeblas venigi la grupojn."
+
+msgid "Unable to fetch the policy details."
+msgstr "Neeblas ricevi regularajn detajlojn."
 
 msgid "Unable to fetch the service catalog."
 msgstr "Neeblas venigi la servo katalogon."
@@ -3611,7 +3620,9 @@ msgstr ""
 "datuma modelo, kiel sekcioj kaj kampoaroj."
 
 msgid "User"
-msgstr "Uzanto"
+msgid_plural "Users"
+msgstr[0] "Uzanto"
+msgstr[1] "Uzantoj"
 
 #, python-format
 msgid "User %s was successfully created."
@@ -3637,9 +3648,6 @@ msgstr "Uzanto Nomo"
 
 msgid "User password has been updated successfully."
 msgstr "Uzanto pasvorto sukcese ĝisdatigita."
-
-msgid "Users"
-msgstr "Uzantoj"
 
 msgid "VCPUS"
 msgstr "VCPUs"
@@ -3696,17 +3704,14 @@ msgid "Visibility"
 msgstr "Videbleco"
 
 msgid "Volume"
-msgstr "Volumo"
-
-#, python-format
-msgid "Volume %s was successfully created."
-msgstr "Volumo %s estis sukcese kreita."
+msgid_plural "Volumes"
+msgstr[0] "Volumo"
+msgstr[1] "Volumoj"
 
 msgid "Volume Backup"
-msgstr "Volumo Sekurkopio"
-
-msgid "Volume Backups"
-msgstr "Volumo Sekurkopioj"
+msgid_plural "Volume Backups"
+msgstr[0] "Volumo Sekurkopio"
+msgstr[1] "Volumo Sekurkopioj"
 
 msgid "Volume Details"
 msgstr "Volumo Detajlojn"
@@ -3718,10 +3723,9 @@ msgid "Volume Size (GB)"
 msgstr "Volumo Grando (GB)"
 
 msgid "Volume Snapshot"
-msgstr "Volumo Savkopio"
-
-msgid "Volume Snapshots"
-msgstr "Volumo Savkopio"
+msgid_plural "Volume Snapshots"
+msgstr[0] "Volumo Savkopio"
+msgstr[1] "Volumo Savkopioj"
 
 msgid "Volume Type Description:"
 msgstr "Volumo Tipo Priskribon:"
@@ -3732,8 +3736,8 @@ msgstr "Volumo kaj Savkopia Kvoto (GiB)"
 msgid "Volume size is required and must be an integer"
 msgstr "Volumo grando estas bezonata kaj devas esti entjero"
 
-msgid "Volumes"
-msgstr "Volumoj"
+msgid "Volume size is required and must be positive integer"
+msgstr "Volumo grando estas bezonata kaj devas esti entjero"
 
 msgid "Volumes are block devices that can be attached to instances."
 msgstr "Volumoj estas blokaj funkciiloj kiuj povas esti alligita al aperoj."
@@ -3802,6 +3806,9 @@ msgstr ""
 " <b>Funkciilo Propriulo</b>, tiam la pordo estas disponebla por uzo. Vi "
 "povas agordi la <b> Admin Stato</b> al \n"
 " <b>Suben</b>  se vi ne estas preta por lasi aliajn uzantoj aliri la reton."
+
+msgid "X509 Certificate"
+msgstr "X509 Ateston"
 
 msgid "XL Modal"
 msgstr "XL Modal"
@@ -3939,6 +3946,12 @@ msgstr "bildo"
 
 msgid "inherit"
 msgstr "heredi"
+
+msgid "min disk is required and must be an integer not less than 0"
+msgstr "min disko estas bezonata kaj devas esti entjero ne pli malgranda ol 0 "
+
+msgid "min ram is required and must be an integer not less than 0"
+msgstr "min ram estas bezonata kaj devas esti entjero ne pli malgranda ol 0 "
 
 #, python-format
 msgid "resource load failed: %s"

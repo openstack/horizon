@@ -1,0 +1,6 @@
+---
+upgrade:
+  - |
+    Django 1.11 support was dropped. Django 1.11 ends its extended support
+    in April 2020 which is before Ussuri release. Considering this, horizon
+    dropped Django 1.11 support and use Django 2.2 as default.

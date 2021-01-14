@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: horizon VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2018-09-29 05:45+0000\n"
+"POT-Creation-Date: 2020-11-23 00:41+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -304,34 +304,13 @@ msgstr ""
 msgid "Add static route to the router."
 msgstr "Aggiungi instradamento statico al router."
 
-msgid ""
-"Add volume types to this consistency group. Multiple volume types can be "
-"added to the same consistency group only if they are associated with same "
-"back end."
-msgstr ""
-"Aggiungere i tipi di volume al gruppo di coerenza. Più tipi di volume "
-"possono essere aggiunti allo stesso gruppo di coerenza solo se sono "
-"associati allo stesso backend."
-
 msgid "Add, modify or remove the QoS Spec associated with this volume type."
 msgstr ""
 "Aggiungere, modificare o rimuovere la specifica QoS associata a questo tipo "
 "di volume."
 
-msgid "Add/Remove Consistency Group Volumes"
-msgstr "Aggiungere/rimuovere i volumi del gruppo di coerenza"
-
 msgid "Add/Remove Hosts to Aggregate"
 msgstr "Aggiungi/Rimuovi host in Aggregato"
-
-msgid ""
-"Add/remove volumes to/from this consistency group. Only volumes associated "
-"with the volume type(s) assigned to this consistency group will be available "
-"for selection."
-msgstr ""
-"Aggiungere/rimuovere i volumi a/da questo gruppo di coerenza. Solo i volumi "
-"associati con il volume type(s) assegnato a questo gruppo di coerenza "
-"saranno disponibile per la selezione."
 
 msgid "Added User"
 msgid_plural "Added Users"
@@ -422,13 +401,6 @@ msgstr "Tutti i tipi di volume disponibili"
 
 msgid "All available volumes"
 msgstr "Tutti i volumi disponibili"
-
-msgid ""
-"All selected volume types must be associated with the same volume backend "
-"name."
-msgstr ""
-"Tutti i tipi di volume selezionati devono essere associati allo stesso nome "
-"di backend del volume."
 
 msgid "Allocate Floating IP"
 msgstr "Alloca IP mobile"
@@ -570,10 +542,6 @@ msgstr "Zone di disponibilità"
 msgid "Availability zone"
 msgstr "Zona di disponibilità"
 
-msgid "Available"
-msgstr "Disponibile"
-
-msgctxt "Current status of Consistency Group"
 msgid "Available"
 msgstr "Disponibile"
 
@@ -856,9 +824,6 @@ msgctxt "Task status of an Instance"
 msgid "Confirming Resize or Migrate"
 msgstr "Conferma del ridimensionamento o della migrazione"
 
-msgid "Consistency Group Information"
-msgstr "Informazioni sul gruppo di coerenza"
-
 msgid "Console"
 msgstr "Console"
 
@@ -918,9 +883,6 @@ msgstr "Creare Un'Immagine"
 
 msgid "Create Backup"
 msgstr "Crea backup"
-
-msgid "Create Consistency Group"
-msgstr "Crea gruppo di coerenza"
 
 msgid "Create Domain"
 msgstr "Creare un Dominio"
@@ -1005,9 +967,6 @@ msgstr "Crea volume"
 
 msgid "Create Volume Backup"
 msgstr "Crea backup volume"
-
-msgid "Create Volume Consistency Group"
-msgstr "Crea gruppo di coerenza del volume"
 
 msgid "Create Volume Snapshot"
 msgstr "Crea istantanea volume"
@@ -1107,9 +1066,6 @@ msgstr "Creato nuovo aggregato host \"%s\"."
 #, python-format
 msgid "Created new project \"%s\"."
 msgstr "Creato nuovo progetto \"%s\"."
-
-msgid "Created new volume consistency group"
-msgstr "Nuovo gruppo di coerenza del volume creato"
 
 #, python-format
 msgid "Created spec \"%s\"."
@@ -1255,10 +1211,6 @@ msgstr "Quote predefinite aggiornate."
 
 msgid "Defaults"
 msgstr "Impostazioni predefinite"
-
-#, fuzzy
-msgid "Delete Consistency Group"
-msgstr "Elimina gruppo di coerenza"
 
 msgid "Delete DHCP Agent"
 msgid_plural "Delete DHCP Agents"
@@ -1824,9 +1776,6 @@ msgstr "URL EC2"
 msgid "Edit"
 msgstr "Modifica"
 
-msgid "Edit Consistency Group"
-msgstr "Modifica gruppo di coerenza"
-
 msgid "Edit Consumer"
 msgstr "Modifica consumer"
 
@@ -1854,6 +1803,9 @@ msgstr "Modifica istanza"
 
 msgid "Edit Network"
 msgstr "Modificare la rete"
+
+msgid "Edit Policy"
+msgstr "Modifica politica"
 
 msgid "Edit Port"
 msgstr "Modificare una Porta"
@@ -1999,10 +1951,6 @@ msgstr "Disco temporaneo"
 
 msgid "Ephemeral Disk (GB)"
 msgstr "Disco temporaneo (GB)"
-
-msgctxt "Current status of Consistency Group"
-msgid "Error"
-msgstr "Errore"
 
 msgctxt "Current status of a Floating IP"
 msgid "Error"
@@ -2175,10 +2123,6 @@ msgid "Failed to add agent %(agent_name)s for network %(network)s."
 msgstr "Impossibile aggiungere l'agent %(agent_name)s per la rete %(network)s."
 
 #, python-format
-msgid "Failed to create network \"%(network)s\": %(reason)s"
-msgstr "Impossibile creare la rete \"%(network)s\": %(reason)s"
-
-#, python-format
 msgid "Failed to create network %s"
 msgstr "Impossibile creare la rete %s"
 
@@ -2209,9 +2153,6 @@ msgstr "Impossibile abbandonare le istanze: %s"
 #, python-format
 msgid "Failed to get mapping list %s"
 msgstr "Impossibile richiamare l'elenco di associazioni %s"
-
-msgid "Failed to get network list {0}"
-msgstr "Impossibile ottenere l'elenco di reti {0}"
 
 msgid "Failed to get network list."
 msgstr "Impossibile richiamare l'elenco di reti."
@@ -2266,20 +2207,12 @@ msgstr ""
 "nello stato di errore"
 
 #, python-format
-msgid "Failed to retrieve network %s for a subnet"
-msgstr "Impossibile ottenere la rete %s per una sottorete"
-
-#, python-format
 msgid "Failed to update network %s"
 msgstr "Impossibile aggiornare la rete %s"
 
 #, python-format
 msgid "Failed to update router %s"
 msgstr "Impossibile aggiornare il router %s"
-
-#, python-format
-msgid "Failed to update subnet \"%(sub)s\":  %(reason)s"
-msgstr "Impossibile aggiornare la sottorete \"%(sub)s\":  %(reason)s"
 
 msgid "False"
 msgstr "False"
@@ -2324,22 +2257,11 @@ msgstr "Scelta flavor"
 msgid "Flavor Details"
 msgstr "Dettagli flavor"
 
-#, python-format
-msgid "Flavor Details: %(name)s\">%(name)s"
-msgstr "Dettagli flavor: %(name)s\">%(name)s"
-
 msgid "Flavor ID"
 msgstr "ID flavor"
 
 msgid "Flavor ID ="
 msgstr "ID flavor ="
-
-msgid ""
-"Flavor ID should be UUID4 or integer. Leave this field blank or use 'auto' "
-"to set a random UUID4."
-msgstr ""
-"ID Flavor deve essere UUID4 o un numero intero. Lasciare vuoto questo campo "
-"o utilizzare 'auto' per impostare un UUID4 a caso."
 
 msgid "Flavor Information"
 msgstr "Informazioni flavor"
@@ -2747,10 +2669,6 @@ msgstr "Importa coppia di chiavi"
 
 msgid "Import Namespace"
 msgstr "Importa spazio dei nomi"
-
-msgctxt "Current status of Consistency Group"
-msgid "In-use"
-msgstr "In uso"
 
 msgctxt "Current status of a Volume"
 msgid "In-use"
@@ -3228,10 +3146,6 @@ msgstr "Modificare il nome e la descrizione di un volume."
 
 msgid "Modify the name and description of a snapshot."
 msgstr "Modificare il nome e la descrizione di un'istantanea."
-
-msgid "Modify the name and description of a volume consistency group."
-msgstr ""
-"Modificare il nome e la descrizione di un gruppo di coerenza di volumi."
 
 msgid "Monitoring:"
 msgstr "Monitoraggio:"
@@ -4387,9 +4301,6 @@ msgstr "Selezionare un nuovo host"
 msgid "Select a new status"
 msgstr "Selezionare un nuovo stato"
 
-msgid "Select a new volume type"
-msgstr "Selezionare un nuovo tipo di volume"
-
 msgid "Select a pool"
 msgstr "Selezionare un pool"
 
@@ -4593,9 +4504,6 @@ msgstr "Dimensione (GiB)"
 
 msgid "Size of image to launch."
 msgstr "Dimensione dell'immagine da avviare."
-
-msgid "Slash is not allowed at the beginning or end of your string."
-msgstr "La barra non è consentita all'inizio o alla fine della stringa."
 
 msgid "Slash is not an allowed character."
 msgstr "La barra non è un carattere consentito."
@@ -4971,14 +4879,6 @@ msgstr ""
 "viene eseguita la codifica (ad esempio, front-end=Nova). Il valore "
 "predefinito è 'front-end.'"
 
-msgid ""
-"The <strong>Key Size</strong> is the size of the encryption key, in bits (e."
-"g., 128, 256). If the field is left empty, the provider default will be used."
-msgstr ""
-"La <strong>Dimensione chiave</strong> è la dimensione della chiave "
-"crittografica in bit (ad esempio, 128, 256). Se il campo viene lasciato "
-"vuoto, verrà utilizzato il valore predefinito del provider."
-
 msgid "The Aggregate was updated."
 msgstr "L'Aggregato è stato aggiornato."
 
@@ -5080,10 +4980,6 @@ msgstr ""
 "specificato, questo valore sarà 0 (nessun minimo)."
 
 #, python-format
-msgid "The name \"%s\" is already used by another consistency group."
-msgstr "Il nome \"%s\" è già utilizzato da un altro gruppo di coerenza."
-
-#, python-format
 msgid "The name \"%s\" is already used by another flavor."
 msgstr "Il nome \"%s\" è già utilizzato da un altro flavor."
 
@@ -5138,9 +5034,6 @@ msgstr "La porta dell'istanza richiesta è già associata ad un altro IP mobile.
 
 msgid "The specified port is invalid."
 msgstr "La porta specificata non è valida."
-
-msgid "The state to start the network in."
-msgstr "Lo stato in cui avviare la rete."
 
 #, python-format
 msgid "The subnet in the Network Address is too small (/%s)."
@@ -5230,15 +5123,6 @@ msgstr ""
 
 msgid "This volume type is used by one or more volumes."
 msgstr "Questo tipo di volume viene utilizzato da uno o più volumi."
-
-msgid "Time Since Created"
-msgstr "Tempo a partire dalla creazione"
-
-msgid "Time since created"
-msgstr "Tempo a partire dalla creazione"
-
-msgid "Time since created (Seconds)"
-msgstr "Tempo a partire dalla creazione (secondi)"
 
 msgid "Timezone"
 msgstr "Fuso orario"
@@ -5389,9 +5273,6 @@ msgstr "Impossibile connettersi a Neutron."
 
 msgid "Unable to create QoS Spec."
 msgstr "Impossibile creare la specifica QoS."
-
-msgid "Unable to create consistency group."
-msgstr "Impossibile creare il gruppo di coerenza."
 
 #, python-format
 msgid "Unable to create domain \"%s\"."
@@ -5545,9 +5426,6 @@ msgstr "Impossibile richiamare la console VNC per l'istanza \"%s\"."
 msgid "Unable to get cinder services list."
 msgstr "Impossibile ottenere l'elenco servizi cinder."
 
-msgid "Unable to get consistency group list"
-msgstr "Impossibile ottenere l'elenco dei gruppi di coerenza"
-
 msgid "Unable to get flavor list"
 msgstr "Impossibile richiamare l'elenco flavor"
 
@@ -5582,9 +5460,6 @@ msgstr "Impossibile richiamare i tipi di volume disponibili"
 
 msgid "Unable to get the available volumes"
 msgstr "Impossibile ottenere i volumi disponibili"
-
-msgid "Unable to get volume type list"
-msgstr "Impossibile ottenere l'elenco dei tipi di volumi"
 
 msgid "Unable to import key pair."
 msgstr "Impossibile importare la coppia di chiavi."
@@ -5677,9 +5552,6 @@ msgstr "Impossibile richiamare gli indirizzi IP da Neutron."
 msgid "Unable to retrieve Network information for instance \"%s\"."
 msgstr "Impossibile richiamare le informazioni di rete per l'istanza \"%s\"."
 
-msgid "Unable to retrieve Nova availability zones."
-msgstr "Impossibile richiamare le zone di disponibilità Nova."
-
 msgid "Unable to retrieve QoS Spec association."
 msgstr "Impossibile richiamare l'associazione della specifica QoS."
 
@@ -5697,10 +5569,6 @@ msgstr "Impossibile richiamare l'elenco di specifiche QoS."
 
 msgid "Unable to retrieve QoS specs"
 msgstr "Impossibile richiamare le specifiche QoS"
-
-#, python-format
-msgid "Unable to retrieve a list of external networks \"%s\"."
-msgstr "Impossibile richiamare un elenco di reti esterne \"%s\"."
 
 msgid "Unable to retrieve agent list."
 msgstr "Impossibile richiamare l'elenco di agent."
@@ -5727,9 +5595,6 @@ msgstr ""
 
 msgid "Unable to retrieve compute limit information."
 msgstr "Impossibile richiamare le informazioni sul limite di calcolo."
-
-msgid "Unable to retrieve consistency group details."
-msgstr "Impossibile richiamare i dettagli del gruppo di coerenza."
 
 #, python-format
 msgid "Unable to retrieve details for instance \"%s\"."
@@ -5758,9 +5623,6 @@ msgstr "Impossibile ottenere la lista dei domini."
 
 msgid "Unable to retrieve encryption type."
 msgstr "Impossibile richiamare il tipo di codifica."
-
-msgid "Unable to retrieve extensions information"
-msgstr "Impossibile richiamare le informazioni sulle estensioni."
 
 msgid "Unable to retrieve extensions information."
 msgstr "Impossibile richiamare le informazioni sulle estensioni."
@@ -5838,9 +5700,6 @@ msgstr "Impossibile ottenere la lista delle immagini."
 
 msgid "Unable to retrieve image."
 msgstr "Impossibile richiamare l'immagine."
-
-msgid "Unable to retrieve images"
-msgstr "Impossibile richiamare le immagini"
 
 msgid "Unable to retrieve images for the current project."
 msgstr "Impossibile richiamare le immagini per il progetto corrente."
@@ -6027,9 +5886,6 @@ msgstr "Impossibile richiamare le informazioni sulla versione."
 msgid "Unable to retrieve volume backups."
 msgstr "Impossibile richiamare i backup del volume"
 
-msgid "Unable to retrieve volume consistency groups."
-msgstr "Impossibile richiamare i gruppi di coerenza del volume."
-
 msgid "Unable to retrieve volume details."
 msgstr "Impossibile richiamare i dettagli del volume."
 
@@ -6104,9 +5960,6 @@ msgstr "Impossibile richiamare il volume."
 msgid "Unable to retrieve volume/instance attachment information"
 msgstr "Impossibile richiamare le informazioni sull'allegato volume/istanza."
 
-msgid "Unable to retrieve volumes availability zones."
-msgstr "Impossibile richiamare le zone di disponibilità dei volumi."
-
 msgid "Unable to set Domain Context."
 msgstr "Impossibile impostare il Contesto di Dominio."
 
@@ -6179,9 +6032,6 @@ msgstr "Impossibile aggiornare la password utente."
 
 msgid "Unable to update the user."
 msgstr "Impossibile aggiornare l'utente."
-
-msgid "Unable to update volume consistency group."
-msgstr "Impossibile aggiornare il gruppo di coerenza del volume."
 
 msgid "Unable to update volume snapshot status."
 msgstr "Impossibile aggiornare lo stato istantanea del volume."
@@ -6365,10 +6215,6 @@ msgid "Updating volume \"%s\""
 msgstr "Aggiornamento del volume \"%s\""
 
 #, python-format
-msgid "Updating volume consistency group \"%s\""
-msgstr "Aggiornamento del gruppo di coerenza del volume \"%s\""
-
-#, python-format
 msgid "Updating volume snapshot \"%s\""
 msgstr "Aggiornamento dell'istantanea del volume \"%s\""
 
@@ -6416,10 +6262,6 @@ msgstr "Utente"
 msgid "User \"%s\" was successfully created."
 msgstr "L'utente \"%s\" è stato creato correttamente."
 
-#, python-format
-msgid "User %s has no role defined for that project."
-msgstr "All'utente %s non è associato un ruolo per quel progetto."
-
 msgid "User Credentials Details"
 msgstr "Dettagli credenziali utente"
 
@@ -6434,9 +6276,6 @@ msgstr "Nome Utente"
 
 msgid "User Settings"
 msgstr "Impostazioni utente."
-
-msgid "User has been updated successfully."
-msgstr "L'utente è stato aggiornato correttamente."
 
 #, python-format
 msgid "User name \"%s\" is already used."
@@ -6531,9 +6370,6 @@ msgstr "Backup del volume:"
 msgid "Volume Backups"
 msgstr "Backup del volume"
 
-msgid "Volume Consistency Groups"
-msgstr "Gruppi di coerenza del volume"
-
 msgid "Volume Encryption Details"
 msgstr "Dettagli codifica del volume"
 
@@ -6609,20 +6445,6 @@ msgstr "Tipo di volume: %(volume_type_name)s "
 
 msgid "Volume Types"
 msgstr "Tipi di volume"
-
-msgid ""
-"Volume consistency groups provide a mechanism for creating snapshots of "
-"multiple volumes at the same point-in-time to ensure data consistency\n"
-"\n"
-"A consistency group can support more than one volume type, but it can only "
-"contain volumes hosted by the same back end."
-msgstr ""
-"I gruppi di coerenza del volume forniscono un meccanismo per creare "
-"istantanee di più volumi nello stesso punto nel tempo per garantire la "
-"coerenza dei dati\n"
-"\n"
-"Un gruppo di coerenza può supportare più di un tipo di volume, ma può solo "
-"contenere i volumi ospitati dallo stesso back end."
 
 msgid "Volume is Unencrypted"
 msgstr "Il volume non è codificato"

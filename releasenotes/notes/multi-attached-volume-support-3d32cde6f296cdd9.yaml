@@ -1,0 +1,15 @@
+---
+features:
+  - |
+    [:blueprint:`multi-Attached-volume-support`]
+    Horizon now support Multi-Attached volume.
+    User is now able to attach a volume to multiple
+    instances. The ability to attach a volume to
+    multiple host/servers requires that the volume
+    type includes an extra-spec capability setting of
+    multiattach=<is> True. Horizon automatically detects
+    and enable multi-attach-volume feature.
+
+    API restrictions:
+      Multiattach capable volumes can only be attached
+      with nova API microversion 2.60 or later.

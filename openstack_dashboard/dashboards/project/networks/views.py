@@ -15,7 +15,6 @@
 """
 Views for managing Neutron Networks.
 """
-from django.conf import settings
 from django.urls import reverse
 from django.urls import reverse_lazy
 from django.utils.translation import ugettext_lazy as _
@@ -29,6 +28,7 @@ from horizon import workflows
 
 from openstack_dashboard import api
 from openstack_dashboard.utils import filters
+from openstack_dashboard.utils import settings as setting_utils
 
 from openstack_dashboard.dashboards.project.networks \
     import forms as project_forms
@@ -67,16 +67,16 @@ class DefaultSubnetWorkflowMixin(object):
 
     def get_default_dns_servers(self):
         # this returns the default dns servers to be used for new subnets
-        dns_default = "\n".join(getattr(settings, 'OPENSTACK_NEUTRON_NETWORK',
-                                        {}).get('default_dns_nameservers', ''))
-        return dns_default
+        default_dns_nameservers = setting_utils.get_dict_config(
+            'OPENSTACK_NEUTRON_NETWORK', 'default_dns_nameservers')
+        return "\n".join(default_dns_nameservers)
 
 
 class CreateView(DefaultSubnetWorkflowMixin, workflows.WorkflowView):
     workflow_class = project_workflows.CreateNetwork
 
     def get_initial(self):
-        results = super(CreateView, self).get_initial()
+        results = super().get_initial()
         results['dns_nameservers'] = self.get_default_dns_servers()
         return results
 
@@ -92,7 +92,7 @@ class UpdateView(forms.ModalFormView):
     page_title = _("Edit Network")
 
     def get_context_data(self, **kwargs):
-        context = super(UpdateView, self).get_context_data(**kwargs)
+        context = super().get_context_data(**kwargs)
         args = (self.kwargs['network_id'],)
         context["network_id"] = self.kwargs['network_id']
         context["submit_url"] = reverse(self.submit_url, args=args)
@@ -147,7 +147,7 @@ class DetailView(tabs.TabbedTableView):
         pass
 
     def get_context_data(self, **kwargs):
-        context = super(DetailView, self).get_context_data(**kwargs)
+        context = super().get_context_data(**kwargs)
         network = self._get_data()
         context["network"] = network
         table = project_tables.NetworksTable(self.request)

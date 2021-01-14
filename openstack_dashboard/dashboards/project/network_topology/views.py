@@ -76,6 +76,7 @@ from openstack_dashboard.dashboards.project.routers.tables import \
 from openstack_dashboard.dashboards.project.routers import\
     views as r_views
 from openstack_dashboard import policy
+from openstack_dashboard.utils import settings as setting_utils
 
 # List of known server statuses that wont connect to the console
 console_invalid_status = {
@@ -114,7 +115,7 @@ class NTAddInterfaceView(p_views.AddInterfaceView):
         return reverse("horizon:project:network_topology:index")
 
     def get_context_data(self, **kwargs):
-        context = super(NTAddInterfaceView, self).get_context_data(**kwargs)
+        context = super().get_context_data(**kwargs)
         context['form_url'] = 'horizon:project:network_topology:interface'
         return context
 
@@ -205,7 +206,7 @@ class NetworkTopologyView(tabs.TabView):
     page_title = _("Network Topology")
 
     def get_context_data(self, **kwargs):
-        context = super(NetworkTopologyView, self).get_context_data(**kwargs)
+        context = super().get_context_data(**kwargs)
         return utils.get_context(self.request, context)
 
 
@@ -214,8 +215,8 @@ class JSONView(View):
 
     @property
     def is_router_enabled(self):
-        network_config = getattr(settings, 'OPENSTACK_NEUTRON_NETWORK', {})
-        return network_config.get('enable_router', True)
+        return setting_utils.get_dict_config('OPENSTACK_NEUTRON_NETWORK',
+                                             'enable_router')
 
     def add_resource_url(self, view, resources):
         tenant_id = self.request.user.tenant_id
@@ -239,7 +240,7 @@ class JSONView(View):
         except Exception:
             servers = []
         data = []
-        console_type = getattr(settings, 'CONSOLE_TYPE', 'AUTO')
+        console_type = settings.CONSOLE_TYPE
         # lowercase of the keys will be used at the end of the console URL.
         for server in servers:
             server_data = {'name': server.name,

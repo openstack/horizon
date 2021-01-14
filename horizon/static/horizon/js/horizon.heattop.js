@@ -157,7 +157,7 @@ function build_node_links(node){
     //make sure target node exists
     try {
       target_idx = findNodeIndex(node.required_by[j]);
-    } catch(err) {
+    } catch (err) {
       push_link =false;
     }
     //check for duplicates
@@ -180,11 +180,11 @@ function build_node_links(node){
 
 function build_reverse_links(node){
   for (var i=0;i<nodes.length;i++){
-    if(nodes[i].required_by){
+    if (nodes[i].required_by) {
       for (var j=0;j<nodes[i].required_by.length;j++){
         var dependency = nodes[i].required_by[j];
         //if new node is required by existing node, push new link
-        if(node.name === dependency){
+        if (node.name === dependency) {
           links.push({
             'source':findNodeIndex(nodes[i].name),
             'target':findNodeIndex(node.name),

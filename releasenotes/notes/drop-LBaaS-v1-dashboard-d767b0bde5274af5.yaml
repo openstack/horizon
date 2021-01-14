@@ -6,4 +6,4 @@ upgrade:
     Newton release so that operators can upgrade Horizon first.
     Note that the Dashboard support for LBaaS v2 is provided as
     a Horizon plugin via `neutron-lbaas-dashboard project
-    <http://git.openstack.org/cgit/openstack/neutron-lbaas-dashboard/>`__.
+    <https://opendev.org/openstack/neutron-lbaas-dashboard/>`__.

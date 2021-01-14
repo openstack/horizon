@@ -12,7 +12,6 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
-import six
 import yaml
 
 from django import template
@@ -28,7 +27,6 @@ INDEX_URL = reverse('horizon:project:api_access:index')
 API_URL = "horizon:project:api_access"
 EC2_URL = reverse(API_URL + ":ec2")
 OPENRC_URL = reverse(API_URL + ":openrc")
-OPENRCV2_URL = reverse(API_URL + ":openrcv2")
 CREDS_URL = reverse(API_URL + ":view_credentials")
 RECREATE_CREDS_URL = reverse(API_URL + ":recreate_credentials")
 
@@ -49,20 +47,6 @@ class APIAccessTests(test.TestCase):
             test.IsHttpRequest(), self.user.id)
         self.mock_create_ec2_credentials.assert_called_once_with(
             test.IsHttpRequest(), self.user.id, self.tenant.id)
-
-    def test_openrcv2_credentials(self):
-        res = self.client.get(OPENRCV2_URL)
-        self.assertEqual(res.status_code, 200)
-        openrc = 'project/api_access/openrc_v2.sh.template'
-        self.assertTemplateUsed(res, openrc)
-        name = 'export OS_USERNAME="{}"'.format(self.request.user.username)
-        t_id = 'export OS_TENANT_ID={}'.format(self.request.user.tenant_id)
-        domain = 'export OS_USER_DOMAIN_NAME="{}"'.format(
-            self.request.user.user_domain_name)
-        self.assertIn(name.encode('utf-8'), res.content)
-        self.assertIn(t_id.encode('utf-8'), res.content)
-        # domain content should not be present for v2
-        self.assertNotIn(domain.encode('utf-8'), res.content)
 
     @override_settings(OPENSTACK_API_VERSIONS={"identity": 3})
     def test_openrc_credentials(self):
@@ -136,15 +120,7 @@ class ASCIITenantNameRCTests(test.TestCase):
     TENANT_NAME = 'tenant'
 
     def _setup_user(self, **kwargs):
-        super(ASCIITenantNameRCTests, self)._setup_user(
-            tenant_name=self.TENANT_NAME)
-
-    def test_openrcv2_credentials_filename(self):
-        expected = 'attachment; filename="%s-openrc.sh"' % self.TENANT_NAME
-        res = self.client.get(OPENRCV2_URL)
-
-        self.assertEqual(res.status_code, 200)
-        self.assertEqual(expected, res['content-disposition'])
+        super()._setup_user(tenant_name=self.TENANT_NAME)
 
     @override_settings(OPENSTACK_API_VERSIONS={"identity": 3})
     def test_openrc_credentials_filename(self):
@@ -159,26 +135,7 @@ class UnicodeTenantNameRCTests(test.TestCase):
     TENANT_NAME = u'\u043f\u0440\u043e\u0435\u043a\u0442'
 
     def _setup_user(self, **kwargs):
-        super(UnicodeTenantNameRCTests, self)._setup_user(
-            tenant_name=self.TENANT_NAME)
-
-    def test_openrcv2_credentials_filename(self):
-        expected = ('attachment; filename="%s-openrc.sh"' %
-                    self.TENANT_NAME).encode('utf-8')
-        res = self.client.get(OPENRCV2_URL)
-
-        self.assertEqual(res.status_code, 200)
-
-        result_content_disposition = res['content-disposition']
-        # we need to encode('latin-1') because django response object
-        # has custom setter which encodes all values to latin-1 for Python3.
-        # https://github.com/django/django/blob/1.9.6/django/http/response.py#L142
-        # see _convert_to_charset() method for details.
-        if six.PY3:
-            result_content_disposition = result_content_disposition.\
-                encode('latin-1')
-        self.assertEqual(expected,
-                         result_content_disposition)
+        super()._setup_user(tenant_name=self.TENANT_NAME)
 
     @override_settings(OPENSTACK_API_VERSIONS={"identity": 3})
     def test_openrc_credentials_filename(self):
@@ -190,9 +147,8 @@ class UnicodeTenantNameRCTests(test.TestCase):
 
         result_content_disposition = res['content-disposition']
 
-        if six.PY3:
-            result_content_disposition = result_content_disposition.\
-                encode('latin-1')
+        result_content_disposition = result_content_disposition.\
+            encode('latin-1')
         self.assertEqual(expected,
                          result_content_disposition)
 

@@ -31,9 +31,6 @@ from openstack_dashboard.dashboards.project.vg_snapshots \
 from openstack_dashboard.dashboards.project.vg_snapshots \
     import tabs as vg_snapshot_tabs
 
-GROUP_INFO_FIELDS = ("name",
-                     "description")
-
 INDEX_URL = "horizon:project:vg_snapshots:index"
 
 
@@ -66,7 +63,7 @@ class DetailView(tabs.TabView):
     page_title = "{{ vg_snapshot.name|default:vg_snapshot.id }}"
 
     def get_context_data(self, **kwargs):
-        context = super(DetailView, self).get_context_data(**kwargs)
+        context = super().get_context_data(**kwargs)
         vg_snapshot = self.get_data()
         table = vg_snapshot_tables.GroupSnapshotsTable(self.request)
         context["vg_snapshot"] = vg_snapshot
@@ -121,7 +118,7 @@ class CreateGroupView(forms.ModalFormView):
     page_title = _("Create Volume Group")
 
     def get_context_data(self, **kwargs):
-        context = super(CreateGroupView, self).get_context_data(**kwargs)
+        context = super().get_context_data(**kwargs)
         context['vg_snapshot_id'] = self.kwargs['vg_snapshot_id']
         args = (self.kwargs['vg_snapshot_id'],)
         context['submit_url'] = reverse(self.submit_url, args=args)
@@ -136,16 +133,16 @@ class CreateGroupView(forms.ModalFormView):
             volumes = api.cinder.volume_list(self.request,
                                              search_opts=search_opts)
             num_volumes = len(volumes)
-            usages = quotas.tenant_limit_usages(self.request)
+            usages = quotas.tenant_quota_usages(
+                self.request, targets=('volumes', 'gigabytes'))
 
-            if usages['totalVolumesUsed'] + num_volumes > \
-                    usages['maxTotalVolumes']:
+            if (usages['volumes']['used'] + num_volumes >
+                    usages['volumes']['quota']):
                 raise ValueError(_('Unable to create group due to '
                                    'exceeding volume quota limit.'))
-            else:
-                usages['numRequestedItems'] = num_volumes
-                context['usages'] = usages
 
+            context['numRequestedItems'] = num_volumes
+            context['usages'] = usages
         except ValueError as e:
             exceptions.handle(self.request, e.message)
             return None

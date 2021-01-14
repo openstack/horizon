@@ -1,0 +1,6 @@
+---
+features:
+  - |
+    Added support to retrieve supported disk formats from glance,
+    so you can adjust disk_formats only inside glance-api.conf.
+    You still can use IMAGE_BACKEND_SETTINGS to adjust format naming.

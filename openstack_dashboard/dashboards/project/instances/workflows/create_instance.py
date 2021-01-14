@@ -21,7 +21,6 @@ import logging
 import operator
 
 from oslo_utils import units
-import six
 
 from django.template.defaultfilters import filesizeformat
 from django.utils.text import normalize_newlines
@@ -57,7 +56,7 @@ class SelectProjectUserAction(workflows.Action):
     user_id = forms.ThemableChoiceField(label=_("User"))
 
     def __init__(self, request, *args, **kwargs):
-        super(SelectProjectUserAction, self).__init__(request, *args, **kwargs)
+        super().__init__(request, *args, **kwargs)
         # Set our project choices
         projects = [(tenant.id, tenant.name)
                     for tenant in request.user.authorized_tenants]
@@ -146,8 +145,7 @@ class SetInstanceDetailsAction(workflows.Action):
         self._init_images_cache()
         self.request = request
         self.context = context
-        super(SetInstanceDetailsAction, self).__init__(
-            request, context, *args, **kwargs)
+        super().__init__(request, context, *args, **kwargs)
 
         # Hide the device field if the hypervisor doesn't support it.
         if not nova.can_set_mount_point():
@@ -159,21 +157,13 @@ class SetInstanceDetailsAction(workflows.Action):
             ("instance_snapshot_id", _("Boot from snapshot")),
         ]
         if cinder.is_volume_service_enabled(request):
-            source_type_choices.append(("volume_id", _("Boot from volume")))
-
-            try:
-                if api.nova.extension_supported("BlockDeviceMappingV2Boot",
-                                                request):
-                    source_type_choices.append(
-                        ("volume_image_id",
-                         _("Boot from image (creates a new volume)")))
-            except Exception:
-                exceptions.handle(request, _('Unable to retrieve extensions '
-                                             'information.'))
-
-            source_type_choices.append(
+            source_type_choices += [
+                ("volume_id", _("Boot from volume")),
+                ("volume_image_id",
+                 _("Boot from image (creates a new volume)")),
                 ("volume_snapshot_id",
-                 _("Boot from volume snapshot (creates a new volume)")))
+                 _("Boot from volume snapshot (creates a new volume)")),
+            ]
         self.fields['source_type'].choices = source_type_choices
 
     @memoized.memoized_method
@@ -320,9 +310,8 @@ class SetInstanceDetailsAction(workflows.Action):
             msg = _("You must select an image.")
             self._errors['image_id'] = self.error_class([msg])
             return
-        else:
-            self._check_flavor_for_image(cleaned_data)
-            self._check_volume_for_image(cleaned_data)
+        self._check_flavor_for_image(cleaned_data)
+        self._check_volume_for_image(cleaned_data)
 
     def _check_source_instance_snapshot(self, cleaned_data):
         # using the array form of get blows up with KeyError
@@ -364,7 +353,7 @@ class SetInstanceDetailsAction(workflows.Action):
             check_method(cleaned_data)
 
     def clean(self):
-        cleaned_data = super(SetInstanceDetailsAction, self).clean()
+        cleaned_data = super().clean()
 
         self._check_quotas(cleaned_data)
         self._check_source(cleaned_data)
@@ -416,7 +405,7 @@ class SetInstanceDetailsAction(workflows.Action):
         except Exception:
             exceptions.handle(self.request,
                               _("Unable to retrieve quota information."))
-        return super(SetInstanceDetailsAction, self).get_help_text(extra)
+        return super().get_help_text(extra)
 
     def _init_images_cache(self):
         if not hasattr(self, '_images_cache'):
@@ -524,7 +513,7 @@ class SetInstanceDetails(workflows.Step):
         return context
 
     def contribute(self, data, context):
-        context = super(SetInstanceDetails, self).contribute(data, context)
+        context = super().contribute(data, context)
         # Allow setting the source dynamically.
         if ("source_type" in context and
                 "source_id" in context and
@@ -561,6 +550,7 @@ class SetAccessControlsAction(workflows.Action):
         error_messages={'invalid': validators.password_validator_msg()})
     confirm_admin_pass = forms.CharField(
         label=_("Confirm Admin Password"),
+        strip=False,
         required=False,
         widget=forms.PasswordInput(render_value=False))
     groups = forms.MultipleChoiceField(
@@ -577,7 +567,7 @@ class SetAccessControlsAction(workflows.Action):
                       "security groups, and other mechanisms.")
 
     def __init__(self, request, *args, **kwargs):
-        super(SetAccessControlsAction, self).__init__(request, *args, **kwargs)
+        super().__init__(request, *args, **kwargs)
         if not api.nova.can_set_server_password():
             del self.fields['admin_pass']
             del self.fields['confirm_admin_pass']
@@ -601,7 +591,7 @@ class SetAccessControlsAction(workflows.Action):
 
     def clean(self):
         '''Check to make sure password fields match.'''
-        cleaned_data = super(SetAccessControlsAction, self).clean()
+        cleaned_data = super().clean()
         if 'admin_pass' in cleaned_data:
             if cleaned_data['admin_pass'] != cleaned_data.get(
                     'confirm_admin_pass', None):
@@ -663,11 +653,8 @@ class CustomizeAction(workflows.Action):
             'data-scriptsource-raw': _('Script Data')}),
         required=False)
 
-    def __init__(self, *args):
-        super(CustomizeAction, self).__init__(*args)
-
     def clean(self):
-        cleaned = super(CustomizeAction, self).clean()
+        cleaned = super().clean()
 
         files = self.request.FILES
         script = self.clean_uploaded_files('script', files)
@@ -680,31 +667,30 @@ class CustomizeAction(workflows.Action):
     def clean_uploaded_files(self, prefix, files):
         upload_str = prefix + "_upload"
 
-        has_upload = upload_str in files
-        if has_upload:
-            upload_file = files[upload_str]
-            log_script_name = upload_file.name
-            LOG.info('got upload %s', log_script_name)
-
-            if upload_file._size > 16 * units.Ki:  # 16kb
-                msg = _('File exceeds maximum size (16kb)')
-                raise forms.ValidationError(msg)
-            else:
-                script = upload_file.read()
-                if script != "":
-                    try:
-                        if not isinstance(script, six.text_type):
-                            script = script.decode()
-                        normalize_newlines(script)
-                    except Exception as e:
-                        msg = _('There was a problem parsing the'
-                                ' %(prefix)s: %(error)s')
-                        msg = msg % {'prefix': prefix,
-                                     'error': six.text_type(e)}
-                        raise forms.ValidationError(msg)
-                return script
-        else:
+        if upload_str not in files:
             return None
+
+        upload_file = files[upload_str]
+        log_script_name = upload_file.name
+        LOG.info('got upload %s', log_script_name)
+
+        if upload_file._size > 16 * units.Ki:  # 16kb
+            msg = _('File exceeds maximum size (16kb)')
+            raise forms.ValidationError(msg)
+
+        script = upload_file.read()
+        if script != "":
+            try:
+                if not isinstance(script, str):
+                    script = script.decode()
+                normalize_newlines(script)
+            except Exception as e:
+                msg = _('There was a problem parsing the'
+                        ' %(prefix)s: %(error)s')
+                msg = msg % {'prefix': prefix,
+                             'error': e}
+                raise forms.ValidationError(msg)
+        return script
 
 
 class PostCreationStep(workflows.Step):
@@ -724,7 +710,7 @@ class SetNetworkAction(workflows.Action):
                     " these networks"))
 
     def __init__(self, request, *args, **kwargs):
-        super(SetNetworkAction, self).__init__(request, *args, **kwargs)
+        super().__init__(request, *args, **kwargs)
 
         # NOTE(e0ne): we don't need 'required attribute for networks
         # checkboxes to be able to select only one network
@@ -810,29 +796,20 @@ class SetAdvancedAction(workflows.Action):
         help_text=_("Server group to associate with this instance."))
 
     def __init__(self, request, context, *args, **kwargs):
-        super(SetAdvancedAction, self).__init__(request, context,
-                                                *args, **kwargs)
+        super().__init__(request, context, *args, **kwargs)
         try:
-            if not api.nova.extension_supported("DiskConfig", request):
-                del self.fields['disk_config']
-            else:
-                # Set our disk_config choices
-                config_choices = [("AUTO", _("Automatic")),
-                                  ("MANUAL", _("Manual"))]
-                self.fields['disk_config'].choices = config_choices
+            config_choices = [("AUTO", _("Automatic")),
+                              ("MANUAL", _("Manual"))]
+            self.fields['disk_config'].choices = config_choices
+
             # Only show the Config Drive option for the Launch Instance
-            # workflow (not Resize Instance) and only if the extension
             # is supported.
-            if context.get('workflow_slug') != 'launch_instance' or (
-                    not api.nova.extension_supported("ConfigDrive", request)):
+            if context.get('workflow_slug') != 'launch_instance':
                 del self.fields['config_drive']
 
-            if not api.nova.extension_supported("ServerGroups", request):
-                del self.fields['server_group']
-            else:
-                server_group_choices = instance_utils.server_group_field_data(
-                    request)
-                self.fields['server_group'].choices = server_group_choices
+            server_group_choices = instance_utils.server_group_field_data(
+                request)
+            self.fields['server_group'].choices = server_group_choices
         except Exception:
             exceptions.handle(request, _('Unable to retrieve extensions '
                                          'information.'))
@@ -848,8 +825,7 @@ class SetAdvanced(workflows.Step):
     contributes = ("disk_config", "config_drive", "server_group",)
 
     def prepare_action_context(self, request, context):
-        context = super(SetAdvanced, self).prepare_action_context(request,
-                                                                  context)
+        context = super().prepare_action_context(request, context)
         # Add the workflow slug to the context so that we can tell which
         # workflow is being used when creating the action. This step is
         # used by both the Launch Instance and Resize Instance workflows.
@@ -880,8 +856,7 @@ class LaunchInstance(workflows.Workflow):
         if int(count) > 1:
             return message % {"count": _("%s instances") % count,
                               "name": name}
-        else:
-            return message % {"count": _("instance"), "name": name}
+        return message % {"count": _("instance"), "name": name}
 
     @sensitive_variables('context')
     def handle(self, request, context):
@@ -897,38 +872,24 @@ class LaunchInstance(workflows.Workflow):
         if source_type in ['image_id', 'instance_snapshot_id']:
             image_id = context['source_id']
         elif source_type in ['volume_id', 'volume_snapshot_id']:
-            try:
-                if api.nova.extension_supported("BlockDeviceMappingV2Boot",
-                                                request):
-                    # Volume source id is extracted from the source
-                    volume_source_id = context['source_id'].split(':')[0]
-                    device_name = context.get('device_name', '') \
-                        .strip() or None
-                    dev_source_type_mapping = {
-                        'volume_id': 'volume',
-                        'volume_snapshot_id': 'snapshot'
-                    }
-                    dev_mapping_2 = [
-                        {'device_name': device_name,
-                         'source_type': dev_source_type_mapping[source_type],
-                         'destination_type': 'volume',
-                         'delete_on_termination':
-                             bool(context['vol_delete_on_instance_delete']),
-                         'uuid': volume_source_id,
-                         'boot_index': '0',
-                         'volume_size': context['volume_size']
-                         }
-                    ]
-                else:
-                    dev_mapping_1 = {
-                        context['device_name']: '%s::%s' %
-                        (context['source_id'],
-                         bool(context['vol_delete_on_instance_delete']))
-                    }
-            except Exception:
-                msg = _('Unable to retrieve extensions information')
-                exceptions.handle(request, msg)
-
+            # Volume source id is extracted from the source
+            volume_source_id = context['source_id'].split(':')[0]
+            device_name = context.get('device_name', '').strip() or None
+            dev_source_type_mapping = {
+                'volume_id': 'volume',
+                'volume_snapshot_id': 'snapshot'
+            }
+            dev_mapping_2 = [
+                {'device_name': device_name,
+                 'source_type': dev_source_type_mapping[source_type],
+                 'destination_type': 'volume',
+                 'delete_on_termination':
+                     bool(context['vol_delete_on_instance_delete']),
+                 'uuid': volume_source_id,
+                 'boot_index': '0',
+                 'volume_size': context['volume_size']
+                 }
+            ]
         elif source_type == 'volume_image_id':
             device_name = context.get('device_name', '').strip() or None
             dev_mapping_2 = [

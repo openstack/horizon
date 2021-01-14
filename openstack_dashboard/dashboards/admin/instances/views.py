@@ -17,7 +17,6 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
-from django.conf import settings
 from django.urls import reverse
 from django.urls import reverse_lazy
 from django.utils.translation import ugettext_lazy as _
@@ -38,6 +37,7 @@ from openstack_dashboard.dashboards.project.instances import views
 from openstack_dashboard.dashboards.project.instances.workflows \
     import update_instance
 from openstack_dashboard.utils import futurist_utils
+from openstack_dashboard.utils import settings as setting_utils
 
 
 # re-use console from project.instances.views to make reflection work
@@ -70,9 +70,12 @@ class AdminUpdateView(views.UpdateView):
     success_url = reverse_lazy("horizon:admin:instances:index")
 
 
-class AdminIndexView(tables.DataTableView):
+class AdminIndexView(tables.PagedTableMixin, tables.DataTableView):
     table_class = project_tables.AdminInstancesTable
     page_title = _("Instances")
+
+    def has_prev_data(self, table):
+        return getattr(self, "_prev", False)
 
     def has_more_data(self, table):
         return self._more
@@ -84,7 +87,7 @@ class AdminIndexView(tables.DataTableView):
         # Gather our tenants to correlate against IDs
         try:
             tenants, __ = api.keystone.tenant_list(self.request)
-            return dict([(t.id, t) for t in tenants])
+            return dict((t.id, t) for t in tenants)
         except Exception:
             msg = _('Unable to retrieve instance project information.')
             exceptions.handle(self.request, msg)
@@ -105,31 +108,37 @@ class AdminIndexView(tables.DataTableView):
             exceptions.handle(self.request, ignore=True)
             return {}
 
+    def _get_images_by_name(self, image_name):
+        result = api.glance.image_list_detailed(
+            self.request, filters={'name': image_name})
+        images = result[0]
+        return dict((image.id, image) for image in images)
+
     def _get_flavors(self):
         # Gather our flavors to correlate against IDs
         try:
             flavors = api.nova.flavor_list(self.request)
-            return dict([(str(flavor.id), flavor) for flavor in flavors])
+            return dict((str(flavor.id), flavor) for flavor in flavors)
         except Exception:
             msg = _("Unable to retrieve flavor list.")
             exceptions.handle(self.request, msg)
             return {}
 
-    def _get_instances(self, search_opts):
+    def _get_instances(self, search_opts, sort_dir):
         try:
-            instances, self._more = api.nova.server_list(
+            instances, self._more, self._prev = api.nova.server_list_paged(
                 self.request,
-                search_opts=search_opts)
+                search_opts=search_opts,
+                sort_dir=sort_dir)
         except Exception:
-            self._more = False
+            self._more = self._prev = False
             instances = []
             exceptions.handle(self.request,
                               _('Unable to retrieve instance list.'))
         return instances
 
     def get_data(self):
-        marker = self.request.GET.get(
-            project_tables.AdminInstancesTable._meta.pagination_param, None)
+        marker, sort_dir = self._get_marker()
         default_search_opts = {'marker': marker,
                                'paginate': True,
                                'all_tenants': True}
@@ -139,8 +148,8 @@ class AdminIndexView(tables.DataTableView):
         # If filter_first is set and if there are not other filters
         # selected, then search criteria must be provided and return an empty
         # list
-        filter_first = getattr(settings, 'FILTER_DATA_FIRST', {})
-        if (filter_first.get('admin.instances', False) and
+        if (setting_utils.get_dict_config('FILTER_DATA_FIRST',
+                                          'admin.instances') and
                 len(search_opts) == len(default_search_opts)):
             self._needs_filter_first = True
             self._more = False
@@ -148,21 +157,31 @@ class AdminIndexView(tables.DataTableView):
 
         self._needs_filter_first = False
 
-        instances = self._get_instances(search_opts)
         results = futurist_utils.call_functions_parallel(
-            (self._get_images, [tuple(instances)]),
             self._get_flavors,
             self._get_tenants)
-        image_dict, flavor_dict, tenant_dict = results
+        flavor_dict, tenant_dict = results
 
-        non_api_filter_info = (
+        non_api_filter_info = [
             ('project', 'tenant_id', tenant_dict.values()),
-            ('image_name', 'image', image_dict.values()),
             ('flavor_name', 'flavor', flavor_dict.values()),
-        )
+        ]
+
+        filter_by_image_name = 'image_name' in search_opts
+        if filter_by_image_name:
+            image_dict = self._get_images_by_name(search_opts['image_name'])
+            non_api_filter_info.append(
+                ('image_name', 'image', image_dict.values())
+            )
+
         if not views.process_non_api_filters(search_opts, non_api_filter_info):
             self._more = False
             return []
+
+        instances = self._get_instances(search_opts, sort_dir)
+
+        if not filter_by_image_name:
+            image_dict = self._get_images(tuple(instances))
 
         # Loop through instances to get image, flavor and tenant info.
         for inst in instances:
@@ -202,7 +221,7 @@ class LiveMigrateView(forms.ModalFormView):
     success_label = page_title
 
     def get_context_data(self, **kwargs):
-        context = super(LiveMigrateView, self).get_context_data(**kwargs)
+        context = super().get_context_data(**kwargs)
         context["instance_id"] = self.kwargs['instance_id']
         return context
 
@@ -228,7 +247,7 @@ class LiveMigrateView(forms.ModalFormView):
             exceptions.handle(self.request, msg, redirect=redirect)
 
     def get_initial(self):
-        initial = super(LiveMigrateView, self).get_initial()
+        initial = super().get_initial()
         _object = self.get_object()
         if _object:
             current_host = getattr(_object, 'OS-EXT-SRV-ATTR:host', '')
@@ -247,3 +266,13 @@ class DetailView(views.DetailView):
     def _get_actions(self, instance):
         table = project_tables.AdminInstancesTable(self.request)
         return table.render_row_actions(instance)
+
+
+class RescueView(views.RescueView):
+    form_class = project_forms.RescueInstanceForm
+    submit_url = "horizon:admin:instances:rescue"
+    success_url = reverse_lazy('horizon:admin:instances:index')
+    template_name = 'admin/instances/rescue.html'
+
+    def get_initial(self):
+        return {'instance_id': self.kwargs["instance_id"]}

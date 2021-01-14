@@ -1,0 +1,9 @@
+---
+deprecations:
+  - |
+    ``OPENSTACK_NOVA_EXTENSIONS_BLACKLIST`` option is deprecated.
+    All of the nova API extensions have been mainlined several releases ago
+    and there is no potential performance issue in the nova API.
+    This option is used only to toggle features in horizon and
+    there seems no performance issues controlled by the option in horizon.
+    Considering this situation, this option is deprecated now.

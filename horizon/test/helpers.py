@@ -21,6 +21,7 @@ import copy
 import logging
 import os
 import socket
+import sys
 import time
 import unittest
 
@@ -38,10 +39,16 @@ from django.test.client import RequestFactory
 from django.test import tag
 from django.test import utils as django_test_utils
 from django.utils.encoding import force_text
-import six
 
 from django.contrib.staticfiles.testing \
     import StaticLiveServerTestCase as LiveServerTestCase
+
+# horizon plugins does not require pytest, so we need to consider
+# pytest is not installed.
+try:
+    import pytest
+except ImportError:
+    pass
 
 from horizon import middleware
 
@@ -65,6 +72,17 @@ except ImportError as e:
 
 # Makes output of failing tests much easier to read.
 wsgi.WSGIRequest.__repr__ = lambda self: "<class 'django.http.HttpRequest'>"
+
+
+def pytest_mark(name):
+    if 'pytest' in sys.modules:
+        return getattr(pytest.mark, name)
+    else:
+        # When pytest is not installed (in case of horizon plugins),
+        # we don't need a pytest marker, so just use a null decorator.
+        def wrapper(f):
+            return f
+        return wrapper
 
 
 class SessionStore(SessionBase):
@@ -100,14 +118,14 @@ class SessionStore(SessionBase):
 
 class RequestFactoryWithMessages(RequestFactory):
     def get(self, *args, **kwargs):
-        req = super(RequestFactoryWithMessages, self).get(*args, **kwargs)
+        req = super().get(*args, **kwargs)
         req.user = User()
         req.session = SessionStore()
         req._messages = default_storage(req)
         return req
 
     def post(self, *args, **kwargs):
-        req = super(RequestFactoryWithMessages, self).post(*args, **kwargs)
+        req = super().post(*args, **kwargs)
         req.user = User()
         req.session = SessionStore()
         req._messages = default_storage(req)
@@ -125,7 +143,7 @@ class TestCase(django_test.TestCase):
     """
 
     def setUp(self):
-        super(TestCase, self).setUp()
+        super().setUp()
         self._setup_test_data()
         self._setup_factory()
         self._setup_user()
@@ -133,7 +151,7 @@ class TestCase(django_test.TestCase):
         # A dummy get_response function (which is not callable) is passed
         # because middlewares below are used only to populate request attrs.
         middleware.HorizonMiddleware('dummy_get_response') \
-            .process_request(self.request)
+            ._process_request(self.request)
         AuthenticationMiddleware('dummy_get_response') \
             .process_request(self.request)
         os.environ["HORIZON_TEST_RUN"] = "True"
@@ -153,7 +171,7 @@ class TestCase(django_test.TestCase):
         self.request.session = self.client.session
 
     def tearDown(self):
-        super(TestCase, self).tearDown()
+        super().tearDown()
         del os.environ["HORIZON_TEST_RUN"]
 
     def set_permissions(self, permissions=None):
@@ -168,14 +186,6 @@ class TestCase(django_test.TestCase):
             self.user.user_permissions.add(perm)
         if hasattr(self.user, "_perm_cache"):
             del self.user._perm_cache
-
-    if six.PY3:
-        # Python 2 assert methods renamed in Python 3
-        def assertItemsEqual(self, expected_seq, actual_seq, msg=None):
-            self.assertCountEqual(expected_seq, actual_seq, msg)
-
-        def assertNotRegexpMatches(self, text, unexpected_regexp, msg=None):
-            self.assertNotRegex(text, unexpected_regexp, msg)
 
     def assertNoMessages(self, response=None):
         """Asserts no messages have been attached by the messages framework.
@@ -227,6 +237,7 @@ class TestCase(django_test.TestCase):
                                                      ", ".join(msgs))
 
 
+@pytest_mark('selenium')
 @tag('selenium')
 class SeleniumTestCase(LiveServerTestCase):
     @classmethod
@@ -239,7 +250,7 @@ class SeleniumTestCase(LiveServerTestCase):
                 cls.vdisplay = xvfbwrapper.Xvfb(width=1280, height=720)
                 cls.vdisplay.start()
             cls.selenium = WebDriver()
-        super(SeleniumTestCase, cls).setUpClass()
+        super().setUpClass()
 
     @classmethod
     def tearDownClass(cls):
@@ -248,13 +259,13 @@ class SeleniumTestCase(LiveServerTestCase):
             time.sleep(1)
         if hasattr(cls, 'vdisplay'):
             cls.vdisplay.stop()
-        super(SeleniumTestCase, cls).tearDownClass()
+        super().tearDownClass()
 
     def setUp(self):
         socket.setdefaulttimeout(60)
         self.selenium.implicitly_wait(30)
         self.ui = selenium_ui
-        super(SeleniumTestCase, self).setUp()
+        super().setUp()
 
 
 class JasmineTests(SeleniumTestCase):
@@ -335,12 +346,12 @@ class update_settings(django_test_utils.override_settings):
         if keep_dict:
             for key, new_value in kwargs.items():
                 value = getattr(settings, key, None)
-                if (isinstance(new_value, collections.Mapping) and
-                        isinstance(value, collections.Mapping)):
+                if (isinstance(new_value, collections.abc.Mapping) and
+                        isinstance(value, collections.abc.Mapping)):
                     copied = copy.copy(value)
                     copied.update(new_value)
                     kwargs[key] = copied
-        super(update_settings, self).__init__(**kwargs)
+        super().__init__(**kwargs)
 
 
 class IsA(object):
@@ -355,4 +366,4 @@ class IsA(object):
 class IsHttpRequest(IsA):
     """Class to compare param is django.http.HttpRequest."""
     def __init__(self):
-        super(IsHttpRequest, self).__init__(http.HttpRequest)
+        super().__init__(http.HttpRequest)

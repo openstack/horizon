@@ -32,9 +32,19 @@ LOG = logging.getLogger(__name__)
 class CreateSubnetInfoAction(network_workflows.CreateSubnetInfoAction):
     with_subnet = forms.BooleanField(initial=True, required=False,
                                      widget=forms.HiddenInput())
-
-    def __init__(self, request, *args, **kwargs):
-        super(CreateSubnetInfoAction, self).__init__(request, *args, **kwargs)
+    cidr = forms.IPField(label=_("Network Address"),
+                         initial="",
+                         error_messages={
+                             'required': _("Specify network address")},
+                         widget=forms.TextInput(attrs={
+                             'class': 'switched',
+                             'data-switch-on': 'source',
+                             'data-source-manual': _("Network Address"),
+                         }),
+                         help_text=_("Network address in CIDR format "
+                                     "(e.g. 192.168.0.0/24, 2001:DB8::/48)"),
+                         version=forms.IPv4 | forms.IPv6,
+                         mask=True)
 
     class Meta(object):
         name = _("Subnet")
@@ -50,7 +60,7 @@ class CreateSubnetInfoAction(network_workflows.CreateSubnetInfoAction):
 
 class CreateSubnetInfo(network_workflows.CreateSubnetInfo):
     action_class = CreateSubnetInfoAction
-    depends_on = ("network_id",)
+    depends_on = ("network",)
 
 
 class CreateSubnet(network_workflows.CreateNetwork):
@@ -68,18 +78,21 @@ class CreateSubnet(network_workflows.CreateNetwork):
 
     def get_success_url(self):
         return reverse("horizon:project:networks:detail",
-                       args=(self.context.get('network_id'),))
+                       args=(self.context['network'].id,))
 
     def get_failure_url(self):
         return reverse("horizon:project:networks:detail",
-                       args=(self.context.get('network_id'),))
+                       args=(self.context['network'].id,))
 
     def handle(self, request, data):
-        subnet = self._create_subnet(request, data)
-        return True if subnet else False
+        network = self.context_seed['network']
+        # network argument is required to show error message correctly.
+        subnet = self._create_subnet(request, data, network=network)
+        return bool(subnet)
 
 
 class UpdateSubnetInfoAction(CreateSubnetInfoAction):
+    use_required_attribute = False
     address_source = forms.ThemableChoiceField(widget=forms.HiddenInput(),
                                                required=False)
     subnetpool = forms.ThemableChoiceField(widget=forms.HiddenInput(),
@@ -106,6 +119,23 @@ class UpdateSubnetInfoAction(CreateSubnetInfoAction):
     ip_version = forms.ThemableChoiceField(choices=[(4, 'IPv4'), (6, 'IPv6')],
                                            widget=forms.HiddenInput(),
                                            label=_("IP Version"))
+    gateway_ip = forms.IPField(
+        label=_("Gateway IP"),
+        widget=forms.TextInput(attrs={
+            'class': 'switched',
+            'data-switch-on': 'gateway_ip',
+            'data-source-manual': _("Gateway IP")
+        }),
+        initial="",
+        error_messages={
+            'required': _('Specify IP address of gateway or '
+                          'check "Disable Gateway" checkbox.')
+        },
+        help_text=_("IP address of Gateway (e.g. 192.168.0.254) "
+                    "If you do not want to use a gateway, "
+                    "check 'Disable Gateway' below."),
+        version=forms.IPv4 | forms.IPv6,
+        mask=False)
 
     class Meta(object):
         name = _("Subnet")
@@ -115,7 +145,7 @@ class UpdateSubnetInfoAction(CreateSubnetInfoAction):
 
     def clean(self):
         cleaned_data = workflows.Action.clean(self)
-        self._check_subnet_data(cleaned_data, is_create=False)
+        self._check_subnet_data(cleaned_data)
         return cleaned_data
 
 
@@ -127,8 +157,7 @@ class UpdateSubnetInfo(CreateSubnetInfo):
 class UpdateSubnetDetailAction(network_workflows.CreateSubnetDetailAction):
 
     def __init__(self, request, context, *args, **kwargs):
-        super(UpdateSubnetDetailAction, self).__init__(request, context,
-                                                       *args, **kwargs)
+        super().__init__(request, context, *args, **kwargs)
         # TODO(amotoki): Due to Neutron bug 1362966, we cannot pass "None"
         # to Neutron. It means we cannot set IPv6 two modes to
         # "No option selected".
@@ -190,14 +219,12 @@ class UpdateSubnet(network_workflows.CreateNetwork):
             subnet = api.neutron.subnet_update(request, subnet_id, **params)
             LOG.debug('Subnet "%s" was successfully updated.', data['cidr'])
             return subnet
-        except Exception as e:
-            msg = (_('Failed to update subnet "%(sub)s": '
-                     ' %(reason)s') %
-                   {"sub": data['cidr'], "reason": e})
+        except Exception:
+            msg = _('Failed to update subnet "%s".') % data['cidr']
             redirect = reverse(self.failure_url, args=(network_id,))
             exceptions.handle(request, msg, redirect=redirect)
             return False
 
     def handle(self, request, data):
         subnet = self._update_subnet(request, data)
-        return True if subnet else False
+        return bool(subnet)

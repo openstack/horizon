@@ -85,13 +85,13 @@ class IndexView(tables.DataTableView):
                 exceptions.handle(
                     self.request,
                     _('Unable to retrieve instance list.'))
-            instances_dict = dict([(obj.id, obj.name) for obj in instances])
+            instances_dict = dict((obj.id, obj.name) for obj in instances)
 
             tenants = get_tenant_list(self.request)
             tenant_dict = OrderedDict([(t.id, t) for t in tenants])
 
             pools = get_floatingip_pools(self.request)
-            pool_dict = dict([(obj.id, obj.name) for obj in pools])
+            pool_dict = dict((obj.id, obj.name) for obj in pools)
 
             for ip in floating_ips:
                 ip.instance_name = instances_dict.get(ip.instance_id)
@@ -129,7 +129,7 @@ class DetailView(views.HorizonTemplateView):
             exceptions.handle(self.request, msg, redirect=url)
 
     def get_context_data(self, **kwargs):
-        context = super(DetailView, self).get_context_data(**kwargs)
+        context = super().get_context_data(**kwargs)
 
         floating_ip_id = self.kwargs['floating_ip_id']
         floating_ip = self._get_corresponding_data("floating IP",

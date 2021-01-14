@@ -16,13 +16,11 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
-import cgi
-
-import mock
-import six
+from unittest import mock
 
 from django.conf import settings
 from django.urls import reverse
+from django.utils import html
 
 from horizon import exceptions
 from horizon import forms
@@ -55,7 +53,7 @@ class SecurityGroupsViewTests(test.TestCase):
     secgroup_backend = 'neutron'
 
     def setUp(self):
-        super(SecurityGroupsViewTests, self).setUp()
+        super().setUp()
 
         sec_group = self.security_groups.first()
         self.detail_url = reverse(SG_DETAIL_VIEW, args=[sec_group.id])
@@ -79,7 +77,7 @@ class SecurityGroupsViewTests(test.TestCase):
         # Security groups
         sec_groups_from_ctx = res.context['security_groups_table'].data
         # Context data needs to contains all items from the test data.
-        self.assertItemsEqual(sec_groups_from_ctx,
+        self.assertCountEqual(sec_groups_from_ctx,
                               sec_groups)
         # Sec groups in context need to be sorted by their ``name`` attribute.
         # This assertion is somewhat weak since it's only meaningful as long as
@@ -108,13 +106,13 @@ class SecurityGroupsViewTests(test.TestCase):
         res = self.client.get(INDEX_URL)
 
         security_groups = res.context['security_groups_table'].data
-        self.assertItemsEqual(security_groups, self.security_groups.list())
+        self.assertCountEqual(security_groups, self.security_groups.list())
 
         create_action = self.getAndAssertTableAction(res, 'security_groups',
                                                      'create')
 
         self.assertEqual('Create Security Group',
-                         six.text_type(create_action.verbose_name))
+                         create_action.verbose_name)
         self.assertIsNone(create_action.policy_rules)
         self.assertEqual(set(['ajax-modal']), set(create_action.classes))
 
@@ -141,7 +139,7 @@ class SecurityGroupsViewTests(test.TestCase):
         res = self.client.get(INDEX_URL)
 
         security_groups = res.context['security_groups_table'].data
-        self.assertItemsEqual(security_groups, self.security_groups.list())
+        self.assertCountEqual(security_groups, self.security_groups.list())
 
         create_action = self.getAndAssertTableAction(res, 'security_groups',
                                                      'create')
@@ -263,7 +261,7 @@ class SecurityGroupsViewTests(test.TestCase):
                      'name': sec_group.name,
                      'description': sec_group.description}
         res = self.client.post(SG_CREATE_URL, form_data)
-        self.assertRedirectsNoFollow(res, INDEX_URL)
+        self.assertRedirectsNoFollow(res, self.detail_url)
         self.mock_security_group_create.assert_called_once_with(
             test.IsHttpRequest(),
             sec_group.name,
@@ -286,15 +284,21 @@ class SecurityGroupsViewTests(test.TestCase):
             sec_group.description)
 
     @test.create_mocks({api.neutron: ('security_group_get',
-                                      'is_extension_supported')})
+                                      'is_extension_supported'),
+                        quotas: ('tenant_quota_usages',)})
     def test_detail_get(self):
         sec_group = self.security_groups.first()
+        quota_data = self.neutron_quota_usages.first()
+        self.mock_tenant_quota_usages.return_value = quota_data
         self.mock_security_group_get.return_value = sec_group
         self.mock_is_extension_supported.return_value = True
         res = self.client.get(self.detail_url)
         self.assertTemplateUsed(res, SG_DETAIL_TEMPLATE)
         self.mock_security_group_get.assert_called_once_with(
             test.IsHttpRequest(), sec_group.id)
+        self.assert_mock_multiple_calls_with_same_arguments(
+            self.mock_tenant_quota_usages, 2,
+            mock.call(test.IsHttpRequest(), targets=('security_group_rule', )))
         self.mock_is_extension_supported.assert_called_once_with(
             test.IsHttpRequest(), 'standard-attr-description')
 
@@ -562,10 +566,10 @@ class SecurityGroupsViewTests(test.TestCase):
         self.mock_security_group_list.return_value = sec_group_list
         self.mock_is_extension_supported.return_value = True
 
+        # note that 'port' is not passed
         formData = {'method': 'AddRule',
                     'id': sec_group.id,
                     'port_or_range': 'port',
-                    'port': None,
                     'rule_menu': rule.ip_protocol,
                     'cidr': rule.ip_range['cidr'],
                     'remote': 'cidr'}
@@ -602,31 +606,29 @@ class SecurityGroupsViewTests(test.TestCase):
         self.assertNoMessages()
         self.assertContains(res, "greater than or equal to")
 
+        # note that 'from_port' is not passed
         formData = {'method': 'AddRule',
                     'id': sec_group.id,
                     'port_or_range': 'range',
-                    'from_port': None,
                     'to_port': rule.to_port,
                     'rule_menu': rule.ip_protocol,
                     'cidr': rule.ip_range['cidr'],
                     'remote': 'cidr'}
         res = self.client.post(self.edit_url, formData)
         self.assertNoMessages()
-        self.assertContains(res, cgi.escape('"from" port number is invalid',
-                                            quote=True))
+        self.assertContains(res, html.escape('"from" port number is invalid'))
 
+        # note that 'to_port' is not passed
         formData = {'method': 'AddRule',
                     'id': sec_group.id,
                     'port_or_range': 'range',
                     'from_port': rule.from_port,
-                    'to_port': None,
                     'rule_menu': rule.ip_protocol,
                     'cidr': rule.ip_range['cidr'],
                     'remote': 'cidr'}
         res = self.client.post(self.edit_url, formData)
         self.assertNoMessages()
-        self.assertContains(res, cgi.escape('"to" port number is invalid',
-                                            quote=True))
+        self.assertContains(res, html.escape('"to" port number is invalid'))
 
         self.assert_mock_multiple_calls_with_same_arguments(
             self.mock_security_group_list, 6,
@@ -672,30 +674,6 @@ class SecurityGroupsViewTests(test.TestCase):
         formData = {'method': 'AddRule',
                     'id': sec_group.id,
                     'port_or_range': 'port',
-                    'icmp_type': icmp_rule.from_port,
-                    'icmp_code': None,
-                    'rule_menu': icmp_rule.ip_protocol,
-                    'cidr': icmp_rule.ip_range['cidr'],
-                    'remote': 'cidr'}
-        res = self.client.post(self.edit_url, formData)
-        self.assertNoMessages()
-        self.assertContains(res, "The ICMP code not in range (-1, 255)")
-
-        formData = {'method': 'AddRule',
-                    'id': sec_group.id,
-                    'port_or_range': 'port',
-                    'icmp_type': None,
-                    'icmp_code': icmp_rule.to_port,
-                    'rule_menu': icmp_rule.ip_protocol,
-                    'cidr': icmp_rule.ip_range['cidr'],
-                    'remote': 'cidr'}
-        res = self.client.post(self.edit_url, formData)
-        self.assertNoMessages()
-        self.assertContains(res, "The ICMP type not in range (-1, 255)")
-
-        formData = {'method': 'AddRule',
-                    'id': sec_group.id,
-                    'port_or_range': 'port',
                     'icmp_type': -1,
                     'icmp_code': icmp_rule.to_port,
                     'rule_menu': icmp_rule.ip_protocol,
@@ -707,10 +685,10 @@ class SecurityGroupsViewTests(test.TestCase):
             res, "ICMP code is provided but ICMP type is missing.")
 
         self.assert_mock_multiple_calls_with_same_arguments(
-            self.mock_security_group_list, 10,
+            self.mock_security_group_list, 6,
             mock.call(test.IsHttpRequest()))
         self.assert_mock_multiple_calls_with_same_arguments(
-            self.mock_is_extension_supported, 10,
+            self.mock_is_extension_supported, 6,
             mock.call(test.IsHttpRequest(), 'standard-attr-description'))
 
     @test.create_mocks({api.neutron: ('security_group_rule_create',

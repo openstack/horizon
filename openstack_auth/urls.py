@@ -11,6 +11,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+from django.conf import settings
 from django.conf.urls import url
 from django.views import generic
 
@@ -28,10 +29,16 @@ urlpatterns = [
         name='switch_services_region'),
     url(r'^switch_keystone_provider/(?P<keystone_provider>[^/]+)/$',
         views.switch_keystone_provider,
-        name='switch_keystone_provider')
+        name='switch_keystone_provider'),
 ]
 
-if utils.is_websso_enabled():
+if utils.allow_expired_passowrd_change():
+    urlpatterns.append(
+        url(r'^password/(?P<user_id>[^/]+)/$', views.PasswordView.as_view(),
+            name='password')
+    )
+
+if settings.WEBSSO_ENABLED:
     urlpatterns += [
         url(r"^websso/$", views.websso, name='websso'),
         url(r"^error/$",

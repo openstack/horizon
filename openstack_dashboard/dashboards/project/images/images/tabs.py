@@ -12,7 +12,7 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
-from django import conf
+from django.conf import settings
 from django.utils.translation import ugettext_lazy as _
 
 from horizon import tabs
@@ -25,8 +25,7 @@ class OverviewTab(tabs.Tab):
 
     def get_context_data(self, request):
         image = self.tab_group.kwargs['image']
-        custom_titles = getattr(conf.settings,
-                                'IMAGE_CUSTOM_PROPERTY_TITLES', {})
+        custom_titles = settings.IMAGE_CUSTOM_PROPERTY_TITLES
         image_props = []
         for prop, val in image.properties.items():
             if prop == 'description':

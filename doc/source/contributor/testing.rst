@@ -39,7 +39,7 @@ Selenium will use a virtual display in this case, instead of your own. In order
 to run the tests this way you have to install the dependency `xvfb`, like
 this::
 
-    $ sudo apt-get install xvfb
+    $ sudo apt install xvfb
 
 for a Debian OS flavour, or for Fedora/Red Hat flavours::
 
@@ -57,6 +57,13 @@ If you need to install PhantomJS, you may do so with `npm` like this::
 Alternatively, many distributions have system packages for PhantomJS, or
 it can be downloaded from http://phantomjs.org/download.html.
 
+To run integration tests you should use `integration` tox environment::
+
+    $ tox -e integration
+
+These tests requires `geckodriver` installed. It could be downloaded from
+https://github.com/mozilla/geckodriver/releases.
+
 tox Test Environments
 =====================
 
@@ -69,45 +76,47 @@ pep8
 Runs pep8, which is a tool that checks Python code style. You can read more
 about pep8 at https://www.python.org/dev/peps/pep-0008/
 
-py27
+py37
 ----
 
 Runs the Python unit tests against the current default version of Django
-with Python 2.7 environment. Check ``requirements.txt`` in horizon
+with Python 3.7 environment. Check ``requirements.txt`` in horizon
 repository to know which version of Django is actually used.
 
 All other dependencies are as defined by the upper-constraints file at
-https://git.openstack.org/cgit/openstack/requirements/plain/upper-constraints.txt
+https://opendev.org/openstack/requirements/raw/branch/master/upper-constraints.txt
 
 You can run a subset of the tests by passing the test path as an argument to
 tox::
 
-  $ tox -e py27 -- openstack_dashboard.dashboards.identity.users.tests
+  $ tox -e py37 -- openstack_dashboard/dashboards/identity/users/tests.py
 
 The following is more example to run a specific test class and a
 specific test:
 
 .. code-block:: console
 
-   $ tox -e py27 -- openstack_dashboard.dashboards.identity.users.tests:UsersViewTests
-   $ tox -e py27 -- openstack_dashboard.dashboards.identity.users.tests:UsersViewTests.test_index
+   $ tox -e py37 -- openstack_dashboard/dashboards/identity/users/tests.py::UsersViewTests
+   $ tox -e py37 -- openstack_dashboard/dashboards/identity/users/tests.py::UsersViewTests::test_index
+
+The detail way to specify tests is found at
+`pytest documentation <https://docs.pytest.org/en/latest/usage.html#specifying-tests-selecting-tests>`__.
 
 You can also pass other arguments. For example, to drop into a live debugger
 when a test fails you can use::
 
-  $ tox -e py27 -- --pdb
+  $ tox -e py37 -- --pdb
 
-py27dj18, py27dj19, py27dj110
+py3-dj111, py3-dj21, py3-dj22
 -----------------------------
 
-Runs the Python unit tests against Django 1.8, Django 1.9 and Django 1.10
+Runs the Python unit tests against Django 1.11, Django 2.1 and Django 2.2
 respectively
 
-
-py35
+py36
 ----
 
-Runs the Python unit tests with a Python 3.5 environment.
+Runs the Python unit tests with a Python 3.6 environment.
 
 releasenotes
 ------------

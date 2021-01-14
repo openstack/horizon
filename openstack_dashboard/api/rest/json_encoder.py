@@ -15,14 +15,13 @@ import json
 import json.encoder as encoder
 
 from django.utils.translation import ugettext_lazy as _
-import six
 
 
 class NaNJSONEncoder(json.JSONEncoder):
     def __init__(self, nan_str='NaN', inf_str='1e+999', **kwargs):
         self.nan_str = nan_str
         self.inf_str = inf_str
-        super(NaNJSONEncoder, self).__init__(**kwargs)
+        super().__init__(**kwargs)
 
     def iterencode(self, o, _one_shot=False):
         """JSON encoder with NaN and float inf support.
@@ -44,20 +43,15 @@ class NaNJSONEncoder(json.JSONEncoder):
         else:
             _encoder = encoder.encode_basestring
 
-        # On Python 3, JSONEncoder has no more encoding attribute, it produces
-        # an Unicode string
-        if six.PY2 and self.encoding != 'utf-8':
-            def _encoder(o, _orig_encoder=_encoder, _encoding=self.encoding):
-                if isinstance(o, str):
-                    o = o.decode(_encoding)
-                return _orig_encoder(o)
-
         def floatstr(o, allow_nan=self.allow_nan, _repr=float.__repr__,
                      _inf=encoder.INFINITY, _neginf=-encoder.INFINITY):
             # Check for specials.  Note that this type of test is processor
             # and/or platform-specific, so do tests which don't depend on the
             # internals.
 
+            # NOTE: In Python, NaN == NaN returns False and it can be used
+            # to detect NaN.
+            # pylint: disable=comparison-with-itself
             if o != o:
                 text = self.nan_str
             elif o == _inf:

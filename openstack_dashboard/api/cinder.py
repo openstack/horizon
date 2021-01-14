@@ -18,9 +18,8 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
-from __future__ import absolute_import
-
 import logging
+import math
 
 from django.conf import settings
 from django.utils.translation import pgettext_lazy
@@ -32,13 +31,14 @@ from cinderclient import exceptions as cinder_exception
 from cinderclient.v2.contrib import list_extensions as cinder_list_extensions
 
 from horizon import exceptions
-from horizon.utils import functions as utils
 from horizon.utils.memoized import memoized
 
+from openstack_dashboard.api import _nova
 from openstack_dashboard.api import base
 from openstack_dashboard.api import microversions
-from openstack_dashboard.api import nova
 from openstack_dashboard.contrib.developer.profiler import api as profiler
+from openstack_dashboard.utils import settings as utils
+
 
 LOG = logging.getLogger(__name__)
 
@@ -57,6 +57,7 @@ CONSUMER_CHOICES = (
 VERSIONS = base.APIVersionManager("volume", preferred_version='3')
 
 try:
+    # pylint: disable=ungrouped-imports
     from cinderclient.v2 import client as cinder_client_v2
     VERSIONS.load_supported_version('2', {"client": cinder_client_v2,
                                           "version": '2'})
@@ -95,6 +96,10 @@ class Volume(BaseCinderAPIResourceWrapper):
     def is_bootable(self):
         return self.bootable == 'true'
 
+    @property
+    def tenant_id(self):
+        return getattr(self, 'os-vol-tenant-attr:tenant_id', "")
+
 
 class VolumeSnapshot(BaseCinderAPIResourceWrapper):
 
@@ -102,6 +107,10 @@ class VolumeSnapshot(BaseCinderAPIResourceWrapper):
               'created_at', 'volume_id', 'group_snapshot_id',
               'os-extended-snapshot-attributes:project_id',
               'metadata']
+
+    @property
+    def project_id(self):
+        return getattr(self, 'os-extended-snapshot-attributes:project_id', "")
 
 
 class VolumeType(BaseCinderAPIResourceWrapper):
@@ -111,23 +120,12 @@ class VolumeType(BaseCinderAPIResourceWrapper):
               'os-extended-snapshot-attributes:project_id']
 
 
-class VolumeConsistencyGroup(BaseCinderAPIResourceWrapper):
-
-    _attrs = ['id', 'name', 'description', 'status', 'availability_zone',
-              'created_at', 'volume_types']
-
-
-class VolumeCGSnapshot(BaseCinderAPIResourceWrapper):
-
-    _attrs = ['id', 'name', 'description', 'status',
-              'created_at', 'consistencygroup_id']
-
-
 class VolumeBackup(BaseCinderAPIResourceWrapper):
 
     _attrs = ['id', 'name', 'description', 'container', 'size', 'status',
-              'created_at', 'volume_id', 'availability_zone']
+              'created_at', 'volume_id', 'availability_zone', 'snapshot_id']
     _volume = None
+    _snapshot = None
 
     @property
     def volume(self):
@@ -136,6 +134,14 @@ class VolumeBackup(BaseCinderAPIResourceWrapper):
     @volume.setter
     def volume(self, value):
         self._volume = value
+
+    @property
+    def snapshot(self):
+        return self._snapshot
+
+    @snapshot.setter
+    def snapshot(self, value):
+        self._snapshot = value
 
 
 class QosSpecs(BaseCinderAPIResourceWrapper):
@@ -146,6 +152,14 @@ class QosSpecs(BaseCinderAPIResourceWrapper):
 class VolTypeExtraSpec(object):
     def __init__(self, type_id, key, val):
         self.type_id = type_id
+        self.id = key
+        self.key = key
+        self.value = val
+
+
+class GroupTypeSpec(object):
+    def __init__(self, group_type_id, key, val):
+        self.group_type_id = group_type_id
         self.id = key
         self.key = key
         self.value = val
@@ -171,103 +185,108 @@ class VolumePool(base.APIResourceWrapper):
               'storage_protocol', 'extra_specs']
 
 
+class Message(base.APIResourceWrapper):
+    _attrs = ['id', 'event_id', 'created_at', 'resource_type', 'user_message']
+
+
 class Group(base.APIResourceWrapper):
     _attrs = ['id', 'status', 'availability_zone', 'created_at', 'name',
               'description', 'group_type', 'volume_types',
-              'group_snapshot_id', 'source_group_id', 'replication_status']
+              'group_snapshot_id', 'source_group_id', 'replication_status',
+              'project_id']
 
 
 class GroupSnapshot(base.APIResourceWrapper):
     _attrs = ['id', 'name', 'description', 'status', 'created_at',
-              'group_id', 'group_type_id']
+              'group_id', 'group_type_id', 'project_id']
 
 
 class GroupType(base.APIResourceWrapper):
     _attrs = ['id', 'name', 'description', 'is_public', 'group_specs']
 
 
-def get_auth_params_from_request(request):
-    auth_url = base.url_for(request, 'identity')
-    cinder_urls = []
-    for service_name in ('volumev3', 'volumev2', 'volume'):
+def _find_cinder_url(request, version=None):
+    if version is None:
+        api_version = VERSIONS.get_active_version()
+        version = api_version['version']
+    version = base.Version(version)
+
+    # We support only cinder v2 and v3.
+    if version.major == 3:
+        candidates = ['volumev3', 'volume']
+    else:
+        candidates = ['volumev2', 'volume']
+
+    for service_name in candidates:
         try:
-            cinder_url = base.url_for(request, service_name)
-            cinder_urls.append((service_name, cinder_url))
+            return version, base.url_for(request, service_name)
         except exceptions.ServiceCatalogException:
             pass
-    if not cinder_urls:
+    else:
         raise exceptions.ServiceCatalogException(
-            "no volume service configured")
-    cinder_urls = tuple(cinder_urls)  # need to make it cacheable
-    return(
-        request.user.username,
-        request.user.token.id,
-        request.user.tenant_id,
-        cinder_urls,
-        auth_url,
-    )
+            ("Cinder %(version)s requested but no '%(service)s' service "
+             "type available in Keystone catalog.") %
+            {'version': version, 'service': candidates})
 
 
 @memoized
 def cinderclient(request, version=None):
-    if version is None:
-        api_version = VERSIONS.get_active_version()
-        version = api_version['version']
-    insecure = getattr(settings, 'OPENSTACK_SSL_NO_VERIFY', False)
-    cacert = getattr(settings, 'OPENSTACK_SSL_CACERT', None)
+    version, cinder_url = _find_cinder_url(request, version)
 
-    (username, token_id, tenant_id, cinder_urls,
-        auth_url) = get_auth_params_from_request(request)
-    version = base.Version(version)
-    if version == 2:
-        service_names = ('volumev2', 'volume')
-    elif version == 3:
-        service_names = ('volumev3', 'volume')
-    else:
-        service_names = ('volume',)
-    for name, cinder_url in cinder_urls:
-        if name in service_names:
-            break
-    else:
-        raise exceptions.ServiceCatalogException(
-            "Cinder {version} requested but no '{service}' service "
-            "type available in Keystone catalog.".format(version=version,
-                                                         service=service_names)
-        )
+    insecure = settings.OPENSTACK_SSL_NO_VERIFY
+    cacert = settings.OPENSTACK_SSL_CACERT
+
     c = cinder_client.Client(
         version,
-        username,
-        token_id,
-        project_id=tenant_id,
-        auth_url=auth_url,
+        request.user.username,
+        request.user.token.id,
+        project_id=request.user.tenant_id,
+        auth_url=base.url_for(request, 'identity'),
         insecure=insecure,
         cacert=cacert,
         http_log_debug=settings.DEBUG,
     )
-    c.client.auth_token = token_id
+    c.client.auth_token = request.user.token.id
     c.client.management_url = cinder_url
     return c
 
 
 def get_microversion(request, features):
-    for service_name in ('volume', 'volumev2', 'volumev3'):
-        try:
-            cinder_url = base.url_for(request, service_name)
-            break
-        except exceptions.ServiceCatalogException:
-            continue
-    else:
+    try:
+        version, cinder_url = _find_cinder_url(request)
+    except exceptions.ServiceCatalogException:
         return None
-    min_ver, max_ver = cinder_client.get_server_version(cinder_url)
-    return (microversions.get_microversion_for_features(
-        'cinder', features, api_versions.APIVersion, min_ver, max_ver))
+
+    insecure = settings.OPENSTACK_SSL_NO_VERIFY
+    cacert = settings.OPENSTACK_SSL_CACERT
+
+    min_ver, max_ver = cinder_client.get_server_version(cinder_url,
+                                                        insecure, cacert)
+    return microversions.get_microversion_for_features(
+        'cinder', features, api_versions.APIVersion, min_ver, max_ver)
 
 
-def _cinderclient_with_generic_groups(request):
-    version = get_microversion(request, 'groups')
+def _cinderclient_with_features(request, features,
+                                raise_exc=False, message=False):
+    version = get_microversion(request, features)
+    if version is None:
+        if message:
+            versions = microversions.get_requested_versions('cinder', features)
+            if message is True:
+                message = ('Insufficient microversion for cinder feature(s) '
+                           '%(features)s. One of the following API '
+                           'microversion(s) is required: %(versions).')
+            LOG.warning(message,
+                        {'features': features, 'versions': versions})
+        if raise_exc:
+            raise microversions.MicroVersionNotFound(features)
     if version is not None:
         version = version.get_string()
     return cinderclient(request, version=version)
+
+
+def _cinderclient_with_generic_groups(request):
+    return _cinderclient_with_features(request, 'groups')
 
 
 def version_get():
@@ -296,6 +315,9 @@ def update_pagination(entities, page_size, marker, sort_dir):
     elif marker is not None:
         has_prev_data = True
 
+    if sort_dir == 'asc':
+        entities.reverse()
+
     return entities, has_more_data, has_prev_data
 
 
@@ -320,7 +342,7 @@ def volume_list_paged(request, search_opts=None, marker=None, paginate=False,
     transfers = {t.volume_id: t
                  for t in transfer_list(request, search_opts=search_opts)}
 
-    if VERSIONS.active > 1 and paginate:
+    if paginate:
         page_size = utils.get_page_size(request)
         # sort_key and sort_dir deprecated in kilo, use sort
         # if pagination is true, we use a single sort parameter
@@ -349,7 +371,7 @@ def volume_get(request, volume_id):
 
     for attachment in volume_data.attachments:
         if "server_id" in attachment:
-            instance = nova.server_get(request, attachment['server_id'])
+            instance = _nova.server_get(request, attachment['server_id'])
             attachment['instance_name'] = instance.name
         else:
             # Nova volume can occasionally send back error'd attachments
@@ -389,7 +411,9 @@ def volume_create(request, size, name, description, volume_type,
 
 @profiler.trace
 def volume_extend(request, volume_id, new_size):
-    return cinderclient(request).volumes.extend(volume_id, new_size)
+    client = _cinderclient_with_features(request,
+                                         'extend_in_use_volume')
+    return client.volumes.extend(volume_id, new_size)
 
 
 @profiler.trace
@@ -482,7 +506,7 @@ def volume_snapshot_list_paged(request, search_opts=None, marker=None,
     if c_client is None:
         return snapshots, has_more_data, has_more_data
 
-    if VERSIONS.active > 1 and paginate:
+    if paginate:
         page_size = utils.get_page_size(request)
         # sort_key and sort_dir deprecated in kilo, use sort
         # if pagination is true, we use a single sort parameter
@@ -545,123 +569,6 @@ def volume_snapshot_reset_state(request, snapshot_id, state):
         snapshot_id, state)
 
 
-@profiler.trace
-def volume_cgroup_get(request, cgroup_id):
-    cgroup = cinderclient(request).consistencygroups.get(cgroup_id)
-    return VolumeConsistencyGroup(cgroup)
-
-
-@profiler.trace
-def volume_cgroup_get_with_vol_type_names(request, cgroup_id):
-    cgroup = volume_cgroup_get(request, cgroup_id)
-    vol_types = volume_type_list(request)
-    cgroup.volume_type_names = []
-    for vol_type_id in cgroup.volume_types:
-        for vol_type in vol_types:
-            if vol_type.id == vol_type_id:
-                cgroup.volume_type_names.append(vol_type.name)
-                break
-    return cgroup
-
-
-@profiler.trace
-def volume_cgroup_list(request, search_opts=None):
-    c_client = cinderclient(request)
-    if c_client is None:
-        return []
-    return [VolumeConsistencyGroup(s) for s in c_client.consistencygroups.list(
-        search_opts=search_opts)]
-
-
-@profiler.trace
-def volume_cgroup_list_with_vol_type_names(request, search_opts=None):
-    cgroups = volume_cgroup_list(request, search_opts)
-    vol_types = volume_type_list(request)
-    for cgroup in cgroups:
-        cgroup.volume_type_names = []
-        for vol_type_id in cgroup.volume_types:
-            for vol_type in vol_types:
-                if vol_type.id == vol_type_id:
-                    cgroup.volume_type_names.append(vol_type.name)
-                    break
-
-    return cgroups
-
-
-@profiler.trace
-def volume_cgroup_create(request, volume_types, name,
-                         description=None, availability_zone=None):
-    data = {'name': name,
-            'description': description,
-            'availability_zone': availability_zone}
-
-    cgroup = cinderclient(request).consistencygroups.create(volume_types,
-                                                            **data)
-    return VolumeConsistencyGroup(cgroup)
-
-
-@profiler.trace
-def volume_cgroup_create_from_source(request, name, cg_snapshot_id=None,
-                                     source_cgroup_id=None,
-                                     description=None,
-                                     user_id=None, project_id=None):
-    return VolumeConsistencyGroup(
-        cinderclient(request).consistencygroups.create_from_src(
-            cg_snapshot_id,
-            source_cgroup_id,
-            name,
-            description,
-            user_id,
-            project_id))
-
-
-@profiler.trace
-def volume_cgroup_delete(request, cgroup_id, force=False):
-    return cinderclient(request).consistencygroups.delete(cgroup_id, force)
-
-
-@profiler.trace
-def volume_cgroup_update(request, cgroup_id, name=None, description=None,
-                         add_vols=None, remove_vols=None):
-    cgroup_data = {}
-    if name:
-        cgroup_data['name'] = name
-    if description:
-        cgroup_data['description'] = description
-    if add_vols:
-        cgroup_data['add_volumes'] = add_vols
-    if remove_vols:
-        cgroup_data['remove_volumes'] = remove_vols
-    return cinderclient(request).consistencygroups.update(cgroup_id,
-                                                          **cgroup_data)
-
-
-def volume_cg_snapshot_create(request, cgroup_id, name,
-                              description=None):
-    return VolumeCGSnapshot(
-        cinderclient(request).cgsnapshots.create(
-            cgroup_id,
-            name,
-            description))
-
-
-def volume_cg_snapshot_get(request, cg_snapshot_id):
-    cgsnapshot = cinderclient(request).cgsnapshots.get(cg_snapshot_id)
-    return VolumeCGSnapshot(cgsnapshot)
-
-
-def volume_cg_snapshot_list(request, search_opts=None):
-    c_client = cinderclient(request)
-    if c_client is None:
-        return []
-    return [VolumeCGSnapshot(s) for s in c_client.cgsnapshots.list(
-        search_opts=search_opts)]
-
-
-def volume_cg_snapshot_delete(request, cg_snapshot_id):
-    return cinderclient(request).cgsnapshots.delete(cg_snapshot_id)
-
-
 @memoized
 def volume_backup_supported(request):
     """This method will determine if cinder supports backup."""
@@ -669,8 +576,7 @@ def volume_backup_supported(request):
     # backup is configured yet. This is a workaround until that
     # capability is available.
     # https://bugs.launchpad.net/cinder/+bug/1334856
-    cinder_config = getattr(settings, 'OPENSTACK_CINDER_FEATURES', {})
-    return cinder_config.get('enable_backup', False)
+    return utils.get_dict_config('OPENSTACK_CINDER_FEATURES', 'enable_backup')
 
 
 @profiler.trace
@@ -685,6 +591,36 @@ def volume_backup_list(request):
 
 
 @profiler.trace
+def volume_backup_list_paged_with_page_menu(request, page_number=1,
+                                            sort_dir="desc"):
+    backups = []
+    count = 0
+    pages_count = 0
+    page_size = utils.get_page_size(request)
+    c_client = cinderclient(request, '3.45')
+
+    if c_client is None:
+        return backups, 0, count, pages_count
+
+    offset = (page_number - 1) * page_size
+    sort = 'created_at:' + sort_dir
+    bkps, count = c_client.backups.list(limit=page_size,
+                                        sort=sort,
+                                        search_opts={'with_count': True,
+                                                     'offset': offset})
+    if not bkps:
+        return backups, page_size, count, pages_count
+
+    if isinstance(bkps[0], list):
+        bkps = bkps[0]
+    pages_count = int(math.ceil(float(count) / float(page_size)))
+    for b in bkps:
+        backups.append(VolumeBackup(b))
+
+    return backups, page_size, count, pages_count
+
+
+@profiler.trace
 def volume_backup_list_paged(request, marker=None, paginate=False,
                              sort_dir="desc"):
     has_more_data = False
@@ -695,7 +631,7 @@ def volume_backup_list_paged(request, marker=None, paginate=False,
     if c_client is None:
         return backups, has_more_data, has_prev_data
 
-    if VERSIONS.active > 1 and paginate:
+    if paginate:
         page_size = utils.get_page_size(request)
         # sort_key and sort_dir deprecated in kilo, use sort
         # if pagination is true, we use a single sort parameter
@@ -721,7 +657,8 @@ def volume_backup_create(request,
                          container_name,
                          name,
                          description,
-                         force=False):
+                         force=False,
+                         snapshot_id=None):
     # need to ensure the container name is not an empty
     # string, but pass None to get the container name
     # generated correctly
@@ -730,6 +667,7 @@ def volume_backup_create(request,
         container=container_name if container_name else None,
         name=name,
         description=description,
+        snapshot_id=snapshot_id,
         force=force)
     return VolumeBackup(backup)
 
@@ -986,7 +924,13 @@ def qos_specs_list(request):
 @profiler.trace
 @memoized
 def tenant_absolute_limits(request, tenant_id=None):
-    limits = cinderclient(request).limits.get(tenant_id=tenant_id).absolute
+    _cinderclient = _cinderclient_with_features(
+        request, ['limits_project_id_query'],
+        message=('Insufficient microversion for GET limits with '
+                 'project_id query. One of the following API micro '
+                 'version is required: %(versions)s. '
+                 'This causes bug 1810309 on updating quotas.'))
+    limits = _cinderclient.limits.get(tenant_id=tenant_id).absolute
     limits_dict = {}
     for limit in limits:
         if limit.value < 0:
@@ -1080,11 +1024,12 @@ def pool_list(request, detailed=False):
 
 @profiler.trace
 def message_list(request, search_opts=None):
-    version = get_microversion(request, ['message_list'])
-    if version is None:
-        LOG.warning("insufficient microversion for message_list")
+    try:
+        c_client = _cinderclient_with_features(request, ['message_list'],
+                                               raise_exc=True, message=True)
+    except microversions.MicroVersionNotFound:
+        LOG.warning("Insufficient microversion for message_list")
         return []
-    c_client = cinderclient(request, version=version)
     return c_client.messages.list(search_opts)
 
 
@@ -1134,9 +1079,13 @@ def group_type_create(request, name, description=None, is_public=None):
 
 
 @profiler.trace
-def group_type_update(request, group_type_id, data):
+def group_type_update(request, group_type_id, name=None, description=None,
+                      is_public=None):
     client = _cinderclient_with_generic_groups(request)
-    return GroupType(client.group_types.update(group_type_id, **data))
+    return GroupType(client.group_types.update(group_type_id,
+                                               name,
+                                               description,
+                                               is_public))
 
 
 @profiler.trace
@@ -1146,15 +1095,27 @@ def group_type_delete(request, group_type_id):
 
 
 @profiler.trace
+def group_type_spec_list(request, group_type_id, raw=False):
+    group_type = group_type_get(request, group_type_id)
+    specs = group_type._apiresource.get_keys()
+    if raw:
+        return specs
+    return [GroupTypeSpec(group_type_id, key, value) for
+            key, value in specs.items()]
+
+
+@profiler.trace
 def group_type_spec_set(request, group_type_id, metadata):
-    client = _cinderclient_with_generic_groups(request)
-    client.group_types.set_keys(metadata)
+    group_type = group_type_get(request, group_type_id)
+    if not metadata:
+        return None
+    return group_type._apiresource.set_keys(metadata)
 
 
 @profiler.trace
 def group_type_spec_unset(request, group_type_id, keys):
-    client = _cinderclient_with_generic_groups(request)
-    client.group_types.unset_keys(keys)
+    group_type = group_type_get(request, group_type_id)
+    return group_type._apiresource.unset_keys(keys)
 
 
 @profiler.trace

@@ -18,7 +18,6 @@ from django.urls import reverse
 from django.urls import reverse_lazy
 from django.utils.translation import ugettext_lazy as _
 from django.views.decorators.debug import sensitive_variables
-import six
 
 from horizon import exceptions
 from horizon import forms
@@ -42,7 +41,7 @@ class RebuildInstanceForm(forms.SelfHandlingForm):
 
     image = forms.ChoiceField(
         label=_("Select Image"),
-        widget=forms.ThemableSelectWidget(
+        widget=forms.SelectWidget(
             attrs={'class': 'image-selector'},
             data_attrs=('size', 'display-name'),
             transform=_image_choice_title))
@@ -55,9 +54,13 @@ class RebuildInstanceForm(forms.SelfHandlingForm):
     confirm_password = forms.CharField(
         label=_("Confirm Rebuild Password"),
         required=False,
+        strip=False,
         widget=forms.PasswordInput(render_value=False))
-    disk_config = forms.ThemableChoiceField(label=_("Disk Partition"),
-                                            required=False)
+    disk_config = forms.ChoiceField(
+        label=_("Disk Partition"),
+        choices=[("AUTO", _("Automatic")),
+                 ("MANUAL", _("Manual"))],
+        required=False)
     description = forms.CharField(
         label=_("Description"),
         widget=forms.Textarea(attrs={'rows': 4}),
@@ -66,7 +69,7 @@ class RebuildInstanceForm(forms.SelfHandlingForm):
     )
 
     def __init__(self, request, *args, **kwargs):
-        super(RebuildInstanceForm, self).__init__(request, *args, **kwargs)
+        super().__init__(request, *args, **kwargs)
         if not api.nova.is_feature_available(request, "instance_description"):
             del self.fields['description']
         instance_id = kwargs.get('initial', {}).get('instance_id')
@@ -85,20 +88,8 @@ class RebuildInstanceForm(forms.SelfHandlingForm):
             del self.fields['password']
             del self.fields['confirm_password']
 
-        try:
-            if not api.nova.extension_supported("DiskConfig", request):
-                del self.fields['disk_config']
-            else:
-                # Set our disk_config choices
-                config_choices = [("AUTO", _("Automatic")),
-                                  ("MANUAL", _("Manual"))]
-                self.fields['disk_config'].choices = config_choices
-        except Exception:
-            exceptions.handle(request, _('Unable to retrieve extensions '
-                                         'information.'))
-
     def clean(self):
-        cleaned_data = super(RebuildInstanceForm, self).clean()
+        cleaned_data = super().clean()
         if 'password' in cleaned_data:
             passwd = cleaned_data.get('password')
             confirm = cleaned_data.get('confirm_password')
@@ -142,12 +133,11 @@ class DecryptPasswordInstanceForm(forms.SelfHandlingForm):
     encrypted_password = forms.CharField(widget=forms.widgets.Textarea(_attrs),
                                          label=_("Encrypted Password"),
                                          help_text=_encrypted_pwd_help,
+                                         strip=False,
                                          required=False)
 
     def __init__(self, request, *args, **kwargs):
-        super(DecryptPasswordInstanceForm, self).__init__(request,
-                                                          *args,
-                                                          **kwargs)
+        super().__init__(request, *args, **kwargs)
         instance_id = kwargs.get('initial', {}).get('instance_id')
         self.fields['instance_id'].initial = instance_id
         keypair_name = kwargs.get('initial', {}).get('keypair_name')
@@ -194,15 +184,18 @@ class AttachVolume(forms.SelfHandlingForm):
                                          "select a device name."))
     instance_id = forms.CharField(widget=forms.HiddenInput())
 
-    def __init__(self, *args, **kwargs):
-        super(AttachVolume, self).__init__(*args, **kwargs)
+    def __init__(self, request, *args, **kwargs):
+        super().__init__(request, *args, **kwargs)
 
         # Populate volume choices
         volume_list = kwargs.get('initial', {}).get("volume_list", [])
         volumes = []
         for volume in volume_list:
             # Only show volumes that aren't attached to an instance already
-            if not volume.attachments:
+            # Or those with multiattach enabled
+            if (not volume.attachments or
+                    (getattr(volume, 'multiattach', False)) and
+                    api.nova.get_microversion(request, 'multiattach')):
                 volumes.append(
                     (volume.id, '%(name)s (%(id)s)'
                      % {"name": volume.name, "id": volume.id}))
@@ -232,14 +225,9 @@ class AttachVolume(forms.SelfHandlingForm):
                                                    "inst": instance_id,
                                                    "dev": attach.device}
             messages.info(request, message)
-        except Exception as ex:
+        except Exception:
             redirect = reverse('horizon:project:instances:index')
-            if isinstance(ex, api.nova.VolumeMultiattachNotSupported):
-                # Use the specific error from the specific message.
-                msg = six.text_type(ex)
-            else:
-                # Use a generic error message.
-                msg = _('Unable to attach volume.')
+            msg = _('Unable to attach volume.')
             exceptions.handle(request, msg, redirect=redirect)
         return True
 
@@ -252,7 +240,7 @@ class DetachVolume(forms.SelfHandlingForm):
     instance_id = forms.CharField(widget=forms.HiddenInput())
 
     def __init__(self, *args, **kwargs):
-        super(DetachVolume, self).__init__(*args, **kwargs)
+        super().__init__(*args, **kwargs)
 
         # Populate instance id
         instance_id = kwargs.get('initial', {}).get("instance_id", None)
@@ -294,9 +282,9 @@ class DetachVolume(forms.SelfHandlingForm):
             messages.info(request, message)
         except Exception:
             redirect = reverse('horizon:project:instances:index')
-            exceptions.handle(request,
-                              _("Unable to detach volume."),
-                              redirect=redirect)
+            exceptions.handle(
+                request, _("Unable to detach volume."),
+                redirect=redirect)
         return True
 
 
@@ -339,7 +327,7 @@ class AttachInterface(forms.SelfHandlingForm):
         }))
 
     def __init__(self, request, *args, **kwargs):
-        super(AttachInterface, self).__init__(request, *args, **kwargs)
+        super().__init__(request, *args, **kwargs)
         networks = instance_utils.network_field_data(request,
                                                      include_empty_option=True,
                                                      with_cidr=True)
@@ -347,7 +335,7 @@ class AttachInterface(forms.SelfHandlingForm):
 
         choices = [('network', _("by Network (and IP address)"))]
         ports = instance_utils.port_field_data(request, with_network=True)
-        if len(ports) > 0:
+        if ports:
             self.fields['port'].choices = ports
             choices.append(('port', _("by Port")))
 
@@ -390,7 +378,7 @@ class DetachInterface(forms.SelfHandlingForm):
     port = forms.ThemableChoiceField(label=_("Port"))
 
     def __init__(self, request, *args, **kwargs):
-        super(DetachInterface, self).__init__(request, *args, **kwargs)
+        super().__init__(request, *args, **kwargs)
         instance_id = self.initial.get("instance_id", None)
 
         ports = []
@@ -432,7 +420,7 @@ class Disassociate(forms.SelfHandlingForm):
                                     required=False)
 
     def __init__(self, request, *args, **kwargs):
-        super(Disassociate, self).__init__(request, *args, **kwargs)
+        super().__init__(request, *args, **kwargs)
         instance_id = self.initial['instance_id']
         targets = api.neutron.floating_ip_target_list_by_instance(
             request, instance_id)
@@ -454,8 +442,8 @@ class Disassociate(forms.SelfHandlingForm):
         fips = [fip for fip in self.fips if fip.id == fip_id]
         if not fips:
             messages.error(request,
-                           _("The specified floating IP no longer exists."),
-                           redirect=redirect)
+                           _("The specified floating IP no longer exists."))
+            raise exceptions.Http302(redirect)
         fip = fips[0]
         try:
             if data['is_release']:
@@ -475,3 +463,40 @@ class Disassociate(forms.SelfHandlingForm):
                 _('Unable to disassociate floating IP %s') % fip.ip,
                 redirect=redirect)
         return True
+
+
+class RescueInstanceForm(forms.SelfHandlingForm):
+    image = forms.ChoiceField(
+        label=_("Select Image"),
+        widget=forms.ThemableSelectWidget(
+            attrs={'class': 'image-selector'},
+            data_attrs=('size', 'display-name'),
+            transform=_image_choice_title))
+    password = forms.CharField(label=_("Password"), max_length=255,
+                               required=False,
+                               strip=False,
+                               widget=forms.PasswordInput(render_value=False))
+    failure_url = 'horizon:project:instances:index'
+
+    def __init__(self, request, *args, **kwargs):
+        super().__init__(request, *args, **kwargs)
+        images = image_utils.get_available_images(request,
+                                                  request.user.tenant_id)
+        choices = [(image.id, image) for image in images]
+        if not choices:
+            choices.insert(0, ("", _("No images available")))
+        self.fields['image'].choices = choices
+
+    def handle(self, request, data):
+        try:
+            api.nova.server_rescue(request, self.initial["instance_id"],
+                                   password=data["password"],
+                                   image=data["image"])
+            messages.success(request,
+                             _('Successfully rescued instance'))
+            return True
+        except Exception:
+            redirect = reverse(self.failure_url)
+            exceptions.handle(request,
+                              _('Unable to rescue instance'),
+                              redirect=redirect)

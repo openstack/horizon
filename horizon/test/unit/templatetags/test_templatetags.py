@@ -25,10 +25,12 @@ from django.utils.text import normalize_newlines
 
 from horizon.test import helpers as test
 # The following imports are required to register the dashboards.
+# NOTE(amotoki): When an import line is wrapped, noqa F401 seems not to work,
+# so we don't wrap lines and ignore E501 (too long line) too.
 from horizon.test.test_dashboards.cats.dashboard import Cats  # noqa: F401
-from horizon.test.test_dashboards.cats.kittens.panel import Kittens  # noqa: F401
+from horizon.test.test_dashboards.cats.kittens.panel import Kittens  # noqa: F401,E501
 from horizon.test.test_dashboards.dogs.dashboard import Dogs  # noqa: F401
-from horizon.test.test_dashboards.dogs.puppies.panel import Puppies  # noqa: F401
+from horizon.test.test_dashboards.dogs.puppies.panel import Puppies  # noqa: F401,E501
 
 
 def single_line(text):

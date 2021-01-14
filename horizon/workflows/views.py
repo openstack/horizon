@@ -18,9 +18,8 @@ import json
 from django import forms
 from django import http
 from django import shortcuts
+from django.utils import http as utils_http
 from django.views import generic
-
-import six
 
 from horizon import exceptions
 from horizon.forms import views as hz_views
@@ -60,7 +59,7 @@ class WorkflowView(hz_views.ModalBackdropMixin, generic.TemplateView):
     step_errors = {}
 
     def __init__(self):
-        super(WorkflowView, self).__init__()
+        super().__init__()
         if not self.workflow_class:
             raise AttributeError("You must set the workflow_class attribute "
                                  "on %s." % self.__class__.__name__)
@@ -88,12 +87,19 @@ class WorkflowView(hz_views.ModalBackdropMixin, generic.TemplateView):
         This method should be overridden in subclasses to provide additional
         context data to the template.
         """
-        context = super(WorkflowView, self).get_context_data(**kwargs)
+        context = super().get_context_data(**kwargs)
         workflow = self.get_workflow()
         workflow.verify_integrity()
         context[self.context_object_name] = workflow
-        next = self.request.GET.get(workflow.redirect_param_name)
-        context['REDIRECT_URL'] = next
+
+        redirect_to = self.request.GET.get(workflow.redirect_param_name)
+        # Make sure the requested redirect is safe
+        if redirect_to and not utils_http.is_safe_url(
+                url=redirect_to,
+                allowed_hosts=[self.request.get_host()]):
+            redirect_to = None
+        context['REDIRECT_URL'] = redirect_to
+
         context['layout'] = self.get_layout()
         # For consistency with Workflow class
         context['modal'] = 'modal' in context['layout']
@@ -159,7 +165,7 @@ class WorkflowView(hz_views.ModalBackdropMixin, generic.TemplateView):
         for step in workflow.steps[start:end + 1]:
             if not step.action.is_valid():
                 errors[step.slug] = dict(
-                    (field, [six.text_type(error) for error in errors])
+                    (field, [str(error) for error in errors])
                     for (field, errors) in step.action.errors.items())
         return {
             'has_errors': bool(errors),
@@ -208,7 +214,7 @@ class WorkflowView(hz_views.ModalBackdropMixin, generic.TemplateView):
             messages.error(request, msg)
         if "HTTP_X_HORIZON_ADD_TO_FIELD" in self.request.META:
             field_id = self.request.META["HTTP_X_HORIZON_ADD_TO_FIELD"]
-            response = http.HttpResponse()
+            response = http.HttpResponse(content_type="text/plain")
             if workflow.object:
                 data = [self.get_object_id(workflow.object),
                         self.get_object_display(workflow.object)]

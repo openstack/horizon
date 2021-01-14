@@ -37,12 +37,24 @@ class WrapperFindOverride(object):
     """Mixin for overriding find_element methods."""
 
     def find_element(self, by=by.By.ID, value=None):
-        web_el = super(WrapperFindOverride, self).find_element(by, value)
+        repeat = range(2)
+        for i in repeat:
+            try:
+                web_el = super().find_element(by, value)
+            except exceptions.NoSuchElementException:
+                if i == repeat[-1]:
+                    raise
         return WebElementWrapper(web_el.parent, web_el.id, (by, value),
                                  self)
 
     def find_elements(self, by=by.By.ID, value=None):
-        web_els = super(WrapperFindOverride, self).find_elements(by, value)
+        repeat = range(2)
+        for i in repeat:
+            try:
+                web_els = super().find_elements(by, value)
+            except exceptions.NoSuchElementException:
+                if i == repeat[-1]:
+                    raise
         result = []
         for index, web_el in enumerate(web_els):
             result.append(WebElementWrapper(web_el.parent, web_el.id,
@@ -63,24 +75,12 @@ class WebElementWrapper(WrapperFindOverride, webelement.WebElement):
     """
 
     def __init__(self, parent, id_, locator, src_element, index=None):
-        super(WebElementWrapper, self).__init__(parent, id_)
+        super().__init__(parent, id_)
         self.locator = locator
         self.src_element = src_element
         # in case element was looked up previously via find_elements
         # we need his position in the returned list
         self.index = index
-
-    def reload_request(self, locator, index=None):
-        try:
-            # element was found out via find_elements
-            if index is not None:
-                web_els = self.src_element.find_elements(*locator)
-                web_el = web_els[index]
-            else:
-                web_el = self.src_element.find_element(*locator)
-        except (exceptions.NoSuchElementException, IndexError):
-            return False
-        return web_el
 
     def _reload_element(self):
         """Method for starting reload process on current instance."""
@@ -97,11 +97,12 @@ class WebElementWrapper(WrapperFindOverride, webelement.WebElement):
         # exception, because driver.implicitly_wait delegates this to browser.
         # Just we need to catch StaleElement exception, reload chain of element
         # parents and then to execute command again.
-        repeat = range(2)
+        repeat = range(20)
         for i in repeat:
             try:
-                return super(WebElementWrapper, self)._execute(command, params)
-            except exceptions.StaleElementReferenceException:
+                return super()._execute(command, params)
+            except (exceptions.StaleElementReferenceException,
+                    exceptions.ElementClickInterceptedException):
                 if i == repeat[-1]:
                     raise
                 if not self._reload_element():

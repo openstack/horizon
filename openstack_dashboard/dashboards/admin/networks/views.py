@@ -14,7 +14,6 @@
 
 from collections import OrderedDict
 
-from django.conf import settings
 from django.urls import reverse_lazy
 from django.utils.translation import ugettext_lazy as _
 
@@ -27,6 +26,7 @@ from openstack_dashboard import api
 from openstack_dashboard.dashboards.project.networks.tabs import OverviewTab
 from openstack_dashboard.dashboards.project.networks import views as user_views
 from openstack_dashboard.utils import filters
+from openstack_dashboard.utils import settings as setting_utils
 
 from openstack_dashboard.dashboards.admin.networks.agents import tabs \
     as agents_tabs
@@ -39,8 +39,6 @@ from openstack_dashboard.dashboards.admin.networks.subnets \
 from openstack_dashboard.dashboards.admin.networks \
     import tables as networks_tables
 from openstack_dashboard.dashboards.admin.networks import workflows
-from openstack_dashboard.dashboards.project.networks import views \
-    as project_view
 
 
 class IndexView(tables.DataTableView):
@@ -97,9 +95,9 @@ class IndexView(tables.DataTableView):
             # If filter_first is set and if there are not other filters
             # selected, then search criteria must be provided and return an
             # empty list
-            filter_first = getattr(settings, 'FILTER_DATA_FIRST', {})
-            if filter_first.get('admin.networks', False) and \
-                    not search_opts:
+            if (setting_utils.get_dict_config('FILTER_DATA_FIRST',
+                                              'admin.networks') and
+                    not search_opts):
                 self._needs_filter_first = True
                 return []
             self._needs_filter_first = False
@@ -120,7 +118,7 @@ class IndexView(tables.DataTableView):
         return networks
 
     def get_filters(self, filters=None, filters_map=None):
-        filters = super(IndexView, self).get_filters(filters, filters_map)
+        filters = super().get_filters(filters, filters_map)
         if 'project' in filters:
             tenants = api.keystone.tenant_list(self.request)[0]
             tenant_filter_ids = [t.id for t in tenants
@@ -130,7 +128,7 @@ class IndexView(tables.DataTableView):
         return filters
 
 
-class CreateView(project_view.CreateView):
+class CreateView(user_views.CreateView):
     workflow_class = workflows.CreateNetwork
 
 
@@ -181,7 +179,7 @@ class DetailView(tabs.TabbedTableView):
         return reverse_lazy('horizon:admin:networks:index')
 
     def get_context_data(self, **kwargs):
-        context = super(DetailView, self).get_context_data(**kwargs)
+        context = super().get_context_data(**kwargs)
         network = self._get_data()
         context["network"] = network
         table = networks_tables.NetworksTable(self.request)

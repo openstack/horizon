@@ -28,7 +28,7 @@ class ViewData(object):
     template_name = 'fake'
 
     def get_context_data(self, **kwargs):
-        context = super(ViewData, self).get_context_data(**kwargs)
+        context = super().get_context_data(**kwargs)
         context['object'] = {'name': 'myName'}
         return context
 
@@ -61,7 +61,7 @@ class ViewWithTransTitle(views.PageTitleMixin, generic.TemplateView):
 class PageTitleTests(test.TestCase):
 
     def setUp(self):
-        super(PageTitleTests, self).setUp()
+        super().setUp()
         self.request = client.RequestFactory().get('fake')
 
     def _dispatch(self, viewClass):

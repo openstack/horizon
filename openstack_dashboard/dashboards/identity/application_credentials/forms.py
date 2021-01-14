@@ -15,8 +15,11 @@
 import datetime
 import logging
 
+from django.conf import settings
+from django.forms import widgets
 from django.utils.translation import ugettext_lazy as _
 from django.views.decorators.debug import sensitive_variables
+import yaml
 
 from horizon import exceptions
 from horizon import forms
@@ -47,17 +50,29 @@ class CreateApplicationCredentialForm(forms.SelfHandlingForm):
         widget=forms.widgets.SelectMultiple(),
         label=_("Roles"),
         required=False)
+    access_rules = forms.CharField(
+        widget=forms.Textarea(attrs={'rows': 5}),
+        label=_("Access Rules"),
+        required=False)
     unrestricted = forms.BooleanField(label=_("Unrestricted (dangerous)"),
                                       required=False)
+    kubernetes_namespace = forms.CharField(max_length=255,
+                                           label=_("Kubernetes Namespace"),
+                                           initial="default",
+                                           required=False)
 
     def __init__(self, request, *args, **kwargs):
         self.next_view = kwargs.pop('next_view', None)
-        super(CreateApplicationCredentialForm, self).__init__(request, *args,
-                                                              **kwargs)
+        super().__init__(request, *args, **kwargs)
         role_list = self.request.user.roles
         role_names = [role['name'] for role in role_list]
         role_choices = ((name, name) for name in role_names)
         self.fields['roles'].choices = role_choices
+        keystone_version = api.keystone.get_identity_api_version(request)
+        if keystone_version < (3, 13):
+            del self.fields['access_rules']
+        if not settings.KUBECONFIG_ENABLED:
+            self.fields['kubernetes_namespace'].widget = widgets.HiddenInput()
 
     # We have to protect the entire "data" dict because it contains the
     # secret string.
@@ -87,6 +102,10 @@ class CreateApplicationCredentialForm(forms.SelfHandlingForm):
                 roles = [{'name': role_name} for role_name in data['roles']]
             else:
                 roles = None
+            if data.get('access_rules'):
+                access_rules = data['access_rules']
+            else:
+                access_rules = None
             new_app_cred = api.keystone.application_credential_create(
                 request,
                 name=data['name'],
@@ -94,10 +113,13 @@ class CreateApplicationCredentialForm(forms.SelfHandlingForm):
                 secret=data['secret'] or None,
                 expires_at=expiration or None,
                 roles=roles,
-                unrestricted=data['unrestricted'] or None
+                access_rules=access_rules,
+                unrestricted=data['unrestricted']
             )
             self.request.session['application_credential'] = \
                 new_app_cred.to_dict()
+            (self.request.session['application_credential']
+                ['kubernetes_namespace']) = data['kubernetes_namespace']
             request.method = 'GET'
             return self.next_view.as_view()(request)
         except exceptions.Conflict:
@@ -105,8 +127,18 @@ class CreateApplicationCredentialForm(forms.SelfHandlingForm):
                    % data['name'])
             messages.error(request, msg)
         except Exception:
-            exceptions.handle(request,
-                              _('Unable to create application credential.'))
+            exceptions.handle(
+                request, _('Unable to create application credential.'))
+
+    def clean(self):
+        cleaned_data = super().clean()
+        try:
+            cleaned_data['access_rules'] = yaml.safe_load(
+                cleaned_data['access_rules'])
+        except yaml.YAMLError:
+            msg = (_('Access rules must be a valid JSON or YAML list.'))
+            raise forms.ValidationError(msg)
+        return cleaned_data
 
 
 class CreateSuccessfulForm(forms.SelfHandlingForm):

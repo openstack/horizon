@@ -38,7 +38,7 @@ class FlavorExtraSpecs(dict):
         return "<FlavorExtraSpecs %s>" % self._info
 
     def __init__(self, info):
-        super(FlavorExtraSpecs, self).__init__()
+        super().__init__()
         self.__dict__.update(info)
         self.update(info)
         self._info = info
@@ -158,7 +158,7 @@ def data(TEST):
     TEST.flavors = utils.TestDataContainer()
     TEST.flavor_access = utils.TestDataContainer()
     TEST.keypairs = utils.TestDataContainer()
-    TEST.volumes = utils.TestDataContainer()
+    TEST.nova_volumes = utils.TestDataContainer()
     TEST.quotas = utils.TestDataContainer()
     TEST.quota_usages = utils.TestDataContainer()
     TEST.usages = utils.TestDataContainer()
@@ -216,15 +216,10 @@ def data(TEST):
          "volume_type": None,
          "attachments": []})
 
-    volume.bootable = 'true'
-    nameless_volume.bootable = 'true'
-    attached_volume.bootable = 'true'
-    non_bootable_volume.bootable = 'false'
-
-    TEST.volumes.add(volume)
-    TEST.volumes.add(nameless_volume)
-    TEST.volumes.add(attached_volume)
-    TEST.volumes.add(non_bootable_volume)
+    TEST.nova_volumes.add(volume)
+    TEST.nova_volumes.add(nameless_volume)
+    TEST.nova_volumes.add(attached_volume)
+    TEST.nova_volumes.add(non_bootable_volume)
 
     # Flavors
     flavor_1 = flavors.Flavor(flavors.FlavorManager(None),
@@ -367,7 +362,7 @@ def data(TEST):
     vals.update({"name": u'\u4e91\u89c4\u5219',
                  "status": "ACTIVE",
                  "tenant_id": tenant3.id,
-                "server_id": "3"})
+                 "server_id": "3"})
     server_3 = servers.Server(servers.ServerManager(None),
                               json.loads(SERVER_DATA % vals)['server'])
     vals.update({"name": "server_4",
@@ -375,7 +370,13 @@ def data(TEST):
                  "server_id": "4"})
     server_4 = servers.Server(servers.ServerManager(None),
                               json.loads(SERVER_DATA % vals)['server'])
-    TEST.servers.add(server_1, server_2, server_3, server_4)
+    vals.update({"name": "=cmd|' /C calc'!A0",
+                 "status": "PAUSED",
+                 "tenant_id": TEST.tenants.first().id,
+                 "server_id": "5"})
+    server_5 = servers.Server(servers.ServerManager(None),
+                              json.loads(SERVER_DATA % vals)['server'])
+    TEST.servers.add(server_1, server_2, server_3, server_4, server_5)
 
     # VNC Console Data
     console = {
@@ -430,6 +431,16 @@ def data(TEST):
     usage_obj_2 = usage.Usage(usage.UsageManager(None),
                               json.loads(USAGE_DATA % usage_2_vals))
     TEST.usages.add(usage_obj_2)
+
+    usage_3_vals = {"tenant_id": TEST.tenants.first(),
+                    "instance_name": server_5.name,
+                    "flavor_name": flavor_1.name,
+                    "flavor_vcpus": flavor_1.vcpus,
+                    "flavor_disk": flavor_1.disk,
+                    "flavor_ram": flavor_1.ram}
+    usage_obj_3 = usage.Usage(usage.UsageManager(None),
+                              json.loads(USAGE_DATA % usage_3_vals))
+    TEST.usages.add(usage_obj_3)
 
     # Availability Zones
     TEST.availability_zones.add(availability_zones.AvailabilityZone(

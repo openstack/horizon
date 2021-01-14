@@ -14,22 +14,18 @@
 
 from django.urls import reverse
 
-import mock
-
 from openstack_dashboard import api
 from openstack_dashboard.test import helpers as test
 
 
 class HypervisorViewTest(test.BaseAdminViewTests):
-    @test.create_mocks({api.nova: ['extension_supported',
-                                   'hypervisor_list',
+    @test.create_mocks({api.nova: ['hypervisor_list',
                                    'hypervisor_stats',
                                    'service_list']})
     def test_index(self):
         hypervisors = self.hypervisors.list()
         compute_services = [service for service in self.services.list()
                             if service.binary == 'nova-compute']
-        self.mock_extension_supported.return_value = True
         self.mock_hypervisor_list.return_value = hypervisors
         self.mock_hypervisor_stats.return_value = self.hypervisors.stats
         self.mock_service_list.return_value = compute_services
@@ -38,12 +34,12 @@ class HypervisorViewTest(test.BaseAdminViewTests):
         self.assertTemplateUsed(res, 'admin/hypervisors/index.html')
 
         hypervisors_tab = res.context['tab_group'].get_tab('hypervisor')
-        self.assertItemsEqual(hypervisors_tab._tables['hypervisors'].data,
+        self.assertCountEqual(hypervisors_tab._tables['hypervisors'].data,
                               hypervisors)
 
         host_tab = res.context['tab_group'].get_tab('compute_host')
         host_table = host_tab._tables['compute_host']
-        self.assertItemsEqual(host_table.data, compute_services)
+        self.assertCountEqual(host_table.data, compute_services)
         actions_host_up = host_table.get_row_actions(host_table.data[0])
         self.assertEqual(1, len(actions_host_up))
         actions_host_down = host_table.get_row_actions(host_table.data[1])
@@ -61,9 +57,6 @@ class HypervisorViewTest(test.BaseAdminViewTests):
         self.assertEqual('migrate_maintenance',
                          actions_service_disabled[1].name)
 
-        self.assert_mock_multiple_calls_with_same_arguments(
-            self.mock_extension_supported, 28,
-            mock.call('AdminActions', test.IsHttpRequest()))
         self.mock_hypervisor_list.assert_called_once_with(
             test.IsHttpRequest())
         self.mock_hypervisor_stats.assert_called_once_with(
@@ -105,7 +98,7 @@ class HypervisorDetailViewTest(test.BaseAdminViewTests):
                                        hypervisor.hypervisor_hostname)])
         res = self.client.get(url)
         self.assertTemplateUsed(res, 'admin/hypervisors/detail.html')
-        self.assertItemsEqual(res.context['table'].data, hypervisor.servers)
+        self.assertCountEqual(res.context['table'].data, hypervisor.servers)
 
         self.mock_hypervisor_search.assert_called_once_with(
             test.IsHttpRequest(), hypervisor.hypervisor_hostname)

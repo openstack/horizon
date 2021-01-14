@@ -12,6 +12,7 @@ rules:
   one-var: 0
   space-infix-ops: 0
   space-after-keywords: 0
+  keyword-spacing: 0
   no-console: 0
   no-multiple-empty-lines: 0
   no-sync: 0

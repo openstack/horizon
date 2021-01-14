@@ -18,8 +18,8 @@ import logging
 from django import shortcuts
 from django.urls import reverse
 from django.utils.http import urlencode
+from django.utils.text import format_lazy
 from django.utils.translation import pgettext_lazy
-from django.utils.translation import string_concat
 from django.utils.translation import ugettext_lazy as _
 from django.utils.translation import ungettext_lazy
 
@@ -49,11 +49,13 @@ class AllocateIP(tables.LinkAction):
     def allowed(self, request, fip=None):
         usages = quotas.tenant_quota_usages(request,
                                             targets=('floatingip', ))
-        if usages['floatingip']['available'] <= 0:
+        if 'floatingip' in usages and usages['floatingip']['available'] <= 0:
             if "disabled" not in self.classes:
-                self.classes = [c for c in self.classes] + ['disabled']
-                self.verbose_name = string_concat(self.verbose_name, ' ',
-                                                  _("(Quota exceeded)"))
+                self.classes = list(self.classes) + ['disabled']
+                self.verbose_name = format_lazy(
+                    '{verbose_name} {quota_exceeded}',
+                    verbose_name=self.verbose_name,
+                    quota_exceeded=_("(Quota exceeded)"))
         else:
             self.verbose_name = _("Allocate IP To Project")
             classes = [c for c in self.classes if c != "disabled"]
@@ -141,20 +143,18 @@ def get_instance_info(fip):
         return (_("%(instance_name)s %(fixed_ip)s")
                 % {'instance_name': getattr(fip, "instance_name", ''),
                    'fixed_ip': fip.fixed_ip})
-    elif fip.instance_type == 'loadbalancer':
+    if fip.instance_type == 'loadbalancer':
         return _("Load Balancer VIP %s") % fip.fixed_ip
-    elif fip.instance_type:
+    if fip.instance_type:
         return fip.fixed_ip
-    else:
-        return None
+    return None
 
 
 def get_instance_link(datum):
     if getattr(datum, 'instance_id'):
         return reverse("horizon:project:instances:detail",
                        args=(datum.instance_id,))
-    else:
-        return None
+    return None
 
 
 STATUS_DISPLAY_CHOICES = (
@@ -205,9 +205,9 @@ class FloatingIPsTable(tables.DataTable):
                            display_choices=STATUS_DISPLAY_CHOICES)
 
     def __init__(self, request, data=None, needs_form_wrapper=None, **kwargs):
-        super(FloatingIPsTable, self).__init__(
-            request, data=data, needs_form_wrapper=needs_form_wrapper,
-            **kwargs)
+        super().__init__(request, data=data,
+                         needs_form_wrapper=needs_form_wrapper,
+                         **kwargs)
         dns_supported = api.neutron.is_extension_supported(
             request,
             "dns-integration")

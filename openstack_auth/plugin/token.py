@@ -10,11 +10,9 @@
 # License for the specific language governing permissions and limitations
 # under the License.
 
-from keystoneauth1.identity import v2 as v2_auth
 from keystoneauth1.identity import v3 as v3_auth
 
 from openstack_auth.plugin import base
-from openstack_auth import utils
 
 
 __all__ = ['TokenPlugin']
@@ -28,14 +26,7 @@ class TokenPlugin(base.BasePlugin):
         if not all((auth_url, token)):
             return None
 
-        if utils.get_keystone_version() >= 3:
-            return v3_auth.Token(auth_url=auth_url,
-                                 token=token,
-                                 project_id=project_id,
-                                 reauthenticate=False)
-
-        else:
-            return v2_auth.Token(auth_url=auth_url,
-                                 token=token,
-                                 tenant_id=project_id,
-                                 reauthenticate=False)
+        return v3_auth.Token(auth_url=auth_url,
+                             token=token,
+                             project_id=project_id,
+                             reauthenticate=False)

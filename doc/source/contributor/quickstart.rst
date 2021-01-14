@@ -6,9 +6,9 @@ Quickstart
 
 ..  Note ::
 
-    This section has been tested for Horizon on Ubuntu (16.04-64) and RPM-based
-    (RHEL 7.x) distributions. Feel free to add notes and any changes according
-    to your experiences or operating system.
+    This section has been tested for Horizon on Ubuntu (18.04-amd64) and
+    RPM-based (RHEL 8.x) distributions. Feel free to add notes and any changes
+    according to your experiences or operating system.
 
 Linux Systems
 =============
@@ -19,13 +19,13 @@ On Ubuntu
 
 .. code-block:: console
 
-    $ sudo apt-get install git python-pip
+    $ sudo apt install git python3-dev python3-pip gettext
 
-On RPM-based distributions (e.g., Fedora/RHEL/CentOS/Scientific Linux)
+On RPM-based distributions (e.g., Fedora/RHEL/CentOS)
 
 .. code-block:: console
 
-    $ sudo yum install gcc git-core python-devel python-virtualenv openssl-devel libffi-devel which
+    $ sudo yum install gcc git-core python3-devel python3-virtualenv gettext
 
 .. note::
 
@@ -37,11 +37,11 @@ Setup
 =====
 
 To begin setting up a Horizon development environment simply clone the Horizon
-git repository from https://git.openstack.org/cgit/openstack/horizon
+git repository from https://opendev.org/openstack/horizon
 
 .. code-block:: console
 
-    $ git clone https://git.openstack.org/openstack/horizon
+    $ git clone https://opendev.org/openstack/horizon
 
 Next you will need to configure Horizon by adding a ``local_settings.py`` file.
 A good starting point is to use the example config with the following command,
@@ -52,7 +52,7 @@ from within the ``horizon`` directory.
     $ cp openstack_dashboard/local/local_settings.py.example openstack_dashboard/local/local_settings.py
 
 Horizon connects to the rest of OpenStack via a Keystone service catalog. By
-default Horizon looks for an endpoint at ``http://localhost:5000/v3``; this
+default Horizon looks for an endpoint at ``http://localhost/identity/v3``; this
 can be customised by modifying the ``OPENSTACK_HOST`` and
 ``OPENSTACK_KEYSTONE_URL`` values in
 ``openstack_dashboard/local/local_settings.py``
@@ -69,7 +69,7 @@ development tasks. You can install it with
 
 .. code-block:: console
 
-    $ pip install tox
+    $ pip3 install tox
 
 The ``tox`` environments provide wrappers around ``manage.py``. For more
 information on ``manage.py``, which is a Django command, see
@@ -86,7 +86,10 @@ To start the Horizon development server use the command below
     The default port for runserver is 8000 which might be already consumed by
     heat-api-cfn in DevStack. If running in DevStack
     ``tox -e runserver -- localhost:9000`` will start the test server at
-    ``http://localhost:9000``
+    ``http://localhost:9000``. If you use ``tox -e runserver`` for developments,
+    then configure ``SESSION_ENGINE`` to
+    ``django.contrib.sessions.backends.signed_cookies`` in
+    ``openstack_dashboard/local/local_settings.py`` file.
 
 Once the Horizon server is running, point a web browser to ``http://localhost``
 or to the IP and port the server is listening for. Enter your Keystone

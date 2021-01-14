@@ -13,12 +13,11 @@
 #    under the License.
 
 import collections
+from unittest import mock
 
 from django.urls import reverse
 from django.utils.html import escape
 from django.utils.http import urlunquote
-import mock
-import six
 
 from horizon.workflows import views
 
@@ -149,7 +148,7 @@ class NetworkTests(test.TestCase, NetworkStubMixin):
         res = self.client.get(INDEX_URL)
         self.assertTemplateUsed(res, INDEX_TEMPLATE)
         networks = res.context['networks_table'].data
-        self.assertItemsEqual(networks, self.networks.list())
+        self.assertCountEqual(networks, self.networks.list())
 
         self.mock_tenant_quota_usages.assert_has_calls([
             mock.call(test.IsHttpRequest(), targets=('network', )),
@@ -241,7 +240,7 @@ class NetworkTests(test.TestCase, NetworkStubMixin):
 
         self.assertTemplateUsed(res, 'horizon/common/_detail.html')
         subnets = res.context['subnets_table'].data
-        self.assertItemsEqual(subnets, [self.subnets.first()])
+        self.assertCountEqual(subnets, [self.subnets.first()])
 
         self.mock_network_get.assert_called_once_with(
             test.IsHttpRequest(), network_id)
@@ -351,7 +350,7 @@ class NetworkTests(test.TestCase, NetworkStubMixin):
         res = self.client.get(url)
         self.assertTemplateUsed(res, 'horizon/common/_detail.html')
         subnets = res.context['subnets_table'].data
-        self.assertItemsEqual(subnets, [self.subnets.first()])
+        self.assertCountEqual(subnets, [self.subnets.first()])
 
         self.mock_network_get.assert_called_once_with(
             test.IsHttpRequest(), network_id)
@@ -493,6 +492,7 @@ class NetworkTests(test.TestCase, NetworkStubMixin):
                   'admin_state_up': network.admin_state_up,
                   'shared': False}
         subnet_params = {'network_id': network.id,
+                         'tenant_id': network.tenant_id,
                          'name': subnet.name,
                          'cidr': subnet.cidr,
                          'ip_version': subnet.ip_version,
@@ -629,6 +629,7 @@ class NetworkTests(test.TestCase, NetworkStubMixin):
         self.mock_subnet_create.assert_called_once_with(
             test.IsHttpRequest(),
             network_id=network.id,
+            tenant_id=network.tenant_id,
             name=subnet.name,
             cidr=subnet.cidr,
             ip_version=subnet.ip_version,
@@ -801,6 +802,7 @@ class NetworkTests(test.TestCase, NetworkStubMixin):
                   'admin_state_up': network.admin_state_up,
                   'shared': False}
         subnet_params = {'network_id': network.id,
+                         'tenant_id': network.tenant_id,
                          'name': subnet.name,
                          'cidr': cidr,
                          'ip_version': subnet.ip_version,
@@ -930,6 +932,7 @@ class NetworkTests(test.TestCase, NetworkStubMixin):
                      'shared': False,
                      'with_subnet': True}
         subnet_params = {'network_id': network.id,
+                         'tenant_id': network.tenant_id,
                          'name': subnet.name,
                          'cidr': subnet.cidr,
                          'ip_version': subnet.ip_version,
@@ -1109,7 +1112,7 @@ class NetworkViewTests(test.TestCase, NetworkStubMixin):
         self.assertTemplateUsed(res, INDEX_TEMPLATE)
 
         networks = res.context['networks_table'].data
-        self.assertItemsEqual(networks, self.networks.list())
+        self.assertCountEqual(networks, self.networks.list())
 
         button = find_button_fn(res)
         self.assertFalse('disabled' in button.classes,
@@ -1146,7 +1149,7 @@ class NetworkViewTests(test.TestCase, NetworkStubMixin):
         self.assertTemplateUsed(res, INDEX_TEMPLATE)
 
         networks = res.context['networks_table'].data
-        self.assertItemsEqual(networks, self.networks.list())
+        self.assertCountEqual(networks, self.networks.list())
 
         button = find_button_fn(res)
         self.assertIn('disabled', button.classes,
@@ -1220,7 +1223,7 @@ class NetworkViewTests(test.TestCase, NetworkStubMixin):
         self.assertTemplateUsed(res, 'horizon/common/_detail.html')
 
         subnets = res.context['subnets_table'].data
-        self.assertItemsEqual(subnets, self.subnets.list())
+        self.assertCountEqual(subnets, self.subnets.list())
 
         self.mock_network_get.assert_called_once_with(test.IsHttpRequest(),
                                                       network_id)
@@ -1256,8 +1259,7 @@ class NetworkViewTests(test.TestCase, NetworkStubMixin):
 
         self.assertEqual(set(['ajax-modal']), set(create_action.classes))
         self.assertEqual('horizon:project:networks:create', create_action.url)
-        self.assertEqual('Create Network',
-                         six.text_type(create_action.verbose_name))
+        self.assertEqual('Create Network', create_action.verbose_name)
         self.assertEqual((('network', 'create_network'),),
                          create_action.policy_rules)
 
@@ -1269,8 +1271,7 @@ class NetworkViewTests(test.TestCase, NetworkStubMixin):
         self.assertEqual(set(['ajax-modal']), set(create_action.classes))
         self.assertEqual('horizon:project:networks:createsubnet',
                          create_action.url)
-        self.assertEqual('Create Subnet',
-                         six.text_type(create_action.verbose_name))
+        self.assertEqual('Create Subnet', create_action.verbose_name)
         self.assertEqual((('network', 'create_subnet'),),
                          create_action.policy_rules)
 
@@ -1293,7 +1294,7 @@ class NetworkViewTests(test.TestCase, NetworkStubMixin):
         self.assertTemplateUsed(res, 'horizon/common/_detail.html')
 
         ports = res.context['ports_table'].data
-        self.assertItemsEqual(ports, self.ports.list())
+        self.assertCountEqual(ports, self.ports.list())
 
         self.mock_network_get.assert_called_once_with(
             test.IsHttpRequest(), network_id)
@@ -1331,7 +1332,6 @@ class NetworkViewTests(test.TestCase, NetworkStubMixin):
         self.assertEqual(set(['ajax-modal']), set(create_action.classes))
         self.assertEqual('horizon:project:networks:addport',
                          create_action.url)
-        self.assertEqual('Create Port',
-                         six.text_type(create_action.verbose_name))
+        self.assertEqual('Create Port', create_action.verbose_name)
         self.assertEqual((('network', 'create_port'),),
                          create_action.policy_rules)

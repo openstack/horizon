@@ -18,7 +18,7 @@ class TestGroup(helpers.AdminTestCase):
     """Checks if the user is able to create/delete/edit groups"""
 
     def setUp(self):
-        super(TestGroup, self).setUp()
+        super().setUp()
         self.groups_page = self.home_pg.go_to_identity_groupspage()
 
     @property

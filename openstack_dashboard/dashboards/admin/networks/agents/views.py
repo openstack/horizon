@@ -40,7 +40,7 @@ class AddView(forms.ModalFormView):
                        args=(self.kwargs['network_id'],))
 
     def get_context_data(self, **kwargs):
-        context = super(AddView, self).get_context_data(**kwargs)
+        context = super().get_context_data(**kwargs)
         context['network_id'] = self.kwargs['network_id']
         args = (self.kwargs['network_id'],)
         context['submit_url'] = reverse(self.submit_url, args=args)
@@ -48,7 +48,7 @@ class AddView(forms.ModalFormView):
         return context
 
     def get_initial(self):
-        initial = super(AddView, self).get_initial()
+        initial = super().get_initial()
         agents = self._get_agents()
         network_id = self.kwargs['network_id']
         try:

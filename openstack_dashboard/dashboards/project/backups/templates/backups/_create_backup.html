@@ -9,6 +9,11 @@
   You must have one of these services activated in order to create a backup.
   {% endblocktrans %}</p>
   <p>{% blocktrans %}
+  If a snapshot is specified here only the specified snapshot of the volume
+  will be backed up.
+  </p>
+  {% endblocktrans %}
+  <p>{% blocktrans %}
   If no container name is provided, a default container named volumebackups
   will be provisioned for you.
   Backups will be the same size as the volume they originate from.

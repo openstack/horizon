@@ -1,0 +1,6 @@
+---
+upgrade:
+  - |
+    Deprecated ``opensatck_dashboard/wsgi/django.wsgi`` is removed.
+    If you still use it, please change your configuration to use
+    ``openstack_dashboard/wsgi.py`` now.

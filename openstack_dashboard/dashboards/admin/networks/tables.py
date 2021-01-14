@@ -59,7 +59,7 @@ class CreateSubnet(project_tables.CreateSubnet):
         # usages["subnet'] is empty
         if usages.get('subnet', {}).get('available', 1) <= 0:
             if 'disabled' not in self.classes:
-                self.classes = [c for c in self.classes] + ['disabled']
+                self.classes = list(self.classes) + ['disabled']
                 self.verbose_name = _('Create Subnet (Quota exceeded)')
         else:
             self.verbose_name = _('Create Subnet')
@@ -77,8 +77,7 @@ DISPLAY_CHOICES = (
 def get_availability_zones(network):
     if 'availability_zones' in network and network.availability_zones:
         return ', '.join(network.availability_zones)
-    else:
-        return _("-")
+    return _("-")
 
 
 class AdminNetworksFilterAction(project_tables.ProjectNetworksFilterAction):
@@ -120,10 +119,9 @@ class NetworksTable(tables.DataTable):
         row_actions = (EditNetwork, CreateSubnet, project_tables.DeleteNetwork)
 
     def __init__(self, request, data=None, needs_form_wrapper=None, **kwargs):
-        super(NetworksTable, self).__init__(
-            request, data=data,
-            needs_form_wrapper=needs_form_wrapper,
-            **kwargs)
+        super().__init__(request, data=data,
+                         needs_form_wrapper=needs_form_wrapper,
+                         **kwargs)
         try:
             if not api.neutron.is_extension_supported(
                     request, "network_availability_zone"):
