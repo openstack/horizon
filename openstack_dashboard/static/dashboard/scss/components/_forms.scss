@@ -20,5 +20,10 @@
   .themable-checkbox {
     padding-top: $padding-base-vertical;
   }
+}
 
+.form-control {
+  &.themable-disabled {
+    background-color: $input-bg;
+  }
 }

@@ -33,13 +33,15 @@
     '$scope',
     'horizon.framework.widgets.charts.donutChartSettings',
     'horizon.framework.widgets.charts.quotaChartDefaults',
-    'horizon.app.core.openstack-service-api.nova'
+    'horizon.app.core.openstack-service-api.nova',
+    'horizon.app.core.openstack-service-api.userSession'
   ];
 
   function LaunchInstanceDetailsController($scope,
     donutChartSettings,
     quotaChartDefaults,
-    novaAPI
+    novaAPI,
+    userSession
   ) {
 
     var ctrl = this;
@@ -105,6 +107,11 @@
     });
 
     ////////////////////
+
+    userSession.get().then(setProject);
+    function setProject(session) {
+      ctrl.projectName = session.project_name;
+    }
 
     function isDescriptionSupported(data) {
       ctrl.isDescriptionSupported = data.data;

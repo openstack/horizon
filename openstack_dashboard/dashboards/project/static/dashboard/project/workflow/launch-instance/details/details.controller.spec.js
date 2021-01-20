@@ -24,6 +24,7 @@
 
     describe('LaunchInstanceDetailsController', function() {
       var $q, scope, ctrl, deferred;
+      var sessionObj = {project_name: 'alt_demo'};
       var novaAPI = {
         isFeatureSupported: function() {
           var deferred = $q.defer();
@@ -43,6 +44,10 @@
         $q = _$q_;
         deferred = $q.defer();
         scope.initPromise = deferred.promise;
+        var session = $injector.get('horizon.app.core.openstack-service-api.userSession');
+        var sessionDeferred = $q.defer();
+        sessionDeferred.resolve(sessionObj);
+        spyOn(session, 'get').and.returnValue(sessionDeferred.promise);
 
         scope.model = {
           newInstanceSpec: { source: [], source_type: '' },
@@ -60,6 +65,11 @@
         ctrl = $controller('LaunchInstanceDetailsController', { $scope: scope });
 
         scope.$apply();
+      }));
+
+      it('sets ctrl.projectName', inject(function($timeout) {
+        $timeout.flush();
+        expect(ctrl.projectName).toBe(sessionObj.project_name);
       }));
 
       it('should have isDescriptionSupported defined', function() {
