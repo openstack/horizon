@@ -139,9 +139,9 @@ XStatic-D3==3.5.17.0
 XStatic-Font-Awesome==4.7.0.0
 XStatic-Hogan==2.0.0.2
 XStatic-Jasmine==2.4.1.1
-XStatic-jQuery==1.8.2.1
+XStatic-jQuery==1.12.4.1
 XStatic-JQuery-Migrate==1.2.1.1
-XStatic-jquery-ui==1.10.4.1
+XStatic-jquery-ui==1.12.1.1
 XStatic-JQuery.quicksearch==2.0.3.1
 XStatic-JQuery.TableSorter==2.14.5.1
 XStatic-JSEncrypt==2.3.1.1
