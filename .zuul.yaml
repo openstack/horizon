@@ -47,7 +47,6 @@
     required-projects:
       - name: openstack/horizon
       - name: openstack/tempest
-      - name: openstack/tempest-horizon
     irrelevant-files:
       - ^.*\.rst$
       - ^doc/.*$
@@ -63,7 +62,8 @@
       - ^openstack_dashboard/dashboards/.*/tests.py$
     vars:
       devstack_localrc:
-        TEMPEST_PLUGINS: "{{ ansible_user_dir }}/src/opendev.org/openstack/tempest-horizon"
+        TEMPEST_BRANCH: "26.0.0"
+        TEMPEST_PLUGINS: "tempest-horizon==1.1.0"
         USE_PYTHON3: true
       devstack_services:
         horizon: true
