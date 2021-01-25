@@ -55,7 +55,6 @@
     required-projects: &base_required_projects
       - name: openstack/horizon
       - name: openstack/tempest
-      - name: openstack/tempest-horizon
     irrelevant-files: &base_irrelevant_files
       - ^.*\.rst$
       - ^doc/.*$
@@ -76,9 +75,7 @@
         horizon: true
         tempest: true
       tempest_concurrency: 2
-      tempest_test_regex: horizon
-      tempest_plugins:
-        - tempest-horizon
+      tempest_test_regex: test_dashboard_basic_ops
       tox_envlist: all
 
 - job:
