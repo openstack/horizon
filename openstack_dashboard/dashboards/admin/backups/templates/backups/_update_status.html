@@ -1,0 +1,11 @@
+{% extends "horizon/common/_modal_form.html" %}
+{% load i18n %}
+
+{% block modal-body-right %}
+  <h3>{% trans "Description:" %}</h3>
+  <p>{% blocktrans trimmed %}
+    The status of a volume backup is normally managed automatically. In some circumstances
+    an administrator may need to explicitly update the status value. This is equivalent to
+    the <tt>cinder backup-reset-state</tt> command.
+    {% endblocktrans %}</p>
+{% endblock %}

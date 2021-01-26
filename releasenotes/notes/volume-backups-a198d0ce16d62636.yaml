@@ -1,0 +1,5 @@
+---
+features:
+  - |
+    Volume backups is now supported for admin panel.
+    Admin is now able to view all volume backups for differenet users.

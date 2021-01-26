@@ -1,0 +1,62 @@
+{% load i18n sizeformat parse_date %}
+
+<div class="detail">
+  <dl class="dl-horizontal">
+    <dt>{% trans "Name" %}</dt>
+    <dd class="word-wrap">{{ backup.name|default:_("-") }}</dd>
+    <dt>{% trans "ID" %}</dt>
+    <dd>{{ backup.id }}</dd>
+    {% if backup.description %}
+    <dt>{% trans "Description" %}</dt>
+    <dd>{{ backup.description }}</dd>
+    {% endif %}
+    <dt>{% trans "Project ID" %}</dt>
+    <dd>{{ backup.project_id|default:_("-") }}</dd>
+    <dt>{% trans "Status" %}</dt>
+    <dd>{{ backup.status|capfirst }}</dd>
+    {% if volume %}
+    <dt>{% trans "Volume" %}</dt>
+    <dd>
+      <a href="{% url 'horizon:admin:volumes:detail' backup.volume_id %}">
+        {{ volume.name }}
+      </a>
+    </dd>
+    {% endif %}
+    {% if backup.snapshot_id %}
+    <dt>{% trans "Snapshot" %}</dt>
+    {% if snapshot %}
+    <dd>
+     <a href="{% url 'horizon:admin:snapshots:detail' backup.snapshot_id %}">
+        {{ snapshot.name }}
+     </a>
+    </dd>
+    {% elif backup.snapshot_id %}
+    <dd>
+    {{ backup.snapshot_id }}
+    {% endif %}
+    </dd>
+    {% endif %}
+  </dl>
+
+  <h4>{% trans "Specs" %}</h4>
+  <hr class="header_rule">
+  <dl class="dl-horizontal">
+    <dt>{% trans "Size" %}</dt>
+    <dd>{{ backup.size }} {% trans "GB" %}</dd>
+    <dt>{% trans "Created" %}</dt>
+    <dd>{{ backup.created_at|parse_date }}</dd>
+  </dl>
+
+  <h4>{% trans "Metadata" %}</h4>
+  <hr class="header_rule">
+  <dl class="dl-horizontal">
+  {% if backup.metadata.items %}
+      {% for key, value in backup.metadata.items %}
+          <dt>{{ key }}</dt>
+          <dd>{{ value }}</dd>
+      {% endfor %}
+  {% else %}
+      <dd>{% trans "None" %}</dd>
+  {% endif %}
+  </dl>
+</div>
