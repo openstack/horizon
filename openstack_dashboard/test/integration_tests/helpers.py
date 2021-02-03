@@ -254,10 +254,12 @@ class BaseTestCase(testtools.TestCase):
 
     def _attach_browser_log(self, exc_info=None):
         browser_log_path = os.path.join(self._test_report_dir, 'browser.log')
-        with self.log_exception("Attach browser log"):
-            with open(browser_log_path, 'w') as f:
-                f.write(
-                    self._unwrap_browser_log(self.driver.get_log('browser')))
+        try:
+            log = self._unwrap_browser_log(self.driver.get_log('browser'))
+        except Exception:
+            log = traceback.format_exc()
+        with open(browser_log_path, 'w') as f:
+            f.write(log)
 
     def _attach_test_log(self, exc_info=None):
         test_log_path = os.path.join(self._test_report_dir, 'test.log')
