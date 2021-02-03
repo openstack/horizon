@@ -63,6 +63,6 @@ LOCALE_MAPPING = {
     'tr': 'tr',
     'ua': 'ua',
     'vi': 'vi',
-    'zh-cn': 'zh-CN',
-    'zh-tw': 'zh-TW',
+    'zh-hans': 'zh-CN',
+    'zh-hant': 'zh-TW',
 }

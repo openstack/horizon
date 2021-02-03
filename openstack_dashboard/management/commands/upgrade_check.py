@@ -198,6 +198,22 @@ def check_required_settings(dummy=None):
     return upgradecheck.Result(upgradecheck.Code.SUCCESS)
 
 
+@register_check(_("Chinese locale rename"))
+def check_chinese_locale_rename(dummy):
+    # LANGUAGES setting is defined in Django, so we can assume
+    # it always exists.
+    langs = [code for code, name in settings.LANGUAGES]
+    if 'zh-cn' in langs or 'zh-tw' in langs:
+        return upgradecheck.Result(
+            upgradecheck.Code.FAILURE,
+            _("Chinese locale 'zh-cn' and 'zh-tw' must be renamed to "
+              "'zh-hans' and 'zh-hant' respectively in 'LANGUAGES' setting. "
+              "If you define them in local_settings.py or local_settings.d "
+              "explicitly, ensure to rename them to the new locales.")
+        )
+    return upgradecheck.Result(upgradecheck.Code.SUCCESS)
+
+
 class UpgradeCheckTable(upgradecheck.UpgradeCommands):
     _upgrade_checks = CHECKS
 

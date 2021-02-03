@@ -28,15 +28,28 @@ POFILE = "{module}/locale/{locale}/LC_MESSAGES/{domain}.po"
 POFILE_URL = ("https://translate.openstack.org/rest/file/translation/{project}"
               "/{branch}/{language}/po?docId={module}%2Flocale%2F{domain}")
 
+LOCALE_MAP = {
+    'zh-CN': 'zh-Hans',
+    'zh-TW': 'zh-Hant',
+}
+REV_LOCALE_MAP = dict((v, k) for k, v in LOCALE_MAP.items())
+
 
 class Command(BaseCommand):
     help = ("Pull a translation catalog from Zanata "
             "(https://translate.openstack.org) for all languages or a "
             "specified language")
 
+    def _to_horizon_lang_code(self, lang_code):
+        return LOCALE_MAP.get(lang_code, lang_code)
+
+    def _to_zanata_lang_code(self, lang_code):
+        return REV_LOCALE_MAP.get(lang_code, lang_code)
+
     def _get_language_codes(self):
         zanata_locales = requests.get(ZANATA_LOCALES_URL).json()
-        return [x['localeId'] for x in zanata_locales]
+        return [self._to_horizon_lang_code(x['localeId'])
+                for x in zanata_locales]
 
     def add_arguments(self, parser):
         language_codes = self._get_language_codes()
@@ -78,7 +91,7 @@ class Command(BaseCommand):
                         os.makedirs(pofile_dir)
 
                     new_po = requests.get((POFILE_URL).format(
-                        language=language,
+                        language=self._to_zanata_lang_code(language),
                         project=options['project'],
                         branch=options['branch'],
                         module=module,
@@ -88,4 +101,4 @@ class Command(BaseCommand):
                     new_po.encoding = 'utf-8'
 
                     with open(pofile, 'w+') as f:
-                        f.write(new_po.text.encode('utf-8'))
+                        f.write(new_po.text)
