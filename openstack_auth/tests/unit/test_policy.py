@@ -29,14 +29,15 @@ class PolicyLoaderTestCase(test.TestCase):
         self.assertIn('identity', enforcer)
         self.assertIn('compute', enforcer)
 
-    def test_nonexisting_policy_file_load(self):
-        policy_files = {
+    @test.override_settings(
+        POLICY_FILES={
             'dinosaur': 'no_godzilla.json',
         }
+    )
+    def test_nonexisting_policy_file_load(self):
         policy.reset()
-        with self.settings(POLICY_FILES=policy_files):
-            enforcer = policy._get_enforcer()
-            self.assertEqual(0, len(enforcer))
+        enforcer = policy._get_enforcer()
+        self.assertEqual(0, len(enforcer))
 
     def test_policy_reset(self):
         policy._get_enforcer()
@@ -94,19 +95,16 @@ class PolicyTestCaseNonAdmin(PolicyTestCase):
         self.assertTrue(value)
 
 
+@test.override_settings(
+    POLICY_FILES={
+        'no_default': 'no_default_policy.json',
+        'with_default': 'with_default_policy.json',
+    }
+)
 class PolicyTestCheckCredentials(PolicyTestCase):
     _roles = [{'id': '1', 'name': 'member'}]
 
     def setUp(self):
-        policy_files = {
-            'no_default': 'no_default_policy.json',
-            'with_default': 'with_default_policy.json',
-        }
-
-        override = self.settings(POLICY_FILES=policy_files)
-        override.enable()
-        self.addCleanup(override.disable)
-
         mock_user = user.User(id=1, roles=self._roles,
                               user_domain_id='admin_domain_id')
         patcher = mock.patch('openstack_auth.utils.get_user',
@@ -185,18 +183,16 @@ class PolicyTestCaseAdmin(PolicyTestCase):
         self.assertTrue(value)
 
 
+@test.override_settings(
+    POLICY_FILES={
+        'identity': 'policy.v3cloudsample.json',
+        'compute': 'nova_policy.json',
+    }
+)
 class PolicyTestCaseV3Admin(PolicyTestCase):
     _roles = [{'id': '1', 'name': 'admin'}]
 
     def setUp(self):
-        policy_files = {
-            'identity': 'policy.v3cloudsample.json',
-            'compute': 'nova_policy.json'}
-
-        override = self.settings(POLICY_FILES=policy_files)
-        override.enable()
-        self.addCleanup(override.disable)
-
         mock_user = user.User(id=1, roles=self._roles,
                               user_domain_id='admin_domain_id')
         patcher = mock.patch('openstack_auth.utils.get_user',
