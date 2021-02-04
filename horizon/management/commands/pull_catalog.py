@@ -21,7 +21,7 @@ import requests
 ZANATA_LOCALES_URL = ("https://translate.openstack.org/rest/project"
                       "/horizon/version/master/locales")
 DOMAINS = ['django', 'djangojs']
-MODULES = ['horizon', 'openstack_dashboard']
+MODULES = ['horizon', 'openstack_dashboard', 'openstack_auth']
 PROJECT = 'horizon'
 BRANCH = 'master'
 POFILE = "{module}/locale/{locale}/LC_MESSAGES/{domain}.po"

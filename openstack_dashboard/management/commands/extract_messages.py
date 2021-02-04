@@ -20,7 +20,7 @@ from subprocess import call
 from django.core.management.base import BaseCommand
 
 DOMAINS = ['django', 'djangojs']
-MODULES = ['openstack_dashboard', 'horizon']
+MODULES = ['openstack_dashboard', 'horizon', 'openstack_auth']
 
 
 class Command(BaseCommand):
