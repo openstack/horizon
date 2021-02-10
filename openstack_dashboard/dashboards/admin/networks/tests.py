@@ -540,6 +540,52 @@ class NetworkTests(test.BaseAdminViewTests):
                                                          **params)
 
     @test.create_mocks({api.neutron: ('network_create',
+                                      'is_extension_supported',
+                                      'subnetpool_list'),
+                        api.keystone: ('tenant_list',)})
+    def test_network_create_post_with_mtu(self):
+        tenants = self.tenants.list()
+        tenant_id = self.tenants.first().id
+        network = self.networks.first()
+
+        self.mock_tenant_list.return_value = [tenants, False]
+        self._stub_is_extension_supported(
+            {'provider': True,
+             'network_availability_zone': False,
+             'subnet_allocation': True})
+        self.mock_subnetpool_list.return_value = self.subnetpools.list()
+        self.mock_network_create.return_value = network
+
+        form_data = {'tenant_id': tenant_id,
+                     'name': network.name,
+                     'admin_state': network.admin_state_up,
+                     'external': True,
+                     'shared': True,
+                     'mtu': 1450,
+                     'network_type': 'local'}
+        url = reverse('horizon:admin:networks:create')
+        res = self.client.post(url, form_data)
+
+        self.assertNoFormErrors(res)
+        self.assertRedirectsNoFollow(res, INDEX_URL)
+
+        self.mock_tenant_list.assert_called_once_with(test.IsHttpRequest())
+        self.mock_subnetpool_list.assert_called_once_with(test.IsHttpRequest())
+        params = {'name': network.name,
+                  'tenant_id': tenant_id,
+                  'admin_state_up': network.admin_state_up,
+                  'router:external': True,
+                  'shared': True,
+                  'mtu': 1450,
+                  'provider:network_type': 'local'}
+        self.mock_network_create.assert_called_once_with(test.IsHttpRequest(),
+                                                         **params)
+        self._check_is_extension_supported(
+            {'provider': 3,
+             'network_availability_zone': 2,
+             'subnet_allocation': 1})
+
+    @test.create_mocks({api.neutron: ('network_create',
                                       'subnet_create',
                                       'is_extension_supported',
                                       'subnetpool_list'),

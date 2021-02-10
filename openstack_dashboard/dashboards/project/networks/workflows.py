@@ -65,6 +65,11 @@ class CreateNetworkInfoAction(workflows.Action):
         help_text=_("Availability zones where the DHCP agents may be "
                     "scheduled. Leaving this unset is equivalent to "
                     "selecting all availability zones"))
+    mtu = forms.IntegerField(
+        label=_("MTU"), required=False, min_value=68,
+        help_text=_("Maximum Transmission Unit. "
+                    "Minimum is 68 bytes for the IPv4 subnet "
+                    "and 1280 bytes for the IPv6 subnet."))
 
     def __init__(self, request, *args, **kwargs):
         super().__init__(request, *args, **kwargs)
@@ -94,7 +99,7 @@ class CreateNetworkInfoAction(workflows.Action):
 class CreateNetworkInfo(workflows.Step):
     action_class = CreateNetworkInfoAction
     contributes = ("net_name", "admin_state", "with_subnet", "shared",
-                   "az_hints")
+                   "az_hints", "mtu")
 
 
 class CreateSubnetInfoAction(workflows.Action):
@@ -485,6 +490,8 @@ class CreateNetwork(workflows.Workflow):
                       'shared': data['shared']}
             if 'az_hints' in data and data['az_hints']:
                 params['availability_zone_hints'] = data['az_hints']
+            if data['mtu']:
+                params['mtu'] = data['mtu']
             network = api.neutron.network_create(request, **params)
             self.context['net_id'] = network.id
             LOG.debug('Network "%s" was successfully created.',

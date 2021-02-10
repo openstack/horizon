@@ -42,7 +42,7 @@ class CreateNetworkInfoAction(network_workflows.CreateNetworkInfoAction):
 
 class CreateNetworkInfo(network_workflows.CreateNetworkInfo):
     action_class = CreateNetworkInfoAction
-    contributes = ("net_name", "admin_state", "with_subnet", "az_hints")
+    contributes = ("net_name", "admin_state", "with_subnet", "az_hints", "mtu")
 
     def __init__(self, workflow):
         self.contributes = tuple(workflow.create_network_form.fields.keys())

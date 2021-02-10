@@ -454,6 +454,38 @@ class NetworkTests(test.TestCase, NetworkStubMixin):
     @test.create_mocks({api.neutron: ('network_create',
                                       'is_extension_supported',
                                       'subnetpool_list')})
+    def test_network_create_post_with_mtu(self):
+        network = self.networks.first()
+        params = {'name': network.name,
+                  'admin_state_up': network.admin_state_up,
+                  'shared': False,
+                  'mtu': 1450}
+        self._stub_is_extension_supported({'network_availability_zone': False,
+                                           'subnet_allocation': True})
+        self.mock_subnetpool_list.return_value = self.subnetpools.list()
+        self.mock_network_create.return_value = network
+
+        form_data = {'net_name': network.name,
+                     'admin_state': network.admin_state_up,
+                     'shared': False,
+                     'with_subnet': False,
+                     'mtu': 1450}
+        form_data.update(form_data_no_subnet())
+        url = reverse('horizon:project:networks:create')
+        res = self.client.post(url, form_data)
+
+        self.assertNoFormErrors(res)
+        self.assertRedirectsNoFollow(res, INDEX_URL)
+
+        self.mock_subnetpool_list.assert_called_once_with(test.IsHttpRequest())
+        self.mock_network_create.assert_called_once_with(
+            test.IsHttpRequest(), **params)
+        self._check_is_extension_supported({'network_availability_zone': 1,
+                                            'subnet_allocation': 1})
+
+    @test.create_mocks({api.neutron: ('network_create',
+                                      'is_extension_supported',
+                                      'subnetpool_list')})
     def test_network_create_post_with_shared(self):
         network = self.networks.first()
         params = {'name': network.name,
