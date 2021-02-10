@@ -113,7 +113,8 @@ class SecurityGroupsViewTests(test.TestCase):
 
         self.assertEqual('Create Security Group',
                          create_action.verbose_name)
-        self.assertIsNone(create_action.policy_rules)
+        self.assertEqual((('network', 'create_security_group'),),
+                         create_action.policy_rules)
         self.assertEqual(set(['ajax-modal']), set(create_action.classes))
 
         url = 'horizon:project:security_groups:create'
