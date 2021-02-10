@@ -13,6 +13,7 @@
 #    under the License.
 
 import collections
+import collections.abc
 import copy
 import inspect
 import json
