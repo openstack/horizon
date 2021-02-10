@@ -19,7 +19,7 @@
   describe('Launch Instance Keypair Step', function() {
 
     describe('LaunchInstanceKeypairController', function() {
-      var ctrl, q, settings;
+      var ctrl, q, settings, model;
       var $uibModal = { open: angular.noop };
       var toastServiceMock = {add: angular.noop};
 
@@ -28,6 +28,7 @@
       beforeEach(function() {
         settings = {
           OPENSTACK_HYPERVISOR_FEATURES: {
+            can_set_password: true,
             requires_keypair: false
           }
         };
@@ -48,7 +49,7 @@
 
       beforeEach(inject(function($controller, $q) {
         q = $q;
-        var model = {
+        model = {
           newInstanceSpec: {
             key_pair: ['key1']
           },
@@ -188,6 +189,17 @@
         expect(ctrl.isKeypairRequired).toBe(1);
         ctrl.setKeypairRequired(false);
         expect(ctrl.isKeypairRequired).toBe(0);
+      });
+
+      it('defines setAdminPassword', function() {
+        expect(ctrl.setAdminPassword).toBeDefined();
+        expect(ctrl.setAdminPassword).toBe(false);
+      });
+
+      it('clears password fields when setAdminPassword is changed', function() {
+        ctrl.setAdminPasswordChange();
+        expect(ctrl.confirmedAdminPassword).toBe(null);
+        expect(model.newInstanceSpec.admin_pass).toBe(null);
       });
     });
 

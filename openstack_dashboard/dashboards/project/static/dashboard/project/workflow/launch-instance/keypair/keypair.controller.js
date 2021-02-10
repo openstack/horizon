@@ -60,6 +60,7 @@
     ctrl.createKeyPair = createKeyPair;
     ctrl.importKeyPair = importKeyPair;
     ctrl.setKeypairRequired = setKeypairRequired;
+    ctrl.setAdminPasswordChange = setAdminPasswordChange;
 
     ctrl.tableData = {
       available: launchInstanceModel.keypairs,
@@ -104,6 +105,10 @@
     settingsService.getSetting(
       'OPENSTACK_HYPERVISOR_FEATURES.requires_keypair'
     ).then(setKeypairRequired);
+
+    ctrl.setAdminPassword = false;
+
+    ctrl.adminPassConfError = gettext('Passwords do not match.');
 
     //////////
 
@@ -199,6 +204,11 @@
      */
     function setKeypairRequired(setting) {
       ctrl.isKeypairRequired = setting ? 1 : 0;
+    }
+
+    function setAdminPasswordChange() {
+      ctrl.confirmedAdminPassword = null;
+      launchInstanceModel.newInstanceSpec.admin_pass = null;
     }
   }
 

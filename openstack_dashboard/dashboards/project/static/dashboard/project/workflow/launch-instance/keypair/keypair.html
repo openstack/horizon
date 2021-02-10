@@ -25,4 +25,56 @@
         table="ctrl">
     </hz-dynamic-table>
   </transfer-table> <!-- End Key Pairs Table -->
+
+  <settings-service required-settings='["OPENSTACK_HYPERVISOR_FEATURES.can_set_password"]'>
+    <div class="admin-password">
+      <div class="themable-checkbox">
+        <input ng-change="ctrl.setAdminPasswordChange()"
+               ng-model="ctrl.setAdminPassword"
+               type="checkbox"
+               id="setPassword">
+        <label for="setPassword">
+          <span translate>Set admin password</span>
+        </label>
+      </div>
+
+      <div class="container">
+        <div class="row">
+
+          <div ng-if="ctrl.setAdminPassword" ng-form="adminPasswordForm">
+            <div class="col-sm-3">
+              <div class="form-group">
+                <label class="control-label" translate for="adminPassword">Password</label>
+                <input class="form-control"
+                       id="adminPassword"
+                       name="adminPassword"
+                       ng-model="model.newInstanceSpec.admin_pass"
+                       type="password">
+              </div>
+            </div>
+
+            <div class="col-sm-3">
+              <div class="form-group"
+                   ng-class="{ 'has-error':
+                                adminPasswordForm['confirmPassword'].$invalid  &&
+                                adminPasswordForm['confirmPassword'].$dirty }">
+                <label class="control-label" translate for="confirmPassword">Confirm password</label>
+                <input id="confirmPassword"
+                       name="confirmPassword"
+                       class="form-control"
+                       hz-password-match="model.newInstanceSpec.admin_pass"
+                       ng-model="ctrl.confirmedAdminPassword"
+                       type="password">
+                <span class="help-block"
+                  ng-show="adminPasswordForm['confirmPassword'].$invalid &&
+                               adminPasswordForm['confirmPassword'].$dirty">
+                  {$ ctrl.adminPassConfError $}
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </settings-service> <!-- End Admin Password Form-->
 </div> <!-- End Controller -->
