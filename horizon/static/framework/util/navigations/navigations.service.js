@@ -25,6 +25,7 @@
       collapseAllNavigation: collapseAllNavigation,
       expandNavigationByUrl: expandNavigationByUrl,
       setBreadcrumb: setBreadcrumb,
+      setAbsoluteURI: setAbsoluteURI,
       isNavigationExists: isNavigationExists
     };
 
@@ -105,6 +106,14 @@
         newItem.text(item);
         breadcrumb.append(newItem);
       });
+    }
+
+    /* set absolute uri */
+    function setAbsoluteURI(webroot, url) {
+      if (webroot.endsWith("/") && url.startsWith("/")) {
+        webroot = webroot.slice(0, -1);
+      }
+      return webroot + url;
     }
 
     /* check whether navigation exists from url */
