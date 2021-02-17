@@ -29,7 +29,7 @@ LANGUAGE_CODES = [language[0] for language in settings.LANGUAGES
 POTFILE = "{module}/locale/{domain}.pot"
 POFILE = "{module}/locale/{locale}/LC_MESSAGES/{domain}.po"
 DOMAINS = ['django', 'djangojs']
-MODULES = ['openstack_dashboard', 'horizon']
+MODULES = ['openstack_dashboard', 'horizon', 'openstack_auth']
 
 
 def translate(segment):
@@ -127,5 +127,5 @@ class Command(BaseCommand):
                             msg.string = translate(msg.id)
                         new_cat[msg.id] = msg
 
-                    with open(pofile, 'w') as f:
+                    with open(pofile, 'wb') as f:
                         babel_pofile.write_po(f, new_cat, ignore_obsolete=True)
