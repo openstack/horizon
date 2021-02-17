@@ -229,9 +229,9 @@ class VolumeViewTests(test.ResetImageAPIVersionMixin, test.TestCase):
         volume = self.cinder_volumes.first()
         volume_type = self.cinder_volume_types.first()
         az = self.cinder_availability_zones.first().zoneName
-        formData = {'name': u'A Volume I Am Making',
-                    'description': u'This is a volume I am making for a test.',
-                    'method': u'CreateForm',
+        formData = {'name': 'A Volume I Am Making',
+                    'description': 'This is a volume I am making for a test.',
+                    'method': 'CreateForm',
                     'type': volume_type.name,
                     'size': 50,
                     'snapshot_source': '',
@@ -299,8 +299,8 @@ class VolumeViewTests(test.ResetImageAPIVersionMixin, test.TestCase):
         volume_type = self.cinder_volume_types.first()
         az = self.cinder_availability_zones.first().zoneName
         formData = {'name': '',
-                    'description': u'This is a volume I am making for a test.',
-                    'method': u'CreateForm',
+                    'description': 'This is a volume I am making for a test.',
+                    'method': 'CreateForm',
                     'type': volume_type.name,
                     'size': 50,
                     'snapshot_source': '',
@@ -362,9 +362,9 @@ class VolumeViewTests(test.ResetImageAPIVersionMixin, test.TestCase):
     })
     def test_create_volume_dropdown(self):
         volume = self.cinder_volumes.first()
-        formData = {'name': u'A Volume I Am Making',
-                    'description': u'This is a volume I am making for a test.',
-                    'method': u'CreateForm',
+        formData = {'name': 'A Volume I Am Making',
+                    'description': 'This is a volume I am making for a test.',
+                    'method': 'CreateForm',
                     'size': 50,
                     'type': '',
                     'volume_source_type': 'no_source_type',
@@ -428,9 +428,9 @@ class VolumeViewTests(test.ResetImageAPIVersionMixin, test.TestCase):
     def test_create_volume_from_snapshot(self):
         volume = self.cinder_volumes.first()
         snapshot = self.cinder_volume_snapshots.first()
-        formData = {'name': u'A Volume I Am Making',
-                    'description': u'This is a volume I am making for a test.',
-                    'method': u'CreateForm',
+        formData = {'name': 'A Volume I Am Making',
+                    'description': 'This is a volume I am making for a test.',
+                    'method': 'CreateForm',
                     'size': 50,
                     'type': '',
                     'snapshot_source': snapshot.id}
@@ -486,9 +486,9 @@ class VolumeViewTests(test.ResetImageAPIVersionMixin, test.TestCase):
     def test_create_volume_from_volume(self):
         volume = self.cinder_volumes.first()
 
-        formData = {'name': u'A copy of a volume',
-                    'description': u'This is a volume I am making for a test.',
-                    'method': u'CreateForm',
+        formData = {'name': 'A copy of a volume',
+                    'description': 'This is a volume I am making for a test.',
+                    'method': 'CreateForm',
                     'size': 50,
                     'type': '',
                     'volume_source_type': 'volume_source',
@@ -559,9 +559,9 @@ class VolumeViewTests(test.ResetImageAPIVersionMixin, test.TestCase):
     def test_create_volume_from_snapshot_dropdown(self):
         volume = self.cinder_volumes.first()
         snapshot = self.cinder_volume_snapshots.first()
-        formData = {'name': u'A Volume I Am Making',
-                    'description': u'This is a volume I am making for a test.',
-                    'method': u'CreateForm',
+        formData = {'name': 'A Volume I Am Making',
+                    'description': 'This is a volume I am making for a test.',
+                    'method': 'CreateForm',
                     'size': 50,
                     'type': '',
                     'volume_source_type': 'snapshot_source',
@@ -625,9 +625,9 @@ class VolumeViewTests(test.ResetImageAPIVersionMixin, test.TestCase):
     })
     def test_create_volume_from_snapshot_invalid_size(self):
         snapshot = self.cinder_volume_snapshots.first()
-        formData = {'name': u'A Volume I Am Making',
-                    'description': u'This is a volume I am making for a test.',
-                    'method': u'CreateForm',
+        formData = {'name': 'A Volume I Am Making',
+                    'description': 'This is a volume I am making for a test.',
+                    'method': 'CreateForm',
                     'size': 20, 'snapshot_source': snapshot.id}
 
         self.mock_volume_type_list.return_value = \
@@ -670,9 +670,9 @@ class VolumeViewTests(test.ResetImageAPIVersionMixin, test.TestCase):
     def test_create_volume_from_image(self):
         volume = self.cinder_volumes.first()
         image = self.images.first()
-        formData = {'name': u'A Volume I Am Making',
-                    'description': u'This is a volume I am making for a test.',
-                    'method': u'CreateForm',
+        formData = {'name': 'A Volume I Am Making',
+                    'description': 'This is a volume I am making for a test.',
+                    'method': 'CreateForm',
                     'size': 40,
                     'type': '',
                     'image_source': image.id}
@@ -730,9 +730,9 @@ class VolumeViewTests(test.ResetImageAPIVersionMixin, test.TestCase):
     def test_create_volume_from_image_dropdown(self):
         volume = self.cinder_volumes.first()
         image = self.images.first()
-        formData = {'name': u'A Volume I Am Making',
-                    'description': u'This is a volume I am making for a test.',
-                    'method': u'CreateForm',
+        formData = {'name': 'A Volume I Am Making',
+                    'description': 'This is a volume I am making for a test.',
+                    'method': 'CreateForm',
                     'size': 30,
                     'type': '',
                     'volume_source_type': 'image_source',
@@ -798,9 +798,9 @@ class VolumeViewTests(test.ResetImageAPIVersionMixin, test.TestCase):
     })
     def test_create_volume_from_image_under_image_size(self):
         image = self.images.first()
-        formData = {'name': u'A Volume I Am Making',
-                    'description': u'This is a volume I am making for a test.',
-                    'method': u'CreateForm',
+        formData = {'name': 'A Volume I Am Making',
+                    'description': 'This is a volume I am making for a test.',
+                    'method': 'CreateForm',
                     'size': 1, 'image_source': image.id}
 
         self.mock_volume_type_list.return_value = \
@@ -819,8 +819,8 @@ class VolumeViewTests(test.ResetImageAPIVersionMixin, test.TestCase):
                                formData, follow=True)
         self.assertEqual(res.redirect_chain, [])
 
-        msg = (u"The volume size cannot be less than the "
-               u"image size (20.0\xa0GB)")
+        msg = ("The volume size cannot be less than the "
+               "image size (20.0\xa0GB)")
 
         self.assertFormError(res, 'form', None, msg)
 
@@ -844,9 +844,9 @@ class VolumeViewTests(test.ResetImageAPIVersionMixin, test.TestCase):
                  'group_list'],
     })
     def _test_create_volume_from_image_under_image_min_disk_size(self, image):
-        formData = {'name': u'A Volume I Am Making',
-                    'description': u'This is a volume I am making for a test.',
-                    'method': u'CreateForm',
+        formData = {'name': 'A Volume I Am Making',
+                    'description': 'This is a volume I am making for a test.',
+                    'method': 'CreateForm',
                     'size': 5, 'image_source': image.id}
 
         self.mock_volume_type_list.return_value = \
@@ -900,9 +900,9 @@ class VolumeViewTests(test.ResetImageAPIVersionMixin, test.TestCase):
                  'group_list'],
     })
     def test_create_volume_gb_used_over_alloted_quota(self):
-        formData = {'name': u'This Volume Is Huge!',
-                    'description': u'This is a volume that is just too big!',
-                    'method': u'CreateForm',
+        formData = {'name': 'This Volume Is Huge!',
+                    'description': 'This is a volume that is just too big!',
+                    'method': 'CreateForm',
                     'size': 5000}
 
         usage_limit = self.cinder_quota_usages.first()
@@ -929,7 +929,7 @@ class VolumeViewTests(test.ResetImageAPIVersionMixin, test.TestCase):
         url = reverse('horizon:project:volumes:create')
         res = self.client.post(url, formData)
 
-        expected_error = [u'A volume of 5000GiB cannot be created as you only'
+        expected_error = ['A volume of 5000GiB cannot be created as you only'
                           ' have 20GiB of your quota available.']
         self.assertEqual(res.context['form'].errors['__all__'], expected_error)
 
@@ -960,9 +960,9 @@ class VolumeViewTests(test.ResetImageAPIVersionMixin, test.TestCase):
                  'group_list'],
     })
     def test_create_volume_number_over_alloted_quota(self):
-        formData = {'name': u'Too Many...',
-                    'description': u'We have no volumes left!',
-                    'method': u'CreateForm',
+        formData = {'name': 'Too Many...',
+                    'description': 'We have no volumes left!',
+                    'method': 'CreateForm',
                     'size': 10}
 
         usage_limit = self.cinder_quota_usages.first()
@@ -990,7 +990,7 @@ class VolumeViewTests(test.ResetImageAPIVersionMixin, test.TestCase):
         url = reverse('horizon:project:volumes:create')
         res = self.client.post(url, formData)
 
-        expected_error = [u'You are already using all of your available'
+        expected_error = ['You are already using all of your available'
                           ' volumes.']
         self.assertEqual(res.context['form'].errors['__all__'], expected_error)
 
@@ -1022,9 +1022,9 @@ class VolumeViewTests(test.ResetImageAPIVersionMixin, test.TestCase):
         volume_type = self.cinder_volume_types.first()
         az = self.cinder_availability_zones.first().zoneName
         volume_group = self.cinder_groups.list()[0]
-        formData = {'name': u'A Volume I Am Making',
-                    'description': u'This is a volume I am making for a test.',
-                    'method': u'CreateForm',
+        formData = {'name': 'A Volume I Am Making',
+                    'description': 'This is a volume I am making for a test.',
+                    'method': 'CreateForm',
                     'type': volume_type.name,
                     'size': 50,
                     'snapshot_source': '',
@@ -1736,7 +1736,7 @@ class VolumeViewTests(test.ResetImageAPIVersionMixin, test.TestCase):
     @mock.patch.object(cinder, 'volume_get')
     def test_extend_volume(self, mock_get, mock_extend, mock_quotas):
         volume = self.cinder_volumes.first()
-        formData = {'name': u'A Volume I Am Making',
+        formData = {'name': 'A Volume I Am Making',
                     'orig_size': volume.size,
                     'new_size': 120}
 
@@ -1760,7 +1760,7 @@ class VolumeViewTests(test.ResetImageAPIVersionMixin, test.TestCase):
     @mock.patch.object(cinder, 'volume_get')
     def test_extend_volume_with_wrong_size(self, mock_get, mock_quotas):
         volume = self.cinder_volumes.first()
-        formData = {'name': u'A Volume I Am Making',
+        formData = {'name': 'A Volume I Am Making',
                     'orig_size': volume.size,
                     'new_size': 10}
 
@@ -1895,7 +1895,7 @@ class VolumeViewTests(test.ResetImageAPIVersionMixin, test.TestCase):
         usage_limit.tally('gigabytes', 20)
         usage_limit.tally('volumes', len(self.cinder_volumes.list()))
 
-        formData = {'name': u'A Volume I Am Making',
+        formData = {'name': 'A Volume I Am Making',
                     'orig_size': volume.size,
                     'new_size': 1000}
 
@@ -1957,7 +1957,7 @@ class VolumeViewTests(test.ResetImageAPIVersionMixin, test.TestCase):
         volumes = self.cinder_volumes.list()
         volToTransfer = [v for v in volumes if v.status == 'available'][0]
         formData = {'volume_id': volToTransfer.id,
-                    'name': u'any transfer name'}
+                    'name': 'any transfer name'}
 
         transfer = self.cinder_volume_transfers.first()
         mock_transfer_create.return_value = transfer

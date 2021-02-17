@@ -209,11 +209,11 @@ class VolumeTests(test.BaseAdminViewTests):
         api.cinder: ['extension_supported', 'availability_zone_list',
                      'volume_type_list', 'volume_manage']})
     def test_manage_volume(self):
-        metadata = {'key': u'k1',
-                    'value': u'v1'}
+        metadata = {'key': 'k1',
+                    'value': 'v1'}
         form_data = {'host': 'host-1',
                      'identifier': 'vol-1',
-                     'id_type': u'source-name',
+                     'id_type': 'source-name',
                      'name': 'name-1',
                      'description': 'manage a volume',
                      'volume_type': 'vol_type_1',

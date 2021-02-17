@@ -30,14 +30,14 @@ def data(TEST):
     # ' ' (space) can break 'Content-Disposition' if not properly
     # double-quoted
 
-    container_dict_1 = {"name": u"container one%\u6346",
+    container_dict_1 = {"name": "container one%\u6346",
                         "container_object_count": 2,
                         "container_bytes_used": 256,
                         "timestamp": timeutils.utcnow().isoformat(),
                         "is_public": False,
                         "public_url": ""}
     container_1 = swift.Container(container_dict_1)
-    container_2_name = u"container_two\u6346"
+    container_2_name = "container_two\u6346"
     container_dict_2 = {"name": container_2_name,
                         "container_object_count": 4,
                         "container_bytes_used": 1024,
@@ -48,7 +48,7 @@ def data(TEST):
                             "v1/project_id/%s" % utils_http.urlquote(
                                 container_2_name)}
     container_2 = swift.Container(container_dict_2)
-    container_dict_3 = {"name": u"container,three%\u6346",
+    container_dict_3 = {"name": "container,three%\u6346",
                         "container_object_count": 2,
                         "container_bytes_used": 256,
                         "timestamp": timeutils.utcnow().isoformat(),
@@ -57,30 +57,30 @@ def data(TEST):
     container_3 = swift.Container(container_dict_3)
     TEST.containers.add(container_1, container_2, container_3)
 
-    object_dict = {"name": u"test object%\u6346",
-                   "content_type": u"text/plain",
+    object_dict = {"name": "test object%\u6346",
+                   "content_type": "text/plain",
                    "bytes": 128,
                    "timestamp": timeutils.utcnow().isoformat(),
                    "last_modified": None,
-                   "hash": u"object_hash"}
-    object_dict_2 = {"name": u"test_object_two\u6346",
-                     "content_type": u"text/plain",
+                   "hash": "object_hash"}
+    object_dict_2 = {"name": "test_object_two\u6346",
+                     "content_type": "text/plain",
                      "bytes": 128,
                      "timestamp": timeutils.utcnow().isoformat(),
                      "last_modified": None,
-                     "hash": u"object_hash_2"}
-    object_dict_3 = {"name": u"test,object_three%\u6346",
-                     "content_type": u"text/plain",
+                     "hash": "object_hash_2"}
+    object_dict_3 = {"name": "test,object_three%\u6346",
+                     "content_type": "text/plain",
                      "bytes": 128,
                      "timestamp": timeutils.utcnow().isoformat(),
                      "last_modified": None,
-                     "hash": u"object_hash"}
-    object_dict_4 = {"name": u"test folder%\u6346/test.txt",
-                     "content_type": u"text/plain",
+                     "hash": "object_hash"}
+    object_dict_4 = {"name": "test folder%\u6346/test.txt",
+                     "content_type": "text/plain",
                      "bytes": 128,
                      "timestamp": timeutils.utcnow().isoformat(),
                      "last_modified": None,
-                     "hash": u"object_hash"}
+                     "hash": "object_hash"}
     obj_dicts = [object_dict, object_dict_2, object_dict_3, object_dict_4]
     obj_data = b"Fake Data"
 
@@ -90,18 +90,18 @@ def data(TEST):
                                            data=obj_data)
         TEST.objects.add(swift_object)
 
-    folder_dict = {"subdir": u"test folder%\u6346/"}
+    folder_dict = {"subdir": "test folder%\u6346/"}
 
     TEST.folder.add(swift.PseudoFolder(folder_dict, container_1.name))
 
     # when the folder is returned as part of a prefix match, this content
     # is returned by Swift instead:
     folder_dict_alt = {
-        "name": u"test folder%\u6346/",
+        "name": "test folder%\u6346/",
         "bytes": 0,
         "last_modified": timeutils.utcnow().isoformat(),
-        "content_type": u"application/octet-stream",
-        "hash": u"object_hash"
+        "content_type": "application/octet-stream",
+        "hash": "object_hash"
     }
     TEST.folder_alt.add(swift.PseudoFolder(folder_dict_alt, container_1.name))
 

@@ -300,8 +300,8 @@ class TestVolumesActions(helpers.TestCase):
         5. Repeat actions for all disk formats
         """
         self.volumes_page = self.home_pg.go_to_project_volumes_volumespage()
-        all_formats = {"qcow2": u'QCOW2', "raw": u'Raw', "vdi": u'VDI',
-                       "vmdk": u'VMDK'}
+        all_formats = {"qcow2": 'QCOW2', "raw": 'Raw', "vdi": 'VDI',
+                       "vmdk": 'VMDK'}
         for disk_format in all_formats:
             self.volumes_page.upload_volume_to_image(self.VOLUME_NAME,
                                                      self.IMAGE_NAME,

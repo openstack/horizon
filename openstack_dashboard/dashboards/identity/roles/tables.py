@@ -48,16 +48,16 @@ class DeleteRolesAction(tables.DeleteAction):
     @staticmethod
     def action_present(count):
         return ungettext_lazy(
-            u"Delete Role",
-            u"Delete Roles",
+            "Delete Role",
+            "Delete Roles",
             count
         )
 
     @staticmethod
     def action_past(count):
         return ungettext_lazy(
-            u"Deleted Role",
-            u"Deleted Roles",
+            "Deleted Role",
+            "Deleted Roles",
             count
         )
     policy_rules = (("identity", "identity:delete_role"),)

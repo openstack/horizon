@@ -50,11 +50,11 @@ class CreateImageFormTests(test.ResetImageAPIVersionMixin, test.TestCase):
         ]
 
         post = {
-            'name': u'Ubuntu 11.10',
-            'source_type': u'file',
-            'description': u'Login with admin/admin',
-            'disk_format': u'qcow2',
-            'architecture': u'x86-64',
+            'name': 'Ubuntu 11.10',
+            'source_type': 'file',
+            'description': 'Login with admin/admin',
+            'disk_format': 'qcow2',
+            'architecture': 'x86-64',
             'min_disk': 15,
             'min_ram': 512,
             'is_public': 1}
@@ -91,15 +91,15 @@ class UpdateImageFormTests(test.ResetImageAPIVersionMixin, test.TestCase):
     def test_image_update_post_v2(self, mock_image_update, mock_image_get):
         image = self.images.first()
         data = {
-            'name': u'Ubuntu 11.10',
+            'name': 'Ubuntu 11.10',
             'image_id': str(image.id),
-            'description': u'Login with admin/admin',
-            'source_type': u'url',
-            'image_url': u'http://cloud-images.ubuntu.com/releases/'
-                         u'oneiric/release/ubuntu-11.10-server-cloudimg'
-                         u'-amd64-disk1.img',
-            'disk_format': u'qcow2',
-            'architecture': u'x86-64',
+            'description': 'Login with admin/admin',
+            'source_type': 'url',
+            'image_url': 'http://cloud-images.ubuntu.com/releases/'
+                         'oneiric/release/ubuntu-11.10-server-cloudimg'
+                         '-amd64-disk1.img',
+            'disk_format': 'qcow2',
+            'architecture': 'x86-64',
             'min_disk': 15,
             'min_ram': 512,
             'is_public': False,
@@ -155,10 +155,10 @@ class ImageViewTests(test.ResetImageAPIVersionMixin, test.TestCase):
     def test_image_create_post_location_v2(self, mock_schemas_list):
         mock_schemas_list.return_value = self.image_schemas.first()
         data = {
-            'source_type': u'url',
-            'image_url': u'http://cloud-images.ubuntu.com/releases/'
-                         u'oneiric/release/ubuntu-11.10-server-cloudimg'
-                         u'-amd64-disk1.img'}
+            'source_type': 'url',
+            'image_url': 'http://cloud-images.ubuntu.com/releases/'
+                         'oneiric/release/ubuntu-11.10-server-cloudimg'
+                         '-amd64-disk1.img'}
 
         api_data = {'location': data['image_url']}
         self._test_image_create(data, api_data)
@@ -171,7 +171,7 @@ class ImageViewTests(test.ResetImageAPIVersionMixin, test.TestCase):
         temp_file.flush()
         temp_file.seek(0)
 
-        data = {'source_type': u'file',
+        data = {'source_type': 'file',
                 'image_file': temp_file}
 
         api_data = {'data': test.IsA(InMemoryUploadedFile)}
@@ -186,7 +186,7 @@ class ImageViewTests(test.ResetImageAPIVersionMixin, test.TestCase):
         temp_file.seek(0)
 
         data = {
-            'source_type': u'file',
+            'source_type': 'file',
             'image_file': temp_file,
             'kernel_id': '007e7d55-fe1e-4c5c-bf08-44b4a496482e',
             'ramdisk_id': '007e7d55-fe1e-4c5c-bf08-44b4a496482a'
@@ -200,10 +200,10 @@ class ImageViewTests(test.ResetImageAPIVersionMixin, test.TestCase):
     def _test_image_create(self, extra_form_data, extra_api_data,
                            mock_image_list, mock_image_create):
         data = {
-            'name': u'Ubuntu 11.10',
-            'description': u'Login with admin/admin',
-            'disk_format': u'qcow2',
-            'architecture': u'x86-64',
+            'name': 'Ubuntu 11.10',
+            'description': 'Login with admin/admin',
+            'disk_format': 'qcow2',
+            'architecture': 'x86-64',
             'min_disk': 15,
             'min_ram': 512,
             'is_public': True,

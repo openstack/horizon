@@ -189,7 +189,7 @@ class SecurityGroupsViewTests(test.TestCase):
             kwargs.get('from_port', int(rule.from_port)),
             kwargs.get('to_port', int(rule.to_port)),
             kwargs.get('cidr', rule.ip_range['cidr']),
-            kwargs.get('security_group', u'%s' % sec_group.id),
+            kwargs.get('security_group', '%s' % sec_group.id),
             **extra_params)
         self.mock_security_group_list.assert_called_once_with(
             test.IsHttpRequest())
@@ -510,7 +510,7 @@ class SecurityGroupsViewTests(test.TestCase):
             int(rule.from_port),
             int(rule.to_port),
             None,
-            u'%s' % sec_group.id,
+            '%s' % sec_group.id,
             description='')
         self.mock_security_group_list.assert_called_once_with(
             test.IsHttpRequest())
@@ -549,7 +549,7 @@ class SecurityGroupsViewTests(test.TestCase):
             int(rule.from_port),
             int(rule.to_port),
             None,
-            u'%s' % sec_group.id,
+            '%s' % sec_group.id,
             description='')
         self.mock_security_group_list.assert_called_once_with(
             test.IsHttpRequest())
@@ -971,7 +971,7 @@ class SecurityGroupsViewTests(test.TestCase):
             int(rule.from_port),
             int(rule.to_port),
             None,
-            u'%s' % sec_group.id,
+            '%s' % sec_group.id,
             description='')
         self.mock_security_group_list.assert_called_once_with(
             test.IsHttpRequest())

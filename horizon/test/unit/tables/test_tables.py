@@ -46,15 +46,15 @@ class FakeObject(object):
         self.extra = "extra"
 
     def __str__(self):
-        return u"%s: %s" % (self.__class__.__name__, self.name)
+        return "%s: %s" % (self.__class__.__name__, self.name)
 
 
 TEST_DATA = (
     FakeObject('1', 'object_1', 'value_1', 'up', 'optional_1', 'excluded_1'),
     FakeObject('2', 'object_2', '<strong>evil</strong>', 'down', 'optional_2'),
     FakeObject('3', 'object_3', 'value_3', 'up'),
-    FakeObject('4', u'öbject_4', u'välue_1', u'üp', u'öptional_1',
-               u'exclüded_1'),
+    FakeObject('4', 'öbject_4', 'välue_1', 'üp', 'öptional_1',
+               'exclüded_1'),
 )
 
 TEST_DATA_2 = (
@@ -158,8 +158,8 @@ class MyBatchAction(tables.BatchAction):
     def action_present(count):
         # Translators: test code, don't really have to translate
         return ungettext_lazy(
-            u"Batch Item",
-            u"Batch Items",
+            "Batch Item",
+            "Batch Items",
             count
         )
 
@@ -167,8 +167,8 @@ class MyBatchAction(tables.BatchAction):
     def action_past(count):
         # Translators: test code, don't really have to translate
         return ungettext_lazy(
-            u"Batched Item",
-            u"Batched Items",
+            "Batched Item",
+            "Batched Items",
             count
         )
 
@@ -180,12 +180,12 @@ class MyBatchActionWithHelpText(MyBatchAction):
     @staticmethod
     def action_present(count):
         # No translation
-        return u"BatchHelp Item"
+        return "BatchHelp Item"
 
     @staticmethod
     def action_past(count):
         # No translation
-        return u"BatchedHelp Item"
+        return "BatchedHelp Item"
 
 
 class MyToggleAction(tables.BatchAction):
@@ -195,15 +195,15 @@ class MyToggleAction(tables.BatchAction):
         if self.current_present_action:
             # Translators: test code, don't really have to translate
             return ungettext_lazy(
-                u"Up Item",
-                u"Up Items",
+                "Up Item",
+                "Up Items",
                 count
             )
         else:
             # Translators: test code, don't really have to translate
             return ungettext_lazy(
-                u"Down Item",
-                u"Down Items",
+                "Down Item",
+                "Down Items",
                 count
             )
 
@@ -211,15 +211,15 @@ class MyToggleAction(tables.BatchAction):
         if self.current_past_action:
             # Translators: test code, don't really have to translate
             return ungettext_lazy(
-                u"Upped Item",
-                u"Upped Items",
+                "Upped Item",
+                "Upped Items",
                 count
             )
         else:
             # Translators: test code, don't really have to translate
             return ungettext_lazy(
-                u"Downed Item",
-                u"Downed Items",
+                "Downed Item",
+                "Downed Items",
                 count
             )
 
@@ -419,7 +419,7 @@ class DataTableTests(test.TestCase):
         self.assertTrue(self.table._meta.actions_column)
         self.assertTrue(self.table._meta.multi_select)
         # Test for verbose_name
-        self.assertEqual(u"My Table", str(self.table))
+        self.assertEqual("My Table", str(self.table))
         # Column ordering and exclusion.
         # This should include auto-columns for multi_select and actions,
         # but should not contain the excluded column.
@@ -666,7 +666,7 @@ class DataTableTests(test.TestCase):
         row = self.table.get_rows()[0]
 
         self.assertEqual(35, len(row.cells['status'].data))
-        self.assertEqual(u'A Status that is longer than 35 ch…',
+        self.assertEqual('A Status that is longer than 35 ch…',
                          row.cells['status'].data)
 
     def test_table_rendering(self):
@@ -830,7 +830,7 @@ class DataTableTests(test.TestCase):
                                  ['FakeObject: object_1',
                                   'FakeObject: object_2',
                                   'FakeObject: object_3',
-                                  u'FakeObject: öbject_4'],
+                                  'FakeObject: öbject_4'],
                                  transform=str)
 
         # with unknown value it should return empty list
@@ -913,7 +913,7 @@ class DataTableTests(test.TestCase):
         handled = self.table.maybe_handle()
         self.assertEqual(302, handled.status_code)
         self.assertEqual("/my_url/", handled["location"])
-        self.assertEqual(u"Downed Item: object_1",
+        self.assertEqual("Downed Item: object_1",
                          list(req._messages)[0].message)
 
         # Toggle from status 'down' to 'up'
@@ -933,7 +933,7 @@ class DataTableTests(test.TestCase):
         handled = self.table.maybe_handle()
         self.assertEqual(302, handled.status_code)
         self.assertEqual("/my_url/", handled["location"])
-        self.assertEqual(u"Upped Item: object_2",
+        self.assertEqual("Upped Item: object_2",
                          list(req._messages)[0].message)
 
         # there are underscore in object-id.
@@ -1014,7 +1014,7 @@ class DataTableTests(test.TestCase):
                                  ['FakeObject: object_1',
                                   'FakeObject: object_2',
                                   'FakeObject: object_3',
-                                  u'FakeObject: öbject_4'],
+                                  'FakeObject: öbject_4'],
                                  transform=str)
 
         # Updating and preemptive actions
@@ -1074,7 +1074,7 @@ class DataTableTests(test.TestCase):
                                  ['FakeObject: object_1',
                                   'FakeObject: object_2',
                                   'FakeObject: object_3',
-                                  u'FakeObject: öbject_4'],
+                                  'FakeObject: öbject_4'],
                                  transform=str)
 
     def test_column_uniqueness(self):
@@ -1166,8 +1166,7 @@ class DataTableTests(test.TestCase):
 
         self.assertEqual(302, handled.status_code)
         self.assertEqual("/my_url/", handled["location"])
-        self.assertEqual(u"Downed Item: 1",
-                         list(req._messages)[0].message)
+        self.assertEqual("Downed Item: 1", list(req._messages)[0].message)
         mock_get_object_display.assert_called_once_with(
             test.IsA(FakeObject))
 
@@ -1368,7 +1367,7 @@ class DataTableViewTests(test.TestCase):
                                  ['FakeObject: object_1',
                                   'FakeObject: object_2',
                                   'FakeObject: object_3',
-                                  u'FakeObject: öbject_4'],
+                                  'FakeObject: öbject_4'],
                                  transform=str)
         self.assertEqual(req.session.get(self.fil_value_param), 'up')
         self.assertEqual(req.session.get(self.fil_field_param), 'status')

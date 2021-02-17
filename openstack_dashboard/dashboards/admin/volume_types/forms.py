@@ -112,7 +112,7 @@ class CreateVolumeTypeEncryption(forms.SelfHandlingForm):
     def handle(self, request, data):
         try:
             # Set Cipher to None if empty
-            if data['cipher'] == u'':
+            if data['cipher'] == '':
                 data['cipher'] = None
 
             volume_type_id = data.pop('volume_type_id')
@@ -138,7 +138,7 @@ class UpdateVolumeTypeEncryption(CreateVolumeTypeEncryption):
     def handle(self, request, data):
         try:
             # Set Cipher to None if empty
-            if data['cipher'] == u'':
+            if data['cipher'] == '':
                 data['cipher'] = None
 
             volume_type_id = data.pop('volume_type_id')

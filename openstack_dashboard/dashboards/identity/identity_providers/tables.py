@@ -51,16 +51,16 @@ class DeleteIdPsAction(tables.DeleteAction):
     @staticmethod
     def action_present(count):
         return ungettext_lazy(
-            u"Unregister Identity Provider",
-            u"Unregister Identity Providers",
+            "Unregister Identity Provider",
+            "Unregister Identity Providers",
             count
         )
 
     @staticmethod
     def action_past(count):
         return ungettext_lazy(
-            u"Unregistered Identity Provider",
-            u"Unregistered Identity Providers",
+            "Unregistered Identity Provider",
+            "Unregistered Identity Providers",
             count
         )
     policy_rules = (("identity", "identity:delete_identity_provider"),)

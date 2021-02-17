@@ -28,8 +28,8 @@ class SellPuppy(tables.DeleteAction):
     def action_present(count):
         # Translators: test code, don't really have to translate
         return ungettext_lazy(
-            u"Sell Puppy",
-            u"Sell Puppies",
+            "Sell Puppy",
+            "Sell Puppies",
             count
         )
 
@@ -37,8 +37,8 @@ class SellPuppy(tables.DeleteAction):
     def action_past(count):
         # Translators: test code, don't really have to translate
         return ungettext_lazy(
-            u"Sold Puppy",
-            u"Sold Puppies",
+            "Sold Puppy",
+            "Sold Puppies",
             count
         )
 

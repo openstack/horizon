@@ -38,8 +38,8 @@ class ExtractAngularTestCase(test.TestCase):
         messages = list(extract_angular(buf, default_keys, [], {}))
         self.assertEqual(
             [
-                (1, u'gettext', 'hello world!', []),
-                (2, u'gettext', 'hello world!', [])
+                (1, 'gettext', 'hello world!', []),
+                (2, 'gettext', 'hello world!', [])
             ],
             messages)
 
@@ -150,19 +150,19 @@ class ExtractAngularTestCase(test.TestCase):
         messages = list(extract_angular(buf, default_keys, [], {}))
         self.assertEqual(
             [
-                (2, u'gettext', 'hello world1', []),
-                (3, u'gettext', 'hello world2', []),
-                (4, u'gettext', 'hello world3', []),
-                (4, u'gettext', 'hello world4', []),
-                (8, u'gettext', '"it\\\'s awesome"', []),
-                (9, u'gettext', 'oh \\"hello\\" there', []),
-                (10, u'gettext', u'hello colon1', []),
-                (11, u'gettext', u'hello colon2', []),
-                (12, u'gettext', u'hello colon3', []),
-                (13, u'gettext', u'hello colon4', []),
-                (13, u'gettext', u'hello colon5', []),
-                (17, u'gettext', u'"it\\\'s awesome"', []),
-                (18, u'gettext', u'oh \\"hello\\" there', []),
+                (2, 'gettext', 'hello world1', []),
+                (3, 'gettext', 'hello world2', []),
+                (4, 'gettext', 'hello world3', []),
+                (4, 'gettext', 'hello world4', []),
+                (8, 'gettext', '"it\\\'s awesome"', []),
+                (9, 'gettext', 'oh \\"hello\\" there', []),
+                (10, 'gettext', 'hello colon1', []),
+                (11, 'gettext', 'hello colon2', []),
+                (12, 'gettext', 'hello colon3', []),
+                (13, 'gettext', 'hello colon4', []),
+                (13, 'gettext', 'hello colon5', []),
+                (17, 'gettext', '"it\\\'s awesome"', []),
+                (18, 'gettext', 'oh \\"hello\\" there', []),
             ],
             messages)
 
@@ -196,8 +196,8 @@ class ExtractAngularTestCase(test.TestCase):
         messages = list(extract_angular(buf, [], [], {}))
         self.assertEqual(
             [
-                (2, u'gettext', 'To <a href="link">link</a> here', []),
-                (3, u'gettext', 'To <!-- a comment!! --> here', []),
-                (4, u'gettext', u'To trademark® &#62; &#x3E; here', []),
+                (2, 'gettext', 'To <a href="link">link</a> here', []),
+                (3, 'gettext', 'To <!-- a comment!! --> here', []),
+                (4, 'gettext', 'To trademark® &#62; &#x3E; here', []),
             ],
             messages)

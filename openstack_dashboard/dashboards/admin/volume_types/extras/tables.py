@@ -24,16 +24,16 @@ class ExtraSpecDelete(tables.DeleteAction):
     @staticmethod
     def action_present(count):
         return ungettext_lazy(
-            u"Delete Extra Spec",
-            u"Delete Extra Specs",
+            "Delete Extra Spec",
+            "Delete Extra Specs",
             count
         )
 
     @staticmethod
     def action_past(count):
         return ungettext_lazy(
-            u"Deleted Extra Spec",
-            u"Deleted Extra Specs",
+            "Deleted Extra Spec",
+            "Deleted Extra Specs",
             count
         )
 

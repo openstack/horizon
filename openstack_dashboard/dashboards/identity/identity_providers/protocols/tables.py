@@ -38,16 +38,16 @@ class RemoveProtocol(policy.PolicyTargetMixin, tables.DeleteAction):
     @staticmethod
     def action_present(count):
         return ungettext_lazy(
-            u"Delete Protocol",
-            u"Delete Protocols",
+            "Delete Protocol",
+            "Delete Protocols",
             count
         )
 
     @staticmethod
     def action_past(count):
         return ungettext_lazy(
-            u"Deleted Protocol",
-            u"Deleted Protocols",
+            "Deleted Protocol",
+            "Deleted Protocols",
             count
         )
 

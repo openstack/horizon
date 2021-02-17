@@ -405,7 +405,7 @@ def data(TEST):
                      'domain_id': '2',
                      'domain_name': 'disabled_domain'}
     tenant_dict_3 = {'id': "3",
-                     'name': u'\u4e91\u89c4\u5219',
+                     'name': '\u4e91\u89c4\u5219',
                      'description': "an unicode-named tenant.",
                      'enabled': True,
                      'domain_id': '2',

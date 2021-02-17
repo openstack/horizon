@@ -63,7 +63,7 @@ class TemplateTagTests(test.TestCase):
         size_str = ('5|diskgbformat', '10|diskgbformat',
                     '5555|mb_float_format', '80|mb_float_format',
                     '.5|mbformat', '0.005|mbformat', '0.0005|mbformat')
-        expected = u' 5GB 10GB 5.4GB 80MB 512KB 5KB 524Bytes '
+        expected = ' 5GB 10GB 5.4GB 80MB 512KB 5KB 524Bytes '
 
         text = ''
         for size_filter in size_str:
@@ -76,7 +76,7 @@ class TemplateTagTests(test.TestCase):
     def test_size_format_filters_with_string(self):
         size_str = ('"test"|diskgbformat', '"limit"|mb_float_format',
                     '"no limit"|mbformat')
-        expected = u' test limit no limit '
+        expected = ' test limit no limit '
 
         text = ''
         for size_filter in size_str:
@@ -94,7 +94,7 @@ class TemplateTagTests(test.TestCase):
         text = ('{{ test.val1|truncate:1 }}#{{ test.val2|truncate:4 }}#'
                 '{{ test.val3|truncate:10 }}')
 
-        expected = u' h#h...#four'
+        expected = ' h#h...#four'
         rendered_str = self.render_template(tag_require='truncate_filter',
                                             template_text=text,
                                             context={'test': ctx_string})
@@ -108,7 +108,7 @@ class TemplateTagTests(test.TestCase):
         text = ('{{ test.val1|quota:"TB" }}#{{ test.val2|quota }}#'
                 '{{ test.val3|quota }}')
 
-        expected = u' 100 TB Available#1000 Available#(No Limit)'
+        expected = ' 100 TB Available#1000 Available#(No Limit)'
 
         rendered_str = self.render_template(tag_require='horizon',
                                             template_text=text,

@@ -37,16 +37,16 @@ class DeleteRouter(policy.PolicyTargetMixin, tables.DeleteAction):
     @staticmethod
     def action_present(count):
         return ungettext_lazy(
-            u"Delete Router",
-            u"Delete Routers",
+            "Delete Router",
+            "Delete Routers",
             count
         )
 
     @staticmethod
     def action_past(count):
         return ungettext_lazy(
-            u"Deleted Router",
-            u"Deleted Routers",
+            "Deleted Router",
+            "Deleted Routers",
             count
         )
 
@@ -128,16 +128,16 @@ class ClearGateway(policy.PolicyTargetMixin, tables.BatchAction):
     @staticmethod
     def action_present(count):
         return ungettext_lazy(
-            u"Clear Gateway",
-            u"Clear Gateways",
+            "Clear Gateway",
+            "Clear Gateways",
             count
         )
 
     @staticmethod
     def action_past(count):
         return ungettext_lazy(
-            u"Cleared Gateway",
-            u"Cleared Gateways",
+            "Cleared Gateway",
+            "Cleared Gateways",
             count
         )
 
@@ -202,12 +202,12 @@ class RoutersFilterAction(tables.FilterAction):
 
 
 STATUS_DISPLAY_CHOICES = (
-    ("active", pgettext_lazy("current status of router", u"Active")),
-    ("error", pgettext_lazy("current status of router", u"Error")),
+    ("active", pgettext_lazy("current status of router", "Active")),
+    ("error", pgettext_lazy("current status of router", "Error")),
 )
 ADMIN_STATE_DISPLAY_CHOICES = (
-    ("up", pgettext_lazy("Admin state of a Router", u"UP")),
-    ("down", pgettext_lazy("Admin state of a Router", u"DOWN")),
+    ("up", pgettext_lazy("Admin state of a Router", "UP")),
+    ("down", pgettext_lazy("Admin state of a Router", "DOWN")),
 )
 
 

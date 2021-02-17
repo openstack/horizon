@@ -81,7 +81,7 @@ class SwiftRestTestCase(test.TestCase):
                                                        False)
         response = swift.Containers().get(request)
         self.assertStatusCode(response, 200)
-        self.assertEqual(u'container one%\u6346',
+        self.assertEqual('container one%\u6346',
                          response.json['items'][0]['name'])
         self.assertFalse(response.json['has_more'])
         self.mock_swift_get_containers.assert_called_once_with(request)
@@ -90,11 +90,11 @@ class SwiftRestTestCase(test.TestCase):
     def test_container_get(self):
         request = self.mock_rest_request()
         self.mock_swift_get_container.return_value = self.containers.first()
-        response = swift.Container().get(request, u'container one%\u6346')
+        response = swift.Container().get(request, 'container one%\u6346')
         self.assertStatusCode(response, 200)
         self.assertEqual(response.json, self.containers.first().to_dict())
         self.mock_swift_get_container.assert_called_once_with(
-            request, u'container one%\u6346')
+            request, 'container one%\u6346')
 
     @test.create_mocks({api.swift: ['swift_create_container']})
     def test_container_create(self):
@@ -102,7 +102,7 @@ class SwiftRestTestCase(test.TestCase):
         request = self.mock_rest_request(body='{}')
         response = swift.Container().post(request, 'spam')
         self.assertStatusCode(response, 201)
-        self.assertEqual(u'/api/swift/containers/spam',
+        self.assertEqual('/api/swift/containers/spam',
                          response['location'])
         self.mock_swift_create_container.assert_called_once_with(
             request, 'spam', metadata={}
@@ -114,7 +114,7 @@ class SwiftRestTestCase(test.TestCase):
         request = self.mock_rest_request(body='{"is_public": false}')
         response = swift.Container().post(request, 'spam')
         self.assertStatusCode(response, 201)
-        self.assertEqual(u'/api/swift/containers/spam',
+        self.assertEqual('/api/swift/containers/spam',
                          response['location'])
         self.mock_swift_create_container.assert_called_once_with(
             request, 'spam', metadata={'is_public': False}
@@ -124,10 +124,10 @@ class SwiftRestTestCase(test.TestCase):
     def test_container_delete(self):
         self.mock_swift_delete_container.return_value = True
         request = self.mock_rest_request()
-        response = swift.Container().delete(request, u'container one%\u6346')
+        response = swift.Container().delete(request, 'container one%\u6346')
         self.assertStatusCode(response, 204)
         self.mock_swift_delete_container.assert_called_once_with(
-            request, u'container one%\u6346'
+            request, 'container one%\u6346'
         )
 
     @test.create_mocks({api.swift: ['swift_update_container']})
@@ -151,42 +151,42 @@ class SwiftRestTestCase(test.TestCase):
         self.mock_swift_get_objects.return_value = (
             self.objects.list() + self.folder.list(), False
         )
-        response = swift.Objects().get(request, u'container one%\u6346')
+        response = swift.Objects().get(request, 'container one%\u6346')
         self.assertStatusCode(response, 200)
         self.assertEqual(5, len(response.json['items']))
-        self.assertEqual(u'test folder%\u6346/test.txt',
+        self.assertEqual('test folder%\u6346/test.txt',
                          response.json['items'][3]['path'])
         self.assertEqual('test.txt', response.json['items'][3]['name'])
         self.assertTrue(response.json['items'][3]['is_object'])
         self.assertFalse(response.json['items'][3]['is_subdir'])
-        self.assertEqual(u'test folder%\u6346/test.txt',
+        self.assertEqual('test folder%\u6346/test.txt',
                          response.json['items'][3]['path'])
 
-        self.assertEqual(u'test folder%\u6346/',
+        self.assertEqual('test folder%\u6346/',
                          response.json['items'][4]['path'])
-        self.assertEqual(u'test folder%\u6346',
+        self.assertEqual('test folder%\u6346',
                          response.json['items'][4]['name'])
         self.assertFalse(response.json['items'][4]['is_object'])
         self.assertTrue(response.json['items'][4]['is_subdir'])
 
         self.mock_swift_get_objects.assert_called_once_with(
             request,
-            u'container one%\u6346',
+            'container one%\u6346',
             prefix=None)
 
     @test.create_mocks({api.swift: ['swift_get_objects']})
     def test_container_get_path_folder(self):
-        request = self.mock_rest_request(GET={'path': u'test folder%\u6346/'})
+        request = self.mock_rest_request(GET={'path': 'test folder%\u6346/'})
         self.mock_swift_get_objects.return_value = (self.subfolder.list(),
                                                     False)
-        response = swift.Objects().get(request, u'container one%\u6346')
+        response = swift.Objects().get(request, 'container one%\u6346')
         self.assertStatusCode(response, 200)
         self.assertEqual(1, len(response.json['items']))
         self.assertTrue(response.json['items'][0]['is_object'])
         self.assertFalse(response.json['items'][0]['is_subdir'])
         self.mock_swift_get_objects.assert_called_once_with(
             request,
-            u'container one%\u6346', prefix=u'test folder%\u6346/'
+            'container one%\u6346', prefix='test folder%\u6346/'
         )
 
     @test.create_mocks({api.swift: ['swift_get_object']})
@@ -219,10 +219,10 @@ class SwiftRestTestCase(test.TestCase):
         form_obj = self.mock_UploadObjectForm.return_value
         form_obj.is_valid.return_value = True
         # note file name not used, path name is
-        _file = mock.Mock(name=u'NOT object%\u6346')
+        _file = mock.Mock(name='NOT object%\u6346')
         form_obj.clean.return_value = {'file': _file}
         request = self.mock_rest_request()
-        real_name = u'test_object%\u6346'
+        real_name = 'test_object%\u6346'
         self.mock_swift_upload_object.return_value = self.objects.first()
         response = swift.Object().post(request, 'spam', real_name)
         self.assertStatusCode(response, 201)
@@ -232,7 +232,7 @@ class SwiftRestTestCase(test.TestCase):
             response['location']
         )
         self.mock_swift_upload_object.assert_called_once_with(
-            request, 'spam', u'test_object%\u6346', _file)
+            request, 'spam', 'test_object%\u6346', _file)
 
     @test.create_mocks({api.swift: ['swift_create_pseudo_folder'],
                         swift: ['UploadObjectForm']})
@@ -243,7 +243,7 @@ class SwiftRestTestCase(test.TestCase):
         request = self.mock_rest_request()
         self.mock_swift_create_pseudo_folder.return_value = \
             self.folder_alt.first()
-        response = swift.Object().post(request, 'spam', u'test_folder%\u6346/')
+        response = swift.Object().post(request, 'spam', 'test_folder%\u6346/')
         self.assertStatusCode(response, 201)
         self.assertEqual(
             response['location'],
@@ -251,7 +251,7 @@ class SwiftRestTestCase(test.TestCase):
             '=25=E6=8D=86/?='
         )
         self.mock_swift_create_pseudo_folder.assert_called_once_with(
-            request, 'spam', u'test_folder%\u6346/')
+            request, 'spam', 'test_folder%\u6346/')
 
     @test.create_mocks({api.swift: ['swift_copy_object']})
     def test_object_copy(self):
@@ -261,7 +261,7 @@ class SwiftRestTestCase(test.TestCase):
         self.mock_swift_copy_object.return_value = self.objects.first()
         response = swift.ObjectCopy().post(request,
                                            'spam',
-                                           u'test object%\u6346')
+                                           'test object%\u6346')
         self.assertStatusCode(response, 201)
         self.assertEqual(
             response['location'],
@@ -272,7 +272,7 @@ class SwiftRestTestCase(test.TestCase):
         self.mock_swift_copy_object.assert_called_once_with(
             request,
             'spam',
-            u'test object%\u6346',
+            'test object%\u6346',
             'eggs',
             'bacon')
         self.assertStatusCode(response, 201)

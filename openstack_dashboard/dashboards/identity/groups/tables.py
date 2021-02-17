@@ -63,16 +63,16 @@ class DeleteGroupsAction(policy.PolicyTargetMixin, tables.DeleteAction):
     @staticmethod
     def action_present(count):
         return ungettext_lazy(
-            u"Delete Group",
-            u"Delete Groups",
+            "Delete Group",
+            "Delete Groups",
             count
         )
 
     @staticmethod
     def action_past(count):
         return ungettext_lazy(
-            u"Deleted Group",
-            u"Deleted Groups",
+            "Deleted Group",
+            "Deleted Groups",
             count
         )
 
@@ -131,16 +131,16 @@ class RemoveMembers(tables.DeleteAction):
     @staticmethod
     def action_present(count):
         return ungettext_lazy(
-            u"Remove User",
-            u"Remove Users",
+            "Remove User",
+            "Remove Users",
             count
         )
 
     @staticmethod
     def action_past(count):
         return ungettext_lazy(
-            u"Removed User",
-            u"Removed Users",
+            "Removed User",
+            "Removed Users",
             count
         )
 
@@ -207,16 +207,16 @@ class AddMembers(tables.BatchAction):
     @staticmethod
     def action_present(count):
         return ungettext_lazy(
-            u"Add User",
-            u"Add Users",
+            "Add User",
+            "Add Users",
             count
         )
 
     @staticmethod
     def action_past(count):
         return ungettext_lazy(
-            u"Added User",
-            u"Added Users",
+            "Added User",
+            "Added Users",
             count
         )
 

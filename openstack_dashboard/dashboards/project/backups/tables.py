@@ -69,16 +69,16 @@ class DeleteBackup(tables.DeleteAction):
     @staticmethod
     def action_present(count):
         return ungettext_lazy(
-            u"Delete Volume Backup",
-            u"Delete Volume Backups",
+            "Delete Volume Backup",
+            "Delete Volume Backups",
             count
         )
 
     @staticmethod
     def action_past(count):
         return ungettext_lazy(
-            u"Scheduled deletion of Volume Backup",
-            u"Scheduled deletion of Volume Backups",
+            "Scheduled deletion of Volume Backup",
+            "Scheduled deletion of Volume Backups",
             count
         )
 
@@ -145,17 +145,17 @@ class BackupsTable(tables.DataTable):
     )
     STATUS_DISPLAY_CHOICES = (
         ("available", pgettext_lazy("Current status of a Volume Backup",
-                                    u"Available")),
+                                    "Available")),
         ("error", pgettext_lazy("Current status of a Volume Backup",
-                                u"Error")),
+                                "Error")),
         ("creating", pgettext_lazy("Current status of a Volume Backup",
-                                   u"Creating")),
+                                   "Creating")),
         ("restoring", pgettext_lazy("Current status of a Volume Backup",
-                                    u"Restoring")),
+                                    "Restoring")),
         ("deleting", pgettext_lazy("Current status of a Volume Backup",
-                                   u"Deleting")),
+                                   "Deleting")),
         ("error_restoring", pgettext_lazy("Current status of a Volume Backup",
-                                          u"Error Restoring")),
+                                          "Error Restoring")),
     )
     name = tables.Column("name",
                          verbose_name=_("Name"),

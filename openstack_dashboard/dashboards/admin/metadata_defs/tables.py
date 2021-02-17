@@ -44,16 +44,16 @@ class DeleteNamespace(tables.DeleteAction):
     @staticmethod
     def action_present(count):
         return ungettext_lazy(
-            u"Delete Namespace",
-            u"Delete Namespaces",
+            "Delete Namespace",
+            "Delete Namespaces",
             count
         )
 
     @staticmethod
     def action_past(count):
         return ungettext_lazy(
-            u"Deleted Namespace",
-            u"Deleted Namespaces",
+            "Deleted Namespace",
+            "Deleted Namespaces",
             count
         )
 

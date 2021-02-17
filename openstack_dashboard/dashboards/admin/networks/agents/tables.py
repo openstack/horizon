@@ -32,16 +32,16 @@ class DeleteDHCPAgent(tables.DeleteAction):
     @staticmethod
     def action_present(count):
         return ungettext_lazy(
-            u"Delete DHCP Agent",
-            u"Delete DHCP Agents",
+            "Delete DHCP Agent",
+            "Delete DHCP Agents",
             count
         )
 
     @staticmethod
     def action_past(count):
         return ungettext_lazy(
-            u"Deleted DHCP Agent",
-            u"Deleted DHCP Agents",
+            "Deleted DHCP Agent",
+            "Deleted DHCP Agents",
             count
         )
 

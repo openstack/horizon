@@ -92,16 +92,16 @@ class DeleteDomainsAction(tables.DeleteAction):
     @staticmethod
     def action_present(count):
         return ungettext_lazy(
-            u"Delete Domain",
-            u"Delete Domains",
+            "Delete Domain",
+            "Delete Domains",
             count
         )
 
     @staticmethod
     def action_past(count):
         return ungettext_lazy(
-            u"Deleted Domain",
-            u"Deleted Domains",
+            "Deleted Domain",
+            "Deleted Domains",
             count
         )
 
@@ -126,16 +126,16 @@ class DisableDomainsAction(tables.BatchAction):
     @staticmethod
     def action_present(count):
         return ungettext_lazy(
-            u"Disable Domain",
-            u"Disable Domains",
+            "Disable Domain",
+            "Disable Domains",
             count
         )
 
     @staticmethod
     def action_past(count):
         return ungettext_lazy(
-            u"Disabled Domain",
-            u"Disabled Domains",
+            "Disabled Domain",
+            "Disabled Domains",
             count
         )
 
@@ -166,16 +166,16 @@ class EnableDomainsAction(tables.BatchAction):
     @staticmethod
     def action_present(count):
         return ungettext_lazy(
-            u"Enable Domain",
-            u"Enable Domains",
+            "Enable Domain",
+            "Enable Domains",
             count
         )
 
     @staticmethod
     def action_past(count):
         return ungettext_lazy(
-            u"Enabled Domain",
-            u"Enabled Domains",
+            "Enabled Domain",
+            "Enabled Domains",
             count
         )
 

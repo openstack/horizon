@@ -170,13 +170,13 @@ class VolumeTypeTests(test.BaseAdminViewTests):
     def test_create_volume_type_encryption(self):
         volume_type1 = self.cinder_volume_types.list()[0]
         volume_type2 = self.cinder_volume_types.list()[1]
-        volume_type1.id = u'1'
-        volume_type2.id = u'2'
+        volume_type1.id = '1'
+        volume_type2.id = '2'
         volume_type_list = [volume_type1, volume_type2]
-        formData = {'name': u'An Encrypted Volume Type',
-                    'provider': u'a-provider',
-                    'control_location': u'front-end',
-                    'cipher': u'a-cipher',
+        formData = {'name': 'An Encrypted Volume Type',
+                    'provider': 'a-provider',
+                    'control_location': 'front-end',
+                    'cipher': 'a-cipher',
                     'key_size': 512,
                     'volume_type_id': volume_type1.id}
 
@@ -194,9 +194,9 @@ class VolumeTypeTests(test.BaseAdminViewTests):
         self.mock_volume_type_list.assert_called_once_with(
             test.IsHttpRequest())
         expected = {
-            'provider': u'a-provider',
-            'control_location': u'front-end',
-            'cipher': u'a-cipher',
+            'provider': 'a-provider',
+            'control_location': 'front-end',
+            'cipher': 'a-cipher',
             'key_size': 512,
         }
         self.mock_volume_encryption_type_create.assert_called_once_with(
@@ -208,7 +208,7 @@ class VolumeTypeTests(test.BaseAdminViewTests):
                                      'volume_type_list',)})
     def test_type_encryption_detail_view_unencrypted(self):
         volume_type1 = self.cinder_volume_types.list()[0]
-        volume_type1.id = u'1'
+        volume_type1.id = '1'
         volume_type_list = [volume_type1]
         vol_unenc_type = self.cinder_volume_encryption_types.list()[2]
 
@@ -235,7 +235,7 @@ class VolumeTypeTests(test.BaseAdminViewTests):
                                      'volume_type_list',)})
     def test_type_encryption_detail_view_encrypted(self):
         volume_type = self.cinder_volume_types.first()
-        volume_type.id = u'1'
+        volume_type.id = '1'
         volume_type.name = "An Encrypted Volume Name"
         volume_type_list = [volume_type]
         vol_enc_type = self.cinder_volume_encryption_types.list()[0]
@@ -274,7 +274,7 @@ class VolumeTypeTests(test.BaseAdminViewTests):
                                      'volume_encryption_type_delete',)})
     def test_delete_volume_type_encryption(self):
         volume_type = self.cinder_volume_types.first()
-        volume_type.id = u'1'
+        volume_type.id = '1'
         formData = {'action': 'volume_types__delete_encryption__%s' %
                     volume_type.id}
         encryption_list = (self.cinder_volume_encryption_types.list()[0],
@@ -307,12 +307,12 @@ class VolumeTypeTests(test.BaseAdminViewTests):
                                      'volume_type_list')})
     def test_update_volume_type_encryption(self):
         volume_type = self.cinder_volume_types.first()
-        volume_type.id = u'1'
+        volume_type.id = '1'
         volume_type_list = [volume_type]
-        formData = {'name': u'An Encrypted Volume Type',
-                    'provider': u'a-provider',
-                    'control_location': u'front-end',
-                    'cipher': u'a-cipher',
+        formData = {'name': 'An Encrypted Volume Type',
+                    'provider': 'a-provider',
+                    'control_location': 'front-end',
+                    'cipher': 'a-cipher',
                     'key_size': 256,
                     'volume_type_id': volume_type.id}
         vol_enc_type = self.cinder_volume_encryption_types.list()[0]
@@ -335,9 +335,9 @@ class VolumeTypeTests(test.BaseAdminViewTests):
         self.mock_volume_type_list.assert_called_once_with(
             test.IsHttpRequest())
         expected = {
-            'provider': u'a-provider',
-            'control_location': u'front-end',
-            'cipher': u'a-cipher',
+            'provider': 'a-provider',
+            'control_location': 'front-end',
+            'cipher': 'a-cipher',
             'key_size': 256,
         }
         self.mock_volume_encryption_type_update.assert_called_once_with(
@@ -352,9 +352,9 @@ class VolumeTypeTests(test.BaseAdminViewTests):
                         api.keystone: ('tenant_list',)})
     def _test_edit_volume_type_access(self, exception=False):
         volume_type = self.cinder_volume_types.list()[2]
-        volume_type.id = u'1'
+        volume_type.id = '1'
         type_access = self.cinder_type_access.list()
-        formData = {'member': [u'3'],
+        formData = {'member': ['3'],
                     'volume_type_id': volume_type.id}
 
         self.mock_tenant_list.return_value = [self.tenants.list(), False]
@@ -379,9 +379,9 @@ class VolumeTypeTests(test.BaseAdminViewTests):
         self.mock_volume_type_access_list.assert_called_once_with(
             test.IsHttpRequest(), volume_type.id)
         self.mock_volume_type_add_project_access.assert_called_once_with(
-            test.IsHttpRequest(), volume_type.id, u'3')
+            test.IsHttpRequest(), volume_type.id, '3')
         self.mock_volume_type_remove_project_access.assert_called_once_with(
-            test.IsHttpRequest(), volume_type.id, u'1')
+            test.IsHttpRequest(), volume_type.id, '1')
 
     def test_edit_volume_type_access(self):
         self._test_edit_volume_type_access()

@@ -114,7 +114,7 @@ class HorizonComponent(object):
                                        % self.__class__)
 
     def __str__(self):
-        name = getattr(self, 'name', u"Unnamed %s" % self.__class__.__name__)
+        name = getattr(self, 'name', "Unnamed %s" % self.__class__.__name__)
         return name
 
     def _get_default_urlpatterns(self):
@@ -705,7 +705,7 @@ class Site(Registry, HorizonComponent):
     urls = 'horizon.site_urls'
 
     def __repr__(self):
-        return u"<Site: %s>" % self.slug
+        return "<Site: %s>" % self.slug
 
     @property
     def _conf(self):

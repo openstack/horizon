@@ -53,16 +53,16 @@ class RemoveInterface(policy.PolicyTargetMixin, tables.DeleteAction):
     @staticmethod
     def action_present(count):
         return ungettext_lazy(
-            u"Delete Interface",
-            u"Delete Interfaces",
+            "Delete Interface",
+            "Delete Interfaces",
             count
         )
 
     @staticmethod
     def action_past(count):
         return ungettext_lazy(
-            u"Deleted Interface",
-            u"Deleted Interfaces",
+            "Deleted Interface",
+            "Deleted Interfaces",
             count
         )
 
@@ -95,15 +95,15 @@ class RemoveInterface(policy.PolicyTargetMixin, tables.DeleteAction):
 
 
 DISPLAY_CHOICES = (
-    ("UP", pgettext_lazy("Admin state of a Port", u"UP")),
-    ("DOWN", pgettext_lazy("Admin state of a Port", u"DOWN")),
+    ("UP", pgettext_lazy("Admin state of a Port", "UP")),
+    ("DOWN", pgettext_lazy("Admin state of a Port", "DOWN")),
 )
 STATUS_DISPLAY_CHOICES = (
-    ("ACTIVE", pgettext_lazy("current status of port", u"Active")),
-    ("BUILD", pgettext_lazy("current status of port", u"Build")),
-    ("DOWN", pgettext_lazy("current status of port", u"Down")),
-    ("ERROR", pgettext_lazy("current status of port", u"Error")),
-    ("N/A", pgettext_lazy("current status of port", u"N/A")),
+    ("ACTIVE", pgettext_lazy("current status of port", "Active")),
+    ("BUILD", pgettext_lazy("current status of port", "Build")),
+    ("DOWN", pgettext_lazy("current status of port", "Down")),
+    ("ERROR", pgettext_lazy("current status of port", "Error")),
+    ("N/A", pgettext_lazy("current status of port", "N/A")),
 )
 
 

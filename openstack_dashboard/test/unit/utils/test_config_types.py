@@ -22,7 +22,7 @@ class ConfigTypesTest(unittest.TestCase):
         self.assertRaises(ValueError, literal, "[1, '2', 3]")
 
         literal = config_types.Literal({0: ""})
-        self.assertEqual({1: 'a', 2: u'b'}, literal("{1: 'a', 2: u'b'}"))
+        self.assertEqual({1: 'a', 2: 'b'}, literal("{1: 'a', 2: 'b'}"))
         self.assertRaises(ValueError, literal, "[1, '2', 3]")
         self.assertRaises(ValueError, literal, "{1: 1, '2': 2}")
 

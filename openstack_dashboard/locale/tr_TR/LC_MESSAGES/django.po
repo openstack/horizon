@@ -7612,7 +7612,7 @@ msgid "up"
 msgstr "up"
 
 msgid "vCPUs ="
-msgstr "vCPU'lar ="
+msgstr "vCP'lar ="
 
 msgid "yes"
 msgstr "evet"

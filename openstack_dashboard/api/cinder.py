@@ -51,7 +51,7 @@ DEFAULT_QUOTA_NAME = 'default'
 CONSUMER_CHOICES = (
     ('back-end', _('back-end')),
     ('front-end', _('front-end')),
-    ('both', pgettext_lazy('Both of front-end and back-end', u'both')),
+    ('both', pgettext_lazy('Both of front-end and back-end', 'both')),
 )
 
 VERSIONS = base.APIVersionManager("volume", preferred_version='3')

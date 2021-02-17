@@ -296,7 +296,7 @@ class TabTests(test.TestCase):
                                  ['FakeObject: object_1',
                                   'FakeObject: object_2',
                                   'FakeObject: object_3',
-                                  u'FakeObject: öbject_4'],
+                                  'FakeObject: öbject_4'],
                                  transform=str)
         context = tab.get_context_data(self.request)
         # Make sure our table is loaded into the context correctly

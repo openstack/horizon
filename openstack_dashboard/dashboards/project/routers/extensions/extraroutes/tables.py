@@ -40,16 +40,16 @@ class RemoveRouterRoute(policy.PolicyTargetMixin, tables.DeleteAction):
     @staticmethod
     def action_present(count):
         return ungettext_lazy(
-            u"Delete Static Route",
-            u"Delete Static Routes",
+            "Delete Static Route",
+            "Delete Static Routes",
             count
         )
 
     @staticmethod
     def action_past(count):
         return ungettext_lazy(
-            u"Deleted Static Route",
-            u"Deleted Static Routes",
+            "Deleted Static Route",
+            "Deleted Static Routes",
             count
         )
     failure_url = 'horizon:project:routers:detail'

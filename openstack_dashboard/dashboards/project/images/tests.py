@@ -115,23 +115,23 @@ class ImagesAndSnapshotsTests(BaseImagesTestCase):
 
         # first instance - status active, owned
         self.assertEqual(len(row_actions), 5)
-        self.assertEqual(row_actions[0].verbose_name, u"Launch")
-        self.assertEqual(row_actions[1].verbose_name, u"Create Volume")
-        self.assertEqual(row_actions[2].verbose_name, u"Edit Image")
-        self.assertEqual(row_actions[3].verbose_name, u"Update Metadata")
-        self.assertEqual(row_actions[4].verbose_name, u"Delete Image")
+        self.assertEqual(row_actions[0].verbose_name, "Launch")
+        self.assertEqual(row_actions[1].verbose_name, "Create Volume")
+        self.assertEqual(row_actions[2].verbose_name, "Edit Image")
+        self.assertEqual(row_actions[3].verbose_name, "Update Metadata")
+        self.assertEqual(row_actions[4].verbose_name, "Delete Image")
 
         row_actions = snaps.get_row_actions(snaps.data[1])
 
         # second instance - status active, not owned
         self.assertEqual(len(row_actions), 2)
-        self.assertEqual(row_actions[0].verbose_name, u"Launch")
-        self.assertEqual(row_actions[1].verbose_name, u"Create Volume")
+        self.assertEqual(row_actions[0].verbose_name, "Launch")
+        self.assertEqual(row_actions[1].verbose_name, "Create Volume")
 
         row_actions = snaps.get_row_actions(snaps.data[2])
         # third instance - status queued, only delete is available
         self.assertEqual(len(row_actions), 1)
-        self.assertEqual(row_actions[0].verbose_name, u"Delete Image")
+        self.assertEqual(row_actions[0].verbose_name, "Delete Image")
         self.assertEqual(str(row_actions[0]), "<DeleteImage: delete>")
 
         self.mock_image_list.assert_called_once_with(test.IsHttpRequest(),

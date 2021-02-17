@@ -55,16 +55,16 @@ class EnableService(policy.PolicyTargetMixin, tables.BatchAction):
     @staticmethod
     def action_present(count):
         return ungettext_lazy(
-            u"Enable Service",
-            u"Enable Services",
+            "Enable Service",
+            "Enable Services",
             count
         )
 
     @staticmethod
     def action_past(count):
         return ungettext_lazy(
-            u"Enabled Service",
-            u"Enabled Services",
+            "Enabled Service",
+            "Enabled Services",
             count
         )
 
@@ -103,13 +103,11 @@ class ComputeHostTable(tables.DataTable):
     )
     STATUS_DISPLAY_CHOICES = (
         ("enabled", pgettext_lazy("Current status of a Hypervisor",
-                                  u"Enabled")),
+                                  "Enabled")),
         ("disabled", pgettext_lazy("Current status of a Hypervisor",
-                                   u"Disabled")),
-        ("up", pgettext_lazy("Current state of a Hypervisor",
-                             u"Up")),
-        ("down", pgettext_lazy("Current state of a Hypervisor",
-                               u"Down")),
+                                   "Disabled")),
+        ("up", pgettext_lazy("Current state of a Hypervisor", "Up")),
+        ("down", pgettext_lazy("Current state of a Hypervisor", "Down")),
     )
 
     host = tables.WrappingColumn('host', verbose_name=_('Host'))

@@ -139,15 +139,15 @@ class GroupsTable(tables.DataTable):
     )
     STATUS_DISPLAY_CHOICES = (
         ("available",
-         pgettext_lazy("Current status of Volume Group", u"Available")),
+         pgettext_lazy("Current status of Volume Group", "Available")),
         ("in-use",
-         pgettext_lazy("Current status of Volume Group", u"In-use")),
+         pgettext_lazy("Current status of Volume Group", "In-use")),
         ("error",
-         pgettext_lazy("Current status of Volume Group", u"Error")),
+         pgettext_lazy("Current status of Volume Group", "Error")),
         ("updating",
-         pgettext_lazy("Current status of Volume Group", u"Updating")),
+         pgettext_lazy("Current status of Volume Group", "Updating")),
         ("deleting",
-         pgettext_lazy("Current status of Volume Group", u"Deleting")),
+         pgettext_lazy("Current status of Volume Group", "Deleting")),
     )
 
     name = tables.WrappingColumn("name_or_id",

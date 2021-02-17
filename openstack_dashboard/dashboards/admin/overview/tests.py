@@ -78,7 +78,7 @@ class UsageViewTests(test.BaseAdminViewTests):
         self.assertEqual(nova_stu_enabled,
                          res.context['simple_tenant_usage_enabled'])
 
-        usage_table = encoding.smart_str(u'''
+        usage_table = encoding.smart_str('''
             <tr class="" data-object-id="1" id="global_usage__row__1">
               <td class="sortable normal_column">test_tenant</td>
               <td class="sortable normal_column">%s</td>
@@ -97,7 +97,7 @@ class UsageViewTests(test.BaseAdminViewTests):
         )
 
         # test for deleted project
-        usage_table_deleted = encoding.smart_str(u'''
+        usage_table_deleted = encoding.smart_str('''
             <tr class="" data-object-id="3" id="global_usage__row__3">
               <td class="sortable normal_column">3 (Deleted)</td>
               <td class="sortable normal_column">%s</td>
@@ -168,7 +168,7 @@ class UsageViewTests(test.BaseAdminViewTests):
 
         if nova_stu_enabled:
             for obj in usage_obj:
-                row = u'"{0}","{1}","{2}","{3}","{4:.2f}"\r\n'.format(
+                row = '"{0}","{1}","{2}","{3}","{4:.2f}"\r\n'.format(
                     obj.project_name,
                     obj.vcpus,
                     obj.memory_mb,

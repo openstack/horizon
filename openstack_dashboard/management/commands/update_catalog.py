@@ -33,12 +33,12 @@ MODULES = ['openstack_dashboard', 'horizon']
 
 
 def translate(segment):
-    prefix = u""
+    prefix = ""
     # When the id starts with a newline the mo compiler enforces that
     # the translated message must also start with a newline.  Make
     # sure that doesn't get broken when prepending the bracket.
     if segment.startswith('\n'):
-        prefix = u"\n"
+        prefix = "\n"
     orig_size = len(segment)
     # Add extra expansion space based on recommendation from
     # http://www-01.ibm.com/software/globalization/guidelines/a3.html
@@ -54,7 +54,7 @@ def translate(segment):
         multiplier = 0.3
     extra_length = int(max(0, (orig_size * multiplier) - 10))
     extra_chars = "~" * extra_length
-    return u"{0}[~{1}~您好яшçあ{2}]".format(prefix, segment, extra_chars)
+    return "{0}[~{1}~您好яшçあ{2}]".format(prefix, segment, extra_chars)
 
 
 class Command(BaseCommand):
@@ -121,7 +121,7 @@ class Command(BaseCommand):
                     for msg in pot_cat:
                         if msg.pluralizable:
                             msg.string = [
-                                translate(u"{}:{}".format(i, msg.id[0]))
+                                translate("{}:{}".format(i, msg.id[0]))
                                 for i in range(num_plurals)]
                         else:
                             msg.string = translate(msg.id)

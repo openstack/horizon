@@ -37,16 +37,16 @@ class DeleteGroupSnapshot(policy.PolicyTargetMixin, tables.DeleteAction):
     @staticmethod
     def action_present(count):
         return ungettext_lazy(
-            u"Delete Snapshot",
-            u"Delete Snapshots",
+            "Delete Snapshot",
+            "Delete Snapshots",
             count
         )
 
     @staticmethod
     def action_past(count):
         return ungettext_lazy(
-            u"Scheduled deletion of Snapshot",
-            u"Scheduled deletion of Snapshots",
+            "Scheduled deletion of Snapshot",
+            "Scheduled deletion of Snapshots",
             count
         )
 
@@ -99,13 +99,13 @@ class GroupSnapshotsTable(tables.DataTable):
     STATUS_DISPLAY_CHOICES = (
         ("available",
          pgettext_lazy("Current status of Volume Group Snapshot",
-                       u"Available")),
+                       "Available")),
         ("in-use",
          pgettext_lazy("Current status of Volume Group Snapshot",
-                       u"In-use")),
+                       "In-use")),
         ("error",
          pgettext_lazy("Current status of Volume Group Snapshot",
-                       u"Error")),
+                       "Error")),
     )
 
     name = tables.Column("name_or_id",

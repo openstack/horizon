@@ -90,16 +90,16 @@ class DeleteImage(tables.DeleteAction):
     @staticmethod
     def action_present(count):
         return ungettext_lazy(
-            u"Delete Image",
-            u"Delete Images",
+            "Delete Image",
+            "Delete Images",
             count
         )
 
     @staticmethod
     def action_past(count):
         return ungettext_lazy(
-            u"Deleted Image",
-            u"Deleted Images",
+            "Deleted Image",
+            "Deleted Images",
             count
         )
 
@@ -266,10 +266,10 @@ def get_format(image):
     if format == "raw":
         if getattr(image, "container_format") == 'docker':
             return pgettext_lazy("Image format for display in table",
-                                 u"Docker")
+                                 "Docker")
         # Most image formats are untranslated acronyms, but raw is a word
         # and should be translated
-        return pgettext_lazy("Image format for display in table", u"Raw")
+        return pgettext_lazy("Image format for display in table", "Raw")
     return format.upper()
 
 
@@ -301,19 +301,19 @@ class ImagesTable(tables.DataTable):
         ("deactivated", False),
     )
     STATUS_DISPLAY_CHOICES = (
-        ("active", pgettext_lazy("Current status of an Image", u"Active")),
-        ("saving", pgettext_lazy("Current status of an Image", u"Saving")),
-        ("queued", pgettext_lazy("Current status of an Image", u"Queued")),
+        ("active", pgettext_lazy("Current status of an Image", "Active")),
+        ("saving", pgettext_lazy("Current status of an Image", "Saving")),
+        ("queued", pgettext_lazy("Current status of an Image", "Queued")),
         ("pending_delete", pgettext_lazy("Current status of an Image",
-                                         u"Pending Delete")),
-        ("killed", pgettext_lazy("Current status of an Image", u"Killed")),
-        ("deleted", pgettext_lazy("Current status of an Image", u"Deleted")),
+                                         "Pending Delete")),
+        ("killed", pgettext_lazy("Current status of an Image", "Killed")),
+        ("deleted", pgettext_lazy("Current status of an Image", "Deleted")),
         ("deactivated", pgettext_lazy("Current status of an Image",
-                                      u"Deactivated")),
+                                      "Deactivated")),
     )
     TYPE_CHOICES = (
-        ("image", pgettext_lazy("Type of an image", u"Image")),
-        ("snapshot", pgettext_lazy("Type of an image", u"Snapshot")),
+        ("image", pgettext_lazy("Type of an image", "Image")),
+        ("snapshot", pgettext_lazy("Type of an image", "Snapshot")),
     )
     name = tables.WrappingColumn(get_image_name,
                                  link="horizon:project:images:images:detail",

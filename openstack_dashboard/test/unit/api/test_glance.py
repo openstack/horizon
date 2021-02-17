@@ -400,12 +400,12 @@ class GlanceApiTests(test.APIMockTestCase):
 
     def test_create_image_metadata_docker_v2(self):
         form_data = {
-            'name': u'Docker image',
-            'description': u'Docker image test',
-            'source_type': u'url',
-            'image_url': u'/',
-            'disk_format': u'docker',
-            'architecture': u'x86-64',
+            'name': 'Docker image',
+            'description': 'Docker image test',
+            'source_type': 'url',
+            'image_url': '/',
+            'disk_format': 'docker',
+            'architecture': 'x86-64',
             'min_disk': 15,
             'min_ram': 512,
             'is_public': False,
@@ -421,12 +421,12 @@ class GlanceApiTests(test.APIMockTestCase):
 
     def test_create_image_metadata_vhd(self):
         form_data = {
-            'name': u'OVF image',
-            'description': u'OVF image test',
-            'source_type': u'url',
-            'image_url': u'/',
-            'disk_format': u'vhd',
-            'architecture': u'x86-64',
+            'name': 'OVF image',
+            'description': 'OVF image test',
+            'source_type': 'url',
+            'image_url': '/',
+            'disk_format': 'vhd',
+            'architecture': 'x86-64',
             'min_disk': 15,
             'min_ram': 512,
             'is_public': False,

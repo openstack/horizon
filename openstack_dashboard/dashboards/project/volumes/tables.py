@@ -98,16 +98,16 @@ class DeleteVolume(VolumePolicyTargetMixin, tables.DeleteAction):
     @staticmethod
     def action_present(count):
         return ungettext_lazy(
-            u"Delete Volume",
-            u"Delete Volumes",
+            "Delete Volume",
+            "Delete Volumes",
             count
         )
 
     @staticmethod
     def action_past(count):
         return ungettext_lazy(
-            u"Scheduled deletion of Volume",
-            u"Scheduled deletion of Volumes",
+            "Scheduled deletion of Volume",
+            "Scheduled deletion of Volumes",
             count
         )
 
@@ -467,35 +467,35 @@ class VolumesTableBase(tables.DataTable):
     )
     STATUS_DISPLAY_CHOICES = (
         ("available", pgettext_lazy("Current status of a Volume",
-                                    u"Available")),
-        ("in-use", pgettext_lazy("Current status of a Volume", u"In-use")),
-        ("error", pgettext_lazy("Current status of a Volume", u"Error")),
+                                    "Available")),
+        ("in-use", pgettext_lazy("Current status of a Volume", "In-use")),
+        ("error", pgettext_lazy("Current status of a Volume", "Error")),
         ("creating", pgettext_lazy("Current status of a Volume",
-                                   u"Creating")),
+                                   "Creating")),
         ("error_extending", pgettext_lazy("Current status of a Volume",
-                                          u"Error Extending")),
+                                          "Error Extending")),
         ("extending", pgettext_lazy("Current status of a Volume",
-                                    u"Extending")),
+                                    "Extending")),
         ("attaching", pgettext_lazy("Current status of a Volume",
-                                    u"Attaching")),
+                                    "Attaching")),
         ("detaching", pgettext_lazy("Current status of a Volume",
-                                    u"Detaching")),
+                                    "Detaching")),
         ("deleting", pgettext_lazy("Current status of a Volume",
-                                   u"Deleting")),
+                                   "Deleting")),
         ("error_deleting", pgettext_lazy("Current status of a Volume",
-                                         u"Error deleting")),
+                                         "Error deleting")),
         ("backing-up", pgettext_lazy("Current status of a Volume",
-                                     u"Backing Up")),
+                                     "Backing Up")),
         ("restoring-backup", pgettext_lazy("Current status of a Volume",
-                                           u"Restoring Backup")),
+                                           "Restoring Backup")),
         ("error_restoring", pgettext_lazy("Current status of a Volume",
-                                          u"Error Restoring")),
+                                          "Error Restoring")),
         ("maintenance", pgettext_lazy("Current status of a Volume",
-                                      u"Maintenance")),
+                                      "Maintenance")),
         ("reserved", pgettext_lazy("Current status of a Volume",
-                                   u"Reserved")),
+                                   "Reserved")),
         ("awaiting-transfer", pgettext_lazy("Current status of a Volume",
-                                            u"Awaiting Transfer")),
+                                            "Awaiting Transfer")),
     )
     name = tables.Column("name",
                          verbose_name=_("Name"),
@@ -598,8 +598,8 @@ class DetachVolume(tables.BatchAction):
     def action_present(count):
         return npgettext_lazy(
             "Action to perform (the volume is currently attached)",
-            u"Detach Volume",
-            u"Detach Volumes",
+            "Detach Volume",
+            "Detach Volumes",
             count
         )
 
@@ -608,8 +608,8 @@ class DetachVolume(tables.BatchAction):
     def action_past(count):
         return npgettext_lazy(
             "Past action (the volume is currently being detached)",
-            u"Detaching Volume",
-            u"Detaching Volumes",
+            "Detaching Volume",
+            "Detaching Volumes",
             count
         )
 

@@ -75,16 +75,16 @@ class DeleteVolumeType(tables.DeleteAction):
     @staticmethod
     def action_present(count):
         return ungettext_lazy(
-            u"Delete Volume Type",
-            u"Delete Volume Types",
+            "Delete Volume Type",
+            "Delete Volume Types",
             count
         )
 
     @staticmethod
     def action_past(count):
         return ungettext_lazy(
-            u"Deleted Volume Type",
-            u"Deleted Volume Types",
+            "Deleted Volume Type",
+            "Deleted Volume Types",
             count
         )
     policy_rules = (("volume", "volume_extension:types_manage"),)
@@ -126,16 +126,16 @@ class DeleteVolumeTypeEncryption(tables.DeleteAction):
     @staticmethod
     def action_present(count):
         return ungettext_lazy(
-            u"Delete Encryption",
-            u"Delete Encryptions",
+            "Delete Encryption",
+            "Delete Encryptions",
             count
         )
 
     @staticmethod
     def action_past(count):
         return ungettext_lazy(
-            u"Deleted Encryption",
-            u"Deleted Encryptions",
+            "Deleted Encryption",
+            "Deleted Encryptions",
             count
         )
 
@@ -293,16 +293,16 @@ class DeleteQosSpecs(tables.DeleteAction):
     @staticmethod
     def action_present(count):
         return ungettext_lazy(
-            u"Delete QoS Spec",
-            u"Delete QoS Specs",
+            "Delete QoS Spec",
+            "Delete QoS Specs",
             count
         )
 
     @staticmethod
     def action_past(count):
         return ungettext_lazy(
-            u"Deleted QoS Spec",
-            u"Deleted QoS Specs",
+            "Deleted QoS Spec",
+            "Deleted QoS Specs",
             count
         )
     policy_rules = (("volume", "volume_extension:types_manage"),)
