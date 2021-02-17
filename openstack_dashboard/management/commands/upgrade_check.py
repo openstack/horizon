@@ -203,7 +203,7 @@ class UpgradeCheckTable(upgradecheck.UpgradeCommands):
 
 
 class Command(BaseCommand):
-    help = _("Perform a check to see if the application is ready for upgrade.")
+    help = "Perform a check to see if the application is ready for upgrade."
 
     def add_arguments(self, parser):
         parser.add_argument(
