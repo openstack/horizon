@@ -1,0 +1,18 @@
+<div ng-controller="LaunchInstanceNetworkPortController as ctrl">
+  <dl class="port-details dl-horizontal">
+    <dt translate>ID</dt>
+    <dd>{$ item.id $}</dd>
+    <dt translate>Project ID</dt>
+    <dd>{$ item.tenant_id $}</dd>
+    <dt translate>Network ID</dt>
+    <dd>{$ item.network_id $}</dd>
+    <dt translate>Network</dt>
+    <dd>{$ item.network_name $}</dd>
+    <dt translate>VNIC type</dt>
+    <dd>{$ item['binding:vnic_type'] | decode:ctrl.vnicTypes $}</dd>
+    <div ng-if="item['binding:host_id']">
+      <dt translate>Host ID</dt>
+      <dd>{$ item['binding:host_id'] $}</dd>
+    </div>
+  </dl>
+</div>
