@@ -25,6 +25,7 @@ from openstack_dashboard.dashboards.project.instances \
 from openstack_dashboard import api
 from openstack_dashboard.dashboards.project.instances import console
 from openstack_dashboard.dashboards.project.instances import interfaces_tables
+from openstack_dashboard import policy
 from openstack_dashboard.utils import settings as settings_utils
 
 
@@ -49,12 +50,13 @@ class OverviewTab(tabs.Tab):
         return {"instance": instance}
 
 
-class InterfacesTab(tabs.TableTab):
+class InterfacesTab(policy.PolicyTargetMixin, tabs.TableTab):
     name = _("Interfaces")
     slug = "interfaces"
     table_classes = (interfaces_tables.InterfacesTable, )
     template_name = "horizon/common/_detail_table.html"
     preload = False
+    policy_rules = (("compute", "os_compute_api:os-attach-interfaces"),)
 
     def get_interfaces_data(self):
         instance = self.tab_group.kwargs['instance']
@@ -75,11 +77,12 @@ class InterfacesTab(tabs.TableTab):
         return ports
 
 
-class LogTab(tabs.Tab):
+class LogTab(policy.PolicyTargetMixin, tabs.Tab):
     name = _("Log")
     slug = "log"
     template_name = "project/instances/_detail_log.html"
     preload = False
+    policy_rules = (("compute", "os_compute_api:os-console-output"),)
 
     def get_context_data(self, request):
         instance = self.tab_group.kwargs['instance']
@@ -96,11 +99,12 @@ class LogTab(tabs.Tab):
                 "log_length": log_length}
 
 
-class ConsoleTab(tabs.Tab):
+class ConsoleTab(policy.PolicyTargetMixin, tabs.Tab):
     name = _("Console")
     slug = "console"
     template_name = "project/instances/_detail_console.html"
     preload = False
+    policy_rules = (("compute", "os_compute_api:os-consoles:show"),)
 
     def get_context_data(self, request):
         instance = self.tab_group.kwargs['instance']
@@ -126,12 +130,13 @@ class ConsoleTab(tabs.Tab):
         return bool(settings.CONSOLE_TYPE)
 
 
-class AuditTab(tabs.TableTab):
+class AuditTab(policy.PolicyTargetMixin, tabs.TableTab):
     name = _("Action Log")
     slug = "audit"
     table_classes = (a_tables.AuditTable,)
     template_name = "project/instances/_detail_audit.html"
     preload = False
+    policy_rules = (("compute", "os_compute_api:os-instance-usage-audit-log"),)
 
     def get_audit_data(self):
         actions = []
@@ -145,7 +150,8 @@ class AuditTab(tabs.TableTab):
         return sorted(actions, reverse=True, key=lambda y: y.start_time)
 
 
-class InstanceDetailTabs(tabs.DetailTabsGroup):
+class InstanceDetailTabs(policy.PolicyTargetMixin, tabs.DetailTabsGroup):
     slug = "instance_details"
     tabs = (OverviewTab, InterfacesTab, LogTab, ConsoleTab, AuditTab)
     sticky = True
+    policy_rules = (("compute", "os_compute_api:os-consoles:show"),)
