@@ -28,10 +28,9 @@ from openstack_dashboard import policy
 from openstack_dashboard.usage import quotas
 from openstack_dashboard.utils import filters
 
-# TODO(amotoki): [drop-nova-network] Add neutron policy support
-
 
 class DeleteGroup(policy.PolicyTargetMixin, tables.DeleteAction):
+    policy_rules = (("network", "delete_security_group"),)
 
     @staticmethod
     def action_present(count):
@@ -58,12 +57,13 @@ class DeleteGroup(policy.PolicyTargetMixin, tables.DeleteAction):
         api.neutron.security_group_delete(request, obj_id)
 
 
-class CreateGroup(tables.LinkAction):
+class CreateGroup(policy.PolicyTargetMixin, tables.LinkAction):
     name = "create"
     verbose_name = _("Create Security Group")
     url = "horizon:project:security_groups:create"
     classes = ("ajax-modal",)
     icon = "plus"
+    policy_rules = (("network", "create_security_group"),)
 
     def allowed(self, request, security_group=None):
         usages = quotas.tenant_quota_usages(request,
@@ -85,6 +85,7 @@ class EditGroup(policy.PolicyTargetMixin, tables.LinkAction):
     url = "horizon:project:security_groups:update"
     classes = ("ajax-modal",)
     icon = "pencil"
+    policy_rules = (("network", "update_security_group"),)
 
     def allowed(self, request, security_group=None):
         if not security_group:
@@ -97,6 +98,7 @@ class ManageRules(policy.PolicyTargetMixin, tables.LinkAction):
     verbose_name = _("Manage Rules")
     url = "horizon:project:security_groups:detail"
     icon = "pencil"
+    policy_rules = (("network", "get_security_group_rule"),)
 
 
 class SecurityGroupsFilterAction(tables.FilterAction):
@@ -124,12 +126,13 @@ class SecurityGroupsTable(tables.DataTable):
         row_actions = (ManageRules, EditGroup, DeleteGroup)
 
 
-class CreateRule(tables.LinkAction):
+class CreateRule(policy.PolicyTargetMixin, tables.LinkAction):
     name = "add_rule"
     verbose_name = _("Add Rule")
     url = "horizon:project:security_groups:add_rule"
     classes = ("ajax-modal",)
     icon = "plus"
+    policy_rules = (("network", "create_security_group_rule"),)
 
     def get_link_url(self):
         return reverse(self.url, args=[self.table.kwargs['security_group_id']])
@@ -148,7 +151,9 @@ class CreateRule(tables.LinkAction):
         return True
 
 
-class DeleteRule(tables.DeleteAction):
+class DeleteRule(policy.PolicyTargetMixin, tables.DeleteAction):
+    policy_rules = (("network", "delete_security_group_rule"),)
+
     @staticmethod
     def action_present(count):
         return ungettext_lazy(
