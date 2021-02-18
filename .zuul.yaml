@@ -30,8 +30,6 @@
     required-projects:
       - name: openstack/horizon
       - name: openstack/tempest
-      - name: openstack/tempest-horizon
-        override-checkout: 0.2.0
     irrelevant-files:
       - ^.*\.rst$
       - ^doc/.*$
@@ -47,7 +45,7 @@
       - ^openstack_dashboard/dashboards/.*/tests.py$
     vars:
       devstack_localrc:
-        TEMPEST_PLUGINS: "{{ ansible_user_dir }}/src/opendev.org/openstack/tempest-horizon"
+        TEMPEST_PLUGINS: "tempest-horizon==0.2.0"
       devstack_services:
         horizon: true
         tempest: true
