@@ -23,6 +23,7 @@ from django.utils import module_loading
 
 from horizon import exceptions
 from horizon.utils import html
+from horizon.utils import settings as utils_settings
 
 LOG = logging.getLogger(__name__)
 
@@ -307,8 +308,9 @@ class Tab(html.HTMLElement):
     preload = True
     _active = None
     permissions = []
+    policy_rules = None
 
-    def __init__(self, tab_group, request=None):
+    def __init__(self, tab_group, request=None, policy_rules=None):
         super().__init__()
         # Priority: constructor, class-defined, fallback
         if not self.name:
@@ -321,6 +323,7 @@ class Tab(html.HTMLElement):
             self._allowed = self.allowed(request) and (
                 self._has_permissions(request))
             self._enabled = self.enabled(request)
+        self.policy_rules = policy_rules or []
 
     def __repr__(self):
         return "<%s: %s>" % (self.__class__.__name__, self.slug)
@@ -437,9 +440,14 @@ class Tab(html.HTMLElement):
 
         Tab instances can override this method to specify conditions under
         which this tab should not be shown at all by returning ``False``.
-
-        The default behavior is to return ``True`` for all cases.
         """
+        if not self.policy_rules:
+            return True
+
+        policy_check = utils_settings.import_setting("POLICY_CHECK_FUNCTION")
+
+        if policy_check:
+            return policy_check(self.policy_rules, request)
         return True
 
     def post(self, request, *args, **kwargs):

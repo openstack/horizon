@@ -65,9 +65,16 @@ class TabDisallowed(BaseTestTab):
         return False
 
 
+class TabWithPolicy(BaseTestTab):
+    slug = "tab_with_policy"
+    name = "tab only visible to admin"
+    template_name = "_tab.html"
+    policy_rules = (("compute", "role:admin"),)
+
+
 class Group(horizon_tabs.TabGroup):
     slug = "tab_group"
-    tabs = (TabOne, TabDelayed, TabDisabled, TabDisallowed)
+    tabs = (TabOne, TabDelayed, TabDisabled, TabDisallowed, TabWithPolicy)
     sticky = True
 
     def tabs_not_available(self):
@@ -126,15 +133,19 @@ class TabWithTableView(horizon_tabs.TabbedTableView):
 
 
 class TabTests(test.TestCase):
+    @override_settings(POLICY_CHECK_FUNCTION=lambda *args: True)
     def test_tab_group_basics(self):
         tg = Group(self.request)
 
         # Test tab instantiation/attachment to tab group, and get_tabs method
         tabs = tg.get_tabs()
         # "tab_disallowed" should NOT be in this list.
+        # "tab_with_policy" should be present, since our policy check
+        #  always passes
         self.assertQuerysetEqual(tabs, ['<TabOne: tab_one>',
                                         '<TabDelayed: tab_delayed>',
-                                        '<TabDisabled: tab_disabled>'])
+                                        '<TabDisabled: tab_disabled>',
+                                        '<TabWithPolicy: tab_with_policy>'])
         # Test get_id
         self.assertEqual("tab_group", tg.get_id())
         # get_default_classes
@@ -148,6 +159,19 @@ class TabTests(test.TestCase):
 
         # Test get_selected_tab is None w/o GET input
         self.assertIsNone(tg.get_selected_tab())
+
+    @override_settings(POLICY_CHECK_FUNCTION=lambda *args: False)
+    def test_failed_tab_policy(self):
+        tg = Group(self.request)
+
+        # Test tab instantiation/attachment to tab group, and get_tabs method
+        tabs = tg.get_tabs()
+        # "tab_disallowed" should NOT be in this list, it's not allowed
+        # "tab_with_policy" should also not be present as its
+        #  policy check failed
+        self.assertQuerysetEqual(tabs, ['<TabOne: tab_one>',
+                                        '<TabDelayed: tab_delayed>',
+                                        '<TabDisabled: tab_disabled>'])
 
     @test.update_settings(
         HORIZON_CONFIG={'extra_tabs': {
@@ -251,7 +275,7 @@ class TabTests(test.TestCase):
         # tab group
         output = tg.render()
         res = http.HttpResponse(output.strip())
-        self.assertContains(res, "<li", 3)
+        self.assertContains(res, "<li", 4)
 
         # stickiness
         self.assertContains(res, 'data-sticky-tabs="sticky"', 1)
