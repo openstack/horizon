@@ -21,13 +21,12 @@ General-purpose decorators for use with Horizon.
 """
 import functools
 
-from django.utils.decorators import available_attrs
 from django.utils.translation import ugettext_lazy as _
 
 
 def _current_component(view_func, dashboard=None, panel=None):
     """Sets the currently-active dashboard and/or panel on the request."""
-    @functools.wraps(view_func, assigned=available_attrs(view_func))
+    @functools.wraps(view_func, assigned=functools.WRAPPER_ASSIGNMENTS)
     def dec(request, *args, **kwargs):
         if dashboard:
             request.horizon['dashboard'] = dashboard
@@ -46,7 +45,7 @@ def require_auth(view_func):
     """
     from horizon.exceptions import NotAuthenticated
 
-    @functools.wraps(view_func, assigned=available_attrs(view_func))
+    @functools.wraps(view_func, assigned=functools.WRAPPER_ASSIGNMENTS)
     def dec(request, *args, **kwargs):
         if request.user.is_authenticated:
             return view_func(request, *args, **kwargs)
@@ -77,7 +76,7 @@ def require_perms(view_func, required):
     current_perms = getattr(view_func, '_required_perms', set([]))
     view_func._required_perms = current_perms | set(required)
 
-    @functools.wraps(view_func, assigned=available_attrs(view_func))
+    @functools.wraps(view_func, assigned=functools.WRAPPER_ASSIGNMENTS)
     def dec(request, *args, **kwargs):
         if request.user.is_authenticated:
             if request.user.has_perms(view_func._required_perms):
@@ -103,7 +102,7 @@ def require_component_access(view_func, component):
     """
     from horizon.exceptions import NotAuthorized
 
-    @functools.wraps(view_func, assigned=available_attrs(view_func))
+    @functools.wraps(view_func, assigned=functools.WRAPPER_ASSIGNMENTS)
     def dec(request, *args, **kwargs):
         if not component.can_access({'request': request}):
             raise NotAuthorized(_("You are not authorized to access %s")

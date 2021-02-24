@@ -11,6 +11,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 import datetime
+import functools
 import logging
 
 from django.conf import settings
@@ -22,7 +23,6 @@ from django import http as django_http
 from django.middleware import csrf
 from django import shortcuts
 from django.urls import reverse
-from django.utils import functional
 from django.utils import http
 from django.utils.translation import ugettext_lazy as _
 from django.views.decorators.cache import never_cache
@@ -116,9 +116,9 @@ def login(request):
         initial.update({'region': requested_region})
 
     if request.method == "POST":
-        form = functional.curry(forms.Login)
+        form = functools.partial(forms.Login)
     else:
-        form = functional.curry(forms.Login, initial=initial)
+        form = functools.partial(forms.Login, initial=initial)
 
     choices = settings.WEBSSO_CHOICES
     reason = get_csrf_reason(request.GET.get('csrf_failure'))

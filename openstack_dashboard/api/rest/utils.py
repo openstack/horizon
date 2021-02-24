@@ -17,7 +17,6 @@ import logging
 
 from django.conf import settings
 from django import http
-from django.utils import decorators
 
 from oslo_serialization import jsonutils
 
@@ -104,7 +103,7 @@ def ajax(authenticated=True, data_required=False,
     def decorator(function, authenticated=authenticated,
                   data_required=data_required):
         @functools.wraps(function,
-                         assigned=decorators.available_attrs(function))
+                         assigned=functools.WRAPPER_ASSIGNMENTS)
         def _wrapped(self, request, *args, **kw):
             if authenticated and not request.user.is_authenticated:
                 return JSONResponse('not logged in', 401)
