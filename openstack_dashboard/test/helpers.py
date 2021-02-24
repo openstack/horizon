@@ -279,7 +279,10 @@ class TestCase(horizon_helpers.TestCase):
         Asserts that the given response issued a 302 redirect without
         processing the view which is redirected to.
         """
-        loc = str(response._headers.get('location', None)[1])
+        if response.has_header('location'):
+            loc = response['location']
+        else:
+            loc = ''
         loc = http.urlunquote(loc)
         expected_url = http.urlunquote(expected_url)
         self.assertEqual(loc, expected_url)
