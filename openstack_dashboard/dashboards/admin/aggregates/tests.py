@@ -104,7 +104,7 @@ class CreateAggregateWorkflowTests(BaseAggregateWorkflowTests):
         workflow_data['name'] = ''
         workflow_data['availability_zone'] = ''
         self._test_generic_create_aggregate(workflow_data, aggregate, (), 1,
-                                            'This field is required')
+                                            'This field is required.')
 
     def test_create_aggregate_fails_missing_fields_existing_aggregates(self):
         aggregate = self.aggregates.first()
@@ -115,7 +115,7 @@ class CreateAggregateWorkflowTests(BaseAggregateWorkflowTests):
 
         self._test_generic_create_aggregate(workflow_data, aggregate,
                                             existing_aggregates, 1,
-                                            'This field is required')
+                                            'This field is required.')
 
     def test_create_aggregate_fails_duplicated_name(self):
         aggregate = self.aggregates.first()
@@ -254,7 +254,7 @@ class AggregatesViewTests(test.BaseAdminViewTests):
                      'availability_zone': aggregate.availability_zone}
 
         self._test_generic_update_aggregate(form_data, aggregate, 1,
-                                            'This field is required')
+                                            'This field is required.')
 
     def test_update_aggregate_fails_missing_az_field(self):
         aggregate = self.aggregates.first()

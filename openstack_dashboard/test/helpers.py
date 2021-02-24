@@ -28,6 +28,7 @@ from django.contrib.messages.storage import default_storage
 from django.core.handlers import wsgi
 from django.test.client import RequestFactory
 from django.test import tag
+from django.test import testcases
 from django import urls
 from django.utils import http
 
@@ -313,10 +314,14 @@ class TestCase(horizon_helpers.TestCase):
             assert len(errors) == count, \
                 "%d errors were found on the form, %d expected" % \
                 (len(errors), count)
-            if message and message not in str(errors):
-                self.fail("Expected message not found, instead found: %s"
-                          % ["%s: %s" % (key, [e for e in field_errors]) for
-                             (key, field_errors) in errors.items()])
+            if message:
+                text = testcases.assert_and_parse_html(
+                    self, message, None, '"message" contains invalid HTML:')
+                content = testcases.assert_and_parse_html(
+                    self, str(errors), None,
+                    '"_errors" in the response context is not valid HTML:')
+                match_count = content.count(text)
+                self.assertGreaterEqual(match_count, 1)
         else:
             assert len(errors) > 0, "No errors were found on the form"
 
