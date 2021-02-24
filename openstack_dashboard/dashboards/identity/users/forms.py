@@ -296,8 +296,8 @@ class ChangePasswordForm(PasswordMixin, forms.SelfHandlingForm):
                 strip=False,
                 widget=forms.PasswordInput(render_value=False))
             # Reorder form fields from multiple inheritance
-            self.fields.keyOrder = ["id", "name", "admin_password",
-                                    "password", "confirm_password"]
+            self.field_order = ["id", "name", "admin_password",
+                                "password", "confirm_password"]
 
     @sensitive_variables('data', 'password', 'admin_password')
     def handle(self, request, data):
