@@ -26,7 +26,7 @@ class HandleTests(test.TestCase):
         # 'Because the container is not empty, it can not be deleted.'
 
         expected = ['error', force_text(translated_unicode +
-                                        exceptions.SEPERATOR +
+                                        exceptions.SEPARATOR +
                                         translated_unicode), '']
 
         req = self.request
@@ -81,7 +81,7 @@ class HandleTests(test.TestCase):
         message = "Couldn't make the thing"
         exc_msg = "Exception string"
         details = "custom detail message"
-        expected = ['error', message + exceptions.SEPERATOR + details, '']
+        expected = ['error', message + exceptions.SEPARATOR + details, '']
         req = self.request
         req.META['HTTP_X_REQUESTED_WITH'] = 'XMLHttpRequest'
 

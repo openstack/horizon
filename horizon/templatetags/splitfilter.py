@@ -19,4 +19,4 @@ register = template.Library()
 
 @register.filter(name='split_message')
 def split_message(value):
-    return value.split(exceptions.SEPERATOR)
+    return value.split(exceptions.SEPARATOR)

@@ -31,7 +31,7 @@ from horizon import messages
 
 LOG = logging.getLogger(__name__)
 
-SEPERATOR = '\u2026'
+SEPARATOR = '\u2026'
 
 
 class HorizonReporterFilter(SafeExceptionReporterFilter):
@@ -263,7 +263,7 @@ HANDLE_EXC_METHODS = [
 
 
 def _append_detail(message, details):
-    return encoding.force_text(message) + SEPERATOR + \
+    return encoding.force_text(message) + SEPARATOR + \
         encoding.force_text(details)
 
 
