@@ -39,6 +39,7 @@ python-swiftclient>=3.2.0 # Apache-2.0
 pytz>=2013.6 # MIT
 PyYAML>=3.12 # MIT
 requests>=2.25.1 # Apache-2.0
+six>=1.16.0 # MIT
 semantic-version>=2.3.1 # BSD
 XStatic>=1.0.0 # MIT License
 XStatic-Angular>=1.5.8.0 # MIT License
