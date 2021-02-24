@@ -3454,8 +3454,10 @@ class InstanceLaunchInstanceTests(InstanceTestBase,
         image.min_disk = flavor.disk + 1
         keypair = self.keypairs.first()
         res = self._launch_form_instance(image, flavor, keypair)
-        msg = "The flavor &#39;%s&#39; is too small" % flavor.name
-        self.assertContains(res, msg)
+        msg = (f"The flavor &#39;{flavor.name}&#39; is too small for requested "
+               f"image. Minimum requirements: {image.min_ram} MB of RAM and "
+               f"{image.min_disk} GB of Root Disk.")
+        self.assertContains(res, msg, html=True)
 
     def test_launch_form_instance_requirement_error_ram(self):
         flavor = self.flavors.first()
@@ -3464,8 +3466,10 @@ class InstanceLaunchInstanceTests(InstanceTestBase,
         image.min_disk = flavor.disk
         keypair = self.keypairs.first()
         res = self._launch_form_instance(image, flavor, keypair)
-        msg = "The flavor &#39;%s&#39; is too small" % flavor.name
-        self.assertContains(res, msg)
+        msg = (f"The flavor &#39;{flavor.name}&#39; is too small for requested "
+               f"image. Minimum requirements: {image.min_ram} MB of RAM and "
+               f"{image.min_disk} GB of Root Disk.")
+        self.assertContains(res, msg, html=True)
 
     def test_launch_form_instance_zero_value_flavor_with_min_req(self):
         flavor = self.flavors.first()
@@ -3474,8 +3478,10 @@ class InstanceLaunchInstanceTests(InstanceTestBase,
         image.min_disk = flavor.disk + 1
         keypair = self.keypairs.first()
         res = self._launch_form_instance(image, flavor, keypair)
-        msg = "The flavor &#39;%s&#39; is too small" % flavor.name
-        self.assertNotContains(res, msg)
+        msg = (f"The flavor &39;{flavor.name}&39; is too small for requested "
+               f"image. Minimum requirements: {image.min_ram} MB of RAM and "
+               f"{image.min_disk} GB of Root Disk.")
+        self.assertNotContains(res, msg, html=True)
 
     @helpers.create_mocks({api.glance: ('image_list_detailed',),
                            api.neutron: ('network_list',
@@ -3707,7 +3713,7 @@ class InstanceLaunchInstanceTests(InstanceTestBase,
         url = reverse('horizon:project:instances:launch')
 
         res = self.client.post(url, form_data)
-        self.assertContains(res, msg)
+        self.assertContains(res, msg, html=True)
 
         self.mock_keypair_list.assert_called_once_with(helpers.IsHttpRequest())
         self.mock_security_group_list.assert_called_once_with(
@@ -3751,8 +3757,9 @@ class InstanceLaunchInstanceTests(InstanceTestBase,
     def test_launch_form_instance_volume_size_error(self):
         image = self.versioned_images.get(name='protected_images')
         volume_size = image.min_disk // 2
-        msg = ("The Volume size is too small for the &#39;%s&#39; image" %
-               image.name)
+        msg = ("The Volume size is too small for the &#39;%s&#39; image "
+               "and has to be greater than or equal to &#39;%s&#39; GB." %
+               (image.name, image.min_disk))
         self._test_launch_form_instance_volume_size(image, volume_size, msg)
 
     def test_launch_form_instance_non_int_volume_size(self):
@@ -3762,7 +3769,8 @@ class InstanceLaunchInstanceTests(InstanceTestBase,
 
     def test_launch_form_instance_volume_exceed_quota(self):
         image = self.versioned_images.get(name='protected_images')
-        msg = "Requested volume exceeds quota: Available: 0, Requested: 1"
+        msg = ("The requested instance cannot be launched. "
+               "Requested volume exceeds quota: Available: 0, Requested: 1.")
         self._test_launch_form_instance_volume_size(image, image.min_disk,
                                                     msg, 0)
 
