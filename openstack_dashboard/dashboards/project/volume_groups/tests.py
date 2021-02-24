@@ -108,8 +108,7 @@ class VolumeGroupTests(test.TestCase):
         res = self.client.post(url, formData)
         self.assertNoFormErrors(res)
         self.assertRedirectsNoFollow(res, INDEX_URL)
-        self.assertIn("Unable to create group.",
-                      res.cookies.output())
+        self.assertCookieMessage(res, "Unable to create group.")
 
         self.mock_extension_supported.assert_called_once_with(
             test.IsHttpRequest(), 'AvailabilityZones')

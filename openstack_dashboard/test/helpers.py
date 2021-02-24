@@ -24,6 +24,7 @@ import traceback
 from unittest import mock
 
 from django.conf import settings
+from django.contrib.messages.storage import cookie as cookie_storage
 from django.contrib.messages.storage import default_storage
 from django.core.handlers import wsgi
 from django.test.client import RequestFactory
@@ -38,6 +39,7 @@ from requests.packages.urllib3.connection import HTTPConnection
 
 from horizon import base
 from horizon import conf
+from horizon import exceptions
 from horizon.test import helpers as horizon_helpers
 from openstack_dashboard import api
 from openstack_dashboard import context_processors
@@ -437,6 +439,16 @@ class TestCase(horizon_helpers.TestCase):
             self.assertGreater(
                 len(errors), 0,
                 "No errors were found on the workflow")
+
+    def assertCookieMessage(self, response, expected_msg, detail_msg=None):
+        data = response.cookies["messages"]
+        storage = cookie_storage.CookieStorage(None)
+        messages = [m.message for m in storage._decode(data.value)]
+        if detail_msg is not None:
+            _expected = exceptions._append_detail(expected_msg, detail_msg)
+        else:
+            _expected = expected_msg
+        self.assertIn(_expected, messages)
 
 
 class BaseAdminViewTests(TestCase):

@@ -71,11 +71,10 @@ class GroupSnapshotTests(test.TestCase):
                       args=[vg_snapshot.id])
         res = self.client.post(url, formData)
         self.assertNoFormErrors(res)
-        # There are a bunch of backslashes for formatting in the message from
-        # the response, so remove them when validating the error message.
-        self.assertIn('Unable to create group "%s" from snapshot.'
-                      % new_cg_name,
-                      res.cookies.output().replace('\\', ''))
+        self.assertCookieMessage(
+            res,
+            'Unable to create group "%s" from snapshot.' % new_cg_name,
+            'Expected failure.')
         self.assertRedirectsNoFollow(res, INDEX_URL)
 
         mock_group_snapshot_get.assert_called_once_with(
