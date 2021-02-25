@@ -564,7 +564,12 @@
 
       if (enabledImage || enabledSnapshot) {
         var filter = {status: 'active', sort_key: 'name', sort_dir: 'asc'};
-        glanceAPI.getImages(filter).then(
+        var filterCommunity = angular.merge({}, filter, {visibility: 'community'});
+        var imagePromises = [
+          glanceAPI.getImages(filter),
+          glanceAPI.getImages(filterCommunity)
+        ];
+        $q.all(imagePromises).then(
           function(data) {
             onGetImageSources(data, enabledImage, enabledSnapshot);
           }
@@ -670,13 +675,21 @@
       model.imageSnapshots.length = 0;
       model.images.length = 0;
 
-      angular.forEach(data.data.items, function(image) {
-        if (isValidSnapshot(image) && enabledSnapshot) {
-          model.imageSnapshots.push(image);
-        } else if (isValidImage(image) && enabledImage) {
-          image.name_or_id = image.name || image.id;
-          model.images.push(image);
-        }
+      var imageIdsProcessed = [];
+
+      angular.forEach(data, function(data) {
+        angular.forEach(data.data.items, function(image) {
+          if (imageIdsProcessed.includes(image.id)) {
+            return;
+          }
+          imageIdsProcessed.push(image.id);
+          if (isValidSnapshot(image) && enabledSnapshot) {
+            model.imageSnapshots.push(image);
+          } else if (isValidImage(image) && enabledImage) {
+            image.name_or_id = image.name || image.id;
+            model.images.push(image);
+          }
+        });
       });
 
       if (enabledImage) {
