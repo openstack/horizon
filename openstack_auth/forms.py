@@ -89,10 +89,8 @@ class Login(django_auth_forms.AuthenticationForm):
             else:
                 self.fields['domain'] = forms.CharField(
                     initial=last_domain,
-                    label=_("Domain"),
-                    widget=forms.TextInput(attrs={"autofocus": "autofocus"}))
-            self.fields['username'].widget = forms.widgets.TextInput()
-            fields_ordering = ['domain', 'username', 'password', 'region']
+                    label=_("Domain"))
+            fields_ordering = ['username', 'password', 'domain', 'region']
         self.fields['region'].choices = get_region_choices()
         if len(self.fields['region'].choices) == 1:
             self.fields['region'].initial = self.fields['region'].choices[0][0]
