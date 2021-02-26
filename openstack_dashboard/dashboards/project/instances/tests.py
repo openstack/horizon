@@ -194,7 +194,10 @@ class InstanceTableTests(InstanceTestBase, InstanceTableTestMixin):
             'servers_update_addresses',
         ),
         api.cinder: ('volume_list',),
-    })
+    }, stop_mock=False)
+    # NOTE: _get_index() and _check_get_index() are used as pair
+    # and the test logic will be placed between these calls,
+    # so we cannot stop mocking when exiting this method.
     def _get_index(self, use_servers_update_address=True):
         servers = self.servers.list()
         self.mock_is_feature_available.return_value = True

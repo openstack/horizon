@@ -54,7 +54,7 @@ IsA = horizon_helpers.IsA
 IsHttpRequest = horizon_helpers.IsHttpRequest
 
 
-def create_mocks(target_methods):
+def create_mocks(target_methods, stop_mock=True):
     """decorator to simplify setting up multiple mocks at once
 
     :param target_methods: a dict to define methods to be patched using mock.
@@ -109,10 +109,14 @@ def create_mocks(target_methods):
             self.mock_cinder_tenant_absolute_limits.return_value = ...
             ...
 
+    :param stop_mock: If True (default), mocks started in this decorator will
+        be stopped. Set this to False only if you cannot stop mocks when exiting
+        this decorator. The default value, True, should work for most cases.
     """
     def wrapper(function):
         @wraps(function)
         def wrapped(inst, *args, **kwargs):
+            patchers = []
             for target, methods in target_methods.items():
                 for method in methods:
                     if isinstance(method, str):
@@ -122,8 +126,13 @@ def create_mocks(target_methods):
                         method_mocked = method[0]
                         attr_name = method[1]
                     m = mock.patch.object(target, method_mocked)
+                    patchers.append(m)
                     setattr(inst, 'mock_%s' % attr_name, m.start())
-            return function(inst, *args, **kwargs)
+            retval = function(inst, *args, **kwargs)
+            if stop_mock:
+                for m in patchers:
+                    m.stop()
+            return retval
         return wrapped
     return wrapper
 
