@@ -74,6 +74,11 @@ def _get_enforcer():
                 LOG.warning("Cannot load a policy file '%s' for service '%s' "
                             "due to IOError. One possible reason is "
                             "permission denied.", policy_file, service)
+            except ValueError:
+                LOG.warning("Cannot load a policy file '%s' for service '%s' "
+                            "due to ValueError. The file might be wrongly "
+                            "formatted.", policy_file, service)
+
             # Ensure enforcer.rules is populated.
             if enforcer.rules:
                 LOG.debug("adding enforcer for service: %s", service)
