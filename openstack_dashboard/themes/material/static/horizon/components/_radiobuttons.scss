@@ -15,6 +15,7 @@
         font-size: $font-size-h5;
         line-height: $font-size-h5;
         vertical-align: middle;
+        content: "\F43D";
       }
     }
 
@@ -24,6 +25,7 @@
 
       &:before {
         color: $brand-primary;
+        content: "\F43E";
       }
     }
   }
