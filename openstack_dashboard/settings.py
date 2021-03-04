@@ -199,8 +199,8 @@ LANGUAGES = (
     ('pt-br', 'Portuguese (Brazil)'),
     ('ru', 'Russian'),
     ('tr', 'Turkish'),
-    ('zh-cn', 'Simplified Chinese'),
-    ('zh-tw', 'Chinese (Taiwan)'),
+    ('zh-hans', 'Simplified Chinese'),
+    ('zh-hant', 'Traditional Chinese'),
 )
 LANGUAGE_CODE = 'en'
 LANGUAGE_COOKIE_NAME = 'horizon_language'
