@@ -1,0 +1,1137 @@
+- check_str: role:admin
+  description: Decides what is required for the 'is_admin:True' check to succeed.
+  name: context_is_admin
+  operations: []
+  scope_types: null
+- check_str: is_admin:True or (role:admin and is_admin_project:True) or project_id:%(project_id)s
+  description: Default rule for most non-Admin APIs.
+  name: admin_or_owner
+  operations: []
+  scope_types: null
+- check_str: is_admin:True or (role:admin and is_admin_project:True)
+  description: Default rule for most Admin APIs.
+  name: admin_api
+  operations: []
+  scope_types: null
+- check_str: ''
+  description: Create attachment.
+  name: volume:attachment_create
+  operations:
+  - method: POST
+    path: /attachments
+  scope_types: null
+- check_str: rule:admin_or_owner
+  description: Update attachment.
+  name: volume:attachment_update
+  operations:
+  - method: PUT
+    path: /attachments/{attachment_id}
+  scope_types: null
+- check_str: rule:admin_or_owner
+  description: Delete attachment.
+  name: volume:attachment_delete
+  operations:
+  - method: DELETE
+    path: /attachments/{attachment_id}
+  scope_types: null
+- check_str: rule:admin_or_owner
+  description: Mark a volume attachment process as completed (in-use)
+  name: volume:attachment_complete
+  operations:
+  - method: POST
+    path: /attachments/{attachment_id}/action (os-complete)
+  scope_types: null
+- check_str: rule:admin_or_owner
+  description: Allow multiattach of bootable volumes.
+  name: volume:multiattach_bootable_volume
+  operations:
+  - method: POST
+    path: /attachments
+  scope_types: null
+- check_str: rule:admin_or_owner
+  description: List messages.
+  name: message:get_all
+  operations:
+  - method: GET
+    path: /messages
+  scope_types: null
+- check_str: rule:admin_or_owner
+  description: Show message.
+  name: message:get
+  operations:
+  - method: GET
+    path: /messages/{message_id}
+  scope_types: null
+- check_str: rule:admin_or_owner
+  description: Delete message.
+  name: message:delete
+  operations:
+  - method: DELETE
+    path: /messages/{message_id}
+  scope_types: null
+- check_str: rule:admin_api
+  description: List clusters.
+  name: clusters:get_all
+  operations:
+  - method: GET
+    path: /clusters
+  - method: GET
+    path: /clusters/detail
+  scope_types: null
+- check_str: rule:admin_api
+  description: Show cluster.
+  name: clusters:get
+  operations:
+  - method: GET
+    path: /clusters/{cluster_id}
+  scope_types: null
+- check_str: rule:admin_api
+  description: Update cluster.
+  name: clusters:update
+  operations:
+  - method: PUT
+    path: /clusters/{cluster_id}
+  scope_types: null
+- check_str: rule:admin_api
+  description: Clean up workers.
+  name: workers:cleanup
+  operations:
+  - method: POST
+    path: /workers/cleanup
+  scope_types: null
+- check_str: rule:admin_or_owner
+  description: Show snapshot's metadata or one specified metadata with a given key.
+  name: volume:get_snapshot_metadata
+  operations:
+  - method: GET
+    path: /snapshots/{snapshot_id}/metadata
+  - method: GET
+    path: /snapshots/{snapshot_id}/metadata/{key}
+  scope_types: null
+- check_str: rule:admin_or_owner
+  description: Update snapshot's metadata or one specified metadata with a given key.
+  name: volume:update_snapshot_metadata
+  operations:
+  - method: PUT
+    path: /snapshots/{snapshot_id}/metadata
+  - method: PUT
+    path: /snapshots/{snapshot_id}/metadata/{key}
+  scope_types: null
+- check_str: rule:admin_or_owner
+  description: Delete snapshot's specified metadata with a given key.
+  name: volume:delete_snapshot_metadata
+  operations:
+  - method: DELETE
+    path: /snapshots/{snapshot_id}/metadata/{key}
+  scope_types: null
+- check_str: rule:admin_or_owner
+  description: List snapshots.
+  name: volume:get_all_snapshots
+  operations:
+  - method: GET
+    path: /snapshots
+  - method: GET
+    path: /snapshots/detail
+  scope_types: null
+- check_str: rule:admin_or_owner
+  description: List or show snapshots with extended attributes.
+  name: volume_extension:extended_snapshot_attributes
+  operations:
+  - method: GET
+    path: /snapshots/{snapshot_id}
+  - method: GET
+    path: /snapshots/detail
+  scope_types: null
+- check_str: rule:admin_or_owner
+  description: Create snapshot.
+  name: volume:create_snapshot
+  operations:
+  - method: POST
+    path: /snapshots
+  scope_types: null
+- check_str: rule:admin_or_owner
+  description: Show snapshot.
+  name: volume:get_snapshot
+  operations:
+  - method: GET
+    path: /snapshots/{snapshot_id}
+  scope_types: null
+- check_str: rule:admin_or_owner
+  description: Update snapshot.
+  name: volume:update_snapshot
+  operations:
+  - method: PUT
+    path: /snapshots/{snapshot_id}
+  scope_types: null
+- check_str: rule:admin_or_owner
+  description: Delete snapshot.
+  name: volume:delete_snapshot
+  operations:
+  - method: DELETE
+    path: /snapshots/{snapshot_id}
+  scope_types: null
+- check_str: rule:admin_api
+  description: Reset status of a snapshot.
+  name: volume_extension:snapshot_admin_actions:reset_status
+  operations:
+  - method: POST
+    path: /snapshots/{snapshot_id}/action (os-reset_status)
+  scope_types: null
+- check_str: ''
+  description: Update database fields of snapshot.
+  name: snapshot_extension:snapshot_actions:update_snapshot_status
+  operations:
+  - method: POST
+    path: /snapshots/{snapshot_id}/action (update_snapshot_status)
+  scope_types: null
+- check_str: rule:admin_api
+  description: Force delete a snapshot.
+  name: volume_extension:snapshot_admin_actions:force_delete
+  operations:
+  - method: POST
+    path: /snapshots/{snapshot_id}/action (os-force_delete)
+  scope_types: null
+- check_str: rule:admin_api
+  description: List (in detail) of snapshots which are available to manage.
+  name: snapshot_extension:list_manageable
+  operations:
+  - method: GET
+    path: /manageable_snapshots
+  - method: GET
+    path: /manageable_snapshots/detail
+  scope_types: null
+- check_str: rule:admin_api
+  description: Manage an existing snapshot.
+  name: snapshot_extension:snapshot_manage
+  operations:
+  - method: POST
+    path: /manageable_snapshots
+  scope_types: null
+- check_str: rule:admin_api
+  description: Stop managing a snapshot.
+  name: snapshot_extension:snapshot_unmanage
+  operations:
+  - method: POST
+    path: /snapshots/{snapshot_id}/action (os-unmanage)
+  scope_types: null
+- check_str: rule:admin_or_owner
+  description: List backups.
+  name: backup:get_all
+  operations:
+  - method: GET
+    path: /backups
+  - method: GET
+    path: /backups/detail
+  scope_types: null
+- check_str: rule:admin_api
+  description: List backups or show backup with project attributes.
+  name: backup:backup_project_attribute
+  operations:
+  - method: GET
+    path: /backups/{backup_id}
+  - method: GET
+    path: /backups/detail
+  scope_types: null
+- check_str: ''
+  description: Create backup.
+  name: backup:create
+  operations:
+  - method: POST
+    path: /backups
+  scope_types: null
+- check_str: rule:admin_or_owner
+  description: Show backup.
+  name: backup:get
+  operations:
+  - method: GET
+    path: /backups/{backup_id}
+  scope_types: null
+- check_str: rule:admin_or_owner
+  description: Update backup.
+  name: backup:update
+  operations:
+  - method: PUT
+    path: /backups/{backup_id}
+  scope_types: null
+- check_str: rule:admin_or_owner
+  description: Delete backup.
+  name: backup:delete
+  operations:
+  - method: DELETE
+    path: /backups/{backup_id}
+  scope_types: null
+- check_str: rule:admin_or_owner
+  description: Restore backup.
+  name: backup:restore
+  operations:
+  - method: POST
+    path: /backups/{backup_id}/restore
+  scope_types: null
+- check_str: rule:admin_api
+  description: Import backup.
+  name: backup:backup-import
+  operations:
+  - method: POST
+    path: /backups/{backup_id}/import_record
+  scope_types: null
+- check_str: rule:admin_api
+  description: Export backup.
+  name: backup:export-import
+  operations:
+  - method: POST
+    path: /backups/{backup_id}/export_record
+  scope_types: null
+- check_str: rule:admin_api
+  description: Reset status of a backup.
+  name: volume_extension:backup_admin_actions:reset_status
+  operations:
+  - method: POST
+    path: /backups/{backup_id}/action (os-reset_status)
+  scope_types: null
+- check_str: rule:admin_api
+  description: Force delete a backup.
+  name: volume_extension:backup_admin_actions:force_delete
+  operations:
+  - method: POST
+    path: /backups/{backup_id}/action (os-force_delete)
+  scope_types: null
+- check_str: rule:admin_or_owner
+  description: List groups.
+  name: group:get_all
+  operations:
+  - method: GET
+    path: /groups
+  - method: GET
+    path: /groups/detail
+  scope_types: null
+- check_str: ''
+  description: Create group.
+  name: group:create
+  operations:
+  - method: POST
+    path: /groups
+  scope_types: null
+- check_str: rule:admin_or_owner
+  description: Show group.
+  name: group:get
+  operations:
+  - method: GET
+    path: /groups/{group_id}
+  scope_types: null
+- check_str: rule:admin_or_owner
+  description: Update group.
+  name: group:update
+  operations:
+  - method: PUT
+    path: /groups/{group_id}
+  scope_types: null
+- check_str: rule:admin_api
+  description: List groups or show group with project attributes.
+  name: group:group_project_attribute
+  operations:
+  - method: GET
+    path: /groups/{group_id}
+  - method: GET
+    path: /groups/detail
+  scope_types: null
+- check_str: rule:admin_api
+  description: Create, update or delete a group type.
+  name: group:group_types_manage
+  operations:
+  - method: POST
+    path: /group_types/
+  - method: PUT
+    path: /group_types/{group_type_id}
+  - method: DELETE
+    path: /group_types/{group_type_id}
+  scope_types: null
+- check_str: rule:admin_api
+  description: Show group type with type specs attributes.
+  name: group:access_group_types_specs
+  operations:
+  - method: GET
+    path: /group_types/{group_type_id}
+  scope_types: null
+- check_str: rule:admin_api
+  description: Create, show, update and delete group type spec.
+  name: group:group_types_specs
+  operations:
+  - method: GET
+    path: /group_types/{group_type_id}/group_specs/{g_spec_id}
+  - method: GET
+    path: /group_types/{group_type_id}/group_specs
+  - method: POST
+    path: /group_types/{group_type_id}/group_specs
+  - method: PUT
+    path: /group_types/{group_type_id}/group_specs/{g_spec_id}
+  - method: DELETE
+    path: /group_types/{group_type_id}/group_specs/{g_spec_id}
+  scope_types: null
+- check_str: rule:admin_or_owner
+  description: List group snapshots.
+  name: group:get_all_group_snapshots
+  operations:
+  - method: GET
+    path: /group_snapshots
+  - method: GET
+    path: /group_snapshots/detail
+  scope_types: null
+- check_str: ''
+  description: Create group snapshot.
+  name: group:create_group_snapshot
+  operations:
+  - method: POST
+    path: /group_snapshots
+  scope_types: null
+- check_str: rule:admin_or_owner
+  description: Show group snapshot.
+  name: group:get_group_snapshot
+  operations:
+  - method: GET
+    path: /group_snapshots/{group_snapshot_id}
+  scope_types: null
+- check_str: rule:admin_or_owner
+  description: Delete group snapshot.
+  name: group:delete_group_snapshot
+  operations:
+  - method: DELETE
+    path: /group_snapshots/{group_snapshot_id}
+  scope_types: null
+- check_str: rule:admin_or_owner
+  description: Update group snapshot.
+  name: group:update_group_snapshot
+  operations:
+  - method: PUT
+    path: /group_snapshots/{group_snapshot_id}
+  scope_types: null
+- check_str: rule:admin_api
+  description: List group snapshots or show group snapshot with project attributes.
+  name: group:group_snapshot_project_attribute
+  operations:
+  - method: GET
+    path: /group_snapshots/{group_snapshot_id}
+  - method: GET
+    path: /group_snapshots/detail
+  scope_types: null
+- check_str: rule:admin_or_owner
+  description: Reset status of group snapshot.
+  name: group:reset_group_snapshot_status
+  operations:
+  - method: POST
+    path: /group_snapshots/{g_snapshot_id}/action (reset_status)
+  scope_types: null
+- check_str: rule:admin_or_owner
+  description: Delete group.
+  name: group:delete
+  operations:
+  - method: POST
+    path: /groups/{group_id}/action (delete)
+  scope_types: null
+- check_str: rule:admin_api
+  description: Reset status of group.
+  name: group:reset_status
+  operations:
+  - method: POST
+    path: /groups/{group_id}/action (reset_status)
+  scope_types: null
+- check_str: rule:admin_or_owner
+  description: Enable replication.
+  name: group:enable_replication
+  operations:
+  - method: POST
+    path: /groups/{group_id}/action (enable_replication)
+  scope_types: null
+- check_str: rule:admin_or_owner
+  description: Disable replication.
+  name: group:disable_replication
+  operations:
+  - method: POST
+    path: /groups/{group_id}/action (disable_replication)
+  scope_types: null
+- check_str: rule:admin_or_owner
+  description: Fail over replication.
+  name: group:failover_replication
+  operations:
+  - method: POST
+    path: /groups/{group_id}/action (failover_replication)
+  scope_types: null
+- check_str: rule:admin_or_owner
+  description: List failover replication.
+  name: group:list_replication_targets
+  operations:
+  - method: POST
+    path: /groups/{group_id}/action (list_replication_targets)
+  scope_types: null
+- check_str: rule:admin_api
+  description: List qos specs or list all associations.
+  name: volume_extension:qos_specs_manage:get_all
+  operations:
+  - method: GET
+    path: /qos-specs
+  - method: GET
+    path: /qos-specs/{qos_id}/associations
+  scope_types: null
+- check_str: rule:admin_api
+  description: Show qos specs.
+  name: volume_extension:qos_specs_manage:get
+  operations:
+  - method: GET
+    path: /qos-specs/{qos_id}
+  scope_types: null
+- check_str: rule:admin_api
+  description: Create qos specs.
+  name: volume_extension:qos_specs_manage:create
+  operations:
+  - method: POST
+    path: /qos-specs
+  scope_types: null
+- check_str: rule:admin_api
+  description: Update qos specs (including updating association).
+  name: volume_extension:qos_specs_manage:update
+  operations:
+  - method: PUT
+    path: /qos-specs/{qos_id}
+  - method: GET
+    path: /qos-specs/{qos_id}/disassociate_all
+  - method: GET
+    path: /qos-specs/{qos_id}/associate
+  - method: GET
+    path: /qos-specs/{qos_id}/disassociate
+  scope_types: null
+- check_str: rule:admin_api
+  description: delete qos specs or unset one specified qos key.
+  name: volume_extension:qos_specs_manage:delete
+  operations:
+  - method: DELETE
+    path: /qos-specs/{qos_id}
+  - method: PUT
+    path: /qos-specs/{qos_id}/delete_keys
+  scope_types: null
+- check_str: rule:admin_api
+  description: Show or update project quota class.
+  name: volume_extension:quota_classes
+  operations:
+  - method: GET
+    path: /os-quota-class-sets/{project_id}
+  - method: PUT
+    path: /os-quota-class-sets/{project_id}
+  scope_types: null
+- check_str: rule:admin_or_owner
+  description: Show project quota (including usage and default).
+  name: volume_extension:quotas:show
+  operations:
+  - method: GET
+    path: /os-quota-sets/{project_id}
+  - method: GET
+    path: /os-quota-sets/{project_id}/default
+  - method: GET
+    path: /os-quota-sets/{project_id}?usage=True
+  scope_types: null
+- check_str: rule:admin_api
+  description: Update project quota.
+  name: volume_extension:quotas:update
+  operations:
+  - method: PUT
+    path: /os-quota-sets/{project_id}
+  scope_types: null
+- check_str: rule:admin_api
+  description: Delete project quota.
+  name: volume_extension:quotas:delete
+  operations:
+  - method: DELETE
+    path: /os-quota-sets/{project_id}
+  scope_types: null
+- check_str: rule:admin_api
+  description: Validate setup for nested quota.
+  name: volume_extension:quota_classes:validate_setup_for_nested_quota_use
+  operations:
+  - method: GET
+    path: /os-quota-sets/validate_setup_for_nested_quota_use
+  scope_types: null
+- check_str: rule:admin_api
+  description: Show backend capabilities.
+  name: volume_extension:capabilities
+  operations:
+  - method: GET
+    path: /capabilities/{host_name}
+  scope_types: null
+- check_str: rule:admin_api
+  description: List all services.
+  name: volume_extension:services:index
+  operations:
+  - method: GET
+    path: /os-services
+  scope_types: null
+- check_str: rule:admin_api
+  description: Update service, including failover_host, thaw, freeze, disable, enable,
+    set-log and get-log actions.
+  name: volume_extension:services:update
+  operations:
+  - method: PUT
+    path: /os-services/{action}
+  scope_types: null
+- check_str: rule:admin_api
+  description: Freeze a backend host.
+  name: volume:freeze_host
+  operations:
+  - method: PUT
+    path: /os-services/freeze
+  scope_types: null
+- check_str: rule:admin_api
+  description: Thaw a backend host.
+  name: volume:thaw_host
+  operations:
+  - method: PUT
+    path: /os-services/thaw
+  scope_types: null
+- check_str: rule:admin_api
+  description: Failover a backend host.
+  name: volume:failover_host
+  operations:
+  - method: PUT
+    path: /os-services/failover_host
+  scope_types: null
+- check_str: rule:admin_api
+  description: List all backend pools.
+  name: scheduler_extension:scheduler_stats:get_pools
+  operations:
+  - method: GET
+    path: /scheduler-stats/get_pools
+  scope_types: null
+- check_str: rule:admin_api
+  description: List, update or show hosts for a project.
+  name: volume_extension:hosts
+  operations:
+  - method: GET
+    path: /os-hosts
+  - method: PUT
+    path: /os-hosts/{host_name}
+  - method: GET
+    path: /os-hosts/{host_id}
+  scope_types: null
+- check_str: rule:admin_or_owner
+  description: Show limits with used limit attributes.
+  name: limits_extension:used_limits
+  operations:
+  - method: GET
+    path: /limits
+  scope_types: null
+- check_str: rule:admin_api
+  description: List (in detail) of volumes which are available to manage.
+  name: volume_extension:list_manageable
+  operations:
+  - method: GET
+    path: /manageable_volumes
+  - method: GET
+    path: /manageable_volumes/detail
+  scope_types: null
+- check_str: rule:admin_api
+  description: Manage existing volumes.
+  name: volume_extension:volume_manage
+  operations:
+  - method: POST
+    path: /manageable_volumes
+  scope_types: null
+- check_str: rule:admin_api
+  description: Stop managing a volume.
+  name: volume_extension:volume_unmanage
+  operations:
+  - method: POST
+    path: /volumes/{volume_id}/action (os-unmanage)
+  scope_types: null
+- check_str: rule:admin_api
+  description: Create, update and delete volume type.
+  name: volume_extension:types_manage
+  operations:
+  - method: POST
+    path: /types
+  - method: PUT
+    path: /types
+  - method: DELETE
+    path: /types
+  scope_types: null
+- check_str: ''
+  description: Get one specific volume type.
+  name: volume_extension:type_get
+  operations:
+  - method: GET
+    path: /types/{type_id}
+  scope_types: null
+- check_str: ''
+  description: List volume types.
+  name: volume_extension:type_get_all
+  operations:
+  - method: GET
+    path: /types/
+  scope_types: null
+- check_str: rule:admin_api
+  description: Base policy for all volume type encryption type operations.  This can
+    be used to set the policies for a volume type's encryption type create, show,
+    update, and delete actions in one place, or any of those may be set individually
+    using the following policy targets for finer grained control.
+  name: volume_extension:volume_type_encryption
+  operations:
+  - method: POST
+    path: /types/{type_id}/encryption
+  - method: PUT
+    path: /types/{type_id}/encryption/{encryption_id}
+  - method: GET
+    path: /types/{type_id}/encryption
+  - method: GET
+    path: /types/{type_id}/encryption/{key}
+  - method: DELETE
+    path: /types/{type_id}/encryption/{encryption_id}
+  scope_types: null
+- check_str: rule:volume_extension:volume_type_encryption
+  description: Create volume type encryption.
+  name: volume_extension:volume_type_encryption:create
+  operations:
+  - method: POST
+    path: /types/{type_id}/encryption
+  scope_types: null
+- check_str: rule:volume_extension:volume_type_encryption
+  description: Show a volume type's encryption type, show an encryption specs item.
+  name: volume_extension:volume_type_encryption:get
+  operations:
+  - method: GET
+    path: /types/{type_id}/encryption
+  - method: GET
+    path: /types/{type_id}/encryption/{key}
+  scope_types: null
+- check_str: rule:volume_extension:volume_type_encryption
+  description: Update volume type encryption.
+  name: volume_extension:volume_type_encryption:update
+  operations:
+  - method: PUT
+    path: /types/{type_id}/encryption/{encryption_id}
+  scope_types: null
+- check_str: rule:volume_extension:volume_type_encryption
+  description: Delete volume type encryption.
+  name: volume_extension:volume_type_encryption:delete
+  operations:
+  - method: DELETE
+    path: /types/{type_id}/encryption/{encryption_id}
+  scope_types: null
+- check_str: rule:admin_api
+  description: List or show volume type with access type extra specs attribute.
+  name: volume_extension:access_types_extra_specs
+  operations:
+  - method: GET
+    path: /types/{type_id}
+  - method: GET
+    path: /types
+  scope_types: null
+- check_str: rule:admin_api
+  description: List or show volume type with access type qos specs id attribute.
+  name: volume_extension:access_types_qos_specs_id
+  operations:
+  - method: GET
+    path: /types/{type_id}
+  - method: GET
+    path: /types
+  scope_types: null
+- check_str: rule:admin_or_owner
+  description: Volume type access related APIs.
+  name: volume_extension:volume_type_access
+  operations:
+  - method: GET
+    path: /types
+  - method: GET
+    path: /types/detail
+  - method: GET
+    path: /types/{type_id}
+  - method: POST
+    path: /types
+  scope_types: null
+- check_str: rule:admin_api
+  description: Add volume type access for project.
+  name: volume_extension:volume_type_access:addProjectAccess
+  operations:
+  - method: POST
+    path: /types/{type_id}/action (addProjectAccess)
+  scope_types: null
+- check_str: rule:admin_api
+  description: Remove volume type access for project.
+  name: volume_extension:volume_type_access:removeProjectAccess
+  operations:
+  - method: POST
+    path: /types/{type_id}/action (removeProjectAccess)
+  scope_types: null
+- check_str: rule:admin_or_owner
+  description: Extend a volume.
+  name: volume:extend
+  operations:
+  - method: POST
+    path: /volumes/{volume_id}/action (os-extend)
+  scope_types: null
+- check_str: rule:admin_or_owner
+  description: Extend a attached volume.
+  name: volume:extend_attached_volume
+  operations:
+  - method: POST
+    path: /volumes/{volume_id}/action (os-extend)
+  scope_types: null
+- check_str: rule:admin_or_owner
+  description: Revert a volume to a snapshot.
+  name: volume:revert_to_snapshot
+  operations:
+  - method: POST
+    path: /volumes/{volume_id}/action (revert)
+  scope_types: null
+- check_str: rule:admin_api
+  description: Reset status of a volume.
+  name: volume_extension:volume_admin_actions:reset_status
+  operations:
+  - method: POST
+    path: /volumes/{volume_id}/action (os-reset_status)
+  scope_types: null
+- check_str: rule:admin_or_owner
+  description: Retype a volume.
+  name: volume:retype
+  operations:
+  - method: POST
+    path: /volumes/{volume_id}/action (os-retype)
+  scope_types: null
+- check_str: rule:admin_or_owner
+  description: Update a volume's readonly flag.
+  name: volume:update_readonly_flag
+  operations:
+  - method: POST
+    path: /volumes/{volume_id}/action (os-update_readonly_flag)
+  scope_types: null
+- check_str: rule:admin_api
+  description: Force delete a volume.
+  name: volume_extension:volume_admin_actions:force_delete
+  operations:
+  - method: POST
+    path: /volumes/{volume_id}/action (os-force_delete)
+  scope_types: null
+- check_str: rule:admin_api
+  description: Upload a volume to image with public visibility.
+  name: volume_extension:volume_actions:upload_public
+  operations:
+  - method: POST
+    path: /volumes/{volume_id}/action (os-volume_upload_image)
+  scope_types: null
+- check_str: rule:admin_or_owner
+  description: Upload a volume to image.
+  name: volume_extension:volume_actions:upload_image
+  operations:
+  - method: POST
+    path: /volumes/{volume_id}/action (os-volume_upload_image)
+  scope_types: null
+- check_str: rule:admin_api
+  description: Force detach a volume.
+  name: volume_extension:volume_admin_actions:force_detach
+  operations:
+  - method: POST
+    path: /volumes/{volume_id}/action (os-force_detach)
+  scope_types: null
+- check_str: rule:admin_api
+  description: migrate a volume to a specified host.
+  name: volume_extension:volume_admin_actions:migrate_volume
+  operations:
+  - method: POST
+    path: /volumes/{volume_id}/action (os-migrate_volume)
+  scope_types: null
+- check_str: rule:admin_api
+  description: Complete a volume migration.
+  name: volume_extension:volume_admin_actions:migrate_volume_completion
+  operations:
+  - method: POST
+    path: /volumes/{volume_id}/action (os-migrate_volume_completion)
+  scope_types: null
+- check_str: rule:admin_or_owner
+  description: Initialize volume attachment.
+  name: volume_extension:volume_actions:initialize_connection
+  operations:
+  - method: POST
+    path: /volumes/{volume_id}/action (os-initialize_connection)
+  scope_types: null
+- check_str: rule:admin_or_owner
+  description: Terminate volume attachment.
+  name: volume_extension:volume_actions:terminate_connection
+  operations:
+  - method: POST
+    path: /volumes/{volume_id}/action (os-terminate_connection)
+  scope_types: null
+- check_str: rule:admin_or_owner
+  description: Roll back volume status to 'in-use'.
+  name: volume_extension:volume_actions:roll_detaching
+  operations:
+  - method: POST
+    path: /volumes/{volume_id}/action (os-roll_detaching)
+  scope_types: null
+- check_str: rule:admin_or_owner
+  description: Mark volume as reserved.
+  name: volume_extension:volume_actions:reserve
+  operations:
+  - method: POST
+    path: /volumes/{volume_id}/action (os-reserve)
+  scope_types: null
+- check_str: rule:admin_or_owner
+  description: Unmark volume as reserved.
+  name: volume_extension:volume_actions:unreserve
+  operations:
+  - method: POST
+    path: /volumes/{volume_id}/action (os-unreserve)
+  scope_types: null
+- check_str: rule:admin_or_owner
+  description: Begin detach volumes.
+  name: volume_extension:volume_actions:begin_detaching
+  operations:
+  - method: POST
+    path: /volumes/{volume_id}/action (os-begin_detaching)
+  scope_types: null
+- check_str: rule:admin_or_owner
+  description: Add attachment metadata.
+  name: volume_extension:volume_actions:attach
+  operations:
+  - method: POST
+    path: /volumes/{volume_id}/action (os-attach)
+  scope_types: null
+- check_str: rule:admin_or_owner
+  description: Clear attachment metadata.
+  name: volume_extension:volume_actions:detach
+  operations:
+  - method: POST
+    path: /volumes/{volume_id}/action (os-detach)
+  scope_types: null
+- check_str: rule:admin_or_owner
+  description: List volume transfer.
+  name: volume:get_all_transfers
+  operations:
+  - method: GET
+    path: /os-volume-transfer
+  - method: GET
+    path: /os-volume-transfer/detail
+  - method: GET
+    path: /volume_transfers
+  - method: GET
+    path: /volume-transfers/detail
+  scope_types: null
+- check_str: rule:admin_or_owner
+  description: Create a volume transfer.
+  name: volume:create_transfer
+  operations:
+  - method: POST
+    path: /os-volume-transfer
+  - method: POST
+    path: /volume_transfers
+  scope_types: null
+- check_str: rule:admin_or_owner
+  description: Show one specified volume transfer.
+  name: volume:get_transfer
+  operations:
+  - method: GET
+    path: /os-volume-transfer/{transfer_id}
+  - method: GET
+    path: /volume-transfers/{transfer_id}
+  scope_types: null
+- check_str: ''
+  description: Accept a volume transfer.
+  name: volume:accept_transfer
+  operations:
+  - method: POST
+    path: /os-volume-transfer/{transfer_id}/accept
+  - method: POST
+    path: /volume-transfers/{transfer_id}/accept
+  scope_types: null
+- check_str: rule:admin_or_owner
+  description: Delete volume transfer.
+  name: volume:delete_transfer
+  operations:
+  - method: DELETE
+    path: /os-volume-transfer/{transfer_id}
+  - method: DELETE
+    path: /volume-transfers/{transfer_id}
+  scope_types: null
+- check_str: rule:admin_or_owner
+  description: Show volume's metadata or one specified metadata with a given key.
+  name: volume:get_volume_metadata
+  operations:
+  - method: GET
+    path: /volumes/{volume_id}/metadata
+  - method: GET
+    path: /volumes/{volume_id}/metadata/{key}
+  scope_types: null
+- check_str: rule:admin_or_owner
+  description: Create volume metadata.
+  name: volume:create_volume_metadata
+  operations:
+  - method: POST
+    path: /volumes/{volume_id}/metadata
+  scope_types: null
+- check_str: rule:admin_or_owner
+  description: Update volume's metadata or one specified metadata with a given key.
+  name: volume:update_volume_metadata
+  operations:
+  - method: PUT
+    path: /volumes/{volume_id}/metadata
+  - method: PUT
+    path: /volumes/{volume_id}/metadata/{key}
+  scope_types: null
+- check_str: rule:admin_or_owner
+  description: Delete volume's specified metadata with a given key.
+  name: volume:delete_volume_metadata
+  operations:
+  - method: DELETE
+    path: /volumes/{volume_id}/metadata/{key}
+  scope_types: null
+- check_str: rule:admin_or_owner
+  description: Volume's image metadata related operation, create, delete, show and
+    list.
+  name: volume_extension:volume_image_metadata
+  operations:
+  - method: GET
+    path: /volumes/detail
+  - method: GET
+    path: /volumes/{volume_id}
+  - method: POST
+    path: /volumes/{volume_id}/action (os-set_image_metadata)
+  - method: POST
+    path: /volumes/{volume_id}/action (os-unset_image_metadata)
+  scope_types: null
+- check_str: rule:admin_api
+  description: Update volume admin metadata. It's used in `attach` and `os-update_readonly_flag`
+    APIs
+  name: volume:update_volume_admin_metadata
+  operations:
+  - method: POST
+    path: /volumes/{volume_id}/action (os-update_readonly_flag)
+  - method: POST
+    path: /volumes/{volume_id}/action (os-attach)
+  scope_types: null
+- check_str: rule:admin_api
+  description: List type extra specs.
+  name: volume_extension:types_extra_specs:index
+  operations:
+  - method: GET
+    path: /types/{type_id}/extra_specs
+  scope_types: null
+- check_str: rule:admin_api
+  description: Create type extra specs.
+  name: volume_extension:types_extra_specs:create
+  operations:
+  - method: POST
+    path: /types/{type_id}/extra_specs
+  scope_types: null
+- check_str: rule:admin_api
+  description: Show one specified type extra specs.
+  name: volume_extension:types_extra_specs:show
+  operations:
+  - method: GET
+    path: /types/{type_id}/extra_specs/{extra_spec_key}
+  scope_types: null
+- check_str: rule:admin_api
+  description: Update type extra specs.
+  name: volume_extension:types_extra_specs:update
+  operations:
+  - method: PUT
+    path: /types/{type_id}/extra_specs/{extra_spec_key}
+  scope_types: null
+- check_str: rule:admin_api
+  description: Delete type extra specs.
+  name: volume_extension:types_extra_specs:delete
+  operations:
+  - method: DELETE
+    path: /types/{type_id}/extra_specs/{extra_spec_key}
+  scope_types: null
+- check_str: ''
+  description: Create volume.
+  name: volume:create
+  operations:
+  - method: POST
+    path: /volumes
+  scope_types: null
+- check_str: ''
+  description: Create volume from image.
+  name: volume:create_from_image
+  operations:
+  - method: POST
+    path: /volumes
+  scope_types: null
+- check_str: rule:admin_or_owner
+  description: Show volume.
+  name: volume:get
+  operations:
+  - method: GET
+    path: /volumes/{volume_id}
+  scope_types: null
+- check_str: rule:admin_or_owner
+  description: List volumes or get summary of volumes.
+  name: volume:get_all
+  operations:
+  - method: GET
+    path: /volumes
+  - method: GET
+    path: /volumes/detail
+  - method: GET
+    path: /volumes/summary
+  scope_types: null
+- check_str: rule:admin_or_owner
+  description: Update volume or update a volume's bootable status.
+  name: volume:update
+  operations:
+  - method: PUT
+    path: /volumes
+  - method: POST
+    path: /volumes/{volume_id}/action (os-set_bootable)
+  scope_types: null
+- check_str: rule:admin_or_owner
+  description: Delete volume.
+  name: volume:delete
+  operations:
+  - method: DELETE
+    path: /volumes/{volume_id}
+  scope_types: null
+- check_str: rule:admin_api
+  description: Force Delete a volume.
+  name: volume:force_delete
+  operations:
+  - method: DELETE
+    path: /volumes/{volume_id}
+  scope_types: null
+- check_str: rule:admin_api
+  description: List or show volume with host attribute.
+  name: volume_extension:volume_host_attribute
+  operations:
+  - method: GET
+    path: /volumes/{volume_id}
+  - method: GET
+    path: /volumes/detail
+  scope_types: null
+- check_str: rule:admin_or_owner
+  description: List or show volume with tenant attribute.
+  name: volume_extension:volume_tenant_attribute
+  operations:
+  - method: GET
+    path: /volumes/{volume_id}
+  - method: GET
+    path: /volumes/detail
+  scope_types: null
+- check_str: rule:admin_api
+  description: List or show volume with migration status attribute.
+  name: volume_extension:volume_mig_status_attribute
+  operations:
+  - method: GET
+    path: /volumes/{volume_id}
+  - method: GET
+    path: /volumes/detail
+  scope_types: null
+- check_str: rule:admin_or_owner
+  description: Show volume's encryption metadata.
+  name: volume_extension:volume_encryption_metadata
+  operations:
+  - method: GET
+    path: /volumes/{volume_id}/encryption
+  - method: GET
+    path: /volumes/{volume_id}/encryption/{encryption_key}
+  scope_types: null
+- check_str: rule:admin_or_owner
+  description: Create multiattach capable volume.
+  name: volume:multiattach
+  operations:
+  - method: POST
+    path: /volumes
+  scope_types: null

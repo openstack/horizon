@@ -20,6 +20,7 @@ from django.conf import settings
 from oslo_config import cfg
 from oslo_policy import opts as policy_opts
 from oslo_policy import policy
+import yaml
 
 from openstack_auth import user as auth_user
 from openstack_auth import utils as auth_utils
@@ -55,6 +56,51 @@ def _get_policy_file_with_full_path(service):
     return policy_file, policy_dirs
 
 
+def _convert_to_ruledefault(p):
+    deprecated = p.get('deprecated_rule')
+    if deprecated:
+        deprecated_rule = policy.DeprecatedRule(deprecated['name'],
+                                                deprecated['check_str'])
+    else:
+        deprecated_rule = None
+
+    return policy.RuleDefault(
+        p['name'], p['check_str'],
+        description=p['description'],
+        scope_types=p['scope_types'],
+        deprecated_rule=deprecated_rule,
+        deprecated_for_removal=p.get('deprecated_for_removal', False),
+        deprecated_reason=p.get('deprecated_reason'),
+        deprecated_since=p.get('deprecated_since'),
+    )
+
+
+def _load_default_rules(service, enforcer):
+    policy_files = settings.DEFAULT_POLICY_FILES
+    try:
+        policy_file = os.path.join(_BASE_PATH, policy_files[service])
+    except KeyError:
+        LOG.error('Default policy file for %s is not defined. '
+                  'Check DEFAULT_POLICY_FILES setting.', service)
+        return
+
+    try:
+        with open(policy_file) as f:
+            policies = yaml.safe_load(f)
+    except IOError as e:
+        LOG.error('Failed to open the policy file for %(service)s %(path)s: '
+                  '%(reason)s',
+                  {'service': service, 'path': policy_file, 'reason': e})
+        return
+    except yaml.YAMLError as e:
+        LOG.error('Failed to load the default policies for %(service)s: '
+                  '%(reason)s', {'service': service, 'reason': e})
+        return
+
+    defaults = [_convert_to_ruledefault(p) for p in policies]
+    enforcer.register_defaults(defaults)
+
+
 def _get_enforcer():
     global _ENFORCER
     if not _ENFORCER:
@@ -64,6 +110,8 @@ def _get_enforcer():
             policy_file, policy_dirs = _get_policy_file_with_full_path(service)
             conf = _get_policy_conf(policy_file, policy_dirs)
             enforcer = policy.Enforcer(conf)
+            enforcer.suppress_default_change_warnings = True
+            _load_default_rules(service, enforcer)
             try:
                 enforcer.load_rules()
             except IOError:
