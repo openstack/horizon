@@ -35,8 +35,12 @@ class UsageViewTests(test.TestCase):
 
     @test.create_mocks({
         api.nova: ('usage_get',),
-        api.neutron: ('is_quotas_extension_supported',)
-    })
+        api.neutron: ('is_quotas_extension_supported',),
+        usage.quotas: ('tenant_quota_usages',),
+    }, stop_mock=False)
+    # NOTE: _stub_api_calls() and _check_api_calls() are used as pair
+    # and the test logic will be placed between these calls,
+    # so we cannot stop mocking when exiting this method.
     def _stub_api_calls(self, nova_stu_enabled=True,
                         stu_exception=False, overview_days_range=1,
                         quota_usage_overrides=None,
@@ -70,7 +74,6 @@ class UsageViewTests(test.TestCase):
             usages.add_quota(api.base.Quota(k, quota))
             usages.tally(k, quota_usages[k]['used'])
 
-    @test.create_mocks({usage.quotas: ('tenant_quota_usages',)})
     def _stub_tenant_quota_usages(self, overrides):
         usages_data = usage.quotas.QuotaUsage()
         self._add_quota_usages(usages_data, self.quota_usages.first(),
