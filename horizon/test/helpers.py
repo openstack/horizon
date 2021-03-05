@@ -16,7 +16,7 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
-import collections
+import collections.abc
 import copy
 import logging
 import os

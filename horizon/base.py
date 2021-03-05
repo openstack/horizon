@@ -21,6 +21,7 @@ the classes contained therein.
 """
 
 import collections
+import collections.abc
 import copy
 from importlib import import_module
 import inspect
