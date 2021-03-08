@@ -2233,6 +2233,11 @@ LAUNCH_INSTANCE_LEGACY_ENABLED
 
     The default value for this setting has been changed to ``False``
 
+.. deprecated:: 19.1.0(Wallaby)
+
+   The Python Launch Instance workflow is deprecated.
+   Consider switching to the AngujarJS workflow instead.
+
 Default: ``False``
 
 This setting enables the Python Launch Instance workflow.
