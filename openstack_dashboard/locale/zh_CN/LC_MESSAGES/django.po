@@ -30,16 +30,17 @@
 # Franco Tseng <francotseng18@gmail.com>, 2019. #zanata
 # Horace Li <haoyang@openstack.org>, 2019. #zanata
 # Tony <tfu@redhat.com>, 2019. #zanata
+# TigerFang <tigerfun@126.com>, 2021. #zanata
 msgid ""
 msgstr ""
 "Project-Id-Version: horizon VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2020-12-24 16:50+0000\n"
+"POT-Creation-Date: 2021-02-24 08:35+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2019-09-23 02:20+0000\n"
-"Last-Translator: Tony <tfu@redhat.com>\n"
+"PO-Revision-Date: 2021-03-08 09:15+0000\n"
+"Last-Translator: TigerFang <tigerfun@126.com>\n"
 "Language-Team: Chinese (China)\n"
 "Language: zh_CN\n"
 "X-Generator: Zanata 4.3.3\n"
@@ -253,6 +254,69 @@ msgstr ""
 "<a href=\"%(volume_url)s\">%(volume_label)s</a> 位于 %(volume_device)s 上"
 
 msgid ""
+"<b>Access Rules</b>: If you want more fine-grained access control "
+"delegation, you can create one or more access rules for this application "
+"credential. The list of access rules must be a JSON- or YAML-formatted list "
+"of rules each containing a service type, an HTTP method, and a URL path, for "
+"example: <br /> <code> [ <br /> &nbsp;&nbsp;{\"service\": \"compute\", <br /"
+"> &nbsp;&nbsp;\"method\": \"POST\", <br /> &nbsp;&nbsp;\"path\": \"/v2.1/"
+"servers\"} <br /> ] <br /> </code> or: <br /> <code> - service: compute <br /"
+"> &nbsp;&nbsp;method: POST <br /> &nbsp;&nbsp;path: /v2.1/servers </code>"
+msgstr ""
+"<b>访问规则</b>：如果需要更细粒度的访问控制委托，可以为此应用程序凭据创建一个"
+"或多个访问规则。访问规则列表必须是JSON或yaml格式的规则列表，每个规则包含一个"
+"服务类型、一个HTTP方法和一个URL路径，比如：<br /> <code> [ <br /> &nbsp;"
+"&nbsp;{\"service\": \"compute\", <br /> &nbsp;&nbsp;\"method\": \"POST\", "
+"<br /> &nbsp;&nbsp;\"path\": \"/v2.1/servers\"} <br /> ] <br /> </code> or: "
+"<br /> <code> - service: compute <br /> &nbsp;&nbsp;method: POST <br /> "
+"&nbsp;&nbsp;path: /v2.1/servers </code>"
+
+msgid ""
+"<b>Expiration Date/Time</b>: You may give the application credential an "
+"expiration. The expiration will be in UTC. If you provide an expiration date "
+"with no expiration time, the time will be assumed to be 00:00:00. If you "
+"provide an expiration time with no expiration date, the date will be assumed "
+"to be today."
+msgstr ""
+"<b>过期日期/时间</b>：你可以为这个应用凭据设置一个过期时间。过期时间是UTC格"
+"式。如果你只设置了过期日期没有过期时间，时间会被设置成00:00:00。如果你提供了"
+"过期时间但没有提供过期日期，日期会被设置成今天。"
+
+msgid ""
+"<b>Kubernetes Namespace</b>: You can optionally provide a Kubernetes "
+"Namespace. It will be included in the kubeconfig file which can be "
+"downloaded from the next screen."
+msgstr ""
+"<b>Kubernetes命名空间</b>：你可以提供一个Kubernetes命名空间（可选）。命名空间"
+"会包含在kubeconfig文件中，这个文件可以在下一屏进行下载。"
+
+msgid ""
+"<b>Roles</b>: You may select one or more roles for this application "
+"credential. If you do not select any, all of the roles you have assigned on "
+"the current project will be applied to the application credential."
+msgstr ""
+"<b>角色</b>：你可以为这个应用凭据选择一个或多个角色。如果不选择，则会将当前项"
+"目中所有已经分配的角色启用到这个应用凭据上。"
+
+msgid ""
+"<b>Secret</b>: You may provide your own secret, or one will be generated for "
+"you. Once your application credential is created, the secret will be "
+"revealed once. If you lose the secret, you will have to generate a new "
+"application credential."
+msgstr ""
+"<b>密码</b>：你可以提供你自己的密码，或者平台会为你创建一个密码。一旦创建了你"
+"的应用凭据，密码会展示一次。如果你丢失了密码，必须重新创建一个应用凭据。"
+
+msgid ""
+"<b>Unrestricted</b>: By default, for security reasons, application "
+"credentials are forbidden from being used for creating additional "
+"application credentials or keystone trusts. If your application credential "
+"needs to be able to perform these actions, check \"unrestricted\"."
+msgstr ""
+"<b>不设限</b>：默认情况下，基于安全性的考虑，禁止使用应用凭据创建其它应用凭据"
+"或者keystone信任。如果你的应用凭据需要这些操作，请勾选“不设限”。"
+
+msgid ""
 "<b>Warning:</b> If you change security groups here, the change will be "
 "applied to all interfaces of the instance. If you have multiple interfaces "
 "on this instance and apply different security groups per port, use \"Edit "
@@ -343,6 +407,12 @@ msgstr "接受卷转让"
 
 msgid "Access & Security"
 msgstr "访问和安全"
+
+msgid "Access Rules"
+msgstr "接入规则"
+
+msgid "Access rules must be a valid JSON or YAML list."
+msgstr "访问规则必须是一个合规的JSON或者YAML列表。"
 
 msgid "Action"
 msgstr "动作"
@@ -1414,6 +1484,9 @@ msgstr "已创建"
 msgctxt "Created time"
 msgid "Created"
 msgstr "创建时间"
+
+msgid "Created At"
+msgstr "创建于"
 
 #, python-format
 msgid "Created extra spec \"%s\"."
@@ -2568,6 +2641,9 @@ msgid ""
 "Evacuate the servers from the selected down host to an active target host."
 msgstr "疏散实例从宕机的主机到可用的目标主机"
 
+msgid "Event Id"
+msgstr "事件ID"
+
 msgid ""
 "Example: For <tt>mod_shib</tt> this would be <tt>Shib-Identity-Provider</"
 "tt>, for <tt>mod_auth_openidc</tt>, this could be <tt>HTTP_OIDC_ISS</tt>. "
@@ -2664,6 +2740,9 @@ msgstr "未能添加接口：%s"
 msgid "Failed to add project %(project)s to volume type access."
 msgstr "无法将项目 %(project)s 添加到卷类型通道"
 
+msgid "Failed to add route"
+msgstr "添加路由失败"
+
 msgid "Failed to check if description field is supported."
 msgstr "无法检查是否支持描述项。"
 
@@ -2680,6 +2759,10 @@ msgid "Failed to create a rbac policy."
 msgstr "创建 rbac 策略失败。"
 
 #, python-format
+msgid "Failed to create network \"%s\"."
+msgstr "创建网络“%s”失败。"
+
+#, python-format
 msgid "Failed to create network %s"
 msgstr "创建网络 %s 失败"
 
@@ -2693,6 +2776,14 @@ msgstr "新建路由\"%s\"失败"
 
 msgid "Failed to create router."
 msgstr "创建路由器失败。"
+
+#, python-format
+msgid "Failed to create subnet \"%(sub)s\" for network \"%(net)s\"."
+msgstr "在网络“%(net)s”中创建子网“%(sub)s”失败。"
+
+#, python-format
+msgid "Failed to create subnet \"%(sub)s\"."
+msgstr "创建子网“%(sub)s”失败。"
 
 #, python-format
 msgid "Failed to delete network \"%s\""
@@ -2713,6 +2804,9 @@ msgstr "无法疏散主机: %s."
 #, python-format
 msgid "Failed to evacuate instances: %s"
 msgstr "实例疏散失败： %s"
+
+msgid "Failed to get attached volume."
+msgstr "挂载卷失败。"
 
 msgid "Failed to get availability zone list."
 msgstr "获取可用域列表失败。"
@@ -2775,6 +2869,9 @@ msgstr "实例 \"%s\" 执行所请求操作失败，实例处于错误状态。"
 msgid "Failed to remove project %(project)s from volume type access."
 msgstr "无法从卷类型通道中移除项目%(project)s"
 
+msgid "Failed to set gateway."
+msgstr "设置网关失败。"
+
 #, python-format
 msgid "Failed to update network %s"
 msgstr "网络 %s 更新失败。"
@@ -2790,6 +2887,10 @@ msgstr "更新 rbac 策略 %s 失败"
 #, python-format
 msgid "Failed to update router %s"
 msgstr "更新路由 %s 失败"
+
+#, python-format
+msgid "Failed to update subnet \"%s\"."
+msgstr "更新子网“%s”失败。"
 
 msgid "False"
 msgstr "False"
@@ -3085,6 +3186,9 @@ msgid ""
 "Groups are used to manage access and assign roles to multiple users at once. "
 "Edit the group's name and description."
 msgstr "组被用于管理访问权限，并将角色同时分配给多个用户。编辑组名以及描述。"
+
+msgid "Guaranteed Until"
+msgstr "生效截止到"
 
 #. Translators: High Availability mode of Neutron router
 msgid "HA mode"
@@ -3652,6 +3756,9 @@ msgstr "最近更新"
 msgid "Launch"
 msgstr "创建"
 
+msgid "Launch Index"
+msgstr "启动首页"
+
 msgid "Launch Instance"
 msgstr "创建实例"
 
@@ -3713,6 +3820,9 @@ msgstr "锁定"
 msgid "Lock Instance"
 msgid_plural "Lock Instances"
 msgstr[0] "锁定实例"
+
+msgid "Lock password"
+msgstr "锁定密码"
 
 msgctxt "Locked status of an instance"
 msgid "Locked"
@@ -3850,6 +3960,9 @@ msgstr "内存使用量"
 msgid "Message"
 msgstr "消息"
 
+msgid "Message Level"
+msgstr "消息等级"
+
 msgid "Messages"
 msgstr "消息"
 
@@ -3864,6 +3977,9 @@ msgstr "元数据定义"
 
 msgid "Metadata Items"
 msgstr "元数据条目"
+
+msgid "Method"
+msgstr "方法"
 
 msgid "MidoNet"
 msgstr "MidoNet"
@@ -4529,8 +4645,14 @@ msgstr "密码已更改，请重新登录。"
 msgid "Password changed. Please log in to continue."
 msgstr "密码已修改，请登录以继续。"
 
+msgid "Password is locked."
+msgstr "密码已被锁定。"
+
 msgid "Passwords do not match."
 msgstr "密码不匹配。"
+
+msgid "Path"
+msgstr "路径"
 
 msgctxt "Action log of an instance"
 msgid "Pause"
@@ -5032,6 +5154,9 @@ msgstr "已救援"
 msgctxt "Task status of an Instance"
 msgid "Rescuing"
 msgstr "正在进行拯救"
+
+msgid "Reservation ID"
+msgstr "预留ID"
 
 msgctxt "Current status of a Volume"
 msgid "Reserved"
@@ -6668,6 +6793,10 @@ msgstr "无法克隆空的组"
 msgid "Unable to clone group."
 msgstr "无法克隆组"
 
+#, python-format
+msgid "Unable to confirm resize instance \"%s\"."
+msgstr "无法确认调整实例“%s”的大小。"
+
 msgid "Unable to connect to Neutron."
 msgstr "无法连接到Neutron."
 
@@ -7078,6 +7207,9 @@ msgstr "无法获取QoS规格"
 msgid "Unable to retrieve RBAC policies."
 msgstr "无法获取 RBAC 策略。"
 
+msgid "Unable to retrieve a list of external networks."
+msgstr "无法获取外部网络列表"
+
 msgid "Unable to retrieve agent list."
 msgstr "无法获取agent列表。"
 
@@ -7269,6 +7401,9 @@ msgstr "无法获取身份提供者列表。"
 msgid "Unable to retrieve image details."
 msgstr "无法获取镜像细节。"
 
+msgid "Unable to retrieve image format list."
+msgstr "无法获取镜像格式列表。"
+
 msgid "Unable to retrieve image list."
 msgstr "无法获取镜像列表。"
 
@@ -7438,6 +7573,9 @@ msgstr "无法获取快照详情"
 msgid "Unable to retrieve snapshot list."
 msgstr "无法获取快照列表。"
 
+msgid "Unable to retrieve snapshot messages."
+msgstr "无法获取快照消息。"
+
 msgid "Unable to retrieve subnet details"
 msgstr "无法获取子网详情"
 
@@ -7591,6 +7729,10 @@ msgstr "无法获取卷/实例连接信息"
 msgid "Unable to retrieve volumes."
 msgstr "无法获取卷。"
 
+#, python-format
+msgid "Unable to revert resize instance \"%s\"."
+msgstr "无法恢复对实例“%s”大小的调整。"
+
 msgid "Unable to set Domain Context."
 msgstr "无法设定域上下文。"
 
@@ -7639,6 +7781,9 @@ msgstr "不能更新身份提供者。请检查远程IDs提供者是否在使用
 #, python-format
 msgid "Unable to update image \"%s\"."
 msgstr "更新镜像 \"%s\"失败。"
+
+msgid "Unable to update instance security group."
+msgstr "无法更新实例安全组。"
 
 msgid "Unable to update mapping."
 msgstr "不能更新映射。"
@@ -7988,6 +8133,9 @@ msgstr "用户 \"%s\" 成功创建。"
 msgid "User Credentials Details"
 msgstr "用户凭据详情"
 
+msgid "User Data"
+msgstr "用户数据"
+
 msgid "User Details"
 msgstr "用户详情"
 
@@ -7996,6 +8144,9 @@ msgstr "用户ID"
 
 msgid "User ID ="
 msgstr "用户 ID="
+
+msgid "User Message"
+msgstr "用户消息"
 
 msgid "User Name"
 msgstr "用户名"
