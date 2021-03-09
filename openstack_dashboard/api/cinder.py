@@ -123,7 +123,8 @@ class VolumeType(BaseCinderAPIResourceWrapper):
 class VolumeBackup(BaseCinderAPIResourceWrapper):
 
     _attrs = ['id', 'name', 'description', 'container', 'size', 'status',
-              'created_at', 'volume_id', 'availability_zone', 'snapshot_id']
+              'created_at', 'volume_id', 'availability_zone', 'snapshot_id',
+              'os-backup-project-attr:project_id']
     _volume = None
     _snapshot = None
 
@@ -142,6 +143,10 @@ class VolumeBackup(BaseCinderAPIResourceWrapper):
     @snapshot.setter
     def snapshot(self, value):
         self._snapshot = value
+
+    @property
+    def project_id(self):
+        return getattr(self, 'os-backup-project-attr:project_id', "")
 
 
 class QosSpecs(BaseCinderAPIResourceWrapper):
@@ -581,7 +586,7 @@ def volume_backup_supported(request):
 
 @profiler.trace
 def volume_backup_get(request, backup_id):
-    backup = cinderclient(request).backups.get(backup_id)
+    backup = cinderclient(request, '3.18').backups.get(backup_id)
     return VolumeBackup(backup)
 
 
@@ -592,7 +597,8 @@ def volume_backup_list(request):
 
 @profiler.trace
 def volume_backup_list_paged_with_page_menu(request, page_number=1,
-                                            sort_dir="desc"):
+                                            sort_dir="desc",
+                                            all_tenants=False):
     backups = []
     count = 0
     pages_count = 0
@@ -606,8 +612,10 @@ def volume_backup_list_paged_with_page_menu(request, page_number=1,
     sort = 'created_at:' + sort_dir
     bkps, count = c_client.backups.list(limit=page_size,
                                         sort=sort,
-                                        search_opts={'with_count': True,
-                                                     'offset': offset})
+                                        search_opts={
+                                            'with_count': True,
+                                            'offset': offset,
+                                            'all_tenants': all_tenants})
     if not bkps:
         return backups, page_size, count, pages_count
 
@@ -673,14 +681,20 @@ def volume_backup_create(request,
 
 
 @profiler.trace
-def volume_backup_delete(request, backup_id):
-    return cinderclient(request).backups.delete(backup_id)
+def volume_backup_delete(request, backup_id, force=None):
+    return cinderclient(request).backups.delete(backup_id, force=force)
 
 
 @profiler.trace
 def volume_backup_restore(request, backup_id, volume_id):
     return cinderclient(request).restores.restore(backup_id=backup_id,
                                                   volume_id=volume_id)
+
+
+@profiler.trace
+def volume_backup_reset_state(request, backup_id, state):
+    return cinderclient(request).backups.reset_state(
+        backup_id, state)
 
 
 @profiler.trace

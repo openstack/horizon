@@ -45,6 +45,8 @@ class BackupVolumeNameColumn(tables.Column):
 
 
 class SnapshotColumn(tables.Column):
+    url = "horizon:project:snapshots:detail"
+
     def get_raw_data(self, backup):
         snapshot = backup.snapshot
         if snapshot:
@@ -58,7 +60,7 @@ class SnapshotColumn(tables.Column):
 
     def get_link_url(self, backup):
         if backup.snapshot:
-            return reverse('horizon:project:snapshots:detail',
+            return reverse(self.url,
                            args=(backup.snapshot_id,))
 
 
@@ -94,6 +96,7 @@ class DeleteBackup(tables.DeleteAction):
 class RestoreBackup(tables.LinkAction):
     name = "restore"
     verbose_name = _("Restore Backup")
+    url = "horizon:project:backups:restore"
     classes = ("ajax-modal",)
     policy_rules = (("volume", "backup:restore"),)
 
@@ -104,8 +107,7 @@ class RestoreBackup(tables.LinkAction):
         backup_id = datum.id
         backup_name = datum.name
         volume_id = getattr(datum, 'volume_id', None)
-        url = reverse("horizon:project:backups:restore",
-                      args=(backup_id,))
+        url = reverse(self.url, args=(backup_id,))
         url += '?%s' % http.urlencode({'backup_name': backup_name,
                                        'volume_id': volume_id})
         return url

@@ -24,6 +24,7 @@ class BackupOverviewTab(tabs.Tab):
     name = _("Overview")
     slug = "overview"
     template_name = "project/backups/_detail_overview.html"
+    redirect_url = 'horizon:project:backups:index'
 
     def get_context_data(self, request):
         try:
@@ -46,7 +47,7 @@ class BackupOverviewTab(tabs.Tab):
                     'snapshot': snapshot}
 
         except Exception:
-            redirect = reverse('horizon:project:backups:index')
+            redirect = reverse(self.redirect_url)
             exceptions.handle(self.request,
                               _('Unable to retrieve backup details.'),
                               redirect=redirect)
