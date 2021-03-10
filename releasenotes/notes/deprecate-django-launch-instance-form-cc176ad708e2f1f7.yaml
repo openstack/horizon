@@ -1,0 +1,11 @@
+---
+deprecations:
+  - |
+    The Django version of the launch instance form is deprecated now.
+    Switch to the AngularJS version of the form by setting
+    ``LAUNCH_INSTANCE_NG_ENABLED`` to ``True`` and
+    ``LAUNCH_INSTANCE_LEGACY_ENABLED`` to ``False``.
+    The horizon team believes that feature gaps between Django and
+    AngularJS implementations have been closed and we can drop the
+    Django version. If you see any feature gap, please file a bug to
+    horizon or contact the horizon team.

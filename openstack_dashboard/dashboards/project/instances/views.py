@@ -263,6 +263,14 @@ def _swap_filter(resources, search_opts, fake_field, real_field):
 class LaunchInstanceView(workflows.WorkflowView):
     workflow_class = project_workflows.LaunchInstance
 
+    def __init__(self):
+        super().__init__()
+        LOG.warning('Django version of the launch instance form is '
+                    'deprecated since Wallaby release. Switch to '
+                    'the AngularJS version of the form by setting '
+                    'LAUNCH_INSTANCE_NG_ENABLED to True and '
+                    'LAUNCH_INSTANCE_LEGACY_ENABLED to False.')
+
     def get_initial(self):
         initial = super().get_initial()
         initial['project_id'] = self.request.user.tenant_id
