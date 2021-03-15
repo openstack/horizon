@@ -8,15 +8,16 @@
 # Akihiro Motoki <amotoki@gmail.com>, 2019. #zanata
 # Yuko Katabami <yukokatabami@gmail.com>, 2019. #zanata
 # Yuko Katabami <yukokatabami@gmail.com>, 2020. #zanata
+# Yuko Katabami <yukokatabami@gmail.com>, 2021. #zanata
 msgid ""
 msgstr ""
 "Project-Id-Version: horizon VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2021-03-05 09:39+0000\n"
+"POT-Creation-Date: 2021-03-11 22:00+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2020-10-13 11:12+0000\n"
+"PO-Revision-Date: 2021-03-15 06:20+0000\n"
 "Last-Translator: Yuko Katabami <yukokatabami@gmail.com>\n"
 "Language-Team: Japanese\n"
 "Language: ja\n"
@@ -1773,6 +1774,10 @@ msgstr[0] "追加スペックの削除"
 msgid "Delete Flavor"
 msgid_plural "Delete Flavors"
 msgstr[0] "フレーバーの削除"
+
+msgid "Delete Force Volume Backup"
+msgid_plural "Delete Force Volume Backups"
+msgstr[0] "ボリュームバックアップの強制削除"
 
 msgid "Delete Group"
 msgid_plural "Delete Groups"
@@ -5612,6 +5617,10 @@ msgid "Scheduled deletion of Volume Snapshot"
 msgid_plural "Scheduled deletion of Volume Snapshots"
 msgstr[0] "ボリュームスナップショットの削除を予約しました"
 
+msgid "Scheduled force deletion of Volume Backup"
+msgid_plural "Scheduled force deletion of Volume Backups"
+msgstr[0] "ボリュームバックアップの強制削除を予約しました"
+
 msgid "Scheduled migration (pending confirmation) of Instance"
 msgid_plural "Scheduled migration (pending confirmation) of Instances"
 msgstr[0] "(確認待ちでの) インスタンスのマイグレーションを予約しました"
@@ -6345,6 +6354,10 @@ msgid "Successfully updated security group: %s"
 msgstr "セキュリティーグループ %s が正常に更新されました。"
 
 #, python-format
+msgid "Successfully updated volume backup status to \"%s\"."
+msgstr "ボリュームバックアップのステータスを \"%s\" に変更しました。"
+
+#, python-format
 msgid "Successfully updated volume snapshot status: \"%s\"."
 msgstr "ボリュームスナップショットのステータスを \"%s\" に変更しました。"
 
@@ -6732,6 +6745,15 @@ msgstr "指定された Floating IP はもう存在しません。"
 
 msgid "The specified port is invalid."
 msgstr "指定されたポートは無効です。"
+
+msgid ""
+"The status of a volume backup is normally managed automatically. In some "
+"circumstances an administrator may need to explicitly update the status "
+"value. This is equivalent to the <tt>cinder backup-reset-state</tt> command."
+msgstr ""
+"通常、ボリュームバックアップのステータスは自動的に管理されます。状況によって"
+"は、管理者がステータス値を明示的に変更する必要がある場合があります。これは "
+"<tt>cinder backup-reset-state</tt> コマンドに相当します。"
 
 msgid ""
 "The status of a volume is normally managed automatically.  In some "
@@ -7485,6 +7507,9 @@ msgstr "インスタンス \"%s\" のネットワーク情報を取得できま�
 msgid "Unable to retrieve Neutron quota information."
 msgstr "Neutron のクォータ情報を取得できません。"
 
+msgid "Unable to retrieve Nova quota information."
+msgstr "Nova のクォータ情報を取得できません。"
+
 msgid "Unable to retrieve Nova server groups."
 msgstr "Nova のサーバーグループを取得できません。"
 
@@ -7932,6 +7957,12 @@ msgstr "ユーザー一覧を取得できません。"
 msgid "Unable to retrieve version information."
 msgstr "バージョン情報を取得できません。"
 
+msgid "Unable to retrieve volume backup details."
+msgstr "ボリュームバックアップの詳細を取得できません。"
+
+msgid "Unable to retrieve volume backup project information."
+msgstr "ボリュームバックアップのプロジェクト情報を取得できません。"
+
 msgid "Unable to retrieve volume backups."
 msgstr "ボリュームバックアップ一覧を取得できません。"
 
@@ -8124,6 +8155,10 @@ msgstr "ユーザーのパスワードを更新できません。"
 msgid "Unable to update the user."
 msgstr "ユーザーを更新できません。"
 
+#, python-format
+msgid "Unable to update volume backup status to \"%s\"."
+msgstr "ボリュームバックアップのステータスを %s に変更できません。"
+
 msgid "Unable to update volume group."
 msgstr "ボリュームグループを更新できません。"
 
@@ -8311,6 +8346,9 @@ msgstr "ボリュームのステータスの変更"
 
 msgid "Update Volume Type Encryption"
 msgstr "ボリューム種別の暗号化設定の更新"
+
+msgid "Update Volume backup Status"
+msgstr "ボリュームバックアップのステータスの変更"
 
 msgid "Update a Metadata Namespace"
 msgstr "メタデータ名前空間の更新"
