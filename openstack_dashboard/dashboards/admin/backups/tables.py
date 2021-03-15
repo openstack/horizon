@@ -42,16 +42,16 @@ class ForceDeleteBackup(policy.PolicyTargetMixin, tables.DeleteAction):
     @staticmethod
     def action_present(count):
         return ungettext_lazy(
-            u"Delete Force Volume Backup",
-            u"Delete Force Volume Backups",
+            "Force Delete Volume Backup",
+            "Force Delete Volume Backups",
             count
         )
 
     @staticmethod
     def action_past(count):
         return ungettext_lazy(
-            u"Scheduled force deletion of Volume Backup",
-            u"Scheduled force deletion of Volume Backups",
+            "Scheduled forced deletion of Volume Backup",
+            "Scheduled forced deletion of Volume Backups",
             count
         )
 
