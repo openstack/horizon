@@ -7,15 +7,16 @@
 # Takashi Kuroda <tkuroda@redhat.com>, 2019. #zanata
 # Yuko Katabami <yukokatabami@gmail.com>, 2019. #zanata
 # Yuko Katabami <yukokatabami@gmail.com>, 2020. #zanata
+# Yuko Katabami <yukokatabami@gmail.com>, 2021. #zanata
 msgid ""
 msgstr ""
 "Project-Id-Version: horizon VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2020-04-27 21:28+0000\n"
+"POT-Creation-Date: 2021-03-16 02:20+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2020-04-27 06:51+0000\n"
+"PO-Revision-Date: 2021-03-15 07:36+0000\n"
 "Last-Translator: Yuko Katabami <yukokatabami@gmail.com>\n"
 "Language-Team: Japanese\n"
 "Language: ja\n"
@@ -582,6 +583,9 @@ msgid_plural "Confirm Delete Users"
 msgstr[0] "ユーザーの削除の確認"
 
 msgid "Confirm Password"
+msgstr "パスワード (確認)"
+
+msgid "Confirm password"
 msgstr "パスワード (確認)"
 
 msgid "Connecting"
@@ -2031,6 +2035,9 @@ msgstr "親ポート"
 msgid "Password"
 msgstr "パスワード"
 
+msgid "Passwords do not match."
+msgstr "パスワードが一致しません。"
+
 msgid "Pending Delete"
 msgstr "削除待ち"
 
@@ -2126,6 +2133,9 @@ msgstr[0] "プロジェクト"
 
 msgid "Project ID"
 msgstr "プロジェクト ID"
+
+msgid "Project Name"
+msgstr "プロジェクト名"
 
 msgid ""
 "Project networks are created by users.\n"
@@ -2383,6 +2393,9 @@ msgstr "1 つ選択してください。"
 msgid "Select one or more"
 msgstr "1 つ以上選択してください。"
 
+msgid "Select one or more ports"
+msgstr "ポートを 1 つ以上選択してください。"
+
 msgid "Select one or more security groups from the available groups below."
 msgstr ""
 "以下の利用可能なグループから、１つ以上のセキュリティーグループを選択してくだ"
@@ -2465,6 +2478,9 @@ msgstr ""
 #, python-format
 msgid "Service type is not enabled: %(desiredType)s"
 msgstr "サービスタイプ %(desiredType)s が有効になっていません。"
+
+msgid "Set admin password"
+msgstr "管理者パスワードを設定する"
 
 #, python-format
 msgid "Setting is not enabled: %(setting)s"
