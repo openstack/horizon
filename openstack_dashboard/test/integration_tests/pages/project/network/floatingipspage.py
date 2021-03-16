@@ -25,7 +25,7 @@ from openstack_dashboard.test.integration_tests.regions import tables
 class FloatingIPTable(tables.TableRegion):
     name = 'floating_ips'
     FLOATING_IP_ASSOCIATIONS = (
-        ("ip_id", "instance_id"))
+        ("ip_id", "port_id"))
 
     @tables.bind_table_action('allocate')
     def allocate_ip(self, allocate_button):
@@ -93,8 +93,8 @@ class FloatingipsPage(basepage.BaseNavigationPage):
                              instance_ip=None):
         row = self._get_row_with_floatingip(floatingip)
         floatingip_form = self.floatingips_table.associate_ip(row)
-        floatingip_form.instance_id.text = "{}: {}".format(instance_name,
-                                                           instance_ip)
+        floatingip_form.port_id.text = "{}: {}".format(instance_name,
+                                                       instance_ip)
         floatingip_form.submit()
 
     def disassociate_floatingip(self, floatingip):
