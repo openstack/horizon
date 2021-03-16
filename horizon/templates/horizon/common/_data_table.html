@@ -24,7 +24,7 @@
       {% endif %}
   {% endblock table_breadcrumb %}
   {% if table.footer and rows %}
-    {% if table.number_of_pages is defined %}
+    {% if table.number_of_pages is None %}
       {% include "horizon/common/_data_table_pagination.html" %}
     {% else %}
       {% include "horizon/common/_data_table_pagination_with_pages.html" %}
@@ -76,7 +76,7 @@
         {% endfor %}
       </tr>
       {% endif %}
-      {% if table.number_of_pages is defined %}
+      {% if table.number_of_pages is None %}
         {% include "horizon/common/_data_table_pagination.html" %}
       {% else %}
         {% include "horizon/common/_data_table_pagination_with_pages.html" %}
