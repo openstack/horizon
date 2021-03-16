@@ -36,7 +36,11 @@ class AssociateIPAction(workflows.Action):
         coerce=filters.get_int_or_uuid,
         empty_value=None
     )
-    instance_id = forms.ThemableChoiceField(
+    instance_id = forms.CharField(
+        widget=forms.widgets.HiddenInput(),
+        required=False,
+    )
+    port_id = forms.ThemableChoiceField(
         label=_("Port to be associated")
     )
 
@@ -53,7 +57,8 @@ class AssociateIPAction(workflows.Action):
         # an association target is not an instance but a port, so we need
         # to get an association target based on a received instance_id
         # and set the initial value of instance_id ChoiceField.
-        q_instance_id = self.request.GET.get('instance_id')
+        q_instance_id = self.data.get('instance_id',
+                                      self.request.GET.get('instance_id'))
         q_port_id = self.request.GET.get('port_id')
 
         if policy.check((("network", "create_floatingip"),),
@@ -61,20 +66,21 @@ class AssociateIPAction(workflows.Action):
             self.fields['ip_id'].widget.add_item_link = ALLOCATE_URL
 
         if q_instance_id:
+            self.initial['instance_id'] = q_instance_id
             targets = self._get_target_list(q_instance_id)
             # Setting the initial value here is required to avoid a situation
             # where instance_id passed in the URL is used as the initial value
             # unexpectedly. (This always happens if the form is invoked from
             # the instance table.)
             if targets:
-                self.initial['instance_id'] = targets[0].id
+                self.initial['port_id'] = targets[0].id
             else:
-                self.initial['instance_id'] = ''
+                self.initial['port_id'] = ''
         elif q_port_id:
             targets = self._get_target_list()
             for target in targets:
                 if target.port_id == q_port_id:
-                    self.initial['instance_id'] = target.id
+                    self.initial['port_id'] = target.id
                     break
 
     def populate_ip_id_choices(self, request, context):
@@ -112,9 +118,9 @@ class AssociateIPAction(workflows.Action):
                               redirect=redirect)
         return targets
 
-    # TODO(amotoki): [drop-nova-network] Rename instance_id to port_id
-    def populate_instance_id_choices(self, request, context):
-        q_instance_id = self.request.GET.get('instance_id')
+    def populate_port_id_choices(self, request, context):
+        q_instance_id = self.data.get('instance_id',
+                                      self.initial.get('instance_id'))
         # The reason of specifying an empty tuple when q_instance_id is None
         # is to make memoized_method _get_target_list work. Two calls of
         # _get_target_list from here and __init__ must have a same arguments.
@@ -132,7 +138,7 @@ class AssociateIPAction(workflows.Action):
 
 class AssociateIP(workflows.Step):
     action_class = AssociateIPAction
-    contributes = ("ip_id", "instance_id", "ip_address")
+    contributes = ("ip_id", "instance_id", "ip_address", "port_id")
 
     def contribute(self, data, context):
         context = super(AssociateIP, self).contribute(data, context)
@@ -163,7 +169,7 @@ class IPAssociationWorkflow(workflows.Workflow):
         try:
             api.neutron.floating_ip_associate(request,
                                               data['ip_id'],
-                                              data['instance_id'])
+                                              data['port_id'])
         except neutron_exc.Conflict:
             msg = _('The requested instance port is already'
                     ' associated with another floating IP.')

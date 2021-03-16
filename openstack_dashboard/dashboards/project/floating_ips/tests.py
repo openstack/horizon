@@ -139,7 +139,7 @@ class FloatingIpViewTests(test.TestCase):
             self._get_fip_targets()
         self.mock_floating_ip_associate.return_value = None
 
-        form_data = {'instance_id': port_target_id,
+        form_data = {'port_id': port_target_id,
                      'ip_id': floating_ip.id}
         url = reverse('%s:associate' % NAMESPACE)
         res = self.client.post(url, form_data)
@@ -168,7 +168,7 @@ class FloatingIpViewTests(test.TestCase):
         self.mock_floating_ip_associate.return_value = None
 
         next = reverse("horizon:project:instances:index")
-        form_data = {'instance_id': port_target_id,
+        form_data = {'port_id': port_target_id,
                      'next': next,
                      'ip_id': floating_ip.id}
         url = reverse('%s:associate' % NAMESPACE)
@@ -197,7 +197,7 @@ class FloatingIpViewTests(test.TestCase):
             self._get_fip_targets()
         self.mock_floating_ip_associate.side_effect = self.exceptions.nova
 
-        form_data = {'instance_id': port_target_id,
+        form_data = {'port_id': port_target_id,
                      'ip_id': floating_ip.id}
         url = reverse('%s:associate' % NAMESPACE)
         res = self.client.post(url, form_data)
