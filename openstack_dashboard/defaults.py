@@ -265,6 +265,7 @@ LAUNCH_INSTANCE_DEFAULTS = {
     'disable_volume': False,
     'disable_volume_snapshot': False,
     'enable_scheduler_hints': True,
+    'default_availability_zone': 'Any',
 }
 
 # The absolute path to the directory where message files are collected.
