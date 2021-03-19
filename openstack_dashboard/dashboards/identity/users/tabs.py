@@ -90,6 +90,10 @@ class RoleAssignmentsTab(tabs.TableTab):
     template_name = "horizon/common/_detail_table.html"
     preload = False
 
+    def allowed(self, request):
+        return policy.check((("identity", "identity:list_role_assignments"),),
+                            self.request)
+
     def get_roleassignmentstable_data(self):
         user = self.tab_group.kwargs['user']
 
@@ -135,6 +139,10 @@ class GroupsTab(tabs.TableTab):
     slug = "groups"
     template_name = "horizon/common/_detail_table.html"
     preload = False
+
+    def allowed(self, request):
+        return policy.check((("identity", "identity:list_groups"),),
+                            self.request)
 
     def get_groupstable_data(self):
         user_groups = []
