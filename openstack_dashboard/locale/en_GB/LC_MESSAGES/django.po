@@ -12,11 +12,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: horizon VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2021-03-05 09:39+0000\n"
+"POT-Creation-Date: 2021-03-22 10:52+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2021-02-17 09:42+0000\n"
+"PO-Revision-Date: 2021-03-21 09:50+0000\n"
 "Last-Translator: Andi Chandler <andi@gowling.com>\n"
 "Language-Team: English (United Kingdom)\n"
 "Language: en_GB\n"
@@ -1089,6 +1089,20 @@ msgstr ""
 
 msgid "Checksum"
 msgstr "Checksum"
+
+msgid ""
+"Chinese locale 'zh-cn' and 'zh-tw' must be renamed to 'zh-hans' and 'zh-"
+"hant' respectively in 'LANGUAGES' setting. If you define them in "
+"local_settings.py or local_settings.d explicitly, ensure to rename them to "
+"the new locales."
+msgstr ""
+"Chinese locale 'zh-cn' and 'zh-tw' must be renamed to 'zh-hans' and 'zh-"
+"hant' respectively in 'LANGUAGES' setting. If you define them in "
+"local_settings.py or local_settings.d explicitly, ensure to rename them to "
+"the new locales."
+
+msgid "Chinese locale rename"
+msgstr "Chinese locale rename"
 
 msgid ""
 "Choose \"Disk Format\" for the image. The volume images are created with the "
@@ -2306,6 +2320,9 @@ msgstr "Display Name"
 msgid "Distributed"
 msgstr "Distributed"
 
+msgid "Django launch instance form"
+msgstr "Django launch instance form"
+
 msgid ""
 "Do not use a colon ':' with OS::Glance::Images. This resource type does not "
 "support the use of colons."
@@ -3180,6 +3197,11 @@ msgstr "Forbidden"
 msgctxt "Force upload volume in in-use status to image"
 msgid "Force"
 msgstr "Force"
+
+msgid "Force Delete Volume Backup"
+msgid_plural "Force Delete Volume Backups"
+msgstr[0] "Force Delete Volume Backup"
+msgstr[1] "Force Delete Volume Backups"
 
 msgid "Force Host Copy"
 msgstr "Force Host Copy"
@@ -5675,6 +5697,11 @@ msgid_plural "Scheduled deletion of Volume Snapshots"
 msgstr[0] "Scheduled deletion of Volume Snapshot"
 msgstr[1] "Scheduled deletion of Volume Snapshots"
 
+msgid "Scheduled forced deletion of Volume Backup"
+msgid_plural "Scheduled forced deletion of Volume Backups"
+msgstr[0] "Scheduled forced deletion of Volume Backup"
+msgstr[1] "Scheduled forced deletion of Volume Backups"
+
 msgid "Scheduled migration (pending confirmation) of Instance"
 msgid_plural "Scheduled migration (pending confirmation) of Instances"
 msgstr[0] "Scheduled migration (pending confirmation) of Instance"
@@ -6410,6 +6437,10 @@ msgid "Successfully updated security group: %s"
 msgstr "Successfully updated security group: %s"
 
 #, python-format
+msgid "Successfully updated volume backup status to \"%s\"."
+msgstr "Successfully updated volume backup status to \"%s\"."
+
+#, python-format
 msgid "Successfully updated volume snapshot status: \"%s\"."
 msgstr "Successfully updated volume snapshot status: \"%s\"."
 
@@ -6557,6 +6588,17 @@ msgstr ""
 "The Authorisation Key will not be available after closing this page, so you "
 "must capture it now or download it, or else you will be unable to use the "
 "transfer."
+
+msgid ""
+"The Django version of the launch instance form is deprecated since Wallaby "
+"release. Switch to the AngularJS version of the form by setting "
+"LAUNCH_INSTANCE_NG_ENABLED to True and LAUNCH_INSTANCE_LEGACY_ENABLED to "
+"False."
+msgstr ""
+"The Django version of the launch instance form is deprecated since Wallaby "
+"release. Switch to the AngularJS version of the form by setting "
+"LAUNCH_INSTANCE_NG_ENABLED to True and LAUNCH_INSTANCE_LEGACY_ENABLED to "
+"False."
 
 msgid "The ICMP code not in range (-1, 255)"
 msgstr "The ICMP code not in range (-1, 255)"
@@ -6805,6 +6847,15 @@ msgstr "The specified Floating IP no longer exists."
 
 msgid "The specified port is invalid."
 msgstr "The specified port is invalid."
+
+msgid ""
+"The status of a volume backup is normally managed automatically. In some "
+"circumstances an administrator may need to explicitly update the status "
+"value. This is equivalent to the <tt>cinder backup-reset-state</tt> command."
+msgstr ""
+"The status of a volume backup is normally managed automatically. In some "
+"circumstances an administrator may need to explicitly update the status "
+"value. This is equivalent to the <tt>cinder backup-reset-state</tt> command."
 
 msgid ""
 "The status of a volume is normally managed automatically.  In some "
@@ -7981,6 +8032,12 @@ msgstr "Unable to retrieve users."
 msgid "Unable to retrieve version information."
 msgstr "Unable to retrieve version information."
 
+msgid "Unable to retrieve volume backup details."
+msgstr "Unable to retrieve volume backup details."
+
+msgid "Unable to retrieve volume backup project information."
+msgstr "Unable to retrieve volume backup project information."
+
 msgid "Unable to retrieve volume backups."
 msgstr "Unable to retrieve volume backups."
 
@@ -8169,6 +8226,10 @@ msgstr "Unable to update the user password."
 
 msgid "Unable to update the user."
 msgstr "Unable to update the user."
+
+#, python-format
+msgid "Unable to update volume backup status to \"%s\"."
+msgstr "Unable to update volume backup status to \"%s\"."
 
 msgid "Unable to update volume group."
 msgstr "Unable to update volume group."
@@ -8365,6 +8426,9 @@ msgstr "Update Volume Status"
 
 msgid "Update Volume Type Encryption"
 msgstr "Update Volume Type Encryption"
+
+msgid "Update Volume backup Status"
+msgstr "Update Volume backup Status"
 
 msgid "Update a Metadata Namespace"
 msgstr "Update a Metadata Namespace"
