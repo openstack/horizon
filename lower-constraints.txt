@@ -3,7 +3,6 @@ amqp==2.1.1
 appdirs==1.4.0
 asn1crypto==0.23.0
 Babel==2.6.0
-bandit==1.4.0
 cachetools==2.0.0
 cffi==1.14.0
 chardet==3.0.4
@@ -78,7 +77,6 @@ positional==1.2.1
 prettytable==0.7.2
 pycodestyle==2.5.0
 pycparser==2.18
-pyflakes==2.1.0
 Pygments==2.2.0
 pyinotify==0.9.6
 pymongo==3.0.2
