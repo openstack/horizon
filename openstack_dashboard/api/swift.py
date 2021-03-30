@@ -176,7 +176,7 @@ def swift_get_containers(request, marker=None, prefix=None):
 
 @profiler.trace
 @safe_swift_exception
-def swift_get_container(request, container_name, with_data=True):
+def swift_get_container(request, container_name, with_data=False):
     if with_data:
         headers, data = swift_api(request).get_object(container_name, "")
     else:
