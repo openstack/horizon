@@ -13,6 +13,12 @@
   name: admin_api
   operations: []
   scope_types: null
+- check_str: (role:admin and system_scope:all) or (role:admin and domain_id:%(domain_id)s)
+    or (role:admin and project_id:%(project_id)s)
+  description: Default rule for admins of cloud, domain or a project.
+  name: system_or_domain_or_project_admin
+  operations: []
+  scope_types: null
 - check_str: ''
   description: Create attachment.
   name: volume:attachment_create
@@ -413,7 +419,7 @@
   - method: GET
     path: /group_snapshots/detail
   scope_types: null
-- check_str: rule:admin_or_owner
+- check_str: rule:admin_api
   description: Reset status of group snapshot.
   name: group:reset_group_snapshot_status
   operations:
@@ -540,13 +546,6 @@
   operations:
   - method: DELETE
     path: /os-quota-sets/{project_id}
-  scope_types: null
-- check_str: rule:admin_api
-  description: Validate setup for nested quota.
-  name: volume_extension:quota_classes:validate_setup_for_nested_quota_use
-  operations:
-  - method: GET
-    path: /os-quota-sets/validate_setup_for_nested_quota_use
   scope_types: null
 - check_str: rule:admin_api
   description: Show backend capabilities.
@@ -1135,3 +1134,36 @@
   - method: POST
     path: /volumes
   scope_types: null
+- check_str: rule:system_or_domain_or_project_admin
+  description: Set or update default volume type.
+  name: volume_extension:default_set_or_update
+  operations:
+  - method: PUT
+    path: /default-types
+  scope_types:
+  - system
+- check_str: rule:system_or_domain_or_project_admin
+  description: Get default types.
+  name: volume_extension:default_get
+  operations:
+  - method: GET
+    path: /default-types/{project-id}
+  scope_types:
+  - system
+- check_str: role:admin and system_scope:all
+  description: 'Get all default types. WARNING: Changing this might open up too much
+    information regarding cloud deployment.'
+  name: volume_extension:default_get_all
+  operations:
+  - method: GET
+    path: /default-types/
+  scope_types:
+  - system
+- check_str: rule:system_or_domain_or_project_admin
+  description: Unset default type.
+  name: volume_extension:default_unset
+  operations:
+  - method: DELETE
+    path: /default-types/{project-id}
+  scope_types:
+  - system

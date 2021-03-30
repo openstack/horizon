@@ -28,6 +28,11 @@
   name: admin_owner_or_network_owner
   operations: []
   scope_types: null
+- check_str: tenant_id:%(network:tenant_id)s
+  description: Rule for network owner access
+  name: network_owner
+  operations: []
+  scope_types: null
 - check_str: rule:context_is_admin
   description: Rule for admin-only access
   name: admin_only
@@ -53,26 +58,78 @@
   name: admin_or_ext_parent_owner
   operations: []
   scope_types: null
+- check_str: tenant_id:%(ext_parent:tenant_id)s
+  description: Rule for common parent owner check
+  name: ext_parent_owner
+  operations: []
+  scope_types: null
+- check_str: tenant_id:%(security_group:tenant_id)s
+  description: Rule for security group owner access
+  name: sg_owner
+  operations: []
+  scope_types: null
+- check_str: field:address_groups:shared=True
+  description: Definition of a shared address group
+  name: shared_address_groups
+  operations: []
+  scope_types: null
+- check_str: (role:reader and system_scope:all) or (role:reader and project_id:%(project_id)s)
+    or rule:shared_address_groups
+  deprecated_reason: null
+  deprecated_rule:
+    check_str: rule:admin_or_owner or rule:shared_address_groups
+    name: get_address_group
+  deprecated_since: null
+  description: Get an address group
+  name: get_address_group
+  operations:
+  - method: GET
+    path: /address-groups
+  - method: GET
+    path: /address-groups/{id}
+  scope_types:
+  - system
+  - project
 - check_str: field:address_scopes:shared=True
   description: Definition of a shared address scope
   name: shared_address_scopes
   operations: []
   scope_types: null
-- check_str: rule:regular_user
+- check_str: (role:admin and system_scope:all) or (role:member and project_id:%(project_id)s)
+  deprecated_reason: null
+  deprecated_rule:
+    check_str: rule:regular_user
+    name: create_address_scope
+  deprecated_since: null
   description: Create an address scope
   name: create_address_scope
   operations:
   - method: POST
     path: /address-scopes
-  scope_types: null
-- check_str: rule:admin_only
+  scope_types:
+  - system
+  - project
+- check_str: role:admin and system_scope:all
+  deprecated_reason: null
+  deprecated_rule:
+    check_str: rule:admin_only
+    name: create_address_scope:shared
+  deprecated_since: null
   description: Create a shared address scope
   name: create_address_scope:shared
   operations:
   - method: POST
     path: /address-scopes
-  scope_types: null
-- check_str: rule:admin_or_owner or rule:shared_address_scopes
+  scope_types:
+  - system
+  - project
+- check_str: (role:reader and system_scope:all) or (role:reader and project_id:%(project_id)s)
+    or rule:shared_address_scopes
+  deprecated_reason: null
+  deprecated_rule:
+    check_str: rule:admin_or_owner or rule:shared_address_scopes
+    name: get_address_scope
+  deprecated_since: null
   description: Get an address scope
   name: get_address_scope
   operations:
@@ -80,29 +137,57 @@
     path: /address-scopes
   - method: GET
     path: /address-scopes/{id}
-  scope_types: null
-- check_str: rule:admin_or_owner
+  scope_types:
+  - system
+  - project
+- check_str: (role:admin and system_scope:all) or (role:member and project_id:%(project_id)s)
+  deprecated_reason: null
+  deprecated_rule:
+    check_str: rule:admin_or_owner
+    name: update_address_scope
+  deprecated_since: null
   description: Update an address scope
   name: update_address_scope
   operations:
   - method: PUT
     path: /address-scopes/{id}
-  scope_types: null
-- check_str: rule:admin_only
+  scope_types:
+  - system
+  - project
+- check_str: role:admin and system_scope:all
+  deprecated_reason: null
+  deprecated_rule:
+    check_str: rule:admin_only
+    name: update_address_scope:shared
+  deprecated_since: null
   description: Update ``shared`` attribute of an address scope
   name: update_address_scope:shared
   operations:
   - method: PUT
     path: /address-scopes/{id}
-  scope_types: null
-- check_str: rule:admin_or_owner
+  scope_types:
+  - system
+  - project
+- check_str: (role:admin and system_scope:all) or (role:member and project_id:%(project_id)s)
+  deprecated_reason: null
+  deprecated_rule:
+    check_str: rule:admin_or_owner
+    name: delete_address_scope
+  deprecated_since: null
   description: Delete an address scope
   name: delete_address_scope
   operations:
   - method: DELETE
     path: /address-scopes/{id}
-  scope_types: null
-- check_str: rule:admin_only
+  scope_types:
+  - system
+  - project
+- check_str: role:reader and system_scope:all
+  deprecated_reason: null
+  deprecated_rule:
+    check_str: rule:admin_only
+    name: get_agent
+  deprecated_since: null
   description: Get an agent
   name: get_agent
   operations:
@@ -110,106 +195,198 @@
     path: /agents
   - method: GET
     path: /agents/{id}
-  scope_types: null
-- check_str: rule:admin_only
+  scope_types:
+  - system
+- check_str: role:admin and system_scope:all
+  deprecated_reason: null
+  deprecated_rule:
+    check_str: rule:admin_only
+    name: update_agent
+  deprecated_since: null
   description: Update an agent
   name: update_agent
   operations:
   - method: PUT
     path: /agents/{id}
-  scope_types: null
-- check_str: rule:admin_only
+  scope_types:
+  - system
+- check_str: role:admin and system_scope:all
+  deprecated_reason: null
+  deprecated_rule:
+    check_str: rule:admin_only
+    name: delete_agent
+  deprecated_since: null
   description: Delete an agent
   name: delete_agent
   operations:
   - method: DELETE
     path: /agents/{id}
-  scope_types: null
-- check_str: rule:admin_only
+  scope_types:
+  - system
+- check_str: role:admin and system_scope:all
+  deprecated_reason: null
+  deprecated_rule:
+    check_str: rule:admin_only
+    name: create_dhcp-network
+  deprecated_since: null
   description: Add a network to a DHCP agent
   name: create_dhcp-network
   operations:
   - method: POST
     path: /agents/{agent_id}/dhcp-networks
-  scope_types: null
-- check_str: rule:admin_only
+  scope_types:
+  - system
+- check_str: role:reader and system_scope:all
+  deprecated_reason: null
+  deprecated_rule:
+    check_str: rule:admin_only
+    name: get_dhcp-networs
+  deprecated_since: null
   description: List networks on a DHCP agent
   name: get_dhcp-networks
   operations:
   - method: GET
     path: /agents/{agent_id}/dhcp-networks
-  scope_types: null
-- check_str: rule:admin_only
+  scope_types:
+  - system
+- check_str: role:admin and system_scope:all
+  deprecated_reason: null
+  deprecated_rule:
+    check_str: rule:admin_only
+    name: delete_dhcp-networ
+  deprecated_since: null
   description: Remove a network from a DHCP agent
   name: delete_dhcp-network
   operations:
   - method: DELETE
     path: /agents/{agent_id}/dhcp-networks/{network_id}
-  scope_types: null
-- check_str: rule:admin_only
+  scope_types:
+  - system
+- check_str: role:admin and system_scope:all
+  deprecated_reason: null
+  deprecated_rule:
+    check_str: rule:admin_only
+    name: create_l3-router
+  deprecated_since: null
   description: Add a router to an L3 agent
   name: create_l3-router
   operations:
   - method: POST
     path: /agents/{agent_id}/l3-routers
-  scope_types: null
-- check_str: rule:admin_only
+  scope_types:
+  - system
+- check_str: role:reader and system_scope:all
+  deprecated_reason: null
+  deprecated_rule:
+    check_str: rule:admin_only
+    name: get_l3-routers
+  deprecated_since: null
   description: List routers on an L3 agent
   name: get_l3-routers
   operations:
   - method: GET
     path: /agents/{agent_id}/l3-routers
-  scope_types: null
-- check_str: rule:admin_only
+  scope_types:
+  - system
+- check_str: role:admin and system_scope:all
+  deprecated_reason: null
+  deprecated_rule:
+    check_str: rule:admin_only
+    name: delete_l3-router
+  deprecated_since: null
   description: Remove a router from an L3 agent
   name: delete_l3-router
   operations:
   - method: DELETE
     path: /agents/{agent_id}/l3-routers/{router_id}
-  scope_types: null
-- check_str: rule:admin_only
+  scope_types:
+  - system
+- check_str: role:reader and system_scope:all
+  deprecated_reason: null
+  deprecated_rule:
+    check_str: rule:admin_only
+    name: get_dhcp-agents
+  deprecated_since: null
   description: List DHCP agents hosting a network
   name: get_dhcp-agents
   operations:
   - method: GET
     path: /networks/{network_id}/dhcp-agents
-  scope_types: null
-- check_str: rule:admin_only
+  scope_types:
+  - system
+- check_str: role:reader and system_scope:all
+  deprecated_reason: null
+  deprecated_rule:
+    check_str: rule:admin_only
+    name: get_l3-agents
+  deprecated_since: null
   description: List L3 agents hosting a router
   name: get_l3-agents
   operations:
   - method: GET
     path: /routers/{router_id}/l3-agents
-  scope_types: null
-- check_str: rule:admin_or_owner
+  scope_types:
+  - system
+- check_str: (role:reader and system_scope:all) or (role:reader and project_id:%(project_id)s)
+  deprecated_reason: null
+  deprecated_rule:
+    check_str: rule:admin_or_owner
+    name: get_auto_allocated_topology
+  deprecated_since: null
   description: Get a project's auto-allocated topology
   name: get_auto_allocated_topology
   operations:
   - method: GET
     path: /auto-allocated-topology/{project_id}
-  scope_types: null
-- check_str: rule:admin_or_owner
+  scope_types:
+  - system
+  - project
+- check_str: (role:admin and system_scope:all) or (role:member and project_id:%(project_id)s)
+  deprecated_reason: null
+  deprecated_rule:
+    check_str: rule:admin_or_owner
+    name: delete_auto_allocated_topology
+  deprecated_since: null
   description: Delete a project's auto-allocated topology
   name: delete_auto_allocated_topology
   operations:
   - method: DELETE
     path: /auto-allocated-topology/{project_id}
-  scope_types: null
-- check_str: rule:regular_user
+  scope_types:
+  - system
+  - project
+- check_str: role:reader and system_scope:all
+  deprecated_reason: null
+  deprecated_rule:
+    check_str: rule:regular_user
+    name: get_availability_zone
+  deprecated_since: null
   description: List availability zones
   name: get_availability_zone
   operations:
   - method: GET
     path: /availability_zones
-  scope_types: null
-- check_str: rule:admin_only
+  scope_types:
+  - system
+- check_str: role:admin and system_scope:all
+  deprecated_reason: null
+  deprecated_rule:
+    check_str: rule:admin_only
+    name: create_flavor
+  deprecated_since: null
   description: Create a flavor
   name: create_flavor
   operations:
   - method: POST
     path: /flavors
-  scope_types: null
-- check_str: rule:regular_user
+  scope_types:
+  - system
+- check_str: (role:reader and system_scope:all) or (role:reader and project_id:%(project_id)s)
+  deprecated_reason: null
+  deprecated_rule:
+    check_str: rule:regular_user
+    name: get_flavor
+  deprecated_since: null
   description: Get a flavor
   name: get_flavor
   operations:
@@ -217,29 +394,54 @@
     path: /flavors
   - method: GET
     path: /flavors/{id}
-  scope_types: null
-- check_str: rule:admin_only
+  scope_types:
+  - system
+  - project
+- check_str: role:admin and system_scope:all
+  deprecated_reason: null
+  deprecated_rule:
+    check_str: rule:admin_only
+    name: update_flavor
+  deprecated_since: null
   description: Update a flavor
   name: update_flavor
   operations:
   - method: PUT
     path: /flavors/{id}
-  scope_types: null
-- check_str: rule:admin_only
+  scope_types:
+  - system
+- check_str: role:admin and system_scope:all
+  deprecated_reason: null
+  deprecated_rule:
+    check_str: rule:admin_only
+    name: delete_flavor
+  deprecated_since: null
   description: Delete a flavor
   name: delete_flavor
   operations:
   - method: DELETE
     path: /flavors/{id}
-  scope_types: null
-- check_str: rule:admin_only
+  scope_types:
+  - system
+- check_str: role:admin and system_scope:all
+  deprecated_reason: null
+  deprecated_rule:
+    check_str: rule:admin_only
+    name: create_service_profile
+  deprecated_since: null
   description: Create a service profile
   name: create_service_profile
   operations:
   - method: POST
     path: /service_profiles
-  scope_types: null
-- check_str: rule:admin_only
+  scope_types:
+  - system
+- check_str: role:reader and system_scope:all
+  deprecated_reason: null
+  deprecated_rule:
+    check_str: rule:admin_only
+    name: get_service_profile
+  deprecated_since: null
   description: Get a service profile
   name: get_service_profile
   operations:
@@ -247,57 +449,107 @@
     path: /service_profiles
   - method: GET
     path: /service_profiles/{id}
-  scope_types: null
-- check_str: rule:admin_only
+  scope_types:
+  - system
+- check_str: role:admin and system_scope:all
+  deprecated_reason: null
+  deprecated_rule:
+    check_str: rule:admin_only
+    name: update_service_profile
+  deprecated_since: null
   description: Update a service profile
   name: update_service_profile
   operations:
   - method: PUT
     path: /service_profiles/{id}
-  scope_types: null
-- check_str: rule:admin_only
+  scope_types:
+  - system
+- check_str: role:admin and system_scope:all
+  deprecated_reason: null
+  deprecated_rule:
+    check_str: rule:admin_only
+    name: delete_service_profile
+  deprecated_since: null
   description: Delete a service profile
   name: delete_service_profile
   operations:
   - method: DELETE
     path: /service_profiles/{id}
-  scope_types: null
-- check_str: rule:regular_user
+  scope_types:
+  - system
+- check_str: (role:reader and system_scope:all) or (role:reader and project_id:%(project_id)s)
+  deprecated_reason: null
+  deprecated_rule:
+    check_str: rule:regular_user
+    name: get_flavor_service_profile
+  deprecated_since: null
   description: Get a flavor associated with a given service profiles. There is no
     corresponding GET operations in API currently. This rule is currently referred
     only in the DELETE of flavor_service_profile.
   name: get_flavor_service_profile
   operations: []
-  scope_types: null
-- check_str: rule:admin_only
+  scope_types:
+  - system
+  - project
+- check_str: role:admin and system_scope:all
+  deprecated_reason: null
+  deprecated_rule:
+    check_str: rule:admin_only
+    name: create_flavor_service_profile
+  deprecated_since: null
   description: Associate a flavor with a service profile
   name: create_flavor_service_profile
   operations:
   - method: POST
     path: /flavors/{flavor_id}/service_profiles
-  scope_types: null
-- check_str: rule:admin_only
+  scope_types:
+  - system
+- check_str: role:admin and system_scope:all
+  deprecated_reason: null
+  deprecated_rule:
+    check_str: rule:admin_only
+    name: delete_flavor_service_profile
+  deprecated_since: null
   description: Disassociate a flavor with a service profile
   name: delete_flavor_service_profile
   operations:
   - method: DELETE
     path: /flavors/{flavor_id}/service_profiles/{profile_id}
-  scope_types: null
-- check_str: rule:regular_user
+  scope_types:
+  - system
+- check_str: (role:admin and system_scope:all) or (role:member and project_id:%(project_id)s)
+  deprecated_reason: null
+  deprecated_rule:
+    check_str: rule:regular_user
+    name: create_floatingip
+  deprecated_since: null
   description: Create a floating IP
   name: create_floatingip
   operations:
   - method: POST
     path: /floatingips
-  scope_types: null
-- check_str: rule:admin_only
+  scope_types:
+  - project
+- check_str: role:admin and system_scope:all
+  deprecated_reason: null
+  deprecated_rule:
+    check_str: rule:admin_only
+    name: create_floatingip:floating_ip_address
+  deprecated_since: null
   description: Create a floating IP with a specific IP address
   name: create_floatingip:floating_ip_address
   operations:
   - method: POST
     path: /floatingips
-  scope_types: null
-- check_str: rule:admin_or_owner
+  scope_types:
+  - system
+  - project
+- check_str: (role:reader and system_scope:all) or (role:reader and project_id:%(project_id)s)
+  deprecated_reason: null
+  deprecated_rule:
+    check_str: rule:admin_or_owner
+    name: get_floatingip
+  deprecated_since: null
   description: Get a floating IP
   name: get_floatingip
   operations:
@@ -305,36 +557,73 @@
     path: /floatingips
   - method: GET
     path: /floatingips/{id}
-  scope_types: null
-- check_str: rule:admin_or_owner
+  scope_types:
+  - system
+  - project
+- check_str: (role:admin and system_scope:all) or (role:member and project_id:%(project_id)s)
+  deprecated_reason: null
+  deprecated_rule:
+    check_str: rule:admin_or_owner
+    name: update_floatingip
+  deprecated_since: null
   description: Update a floating IP
   name: update_floatingip
   operations:
   - method: PUT
     path: /floatingips/{id}
-  scope_types: null
-- check_str: rule:admin_or_owner
+  scope_types:
+  - system
+  - project
+- check_str: (role:admin and system_scope:all) or (role:member and project_id:%(project_id)s)
+  deprecated_reason: null
+  deprecated_rule:
+    check_str: rule:admin_or_owner
+    name: delete_floatingip
+  deprecated_since: null
   description: Delete a floating IP
   name: delete_floatingip
   operations:
   - method: DELETE
     path: /floatingips/{id}
-  scope_types: null
-- check_str: rule:regular_user
+  scope_types:
+  - system
+  - project
+- check_str: (role:reader and system_scope:all) or (role:reader and project_id:%(project_id)s)
+  deprecated_reason: null
+  deprecated_rule:
+    check_str: rule:regular_user
+    name: get_floatingip_pool
+  deprecated_since: null
   description: Get floating IP pools
   name: get_floatingip_pool
   operations:
   - method: GET
     path: /floatingip_pools
-  scope_types: null
-- check_str: rule:admin_or_ext_parent_owner
+  scope_types:
+  - admin
+  - project
+- check_str: (role:admin and system_scope:all) or (role:member and project_id:%(project_id)s)
+    or rule:ext_parent_owner
+  deprecated_reason: null
+  deprecated_rule:
+    check_str: rule:admin_or_ext_parent_owner
+    name: create_floatingip_port_forwarding
+  deprecated_since: null
   description: Create a floating IP port forwarding
   name: create_floatingip_port_forwarding
   operations:
   - method: POST
     path: /floatingips/{floatingip_id}/port_forwardings
-  scope_types: null
-- check_str: rule:admin_or_ext_parent_owner
+  scope_types:
+  - system
+  - project
+- check_str: (role:reader and system_scope:all) or (role:reader and project_id:%(project_id)s)
+    or rule:ext_parent_owner
+  deprecated_reason: null
+  deprecated_rule:
+    check_str: rule:admin_or_ext_parent_owner
+    name: get_floatingip_port_forwarding
+  deprecated_since: null
   description: Get a floating IP port forwarding
   name: get_floatingip_port_forwarding
   operations:
@@ -342,29 +631,61 @@
     path: /floatingips/{floatingip_id}/port_forwardings
   - method: GET
     path: /floatingips/{floatingip_id}/port_forwardings/{port_forwarding_id}
-  scope_types: null
-- check_str: rule:admin_or_ext_parent_owner
+  scope_types:
+  - system
+  - project
+- check_str: (role:admin and system_scope:all) or (role:member and project_id:%(project_id)s)
+    or rule:ext_parent_owner
+  deprecated_reason: null
+  deprecated_rule:
+    check_str: rule:admin_or_ext_parent_owner
+    name: update_floatingip_port_forwarding
+  deprecated_since: null
   description: Update a floating IP port forwarding
   name: update_floatingip_port_forwarding
   operations:
   - method: PUT
     path: /floatingips/{floatingip_id}/port_forwardings/{port_forwarding_id}
-  scope_types: null
-- check_str: rule:admin_or_ext_parent_owner
+  scope_types:
+  - system
+  - project
+- check_str: (role:admin and system_scope:all) or (role:member and project_id:%(project_id)s)
+    or rule:ext_parent_owner
+  deprecated_reason: null
+  deprecated_rule:
+    check_str: rule:admin_or_ext_parent_owner
+    name: delete_floatingip_port_forwarding
+  deprecated_since: null
   description: Delete a floating IP port forwarding
   name: delete_floatingip_port_forwarding
   operations:
   - method: DELETE
     path: /floatingips/{floatingip_id}/port_forwardings/{port_forwarding_id}
-  scope_types: null
-- check_str: rule:admin_or_ext_parent_owner
+  scope_types:
+  - system
+  - project
+- check_str: (role:admin and system_scope:all) or (role:member and project_id:%(project_id)s)
+    or rule:ext_parent_owner
+  deprecated_reason: null
+  deprecated_rule:
+    check_str: rule:admin_or_ext_parent_owner
+    name: create_router_conntrack_helper
+  deprecated_since: null
   description: Create a router conntrack helper
   name: create_router_conntrack_helper
   operations:
   - method: POST
     path: /routers/{router_id}/conntrack_helpers
-  scope_types: null
-- check_str: rule:admin_or_ext_parent_owner
+  scope_types:
+  - system
+  - project
+- check_str: (role:reader and system_scope:all) or (role:reader and project_id:%(project_id)s)
+    or rule:ext_parent_owner
+  deprecated_reason: null
+  deprecated_rule:
+    check_str: rule:admin_or_ext_parent_owner
+    name: get_router_conntrack_helper
+  deprecated_since: null
   description: Get a router conntrack helper
   name: get_router_conntrack_helper
   operations:
@@ -372,36 +693,71 @@
     path: /routers/{router_id}/conntrack_helpers
   - method: GET
     path: /routers/{router_id}/conntrack_helpers/{conntrack_helper_id}
-  scope_types: null
-- check_str: rule:admin_or_ext_parent_owner
+  scope_types:
+  - system
+  - project
+- check_str: (role:admin and system_scope:all) or (role:member and project_id:%(project_id)s)
+    or rule:ext_parent_owner
+  deprecated_reason: null
+  deprecated_rule:
+    check_str: rule:admin_or_ext_parent_owner
+    name: update_router_conntrack_helper
+  deprecated_since: null
   description: Update a router conntrack helper
   name: update_router_conntrack_helper
   operations:
   - method: PUT
     path: /routers/{router_id}/conntrack_helpers/{conntrack_helper_id}
-  scope_types: null
-- check_str: rule:admin_or_ext_parent_owner
+  scope_types:
+  - system
+  - project
+- check_str: (role:admin and system_scope:all) or (role:member and project_id:%(project_id)s)
+    or rule:ext_parent_owner
+  deprecated_reason: null
+  deprecated_rule:
+    check_str: rule:admin_or_ext_parent_owner
+    name: delete_router_conntrack_helper
+  deprecated_since: null
   description: Delete a router conntrack helper
   name: delete_router_conntrack_helper
   operations:
   - method: DELETE
     path: /routers/{router_id}/conntrack_helpers/{conntrack_helper_id}
-  scope_types: null
-- check_str: rule:admin_only
+  scope_types:
+  - system
+  - project
+- check_str: role:reader and system_scope:all
+  deprecated_reason: null
+  deprecated_rule:
+    check_str: rule:admin_only
+    name: get_loggable_resource
+  deprecated_since: null
   description: Get loggable resources
   name: get_loggable_resource
   operations:
   - method: GET
     path: /log/loggable-resources
-  scope_types: null
-- check_str: rule:admin_only
+  scope_types:
+  - system
+- check_str: role:admin and system_scope:all
+  deprecated_reason: null
+  deprecated_rule:
+    check_str: rule:admin_only
+    name: create_log
+  deprecated_since: null
   description: Create a network log
   name: create_log
   operations:
   - method: POST
     path: /log/logs
-  scope_types: null
-- check_str: rule:admin_only
+  scope_types:
+  - system
+- check_str: role:reader and system_scope:all
+  deprecated_reason: null
+  deprecated_rule:
+    check_str: rule:admin_only
+    name: get_log
+  deprecated_since: null
   description: Get a network log
   name: get_log
   operations:
@@ -409,29 +765,54 @@
     path: /log/logs
   - method: GET
     path: /log/logs/{id}
-  scope_types: null
-- check_str: rule:admin_only
+  scope_types:
+  - system
+- check_str: role:admin and system_scope:all
+  deprecated_reason: null
+  deprecated_rule:
+    check_str: rule:admin_only
+    name: update_log
+  deprecated_since: null
   description: Update a network log
   name: update_log
   operations:
   - method: PUT
     path: /log/logs/{id}
-  scope_types: null
-- check_str: rule:admin_only
+  scope_types:
+  - system
+- check_str: role:admin and system_scope:all
+  deprecated_reason: null
+  deprecated_rule:
+    check_str: rule:admin_only
+    name: delete_log
+  deprecated_since: null
   description: Delete a network log
   name: delete_log
   operations:
   - method: DELETE
     path: /log/logs/{id}
-  scope_types: null
-- check_str: rule:admin_only
+  scope_types:
+  - system
+- check_str: role:admin and system_scope:all
+  deprecated_reason: null
+  deprecated_rule:
+    check_str: rule:admin_only
+    name: create_metering_label
+  deprecated_since: null
   description: Create a metering label
   name: create_metering_label
   operations:
   - method: POST
     path: /metering/metering-labels
-  scope_types: null
-- check_str: rule:admin_only
+  scope_types:
+  - system
+  - project
+- check_str: role:reader and system_scope:all
+  deprecated_reason: null
+  deprecated_rule:
+    check_str: rule:admin_only
+    name: get_metering_label
+  deprecated_since: null
   description: Get a metering label
   name: get_metering_label
   operations:
@@ -439,22 +820,43 @@
     path: /metering/metering-labels
   - method: GET
     path: /metering/metering-labels/{id}
-  scope_types: null
-- check_str: rule:admin_only
+  scope_types:
+  - system
+  - project
+- check_str: role:admin and system_scope:all
+  deprecated_reason: null
+  deprecated_rule:
+    check_str: rule:admin_only
+    name: delete_metering_label
+  deprecated_since: null
   description: Delete a metering label
   name: delete_metering_label
   operations:
   - method: DELETE
     path: /metering/metering-labels/{id}
-  scope_types: null
-- check_str: rule:admin_only
+  scope_types:
+  - system
+  - project
+- check_str: role:admin and system_scope:all
+  deprecated_reason: null
+  deprecated_rule:
+    check_str: rule:admin_only
+    name: create_metering_label_rule
+  deprecated_since: null
   description: Create a metering label rule
   name: create_metering_label_rule
   operations:
   - method: POST
     path: /metering/metering-label-rules
-  scope_types: null
-- check_str: rule:admin_only
+  scope_types:
+  - system
+  - project
+- check_str: role:reader and system_scope:all
+  deprecated_reason: null
+  deprecated_rule:
+    check_str: rule:admin_only
+    name: get_metering_label_rule
+  deprecated_since: null
   description: Get a metering label rule
   name: get_metering_label_rule
   operations:
@@ -462,67 +864,136 @@
     path: /metering/metering-label-rules
   - method: GET
     path: /metering/metering-label-rules/{id}
-  scope_types: null
-- check_str: rule:admin_only
+  scope_types:
+  - system
+  - project
+- check_str: role:admin and system_scope:all
+  deprecated_reason: null
+  deprecated_rule:
+    check_str: rule:admin_only
+    name: delete_metering_label_rule
+  deprecated_since: null
   description: Delete a metering label rule
   name: delete_metering_label_rule
   operations:
   - method: DELETE
     path: /metering/metering-label-rules/{id}
-  scope_types: null
+  scope_types:
+  - system
+  - project
 - check_str: field:networks:router:external=True
   description: Definition of an external network
   name: external
   operations: []
   scope_types: null
-- check_str: rule:regular_user
+- check_str: (role:admin and system_scope:all) or (role:member and project_id:%(project_id)s)
+  deprecated_reason: null
+  deprecated_rule:
+    check_str: rule:regular_user
+    name: create_network
+  deprecated_since: null
   description: Create a network
   name: create_network
   operations: &id001
   - method: POST
     path: /networks
-  scope_types: null
-- check_str: rule:admin_only
+  scope_types:
+  - project
+- check_str: role:admin and system_scope:all
+  deprecated_reason: null
+  deprecated_rule:
+    check_str: rule:admin_only
+    name: create_network:shared
+  deprecated_since: null
   description: Create a shared network
   name: create_network:shared
   operations: *id001
-  scope_types: null
-- check_str: rule:admin_only
+  scope_types:
+  - system
+- check_str: role:admin and system_scope:all
+  deprecated_reason: null
+  deprecated_rule:
+    check_str: rule:admin_only
+    name: create_network:router:external
+  deprecated_since: null
   description: Create an external network
   name: create_network:router:external
   operations: *id001
-  scope_types: null
-- check_str: rule:admin_only
+  scope_types:
+  - system
+- check_str: role:admin and system_scope:all
+  deprecated_reason: null
+  deprecated_rule:
+    check_str: rule:admin_only
+    name: create_network:is_default
+  deprecated_since: null
   description: Specify ``is_default`` attribute when creating a network
   name: create_network:is_default
   operations: *id001
-  scope_types: null
-- check_str: rule:regular_user
+  scope_types:
+  - system
+- check_str: (role:admin and system_scope:all) or (role:member and project_id:%(project_id)s)
+  deprecated_reason: null
+  deprecated_rule:
+    check_str: rule:regular_user
+    name: create_network:port_security_enabled
+  deprecated_since: null
   description: Specify ``port_security_enabled`` attribute when creating a network
   name: create_network:port_security_enabled
   operations: *id001
-  scope_types: null
-- check_str: rule:admin_only
+  scope_types:
+  - project
+- check_str: role:admin and system_scope:all
+  deprecated_reason: null
+  deprecated_rule:
+    check_str: rule:admin_only
+    name: create_network:segments
+  deprecated_since: null
   description: Specify ``segments`` attribute when creating a network
   name: create_network:segments
   operations: *id001
-  scope_types: null
-- check_str: rule:admin_only
+  scope_types:
+  - system
+- check_str: role:admin and system_scope:all
+  deprecated_reason: null
+  deprecated_rule:
+    check_str: rule:admin_only
+    name: create_network:provider:network_type
+  deprecated_since: null
   description: Specify ``provider:network_type`` when creating a network
   name: create_network:provider:network_type
   operations: *id001
-  scope_types: null
-- check_str: rule:admin_only
+  scope_types:
+  - system
+- check_str: role:admin and system_scope:all
+  deprecated_reason: null
+  deprecated_rule:
+    check_str: rule:admin_only
+    name: create_network:provider:physical_network
+  deprecated_since: null
   description: Specify ``provider:physical_network`` when creating a network
   name: create_network:provider:physical_network
   operations: *id001
-  scope_types: null
-- check_str: rule:admin_only
+  scope_types:
+  - system
+- check_str: role:admin and system_scope:all
+  deprecated_reason: null
+  deprecated_rule:
+    check_str: rule:admin_only
+    name: create_network:provider:segmentation_id
+  deprecated_since: null
   description: Specify ``provider:segmentation_id`` when creating a network
   name: create_network:provider:segmentation_id
   operations: *id001
-  scope_types: null
-- check_str: rule:admin_or_owner or rule:shared or rule:external or rule:context_is_advsvc
+  scope_types:
+  - system
+- check_str: (role:reader and system_scope:all) or (role:reader and project_id:%(project_id)s)
+    or rule:shared or rule:external or rule:context_is_advsvc
+  deprecated_reason: null
+  deprecated_rule:
+    check_str: rule:admin_or_owner or rule:shared or rule:external or rule:context_is_advsvc
+    name: get_network
+  deprecated_since: null
   description: Get a network
   name: get_network
   operations: &id002
@@ -530,87 +1001,187 @@
     path: /networks
   - method: GET
     path: /networks/{id}
-  scope_types: null
-- check_str: rule:regular_user
+  scope_types:
+  - system
+  - project
+- check_str: (role:reader and system_scope:all) or (role:reader and project_id:%(project_id)s)
+  deprecated_reason: null
+  deprecated_rule:
+    check_str: rule:regular_user
+    name: get_network:router:external
+  deprecated_since: null
   description: Get ``router:external`` attribute of a network
   name: get_network:router:external
   operations: *id002
-  scope_types: null
-- check_str: rule:admin_only
+  scope_types:
+  - project
+- check_str: role:reader and system_scope:all
+  deprecated_reason: null
+  deprecated_rule:
+    check_str: rule:admin_only
+    name: get_network:segments
+  deprecated_since: null
   description: Get ``segments`` attribute of a network
   name: get_network:segments
   operations: *id002
-  scope_types: null
-- check_str: rule:admin_only
+  scope_types:
+  - system
+- check_str: role:reader and system_scope:all
+  deprecated_reason: null
+  deprecated_rule:
+    check_str: rule:admin_only
+    name: get_network:provider:network_type
+  deprecated_since: null
   description: Get ``provider:network_type`` attribute of a network
   name: get_network:provider:network_type
   operations: *id002
-  scope_types: null
-- check_str: rule:admin_only
+  scope_types:
+  - system
+- check_str: role:reader and system_scope:all
+  deprecated_reason: null
+  deprecated_rule:
+    check_str: rule:admin_only
+    name: get_network:provider:physical_network
+  deprecated_since: null
   description: Get ``provider:physical_network`` attribute of a network
   name: get_network:provider:physical_network
   operations: *id002
-  scope_types: null
-- check_str: rule:admin_only
+  scope_types:
+  - system
+- check_str: role:reader and system_scope:all
+  deprecated_reason: null
+  deprecated_rule:
+    check_str: rule:admin_only
+    name: get_network:provider:segmentation_id
+  deprecated_since: null
   description: Get ``provider:segmentation_id`` attribute of a network
   name: get_network:provider:segmentation_id
   operations: *id002
-  scope_types: null
-- check_str: rule:admin_or_owner
+  scope_types:
+  - system
+- check_str: (role:admin and system_scope:all) or (role:member and project_id:%(project_id)s)
+  deprecated_reason: null
+  deprecated_rule:
+    check_str: rule:admin_or_owner
+    name: update_network
+  deprecated_since: null
   description: Update a network
   name: update_network
   operations: &id003
   - method: PUT
     path: /networks/{id}
-  scope_types: null
-- check_str: rule:admin_only
+  scope_types:
+  - system
+  - project
+- check_str: role:admin and system_scope:all
+  deprecated_reason: null
+  deprecated_rule:
+    check_str: rule:admin_only
+    name: update_network:segments
+  deprecated_since: null
   description: Update ``segments`` attribute of a network
   name: update_network:segments
   operations: *id003
-  scope_types: null
-- check_str: rule:admin_only
+  scope_types:
+  - system
+- check_str: role:admin and system_scope:all
+  deprecated_reason: null
+  deprecated_rule:
+    check_str: rule:admin_only
+    name: update_network:shared
+  deprecated_since: null
   description: Update ``shared`` attribute of a network
   name: update_network:shared
   operations: *id003
-  scope_types: null
-- check_str: rule:admin_only
+  scope_types:
+  - system
+- check_str: role:admin and system_scope:all
+  deprecated_reason: null
+  deprecated_rule:
+    check_str: rule:admin_only
+    name: update_network:provider:network_type
+  deprecated_since: null
   description: Update ``provider:network_type`` attribute of a network
   name: update_network:provider:network_type
   operations: *id003
-  scope_types: null
-- check_str: rule:admin_only
+  scope_types:
+  - system
+- check_str: role:admin and system_scope:all
+  deprecated_reason: null
+  deprecated_rule:
+    check_str: rule:admin_only
+    name: update_network:provider:physical_network
+  deprecated_since: null
   description: Update ``provider:physical_network`` attribute of a network
   name: update_network:provider:physical_network
   operations: *id003
-  scope_types: null
-- check_str: rule:admin_only
+  scope_types:
+  - system
+- check_str: role:admin and system_scope:all
+  deprecated_reason: null
+  deprecated_rule:
+    check_str: rule:admin_only
+    name: update_network:provider:segmentation_id
+  deprecated_since: null
   description: Update ``provider:segmentation_id`` attribute of a network
   name: update_network:provider:segmentation_id
   operations: *id003
-  scope_types: null
-- check_str: rule:admin_only
+  scope_types:
+  - system
+- check_str: role:admin and system_scope:all
+  deprecated_reason: null
+  deprecated_rule:
+    check_str: rule:admin_only
+    name: update_network:router:external
+  deprecated_since: null
   description: Update ``router:external`` attribute of a network
   name: update_network:router:external
   operations: *id003
-  scope_types: null
-- check_str: rule:admin_only
+  scope_types:
+  - system
+- check_str: role:admin and system_scope:all
+  deprecated_reason: null
+  deprecated_rule:
+    check_str: rule:admin_only
+    name: update_network:is_default
+  deprecated_since: null
   description: Update ``is_default`` attribute of a network
   name: update_network:is_default
   operations: *id003
-  scope_types: null
-- check_str: rule:admin_or_owner
+  scope_types:
+  - system
+- check_str: (role:admin and system_scope:all) or (role:member and project_id:%(project_id)s)
+  deprecated_reason: null
+  deprecated_rule:
+    check_str: rule:admin_or_owner
+    name: update_network:port_security_enabled
+  deprecated_since: null
   description: Update ``port_security_enabled`` attribute of a network
   name: update_network:port_security_enabled
   operations: *id003
-  scope_types: null
-- check_str: rule:admin_or_owner
+  scope_types:
+  - system
+  - project
+- check_str: (role:admin and system_scope:all) or (role:member and project_id:%(project_id)s)
+  deprecated_reason: null
+  deprecated_rule:
+    check_str: rule:admin_or_owner
+    name: delete_network
+  deprecated_since: null
   description: Delete a network
   name: delete_network
   operations:
   - method: DELETE
     path: /networks/{id}
-  scope_types: null
-- check_str: rule:admin_only
+  scope_types:
+  - system
+  - project
+- check_str: role:reader and system_scope:all
+  deprecated_reason: null
+  deprecated_rule:
+    check_str: rule:admin_only
+    name: get_network_ip_availability
+  deprecated_since: null
   description: Get network IP availability
   name: get_network_ip_availability
   operations:
@@ -618,15 +1189,27 @@
     path: /network-ip-availabilities
   - method: GET
     path: /network-ip-availabilities/{network_id}
-  scope_types: null
-- check_str: rule:admin_only
+  scope_types:
+  - system
+- check_str: role:admin and system_scope:all
+  deprecated_reason: null
+  deprecated_rule:
+    check_str: rule:admin_only
+    name: create_network_segment_range
+  deprecated_since: null
   description: Create a network segment range
   name: create_network_segment_range
   operations:
   - method: POST
     path: /network_segment_ranges
-  scope_types: null
-- check_str: rule:admin_only
+  scope_types:
+  - system
+- check_str: role:reader and system_scope:all
+  deprecated_reason: null
+  deprecated_rule:
+    check_str: rule:admin_only
+    name: get_network_segment_range
+  deprecated_since: null
   description: Get a network segment range
   name: get_network_segment_range
   operations:
@@ -634,21 +1217,34 @@
     path: /network_segment_ranges
   - method: GET
     path: /network_segment_ranges/{id}
-  scope_types: null
-- check_str: rule:admin_only
+  scope_types:
+  - system
+- check_str: role:admin and system_scope:all
+  deprecated_reason: null
+  deprecated_rule:
+    check_str: rule:admin_only
+    name: update_network_segment_range
+  deprecated_since: null
   description: Update a network segment range
   name: update_network_segment_range
   operations:
   - method: PUT
     path: /network_segment_ranges/{id}
-  scope_types: null
-- check_str: rule:admin_only
+  scope_types:
+  - system
+- check_str: role:admin and system_scope:all
+  deprecated_reason: null
+  deprecated_rule:
+    check_str: rule:admin_only
+    name: delete_network_segment_range
+  deprecated_since: null
   description: Delete a network segment range
   name: delete_network_segment_range
   operations:
   - method: DELETE
     path: /network_segment_ranges/{id}
-  scope_types: null
+  scope_types:
+  - system
 - check_str: 'field:port:device_owner=~^network:'
   description: Definition of port with network device_owner
   name: network_device
@@ -659,76 +1255,179 @@
   name: admin_or_data_plane_int
   operations: []
   scope_types: null
-- check_str: rule:regular_user
+- check_str: (role:admin and system_scope:all) or (role:member and project_id:%(project_id)s)
+  deprecated_reason: null
+  deprecated_rule:
+    check_str: rule:regular_user
+    name: create_port
+  deprecated_since: null
   description: Create a port
   name: create_port
   operations: &id004
   - method: POST
     path: /ports
-  scope_types: null
-- check_str: not rule:network_device or rule:context_is_advsvc or rule:admin_or_network_owner
+  scope_types:
+  - system
+  - project
+- check_str: not rule:network_device or role:admin and system_scope:all or role:admin
+    and project_id:%(project_id)s or rule:context_is_advsvc or rule:network_owner
+  deprecated_reason: null
+  deprecated_rule:
+    check_str: not rule:network_device or rule:context_is_advsvc or rule:admin_or_network_owner
+    name: create_port:device_owner
+  deprecated_since: null
   description: Specify ``device_owner`` attribute when creting a port
   name: create_port:device_owner
   operations: *id004
-  scope_types: null
-- check_str: rule:context_is_advsvc or rule:admin_or_network_owner
+  scope_types:
+  - system
+  - project
+- check_str: rule:context_is_advsvc or rule:network_owner or role:admin and system_scope:all
+    or role:admin and project_id:%(project_id)s
+  deprecated_reason: null
+  deprecated_rule:
+    check_str: rule:context_is_advsvc or rule:admin_or_network_owner
+    name: create_port:mac_address
+  deprecated_since: null
   description: Specify ``mac_address`` attribute when creating a port
   name: create_port:mac_address
   operations: *id004
-  scope_types: null
-- check_str: rule:context_is_advsvc or rule:admin_or_network_owner or rule:shared
+  scope_types:
+  - system
+  - project
+- check_str: rule:context_is_advsvc or rule:network_owner or role:admin and system_scope:all
+    or role:admin and project_id:%(project_id)s or rule:shared
+  deprecated_reason: null
+  deprecated_rule:
+    check_str: rule:context_is_advsvc or rule:admin_or_network_owner or rule:shared
+    name: create_port:fixed_ips
+  deprecated_since: null
   description: Specify ``fixed_ips`` information when creating a port
   name: create_port:fixed_ips
   operations: *id004
-  scope_types: null
-- check_str: rule:context_is_advsvc or rule:admin_or_network_owner
+  scope_types:
+  - system
+  - project
+- check_str: rule:context_is_advsvc or rule:network_owner or role:admin and system_scope:all
+    or role:admin and project_id:%(project_id)s
+  deprecated_reason: null
+  deprecated_rule:
+    check_str: rule:context_is_advsvc or rule:admin_or_network_owner
+    name: create_port:fixed_ips:ip_address
+  deprecated_since: null
   description: Specify IP address in ``fixed_ips`` when creating a port
   name: create_port:fixed_ips:ip_address
   operations: *id004
-  scope_types: null
-- check_str: rule:context_is_advsvc or rule:admin_or_network_owner or rule:shared
+  scope_types:
+  - system
+  - project
+- check_str: rule:context_is_advsvc or rule:network_owner or role:admin and system_scope:all
+    or role:admin and project_id:%(project_id)s or rule:shared
+  deprecated_reason: null
+  deprecated_rule:
+    check_str: rule:context_is_advsvc or rule:admin_or_network_owner or rule:shared
+    name: create_port:fixed_ips:subnet_id
+  deprecated_since: null
   description: Specify subnet ID in ``fixed_ips`` when creating a port
   name: create_port:fixed_ips:subnet_id
   operations: *id004
-  scope_types: null
-- check_str: rule:context_is_advsvc or rule:admin_or_network_owner
+  scope_types:
+  - system
+  - project
+- check_str: rule:context_is_advsvc or rule:network_owner or role:admin and system_scope:all
+    or role:admin and project_id:%(project_id)s
+  deprecated_reason: null
+  deprecated_rule:
+    check_str: rule:context_is_advsvc or rule:admin_or_network_owner
+    name: create_port:port_security_enabled
+  deprecated_since: null
   description: Specify ``port_security_enabled`` attribute when creating a port
   name: create_port:port_security_enabled
   operations: *id004
-  scope_types: null
-- check_str: rule:admin_only
+  scope_types:
+  - system
+  - project
+- check_str: role:admin and system_scope:all
+  deprecated_reason: null
+  deprecated_rule:
+    check_str: rule:admin_only
+    name: create_port:binding:host_id
+  deprecated_since: null
   description: Specify ``binding:host_id`` attribute when creating a port
   name: create_port:binding:host_id
   operations: *id004
-  scope_types: null
-- check_str: rule:admin_only
+  scope_types:
+  - system
+- check_str: role:admin and system_scope:all
+  deprecated_reason: null
+  deprecated_rule:
+    check_str: rule:admin_only
+    name: create_port:binding:profile
+  deprecated_since: null
   description: Specify ``binding:profile`` attribute when creating a port
   name: create_port:binding:profile
   operations: *id004
-  scope_types: null
-- check_str: rule:regular_user
+  scope_types:
+  - system
+- check_str: (role:admin and system_scope:all) or (role:member and project_id:%(project_id)s)
+  deprecated_reason: null
+  deprecated_rule:
+    check_str: rule:regular_user
+    name: create_port:binding:vnic_type
+  deprecated_since: null
   description: Specify ``binding:vnic_type`` attribute when creating a port
   name: create_port:binding:vnic_type
   operations: *id004
-  scope_types: null
-- check_str: rule:admin_or_network_owner
+  scope_types:
+  - project
+- check_str: role:admin and system_scope:all or role:admin and project_id:%(project_id)s
+    or rule:network_owner
+  deprecated_reason: null
+  deprecated_rule:
+    check_str: rule:admin_or_network_owner
+    name: create_port:allowed_address_pairs
+  deprecated_since: null
   description: Specify ``allowed_address_pairs`` attribute when creating a port
   name: create_port:allowed_address_pairs
   operations: *id004
-  scope_types: null
-- check_str: rule:admin_or_network_owner
+  scope_types:
+  - project
+  - system
+- check_str: role:admin and system_scope:all or role:admin and project_id:%(project_id)s
+    or rule:network_owner
+  deprecated_reason: null
+  deprecated_rule:
+    check_str: rule:admin_or_network_owner
+    name: create_port:allowed_address_pairs:mac_address
+  deprecated_since: null
   description: Specify ``mac_address` of `allowed_address_pairs`` attribute when creating
     a port
   name: create_port:allowed_address_pairs:mac_address
   operations: *id004
-  scope_types: null
-- check_str: rule:admin_or_network_owner
+  scope_types:
+  - project
+  - system
+- check_str: role:admin and system_scope:all or role:admin and project_id:%(project_id)s
+    or rule:network_owner
+  deprecated_reason: null
+  deprecated_rule:
+    check_str: rule:admin_or_network_owner
+    name: create_port:allowed_address_pairs:ip_address
+  deprecated_since: null
   description: Specify ``ip_address`` of ``allowed_address_pairs`` attribute when
     creating a port
   name: create_port:allowed_address_pairs:ip_address
   operations: *id004
-  scope_types: null
-- check_str: rule:context_is_advsvc or rule:admin_owner_or_network_owner
+  scope_types:
+  - project
+  - system
+- check_str: rule:context_is_advsvc or (role:reader and system_scope:all) or (role:reader
+    and project_id:%(project_id)s)
+  deprecated_reason: null
+  deprecated_rule:
+    check_str: rule:context_is_advsvc or rule:admin_owner_or_network_owner
+    name: get_port
+  deprecated_since: null
   description: Get a port
   name: get_port
   operations: &id005
@@ -736,113 +1435,264 @@
     path: /ports
   - method: GET
     path: /ports/{id}
-  scope_types: null
-- check_str: rule:admin_only
+  scope_types:
+  - project
+  - system
+- check_str: role:reader and system_scope:all
+  deprecated_reason: null
+  deprecated_rule:
+    check_str: rule:admin_only
+    name: get_port:binding:vif_type
+  deprecated_since: null
   description: Get ``binding:vif_type`` attribute of a port
   name: get_port:binding:vif_type
   operations: *id005
-  scope_types: null
-- check_str: rule:admin_only
+  scope_types:
+  - system
+- check_str: role:reader and system_scope:all
+  deprecated_reason: null
+  deprecated_rule:
+    check_str: rule:admin_only
+    name: get_port:binding:vif_details
+  deprecated_since: null
   description: Get ``binding:vif_details`` attribute of a port
   name: get_port:binding:vif_details
   operations: *id005
-  scope_types: null
-- check_str: rule:admin_only
+  scope_types:
+  - system
+- check_str: role:reader and system_scope:all
+  deprecated_reason: null
+  deprecated_rule:
+    check_str: rule:admin_only
+    name: get_port:binding:host_id
+  deprecated_since: null
   description: Get ``binding:host_id`` attribute of a port
   name: get_port:binding:host_id
   operations: *id005
-  scope_types: null
-- check_str: rule:admin_only
+  scope_types:
+  - system
+- check_str: role:reader and system_scope:all
+  deprecated_reason: null
+  deprecated_rule:
+    check_str: rule:admin_only
+    name: get_port:binding:profile
+  deprecated_since: null
   description: Get ``binding:profile`` attribute of a port
   name: get_port:binding:profile
   operations: *id005
-  scope_types: null
-- check_str: rule:admin_only
+  scope_types:
+  - system
+- check_str: role:reader and system_scope:all
+  deprecated_reason: null
+  deprecated_rule:
+    check_str: rule:admin_only
+    name: get_port:resource_request
+  deprecated_since: null
   description: Get ``resource_request`` attribute of a port
   name: get_port:resource_request
   operations: *id005
-  scope_types: null
-- check_str: rule:admin_or_owner or rule:context_is_advsvc
+  scope_types:
+  - system
+- check_str: (role:admin and system_scope:all) or (role:member and project_id:%(project_id)s)
+    or rule:context_is_advsvc
+  deprecated_reason: null
+  deprecated_rule:
+    check_str: rule:admin_or_owner or rule:context_is_advsvc
+    name: update_port
+  deprecated_since: null
   description: Update a port
   name: update_port
   operations: &id006
   - method: PUT
     path: /ports/{id}
-  scope_types: null
-- check_str: not rule:network_device or rule:context_is_advsvc or rule:admin_or_network_owner
+  scope_types:
+  - system
+  - project
+- check_str: not rule:network_device or rule:context_is_advsvc or rule:network_owner
+    or role:admin and system_scope:all or role:admin and project_id:%(project_id)s
+  deprecated_reason: null
+  deprecated_rule:
+    check_str: not rule:network_device or rule:context_is_advsvc or rule:admin_or_network_owner
+    name: update_port:device_owner
+  deprecated_since: null
   description: Update ``device_owner`` attribute of a port
   name: update_port:device_owner
   operations: *id006
-  scope_types: null
-- check_str: rule:admin_only or rule:context_is_advsvc
+  scope_types:
+  - system
+  - project
+- check_str: role:admin and system_scope:all or rule:context_is_advsvc
+  deprecated_reason: null
+  deprecated_rule:
+    check_str: rule:admin_only or rule:context_is_advsvc
+    name: update_port:mac_address
+  deprecated_since: null
   description: Update ``mac_address`` attribute of a port
   name: update_port:mac_address
   operations: *id006
-  scope_types: null
-- check_str: rule:context_is_advsvc or rule:admin_or_network_owner
+  scope_types:
+  - system
+  - project
+- check_str: rule:context_is_advsvc or rule:network_owner or role:admin and system_scope:all
+    or role:admin and project_id:%(project_id)s
+  deprecated_reason: null
+  deprecated_rule:
+    check_str: rule:context_is_advsvc or rule:admin_or_network_owner
+    name: update_port:fixed_ips
+  deprecated_since: null
   description: Specify ``fixed_ips`` information when updating a port
   name: update_port:fixed_ips
   operations: *id006
-  scope_types: null
-- check_str: rule:context_is_advsvc or rule:admin_or_network_owner
+  scope_types:
+  - system
+  - project
+- check_str: rule:context_is_advsvc or rule:network_owner or role:admin and system_scope:all
+    or role:admin and project_id:%(project_id)s
+  deprecated_reason: null
+  deprecated_rule:
+    check_str: rule:context_is_advsvc or rule:admin_or_network_owner
+    name: update_port:fixed_ips:ip_address
+  deprecated_since: null
   description: Specify IP address in ``fixed_ips`` information when updating a port
   name: update_port:fixed_ips:ip_address
   operations: *id006
-  scope_types: null
-- check_str: rule:context_is_advsvc or rule:admin_or_network_owner or rule:shared
+  scope_types:
+  - system
+  - project
+- check_str: rule:context_is_advsvc or rule:network_owner or role:admin and system_scope:all
+    or role:admin and project_id:%(project_id)s or rule:shared
+  deprecated_reason: null
+  deprecated_rule:
+    check_str: rule:context_is_advsvc or rule:admin_or_network_owner or rule:shared
+    name: update_port:fixed_ips:subnet_id
+  deprecated_since: null
   description: Specify subnet ID in ``fixed_ips`` information when updating a port
   name: update_port:fixed_ips:subnet_id
   operations: *id006
-  scope_types: null
-- check_str: rule:context_is_advsvc or rule:admin_or_network_owner
+  scope_types:
+  - system
+  - project
+- check_str: rule:context_is_advsvc or rule:network_owner or role:admin and system_scope:all
+    or role:admin and project_id:%(project_id)s
+  deprecated_reason: null
+  deprecated_rule:
+    check_str: rule:context_is_advsvc or rule:admin_or_network_owner
+    name: update_port:port_security_enabled
+  deprecated_since: null
   description: Update ``port_security_enabled`` attribute of a port
   name: update_port:port_security_enabled
   operations: *id006
-  scope_types: null
-- check_str: rule:admin_only
+  scope_types:
+  - system
+  - project
+- check_str: role:admin and system_scope:all
+  deprecated_reason: null
+  deprecated_rule:
+    check_str: rule:admin_only
+    name: update_port:binding:host_id
+  deprecated_since: null
   description: Update ``binding:host_id`` attribute of a port
   name: update_port:binding:host_id
   operations: *id006
-  scope_types: null
-- check_str: rule:admin_only
+  scope_types:
+  - system
+- check_str: role:admin and system_scope:all
+  deprecated_reason: null
+  deprecated_rule:
+    check_str: rule:admin_only
+    name: update_port:binding:profile
+  deprecated_since: null
   description: Update ``binding:profile`` attribute of a port
   name: update_port:binding:profile
   operations: *id006
-  scope_types: null
-- check_str: rule:admin_or_owner or rule:context_is_advsvc
+  scope_types:
+  - system
+- check_str: (role:admin and system_scope:all) or (role:member and project_id:%(project_id)s)
+    or rule:context_is_advsvc
+  deprecated_reason: null
+  deprecated_rule:
+    check_str: rule:admin_or_owner or rule:context_is_advsvc
+    name: update_port:binding:vnic_type
+  deprecated_since: null
   description: Update ``binding:vnic_type`` attribute of a port
   name: update_port:binding:vnic_type
   operations: *id006
-  scope_types: null
-- check_str: rule:admin_or_network_owner
+  scope_types:
+  - system
+  - project
+- check_str: role:admin and system_scope:all or role:admin and project_id:%(project_id)s
+    or rule:network_owner
+  deprecated_reason: null
+  deprecated_rule:
+    check_str: rule:admin_or_network_owner
+    name: update_port:allowed_address_pairs
+  deprecated_since: null
   description: Update ``allowed_address_pairs`` attribute of a port
   name: update_port:allowed_address_pairs
   operations: *id006
-  scope_types: null
-- check_str: rule:admin_or_network_owner
+  scope_types:
+  - system
+  - project
+- check_str: role:admin and system_scope:all or role:admin and project_id:%(project_id)s
+    or rule:network_owner
+  deprecated_reason: null
+  deprecated_rule:
+    check_str: rule:admin_or_network_owner
+    name: update_port:allowed_address_pairs:mac_address
+  deprecated_since: null
   description: Update ``mac_address`` of ``allowed_address_pairs`` attribute of a
     port
   name: update_port:allowed_address_pairs:mac_address
   operations: *id006
-  scope_types: null
-- check_str: rule:admin_or_network_owner
+  scope_types:
+  - system
+  - project
+- check_str: role:admin and system_scope:all or role:admin and project_id:%(project_id)s
+    or rule:network_owner
+  deprecated_reason: null
+  deprecated_rule:
+    check_str: rule:admin_or_network_owner
+    name: update_port:allowed_address_pairs:ip_address
+  deprecated_since: null
   description: Update ``ip_address`` of ``allowed_address_pairs`` attribute of a port
   name: update_port:allowed_address_pairs:ip_address
   operations: *id006
-  scope_types: null
-- check_str: rule:admin_or_data_plane_int
+  scope_types:
+  - system
+  - project
+- check_str: role:admin and system_scope:all or role:data_plane_integrator
+  deprecated_reason: null
+  deprecated_rule:
+    check_str: rule:admin_or_data_plane_int
+    name: update_port:data_plane_status
+  deprecated_since: null
   description: Update ``data_plane_status`` attribute of a port
   name: update_port:data_plane_status
   operations: *id006
-  scope_types: null
-- check_str: rule:context_is_advsvc or rule:admin_owner_or_network_owner
+  scope_types:
+  - system
+  - project
+- check_str: rule:context_is_advsvc or (role:admin and system_scope:all) or (role:member
+    and project_id:%(project_id)s)
+  deprecated_reason: null
+  deprecated_rule:
+    check_str: rule:context_is_advsvc or rule:admin_owner_or_network_owner
+    name: delete_port
+  deprecated_since: null
   description: Delete a port
   name: delete_port
   operations:
   - method: DELETE
     path: /ports/{id}
-  scope_types: null
-- check_str: rule:regular_user
+  scope_types:
+  - system
+  - project
+- check_str: (role:reader and system_scope:all) or (role:reader and project_id:%(project_id)s)
+  deprecated_reason: null
+  deprecated_rule:
+    check_str: rule:regular_user
+    name: get_policy
+  deprecated_since: null
   description: Get QoS policies
   name: get_policy
   operations:
@@ -850,29 +1700,54 @@
     path: /qos/policies
   - method: GET
     path: /qos/policies/{id}
-  scope_types: null
-- check_str: rule:admin_only
+  scope_types:
+  - system
+  - project
+- check_str: role:admin and system_scope:all
+  deprecated_reason: null
+  deprecated_rule:
+    check_str: rule:admin_only
+    name: create_policy
+  deprecated_since: null
   description: Create a QoS policy
   name: create_policy
   operations:
   - method: POST
     path: /qos/policies
-  scope_types: null
-- check_str: rule:admin_only
+  scope_types:
+  - system
+- check_str: role:admin and system_scope:all
+  deprecated_reason: null
+  deprecated_rule:
+    check_str: rule:admin_only
+    name: update_policy
+  deprecated_since: null
   description: Update a QoS policy
   name: update_policy
   operations:
   - method: PUT
     path: /qos/policies/{id}
-  scope_types: null
-- check_str: rule:admin_only
+  scope_types:
+  - system
+- check_str: role:admin and system_scope:all
+  deprecated_reason: null
+  deprecated_rule:
+    check_str: rule:admin_only
+    name: delete_policy
+  deprecated_since: null
   description: Delete a QoS policy
   name: delete_policy
   operations:
   - method: DELETE
     path: /qos/policies/{id}
-  scope_types: null
-- check_str: rule:regular_user
+  scope_types:
+  - system
+- check_str: (role:reader and system_scope:all) or (role:reader and project_id:%(project_id)s)
+  deprecated_reason: null
+  deprecated_rule:
+    check_str: rule:regular_user
+    name: get_rule_type
+  deprecated_since: null
   description: Get available QoS rule types
   name: get_rule_type
   operations:
@@ -880,8 +1755,15 @@
     path: /qos/rule-types
   - method: GET
     path: /qos/rule-types/{rule_type}
-  scope_types: null
-- check_str: rule:regular_user
+  scope_types:
+  - system
+  - project
+- check_str: (role:reader and system_scope:all) or (role:reader and project_id:%(project_id)s)
+  deprecated_reason: null
+  deprecated_rule:
+    check_str: rule:regular_user
+    name: get_policy_bandwidth_limit_rule
+  deprecated_since: null
   description: Get a QoS bandwidth limit rule
   name: get_policy_bandwidth_limit_rule
   operations:
@@ -889,29 +1771,54 @@
     path: /qos/policies/{policy_id}/bandwidth_limit_rules
   - method: GET
     path: /qos/policies/{policy_id}/bandwidth_limit_rules/{rule_id}
-  scope_types: null
-- check_str: rule:admin_only
+  scope_types:
+  - system
+  - project
+- check_str: role:admin and system_scope:all
+  deprecated_reason: null
+  deprecated_rule:
+    check_str: rule:admin_only
+    name: create_policy_bandwidth_limit_rule
+  deprecated_since: null
   description: Create a QoS bandwidth limit rule
   name: create_policy_bandwidth_limit_rule
   operations:
   - method: POST
     path: /qos/policies/{policy_id}/bandwidth_limit_rules
-  scope_types: null
-- check_str: rule:admin_only
+  scope_types:
+  - system
+- check_str: role:admin and system_scope:all
+  deprecated_reason: null
+  deprecated_rule:
+    check_str: rule:admin_only
+    name: update_policy_bandwidth_limit_rule
+  deprecated_since: null
   description: Update a QoS bandwidth limit rule
   name: update_policy_bandwidth_limit_rule
   operations:
   - method: PUT
     path: /qos/policies/{policy_id}/bandwidth_limit_rules/{rule_id}
-  scope_types: null
-- check_str: rule:admin_only
+  scope_types:
+  - system
+- check_str: role:admin and system_scope:all
+  deprecated_reason: null
+  deprecated_rule:
+    check_str: rule:admin_only
+    name: delete_policy_bandwidth_limit_rule
+  deprecated_since: null
   description: Delete a QoS bandwidth limit rule
   name: delete_policy_bandwidth_limit_rule
   operations:
   - method: DELETE
     path: /qos/policies/{policy_id}/bandwidth_limit_rules/{rule_id}
-  scope_types: null
-- check_str: rule:regular_user
+  scope_types:
+  - system
+- check_str: (role:reader and system_scope:all) or (role:reader and project_id:%(project_id)s)
+  deprecated_reason: null
+  deprecated_rule:
+    check_str: rule:regular_user
+    name: get_policy_dscp_marking_rule
+  deprecated_since: null
   description: Get a QoS DSCP marking rule
   name: get_policy_dscp_marking_rule
   operations:
@@ -919,29 +1826,54 @@
     path: /qos/policies/{policy_id}/dscp_marking_rules
   - method: GET
     path: /qos/policies/{policy_id}/dscp_marking_rules/{rule_id}
-  scope_types: null
-- check_str: rule:admin_only
+  scope_types:
+  - system
+  - project
+- check_str: role:admin and system_scope:all
+  deprecated_reason: null
+  deprecated_rule:
+    check_str: rule:admin_only
+    name: create_policy_dscp_marking_rule
+  deprecated_since: null
   description: Create a QoS DSCP marking rule
   name: create_policy_dscp_marking_rule
   operations:
   - method: POST
     path: /qos/policies/{policy_id}/dscp_marking_rules
-  scope_types: null
-- check_str: rule:admin_only
+  scope_types:
+  - system
+- check_str: role:admin and system_scope:all
+  deprecated_reason: null
+  deprecated_rule:
+    check_str: rule:admin_only
+    name: update_policy_dscp_marking_rule
+  deprecated_since: null
   description: Update a QoS DSCP marking rule
   name: update_policy_dscp_marking_rule
   operations:
   - method: PUT
     path: /qos/policies/{policy_id}/dscp_marking_rules/{rule_id}
-  scope_types: null
-- check_str: rule:admin_only
+  scope_types:
+  - system
+- check_str: role:admin and system_scope:all
+  deprecated_reason: null
+  deprecated_rule:
+    check_str: rule:admin_only
+    name: delete_policy_dscp_marking_rule
+  deprecated_since: null
   description: Delete a QoS DSCP marking rule
   name: delete_policy_dscp_marking_rule
   operations:
   - method: DELETE
     path: /qos/policies/{policy_id}/dscp_marking_rules/{rule_id}
-  scope_types: null
-- check_str: rule:regular_user
+  scope_types:
+  - system
+- check_str: (role:reader and system_scope:all) or (role:reader and project_id:%(project_id)s)
+  deprecated_reason: null
+  deprecated_rule:
+    check_str: rule:regular_user
+    name: get_policy_minimum_bandwidth_rule
+  deprecated_since: null
   description: Get a QoS minimum bandwidth rule
   name: get_policy_minimum_bandwidth_rule
   operations:
@@ -949,28 +1881,48 @@
     path: /qos/policies/{policy_id}/minimum_bandwidth_rules
   - method: GET
     path: /qos/policies/{policy_id}/minimum_bandwidth_rules/{rule_id}
-  scope_types: null
-- check_str: rule:admin_only
+  scope_types:
+  - system
+  - project
+- check_str: role:admin and system_scope:all
+  deprecated_reason: null
+  deprecated_rule:
+    check_str: rule:admin_only
+    name: create_policy_minimum_bandwidth_rule
+  deprecated_since: null
   description: Create a QoS minimum bandwidth rule
   name: create_policy_minimum_bandwidth_rule
   operations:
   - method: POST
     path: /qos/policies/{policy_id}/minimum_bandwidth_rules
-  scope_types: null
-- check_str: rule:admin_only
+  scope_types:
+  - system
+- check_str: role:admin and system_scope:all
+  deprecated_reason: null
+  deprecated_rule:
+    check_str: rule:admin_only
+    name: update_policy_minimum_bandwidth_rule
+  deprecated_since: null
   description: Update a QoS minimum bandwidth rule
   name: update_policy_minimum_bandwidth_rule
   operations:
   - method: PUT
     path: /qos/policies/{policy_id}/minimum_bandwidth_rules/{rule_id}
-  scope_types: null
-- check_str: rule:admin_only
+  scope_types:
+  - system
+- check_str: role:admin and system_scope:all
+  deprecated_reason: null
+  deprecated_rule:
+    check_str: rule:admin_only
+    name: delete_policy_minimum_bandwidth_rule
+  deprecated_since: null
   description: Delete a QoS minimum bandwidth rule
   name: delete_policy_minimum_bandwidth_rule
   operations:
   - method: DELETE
     path: /qos/policies/{policy_id}/minimum_bandwidth_rules/{rule_id}
-  scope_types: null
+  scope_types:
+  - system
 - check_str: rule:get_policy_bandwidth_limit_rule
   description: Get a QoS bandwidth limit rule through alias
   name: get_alias_bandwidth_limit_rule
@@ -1034,7 +1986,12 @@
   - method: DELETE
     path: /qos/alias_minimum_bandwidth_rules/{rule_id}/
   scope_types: null
-- check_str: rule:admin_only
+- check_str: role:reader and system_scope:all
+  deprecated_reason: null
+  deprecated_rule:
+    check_str: rule:admin_only
+    name: get_quota
+  deprecated_since: null
   description: Get a resource quota
   name: get_quota
   operations:
@@ -1042,55 +1999,101 @@
     path: /quota
   - method: GET
     path: /quota/{id}
-  scope_types: null
-- check_str: rule:admin_only
+  scope_types:
+  - system
+- check_str: role:admin and system_scope:all
+  deprecated_reason: null
+  deprecated_rule:
+    check_str: rule:admin_only
+    name: update_quota
+  deprecated_since: null
   description: Update a resource quota
   name: update_quota
   operations:
   - method: PUT
     path: /quota/{id}
-  scope_types: null
-- check_str: rule:admin_only
+  scope_types:
+  - system
+- check_str: role:admin and system_scope:all
+  deprecated_reason: null
+  deprecated_rule:
+    check_str: rule:admin_only
+    name: delete_quota
+  deprecated_since: null
   description: Delete a resource quota
   name: delete_quota
   operations:
   - method: DELETE
     path: /quota/{id}
-  scope_types: null
+  scope_types:
+  - system
 - check_str: (not field:rbac_policy:target_tenant=*) or rule:admin_only
   description: Definition of a wildcard target_tenant
   name: restrict_wildcard
   operations: []
   scope_types: null
-- check_str: rule:regular_user
+- check_str: (role:admin and system_scope:all) or (role:member and project_id:%(project_id)s)
+  deprecated_reason: null
+  deprecated_rule:
+    check_str: rule:regular_user
+    name: create_rbac_policy
+  deprecated_since: null
   description: Create an RBAC policy
   name: create_rbac_policy
   operations:
   - method: POST
     path: /rbac-policies
-  scope_types: null
-- check_str: rule:restrict_wildcard
+  scope_types:
+  - system
+  - project
+- check_str: role:admin and system_scope:all or rule:restrict_wildcard
+  deprecated_reason: null
+  deprecated_rule:
+    check_str: rule:restrict_wildcard
+    name: create_rbac_policy:target_tenant
+  deprecated_since: null
   description: Specify ``target_tenant`` when creating an RBAC policy
   name: create_rbac_policy:target_tenant
   operations:
   - method: POST
     path: /rbac-policies
-  scope_types: null
-- check_str: rule:admin_or_owner
+  scope_types:
+  - system
+  - project
+- check_str: (role:admin and system_scope:all) or (role:member and project_id:%(project_id)s)
+  deprecated_reason: null
+  deprecated_rule:
+    check_str: rule:admin_or_owner
+    name: update_rbac_policy
+  deprecated_since: null
   description: Update an RBAC policy
   name: update_rbac_policy
   operations:
   - method: PUT
     path: /rbac-policies/{id}
-  scope_types: null
-- check_str: rule:restrict_wildcard and rule:admin_or_owner
+  scope_types:
+  - project
+  - system
+- check_str: role:admin and system_scope:all or rule:restrict_wildcard
+  deprecated_reason: null
+  deprecated_rule:
+    check_str: rule:restrict_wildcard and rule:admin_or_owner
+    name: update_rbac_policy:target_tenant
+  deprecated_since: null
   description: Update ``target_tenant`` attribute of an RBAC policy
   name: update_rbac_policy:target_tenant
   operations:
   - method: PUT
     path: /rbac-policies/{id}
-  scope_types: null
-- check_str: rule:admin_or_owner
+  scope_types:
+  - system
+  - project
+- check_str: (role:reader and system_scope:all) or (role:reader and project_id:%(project_id)s)
+  deprecated_reason: null
+  deprecated_rule:
+    check_str: rule:admin_or_owner
+    name: get_rbac_policy
+  deprecated_since: null
   description: Get an RBAC policy
   name: get_rbac_policy
   operations:
@@ -1098,55 +2101,113 @@
     path: /rbac-policies
   - method: GET
     path: /rbac-policies/{id}
-  scope_types: null
-- check_str: rule:admin_or_owner
+  scope_types:
+  - project
+  - system
+- check_str: (role:admin and system_scope:all) or (role:member and project_id:%(project_id)s)
+  deprecated_reason: null
+  deprecated_rule:
+    check_str: rule:admin_or_owner
+    name: delete_rbac_policy
+  deprecated_since: null
   description: Delete an RBAC policy
   name: delete_rbac_policy
   operations:
   - method: DELETE
     path: /rbac-policies/{id}
-  scope_types: null
-- check_str: rule:regular_user
+  scope_types:
+  - project
+  - system
+- check_str: (role:admin and system_scope:all) or (role:member and project_id:%(project_id)s)
+  deprecated_reason: null
+  deprecated_rule:
+    check_str: rule:regular_user
+    name: create_router
+  deprecated_since: null
   description: Create a router
   name: create_router
   operations: &id007
   - method: POST
     path: /routers
-  scope_types: null
-- check_str: rule:admin_only
+  scope_types:
+  - project
+- check_str: role:admin and system_scope:all
+  deprecated_reason: null
+  deprecated_rule:
+    check_str: rule:admin_only
+    name: create_router:distributed
+  deprecated_since: null
   description: Specify ``distributed`` attribute when creating a router
   name: create_router:distributed
   operations: *id007
-  scope_types: null
-- check_str: rule:admin_only
+  scope_types:
+  - system
+- check_str: role:admin and system_scope:all
+  deprecated_reason: null
+  deprecated_rule:
+    check_str: rule:admin_only
+    name: create_router:ha
+  deprecated_since: null
   description: Specify ``ha`` attribute when creating a router
   name: create_router:ha
   operations: *id007
-  scope_types: null
-- check_str: rule:admin_or_owner
+  scope_types:
+  - system
+- check_str: (role:admin and system_scope:all) or (role:member and project_id:%(project_id)s)
+  deprecated_reason: null
+  deprecated_rule:
+    check_str: rule:admin_or_owner
+    name: create_router:external_gateway_info
+  deprecated_since: null
   description: Specify ``external_gateway_info`` information when creating a router
   name: create_router:external_gateway_info
   operations: *id007
-  scope_types: null
-- check_str: rule:admin_or_owner
+  scope_types:
+  - system
+  - project
+- check_str: (role:admin and system_scope:all) or (role:member and project_id:%(project_id)s)
+  deprecated_reason: null
+  deprecated_rule:
+    check_str: rule:admin_or_owner
+    name: create_router:external_gateway_info:network_id
+  deprecated_since: null
   description: Specify ``network_id`` in ``external_gateway_info`` information when
     creating a router
   name: create_router:external_gateway_info:network_id
   operations: *id007
-  scope_types: null
-- check_str: rule:admin_only
+  scope_types:
+  - system
+  - project
+- check_str: role:admin and system_scope:all
+  deprecated_reason: null
+  deprecated_rule:
+    check_str: rule:admin_only
+    name: create_router:external_gateway_info:enable_snat
+  deprecated_since: null
   description: Specify ``enable_snat`` in ``external_gateway_info`` information when
     creating a router
   name: create_router:external_gateway_info:enable_snat
   operations: *id007
-  scope_types: null
-- check_str: rule:admin_only
+  scope_types:
+  - system
+- check_str: role:admin and system_scope:all
+  deprecated_reason: null
+  deprecated_rule:
+    check_str: rule:admin_only
+    name: create_router:external_gateway_info:external_fixed_ips
+  deprecated_since: null
   description: Specify ``external_fixed_ips`` in ``external_gateway_info`` information
     when creating a router
   name: create_router:external_gateway_info:external_fixed_ips
   operations: *id007
-  scope_types: null
-- check_str: rule:admin_or_owner
+  scope_types:
+  - system
+- check_str: (role:reader and system_scope:all) or (role:reader and project_id:%(project_id)s)
+  deprecated_reason: null
+  deprecated_rule:
+    check_str: rule:admin_or_owner
+    name: get_router
+  deprecated_since: null
   description: Get a router
   name: get_router
   operations: &id008
@@ -1154,78 +2215,158 @@
     path: /routers
   - method: GET
     path: /routers/{id}
-  scope_types: null
-- check_str: rule:admin_only
+  scope_types:
+  - system
+  - project
+- check_str: role:reader and system_scope:all
+  deprecated_reason: null
+  deprecated_rule:
+    check_str: rule:admin_only
+    name: get_router:distributed
+  deprecated_since: null
   description: Get ``distributed`` attribute of a router
   name: get_router:distributed
   operations: *id008
-  scope_types: null
-- check_str: rule:admin_only
+  scope_types:
+  - system
+- check_str: role:reader and system_scope:all
+  deprecated_reason: null
+  deprecated_rule:
+    check_str: rule:admin_only
+    name: get_router:ha
+  deprecated_since: null
   description: Get ``ha`` attribute of a router
   name: get_router:ha
   operations: *id008
-  scope_types: null
-- check_str: rule:admin_or_owner
+  scope_types:
+  - system
+- check_str: (role:admin and system_scope:all) or (role:member and project_id:%(project_id)s)
+  deprecated_reason: null
+  deprecated_rule:
+    check_str: rule:admin_or_owner
+    name: update_router
+  deprecated_since: null
   description: Update a router
   name: update_router
   operations: &id009
   - method: PUT
     path: /routers/{id}
-  scope_types: null
-- check_str: rule:admin_only
+  scope_types:
+  - system
+  - project
+- check_str: role:admin and system_scope:all
+  deprecated_reason: null
+  deprecated_rule:
+    check_str: rule:admin_only
+    name: update_router:distributed
+  deprecated_since: null
   description: Update ``distributed`` attribute of a router
   name: update_router:distributed
   operations: *id009
-  scope_types: null
-- check_str: rule:admin_only
+  scope_types:
+  - system
+- check_str: role:admin and system_scope:all
+  deprecated_reason: null
+  deprecated_rule:
+    check_str: rule:admin_only
+    name: update_router:ha
+  deprecated_since: null
   description: Update ``ha`` attribute of a router
   name: update_router:ha
   operations: *id009
-  scope_types: null
-- check_str: rule:admin_or_owner
+  scope_types:
+  - system
+- check_str: (role:admin and system_scope:all) or (role:member and project_id:%(project_id)s)
+  deprecated_reason: null
+  deprecated_rule:
+    check_str: rule:admin_or_owner
+    name: update_router:external_gateway_info
+  deprecated_since: null
   description: Update ``external_gateway_info`` information of a router
   name: update_router:external_gateway_info
   operations: *id009
-  scope_types: null
-- check_str: rule:admin_or_owner
+  scope_types:
+  - system
+  - project
+- check_str: (role:admin and system_scope:all) or (role:member and project_id:%(project_id)s)
+  deprecated_reason: null
+  deprecated_rule:
+    check_str: rule:admin_or_owner
+    name: update_router:external_gateway_info:network_id
+  deprecated_since: null
   description: Update ``network_id`` attribute of ``external_gateway_info`` information
     of a router
   name: update_router:external_gateway_info:network_id
   operations: *id009
-  scope_types: null
-- check_str: rule:admin_only
+  scope_types:
+  - system
+  - project
+- check_str: role:admin and system_scope:all
+  deprecated_reason: null
+  deprecated_rule:
+    check_str: rule:admin_only
+    name: update_router:external_gateway_info:enable_snat
+  deprecated_since: null
   description: Update ``enable_snat`` attribute of ``external_gateway_info`` information
     of a router
   name: update_router:external_gateway_info:enable_snat
   operations: *id009
-  scope_types: null
-- check_str: rule:admin_only
+  scope_types:
+  - system
+- check_str: role:admin and system_scope:all
+  deprecated_reason: null
+  deprecated_rule:
+    check_str: rule:admin_only
+    name: update_router:external_gateway_info:external_fixed_ips
+  deprecated_since: null
   description: Update ``external_fixed_ips`` attribute of ``external_gateway_info``
     information of a router
   name: update_router:external_gateway_info:external_fixed_ips
   operations: *id009
-  scope_types: null
-- check_str: rule:admin_or_owner
+  scope_types:
+  - system
+- check_str: (role:admin and system_scope:all) or (role:member and project_id:%(project_id)s)
+  deprecated_reason: null
+  deprecated_rule:
+    check_str: rule:admin_or_owner
+    name: delete_router
+  deprecated_since: null
   description: Delete a router
   name: delete_router
   operations:
   - method: DELETE
     path: /routers/{id}
-  scope_types: null
-- check_str: rule:admin_or_owner
+  scope_types:
+  - system
+  - project
+- check_str: (role:admin and system_scope:all) or (role:member and project_id:%(project_id)s)
+  deprecated_reason: null
+  deprecated_rule:
+    check_str: rule:admin_or_owner
+    name: add_router_interface
+  deprecated_since: null
   description: Add an interface to a router
   name: add_router_interface
   operations:
   - method: PUT
     path: /routers/{id}/add_router_interface
-  scope_types: null
-- check_str: rule:admin_or_owner
+  scope_types:
+  - system
+  - project
+- check_str: (role:admin and system_scope:all) or (role:member and project_id:%(project_id)s)
+  deprecated_reason: null
+  deprecated_rule:
+    check_str: rule:admin_or_owner
+    name: remove_router_interface
+  deprecated_since: null
   description: Remove an interface from a router
   name: remove_router_interface
   operations:
   - method: PUT
     path: /routers/{id}/remove_router_interface
-  scope_types: null
+  scope_types:
+  - system
+  - project
 - check_str: rule:context_is_admin or tenant_id:%(security_group:tenant_id)s
   description: Rule for admin or security group owner access
   name: admin_or_sg_owner
@@ -1236,14 +2377,26 @@
   name: admin_owner_or_sg_owner
   operations: []
   scope_types: null
-- check_str: rule:admin_or_owner
+- check_str: (role:admin and system_scope:all) or (role:member and project_id:%(project_id)s)
+  deprecated_reason: null
+  deprecated_rule:
+    check_str: rule:admin_or_owner
+    name: create_security_group
+  deprecated_since: null
   description: Create a security group
   name: create_security_group
   operations:
   - method: POST
     path: /security-groups
-  scope_types: null
-- check_str: rule:regular_user
+  scope_types:
+  - system
+  - project
+- check_str: (role:reader and system_scope:all) or (role:reader and project_id:%(project_id)s)
+  deprecated_reason: null
+  deprecated_rule:
+    check_str: rule:regular_user
+    name: get_security_group
+  deprecated_since: null
   description: Get a security group
   name: get_security_group
   operations:
@@ -1251,29 +2404,58 @@
     path: /security-groups
   - method: GET
     path: /security-groups/{id}
-  scope_types: null
-- check_str: rule:admin_or_owner
+  scope_types:
+  - system
+  - project
+- check_str: (role:admin and system_scope:all) or (role:member and project_id:%(project_id)s)
+  deprecated_reason: null
+  deprecated_rule:
+    check_str: rule:admin_or_owner
+    name: update_security_group
+  deprecated_since: null
   description: Update a security group
   name: update_security_group
   operations:
   - method: PUT
     path: /security-groups/{id}
-  scope_types: null
-- check_str: rule:admin_or_owner
+  scope_types:
+  - system
+  - project
+- check_str: (role:admin and system_scope:all) or (role:member and project_id:%(project_id)s)
+  deprecated_reason: null
+  deprecated_rule:
+    check_str: rule:admin_or_owner
+    name: delete_security_group
+  deprecated_since: null
   description: Delete a security group
   name: delete_security_group
   operations:
   - method: DELETE
     path: /security-groups/{id}
-  scope_types: null
-- check_str: rule:admin_or_owner
+  scope_types:
+  - system
+  - project
+- check_str: (role:admin and system_scope:all) or (role:member and project_id:%(project_id)s)
+  deprecated_reason: null
+  deprecated_rule:
+    check_str: rule:admin_or_owner
+    name: create_security_group_rule
+  deprecated_since: null
   description: Create a security group rule
   name: create_security_group_rule
   operations:
   - method: POST
     path: /security-group-rules
-  scope_types: null
-- check_str: rule:admin_owner_or_sg_owner
+  scope_types:
+  - system
+  - project
+- check_str: (role:reader and system_scope:all) or (role:reader and project_id:%(project_id)s)
+    or rule:sg_owner
+  deprecated_reason: null
+  deprecated_rule:
+    check_str: rule:admin_owner_or_sg_owner
+    name: get_security_group_rule
+  deprecated_since: null
   description: Get a security group rule
   name: get_security_group_rule
   operations:
@@ -1281,22 +2463,42 @@
     path: /security-group-rules
   - method: GET
     path: /security-group-rules/{id}
-  scope_types: null
-- check_str: rule:admin_or_owner
+  scope_types:
+  - system
+  - project
+- check_str: (role:admin and system_scope:all) or (role:member and project_id:%(project_id)s)
+  deprecated_reason: null
+  deprecated_rule:
+    check_str: rule:admin_or_owner
+    name: delete_security_group_rule
+  deprecated_since: null
   description: Delete a security group rule
   name: delete_security_group_rule
   operations:
   - method: DELETE
     path: /security-group-rules/{id}
-  scope_types: null
-- check_str: rule:admin_only
+  scope_types:
+  - system
+  - project
+- check_str: role:admin and system_scope:all
+  deprecated_reason: null
+  deprecated_rule:
+    check_str: rule:admin_only
+    name: create_segment
+  deprecated_since: null
   description: Create a segment
   name: create_segment
   operations:
   - method: POST
     path: /segments
-  scope_types: null
-- check_str: rule:admin_only
+  scope_types:
+  - system
+- check_str: role:reader and system_scope:all
+  deprecated_reason: null
+  deprecated_rule:
+    check_str: rule:admin_only
+    name: get_segment
+  deprecated_since: null
   description: Get a segment
   name: get_segment
   operations:
@@ -1304,46 +2506,92 @@
     path: /segments
   - method: GET
     path: /segments/{id}
-  scope_types: null
-- check_str: rule:admin_only
+  scope_types:
+  - system
+- check_str: role:admin and system_scope:all
+  deprecated_reason: null
+  deprecated_rule:
+    check_str: rule:admin_only
+    name: update_segment
+  deprecated_since: null
   description: Update a segment
   name: update_segment
   operations:
   - method: PUT
     path: /segments/{id}
-  scope_types: null
-- check_str: rule:admin_only
+  scope_types:
+  - system
+- check_str: role:admin and system_scope:all
+  deprecated_reason: null
+  deprecated_rule:
+    check_str: rule:admin_only
+    name: delete_segment
+  deprecated_since: null
   description: Delete a segment
   name: delete_segment
   operations:
   - method: DELETE
     path: /segments/{id}
-  scope_types: null
-- check_str: rule:regular_user
+  scope_types:
+  - system
+- check_str: (role:reader and system_scope:all) or (role:reader and project_id:%(project_id)s)
+  deprecated_reason: null
+  deprecated_rule:
+    check_str: rule:regular_user
+    name: get_service_provider
+  deprecated_since: null
   description: Get service providers
   name: get_service_provider
   operations:
   - method: GET
     path: /service-providers
-  scope_types: null
-- check_str: rule:admin_or_network_owner
+  scope_types:
+  - system
+  - project
+- check_str: (role:admin and system_scope:all) or (role:member and project_id:%(project_id)s)
+    or rule:network_owner
+  deprecated_reason: null
+  deprecated_rule:
+    check_str: rule:admin_or_network_owner
+    name: create_subnet
+  deprecated_since: null
   description: Create a subnet
   name: create_subnet
   operations: &id010
   - method: POST
     path: /subnets
-  scope_types: null
-- check_str: rule:admin_only
+  scope_types:
+  - system
+  - project
+- check_str: role:admin and system_scope:all
+  deprecated_reason: null
+  deprecated_rule:
+    check_str: rule:admin_only
+    name: create_subnet:segment_id
+  deprecated_since: null
   description: Specify ``segment_id`` attribute when creating a subnet
   name: create_subnet:segment_id
   operations: *id010
-  scope_types: null
-- check_str: rule:admin_only
+  scope_types:
+  - system
+- check_str: role:admin and system_scope:all
+  deprecated_reason: null
+  deprecated_rule:
+    check_str: rule:admin_only
+    name: create_subnet:service_types
+  deprecated_since: null
   description: Specify ``service_types`` attribute when creating a subnet
   name: create_subnet:service_types
   operations: *id010
-  scope_types: null
-- check_str: rule:admin_or_owner or rule:shared
+  scope_types:
+  - system
+- check_str: (role:reader and system_scope:all) or (role:reader and project_id:%(project_id)s)
+    or rule:shared
+  deprecated_reason: null
+  deprecated_rule:
+    check_str: rule:admin_or_owner or rule:shared
+    name: get_subnet
+  deprecated_since: null
   description: Get a subnet
   name: get_subnet
   operations: &id011
@@ -1351,63 +2599,124 @@
     path: /subnets
   - method: GET
     path: /subnets/{id}
-  scope_types: null
-- check_str: rule:admin_only
+  scope_types:
+  - system
+  - project
+- check_str: role:reader and system_scope:all
+  deprecated_reason: null
+  deprecated_rule:
+    check_str: rule:admin_only
+    name: get_subnet:segment_id
+  deprecated_since: null
   description: Get ``segment_id`` attribute of a subnet
   name: get_subnet:segment_id
   operations: *id011
-  scope_types: null
-- check_str: rule:admin_or_network_owner
+  scope_types:
+  - system
+- check_str: (role:admin and system_scope:all) or (role:member and project_id:%(project_id)s)
+    or rule:network_owner
+  deprecated_reason: null
+  deprecated_rule:
+    check_str: rule:admin_or_network_owner
+    name: update_subnet
+  deprecated_since: null
   description: Update a subnet
   name: update_subnet
   operations: &id012
   - method: PUT
     path: /subnets/{id}
-  scope_types: null
-- check_str: rule:admin_only
+  scope_types:
+  - system
+  - project
+- check_str: role:admin and system_scope:all
+  deprecated_reason: null
+  deprecated_rule:
+    check_str: rule:admin_only
+    name: update_subnet:segment_id
+  deprecated_since: null
   description: Update ``segment_id`` attribute of a subnet
   name: update_subnet:segment_id
   operations: *id012
-  scope_types: null
-- check_str: rule:admin_only
+  scope_types:
+  - system
+- check_str: role:admin and system_scope:all
+  deprecated_reason: null
+  deprecated_rule:
+    check_str: rule:admin_only
+    name: update_subnet:service_types
+  deprecated_since: null
   description: Update ``service_types`` attribute of a subnet
   name: update_subnet:service_types
   operations: *id012
-  scope_types: null
-- check_str: rule:admin_or_network_owner
+  scope_types:
+  - system
+- check_str: (role:admin and system_scope:all) or (role:member and project_id:%(project_id)s)
+    or rule:network_owner
+  deprecated_reason: null
+  deprecated_rule:
+    check_str: rule:admin_or_network_owner
+    name: delete_subnet
+  deprecated_since: null
   description: Delete a subnet
   name: delete_subnet
   operations:
   - method: DELETE
     path: /subnets/{id}
-  scope_types: null
+  scope_types:
+  - system
+  - project
 - check_str: field:subnetpools:shared=True
   description: Definition of a shared subnetpool
   name: shared_subnetpools
   operations: []
   scope_types: null
-- check_str: rule:regular_user
+- check_str: (role:admin and system_scope:all) or (role:member and project_id:%(project_id)s)
+  deprecated_reason: null
+  deprecated_rule:
+    check_str: rule:regular_user
+    name: create_subnetpool
+  deprecated_since: null
   description: Create a subnetpool
   name: create_subnetpool
   operations:
   - method: POST
     path: /subnetpools
-  scope_types: null
-- check_str: rule:admin_only
+  scope_types:
+  - project
+  - system
+- check_str: role:admin and system_scope:all
+  deprecated_reason: null
+  deprecated_rule:
+    check_str: rule:admin_only
+    name: create_subnetpool:shared
+  deprecated_since: null
   description: Create a shared subnetpool
   name: create_subnetpool:shared
   operations:
   - method: POST
     path: /subnetpools
-  scope_types: null
-- check_str: rule:admin_only
+  scope_types:
+  - system
+- check_str: role:admin and system_scope:all
+  deprecated_reason: null
+  deprecated_rule:
+    check_str: rule:admin_only
+    name: create_subnetpool:is_default
+  deprecated_since: null
   description: Specify ``is_default`` attribute when creating a subnetpool
   name: create_subnetpool:is_default
   operations:
   - method: POST
     path: /subnetpools
-  scope_types: null
-- check_str: rule:admin_or_owner or rule:shared_subnetpools
+  scope_types:
+  - system
+- check_str: (role:reader and system_scope:all) or (role:reader and project_id:%(project_id)s)
+    or rule:shared_subnetpools
+  deprecated_reason: null
+  deprecated_rule:
+    check_str: rule:admin_or_owner or rule:shared_subnetpools
+    name: get_subnetpool
+  deprecated_since: null
   description: Get a subnetpool
   name: get_subnetpool
   operations:
@@ -1415,57 +2724,112 @@
     path: /subnetpools
   - method: GET
     path: /subnetpools/{id}
-  scope_types: null
-- check_str: rule:admin_or_owner
+  scope_types:
+  - system
+  - project
+- check_str: (role:admin and system_scope:all) or (role:member and project_id:%(project_id)s)
+  deprecated_reason: null
+  deprecated_rule:
+    check_str: rule:admin_or_owner
+    name: update_subnetpool
+  deprecated_since: null
   description: Update a subnetpool
   name: update_subnetpool
   operations:
   - method: PUT
     path: /subnetpools/{id}
-  scope_types: null
-- check_str: rule:admin_only
+  scope_types:
+  - system
+  - project
+- check_str: role:admin and system_scope:all
+  deprecated_reason: null
+  deprecated_rule:
+    check_str: rule:admin_only
+    name: update_subnetpool:is_default
+  deprecated_since: null
   description: Update ``is_default`` attribute of a subnetpool
   name: update_subnetpool:is_default
   operations:
   - method: PUT
     path: /subnetpools/{id}
-  scope_types: null
-- check_str: rule:admin_or_owner
+  scope_types:
+  - system
+- check_str: (role:admin and system_scope:all) or (role:member and project_id:%(project_id)s)
+  deprecated_reason: null
+  deprecated_rule:
+    check_str: rule:admin_or_owner
+    name: delete_subnetpool
+  deprecated_since: null
   description: Delete a subnetpool
   name: delete_subnetpool
   operations:
   - method: DELETE
     path: /subnetpools/{id}
-  scope_types: null
-- check_str: rule:admin_or_owner
+  scope_types:
+  - system
+  - project
+- check_str: (role:admin and system_scope:all) or (role:member and project_id:%(project_id)s)
+  deprecated_reason: null
+  deprecated_rule:
+    check_str: rule:admin_or_owner
+    name: onboard_network_subnets
+  deprecated_since: null
   description: Onboard existing subnet into a subnetpool
   name: onboard_network_subnets
   operations:
-  - method: Put
+  - method: PUT
     path: /subnetpools/{id}/onboard_network_subnets
-  scope_types: null
-- check_str: rule:admin_or_owner
+  scope_types:
+  - system
+  - project
+- check_str: (role:admin and system_scope:all) or (role:member and project_id:%(project_id)s)
+  deprecated_reason: null
+  deprecated_rule:
+    check_str: rule:admin_or_owner
+    name: add_prefixes
+  deprecated_since: null
   description: Add prefixes to a subnetpool
   name: add_prefixes
   operations:
-  - method: Put
+  - method: PUT
     path: /subnetpools/{id}/add_prefixes
-  scope_types: null
-- check_str: rule:admin_or_owner
+  scope_types:
+  - system
+  - project
+- check_str: (role:admin and system_scope:all) or (role:member and project_id:%(project_id)s)
+  deprecated_reason: null
+  deprecated_rule:
+    check_str: rule:admin_or_owner
+    name: remove_prefixes
+  deprecated_since: null
   description: Remove unallocated prefixes from a subnetpool
   name: remove_prefixes
   operations:
-  - method: Put
+  - method: PUT
     path: /subnetpools/{id}/remove_prefixes
-  scope_types: null
-- check_str: rule:regular_user
+  scope_types:
+  - system
+  - project
+- check_str: (role:admin and system_scope:all) or (role:member and project_id:%(project_id)s)
+  deprecated_reason: null
+  deprecated_rule:
+    check_str: rule:regular_user
+    name: create_trunk
+  deprecated_since: null
   description: Create a trunk
   name: create_trunk
   operations:
   - method: POST
     path: /trunks
-  scope_types: null
-- check_str: rule:admin_or_owner
+  scope_types:
+  - project
+  - system
+- check_str: (role:reader and system_scope:all) or (role:reader and project_id:%(project_id)s)
+  deprecated_reason: null
+  deprecated_rule:
+    check_str: rule:admin_or_owner
+    name: get_trunk
+  deprecated_since: null
   description: Get a trunk
   name: get_trunk
   operations:
@@ -1473,39 +2837,76 @@
     path: /trunks
   - method: GET
     path: /trunks/{id}
-  scope_types: null
-- check_str: rule:admin_or_owner
+  scope_types:
+  - project
+  - system
+- check_str: (role:admin and system_scope:all) or (role:member and project_id:%(project_id)s)
+  deprecated_reason: null
+  deprecated_rule:
+    check_str: rule:admin_or_owner
+    name: update_trunk
+  deprecated_since: null
   description: Update a trunk
   name: update_trunk
   operations:
   - method: PUT
     path: /trunks/{id}
-  scope_types: null
-- check_str: rule:admin_or_owner
+  scope_types:
+  - project
+  - system
+- check_str: (role:admin and system_scope:all) or (role:member and project_id:%(project_id)s)
+  deprecated_reason: null
+  deprecated_rule:
+    check_str: rule:admin_or_owner
+    name: delete_trunk
+  deprecated_since: null
   description: Delete a trunk
   name: delete_trunk
   operations:
   - method: DELETE
     path: /trunks/{id}
-  scope_types: null
-- check_str: rule:regular_user
+  scope_types:
+  - project
+  - system
+- check_str: (role:reader and system_scope:all) or (role:reader and project_id:%(project_id)s)
+  deprecated_reason: null
+  deprecated_rule:
+    check_str: rule:regular_user
+    name: get_subports
+  deprecated_since: null
   description: List subports attached to a trunk
   name: get_subports
   operations:
   - method: GET
     path: /trunks/{id}/get_subports
-  scope_types: null
-- check_str: rule:admin_or_owner
+  scope_types:
+  - project
+  - system
+- check_str: (role:admin and system_scope:all) or (role:member and project_id:%(project_id)s)
+  deprecated_reason: null
+  deprecated_rule:
+    check_str: rule:admin_or_owner
+    name: add_subports
+  deprecated_since: null
   description: Add subports to a trunk
   name: add_subports
   operations:
   - method: PUT
     path: /trunks/{id}/add_subports
-  scope_types: null
-- check_str: rule:admin_or_owner
+  scope_types:
+  - project
+  - system
+- check_str: (role:admin and system_scope:all) or (role:member and project_id:%(project_id)s)
+  deprecated_reason: null
+  deprecated_rule:
+    check_str: rule:admin_or_owner
+    name: remove_subports
+  deprecated_since: null
   description: Delete subports from a trunk
   name: remove_subports
   operations:
   - method: PUT
     path: /trunks/{id}/remove_subports
-  scope_types: null
+  scope_types:
+  - project
+  - system
