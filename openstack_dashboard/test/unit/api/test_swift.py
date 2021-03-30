@@ -46,7 +46,8 @@ class SwiftApiTests(test.APIMockTestCase):
         swift_api = mock_swiftclient.return_value
         swift_api.get_object.return_value = (container, objects)
 
-        cont = api.swift.swift_get_container(self.request, container.name)
+        cont = api.swift.swift_get_container(self.request, container.name,
+                                             with_data=True)
 
         self.assertEqual(container.name, cont.name)
         self.assertEqual(len(objects), len(cont.data))
