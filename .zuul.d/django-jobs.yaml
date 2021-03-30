@@ -35,7 +35,7 @@
       jobs:
         # Currently we only support Django 2.2, so there is no need
         # to run tests with different versions of Django.
-        # We specify a job in openstack-python3-wallaby-jobs(-horizon)
+        # We specify a job in openstack-python3-xena-jobs(-horizon)
         # to keep this project template as it is used in horizon plugins.
         - openstack-tox-py38
         # NOTE: We keep it as a template even though it is not used now.
