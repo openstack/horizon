@@ -7,17 +7,18 @@
 # Akihiro Motoki <amotoki@gmail.com>, 2018. #zanata
 # Shu Muto <shu.mutow@gmail.com>, 2018. #zanata
 # Yuko Katabami <yukokatabami@gmail.com>, 2020. #zanata
+# Akihiro Motoki <amotoki@gmail.com>, 2021. #zanata
 # Yuko Katabami <yukokatabami@gmail.com>, 2021. #zanata
 msgid ""
 msgstr ""
 "Project-Id-Version: horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-03-27 20:15+0000\n"
+"POT-Creation-Date: 2021-03-29 21:13+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2021-03-27 09:19+0000\n"
-"Last-Translator: Yuko Katabami <yukokatabami@gmail.com>\n"
+"PO-Revision-Date: 2021-03-28 01:15+0000\n"
+"Last-Translator: Akihiro Motoki <amotoki@gmail.com>\n"
 "Language-Team: Japanese\n"
 "Language: ja\n"
 "X-Generator: Zanata 4.3.3\n"
@@ -181,9 +182,6 @@ msgstr "19.0.0"
 
 msgid "19.1.0"
 msgstr "19.1.0"
-
-msgid "19.1.0-15"
-msgstr "19.1.0-15"
 
 msgid "8.0.1"
 msgstr "8.0.1"
@@ -1247,7 +1245,7 @@ msgstr ""
 "``zh-cn`` と ``zh-tw`` の中国語ロケールは、それぞれ ``zh-hans`` と ``zh-"
 "hant`` に変わりました。これは、Horizon が依存しているフレームワークである "
 "Django の変更に従っています。 これらの言語は、中国と台湾以外でも使用されてい"
-"るので、言語を地域を切り離したロケールコードを使用するようになりました。"
+"るので、言語と地域を切り離したロケールコードを使用するようになりました。"
 
 msgid ""
 "Chinese locales ``zh-cn`` and ``zh-tw`` have been changed to ``zh-hans`` and "
@@ -1255,8 +1253,8 @@ msgid ""
 "explicitly, ensure to use the new Chinese locales if needed."
 msgstr ""
 "``zh-cn`` と ``zh-tw`` の中国語ロケールは、それぞれ ``zh-hans`` と ``zh-"
-"hant`` に変わりました。ユーザー設定で ``言語`` を明示的に設定する場合には、必"
-"要ならば新しい中国語ロケールを使用するようにしてください。"
+"hant`` に変わりました。設定で ``LANGUAGES`` を明示的に設定する場合には、必要"
+"ならば新しい中国語ロケールを使用するようにしてください。"
 
 msgid "Cinder"
 msgstr "Cinder"
