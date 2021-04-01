@@ -682,6 +682,7 @@
         if (isValidSnapshot(image) && enabledSnapshot) {
           model.imageSnapshots.push(image);
         } else if (isValidImage(image) && enabledImage) {
+          image.name_or_id = image.name || image.id;
           model.images.push(image);
         }
       });
