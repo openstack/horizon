@@ -232,7 +232,7 @@ Policy file maintenance
 
   .. code-block:: console
 
-     oslopolicy-sample-generator --namespace keystone \
+     oslopolicy-sample-generator --namespace $PROJECT \
        --output-file openstack_dashboard/conf/${PROJECT}_policy.yaml
      sed -i 's/^"/#"/' openstack_dashboard/conf/${PROJECT}_policy.yaml
 
@@ -261,7 +261,7 @@ After syncing policies from back-end services, you need to check what are
 changed. If a policy referred by horizon has been changed, you need to check
 and modify the horizon code base accordingly.
 
-.. note::
+.. warning::
 
    After the support of default policies, the following tool does not work.
    It is a future work to make it work again or evaluate the need itself.
