@@ -6,7 +6,7 @@ features:
 
     * ``Overview`` tab displaying general information about the project.
     * ``Users`` tab displaying all users which have roles on the project (and
-      their roles on it), including users which have roles on the project throw
-      their membership to a group.
+      their roles on it), including users which have roles on the project
+      through their membership to a group.
     * ``Group`` tab displaying all groups which have roles on the project (and
       their roles on it).

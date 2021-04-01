@@ -6,7 +6,7 @@ features:
 
     * ``Overview`` tab displaying general information about the user.
     * ``Roles assignments`` tab displaying all the roles that the users have on
-      project or domain, directly or throw their membership to a group. When
+      project or domain, directly or through their membership to a group. When
       the role comes from a membership to a group this will be indicated into
       the role column.
     * ``Groups`` tab displaying all groups where the user is a membership to.
