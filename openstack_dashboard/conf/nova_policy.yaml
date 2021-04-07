@@ -102,75 +102,10 @@
 # Intended scope(s): system, project
 #"os_compute_api:os-admin-actions:inject_network_info": "rule:system_admin_api"
 
-# Reset networking on a server
-# POST  /servers/{server_id}/action (resetNetwork)
-# Intended scope(s): system, project
-#"os_compute_api:os-admin-actions:reset_network": "rule:system_admin_api"
-
 # Change the administrative password for a server
 # POST  /servers/{server_id}/action (changePassword)
 # Intended scope(s): system, project
 #"os_compute_api:os-admin-password": "rule:system_admin_or_owner"
-
-# List guest agent builds This is XenAPI driver specific. It is used
-# to force the upgrade of the XenAPI guest agent on instance boot.
-# GET  /os-agents
-# Intended scope(s): system
-#"os_compute_api:os-agents:list": "rule:system_reader_api"
-
-# DEPRECATED
-# "os_compute_api:os-agents":"rule:admin_api" has been deprecated
-# since 21.0.0 in favor of "os_compute_api:os-
-# agents:list":"rule:system_reader_api".
-# Nova API policies are introducing new default roles with scope_type
-# capabilities. Old policies are deprecated and silently going to be
-# ignored in nova 23.0.0 release.
-#"os_compute_api:os-agents": "rule:os_compute_api:os-agents:list"
-
-# Create guest agent builds This is XenAPI driver specific. It is used
-# to force the upgrade of the XenAPI guest agent on instance boot.
-# POST  /os-agents
-# Intended scope(s): system
-#"os_compute_api:os-agents:create": "rule:system_admin_api"
-
-# DEPRECATED
-# "os_compute_api:os-agents":"rule:admin_api" has been deprecated
-# since 21.0.0 in favor of "os_compute_api:os-
-# agents:create":"rule:system_admin_api".
-# Nova API policies are introducing new default roles with scope_type
-# capabilities. Old policies are deprecated and silently going to be
-# ignored in nova 23.0.0 release.
-#"os_compute_api:os-agents": "rule:os_compute_api:os-agents:create"
-
-# Update guest agent builds This is XenAPI driver specific. It is used
-# to force the upgrade of the XenAPI guest agent on instance boot.
-# PUT  /os-agents/{agent_build_id}
-# Intended scope(s): system
-#"os_compute_api:os-agents:update": "rule:system_admin_api"
-
-# DEPRECATED
-# "os_compute_api:os-agents":"rule:admin_api" has been deprecated
-# since 21.0.0 in favor of "os_compute_api:os-
-# agents:update":"rule:system_admin_api".
-# Nova API policies are introducing new default roles with scope_type
-# capabilities. Old policies are deprecated and silently going to be
-# ignored in nova 23.0.0 release.
-#"os_compute_api:os-agents": "rule:os_compute_api:os-agents:update"
-
-# Delete guest agent builds This is XenAPI driver specific. It is used
-# to force the upgrade of the XenAPI guest agent on instance boot.
-# DELETE  /os-agents/{agent_build_id}
-# Intended scope(s): system
-#"os_compute_api:os-agents:delete": "rule:system_admin_api"
-
-# DEPRECATED
-# "os_compute_api:os-agents":"rule:admin_api" has been deprecated
-# since 21.0.0 in favor of "os_compute_api:os-
-# agents:delete":"rule:system_admin_api".
-# Nova API policies are introducing new default roles with scope_type
-# capabilities. Old policies are deprecated and silently going to be
-# ignored in nova 23.0.0 release.
-#"os_compute_api:os-agents": "rule:os_compute_api:os-agents:delete"
 
 # Create or replace metadata for an aggregate
 # POST  /os-aggregates/{aggregate_id}/action (set_metadata)

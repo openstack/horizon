@@ -18,262 +18,606 @@
   name: context_is_admin
   operations: []
   scope_types: null
-- check_str: rule:default
-  description: null
+- check_str: role:admin or (role:member and project_id:%(project_id)s)
+  deprecated_reason: '
+
+    The image API now supports and default roles.
+
+    '
+  deprecated_rule:
+    check_str: rule:default
+    name: add_image
+  deprecated_since: W
+  description: Create new image
   name: add_image
-  operations: []
-  scope_types: null
-- check_str: rule:default
-  description: null
+  operations:
+  - method: POST
+    path: /v2/images
+  scope_types:
+  - system
+  - project
+- check_str: role:admin or (role:member and project_id:%(project_id)s)
+  deprecated_reason: '
+
+    The image API now supports and default roles.
+
+    '
+  deprecated_rule:
+    check_str: rule:default
+    name: delete_image
+  deprecated_since: W
+  description: Deletes the image
   name: delete_image
-  operations: []
-  scope_types: null
-- check_str: rule:default
-  description: null
+  operations:
+  - method: DELETE
+    path: /v2/images/{image_id}
+  scope_types:
+  - system
+  - project
+- check_str: role:admin or (role:reader and (project_id:%(project_id)s or project_id:%(member_id)s
+    or "community":%(visibility)s or "public":%(visibility)s))
+  deprecated_reason: '
+
+    The image API now supports and default roles.
+
+    '
+  deprecated_rule:
+    check_str: rule:default
+    name: get_image
+  deprecated_since: W
+  description: Get specified image
   name: get_image
-  operations: []
-  scope_types: null
-- check_str: rule:default
-  description: null
+  operations:
+  - method: GET
+    path: /v2/images/{image_id}
+  scope_types:
+  - system
+  - project
+- check_str: role:admin or (role:reader and project_id:%(project_id)s)
+  deprecated_reason: '
+
+    The image API now supports and default roles.
+
+    '
+  deprecated_rule:
+    check_str: rule:default
+    name: get_images
+  deprecated_since: W
+  description: Get all available images
   name: get_images
-  operations: []
-  scope_types: null
-- check_str: rule:default
-  description: null
+  operations:
+  - method: GET
+    path: /v2/images
+  scope_types:
+  - system
+  - project
+- check_str: role:admin or (role:member and project_id:%(project_id)s)
+  deprecated_reason: '
+
+    The image API now supports and default roles.
+
+    '
+  deprecated_rule:
+    check_str: rule:default
+    name: modify_image
+  deprecated_since: W
+  description: Updates given image
   name: modify_image
-  operations: []
-  scope_types: null
+  operations:
+  - method: PATCH
+    path: /v2/images/{image_id}
+  scope_types:
+  - system
+  - project
 - check_str: role:admin
-  description: null
+  description: Publicize given image
   name: publicize_image
-  operations: []
-  scope_types: null
-- check_str: rule:default
-  description: null
+  operations:
+  - method: PATCH
+    path: /v2/images/{image_id}
+  scope_types:
+  - system
+  - project
+- check_str: role:admin or (role:member and project_id:%(project_id)s)
+  deprecated_reason: '
+
+    The image API now supports and default roles.
+
+    '
+  deprecated_rule:
+    check_str: rule:default
+    name: communitize_image
+  deprecated_since: W
+  description: Communitize given image
   name: communitize_image
-  operations: []
-  scope_types: null
-- check_str: rule:default
-  description: null
+  operations:
+  - method: PATCH
+    path: /v2/images/{image_id}
+  scope_types:
+  - system
+  - project
+- check_str: role:admin or (role:member and (project_id:%(project_id)s or project_id:%(member_id)s
+    or "community":%(visibility)s or "public":%(visibility)s))
+  deprecated_reason: '
+
+    The image API now supports and default roles.
+
+    '
+  deprecated_rule:
+    check_str: rule:default
+    name: download_image
+  deprecated_since: W
+  description: Downloads given image
   name: download_image
-  operations: []
-  scope_types: null
-- check_str: rule:default
-  description: null
+  operations:
+  - method: GET
+    path: /v2/images/{image_id}/file
+  scope_types:
+  - system
+  - project
+- check_str: role:admin or (role:member and project_id:%(project_id)s)
+  deprecated_reason: '
+
+    The image API now supports and default roles.
+
+    '
+  deprecated_rule:
+    check_str: rule:default
+    name: upload_image
+  deprecated_since: W
+  description: Uploads data to specified image
   name: upload_image
-  operations: []
-  scope_types: null
-- check_str: rule:default
-  description: null
-  name: delete_image_location
-  operations: []
-  scope_types: null
-- check_str: rule:default
-  description: null
-  name: get_image_location
-  operations: []
-  scope_types: null
-- check_str: rule:default
-  description: null
-  name: set_image_location
-  operations: []
-  scope_types: null
-- check_str: rule:default
-  description: null
-  name: add_member
-  operations: []
-  scope_types: null
-- check_str: rule:default
-  description: null
-  name: delete_member
-  operations: []
-  scope_types: null
-- check_str: rule:default
-  description: null
-  name: get_member
-  operations: []
-  scope_types: null
-- check_str: rule:default
-  description: null
-  name: get_members
-  operations: []
-  scope_types: null
-- check_str: rule:default
-  description: null
-  name: modify_member
-  operations: []
-  scope_types: null
+  operations:
+  - method: PUT
+    path: /v2/images/{image_id}/file
+  scope_types:
+  - system
+  - project
 - check_str: role:admin
-  description: null
+  deprecated_reason: '
+
+    The image API now supports and default roles.
+
+    '
+  deprecated_rule:
+    check_str: rule:default
+    name: delete_image_location
+  deprecated_since: W
+  description: Deletes the location of given image
+  name: delete_image_location
+  operations:
+  - method: PATCH
+    path: /v2/images/{image_id}
+  scope_types:
+  - system
+  - project
+- check_str: role:admin or (role:reader and project_id:%(project_id)s)
+  deprecated_reason: '
+
+    The image API now supports and default roles.
+
+    '
+  deprecated_rule:
+    check_str: rule:default
+    name: get_image_location
+  deprecated_since: W
+  description: Reads the location of the image
+  name: get_image_location
+  operations:
+  - method: GET
+    path: /v2/images/{image_id}
+  scope_types:
+  - system
+  - project
+- check_str: role:admin or (role:member and project_id:%(project_id)s)
+  deprecated_reason: '
+
+    The image API now supports and default roles.
+
+    '
+  deprecated_rule:
+    check_str: rule:default
+    name: set_image_location
+  deprecated_since: W
+  description: Sets location URI to given image
+  name: set_image_location
+  operations:
+  - method: PATCH
+    path: /v2/images/{image_id}
+  scope_types:
+  - system
+  - project
+- check_str: role:admin or (role:member and project_id:%(project_id)s)
+  deprecated_reason: '
+
+    The image API now supports and default roles.
+
+    '
+  deprecated_rule:
+    check_str: rule:default
+    name: add_member
+  deprecated_since: W
+  description: Create image member
+  name: add_member
+  operations:
+  - method: POST
+    path: /v2/images/{image_id}/members
+  scope_types:
+  - system
+  - project
+- check_str: role:admin or (role:member and project_id:%(project_id)s)
+  deprecated_reason: '
+
+    The image API now supports and default roles.
+
+    '
+  deprecated_rule:
+    check_str: rule:default
+    name: delete_member
+  deprecated_since: W
+  description: Delete image member
+  name: delete_member
+  operations:
+  - method: DELETE
+    path: /v2/images/{image_id}/members/{member_id}
+  scope_types:
+  - system
+  - project
+- check_str: role:admin or (role:reader and project_id:%(project_id)s)
+  deprecated_reason: '
+
+    The image API now supports and default roles.
+
+    '
+  deprecated_rule:
+    check_str: rule:default
+    name: get_member
+  deprecated_since: W
+  description: Show image member details
+  name: get_member
+  operations:
+  - method: GET
+    path: /v2/images/{image_id}/members/{member_id}
+  scope_types:
+  - system
+  - project
+- check_str: role:admin or (role:reader and project_id:%(project_id)s)
+  deprecated_reason: '
+
+    The image API now supports and default roles.
+
+    '
+  deprecated_rule:
+    check_str: rule:default
+    name: get_members
+  deprecated_since: W
+  description: List image members
+  name: get_members
+  operations:
+  - method: GET
+    path: /v2/images/{image_id}/members
+  scope_types:
+  - system
+  - project
+- check_str: role:admin or (role:member and project_id:%(project_id)s)
+  deprecated_reason: '
+
+    The image API now supports and default roles.
+
+    '
+  deprecated_rule:
+    check_str: rule:default
+    name: modify_member
+  deprecated_since: W
+  description: Update image member
+  name: modify_member
+  operations:
+  - method: PUT
+    path: /v2/images/{image_id}/members/{member_id}
+  scope_types:
+  - system
+  - project
+- check_str: role:admin
+  description: Manage image cache
   name: manage_image_cache
   operations: []
-  scope_types: null
-- check_str: rule:default
-  description: null
+  scope_types:
+  - system
+  - project
+- check_str: role:admin or (role:member and project_id:%(project_id)s)
+  deprecated_reason: '
+
+    The image API now supports and default roles.
+
+    '
+  deprecated_rule:
+    check_str: rule:default
+    name: deactivate
+  deprecated_since: W
+  description: Deactivate image
   name: deactivate
-  operations: []
-  scope_types: null
-- check_str: rule:default
-  description: null
+  operations:
+  - method: POST
+    path: /v2/images/{image_id}/actions/deactivate
+  scope_types:
+  - system
+  - project
+- check_str: role:admin or (role:member and project_id:%(project_id)s)
+  deprecated_reason: '
+
+    The image API now supports and default roles.
+
+    '
+  deprecated_rule:
+    check_str: rule:default
+    name: reactivate
+  deprecated_since: W
+  description: Reactivate image
   name: reactivate
-  operations: []
-  scope_types: null
+  operations:
+  - method: POST
+    path: /v2/images/{image_id}/actions/reactivate
+  scope_types:
+  - system
+  - project
 - check_str: role:admin
-  description: null
+  description: Copy existing image to other stores
   name: copy_image
-  operations: []
-  scope_types: null
+  operations:
+  - method: POST
+    path: /v2/images/{image_id}/import
+  scope_types:
+  - system
+  - project
 - check_str: rule:default
-  description: null
+  description: 'Get an image task.
+
+
+    This granular policy controls access to tasks, both from the tasks API as well
+
+    as internal locations in Glance that use tasks (like import). Practically this
+
+    cannot be more restrictive than the policy that controls import or things will
+
+    break, and changing it from the default is almost certainly not what you want.
+
+    Access to the external tasks API should be restricted as desired by the
+
+    tasks_api_access policy. This may change in the future.
+
+    '
   name: get_task
-  operations: []
-  scope_types: null
+  operations:
+  - method: GET
+    path: /v2/tasks/{task_id}
+  scope_types:
+  - system
+  - project
 - check_str: rule:default
-  description: null
+  description: 'List tasks for all images.
+
+
+    This granular policy controls access to tasks, both from the tasks API as well
+
+    as internal locations in Glance that use tasks (like import). Practically this
+
+    cannot be more restrictive than the policy that controls import or things will
+
+    break, and changing it from the default is almost certainly not what you want.
+
+    Access to the external tasks API should be restricted as desired by the
+
+    tasks_api_access policy. This may change in the future.
+
+    '
   name: get_tasks
-  operations: []
-  scope_types: null
+  operations:
+  - method: GET
+    path: /v2/tasks
+  scope_types:
+  - system
+  - project
 - check_str: rule:default
-  description: null
+  description: 'List tasks for all images.
+
+
+    This granular policy controls access to tasks, both from the tasks API as well
+
+    as internal locations in Glance that use tasks (like import). Practically this
+
+    cannot be more restrictive than the policy that controls import or things will
+
+    break, and changing it from the default is almost certainly not what you want.
+
+    Access to the external tasks API should be restricted as desired by the
+
+    tasks_api_access policy. This may change in the future.
+
+    '
   name: add_task
-  operations: []
-  scope_types: null
+  operations:
+  - method: POST
+    path: /v2/tasks
+  scope_types:
+  - system
+  - project
 - check_str: rule:default
-  description: null
+  deprecated_for_removal: true
+  deprecated_reason: '
+
+    This policy check has never been honored by the API. It will be removed in a
+
+    future release.
+
+    '
+  deprecated_since: W
+  description: This policy is not used.
   name: modify_task
+  operations:
+  - method: DELETE
+    path: /v2/tasks/{task_id}
+  scope_types:
+  - system
+  - project
+- check_str: role:admin
+  description: '
+
+    This is a generic blanket policy for protecting all task APIs. It is not
+
+    granular and will not allow you to separate writable and readable task
+
+    operations into different roles.
+
+    '
+  name: tasks_api_access
+  operations:
+  - method: GET
+    path: /v2/tasks/{task_id}
+  - method: GET
+    path: /v2/tasks
+  - method: POST
+    path: /v2/tasks
+  - method: DELETE
+    path: /v2/tasks/{task_id}
+  scope_types:
+  - system
+  - project
+- check_str: ''
+  description: null
+  name: metadef_default
   operations: []
   scope_types: null
 - check_str: role:admin
   description: null
-  name: tasks_api_access
+  name: metadef_admin
   operations: []
   scope_types: null
-- check_str: rule:default
+- check_str: rule:metadef_default
   description: null
   name: get_metadef_namespace
   operations: []
   scope_types: null
-- check_str: rule:default
+- check_str: rule:metadef_default
   description: null
   name: get_metadef_namespaces
   operations: []
   scope_types: null
-- check_str: rule:default
+- check_str: rule:metadef_admin
   description: null
   name: modify_metadef_namespace
   operations: []
   scope_types: null
-- check_str: rule:default
+- check_str: rule:metadef_admin
   description: null
   name: add_metadef_namespace
   operations: []
   scope_types: null
-- check_str: rule:default
+- check_str: rule:metadef_admin
   description: null
   name: delete_metadef_namespace
   operations: []
   scope_types: null
-- check_str: rule:default
+- check_str: rule:metadef_default
   description: null
   name: get_metadef_object
   operations: []
   scope_types: null
-- check_str: rule:default
+- check_str: rule:metadef_default
   description: null
   name: get_metadef_objects
   operations: []
   scope_types: null
-- check_str: rule:default
+- check_str: rule:metadef_admin
   description: null
   name: modify_metadef_object
   operations: []
   scope_types: null
-- check_str: rule:default
+- check_str: rule:metadef_admin
   description: null
   name: add_metadef_object
   operations: []
   scope_types: null
-- check_str: rule:default
+- check_str: rule:metadef_admin
   description: null
   name: delete_metadef_object
   operations: []
   scope_types: null
-- check_str: rule:default
+- check_str: rule:metadef_default
   description: null
   name: list_metadef_resource_types
   operations: []
   scope_types: null
-- check_str: rule:default
+- check_str: rule:metadef_default
   description: null
   name: get_metadef_resource_type
   operations: []
   scope_types: null
-- check_str: rule:default
+- check_str: rule:metadef_admin
   description: null
   name: add_metadef_resource_type_association
   operations: []
   scope_types: null
-- check_str: rule:default
+- check_str: rule:metadef_admin
   description: null
   name: remove_metadef_resource_type_association
   operations: []
   scope_types: null
-- check_str: rule:default
+- check_str: rule:metadef_default
   description: null
   name: get_metadef_property
   operations: []
   scope_types: null
-- check_str: rule:default
+- check_str: rule:metadef_default
   description: null
   name: get_metadef_properties
   operations: []
   scope_types: null
-- check_str: rule:default
+- check_str: rule:metadef_admin
   description: null
   name: modify_metadef_property
   operations: []
   scope_types: null
-- check_str: rule:default
+- check_str: rule:metadef_admin
   description: null
   name: add_metadef_property
   operations: []
   scope_types: null
-- check_str: rule:default
+- check_str: rule:metadef_admin
   description: null
   name: remove_metadef_property
   operations: []
   scope_types: null
-- check_str: rule:default
+- check_str: rule:metadef_default
   description: null
   name: get_metadef_tag
   operations: []
   scope_types: null
-- check_str: rule:default
+- check_str: rule:metadef_default
   description: null
   name: get_metadef_tags
   operations: []
   scope_types: null
-- check_str: rule:default
+- check_str: rule:metadef_admin
   description: null
   name: modify_metadef_tag
   operations: []
   scope_types: null
-- check_str: rule:default
+- check_str: rule:metadef_admin
   description: null
   name: add_metadef_tag
   operations: []
   scope_types: null
-- check_str: rule:default
+- check_str: rule:metadef_admin
   description: null
   name: add_metadef_tags
   operations: []
   scope_types: null
-- check_str: rule:default
+- check_str: rule:metadef_admin
   description: null
   name: delete_metadef_tag
   operations: []
   scope_types: null
-- check_str: rule:default
+- check_str: rule:metadef_admin
   description: null
   name: delete_metadef_tags
   operations: []

@@ -7,6 +7,9 @@
 # Default rule for most Admin APIs.
 #"admin_api": "is_admin:True or (role:admin and is_admin_project:True)"
 
+# Default rule for admins of cloud, domain or a project.
+#"system_or_domain_or_project_admin": "(role:admin and system_scope:all) or (role:admin and domain_id:%(domain_id)s) or (role:admin and project_id:%(project_id)s)"
+
 # Create attachment.
 # POST  /attachments
 #"volume:attachment_create": ""
@@ -236,7 +239,7 @@
 
 # Reset status of group snapshot.
 # POST  /group_snapshots/{g_snapshot_id}/action (reset_status)
-#"group:reset_group_snapshot_status": "rule:admin_or_owner"
+#"group:reset_group_snapshot_status": "rule:admin_api"
 
 # Delete group.
 # POST  /groups/{group_id}/action (delete)
@@ -305,10 +308,6 @@
 # Delete project quota.
 # DELETE  /os-quota-sets/{project_id}
 #"volume_extension:quotas:delete": "rule:admin_api"
-
-# Validate setup for nested quota.
-# GET  /os-quota-sets/validate_setup_for_nested_quota_use
-#"volume_extension:quota_classes:validate_setup_for_nested_quota_use": "rule:admin_api"
 
 # Show backend capabilities.
 # GET  /capabilities/{host_name}
@@ -643,4 +642,25 @@
 # Create multiattach capable volume.
 # POST  /volumes
 #"volume:multiattach": "rule:admin_or_owner"
+
+# Set or update default volume type.
+# PUT  /default-types
+# Intended scope(s): system
+#"volume_extension:default_set_or_update": "rule:system_or_domain_or_project_admin"
+
+# Get default types.
+# GET  /default-types/{project-id}
+# Intended scope(s): system
+#"volume_extension:default_get": "rule:system_or_domain_or_project_admin"
+
+# Get all default types. WARNING: Changing this might open up too much
+# information regarding cloud deployment.
+# GET  /default-types/
+# Intended scope(s): system
+#"volume_extension:default_get_all": "role:admin and system_scope:all"
+
+# Unset default type.
+# DELETE  /default-types/{project-id}
+# Intended scope(s): system
+#"volume_extension:default_unset": "rule:system_or_domain_or_project_admin"
 
