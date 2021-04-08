@@ -132,12 +132,15 @@ class CreateApplicationCredentialForm(forms.SelfHandlingForm):
 
     def clean(self):
         cleaned_data = super().clean()
-        try:
-            cleaned_data['access_rules'] = yaml.safe_load(
-                cleaned_data['access_rules'])
-        except yaml.YAMLError:
-            msg = (_('Access rules must be a valid JSON or YAML list.'))
-            raise forms.ValidationError(msg)
+        # access_rules field exists only when keystone API >= 3.13 and
+        # the field is deleted above when a lower version of API is used.
+        if 'access_rules' in cleaned_data:
+            try:
+                cleaned_data['access_rules'] = yaml.safe_load(
+                    cleaned_data['access_rules'])
+            except yaml.YAMLError:
+                msg = (_('Access rules must be a valid JSON or YAML list.'))
+                raise forms.ValidationError(msg)
         return cleaned_data
 
 
