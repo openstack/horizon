@@ -1,0 +1,8 @@
+---
+fixes:
+  - |
+    Get the timezone offset for the current day instead of January 1st.
+    This bug only appears to be a cosmetic one where the TZ offset
+    would be calculated on current_year/01/01 so would remain in
+    daylight saving offset when displaying the timezones list in the
+    user configuration settings.

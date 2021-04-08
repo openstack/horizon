@@ -42,7 +42,8 @@ class UserSettingsForm(forms.SelfHandlingForm):
 
     @staticmethod
     def _sorted_zones():
-        d = datetime(datetime.today().year, 1, 1)
+        today = datetime.today()
+        d = datetime(today.year, today.month, today.day)
         zones = [(tz, pytz.timezone(tz).localize(d).strftime('%z'))
                  for tz in pytz.common_timezones]
         zones.sort(key=lambda zone: int(zone[1]))
