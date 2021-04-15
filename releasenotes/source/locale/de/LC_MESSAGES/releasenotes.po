@@ -8,15 +8,16 @@
 # Andreas Jaeger <jaegerandi@gmail.com>, 2019. #zanata
 # Robert Simai <robert.simai@suse.com>, 2019. #zanata
 # Andreas Jaeger <jaegerandi@gmail.com>, 2020. #zanata
+# Andreas Jaeger <jaegerandi@gmail.com>, 2021. #zanata
 msgid ""
 msgstr ""
 "Project-Id-Version: horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-12-24 13:47+0000\n"
+"POT-Creation-Date: 2021-04-09 08:26+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2020-10-05 06:39+0000\n"
+"PO-Revision-Date: 2021-04-14 01:52+0000\n"
 "Last-Translator: Andreas Jaeger <jaegerandi@gmail.com>\n"
 "Language-Team: German\n"
 "Language: de\n"
@@ -4064,6 +4065,9 @@ msgstr ""
 
 msgid "Volumes creation and management."
 msgstr "Datenträgererstellung und -management."
+
+msgid "Wallaby Series Release Notes"
+msgstr "Wallaby Serie Releasenotes"
 
 msgid ""
 "We now automatically determine the static folder location for xstatic "

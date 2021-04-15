@@ -11,15 +11,16 @@
 # Frank Kloeker <eumel@arcor.de>, 2019. #zanata
 # Robert Simai <robert.simai@suse.com>, 2019. #zanata
 # Andreas Jaeger <jaegerandi@gmail.com>, 2020. #zanata
+# Andreas Jaeger <jaegerandi@gmail.com>, 2021. #zanata
 msgid ""
 msgstr ""
 "Project-Id-Version: horizon VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2020-04-23 13:49+0000\n"
+"POT-Creation-Date: 2021-04-09 08:30+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2020-04-25 08:13+0000\n"
+"PO-Revision-Date: 2021-04-14 01:53+0000\n"
 "Last-Translator: Andreas Jaeger <jaegerandi@gmail.com>\n"
 "Language-Team: German\n"
 "Language: de\n"
@@ -28,6 +29,10 @@ msgstr ""
 
 msgid "#"
 msgstr "#"
+
+#, python-format
+msgid "%s (default)"
+msgstr "%s (Standard)"
 
 msgid "1"
 msgstr "1"
@@ -612,6 +617,9 @@ msgstr[0] "Benutzer löschen bestätigen"
 msgstr[1] "Benutzer löschen bestätigen"
 
 msgid "Confirm Password"
+msgstr "Passwort bestätigen"
+
+msgid "Confirm password"
 msgstr "Passwort bestätigen"
 
 msgid "Connecting"
@@ -2112,6 +2120,9 @@ msgstr "Eltern-Port"
 msgid "Password"
 msgstr "Passwort"
 
+msgid "Passwords do not match."
+msgstr "Passwörter stimmen nicht überein."
+
 msgid "Pending Delete"
 msgstr "Geplante Löschung"
 
@@ -2209,6 +2220,9 @@ msgstr[1] "Projekte"
 
 msgid "Project ID"
 msgstr "Projekt-ID"
+
+msgid "Project Name"
+msgstr "Projekt Name"
 
 msgid ""
 "Project networks are created by users.\n"
@@ -2559,6 +2573,9 @@ msgstr ""
 #, python-format
 msgid "Service type is not enabled: %(desiredType)s"
 msgstr "Diensttyp ist nicht aktiviert: %(desiredType)s"
+
+msgid "Set admin password"
+msgstr "Admin-Passwort setzen"
 
 #, python-format
 msgid "Setting is not enabled: %(setting)s"
