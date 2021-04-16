@@ -2,4 +2,8 @@
   @extend .mdi-stop;
   color: $gray-light;
   font-size: $font-size-small;
+
+  &:before {
+    content: "\F4DB";
+  }
 }

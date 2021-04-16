@@ -3,6 +3,10 @@
   @extend .mdi-arrow-right;
   padding-right: $padding-base-horizontal;
 
+  &:before {
+    content: "\F054";
+  }
+
   &-text {
     display: none;
   }
