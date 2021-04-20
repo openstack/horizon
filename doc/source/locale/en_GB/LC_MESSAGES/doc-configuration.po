@@ -4,9 +4,9 @@
 # Andi Chandler <andi@gowling.com>, 2021. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 19.2.0.dev39\n"
+"Project-Id-Version: horizon 19.2.1.dev1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-04-09 08:30+0000\n"
+"POT-Creation-Date: 2021-04-15 23:49+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -456,9 +456,6 @@ msgstr "Added the ``SERIAL`` option"
 
 msgid "Added the ``create_volume`` option."
 msgstr "Added the ``create_volume`` option."
-
-msgid "Added the ``default_availability_zone`` option."
-msgstr "Added the ``default_availability_zone`` option."
 
 msgid ""
 "Added the ``disable_image``, ``disable_instance_snapshot``, "
@@ -1064,9 +1061,6 @@ msgstr "Default: ``<path_to_horizon>/static``"
 
 msgid "Default: ``AVAILABLE_THEMES``"
 msgstr "Default: ``AVAILABLE_THEMES``"
-
-msgid "Default: ``Any``"
-msgstr "Default: ``Any``"
 
 msgid "Default: ``False``"
 msgstr "Default: ``False``"
@@ -3325,25 +3319,6 @@ msgstr ""
 "for your users."
 
 msgid ""
-"This setting allows an administrator to specify a default availability zone "
-"for a new server creation. The valid value is ``Any`` or availability zone "
-"list. If ``Any`` is specified, the default availability zone is decided by "
-"the nova scheduler. If one of availability zones is specified, the specified "
-"availability zone is used as the default availability zone. If a value "
-"specified in this setting is not found in the availability zone list, the "
-"setting will be ignored and the behavior will be same as when ``Any`` is "
-"specified."
-msgstr ""
-"This setting allows an administrator to specify a default availability zone "
-"for a new server creation. The valid value is ``Any`` or availability zone "
-"list. If ``Any`` is specified, the default availability zone is decided by "
-"the nova scheduler. If one of availability zones is specified, the specified "
-"availability zone is used as the default availability zone. If a value "
-"specified in this setting is not found in the availability zone list, the "
-"setting will be ignored and the behaviour will be same as when ``Any`` is "
-"specified."
-
-msgid ""
 "This setting allows deployers to control whether a token is deleted on log "
 "out. This can be helpful when there are often long running processes being "
 "run in the Horizon environment."
@@ -4524,9 +4499,6 @@ msgstr "config_drive"
 
 msgid "create_volume"
 msgstr "create_volume"
-
-msgid "default_availability_zone"
-msgstr "default_availability_zone"
 
 msgid "default_dns_nameservers"
 msgstr "default_dns_nameservers"
