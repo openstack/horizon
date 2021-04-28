@@ -483,7 +483,7 @@ def server_list_paged(request,
         deleted = request.session.pop('server_deleted',
                                       None)
         view_marker = 'possibly_deleted' if deleted and marker else 'ok'
-        search_opts['marker'] = deleted if deleted else marker
+        search_opts['marker'] = marker if marker or deleted else None
         search_opts['limit'] = page_size + 1
         # NOTE(amotoki): It looks like the 'sort_keys' must be unique to make
         # the pagination in the nova API works as expected. Multiple servers
@@ -505,7 +505,7 @@ def server_list_paged(request,
                 servers = [Server(s, request)
                            for s in
                            nova_client.servers.list(detailed,
-                                                    search_opts,
+                                                    search_opts=search_opts,
                                                     sort_keys=sort_keys,
                                                     sort_dirs=['desc'] * 3)]
             if not servers:
@@ -514,7 +514,7 @@ def server_list_paged(request,
                 servers = [Server(s, request)
                            for s in
                            nova_client.servers.list(detailed,
-                                                    search_opts,
+                                                    search_opts=search_opts,
                                                     sort_keys=sort_keys,
                                                     sort_dirs=['asc'] * 3)]
         (servers, has_more_data, has_prev_data) = update_pagination(
