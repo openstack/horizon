@@ -105,6 +105,7 @@
     <hz-dynamic-table
         config="$isAvailableTable ? ctrl.availableTableConfig : ctrl.allocatedTableConfig"
         items="$isAvailableTable ? (ctrl.tableData.available | filterAvailable:trCtrl.allocatedIds) : $sourceItems"
+        validate-number-min="1" ng-model="ctrl.tableData.allocated.length"
         item-actions="trCtrl.itemActions"
         filter-facets="$isAvailableTable && ctrl.sourceFacets"
         table="ctrl">
