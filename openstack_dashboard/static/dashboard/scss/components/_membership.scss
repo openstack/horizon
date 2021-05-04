@@ -137,6 +137,8 @@
   .role_dropdown {
     right: 0;
     left: auto;
+    max-width: 300px;
+    overflow-x: auto;
 
     & > li {
       .fa-check {
