@@ -781,7 +781,7 @@ def get_default_role(request):
     to request. Supports lookup by name or id.
     """
     global DEFAULT_ROLE
-    default = settings.OPENSTACK_KEYSTONE_DEFAULT_ROLE
+    default = settings.OPENSTACK_KEYSTONE_DEFAULT_ROLE.lower()
     if default and DEFAULT_ROLE is None:
         try:
             roles = keystoneclient(request, admin=True).roles.list()
@@ -789,7 +789,7 @@ def get_default_role(request):
             roles = []
             exceptions.handle(request)
         for role in roles:
-            if default in (role.id, role.name):
+            if default in (role.id.lower(), role.name.lower()):
                 DEFAULT_ROLE = role
                 break
     return DEFAULT_ROLE
