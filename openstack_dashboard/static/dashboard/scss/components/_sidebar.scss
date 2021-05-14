@@ -32,6 +32,7 @@
 
 #sidebar {
   width: $sidebar-width;
+  position: fixed;
 
   // Make sure the side nav is always shown at larger screen sizes,
   // regardless of previous state

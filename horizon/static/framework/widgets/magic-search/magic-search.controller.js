@@ -97,6 +97,36 @@
       }
     });
 
+    ctrl.getScrollTop = function () {
+      return $(document).scrollTop();
+    };
+
+    ctrl.executeFloatMenu = function (
+        jqueryElement, fixfterScroll, newTopPosition) {
+      jqueryElement.css("z-index", 999);
+
+      var scrollAmount = ctrl.getScrollTop();
+
+      if (scrollAmount > fixfterScroll) {
+        jqueryElement.width('53.9%');
+        jqueryElement.css('position', 'fixed');
+        jqueryElement.css("top", newTopPosition);
+      } else {
+        jqueryElement.css('position', 'relative');
+        jqueryElement.css("top", 0);
+        jqueryElement.width('');
+      }
+    };
+
+    var distanceFromTop = 140;
+    var newTopPosition = 40;
+    jQuery(window).scroll(function () {
+      ctrl.executeFloatMenu(
+          jQuery("div.search-bar").parents('div.hz-dynamic-table-preamble'),
+          distanceFromTop,
+          newTopPosition);
+    });
+
     function initSearch(initialSearchTerms) {
       // Initializes both the unused choices and the full list of facets
       ctrl.facetChoices = service.getFacetChoicesFromFacetsParam($scope.facets_param);
@@ -233,7 +263,7 @@
       }
     }
 
-    function keyPressHandler($event) {  // handle character input
+    function keyPressHandler($event) {// handle character input
       var searchVal = searchInput.val();
       var key = service.getEventCode($event);
       // Backspace, Delete, Enter, Tab, Escape
@@ -272,7 +302,7 @@
       }
       if (filtered.length > 0) {
         setMenuOpen(true);
-        $timeout(function() {
+        $timeout(function () {
           ctrl.filteredObj = filtered;
         }, 0.1);
       } else if (isTextSearch) {

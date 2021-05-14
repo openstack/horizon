@@ -626,11 +626,52 @@
         expect(ctrl.facetChoices).toEqual([]);
       });
     });
+    describe('Test float menu', function () {
+      it('should float the menu at the top', function () {
+        // There is no scroll executed so far
+        ctrl.getScrollTop = function () {
+          return 100;
+        };
+
+        var elementUsed = {
+          width: angular.noop, css: angular.noop
+        };
+        spyOn(elementUsed, 'width');
+        spyOn(elementUsed, 'css');
+
+        ctrl.executeFloatMenu(elementUsed, 40, 140);
+
+        expect(elementUsed.width).toHaveBeenCalledWith('53.9%');
+        expect(elementUsed.css).toHaveBeenCalledWith( "z-index", 999);
+        expect(elementUsed.css).toHaveBeenCalledWith('position', 'fixed');
+        expect(elementUsed.css).toHaveBeenCalledWith('top', 140);
+
+      });
+
+      it('should fix the menu at the top', function () {
+        // There is some scroll executed so far
+        ctrl.getScrollTop = function () {
+          return 0;
+        };
+
+        var elementUsed = {
+          width: angular.noop, css: angular.noop
+        };
+        spyOn(elementUsed, 'width');
+        spyOn(elementUsed, 'css');
+
+        ctrl.executeFloatMenu(elementUsed, 40, 140);
+
+        expect(elementUsed.width).toHaveBeenCalledWith('');
+        expect(elementUsed.css).toHaveBeenCalledWith( "z-index", 999);
+        expect(elementUsed.css).toHaveBeenCalledWith('position', 'relative');
+        expect(elementUsed.css).toHaveBeenCalledWith('top', 0);
+      });
+    });
   });
 
   // NOTE: The javascript file being tested here isn't the magic-search code
   // as a whole, but instead the magic-overrides code.
-
   describe('MagicSearch module', function () {
     it('should be defined', function () {
       expect(angular.module('horizon.framework.widgets.magic-search')).toBeDefined();
