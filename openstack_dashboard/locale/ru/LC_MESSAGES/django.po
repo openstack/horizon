@@ -38,7 +38,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: horizon VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2021-03-05 09:39+0000\n"
+"POT-Creation-Date: 2021-05-11 12:54+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -3869,15 +3869,6 @@ msgstr "Информация"
 
 msgid "Ingress"
 msgstr "Входящий трафик"
-
-msgid "Injected File Content (Bytes)"
-msgstr "Объём загруженного файла (Байт)"
-
-msgid "Injected File Content Bytes"
-msgstr "Объём загруженного файла (байт)"
-
-msgid "Injected File Path Bytes"
-msgstr "Путь загруженного файла"
 
 msgid "Injected Files"
 msgstr "Загруженные файлы"

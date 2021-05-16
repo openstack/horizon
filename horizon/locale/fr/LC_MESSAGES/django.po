@@ -1,17 +1,16 @@
 # Kevin Tibi <kodokuu@gmail.com>, 2015. #zanata
 # Kevin Tibi <kodokuu@gmail.com>, 2016. #zanata
 # JF Taltavull <jftalta@gmail.com>, 2017. #zanata
-# François Magimel <magimel.francois@gmail.com>, 2018. #zanata
 # JF Taltavull <jftalta@gmail.com>, 2018. #zanata
 msgid ""
 msgstr ""
 "Project-Id-Version: horizon VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2018-07-02 14:46+0000\n"
+"POT-Creation-Date: 2021-05-11 12:54+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2018-07-07 11:21+0000\n"
+"PO-Revision-Date: 2018-07-26 07:24+0000\n"
 "Last-Translator: François Magimel <magimel.francois@gmail.com>\n"
 "Language-Team: French\n"
 "Language: fr\n"
@@ -29,12 +28,6 @@ msgstr "%(context_name)s : "
 #, python-format
 msgid "%(name)s: %(error)s"
 msgstr "%(name)s : %(error)s"
-
-#, python-format
-msgid "%(size)d Byte"
-msgid_plural "%(size)d Bytes"
-msgstr[0] "%(size)d Octet"
-msgstr[1] "%(size)d Octets"
 
 #, python-format
 msgid "%(usedphrase)s %(used)s (No Limit)"
@@ -92,9 +85,6 @@ msgstr "(Pas de limite)"
 
 msgid "-"
 msgstr "-"
-
-msgid "0 Bytes"
-msgstr "0 Octet"
 
 #, python-format
 msgid "A %(resource)s with the name \"%(name)s\" already exists."

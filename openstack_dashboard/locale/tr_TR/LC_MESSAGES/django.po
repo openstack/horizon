@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: horizon VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2021-02-18 05:57+0000\n"
+"POT-Creation-Date: 2021-05-11 12:54+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -3064,15 +3064,6 @@ msgstr "Bilgi"
 
 msgid "Ingress"
 msgstr "İçeri Doğru"
-
-msgid "Injected File Content (Bytes)"
-msgstr "İçeri Atılmış Dosya İçeriği (Bayt)"
-
-msgid "Injected File Content Bytes"
-msgstr "İçeri Atılan Dosya Hacmi Byte'ı"
-
-msgid "Injected File Path Bytes"
-msgstr "İçeri Atılan Dosya Yolu Byte'ı"
 
 msgid "Injected Files"
 msgstr "İçeri Atılan Dosyalar"
