@@ -135,10 +135,10 @@
             var images = [
               {container_format: 'aki', properties: {}},
               {container_format: 'ari', properties: {}},
-              {container_format: 'ami', properties: {}},
-              {container_format: 'raw', properties: {}},
-              {container_format: 'ami', properties: {image_type: 'image'}},
-              {container_format: 'raw', properties: {image_type: 'image'}},
+              {container_format: 'ami', properties: {}, name: 'ami_image'},
+              {container_format: 'raw', properties: {}, name: 'raw_image'},
+              {container_format: 'ami', properties: {image_type: 'image'}, id: '1'},
+              {container_format: 'raw', properties: {image_type: 'image'}, id: '2'},
               {container_format: 'ami', properties: {
                 block_device_mapping: '[{"source_type": "snapshot"}]'}},
               {container_format: 'raw', properties: {
@@ -387,10 +387,10 @@
           expect(model.newInstanceSpec).toBeDefined();
 
           var expectedImages = [
-            {container_format: 'ami', properties: {}},
-            {container_format: 'raw', properties: {}},
-            {container_format: 'ami', properties: {image_type: 'image'}},
-            {container_format: 'raw', properties: {image_type: 'image'}}
+            {container_format: 'ami', properties: {}, name: 'ami_image', name_or_id: 'ami_image'},
+            {container_format: 'raw', properties: {}, name: 'raw_image', name_or_id: 'raw_image'},
+            {container_format: 'ami', properties: {image_type: 'image'}, id: '1', name_or_id: '1'},
+            {container_format: 'raw', properties: {image_type: 'image'}, id: '2', name_or_id: '2'}
           ];
           expect(model.images).toEqual(expectedImages);
 
