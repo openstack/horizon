@@ -6,15 +6,16 @@
 # Alberto Molina Coballes <alb.molina@gmail.com>, 2017. #zanata
 # Zeus Arias Lucero <zeusariaslucero@gmail.com>, 2017. #zanata
 # Alberto Molina Coballes <alb.molina@gmail.com>, 2018. #zanata
+# Alberto Molina Coballes <alb.molina@gmail.com>, 2021. #zanata
 msgid ""
 msgstr ""
 "Project-Id-Version: horizon VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2019-09-03 20:32+0000\n"
+"POT-Creation-Date: 2021-04-20 14:20+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2018-05-01 06:36+0000\n"
+"PO-Revision-Date: 2021-05-23 07:04+0000\n"
 "Last-Translator: Alberto Molina Coballes <alb.molina@gmail.com>\n"
 "Language-Team: Spanish\n"
 "Language: es\n"
@@ -111,6 +112,9 @@ msgstr "Circular $refs"
 msgid "Click each item to get its description here."
 msgstr "Haga clic en cada punto para obtener su descripción aquí."
 
+msgid "Click here for filters or full text search."
+msgstr "Pulse aquí para filtros o búsqueda de texto completo."
+
 msgid "Click here to expand the row and view the errors."
 msgstr "Haga click aquí para ver los errores."
 
@@ -184,8 +188,8 @@ msgstr "Mostrando %(count)s de %(total)s elementos"
 #, python-format
 msgid "Displaying %s item"
 msgid_plural "Displaying %s items"
-msgstr[0] "Mostrando %s articulo"
-msgstr[1] "Mostrando %s articulos"
+msgstr[0] "Mostrando %s ítem"
+msgstr[1] "Mostrando %s ítems"
 
 msgid "Duplicate keys are not allowed"
 msgstr "Las claves duplicadas no están permitidas"
@@ -219,6 +223,9 @@ msgstr "Finalizar"
 
 msgid "Flavor"
 msgstr "Sabor"
+
+msgid "Forbidden. Insufficient permissions of the requested operation"
+msgstr "Prohibido. Permisos insuficientes para la operación solicitada"
 
 msgid "Format validation failed"
 msgstr "Falló validación de formato"

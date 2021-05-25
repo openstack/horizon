@@ -9,19 +9,16 @@
 # Alberto Molina Coballes <alb.molina@gmail.com>, 2017. #zanata
 # Zeus Arias Lucero <zeusariaslucero@gmail.com>, 2017. #zanata
 # Alberto Molina Coballes <alb.molina@gmail.com>, 2018. #zanata
-# Alberto Molina Coballes <alb.molina@gmail.com>, 2020. #zanata
-# Eddie Ramirez <djedi.r@gmail.com>, 2020. #zanata
-# OpenStack Infra <zanata@openstack.org>, 2020. #zanata
-# Zeus Arias Lucero <zeusariaslucero@gmail.com>, 2020. #zanata
+# Alberto Molina Coballes <alb.molina@gmail.com>, 2021. #zanata
 msgid ""
 msgstr ""
 "Project-Id-Version: horizon VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2020-01-08 17:19+0000\n"
+"POT-Creation-Date: 2021-04-20 14:20+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2020-01-08 04:04+0000\n"
+"PO-Revision-Date: 2021-05-24 03:03+0000\n"
 "Last-Translator: Alberto Molina Coballes <alb.molina@gmail.com>\n"
 "Language-Team: Spanish\n"
 "Language: es\n"
@@ -135,6 +132,29 @@ msgid ""
 msgstr ""
 "Nota: Un contenedor público permitirá que cualquiera que conozca la URL "
 "pública acceda a sus objetos en el contenedor."
+
+msgid ""
+"A container is a storage compartment for your data and provides a way for\n"
+"  you to organize your data. You can think of a container as a folder in\n"
+"  Windows® or a directory in UNIX®. The primary difference between a\n"
+"  container and these other file system concepts is that containers cannot "
+"be\n"
+"  nested. You can, however, create an unlimited number of containers within\n"
+"  your account. Data must be stored in a container so you must have at "
+"least\n"
+"  one container defined in your account prior to uploading data."
+msgstr ""
+"Un contenedor es un sistema de almacenamiento para sus datos y proporciona "
+"una forma para\n"
+" organizar sus datos. Puede pensar que un contenedor es como una carpeta en\n"
+"  Windows® o un directorio en UNIX®. La principal diferencia entre un\n"
+"contenedor y estos otros conceptos de sistemas de ficheros es que los "
+"contenedores no se pueden\n"
+" anidar. Puede por otra parte, crear un número ilimitado de contenedores con "
+"su\n"
+" cuenta. Los datos deben almacenarse en un contenedor, por lo que debe tener "
+"al menos\n"
+" un contenedor definido en su cuenta antes de subir datos."
 
 msgid "A container with that name exists."
 msgstr "Ya existe un contenedor con ese nombre."
@@ -261,6 +281,9 @@ msgstr ""
 "Los administradores definen un conjunto de IP's flotantes que pueden "
 "asociarse a las instancias."
 
+msgid "Affinity"
+msgstr "Afinidad"
+
 msgid "Alerts"
 msgstr "Alertas"
 
@@ -360,6 +383,9 @@ msgstr "Animado"
 
 msgid "Another action"
 msgstr "Otra acción"
+
+msgid "Anti Affinity"
+msgstr "Antiafinidad"
 
 msgid "Any Availability Zone"
 msgstr "Cualquier zona de disponibilidad"
@@ -528,6 +554,11 @@ msgid_plural "Confirm Delete Roles"
 msgstr[0] "Confirmar suprimir Rol"
 msgstr[1] "Confirmar suprimir Roles"
 
+msgid "Confirm Delete Server Group"
+msgid_plural "Confirm Delete Server Groups"
+msgstr[0] "Confirme borrar el grupo de servidores"
+msgstr[1] "Confirme borrar los grupos de servidores"
+
 msgid "Confirm Delete Trunk"
 msgid_plural "Confirm Delete Trunks"
 msgstr[0] "Confirmar borrar enlace troncal"
@@ -537,6 +568,12 @@ msgid "Confirm Delete User"
 msgid_plural "Confirm Delete Users"
 msgstr[0] "Confirme eliminar usuario"
 msgstr[1] "Confirme eliminar usuarios"
+
+msgid "Confirm Password"
+msgstr "Confirme contraseña"
+
+msgid "Confirm password"
+msgstr "Confirme la contraseña"
 
 msgid "Connecting"
 msgstr "Conectando"
@@ -577,11 +614,23 @@ msgstr "Tipo de contenido"
 msgid "Contextual alternatives"
 msgstr "Alternativas contextuales"
 
+msgid "Copy"
+msgstr "Copiar"
+
 msgid "Copy Data"
 msgstr "Copiar datos"
 
+msgid "Copy Object"
+msgstr "Copiar objeto"
+
+msgid "Copy Object: {$ ctrl.model.container $}/{$ ctrl.model.path $}"
+msgstr "Copiar Objecto: {$ ctrl.model.container $}/{$ ctrl.model.path $}"
+
 msgid "Copy Private Key to Clipboard"
 msgstr "Copiar clave privada al portapapeles"
+
+msgid "Copying"
+msgstr "Copiando"
 
 msgid "Could not decrypt the password"
 msgstr "No se puede descifrar la contraseña"
@@ -595,11 +644,17 @@ msgstr "Número"
 msgid "Create Container"
 msgstr "Crear contenedor"
 
+msgid "Create Domain"
+msgstr "Crear dominio"
+
 msgid "Create Folder"
 msgstr "Crear carpeta"
 
 msgid "Create Folder In: {$ ctrl.model.container.name $}"
 msgstr "Crear carpeta en: {$ ctrl.model.container.name $}"
+
+msgid "Create Group"
+msgstr "Crear grupo"
 
 msgid "Create Image"
 msgstr "Crear imagen"
@@ -615,6 +670,9 @@ msgstr "Crear nuevo volumen"
 
 msgid "Create Role"
 msgstr "Crear Rol"
+
+msgid "Create Server Group"
+msgstr "Crear grupo de servidores"
 
 msgid "Create Subnet"
 msgstr "Crear subred"
@@ -651,6 +709,10 @@ msgstr "Par de claves creado: %s"
 msgid "Creating"
 msgstr "Creando"
 
+#, python-format
+msgid "Creating volume %s"
+msgstr "Creando en volumen %s"
+
 msgid "Custom Properties"
 msgstr "Propiedades personalizadas"
 
@@ -669,17 +731,15 @@ msgstr ""
 msgid "Customization Script"
 msgstr "Script personalizado"
 
-#, fuzzy
 msgid "DNS Domain"
 msgid_plural "DNS Domains"
 msgstr[0] "Dominio DNS"
-msgstr[1] ""
+msgstr[1] "Dominios DNS"
 
-#, fuzzy
 msgid "DNS Record"
 msgid_plural "DNS Records"
 msgstr[0] "Registro DNS"
-msgstr[1] ""
+msgstr[1] "Registros DNS"
 
 msgid "DSCP Mark"
 msgstr "DSCP Mark"
@@ -738,6 +798,14 @@ msgstr "Eliminar"
 msgid "Delete Container"
 msgstr "Suprimir contenedor"
 
+msgid "Delete Domain"
+msgid_plural "Delete Domains"
+msgstr[0] "Borrar dominio"
+msgstr[1] "Borrar dominios"
+
+msgid "Delete Domains"
+msgstr "Borrar dominios"
+
 msgid "Delete Files in {$ ctrl.model.container.name $}"
 msgstr "Eliminar archivos en {$ ctrl.model.container.name $}"
 
@@ -748,6 +816,14 @@ msgstr[1] "Suprimir tipos"
 
 msgid "Delete Flavors"
 msgstr "Suprimir tipos"
+
+msgid "Delete Group"
+msgid_plural "Delete Groups"
+msgstr[0] "Borrar grupo"
+msgstr[1] "Borrar grupos"
+
+msgid "Delete Groups"
+msgstr "Borrar grupos"
 
 msgid "Delete Image"
 msgid_plural "Delete Images"
@@ -774,6 +850,14 @@ msgstr "Borrar pares de claves"
 msgid "Delete Network"
 msgstr "Borrar red"
 
+msgid "Delete Policies"
+msgstr "Borrar políticas"
+
+msgid "Delete Policy"
+msgid_plural "Delete Policies"
+msgstr[0] "Borrar política"
+msgstr[1] "Borrar políticas"
+
 msgid "Delete Role"
 msgid_plural "Delete Roles"
 msgstr[0] "Suprimir rol"
@@ -784,6 +868,14 @@ msgstr "Borrar roles"
 
 msgid "Delete Router"
 msgstr "Borrar router"
+
+msgid "Delete Server Group"
+msgid_plural "Delete Server Groups"
+msgstr[0] "Borrar grupo de servidores"
+msgstr[1] "Borrar grupos de servidores"
+
+msgid "Delete Server Groups"
+msgstr "Borrar grupos de servidores"
 
 msgid "Delete Subnet"
 msgstr "Borrar subred"
@@ -817,6 +909,12 @@ msgstr[0] "Tipo borrado: %s."
 msgstr[1] "Tipos borrados: %s."
 
 #, python-format
+msgid "Deleted Group: %s."
+msgid_plural "Deleted Groups: %s."
+msgstr[0] "Grupo borrado: %s."
+msgstr[1] "Grupos borrados: %s."
+
+#, python-format
 msgid "Deleted Image: %s."
 msgid_plural "Deleted Images: %s."
 msgstr[0] "Imagen borrada: %s."
@@ -835,6 +933,12 @@ msgstr[0] "Rol borrado: %s."
 msgstr[1] "Roles borrados: %s."
 
 #, python-format
+msgid "Deleted Server Group: %s."
+msgid_plural "Deleted Server Groups: %s."
+msgstr[0] "Grupo de servidores borrado: %s."
+msgstr[1] "Grupos de servidores borrados: %s."
+
+#, python-format
 msgid "Deleted Trunk: %s."
 msgid_plural "Deleted Trunks: %s."
 msgstr[0] "Enlace troncal borrado: %s."
@@ -846,6 +950,18 @@ msgid_plural "Deleted Users: %s."
 msgstr[0] "Usuario eliminado: %s."
 msgstr[1] "Usuarios eliminados: %s."
 
+#, python-format
+msgid "Deleted domain: %s."
+msgid_plural "Deleted domains: %s."
+msgstr[0] "Dominio borrado: %s."
+msgstr[1] "Dominios borrados: %s."
+
+#, python-format
+msgid "Deleted policy: %s."
+msgid_plural "Deleted policies: %s."
+msgstr[0] "Política borrada: %s."
+msgstr[1] "Políticas borradas: %s."
+
 msgid "Deleting"
 msgstr "Borrando"
 
@@ -854,6 +970,12 @@ msgstr "Eliminando:"
 
 msgid "Description"
 msgstr "Descripción"
+
+msgid "Destination Container"
+msgstr "Contenedor destino"
+
+msgid "Destination Object"
+msgstr "Objeto destino"
 
 msgid "Details"
 msgstr "Detalles"
@@ -900,11 +1022,14 @@ msgstr "Gráfica de distribución"
 msgid "Docker"
 msgstr "Docker"
 
-#, fuzzy
 msgid "Domain"
 msgid_plural "Domains"
-msgstr[0] "Dominio"
-msgstr[1] ""
+msgstr[0] "Domain"
+msgstr[1] "Dominios"
+
+#, python-format
+msgid "Domain %s was successfully created."
+msgstr "Dominio %s creado correctamente."
 
 msgid "Domain ID"
 msgstr "ID de dominio"
@@ -914,6 +1039,13 @@ msgstr "Id de dominio"
 
 msgid "Domain Name"
 msgstr "Nombre de dominio"
+
+msgid ""
+"Domains provide separation between users and infrastructure used by "
+"different organizations."
+msgstr ""
+"Los dominios proporcionan separación entre los usuarios y la infraestructura "
+"utilizada por diferentes organizaciones."
 
 msgid "Done"
 msgstr "Hecho"
@@ -944,6 +1076,9 @@ msgstr "Editar archivo"
 
 msgid "Edit File: {$ ctrl.model.container $} : {$ ctrl.model.path $}"
 msgstr "Editar archivo: {$ ctrl.model.container $} : {$ ctrl.model.path $}"
+
+msgid "Edit Group"
+msgstr "Editar grupo"
 
 msgid "Edit Image"
 msgstr "Editar Imagen"
@@ -1000,6 +1135,13 @@ msgstr "Error borrando"
 msgid "Ether Type"
 msgstr "Tipo Ethernet"
 
+msgid ""
+"Exactly one regular Neutron port. Has to be provided when\n"
+"  the trunk is created. Cannot be changed during the trunk's life."
+msgstr ""
+"Se debe proporcionar exactamente un puerto normal de neutron al\n"
+" crear el trunk. No se puede modificar durante la vida del trunk."
+
 msgid "Example body text"
 msgstr "Texto de cuerpo de ejemplo"
 
@@ -1033,11 +1175,10 @@ msgstr "Nombre de fichero"
 msgid "Fingerprint"
 msgstr "Fingerprint"
 
-#, fuzzy
 msgid "Flavor"
 msgid_plural "Flavors"
 msgstr[0] "Sabor"
-msgstr[1] ""
+msgstr[1] "Sabores"
 
 msgid "Flavor Name"
 msgstr "Nombre de tipo"
@@ -1049,11 +1190,10 @@ msgstr ""
 "Los sabores definen el tamaño que tendrá la instancia respecto a CPU, "
 "memoria y almacenamiento."
 
-#, fuzzy
 msgid "Floating IP"
 msgid_plural "Floating IPs"
 msgstr[0] "IP flotante"
-msgstr[1] ""
+msgstr[1] "IPs flotante"
 
 msgid "Focused input"
 msgstr "Entrada enfocada"
@@ -1093,11 +1233,17 @@ msgstr ""
 msgid "Global Actions:"
 msgstr "Acciones Globales:"
 
-#, fuzzy
 msgid "Group"
 msgid_plural "Groups"
 msgstr[0] "Grupo"
-msgstr[1] ""
+msgstr[1] "Grupos"
+
+#, python-format
+msgid "Group %s was successfully created."
+msgstr "Grupo %s creado correctamente."
+
+msgid "Group updated successfully."
+msgstr "Grupo actualizado correctamente."
 
 msgid "Hash"
 msgstr "Hash"
@@ -1126,11 +1272,10 @@ msgstr "Inicio"
 msgid "Host ID"
 msgstr "ID de host"
 
-#, fuzzy
 msgid "Hypervisor"
 msgid_plural "Hypervisors"
-msgstr[0] "Hípervisor"
-msgstr[1] ""
+msgstr[0] "Hipervisor"
+msgstr[1] "Hipervisores"
 
 msgid "ID"
 msgstr "ID"
@@ -1202,11 +1347,10 @@ msgstr ""
 "significando que los datos de la instancia se guardarán cuando la instancia "
 "sea borrada, escoja uno de los siguientes orígenes de arranque:"
 
-#, fuzzy
 msgid "Image"
 msgid_plural "Images"
 msgstr[0] "Imagen"
-msgstr[1] ""
+msgstr[1] "Imágenes"
 
 #, python-format
 msgid "Image %s was successfully created."
@@ -1279,11 +1423,13 @@ msgstr "Entrada correcta"
 msgid "Input warning"
 msgstr "Advertencia de entrada"
 
-#, fuzzy
 msgid "Instance"
 msgid_plural "Instances"
 msgstr[0] "Instancia"
-msgstr[1] ""
+msgstr[1] "Instancias"
+
+msgid "Instance ID"
+msgstr "ID de instancia"
 
 msgid "Instance Name"
 msgstr "Nombre de la instancia"
@@ -1328,11 +1474,10 @@ msgstr "Kernel"
 msgid "Kernel ID"
 msgstr "Kernel ID"
 
-#, fuzzy
 msgid "Key Pair"
 msgid_plural "Key Pairs"
 msgstr[0] "Par de Claves"
-msgstr[1] ""
+msgstr[1] "Pares de Claves"
 
 msgid "Key Pair Name"
 msgstr "Nombre de Par de Claves"
@@ -1368,6 +1513,22 @@ msgstr ""
 "una vez que se ha lanzado.\n"
 " Escoja un nombre de pareja de claves que reconozca y pegue su clave pública "
 "SSH en el campo proporcionado."
+
+msgid ""
+"Key Pairs are how you login to your instance after it is launched.\n"
+"  Choose a key pair name you will recognize.\n"
+"  Names may only include alphanumeric characters, spaces, dashes and\n"
+"  underscores."
+msgstr ""
+"Los pares de claves son utilizados para ingresar en la instancia después de "
+"lanzarla.\n"
+" Seleccione un nombre de par de claves que reconzca.\n"
+" Los nombres solo pueden incluir caracteres alfanuméricos, espacios, y "
+"guiones medios y\n"
+" bajos."
+
+msgid "Key Type"
+msgstr "Tipo de clave"
 
 #, python-format
 msgid "Key pair %(name)s was successfully created."
@@ -1421,17 +1582,15 @@ msgstr "Lista de encabezamientos de elemento de grupo"
 msgid "List groups"
 msgstr "Listar grupos"
 
-#, fuzzy
 msgid "Load Balancer Pool"
 msgid_plural "Load Balancer Pools"
-msgstr[0] "Agrupación de equilibradores de carga"
-msgstr[1] ""
+msgstr[0] "Agrupación de balanceadores de carga"
+msgstr[1] "Agrupaciones de balanceadores de carga"
 
-#, fuzzy
 msgid "Load Balancer Pool Member"
 msgid_plural "Load Balancer Pool Members"
-msgstr[0] "Miembro de agrupación de equilibradores de carga"
-msgstr[1] ""
+msgstr[0] "Miembro de agrupación de balanceadores de carga"
+msgstr[1] "Miembros de agrupación de balanceadores de carga"
 
 msgid "Load Function:"
 msgstr "Función de Carga:"
@@ -1484,11 +1643,31 @@ msgstr "Mensajes"
 msgid "Metadata"
 msgstr "Metadatos"
 
-#, fuzzy
 msgid "Metadata Definition"
 msgid_plural "Metadata Definitions"
 msgstr[0] "Definición de metadatos"
-msgstr[1] ""
+msgstr[1] "Definiciones de metadatos"
+
+msgid ""
+"Metadata is a collection of key-value pairs associated with an instance.\n"
+"    The maximum length for each metadata key and value is 255 characters."
+msgstr ""
+"Los metadatos son una colección de pares clave-valor asociados a la "
+"instancia.\n"
+"  La longitud máxima de cada clave y valor es de 255 caracteres."
+
+msgid ""
+"Metadata is used to provide additional information about the\n"
+"    image. Sometimes this information is only used for sorting and viewing.\n"
+"    In some installations this information may affect how the instance is\n"
+"    deployed or behaves."
+msgstr ""
+"Los metadatos son utilizados para proporcionar información adicional sobre "
+"la\n"
+"   imagen. Algunas veces la información es usada solo para ordenar y ver.\n"
+"  En algunas instalaciones, esta información puede afectar en como la "
+"instancia es\n"
+"  desplegada o se comporta."
 
 msgid "Metadata was successfully updated."
 msgstr "Metadatos actualizados correctamente."
@@ -1563,41 +1742,36 @@ msgstr "Barra de navegación"
 msgid "Navs"
 msgstr "Navs"
 
-#, fuzzy
 msgid "Network"
 msgid_plural "Networks"
 msgstr[0] "Red"
-msgstr[1] ""
+msgstr[1] "Redes"
 
-#, fuzzy
 msgid "Network Health Monitor"
 msgid_plural "Network Health Monitors"
 msgstr[0] "Supervisor de estado de red"
-msgstr[1] ""
+msgstr[1] "Supervisores de estado de red"
 
 msgid "Network ID"
 msgstr "ID de la red"
 
-#, fuzzy
 msgid "Network Port"
 msgid_plural "Network Ports"
 msgstr[0] "Puerto de red"
-msgstr[1] ""
+msgstr[1] "Puertos de red"
 
 msgid "Network Ports"
 msgstr "Puertos de red"
 
-#, fuzzy
 msgid "Network Router"
 msgid_plural "Network Routers"
 msgstr[0] "Router"
-msgstr[1] ""
+msgstr[1] "Routers"
 
-#, fuzzy
 msgid "Network Subnet"
 msgid_plural "Network Subnets"
 msgstr[0] "Subred"
-msgstr[1] ""
+msgstr[1] "Subredes"
 
 msgid "Network characteristics"
 msgstr "Características de Red"
@@ -1667,11 +1841,14 @@ msgstr "OVA"
 msgid "OVA - Open Virtual Appliance"
 msgstr "OVA - Open Virtual Appliance"
 
-#, fuzzy
 msgid "Object"
 msgid_plural "Objects"
 msgstr[0] "Objeto"
-msgstr[1] ""
+msgstr[1] "Objetos"
+
+#, python-format
+msgid "Object %(path)s has copied."
+msgstr "Se ha copiado el objeto %(path)s."
 
 msgid "Object Count"
 msgstr "Recuento de objetos"
@@ -1781,6 +1958,9 @@ msgstr "Puerto padre"
 msgid "Password"
 msgstr "Contraseña"
 
+msgid "Passwords do not match."
+msgstr "Las contraseñas no coinciden."
+
 msgid "Pending Delete"
 msgstr "Pendiente a Eliminar"
 
@@ -1867,14 +2047,16 @@ msgstr "Perfil"
 msgid "Progress bars"
 msgstr "Barras de progreso"
 
-#, fuzzy
 msgid "Project"
 msgid_plural "Projects"
 msgstr[0] "Proyecto"
-msgstr[1] ""
+msgstr[1] "Proyectos"
 
 msgid "Project ID"
 msgstr "ID del proyecto"
+
+msgid "Project Name"
+msgstr "Nombre del proyecto"
 
 msgid ""
 "Project networks are created by users.\n"
@@ -1922,11 +2104,10 @@ msgstr "QCOW2"
 msgid "QCOW2 - QEMU Emulator"
 msgstr "QCOW2 - QEMU Emulator"
 
-#, fuzzy
 msgid "QoS Policy"
 msgid_plural "QoS Policies"
 msgstr[0] "Política QoS"
-msgstr[1] ""
+msgstr[1] "Políticas QoS"
 
 msgid "Queued"
 msgstr "Encolado"
@@ -1970,15 +2151,17 @@ msgstr "Número de revisión"
 msgid "Right"
 msgstr "Derecha"
 
-#, fuzzy
 msgid "Role"
 msgid_plural "Roles"
 msgstr[0] "Rol"
-msgstr[1] ""
+msgstr[1] "Roles"
 
 #, python-format
 msgid "Role %s was successfully created."
 msgstr "El Rol %s se ha creado correctamente."
+
+msgid "Role already exists."
+msgstr "Ya existe el rol."
 
 msgid "Role updated successfully."
 msgstr "Rol actualizado correctamente."
@@ -1992,6 +2175,9 @@ msgstr "ID de regla"
 msgid "Rules"
 msgstr "Reglas"
 
+msgid "SSH Key"
+msgstr "Clave SSH"
+
 msgid "STATUS"
 msgstr "ESTADO"
 
@@ -2003,6 +2189,12 @@ msgstr "Guardar los cambios"
 
 msgid "Saving"
 msgstr "Guardando"
+
+#, python-format
+msgid "Scheduled creation of %s instance."
+msgid_plural "Scheduled creation of %s instances."
+msgstr[0] "Planificada la creación de %s instancia."
+msgstr[1] "Planificada la creación de %s instancias."
 
 msgid "Scheduler Hints"
 msgstr "Sugerencias de planificación"
@@ -2023,11 +2215,10 @@ msgstr "Buscar"
 msgid "Security"
 msgstr "Seguridad"
 
-#, fuzzy
 msgid "Security Group"
 msgid_plural "Security Groups"
 msgstr[0] "Grupo de seguridad"
-msgstr[1] ""
+msgstr[1] "Grupos de seguridad"
 
 msgid "Security Groups"
 msgstr "Grupos de Seguridad"
@@ -2106,6 +2297,9 @@ msgstr "Seleccionar uno"
 msgid "Select one or more"
 msgstr "Seleccionar uno o más"
 
+msgid "Select one or more ports"
+msgstr "Seleccione uno o más puertos"
+
 msgid "Select one or more security groups from the available groups below."
 msgstr ""
 "Seleccionar uno o más grupos de seguridad de los grupos disponibles a "
@@ -2150,6 +2344,18 @@ msgstr "Enviar invitación"
 msgid "Separated link"
 msgstr "Enlace aparte"
 
+msgid "Server Group"
+msgid_plural "Server Groups"
+msgstr[0] "Grupo de servidores"
+msgstr[1] "Grupos de servidores"
+
+#, python-format
+msgid "Server Group %s was successfully created."
+msgstr "El grupo de servidores %s se ha creado correctamente."
+
+msgid "Server Group Members"
+msgstr "Miembros del grupo de servidores"
+
 msgid "Server Groups"
 msgstr "Grupo de servidores"
 
@@ -2176,6 +2382,9 @@ msgstr ""
 #, python-format
 msgid "Service type is not enabled: %(desiredType)s"
 msgstr "Tipo de servicio no está habilitado: %(desiredType)s"
+
+msgid "Set admin password"
+msgstr "Especifique la contraseña de admin"
 
 #, python-format
 msgid "Setting is not enabled: %(setting)s"
@@ -2207,6 +2416,12 @@ msgstr "Entrada pequeña"
 
 msgid "Snapshot"
 msgstr "Instantánea"
+
+msgid "Soft Affinity"
+msgstr "Afinidad moderada"
+
+msgid "Soft Anti Affinity"
+msgstr "Antiafinidad moderada"
 
 msgid "Someone famous in"
 msgstr "Alguien famoso en"
@@ -2248,6 +2463,9 @@ msgstr "Estado"
 msgid "Status: %s"
 msgstr "Estado: %s"
 
+msgid "Storage Policy"
+msgstr "Política de almacenamiento"
+
 msgid "Striped"
 msgstr "Seccionado"
 
@@ -2279,17 +2497,15 @@ msgstr "URL de plantilla de resumen"
 msgid "Swap Disk"
 msgstr "Disco de intercambio (swap)"
 
-#, fuzzy
 msgid "Swift Account"
 msgid_plural "Swift Accounts"
 msgstr[0] "Cuenta Swift"
-msgstr[1] ""
+msgstr[1] "Cuentas Swift"
 
-#, fuzzy
 msgid "Swift Container"
 msgid_plural "Swift Containers"
 msgstr[0] "Contenedor Swift"
-msgstr[1] ""
+msgstr[1] "Contenedores Swift"
 
 msgid "Table Columns:"
 msgstr "Columnas de la tabla:"
@@ -2311,6 +2527,9 @@ msgstr "ID de proyecto"
 
 msgid "Text"
 msgstr "Texto"
+
+msgid "Text Inputs"
+msgstr "Entradas de texto"
 
 msgid "Textarea"
 msgstr "Área de texto"
@@ -2456,6 +2675,12 @@ msgstr ""
 "Este comando genera un par de  claves: una clave privada (cloud.key)\n"
 "y una clave pública (cloud.key.pub)."
 
+msgid "This container does not exist."
+msgstr "No existe este contenedor."
+
+msgid "This field is required."
+msgstr "Este campo es obligatorio."
+
 msgid ""
 "This flavor requires more RAM than your quota allows. Please select a "
 "smaller flavor or decrease the instance count."
@@ -2530,11 +2755,10 @@ msgstr "Total de almacenamiento de volúmenes"
 msgid "Total Volumes"
 msgstr "Total de volúmenes"
 
-#, fuzzy
 msgid "Trunk"
 msgid_plural "Trunks"
 msgstr[0] "Trunk"
-msgstr[1] ""
+msgstr[1] "Trunks"
 
 #, python-format
 msgid "Trunk %s was successfully created."
@@ -2607,6 +2831,9 @@ msgstr "No ha sido posible crear el proyecto."
 msgid "Unable to create the role."
 msgstr "No ha sido posible crear el rol."
 
+msgid "Unable to create the server group."
+msgstr "No ha sido posible crear el grupo de servidores."
+
 msgid "Unable to create the server snapshot."
 msgstr "No ha sido posible crear la instantánea del servidor."
 
@@ -2632,6 +2859,12 @@ msgstr[0] "No se ha podido borrar el Sabor: %s."
 msgstr[1] "No se ha podido borrar los Sabores: %s."
 
 #, python-format
+msgid "Unable to delete Group: %s."
+msgid_plural "Unable to delete Groups: %s."
+msgstr[0] "No ha sido posible borrar grupo: %s."
+msgstr[1] "No ha sido posible borrar grupos: %s."
+
+#, python-format
 msgid "Unable to delete Image: %s."
 msgid_plural "Unable to delete Images: %s."
 msgstr[0] "No ha sido posible borrar la imagen: %s."
@@ -2650,6 +2883,12 @@ msgstr[0] "No se ha podido borrar el Rol: %s."
 msgstr[1] "No se han podido borrar los Roles: %s."
 
 #, python-format
+msgid "Unable to delete Server Group: %s."
+msgid_plural "Unable to delete Server Groups: %s."
+msgstr[0] "No ha sido posible borrar el grupo de servidores: %s."
+msgstr[1] "No ha sido posible borrar los grupos de servidores: %s."
+
+#, python-format
 msgid "Unable to delete Trunk: %s."
 msgid_plural "Unable to delete Trunks: %s."
 msgstr[0] "No se ha podido borrar el enlace troncal: %s."
@@ -2660,6 +2899,22 @@ msgid "Unable to delete User: %s."
 msgid_plural "Unable to delete Users: %s."
 msgstr[0] "No se ha podido eliminar el usuario: %s."
 msgstr[1] "No se han podido eliminar los usuarios: %s."
+
+#, python-format
+msgid "Unable to delete domain: %s."
+msgid_plural "Unable to delete domains: %s."
+msgstr[0] "No ha sido posible borrar dominio: %s."
+msgstr[1] "No ha sido posible borrar dominios: %s."
+
+#, python-format
+msgid "Unable to delete policy: %s."
+msgid_plural "Unable to delete policies: %s."
+msgstr[0] "No ha sido posible borrar política: %s."
+msgstr[1] "No ha sido posible borrar políticas: %s."
+
+#, python-format
+msgid "Unable to delete qos policy %(id)s"
+msgstr "No ha sido posible borrar la política qos %(id)s"
 
 msgid "Unable to delete the container."
 msgstr "No se ha podido suprimir el contenedor."
@@ -2705,6 +2960,10 @@ msgstr "No ha sido posible borrar el rol."
 
 msgid "Unable to delete the roles."
 msgstr "No ha sido posible borrar los roles."
+
+#, python-format
+msgid "Unable to delete the server group with id %(id)s"
+msgstr "No ha sido posible borrar el grupo de servidores con id %(id)s"
 
 #, python-format
 msgid "Unable to delete the server with id: %(id)s"
@@ -2762,6 +3021,9 @@ msgstr "No se han podido editar los metadatos de tipo de volumen."
 
 msgid "Unable to fetch the groups."
 msgstr "No ha sido posible traer los grupos."
+
+msgid "Unable to fetch the policy details."
+msgstr "No ha sido posible obtener los detalles de la política."
 
 msgid "Unable to fetch the service catalog."
 msgstr "No ha sido posible obtener el catálogo de servicio."
@@ -2923,6 +3185,10 @@ msgstr "No ha sido posible recuperar las redes."
 msgid "Unable to retrieve the nova services."
 msgstr "No ha sido posible obtener los servicios de nova."
 
+#, python-format
+msgid "Unable to retrieve the policy with ID %(id)s"
+msgstr "No ha sido posible obtener la política con ID %(id)s"
+
 msgid "Unable to retrieve the ports."
 msgstr "No ha sido posible obtener los puertos."
 
@@ -2946,6 +3212,9 @@ msgstr "No ha sido posible obtener los roles."
 
 msgid "Unable to retrieve the security groups."
 msgstr "No ha sido posible obtener los grupos de seguridad."
+
+msgid "Unable to retrieve the server group."
+msgstr "No ha sido posible obtener el grupo de servidores."
 
 msgid "Unable to retrieve the server."
 msgstr "No ha sido posible obtener el servidor."
@@ -3113,11 +3382,10 @@ msgstr ""
 "elemento de esquema para elementos que no tienen modelo de datos, como "
 "secciones y \"fieldsets\"."
 
-#, fuzzy
 msgid "User"
 msgid_plural "Users"
 msgstr[0] "Usuario"
-msgstr[1] ""
+msgstr[1] "Usuarios"
 
 #, python-format
 msgid "User %s was successfully created."
@@ -3192,17 +3460,15 @@ msgstr "Las instancias virtuales asocian sus interfaces a los puertos."
 msgid "Visibility"
 msgstr "Visibilidad"
 
-#, fuzzy
 msgid "Volume"
 msgid_plural "Volumes"
 msgstr[0] "Volumen"
-msgstr[1] ""
+msgstr[1] "Volúmenes"
 
-#, fuzzy
 msgid "Volume Backup"
 msgid_plural "Volume Backups"
 msgstr[0] "Copia de seguridad de volumen"
-msgstr[1] ""
+msgstr[1] "Copas de seguridad de volumen"
 
 msgid "Volume Details"
 msgstr "Detalles del volumen"
@@ -3213,11 +3479,10 @@ msgstr "Cuota de volumen"
 msgid "Volume Size (GB)"
 msgstr "Tamaño de volumen (GB)"
 
-#, fuzzy
 msgid "Volume Snapshot"
 msgid_plural "Volume Snapshots"
 msgstr[0] "Instantánea de Volumen"
-msgstr[1] ""
+msgstr[1] "Instantáneas de Volumen"
 
 msgid "Volume Type Description:"
 msgstr "Descripción del tipo de volumen:"
@@ -3227,6 +3492,9 @@ msgstr "Cuota de volumen y de instantánea (GiB)"
 
 msgid "Volume size is required and must be an integer"
 msgstr "Tamaño del volumen es necesario y debe ser un entero"
+
+msgid "Volume size is required and must be positive integer"
+msgstr "El tamaño del volumen es obligatorio y debe ser un entero positivo"
 
 msgid "Volumes are block devices that can be attached to instances."
 msgstr ""
@@ -3281,6 +3549,9 @@ msgstr ""
 "<b>Estado de Administrador</b> a  <b>Abajo</b>\n"
 "si no se encuentra listo para que oros usuarios accedan a la red."
 
+msgid "X509 Certificate"
+msgstr "Certificado X509"
+
 msgid "XL Modal"
 msgstr "Modal XL"
 
@@ -3289,6 +3560,10 @@ msgstr "XS"
 
 msgid "Yes"
 msgstr "Sí"
+
+#, python-format
+msgid "You are not allowed to delete domains: %s"
+msgstr "No tiene permisos para borrar dominio: %s"
 
 #, python-format
 msgid "You are not allowed to delete images: %s"
@@ -3309,6 +3584,11 @@ msgstr ""
 "255 caracteres."
 
 msgid ""
+"You can copy objects. You have to create destination container prior to copy."
+msgstr ""
+"Puede copiar objetos. Debe crear el contenedor destino antes de copiarlo."
+
+msgid ""
 "You can customize your instance after it has launched using the options "
 "available here.\n"
 "    \"Customization Script\" is analogous to \"User Data\" in other systems."
@@ -3316,6 +3596,17 @@ msgstr ""
 "Puede personalizar la instancia después de lanzarla con las opciones "
 "disponibles aquí.\n"
 "    \"Script personalizado\" es análogo a \"User Data\" en otros sistemas."
+
+msgid ""
+"You can specify folder by using '/' at destination object field.\n"
+"          For example, if you want to copy object under the folder named "
+"'folder1', you need to specify destination object like 'folder1/[your object "
+"name]'."
+msgstr ""
+"Puede especificar un directorio usando '/' en el campo objeto destino.\n"
+"          Por ejemplo, si quiere copiar el objeto que se encuentra en el "
+"directorio de nombre 'dir1', debe especificar el objeto destino como 'dir1/"
+"[nombre de objeto]'."
 
 msgid ""
 "You can specify scheduler hints by moving items from the left column to the "
@@ -3330,6 +3621,16 @@ msgstr ""
 "al planificador sugerencias de planificación con las claves que desee."
 
 #, python-format
+msgid "You have selected \"%s\". Deleted Server Group is not recoverable."
+msgid_plural ""
+"You have selected \"%s\". Deleted Server Groups are not recoverable."
+msgstr[0] ""
+"Ha seleccionado \"%s\". El grupo de servidores borrado no es recuperable."
+msgstr[1] ""
+"Ha seleccionado \"%s\".  Los grupos de servidores borrado no son "
+"recuperables."
+
+#, python-format
 msgid "You have selected \"%s\". Deleted Trunk is not recoverable."
 msgid_plural "You have selected \"%s\". Deleted Trunks are not recoverable."
 msgstr[0] ""
@@ -3337,6 +3638,12 @@ msgstr[0] ""
 msgstr[1] ""
 "Ha seleccionado \"%s\". Los enlaces troncales borrados no se podrán "
 "recuperar."
+
+#, python-format
+msgid "You have selected \"%s\". Deleted domain is not recoverable."
+msgid_plural "You have selected \"%s\". Deleted domains are not recoverable."
+msgstr[0] "Ha elegido \"%s\". El dominio borrado no se puede recuperar."
+msgstr[1] "Ha elegido \"%s\". Los dominios borrados no se pueden recuperar."
 
 #, python-format
 msgid "You have selected \"%s\". Deleted flavor is not recoverable."

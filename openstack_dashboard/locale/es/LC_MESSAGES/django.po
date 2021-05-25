@@ -10,15 +10,16 @@
 # Zeus Arias Lucero <zeusariaslucero@gmail.com>, 2017. #zanata
 # Alberto Molina Coballes <alb.molina@gmail.com>, 2018. #zanata
 # Alberto Molina Coballes <alb.molina@gmail.com>, 2019. #zanata
+# Alberto Molina Coballes <alb.molina@gmail.com>, 2021. #zanata
 msgid ""
 msgstr ""
 "Project-Id-Version: horizon VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2020-11-23 00:41+0000\n"
+"POT-Creation-Date: 2021-04-20 14:20+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2019-12-16 08:06+0000\n"
+"PO-Revision-Date: 2021-05-23 07:02+0000\n"
 "Last-Translator: Alberto Molina Coballes <alb.molina@gmail.com>\n"
 "Language-Team: Spanish\n"
 "Language: es\n"
@@ -187,6 +188,17 @@ msgid "<a href=\"%(volume_url)s\">%(volume_label)s</a> on %(volume_device)s"
 msgstr ""
 " <a href=\"%(volume_url)s\">%(volume_label)s</a> en "
 "%(volume_device)s          "
+
+msgid ""
+"<b>Warning:</b> If you change security groups here, the change will be "
+"applied to all interfaces of the instance. If you have multiple interfaces "
+"on this instance and apply different security groups per port, use \"Edit "
+"Port Security Groups\" action instead."
+msgstr ""
+"<b>Advertencia></b> Si modifica aquí los grupos de seguridad, el cambio se "
+"aplicará a todas las interfaces de la instancia. Si tiene varias interfaces "
+"en esta instancia y desea diferentes grupos de seguridad por puerto, utilice "
+"en su lugar \"Editar grupos de seguridad de puerto\"."
 
 msgid "A local image to upload."
 msgstr "Disco local a cargar."
@@ -1134,6 +1146,9 @@ msgstr "Crear Sabor "
 msgid "Create Group"
 msgstr "Crear grupo"
 
+msgid "Create Group Snapshot"
+msgstr "Crear grupo de instantáneas"
+
 msgid "Create Group Type"
 msgstr "Crear tipo de grupo"
 
@@ -1226,6 +1241,9 @@ msgstr "Crear tipo de cifrado de volumen"
 
 msgid "Create Volume Type Extra Spec"
 msgstr "Crea especificaciones adicionales para el tipo de volumen."
+
+msgid "Create a Group Type"
+msgstr "Crear un tipo de grupo"
 
 msgid "Create a Metadata Namespace"
 msgstr "Crear un Namespace de Metadatos"
@@ -1503,6 +1521,11 @@ msgid_plural "Delete Groups"
 msgstr[0] "Eliminar Grupo"
 msgstr[1] "Eliminar Grupos"
 
+msgid "Delete Group Type"
+msgid_plural "Delete Group Types"
+msgstr[0] "Borrar tipo de grupo"
+msgstr[1] "Borrar tipos de grupo"
+
 msgid "Delete Host Aggregate"
 msgid_plural "Delete Host Aggregates"
 msgstr[0] "Borrar anfitrion adicionado"
@@ -1683,6 +1706,11 @@ msgid_plural "Deleted Groups"
 msgstr[0] "Grupo Eliminado"
 msgstr[1] "Grupos Eliminados"
 
+msgid "Deleted Group Type"
+msgid_plural "Deleted Group Types"
+msgstr[0] "Tipo de grupo borrado"
+msgstr[1] "Tipos de grupo borrados"
+
 msgid "Deleted Host Aggregate"
 msgid_plural "Deleted Host Aggregates"
 msgstr[0] "Anfitriones adicionados borrados"
@@ -1807,6 +1835,10 @@ msgstr ""
 "No se pueden recuperar los volúmenes borrados. Todos los datos dentro del "
 "volumen serán eliminados."
 
+msgctxt "Current status of Volume Group"
+msgid "Deleting"
+msgstr "Borrando"
+
 msgctxt "Current status of a Volume"
 msgid "Deleting"
 msgstr "Borrando"
@@ -1818,6 +1850,12 @@ msgstr "Borrando"
 msgctxt "Task status of an Instance"
 msgid "Deleting"
 msgstr "Borrando"
+
+msgid "Deprecated Settings"
+msgstr "Parámetros obsoletos"
+
+msgid "Deprecated settings: {}."
+msgstr "Parámetros obsoletos: {}."
 
 msgid "Description"
 msgstr "Descripción "
@@ -2159,6 +2197,9 @@ msgstr "Editar política"
 msgid "Edit Port"
 msgstr "Editar puerto"
 
+msgid "Edit Port Security Groups"
+msgstr "Editar grupos de seguridad de puerto"
+
 msgid "Edit Project"
 msgstr "Editar proyecto"
 
@@ -2350,6 +2391,14 @@ msgstr "Disco efímero"
 msgid "Ephemeral Disk (GB)"
 msgstr "Disco efímero (GB)"
 
+msgctxt "Current status of Volume Group"
+msgid "Error"
+msgstr "Error"
+
+msgctxt "Current status of Volume Group Snapshot"
+msgid "Error"
+msgstr "Error"
+
 msgctxt "Current status of a Floating IP"
 msgid "Error"
 msgstr "Error"
@@ -2433,6 +2482,9 @@ msgstr "Error al escribir el fichero zip: %(exc)s"
 
 msgid "Ether Type"
 msgstr "Tipo Ethernet"
+
+msgid "Euca2ools state"
+msgstr "Estado Euca2ools"
 
 msgid "Evacuate Host"
 msgstr "Evacuar anfitrión"
@@ -2539,6 +2591,14 @@ msgid "Failed to check if network-ip-availability extension is supported."
 msgstr ""
 "No se ha podido comprobar si soporta la extensión de la disponibilidad de la "
 "red Extensión IP"
+
+msgid "Failed to check if neutron supports \"auto_allocated_network\"."
+msgstr ""
+"Ha fallado la comprobación del soporte de neutron de \"redes autoasignadas\"."
+
+msgid "Failed to check if nova supports \"auto_allocated_network\"."
+msgstr ""
+"Ha fallado la comprobación del soporte de nova de \"redes autoasignadas\"."
 
 #, python-format
 msgid "Failed to create network %s"
@@ -2782,6 +2842,11 @@ msgctxt "Force upload volume in in-use status to image"
 msgid "Force"
 msgstr "Forzar"
 
+msgid "Force Delete Volume Backup"
+msgid_plural "Force Delete Volume Backups"
+msgstr[0] "Forzar borrado de copia de seguridad de volumen"
+msgstr[1] "Forzar borrado de copias de seguridad de volumen"
+
 msgid "Force Host Copy"
 msgstr "Forzar Copia Host"
 
@@ -2883,6 +2948,9 @@ msgstr "Tipos de grupos"
 msgid "Group has been updated successfully."
 msgstr "Se ha actualizado el grupo correctamente."
 
+msgid "Group type name can not be empty."
+msgstr "El tipo de grupo no puede estar vacío"
+
 msgid "Groups"
 msgstr "Grupos"
 
@@ -2930,6 +2998,9 @@ msgstr[1] "Instancias de Reiniciado Duro"
 msgctxt "Task status of an Instance"
 msgid "Hard Rebooting"
 msgstr "Rearrancando en frío"
+
+msgid "Has Snapshots"
+msgstr "Tiene instantáneas"
 
 msgid "Help"
 msgstr "Ayuda"
@@ -3221,6 +3292,10 @@ msgstr "Importar Espacio de Nombres"
 
 msgid "Import Public Key"
 msgstr "Importar clave pública"
+
+msgctxt "Current status of Volume Group Snapshot"
+msgid "In-use"
+msgstr "En uso"
 
 msgctxt "Current status of a Volume"
 msgid "In-use"
@@ -3545,7 +3620,7 @@ msgid "Manage"
 msgstr "Gestionar"
 
 msgid "Manage Attachments"
-msgstr "Administrar adjuntos"
+msgstr "Administrar asociaciones"
 
 msgid "Manage Floating IP Associations"
 msgstr "Gestionar asociaciones de IP flotantes"
@@ -3719,6 +3794,9 @@ msgstr "Disco mínimo (GB)"
 msgid "Minimum RAM (MB)"
 msgstr "Memoria RAM mínima (MB)"
 
+msgid "Missing required settings: {}."
+msgstr "Faltan parámetros obligatorios: {}."
+
 #, python-format
 msgid "Modified domain \"%s\"."
 msgstr "Se ha modificado el dominio \"%s\"."
@@ -3770,6 +3848,9 @@ msgstr "Monitoreo:"
 
 msgid "More"
 msgstr "Más"
+
+msgid "Multiattach volumes are not yet supported."
+msgstr "No están soportados aún los volúmenes multiasociados."
 
 msgid "N/A"
 msgstr "N/A"
@@ -3920,6 +4001,9 @@ msgstr "Nuevo tamaño (GiB)"
 
 msgid "New name cannot be empty."
 msgstr "Nuevo nombre no puede estar  vacío."
+
+msgid "New name conflicts with another group type."
+msgstr "El nuevo nombre solapa con otro tipo de grupo."
 
 msgid "New name conflicts with another volume type."
 msgstr "Nuevo nombre entra en conflicto con otro tipo de volumen."
@@ -4291,6 +4375,9 @@ msgstr "Se ha cambiado la contraseña. Inicie sesión de nuevo para continuar."
 msgid "Password changed. Please log in to continue."
 msgstr "Contraseña modificada. Por favor, acceda de nuevo para continuar."
 
+msgid "Password is locked."
+msgstr "Contraseña bloqueada."
+
 msgid "Passwords do not match."
 msgstr "Las contraseñas no coinciden."
 
@@ -4361,7 +4448,7 @@ msgid "Port Range"
 msgstr "Rango de puertos"
 
 msgid "Port Security"
-msgstr "Puerto de seguridad"
+msgstr "Seguridad del puerto"
 
 msgid "Port Security Enabled"
 msgstr "Seguridad de puerto habilitada"
@@ -4768,6 +4855,9 @@ msgstr ""
 msgid "Requested snapshot would exceed the allowed quota."
 msgstr "Es posible que la instantánea solicitada exceda la capacidad permitida"
 
+msgid "Required Settings"
+msgstr "Parámetros obligatorios"
+
 msgctxt "Current status of an Instance"
 msgid "Rescue"
 msgstr "Rescate"
@@ -5039,6 +5129,13 @@ msgid_plural "Scheduled deletion of Volume Snapshots"
 msgstr[0] "Eliminación programada de la instantánea de volumen"
 msgstr[1] "Eliminación programada de las instantáneas de volumen"
 
+msgid "Scheduled forced deletion of Volume Backup"
+msgid_plural "Scheduled forced deletion of Volume Backups"
+msgstr[0] ""
+"Se ha planificado el borrado forzado de la copia de seguridad de volumen"
+msgstr[1] ""
+"Se ha planificado el borrado forzado de las copias de seguridad de volumen"
+
 msgid "Scheduled migration (pending confirmation) of Instance"
 msgid_plural "Scheduled migration (pending confirmation) of Instances"
 msgstr[0] "Cronograma de migración de instancia (pendiente de confirmación)"
@@ -5188,6 +5285,9 @@ msgstr "Seleccionar una instancia a la que asociar."
 
 msgid "Select format"
 msgstr "Seleccionar formato"
+
+msgid "Select group type"
+msgstr "Seleccionar tipo de grupo"
 
 msgid "Select network"
 msgstr "Seleccionar red"
@@ -5727,9 +5827,18 @@ msgstr "Se ha actualizado correctamente el agregado: \"%s.\""
 msgid "Successfully updated encryption for volume type: %s"
 msgstr "Se ha actualizado correctamente el cifrado del tipo de volumen: %s"
 
+msgid "Successfully updated group type."
+msgstr "Actualizado correctamente el tipo de grupo."
+
 #, python-format
 msgid "Successfully updated security group: %s"
 msgstr "El grupo de seguridad: %s fue actualizado con correctamente"
+
+#, python-format
+msgid "Successfully updated volume backup status to \"%s\"."
+msgstr ""
+"Actualización satisfactoria del estado de la copia de seguridad de volumen a "
+"\"%s\"."
 
 #, python-format
 msgid "Successfully updated volume snapshot status: \"%s\"."
@@ -6022,6 +6131,9 @@ msgstr ""
 msgid "The new availability zone can't be empty"
 msgstr "La nueva zona de disponibilidad no puede estar vacía"
 
+msgid "The output format"
+msgstr "Formato de salida"
+
 msgid "The physical mechanism by which the virtual network is implemented."
 msgstr "El mecanismo físico por el que la red virtual se implementa."
 
@@ -6232,6 +6344,9 @@ msgstr ""
 "Para salir del modo a pantalla completa, haga click en el botón de página "
 "anterior del navegador."
 
+msgid "To make group type private, uncheck this field."
+msgstr "Para hacer el grupo privado, desmarque este campo."
+
 msgid "To make volume type private, uncheck this field."
 msgstr "Para hacer el tipo de volumen privado, desactive este campo."
 
@@ -6419,6 +6534,9 @@ msgstr "No ha sido posible crear el sabor \"%s\"."
 
 msgid "Unable to create flavor."
 msgstr "No ha sido posible crear el sabor."
+
+msgid "Unable to create group type."
+msgstr "No ha sido posible crear tipo de grupo."
 
 msgid "Unable to create group."
 msgstr "No ha sido posible crear el grupo."
@@ -6746,6 +6864,9 @@ msgstr ""
 msgid "Unable to retrieve Neutron quota information."
 msgstr "No se ha podido obtener información de la cuota de neutron."
 
+msgid "Unable to retrieve Nova quota information."
+msgstr "No ha sido posible obtener la información de cuotas de Nova."
+
 msgid "Unable to retrieve Nova server groups."
 msgstr "No se han podido obtener los servicios de nova."
 
@@ -6876,6 +6997,19 @@ msgid "Unable to retrieve group list. Please try again later."
 msgstr ""
 "No ha sido posible obtener la lista de grupos. Inténtelo de nuevo más tarde."
 
+#, python-format
+msgid "Unable to retrieve group type for: \"%s\""
+msgstr "No ha sido posible obtener el tipo de grupo: \"%s\""
+
+msgid "Unable to retrieve group type name."
+msgstr "No ha sido posible obtener el nombre del tipo de grupo."
+
+msgid "Unable to retrieve group type."
+msgstr "No ha sido posible obtener el tipo de grupo."
+
+msgid "Unable to retrieve group types."
+msgstr "No ha sido posible obtener los tipos de grupo."
+
 msgid "Unable to retrieve group users."
 msgstr "No ha sido posible obtener los usuarios del grupo."
 
@@ -6902,6 +7036,9 @@ msgstr "No ha sido posible obtener la lista de proveedores de identidad."
 
 msgid "Unable to retrieve image details."
 msgstr "No ha sido posible obtener los detalles de la imagen."
+
+msgid "Unable to retrieve image format list."
+msgstr "No ha sido posible obtener la lista de formatos de imagen."
 
 msgid "Unable to retrieve image list."
 msgstr "No ha sido posible obtener la lista de imágenes."
@@ -6987,7 +7124,7 @@ msgid "Unable to retrieve port details."
 msgstr "No ha sido posible obtener los detalles del puerto."
 
 msgid "Unable to retrieve port security state"
-msgstr "No ha sido posible obtener el estado del puerto"
+msgstr "No ha sido posible obtener el estado de seguridad del puerto"
 
 msgid "Unable to retrieve ports information."
 msgstr "No ha sido posible recuperar los puestos de información."
@@ -7114,6 +7251,11 @@ msgstr "No ha sido posible obtener los usuarios."
 msgid "Unable to retrieve version information."
 msgstr "No ha sido posible obtener información de la versión."
 
+msgid "Unable to retrieve volume backup project information."
+msgstr ""
+"No ha sido posible obtener información del proyecto de copias de seguridad "
+"de volumen."
+
 msgid "Unable to retrieve volume backups."
 msgstr "No ha sido posible obtener las copias de seguridad del volumen."
 
@@ -7234,6 +7376,9 @@ msgstr "No ha sido posible actualizar las cuotas de volumen predeterminadas."
 msgid "Unable to update encrypted volume type."
 msgstr "No se ha podido actualizar el tipo de volumen cifrado"
 
+msgid "Unable to update group type."
+msgstr "No ha sido posible actualizar el tipo de grupo."
+
 msgid "Unable to update group."
 msgstr "No ha sido posible actualizar el grupo."
 
@@ -7285,6 +7430,12 @@ msgstr "No ha sido posible actualizar la contraseña de usuario."
 msgid "Unable to update the user."
 msgstr "No ha sido posible actualizar el usuario."
 
+#, python-format
+msgid "Unable to update volume backup status to \"%s\"."
+msgstr ""
+"No ha sido posible modificar el estado de la copia de seguridad de volumen a "
+"\"%s\"."
+
 msgid "Unable to update volume snapshot status."
 msgstr "No ha sido posible actualizar el estado de la instantánea del volumen."
 
@@ -7318,6 +7469,9 @@ msgstr "No se puede verificar la extensión los tipos VNIC  de Neutron"
 msgid "Unknown"
 msgstr "Desconocido"
 
+msgid "Unknown Settings"
+msgstr "Parámetros desconocidos"
+
 msgid "Unknown instance"
 msgstr "Instancia desconocida"
 
@@ -7326,6 +7480,9 @@ msgstr "Instancia desconocida (Ninguna)"
 
 msgid "Unknown resource type for detail API."
 msgstr "Tipo de recurso desconocido para los detalles de  la API."
+
+msgid "Unknown settings: {}."
+msgstr "Parámetros desconocidos: {}."
 
 msgid "Unknown volume (None)"
 msgstr "Volumen desconocido (Ninguno)"
@@ -7442,6 +7599,9 @@ msgstr "Actualizar estado del volumen"
 msgid "Update Volume Type Encryption"
 msgstr "Actualizar cifrado de tipo de volumen"
 
+msgid "Update Volume backup Status"
+msgstr "Actualizar estado de las copias de seguridad de volumen"
+
 msgid "Update a Metadata Namespace"
 msgstr "Actualizar metadatos del espacio de nombres"
 
@@ -7475,6 +7635,10 @@ msgstr "Subred \"%s\" actualizada."
 
 msgid "Updated volumes for group."
 msgstr "Actualizados los volúmenes del grupo."
+
+msgctxt "Current status of Volume Group"
+msgid "Updating"
+msgstr "Actualizando"
 
 msgctxt "Task status of an Instance"
 msgid "Updating Password"
@@ -7658,6 +7822,9 @@ msgstr "Ver log"
 
 msgid "View Routers"
 msgstr "Ver enrutadores"
+
+msgid "View Specs"
+msgstr "Ver espec."
 
 msgid "View Usage"
 msgstr "Ver uso"
