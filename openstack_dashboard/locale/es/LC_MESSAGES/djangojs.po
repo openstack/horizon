@@ -13,15 +13,16 @@
 # Eddie Ramirez <djedi.r@gmail.com>, 2020. #zanata
 # OpenStack Infra <zanata@openstack.org>, 2020. #zanata
 # Zeus Arias Lucero <zeusariaslucero@gmail.com>, 2020. #zanata
+# Alberto Molina Coballes <alb.molina@gmail.com>, 2021. #zanata
 msgid ""
 msgstr ""
 "Project-Id-Version: horizon VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2020-01-08 17:19+0000\n"
+"POT-Creation-Date: 2021-05-01 11:46+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2020-01-08 04:04+0000\n"
+"PO-Revision-Date: 2021-05-24 03:09+0000\n"
 "Last-Translator: Alberto Molina Coballes <alb.molina@gmail.com>\n"
 "Language-Team: Spanish\n"
 "Language: es\n"
@@ -580,6 +581,9 @@ msgstr "Alternativas contextuales"
 msgid "Copy Data"
 msgstr "Copiar datos"
 
+msgid "Copy Object: {$ ctrl.model.container $}/{$ ctrl.model.path $}"
+msgstr "Copia Objecto: {$ ctrl.model.container $}/{$ ctrl.model.path $}"
+
 msgid "Copy Private Key to Clipboard"
 msgstr "Copiar clave privada al portapapeles"
 
@@ -817,6 +821,12 @@ msgstr[0] "Tipo borrado: %s."
 msgstr[1] "Tipos borrados: %s."
 
 #, python-format
+msgid "Deleted Group: %s."
+msgid_plural "Deleted Groups: %s."
+msgstr[0] "Grupo Eliminado: %s."
+msgstr[1] "Grupos Eliminados: %s."
+
+#, python-format
 msgid "Deleted Image: %s."
 msgid_plural "Deleted Images: %s."
 msgstr[0] "Imagen borrada: %s."
@@ -854,6 +864,12 @@ msgstr "Eliminando:"
 
 msgid "Description"
 msgstr "Descripción"
+
+msgid "Destination Container"
+msgstr "Contenedor destino"
+
+msgid "Destination Object"
+msgstr "Objeto destino"
 
 msgid "Details"
 msgstr "Detalles"
@@ -1049,11 +1065,10 @@ msgstr ""
 "Los sabores definen el tamaño que tendrá la instancia respecto a CPU, "
 "memoria y almacenamiento."
 
-#, fuzzy
 msgid "Floating IP"
 msgid_plural "Floating IPs"
 msgstr[0] "IP flotante"
-msgstr[1] ""
+msgstr[1] "IPs flotante"
 
 msgid "Focused input"
 msgstr "Entrada enfocada"
@@ -1285,6 +1300,9 @@ msgid_plural "Instances"
 msgstr[0] "Instancia"
 msgstr[1] ""
 
+msgid "Instance ID"
+msgstr "ID de la instancia"
+
 msgid "Instance Name"
 msgstr "Nombre de la instancia"
 
@@ -1421,16 +1439,14 @@ msgstr "Lista de encabezamientos de elemento de grupo"
 msgid "List groups"
 msgstr "Listar grupos"
 
-#, fuzzy
 msgid "Load Balancer Pool"
 msgid_plural "Load Balancer Pools"
-msgstr[0] "Agrupación de equilibradores de carga"
-msgstr[1] ""
+msgstr[0] "Agrupación de balanceadores de carga"
+msgstr[1] "Agrupaciones de balanceadores de carga"
 
-#, fuzzy
 msgid "Load Balancer Pool Member"
 msgid_plural "Load Balancer Pool Members"
-msgstr[0] "Miembro de agrupación de equilibradores de carga"
+msgstr[0] "Miembro de agrupación de balanceadores de carga"
 msgstr[1] ""
 
 msgid "Load Function:"
@@ -1578,26 +1594,23 @@ msgstr[1] ""
 msgid "Network ID"
 msgstr "ID de la red"
 
-#, fuzzy
 msgid "Network Port"
 msgid_plural "Network Ports"
 msgstr[0] "Puerto de red"
-msgstr[1] ""
+msgstr[1] "Puertos de red"
 
 msgid "Network Ports"
 msgstr "Puertos de red"
 
-#, fuzzy
 msgid "Network Router"
 msgid_plural "Network Routers"
 msgstr[0] "Router"
-msgstr[1] ""
+msgstr[1] "Routers"
 
-#, fuzzy
 msgid "Network Subnet"
 msgid_plural "Network Subnets"
 msgstr[0] "Subred"
-msgstr[1] ""
+msgstr[1] "Subredes"
 
 msgid "Network characteristics"
 msgstr "Características de Red"
@@ -1667,11 +1680,10 @@ msgstr "OVA"
 msgid "OVA - Open Virtual Appliance"
 msgstr "OVA - Open Virtual Appliance"
 
-#, fuzzy
 msgid "Object"
 msgid_plural "Objects"
 msgstr[0] "Objeto"
-msgstr[1] ""
+msgstr[1] "Objetos"
 
 msgid "Object Count"
 msgstr "Recuento de objetos"
@@ -1970,11 +1982,10 @@ msgstr "Número de revisión"
 msgid "Right"
 msgstr "Derecha"
 
-#, fuzzy
 msgid "Role"
 msgid_plural "Roles"
 msgstr[0] "Rol"
-msgstr[1] ""
+msgstr[1] "Roles"
 
 #, python-format
 msgid "Role %s was successfully created."
@@ -2023,11 +2034,10 @@ msgstr "Buscar"
 msgid "Security"
 msgstr "Seguridad"
 
-#, fuzzy
 msgid "Security Group"
 msgid_plural "Security Groups"
 msgstr[0] "Grupo de seguridad"
-msgstr[1] ""
+msgstr[1] "Grupos de seguridad"
 
 msgid "Security Groups"
 msgstr "Grupos de Seguridad"
@@ -2149,6 +2159,9 @@ msgstr "Enviar invitación"
 
 msgid "Separated link"
 msgstr "Enlace aparte"
+
+msgid "Server Group Members"
+msgstr "Miembros del grupo de servidores"
 
 msgid "Server Groups"
 msgstr "Grupo de servidores"
@@ -2279,17 +2292,15 @@ msgstr "URL de plantilla de resumen"
 msgid "Swap Disk"
 msgstr "Disco de intercambio (swap)"
 
-#, fuzzy
 msgid "Swift Account"
 msgid_plural "Swift Accounts"
 msgstr[0] "Cuenta Swift"
-msgstr[1] ""
+msgstr[1] "Cuentas Swift"
 
-#, fuzzy
 msgid "Swift Container"
 msgid_plural "Swift Containers"
 msgstr[0] "Contenedor Swift"
-msgstr[1] ""
+msgstr[1] "Contenedores Swift"
 
 msgid "Table Columns:"
 msgstr "Columnas de la tabla:"
@@ -2456,6 +2467,12 @@ msgstr ""
 "Este comando genera un par de  claves: una clave privada (cloud.key)\n"
 "y una clave pública (cloud.key.pub)."
 
+msgid "This container does not exist."
+msgstr "El contenedor no existe."
+
+msgid "This field is required."
+msgstr "Este campo es obligatorio."
+
 msgid ""
 "This flavor requires more RAM than your quota allows. Please select a "
 "smaller flavor or decrease the instance count."
@@ -2530,11 +2547,10 @@ msgstr "Total de almacenamiento de volúmenes"
 msgid "Total Volumes"
 msgstr "Total de volúmenes"
 
-#, fuzzy
 msgid "Trunk"
 msgid_plural "Trunks"
 msgstr[0] "Trunk"
-msgstr[1] ""
+msgstr[1] "Trunks"
 
 #, python-format
 msgid "Trunk %s was successfully created."
@@ -3113,11 +3129,10 @@ msgstr ""
 "elemento de esquema para elementos que no tienen modelo de datos, como "
 "secciones y \"fieldsets\"."
 
-#, fuzzy
 msgid "User"
 msgid_plural "Users"
 msgstr[0] "Usuario"
-msgstr[1] ""
+msgstr[1] "Usuarios"
 
 #, python-format
 msgid "User %s was successfully created."

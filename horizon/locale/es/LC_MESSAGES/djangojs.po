@@ -7,15 +7,16 @@
 # Zeus Arias Lucero <zeusariaslucero@gmail.com>, 2017. #zanata
 # Alberto Molina Coballes <alb.molina@gmail.com>, 2018. #zanata
 # Alberto Molina Coballes <alb.molina@gmail.com>, 2020. #zanata
+# Alberto Molina Coballes <alb.molina@gmail.com>, 2021. #zanata
 msgid ""
 msgstr ""
 "Project-Id-Version: horizon VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2020-10-15 06:02+0000\n"
+"POT-Creation-Date: 2021-05-01 11:46+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2020-11-06 06:53+0000\n"
+"PO-Revision-Date: 2021-05-24 04:15+0000\n"
 "Last-Translator: Alberto Molina Coballes <alb.molina@gmail.com>\n"
 "Language-Team: Spanish\n"
 "Language: es\n"
@@ -188,8 +189,8 @@ msgstr "Mostrando %(count)s de %(total)s elementos"
 #, python-format
 msgid "Displaying %s item"
 msgid_plural "Displaying %s items"
-msgstr[0] "Mostrando %s articulo"
-msgstr[1] "Mostrando %s articulos"
+msgstr[0] "Mostrando %s elemento"
+msgstr[1] "Mostrando %s elementos"
 
 msgid "Duplicate keys are not allowed"
 msgstr "Las claves duplicadas no están permitidas"
