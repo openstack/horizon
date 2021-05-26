@@ -10,7 +10,7 @@
       <button ng-hide="form.readonly || form.remove === null"
               ng-click="deleteFromArray($index)"
               ng-disabled="form.schema.minItems >= modelArray.length"
-              type="button" class="close pull-right">
+              type="button" class="close pull-right" style="position: relative; z-index: 20;">
         <span aria-hidden="true">&times;</span>
         <span class="sr-only">
           <translate>Close</translate>
