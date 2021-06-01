@@ -23,7 +23,7 @@ Project Resources
 Communication
 -------------
 
-* IRC channel: ``#openstack-horizon`` at freenode
+* IRC channel: ``#openstack-horizon`` at OFTC
 
   Most active contributors are online at IRC while they are active,
   so it would be the easiest way to contact the team directly.
