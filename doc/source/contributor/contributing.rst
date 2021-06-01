@@ -14,7 +14,7 @@ Before you dive into writing patches, here are some of the basics:
 * Continuous integration:
   * Jenkins: https://jenkins.openstack.org
   * Zuul: http://status.openstack.org/zuul
-* IRC Channel: #openstack-horizon on Freenode.
+* IRC Channel: #openstack-horizon on OFTC.
 
 Making Contributions
 ====================
