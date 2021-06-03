@@ -14,11 +14,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: horizon VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2021-05-17 07:18+0000\n"
+"POT-Creation-Date: 2021-06-01 14:36+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2021-05-28 07:10+0000\n"
+"PO-Revision-Date: 2021-06-02 02:55+0000\n"
 "Last-Translator: Alberto Molina Coballes <alb.molina@gmail.com>\n"
 "Language-Team: Spanish\n"
 "Language: es\n"
@@ -27,6 +27,10 @@ msgstr ""
 
 msgid "#"
 msgstr "#"
+
+#, python-format
+msgid "%s (default)"
+msgstr "%s (predeterminado)"
 
 msgid "1"
 msgstr "1"
@@ -132,6 +136,31 @@ msgid ""
 msgstr ""
 "Nota: Un contenedor público permitirá que cualquiera que conozca la URL "
 "pública acceda a sus objetos en el contenedor."
+
+msgid ""
+"A container is a storage compartment for your data and provides a way for\n"
+"  you to organize your data. You can think of a container as a folder in\n"
+"  Windows® or a directory in UNIX®. The primary difference between a\n"
+"  container and these other file system concepts is that containers cannot "
+"be\n"
+"  nested. You can, however, create an unlimited number of containers within\n"
+"  your account. Data must be stored in a container so you must have at "
+"least\n"
+"  one container defined in your account prior to uploading data."
+msgstr ""
+"Un contenedor es un compartimiento de almacenamiento de sus datos que "
+"proporciona \n"
+" una manera de organizarlos. Puede pensar que un contenedor es como una "
+"carpeta de \n"
+" Windows &reg; o un directorio en UNIX &reg;. La principal diferencia entre "
+"un \n"
+" contenedor y estos otros conceptos de sistemas de archivos es que un "
+"contenedor no se \n"
+" puede anidar. Sin embargo, puede crear un número ilimitado de contenedores "
+"con su cuenta. \n"
+" Los datos deben almacenarse en un contenedor, por lo que al menos debe "
+"tener un\n"
+" contenedor definido en su cuenta antes de subir datos."
 
 msgid "A container with that name exists."
 msgstr "Ya existe un contenedor con ese nombre."
@@ -263,6 +292,16 @@ msgstr "Afinidad"
 
 msgid "Alerts"
 msgstr "Alertas"
+
+msgid ""
+"Also note that segmentation details may be mandatory\n"
+"  or optional depending on the backend. Notably Ironic may provide\n"
+"  segmentation details instead of the user."
+msgstr ""
+"Tenga en cuenta también que los detalles de segmentación pueden ser \n"
+" obligatorios u opcionales dependiendo del backend. Especialmente Ironic "
+"puede\n"
+"proporcionar detalles de segmentación en lugar del usuario."
 
 msgid "Amount of RAM in MB that is required to boot the image."
 msgstr "Cantidad de RAM en MB necesario para iniciar la imagen."
@@ -511,10 +550,20 @@ msgstr "Unidad de configuración"
 msgid "Confirm Delete"
 msgstr "Confirmar supresión"
 
+msgid "Confirm Delete Domain"
+msgid_plural "Confirm Delete Domains"
+msgstr[0] "Confirmar borrar dominio"
+msgstr[1] "Confirmar borrar dominios"
+
 msgid "Confirm Delete Flavor"
 msgid_plural "Confirm Delete Flavors"
 msgstr[0] "Confirmar Suprimir tipo"
 msgstr[1] "Confirmar Suprimir tipos"
+
+msgid "Confirm Delete Group"
+msgid_plural "Confirm Delete Groups"
+msgstr[0] "Confirmar borrar grupo"
+msgstr[1] "Confirmar borrar grupos"
 
 msgid "Confirm Delete Image"
 msgid_plural "Confirm Delete Images"
@@ -530,6 +579,11 @@ msgid "Confirm Delete Role"
 msgid_plural "Confirm Delete Roles"
 msgstr[0] "Confirmar suprimir Rol"
 msgstr[1] "Confirmar suprimir Roles"
+
+msgid "Confirm Delete Server Group"
+msgid_plural "Confirm Delete Server Groups"
+msgstr[0] "Confirmar borrar grupo de servidores"
+msgstr[1] "Confirmar borrar grupos de servidores"
 
 msgid "Confirm Delete Trunk"
 msgid_plural "Confirm Delete Trunks"
@@ -586,14 +640,23 @@ msgstr "Tipo de contenido"
 msgid "Contextual alternatives"
 msgstr "Alternativas contextuales"
 
+msgid "Copy"
+msgstr "Copiar"
+
 msgid "Copy Data"
 msgstr "Copiar datos"
+
+msgid "Copy Object"
+msgstr "Copiar objeto"
 
 msgid "Copy Object: {$ ctrl.model.container $}/{$ ctrl.model.path $}"
 msgstr "Copiar Objecto: {$ ctrl.model.container $}/{$ ctrl.model.path $}"
 
 msgid "Copy Private Key to Clipboard"
 msgstr "Copiar clave privada al portapapeles"
+
+msgid "Copying"
+msgstr "Copiando"
 
 msgid "Could not decrypt the password"
 msgstr "No se puede descifrar la contraseña"
@@ -832,6 +895,11 @@ msgstr "Borrar roles"
 msgid "Delete Router"
 msgstr "Borrar router"
 
+msgid "Delete Server Group"
+msgid_plural "Delete Server Groups"
+msgstr[0] "Borrar grupo de servidores"
+msgstr[1] "Borrar grupos de servidores"
+
 msgid "Delete Server Groups"
 msgstr "Borrar grupos de servidores"
 
@@ -867,6 +935,12 @@ msgstr[0] "Tipo borrado: %s."
 msgstr[1] "Tipos borrados: %s."
 
 #, python-format
+msgid "Deleted Group: %s."
+msgid_plural "Deleted Groups: %s."
+msgstr[0] "Borrado grupo: %s"
+msgstr[1] "Borrados grupos: %s"
+
+#, python-format
 msgid "Deleted Image: %s."
 msgid_plural "Deleted Images: %s."
 msgstr[0] "Imagen borrada: %s."
@@ -883,6 +957,12 @@ msgid "Deleted Role: %s."
 msgid_plural "Deleted Roles: %s."
 msgstr[0] "Rol borrado: %s."
 msgstr[1] "Roles borrados: %s."
+
+#, python-format
+msgid "Deleted Server Group: %s."
+msgid_plural "Deleted Server Groups: %s."
+msgstr[0] "Grupo de servidores borrado: %s"
+msgstr[1] "Grupos de servidores borrados: %s"
 
 #, python-format
 msgid "Deleted Trunk: %s."
@@ -1075,6 +1155,14 @@ msgstr "Error borrando"
 msgid "Ether Type"
 msgstr "Tipo Ethernet"
 
+msgid ""
+"Exactly one regular Neutron port. Has to be provided when\n"
+"  the trunk is created. Cannot be changed during the trunk's life."
+msgstr ""
+"Exactamente un puerto de Neutron normal. Tiene que proporcionarse cuando\n"
+"se crea el enlace troncal. No se puede cambiar durante la vida del enlace "
+"troncal."
+
 msgid "Example body text"
 msgstr "Texto de cuerpo de ejemplo"
 
@@ -1140,6 +1228,19 @@ msgstr "Se ha creado la carpeta %(name)s."
 
 msgid "Folder Name"
 msgstr "Nombre de carpeta"
+
+msgid ""
+"For ports on provider networks you may choose the special\n"
+"  segmentation type <em>inherit</em>. Then the subport's segmentation\n"
+"  type and ID will be automagically inherited from the provider network's\n"
+"  segmentation type and ID. This is useful when the switch is incapable of\n"
+"  remapping (tag pop-push) for example as usual for Ironic instances."
+msgstr ""
+"Para puertos en redes de proveedor debe seleccionar el tipo de segmentacion\n"
+" especial <em>inherit</em>. En ese caso los tipos de segmentación e ID de \n"
+" segmentación del subpuerto se heredarán automáticamente de los de la \n"
+" red de proveedor. Esto es útil cuando es switch es incapaza de remapear \n"
+"(etiqueta pop-push) por ejemplo como ocurre en instancias de Ironic."
 
 msgid "Form"
 msgstr "Formulario"
@@ -1355,6 +1456,30 @@ msgstr "Entrada correcta"
 
 msgid "Input warning"
 msgstr "Advertencia de entrada"
+
+msgid ""
+"Inside the instance a particular subport's network will\n"
+"  be presented as tagged frames transmitted and received on the vNIC\n"
+"  belonging to the parent port. The cloud user may control the tagging\n"
+"  by setting the <em>segmentation type</em> and <em>segmentation ID</em>\n"
+"  of the subport."
+msgstr ""
+"Dentro de la instancia una particular red de subpuertos se presentará\n"
+" como tramas etiquetadas transmitidas y recibidas en la vNIC\n"
+" a la que pertenece el puerto padre. El usuario de la nube puede controlar "
+"el\n"
+" etiquetado ajustando el <em>tipo de segmentadión</em> y <em>ID de "
+"segmentación</em>\n"
+" en el subpuerto."
+
+msgid ""
+"Inside the instance the parent port's network will always\n"
+"  be presented as the untagged network. It will be available early from\n"
+"  the moment of bootup."
+msgstr ""
+"Dentro de la instancia la red del puerto padre se presentará siempre\n"
+" como no etiquetada. Estará disponible desde el mismo momento\n"
+"del arranque."
 
 msgid "Instance"
 msgid_plural "Instances"
@@ -1678,6 +1803,15 @@ msgstr "Características de Red"
 msgid "Networks"
 msgstr "Redes"
 
+msgid ""
+"Networks of subports may become available later than the\n"
+"  moment of bootup. But they will be available after the trunk reached\n"
+"  the <em>ACTIVE</em> status."
+msgstr ""
+"Las redes de subpuertos estarán disponibles después del momento\n"
+" de arranque. Pero sí estarán disponibles una vez el enlace troncal\n"
+" alcance el estado <em>ACTIVO</em>."
+
 msgid "Networks provide the communication channels for instances in the cloud."
 msgstr ""
 "Las Redes proveen los canales de comunicación para las instancias en la nube."
@@ -1728,6 +1862,37 @@ msgstr "No establecido"
 msgid "Not public"
 msgstr "No público"
 
+msgid ""
+"Note that most guest operating systems will not\n"
+"  automatically configure and bring up the VLAN subinterfaces belonging\n"
+"  to subports. You may have to do that yourself. For example:"
+msgstr ""
+"Tenga en cuenta que muchos sistemas operativos no configurarán ni\n"
+" levantarán de forma automática las subinterfaces de VLAN pertenecientes\n"
+" a los subpuertos. Debe hacerlo usted mismo/a. Por ejemplo:"
+
+msgid ""
+"Note that some Neutron backends (notably the Open vSwitch\n"
+"  based backend) only allow trunk creation before an instance is launched\n"
+"  on the parent port.  Other backends may allow trunk creation at any\n"
+"  time during the life of a port."
+msgstr ""
+"Tenga en cuenta que algunos \"backends\" de Neutron (especialmente Open "
+"vSwitch)\n"
+"sólo permitirán crear el enlace troncal antes de lanzar la instancia en el "
+"puerto padre.\n"
+"Otros \"backends\" pueden permitir la creación del enlace troncal en "
+"cualquier momento\n"
+"durante la vida de un puerto."
+
+msgid ""
+"Note: Delimiters ('{$ ctrl.model.DELIMETER $}') are allowed in the\n"
+"          folder name to create deep folders."
+msgstr ""
+"Nota: Los delimitadoress ('{$ ctrl.model.DELIMETER $}') están permitidos en "
+"el\n"
+" nombre de la carpeta."
+
 msgid "Number"
 msgstr "Número"
 
@@ -1744,6 +1909,10 @@ msgid "Object"
 msgid_plural "Objects"
 msgstr[0] "Objeto"
 msgstr[1] "Objetos"
+
+#, python-format
+msgid "Object %(path)s has copied."
+msgstr "Se ha copiado %(path)s objeto"
 
 msgid "Object Count"
 msgstr "Recuento de objetos"
@@ -2085,6 +2254,12 @@ msgstr "Guardar los cambios"
 msgid "Saving"
 msgstr "Guardando"
 
+#, python-format
+msgid "Scheduled creation of %s instance."
+msgid_plural "Scheduled creation of %s instances."
+msgstr[0] "Se ha planificado la creación de %s instancia."
+msgstr[1] "Se ha planificado la creación de %s instancias."
+
 msgid "Scheduler Hints"
 msgstr "Sugerencias de planificación"
 
@@ -2140,6 +2315,14 @@ msgstr "ID de segmentación"
 
 msgid "Segmentation Type"
 msgstr "Tipo de segmentación"
+
+msgid ""
+"Select <em>exactly one port</em> as the parent port of the trunk to\n"
+"    be created. Mandatory."
+msgstr ""
+"Seleccione <em>exactamente un puerto</em> como el puerto padre del enlace "
+"troncal\n"
+"a crear. Obligatorio."
 
 msgid "Select Boot Source"
 msgstr "Seleccionar Origen de arranque"
@@ -2235,6 +2418,11 @@ msgstr "Enviar invitación"
 
 msgid "Separated link"
 msgstr "Enlace aparte"
+
+msgid "Server Group"
+msgid_plural "Server Groups"
+msgstr[0] "Grupo de servidores"
+msgstr[1] "Grupos de servidores"
 
 #, python-format
 msgid "Server Group %s was successfully created."
@@ -2415,6 +2603,9 @@ msgstr "ID de proyecto"
 msgid "Text"
 msgstr "Texto"
 
+msgid "Text Inputs"
+msgstr "Entradas de texto"
+
 msgid "Textarea"
 msgstr "Área de texto"
 
@@ -2497,6 +2688,38 @@ msgstr "Nombre del volumen."
 msgid "The name of the image."
 msgstr "Nombre de la imagen."
 
+msgid ""
+"The parent port is the port you have to add to the instance\n"
+"  at launch. Do not try to add the trunk or any of the subports to the\n"
+"  instance directly."
+msgstr ""
+"El puerto padre es el puerto a añadir a la instancia\n"
+" en el lanzamiento. No trate de añadir el enlace troncal o alguno de los "
+"subpuertos a la \n"
+" instancia directamente."
+
+msgid ""
+"The segmentation type and ID are decoupled (and\n"
+"  therefore independent) from Neutron's network virtualization\n"
+"  implementation. Different segmentation types will be remapped as frames\n"
+"  leave/enter the instance."
+msgstr ""
+"El tipo de segmentación e ID de segmentación están desacoplados (y por "
+"tanto\n"
+" son independientes) de la implementación de la virtualización de red\n"
+" de Neutron. Diferentes tipos de segmentación serán remapeados como tramas\n"
+" saliendo/entrando de la instancia."
+
+msgid ""
+"The segmentation type, ID tuples of subports must be unique\n"
+"  (in the scope of a trunk), otherwise networks of subports could not\n"
+"  be distinguished inside the instance."
+msgstr ""
+"Las tuplas de tipo de segmentación e ID de segmentación deben ser únicas\n"
+"(en el ámbito del enlace troncal), o las redes de subpuertos no serań "
+"distinguibles\n"
+" dentro de la instancia."
+
 #, python-format
 msgid ""
 "The selected %(sourceType)s source requires a flavor with at least "
@@ -2551,6 +2774,14 @@ msgid ""
 msgstr ""
 "Hay dos maneras de crear un par de  claves. En sistemas Linux, \n"
 "genere un par de claves con el comando <samp>ssh-keygen</samp>:"
+
+msgid ""
+"This can be simplified by reusing the parent's MAC address\n"
+"  for all subports of the trunk earlier at port creation. Eg.:"
+msgstr ""
+"Se puede simplificar esto reutilizando antes la dirección MAC del padre "
+"para \n"
+" todos los subpuertos del enlace troncal en la creción del puerto. P.ej.:"
 
 msgid ""
 "This command generates a pair of keys: a private key (cloud.key)\n"
@@ -2715,6 +2946,9 @@ msgstr "No ha sido posible crear el proyecto."
 msgid "Unable to create the role."
 msgstr "No ha sido posible crear el rol."
 
+msgid "Unable to create the server group."
+msgstr "No se ha podido crear el grupo de servidores."
+
 msgid "Unable to create the server snapshot."
 msgstr "No ha sido posible crear la instantánea del servidor."
 
@@ -2740,6 +2974,12 @@ msgstr[0] "No se ha podido borrar el Sabor: %s."
 msgstr[1] "No se ha podido borrar los Sabores: %s."
 
 #, python-format
+msgid "Unable to delete Group: %s."
+msgid_plural "Unable to delete Groups: %s."
+msgstr[0] "No se ha podido borrar grupo: %s."
+msgstr[1] "No se ha podido borrar grupos: %s."
+
+#, python-format
 msgid "Unable to delete Image: %s."
 msgid_plural "Unable to delete Images: %s."
 msgstr[0] "No ha sido posible borrar la imagen: %s."
@@ -2758,6 +2998,12 @@ msgstr[0] "No se ha podido borrar el Rol: %s."
 msgstr[1] "No se han podido borrar los Roles: %s."
 
 #, python-format
+msgid "Unable to delete Server Group: %s."
+msgid_plural "Unable to delete Server Groups: %s."
+msgstr[0] "No ha sido posible borrar el grupo de servidores: %s."
+msgstr[1] "No ha sido posible borrar los grupos de servidores: %s."
+
+#, python-format
 msgid "Unable to delete Trunk: %s."
 msgid_plural "Unable to delete Trunks: %s."
 msgstr[0] "No se ha podido borrar el enlace troncal: %s."
@@ -2774,6 +3020,10 @@ msgid "Unable to delete domain: %s."
 msgid_plural "Unable to delete domains: %s."
 msgstr[0] "No ha sido posible borrar dominio: %s."
 msgstr[1] "No ha sido posible borrar dominios: %s."
+
+#, python-format
+msgid "Unable to delete qos policy %(id)s"
+msgstr "No se ha podido borrar la política qos %(id)s"
 
 msgid "Unable to delete the container."
 msgstr "No se ha podido suprimir el contenedor."
@@ -2819,6 +3069,10 @@ msgstr "No ha sido posible borrar el rol."
 
 msgid "Unable to delete the roles."
 msgstr "No ha sido posible borrar los roles."
+
+#, python-format
+msgid "Unable to delete the server group with id %(id)s"
+msgstr "No se ha podido borrar el grupo de servidores con id %(id)s"
 
 #, python-format
 msgid "Unable to delete the server with id: %(id)s"
@@ -2876,6 +3130,9 @@ msgstr "No se han podido editar los metadatos de tipo de volumen."
 
 msgid "Unable to fetch the groups."
 msgstr "No ha sido posible traer los grupos."
+
+msgid "Unable to fetch the policy details."
+msgstr "No se ha podido descargar los detalles de la política."
 
 msgid "Unable to fetch the service catalog."
 msgstr "No ha sido posible obtener el catálogo de servicio."
@@ -3060,6 +3317,9 @@ msgstr "No ha sido posible obtener los roles."
 
 msgid "Unable to retrieve the security groups."
 msgstr "No ha sido posible obtener los grupos de seguridad."
+
+msgid "Unable to retrieve the server group."
+msgstr "No se ha podido obtener el grupo de servidores."
 
 msgid "Unable to retrieve the server."
 msgstr "No ha sido posible obtener el servidor."
@@ -3429,6 +3689,12 @@ msgstr ""
 "255 caracteres."
 
 msgid ""
+"You can copy objects. You have to create destination container prior to copy."
+msgstr ""
+"Puede copiar objetos. Tiene que crear un contenedor destino antes de "
+"copiarlos."
+
+msgid ""
 "You can customize your instance after it has launched using the options "
 "available here.\n"
 "    \"Customization Script\" is analogous to \"User Data\" in other systems."
@@ -3436,6 +3702,17 @@ msgstr ""
 "Puede personalizar la instancia después de lanzarla con las opciones "
 "disponibles aquí.\n"
 "    \"Script personalizado\" es análogo a \"User Data\" en otros sistemas."
+
+msgid ""
+"You can specify folder by using '/' at destination object field.\n"
+"          For example, if you want to copy object under the folder named "
+"'folder1', you need to specify destination object like 'folder1/[your object "
+"name]'."
+msgstr ""
+"Puede especificar la carpeta usando '/' en el campo objeto destino.\n"
+"    Por ejemplo, si quiere copiar el objeto bajo una carpeta de nombre "
+"'carpeta1', debe especificar el objeto destino como 'carpeta1/[nombre del "
+"objeto]'."
 
 msgid ""
 "You can specify scheduler hints by moving items from the left column to the "
@@ -3450,6 +3727,16 @@ msgstr ""
 "al planificador sugerencias de planificación con las claves que desee."
 
 #, python-format
+msgid "You have selected \"%s\". Deleted Server Group is not recoverable."
+msgid_plural ""
+"You have selected \"%s\". Deleted Server Groups are not recoverable."
+msgstr[0] ""
+"Ha seleccionado \"%s\". El grupo de servidores borrado no es recuperable."
+msgstr[1] ""
+"Ha seleccionado \"%s\". Los grupos de servidores borrados no son "
+"recuperables."
+
+#, python-format
 msgid "You have selected \"%s\". Deleted Trunk is not recoverable."
 msgid_plural "You have selected \"%s\". Deleted Trunks are not recoverable."
 msgstr[0] ""
@@ -3459,10 +3746,22 @@ msgstr[1] ""
 "recuperar."
 
 #, python-format
+msgid "You have selected \"%s\". Deleted domain is not recoverable."
+msgid_plural "You have selected \"%s\". Deleted domains are not recoverable."
+msgstr[0] "Ha seleccionado \"%s\". El dominio borrado no es recuperable."
+msgstr[1] "Ha seleccionado \"%s\". Los dominios borrados no son recuperables."
+
+#, python-format
 msgid "You have selected \"%s\". Deleted flavor is not recoverable."
 msgid_plural "You have selected \"%s\". Deleted flavors are not recoverable."
 msgstr[0] "Ha seleccionado \"%s\". El tipo borrado no se puede recuperar."
 msgstr[1] "Ha seleccionado \"%s\". Los tipos borrados no se pueden recuperar."
+
+#, python-format
+msgid "You have selected \"%s\". Deleted group is not recoverable."
+msgid_plural "You have selected \"%s\". Deleted groups are not recoverable."
+msgstr[0] "Ha seleccionado \"%s\". El grupo borrado no es recuperable."
+msgstr[1] "Ha seleccionado \"%s\". Los grupos borrados no son recuperables."
 
 #, python-format
 msgid "You have selected \"%s\". Deleted image is not recoverable."
