@@ -334,6 +334,10 @@
         delete ctrl.textSearch;
       } else {
         $scope.$emit(magicSearchEvents.SEARCH_UPDATED, query);
+        if (angular.isDefined(ctrl.textSearch)) {
+          // emit text search if text facet remains
+          emitTextSearch(ctrl.textSearch || '');
+        }
         if (ctrl.currentSearch.length > 0) {
           // prune facets as needed from menus
           var newFacet = ctrl.currentSearch[ctrl.currentSearch.length - 1].name;

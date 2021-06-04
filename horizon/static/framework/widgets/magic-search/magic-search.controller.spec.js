@@ -509,6 +509,14 @@
         expect(scope.strings.prompt).toEqual('');
       });
 
+      it("emits textSearch if text facet remains", function() {
+        spyOn(scope, '$emit');
+        ctrl.currentSearch = [{}];
+        ctrl.textSearch = 'cat';
+        ctrl.removeFacet(0);
+        expect(scope.$emit).toHaveBeenCalledWith(magicSearchEvents.TEXT_SEARCH, 'cat', undefined);
+      });
+
       it("resets state if facet selected", function() {
         ctrl.currentSearch = [{}];
         ctrl.facetSelected = {};
