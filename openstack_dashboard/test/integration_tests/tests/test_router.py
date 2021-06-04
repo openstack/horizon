@@ -61,8 +61,6 @@ class TestRouters(helpers.TestCase):
             interfaces_page.find_message_and_dismiss(messages.ERROR))
         interface_name = interfaces_page.interface_name
         self.assertTrue(interfaces_page.is_interface_present(interface_name))
-        self.assertTrue(
-            interfaces_page.is_interface_status(interface_name, 'Down'))
 
     def _delete_interface(self, interfaces_page, interface_name):
         interfaces_page.delete_interface(interface_name)
