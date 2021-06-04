@@ -15,6 +15,7 @@
 #    WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
 #    License for the specific language governing permissions and limitations
 #    under the License.
+from random import choice
 from unittest import mock
 
 
@@ -66,6 +67,27 @@ class RoleAPITests(test.APIMockTestCase):
         # Verify that a second call doesn't hit the API again,
         # so we use assert_called_once_with() here.
         role = api.keystone.get_default_role(self.request)
+        keystoneclient.roles.list.assert_called_once_with()
+
+    @mock.patch.object(api.keystone, 'keystoneclient')
+    @mock.patch.object(api.keystone, 'DEFAULT_ROLE', new=None)
+    def test_get_case_insensitive_default_role(self, mock_keystoneclient):
+        def convert_to_random_case(role_):
+            new_name = list()
+            for char in list(role_.name):
+                new_name.append(getattr(char, choice(["lower", "upper"]))())
+            role_.name = role_._info["name"] = "".join(new_name)
+            return role_
+        keystoneclient = mock_keystoneclient.return_value
+        keystoneclient.roles.list.return_value = list()
+        for role in self.roles:
+            role = convert_to_random_case(role)
+            keystoneclient.roles.list.return_value.append(role)
+        role = api.keystone.get_default_role(self.request)
+        self.assertEqual(self.role.name.lower(), role.name.lower())
+        # Verify that a second call doesn't hit the API again,
+        # so we use assert_called_once_with() here.
+        api.keystone.get_default_role(self.request)
         keystoneclient.roles.list.assert_called_once_with()
 
 
