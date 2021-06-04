@@ -15,11 +15,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: horizon VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2021-05-01 11:46+0000\n"
+"POT-Creation-Date: 2021-05-25 18:32+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2021-05-24 04:14+0000\n"
+"PO-Revision-Date: 2021-06-03 07:48+0000\n"
 "Last-Translator: Alberto Molina Coballes <alb.molina@gmail.com>\n"
 "Language-Team: Spanish\n"
 "Language: es\n"
@@ -189,11 +189,83 @@ msgstr ""
 " <a href=\"%(volume_url)s\">%(volume_label)s</a> en "
 "%(volume_device)s          "
 
+msgid ""
+"<b>Access Rules</b>: If you want more fine-grained access control "
+"delegation, you can create one or more access rules for this application "
+"credential. The list of access rules must be a JSON- or YAML-formatted list "
+"of rules each containing a service type, an HTTP method, and a URL path, for "
+"example: <br /> <code> [ <br /> &nbsp;&nbsp;{\"service\": \"compute\", <br /"
+"> &nbsp;&nbsp;\"method\": \"POST\", <br /> &nbsp;&nbsp;\"path\": \"/v2.1/"
+"servers\"} <br /> ] <br /> </code> or: <br /> <code> - service: compute <br /"
+"> &nbsp;&nbsp;method: POST <br /> &nbsp;&nbsp;path: /v2.1/servers </code>"
+msgstr ""
+"<b>Reglas de acceso</b> Si quiere una delegación de control más precisa, "
+"puede crear una o más reglas de acceso para estas credenciales de "
+"aplicación. La lista de reglas de acceso debe ser una lista de reglas en "
+"formato JSON o YAML conteniendo cada una de ellas un tipo de servicio, un "
+"método HTTP y una URL, por ejemplo:  <br /> <code> [ <br /> &nbsp;&nbsp;"
+"{\"service\": \"compute\", <br /> &nbsp;&nbsp;\"method\": \"POST\", <br /> "
+"&nbsp;&nbsp;\"path\": \"/v2.1/servers\"} <br /> ] <br /> </code> or: <br /> "
+"<code> - service: compute <br /> &nbsp;&nbsp;method: POST <br /> &nbsp;&nbsp;"
+"path: /v2.1/servers </code>"
+
+msgid ""
+"<b>Expiration Date/Time</b>: You may give the application credential an "
+"expiration. The expiration will be in UTC. If you provide an expiration date "
+"with no expiration time, the time will be assumed to be 00:00:00. If you "
+"provide an expiration time with no expiration date, the date will be assumed "
+"to be today."
+msgstr ""
+"<b>Fecha/Hora de caducidad</b>. Puede dar una caducidad a las credenciales "
+"de aplicación. La caducidad debe estar en UTC. Si proporciona una fecha de "
+"caducidad sin hora, se asumirá 00:00:00. Si proporciona una hora sin fecha, "
+"se asumirá que la fecha es hoy."
+
+msgid ""
+"<b>Kubernetes Namespace</b>: You can optionally provide a Kubernetes "
+"Namespace. It will be included in the kubeconfig file which can be "
+"downloaded from the next screen."
+msgstr ""
+"<b>Espacio de nombres de Kubernetes</b>. Puede opcionalmente proporcionar un "
+"espacio de nombres de Kubernetes. Éste será incluido en el fichero "
+"kubeconfig que puede descargarse en la siguiente pantalla."
+
+msgid ""
+"<b>Roles</b>: You may select one or more roles for this application "
+"credential. If you do not select any, all of the roles you have assigned on "
+"the current project will be applied to the application credential."
+msgstr ""
+"<b>Roles</b>Puede seleccionar uno o más roles para las credenciales de "
+"aplicación. Si no selecciona ninguno, se aplicarán las credenciales de "
+"aplicación a todos los roles que tenga asignados en el proyecto actual."
+
+msgid ""
+"<b>Secret</b>: You may provide your own secret, or one will be generated for "
+"you. Once your application credential is created, the secret will be "
+"revealed once. If you lose the secret, you will have to generate a new "
+"application credential."
+msgstr ""
+"<b>Secreto</b>. Puede proporcionar su propio secreto, o se generará uno para "
+"usted. Una vez que se creen las credenciales, se mostrará una vez el "
+"secreto. Si lo pierde, deberá generar unas nuevas credenciales de aplicación."
+
+msgid ""
+"<b>Unrestricted</b>: By default, for security reasons, application "
+"credentials are forbidden from being used for creating additional "
+"application credentials or keystone trusts. If your application credential "
+"needs to be able to perform these actions, check \"unrestricted\"."
+msgstr ""
+"<b>No restringida</b> Por razones de seguridad, las credenciales de "
+"aplicación tienen prohibida de forma predeterminada la creación adicional de "
+"credenciales de aplicación o keystone trusts. Si necesita que sus "
+"credenciales de aplicación realicen estas acciones, marque \"no restringida"
+"\"."
+
 msgid "A local image to upload."
 msgstr "Disco local a cargar."
 
 msgid "A local metadata definition file to upload."
-msgstr "Definición de un archivo de metadatos local para cargar."
+msgstr "Fichero local de definición de metadatos para subir."
 
 msgid ""
 "A mapping is a set of rules to map federation protocol attributes to "
@@ -276,11 +348,20 @@ msgstr "Aceptar la Transferencia de Volumen"
 msgid "Access & Security"
 msgstr "Acceso y seguridad"
 
+msgid "Access Rules"
+msgstr "Reglas de acceso"
+
+msgid "Access rules must be a valid JSON or YAML list."
+msgstr "Las reglas de acceso deben ser un JSON o YAML válidos."
+
 msgid "Action"
 msgstr "Acción"
 
 msgid "Action Log"
 msgstr "Registro de acciones"
+
+msgid "Action and Object Type"
+msgstr "Tipo de acción y objeto"
 
 msgctxt "Current status of a Floating IP"
 msgid "Active"
@@ -478,6 +559,9 @@ msgstr ""
 "Tras lanzar una instancia, se ingresa con la clave privada (el usuario puede "
 "cambiar en función de la imagen utilizada):"
 
+msgid "Age"
+msgstr "Edad"
+
 #, python-format
 msgid "Agent %s was successfully added."
 msgstr "El agente %s se añadió correctamente."
@@ -582,6 +666,19 @@ msgstr "Cualquier"
 
 msgid "Any Availability Zone"
 msgstr "Cualquier zona de disponibilidad"
+
+msgid "Application Credential Details"
+msgstr "Detalles de credenciales de aplicación"
+
+msgid "Application Credential Name ="
+msgstr "Nombre de las credenciales de aplicación ="
+
+msgid "Application Credentials"
+msgstr "Credenciales de aplicación"
+
+#, python-format
+msgid "Application credential name \"%s\" is already used."
+msgstr "El nombre de credenciales de aplicación \"%s\" ya se está usando."
 
 msgid "Architecture"
 msgstr "Arquitectura"
@@ -729,6 +826,9 @@ msgctxt "Current status of a Volume"
 msgid "Awaiting Transfer"
 msgstr "Esperando transferencia"
 
+msgid "Back-End Example:"
+msgstr "Ejemplo \"back-end\":"
+
 msgctxt "Current status of a Volume"
 msgid "Backing Up"
 msgstr "Creando copia de seguridad"
@@ -817,6 +917,13 @@ msgid "Building"
 msgstr "Construyendo"
 
 msgid ""
+"By default, group type is created as public. To create a private group type, "
+"uncheck this field."
+msgstr ""
+"Un tipo de grupo se crea de forma predeterminada como público. Para crear un "
+"tipo de grupo privado, marque este campo."
+
+msgid ""
 "By default, volume type is created as public. To create a private volume "
 "type, uncheck this field."
 msgstr ""
@@ -852,7 +959,7 @@ msgid "Cannot get console for instance %s."
 msgstr "No se puede obtener la consola para la instancia %s."
 
 msgid "Cannot specify both file and direct input."
-msgstr "No se pudo especificar ni en el archivo ni el acceso directo"
+msgstr "No se puede especificar fichero y entrada directa a la vez."
 
 msgid "Center Topology"
 msgstr "Centrar topología"
@@ -891,6 +998,13 @@ msgstr "Cambios desde"
 
 msgid "Changing password is not supported."
 msgstr "No se soporta el cambio de contraseña."
+
+msgid ""
+"Check the &quot;Delete Volumes&quot; box to also delete any volumes "
+"associated with this group."
+msgstr ""
+"Marque &quot;Borrar volúmenes&quot; para también borrar todos los volúmenes "
+"asociados con este grupo."
 
 msgid "Checksum"
 msgstr "Suma de comprobación"
@@ -1111,8 +1225,14 @@ msgctxt "Action log of an instance"
 msgid "Create"
 msgstr "Crear"
 
+msgid "Create A RBAC Policy"
+msgstr "Crear una política RBAC"
+
 msgid "Create An Image"
 msgstr "Crear una imagen"
+
+msgid "Create Application Credential"
+msgstr "Crear credenciales de aplicación"
 
 msgid "Create Backup"
 msgstr "Crear copia de seguridad"
@@ -1137,6 +1257,9 @@ msgstr "Crear grupo"
 
 msgid "Create Group Type"
 msgstr "Crear tipo de grupo"
+
+msgid "Create Group Type Spec"
+msgstr "Crear especificaciones de tipo de grupo"
 
 msgid "Create Host Aggregate"
 msgstr "Crear agregado de hosts"
@@ -1170,6 +1293,9 @@ msgstr "Crear protocolo"
 
 msgid "Create QoS Spec"
 msgstr "Crear especificaciones QoS"
+
+msgid "Create RBAC Policy"
+msgstr "Crear política RBAC"
 
 msgid "Create Role"
 msgstr "Crear rol"
@@ -1228,11 +1354,17 @@ msgstr "Crear tipo de cifrado de volumen"
 msgid "Create Volume Type Extra Spec"
 msgstr "Crea especificaciones adicionales para el tipo de volumen."
 
+msgid "Create a Group Type"
+msgstr "Crear un tipo de grupo"
+
 msgid "Create a Metadata Namespace"
 msgstr "Crear un Namespace de Metadatos"
 
 msgid "Create a New Volume"
 msgstr "Crear un nuevo volumen"
+
+msgid "Create a RBAC Policy"
+msgstr "Crear una política RBAC"
 
 msgid "Create a Router"
 msgstr "Crear un router"
@@ -1247,6 +1379,25 @@ msgid "Create a new \"extra spec\" key-value pair for a volume type."
 msgstr ""
 "Crea un nuevo par clave-valor \"especificación adicional\" para un tipo de "
 "volumen."
+
+msgid "Create a new \"group type spec\" key-value pair for a group type."
+msgstr ""
+"Crear unas nuevo par clave-valor de \"especificaciones de tipo de grupo\" "
+"para un tipo de grupo."
+
+#, python-format
+msgid ""
+"Create a new \"spec\" key-value pair for QoS Spec \"%(qos_spec_name)s\". "
+"Valid key names are expected in the QoS specs. Refer to Cinder documentation "
+"for the supported front-end and back-end keys."
+msgstr ""
+"Crear un nuevo par clave-valor para especificificación QoS "
+"\"%(qos_spec_name)s\". Se esperan nombres válidos para las especificaciones "
+"QoS. Vea la documentación de Cinder para las claves soportadas en \"front-end"
+"\" y \"back-end\"."
+
+msgid "Create a new application credential."
+msgstr "Crear unas nuevas credenciales de aplicación."
 
 msgid ""
 "Create a new network. In addition, a subnet associated with the network can "
@@ -1291,6 +1442,10 @@ msgstr "Creado"
 #, python-format
 msgid "Created extra spec \"%s\"."
 msgstr "Se han creado las especif. adicionales \"%s\"."
+
+#, python-format
+msgid "Created group type spec \"%s\"."
+msgstr "Se han creado las especificaciones de tipo de grupo \"%s\"."
 
 #, python-format
 msgid "Created network \"%s\"."
@@ -1474,6 +1629,11 @@ msgid_plural "Delete"
 msgstr[0] "Borrar"
 msgstr[1] "Borrar"
 
+msgid "Delete Application Credential"
+msgid_plural "Delete Application Credentials"
+msgstr[0] "Borrar credenciales de aplicación"
+msgstr[1] "Borrar credenciales de aplicación"
+
 msgid "Delete DHCP Agent"
 msgid_plural "Delete DHCP Agents"
 msgstr[0] "Borrar Agente DHCP"
@@ -1503,6 +1663,11 @@ msgid "Delete Group"
 msgid_plural "Delete Groups"
 msgstr[0] "Eliminar Grupo"
 msgstr[1] "Eliminar Grupos"
+
+msgid "Delete Group Type"
+msgid_plural "Delete Group Types"
+msgstr[0] "Borrar tipo de grupo"
+msgstr[1] "Borrar tipos de grupo"
 
 msgid "Delete Host Aggregate"
 msgid_plural "Delete Host Aggregates"
@@ -1563,6 +1728,11 @@ msgid "Delete QoS Spec"
 msgid_plural "Delete QoS Specs"
 msgstr[0] "Eliminar QoS Spec"
 msgstr[1] "Eliminar QoS Specs"
+
+msgid "Delete RBAC Policy"
+msgid_plural "Delete RBAC Policies"
+msgstr[0] "Borrar política RBAC"
+msgstr[1] "Borrar políticas RBAC"
 
 msgid "Delete Role"
 msgid_plural "Delete Roles"
@@ -1654,6 +1824,11 @@ msgctxt "Current status of an Instance"
 msgid "Deleted"
 msgstr "Eliminado"
 
+msgid "Deleted Application Credential"
+msgid_plural "Deleted Application Credentialss"
+msgstr[0] "Credenciales de aplicación borrada"
+msgstr[1] "Credenciales de aplicación borradas"
+
 msgid "Deleted DHCP Agent"
 msgid_plural "Deleted DHCP Agents"
 msgstr[0] "Agente DHCP Borrado"
@@ -1683,6 +1858,11 @@ msgid "Deleted Group"
 msgid_plural "Deleted Groups"
 msgstr[0] "Grupo Eliminado"
 msgstr[1] "Grupos Eliminados"
+
+msgid "Deleted Group Type"
+msgid_plural "Deleted Group Types"
+msgstr[0] "Tipo de grupo borrado"
+msgstr[1] "Tipos de grupo borrados"
 
 msgid "Deleted Host Aggregate"
 msgid_plural "Deleted Host Aggregates"
@@ -1738,6 +1918,14 @@ msgid "Deleted QoS Spec"
 msgid_plural "Deleted QoS Specs"
 msgstr[0] "QoS Spec Eliminado"
 msgstr[1] "QoS Specs Eliminados"
+
+msgid "Deleted RBAC Policy"
+msgid_plural "Deleted RBAC Policies"
+msgstr[0] "Política RBAC borrada"
+msgstr[1] "Políticas RBAC borradas"
+
+msgid "Deleted RBAC policy is not recoverable."
+msgstr "La política RBAC borrada no es recuperable."
 
 msgid "Deleted Role"
 msgid_plural "Deleted Roles"
@@ -2006,6 +2194,9 @@ msgctxt "Image format for display in table"
 msgid "Docker"
 msgstr "Docker"
 
+msgid "Domain"
+msgstr "Dominio"
+
 #, python-format
 msgid "Domain \"%s\" must be disabled before it can be deleted."
 msgstr "Debe desactivar el dominio \"%s\" antes de eliminarlo."
@@ -2083,6 +2274,15 @@ msgstr "Descargar resumen en CSV"
 msgid "Download OpenStack RC File"
 msgstr "Descargar fichero RC de OpenStack"
 
+msgid "Download clouds.yaml"
+msgstr "Descargar clouds.yaml"
+
+msgid "Download kubeconfig file"
+msgstr "Descargar fichero kubeconfig"
+
+msgid "Download openrc file"
+msgstr "Descargar fichero openrc"
+
 msgid "Download transfer credentials"
 msgstr "Descargar credenciales de transferencia"
 
@@ -2132,6 +2332,13 @@ msgstr "Editar grupo"
 
 msgid "Edit Group Type"
 msgstr "Editar tipo de grupo"
+
+msgid "Edit Group Type Spec"
+msgstr "Editar especificaciones de tipo de grupo"
+
+#, python-format
+msgid "Edit Group Type Spec Value: %s"
+msgstr "Editar valor de especificaciones de tipo de grupo: %s"
 
 msgid "Edit Host Aggregate"
 msgstr "Editar agregado de host"
@@ -2325,7 +2532,7 @@ msgstr ""
 "los volúmenes con ese tipo de volumen se están utilizando actualmente."
 
 msgid "Endpoints"
-msgstr "Extremos"
+msgstr "Endpoints"
 
 msgid "Enter Network Address manually"
 msgstr "Introducir la dirección de red manualmente"
@@ -2435,6 +2642,9 @@ msgstr "Error al escribir el fichero zip: %(exc)s"
 msgid "Ether Type"
 msgstr "Tipo Ethernet"
 
+msgid "Euca2ools state"
+msgstr "Estado Euca2ools"
+
 msgid "Evacuate Host"
 msgstr "Evacuar anfitrión"
 
@@ -2460,6 +2670,18 @@ msgstr ""
 "Ejemplo: El prefijo 'hw:' es agregado a OS::Nova::Flavor para la Topología "
 "de espacio de nombres del CPU Virtual de esta manera las propiedades serán "
 "prefijadas con 'hw:' cuando se apliquen a flavors."
+
+msgid "Expiration"
+msgstr "Caducidad"
+
+msgid "Expiration Date"
+msgstr "Fecha de caducidad"
+
+msgid "Expiration Time"
+msgstr "Hora de caducidad"
+
+msgid "Expires"
+msgstr "Caduca"
 
 msgid "Extend Volume"
 msgstr "Extender volumen"
@@ -2540,6 +2762,17 @@ msgid "Failed to check if network-ip-availability extension is supported."
 msgstr ""
 "No se ha podido comprobar si soporta la extensión de la disponibilidad de la "
 "red Extensión IP"
+
+msgid "Failed to check if neutron supports \"auto_allocated_network\"."
+msgstr ""
+"Ha fallado la comprobación del soporte de neutron de \"redes autoasignadas\"."
+
+msgid "Failed to check if nova supports \"auto_allocated_network\"."
+msgstr ""
+"Ha fallado la comprobación del soporte de nova de \"redes autoasignadas\"."
+
+msgid "Failed to create a rbac policy."
+msgstr "Ha ocurrido un fallo al crear la política RBAC."
 
 #, python-format
 msgid "Failed to create network %s"
@@ -2649,6 +2882,10 @@ msgstr "Ha habido un fallo al actualizar la red %s"
 #, python-format
 msgid "Failed to update port \"%s\"."
 msgstr "No ha sido posible actualizar el puerto \"%s\"."
+
+#, python-format
+msgid "Failed to update rbac policy %s"
+msgstr "Ha ocurrido un fallo al actualizar la política RBAC %s"
 
 #, python-format
 msgid "Failed to update router %s"
@@ -2811,6 +3048,9 @@ msgstr "Desde aquí puedes añadir un agente DHCP para la red."
 msgid "From here you can allocate a floating IP to a specific project."
 msgstr "Desde aquí puede asignar una IP flotante a un proyecto concreto."
 
+msgid "From here you can create a rbac policy."
+msgstr "Desde aquí puede crear una política RBAC."
+
 msgid "From here you can create a snapshot of a volume."
 msgstr "Aquí podrá crear una instantánea de un volumen."
 
@@ -2822,6 +3062,9 @@ msgstr ""
 msgid "From here you can update the default volume quotas (max limits)."
 msgstr ""
 "Desde aquí puede actualizar las cuotas de volumen por defecto (max limits)."
+
+msgid "Front-End Example:"
+msgstr "Ejemplo \"front-end\":"
 
 msgid "GB"
 msgstr "GB"
@@ -2853,6 +3096,13 @@ msgstr "Ir"
 msgid "Graph"
 msgstr "Gráfico"
 
+msgid "Group"
+msgstr "Grupo"
+
+#, python-format
+msgid "Group \"%s\" already exists."
+msgstr "El grupo \"%s\" ya existe."
+
 #, python-format
 msgid "Group \"%s\" was successfully created."
 msgstr "El grupo \"%s\" se ha creado correctamente."
@@ -2878,11 +3128,54 @@ msgstr "Miembros del grupo"
 msgid "Group Name ="
 msgstr "Nombre de grupo ="
 
+msgid "Group Snapshot"
+msgstr "Instantáneas de grupo"
+
+msgid "Group Snapshots"
+msgstr "Instantáneas de grupo"
+
+msgid "Group Type"
+msgstr "Tipo de grupo"
+
+msgid "Group Type Specs"
+msgstr "Especificaciones de tipo de grupo"
+
+#, python-format
+msgid "Group Type: %(group_type_name)s"
+msgstr "Tipo de grupo: %(group_type_name)s"
+
+#, python-format
+msgid "Group Type: %(group_type_name)s "
+msgstr "Tipo de Grupo: %(group_type_name)s "
+
 msgid "Group Types"
 msgstr "Tipos de grupos"
 
 msgid "Group has been updated successfully."
 msgstr "Se ha actualizado el grupo correctamente."
+
+msgid ""
+"Group type is a type or label that can be selected at group creation time in "
+"OpenStack. It usually maps to a set of capabilities of the storage back-end "
+"driver to be used for this group. Examples: \"Performance\", \"SSD\", "
+"\"Backup\", etc. This is equivalent to the <tt>cinder type-create</tt> "
+"command. Once the group type gets created, click the \"View Specs\" button "
+"to set up specs key-value pair(s) for that group type."
+msgstr ""
+"El tipo de grupo es un tipo o etiqueta que puede ser seleccionada para cada "
+"grupo al crearlo en OpenStack. Normalmente mapea un conjunto de "
+"funcionalidades del controlador de almacenamiento para usarlas en este "
+"grupo. Ejemplos: \"Alto Rendimiento\", \"SSD\", \"Copias de seguridad\", "
+"etc. Esto es equivalente al comando <tt>cinder type-create</tt>. Una vez que "
+"el tipo de grupo está creado, hay que hacer click en el botón \"Ver espec\" "
+"para configurar los pares clave-valor específicos para ese tipo de grupo."
+
+#, python-format
+msgid "Group type name \"%s\" already exists."
+msgstr "El nombre de tipo de grupo \"%s\" ya existe."
+
+msgid "Group type name can not be empty."
+msgstr "El tipo de grupo no puede estar vacío."
 
 msgid "Groups"
 msgstr "Grupos"
@@ -3122,6 +3415,9 @@ msgid ""
 msgstr ""
 "Si \"Sin tipo de volumen\" es seleccionado, el volumen será creado sin tipo "
 "de volumen."
+
+msgid "If checked, the network will be enabled."
+msgstr "Si se marca, la red estará habilitada."
 
 msgid ""
 "If console is not responding to keyboard input: click the grey status bar "
@@ -3406,6 +3702,13 @@ msgid "Key Size (bits)"
 msgstr "Tamaño de clave (bits)"
 
 msgid ""
+"Key names can only contain alphanumeric characters, underscores, periods, "
+"colons and hyphens"
+msgstr ""
+"Los nombres de las claves solo pueden contener caracteres alfanuméricos, "
+"guiones bajos y medios, y puntos."
+
+msgid ""
 "Key pair name may only contain letters, numbers, underscores, spaces, and "
 "hyphens and may not be white space."
 msgstr ""
@@ -3415,12 +3718,41 @@ msgstr ""
 msgid "Key pair to use for authentication."
 msgstr "Pareja de claves a utilizar para la autentificación."
 
+#, python-format
+msgid ""
+"Key with name \"%s\" already exists. Use Edit to update the value, else "
+"create key with different name."
+msgstr ""
+"Ya existe la clave con nombre \"%s\". Use editar para actualizar el valor o "
+"cree una clave con un nombre diferente."
+
 msgid "Key-Value Pairs"
 msgstr "Parejas de clave-valor"
+
+msgid "Key: burstIOPS and Value: 5000 (number value bigger than minIOPS)"
+msgstr "Clave: burstIOPS and Value: 5000 (valor numérico mayor que minIOPS)"
+
+msgid "Key: maxIOPS and Value: 5000 (number value bigger than minIOPS)"
+msgstr "Clave: maxIOPS and Value: 5000 (valor numérico mayor que minIOPS)"
+
+msgid "Key: minIOPS and Value: 20 (number value less than maxIOPS)"
+msgstr "Clave: minIOPS and Value: 20 (valor numérico inferior a maxIOPS)"
+
+msgid "Key: size_iops_sec and Value: 16"
+msgstr "Clave: size_iops_sec and Value: 16"
+
+msgid "Key: total_bytes_sec_max and Value: 512000"
+msgstr "Clave: total_bytes_sec_max and Value: 512000"
+
+msgid "Key: total_iops_sec and Value: 5000"
+msgstr "Clave: total_iops_sec and Value: 5000"
 
 msgctxt "Current status of an Image"
 msgid "Killed"
 msgstr "Terminado forzosamente"
+
+msgid "Kubernetes Namespace"
+msgstr "Espacio de nombres de Kubernetes"
 
 msgid "L3 Agent"
 msgstr "Agente L3"
@@ -3495,6 +3827,9 @@ msgid "Lock Instance"
 msgid_plural "Lock Instances"
 msgstr[0] "Bloquear Instancia"
 msgstr[1] "Bloquear Instancias"
+
+msgid "Lock password"
+msgstr "Bloquear contraseña"
 
 msgctxt "Locked status of an instance"
 msgid "Locked"
@@ -3642,13 +3977,16 @@ msgid "Metadata"
 msgstr "Metadatos"
 
 msgid "Metadata Definition File"
-msgstr "Definición de archivo de Metadatos"
+msgstr "Fichero de definición metadatos"
 
 msgid "Metadata Definitions"
 msgstr "Definiciones de los metadatos"
 
 msgid "Metadata Items"
 msgstr "Ítems de metadatos"
+
+msgid "Method"
+msgstr "Método"
 
 msgid "MidoNet"
 msgstr "MidoNet"
@@ -3725,6 +4063,10 @@ msgid "Modified domain \"%s\"."
 msgstr "Se ha modificado el dominio \"%s\"."
 
 #, python-format
+msgid "Modified flavor access of \"%s\"."
+msgstr "Acceso al sabor \"%s\" modificado."
+
+#, python-format
 msgid "Modified instance \"%s\"."
 msgstr "Modificada la instancia \"%s\"."
 
@@ -3753,6 +4095,9 @@ msgstr "Modificar cuotas"
 
 msgid "Modify dashboard settings for your user."
 msgstr "Modificar las opciones del panel para su usuario."
+
+msgid "Modify group type name, description, and public status."
+msgstr "Modificar nombre del tipo de grupo, descripción y estado público."
 
 msgid "Modify name and description of a volume."
 msgstr "Modificar nombre y descripción de un volumen."
@@ -3800,7 +4145,7 @@ msgid "Namespace %s has been created."
 msgstr "Namespace %s ha sido creado."
 
 msgid "Namespace Definition Source"
-msgstr "Definición de la fuente Namespace"
+msgstr "Origen de definición del espacio de nombres"
 
 msgid "Namespace JSON"
 msgstr "JSON Namespace"
@@ -3921,6 +4266,9 @@ msgstr "Nuevo tamaño (GiB)"
 
 msgid "New name cannot be empty."
 msgstr "Nuevo nombre no puede estar  vacío."
+
+msgid "New name conflicts with another group type."
+msgstr "El nuevo nombre solapa con el nombre de otro tipo de grupo."
 
 msgid "New name conflicts with another volume type."
 msgstr "Nuevo nombre entra en conflicto con otro tipo de volumen."
@@ -4189,8 +4537,17 @@ msgstr "O copie y pegue su clave privada"
 msgid "OVA - Open Virtual Appliance"
 msgstr "OVA - Open Virtual Appliance"
 
+msgid "Object"
+msgstr "Objeto"
+
+msgid "Object ID"
+msgstr "ID de objeto"
+
 msgid "Object Store"
 msgstr "Almacén de objetos"
+
+msgid "Object Type"
+msgstr "Tipo de objeto"
 
 msgid "Old Flavor"
 msgstr "Sabor antiguo"
@@ -4295,6 +4652,9 @@ msgstr "Contraseña modificada. Por favor, acceda de nuevo para continuar."
 msgid "Passwords do not match."
 msgstr "Las contraseñas no coinciden."
 
+msgid "Path"
+msgstr "Ruta"
+
 msgctxt "Action log of an instance"
 msgid "Pause"
 msgstr "Pausar"
@@ -4333,6 +4693,13 @@ msgstr "Red física"
 
 msgid "Physical Network:"
 msgstr "Red Física:"
+
+msgid ""
+"Please capture the application credential ID and secret in order to provide "
+"them to your application."
+msgstr ""
+"Por favor, capture el ID de las credenciales de aplicación y su secreto para "
+"proporcionárselos a la aplicación."
 
 msgid "Please note: "
 msgstr "Note que:"
@@ -4391,7 +4758,7 @@ msgid "Post-Creation"
 msgstr "Pos-creación"
 
 msgid "Power State"
-msgstr "Estado"
+msgstr "Estado de energía"
 
 msgctxt "Task status of an Instance"
 msgid "Powering Off"
@@ -4518,6 +4885,9 @@ msgstr "QCOW2 - Emulador QEMU"
 msgid "QOS Policy ID"
 msgstr "ID de política QoS"
 
+msgid "QoS Policy"
+msgstr "Política QoS"
+
 #, python-format
 msgid "QoS Spec name \"%s\" already exists."
 msgstr "El nombre de especificación QoS \"%s\" ya existe."
@@ -4588,6 +4958,16 @@ msgstr "RAM(Disponible: %(avail)s, Solicitada: %(req)s)"
 
 msgid "RBAC Policies"
 msgstr "Políticas RBAC"
+
+#, python-format
+msgid "RBAC Policy %s was successfully updated."
+msgstr "La política RBAC \"%s\" se actualizó correctamente."
+
+msgid "RBAC Policy Details"
+msgstr "Detalles de política RBAC"
+
+msgid "RBAC Policy was successfully created."
+msgstr "La política RBAC se creó correctamente."
 
 msgid "RX/TX Factor"
 msgstr "Factor RX/TX"
@@ -4743,6 +5123,9 @@ msgstr ""
 "huérfanos. No debe eliminar un par de claves a menos que esté seguro de que "
 "no se utiliza en ningún sitio."
 
+msgid "Replication Status"
+msgstr "Estado de replicación"
+
 msgid "Report Bug"
 msgstr "Informar de un fallo"
 
@@ -4772,6 +5155,9 @@ msgstr "Es posible que la instantánea solicitada exceda la capacidad permitida"
 msgctxt "Current status of an Instance"
 msgid "Rescue"
 msgstr "Rescate"
+
+msgid "Rescue Instance"
+msgstr "Rescatar instancia"
 
 msgctxt "Current status of an Instance"
 msgid "Rescued"
@@ -4921,6 +5307,9 @@ msgstr "Rol actualizado correctamente."
 msgid "Roles"
 msgstr "Roles"
 
+msgid "Roles from Groups"
+msgstr "Roles mediante grupos"
+
 msgid "Root Disk"
 msgstr "Disco raíz"
 
@@ -5008,6 +5397,10 @@ msgid "Saved extra spec \"%s\"."
 msgstr "Se han guardado las especif. adicionales \"%s\"."
 
 #, python-format
+msgid "Saved group type spec \"%s\"."
+msgstr "Se han guardado las especificaciones de tipo de grupo \"%s\"."
+
+#, python-format
 msgid "Saved spec \"%s\"."
 msgstr "Especificación \"%s\" creada"
 
@@ -5054,6 +5447,9 @@ msgstr "Datos del guión"
 
 msgid "Script File"
 msgstr "Archivo de guión"
+
+msgid "Secret"
+msgstr "Secreto"
 
 msgid "Security Group"
 msgstr "Grupo de seguridad"
@@ -5133,8 +5529,14 @@ msgstr "Seleccionar Instantánea de volumen"
 msgid "Select a New Flavor"
 msgstr "Seleccione un nuevo sabor"
 
+msgid "Select a QoS policy"
+msgstr "Seleccionar una política QoS"
+
 msgid "Select a key pair"
 msgstr "Seleccione un par de claves"
+
+msgid "Select a network"
+msgstr "Seleccionar una red"
 
 msgid "Select a new QoS spec"
 msgstr "Seleccionar una nueva especificación QoS"
@@ -5177,6 +5579,9 @@ msgstr "Seleccione un volumen a desasociar de esta instancia."
 
 msgid "Select a volume to restore to."
 msgstr "Seleccionar un volumen a restaurar."
+
+msgid "Select action and object type"
+msgstr "Seleccionar acción y tipo de objeto"
 
 msgid "Select an IP address"
 msgstr "Seleccione una dirección IP"
@@ -5324,6 +5729,12 @@ msgstr "Compartido"
 
 msgid "Shared ="
 msgstr "Compartida ="
+
+msgid "Shared Network"
+msgstr "Red compartida"
+
+msgid "Shared QoS Policy"
+msgstr "Política QoS compartida"
 
 msgid "Shared Storage"
 msgstr "Almacenamiento Compartido"
@@ -5660,6 +6071,10 @@ msgid "Successfully created encryption for volume type: %s"
 msgstr "Se ha creado correctamente la encriptación de volumen: %s"
 
 #, python-format
+msgid "Successfully created group type: %s"
+msgstr "Se ha creado correctamente el tipo de grupo: %s"
+
+#, python-format
 msgid "Successfully created security group: %s"
 msgstr "El grupo de seguridad: %s fue creado correctamente"
 
@@ -5728,6 +6143,9 @@ msgstr "Se ha actualizado correctamente el agregado: \"%s.\""
 msgid "Successfully updated encryption for volume type: %s"
 msgstr "Se ha actualizado correctamente el cifrado del tipo de volumen: %s"
 
+msgid "Successfully updated group type."
+msgstr "Se ha actualizado correctamente el tipo de grupo."
+
 #, python-format
 msgid "Successfully updated security group: %s"
 msgstr "El grupo de seguridad: %s fue actualizado con correctamente"
@@ -5785,6 +6203,12 @@ msgstr "Información del Sistema"
 msgid "Target Host"
 msgstr "Anfitrión destino"
 
+msgid "Target Project"
+msgstr "Proyecto destino"
+
+msgid "Target Tenant"
+msgstr "Proyecto objetivo"
+
 msgid "Task"
 msgstr "Tarea"
 
@@ -5839,6 +6263,14 @@ msgstr ""
 "El <strong>Control de Localización</strong> es el servicio hipotético donde "
 "se realiza el cifrado (ej. front-end=Nova). El valor predeterminado es "
 "'front-end.'"
+
+msgid ""
+"The <strong>Key Size</strong> is the size of the encryption key, in bits (e."
+"g., 256). If the field is left empty, the provider default will be used."
+msgstr ""
+"El <strong>Tamaño de clave</strong> es el tamaño de la clave de cifrado en "
+"bits (p.ej. 256). Si se deja en blanco, se usará el valor predeterminado del "
+"proveedor."
 
 msgid ""
 "The <strong>Provider</strong> is the encryption provider format (e.g. 'luks' "
@@ -5901,7 +6333,7 @@ msgstr ""
 "imágenes inutilizables."
 
 msgid "The JSON formatted contents of a namespace."
-msgstr "El formato JSON contenidos en un namespace  "
+msgstr "El formato JSON contenidos en un espacio de nombres."
 
 msgid "The Key Pair name that was associated with the instance"
 msgstr "El nombre del par de claves asociado a la instancia"
@@ -5931,6 +6363,22 @@ msgstr ""
 
 msgid "The admin password is incorrect."
 msgstr "La contraseña de admin no es correcta"
+
+msgid ""
+"The application credential secret will not be available after closing this "
+"page, so you must capture it now or download it. If you lose this secret, "
+"you must generate a new application credential."
+msgstr ""
+"No estará disponible el secreto de las credenciales de aplicación después de "
+"cerrar esta página, por lo que debe capturarlo o descargarlo ahora. Si "
+"pierde este secreto, deberá generar unas nuevas credenciales de aplicación."
+
+msgid ""
+"The application credential will be created for the currently selected "
+"project."
+msgstr ""
+"Se crearán credenciales de aplicación para el proyecto seleccionado "
+"actualmente."
 
 msgid ""
 "The chart below shows the resources used by this project in relation to the "
@@ -5976,6 +6424,10 @@ msgstr "La contraseña cifrada con su clave pública."
 
 msgid "The instance(s) will be shut off."
 msgstr "La instancia(s) seran apagadas."
+
+msgid "The key must match the following the regex: '^[a-zA-Z0-9-_:. /]'"
+msgstr ""
+"La clave debe seguir la siguiente expresión regular:  '^[a-zA-Z0-9-_:. /]'"
 
 #, python-format
 msgid ""
@@ -6023,6 +6475,10 @@ msgstr ""
 msgid "The new availability zone can't be empty"
 msgstr "La nueva zona de disponibilidad no puede estar vacía"
 
+#, python-format
+msgid "The password does not match the requirements: %s"
+msgstr "La contraseña no cumple con los requisitos: %s"
+
 msgid "The physical mechanism by which the virtual network is implemented."
 msgstr "El mecanismo físico por el que la red virtual se implementa."
 
@@ -6069,6 +6525,13 @@ msgid ""
 msgstr ""
 "No se puede(n) lanzar la(s) instancia(s) solicitada(s) porque ha excedido su "
 "cuota: Disponible: %(avail)s, Solicitada: %(req)s."
+
+msgid ""
+"The rescue mode is only for emergency purpose, for example in case of a "
+"system or access failure."
+msgstr ""
+"El modo rescate es solo para usar en caso de emergencia, por ejemplo, en el "
+"caso de un fallo del sistema o en el acceso."
 
 msgid "The specified port is invalid."
 msgstr "El puerto especificado no es válido."
@@ -6160,6 +6623,13 @@ msgstr ""
 "Esta acción no se puede deshacer. Las credenciales EC2 actuales se "
 "suprimirán y no se podrán recuperar."
 
+msgid ""
+"This action will unassign all volumes that are currently contained in this "
+"group."
+msgstr ""
+"Esta acción desasignará todos los volúmenes que están actualmente en este "
+"grupo."
+
 msgid "This application requires JavaScript to be enabled in your web browser."
 msgstr ""
 "Esta aplicación requiere JavaScript para ser habilitada en su navegador web. "
@@ -6209,6 +6679,15 @@ msgstr ""
 msgid "This volume type is used by one or more volumes."
 msgstr "El tipo de volumen es utilizado por uno o más volúmenes."
 
+msgid ""
+"This will shut down your instance and mount the root disk to a temporary "
+"server. Then, you will be able to connect to this server, repair the system "
+"configuration or recover your data."
+msgstr ""
+"Esto apagará su instancia y montará el disco raíz en un servidor temporal. "
+"Luego, será posible conectarse a este servidor, reparar la configuración del "
+"sistema  o recuperar sus datos."
+
 msgid "Time since update"
 msgstr "Tiempo desde actualización"
 
@@ -6232,6 +6711,9 @@ msgid "To exit the fullscreen mode, click the browser's back button."
 msgstr ""
 "Para salir del modo a pantalla completa, haga click en el botón de página "
 "anterior del navegador."
+
+msgid "To make group type private, uncheck this field."
+msgstr "Para hacer privado un tipo de grupo, desmarque este campo."
 
 msgid "To make volume type private, uncheck this field."
 msgstr "Para hacer el tipo de volumen privado, desactive este campo."
@@ -6407,6 +6889,9 @@ msgstr "No ha sido posible conectar con Neutron."
 msgid "Unable to create QoS Spec."
 msgstr "No se ha podido crear la especificación de QoS."
 
+msgid "Unable to create application credential."
+msgstr "No ha sido posible crear las credenciales de aplicación."
+
 #, python-format
 msgid "Unable to create domain \"%s\"."
 msgstr "No ha sido posible crear el dominio \"%s\"."
@@ -6420,6 +6905,12 @@ msgstr "No ha sido posible crear el sabor \"%s\"."
 
 msgid "Unable to create flavor."
 msgstr "No ha sido posible crear el sabor."
+
+msgid "Unable to create group type spec."
+msgstr "No ha sido posible crear las especificaciones de tipo de grupo."
+
+msgid "Unable to create group type."
+msgstr "No ha sido posible crear el tipo de grupo."
 
 msgid "Unable to create group."
 msgstr "No ha sido posible crear el grupo."
@@ -6551,6 +7042,15 @@ msgstr "No se puede determinar si el cifrado tipo de volumen es apoyado."
 msgid "Unable to disassociate floating IP."
 msgstr "No ha sido posible desasociar la IP flotante."
 
+msgid "Unable to display the groups of this project."
+msgstr "No ha sido posible mostrar los grupos de este proyecto."
+
+msgid "Unable to display the users of this project."
+msgstr "No ha sido posible mostrar los usuarios de este proyecto."
+
+msgid "Unable to edit group type spec."
+msgstr "No ha sido posible editar las especificaciones de tipo de grupo."
+
 msgid "Unable to edit spec."
 msgstr "Imposible editar la especificación."
 
@@ -6678,6 +7178,10 @@ msgid "Unable to modify domain \"%s\"."
 msgstr "No ha sido posible modificar el dominio \"%s\"."
 
 #, python-format
+msgid "Unable to modify flavor access of \"%s\"."
+msgstr "No ha sido posible modificar el acceso al sabor \"%s\"."
+
+#, python-format
 msgid "Unable to modify instance \"%s\"."
 msgstr "No ha sido posible modificar la instancia \"%s\"."
 
@@ -6768,12 +7272,22 @@ msgstr "No se puede recuperar la lista de especificaciones de QoS"
 msgid "Unable to retrieve QoS specs"
 msgstr "No se pueden obtener las especificaciones QoS"
 
+msgid "Unable to retrieve RBAC policies."
+msgstr "No ha sido posible obtener políticas RBAC."
+
 msgid "Unable to retrieve agent list."
 msgstr "No ha sido posible obtener la lista de agentes."
 
 #, python-format
 msgid "Unable to retrieve an external network \"%s\"."
 msgstr "No ha sido posible obtener una red externa \"%s\"."
+
+msgid "Unable to retrieve application credential details."
+msgstr ""
+"No ha sido posible obtener los detalles de las credenciales de aplicación."
+
+msgid "Unable to retrieve application credential list."
+msgstr "No ha sido posible obtener la lista de credenciales de aplicación."
 
 msgid "Unable to retrieve attachment information."
 msgstr "No ha sido posible obtener información de la asociación."
@@ -6796,6 +7310,9 @@ msgstr "No ha sido posible obtener la información del límite de computación."
 msgid "Unable to retrieve default compute quotas."
 msgstr "No se han podido obtener las cuotas de nova por defecto."
 
+msgid "Unable to retrieve default volume quotas."
+msgstr "No ha sido posible actualizar las cuotas de volumen predeterminadas."
+
 #, python-format
 msgid "Unable to retrieve details for %(resource)s \"%(resource_id)s\"."
 msgstr ""
@@ -6812,6 +7329,10 @@ msgstr "No ha sido posible obtener los pares de claves \"%s\"."
 #, python-format
 msgid "Unable to retrieve details for network \"%s\"."
 msgstr "No ha sido posible obtener los detalles de la red \"%s\"."
+
+#, python-format
+msgid "Unable to retrieve details for rbac_policy \"%s\"."
+msgstr "No ha sido posible obtener los detalles de la política RBAC \"%s\"."
 
 #, python-format
 msgid "Unable to retrieve details for router \"%s\"."
@@ -6880,6 +7401,39 @@ msgid "Unable to retrieve group list. Please try again later."
 msgstr ""
 "No ha sido posible obtener la lista de grupos. Inténtelo de nuevo más tarde."
 
+msgid "Unable to retrieve group snapshot project information."
+msgstr ""
+"No ha sido posible obtener la información del proyecto de instantáneas de "
+"grupo."
+
+msgid "Unable to retrieve group snapshots."
+msgstr "No ha sido posible obtener las instantáneas de grupo."
+
+msgid "Unable to retrieve group type details."
+msgstr "No ha sido posible obtener los detalles del tipo de grupo."
+
+#, python-format
+msgid "Unable to retrieve group type for: \"%s\""
+msgstr "No ha sido posible obtener el tipo de grupo para: \"%s\""
+
+msgid "Unable to retrieve group type name."
+msgstr "No ha sido posible obtener el nombre de tipo de grupo."
+
+msgid "Unable to retrieve group type spec details."
+msgstr ""
+"No ha sido posible obtener los detalles de las especificaciones de tipo de "
+"grupo."
+
+msgid "Unable to retrieve group type spec list."
+msgstr ""
+"No ha sido posible obtener la lista de especificaciones del tipo de grupo."
+
+msgid "Unable to retrieve group type."
+msgstr "No ha sid posible obtener el tipo de grupo."
+
+msgid "Unable to retrieve group types."
+msgstr "No ha sido posible obtener los tipos de grupo."
+
 msgid "Unable to retrieve group users."
 msgstr "No ha sido posible obtener los usuarios del grupo."
 
@@ -6907,6 +7461,9 @@ msgstr "No ha sido posible obtener la lista de proveedores de identidad."
 msgid "Unable to retrieve image details."
 msgstr "No ha sido posible obtener los detalles de la imagen."
 
+msgid "Unable to retrieve image format list."
+msgstr "No ha sido posible obtener la lista de formatos de imagen."
+
 msgid "Unable to retrieve image list."
 msgstr "No ha sido posible obtener la lista de imágenes."
 
@@ -6922,6 +7479,18 @@ msgstr "No ha sido posible obtener las imágenes."
 msgid "Unable to retrieve information about the networks' projects."
 msgstr ""
 "No ha sido posible recuperar la información sobre los proyectos de redes."
+
+msgid "Unable to retrieve information about the policies' networks."
+msgstr "No ha sido posible obtener información sobre las redes de la política."
+
+msgid "Unable to retrieve information about the policies' projects."
+msgstr ""
+"No ha sido posible obtener información sobre los proyectos de la política."
+
+msgid "Unable to retrieve information about the policies' qos policies."
+msgstr ""
+"No ha sido posible obtener información sobre las políticas QoS de la "
+"política."
 
 msgid "Unable to retrieve instance action list."
 msgstr "No fue posible obtener el listado de acciones de la instancia."
@@ -7002,6 +7571,11 @@ msgstr "No ha sido posible obtener los detalles del proyecto."
 msgid "Unable to retrieve project domain."
 msgstr "No ha sido posible obtener el dominio del proyecto."
 
+msgid "Unable to retrieve project information of volume snapshots."
+msgstr ""
+"No ha sido posible obtener información del proyecto sobre instantáneas de "
+"volumen."
+
 msgid "Unable to retrieve project information."
 msgstr "No ha sido posible obtener la información del proyecto."
 
@@ -7019,6 +7593,9 @@ msgstr "No ha sido posible obtener las imágenes públicas."
 
 msgid "Unable to retrieve quota information."
 msgstr "No ha sido posible obtener información de cuotas."
+
+msgid "Unable to retrieve rbac policy details."
+msgstr "No ha sido posible obtener detalles de la política RBAC."
 
 msgid "Unable to retrieve role list."
 msgstr "No ha sido posible obtener la lista de roles."
@@ -7127,6 +7704,16 @@ msgstr "No ha sido posible obtener los detalles del volumen."
 msgid "Unable to retrieve volume encryption details."
 msgstr "No es posible recuperar los detalles de cifrado del volumen"
 
+msgid "Unable to retrieve volume group project information."
+msgstr ""
+"No ha sido posible obtener información del proyecto de grupo de volúmenes"
+
+msgid "Unable to retrieve volume group snapshots."
+msgstr "No ha sido posible obtener instantáneas de grupo de volúmenes."
+
+msgid "Unable to retrieve volume groups."
+msgstr "No ha sido posible obtener grupos de volúmenes."
+
 #, python-format
 msgid "Unable to retrieve volume information for volume: \"%s\""
 msgstr ""
@@ -7155,6 +7742,11 @@ msgstr "No ha sido posible obtener la información del proyecto de volúmenes."
 
 msgid "Unable to retrieve volume quota information."
 msgstr "No se ha podido obtener información de las cuotas de volumen."
+
+msgid "Unable to retrieve volume snapshot project information."
+msgstr ""
+"No ha sido posible obtener información del proyecto de las instantáneas de "
+"volumen."
 
 msgid "Unable to retrieve volume snapshot."
 msgstr "No ha sido posible obtener la instantánea de volumen."
@@ -7237,6 +7829,9 @@ msgstr "No ha sido posible actualizar las cuotas de volumen predeterminadas."
 
 msgid "Unable to update encrypted volume type."
 msgstr "No se ha podido actualizar el tipo de volumen cifrado"
+
+msgid "Unable to update group type."
+msgstr "No ha sido posible actualizar el tipo de grupo."
 
 msgid "Unable to update group."
 msgstr "No ha sido posible actualizar el grupo."
@@ -7368,6 +7963,12 @@ msgctxt "Task status of an Instance"
 msgid "Unrescuing"
 msgstr "Cancelando rescate"
 
+msgid "Unrestricted"
+msgstr "No restringida"
+
+msgid "Unrestricted (dangerous)"
+msgstr "Sin restricciones (peligroso)"
+
 msgid "Unshelve Instance"
 msgid_plural "Unshelve Instances"
 msgstr[0] "Recuperar Instancia"
@@ -7425,6 +8026,9 @@ msgstr "Actualizar metadatos"
 msgid "Update Network"
 msgstr "Actualizar red"
 
+msgid "Update RBAC Policy"
+msgstr "Actualizar política RBAC"
+
 msgid "Update Role"
 msgstr "Actualizar rol"
 
@@ -7462,6 +8066,12 @@ msgstr "No se ha podido actualizar el tipo de volumen cifrado"
 #, python-format
 msgid "Update the \"extra spec\" value for \"%(key)s\""
 msgstr "Actualizar el valor de \"especificaciones extra\" por \"%(key)s\""
+
+#, python-format
+msgid "Update the \"group type spec\" value for \"%(key)s\""
+msgstr ""
+"Actualizar el valor de la \"especificación de tipo de grupo\" para \"%(key)s"
+"\""
 
 #, python-format
 msgid "Update the spec value for \"%(key)s\""
@@ -7552,6 +8162,10 @@ msgstr "IPs usadas"
 
 msgid "User"
 msgstr "Usuario"
+
+#, python-format
+msgid "User \"%s\" has been updated successfully."
+msgstr "El usuario \"%s\" se ha actualizado correctamente."
 
 #, python-format
 msgid "User \"%s\" was successfully created."
@@ -7662,6 +8276,9 @@ msgstr "Ver log"
 
 msgid "View Routers"
 msgstr "Ver enrutadores"
+
+msgid "View Specs"
+msgstr "Ver especificaciones"
 
 msgid "View Usage"
 msgstr "Ver uso"
@@ -7780,6 +8397,9 @@ msgid ""
 msgstr ""
 "No se puede extender el volumen a %(req)iGiB ya que el tamaño máximo al que "
 "se puede extender es %(max_size)iGiB."
+
+msgid "Volume groups can not be deleted if they contain volumes."
+msgstr "No se pueden borrar los grupos si contienen volúmenes."
 
 msgid ""
 "Volume groups provide a mechanism for creating snapshots of multiple volumes "
@@ -7997,6 +8617,13 @@ msgstr "Ha seleccionado:"
 msgid "You may have mistyped the address or the page may have moved."
 msgstr "La dirección está mal escrita o la página ha cambiado de sitio."
 
+msgid ""
+"You may optionally select an image and set a password on the rescue instance "
+"server."
+msgstr ""
+"Puede opcionalmente seleccionar una imagen y establecer una contraseña en la "
+"instancia del servidor de rescate."
+
 msgid "You may optionally set a password on the rebuilt instance."
 msgstr ""
 "Opcionalmente, puede configurar una contraseña en la instancia reconstruida."
@@ -8007,6 +8634,10 @@ msgid ""
 msgstr ""
 "Puede resetear la puerta de enlace luego al usar la acción de establecer "
 "puerta de enlace, pero la IP de la puerta de enlace podría cambiar."
+
+msgid "You may update the editable properties of the RBAC policy here."
+msgstr ""
+"Desde aquí puede actualizar las propiedades editables de la política RBAC."
 
 msgid "You may update the editable properties of your network here."
 msgstr "Aquí puede actualizar las propiedades editables de su red."
@@ -8039,6 +8670,12 @@ msgstr ""
 "grupo de seguridad como origen, se permitirá que cualquier instancia de ese "
 "grupo de seguridad pueda acceder a cualquier otra instancia a través de esta "
 "regla."
+
+msgid "Your Application Credential"
+msgstr "Sus credenciales de aplicación"
+
+msgid "Your application credential"
+msgstr "Sus credenciales de aplicación"
 
 #, python-format
 msgid "Your image %s has been queued for creation."
@@ -8078,14 +8715,32 @@ msgstr "e.j Si/ No"
 msgid "e.g. Yes/No"
 msgstr "p. ej. Sí/No"
 
+msgid ""
+"flavor id can only contain alphanumeric characters, underscores, periods, "
+"hyphens, spaces."
+msgstr ""
+"Los nombres de clave sólo pueden contener caracteres alfanuméricos, "
+"subrayados, puntos, dos puntos y guiones."
+
 msgid "front-end"
 msgstr "acceso a procesos"
 
 msgid "instance"
 msgstr "instancia"
 
+#, python-format
+msgid ""
+"key with name \"%s\" already exists.Use Edit to update the value, else "
+"create key with different name."
+msgstr ""
+"Ya existe la clave con nombre \"%s\". Use editar para actualizar el valor, o "
+"bien cree una clave con un nombre diferente."
+
 msgid "no"
 msgstr "no"
+
+msgid "rbac policy quota exceeded."
+msgstr "Se ha sobrepasado la cuota de políticas RBAC."
 
 msgid "undefined"
 msgstr "No definido"
