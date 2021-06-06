@@ -1,26 +1,26 @@
 # Alberto Laporte <alberto.riveralaporte@rackspace.com>, 2015. #zanata
 # Eduardo Gonzalez Gutierrez <dabarren@gmail.com>, 2015. #zanata
 # OpenStack Infra <zanata@openstack.org>, 2015. #zanata
-# Alberto Molina Coballes <alb.molina@gmail.com>, 2016. #zanata
+# Alberto Molina Coballes <alberto@tinaja.es>, 2016. #zanata
 # Eddie Ramirez <djedi.r@gmail.com>, 2016. #zanata
 # Eduardo Gonzalez Gutierrez <dabarren@gmail.com>, 2016. #zanata
 # Pablo Caruana <pcaruana@redhat.com>, 2016. #zanata
 # Pablo Iranzo Gómez <Pablo.Iranzo@gmail.com>, 2016. #zanata
-# Alberto Molina Coballes <alb.molina@gmail.com>, 2017. #zanata
+# Alberto Molina Coballes <alberto@tinaja.es>, 2017. #zanata
 # Zeus Arias Lucero <zeusariaslucero@gmail.com>, 2017. #zanata
-# Alberto Molina Coballes <alb.molina@gmail.com>, 2018. #zanata
-# Alberto Molina Coballes <alb.molina@gmail.com>, 2019. #zanata
-# Alberto Molina Coballes <alb.molina@gmail.com>, 2021. #zanata
+# Alberto Molina Coballes <alberto@tinaja.es>, 2018. #zanata
+# Alberto Molina Coballes <alberto@tinaja.es>, 2019. #zanata
+# Alberto Molina Coballes <alberto@tinaja.es>, 2021. #zanata
 msgid ""
 msgstr ""
 "Project-Id-Version: horizon VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2021-05-25 18:32+0000\n"
+"POT-Creation-Date: 2021-06-04 10:52+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2021-06-03 07:48+0000\n"
-"Last-Translator: Alberto Molina Coballes <alb.molina@gmail.com>\n"
+"PO-Revision-Date: 2021-06-04 10:28+0000\n"
+"Last-Translator: Alberto Molina Coballes <alberto@tinaja.es>\n"
 "Language-Team: Spanish\n"
 "Language: es\n"
 "X-Generator: Zanata 4.3.3\n"
@@ -45,6 +45,49 @@ msgstr ""
 "\n"
 "      %(used)s de %(quota)s Usados\n"
 "      "
+
+msgid ""
+"\n"
+"  If a snapshot is specified here only the specified snapshot of the volume\n"
+"  will be backed up.\n"
+"  </p>\n"
+"  "
+msgstr ""
+"\n"
+" Si se especifica una instantánea aquí, solo se respaldará la instantánea\n"
+" de volumen.\n"
+" </p>"
+
+msgid ""
+"\n"
+"  If no container name is provided, a default container named volumebackups\n"
+"  will be provisioned for you.\n"
+"  Backups will be the same size as the volume they originate from.\n"
+"  "
+msgstr ""
+"\n"
+"Si no se porporciona el nombre de un contenedor, un contenedor "
+"predeterminado de nombre\n"
+" volumebackups será aprovisionado.\n"
+" Las copias de seguridad serán del mismo tamaño que el volumen que las "
+"origine.\n"
+" "
+
+msgid ""
+"\n"
+"  Volume Backups are stored using one of cinder-backup drivers\n"
+"  (object storage service, Ceph, NFS, etc ...).\n"
+"  You must have one of these services activated in order to create a "
+"backup.\n"
+"  "
+msgstr ""
+"\n"
+"Las copias de seguridad de volumen se almacenan usando uno de los "
+"controladores de cinder\n"
+" (object storage service, Ceph, NFS, etc ...).\n"
+" Debe tener uno de estos servicios activados para crear una copia de "
+"seguridad.\n"
+" "
 
 msgid " - End"
 msgstr "- Fin"
@@ -114,6 +157,10 @@ msgid "%(pool_name)s %(cidr)s"
 msgstr "%(pool_name)s %(cidr)s"
 
 #, python-format
+msgid "%(role)s  (through group %(group)s)"
+msgstr "%(role)s  (through group %(group)s)"
+
+#, python-format
 msgid "%(type)s (%(backend)s backend)"
 msgstr "%(type)s (backend %(backend)s)"
 
@@ -167,6 +214,9 @@ msgstr "%sGiB"
 msgid "%sMB"
 msgstr "%sMB"
 
+msgid "(No IP address)"
+msgstr "(Sin direcciones IP)"
+
 msgid "(Quota exceeded)"
 msgstr "(Cuota superada)"
 
@@ -178,6 +228,12 @@ msgstr ", actualizar grupos del proyecto"
 
 msgid "-"
 msgstr "-"
+
+msgid "1 (icmp) should be specified for IPv4 instead of 58."
+msgstr "Para IPv4 debe especificarse 1 (icmp) en lugar de 58."
+
+msgid "58 (ipv6-icmp) should be specified for IPv6 instead of 1."
+msgstr "Para IPv6 debe especificarse 58 (ipv6-icmp) en lugar de 1."
 
 #, python-format
 msgid "<a href=\"%(instance_url)s\">%(instance_name)s</a> on %(device)s"
@@ -260,6 +316,24 @@ msgstr ""
 "credenciales de aplicación o keystone trusts. Si necesita que sus "
 "credenciales de aplicación realicen estas acciones, marque \"no restringida"
 "\"."
+
+msgid ""
+"<b>Warning:</b> If you change security groups here, the change will be "
+"applied to all interfaces of the instance. If you have multiple interfaces "
+"on this instance and apply different security groups per port, use \"Edit "
+"Port Security Groups\" action instead."
+msgstr ""
+"<b>Advertencia:</b> Si cambia los grupos de seguridad aquí, el cambio se "
+"aplicará a todas las interfaces de la instancia. Si tiene múltiples "
+"interfaces en esta instancia y aplica diferentes grupos de seguridad por "
+"puerto, use la acción \"Editar grupos de seguridad por puerto\" en su lugar."
+
+#, python-format
+msgid "<span class='word-wrap'>Flavor Details: %(name)s</span>\">%(name)s"
+msgstr "<span class='word-wrap'>Detalles del sabor: %(name)s</span>\">%(name)s"
+
+msgid "A brief description of the security group rule you are adding"
+msgstr "Una breve descripción del grupo de seguridad que está añadiendo"
 
 msgid "A local image to upload."
 msgstr "Disco local a cargar."
@@ -426,6 +500,9 @@ msgstr "Añadir ruta del router"
 msgid "Add Rule"
 msgstr "Agregar regla"
 
+msgid "Add Rule (Quota exceeded)"
+msgstr "Agregar regla"
+
 msgid "Add Static Route"
 msgstr "Añadir rutas estáticas"
 
@@ -488,6 +565,13 @@ msgstr ""
 msgid "Add static route to the router."
 msgstr "Añadir ruta estática al router."
 
+msgid ""
+"Add volume types to this group. Multiple volume types can be added to the "
+"same group only if they are associated with same back end."
+msgstr ""
+"Añadir tipos de volúmenes a este grupo. Se pueden añadir múltiples tipos de "
+"volúmenes al mismo grupo solo si están asociados al mismo \"back end\"."
+
 msgid "Add, modify or remove the QoS Spec associated with this volume type."
 msgstr ""
 "Agregar, modificar o quitar las especificaciones QoS asociadas con el tipo "
@@ -498,6 +582,13 @@ msgstr "Añadir/Borrar Grupos de volúmenes"
 
 msgid "Add/Remove Hosts to Aggregate"
 msgstr "Añadir/Quitar Hosts a agregado"
+
+msgid ""
+"Add/remove volumes to/from this group. Only volumes associated with the "
+"volume type(s) assigned to this group will be available for selection."
+msgstr ""
+"Añadir/quitar volúmenes desde/a este grupo. Solo se podrán seleccionar los "
+"volúmenes asociados con este tipo(s) de volumen asignado a este grupo."
 
 msgid "Added User"
 msgid_plural "Added Users"
@@ -561,6 +652,9 @@ msgstr ""
 
 msgid "Age"
 msgstr "Edad"
+
+msgid "Age (Seconds)"
+msgstr "Edad (segundos)"
 
 #, python-format
 msgid "Agent %s was successfully added."
@@ -808,6 +902,14 @@ msgstr ""
 msgid "Available"
 msgstr "Disponible"
 
+msgctxt "Current status of Volume Group"
+msgid "Available"
+msgstr "Disponible"
+
+msgctxt "Current status of Volume Group Snapshot"
+msgid "Available"
+msgstr "Disponible"
+
 msgctxt "Current status of a Volume"
 msgid "Available"
 msgstr "Disponible"
@@ -839,6 +941,9 @@ msgstr "Nombre de la copia"
 msgid "Backup Size (GiB)"
 msgstr "Tamaño de copias de seguridad (GiB)"
 
+msgid "Backup Snapshot"
+msgstr "Instantánea de copia de seguridad"
+
 msgid "Backups"
 msgstr "Copias de seguridad"
 
@@ -866,7 +971,7 @@ msgstr "Servicios de almacenamiento de bloques"
 
 msgctxt "Power state of an Instance"
 msgid "Blocked"
-msgstr "Bloqueado"
+msgstr "Bloqueada"
 
 msgid "Boot from image"
 msgstr "Arrancar desde una imagen"
@@ -1095,12 +1200,19 @@ msgstr[1] "Puertas de Entrada Borradas"
 msgid "Click here to show only console"
 msgstr "Haga click aquí para mostrar solo la consola"
 
+msgid "Clone Group"
+msgstr "Clonar grupo"
+
 msgid ""
 "Clone each of the volumes in the source Group, and then add them to a newly "
 "created Group."
 msgstr ""
 "Clona cada uno de los volúmenes del grupo origen y los añade al nuevo grupo "
 "creado."
+
+#, python-format
+msgid "Cloning volume group \"%s\"."
+msgstr "Clonando el grupo de volúmenes \"%s\"."
 
 msgid "Close"
 msgstr "Cerrar"
@@ -1140,6 +1252,9 @@ msgid ""
 msgstr ""
 "Configura OpenStack para escribir metadatos en un disco de configuración que "
 "se asociar a la instancia en el arranque."
+
+msgid "Confirm"
+msgstr "Confirmar"
 
 msgid "Confirm Admin Password"
 msgstr "Confirme la Contraseña de Administrador"
@@ -1216,7 +1331,7 @@ msgstr "No se ha encontrado el rol predeterminado \"%s\" en Keystone"
 
 msgctxt "Power state of an Instance"
 msgid "Crashed"
-msgstr "Estrellado"
+msgstr "Rota"
 
 msgid "Create"
 msgstr "Crear"
@@ -1255,6 +1370,9 @@ msgstr "Crear Sabor "
 msgid "Create Group"
 msgstr "Crear grupo"
 
+msgid "Create Group Snapshot"
+msgstr "Crear instantánea de grupo"
+
 msgid "Create Group Type"
 msgstr "Crear tipo de grupo"
 
@@ -1264,6 +1382,10 @@ msgstr "Crear especificaciones de tipo de grupo"
 msgid "Create Host Aggregate"
 msgstr "Crear agregado de hosts"
 
+msgid "Create Image"
+msgstr "Crear imagen"
+
+msgctxt "Action log of an instance"
 msgid "Create Image"
 msgstr "Crear imagen"
 
@@ -1336,6 +1458,9 @@ msgstr "Crear volumen"
 msgid "Create Volume Backup"
 msgstr "Crear un volumen de respaldo"
 
+msgid "Create Volume Group"
+msgstr "Crear grupo de volúmenes"
+
 msgid "Create Volume Snapshot"
 msgstr "Crear instantánea de volumen"
 
@@ -1356,6 +1481,13 @@ msgstr "Crea especificaciones adicionales para el tipo de volumen."
 
 msgid "Create a Group Type"
 msgstr "Crear un tipo de grupo"
+
+msgid ""
+"Create a Group that will contain newly created volumes cloned from each of "
+"the snapshots in the source Group Snapshot."
+msgstr ""
+"Crear un grupo que contendrá volúmenes nuevos clonados desde cada instancia "
+"en el grupo origen de instantáneas."
 
 msgid "Create a Metadata Namespace"
 msgstr "Crear un Namespace de Metadatos"
@@ -1439,6 +1571,9 @@ msgctxt "Created time"
 msgid "Created"
 msgstr "Creado"
 
+msgid "Created At"
+msgstr "Creado en"
+
 #, python-format
 msgid "Created extra spec \"%s\"."
 msgstr "Se han creado las especif. adicionales \"%s\"."
@@ -1518,6 +1653,14 @@ msgstr ""
 "tipo de volumen."
 
 #, python-format
+msgid "Creating group \"%s\"."
+msgstr "Creando grupo \"%s\"."
+
+#, python-format
+msgid "Creating group snapshot \"%s\"."
+msgstr "Creando instantánea de grupo \"%s\"."
+
+#, python-format
 msgid "Creating volume \"%s\""
 msgstr "Creando volumen \"%s\""
 
@@ -1588,6 +1731,9 @@ msgstr ""
 
 msgid "DNS Assignment"
 msgstr "Asignación DNS"
+
+msgid "DNS Domain"
+msgstr "Dominio DNS"
 
 msgid "DNS Name"
 msgstr "Nombre DNS"
@@ -1996,6 +2142,10 @@ msgstr ""
 "No se pueden recuperar los volúmenes borrados. Todos los datos dentro del "
 "volumen serán eliminados."
 
+msgctxt "Current status of Volume Group"
+msgid "Deleting"
+msgstr "Borrando"
+
 msgctxt "Current status of a Volume"
 msgid "Deleting"
 msgstr "Borrando"
@@ -2007,6 +2157,16 @@ msgstr "Borrando"
 msgctxt "Task status of an Instance"
 msgid "Deleting"
 msgstr "Borrando"
+
+#, python-format
+msgid "Deleting volume group \"%s\""
+msgstr "Borrando el grupo de volúmenes \"%s\""
+
+msgid "Deprecated Settings"
+msgstr "Ajustes obsoletos"
+
+msgid "Deprecated settings: {}."
+msgstr "Ajustes obsoletos: {}."
 
 msgid "Description"
 msgstr "Descripción "
@@ -2154,6 +2314,9 @@ msgid "Disassociate"
 msgstr "Desasociar"
 
 msgid "Disassociate Floating IP"
+msgstr "Desasociar IP flotante"
+
+msgid "Disassociate floating IP"
 msgstr "Desasociar IP flotante"
 
 msgid "Disk"
@@ -2367,6 +2530,9 @@ msgstr "Editar política"
 msgid "Edit Port"
 msgstr "Editar puerto"
 
+msgid "Edit Port Security Groups"
+msgstr "Editar grupos de seguridad por puerto"
+
 msgid "Edit Project"
 msgstr "Editar proyecto"
 
@@ -2558,6 +2724,14 @@ msgstr "Disco efímero"
 msgid "Ephemeral Disk (GB)"
 msgstr "Disco efímero (GB)"
 
+msgctxt "Current status of Volume Group"
+msgid "Error"
+msgstr "Error"
+
+msgctxt "Current status of Volume Group Snapshot"
+msgid "Error"
+msgstr "Error"
+
 msgctxt "Current status of a Floating IP"
 msgid "Error"
 msgstr "Error"
@@ -2639,6 +2813,12 @@ msgstr "Error al añadir o eliminar servidores"
 msgid "Error writing zipfile: %(exc)s"
 msgstr "Error al escribir el fichero zip: %(exc)s"
 
+msgid "Errors occurred in deleting group."
+msgstr "Ha habido errores al borrar el grupo."
+
+msgid "Errors occurred in removing volumes from group."
+msgstr "Ha habido errores al borrar volúmenes del grupo."
+
 msgid "Ether Type"
 msgstr "Tipo Ethernet"
 
@@ -2652,6 +2832,9 @@ msgid ""
 "Evacuate the servers from the selected down host to an active target host."
 msgstr ""
 "Evacuar los servidores del anfitrión caido a un anfitrión objetivo activo."
+
+msgid "Event Id"
+msgstr "Id de evento"
 
 msgid ""
 "Example: For <tt>mod_shib</tt> this would be <tt>Shib-Identity-Provider</"
@@ -2728,7 +2911,7 @@ msgstr "FQDN"
 
 msgctxt "Power state of an Instance"
 msgid "Failed"
-msgstr "Erróneo"
+msgstr "Errónea"
 
 #, python-format
 msgid ""
@@ -2758,6 +2941,13 @@ msgstr ""
 "No ha sido posible añadir al proyecto %(project)s el tipo de acceso de "
 "volumen."
 
+msgid "Failed to add route"
+msgstr "No se ha podido añadir la ruta"
+
+msgid "Failed to check if description field is supported."
+msgstr ""
+"Ha ocurrido un fallo al comprobar si el campo descripción está soportado."
+
 msgid "Failed to check if network-ip-availability extension is supported."
 msgstr ""
 "No se ha podido comprobar si soporta la extensión de la disponibilidad de la "
@@ -2775,6 +2965,10 @@ msgid "Failed to create a rbac policy."
 msgstr "Ha ocurrido un fallo al crear la política RBAC."
 
 #, python-format
+msgid "Failed to create network \"%s\"."
+msgstr "Ha ocurrido un fallo al crear red \"%s\"."
+
+#, python-format
 msgid "Failed to create network %s"
 msgstr "Ha ocurrido un fallo al crear red %s"
 
@@ -2785,6 +2979,18 @@ msgstr "Ha fallado la creación del puerto \"%s\"."
 #, python-format
 msgid "Failed to create router \"%s\"."
 msgstr "Ha ocurrido un fallo al crear el router \"%s\"."
+
+msgid "Failed to create router."
+msgstr "Ha fallado la creación del router."
+
+#, python-format
+msgid "Failed to create subnet \"%(sub)s\" for network \"%(net)s\"."
+msgstr ""
+"Ha ocurrido un fallo al crear la subred \"%(sub)s\" de la red \"%(net)s\"."
+
+#, python-format
+msgid "Failed to create subnet \"%(sub)s\"."
+msgstr "Ha ocurrido un fallo al crear la subred \"%(sub)s\"."
 
 #, python-format
 msgid "Failed to delete network \"%s\""
@@ -2806,8 +3012,14 @@ msgstr "Fallo al evacuar el host: %s."
 msgid "Failed to evacuate instances: %s"
 msgstr "Fallo al evacuar las instancias: %s"
 
+msgid "Failed to get attached volume."
+msgstr "Ha ocurrido un error al obtener el volumen asociado."
+
 msgid "Failed to get availability zone list."
 msgstr "Ha fallado la obtención de la lista de zonas de disponibilidad."
+
+msgid "Failed to get instance interfaces."
+msgstr "Ha ocurrido un error al obtener las interfaces de la instancia."
 
 #, python-format
 msgid "Failed to get mapping list %s"
@@ -2875,6 +3087,9 @@ msgstr ""
 "No ha sido posible eliminar del proyecto %(project)s el tipo de acceso de "
 "volumen."
 
+msgid "Failed to set gateway."
+msgstr "Ha ocurrido un fallo al establecer la puerta de enlace."
+
 #, python-format
 msgid "Failed to update network %s"
 msgstr "Ha habido un fallo al actualizar la red %s"
@@ -2890,6 +3105,10 @@ msgstr "Ha ocurrido un fallo al actualizar la política RBAC %s"
 #, python-format
 msgid "Failed to update router %s"
 msgstr "Fallo al actualizar el router %s"
+
+#, python-format
+msgid "Failed to update subnet \"%s\"."
+msgstr "Ha fallado la actualización de la subred \"%s\"."
 
 msgid "False"
 msgstr "Falso"
@@ -3125,6 +3344,9 @@ msgstr "Administracion de Grupo: {{ group.name }}"
 msgid "Group Members"
 msgstr "Miembros del grupo"
 
+msgid "Group Name"
+msgstr "Nombre de grupo"
+
 msgid "Group Name ="
 msgstr "Nombre de grupo ="
 
@@ -3177,6 +3399,13 @@ msgstr "El nombre de tipo de grupo \"%s\" ya existe."
 msgid "Group type name can not be empty."
 msgstr "El tipo de grupo no puede estar vacío."
 
+msgid ""
+"Group which the new volume belongs to. Choose 'No group' if the new volume "
+"belongs to no group."
+msgstr ""
+"Grupo al que pertenece el nuevo volumen. Seleccion 'sin grupo' si el nuevo "
+"volumen no pertenece a ningún grupo."
+
 msgid "Groups"
 msgstr "Grupos"
 
@@ -3195,6 +3424,9 @@ msgstr ""
 "Los grupos se utilizan para gestionar el acceso y asignar roles a múltiples "
 "usuarios a la vez. Edite el nombre del grupo y su descripción."
 
+msgid "Guaranteed Until"
+msgstr "Garantizado hasta"
+
 #. Translators: High Availability mode of Neutron router
 msgid "HA mode"
 msgstr "Modo HA"
@@ -3205,8 +3437,8 @@ msgstr "Reinicio brusco"
 
 msgid "Hard Reboot Instance"
 msgid_plural "Hard Reboot Instances"
-msgstr[0] "Reiniciar inmediatamente instancia"
-msgstr[1] "Reiniciar inmediatamente instancias"
+msgstr[0] "Reiniciar instancia de manera forzada"
+msgstr[1] "Reiniciar instancias de manera forzada"
 
 msgctxt "Task status of an Instance"
 msgid "Hard Reboot Pending"
@@ -3214,16 +3446,19 @@ msgstr "Rearrancado en frío pendiente"
 
 msgctxt "Task status of an Instance"
 msgid "Hard Reboot Started"
-msgstr "Rearrancado en frío iniciado"
+msgstr "Reinicio forzado iniciado"
 
 msgid "Hard Rebooted Instance"
 msgid_plural "Hard Rebooted Instances"
-msgstr[0] "Instancia de Reiniciado Duro"
-msgstr[1] "Instancias de Reiniciado Duro"
+msgstr[0] "Instancia reiniciada forzadamente"
+msgstr[1] "Instancias reiniciadas forzadamente"
 
 msgctxt "Task status of an Instance"
 msgid "Hard Rebooting"
 msgstr "Rearrancando en frío"
+
+msgid "Has Snapshots"
+msgstr "Tiene instantáneas"
 
 msgid "Help"
 msgstr "Ayuda"
@@ -3350,6 +3585,14 @@ msgstr ""
 "línea."
 
 msgid ""
+"IP address of Gateway (e.g. 192.168.0.254) If you do not want to use a "
+"gateway, check 'Disable Gateway' below."
+msgstr ""
+"Dirección IP de la puerta de enlace (por ejemplo, 192.168.0.254). Si no "
+"desea utilizar una puerta de enlace, consulte 'Desactivar puerta de enlace' "
+"a ​​continuación."
+
+msgid ""
 "IP address of Gateway (e.g. 192.168.0.254) The default value is the first IP "
 "of the network address (e.g. 192.168.0.1 for 192.168.0.0/24, 2001:DB8::1 for "
 "2001:DB8::/48). If you use the default, leave blank. If you do not want to "
@@ -3418,6 +3661,15 @@ msgstr ""
 
 msgid "If checked, the network will be enabled."
 msgstr "Si se marca, la red estará habilitada."
+
+msgid "If checked, the port will be enabled."
+msgstr "Si se marca, el puerto estará habilitado."
+
+msgid "If checked, the router will be enabled."
+msgstr "Si se marca el router estará habilitado."
+
+msgid "If checked, the selected floating IP will be released at the same time."
+msgstr "Si se marca, la IP flotante seleccionada será liberada a la vez."
 
 msgid ""
 "If console is not responding to keyboard input: click the grey status bar "
@@ -3518,6 +3770,14 @@ msgstr "Importar Espacio de Nombres"
 
 msgid "Import Public Key"
 msgstr "Importar clave pública"
+
+msgctxt "Current status of Volume Group"
+msgid "In-use"
+msgstr "En uso"
+
+msgctxt "Current status of Volume Group Snapshot"
+msgid "In-use"
+msgstr "En uso"
 
 msgctxt "Current status of a Volume"
 msgid "In-use"
@@ -3690,6 +3950,9 @@ msgstr "Nombre de par de claves"
 msgid "Key Pair Name ="
 msgstr "Nombre par de claves ="
 
+msgid "Key Pair Type"
+msgstr "Tipo de par de clave"
+
 msgid "Key Pairs"
 msgstr "Pares de claves"
 
@@ -3700,6 +3963,9 @@ msgstr ""
 
 msgid "Key Size (bits)"
 msgstr "Tamaño de clave (bits)"
+
+msgid "Key Type"
+msgstr "Tipo de clave"
 
 msgid ""
 "Key names can only contain alphanumeric characters, underscores, periods, "
@@ -3767,6 +4033,9 @@ msgstr "Actualizada por última vez"
 msgid "Launch"
 msgstr "Lanzar"
 
+msgid "Launch Index"
+msgstr "Índice de lanzamiento"
+
 msgid "Launch Instance"
 msgstr "Lanzar instancia"
 
@@ -3822,6 +4091,10 @@ msgstr "Almacenamiento local (total)"
 
 msgid "Local Storage (used)"
 msgstr "Almacenamiento local (usado)"
+
+msgctxt "Action log of an instance"
+msgid "Lock"
+msgstr "Bloquear"
 
 msgid "Lock Instance"
 msgid_plural "Lock Instances"
@@ -3881,7 +4154,7 @@ msgid "Manage"
 msgstr "Gestionar"
 
 msgid "Manage Attachments"
-msgstr "Administrar asociaciones"
+msgstr "Gestionar asociaciones"
 
 msgid "Manage Floating IP Associations"
 msgstr "Gestionar asociaciones de IP flotantes"
@@ -3970,6 +4243,9 @@ msgstr "Uso de memoria"
 msgid "Message"
 msgstr "Mensaje"
 
+msgid "Message Level"
+msgstr "Nivel de mensaje"
+
 msgid "Messages"
 msgstr "Mensajes"
 
@@ -3994,6 +4270,10 @@ msgstr "MidoNet"
 msgid "MidoNet Uplink"
 msgstr "MidoNet Uplink"
 
+msgid "Migrate"
+msgstr "Migrar"
+
+msgctxt "Action log of an instance"
 msgid "Migrate"
 msgstr "Migrar"
 
@@ -4058,6 +4338,9 @@ msgstr "Disco mínimo (GB)"
 msgid "Minimum RAM (MB)"
 msgstr "Memoria RAM mínima (MB)"
 
+msgid "Missing required settings: {}."
+msgstr "Ajustes obligatorios que faltan: {}."
+
 #, python-format
 msgid "Modified domain \"%s\"."
 msgstr "Se ha modificado el dominio \"%s\"."
@@ -4116,6 +4399,9 @@ msgstr "Monitoreo:"
 
 msgid "More"
 msgstr "Más"
+
+msgid "Multiattach volumes are not yet supported."
+msgstr "No están soportados aún los volúmenes multiasociados."
 
 msgid "N/A"
 msgstr "N/A"
@@ -4341,6 +4627,9 @@ msgstr "No hay IP flotantes disponibles"
 msgid "No floating IP pools with IPv4 subnet available"
 msgstr "No hay bancos de IPs flotantes con subredes IPv4 disponibles"
 
+msgid "No group"
+msgstr "Sin grupo"
+
 msgid "No groups found."
 msgstr "No se han encontrado grupos."
 
@@ -4422,6 +4711,9 @@ msgstr "No se han encontrado grupos de seguridad."
 
 msgid "No server groups available"
 msgstr "No hay grupos de servidores disponibles"
+
+msgid "No snapshot for this volume"
+msgstr "Este volumen no tienen instantáneas"
 
 msgid "No snapshots available"
 msgstr "No hay instantáneas disponibles"
@@ -4643,11 +4935,17 @@ msgctxt "Current status of an Instance"
 msgid "Password"
 msgstr "Contraseña"
 
+msgid "Password Expires At"
+msgstr "La contraseña caduca en"
+
 msgid "Password changed. Please log in again to continue."
 msgstr "Se ha cambiado la contraseña. Inicie sesión de nuevo para continuar."
 
 msgid "Password changed. Please log in to continue."
 msgstr "Contraseña modificada. Por favor, acceda de nuevo para continuar."
+
+msgid "Password is locked."
+msgstr "La contraseña está bloqueada."
 
 msgid "Passwords do not match."
 msgstr "Las contraseñas no coinciden."
@@ -4679,7 +4977,7 @@ msgstr[1] "Instancias Pausadas"
 
 msgctxt "Task status of an Instance"
 msgid "Pausing"
-msgstr "Poniéndose en pausa"
+msgstr "Pausando"
 
 msgctxt "Current status of an Image"
 msgid "Pending Delete"
@@ -4931,6 +5229,9 @@ msgstr "Encolado"
 msgid "Quota Name"
 msgstr "Nombre de la cuota"
 
+msgid "Quota exceeded for creating snapshots"
+msgstr "Se ha superado la cuota para crear instantáneas"
+
 msgid "Quota exceeded for resource router."
 msgstr "Cuota de recursos del router excedida."
 
@@ -5025,7 +5326,7 @@ msgstr "Reconstruir"
 
 msgctxt "Task status of an Instance"
 msgid "Rebuild Block Device Mapping"
-msgstr "Reconstruyendo el mapeo del dispositivo de bloques"
+msgstr "Reconstruir el mapeo del dispositivo de bloques"
 
 msgid "Rebuild Instance"
 msgstr "Reconstruir instancia"
@@ -5035,7 +5336,7 @@ msgstr "Reconstruir contraseña"
 
 msgctxt "Task status of an Instance"
 msgid "Rebuild Spawning"
-msgstr "Reconstruyendo la semilla"
+msgstr "Reconstruir generación"
 
 msgctxt "Task status of an Instance"
 msgid "Rebuilding"
@@ -5110,6 +5411,9 @@ msgid_plural "Remove Users"
 msgstr[0] "Eliminar Usuario"
 msgstr[1] "Eliminar Usuarios"
 
+msgid "Remove Volumes from Group"
+msgstr "Eliminar volúmenes del grupo"
+
 msgid "Removed User"
 msgid_plural "Removed Users"
 msgstr[0] "Usuario Eliminado"
@@ -5122,6 +5426,10 @@ msgstr ""
 "Si se elimina un par de claves, los recursos de OpenStack pueden quedar "
 "huérfanos. No debe eliminar un par de claves a menos que esté seguro de que "
 "no se utiliza en ningún sitio."
+
+#, python-format
+msgid "Removing volumes from volume group \"%s\""
+msgstr "Eliminando volúmenes del grupo de volúmenes \"%s\""
 
 msgid "Replication Status"
 msgstr "Estado de replicación"
@@ -5152,6 +5460,13 @@ msgstr ""
 msgid "Requested snapshot would exceed the allowed quota."
 msgstr "Es posible que la instantánea solicitada exceda la capacidad permitida"
 
+msgid "Required Settings"
+msgstr "Ajustes obligatorios"
+
+msgctxt "Action log of an instance"
+msgid "Rescue"
+msgstr "Rescatar"
+
 msgctxt "Current status of an Instance"
 msgid "Rescue"
 msgstr "Rescate"
@@ -5166,6 +5481,9 @@ msgstr "Rescatada"
 msgctxt "Task status of an Instance"
 msgid "Rescuing"
 msgstr "Rescatando"
+
+msgid "Reservation ID"
+msgstr "ID reserva"
 
 msgctxt "Current status of a Volume"
 msgid "Reserved"
@@ -5298,6 +5616,9 @@ msgstr "Nombre del rol"
 msgid "Role Name ="
 msgstr "Nombre de rol ="
 
+msgid "Role assignments"
+msgstr "Asignaciones de rol"
+
 msgid "Role created successfully."
 msgstr "Rol creado correctamente."
 
@@ -5381,6 +5702,9 @@ msgstr "SLAAC: Dirección obtendida de un router externo"
 
 msgid "SNAT"
 msgstr "SNAT"
+
+msgid "SSH Key"
+msgstr "Clave SSH"
 
 msgid "SSH key pairs can be generated with the ssh-keygen command:"
 msgstr ""
@@ -5532,6 +5856,9 @@ msgstr "Seleccione un nuevo sabor"
 msgid "Select a QoS policy"
 msgstr "Seleccionar una política QoS"
 
+msgid "Select a floating IP to disassociate"
+msgstr "Seleccionar IP flotante a desasociar"
+
 msgid "Select a key pair"
 msgstr "Seleccione un par de claves"
 
@@ -5595,11 +5922,17 @@ msgstr "Seleccionar una instancia a la que asociar."
 msgid "Select format"
 msgstr "Seleccionar formato"
 
+msgid "Select group type"
+msgstr "Seleccionar tipo de grupo"
+
 msgid "Select network"
 msgstr "Seleccionar red"
 
 msgid "Select networks for your instance."
 msgstr "Seleccione las redes para su instancia."
+
+msgid "Select snapshot to backup (Optional)"
+msgstr "Seleccione instantánea a respaldar (opcional)"
 
 msgid "Select source"
 msgstr "Escoger origen"
@@ -5610,6 +5943,9 @@ msgid ""
 msgstr ""
 "Seleccione la dirección IP que quiere asociar con una determinada instancia "
 "o puerto."
+
+msgid "Select the floating IP to be disassociated from the instance."
+msgstr "Seleccione la IP flotante a desasociar de la instancia."
 
 msgid "Select the image to rebuild your instance."
 msgstr "Seleccione la imagen para reconstruir su instancia."
@@ -5742,10 +6078,14 @@ msgstr "Almacenamiento Compartido"
 msgid "Shared with Project"
 msgstr "Compartida con el Proyecto"
 
+msgctxt "Action log of an instance"
+msgid "Shelve"
+msgstr "Almacenar"
+
 msgid "Shelve Instance"
 msgid_plural "Shelve Instances"
-msgstr[0] "Aislar Instancia"
-msgstr[1] "Aislar Instancias"
+msgstr[0] "Almacenar Instancia"
+msgstr[1] "Almacenar Instancias"
 
 msgctxt "Current status of an Instance"
 msgid "Shelved"
@@ -5753,8 +6093,8 @@ msgstr "Pospuesta"
 
 msgid "Shelved Instance"
 msgid_plural "Shelved Instances"
-msgstr[0] "Instancia Aislada"
-msgstr[1] "Instancias Aisladas"
+msgstr[0] "Instancia almacenada"
+msgstr[1] "Instancias almacenadas"
 
 msgctxt "Current status of an Instance"
 msgid "Shelved Offloaded"
@@ -5762,27 +6102,27 @@ msgstr "Pospuesta descargada"
 
 msgctxt "Task status of an Instance"
 msgid "Shelving"
-msgstr "Posponiendo"
+msgstr "Almacenando"
 
 msgctxt "Task status of an Instance"
 msgid "Shelving Image Pending Upload"
-msgstr "Imagen pospuesta pendiente de cargar"
+msgstr "Imagen almacenada pendiente de subir"
 
 msgctxt "Task status of an Instance"
 msgid "Shelving Image Uploading"
-msgstr "Posponiendo carga de imagen"
+msgstr "Subiendo imagen almacenada"
 
 msgctxt "Task status of an Instance"
 msgid "Shelving Offloading"
-msgstr "Posponiendo descarga"
+msgstr "Almacenando"
 
 msgctxt "Power state of an Instance"
 msgid "Shut Down"
-msgstr "Cerrar"
+msgstr "Apagada"
 
 msgctxt "Power state of an Instance"
 msgid "Shut Off"
-msgstr "Apagado"
+msgstr "Apagada"
 
 msgctxt "Action to perform (the instance is currently running)"
 msgid "Shut Off Instance"
@@ -5863,7 +6203,7 @@ msgstr "Borrado no definitivo"
 
 msgctxt "Task status of an Instance"
 msgid "Soft Deleting"
-msgstr "Borrado no definitivo"
+msgstr "Borrando (soft)"
 
 msgid "Soft Reboot Instance"
 msgid_plural "Soft Reboot Instances"
@@ -5872,8 +6212,8 @@ msgstr[1] "Reiniciar instancias"
 
 msgid "Soft Rebooted Instance"
 msgid_plural "Soft Rebooted Instances"
-msgstr[0] "Instancia de Reiniciado Suave"
-msgstr[1] "Instancias de Reiniciado Suave"
+msgstr[0] "Instancia reiniciada"
+msgstr[1] "Instancias reiniciadas"
 
 msgid ""
 "Some flavors not meeting minimum boot source requirements have been disabled."
@@ -5948,6 +6288,9 @@ msgstr ""
 
 msgid "Specify an image to upload to the Image Service."
 msgstr "Especifique una imagen para subir al Servicio de imágenes."
+
+msgid "Specify network address"
+msgstr "Especificar dirección de red"
 
 msgid "Specify the MAC address for the new port"
 msgstr "Especifique la dirección MAC del nuevo puerto"
@@ -6094,6 +6437,14 @@ msgid "Successfully disassociated Floating IP: %s"
 msgstr "La IP flotante %s fue desasociada correctamente"
 
 #, python-format
+msgid "Successfully disassociated and released floating IP %s"
+msgstr "Se ha desasociado y liberado correctamente la IP flotante %s"
+
+#, python-format
+msgid "Successfully disassociated floating IP %s"
+msgstr "Se ha desasociado correctamente la IP flotante %s"
+
+#, python-format
 msgid "Successfully imported public key: %s"
 msgstr "La clave: %s fue importada correctamente"
 
@@ -6103,6 +6454,9 @@ msgstr ""
 
 msgid "Successfully recreated ec2 credentials."
 msgstr "Las credenciales ec2 se han recreado satisfactoriamente."
+
+msgid "Successfully rescued instance"
+msgstr "Instancia rescatada correctamente"
 
 #, python-format
 msgid ""
@@ -6475,6 +6829,12 @@ msgstr ""
 msgid "The new availability zone can't be empty"
 msgstr "La nueva zona de disponibilidad no puede estar vacía"
 
+msgid "The new type must be different from the current volume type."
+msgstr "El nuevo tipo debe ser diferente del tipo de volumen actual."
+
+msgid "The output format"
+msgstr "Formato de salida"
+
 #, python-format
 msgid "The password does not match the requirements: %s"
 msgstr "La contraseña no cumple con los requisitos: %s"
@@ -6532,6 +6892,9 @@ msgid ""
 msgstr ""
 "El modo rescate es solo para usar en caso de emergencia, por ejemplo, en el "
 "caso de un fallo del sistema o en el acceso."
+
+msgid "The specified floating IP no longer exists."
+msgstr "Ya no existe la IP flotante especificada."
 
 msgid "The specified port is invalid."
 msgstr "El puerto especificado no es válido."
@@ -6883,6 +7246,16 @@ msgstr ""
 "No se ha podido eliminar la puerta de enlace del router %(name)s. "
 "Probablemente sea porque está siendo usada por alguna IP flotante."
 
+msgid "Unable to clone empty group."
+msgstr "No ha sido posible clonar un grupo vacío."
+
+msgid "Unable to clone group."
+msgstr "No ha sido posible clonar el grupo."
+
+#, python-format
+msgid "Unable to confirm resize instance \"%s\"."
+msgstr "No se ha podido confirmar la redimensión de la instancia \"%s\"."
+
 msgid "Unable to connect to Neutron."
 msgstr "No ha sido posible conectar con Neutron."
 
@@ -6905,6 +7278,18 @@ msgstr "No ha sido posible crear el sabor \"%s\"."
 
 msgid "Unable to create flavor."
 msgstr "No ha sido posible crear el sabor."
+
+#, python-format
+msgid "Unable to create group \"%s\" from snapshot."
+msgstr "No se ha posido crear el grupo \"%s\" desde instantánea."
+
+msgid "Unable to create group due to exceeding volume quota limit."
+msgstr ""
+"No ha sido posible crear el grupo debido a que excede el límite de la cuota "
+"de volúmenes."
+
+msgid "Unable to create group snapshot."
+msgstr "No ha sido posible crear instantánea de grupo."
 
 msgid "Unable to create group type spec."
 msgstr "No ha sido posible crear las especificaciones de tipo de grupo."
@@ -6970,6 +7355,10 @@ msgstr "No ha sido posible crear el grupo de seguridad: %s"
 
 msgid "Unable to create snapshot."
 msgstr "No ha sido posible crear la instantánea."
+
+msgid "Unable to create snapshot. group must contain volumes."
+msgstr ""
+"No ha sido posible crear instantánea. El grupo debe contener volúmenes."
 
 msgid "Unable to create snapshots due to exceeding snapshot quota limit."
 msgstr "No se han podido crear instantáneas porque se ha superado la cuota."
@@ -7039,11 +7428,24 @@ msgstr ""
 msgid "Unable to determine if volume type encryption is supported."
 msgstr "No se puede determinar si el cifrado tipo de volumen es apoyado."
 
+#, python-format
+msgid "Unable to disassociate floating IP %s"
+msgstr "No ha sido posible desasociar la IP flotante %s"
+
 msgid "Unable to disassociate floating IP."
 msgstr "No ha sido posible desasociar la IP flotante."
 
+msgid "Unable to display role assignment through groups."
+msgstr "No ha sido posible mostrar los grupos para este usuario."
+
 msgid "Unable to display the groups of this project."
 msgstr "No ha sido posible mostrar los grupos de este proyecto."
+
+msgid "Unable to display the groups of this user."
+msgstr "No fue posible obtener la información del usuario."
+
+msgid "Unable to display the role assignments of this user."
+msgstr "No ha sido posible mostrar las asignaciones de rol para este usuario."
 
 msgid "Unable to display the users of this project."
 msgstr "No ha sido posible mostrar los usuarios de este proyecto."
@@ -7064,6 +7466,12 @@ msgstr "No ha sido posible extender el volumen."
 
 msgid "Unable to fetch EC2 credentials."
 msgstr "No ha sido posible obtener las credenciales EC2."
+
+msgid "Unable to fetch snapshot"
+msgstr "No ha sido posible obtener la instantánea"
+
+msgid "Unable to fetch snapshots"
+msgstr "No ha sido posible obtener las instantáneas"
 
 msgid "Unable to find default role."
 msgstr "No ha sido posible encontrar el rol predeterminado."
@@ -7154,6 +7562,9 @@ msgstr "No ha sido posible enumerar los agentes dhcp del segmento de red."
 msgid "Unable to load console. Please reload page to try again."
 msgstr "No se ha podido recuperar la consola.  Inténtelo más tarde."
 
+msgid "Unable to load the specified group."
+msgstr "No ha sido posible cargar el grupo especificado."
+
 #, python-format
 msgid "Unable to load the specified image. %s"
 msgstr "No ha sido posible cargar la imagen especificada. %s"
@@ -7219,6 +7630,9 @@ msgstr ""
 "Incapaz de registrar proveedor de identidad. Por favor, compruebe que el ID "
 "del Proveedor de Identidad y los IDs Remotos no están en uso."
 
+msgid "Unable to rescue instance"
+msgstr "No ha sido posible rescatar la instancia"
+
 #, python-format
 msgid "Unable to resize instance \"%s\"."
 msgstr "No ha sido posible redimensionar la instancia \"%s\"."
@@ -7275,6 +7689,9 @@ msgstr "No se pueden obtener las especificaciones QoS"
 msgid "Unable to retrieve RBAC policies."
 msgstr "No ha sido posible obtener políticas RBAC."
 
+msgid "Unable to retrieve a list of external networks."
+msgstr "No ha sido posible obtener una lista de redes externas."
+
 msgid "Unable to retrieve agent list."
 msgstr "No ha sido posible obtener la lista de agentes."
 
@@ -7300,6 +7717,9 @@ msgstr "No ha sido posible obtener las zonas de disponibilidad."
 
 msgid "Unable to retrieve backup details."
 msgstr "No pude obtener los detalles del respaldo."
+
+msgid "Unable to retrieve community images."
+msgstr "No ha sido posible obtener las imágenes de comunidad."
 
 msgid "Unable to retrieve compute host information."
 msgstr "No ha sido posible obtener la información del anfitrión de cómputo."
@@ -7394,12 +7814,24 @@ msgstr "No ha sido posible obtener la lista de IP flotantes."
 msgid "Unable to retrieve floating IP pools."
 msgstr "No ha sido posible obtener los pools de IP flotantes."
 
+msgid "Unable to retrieve group"
+msgstr "No ha sido posible obtener el grupo"
+
+msgid "Unable to retrieve group details."
+msgstr "No ha sido posible obtener los detalles del grupo."
+
+msgid "Unable to retrieve group information."
+msgstr "No ha sido posible obtener la información del grupo."
+
 msgid "Unable to retrieve group list."
 msgstr "No ha sido posible obtener la lista del grupo."
 
 msgid "Unable to retrieve group list. Please try again later."
 msgstr ""
 "No ha sido posible obtener la lista de grupos. Inténtelo de nuevo más tarde."
+
+msgid "Unable to retrieve group snapshot details."
+msgstr "No ha sido posible obtener los detalles de la instantánea de grupo."
 
 msgid "Unable to retrieve group snapshot project information."
 msgstr ""
@@ -7436,6 +7868,9 @@ msgstr "No ha sido posible obtener los tipos de grupo."
 
 msgid "Unable to retrieve group users."
 msgstr "No ha sido posible obtener los usuarios del grupo."
+
+msgid "Unable to retrieve group."
+msgstr "No se ha podido obtener el grupo."
 
 msgid "Unable to retrieve host aggregates list."
 msgstr "No ha sido posible obtener la lista de agregados del host."
@@ -7644,6 +8079,9 @@ msgstr "No ha sido posible obtener las instantáneas."
 msgid "Unable to retrieve snapshot list."
 msgstr "No ha sido posible recuperar la lista de instantánea."
 
+msgid "Unable to retrieve snapshot messages."
+msgstr "No ha sido posible obtener los mensajes de la instantánea."
+
 msgid "Unable to retrieve subnet details"
 msgstr "No ha sido posible obtener los detalles de la subred"
 
@@ -7662,6 +8100,9 @@ msgstr "No ha sido posible obtener la instancia."
 msgid "Unable to retrieve the project information of the image."
 msgstr "No ha sido posible obtener la información del proyecto de la imagen."
 
+msgid "Unable to retrieve the volume group list."
+msgstr "No se ha podido obtener la lista de grupos de volúmenes."
+
 msgid "Unable to retrieve the volume type list."
 msgstr "No ha sido posible obtener el listado de tipos de volumen."
 
@@ -7674,6 +8115,9 @@ msgstr "No ha sido posible obtener los detalles del usuario."
 msgid "Unable to retrieve user domain role assignments."
 msgstr ""
 "No ha sido posible obtener las asignaciones de roles de dominio de usuario."
+
+msgid "Unable to retrieve user domain."
+msgstr "No ha sido posible obtener el dominio de usuario."
 
 msgid "Unable to retrieve user information."
 msgstr "No fue posible obtener la informaciónd el usuario."
@@ -7710,6 +8154,9 @@ msgstr ""
 
 msgid "Unable to retrieve volume group snapshots."
 msgstr "No ha sido posible obtener instantáneas de grupo de volúmenes."
+
+msgid "Unable to retrieve volume groups"
+msgstr "No se han podido obtener los grupos de volúmenes."
 
 msgid "Unable to retrieve volume groups."
 msgstr "No ha sido posible obtener grupos de volúmenes."
@@ -7799,6 +8246,13 @@ msgid "Unable to retrieve volume/instance attachment information"
 msgstr ""
 "No ha sido posible obtener información de la asociación volumen/instancia"
 
+msgid "Unable to retrieve volumes."
+msgstr "No ha sido posible obtener los volúmenes."
+
+#, python-format
+msgid "Unable to revert resize instance \"%s\"."
+msgstr "No ha se ha podido revertir la redimensión de la instancia \"%s\"."
+
 msgid "Unable to set Domain Context."
 msgstr "No ha sido posible definir el dominio de contexto."
 
@@ -7850,6 +8304,9 @@ msgstr ""
 msgid "Unable to update image \"%s\"."
 msgstr "No ha sido posible subir la imagen \"%s\"."
 
+msgid "Unable to update instance security group."
+msgstr "No se ha podido actualizar el grupo de seguridad de la instancia."
+
 msgid "Unable to update mapping."
 msgstr "No se ha podido actualizar la correlación."
 
@@ -7884,6 +8341,9 @@ msgstr "No ha sido posible actualizar la contraseña de usuario."
 msgid "Unable to update the user."
 msgstr "No ha sido posible actualizar el usuario."
 
+msgid "Unable to update volume group."
+msgstr "No ha sido posible actualizar el grupo de volúmenes."
+
 msgid "Unable to update volume snapshot status."
 msgstr "No ha sido posible actualizar el estado de la instantánea del volumen."
 
@@ -7917,6 +8377,9 @@ msgstr "No se puede verificar la extensión los tipos VNIC  de Neutron"
 msgid "Unknown"
 msgstr "Desconocido"
 
+msgid "Unknown Settings"
+msgstr "Ajustes desconocidos"
+
 msgid "Unknown instance"
 msgstr "Instancia desconocida"
 
@@ -7926,8 +8389,15 @@ msgstr "Instancia desconocida (Ninguna)"
 msgid "Unknown resource type for detail API."
 msgstr "Tipo de recurso desconocido para los detalles de  la API."
 
+msgid "Unknown settings: {}."
+msgstr "Ajustes desconocidos: {}."
+
 msgid "Unknown volume (None)"
 msgstr "Volumen desconocido (Ninguno)"
+
+msgctxt "Action log of an instance"
+msgid "Unlock"
+msgstr "Desbloquear"
 
 msgid "Unlock Instance"
 msgid_plural "Unlock Instances"
@@ -7959,9 +8429,23 @@ msgid_plural "Unregistered Identity Providers"
 msgstr[0] "Proveedor de identidad con registro anulado"
 msgstr[1] "Proveedores de identidad con registro anulado"
 
+msgctxt "Action log of an instance"
+msgid "Unrescue"
+msgstr "Arrancar tras rescatar"
+
+msgid "Unrescue Instance"
+msgid_plural "Unrescue Instances"
+msgstr[0] "Arrancar instancia rescatada"
+msgstr[1] "Arrancar instancias rescatadas"
+
+msgid "Unrescued Instance"
+msgid_plural "Unrescued Instances"
+msgstr[0] "Instancia rescatada arrancada"
+msgstr[1] "Instancias rescatadas arrancadas"
+
 msgctxt "Task status of an Instance"
 msgid "Unrescuing"
-msgstr "Cancelando rescate"
+msgstr "Saliendo de modo rescate"
 
 msgid "Unrestricted"
 msgstr "No restringida"
@@ -7969,19 +8453,23 @@ msgstr "No restringida"
 msgid "Unrestricted (dangerous)"
 msgstr "Sin restricciones (peligroso)"
 
+msgctxt "Action log of an instance"
+msgid "Unshelve"
+msgstr "Restaurar almacenada"
+
 msgid "Unshelve Instance"
 msgid_plural "Unshelve Instances"
-msgstr[0] "Recuperar Instancia"
-msgstr[1] "Recuperar Instancias"
+msgstr[0] "Restaurar instancia almacenada"
+msgstr[1] "Restaurar instancias almacenadas"
 
 msgid "Unshelved Instance"
 msgid_plural "Unshelved Instances"
-msgstr[0] "Instancia Recuperada"
-msgstr[1] "Instancias Recuperadas"
+msgstr[0] "Instancia almacenada restaurada"
+msgstr[1] "Instancias almacenadas restauradas"
 
 msgctxt "Task status of an Instance"
 msgid "Unshelving"
-msgstr "Desunir"
+msgstr "Restaurando instancia almacenada"
 
 msgid "Unspecified"
 msgstr "Sin especificar"
@@ -8090,6 +8578,10 @@ msgstr "Subred \"%s\" actualizada."
 msgid "Updated volumes for group."
 msgstr "Actualizados los volúmenes del grupo."
 
+msgctxt "Current status of Volume Group"
+msgid "Updating"
+msgstr "Actualizando"
+
 msgctxt "Task status of an Instance"
 msgid "Updating Password"
 msgstr "Actualizando contraseña"
@@ -8104,6 +8596,10 @@ msgstr ""
 #, python-format
 msgid "Updating volume \"%s\""
 msgstr "Modificando volumen \"%s\""
+
+#, python-format
+msgid "Updating volume group \"%s\""
+msgstr "Actualizando grupo de volúmenes \"%s\""
 
 #, python-format
 msgid "Updating volume snapshot \"%s\""
@@ -8140,6 +8636,9 @@ msgstr "Informe de Uso para el Periodo:"
 msgid "Use Server Default"
 msgstr "Usar el predeterminado del servidor"
 
+msgid "Use a group as source"
+msgstr "Utilice un grupo como origen"
+
 msgid "Use a volume as source"
 msgstr "Usar un volumen como origen"
 
@@ -8174,6 +8673,9 @@ msgstr "El usuario \"%s\" fue creado correctamente."
 msgid "User Credentials Details"
 msgstr "Detalles de las credenciales de usuario"
 
+msgid "User Data"
+msgstr "Datos de usuario"
+
 msgid "User Details"
 msgstr "Detalles de usuario"
 
@@ -8182,6 +8684,9 @@ msgstr "ID de usuario"
 
 msgid "User ID ="
 msgstr "ID de usuario ="
+
+msgid "User Message"
+msgstr "Mensaje de usuario"
 
 msgid "User Name"
 msgstr "Usuario"
@@ -8528,6 +9033,9 @@ msgid ""
 msgstr ""
 "Cuando el estado del volumen sea \"en uso\", puede utilizar \"Forzar\" para "
 "subir el volumen a una imagen."
+
+msgid "X509 Certificate"
+msgstr "Certificado X509"
 
 msgid "Yes"
 msgstr "Sí"
