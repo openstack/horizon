@@ -102,7 +102,8 @@ class VolumesTable(volumes_tables.VolumesTable):
                                  link="horizon:admin:volumes:detail")
     attachments = AttachmentColumn("attachments",
                                    verbose_name=_("Attached To"))
-    host = tables.Column("os-vol-host-attr:host", verbose_name=_("Host"))
+    host = tables.WrappingColumn("os-vol-host-attr:host",
+                                 verbose_name=_("Host"))
     tenant = tables.Column(lambda obj: getattr(obj, 'tenant_name', None),
                            verbose_name=_("Project"))
     group = volumes_tables.GroupNameColumn(
