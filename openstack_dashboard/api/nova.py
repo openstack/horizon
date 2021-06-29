@@ -411,7 +411,8 @@ def server_create(request, name, image, flavor, key_name, user_data,
                   availability_zone=None, instance_count=1, admin_pass=None,
                   disk_config=None, config_drive=None, meta=None,
                   scheduler_hints=None, description=None):
-    microversion = get_microversion(request, ("instance_description",
+    microversion = get_microversion(request, ("multiattach",
+                                              "instance_description",
                                               "auto_allocated_network"))
     nova_client = _nova.novaclient(request, version=microversion)
 
