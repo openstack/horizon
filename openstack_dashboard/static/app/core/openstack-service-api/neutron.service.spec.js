@@ -312,6 +312,16 @@
         "error": "Unable to retrieve the qos policies."
       },
       {
+        "func": "createNetworkQoSPolicy",
+        "method": "post",
+        "path": "/api/neutron/qos_policies/",
+        "data": "new network qos policy",
+        "error": "Unable to create the QoS Policy.",
+        "testInput": [
+          "new network qos policy"
+        ]
+      },
+      {
         "func": "deletePolicy",
         "method": "delete",
         "path": "/api/neutron/qos_policies/63/",

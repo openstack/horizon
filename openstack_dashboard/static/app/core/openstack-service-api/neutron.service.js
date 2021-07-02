@@ -38,6 +38,7 @@
       createNetwork: createNetwork,
       createSubnet: createSubnet,
       createTrunk: createTrunk,
+      createNetworkQoSPolicy: createNetworkQoSPolicy,
       deletePolicy: deletePolicy,
       deleteTrunk: deleteTrunk,
       getAgents: getAgents,
@@ -388,6 +389,42 @@
         })
         .error(function () {
           toastService.add('error', gettext('Unable to retrieve the qos policies.'));
+        });
+    }
+
+     /**
+     * @name createNetworkQoSPolicy
+     * @description
+     * Create a new network qos policy.
+     * @returns {Object} The new network qos policy object on success.
+     *
+     * @param {Object} newQosPolicy
+     * The network qos policy to create.  Required.
+     *
+     * Example new qos policy object
+     * {
+     *    "name": "myNewNetworkQoSPolicy",
+     *    "description": "new network qos policy",
+     *    "shared": true,
+     * }
+     *
+     * Description of properties on the qos policy object
+     *
+     * @property {string} newQosPolicy.name
+     * The name of the new network qos policy. Required.
+     *
+     * @property {string} newQosPolicy.description
+     * The description of the qos policy. Optional.
+     *
+     * @property {boolean} newQosPolicy.shared
+     * Indicates whether this network qos policy is shared across all other projects.
+     * By default, it is unchecked (false). Optional.
+     *
+     */
+    function createNetworkQoSPolicy(newQosPolicy) {
+      return apiService.post('/api/neutron/qos_policies/', newQosPolicy)
+        .error(function () {
+          toastService.add('error', gettext('Unable to create the QoS Policy.'));
         });
     }
 

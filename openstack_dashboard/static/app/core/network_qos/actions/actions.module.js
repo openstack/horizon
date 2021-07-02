@@ -31,16 +31,29 @@
 
   registerQosActions.$inject = [
     'horizon.framework.conf.resource-type-registry.service',
+    'horizon.app.core.network_qos.actions.create.service',
     'horizon.app.core.network_qos.actions.delete.service',
     'horizon.app.core.network_qos.resourceType'
   ];
 
   function registerQosActions(
     registry,
+    createService,
     deleteService,
     qosResourceTypeCode
   ) {
     var qosResourceType = registry.getResourceType(qosResourceTypeCode);
+
+    qosResourceType.globalActions
+      .append({
+        id: 'createPolicyAction',
+        service: createService,
+        template: {
+          text: gettext('Create Policy'),
+          type: 'create'
+        }
+      }
+    );
 
     qosResourceType.itemActions
       .append({

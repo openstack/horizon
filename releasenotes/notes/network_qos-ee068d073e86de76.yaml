@@ -1,0 +1,5 @@
+---
+features:
+  - |
+    Add "Create Network QoS Policy" button to QoS Policy Panel.
+    From Horizon users can now create network qos policy.

@@ -8,6 +8,3 @@ PANEL_GROUP = 'network'
 # Python panel class of the PANEL to be added.
 ADD_PANEL = ('openstack_dashboard.dashboards.project.network_qos'
              '.panel.NetworkQoS')
-
-# Will default to disabled until the feature is completed.
-DISABLED = True

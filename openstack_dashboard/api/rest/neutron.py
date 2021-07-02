@@ -301,6 +301,20 @@ class QoSPolicies(generic.View):
                                          tenant_id=request.user.project_id)
         return {'items': [p.to_dict() for p in result]}
 
+    @rest_utils.ajax(data_required=True)
+    def post(self, request):
+        """Create a Network QoS policy.
+
+        Create a qos policy using parameters supplied in the POST
+        application/json object. The "name" (string) parameter is required.
+        This method returns the new qos policy object on success.
+        """
+        qospolicy = api.neutron.policy_create(request, **request.DATA)
+        return rest_utils.CreatedResponse(
+            '/api/neutron/qos_policies/%s' % qospolicy.id,
+            qospolicy.to_dict()
+        )
+
 
 @urls.register
 class QoSPolicy(generic.View):

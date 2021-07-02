@@ -23,6 +23,11 @@
       registry = $injector.get('horizon.framework.conf.resource-type-registry.service');
     }));
 
+    it('registers Create Policy as a global action', function() {
+      var actions = registry.getResourceType('OS::Neutron::QoSPolicy').globalActions;
+      expect(actionHasId(actions, 'createPolicyAction')).toBe(true);
+    });
+
     it('registers Delete Policy as an item action', function() {
       var actions = registry.getResourceType('OS::Neutron::QoSPolicy').itemActions;
       expect(actionHasId(actions, 'deletePolicyAction')).toBe(true);
