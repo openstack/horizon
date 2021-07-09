@@ -239,8 +239,7 @@ class VolumesPage(basepage.BaseNavigationPage):
     def is_volume_attached_to_instance(self, volume, instance):
         row = self._get_row_with_volume_name(volume)
         return row.cells[
-            self.VOLUMES_TABLE_ATTACHED_COLUMN].text.startswith(
-            "Attached to {0}".format(instance))
+            self.VOLUMES_TABLE_ATTACHED_COLUMN].text.endswith(instance)
 
     def detach_volume_from_instance(self, volume, instance):
         row = self._get_row_with_volume_name(volume)

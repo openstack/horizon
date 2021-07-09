@@ -334,7 +334,6 @@ class TestImagesAdmin(helpers.AdminTestCase, TestImagesLegacy):
     def images_page(self):
         return self.home_pg.go_to_admin_compute_imagespage()
 
-    @pytest.mark.skip(reason="Bug 1774697")
     def test_image_create_delete(self):
         super().test_image_create_delete()
 
