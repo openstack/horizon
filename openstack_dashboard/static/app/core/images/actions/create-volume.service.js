@@ -72,8 +72,7 @@
 
     function initAction() {
       createVolumePromise = policy.ifAllowed({rules: [['volume', 'volume:create']]});
-      if (serviceCatalog.ifTypeEnabled('volumev2') ||
-          serviceCatalog.ifTypeEnabled('volumev3')) {
+      if (serviceCatalog.ifTypeEnabled('volumev3')) {
         volumeServiceEnabledPromise = true;
       } else {
         volumeServiceEnabledPromise = false;

@@ -474,44 +474,35 @@ class CinderApiVersionTests(test.TestCase):
         client = api.cinder.cinderclient(self.request)
         self.assertIsInstance(client, cinder_client.v3.client.Client)
 
-    @override_settings(OPENSTACK_API_VERSIONS={'volume': 2})
-    def test_v2_setting_returns_v2_client(self):
-        # FIXME(e0ne): this is a temporary workaround to bypass
-        # @memoized_with_request decorator caching. We have to find a better
-        # solution instead this hack.
-        self.request.user.username = 'test_user_cinder_v2'
-        client = api.cinder.cinderclient(self.request)
-        self.assertIsInstance(client, cinder_client.v2.client.Client)
-
-    def test_get_v2_volume_attributes(self):
-        # Get a v2 volume
-        volume = self.cinder_volumes.get(name="v2_volume")
+    def test_get_v3_volume_attributes(self):
+        # Get a v3 volume
+        volume = self.cinder_volumes.get(name="v3_volume")
         self.assertTrue(hasattr(volume._apiresource, 'name'))
 
-        name = "A v2 test volume name"
-        description = "A v2 volume description"
+        name = "A v3 test volume name"
+        description = "A v3 volume description"
         setattr(volume._apiresource, 'name', name)
         setattr(volume._apiresource, 'description', description)
         self.assertEqual(name, volume.name)
         self.assertEqual(description, volume.description)
 
-    def test_get_v2_snapshot_attributes(self):
-        # Get a v2 snapshot
+    def test_get_v3_snapshot_attributes(self):
+        # Get a v3 snapshot
         snapshot = self.cinder_volume_snapshots.get(
-            description="v2 volume snapshot description")
+            description="v3 volume snapshot description")
         self.assertFalse(hasattr(snapshot._apiresource, 'display_name'))
 
-        name = "A v2 test snapshot name"
-        description = "A v2 snapshot description"
+        name = "A v3 test snapshot name"
+        description = "A v3 snapshot description"
         setattr(snapshot._apiresource, 'name', name)
         setattr(snapshot._apiresource, 'description', description)
         self.assertEqual(name, snapshot.name)
         self.assertEqual(description, snapshot.description)
 
-    def test_get_v2_snapshot_metadata(self):
-        # Get a v2 snapshot with metadata
+    def test_get_v3_snapshot_metadata(self):
+        # Get a v3 snapshot with metadata
         snapshot = self.cinder_volume_snapshots.get(
-            description="v2 volume snapshot with metadata description")
+            description="v3 volume snapshot with metadata description")
         self.assertTrue(hasattr(snapshot._apiresource, 'metadata'))
         self.assertFalse(hasattr(snapshot._apiresource, 'display_name'))
 

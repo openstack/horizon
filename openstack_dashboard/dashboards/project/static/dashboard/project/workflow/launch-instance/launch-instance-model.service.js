@@ -606,13 +606,8 @@
       var volumeSnapshotDeferred = $q.defer();
       var absoluteLimitsDeferred = $q.defer();
       serviceCatalog
-        .ifTypeEnabled('volumev2')
-        .then(onVolumeServiceEnabled, onCheckVolumeV3);
-      function onCheckVolumeV3() {
-        serviceCatalog
-          .ifTypeEnabled('volumev3')
-          .then(onVolumeServiceEnabled, resolvePromises);
-      }
+        .ifTypeEnabled('volumev3')
+        .then(onVolumeServiceEnabled, resolvePromises);
       function onVolumeServiceEnabled() {
         model.volumeBootable = true;
         model.allowCreateVolumeFromImage = true;

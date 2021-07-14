@@ -1,0 +1,9 @@
+---
+upgrade:
+  - |
+    With this release, Horizon uses only the Block Storage API v3.
+    Horizon has been using the Block Storage API v3 by default since
+    Queens, so this change should not impact Horizon functionality.
+    (The Block Storage API v2 was deprecated by the Cinder project
+    in the Pike release, and is scheduled to be removed in the Xena
+    release.)

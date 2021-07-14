@@ -28,7 +28,7 @@ from django.utils.translation import ugettext_lazy as _
 from cinderclient import api_versions
 from cinderclient import client as cinder_client
 from cinderclient import exceptions as cinder_exception
-from cinderclient.v2.contrib import list_extensions as cinder_list_extensions
+from cinderclient.v3.contrib import list_extensions as cinder_list_extensions
 
 from horizon import exceptions
 from horizon.utils.memoized import memoized
@@ -58,9 +58,6 @@ VERSIONS = base.APIVersionManager("volume", preferred_version='3')
 
 try:
     # pylint: disable=ungrouped-imports
-    from cinderclient.v2 import client as cinder_client_v2
-    VERSIONS.load_supported_version('2', {"client": cinder_client_v2,
-                                          "version": '2'})
     from cinderclient.v3 import client as cinder_client_v3
     VERSIONS.load_supported_version('3', {"client": cinder_client_v3,
                                           "version": '3'})
@@ -216,11 +213,9 @@ def _find_cinder_url(request, version=None):
         version = api_version['version']
     version = base.Version(version)
 
-    # We support only cinder v2 and v3.
-    if version.major == 3:
-        candidates = ['volumev3', 'volume']
-    else:
-        candidates = ['volumev2', 'volume']
+    # We support only cinder v3.
+    # FIXME: 'block-storage' is also a valid service_type for cinder
+    candidates = ['volumev3', 'volume']
 
     for service_name in candidates:
         try:
@@ -1049,8 +1044,8 @@ def message_list(request, search_opts=None):
 
 def is_volume_service_enabled(request):
     return bool(
+        # FIXME: 'block-storage' is also a valid service_type for cinder
         base.is_service_enabled(request, 'volumev3') or
-        base.is_service_enabled(request, 'volumev2') or
         base.is_service_enabled(request, 'volume')
     )
 

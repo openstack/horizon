@@ -1496,7 +1496,7 @@ class VolumeViewTests(test.ResetImageAPIVersionMixin, test.TestCase):
     @mock.patch.object(cinder, 'tenant_absolute_limits')
     @mock.patch.object(cinder, 'volume_get')
     def test_get_data(self, mock_get, mock_limits, mock_quotas):
-        volume = self.cinder_volumes.get(name='v2_volume')
+        volume = self.cinder_volumes.get(name='v3_volume')
         volume._apiresource.name = ""
 
         mock_get.return_value = volume
@@ -1693,7 +1693,7 @@ class VolumeViewTests(test.ResetImageAPIVersionMixin, test.TestCase):
     @mock.patch.object(cinder, 'volume_upload_to_image')
     @mock.patch.object(cinder, 'volume_get')
     def test_upload_to_image(self, mock_get, mock_upload, mock_schemas_list):
-        volume = self.cinder_volumes.get(name='v2_volume')
+        volume = self.cinder_volumes.get(name='v3_volume')
         loaded_resp = {'container_format': 'bare',
                        'disk_format': 'raw',
                        'id': '741fe2ac-aa2f-4cec-82a9-4994896b43fb',
@@ -1782,7 +1782,7 @@ class VolumeViewTests(test.ResetImageAPIVersionMixin, test.TestCase):
     @mock.patch.object(cinder, 'volume_get')
     def test_retype_volume_supported_action_item(self, mock_get,
                                                  mock_limits, mock_quotas):
-        volume = self.cinder_volumes.get(name='v2_volume')
+        volume = self.cinder_volumes.get(name='v3_volume')
         limits = self.cinder_limits['absolute']
 
         mock_get.return_value = volume

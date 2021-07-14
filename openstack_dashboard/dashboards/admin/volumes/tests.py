@@ -252,9 +252,9 @@ class VolumeTests(test.BaseAdminViewTests):
 
     @test.create_mocks({api.cinder: ['volume_get', 'volume_unmanage']})
     def test_unmanage_volume(self):
-        # important - need to get the v2 cinder volume which has host data
+        # important - need to get the v3 cinder volume which has host data
         volume_list = [x for x in self.cinder_volumes.list()
-                       if x.name == 'v2_volume']
+                       if x.name == 'v3_volume']
         volume = volume_list[0]
         form_data = {'volume_name': volume.name,
                      'host_name': 'host@backend-name#pool',
@@ -276,7 +276,7 @@ class VolumeTests(test.BaseAdminViewTests):
 
     @test.create_mocks({api.cinder: ['volume_get', 'pool_list']})
     def test_volume_migrate_get(self):
-        volume = self.cinder_volumes.get(name='v2_volume')
+        volume = self.cinder_volumes.get(name='v3_volume')
 
         self.mock_pool_list.return_value = self.cinder_pools.list()
         self.mock_volume_get.return_value = volume
@@ -293,7 +293,7 @@ class VolumeTests(test.BaseAdminViewTests):
 
     @test.create_mocks({api.cinder: ['volume_get']})
     def test_volume_migrate_get_volume_get_exception(self):
-        volume = self.cinder_volumes.get(name='v2_volume')
+        volume = self.cinder_volumes.get(name='v3_volume')
         self.mock_volume_get.side_effect = self.exceptions.cinder
 
         url = reverse('horizon:admin:volumes:migrate',
@@ -306,7 +306,7 @@ class VolumeTests(test.BaseAdminViewTests):
 
     @test.create_mocks({api.cinder: ['volume_get', 'pool_list']})
     def test_volume_migrate_list_pool_get_exception(self):
-        volume = self.cinder_volumes.get(name='v2_volume')
+        volume = self.cinder_volumes.get(name='v3_volume')
 
         self.mock_volume_get.return_value = volume
         self.mock_pool_list.side_effect = self.exceptions.cinder
@@ -323,7 +323,7 @@ class VolumeTests(test.BaseAdminViewTests):
     @test.create_mocks({
         api.cinder: ['volume_migrate', 'volume_get', 'pool_list']})
     def test_volume_migrate_post(self):
-        volume = self.cinder_volumes.get(name='v2_volume')
+        volume = self.cinder_volumes.get(name='v3_volume')
         host = self.cinder_pools.first().name
 
         self.mock_volume_get.return_value = volume
@@ -345,7 +345,7 @@ class VolumeTests(test.BaseAdminViewTests):
     @test.create_mocks({
         api.cinder: ['volume_migrate', 'volume_get', 'pool_list']})
     def test_volume_migrate_post_api_exception(self):
-        volume = self.cinder_volumes.get(name='v2_volume')
+        volume = self.cinder_volumes.get(name='v3_volume')
         host = self.cinder_pools.first().name
 
         self.mock_volume_get.return_value = volume
@@ -365,7 +365,7 @@ class VolumeTests(test.BaseAdminViewTests):
 
     @test.create_mocks({api.cinder: ['volume_get']})
     def test_update_volume_status_get(self):
-        volume = self.cinder_volumes.get(name='v2_volume')
+        volume = self.cinder_volumes.get(name='v3_volume')
         self.mock_volume_get.return_value = volume
 
         url = reverse('horizon:admin:volumes:update_status',

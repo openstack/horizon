@@ -23,7 +23,7 @@ class Backups(horizon.Panel):
     name = _("Backups")
     slug = 'backups'
     permissions = (
-        ('openstack.services.volume', 'openstack.services.volumev2',
+        ('openstack.services.volume',
          'openstack.services.volumev3'),
     )
     policy_rules = (("volume", "backup:get_all"),)

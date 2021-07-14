@@ -711,19 +711,19 @@ class KeystoneRestTestCase(test.TestCase):
                 'id': '2b5bc2e59b094f898a43f5e8ce446240',
                 'name': 'glance'},
             {'endpoints': [
-                {'url': 'http://cool_url/volume/v2/test',
+                {'url': 'http://cool_url/volume/v3/test',
                  'interface': 'public',
                  'region': 'RegionOne',
                  'region_id': 'RegionOne',
                  'id': '29a629afb80547ea9baa4266e97b4cb5'},
-                {'url': 'http://cool_url/volume/v2/test',
+                {'url': 'http://cool_url/volume/v3/test',
                  'interface': 'admin',
                  'region': 'RegionOne',
                  'region_id': 'RegionOne',
                  'id': '29a629afb80547ea9baa4266e97b4cb5'}],
-                'type': 'volumev2',
+                'type': 'volumev3',
                 'id': '55ef272cfa714e54b8f2046c157b027d',
-                'name': 'cinderv2'},
+                'name': 'cinderv3'},
             {'endpoints': [
                 {'url': 'http://cool_url/compute/v2/check',
                  'interface': 'internal',
@@ -745,14 +745,14 @@ class KeystoneRestTestCase(test.TestCase):
                     'id': '2b5bc2e59b094f898a43f5e8ce446240',
                     'name': 'glance'},
                    {'endpoints': [
-                    {'url': 'http://cool_url/volume/v2/test',
+                    {'url': 'http://cool_url/volume/v3/test',
                      'interface': 'public',
                      'region': 'RegionOne',
                      'region_id': 'RegionOne',
                      'id': '29a629afb80547ea9baa4266e97b4cb5'}],
-                    'type': 'volumev2',
+                    'type': 'volumev3',
                     'id': '55ef272cfa714e54b8f2046c157b027d',
-                    'name': 'cinderv2'}]
+                    'name': 'cinderv3'}]
         self.assertEqual(content, jsonutils.loads(response.content))
 
     #

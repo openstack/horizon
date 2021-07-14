@@ -12,28 +12,44 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
-from cinderclient.v2 import availability_zones
-from cinderclient.v2.contrib import list_extensions as cinder_list_extensions
-from cinderclient.v2 import pools
-from cinderclient.v2 import qos_specs
-from cinderclient.v2 import quotas
-from cinderclient.v2 import services
-from cinderclient.v2 import volume_backups as vol_backups
-from cinderclient.v2 import volume_encryption_types as vol_enc_types
-from cinderclient.v2 import volume_snapshots as vol_snaps
-from cinderclient.v2 import volume_transfers
-from cinderclient.v2 import volume_type_access
-from cinderclient.v2 import volume_types
-from cinderclient.v2 import volumes
+from cinderclient.v3 import availability_zones
+from cinderclient.v3.contrib import list_extensions as cinder_list_extensions
 from cinderclient.v3 import group_snapshots
 from cinderclient.v3 import group_types
 from cinderclient.v3 import groups
 from cinderclient.v3 import messages
+from cinderclient.v3 import pools
+from cinderclient.v3 import qos_specs
+from cinderclient.v3 import services
+from cinderclient.v3 import volume_backups as vol_backups
+from cinderclient.v3 import volume_encryption_types as vol_enc_types
+from cinderclient.v3 import volume_snapshots as vol_snaps
+from cinderclient.v3 import volume_type_access
+from cinderclient.v3 import volume_types
+from cinderclient.v3 import volumes
 
 from openstack_dashboard import api
 from openstack_dashboard.api import cinder as cinder_api
 from openstack_dashboard.test.test_data import utils
 from openstack_dashboard.usage import quotas as usage_quotas
+
+# FIXME: workaround for some classes being missing from cinderclient.v3
+# in python-cinderclient versions < 8.0.0.  These can become simple
+# 'from cinderclient.v3 import xxx' above after we have
+#  python-cinderclient>=8.0.0 in requirements.txt
+try:
+    # pylint: disable=ungrouped-imports
+    from cinderclient.v3.quotas import QuotaSet as _qs  # noqa
+    from cinderclient.v3 import quotas  # noqa
+except ImportError:
+    from cinderclient.v2 import quotas
+
+try:
+    # pylint: disable=ungrouped-imports
+    from cinderclient.v3.volume_transfers import VolumeTransfer as _vt  # noqa
+    from cinderclient.v3 import volume_transfers  # noqa
+except ImportError:
+    from cinderclient.v2 import volume_transfers
 
 
 def data(TEST):
@@ -186,12 +202,12 @@ def data(TEST):
         {'volume_type_id': '1', 'project_id': '1'})
     TEST.cinder_type_access.add(vol_type_access1)
 
-    # Volumes - Cinder v2
-    volume_v2 = volumes.Volume(
+    # Volumes - Cinder v3 (v2 removed in Xena)
+    volume_v3 = volumes.Volume(
         volumes.VolumeManager(None),
         {'id': "31023e92-8008-4c8b-8059-7f2293ff1234",
-         'name': 'v2_volume',
-         'description': "v2 Volume Description",
+         'name': 'v3_volume',
+         'description': "v3 Volume Description",
          'status': 'available',
          'size': 20,
          'created_at': '2014-01-27 10:30:00',
@@ -199,9 +215,9 @@ def data(TEST):
          'os-vol-host-attr:host': 'host@backend-name#pool',
          'bootable': 'true',
          'attachments': []})
-    volume_v2.bootable = 'true'
+    volume_v3.bootable = 'true'
 
-    TEST.cinder_volumes.add(api.cinder.Volume(volume_v2))
+    TEST.cinder_volumes.add(api.cinder.Volume(volume_v3))
 
     snapshot = vol_snaps.Snapshot(
         vol_snaps.SnapshotManager(None),
@@ -216,7 +232,7 @@ def data(TEST):
         vol_snaps.SnapshotManager(None),
         {'id': 'c9d0881a-4c0b-4158-a212-ad27e11c2b0f',
          'name': '',
-         'description': 'v2 volume snapshot description',
+         'description': 'v3 volume snapshot description',
          'size': 80,
          'created_at': '2014-01-27 10:30:00',
          'status': 'available',
@@ -225,7 +241,7 @@ def data(TEST):
         vol_snaps.SnapshotManager(None),
         {'id': 'c9d0881a-4c0b-4158-a212-ad27e11c2b0e',
          'name': '',
-         'description': 'v2 volume snapshot description 2',
+         'description': 'v3 volume snapshot description 2',
          'size': 80,
          'created_at': '2014-01-27 10:30:00',
          'status': 'available',
@@ -234,7 +250,7 @@ def data(TEST):
         vol_snaps.SnapshotManager(None),
         {'id': 'cd6be1eb-82ca-4587-8036-13c37c00c2b1',
          'name': '',
-         'description': 'v2 volume snapshot with metadata description',
+         'description': 'v3 volume snapshot with metadata description',
          'size': 80,
          'created_at': '2014-01-27 10:30:00',
          'status': 'available',
@@ -320,7 +336,7 @@ def data(TEST):
     TEST.cinder_volume_encryption.add(vol_enc_metadata1)
     TEST.cinder_volume_encryption.add(vol_unenc_metadata1)
 
-    # v2 extensions
+    # v3 extensions
 
     extensions = [
         {'alias': 'os-services',
@@ -333,11 +349,6 @@ def data(TEST):
          'links': '[]',
          'name': 'AdminActions',
          'updated': '2012-08-25T00:00:00+00:00'},
-        {'alias': 'os-volume-transfer',
-         'description': 'Volume transfer management support.',
-         'links': '[]',
-         'name': 'VolumeTransfer',
-         'updated': '2013-05-29T00:00:00+00:00'},
     ]
     extensions = [
         cinder_list_extensions.ListExtResource(
@@ -540,7 +551,7 @@ def data(TEST):
         vol_snaps.SnapshotManager(None),
         {'id': 'cd6be1eb-82ca-4587-8036-13c37c00c2b1',
          'name': '',
-         'description': 'v2 volume snapshot with metadata description',
+         'description': 'v3 volume snapshot with metadata description',
          'size': 80,
          'status': 'available',
          'volume_id': '7e4efa56-9ca1-45ff-b83c-2efb2383930d',
