@@ -153,15 +153,21 @@ class DomainsViewTests(test.BaseAdminViewTests):
         self.mock_domain_list.return_value = self.domains.list()
 
         formData = {'action': 'domains__set_domain_context__%s' % domain.id}
-        res = self.client.post(DOMAINS_INDEX_URL, formData)
+        res = self.client.post(DOMAINS_INDEX_URL, formData, follow=True)
 
+        self.assertRedirects(res, DOMAINS_INDEX_URL, status_code=302,
+                             target_status_code=200,
+                             fetch_redirect_response=True)
         self.assertTemplateUsed(res, constants.DOMAINS_INDEX_VIEW_TEMPLATE)
         self.assertCountEqual(res.context['table'].data, [domain, ])
         self.assertContains(res, "<em>another_test_domain:</em>")
 
         formData = {'action': 'domains__clear_domain_context__%s' % domain.id}
-        res = self.client.post(DOMAINS_INDEX_URL, formData)
+        res = self.client.post(DOMAINS_INDEX_URL, formData, follow=True)
 
+        self.assertRedirects(res, DOMAINS_INDEX_URL, status_code=302,
+                             target_status_code=200,
+                             fetch_redirect_response=True)
         self.assertTemplateUsed(res, constants.DOMAINS_INDEX_VIEW_TEMPLATE)
         self.assertCountEqual(res.context['table'].data, self.domains.list())
         self.assertNotContains(res, "<em>test_domain:</em>")

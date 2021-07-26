@@ -15,6 +15,7 @@
 import logging
 
 from django.conf import settings
+from django import shortcuts
 from django.template import defaultfilters as filters
 from django.urls import reverse
 from django.utils.http import urlencode
@@ -246,9 +247,11 @@ class SetDomainContext(tables.Action):
                 messages.success(request,
                                  _('Domain Context updated to Domain %s.') %
                                  domain.name)
+                return shortcuts.redirect(request.get_full_path())
             except Exception:
                 messages.error(request,
                                _('Unable to set Domain Context.'))
+                return shortcuts.redirect(request.get_full_path())
 
 
 class UnsetDomainContext(tables.Action):
@@ -268,6 +271,7 @@ class UnsetDomainContext(tables.Action):
             request.session.pop("domain_context")
             request.session.pop("domain_context_name")
             messages.success(request, _('Domain Context cleared.'))
+            return shortcuts.redirect(request.get_full_path())
 
 
 class DomainsTable(tables.DataTable):
