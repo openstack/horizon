@@ -39,7 +39,7 @@ jmespath==0.9.0
 jsonpatch==1.16
 jsonpointer==1.13
 jsonschema==2.6.0
-keystoneauth1==3.4.0
+keystoneauth1==4.3.1
 kombu==4.0.0
 linecache2==1.0.0
 MarkupSafe==1.0
@@ -57,7 +57,7 @@ osc-lib==1.8.0
 oslo.concurrency==3.26.0
 oslo.config==5.2.0
 oslo.context==2.22.0
-oslo.i18n==3.15.3
+oslo.i18n==5.0.1
 oslo.log==3.36.0
 oslo.messaging==5.29.0
 oslo.middleware==3.31.0
@@ -65,11 +65,11 @@ oslo.policy==3.2.0
 oslo.serialization==2.18.0
 oslo.service==1.24.0
 oslo.upgradecheck==0.1.1
-oslo.utils==3.40.0
+oslo.utils==4.8.0
 osprofiler==2.3.0
 Paste==2.0.2
 PasteDeploy==1.5.0
-pbr==2.0.0
+pbr==5.5.0
 pep8==1.5.7
 pika==0.10.0
 pika-pool==0.1.3
@@ -87,7 +87,7 @@ pyScss==1.3.7
 pytest==5.3.5
 pytest-django==3.8.0
 pytest-html==2.0.1
-python-cinderclient==5.0.0
+python-cinderclient==8.0.0
 python-dateutil==2.8.1
 python-glanceclient==2.8.0
 python-keystoneclient==3.22.0
@@ -101,7 +101,7 @@ PyYAML==3.12
 rcssmin==1.0.6
 reno==3.1.0
 repoze.lru==0.7
-requests==2.14.2
+requests==2.25.1
 requestsexceptions==1.2.0
 restructuredtext-lint==1.1.1
 rfc3986==0.3.1
@@ -113,7 +113,7 @@ simplejson==3.5.1
 six==1.12.0
 snowballstemmer==1.2.1
 statsd==3.2.1
-stevedore==1.20.0
+stevedore==3.3.0
 tenacity==3.2.1
 termcolor==1.1.0
 testscenarios==0.4

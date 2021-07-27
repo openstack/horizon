@@ -20,10 +20,12 @@ from cinderclient.v3 import groups
 from cinderclient.v3 import messages
 from cinderclient.v3 import pools
 from cinderclient.v3 import qos_specs
+from cinderclient.v3 import quotas
 from cinderclient.v3 import services
 from cinderclient.v3 import volume_backups as vol_backups
 from cinderclient.v3 import volume_encryption_types as vol_enc_types
 from cinderclient.v3 import volume_snapshots as vol_snaps
+from cinderclient.v3 import volume_transfers
 from cinderclient.v3 import volume_type_access
 from cinderclient.v3 import volume_types
 from cinderclient.v3 import volumes
@@ -32,24 +34,6 @@ from openstack_dashboard import api
 from openstack_dashboard.api import cinder as cinder_api
 from openstack_dashboard.test.test_data import utils
 from openstack_dashboard.usage import quotas as usage_quotas
-
-# FIXME: workaround for some classes being missing from cinderclient.v3
-# in python-cinderclient versions < 8.0.0.  These can become simple
-# 'from cinderclient.v3 import xxx' above after we have
-#  python-cinderclient>=8.0.0 in requirements.txt
-try:
-    # pylint: disable=ungrouped-imports
-    from cinderclient.v3.quotas import QuotaSet as _qs  # noqa
-    from cinderclient.v3 import quotas  # noqa
-except ImportError:
-    from cinderclient.v2 import quotas
-
-try:
-    # pylint: disable=ungrouped-imports
-    from cinderclient.v3.volume_transfers import VolumeTransfer as _vt  # noqa
-    from cinderclient.v3 import volume_transfers  # noqa
-except ImportError:
-    from cinderclient.v2 import volume_transfers
 
 
 def data(TEST):
