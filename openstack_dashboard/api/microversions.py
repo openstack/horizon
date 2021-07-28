@@ -29,12 +29,12 @@ LOG = logging.getLogger(__name__)
 MICROVERSION_FEATURES = {
     "nova": {
         "locked_attribute": ["2.9", "2.42"],
-        "instance_description": ["2.19", "2.42"],
+        "instance_description": ["2.19", "2.60"],
         "remote_console_mks": ["2.8", "2.53"],
         "servergroup_soft_policies": ["2.15", "2.60"],
         "servergroup_user_info": ["2.13", "2.60"],
         "multiattach": ["2.60"],
-        "auto_allocated_network": ["2.37", "2.42"],
+        "auto_allocated_network": ["2.37", "2.60"],
         "key_types": ["2.2", "2.9"],
         "key_type_list": ["2.9"],
     },
