@@ -2,7 +2,6 @@
     templates:
       - check-requirements
       - horizon-cross-jobs
-      - horizon-nodejs10-jobs
       - horizon-nodejs14-jobs
       - horizon-non-primary-django-jobs
       - openstack-lower-constraints-jobs
@@ -28,10 +27,8 @@
       jobs:
         - horizon-integration-tests-xstatic-master
         - horizon-tox-py36-xstatic-master
-        - horizon-nodejs10-run-test-xstatic-master
         - horizon-nodejs14-run-test-xstatic-master
     periodic:
       jobs:
-        - horizon-nodejs10-run-test
         - horizon-nodejs14-run-test
         - horizon-integration-tests

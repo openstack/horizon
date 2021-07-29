@@ -1,31 +1,4 @@
 - job:
-    name: horizon-nodejs10-run-lint
-    parent: nodejs-run-lint
-    description: |
-      Run lint using Node 10 for horizon plugins.
-    vars:
-      node_version: 10
-      tox_constraints_file: "{{ ansible_user_dir }}/{{ zuul.projects['opendev.org/openstack/requirements'].src_dir }}/upper-constraints.txt"
-    nodeset: ubuntu-focal
-    pre-run: playbooks/horizon-nodejs/pre.yaml
-    required-projects:
-      - openstack/horizon
-      - openstack/requirements
-
-- job:
-    name: horizon-nodejs10-run-test
-    parent: nodejs-run-test-browser
-    description: |
-      Run test using Node 10 for horizon plugins.
-    vars:
-      node_version: 10
-      tox_constraints_file: "{{ ansible_user_dir }}/{{ zuul.projects['opendev.org/openstack/requirements'].src_dir }}/upper-constraints.txt"
-    pre-run: playbooks/horizon-nodejs/pre.yaml
-    nodeset: ubuntu-focal
-    required-projects:
-      - openstack/horizon
-      - openstack/requirements
-- job:
     name: horizon-nodejs14-run-lint
     parent: nodejs-run-lint
     description: |
@@ -52,30 +25,6 @@
     required-projects:
       - openstack/horizon
       - openstack/requirements
-
-- project-template:
-    name: horizon-nodejs10-jobs
-    description: |
-      Run lint and test jobs using Node 10 (LTS) for horizon plugins.
-    check:
-      jobs:
-        - horizon-nodejs10-run-lint
-        - horizon-nodejs10-run-test
-    gate:
-      jobs:
-        - horizon-nodejs10-run-lint
-        - horizon-nodejs10-run-test
-
-- project-template:
-    name: horizon-nodejs10-jobs-nonvoting
-    description: |
-      Run lint and test jobs using Node 10 (LTS) for horizon plugins.
-    check:
-      jobs:
-        - horizon-nodejs10-run-lint:
-            voting: false
-        - horizon-nodejs10-run-test:
-            voting: false
 
 - project-template:
     name: horizon-nodejs14-jobs
