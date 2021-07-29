@@ -83,7 +83,7 @@ class DHCPAgentsFilterAction(tables.FilterAction):
 
 class DHCPAgentsTable(tables.DataTable):
     id = tables.Column('id', verbose_name=_('ID'), hidden=True)
-    host = tables.Column('host', verbose_name=_('Host'))
+    host = tables.WrappingColumn('host', verbose_name=_('Host'))
     status = tables.Column(get_agent_status, verbose_name=_('Status'))
     state = tables.Column(get_agent_state, verbose_name=_('Admin State'))
     heartbeat_timestamp = tables.Column('heartbeat_timestamp',

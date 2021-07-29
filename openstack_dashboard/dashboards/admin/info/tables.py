@@ -103,7 +103,7 @@ def get_agent_status(agent):
 
 class NovaServicesTable(tables.DataTable):
     binary = tables.Column("binary", verbose_name=_('Name'))
-    host = tables.Column('host', verbose_name=_('Host'))
+    host = tables.WrappingColumn('host', verbose_name=_('Host'))
     zone = tables.Column('zone', verbose_name=_('Zone'))
     status = tables.Column(get_agent_status, verbose_name=_('Status'))
     state = tables.Column('state', verbose_name=_('State'),
@@ -127,7 +127,7 @@ class NovaServicesTable(tables.DataTable):
 
 class CinderServicesTable(tables.DataTable):
     binary = tables.Column("binary", verbose_name=_('Name'))
-    host = tables.Column('host', verbose_name=_('Host'))
+    host = tables.WrappingColumn('host', verbose_name=_('Host'))
     zone = tables.Column('zone', verbose_name=_('Zone'))
     status = tables.Column(get_agent_status, verbose_name=_('Status'))
     state = tables.Column('state', verbose_name=_('State'),
@@ -202,7 +202,7 @@ class NetworkL3AgentRoutersLinkAction(tables.LinkAction):
 class NetworkAgentsTable(tables.DataTable):
     agent_type = tables.Column('agent_type', verbose_name=_('Type'))
     binary = tables.Column("binary", verbose_name=_('Name'))
-    host = tables.Column('host', verbose_name=_('Host'))
+    host = tables.WrappingColumn('host', verbose_name=_('Host'))
     zone = tables.Column(get_network_agent_zone, verbose_name=_('Zone'))
     status = tables.Column(get_network_agent_status, verbose_name=_('Status'))
     state = tables.Column(get_network_agent_state, verbose_name=_('State'))

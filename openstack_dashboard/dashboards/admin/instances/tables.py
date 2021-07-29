@@ -147,14 +147,13 @@ class AdminInstancesTable(tables.DataTable):
     # techniques isn't practical. It can be added back in when we have names
     # returned in a practical manner by the API.
     # user = tables.Column("user_id", verbose_name=_("User"))
-    host = tables.Column("OS-EXT-SRV-ATTR:host",
-                         verbose_name=_("Host"),
-                         classes=('nowrap-col',))
+    host = tables.WrappingColumn("OS-EXT-SRV-ATTR:host",
+                                 verbose_name=_("Host"))
     name = tables.WrappingColumn("name",
                                  link=get_server_detail_link,
                                  verbose_name=_("Name"))
-    image_name = tables.Column("image_name",
-                               verbose_name=_("Image Name"))
+    image_name = tables.WrappingColumn("image_name",
+                                       verbose_name=_("Image Name"))
     ip = tables.Column(project_tables.get_ips,
                        verbose_name=_("IP Address"),
                        attrs={'data-type': "ip"})
