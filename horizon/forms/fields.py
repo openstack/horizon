@@ -308,6 +308,8 @@ class ThemableSelectWidget(SelectWidget):
 
         new_choices = []
         initial_value = value
+        # Initially assuming value is not present in choices.
+        value_in_choices = False
         for opt_value, opt_label in itertools.chain(self.choices, choices):
             other_html = self.transform_option_html_attrs(opt_label)
 
@@ -318,15 +320,19 @@ class ThemableSelectWidget(SelectWidget):
             opt_label = self.transform_option_label(opt_label)
 
             # If value exists, save off its label for use
+            # and setting value in choices to True
             if opt_value == value:
                 initial_value = opt_label
+                value_in_choices = True
 
             if other_html:
                 new_choices.append((opt_value, opt_label, other_html))
             else:
                 new_choices.append((opt_value, opt_label))
 
-        if value is None and new_choices:
+        # if value is None or it is not present in choices then set
+        # the first value of choices.
+        if (value is None or not value_in_choices) and new_choices:
             initial_value = new_choices[0][1]
 
         attrs = self.build_attrs(attrs)
