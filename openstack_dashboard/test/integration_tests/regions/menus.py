@@ -149,8 +149,20 @@ class NavigationAccordionRegion(baseregion.BaseRegion):
                 else:
                     is_already_within_required_item = True
 
+        # In case menu item is collapsed, then below code detects the same
+        # and disable is_already_within_required_item flag.
+        # For instance, in case of tacker-horizon, selenium report an
+        # exception ElementNotInteractableException while opening pages
+        # under 'NFV Orchestration' panel group. This error occurs when
+        # element is not clickable or it is not visible yet.
+        # The panel group 'NFV Orchestration' is never clicked/open hence
+        # requested pages are not visible/clickable.
+        item = self._get_item(text, loc_craft_func, src_elem)
+        if "collapsed" == item.get_attribute(
+                'class') and is_already_within_required_item is True:
+            is_already_within_required_item = False
+
         if not is_already_within_required_item:
-            item = self._get_item(text, loc_craft_func, src_elem)
             item.click()
             if get_selected_func is not None:
                 self._wait_until_transition_ends(
