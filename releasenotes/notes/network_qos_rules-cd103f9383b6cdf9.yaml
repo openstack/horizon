@@ -1,0 +1,8 @@
+---
+features:
+  - |
+    Add Rules CRUD operations to the Network QoS Policy.
+
+    Added create, edit, and delete rules operation to the network qos policy.
+    Rules supported - Bandwidth-Limit, Minimum-Bandwidth, DSCP-Marking, and
+    Minimum-Packet-Rate.

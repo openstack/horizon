@@ -2012,6 +2012,189 @@ def policy_delete(request, policy_id):
     neutronclient(request).delete_qos_policy(policy_id)
 
 
+class DSCPMarkingRule(NeutronAPIDictWrapper):
+    """Wrapper for neutron DSCPMarkingRule."""
+
+
+@profiler.trace
+def dscp_marking_rule_create(request, policy_id, **kwargs):
+    """Create a DSCP Marking rule.
+
+    :param request: request context
+    :param policy_id: Id of the policy
+    :param dscp_mark: integer
+    :return: A dscp_mark_rule object.
+    """
+    if 'tenant_id' not in kwargs:
+        kwargs['tenant_id'] = request.user.project_id
+    body = {'dscp_marking_rule': kwargs}
+    rule = 'dscp_marking_rule'
+    dscp_marking_rule = neutronclient(request)\
+        .create_dscp_marking_rule(policy_id, body).get(rule)
+    return DSCPMarkingRule(dscp_marking_rule)
+
+
+@profiler.trace
+def dscp_marking_rule_update(request, policy_id, rule_id, **kwargs):
+    """Update a DSCP Marking Limit Rule."""
+
+    body = {'dscp_marking_rule': kwargs}
+    ruleType = 'dscp_marking_rule'
+    dscpmarking_update = neutronclient(request)\
+        .update_dscp_marking_rule(rule_id, policy_id, body).get(ruleType)
+    return DSCPMarkingRule(dscpmarking_update)
+
+
+def dscp_marking_rule_delete(request, policy_id, rule_id):
+    """Deletes a DSCP Marking Rule."""
+
+    neutronclient(request).delete_dscp_marking_rule(rule_id, policy_id)
+
+
+class MinimumBandwidthRule(NeutronAPIDictWrapper):
+    """Wrapper for neutron MinimumBandwidthRule."""
+
+
+@profiler.trace
+def minimum_bandwidth_rule_create(request, policy_id, **kwargs):
+    """Create a Minimum Bandwidth rule.
+
+    :param request: request context
+    :param policy_id: Id of the policy
+    :param min_kbps: integer
+    :param direction: string (egress or ingress)
+    :return: A minimum_bandwidth_rule object.
+    """
+    if 'tenant_id' not in kwargs:
+        kwargs['tenant_id'] = request.user.project_id
+    body = {'minimum_bandwidth_rule': kwargs}
+    rule = 'minimum_bandwidth_rule'
+    minimum_bandwidth_rule = neutronclient(request)\
+        .create_minimum_bandwidth_rule(policy_id, body).get(rule)
+    return MinimumBandwidthRule(minimum_bandwidth_rule)
+
+
+@profiler.trace
+def minimum_bandwidth_rule_update(request, policy_id, rule_id, **kwargs):
+    """Update a Minimum Bandwidth rule.
+
+    :param request: request context
+    :param policy_id: Id of the policy
+    :param min_kbps: integer
+    :param direction: string (egress or ingress)
+    :return: A minimum_bandwidth_rule object.
+    """
+    body = {'minimum_bandwidth_rule': kwargs}
+    ruleType = 'minimum_bandwidth_rule'
+    minbandwidth_update = neutronclient(request)\
+        .update_minimum_bandwidth_rule(rule_id, policy_id, body)\
+        .get(ruleType)
+    return MinimumBandwidthRule(minbandwidth_update)
+
+
+def minimum_bandwidth_rule_delete(request, policy_id, rule_id):
+    """Deletes a Minimum Bandwidth Rule."""
+
+    neutronclient(request).delete_minimum_bandwidth_rule(rule_id, policy_id)
+
+
+class BandwidthLimitRule(NeutronAPIDictWrapper):
+    """Wrapper for neutron BandwidthLimitRule."""
+
+
+@profiler.trace
+def bandwidth_limit_rule_create(request, policy_id, **kwargs):
+    """Create a Bandwidth Limit rule.
+
+    :param request: request context
+    :param policy_id: Id of the policy
+    :param max_kbps: integer
+    :param max_burst_kbps: integer
+    :param direction: string (egress or ingress)
+    :return: A bandwidth_limit_rule object.
+    """
+    body = {'bandwidth_limit_rule': kwargs}
+    if 'tenant_id' not in kwargs:
+        kwargs['tenant_id'] = request.user.project_id
+    body = {'bandwidth_limit_rule': kwargs}
+    rule = 'bandwidth_limit_rule'
+    bandwidth_limit_rule = neutronclient(request)\
+        .create_bandwidth_limit_rule(policy_id, body).get(rule)
+    return BandwidthLimitRule(bandwidth_limit_rule)
+
+
+@profiler.trace
+def bandwidth_limit_rule_update(request, policy_id, rule_id, **kwargs):
+    """Update a Bandwidth Limit rule.
+
+    :param request: request context
+    :param policy_id: Id of the policy
+    :param max_kbps: integer
+    :param max_burst_kbps: integer
+    :param direction: string (egress or ingress)
+    :return: A bandwidth_limit_rule object.
+    """
+    body = {'bandwidth_limit_rule': kwargs}
+    ruleType = 'bandwidth_limit_rule'
+    bandwidthlimit_update = neutronclient(request)\
+        .update_bandwidth_limit_rule(rule_id, policy_id, body)\
+        .get(ruleType)
+    return BandwidthLimitRule(bandwidthlimit_update)
+
+
+@profiler.trace
+def bandwidth_limit_rule_delete(request, policy_id, rule_id):
+    """Deletes a Bandwidth Limit Rule."""
+    neutronclient(request).delete_bandwidth_limit_rule(rule_id, policy_id)
+
+
+class MinimumPacketRateRule(NeutronAPIDictWrapper):
+    """Wrapper for neutron MinimumPacketRateRule."""
+
+
+@profiler.trace
+def minimum_packet_rate_rule_create(request, policy_id, **kwargs):
+    """Create a Minimum Packet Rate rule.
+
+    :param request: request context
+    :param policy_id: Id of the policy
+    :param min_kpps: integer
+    :param direction: string (egress or ingress)
+    :return: A minimum_packet_rate_rule object.
+    """
+    body = {'minimum_packet_rate_rule': kwargs}
+    if 'tenant_id' not in kwargs:
+        kwargs['tenant_id'] = request.user.project_id
+    body = {'minimum_packet_rate_rule': kwargs}
+    rule = 'minimum_packet_rate_rule'
+    minimum_packet_rate_rule = neutronclient(request)\
+        .create_minimum_packet_rate_rule(policy_id, body).get(rule)
+    return MinimumPacketRateRule(minimum_packet_rate_rule)
+
+
+@profiler.trace
+def minimum_packet_rate_rule_update(request, policy_id, rule_id, **kwargs):
+    """Update a Minimum Packet Rate rule.
+
+    :param request: request context
+    :param policy_id: Id of the policy
+    :param min_kpps: integer
+    :param direction: string (egress or ingress)
+    :return: A minimum_packet_rate_rule object.
+    """
+    body = {'minimum_packet_rate_rule': kwargs}
+    ruleType = 'minimum_packet_rate_rule'
+    minpacketrate_update = neutronclient(request)\
+        .update_minimum_packet_rate_rule(rule_id, policy_id, body)\
+        .get(ruleType)
+    return MinimumPacketRateRule(minpacketrate_update)
+
+
+def minimum_packet_rate_rule_delete(request, policy_id, rule_id):
+    """Deletes a Minimum Packet Rate Rule."""
+    neutronclient(request).delete_minimum_packet_rate_rule(rule_id, policy_id)
+
+
 @profiler.trace
 def list_availability_zones(request, resource=None, state=None):
     az_list = neutronclient(request).list_availability_zones().get(

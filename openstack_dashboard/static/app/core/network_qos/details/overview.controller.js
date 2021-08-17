@@ -34,7 +34,7 @@
     var ctrl = this;
 
     ctrl.resourceType = registry.getResourceType(qosResourceTypeCode);
-    ctrl.tableConfig = {
+    ctrl.tableConfigBwd = {
       selectAll: false,
       expand: false,
       trackId: 'id',
@@ -47,11 +47,63 @@
       columns: [
         {id: 'id', title: gettext('Rule ID'), priority: 1, sortDefault: true},
         {id: 'type', title: gettext('Type'), priority: 1},
-        {id: 'direction', title: gettext('Direction'), priority: 1},
         {id: 'max_kbps', title: gettext('Max Kbps'), priority: 1},
         {id: 'max_burst_kbps', title: gettext('Max Burst Kbits'), priority: 1},
-        {id: 'min_kbps', title: gettext('Min Kbps'), priority: 1},
+        {id: 'direction', title: gettext('Direction'), priority: 1}
+      ]
+    };
+
+    ctrl.tableConfigDSCP = {
+      selectAll: false,
+      expand: false,
+      trackId: 'id',
+      /*
+       * getTableColumns here won't work as that will give back the
+       * columns for the policy, but here we need columns only for the
+       * policy rules, which is a (list of) dictionary(ies) in the
+       * policy dictionary.
+       */
+      columns: [
+        {id: 'id', title: gettext('Rule ID'), priority: 1, sortDefault: true},
+        {id: 'type', title: gettext('Type'), priority: 1},
         {id: 'dscp_mark', title: gettext('DSCP Mark'), priority: 1}
+      ]
+    };
+
+    ctrl.tableConfigMinBwd = {
+      selectAll: false,
+      expand: false,
+      trackId: 'id',
+      /*
+       * getTableColumns here won't work as that will give back the
+       * columns for the policy, but here we need columns only for the
+       * policy rules, which is a (list of) dictionary(ies) in the
+       * policy dictionary.
+       */
+      columns: [
+        {id: 'id', title: gettext('Rule ID'), priority: 1, sortDefault: true},
+        {id: 'type', title: gettext('Type'), priority: 1},
+        {id: 'min_kbps', title: gettext('Min Kbps'), priority: 1},
+        {id: 'direction', title: gettext('Direction'), priority: 1}
+
+      ]
+    };
+
+    ctrl.tableConfigMinPckRt = {
+      selectAll: false,
+      expand: false,
+      trackId: 'id',
+      /*
+       * getTableColumns here won't work as that will give back the
+       * columns for the policy, but here we need columns only for the
+       * policy rules, which is a (list of) dictionary(ies) in the
+       * policy dictionary.
+       */
+      columns: [
+        {id: 'id', title: gettext('Rule ID'), priority: 1, sortDefault: true},
+        {id: 'type', title: gettext('Type'), priority: 1},
+        {id: 'min_kpps', title: gettext('Min Kpps'), priority: 1},
+        {id: 'direction', title: gettext('Direction'), priority: 1},
       ]
     };
 

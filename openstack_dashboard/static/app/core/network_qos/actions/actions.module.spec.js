@@ -28,6 +28,21 @@
       expect(actionHasId(actions, 'createPolicyAction')).toBe(true);
     });
 
+    it('registers Create Rule as a global action', function() {
+      var actions = registry.getResourceType('OS::Neutron::QoSPolicy').itemActions;
+      expect(actionHasId(actions, 'addRulePolicyAction')).toBe(true);
+    });
+
+    it('registers Edit Rule as a global action', function() {
+      var actions = registry.getResourceType('OS::Neutron::QoSPolicy').itemActions;
+      expect(actionHasId(actions, 'editRuleAction')).toBe(true);
+    });
+
+    it('registers Delete Rule as a global action', function() {
+      var actions = registry.getResourceType('OS::Neutron::QoSPolicy').itemActions;
+      expect(actionHasId(actions, 'deleteRuleAction')).toBe(true);
+    });
+
     it('registers Delete Policy as an item action', function() {
       var actions = registry.getResourceType('OS::Neutron::QoSPolicy').itemActions;
       expect(actionHasId(actions, 'deletePolicyAction')).toBe(true);

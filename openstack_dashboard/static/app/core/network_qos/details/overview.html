@@ -25,12 +25,43 @@
     <div class="col-md-12 detail">
       <h3 translate>Rules</h3>
       <hr>
-      <dl class="dl-horizontal">
+      <dl class="dl-horizontal" ng-repeat="rule in ctrl.policy.rules track by $index">
+        <div ng-if="rule.type === 'dscp_marking'">
+          <h3 translate>DSCP Rules</h3>
+          <hr>
         <hz-dynamic-table
-          config="ctrl.tableConfig"
-          items="ctrl.policy.rules"
+          config="ctrl.tableConfigDSCP"
+          items="rule"
           table="ctrl">
         </hz-dynamic-table>
+      </div>
+      <div ng-if="rule.type === 'bandwidth_limit'">
+        <h3 translate>Bandwidth Rules</h3>
+        <hr>
+        <hz-dynamic-table
+          config="ctrl.tableConfigBwd"
+          items="rule"
+          table="ctrl">
+        </hz-dynamic-table>
+      </div>
+      <div ng-if="rule.type === 'minimum_bandwidth'">
+        <h3 translate>Minimum Bandwidth Rules</h3>
+        <hr>
+        <hz-dynamic-table
+          config="ctrl.tableConfigMinBwd"
+          items="rule"
+          table="ctrl">
+        </hz-dynamic-table>
+      </div>
+      <div ng-if="rule.type === 'minimum_packet_rate'">
+        <h3 translate>Minimum Packet Rules</h3>
+        <hr>
+        <hz-dynamic-table
+          config="ctrl.tableConfigMinPckRt"
+          items="rule"
+          table="ctrl">
+        </hz-dynamic-table>
+      </div>
       </dl>
     </div>
   </div>
