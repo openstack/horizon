@@ -4,7 +4,8 @@ Manage flavors
 
 In OpenStack, a flavor defines the compute, memory, and storage
 capacity of a virtual server, also known as an instance. As an
-administrative user, you can create, edit, and delete flavors.
+administrative user, you can create and delete flavors and update
+their metadata.
 
 As of Newton, there are no default flavors.  The following table
 lists the default flavors for Mitaka and earlier.
@@ -76,19 +77,6 @@ Create flavors
    use the flavor. If there are no projects in the right column,
    all projects can use the flavor.
 #. Click :guilabel:`Create Flavor`.
-
-Update flavors
-~~~~~~~~~~~~~~
-
-#. Log in to the Dashboard and select the :guilabel:`admin` project
-   from the drop-down list.
-#. In the :guilabel:`Admin` tab, open the :guilabel:`Compute` tab
-   and click the :guilabel:`Flavors` category.
-#. Select the flavor that you want to edit. Click :guilabel:`Edit
-   Flavor`.
-#. In the :guilabel:`Edit Flavor` window, you can change the flavor
-   name, VCPUs, RAM, root disk, ephemeral disk, and swap disk values.
-#. Click :guilabel:`Save`.
 
 Update Metadata
 ~~~~~~~~~~~~~~~
