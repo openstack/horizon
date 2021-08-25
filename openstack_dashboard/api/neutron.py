@@ -1029,9 +1029,32 @@ def trunk_update(request, trunk_id, old_trunk, new_trunk):
 
 
 @profiler.trace
-def network_list(request, **params):
+def network_list_paged(request, page_data, **params):
+    page_data, marker_net = _configure_pagination(request, params, page_data)
+    query_kwargs = {
+        'request': request,
+        'page_data': page_data,
+        'params': params,
+    }
+    return _perform_query(_network_list_paged, query_kwargs, marker_net)
+
+
+def _network_list_paged(request, page_data, params):
+    nets = network_list(
+        request, single_page=page_data['single_page'], **params)
+    return update_pagination(nets, page_data)
+
+
+@profiler.trace
+def network_list(request, single_page=False, **params):
     LOG.debug("network_list(): params=%s", params)
-    networks = neutronclient(request).list_networks(**params).get('networks')
+    if single_page is True:
+        params['retrieve_all'] = False
+    result = neutronclient(request).list_networks(**params)
+    if single_page is True:
+        result = result.next()
+    networks = result.get('networks')
+
     # Get subnet list to expand subnet info in network list.
     subnets = subnet_list(request)
     subnet_dict = dict((s['id'], s) for s in subnets)
@@ -1070,54 +1093,366 @@ def _is_auto_allocated_network_supported(request):
     return nova_auto_supported
 
 
+# TODO(ganso): consolidate this function with cinder's and nova's
+@profiler.trace
+def update_pagination(entities, page_data):
+
+    has_more_data, has_prev_data = False, False
+
+    # single_page=True is actually to have pagination enabled
+    if page_data.get('single_page') is not True:
+        return entities, has_more_data, has_prev_data
+
+    if len(entities) > page_data['page_size']:
+        has_more_data = True
+        entities.pop()
+        if page_data.get('marker_id') is not None:
+            has_prev_data = True
+
+    # first page condition when reached via prev back
+    elif (page_data.get('sort_dir') == 'desc' and
+          page_data.get('marker_id') is not None):
+        has_more_data = True
+
+    # last page condition
+    elif page_data.get('marker_id') is not None:
+        has_prev_data = True
+
+    # reverse to maintain same order when going backwards
+    if page_data.get('sort_dir') == 'desc':
+        entities.reverse()
+
+    return entities, has_more_data, has_prev_data
+
+
+def _add_to_nets_and_return(
+        nets, obtained_nets, page_data, filter_tenant_id=None):
+    # remove project non-shared external nets that should
+    # be retrieved by project query
+    if filter_tenant_id:
+        obtained_nets = [net for net in obtained_nets
+                         if net['tenant_id'] != filter_tenant_id]
+
+    if (page_data['single_page'] is True and
+            len(obtained_nets) + len(nets) > page_data['limit']):
+        # we need to trim results if we already surpassed the limit
+        # we use limit so we can call update_pagination
+        cut = page_data['limit'] - (len(obtained_nets) + len(nets))
+        nets += obtained_nets[0:cut]
+        return True
+    nets += obtained_nets
+    # we don't need to perform more queries if we already have enough nets
+    if page_data['single_page'] is True and len(nets) == page_data['limit']:
+        return True
+    return False
+
+
+def _query_external_nets(request, include_external, page_data, **params):
+
+    # If the external filter is set to False we don't need to perform this
+    # query
+    # If the shared filter is set to True we don't need to perform this
+    # query (already retrieved)
+    # We are either paginating external nets or not pending more data
+    if (page_data['filter_external'] is not False and include_external and
+            page_data['filter_shared'] is not True and
+            page_data.get('marker_type') in (None, 'ext')):
+
+        # Grab only all external non-shared networks
+        params['router:external'] = True
+        params['shared'] = False
+
+        return _perform_net_query(request, {}, page_data, 'ext', **params)
+
+    return []
+
+
+def _query_shared_nets(request, page_data, **params):
+
+    # If the shared filter is set to False we don't need to perform this query
+    # We are either paginating shared nets or not pending more data
+    if (page_data['filter_shared'] is not False and
+            page_data.get('marker_type') in (None, 'shr')):
+
+        if page_data['filter_external'] is None:
+            params.pop('router:external', None)
+        else:
+            params['router:external'] = page_data['filter_external']
+
+        # Grab only all shared networks
+        # May include shared external nets based on external filter
+        params['shared'] = True
+
+        return _perform_net_query(request, {}, page_data, 'shr', **params)
+
+    return []
+
+
+def _query_project_nets(request, tenant_id, page_data, **params):
+
+    # We don't need to run this query if shared filter is True, as the networks
+    # will be retrieved by another query
+    # We are either paginating project nets or not pending more data
+    if (page_data['filter_shared'] is not True and
+            page_data.get('marker_type') in (None, 'proj')):
+
+        # Grab only non-shared project networks
+        # May include non-shared project external nets based on external filter
+        if page_data['filter_external'] is None:
+            params.pop('router:external', None)
+        else:
+            params['router:external'] = page_data['filter_external']
+        params['shared'] = False
+
+        return _perform_net_query(
+            request, {'tenant_id': tenant_id}, page_data, 'proj', **params)
+
+    return []
+
+
+def _perform_net_query(
+        request, extra_param, page_data, query_marker_type, **params):
+    copy_req_params = copy.deepcopy(params)
+    copy_req_params.update(extra_param)
+    if page_data.get('marker_type') == query_marker_type:
+        copy_req_params['marker'] = page_data['marker_id']
+        # We clear the marker type to allow for other queries if
+        # this one does not fill up the page
+        page_data['marker_type'] = None
+    return network_list(
+        request, single_page=page_data['single_page'], **copy_req_params)
+
+
+def _query_nets_for_tenant(request, include_external, tenant_id, page_data,
+                           **params):
+
+    # Save variables
+    page_data['filter_external'] = params.get('router:external')
+    page_data['filter_shared'] = params.get('shared')
+
+    nets = []
+
+    # inverted direction (for prev page)
+    if (page_data.get('single_page') is True and
+            page_data.get('sort_dir') == 'desc'):
+
+        ext_nets = _query_external_nets(
+            request, include_external, page_data, **params)
+        if _add_to_nets_and_return(
+                nets, ext_nets, page_data, filter_tenant_id=tenant_id):
+            return update_pagination(nets, page_data)
+
+        proj_nets = _query_project_nets(
+            request, tenant_id, page_data, **params)
+        if _add_to_nets_and_return(nets, proj_nets, page_data):
+            return update_pagination(nets, page_data)
+
+        shr_nets = _query_shared_nets(
+            request, page_data, **params)
+        if _add_to_nets_and_return(nets, shr_nets, page_data):
+            return update_pagination(nets, page_data)
+
+    # normal direction (for next page)
+    else:
+        shr_nets = _query_shared_nets(
+            request, page_data, **params)
+        if _add_to_nets_and_return(nets, shr_nets, page_data):
+            return update_pagination(nets, page_data)
+
+        proj_nets = _query_project_nets(
+            request, tenant_id, page_data, **params)
+        if _add_to_nets_and_return(nets, proj_nets, page_data):
+            return update_pagination(nets, page_data)
+
+        ext_nets = _query_external_nets(
+            request, include_external, page_data, **params)
+        if _add_to_nets_and_return(
+                nets, ext_nets, page_data, filter_tenant_id=tenant_id):
+            return update_pagination(nets, page_data)
+
+    return update_pagination(nets, page_data)
+
+
+def _configure_marker_type(marker_net, tenant_id=None):
+    if marker_net:
+        if marker_net['shared'] is True:
+            return 'shr'
+        if (marker_net['router:external'] is True and
+                marker_net['tenant_id'] != tenant_id):
+            return 'ext'
+        return 'proj'
+    return None
+
+
+def _reverse_page_order(sort_dir):
+    if sort_dir == 'asc':
+        return 'desc'
+    return 'asc'
+
+
+def _configure_pagination(request, params, page_data=None, tenant_id=None):
+
+    marker_net = None
+    # "single_page" is a neutron API parameter to disable automatic
+    # pagination done by the API. If it is False, it returns all the
+    # results. If page_data param is not present, the method is being
+    # called by someone that does not want/expect pagination.
+    if page_data is None:
+        page_data = {'single_page': False}
+    else:
+        page_data['single_page'] = True
+        if page_data['marker_id']:
+            # this next request is inefficient, but the alternative is for
+            # the UI to send the extra parameters in the request,
+            # maybe a future optimization
+            marker_net = network_get(request, page_data['marker_id'])
+            page_data['marker_type'] = _configure_marker_type(
+                marker_net, tenant_id=tenant_id)
+        else:
+            page_data['marker_type'] = None
+
+        # we query one more than we are actually displaying due to
+        # consistent pagination hack logic used in other services
+        page_data['page_size'] = setting_utils.get_page_size(request)
+        page_data['limit'] = page_data['page_size'] + 1
+        params['limit'] = page_data['limit']
+
+        # Neutron API sort direction is inverted compared to other services
+        page_data['sort_dir'] = page_data.get('sort_dir', "desc")
+        page_data['sort_dir'] = _reverse_page_order(page_data['sort_dir'])
+
+        # params are included in the request to the neutron API
+        params['sort_dir'] = page_data['sort_dir']
+        params['sort_key'] = 'id'
+
+    return page_data, marker_net
+
+
+def _perform_query(
+        query_func, query_kwargs, marker_net, include_pre_auto_allocate=False):
+    networks, has_more_data, has_prev_data = query_func(**query_kwargs)
+
+    # Hack for auto allocated network
+    if include_pre_auto_allocate and not networks:
+        if _is_auto_allocated_network_supported(query_kwargs['request']):
+            networks.append(PreAutoAllocateNetwork(query_kwargs['request']))
+
+    # no pagination case, single_page=True means pagination is enabled
+    if query_kwargs['page_data'].get('single_page') is not True:
+        return networks
+
+    # handle case of full page deletes
+    deleted = query_kwargs['request'].session.pop('network_deleted', None)
+    if deleted and marker_net:
+
+        # contents of last page deleted, invert order, load previous page
+        # based on marker (which ends up not included), remove head and add
+        # marker at the end. Since it is the last page, also force
+        # has_more_data to False because the marker item would always be
+        # the "more_data" of the request.
+        # we do this only if there are no elements to be displayed
+        if ((networks is None or len(networks) == 0) and
+                has_prev_data and not has_more_data and
+                query_kwargs['page_data']['sort_dir'] == 'asc'):
+            # admin section params
+            if 'params' in query_kwargs:
+                query_kwargs['params']['sort_dir'] = 'desc'
+            else:
+                query_kwargs['page_data']['marker_type'] = (
+                    _configure_marker_type(marker_net,
+                                           query_kwargs.get('tenant_id')))
+                query_kwargs['sort_dir'] = 'desc'
+            query_kwargs['page_data']['sort_dir'] = 'desc'
+            networks, has_more_data, has_prev_data = (
+                query_func(**query_kwargs))
+            if networks:
+                if has_prev_data:
+                    # if we are back in the first page, we don't remove head
+                    networks.pop(0)
+                networks.append(marker_net)
+                has_more_data = False
+
+        # contents of first page deleted (loaded by prev), invert order
+        # and remove marker as if the section was loaded for the first time
+        # we do this regardless of number of elements in the first page
+        elif (has_more_data and not has_prev_data and
+                query_kwargs['page_data']['sort_dir'] == 'desc'):
+            query_kwargs['page_data']['sort_dir'] = 'asc'
+            query_kwargs['page_data']['marker_id'] = None
+            query_kwargs['page_data']['marker_type'] = None
+            # admin section params
+            if 'params' in query_kwargs:
+                if 'marker' in query_kwargs['params']:
+                    del query_kwargs['params']['marker']
+                query_kwargs['params']['sort_dir'] = 'asc'
+            else:
+                query_kwargs['sort_dir'] = 'asc'
+            networks, has_more_data, has_prev_data = (
+                query_func(**query_kwargs))
+
+    return networks, has_more_data, has_prev_data
+
+
 @profiler.trace
 def network_list_for_tenant(request, tenant_id, include_external=False,
-                            include_pre_auto_allocate=False,
+                            include_pre_auto_allocate=False, page_data=None,
                             **params):
     """Return a network list available for the tenant.
 
     The list contains networks owned by the tenant and public networks.
     If requested_networks specified, it searches requested_networks only.
+
+    page_data parameter format:
+
+    page_data = {
+        'marker_id': '<id>',
+        'sort_dir': '<desc(next)|asc(prev)>'
+    }
+
     """
+
+    # Pagination is implemented consistently with nova and cinder views,
+    # which means it is a bit hacky:
+    # - it requests X units but displays X-1 units
+    # - it ignores the marker metadata from the API response and uses its own
+    # Here we have extra hacks on top of that, because we have to merge the
+    # results of 3 different queries, and decide which one of them we are
+    # actually paginating.
+    # The 3 queries consist of:
+    # 1. Shared=True networks
+    # 2. Project non-shared networks
+    # 3. External non-shared non-project networks
+    # The main reason behind that order is to maintain the current behavior
+    # for how external networks are retrieved and displayed.
+    # The include_external assumption of whether external networks should be
+    # displayed is "overridden" whenever the external network is shared or is
+    # the tenant's. Therefore it refers to only non-shared non-tenant external
+    # networks.
+    # To accomplish pagination, we check the type of network the provided
+    # marker is, to determine which query we have last run and whether we
+    # need to paginate it.
+
     LOG.debug("network_list_for_tenant(): tenant_id=%(tenant_id)s, "
-              "params=%(params)s", {'tenant_id': tenant_id, 'params': params})
+              "params=%(params)s, page_data=%(page_data)s", {
+                  'tenant_id': tenant_id,
+                  'params': params,
+                  'page_data': page_data,
+              })
 
-    networks = []
-    shared = params.get('shared')
-    if shared is not None:
-        del params['shared']
+    page_data, marker_net = _configure_pagination(
+        request, params, page_data, tenant_id=tenant_id)
 
-    if shared in (None, False):
-        # If a user has admin role, network list returned by Neutron API
-        # contains networks that do not belong to that tenant.
-        # So we need to specify tenant_id when calling network_list().
-        networks += network_list(request, tenant_id=tenant_id,
-                                 shared=False, **params)
+    query_kwargs = {
+        'request': request,
+        'include_external': include_external,
+        'tenant_id': tenant_id,
+        'page_data': page_data,
+        **params,
+    }
 
-    if shared in (None, True):
-        # In the current Neutron API, there is no way to retrieve
-        # both owner networks and public networks in a single API call.
-        networks += network_list(request, shared=True, **params)
-
-    # Hack for auto allocated network
-    if include_pre_auto_allocate and not networks:
-        if _is_auto_allocated_network_supported(request):
-            networks.append(PreAutoAllocateNetwork(request))
-
-    params['router:external'] = params.get('router:external', True)
-    if params['router:external'] and include_external:
-        if shared is not None:
-            params['shared'] = shared
-        fetched_net_ids = [n.id for n in networks]
-        # Retrieves external networks when router:external is not specified
-        # in (filtering) params or router:external=True filter is specified.
-        # When router:external=False is specified there is no need to query
-        # networking API because apparently nothing will match the filter.
-        ext_nets = network_list(request, **params)
-        networks += [n for n in ext_nets if
-                     n.id not in fetched_net_ids]
-
-    return networks
+    return _perform_query(
+        _query_nets_for_tenant, query_kwargs, marker_net,
+        include_pre_auto_allocate)
 
 
 @profiler.trace
@@ -1178,6 +1513,7 @@ def network_update(request, network_id, **kwargs):
 def network_delete(request, network_id):
     LOG.debug("network_delete(): netid=%s", network_id)
     neutronclient(request).delete_network(network_id)
+    request.session['network_deleted'] = network_id
 
 
 @profiler.trace

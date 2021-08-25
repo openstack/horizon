@@ -21,6 +21,10 @@ class TestNetworks(helpers.TestCase):
     NETWORK_NAME = helpers.gen_random_resource_name("network")
     SUBNET_NAME = helpers.gen_random_resource_name("subnet")
 
+    @property
+    def networks_page(self):
+        return self.home_pg.go_to_project_network_networkspage()
+
     def test_private_network_create(self):
         """tests the network creation and deletion functionalities:
 
@@ -30,7 +34,7 @@ class TestNetworks(helpers.TestCase):
         * verifies the network does not appear in the table after deletion
         """
 
-        networks_page = self.home_pg.go_to_project_network_networkspage()
+        networks_page = self.networks_page
 
         networks_page.create_network(self.NETWORK_NAME, self.SUBNET_NAME)
         self.assertTrue(
@@ -46,3 +50,97 @@ class TestNetworks(helpers.TestCase):
         self.assertFalse(
             networks_page.find_message_and_dismiss(messages.ERROR))
         self.assertFalse(networks_page.is_network_present(self.NETWORK_NAME))
+
+    def test_networks_pagination(self):
+        """This test checks networks pagination
+
+        Steps:
+        1) Login to Horizon Dashboard
+        2) Go to Project -> Network -> Networks tab and create
+        three networks
+        3) Navigate to user settings page
+        4) Change 'Items Per Page' value to 2
+        5) Go to Project -> Network -> Networks tab or
+        Admin -> Network -> Networks tab (depends on user)
+        6) Check that only 'Next' link is available, only one network is
+        available (and it has correct name)
+        7) Click 'Next' and check that both 'Prev' and 'Next' links are
+        available, only one network is available (and it has correct name)
+        8) Click 'Next' and check that only 'Prev' link is available,
+        only one network is visible (and it has correct name)
+        9) Click 'Prev' and check result (should be the same as for step7)
+        10) Click 'Prev' and check result (should be the same as for step6)
+        11) Go to user settings page and restore 'Items Per Page'
+        12) Delete created networks
+        """
+        networks_page = self.networks_page
+        count = 6
+        items_per_page = 2
+        networks_names = ["{0}_{1}".format(self.NETWORK_NAME, i)
+                          for i in range(count)]
+        for network_name in networks_names:
+            networks_page.create_network(network_name, self.SUBNET_NAME)
+            self.assertTrue(
+                networks_page.find_message_and_dismiss(messages.SUCCESS))
+            self.assertFalse(
+                networks_page.find_message_and_dismiss(messages.ERROR))
+            self.assertTrue(networks_page.is_network_present(network_name))
+            self.assertTrue(networks_page.is_network_active(network_name))
+
+        networks_page = self.networks_page
+        rows = networks_page.networks_table.get_column_data(
+            name_column=networks_page.NETWORKS_TABLE_NAME_COLUMN)
+        self._change_page_size_setting(items_per_page)
+        networks_page = self.networks_page
+        definitions = []
+        i = 0
+        while i < len(rows):
+            prev = i >= items_per_page
+            next = i < (len(rows) - items_per_page)
+            definition = {'Next': next, 'Prev': prev,
+                          'Count': items_per_page,
+                          'Names': rows[i:i + items_per_page]}
+            definitions.append(definition)
+            networks_page.networks_table.assert_definition(
+                definition,
+                name_column=networks_page.NETWORKS_TABLE_NAME_COLUMN)
+            if next:
+                networks_page.networks_table.turn_next_page()
+            i = i + items_per_page
+
+        definitions.reverse()
+        for definition in definitions:
+            networks_page.networks_table.assert_definition(
+                definition,
+                name_column=networks_page.NETWORKS_TABLE_NAME_COLUMN)
+            if definition['Prev']:
+                networks_page.networks_table.turn_prev_page()
+
+        self._change_page_size_setting()
+
+        networks_page = self.networks_page
+        for network_name in networks_names:
+            networks_page.delete_network(network_name)
+            self.assertTrue(
+                networks_page.find_message_and_dismiss(messages.SUCCESS))
+            self.assertFalse(
+                networks_page.find_message_and_dismiss(messages.ERROR))
+            self.assertFalse(networks_page.is_network_present(network_name))
+
+    def _change_page_size_setting(self, items_per_page=None):
+        settings_page = self.home_pg.go_to_settings_usersettingspage()
+        if items_per_page:
+            settings_page.change_pagesize(items_per_page)
+        else:
+            settings_page.change_pagesize()
+        settings_page.find_message_and_dismiss(messages.SUCCESS)
+
+
+@decorators.services_required("neutron")
+class TestAdminNetworks(helpers.AdminTestCase, TestNetworks):
+    NETWORK_NAME = helpers.gen_random_resource_name("network")
+    SUBNET_NAME = helpers.gen_random_resource_name("subnet")
+
+    @property
+    def networks_page(self):
+        return self.home_pg.go_to_admin_network_networkspage()

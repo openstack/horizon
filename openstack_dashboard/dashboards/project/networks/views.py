@@ -40,7 +40,7 @@ from openstack_dashboard.dashboards.project.networks \
     import workflows as project_workflows
 
 
-class IndexView(tables.DataTableView):
+class IndexView(tables.PagedTableMixin, tables.DataTableView):
     table_class = project_tables.NetworksTable
     page_title = _("Networks")
     FILTERS_MAPPING = {'shared': {_("yes"): True, _("no"): False},
@@ -51,12 +51,23 @@ class IndexView(tables.DataTableView):
         try:
             tenant_id = self.request.user.tenant_id
             search_opts = self.get_filters(filters_map=self.FILTERS_MAPPING)
-            networks = api.neutron.network_list_for_tenant(
-                self.request, tenant_id,
-                include_external=True,
-                include_pre_auto_allocate=True,
-                **search_opts)
+
+            marker, sort_dir = self._get_marker()
+            page_data = {
+                'marker_id': marker,
+                'sort_dir': sort_dir,
+            }
+
+            networks, self._has_more_data, self._has_prev_data = (
+                api.neutron.network_list_for_tenant(
+                    self.request, tenant_id,
+                    include_external=True,
+                    include_pre_auto_allocate=True,
+                    page_data=page_data,
+                    **search_opts))
+
         except Exception:
+            self._has_more_data = self._has_prev_data = False
             networks = []
             msg = _('Network list can not be retrieved.')
             exceptions.handle(self.request, msg)

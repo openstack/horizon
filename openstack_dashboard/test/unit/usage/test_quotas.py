@@ -471,7 +471,7 @@ class QuotaTests(test.APITestCase):
                 target: {
                     'used': used,
                     'quota': limit,
-                    'available': limit - used
+                    'available': max(limit - used, 0)
                 }
             }
 

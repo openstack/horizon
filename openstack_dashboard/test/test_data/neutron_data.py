@@ -271,7 +271,7 @@ def data(TEST):
     TEST.api_ports.add(port_dict)
     TEST.ports.add(neutron.Port(port_dict))
 
-    # External network.
+    # External not shared network.
     network_dict = {'admin_state_up': True,
                     'id': '9b466b94-213a-4cda-badf-72c102a874da',
                     'name': 'ext_net',
@@ -293,6 +293,162 @@ def data(TEST):
                    'network_id': network_dict['id'],
                    'tenant_id': network_dict['tenant_id']}
     ext_net = network_dict
+
+    TEST.api_networks.add(network_dict)
+    TEST.api_subnets.add(subnet_dict)
+
+    network = copy.deepcopy(network_dict)
+    subnet = neutron.Subnet(subnet_dict)
+    network['subnets'] = [subnet]
+    TEST.networks.add(neutron.Network(network))
+    TEST.subnets.add(subnet)
+
+    # External shared network.
+
+    network_dict = {'admin_state_up': True,
+                    'id': 'ed351877-4f7b-4672-8164-20a09e4873d3',
+                    'name': 'ext_net_shared',
+                    'status': 'ACTIVE',
+                    'subnets': ['5c59f875-f242-4df2-96e6-7dcc09d6dfc8'],
+                    'tenant_id': '4',
+                    'router:external': True,
+                    'shared': True}
+    subnet_dict = {'allocation_pools': [{'start': '172.24.14.226.',
+                                         'end': '172.24.14.238'}],
+                   'dns_nameservers': [],
+                   'host_routes': [],
+                   'cidr': '172.24.14.0/28',
+                   'enable_dhcp': False,
+                   'gateway_ip': '172.24.14.225',
+                   'id': '5c59f875-f242-4df2-96e6-7dcc09d6dfc8',
+                   'ip_version': 4,
+                   'name': 'ext_shr_subnet',
+                   'network_id': network_dict['id'],
+                   'tenant_id': network_dict['tenant_id']}
+
+    TEST.api_networks.add(network_dict)
+    TEST.api_subnets.add(subnet_dict)
+
+    network = copy.deepcopy(network_dict)
+    subnet = neutron.Subnet(subnet_dict)
+    network['subnets'] = [subnet]
+    TEST.networks.add(neutron.Network(network))
+    TEST.subnets.add(subnet)
+
+    # tenant external shared network
+    network_dict = {'admin_state_up': True,
+                    'id': '650de90f-d77f-4863-ae98-39e97ad3ea7a',
+                    'name': 'ext_net_shared_tenant1',
+                    'status': 'ACTIVE',
+                    'subnets': ['d0a5bc19-16f0-45cc-a187-0d1bb36de4c6'],
+                    'tenant_id': '1',
+                    'router:external': True,
+                    'shared': True}
+    subnet_dict = {'allocation_pools': [{'start': '172.34.14.226.',
+                                         'end': '172.34.14.238'}],
+                   'dns_nameservers': [],
+                   'host_routes': [],
+                   'cidr': '172.34.14.0/28',
+                   'enable_dhcp': False,
+                   'gateway_ip': '172.34.14.225',
+                   'id': 'd0a5bc19-16f0-45cc-a187-0d1bb36de4c6',
+                   'ip_version': 4,
+                   'name': 'ext_shr_tenant1_subnet',
+                   'network_id': network_dict['id'],
+                   'tenant_id': network_dict['tenant_id']}
+
+    TEST.api_networks.add(network_dict)
+    TEST.api_subnets.add(subnet_dict)
+
+    network = copy.deepcopy(network_dict)
+    subnet = neutron.Subnet(subnet_dict)
+    network['subnets'] = [subnet]
+    TEST.networks.add(neutron.Network(network))
+    TEST.subnets.add(subnet)
+
+    # tenant external non-shared network
+    network_dict = {'admin_state_up': True,
+                    'id': '19c3e662-1635-4876-be41-dbfdef0edd17',
+                    'name': 'ext_net_tenant1',
+                    'status': 'ACTIVE',
+                    'subnets': ['5ba8895c-0b3b-482d-9e42-ce389e1e1fa6'],
+                    'tenant_id': '1',
+                    'router:external': True,
+                    'shared': False}
+    subnet_dict = {'allocation_pools': [{'start': '172.44.14.226.',
+                                         'end': '172.44.14.238'}],
+                   'dns_nameservers': [],
+                   'host_routes': [],
+                   'cidr': '172.44.14.0/28',
+                   'enable_dhcp': False,
+                   'gateway_ip': '172.44.14.225',
+                   'id': '5ba8895c-0b3b-482d-9e42-ce389e1e1fa6',
+                   'ip_version': 4,
+                   'name': 'ext_tenant1_subnet',
+                   'network_id': network_dict['id'],
+                   'tenant_id': network_dict['tenant_id']}
+
+    TEST.api_networks.add(network_dict)
+    TEST.api_subnets.add(subnet_dict)
+
+    network = copy.deepcopy(network_dict)
+    subnet = neutron.Subnet(subnet_dict)
+    network['subnets'] = [subnet]
+    TEST.networks.add(neutron.Network(network))
+    TEST.subnets.add(subnet)
+
+    # tenant non-external shared network
+    network_dict = {'admin_state_up': True,
+                    'id': 'fd581273-2601-4057-9c22-1be38f44884e',
+                    'name': 'shr_net_tenant1',
+                    'status': 'ACTIVE',
+                    'subnets': ['d2668892-bc32-4c89-9c63-961920a831d3'],
+                    'tenant_id': '1',
+                    'router:external': False,
+                    'shared': True}
+    subnet_dict = {'allocation_pools': [{'start': '172.54.14.226.',
+                                         'end': '172.54.14.238'}],
+                   'dns_nameservers': [],
+                   'host_routes': [],
+                   'cidr': '172.54.14.0/28',
+                   'enable_dhcp': False,
+                   'gateway_ip': '172.54.14.225',
+                   'id': 'd2668892-bc32-4c89-9c63-961920a831d3',
+                   'ip_version': 4,
+                   'name': 'shr_tenant1_subnet',
+                   'network_id': network_dict['id'],
+                   'tenant_id': network_dict['tenant_id']}
+
+    TEST.api_networks.add(network_dict)
+    TEST.api_subnets.add(subnet_dict)
+
+    network = copy.deepcopy(network_dict)
+    subnet = neutron.Subnet(subnet_dict)
+    network['subnets'] = [subnet]
+    TEST.networks.add(neutron.Network(network))
+    TEST.subnets.add(subnet)
+
+    # non-tenant non-external non-shared network
+    network_dict = {'admin_state_up': True,
+                    'id': '7377e545-1527-4ce1-869e-caca192bc049',
+                    'name': 'net_tenant20',
+                    'status': 'ACTIVE',
+                    'subnets': ['c2bbd65e-0c0f-4ab9-8723-2dd102104f3d'],
+                    'tenant_id': '20',
+                    'router:external': False,
+                    'shared': False}
+    subnet_dict = {'allocation_pools': [{'start': '172.64.14.226.',
+                                         'end': '172.64.14.238'}],
+                   'dns_nameservers': [],
+                   'host_routes': [],
+                   'cidr': '172.54.14.0/28',
+                   'enable_dhcp': False,
+                   'gateway_ip': '172.64.14.225',
+                   'id': 'c2bbd65e-0c0f-4ab9-8723-2dd102104f3d',
+                   'ip_version': 4,
+                   'name': 'tenant20_subnet',
+                   'network_id': network_dict['id'],
+                   'tenant_id': network_dict['tenant_id']}
 
     TEST.api_networks.add(network_dict)
     TEST.api_subnets.add(subnet_dict)
@@ -1002,3 +1158,92 @@ def data(TEST):
             'name': 'nova'
         }
     )
+
+
+def list_nets_in_query_order(source_list):
+    return ([n for n in source_list if n['shared'] is True] +
+            [n for n in source_list if (n['tenant_id'] == '1' and
+             n['shared'] is False)] +
+            [n for n in source_list if n['router:external'] is True and
+             n['shared'] is False])
+
+
+source_nets_pagination1 = sorted([
+    neutron.Network({
+        'admin_state_up': True,
+        'id': uuidutils.generate_uuid(),
+        'name': 'net{}'.format(i),
+        'status': 'ACTIVE',
+        'subnets': [],
+        'tenant_id': '1',
+        'router:external': False,
+        'shared': False}) for i in range(0, 58)
+] + [
+    neutron.Network({
+        'admin_state_up': True,
+        'id': uuidutils.generate_uuid(),
+        'name': 'net_ext',
+        'status': 'ACTIVE',
+        'subnets': [],
+        'tenant_id': '2',
+        'router:external': True,
+        'shared': False})
+] + [
+    neutron.Network({
+        'admin_state_up': True,
+        'id': uuidutils.generate_uuid(),
+        'name': 'net_shr',
+        'status': 'ACTIVE',
+        'subnets': [],
+        'tenant_id': '3',
+        'router:external': False,
+        'shared': True})
+], key=lambda net: net['id'])
+
+all_nets_pagination1 = list_nets_in_query_order(source_nets_pagination1)
+
+source_nets_pagination2 = sorted([
+    neutron.Network({
+        'admin_state_up': True,
+        'id': uuidutils.generate_uuid(),
+        'name': 'net{}'.format(i),
+        'status': 'ACTIVE',
+        'subnets': [],
+        'tenant_id': '2',
+        'router:external': True,
+        'shared': False}) for i in range(0, 25)
+] + [
+    neutron.Network({
+        'admin_state_up': True,
+        'id': uuidutils.generate_uuid(),
+        'name': 'net{}'.format(i),
+        'status': 'ACTIVE',
+        'subnets': [],
+        'tenant_id': '3',
+        'router:external': False,
+        'shared': True}) for i in range(0, 25)
+] + [
+    neutron.Network({
+        'admin_state_up': True,
+        'id': uuidutils.generate_uuid(),
+        'name': 'net{}'.format(i),
+        'status': 'ACTIVE',
+        'subnets': [],
+        'tenant_id': '1',
+        'router:external': False,
+        'shared': False}) for i in range(0, 10)
+], key=lambda net: net['id'])
+
+all_nets_pagination2 = list_nets_in_query_order(source_nets_pagination2)
+
+source_nets_pagination3 = sorted([
+    neutron.Network({
+        'admin_state_up': True,
+        'id': uuidutils.generate_uuid(),
+        'name': 'net{}'.format(i),
+        'status': 'ACTIVE',
+        'subnets': [],
+        'tenant_id': '1',
+        'router:external': False,
+        'shared': False}) for i in range(0, 5)
+], key=lambda net: net['id'])

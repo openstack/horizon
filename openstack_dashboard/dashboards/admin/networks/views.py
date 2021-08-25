@@ -41,7 +41,7 @@ from openstack_dashboard.dashboards.admin.networks \
 from openstack_dashboard.dashboards.admin.networks import workflows
 
 
-class IndexView(tables.DataTableView):
+class IndexView(tables.PagedTableMixin, tables.DataTableView):
     table_class = networks_tables.NetworksTable
     page_title = _("Networks")
     FILTERS_MAPPING = {'shared': {_("yes"): True, _("no"): False},
@@ -84,7 +84,17 @@ class IndexView(tables.DataTableView):
 
     def get_data(self):
         try:
+            marker, sort_dir = self._get_marker()
+
+            page_data = {
+                'marker_id': marker,
+                'sort_dir': sort_dir
+            }
+
             search_opts = self.get_filters(filters_map=self.FILTERS_MAPPING)
+
+            if marker:
+                search_opts['marker'] = marker
 
             # If the tenant filter selected and the tenant does not exist.
             # We do not need to retrieve the list from neutron,just return
@@ -102,8 +112,11 @@ class IndexView(tables.DataTableView):
                 return []
             self._needs_filter_first = False
 
-            networks = api.neutron.network_list(self.request, **search_opts)
+            networks, self._has_more_data, self._has_prev_data = (
+                api.neutron.network_list_paged(
+                    self.request, page_data, **search_opts))
         except Exception:
+            self._has_more_data = self._has_prev_data = False
             networks = []
             msg = _('Network list can not be retrieved.')
             exceptions.handle(self.request, msg)

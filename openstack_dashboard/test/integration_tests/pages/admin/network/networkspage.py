@@ -15,4 +15,24 @@ from openstack_dashboard.test.integration_tests.pages.project.network \
 
 
 class NetworksPage(networkspage.NetworksPage):
-    pass
+
+    NETWORKS_TABLE_NAME_COLUMN = 'Network Name'
+
+    @property
+    def is_admin(self):
+        return True
+
+    @property
+    def networks_table(self):
+        return NetworksTable(self.driver, self.conf)
+
+
+class NetworksTable(networkspage.NetworksTable):
+
+    CREATE_NETWORK_FORM_FIELDS = (("name", "admin_state",
+                                   "with_subnet", "az_hints", "tenant_id",
+                                   "network_type"),
+                                  ("subnet_name", "cidr", "ip_version",
+                                   "gateway_ip", "no_gateway"),
+                                  ("enable_dhcp", "allocation_pools",
+                                   "dns_nameservers", "host_routes"))

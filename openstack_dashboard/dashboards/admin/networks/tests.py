@@ -68,7 +68,9 @@ class NetworkTests(test.BaseAdminViewTests):
         networks = res.context['networks_table'].data
         self.assertCountEqual(networks, self.networks.list())
 
-        self.mock_network_list.assert_called_once_with(test.IsHttpRequest())
+        self.mock_network_list.assert_called_once_with(
+            test.IsHttpRequest(), single_page=True,
+            limit=21, sort_dir='asc', sort_key='id')
         self.mock_tenant_list.assert_called_once_with(test.IsHttpRequest())
         self._check_is_extension_supported(
             {'network_availability_zone': 1,
@@ -99,7 +101,9 @@ class NetworkTests(test.BaseAdminViewTests):
         self.assertEqual(len(res.context['networks_table'].data), 0)
         self.assertMessageCount(res, error=1)
 
-        self.mock_network_list.assert_called_once_with(test.IsHttpRequest())
+        self.mock_network_list.assert_called_once_with(
+            test.IsHttpRequest(), single_page=True,
+            limit=21, sort_dir='asc', sort_key='id')
         self._check_is_extension_supported(
             {'network_availability_zone': 1,
              'dhcp_agent_scheduler': 1})
@@ -964,7 +968,9 @@ class NetworkTests(test.BaseAdminViewTests):
             {'network_availability_zone': 1,
              'dhcp_agent_scheduler': 2})
         self.mock_tenant_list.assert_called_once_with(test.IsHttpRequest())
-        self.mock_network_list.assert_called_once_with(test.IsHttpRequest())
+        self.mock_network_list.assert_called_once_with(
+            test.IsHttpRequest(), single_page=True,
+            limit=21, sort_dir='asc', sort_key='id')
         self.mock_network_delete.assert_called_once_with(test.IsHttpRequest(),
                                                          network.id)
 
@@ -997,7 +1003,9 @@ class NetworkTests(test.BaseAdminViewTests):
             {'network_availability_zone': 1,
              'dhcp_agent_scheduler': 2})
         self.mock_tenant_list.assert_called_once_with(test.IsHttpRequest())
-        self.mock_network_list.assert_called_once_with(test.IsHttpRequest())
+        self.mock_network_list.assert_called_once_with(
+            test.IsHttpRequest(), single_page=True,
+            limit=21, sort_dir='asc', sort_key='id')
         self.mock_network_delete.assert_called_once_with(test.IsHttpRequest(),
                                                          network.id)
 
