@@ -43,7 +43,7 @@ def add_logout_reason(request, response, reason, status='success'):
     # Store the translated string in the cookie
     lang = translation.get_language_from_request(request)
     with translation.override(lang):
-        reason = str(reason)
+        reason = force_text(reason).encode('unicode_escape').decode('ascii')
         response.set_cookie('logout_reason', reason, max_age=10)
         response.set_cookie('logout_status', status, max_age=10)
 
