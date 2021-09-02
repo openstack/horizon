@@ -340,8 +340,8 @@
 # a specific option in a domain.
 # GET  /v3/domains/{domain_id}/config/security_compliance
 # HEAD  /v3/domains/{domain_id}/config/security_compliance
-# GET  v3/domains/{domain_id}/config/security_compliance/{option}
-# HEAD  v3/domains/{domain_id}/config/security_compliance/{option}
+# GET  /v3/domains/{domain_id}/config/security_compliance/{option}
+# HEAD  /v3/domains/{domain_id}/config/security_compliance/{option}
 # Intended scope(s): system, domain, project
 #"identity:get_security_compliance_domain_config": ""
 
@@ -1547,11 +1547,7 @@
 # system_scope:all) or (role:reader and
 # domain_id:%(target.project.domain_id)s) or
 # project_id:%(target.project.id)s".
-# As of the Train release, the project tags API understands how to
-# handle system-scoped tokens in addition to project and domain
-# tokens, making the API more accessible to users without compromising
-# security or manageability for administrators. The new default
-# policies for this API account for these changes automatically.
+# The project API is now aware of system scope and default roles.
 
 # Check if project contains a tag.
 # GET  /v3/projects/{project_id}/tags/{value}
@@ -1566,11 +1562,7 @@
 # system_scope:all) or (role:reader and
 # domain_id:%(target.project.domain_id)s) or
 # project_id:%(target.project.id)s".
-# As of the Train release, the project tags API understands how to
-# handle system-scoped tokens in addition to project and domain
-# tokens, making the API more accessible to users without compromising
-# security or manageability for administrators. The new default
-# policies for this API account for these changes automatically.
+# The project API is now aware of system scope and default roles.
 
 # Replace all tags on a project with the new set of tags.
 # PUT  /v3/projects/{project_id}/tags
@@ -1583,11 +1575,7 @@
 # "identity:update_project_tags":"(role:admin and system_scope:all) or
 # (role:admin and domain_id:%(target.project.domain_id)s) or
 # (role:admin and project_id:%(target.project.id)s)".
-# As of the Train release, the project tags API understands how to
-# handle system-scoped tokens in addition to project and domain
-# tokens, making the API more accessible to users without compromising
-# security or manageability for administrators. The new default
-# policies for this API account for these changes automatically.
+# The project API is now aware of system scope and default roles.
 
 # Add a single tag to a project.
 # PUT  /v3/projects/{project_id}/tags/{value}
@@ -1600,11 +1588,7 @@
 # "identity:create_project_tag":"(role:admin and system_scope:all) or
 # (role:admin and domain_id:%(target.project.domain_id)s) or
 # (role:admin and project_id:%(target.project.id)s)".
-# As of the Train release, the project tags API understands how to
-# handle system-scoped tokens in addition to project and domain
-# tokens, making the API more accessible to users without compromising
-# security or manageability for administrators. The new default
-# policies for this API account for these changes automatically.
+# The project API is now aware of system scope and default roles.
 
 # Remove all tags from a project.
 # DELETE  /v3/projects/{project_id}/tags
@@ -1617,11 +1601,7 @@
 # "identity:delete_project_tags":"(role:admin and system_scope:all) or
 # (role:admin and domain_id:%(target.project.domain_id)s) or
 # (role:admin and project_id:%(target.project.id)s)".
-# As of the Train release, the project tags API understands how to
-# handle system-scoped tokens in addition to project and domain
-# tokens, making the API more accessible to users without compromising
-# security or manageability for administrators. The new default
-# policies for this API account for these changes automatically.
+# The project API is now aware of system scope and default roles.
 
 # Delete a specified tag from project.
 # DELETE  /v3/projects/{project_id}/tags/{value}
@@ -1634,11 +1614,7 @@
 # "identity:delete_project_tag":"(role:admin and system_scope:all) or
 # (role:admin and domain_id:%(target.project.domain_id)s) or
 # (role:admin and project_id:%(target.project.id)s)".
-# As of the Train release, the project tags API understands how to
-# handle system-scoped tokens in addition to project and domain
-# tokens, making the API more accessible to users without compromising
-# security or manageability for administrators. The new default
-# policies for this API account for these changes automatically.
+# The project API is now aware of system scope and default roles.
 
 # List projects allowed to access an endpoint.
 # GET  /v3/OS-EP-FILTER/endpoints/{endpoint_id}/projects

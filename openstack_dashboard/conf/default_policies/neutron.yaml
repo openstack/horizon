@@ -529,6 +529,7 @@
   - method: POST
     path: /floatingips
   scope_types:
+  - system
   - project
 - check_str: role:admin and system_scope:all
   deprecated_reason: null
@@ -600,7 +601,7 @@
   - method: GET
     path: /floatingip_pools
   scope_types:
-  - admin
+  - system
   - project
 - check_str: (role:admin and system_scope:all) or (role:member and project_id:%(project_id)s)
     or rule:ext_parent_owner
@@ -752,6 +753,7 @@
     path: /log/logs
   scope_types:
   - system
+  - project
 - check_str: role:reader and system_scope:all
   deprecated_reason: null
   deprecated_rule:
@@ -898,6 +900,7 @@
   - method: POST
     path: /networks
   scope_types:
+  - system
   - project
 - check_str: role:admin and system_scope:all
   deprecated_reason: null
@@ -942,6 +945,7 @@
   name: create_network:port_security_enabled
   operations: *id001
   scope_types:
+  - system
   - project
 - check_str: role:admin and system_scope:all
   deprecated_reason: null
@@ -1014,6 +1018,7 @@
   name: get_network:router:external
   operations: *id002
   scope_types:
+  - system
   - project
 - check_str: role:reader and system_scope:all
   deprecated_reason: null
@@ -1379,6 +1384,7 @@
   name: create_port:binding:vnic_type
   operations: *id004
   scope_types:
+  - system
   - project
 - check_str: role:admin and system_scope:all or role:admin and project_id:%(project_id)s
     or rule:network_owner
@@ -2046,7 +2052,7 @@
   scope_types:
   - system
   - project
-- check_str: role:admin and system_scope:all or rule:restrict_wildcard
+- check_str: role:admin and system_scope:all or (not field:rbac_policy:target_tenant=*)
   deprecated_reason: null
   deprecated_rule:
     check_str: rule:restrict_wildcard
@@ -2074,7 +2080,7 @@
   scope_types:
   - project
   - system
-- check_str: role:admin and system_scope:all or rule:restrict_wildcard
+- check_str: role:admin and system_scope:all or (not field:rbac_policy:target_tenant=*)
   deprecated_reason: null
   deprecated_rule:
     check_str: rule:restrict_wildcard and rule:admin_or_owner
@@ -2130,6 +2136,7 @@
   - method: POST
     path: /routers
   scope_types:
+  - system
   - project
 - check_str: role:admin and system_scope:all
   deprecated_reason: null
@@ -2367,6 +2374,34 @@
   scope_types:
   - system
   - project
+- check_str: (role:admin and system_scope:all) or (role:member and project_id:%(project_id)s)
+  deprecated_reason: null
+  deprecated_rule:
+    check_str: rule:admin_or_owner
+    name: add_extraroutes
+  deprecated_since: null
+  description: Add extra route to a router
+  name: add_extraroutes
+  operations:
+  - method: PUT
+    path: /routers/{id}/add_extraroutes
+  scope_types:
+  - system
+  - project
+- check_str: (role:admin and system_scope:all) or (role:member and project_id:%(project_id)s)
+  deprecated_reason: null
+  deprecated_rule:
+    check_str: rule:admin_or_owner
+    name: remove_extraroutes
+  deprecated_since: null
+  description: Remove extra route from a router
+  name: remove_extraroutes
+  operations:
+  - method: PUT
+    path: /routers/{id}/remove_extraroutes
+  scope_types:
+  - system
+  - project
 - check_str: rule:context_is_admin or tenant_id:%(security_group:tenant_id)s
   description: Rule for admin or security group owner access
   name: admin_or_sg_owner
@@ -2534,7 +2569,7 @@
     path: /segments/{id}
   scope_types:
   - system
-- check_str: (role:reader and system_scope:all) or (role:reader and project_id:%(project_id)s)
+- check_str: role:reader
   deprecated_reason: null
   deprecated_rule:
     check_str: rule:regular_user

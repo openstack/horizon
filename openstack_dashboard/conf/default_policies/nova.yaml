@@ -1808,7 +1808,7 @@
   deprecated_rule:
     check_str: rule:admin_or_owner
     name: os_compute_api:os-security-groups
-  deprecated_since: 21.0.0
+  deprecated_since: 22.0.0
   description: List security groups of server.
   name: os_compute_api:os-security-groups:list
   operations:
@@ -1830,7 +1830,7 @@
   deprecated_rule:
     check_str: rule:admin_or_owner
     name: os_compute_api:os-security-groups
-  deprecated_since: 21.0.0
+  deprecated_since: 22.0.0
   description: Add security groups to server.
   name: os_compute_api:os-security-groups:add
   operations:
@@ -1852,7 +1852,7 @@
   deprecated_rule:
     check_str: rule:admin_or_owner
     name: os_compute_api:os-security-groups
-  deprecated_since: 21.0.0
+  deprecated_since: 22.0.0
   description: Remove security groups from server.
   name: os_compute_api:os-security-groups:remove
   operations:
