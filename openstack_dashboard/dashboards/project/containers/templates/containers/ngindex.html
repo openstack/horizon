@@ -11,6 +11,7 @@
 {% endblock %}
 
 {% block ng_route_base %}
+  {% csrf_token %}
   <base href="{{ WEBROOT }}">
 {% endblock %}
 
