@@ -39,6 +39,8 @@ from horizon.utils import filters
 from openstack_dashboard import api
 from openstack_dashboard.dashboards.project.floating_ips import workflows
 from openstack_dashboard.dashboards.project.instances import tabs
+from openstack_dashboard.dashboards.project.instances \
+    import utils as instance_utils
 from openstack_dashboard.dashboards.project.instances.workflows \
     import resize_instance
 from openstack_dashboard.dashboards.project.instances.workflows \
@@ -782,8 +784,8 @@ class UpdateRow(tables.Row):
     def get_data(self, request, instance_id):
         instance = api.nova.server_get(request, instance_id)
         try:
-            instance.full_flavor = api.nova.flavor_get(request,
-                                                       instance.flavor["id"])
+            instance.full_flavor = instance_utils.resolve_flavor(request,
+                                                                 instance)
         except Exception:
             exceptions.handle(request,
                               _('Unable to retrieve flavor information '
@@ -1034,7 +1036,7 @@ def get_flavor(instance):
             "size_disk": size_disk,
             "size_ram": size_ram,
             "vcpus": instance.full_flavor.vcpus,
-            "flavor_id": instance.full_flavor.id
+            "flavor_id": getattr(instance.full_flavor, 'id', None)
         }
         return template.loader.render_to_string(template_name, context)
     return _("Not available")

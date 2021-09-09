@@ -10,6 +10,7 @@
 # License for the specific language governing permissions and limitations
 # under the License.
 
+from collections import namedtuple
 import logging
 from operator import itemgetter
 
@@ -17,7 +18,6 @@ from django.conf import settings
 from django.utils.translation import ugettext_lazy as _
 
 from horizon import exceptions
-
 from openstack_dashboard import api
 
 LOG = logging.getLogger(__name__)
@@ -232,3 +232,40 @@ def server_group_field_data(request):
         return [("", _("Select Server Group")), ] + server_groups_list
 
     return [("", _("No server groups available")), ]
+
+
+def resolve_flavor(request, instance, **kwargs):
+    """Resolves name of instance flavor independent of API microversion
+
+    :param request: django http request object
+    :param instance: api._nova.Server instance to resolve flavor
+    :param kwargs: flavor parameters to return if hit some flavor discrepancy
+    :return: flavor name or default placeholder
+    """
+    def flavor_from_dict(flavor_dict):
+        """Creates flavor-like objects from dictionary
+
+        :param flavor_dict: dictionary contains vcpu, ram, name, etc. values
+        :return: novaclient.v2.flavors.Flavor like object
+        """
+        return namedtuple('Flavor', flavor_dict.keys())(*flavor_dict.values())
+
+    flavor_id = instance.flavor.get('id')
+    if flavor_id:  # Nova API <=2.46
+        try:
+            return api.nova.flavor_get(request, flavor_id)
+        except Exception:
+            msg = _('Unable to retrieve flavor information '
+                    'for instance "%s".') % instance.id
+            exceptions.handle(request, msg, ignore=True)
+            fallback_flavor = {
+                'vcpus': 0, 'ram': 0, 'disk': 0, 'ephemeral': 0, 'swap': 0,
+                'name': _('Not available'),
+                'original_name': _('Not available'),
+                'extra_specs': {},
+            }
+            fallback_flavor.update(kwargs)
+            return flavor_from_dict(fallback_flavor)
+    else:
+        instance.flavor['name'] = instance.flavor['original_name']
+        return flavor_from_dict(instance.flavor)
