@@ -93,16 +93,24 @@ class AdminIndexView(tables.PagedTableMixin, tables.DataTableView):
             exceptions.handle(self.request, msg)
             return {}
 
-    def _get_images(self, instances=()):
+    def _get_images(self):
         # Gather our images to correlate our instances to them
         try:
-            # NOTE(aarefiev): request images, instances was booted from.
-            img_ids = (instance.image.get('id') for instance in
-                       instances if isinstance(instance.image, dict))
-            real_img_ids = list(filter(None, img_ids))
-            images = api.glance.image_list_detailed_by_ids(
-                self.request, real_img_ids)
-            image_map = dict((image.id, image) for image in images)
+            # Community images have to be retrieved separately and merged,
+            # because their visibility has to be explicitly defined in the
+            # API call and the Glance API currently does not support filtering
+            # by multiple values in the visibility field.
+            # TODO(gabriel): Handle pagination.
+            images = api.glance.image_list_detailed(self.request)[0]
+            community_images = api.glance.image_list_detailed(
+                self.request, filters={'visibility': 'community'})[0]
+            image_map = {
+                image.id: image for image in images
+            }
+            # Images have to be filtered by their uuids; some users
+            # have default access to certain community images.
+            for image in community_images:
+                image_map.setdefault(image.id, image)
             return image_map
         except Exception:
             exceptions.handle(self.request, ignore=True)
@@ -137,6 +145,15 @@ class AdminIndexView(tables.PagedTableMixin, tables.DataTableView):
                               _('Unable to retrieve instance list.'))
         return instances
 
+    def _get_volumes(self):
+        # Gather our volumes to get their image metadata for instance
+        try:
+            volumes = api.cinder.volume_list(self.request)
+            return dict((str(volume.id), volume) for volume in volumes)
+        except Exception:
+            exceptions.handle(self.request, ignore=True)
+            return {}
+
     def get_data(self):
         marker, sort_dir = self._get_marker()
         default_search_opts = {'marker': marker,
@@ -158,9 +175,11 @@ class AdminIndexView(tables.PagedTableMixin, tables.DataTableView):
         self._needs_filter_first = False
 
         results = futurist_utils.call_functions_parallel(
+            self._get_images,
+            self._get_volumes,
             self._get_flavors,
             self._get_tenants)
-        flavor_dict, tenant_dict = results
+        image_dict, volume_dict, flavor_dict, tenant_dict = results
 
         non_api_filter_info = [
             ('project', 'tenant_id', tenant_dict.values()),
@@ -181,10 +200,11 @@ class AdminIndexView(tables.PagedTableMixin, tables.DataTableView):
         instances = self._get_instances(search_opts, sort_dir)
 
         if not filter_by_image_name:
-            image_dict = self._get_images(tuple(instances))
+            image_dict = self._get_images()
 
         # Loop through instances to get image, flavor and tenant info.
         for inst in instances:
+            self._populate_image_info(inst, image_dict, volume_dict)
             if hasattr(inst, 'image') and isinstance(inst.image, dict):
                 image_id = inst.image.get('id')
                 if image_id in image_dict:
@@ -210,6 +230,49 @@ class AdminIndexView(tables.PagedTableMixin, tables.DataTableView):
             tenant = tenant_dict.get(inst.tenant_id, None)
             inst.tenant_name = getattr(tenant, "name", None)
         return instances
+
+    def _populate_image_info(self, instance, image_dict, volume_dict):
+        if not hasattr(instance, 'image'):
+            return
+        # Instance from image returns dict
+        if isinstance(instance.image, dict):
+            image_id = instance.image.get('id')
+            if image_id in image_dict:
+                instance.image = image_dict[image_id]
+            # In case image not found in image_dict, set name to empty
+            # to avoid fallback API call to Glance in api/nova.py
+            # until the call is deprecated in api itself
+            else:
+                instance.image['name'] = _("-")
+        # Otherwise trying to get image from volume metadata
+        else:
+            instance_volumes = [
+                attachment
+                for volume in volume_dict.values()
+                for attachment in volume.attachments
+                if attachment['server_id'] == instance.id
+            ]
+            # While instance from volume is being created,
+            # it does not have volumes
+            if not instance_volumes:
+                return
+            # Sorting attached volumes by device name (eg '/dev/sda')
+            instance_volumes.sort(key=lambda attach: attach['device'])
+            # Getting volume object, which is as attached
+            # as the first device
+            boot_volume = volume_dict[instance_volumes[0]['id']]
+            # There is a case where volume_image_metadata contains
+            # only fields other than 'image_id' (See bug 1834747),
+            # so we try to populate image information only when it is found.
+            volume_metadata = getattr(boot_volume, "volume_image_metadata", {})
+            image_id = volume_metadata.get('image_id')
+            if image_id:
+                try:
+                    instance.image = image_dict[image_id].to_dict()
+                except KeyError:
+                    # KeyError occurs when volume was created from image and
+                    # then this image is deleted.
+                    pass
 
 
 class LiveMigrateView(forms.ModalFormView):
