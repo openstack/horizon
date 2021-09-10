@@ -34,16 +34,17 @@
 # Ilya Alekseyev <ilyaalekseyev@acm.org>, 2019. #zanata
 # Roman Gorshunov <roman.gorshunov@att.com>, 2019. #zanata
 # Dmitriy Rabotyagov <noonedeadpunk@ya.ru>, 2020. #zanata
+# Roman Gorshunov <roman.gorshunov@att.com>, 2021. #zanata
 msgid ""
 msgstr ""
 "Project-Id-Version: horizon VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2021-05-11 12:54+0000\n"
+"POT-Creation-Date: 2021-09-09 10:31+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2020-09-16 04:39+0000\n"
-"Last-Translator: Dmitriy Rabotyagov <noonedeadpunk@ya.ru>\n"
+"PO-Revision-Date: 2021-09-06 04:32+0000\n"
+"Last-Translator: Roman Gorshunov <roman.gorshunov@att.com>\n"
 "Language: ru\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
 "%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
@@ -1133,6 +1134,9 @@ msgstr ""
 
 msgid "Checksum"
 msgstr "Контрольная сумма"
+
+msgid "Chinese locale rename"
+msgstr "Переименование китайской локализации"
 
 msgid ""
 "Choose \"Disk Format\" for the image. The volume images are created with the "
@@ -2427,6 +2431,9 @@ msgstr "Отображаемое имя."
 msgid "Distributed"
 msgstr "Распространенный"
 
+msgid "Django launch instance form"
+msgstr "Форма запуска инстанса Django"
+
 msgid ""
 "Do not use a colon ':' with OS::Glance::Images. This resource type does not "
 "support the use of colons."
@@ -3311,6 +3318,12 @@ msgctxt "Force upload volume in in-use status to image"
 msgid "Force"
 msgstr "Принудительная загрузка"
 
+msgid "Force Delete Volume Backup"
+msgid_plural "Force Delete Volume Backups"
+msgstr[0] "Приундительно удалить снимок диска"
+msgstr[1] "Приундительно удалить снимки дисков"
+msgstr[2] "Приундительно удалить снимки дисков"
+
 msgid "Force Host Copy"
 msgstr "Принудительное копирование на узел"
 
@@ -3870,6 +3883,12 @@ msgstr "Информация"
 msgid "Ingress"
 msgstr "Входящий трафик"
 
+msgid "Injected File Content (B)"
+msgstr "Объём загруженного файла в байтах"
+
+msgid "Injected File Path (B)"
+msgstr "Путь загруженного файла (B)"
+
 msgid "Injected Files"
 msgstr "Загруженные файлы"
 
@@ -4092,6 +4111,9 @@ msgstr "Обновлено"
 msgid "Launch"
 msgstr "Запустить"
 
+msgid "Launch Index"
+msgstr "Индекс запуска"
+
 msgid "Launch Instance"
 msgstr "Запустить инстанс"
 
@@ -4291,6 +4313,13 @@ msgstr "Тема Material Design"
 
 msgid "Max. Size (MB) ="
 msgstr "Макс. размер (МБ) ="
+
+msgid ""
+"Maximum Transmission Unit. Minimum is 68 bytes for the IPv4 subnet and 1280 "
+"bytes for the IPv6 subnet."
+msgstr ""
+"Максимальный размер блока передачи (MTU). Минимум - 68 байт для IPv4 "
+"подсети, и 1280 байт для IPv6 подсети."
 
 msgid "Memory MB Hours"
 msgstr "Память МБ-часов"
@@ -5543,6 +5572,9 @@ msgctxt "Task status of an Instance"
 msgid "Rescuing"
 msgstr "Восстановление"
 
+msgid "Reservation ID"
+msgstr "ID резервации"
+
 msgctxt "Current status of a Volume"
 msgid "Reserved"
 msgstr "Зарезервировано"
@@ -5820,6 +5852,12 @@ msgid_plural "Scheduled deletion of Volume Snapshots"
 msgstr[0] "Запланировано удаление снимка диска"
 msgstr[1] "Запланировано удаление снимков диска"
 msgstr[2] "Запланировано удаление снимков диска"
+
+msgid "Scheduled forced deletion of Volume Backup"
+msgid_plural "Scheduled forced deletion of Volume Backups"
+msgstr[0] "Запланировано принудительное удаление снимка диска"
+msgstr[1] "Запланировано принудительное удаление снимков диска"
+msgstr[2] "Запланировано принудительное удаление снимков диска"
 
 msgid "Scheduled migration (pending confirmation) of Instance"
 msgid_plural "Scheduled migration (pending confirmation) of Instances"
@@ -6566,6 +6604,10 @@ msgid "Successfully updated security group: %s"
 msgstr "Успешно обновлена группа безопасности: %s"
 
 #, python-format
+msgid "Successfully updated volume backup status to \"%s\"."
+msgstr "Успешно обновлен статус снимка диска на \"%s\"."
+
+#, python-format
 msgid "Successfully updated volume snapshot status: \"%s\"."
 msgstr "Успешно обновлен статус снимка диска: \"%s\""
 
@@ -6960,6 +7002,15 @@ msgid "The specified port is invalid."
 msgstr "Указан неверный порт."
 
 msgid ""
+"The status of a volume backup is normally managed automatically. In some "
+"circumstances an administrator may need to explicitly update the status "
+"value. This is equivalent to the <tt>cinder backup-reset-state</tt> command."
+msgstr ""
+"Статус снимка диска, как правило, управляется автоматически. В некоторых "
+"случаях администратору может понадобиться явно указать значение статуса. Это "
+"эквивалентно команде <tt>cinder snapshot-reset-state</tt>."
+
+msgid ""
 "The status of a volume is normally managed automatically.  In some "
 "circumstances an administrator may need to explicitly update the status "
 "value.  This is equivalent to the <tt>openstack volume set --state</tt> "
@@ -7294,6 +7345,10 @@ msgstr "Не удалось клонировать пустую группу."
 
 msgid "Unable to clone group."
 msgstr "Не удалось клонировать группу."
+
+#, python-format
+msgid "Unable to confirm resize instance \"%s\"."
+msgstr "Не удалось подтвердить изменение размера инстанса \"%s\"."
 
 msgid "Unable to connect to Neutron."
 msgstr "Невозможно подключиться к Neutron."
@@ -7689,6 +7744,9 @@ msgstr "Невозможно получить информацию Сети дл
 
 msgid "Unable to retrieve Neutron quota information."
 msgstr "Не удалось получить информацию о квотах Neutron."
+
+msgid "Unable to retrieve Nova quota information."
+msgstr "Не удалось получить информацию о квотах Nova."
 
 msgid "Unable to retrieve Nova server groups."
 msgstr "Не удалось получить группы серверов Nova."
@@ -8139,6 +8197,12 @@ msgstr "Не удалось получить список пользовател
 msgid "Unable to retrieve version information."
 msgstr "Не удалось получить сведения о версии"
 
+msgid "Unable to retrieve volume backup details."
+msgstr "Не удалось получить подробную информацию о снимке диска."
+
+msgid "Unable to retrieve volume backup project information."
+msgstr "Не удалось получить информацию о снимке диска проекта."
+
 msgid "Unable to retrieve volume backups."
 msgstr "Не удалось получить резервные копии диска."
 
@@ -8238,6 +8302,10 @@ msgstr "Не удалось получить информацию о подкл�
 msgid "Unable to retrieve volumes."
 msgstr "Не удалось получить диски."
 
+#, python-format
+msgid "Unable to revert resize instance \"%s\"."
+msgstr "Не удалось отменить изменение размера инстанса \"%s\"."
+
 msgid "Unable to set Domain Context."
 msgstr "Не удалось установить контекст домена."
 
@@ -8324,6 +8392,10 @@ msgstr "Не удалось изменить пароль пользовател
 
 msgid "Unable to update the user."
 msgstr "Не удалось обновить пользователя."
+
+#, python-format
+msgid "Unable to update volume backup status to \"%s\"."
+msgstr "Не удалось обновить статус снимка  диска на \"%s\"."
 
 msgid "Unable to update volume group."
 msgstr "Не удалось обновить группу диска."
@@ -8529,6 +8601,9 @@ msgstr "Обновить статус диска"
 msgid "Update Volume Type Encryption"
 msgstr "Изменить тип шифрование для Типа Дисков"
 
+msgid "Update Volume backup Status"
+msgstr "Обновить статус снимка диска"
+
 msgid "Update a Metadata Namespace"
 msgstr "Обновить метаданные пространства имён"
 
@@ -8661,6 +8736,9 @@ msgstr "Пользователь «%s» успешно создан."
 
 msgid "User Credentials Details"
 msgstr "Детали учетных данных пользователя"
+
+msgid "User Data"
+msgstr "Данные пользователя"
 
 msgid "User Details"
 msgstr "Детали пользователя"
