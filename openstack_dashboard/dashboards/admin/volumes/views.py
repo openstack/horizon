@@ -121,6 +121,8 @@ class VolumesView(tables.PagedTableMixin, volumes_views.VolumeTableMixIn,
                 filters['project_id'] = id
                 volumes += self._get_volumes(search_opts=filters)
             attached_instance_ids = self._get_attached_instance_ids(volumes)
+
+            self._get_groups(volumes)
         else:
             futurist_utils.call_functions_parallel(
                 _task_get_volumes,
