@@ -45,6 +45,12 @@ class RowRegion(baseregion.BaseRegion):
         chck_box.click()
 
 
+class RowRegionNG(RowRegion):
+    """Angular-based table row."""
+
+    _cell_locator = (by.By.CSS_SELECTOR, 'td > hz-cell')
+
+
 class TableRegion(baseregion.BaseRegion):
     """Basic class representing table object."""
 
@@ -253,6 +259,38 @@ class TableRegion(baseregion.BaseRegion):
         self.assertDictEqual(actual_table, expected_table_definition)
 
 
+class TableRegionNG(TableRegion):
+    """Basic class representing angular-based table object."""
+
+    _heading_locator = (by.By.CSS_SELECTOR,
+                        'hz-resource-panel hz-page-header h1')
+    _empty_table_locator = (by.By.CSS_SELECTOR, 'tbody > tr > td.no-rows-help')
+
+    def _table_locator(self, table_name):
+        return by.By.CSS_SELECTOR, 'hz-dynamic-table'
+
+    @property
+    def _next_locator(self):
+        return by.By.CSS_SELECTOR, 'a[ng-click^="selectPage(currentPage + 1)"]'
+
+    @property
+    def _prev_locator(self):
+        return by.By.CSS_SELECTOR, 'a[ng-click^="selectPage(currentPage - 1)"]'
+
+    @property
+    def column_names(self):
+        names = []
+        for element in self._get_elements(*self._columns_names_locator):
+            if element.text:
+                names.append(element.text)
+        return names
+
+    def _get_rows(self, *args):
+        return [RowRegionNG(self.driver, self.conf, elem, self.column_names)
+                for elem in self._get_elements(*self._rows_locator)
+                if elem.text and elem.text != '']
+
+
 def bind_table_action(action_name):
     """Decorator to bind table region method to an actual table action button.
 
@@ -279,6 +317,44 @@ def bind_table_action(action_name):
             for action in actions:
                 target_action_id = '%s__action_%s' % (table.name, action_name)
                 if action.get_attribute('id') == target_action_id:
+                    action_element = action
+                    break
+            if action_element is None:
+                msg = "Could not bind method '%s' to action control '%s'" % (
+                    method.__name__, action_name)
+                raise ValueError(msg)
+            return method(table, action_element)
+        return wrapper
+    return decorator
+
+
+def bind_table_action_ng(action_name):
+    """Decorator to bind table region method to an actual table action button.
+
+    This decorator works with angular-based tables.
+    Many table actions when started (by clicking a corresponding button
+    in UI) lead to some form showing up. To further interact with this form,
+    a Python/ Selenium wrapper needs to be created for it. It is very
+    convenient to return this newly created wrapper in the same method that
+    initiates clicking an actual table action button. Binding the method to a
+    button is performed behind the scenes in this decorator.
+
+    .. param:: action_name
+
+        Part of the action button id which is specific to action itself. It
+        is safe to use action `name` attribute from the dashboard tables.py
+        code.
+    """
+    _actions_locator = (by.By.CSS_SELECTOR,
+                        'actions.hz-dynamic-table-actions > action-list')
+
+    def decorator(method):
+        @functools.wraps(method)
+        def wrapper(table):
+            actions = table._get_elements(*_actions_locator)
+            action_element = None
+            for action in actions:
+                if action.text == action_name:
                     action_element = action
                     break
             if action_element is None:
@@ -347,11 +423,67 @@ def bind_row_action(action_name):
     return decorator
 
 
+def bind_row_action_ng(action_name):
+    """A decorator to bind table region method to an actual row action button.
+
+    This decorator works with angular-based tables.
+    Many table actions when started (by clicking a corresponding button
+    in UI) lead to some form showing up. To further interact with this form,
+    a Python/ Selenium wrapper needs to be created for it. It is very
+    convenient to return this newly created wrapper in the same method that
+    initiates clicking an actual action button. Row action could be
+    either primary (if its name is written right away on row action
+    button) or secondary (if its name is inside of a button drop-down). Binding
+    the method to a button and toggling the button drop-down open (in case
+    a row action is secondary) is performed behind the scenes in this
+    decorator.
+
+    .. param:: action_name
+
+        Part of the action button id which is specific to action itself. It
+        is safe to use action `name` attribute from the dashboard tables.py
+        code.
+    """
+    primary_action_locator = (
+        by.By.CSS_SELECTOR,
+        'td.actions_column > actions > action-list > button.split-button')
+    secondary_actions_opener_locator = (
+        by.By.CSS_SELECTOR,
+        'td.actions_column > actions > action-list > button.split-caret')
+    secondary_actions_locator = (
+        by.By.CSS_SELECTOR,
+        'td.actions_column > actions > action-list > ul > li > a')
+
+    def decorator(method):
+        @functools.wraps(method)
+        def wrapper(table, row):
+            def find_action(element):
+                pattern = action_name
+                return element.text.endswith(pattern)
+
+            action_element = row._get_element(*primary_action_locator)
+            if not find_action(action_element):
+                action_element = None
+                row._get_element(*secondary_actions_opener_locator).click()
+                for element in row._get_elements(*secondary_actions_locator):
+                    if find_action(element):
+                        action_element = element
+                        break
+
+            if action_element is None:
+                msg = "Could not bind method '%s' to action control '%s'" % (
+                    method.__name__, action_name)
+                raise ValueError(msg)
+            return method(table, action_element, row)
+        return wrapper
+    return decorator
+
+
 def bind_row_anchor_column(column_name):
     """A decorator to bind table region method to a anchor in a column.
 
-    Typical examples of such tables are Project -> Compute -> Images, Admin
-    -> System -> Flavors, Project -> Compute -> Instancies.
+    Typical examples of such tables are Project -> Compute -> Instances, Admin
+    -> System -> Flavors.
     The method can be used to follow the link in the anchor by the click.
     """
 
@@ -361,6 +493,27 @@ def bind_row_anchor_column(column_name):
             cell = row.cells[column_name]
             action_element = cell.find_element(
                 by.By.CSS_SELECTOR, 'td.%s > a' % NORMAL_COLUMN_CLASS)
+            return method(table, action_element, row)
+
+        return wrapper
+    return decorator
+
+
+def bind_row_anchor_column_ng(column_name):
+    """A decorator to bind table region method to a anchor in a column.
+
+    This decorator works with angular-based tables.
+    Typical examples of such tables are Project -> Compute -> Images,
+    Admin -> Compute -> Images.
+    The method can be used to follow the link in the anchor by the click.
+    """
+
+    def decorator(method):
+        @functools.wraps(method)
+        def wrapper(table, row):
+            cell = row.cells[column_name]
+            action_element = cell.find_element(
+                by.By.CSS_SELECTOR, 'td > hz-cell > a')
             return method(table, action_element, row)
 
         return wrapper

@@ -242,6 +242,10 @@ class TestVolumesActions(helpers.TestCase):
     def volumes_page(self):
         return self.home_pg.go_to_project_volumes_volumespage()
 
+    @property
+    def images_page(self):
+        return self.home_pg.go_to_project_compute_imagespage()
+
     def setUp(self):
         super().setUp()
         volumes_page = self.volumes_page
@@ -288,7 +292,6 @@ class TestVolumesActions(helpers.TestCase):
         new_size = volumes_page.get_size(self.VOLUME_NAME)
         self.assertLess(orig_size, new_size)
 
-    @pytest.mark.skip(reason="Bug 1847715")
     def test_volume_upload_to_image(self):
         """This test case checks upload volume to image functionality:
 
@@ -299,29 +302,28 @@ class TestVolumesActions(helpers.TestCase):
         4. Delete the image
         5. Repeat actions for all disk formats
         """
-        self.volumes_page = self.home_pg.go_to_project_volumes_volumespage()
-        all_formats = {"qcow2": 'QCOW2', "raw": 'Raw', "vdi": 'VDI',
+        volumes_page = self.volumes_page
+        all_formats = {"qcow2": 'QCOW2', "raw": 'RAW', "vdi": 'VDI',
                        "vmdk": 'VMDK'}
         for disk_format in all_formats:
-            self.volumes_page.upload_volume_to_image(self.VOLUME_NAME,
-                                                     self.IMAGE_NAME,
-                                                     disk_format)
+            volumes_page.upload_volume_to_image(
+                self.VOLUME_NAME, self.IMAGE_NAME, disk_format)
             self.assertFalse(
-                self.volumes_page.find_message_and_dismiss(messages.ERROR))
-            self.assertTrue(self.volumes_page.is_volume_status(
+                volumes_page.find_message_and_dismiss(messages.ERROR))
+            self.assertTrue(volumes_page.is_volume_status(
                 self.VOLUME_NAME, 'Available'))
-            images_page = self.home_pg.go_to_project_compute_imagespage()
+            images_page = self.images_page
             self.assertTrue(images_page.is_image_present(self.IMAGE_NAME))
             self.assertTrue(images_page.is_image_active(self.IMAGE_NAME))
             self.assertEqual(images_page.get_image_format(self.IMAGE_NAME),
                              all_formats[disk_format])
             images_page.delete_image(self.IMAGE_NAME)
             self.assertTrue(images_page.find_message_and_dismiss(
-                messages.INFO))
+                messages.SUCCESS))
             self.assertFalse(images_page.find_message_and_dismiss(
                 messages.ERROR))
             self.assertFalse(images_page.is_image_present(self.IMAGE_NAME))
-            self.volumes_page = \
+            volumes_page = \
                 self.home_pg.go_to_project_volumes_volumespage()
 
     @pytest.mark.skip(reason="Bug 1774697")
