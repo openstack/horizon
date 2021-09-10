@@ -40,7 +40,7 @@ class WrapperFindOverride(object):
     """Mixin for overriding find_element methods."""
 
     def find_element(self, by=by.By.ID, value=None):
-        repeat = range(2)
+        repeat = range(10)
         for i in repeat:
             try:
                 web_el = super().find_element(by, value)
@@ -51,7 +51,7 @@ class WrapperFindOverride(object):
                                  self)
 
     def find_elements(self, by=by.By.ID, value=None):
-        repeat = range(2)
+        repeat = range(10)
         for i in repeat:
             try:
                 web_els = super().find_elements(by, value)
