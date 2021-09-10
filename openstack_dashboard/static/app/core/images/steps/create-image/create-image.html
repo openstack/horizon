@@ -76,15 +76,9 @@
             <label class="control-label" for="imageForm-image_url">
               <translate>File</translate><span class="hz-icon-required fa fa-asterisk"></span>
             </label>
-            <div class="input-group" ng-hide="ctrl.uploadProgress > -1">
-              <span class="input-group-btn">
-                <button class="btn btn-primary" ng-model="image_file"
-                        ngf-select="ctrl.prepareUpload(image_file)"
-                        name="image_file" ng-required="true"
-                        ng-disabled="viewModel.isSubmitting"
-                        id="imageForm-image_file" translate>Browse...</button>
-              </span>
-              <input type="text" class="form-control" readonly ng-model="image_file.name">
+            <div ng-hide="ctrl.uploadProgress > -1">
+              <input type="file" ng-model="image_file" ngf-select="ctrl.prepareUpload(image_file)"
+                     name="image_file" ng-required="true" ng-disabled="viewModel.isSubmitting">
             </div>
             <div ng-hide="ctrl.uploadProgress < 0" class="progress-text">
               <uib-progressbar value="ctrl.uploadProgress"></uib-progressbar>
@@ -239,7 +233,7 @@
               <translate>Visibility</translate>
             </label>
             <div class="form-field">
-              <div class="btn-group">
+              <div class="btn-group" name="visibility">
                 <label class="btn btn-default"
                        ng-repeat="option in ctrl.imageVisibilityOptions"
                        ng-model="ctrl.image.visibility"
@@ -254,7 +248,7 @@
               <translate>Protected</translate>
             </label>
             <div class="form-field">
-              <div class="btn-group">
+              <div class="btn-group" name="protected">
                 <label class="btn btn-default"
                        ng-repeat="option in ctrl.imageProtectedOptions"
                        ng-model="ctrl.image.protected"

@@ -75,11 +75,11 @@ ImageGroup = [
                default='angular',
                help='type/version of images panel'),
     cfg.StrOpt('http_image',
-               default='http://download.cirros-cloud.net/0.3.1/'
-                       'cirros-0.3.1-x86_64-uec.tar.gz',
+               default='http://download.cirros-cloud.net/0.5.2/'
+                       'cirros-0.5.2-x86_64-uec.tar.gz',
                help='http accessible image'),
     cfg.ListOpt('images_list',
-                default=['cirros-0.3.5-x86_64-disk'],
+                default=['cirros-0.5.2-x86_64-disk'],
                 help='default list of images')
 ]
 
