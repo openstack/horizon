@@ -196,7 +196,7 @@ def port_field_data(request, with_network=False):
         port_name = "{} ({})".format(
             port.name_or_id, ",".join(
                 [ip['ip_address'] for ip in port['fixed_ips']]))
-        if with_network and network:
+        if with_network:
             port_name += " - {}".format(network.name_or_id)
         return port_name
 
@@ -204,14 +204,16 @@ def port_field_data(request, with_network=False):
     if api.base.is_service_enabled(request, 'network'):
         network_list = api.neutron.network_list_for_tenant(
             request, request.user.tenant_id)
-        for network in network_list:
-            ports.extend(
-                [(port.id, add_more_info_port_name(port, network))
-                 for port in api.neutron.port_list_with_trunk_types(
-                     request, network_id=network.id,
-                     tenant_id=request.user.tenant_id)
-                 if (not port.device_owner and
-                     not isinstance(port, api.neutron.PortTrunkSubport))])
+        network_dict = dict((n.id, n) for n in network_list)
+        ports = [
+            (port.id,
+             add_more_info_port_name(port, network_dict[port.network_id]))
+            for port
+            in api.neutron.port_list_with_trunk_types(
+                request, tenant_id=request.user.tenant_id)
+            if (not port.device_owner and
+                not isinstance(port, api.neutron.PortTrunkSubport))
+        ]
     ports.sort(key=lambda obj: obj[1])
     return ports
 
