@@ -425,7 +425,7 @@ class DataTableTests(test.TestCase):
         # but should not contain the excluded column.
         # Additionally, auto-generated columns should use the custom
         # column class specified on the table.
-        self.assertQuerysetEqual(self.table.columns.values(),
+        self.assertQuerysetEqual(self.table.get_columns(),
                                  ['<MyColumn: multi_select>',
                                   '<Column: id>',
                                   '<Column: name>',
@@ -434,7 +434,7 @@ class DataTableTests(test.TestCase):
                                   '<Column: status>',
                                   '<MyColumn: actions>'])
         # Actions (these also test ordering)
-        self.assertQuerysetEqual(self.table.base_actions.values(),
+        self.assertQuerysetEqual(list(self.table.base_actions.values()),
                                  ['<MyBatchAction: batch>',
                                   '<MyBatchActionWithHelpText: batch_help>',
                                   '<MyAction: delete>',
@@ -472,7 +472,7 @@ class DataTableTests(test.TestCase):
         self.assertEqual(TEST_DATA, self.table.data)
         # The column "restricted" is not rendered because of policy
         expected_columns = ['<Column: name>']
-        self.assertQuerysetEqual(self.table.columns.values(), expected_columns)
+        self.assertQuerysetEqual(self.table.get_columns(), expected_columns)
 
     @override_settings(POLICY_CHECK_FUNCTION=lambda *args: True)
     def test_table_column_policy_allowed(self):
@@ -480,7 +480,7 @@ class DataTableTests(test.TestCase):
         self.assertEqual(TEST_DATA, self.table.data)
         # Policy check returns True so the column "restricted" is rendered
         expected_columns = ['<Column: name>', '<Column: restricted>']
-        self.assertQuerysetEqual(self.table.columns.values(), expected_columns)
+        self.assertQuerysetEqual(self.table.get_columns(), expected_columns)
 
     def test_table_force_no_multiselect(self):
         class TempTable(MyTable):
@@ -490,7 +490,7 @@ class DataTableTests(test.TestCase):
                 row_actions = (MyAction, MyLinkAction,)
                 multi_select = False
         self.table = TempTable(self.request, TEST_DATA)
-        self.assertQuerysetEqual(self.table.columns.values(),
+        self.assertQuerysetEqual(self.table.get_columns(),
                                  ['<Column: id>',
                                   '<Column: actions>'])
 
@@ -502,7 +502,7 @@ class DataTableTests(test.TestCase):
                 row_actions = (MyAction, MyLinkAction,)
                 actions_column = False
         self.table = TempTable(self.request, TEST_DATA)
-        self.assertQuerysetEqual(self.table.columns.values(),
+        self.assertQuerysetEqual(self.table.get_columns(),
                                  ['<Column: multi_select>',
                                   '<Column: id>'])
 
@@ -528,7 +528,7 @@ class DataTableTests(test.TestCase):
                 columns = ('id',)
                 table_actions = (MyFilterAction, MyAction, MyBatchAction)
         self.table = TempTable(self.request, TEST_DATA)
-        self.assertQuerysetEqual(self.table.columns.values(),
+        self.assertQuerysetEqual(self.table.get_columns(),
                                  ['<Column: multi_select>',
                                   '<Column: id>'])
 
@@ -538,7 +538,7 @@ class DataTableTests(test.TestCase):
                 columns = ('id',)
                 row_actions = (MyAction, MyLinkAction,)
         self.table = TempTable(self.request, TEST_DATA)
-        self.assertQuerysetEqual(self.table.columns.values(),
+        self.assertQuerysetEqual(self.table.get_columns(),
                                  ['<Column: id>',
                                   '<Column: actions>'])
 
@@ -552,7 +552,7 @@ class DataTableTests(test.TestCase):
                 row_actions = (MyAction, MyLinkAction,)
 
         self.table = TempTable(self.request, TEST_DATA)
-        self.assertQuerysetEqual(self.table.columns.values(),
+        self.assertQuerysetEqual(self.table.get_columns(),
                                  ['<Column: multi_select>',
                                   '<Column: id>',
                                   '<Column: name>',

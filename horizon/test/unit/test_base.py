@@ -210,11 +210,11 @@ class HorizonTests(BaseHorizonTests):
         # Test registering a module with a dashboard that defines panels
         # as a panel group.
         cats.register(MyPanel)
-        self.assertQuerysetEqual(cats.get_panel_groups()['other'],
+        self.assertQuerysetEqual(list(cats.get_panel_groups()['other']),
                                  ['<Panel: myslug>'])
         # Test that panels defined as a tuple still return a PanelGroup
         dogs = horizon.get_dashboard("dogs")
-        self.assertQuerysetEqual(dogs.get_panel_groups().values(),
+        self.assertQuerysetEqual(list(dogs.get_panel_groups().values()),
                                  ['<PanelGroup: default>'])
 
         # Test registering a module with a dashboard that defines panels

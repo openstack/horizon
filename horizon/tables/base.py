@@ -1922,7 +1922,7 @@ class DataTable(object, metaclass=DataTableMetaclass):
 
     def get_columns(self):
         """Returns this table's columns including auto-generated ones."""
-        return self.columns.values()
+        return list(self.columns.values())
 
     def get_rows(self):
         """Return the row data for this table broken out by columns."""
