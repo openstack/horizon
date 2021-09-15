@@ -131,13 +131,9 @@ class InstanceTableTestMixin(object):
                       shared=False),
             mock.call(helpers.IsHttpRequest(), shared=True),
         ])
-        self.assertEqual(len(self.networks.list()),
-                         self.mock_port_list_with_trunk_types.call_count)
-        self.mock_port_list_with_trunk_types(
-            [mock.call(helpers.IsHttpRequest(),
-                       network_id=net.id,
-                       tenant_id=self.tenant.id)
-             for net in self.networks.list()])
+        self.mock_port_list_with_trunk_types.assert_called_once_with(
+            helpers.IsHttpRequest(),
+            tenant_id=self.tenant.id)
 
     def _mock_nova_lists(self):
         self.mock_flavor_list.return_value = self.flavors.list()
@@ -2197,12 +2193,9 @@ class InstanceLaunchInstanceTests(InstanceTestBase,
             mock.call(helpers.IsHttpRequest(), shared=True),
         ])
         self.assertEqual(4, self.mock_network_list.call_count)
-        self.mock_port_list_with_trunk_types.assert_has_calls(
-            [mock.call(helpers.IsHttpRequest(),
-                       network_id=net.id, tenant_id=self.tenant.id)
-             for net in self.networks.list()])
-        self.assertEqual(len(self.networks.list()),
-                         self.mock_port_list_with_trunk_types.call_count)
+        self.mock_port_list_with_trunk_types.assert_called_once_with(
+            helpers.IsHttpRequest(),
+            tenant_id=self.tenant.id)
         self.mock_server_group_list.assert_called_once_with(
             helpers.IsHttpRequest())
         self.mock_tenant_quota_usages.assert_called_once_with(
@@ -2348,10 +2341,9 @@ class InstanceLaunchInstanceTests(InstanceTestBase,
             mock.call(helpers.IsHttpRequest(), shared=True),
         ])
         self.assertEqual(4, self.mock_network_list.call_count)
-        self.mock_port_list_with_trunk_types.assert_has_calls(
-            [mock.call(helpers.IsHttpRequest(),
-                       network_id=net.id, tenant_id=self.tenant.id)
-             for net in self.networks.list()])
+        self.mock_port_list_with_trunk_types.assert_called_once_with(
+            helpers.IsHttpRequest(),
+            tenant_id=self.tenant.id)
         self.mock_server_group_list.assert_called_once_with(
             helpers.IsHttpRequest())
         self.mock_tenant_quota_usages.assert_called_once_with(
@@ -2431,10 +2423,9 @@ class InstanceLaunchInstanceTests(InstanceTestBase,
             mock.call(helpers.IsHttpRequest(), shared=True),
         ])
         self.assertEqual(4, self.mock_network_list.call_count)
-        self.mock_port_list_with_trunk_types.assert_has_calls(
-            [mock.call(helpers.IsHttpRequest(),
-                       network_id=net.id, tenant_id=self.tenant.id)
-             for net in self.networks.list()])
+        self.mock_port_list_with_trunk_types.assert_called_once_with(
+            helpers.IsHttpRequest(),
+            tenant_id=self.tenant.id)
         self.mock_server_group_list.assert_called_once_with(
             helpers.IsHttpRequest())
         self.mock_tenant_quota_usages.assert_called_once_with(
@@ -3606,13 +3597,9 @@ class InstanceLaunchInstanceTests(InstanceTestBase,
                 helpers.IsHttpRequest(),
                 shared=True),
         ])
-        self.assertEqual(len(self.networks.list()),
-                         self.mock_port_list_with_trunk_types.call_count)
-        self.mock_port_list_with_trunk_types.assert_has_calls(
-            [mock.call(helpers.IsHttpRequest(),
-                       network_id=net.id,
-                       tenant_id=self.tenant.id)
-             for net in self.networks.list()])
+        self.mock_port_list_with_trunk_types.assert_called_once_with(
+            helpers.IsHttpRequest(),
+            tenant_id=self.tenant.id)
         self.mock_volume_list.assert_has_calls([
             mock.call(helpers.IsHttpRequest(),
                       search_opts=VOLUME_SEARCH_OPTS),
@@ -5085,7 +5072,8 @@ class ConsoleManagerTests(helpers.ResetImageAPIVersionMixin, helpers.TestCase):
         self.assertRaises(exceptions.NotAvailable,
                           console.get_console, None, 'FAKE', None)
 
-    @helpers.create_mocks({api.neutron: ('network_list_for_tenant',)})
+    @helpers.create_mocks({api.neutron: ('network_list_for_tenant',
+                                         'port_list_with_trunk_types',)})
     def test_interface_attach_get(self):
         server = self.servers.first()
         self.mock_network_list_for_tenant.side_effect = [
@@ -5105,7 +5093,8 @@ class ConsoleManagerTests(helpers.ResetImageAPIVersionMixin, helpers.TestCase):
         ])
         self.assertEqual(2, self.mock_network_list_for_tenant.call_count)
 
-    @helpers.create_mocks({api.neutron: ('network_list_for_tenant',),
+    @helpers.create_mocks({api.neutron: ('network_list_for_tenant',
+                                         'port_list_with_trunk_types',),
                            api.nova: ('interface_attach',)})
     def test_interface_attach_post(self):
         fixed_ip = '10.0.0.10'
