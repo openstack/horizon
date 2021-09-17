@@ -22,16 +22,10 @@
       - name: openstack/horizon
 
 - job:
-    name: horizon-tox-python3-django30
+    name: horizon-tox-python3-django32
     parent: horizon-tox-python3-django
     vars:
-      django_version: '>=3.0,<3.1'
-
-- job:
-    name: horizon-tox-python3-django31
-    parent: horizon-tox-python3-django
-    vars:
-      django_version: '>=3.1,<3.2'
+      django_version: '>=3.2,<3.3'
 
 - project-template:
     name: horizon-non-primary-django-jobs
@@ -45,13 +39,10 @@
         # to keep this project template as it is used in horizon plugins.
         # NOTE: We keep it as a template even though it is not used now.
         - openstack-tox-py38
-        - horizon-tox-python3-django30:
-            voting: false
-        - horizon-tox-python3-django31:
+        - horizon-tox-python3-django32:
             voting: false
     gate:
       jobs:
         - openstack-tox-py38
         # Skip these until the django3.x jobs become voting.
-        # - horizon-tox-python3-django30
-        # - horizon-tox-python3-django31
+        # - horizon-tox-python3-django32
