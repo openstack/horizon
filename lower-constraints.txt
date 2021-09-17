@@ -13,7 +13,7 @@ contextlib2==0.4.0
 coverage==4.0
 cryptography==3.0
 debtcollector==1.2.0
-decorator==3.4.0
+decorator==4.4.2
 deprecation==1.0
 Django==2.2
 django-appconf==1.0.2
