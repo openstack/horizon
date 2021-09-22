@@ -173,7 +173,6 @@
       - check-requirements
       - horizon-nodejs10-jobs
       - horizon-non-primary-django-jobs
-      - openstack-lower-constraints-jobs
       - openstack-python-jobs
       - openstack-python3-train-jobs
       - periodic-stable-jobs
