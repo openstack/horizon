@@ -1,0 +1,7 @@
+---
+features:
+  - |
+    Django 3.2 support is added.
+    As of Xena release, it is considered as experimental.
+    Considering Django 2.2 EOL, Django 3.2 will be the default Django
+    version in Yoga release.
