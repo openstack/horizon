@@ -169,7 +169,7 @@ class Action(forms.Form, metaclass=ActionMetaclass):
         return "<%s: %s>" % (self.__class__.__name__, self.slug)
 
     def _populate_choices(self, request, context):
-        for field_name, bound_field in self.fields.items():
+        for field_name, bound_field in list(self.fields.items()):
             meth = getattr(self, "populate_%s_choices" % field_name, None)
             if meth is not None and callable(meth):
                 bound_field.choices = meth(request, context)
