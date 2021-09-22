@@ -62,7 +62,7 @@
       - ^openstack_dashboard/dashboards/.*/tests.py$
     vars:
       devstack_localrc:
-        TEMPEST_BRANCH: "26.0.0"
+        TEMPEST_BRANCH: "24.0.0"
         TEMPEST_PLUGINS: "tempest-horizon==1.1.0"
         USE_PYTHON3: true
       devstack_services:
@@ -194,7 +194,6 @@
     templates:
       - check-requirements
       - horizon-nodejs4-jobs
-      - openstack-lower-constraints-jobs
       - openstack-python-jobs
       - openstack-python35-jobs
       - openstack-python36-jobs
