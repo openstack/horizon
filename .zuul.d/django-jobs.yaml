@@ -38,11 +38,13 @@
         # We specify a job in openstack-python3-yoga-jobs(-horizon)
         # to keep this project template as it is used in horizon plugins.
         # NOTE: We keep it as a template even though it is not used now.
-        - openstack-tox-py38
+        - openstack-tox-py38:
+            voting: false
         - horizon-tox-python3-django32:
             voting: false
     gate:
       jobs:
-        - openstack-tox-py38
+        - openstack-tox-py38:
+            voting: false
         # Skip these until the django3.x jobs become voting.
         # - horizon-tox-python3-django32
