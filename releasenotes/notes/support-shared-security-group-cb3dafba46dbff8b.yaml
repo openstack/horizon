@@ -1,0 +1,7 @@
+---
+features:
+  - |
+    [:bug:`1907843`] RBAC shared security groups can now be shown in the
+    Security Groups page. Previously only the security groups owned by the
+    login tenant can be displayed and used. Besides, a column for the shared
+    field is added to the Security Groups table.

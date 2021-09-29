@@ -1162,23 +1162,50 @@ class NeutronApiSecurityGroupTests(test.APIMockTestCase):
         for (exprule, retrule) in zip(exp_rules, ret_sg.rules):
             self._cmp_sg_rule(exprule, retrule)
 
-    def _test_security_group_list(self, **params):
+    @mock.patch.object(api.neutron, 'is_extension_supported')
+    def _test_security_group_list(self, mock_is_extension_supported,
+                                  is_ext_supported=True, **params):
         sgs = self.api_security_groups.list()
-        q_params = {'tenant_id': self.request.user.tenant_id}
-        # if tenant_id is specified, the passed tenant_id should be sent.
-        q_params.update(params)
-        # use deepcopy to ensure self.api_security_groups is not modified.
-        self.qclient.list_security_groups.return_value = {'security_groups':
-                                                          copy.deepcopy(sgs)}
+        mock_is_extension_supported.return_value = is_ext_supported
+        if is_ext_supported:
+            # First call to get the tenant owned SGs
+            q_params_1 = {'tenant_id': self.request.user.tenant_id,
+                          'shared': False}
+            # if tenant_id is specified, the passed tenant_id should be sent.
+            q_params_1.update(params)
+            # Second call to get shared SGs
+            q_params_2 = q_params_1.copy()
+            q_params_2.pop('tenant_id')
+            q_params_2['shared'] = True
+            # use deepcopy to ensure self.api_security_groups is not modified.
+            self.qclient.list_security_groups.side_effect = [
+                {'security_groups': copy.deepcopy(sgs[:4])},
+                {'security_groups': copy.deepcopy(sgs[-1:])},
+            ]
+            rets = api.neutron.security_group_list(self.request, **params)
+            self.qclient.list_security_groups.assert_has_calls(
+                [mock.call(**q_params_1), mock.call(**q_params_2)])
+        else:
+            q_params = {'tenant_id': self.request.user.tenant_id}
+            # if tenant_id is specified, the passed tenant_id should be sent.
+            q_params.update(params)
+            # use deepcopy to ensure self.api_security_groups is not modified.
+            self.qclient.list_security_groups.return_value = {
+                'security_groups': copy.deepcopy(sgs)}
+            rets = api.neutron.security_group_list(self.request, **params)
 
-        rets = api.neutron.security_group_list(self.request, **params)
+        mock_is_extension_supported.assert_called_once_with(
+            self.request, 'security-groups-shared-filtering')
         self.assertEqual(len(sgs), len(rets))
         for (exp, ret) in zip(sgs, rets):
             self._cmp_sg(exp, ret)
-        self.qclient.list_security_groups.assert_called_once_with(**q_params)
 
     def test_security_group_list(self):
         self._test_security_group_list()
+
+    def test_security_group_list_no_shared(self):
+        # without the api extension to filter by the shared field
+        self._test_security_group_list(is_ext_supported=False)
 
     def test_security_group_list_with_params(self):
         self._test_security_group_list(name='sg1')
