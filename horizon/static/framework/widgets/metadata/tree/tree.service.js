@@ -56,6 +56,7 @@
       this.default = null;
       this.type = 'string';
       this.readonly = false;
+      this.required = true;
       this.operators = ['<in>'];
       angular.extend(this, json);
       this.operator = this.operators[0];
@@ -71,6 +72,11 @@
       if (value === null) {
         this.value = this.type !== 'array' ? null : [];
         return;
+      }
+
+      // if the existing property has empty string value, make the field not required
+      if (value === '') {
+        this.required = false;
       }
 
       switch (this.type) {
