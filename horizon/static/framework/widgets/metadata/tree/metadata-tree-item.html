@@ -13,7 +13,7 @@
            type="text"
            class="form-control"
            ng-pattern="ctrl.item.leaf.pattern"
-           required
+           ng-required="ctrl.item.leaf.required"
            ng-model="ctrl.item.leaf.value"
            ng-minlength="{$ ::ctrl.item.leaf.minLength $}"
            ng-maxlength="{$ ::ctrl.item.leaf.maxLength $}"
