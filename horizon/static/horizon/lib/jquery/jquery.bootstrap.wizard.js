@@ -286,7 +286,7 @@ $.fn.bootstrapWizard.defaults = {
 	onPrevious:       null,
 	onLast:           null,
 	onFirst:          null,
-	onTabChange:      null, 
+	onTabChange:      null,
 	onTabClick:       null,
 	onTabShow:        null
 };
