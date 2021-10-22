@@ -18,10 +18,10 @@
   name: context_is_admin
   operations: []
   scope_types: null
-- check_str: role:admin or (role:member and project_id:%(project_id)s)
+- check_str: role:role:admin or (role:member and project_id:%(project_id)s and project_id:%(owner)s)
   deprecated_reason: '
 
-    The image API now supports and default roles.
+    The image API now supports roles.
 
     '
   deprecated_rule:
@@ -39,7 +39,7 @@
 - check_str: role:admin or (role:member and project_id:%(project_id)s)
   deprecated_reason: '
 
-    The image API now supports and default roles.
+    The image API now supports roles.
 
     '
   deprecated_rule:
@@ -55,10 +55,10 @@
   - system
   - project
 - check_str: role:admin or (role:reader and (project_id:%(project_id)s or project_id:%(member_id)s
-    or "community":%(visibility)s or "public":%(visibility)s))
+    or "community":%(visibility)s or "public":%(visibility)s or "shared":%(visibility)s))
   deprecated_reason: '
 
-    The image API now supports and default roles.
+    The image API now supports roles.
 
     '
   deprecated_rule:
@@ -76,7 +76,7 @@
 - check_str: role:admin or (role:reader and project_id:%(project_id)s)
   deprecated_reason: '
 
-    The image API now supports and default roles.
+    The image API now supports roles.
 
     '
   deprecated_rule:
@@ -94,7 +94,7 @@
 - check_str: role:admin or (role:member and project_id:%(project_id)s)
   deprecated_reason: '
 
-    The image API now supports and default roles.
+    The image API now supports roles.
 
     '
   deprecated_rule:
@@ -121,7 +121,7 @@
 - check_str: role:admin or (role:member and project_id:%(project_id)s)
   deprecated_reason: '
 
-    The image API now supports and default roles.
+    The image API now supports roles.
 
     '
   deprecated_rule:
@@ -140,7 +140,7 @@
     or "community":%(visibility)s or "public":%(visibility)s))
   deprecated_reason: '
 
-    The image API now supports and default roles.
+    The image API now supports roles.
 
     '
   deprecated_rule:
@@ -158,7 +158,7 @@
 - check_str: role:admin or (role:member and project_id:%(project_id)s)
   deprecated_reason: '
 
-    The image API now supports and default roles.
+    The image API now supports roles.
 
     '
   deprecated_rule:
@@ -176,7 +176,7 @@
 - check_str: role:admin
   deprecated_reason: '
 
-    The image API now supports and default roles.
+    The image API now supports roles.
 
     '
   deprecated_rule:
@@ -194,7 +194,7 @@
 - check_str: role:admin or (role:reader and project_id:%(project_id)s)
   deprecated_reason: '
 
-    The image API now supports and default roles.
+    The image API now supports roles.
 
     '
   deprecated_rule:
@@ -212,7 +212,7 @@
 - check_str: role:admin or (role:member and project_id:%(project_id)s)
   deprecated_reason: '
 
-    The image API now supports and default roles.
+    The image API now supports roles.
 
     '
   deprecated_rule:
@@ -230,7 +230,7 @@
 - check_str: role:admin or (role:member and project_id:%(project_id)s)
   deprecated_reason: '
 
-    The image API now supports and default roles.
+    The image API now supports roles.
 
     '
   deprecated_rule:
@@ -248,7 +248,7 @@
 - check_str: role:admin or (role:member and project_id:%(project_id)s)
   deprecated_reason: '
 
-    The image API now supports and default roles.
+    The image API now supports roles.
 
     '
   deprecated_rule:
@@ -263,10 +263,10 @@
   scope_types:
   - system
   - project
-- check_str: role:admin or (role:reader and project_id:%(project_id)s)
+- check_str: role:admin or role:reader and (project_id:%(project_id)s or project_id:%(member_id)s)
   deprecated_reason: '
 
-    The image API now supports and default roles.
+    The image API now supports roles.
 
     '
   deprecated_rule:
@@ -281,10 +281,10 @@
   scope_types:
   - system
   - project
-- check_str: role:admin or (role:reader and project_id:%(project_id)s)
+- check_str: role:admin or role:reader and (project_id:%(project_id)s or project_id:%(member_id)s)
   deprecated_reason: '
 
-    The image API now supports and default roles.
+    The image API now supports roles.
 
     '
   deprecated_rule:
@@ -299,10 +299,10 @@
   scope_types:
   - system
   - project
-- check_str: role:admin or (role:member and project_id:%(project_id)s)
+- check_str: role:admin or (role:member and project_id:%(member_id)s)
   deprecated_reason: '
 
-    The image API now supports and default roles.
+    The image API now supports roles.
 
     '
   deprecated_rule:
@@ -327,7 +327,7 @@
 - check_str: role:admin or (role:member and project_id:%(project_id)s)
   deprecated_reason: '
 
-    The image API now supports and default roles.
+    The image API now supports roles.
 
     '
   deprecated_rule:
@@ -345,7 +345,7 @@
 - check_str: role:admin or (role:member and project_id:%(project_id)s)
   deprecated_reason: '
 
-    The image API now supports and default roles.
+    The image API now supports roles.
 
     '
   deprecated_rule:
@@ -370,6 +370,18 @@
   - system
   - project
 - check_str: rule:default
+  deprecated_reason: '
+
+    From Xena we are enforcing policy checks in the API and policy layer where task
+    policies were enforcing will be removed. Since task APIs are already deprecated
+    and `tasks_api_access` is checked for each API at API layer, there will be no
+    benefit of other having other task related policies.
+
+    '
+  deprecated_rule:
+    check_str: rule:default
+    name: get_task
+  deprecated_since: X
   description: 'Get an image task.
 
 
@@ -394,6 +406,18 @@
   - system
   - project
 - check_str: rule:default
+  deprecated_reason: '
+
+    From Xena we are enforcing policy checks in the API and policy layer where task
+    policies were enforcing will be removed. Since task APIs are already deprecated
+    and `tasks_api_access` is checked for each API at API layer, there will be no
+    benefit of other having other task related policies.
+
+    '
+  deprecated_rule:
+    check_str: rule:default
+    name: get_task
+  deprecated_since: X
   description: 'List tasks for all images.
 
 
@@ -418,6 +442,18 @@
   - system
   - project
 - check_str: rule:default
+  deprecated_reason: '
+
+    From Xena we are enforcing policy checks in the API and policy layer where task
+    policies were enforcing will be removed. Since task APIs are already deprecated
+    and `tasks_api_access` is checked for each API at API layer, there will be no
+    benefit of other having other task related policies.
+
+    '
+  deprecated_rule:
+    check_str: rule:default
+    name: add_task
+  deprecated_since: X
   description: 'List tasks for all images.
 
 

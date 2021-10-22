@@ -467,9 +467,9 @@
   - method: HEAD
     path: /v3/domains/{domain_id}/config/security_compliance
   - method: GET
-    path: v3/domains/{domain_id}/config/security_compliance/{option}
+    path: /v3/domains/{domain_id}/config/security_compliance/{option}
   - method: HEAD
-    path: v3/domains/{domain_id}/config/security_compliance/{option}
+    path: /v3/domains/{domain_id}/config/security_compliance/{option}
   scope_types:
   - system
   - domain
@@ -1887,15 +1887,7 @@
     or project_id:%(target.project.id)s
   deprecated_reason: '
 
-    As of the Train release, the project tags API understands how to handle
-
-    system-scoped tokens in addition to project and domain tokens, making the API
-
-    more accessible to users without compromising security or manageability for
-
-    administrators. The new default policies for this API account for these changes
-
-    automatically.
+    The project API is now aware of system scope and default roles.
 
     '
   deprecated_rule:
@@ -1917,15 +1909,7 @@
     or project_id:%(target.project.id)s
   deprecated_reason: '
 
-    As of the Train release, the project tags API understands how to handle
-
-    system-scoped tokens in addition to project and domain tokens, making the API
-
-    more accessible to users without compromising security or manageability for
-
-    administrators. The new default policies for this API account for these changes
-
-    automatically.
+    The project API is now aware of system scope and default roles.
 
     '
   deprecated_rule:
@@ -1947,15 +1931,7 @@
     or (role:admin and project_id:%(target.project.id)s)
   deprecated_reason: '
 
-    As of the Train release, the project tags API understands how to handle
-
-    system-scoped tokens in addition to project and domain tokens, making the API
-
-    more accessible to users without compromising security or manageability for
-
-    administrators. The new default policies for this API account for these changes
-
-    automatically.
+    The project API is now aware of system scope and default roles.
 
     '
   deprecated_rule:
@@ -1975,15 +1951,7 @@
     or (role:admin and project_id:%(target.project.id)s)
   deprecated_reason: '
 
-    As of the Train release, the project tags API understands how to handle
-
-    system-scoped tokens in addition to project and domain tokens, making the API
-
-    more accessible to users without compromising security or manageability for
-
-    administrators. The new default policies for this API account for these changes
-
-    automatically.
+    The project API is now aware of system scope and default roles.
 
     '
   deprecated_rule:
@@ -2003,15 +1971,7 @@
     or (role:admin and project_id:%(target.project.id)s)
   deprecated_reason: '
 
-    As of the Train release, the project tags API understands how to handle
-
-    system-scoped tokens in addition to project and domain tokens, making the API
-
-    more accessible to users without compromising security or manageability for
-
-    administrators. The new default policies for this API account for these changes
-
-    automatically.
+    The project API is now aware of system scope and default roles.
 
     '
   deprecated_rule:
@@ -2031,15 +1991,7 @@
     or (role:admin and project_id:%(target.project.id)s)
   deprecated_reason: '
 
-    As of the Train release, the project tags API understands how to handle
-
-    system-scoped tokens in addition to project and domain tokens, making the API
-
-    more accessible to users without compromising security or manageability for
-
-    administrators. The new default policies for this API account for these changes
-
-    automatically.
+    The project API is now aware of system scope and default roles.
 
     '
   deprecated_rule:

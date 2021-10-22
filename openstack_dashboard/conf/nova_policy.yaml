@@ -1116,7 +1116,7 @@
 
 # DEPRECATED
 # "os_compute_api:os-security-groups":"rule:admin_or_owner" has been
-# deprecated since 21.0.0 in favor of "os_compute_api:os-security-
+# deprecated since 22.0.0 in favor of "os_compute_api:os-security-
 # groups:list":"rule:system_or_project_reader".
 # Nova API policies are introducing new default roles with scope_type
 # capabilities. Old policies are deprecated and silently going to be
@@ -1130,7 +1130,7 @@
 
 # DEPRECATED
 # "os_compute_api:os-security-groups":"rule:admin_or_owner" has been
-# deprecated since 21.0.0 in favor of "os_compute_api:os-security-
+# deprecated since 22.0.0 in favor of "os_compute_api:os-security-
 # groups:add":"rule:system_admin_or_owner".
 # Nova API policies are introducing new default roles with scope_type
 # capabilities. Old policies are deprecated and silently going to be
@@ -1144,7 +1144,7 @@
 
 # DEPRECATED
 # "os_compute_api:os-security-groups":"rule:admin_or_owner" has been
-# deprecated since 21.0.0 in favor of "os_compute_api:os-security-
+# deprecated since 22.0.0 in favor of "os_compute_api:os-security-
 # groups:remove":"rule:system_admin_or_owner".
 # Nova API policies are introducing new default roles with scope_type
 # capabilities. Old policies are deprecated and silently going to be
