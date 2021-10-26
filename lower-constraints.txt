@@ -15,7 +15,7 @@ cryptography==3.0
 debtcollector==1.2.0
 decorator==4.4.2
 deprecation==1.0
-Django==3.2
+Django==2.2
 django-appconf==1.0.5
 django-compressor==2.4.1
 django-debreach==1.4.2
