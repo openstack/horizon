@@ -14,6 +14,8 @@
 
 from horizon.middleware import base
 from horizon.middleware import operation_log
+from horizon.middleware import simultaneous_sessions as sessions
 
 HorizonMiddleware = base.HorizonMiddleware
 OperationLogMiddleware = operation_log.OperationLogMiddleware
+SimultaneousSessionsMiddleware = sessions.SimultaneousSessionsMiddleware

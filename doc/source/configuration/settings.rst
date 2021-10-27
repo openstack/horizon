@@ -953,6 +953,22 @@ menu and the api access panel.
    `OPENSTACK_CLOUDS_YAML_CUSTOM_TEMPLATE`_ to provide a custom
    ``clouds.yaml``.
 
+SIMULTANEOUS_SESSIONS
+---------------------
+
+.. versionadded:: 21.1.0(Yoga)
+
+Default: ``allow``
+
+Controls whether a user can have multiple simultaneous sessions.
+Valid values are ``allow`` and ``disconnect``.
+
+The value ``allow`` enables more than one simultaneous sessions for a user.
+The Value ``disconnect`` disables more than one simultaneous sessions for
+a user. Only one active session is allowed. The newer session will be
+considered as the valid one and any existing session will be disconnected
+after a subsequent successful login.
+
 THEME_COLLECTION_DIR
 --------------------
 

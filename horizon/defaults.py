@@ -86,6 +86,9 @@ OPERATION_LOG_OPTIONS = {
     ),
 }
 
+# Control whether a same user can have multiple action sessions.
+SIMULTANEOUS_SESSIONS = 'allow'
+
 OPENSTACK_PROFILER = {
     'enabled': False,
     'facility_name': 'horizon',
