@@ -35,7 +35,13 @@ from openstack_dashboard.api import cinder
 from openstack_dashboard import policy
 from openstack_dashboard.usage import quotas
 
-DELETABLE_STATES = ("available", "error", "error_extending")
+DELETABLE_STATES = (
+    "available",
+    "error",
+    "error_extending",
+    "error_managing",
+    "error_restoring",
+)
 
 
 class VolumePolicyTargetMixin(policy.PolicyTargetMixin):
@@ -463,6 +469,8 @@ class VolumesTableBase(tables.DataTable):
         ("creating", None),
         ("error", False),
         ("error_extending", False),
+        ("error_managing", False),
+        ("error_restoring", False),
         ("maintenance", False),
     )
     STATUS_DISPLAY_CHOICES = (
