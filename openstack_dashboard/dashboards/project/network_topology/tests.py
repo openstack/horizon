@@ -234,17 +234,3 @@ class NetworkTopologyCreateTests(test.TestCase):
 
         self._test_new_button_disabled_when_quota_exceeded(expected_string,
                                                            routers_quota=0)
-
-    @test.update_settings(LAUNCH_INSTANCE_LEGACY_ENABLED=True)
-    @test.create_mocks({quotas: ('tenant_quota_usages',)})
-    def test_launch_instance_button_disabled_when_quota_exceeded(self):
-        url = reverse('horizon:project:network_topology:launchinstance')
-        classes = 'btn btn-default btn-launch ajax-modal'
-        link_name = "Launch Instance (Quota exceeded)"
-        expected_string = "<a href='%s' class='%s disabled' "\
-            "id='instances__action_launch'>" \
-            "<span class='fa fa-cloud-upload'></span>%s</a>" \
-            % (url, classes, link_name)
-
-        self._test_new_button_disabled_when_quota_exceeded(expected_string,
-                                                           instances_quota=0)

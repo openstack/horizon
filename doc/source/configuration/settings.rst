@@ -2245,47 +2245,6 @@ specified in this setting is not found in the availability zone list,
 the setting will be ignored and the behavior will be same as when ``Any``
 is specified.
 
-LAUNCH_INSTANCE_LEGACY_ENABLED
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-.. versionadded:: 8.0.0(Liberty)
-
-.. versionchanged:: 9.0.0(Mitaka)
-
-    The default value for this setting has been changed to ``False``
-
-.. deprecated:: 19.1.0(Wallaby)
-
-   The Python Launch Instance workflow is deprecated.
-   Consider switching to the AngujarJS workflow instead.
-
-Default: ``False``
-
-This setting enables the Python Launch Instance workflow.
-
-.. note::
-
-    It is possible to run both the AngularJS and Python workflows simultaneously,
-    so the other may be need to be toggled with `LAUNCH_INSTANCE_NG_ENABLED`_
-
-LAUNCH_INSTANCE_NG_ENABLED
-~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-.. versionadded:: 8.0.0(Liberty)
-
-.. versionchanged:: 9.0.0(Mitaka)
-
-    The default value for this setting has been changed to ``True``
-
-Default: ``True``
-
-This setting enables the AngularJS Launch Instance workflow.
-
-.. note::
-
-    It is possible to run both the AngularJS and Python workflows simultaneously,
-    so the other may be need to be toggled with `LAUNCH_INSTANCE_LEGACY_ENABLED`_
-
 OPENSTACK_ENABLE_PASSWORD_RETRIEVE
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 

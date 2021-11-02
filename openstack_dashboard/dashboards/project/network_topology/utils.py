@@ -29,8 +29,10 @@ def get_context(request, context=None):
     if context is None:
         context = {}
 
-    context['launch_instance_allowed'] = policy.check(
-        (("compute", "os_compute_api:servers:create"),), request)
+    context['launch_instance_allowed'] = (
+        base.is_service_enabled(request, 'compute') and
+        policy.check((("compute", "os_compute_api:servers:create"),), request)
+    )
     context['instance_quota_exceeded'] = _quota_exceeded(request, 'instances')
     context['create_network_allowed'] = policy.check(
         (("network", "create_network"),), request)
@@ -41,10 +43,4 @@ def get_context(request, context=None):
         policy.check((("network", "create_router"),), request))
     context['router_quota_exceeded'] = _quota_exceeded(request, 'router')
     context['console_type'] = settings.CONSOLE_TYPE
-    context['show_ng_launch'] = (
-        base.is_service_enabled(request, 'compute') and
-        settings.LAUNCH_INSTANCE_NG_ENABLED)
-    context['show_legacy_launch'] = (
-        base.is_service_enabled(request, 'compute') and
-        settings.LAUNCH_INSTANCE_LEGACY_ENABLED)
     return context

@@ -49,8 +49,6 @@ from openstack_dashboard.dashboards.project.instances.tables import \
     STATUS_DISPLAY_CHOICES as instance_choices
 from openstack_dashboard.dashboards.project.instances import\
     views as i_views
-from openstack_dashboard.dashboards.project.instances.workflows import\
-    create_instance as i_workflows
 from openstack_dashboard.dashboards.project.networks.subnets import\
     views as s_views
 from openstack_dashboard.dashboards.project.networks.subnets import\
@@ -137,14 +135,6 @@ class NTCreateNetwork(n_workflows.CreateNetwork):
 
 class NTCreateNetworkView(n_views.CreateView):
     workflow_class = NTCreateNetwork
-
-
-class NTLaunchInstance(i_workflows.LaunchInstance):
-    success_url = "horizon:project:network_topology:index"
-
-
-class NTLaunchInstanceView(i_views.LaunchInstanceView):
-    workflow_class = NTLaunchInstance
 
 
 class NTCreateSubnet(s_workflows.CreateSubnet):

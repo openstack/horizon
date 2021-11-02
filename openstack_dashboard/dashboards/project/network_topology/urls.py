@@ -35,8 +35,6 @@ urlpatterns = [
     url(r'^network/(?P<network_id>[^/]+)/subnet/create$',
         views.NTCreateSubnetView.as_view(), name='subnet'),
     url(r'^json$', views.JSONView.as_view(), name='json'),
-    url(r'^launchinstance$', views.NTLaunchInstanceView.as_view(),
-        name='launchinstance'),
     url(r'^createnetwork$', views.NTCreateNetworkView.as_view(),
         name='createnetwork'),
     url(r'^createrouter$', views.NTCreateRouterView.as_view(),

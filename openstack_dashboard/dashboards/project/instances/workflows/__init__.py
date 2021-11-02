@@ -11,8 +11,6 @@
 #    under the License.
 
 from openstack_dashboard.dashboards.project.instances.workflows.\
-    create_instance import LaunchInstance
-from openstack_dashboard.dashboards.project.instances.workflows.\
     resize_instance import ResizeInstance
 from openstack_dashboard.dashboards.project.instances.workflows.\
     update_instance import UpdateInstance
@@ -20,7 +18,6 @@ from openstack_dashboard.dashboards.project.instances.workflows.\
     update_port import UpdatePort
 
 __all__ = [
-    'LaunchInstance',
     'ResizeInstance',
     'UpdateInstance',
     'UpdatePort',

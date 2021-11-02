@@ -40,7 +40,6 @@ from horizon import workflows
 
 from openstack_dashboard import api
 from openstack_dashboard.utils import filters
-from openstack_dashboard.utils import settings as setting_utils
 
 from openstack_dashboard.dashboards.project.instances \
     import console as project_console
@@ -258,26 +257,6 @@ def _swap_filter(resources, search_opts, fake_field, real_field):
     search_opts[real_field] = matched[0].id
     del search_opts[fake_field]
     return True
-
-
-class LaunchInstanceView(workflows.WorkflowView):
-    workflow_class = project_workflows.LaunchInstance
-
-    def __init__(self):
-        super().__init__()
-        LOG.warning('Django version of the launch instance form is '
-                    'deprecated since Wallaby release. Switch to '
-                    'the AngularJS version of the form by setting '
-                    'LAUNCH_INSTANCE_NG_ENABLED to True and '
-                    'LAUNCH_INSTANCE_LEGACY_ENABLED to False.')
-
-    def get_initial(self):
-        initial = super().get_initial()
-        initial['project_id'] = self.request.user.tenant_id
-        initial['user_id'] = self.request.user.id
-        initial['config_drive'] = setting_utils.get_dict_config(
-            'LAUNCH_INSTANCE_DEFAULTS', 'config_drive')
-        return initial
 
 
 # TODO(stephenfin): Migrate to CBV

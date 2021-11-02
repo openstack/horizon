@@ -25,8 +25,53 @@ from horizon import workflows
 from openstack_dashboard import api
 from openstack_dashboard.dashboards.project.instances \
     import utils as instance_utils
-from openstack_dashboard.dashboards.project.instances.workflows \
-    import create_instance
+
+
+class SetAdvancedAction(workflows.Action):
+    disk_config = forms.ThemableChoiceField(
+        label=_("Disk Partition"), required=False,
+        help_text=_("Automatic: The entire disk is a single partition and "
+                    "automatically resizes. Manual: Results in faster build "
+                    "times but requires manual partitioning."))
+    config_drive = forms.BooleanField(
+        label=_("Configuration Drive"),
+        required=False, help_text=_("Configure OpenStack to write metadata to "
+                                    "a special configuration drive that "
+                                    "attaches to the instance when it boots."))
+
+    def __init__(self, request, context, *args, **kwargs):
+        super().__init__(request, context, *args, **kwargs)
+        try:
+            config_choices = [("AUTO", _("Automatic")),
+                              ("MANUAL", _("Manual"))]
+            self.fields['disk_config'].choices = config_choices
+
+            # Only show the Config Drive option for the Launch Instance
+            # is supported.
+            if context.get('workflow_slug') != 'launch_instance':
+                del self.fields['config_drive']
+
+        except Exception:
+            exceptions.handle(request, _('Unable to retrieve extensions '
+                                         'information.'))
+
+    class Meta(object):
+        name = _("Advanced Options")
+        help_text_template = ("project/instances/"
+                              "_launch_advanced_help.html")
+
+
+class SetAdvanced(workflows.Step):
+    action_class = SetAdvancedAction
+    contributes = ("disk_config", "config_drive",)
+
+    def prepare_action_context(self, request, context):
+        context = super().prepare_action_context(request, context)
+        # Add the workflow slug to the context so that we can tell which
+        # workflow is being used when creating the action. This step is
+        # used by both the Launch Instance and Resize Instance workflows.
+        context['workflow_slug'] = self.workflow.slug
+        return context
 
 
 class SetFlavorChoiceAction(workflows.Action):
@@ -94,7 +139,7 @@ class ResizeInstance(workflows.Workflow):
                         'has been submitted.')
     failure_message = _('Unable to resize instance "%s".')
     success_url = "horizon:project:instances:index"
-    default_steps = (SetFlavorChoice, create_instance.SetAdvanced)
+    default_steps = (SetFlavorChoice, SetAdvanced,)
 
     def format_status_message(self, message):
         if "%s" in message:
