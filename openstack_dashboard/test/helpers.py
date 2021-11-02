@@ -261,18 +261,22 @@ class TestCase(horizon_helpers.TestCase):
                       authorized_tenants=None, enabled=True, domain_id=None,
                       user_domain_name=None):
         def get_user(request):
-            return user.User(id=id,
-                             token=token,
-                             user=username,
-                             domain_id=domain_id,
-                             user_domain_name=user_domain_name,
-                             tenant_id=tenant_id,
-                             tenant_name=tenant_name,
-                             service_catalog=service_catalog,
-                             roles=roles,
-                             enabled=enabled,
-                             authorized_tenants=authorized_tenants,
-                             endpoint=settings.OPENSTACK_KEYSTONE_URL)
+            ret = user.User(
+                id=id,
+                token=token,
+                user=username,
+                domain_id=domain_id,
+                user_domain_name=user_domain_name,
+                tenant_id=tenant_id,
+                tenant_name=tenant_name,
+                service_catalog=service_catalog,
+                roles=roles,
+                enabled=enabled,
+                authorized_tenants=authorized_tenants,
+                endpoint=settings.OPENSTACK_KEYSTONE_URL,
+            )
+            ret._is_system_user = False
+            return ret
         utils.get_user = get_user
 
     def assertRedirectsNoFollow(self, response, expected_url):

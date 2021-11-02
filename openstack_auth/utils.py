@@ -20,6 +20,7 @@ from django.conf import settings
 from django.contrib import auth
 from django.contrib.auth import models
 from django.utils import timezone
+from keystoneauth1 import exceptions as keystone_exceptions
 from keystoneauth1.identity import v3 as v3_auth
 from keystoneauth1 import session
 from keystoneauth1 import token_endpoint
@@ -294,7 +295,13 @@ def clean_up_auth_url(auth_url):
         scheme, netloc, re.sub(r'/auth.*', '', path), '', ''))
 
 
-def get_token_auth_plugin(auth_url, token, project_id=None, domain_name=None):
+def get_token_auth_plugin(auth_url, token, project_id=None, domain_name=None,
+                          system_scope=None):
+    if system_scope:
+        return v3_auth.Token(auth_url=auth_url,
+                             token=token,
+                             system_scope=system_scope,
+                             reauthenticate=False)
     if domain_name:
         return v3_auth.Token(auth_url=auth_url,
                              token=token,
@@ -320,6 +327,25 @@ def get_project_list(*args, **kwargs):
 
     projects.sort(key=lambda project: project.name.lower())
     return projects
+
+
+def get_system_access(user_id, auth_url, token, is_federated):
+    session = get_session()
+    auth_url, _ = fix_auth_url_version_prefix(auth_url)
+    auth = token_endpoint.Token(auth_url, token)
+    client = get_keystone_client().Client(session=session, auth=auth)
+    # Old versions of keystoneclient don't have auth.system endpoint yet.
+    auth_system = getattr(client.auth, 'system', None)
+    if auth_system is not None:
+        return 'all' in auth_system()
+    # Fall back to trying to get the system scope token.
+    try:
+        auth = get_token_auth_plugin(auth_url=auth_url, token=token,
+                                     system_scope='all')
+        auth.get_access(session)
+    except keystone_exceptions.ClientException:
+        return False
+    return True
 
 
 def default_services_region(service_catalog, request=None,

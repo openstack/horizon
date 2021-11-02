@@ -400,6 +400,55 @@ def switch_keystone_provider(request, keystone_provider=None,
     return response
 
 
+# TODO(stephenfin): Migrate to CBV
+@login_required
+def switch_system_scope(request, redirect_field_name=auth.REDIRECT_FIELD_NAME):
+    """Switches an authenticated user from one system to another."""
+    LOG.debug('Switching to system scope for user "%s".', request.user.username)
+
+    endpoint, __ = utils.fix_auth_url_version_prefix(request.user.endpoint)
+    session = utils.get_session()
+    # Keystone can be configured to prevent exchanging a scoped token for
+    # another token. Always use the unscoped token for requesting a
+    # scoped token.
+    unscoped_token = request.user.unscoped_token
+    auth = utils.get_token_auth_plugin(auth_url=endpoint,
+                                       token=unscoped_token,
+                                       system_scope='all')
+
+    try:
+        auth_ref = auth.get_access(session)
+    except keystone_exceptions.ClientException:
+        msg = (
+            _('System switch failed for user "%(username)s".') %
+            {'username': request.user.username})
+        messages.error(request, msg)
+        auth_ref = None
+        LOG.exception('An error occurred while switching sessions.')
+    else:
+        msg = 'System switch successful for user "%(username)s".' % \
+            {'username': request.user.username}
+        LOG.info(msg)
+
+    # Ensure the user-originating redirection url is safe.
+    # Taken from django.contrib.auth.views.login()
+    redirect_to = request.GET.get(redirect_field_name, '')
+    if not http.is_safe_url(url=redirect_to,
+                            allowed_hosts=[request.get_host()]):
+        redirect_to = settings.LOGIN_REDIRECT_URL
+
+    if auth_ref:
+        user = auth_user.create_user_from_token(
+            request,
+            auth_user.Token(auth_ref, unscoped_token=unscoped_token),
+            endpoint)
+        auth_user.set_session_from_user(request, user)
+        message = _('Switch to system scope successful.')
+        messages.success(request, message)
+    response = shortcuts.redirect(redirect_to)
+    return response
+
+
 class PasswordView(edit_views.FormView):
     """Changes user's password when it's expired or otherwise inaccessible."""
     template_name = 'auth/password.html'

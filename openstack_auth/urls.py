@@ -30,6 +30,9 @@ urlpatterns = [
     url(r'^switch_keystone_provider/(?P<keystone_provider>[^/]+)/$',
         views.switch_keystone_provider,
         name='switch_keystone_provider'),
+    url(r'^switch_system_scope/$',
+        views.switch_system_scope,
+        name='switch_system_scope'),
 ]
 
 if utils.allow_expired_passowrd_change():

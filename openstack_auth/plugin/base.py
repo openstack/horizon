@@ -233,3 +233,28 @@ class BasePlugin(object, metaclass=abc.ABCMeta):
                              unscoped_auth_ref.user_id, _name)
                 break
         return domain_auth, domain_auth_ref
+
+    def get_system_scoped_auth(self, unscoped_auth, unscoped_auth_ref,
+                               system_scope):
+        """Get the system scoped keystone auth and access info
+
+        This function returns a system scoped keystone token plugin
+        and AccessInfo object.
+
+        :param unscoped_auth: keystone auth plugin
+        :param unscoped_auth_ref: keystoneclient.access.AccessInfo` or None.
+        :param system_scope: system that we should try to scope to
+        :return: keystone token auth plugin, AccessInfo object
+        """
+        session = utils.get_session()
+        auth_url = unscoped_auth.auth_url
+
+        system_auth = None
+        system_auth_ref = None
+        token = unscoped_auth_ref.auth_token
+        system_auth = utils.get_token_auth_plugin(
+            auth_url,
+            token,
+            system_scope=system_scope)
+        system_auth_ref = system_auth.get_access(session)
+        return system_auth, system_auth_ref
