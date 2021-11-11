@@ -24,6 +24,11 @@
       - ^openstack_dashboard/.*/[^/]*\.spec\.js$
       - ^horizon/static/.*/[^/]*\.spec\.js$
     vars:
+      devstack_localrc:
+        # NOTE: workaround for bug 1950659
+        # Some horizon integration test start failing after devstack
+        # stop creating default keystone admin endpoint.
+        KEYSTONE_ADMIN_ENDPOINT: true
       devstack_services:
         horizon: true
       tox_envlist: integration
