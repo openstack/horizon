@@ -1,0 +1,6 @@
+---
+upgrade:
+  - |
+    Django 2.2 support was dropped. Django 2.2 ends its extended support
+    in April 2022. Considering this horizon dropped Django 2.2 support
+    and uses Django 3.2 as default.

@@ -6,10 +6,8 @@ The Ussuri release of horizon has the following dependencies.
 
 * Python 3.6 or 3.7
 
-* Django 2.2
+* Django 3.2
 
-  * Django 3.2 support is experimental as of Xena release.
-    (Yoga release will use Django 3.2 as the primary Django version.)
   * Django support policy is documented at :ref:`django_support`.
 
 * An accessible `keystone <https://docs.openstack.org/keystone/latest/>`_ endpoint

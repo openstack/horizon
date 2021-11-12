@@ -107,11 +107,10 @@ when a test fails you can use::
 
   $ tox -e py37 -- --pdb
 
-py3-dj111, py3-dj21, py3-dj22
+py3-dj32
 -----------------------------
 
-Runs the Python unit tests against Django 1.11, Django 2.1 and Django 2.2
-respectively
+Runs the Python unit tests against Django 3.2.
 
 py36
 ----
