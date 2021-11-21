@@ -1,26 +1,26 @@
 # Alberto Laporte <alberto.riveralaporte@rackspace.com>, 2015. #zanata
 # Eduardo Gonzalez Gutierrez <dabarren@gmail.com>, 2015. #zanata
 # OpenStack Infra <zanata@openstack.org>, 2015. #zanata
-# Alberto Molina Coballes <alb.molina@gmail.com>, 2016. #zanata
+# Alberto Molina Coballes <alberto@tinaja.es>, 2016. #zanata
 # Eddie Ramirez <djedi.r@gmail.com>, 2016. #zanata
 # Eduardo Gonzalez Gutierrez <dabarren@gmail.com>, 2016. #zanata
 # Pablo Caruana <pcaruana@redhat.com>, 2016. #zanata
 # Pablo Iranzo Gómez <Pablo.Iranzo@gmail.com>, 2016. #zanata
-# Alberto Molina Coballes <alb.molina@gmail.com>, 2017. #zanata
+# Alberto Molina Coballes <alberto@tinaja.es>, 2017. #zanata
 # Zeus Arias Lucero <zeusariaslucero@gmail.com>, 2017. #zanata
-# Alberto Molina Coballes <alb.molina@gmail.com>, 2018. #zanata
-# Alberto Molina Coballes <alb.molina@gmail.com>, 2019. #zanata
-# Alberto Molina Coballes <alb.molina@gmail.com>, 2021. #zanata
+# Alberto Molina Coballes <alberto@tinaja.es>, 2018. #zanata
+# Alberto Molina Coballes <alberto@tinaja.es>, 2019. #zanata
+# Alberto Molina Coballes <alberto@tinaja.es>, 2021. #zanata
 msgid ""
 msgstr ""
 "Project-Id-Version: horizon VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2021-04-20 14:20+0000\n"
+"POT-Creation-Date: 2021-10-18 17:35+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2021-05-23 07:02+0000\n"
-"Last-Translator: Alberto Molina Coballes <alb.molina@gmail.com>\n"
+"PO-Revision-Date: 2021-11-20 05:25+0000\n"
+"Last-Translator: Alberto Molina Coballes <alberto@tinaja.es>\n"
 "Language-Team: Spanish\n"
 "Language: es\n"
 "X-Generator: Zanata 4.3.3\n"
@@ -826,6 +826,13 @@ msgstr "Generando"
 msgctxt "Power state of an Instance"
 msgid "Building"
 msgstr "Construyendo"
+
+msgid ""
+"By default, group type is created as public. To create a private group type, "
+"uncheck this field."
+msgstr ""
+"El tipo de grupo se crea como público de forma predeterminada. Para crear un "
+"tipo de grupo privado, desmarque este campo."
 
 msgid ""
 "By default, volume type is created as public. To create a private volume "
@@ -2948,6 +2955,10 @@ msgstr "Tipos de grupos"
 msgid "Group has been updated successfully."
 msgstr "Se ha actualizado el grupo correctamente."
 
+#, python-format
+msgid "Group type name \"%s\" already exists."
+msgstr "Ya existe un tipo de grupo con nombre \"%s\"."
+
 msgid "Group type name can not be empty."
 msgstr "El tipo de grupo no puede estar vacío"
 
@@ -3480,6 +3491,13 @@ msgid "Key Size (bits)"
 msgstr "Tamaño de clave (bits)"
 
 msgid ""
+"Key names can only contain alphanumeric characters, underscores, periods, "
+"colons and hyphens"
+msgstr ""
+"Los nombres de clave sólo pueden contener caracteres alfanuméricos, guiones "
+"bajos, puntos, dos puntos y guiones."
+
+msgid ""
 "Key pair name may only contain letters, numbers, underscores, spaces, and "
 "hyphens and may not be white space."
 msgstr ""
@@ -3800,6 +3818,10 @@ msgstr "Faltan parámetros obligatorios: {}."
 #, python-format
 msgid "Modified domain \"%s\"."
 msgstr "Se ha modificado el dominio \"%s\"."
+
+#, python-format
+msgid "Modified flavor access of \"%s\"."
+msgstr "Se ha modificado el acceso al sabor \"%s\"."
 
 #, python-format
 msgid "Modified instance \"%s\"."
@@ -5759,6 +5781,10 @@ msgid "Successfully created encryption for volume type: %s"
 msgstr "Se ha creado correctamente la encriptación de volumen: %s"
 
 #, python-format
+msgid "Successfully created group type: %s"
+msgstr "Se ha creado correctamente el tipo de grupo : %s"
+
+#, python-format
 msgid "Successfully created security group: %s"
 msgstr "El grupo de seguridad: %s fue creado correctamente"
 
@@ -6183,6 +6209,16 @@ msgstr ""
 
 msgid "The specified port is invalid."
 msgstr "El puerto especificado no es válido."
+
+msgid ""
+"The status of a volume backup is normally managed automatically. In some "
+"circumstances an administrator may need to explicitly update the status "
+"value. This is equivalent to the <tt>cinder backup-reset-state</tt> command."
+msgstr ""
+"El estado de una copia de seguridad de volumen Normalmente se controla "
+"automáticamente. En algunas circunstancias, un administrador puede que tenga "
+"que actualizar de forma explícita el valor de estado. Esto es equivalente "
+"al  comando<tt>cinder backup-reset-state</tt> ."
 
 msgid ""
 "The status of a volume is normally managed automatically.  In some "
@@ -6793,6 +6829,10 @@ msgstr "Incapaz de manejar el volumen."
 #, python-format
 msgid "Unable to modify domain \"%s\"."
 msgstr "No ha sido posible modificar el dominio \"%s\"."
+
+#, python-format
+msgid "Unable to modify flavor access of \"%s\"."
+msgstr "No ha sido posible modificar el acceso al sabor \"%s\"."
 
 #, python-format
 msgid "Unable to modify instance \"%s\"."
@@ -8241,11 +8281,26 @@ msgstr "e.j Si/ No"
 msgid "e.g. Yes/No"
 msgstr "p. ej. Sí/No"
 
+msgid ""
+"flavor id can only contain alphanumeric characters, underscores, periods, "
+"hyphens, spaces."
+msgstr ""
+"Los id de sabor sólo pueden contener caracteres alfanuméricos, guión bajo, "
+"puntos, guiones y espacios."
+
 msgid "front-end"
 msgstr "acceso a procesos"
 
 msgid "instance"
 msgstr "instancia"
+
+#, python-format
+msgid ""
+"key with name \"%s\" already exists.Use Edit to update the value, else "
+"create key with different name."
+msgstr ""
+"Ya existe una clave con nombre \"%s\". Utilice Editar para actualizar el "
+"valor o cree una clave con un nombre diferente."
 
 msgid "no"
 msgstr "no"
