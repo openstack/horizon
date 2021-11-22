@@ -1,0 +1,9 @@
+---
+features:
+  - |
+    Horizon can now use a system scope token when performing admin operations.
+    To enable that, a new setting, SYSTEM_SCOPE_SERVICES, has to list the
+    OpenStack services for which this feature is to be enabled. When that
+    setting is not empty, a new option, "system scope" will appear in the
+    context switching menu, and the panels for the listed services will be
+    moved into that context in the main menu.

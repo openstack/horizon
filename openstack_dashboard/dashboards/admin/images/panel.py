@@ -16,6 +16,7 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
+from django.conf import settings
 from django.utils.translation import gettext_lazy as _
 
 import horizon
@@ -27,3 +28,9 @@ class Images(horizon.Panel):
     permissions = ('openstack.services.image',)
     policy_rules = ((("image", "context_is_admin"),
                      ("image", "get_images")),)
+
+    def allowed(self, context):
+        if (('compute' in settings.SYSTEM_SCOPE_SERVICES) !=
+                bool(context['request'].user.system_scoped)):
+            return False
+        return super().allowed(context)

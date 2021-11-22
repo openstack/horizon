@@ -13,6 +13,7 @@
 #    under the License.
 
 
+from django.conf import settings
 from django.utils.translation import gettext_lazy as _
 
 import horizon
@@ -21,6 +22,12 @@ import horizon
 class Identity(horizon.Dashboard):
     name = _("Identity")
     slug = "identity"
+
+    def can_access(self, context):
+        if (('identity' in settings.SYSTEM_SCOPE_SERVICES) !=
+                bool(context['request'].user.system_scoped)):
+            return False
+        return super().can_access(context)
 
 
 horizon.register(Identity)
