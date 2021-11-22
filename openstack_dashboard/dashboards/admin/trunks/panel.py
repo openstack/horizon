@@ -14,6 +14,7 @@
 
 import logging
 
+from django.conf import settings
 from django.utils.translation import gettext_lazy as _
 
 import horizon
@@ -30,6 +31,9 @@ class Trunks(horizon.Panel):
     policy_rules = (("trunk", "context_is_admin"),)
 
     def allowed(self, context):
+        if (('network' in settings.SYSTEM_SCOPE_SERVICES) !=
+                bool(context['request'].user.system_scoped)):
+            return False
         request = context['request']
         try:
             return (

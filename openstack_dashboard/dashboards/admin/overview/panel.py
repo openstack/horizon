@@ -16,6 +16,7 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
+from django.conf import settings
 from django.utils.translation import gettext_lazy as _
 
 import horizon
@@ -29,6 +30,12 @@ class Overview(horizon.Panel):
     policy_rules = ((('identity', 'identity:list_projects'),
                      ('compute', 'context_is_admin')),)
     permissions = ('openstack.services.compute',)
+
+    def allowed(self, context):
+        if (('compute' in settings.SYSTEM_SCOPE_SERVICES) !=
+                bool(context['request'].user.system_scoped)):
+            return False
+        return super().allowed(context)
 
 
 dashboard.Admin.register(Overview)

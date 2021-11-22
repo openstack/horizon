@@ -42,7 +42,9 @@ def is_multidomain():
 
 
 @register.simple_tag(takes_context=True)
-def is_system_user(context):
+def show_systems(context):
+    if not settings.SYSTEM_SCOPE_SERVICES:
+        return False
     try:
         request = context['request']
     except KeyError:
