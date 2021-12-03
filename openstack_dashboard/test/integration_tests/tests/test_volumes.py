@@ -175,7 +175,6 @@ class TestVolumesAdvanced(helpers.TestCase):
     def volumes_page(self):
         return self.home_pg.go_to_project_volumes_volumespage()
 
-    @pytest.mark.skip(reason="Bug 1774697")
     def test_manage_volume_attachments(self):
         """This test case checks attach/detach actions for volume
 
@@ -192,7 +191,7 @@ class TestVolumesAdvanced(helpers.TestCase):
         instance_name = helpers.gen_random_resource_name('instance')
         instances_page = self.home_pg.go_to_project_compute_instancespage()
         instances_page.create_instance(instance_name)
-        instances_page.find_message_and_dismiss(messages.SUCCESS)
+        instances_page.find_message_and_dismiss(messages.INFO)
         self.assertFalse(
             instances_page.find_message_and_dismiss(messages.ERROR))
         self.assertTrue(instances_page.is_instance_active(instance_name))
@@ -227,7 +226,7 @@ class TestVolumesAdvanced(helpers.TestCase):
 
         instances_page = self.home_pg.go_to_project_compute_instancespage()
         instances_page.delete_instance(instance_name)
-        instances_page.find_message_and_dismiss(messages.SUCCESS)
+        instances_page.find_message_and_dismiss(messages.INFO)
         self.assertFalse(
             instances_page.find_message_and_dismiss(messages.ERROR))
         self.assertTrue(instances_page.is_instance_deleted(instance_name))
@@ -324,7 +323,7 @@ class TestVolumesActions(helpers.TestCase):
             self.volumes_page = \
                 self.home_pg.go_to_project_volumes_volumespage()
 
-    @pytest.mark.skip(reason="Bug 1774697")
+    @pytest.mark.skip(reason="Bug 1930420")
     def test_volume_launch_as_instance(self):
         """This test case checks launch volume as instance functionality:
 
@@ -351,7 +350,7 @@ class TestVolumesActions(helpers.TestCase):
         instances_page = self.home_pg.go_to_project_compute_instancespage()
         instances_page.delete_instance(self.INSTANCE_NAME)
         self.assertTrue(
-            instances_page.find_message_and_dismiss(messages.SUCCESS))
+            instances_page.find_message_and_dismiss(messages.INFO))
         self.assertFalse(
             instances_page.find_message_and_dismiss(messages.ERROR))
         self.assertTrue(instances_page.is_instance_deleted(self.INSTANCE_NAME))

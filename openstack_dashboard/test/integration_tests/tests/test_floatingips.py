@@ -42,14 +42,14 @@ class TestFloatingip(helpers.TestCase):
 class TestFloatingipAssociateDisassociate(helpers.TestCase):
     """Checks that the user is able to Associate/Disassociate floatingip."""
 
-    @pytest.mark.skip(reason="Bug 1774697")
+    @pytest.mark.skip(reason="Bug 1920010 fix")
     def test_floatingip_associate_disassociate(self):
         instance_name = helpers.gen_random_resource_name('instance',
                                                          timestamp=False)
         instances_page = self.home_pg.go_to_project_compute_instancespage()
         instances_page.create_instance(instance_name)
         self.assertTrue(
-            instances_page.find_message_and_dismiss(messages.SUCCESS))
+            instances_page.find_message_and_dismiss(messages.INFO))
         self.assertFalse(
             instances_page.find_message_and_dismiss(messages.ERROR))
         self.assertTrue(instances_page.is_instance_active(instance_name))
@@ -92,7 +92,7 @@ class TestFloatingipAssociateDisassociate(helpers.TestCase):
         instances_page = self.home_pg.go_to_project_compute_instancespage()
         instances_page.delete_instance(instance_name)
         self.assertTrue(
-            instances_page.find_message_and_dismiss(messages.SUCCESS))
+            instances_page.find_message_and_dismiss(messages.INFO))
         self.assertFalse(
             instances_page.find_message_and_dismiss(messages.ERROR))
         self.assertTrue(instances_page.is_instance_deleted(instance_name))

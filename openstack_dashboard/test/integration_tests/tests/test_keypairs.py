@@ -22,7 +22,7 @@ class TestKeypair(helpers.TestCase):
     """Checks that the user is able to create/delete keypair."""
     KEYPAIR_NAME = helpers.gen_random_resource_name("keypair")
 
-    @pytest.mark.skip(reason="Bug 1774697")
+    @pytest.mark.skip(reason="Legacy Panel not tested")
     def test_keypair(self):
         keypair_page = self.home_pg.\
             go_to_project_compute_keypairspage()
