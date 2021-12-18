@@ -52,7 +52,10 @@ class BaseActionMetaClass(type):
         # Options of action are set as class attributes, loading them.
         options = {}
         if attrs:
-            options = attrs
+            # NOTE: It is required to create a new dict object
+            # to avoid a recursive reference when no parent class
+            # has 'base_options' attribute.
+            options = dict(attrs)
 
         # Iterate in reverse to preserve final order
         for base in bases[::-1]:
