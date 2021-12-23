@@ -60,7 +60,8 @@ class SecurityGroupsViewTests(test.TestCase):
         self.edit_url = reverse(SG_ADD_RULE_VIEW, args=[sec_group.id])
         self.update_url = reverse(SG_UPDATE_VIEW, args=[sec_group.id])
 
-    @test.create_mocks({api.neutron: ('security_group_list',),
+    @test.create_mocks({api.neutron: ('security_group_list',
+                                      'is_extension_supported'),
                         quotas: ('tenant_quota_usages',)})
     def test_index(self):
         sec_groups = self.security_groups.list()
@@ -68,6 +69,7 @@ class SecurityGroupsViewTests(test.TestCase):
         quota_data['security_group']['available'] = 10
 
         self.mock_security_group_list.return_value = sec_groups
+        self.mock_is_extension_supported.return_value = True
         self.mock_tenant_quota_usages.return_value = quota_data
 
         res = self.client.get(INDEX_URL)
@@ -93,7 +95,8 @@ class SecurityGroupsViewTests(test.TestCase):
             self.mock_tenant_quota_usages, 2,
             mock.call(test.IsHttpRequest(), targets=('security_group', )))
 
-    @test.create_mocks({api.neutron: ('security_group_list',),
+    @test.create_mocks({api.neutron: ('security_group_list',
+                                      'is_extension_supported'),
                         quotas: ('tenant_quota_usages',)})
     def test_create_button_attributes(self):
         sec_groups = self.security_groups.list()
@@ -101,6 +104,7 @@ class SecurityGroupsViewTests(test.TestCase):
         quota_data['security_group']['available'] = 10
 
         self.mock_security_group_list.return_value = sec_groups
+        self.mock_is_extension_supported.return_value = True
         self.mock_tenant_quota_usages.return_value = quota_data
 
         res = self.client.get(INDEX_URL)
@@ -153,10 +157,14 @@ class SecurityGroupsViewTests(test.TestCase):
             self.mock_tenant_quota_usages, 3,
             mock.call(test.IsHttpRequest(), targets=('security_group', )))
 
+    @test.create_mocks({api.neutron: ('is_extension_supported',)})
     def test_create_button_disabled_when_quota_exceeded_neutron_disabled(self):
+        self.mock_is_extension_supported.return_value = True
         self._test_create_button_disabled_when_quota_exceeded(False)
 
+    @test.create_mocks({api.neutron: ('is_extension_supported',)})
     def test_create_button_disabled_when_quota_exceeded_neutron_enabled(self):
+        self.mock_is_extension_supported.return_value = True
         self._test_create_button_disabled_when_quota_exceeded(True)
 
     def _add_security_group_rule_fixture(self, is_desc_support=True, **kwargs):
@@ -806,10 +814,12 @@ class SecurityGroupsViewTests(test.TestCase):
         self.mock_is_extension_supported.assert_called_once_with(
             test.IsHttpRequest(), 'standard-attr-description')
 
-    @test.create_mocks({api.neutron: ('security_group_delete',)})
+    @test.create_mocks({api.neutron: ('security_group_delete',
+                                      'is_extension_supported')})
     def test_delete_group(self):
         sec_group = self.security_groups.get(name="other_group")
         self.mock_security_group_delete.return_value = None
+        self.mock_is_extension_supported.return_value = True
 
         form_data = {"action": "security_groups__delete__%s" % sec_group.id}
         req = self.factory.post(INDEX_URL, form_data)
@@ -820,10 +830,12 @@ class SecurityGroupsViewTests(test.TestCase):
         self.mock_security_group_delete.assert_called_once_with(
             test.IsHttpRequest(), sec_group.id)
 
-    @test.create_mocks({api.neutron: ('security_group_delete',)})
+    @test.create_mocks({api.neutron: ('security_group_delete',
+                                      'is_extension_supported')})
     def test_delete_group_exception(self):
         sec_group = self.security_groups.get(name="other_group")
         self.mock_security_group_delete.side_effect = self.exceptions.nova
+        self.mock_is_extension_supported.return_value = True
 
         form_data = {"action": "security_groups__delete__%s" % sec_group.id}
         req = self.factory.post(INDEX_URL, form_data)

@@ -20,6 +20,7 @@
 import collections
 from collections.abc import Sequence
 import copy
+import itertools
 import logging
 
 import netaddr
@@ -329,6 +330,7 @@ class SecurityGroupManager(object):
     * name
     * description
     * tenant_id
+    * shared: A boolean indicates whether this security group is shared
     * rules: A list of SecurityGroupRule objects
 
     SecurityGroupRule object should have the following attributes
@@ -354,6 +356,23 @@ class SecurityGroupManager(object):
         self.client = neutronclient(request)
 
     def _list(self, **filters):
+        if (filters.get("tenant_id") and
+                is_extension_supported(
+                    self.request, 'security-groups-shared-filtering')):
+            # NOTE(hangyang): First, we get the SGs owned by but not shared
+            # to the requester(tenant_id)
+            filters["shared"] = False
+            secgroups_owned = self.client.list_security_groups(**filters)
+            # NOTE(hangyang): Second, we get the SGs shared to the
+            # requester. For a requester with an admin role, this second
+            # API call also only returns SGs shared to the requester's tenant
+            # instead of all the SGs shared to any tenant.
+            filters.pop("tenant_id")
+            filters["shared"] = True
+            secgroups_rbac = self.client.list_security_groups(**filters)
+            return [SecurityGroup(sg) for sg in
+                    itertools.chain(secgroups_owned.get('security_groups'),
+                                    secgroups_rbac.get('security_groups'))]
         secgroups = self.client.list_security_groups(**filters)
         return [SecurityGroup(sg) for sg in secgroups.get('security_groups')]
 

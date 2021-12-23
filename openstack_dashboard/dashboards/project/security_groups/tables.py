@@ -115,6 +115,20 @@ class SecurityGroupsTable(tables.DataTable):
     security_group_id = tables.Column("id",
                                       verbose_name=_("Security Group ID"))
     description = tables.Column("description", verbose_name=_("Description"))
+    shared = tables.Column("shared", verbose_name=_("Shared"))
+
+    def __init__(self, request, *args, **kwargs):
+        super().__init__(request, *args, **kwargs)
+        try:
+            is_shared_supported = api.neutron.is_extension_supported(
+                self.request, 'security-groups-shared-filtering')
+        except Exception:
+            exceptions.handle(
+                self.request,
+                _('Failed to check if shared field is supported.'))
+            is_shared_supported = False
+        if not is_shared_supported:
+            del self.columns['shared']
 
     def sanitize_id(self, obj_id):
         return filters.get_int_or_uuid(obj_id)

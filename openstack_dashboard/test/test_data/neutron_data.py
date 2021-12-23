@@ -487,21 +487,30 @@ def data(TEST):
     # Security group.
 
     sec_group_1 = {'tenant_id': '1',
+                   'shared': False,
                    'description': 'default',
                    'id': 'faad7c80-3b62-4440-967c-13808c37131d',
                    'name': 'default'}
     sec_group_2 = {'tenant_id': '1',
+                   'shared': False,
                    'description': 'NotDefault',
                    'id': '27a5c9a1-bdbb-48ac-833a-2e4b5f54b31d',
                    'name': 'other_group'}
     sec_group_3 = {'tenant_id': '1',
+                   'shared': False,
                    'description': 'NotDefault',
                    'id': '443a4d7a-4bd2-4474-9a77-02b35c9f8c95',
                    'name': 'another_group'}
     sec_group_empty = {'tenant_id': '1',
+                       'shared': False,
                        'description': 'SG without rules',
                        'id': 'f205f3bc-d402-4e40-b004-c62401e19b4b',
                        'name': 'empty_group'}
+    sec_group_shared = {'tenant_id': '1',
+                        'shared': True,
+                        'description': 'SG without rules',
+                        'id': 'cca53e02-114e-4da3-917b-f19efa7cbc47',
+                        'name': 'shared_group'}
 
     def add_rule_to_group(secgroup, default_only=True):
         rule_egress_ipv4 = {
@@ -585,10 +594,11 @@ def data(TEST):
     add_rule_to_group(sec_group_1, default_only=False)
     add_rule_to_group(sec_group_2)
     add_rule_to_group(sec_group_3)
-    # NOTE: sec_group_empty is a SG without rules,
+    # NOTE: sec_group_empty and sec_group_shared are SGs without rules,
     # so we don't call add_rule_to_group.
 
-    groups = [sec_group_1, sec_group_2, sec_group_3, sec_group_empty]
+    groups = [sec_group_1, sec_group_2, sec_group_3,
+              sec_group_empty, sec_group_shared]
     sg_name_dict = dict([(sg['id'], sg['name']) for sg in groups])
     for sg in groups:
         # Neutron API.
@@ -684,12 +694,17 @@ def data(TEST):
     extension_6 = {"name": "Trunks",
                    "alias": "trunk",
                    "description": "Provides support for trunk ports."}
+    extension_7 = {"name": "Security group filtering on the shared field",
+                   "alias": "security-groups-shared-filtering",
+                   "description": "Support filtering security groups on "
+                                  "the shared field"}
     TEST.api_extensions.add(extension_1)
     TEST.api_extensions.add(extension_2)
     TEST.api_extensions.add(extension_3)
     TEST.api_extensions.add(extension_4)
     TEST.api_extensions.add(extension_5)
     TEST.api_extensions.add(extension_6)
+    TEST.api_extensions.add(extension_7)
 
     # 1st agent.
     agent_dict = {"binary": "neutron-openvswitch-agent",
