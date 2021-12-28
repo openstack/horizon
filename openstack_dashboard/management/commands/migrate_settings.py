@@ -11,7 +11,7 @@
 # under the License.
 
 import difflib
-import imp
+import importlib
 import os
 import shlex
 import subprocess
@@ -30,16 +30,9 @@ def get_module_path(module_name):
     """Gets the module path without importing anything.
 
     Avoids conflicts with package dependencies.
-    (taken from http://github.com/sitkatech/pypatch)
     """
-    path = sys.path
-    for name in module_name.split('.'):
-        file_pointer, path, desc = imp.find_module(name, path)
-        path = [path, ]
-        if file_pointer is not None:
-            file_pointer.close()
-
-    return path[0]
+    spec = importlib.util.find_spec(module_name)
+    return spec.origin
 
 
 class DirContext(object):
