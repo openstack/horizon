@@ -1405,7 +1405,12 @@ OPENSTACK_KEYSTONE_DEFAULT_ROLE
 
 .. versionadded:: 2011.3(Diablo)
 
-Default: ``"_member_"``
+.. versionchanged:: 21.0.0(Yoga)
+
+Default: ``"member"``
+
+The default value is changed from ``_member_`` to ``member`` to conform
+with what keystone-bootstrap creates.
 
 The name of the role which will be assigned to a user when added to a project.
 This value must correspond to an existing role name in Keystone. In general,

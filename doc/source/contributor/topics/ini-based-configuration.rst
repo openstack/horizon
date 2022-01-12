@@ -170,7 +170,7 @@ approach will be used in the initial effort.
 
    cfg.StrOpt(
      'default_role',
-     default='_member_',
+     default='member',
      django-setting='OPENSTACK_KEYSTONE_DEFAULT_ROLE',
      help=...
    )

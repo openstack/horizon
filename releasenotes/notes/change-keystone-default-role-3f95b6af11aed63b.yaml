@@ -1,0 +1,5 @@
+---
+upgrade:
+  - |
+    The default value of OPENSTACK_KEYSTONE_DEFAULT_ROLE is changed from
+    _member_ to member to conform with what keystone-bootstrap creates.
