@@ -1,0 +1,15 @@
+---
+fixes:
+  - |
+    [:bug:`1874705`] Add a new variable WEBSSO_USE_HTTP_REFERER to
+    facilitate WEBSSO deployments where network segmentation is used per
+    security requirement. In this case, the controllers cannot reach
+    other services external endpoints. Therefore, using the
+    HTTP_REFERER to derive the Keystone endpoint in the websso view will
+    return a timeout for requests to Keystone in cases where the external
+    Keystone endpoint is the HTTP_REFERER.
+    WEBSSO_USE_HTTP_REFERER defaults to True to keep inline with current
+    functionality. When set to False the OPENSTACK_KEYSTONE_URL is used
+    instead of the HTTP_REFERER. If OPENSTACK_KEYSTONE_URL is set to the
+    internal Keystone endpoint the requests between Horizon and Keystone
+    should be able to connect.
