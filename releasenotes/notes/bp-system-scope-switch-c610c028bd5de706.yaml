@@ -1,0 +1,7 @@
+---
+features:
+  - |
+    A new entry has been added to the context switcher menu, visible only
+    when the current user has access to the system scope. This entry, labeled
+    "system scope", allows to switch to a system-scope token, so that operations
+    that require this kind of token can be performed.

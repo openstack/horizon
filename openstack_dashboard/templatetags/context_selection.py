@@ -41,6 +41,15 @@ def is_multidomain():
     return is_multidomain_supported()
 
 
+@register.simple_tag(takes_context=True)
+def is_system_user(context):
+    try:
+        request = context['request']
+    except KeyError:
+        return False
+    return request.user.is_system_user
+
+
 @register.inclusion_tag('context_selection/_overview.html',
                         takes_context=True)
 def show_overview(context):
@@ -55,6 +64,7 @@ def show_overview(context):
                'project_name': project_name or request.user.project_name,
                'multi_region': is_multi_region_configured(request),
                'region_name': request.user.services_region,
+               'system_scoped': request.user.system_scoped,
                'request': request}
 
     return context
@@ -99,6 +109,20 @@ def show_region_list(context):
                'regions': sorted(request.user.available_services_regions,
                                  key=lambda x: (x or '').lower()),
                'page_url': panel.get_absolute_url() if panel else None}
+    return context
+
+
+@register.inclusion_tag('context_selection/_system_list.html',
+                        takes_context=True)
+def show_system_list(context):
+    if 'request' not in context:
+        return {}
+    request = context['request']
+    panel = request.horizon.get('panel')
+    context = {
+        'system_scoped': request.user.system_scoped,
+        'page_url': panel.get_absolute_url() if panel else None,
+    }
     return context
 
 

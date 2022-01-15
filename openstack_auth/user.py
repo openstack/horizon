@@ -61,6 +61,7 @@ def create_user_from_token(request, token, endpoint, services_region=None):
                 project_name=token.project['name'],
                 domain_id=token.domain['id'],
                 domain_name=token.domain['name'],
+                system_scoped=token.system_scoped,
                 enabled=True,
                 service_catalog=token.serviceCatalog,
                 roles=token.roles,
@@ -116,6 +117,10 @@ class Token(object):
         self.is_federated = auth_ref.is_federated
         self.roles = [{'name': role} for role in auth_ref.role_names]
         self.serviceCatalog = auth_ref.service_catalog.catalog
+
+        # System scope
+        # Only keystone API V3 has it.
+        self.system_scoped = getattr(auth_ref, 'system_scoped', False)
 
 
 class User(models.AbstractBaseUser, models.AnonymousUser):
@@ -200,7 +205,8 @@ class User(models.AbstractBaseUser, models.AnonymousUser):
                  services_region=None, user_domain_id=None,
                  user_domain_name=None, domain_id=None, domain_name=None,
                  project_id=None, project_name=None, is_federated=False,
-                 unscoped_token=None, password=None, password_expires_at=None):
+                 unscoped_token=None, password=None, password_expires_at=None,
+                 system_scoped=False):
         self.id = id
         self.pk = id
         self.token = token
@@ -212,6 +218,7 @@ class User(models.AbstractBaseUser, models.AnonymousUser):
         self.domain_name = domain_name
         self.project_id = project_id or tenant_id
         self.project_name = project_name or tenant_name
+        self.system_scoped = system_scoped
         self.service_catalog = service_catalog
         self._services_region = (
             services_region or
@@ -223,6 +230,7 @@ class User(models.AbstractBaseUser, models.AnonymousUser):
         self._authorized_tenants = authorized_tenants
         self.is_federated = is_federated
         self.password_expires_at = password_expires_at
+        self._is_system_user = None
 
         # Unscoped token is used for listing user's project that works
         # for both federated and keystone user.
@@ -329,6 +337,22 @@ class User(models.AbstractBaseUser, models.AnonymousUser):
                     if region not in regions:
                         regions.append(region)
         return regions
+
+    @property
+    def is_system_user(self):
+        """Check if the user has access to the system scope."""
+        if self._is_system_user is not None:
+            return self._is_system_user
+        try:
+            self._is_system_user = utils.get_system_access(
+                user_id=self.id,
+                auth_url=self.endpoint,
+                token=self.unscoped_token,
+                is_federated=self.is_federated)
+        except (keystone_exceptions.ClientException,
+                keystone_exceptions.AuthorizationFailure):
+            LOG.exception('Unable to retrieve systems list.')
+        return self._is_system_user
 
     def save(self, *args, **kwargs):
         # Presume we can't write to Keystone.

@@ -1382,6 +1382,54 @@ class OpenStackAuthTests(test.TestCase):
     def test_switch_region_with_next(self, next=None):
         self.test_switch_region(next='/next_url')
 
+    @mock.patch.object(v3_auth.Token, 'get_access')
+    @mock.patch.object(password.PasswordPlugin, 'list_projects')
+    @mock.patch.object(v3_auth.Password, 'get_access')
+    def test_switch_system_scope(self, mock_get_access, mock_project_list,
+                                 mock_get_access_token,
+                                 next=None):
+        projects = []
+        user = self.data.user
+        scoped = self.data.unscoped_access_info
+
+        form_data = self.get_form_data(user)
+
+        mock_get_access.return_value = self.data.unscoped_access_info
+        mock_get_access_token.return_value = scoped
+        mock_project_list.return_value = projects
+
+        url = reverse('login')
+
+        response = self.client.get(url)
+        self.assertEqual(response.status_code, 200)
+
+        response = self.client.post(url, form_data)
+        self.assertRedirects(response, settings.LOGIN_REDIRECT_URL)
+
+        self.assertFalse(self.client.session['token'].system_scoped)
+
+        url = reverse('switch_system_scope')
+
+        if next:
+            form_data.update({auth.REDIRECT_FIELD_NAME: next})
+
+        response = self.client.get(url, form_data)
+
+        if next:
+            expected_url = next
+            self.assertEqual(response['location'], expected_url)
+        else:
+            self.assertRedirects(response, settings.LOGIN_REDIRECT_URL)
+
+        self.assertNotEqual(False, self.client.session['token'].system_scoped)
+
+        mock_get_access.assert_called_once_with(IsA(session.Session))
+        mock_get_access_token.assert_called_with(IsA(session.Session))
+        mock_project_list.assert_called_once_with(
+            IsA(session.Session),
+            IsA(v3_auth.Password),
+            self.data.unscoped_access_info)
+
 
 class OpenStackAuthTestsPublicURL(OpenStackAuthTests):
     interface = 'publicURL'
