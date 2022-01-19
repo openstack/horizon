@@ -298,5 +298,4 @@ snapshot to other API calls that require more complex forms to gather the
 necessary information.
 
 If you have feedback on how this tutorial could be improved, please feel free
-to submit a bug against ``Horizon`` in
-`launchpad <https://bugs.launchpad.net/horizon>`__.
+to submit a bug against :Launchpad:`horizon`.

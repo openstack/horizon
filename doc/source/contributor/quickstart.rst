@@ -37,7 +37,7 @@ Setup
 =====
 
 To begin setting up a Horizon development environment simply clone the Horizon
-git repository from https://opendev.org/openstack/horizon
+git repository from :opendev-repo:`openstack/horizon`.
 
 .. code-block:: console
 

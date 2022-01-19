@@ -588,5 +588,4 @@ What you've learned here is the fundamentals of how to write interfaces for
 your own project based on the components horizon provides.
 
 If you have feedback on how this tutorial could be improved, please feel free
-to submit a bug against ``Horizon`` in
-`launchpad <https://bugs.launchpad.net/horizon>`__.
+to submit a bug against :Launchpad:`horizon`.

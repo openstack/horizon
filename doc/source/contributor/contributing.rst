@@ -14,10 +14,10 @@ with horizon.
 Project Resources
 -----------------
 
-* Source code: https://opendev.org/openstack/horizon
+* Source code: :opendev-repo:`openstack/horizon`
 * Documentation: https://docs.openstack.org/horizon/latest/
 * Project page: https://launchpad.net/horizon
-* Bug tracker: https://bugs.launchpad.net/horizon
+* Bug tracker: :Launchpad:`horizon`
 * Code review: https://review.opendev.org/#/q/project:openstack/horizon+status:open
 
 Communication
@@ -86,7 +86,7 @@ Implementing such would be appreciated even if it is small.
 Task Tracking
 -------------
 
-We track our tasks in `Launchpad <https://bugs.launchpad.net/horizon>`__.
+We track our tasks in :Launchpad:`horizon`.
 
 If you're looking for some smaller, please look through the list of bugs
 and find what you think you can work on. If you are not sure the status of
@@ -98,7 +98,7 @@ Reporting a Bug
 ---------------
 
 You found an issue and want to make sure we are aware of it?
-You can do so on `Launchpad <https://bugs.launchpad.net/horizon>`__.
+You can do so on :Launchpad:`horizon`.
 
 Please file a bug first even if you already have a fix for it.
 If you can reproduce the bug reliably and identify its cause

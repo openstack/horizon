@@ -544,12 +544,12 @@ A template name for a custom user's ``clouds.yaml`` file.
 If the default template is not suitable for your deployment,
 you can provide your own clouds.yaml by specifying this setting.
 
-The default template is defined as `clouds.yaml.template
-<https://opendev.org/openstack/horizon/src/branch/master/openstack_dashboard/dashboards/project/api_access/templates/api_access/clouds.yaml.template>`__
+The default template is defined as :opendev-repo:`clouds.yaml.template
+<openstack/horizon/src/branch/master/openstack_dashboard/dashboards/project/api_access/templates/api_access/clouds.yaml.template>`
 and available context parameters are found in ``_get_openrc_credentials()``
 and ``download_clouds_yaml_file()`` functions in
-`openstack_dashboard/dashboards/project/api_access/views.py
-<https://opendev.org/openstack/horizon/src/branch/master/openstack_dashboard/dashboards/project/api_access/views.py>`__.
+:opendev-repo:`openstack_dashboard/dashboards/project/api_access/views.py
+<openstack/horizon/src/branch/master/openstack_dashboard/dashboards/project/api_access/views.py>`
 
 .. note::
 
@@ -621,12 +621,12 @@ for example, if your deployment uses saml2, openid and so on
 for authentication, the default ``openrc`` would not be sufficient.
 You can provide your own clouds.yaml by specifying this setting.
 
-The default template is defined as `openrc.sh.template
-<https://opendev.org/openstack/horizon/src/branch/master/openstack_dashboard/dashboards/project/api_access/templates/api_access/openrc.sh.template>`__
+The default template is defined as :opendev-repo:`openrc.sh.template
+<openstack/horizon/src/branch/master/openstack_dashboard/dashboards/project/api_access/templates/api_access/openrc.sh.template>`
 and available context parameters are found in ``_get_openrc_credentials()``
 and ``download_rc_file()`` functions in
-`openstack_dashboard/dashboards/project/api_access/views.py
-<https://opendev.org/openstack/horizon/src/branch/master/openstack_dashboard/dashboards/project/api_access/views.py>`__.
+:opendev-repo:`openstack_dashboard/dashboards/project/api_access/views.py
+<openstack/horizon/src/branch/master/openstack_dashboard/dashboards/project/api_access/views.py>`
 
 .. note::
 
@@ -2377,7 +2377,7 @@ from neutron when retrieving a list of servers from nova.
 
 On the other hand, this operation requires a full list of neutron ports
 and can potentially lead to a performance issue in large deployments
-(`bug 1722417 <https://bugs.launchpad.net/horizon/+bug/1722417>`__).
+(:launchpad:`bug 1722417<horizon/+bug/1722417>`).
 This issue can be avoided by skipping querying IP addresses to neutron
 and setting this to ``False`` achieves this.
 Note that when disabling the query to neutron it takes some time until

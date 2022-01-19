@@ -187,7 +187,7 @@ Deployment
    For apache2 web server, you may need to create
    ``/etc/apache2/sites-available/horizon.conf``.
    The template in DevStack is a good example of the file.
-   https://opendev.org/openstack/devstack/src/branch/master/files/apache-horizon.template
+   :opendev-repo:`openstack/devstack/src/branch/master/files/apache-horizon.template`.
    Or you can automatically generate an apache configuration file. If you
    previously generated an ``openstack_dashboard/horizon_wsgi.py`` file it will
    use that, otherwise will default to using ``openstack_dashboard/wsgi.py``

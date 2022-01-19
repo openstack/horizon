@@ -299,10 +299,13 @@ To make a new release of the package, you need to:
    `xstatic/pkg/<package name>/__init__.py` file is up to date,
    especially the `BUILD`.
 2. Push your updated package up for review in gerrit.
-3. Once the review is approved and the change merged, `request a release`_ by
-   updating or creating the appropriate file for the xstatic package
-   in the `releases repository`_ under `deliverables/_independent`. That
-   will cause it to be automatically packaged and released to PyPi.
+3. Once the review is approved and the change merged,
+   :opendev-repo:`request a release
+   <openstack/releases/src/branch/master/README.rst>`
+   by updating or creating the appropriate file for the xstatic package
+   in the :opendev-repo:`releases repository<openstack/releases>` under
+   `deliverables/_independent`.
+   That will cause it to be automatically packaged and released to PyPi.
 
 .. warning::
 
@@ -317,8 +320,6 @@ To make a new release of the package, you need to:
 .. _documentation: https://xstatic.readthedocs.io/en/latest/packaging.html
 .. _xstatic-release: https://pypi.org/project/xstatic-release/
 .. _`Create a new repository under OpenStack`: https://docs.openstack.org/infra/manual/creators.html
-.. _`request a release`: https://opendev.org/openstack/releases/src/branch/master/README.rst
-.. _`releases repository`: https://opendev.org/openstack/releases
 .. _`Set up PyPi`: https://docs.openstack.org/infra/manual/creators.html#give-openstack-permission-to-publish-releases
 .. _global-requirements: https://github.com/openstack/requirements/blob/master/global-requirements.txt
 
@@ -328,14 +329,18 @@ Integrating a new xstatic package into Horizon
 
 Having done a release of an xstatic package:
 
-1. Look for the `upper-constraints.txt`_ edit related to the xstatic release
-   that was just performed. One will be created automatically by the release
+1. Look for the
+   :opendev-repo:`upper-constraints.txt
+   <openstack/requirements/raw/branch/master/upper-constraints.txt>`
+   edit related to the xstatic release that was just performed.
+   One will be created automatically by the release
    process in the ``openstack/requirements`` project with the topic
    `new-release`_. You should -1 that patch until you are confident Horizon
    does not break (or you have generated a patch to fix Horizon for that
    release.) If no upper-constraints.txt patch is automatically generated,
-   ensure the releases yaml file created in the `releases repository`_ has the
-   "include-pypi-link: yes" setting.
+   ensure the releases yaml file created in the
+   :opendev-repo:`releases repository<openstack/releases>`
+   has the "include-pypi-link: yes" setting.
 2. Pull that patch down so you have the edited upper-constraints.txt file
    locally.
 3. Set the environment variable `TOX_CONSTRAINTS_FILE` to the edited
@@ -364,7 +369,6 @@ xstatic release:
    upper-constraints version so that deployers / packagers who don't honor
    upper-constraints still get compatible versions of the packages.
 
-.. _upper-constraints.txt: https://opendev.org/openstack/requirements/raw/branch/master/upper-constraints.txt
 .. _new-release: https://review.opendev.org/#/q/status:open+project:openstack/requirements+branch:master+topic:new-release
 
 

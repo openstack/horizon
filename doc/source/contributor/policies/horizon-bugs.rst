@@ -2,8 +2,7 @@
 Horizon Bugs
 ============
 
-Horizon project maintains all bugs in
-`Launchpad horizon <https://bugs.launchpad.net/horizon>`__.
+Horizon project maintains all bugs in :Launchpad:`horizon`.
 
 Bug Tags
 --------
@@ -53,7 +52,7 @@ To check incoming bugs, you can check Launchpad bug page directly,
 but at the moment the easiest way is to subscribe Launchpad bug mails.
 The steps to subscribe to the Launchpad bugs are as follows:
 
-* Go to the `horizon bugs page <https://bugs.launchpad.net/horizon>`__.
+* Go to the :Launchpad:`horizon bugs page</horizon>`.
 * On the right hand side, click on "Subscribe to bug mail".
 * In the pop-up that is displayed, keep the recipient as "Yourself",
   and set the subscription name to something useful like "horizon-bugs".
