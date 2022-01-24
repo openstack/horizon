@@ -584,13 +584,22 @@ class FloatingIpManager(object):
                 return value
         return device_owner
 
-    def _set_instance_info(self, fip, port=None):
-        if fip['port_id']:
+    def _set_fip_details(self, fip, port):
+        try:
             if not port:
                 port = port_get(self.request, fip['port_id'])
             fip['instance_id'] = port.device_id
             fip['instance_type'] = self._get_instance_type_from_device_owner(
                 port.device_owner)
+        except neutronclient.common.exceptions.PortNotFoundClient:
+            LOG.debug("Failed to get port %s details for floating IP %s",
+                      fip['port_id'], fip['ip'])
+            fip['instance_id'] = None
+            fip['instance_type'] = None
+
+    def _set_instance_info(self, fip, port=None):
+        if fip['port_id']:
+            self._set_fip_details(fip, port)
         else:
             fip['instance_id'] = None
             fip['instance_type'] = None
