@@ -12,7 +12,6 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
-from django.conf import settings
 from django.urls import reverse
 from django.utils.http import urlencode
 from django.utils.translation import ugettext_lazy as _
@@ -242,11 +241,7 @@ class VolumeDetailsSnapshotsTable(volume_tables.VolumesTableBase):
         prev_pagination_param = 'prev_snapshot_marker'
         table_actions = (VolumeSnapshotsFilterAction, DeleteVolumeSnapshot,)
 
-        launch_actions = ()
-        if settings.LAUNCH_INSTANCE_LEGACY_ENABLED:
-            launch_actions = (LaunchSnapshot,) + launch_actions
-        if settings.LAUNCH_INSTANCE_NG_ENABLED:
-            launch_actions = (LaunchSnapshotNG,) + launch_actions
+        launch_actions = (LaunchSnapshotNG,)
 
         row_actions = ((CreateVolumeFromSnapshot,) + launch_actions +
                        (EditVolumeSnapshot, DeleteVolumeSnapshot, CreateBackup,

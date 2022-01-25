@@ -12,7 +12,6 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
-from django.conf import settings
 from django.http import HttpResponse
 from django.template import defaultfilters as filters
 from django.urls import NoReverseMatch
@@ -572,11 +571,7 @@ class VolumesTable(VolumesTableBase):
         table_actions = (CreateVolume, AcceptTransfer, DeleteVolume,
                          VolumesFilterAction)
 
-        launch_actions = ()
-        if settings.LAUNCH_INSTANCE_LEGACY_ENABLED:
-            launch_actions = (LaunchVolume,) + launch_actions
-        if settings.LAUNCH_INSTANCE_NG_ENABLED:
-            launch_actions = (LaunchVolumeNG,) + launch_actions
+        launch_actions = (LaunchVolumeNG,)
 
         row_actions = ((EditVolume, ExtendVolume,) +
                        launch_actions +

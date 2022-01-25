@@ -240,20 +240,6 @@ IMAGES_LIST_FILTER_TENANTS = []
 # The default number of lines displayed for instance console log.
 INSTANCE_LOG_LENGTH = 35
 
-# The Launch Instance user experience has been significantly enhanced.
-# You can choose whether to enable the new launch instance experience,
-# the legacy experience, or both. The legacy experience will be removed
-# in a future release, but is available as a temporary backup setting to ensure
-# compatibility with existing deployments. Further development will not be
-# done on the legacy experience. Please report any problems with the new
-# experience via the Launchpad tracking system.
-#
-# Toggle LAUNCH_INSTANCE_LEGACY_ENABLED and LAUNCH_INSTANCE_NG_ENABLED to
-# determine the experience to enable.  Set them both to true to enable
-# both.
-LAUNCH_INSTANCE_LEGACY_ENABLED = False
-LAUNCH_INSTANCE_NG_ENABLED = True
-
 # A dictionary of settings which can be used to provide the default values for
 # properties found in the Launch Instance modal.
 LAUNCH_INSTANCE_DEFAULTS = {

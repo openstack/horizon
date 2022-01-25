@@ -413,14 +413,14 @@ class ToggleShelve(tables.BatchAction):
             self.current_past_action = SHELVE
 
 
-class LaunchLink(tables.LinkAction):
-    name = "launch"
+class LaunchLinkNG(tables.LinkAction):
+    name = "launch-ng"
     verbose_name = _("Launch Instance")
-    url = "horizon:project:instances:launch"
-    classes = ("ajax-modal", "btn-launch")
+    url = "horizon:project:instances:index"
+    ajax = False
+    classes = ("btn-launch", )
     icon = "cloud-upload"
     policy_rules = (("compute", "os_compute_api:servers:create"),)
-    ajax = True
 
     def __init__(self, attrs=None, **kwargs):
         kwargs['preempt'] = True
@@ -457,13 +457,6 @@ class LaunchLink(tables.LinkAction):
     def single(self, table, request, object_id=None):
         self.allowed(request, None)
         return HttpResponse(self.render(is_table_action=True))
-
-
-class LaunchLinkNG(LaunchLink):
-    name = "launch-ng"
-    url = "horizon:project:instances:index"
-    ajax = False
-    classes = ("btn-launch", )
 
     def get_default_attrs(self):
         url = urls.reverse(self.url)
@@ -1295,11 +1288,7 @@ class InstancesTable(tables.DataTable):
         status_columns = ["status", "task"]
         row_class = UpdateRow
         table_actions_menu = (StartInstance, StopInstance, SoftRebootInstance)
-        launch_actions = ()
-        if settings.LAUNCH_INSTANCE_LEGACY_ENABLED:
-            launch_actions = (LaunchLink,) + launch_actions
-        if settings.LAUNCH_INSTANCE_NG_ENABLED:
-            launch_actions = (LaunchLinkNG,) + launch_actions
+        launch_actions = (LaunchLinkNG,)
         table_actions = launch_actions + (DeleteInstance,
                                           InstancesFilterAction)
         row_actions = (StartInstance, ConfirmResize, RevertResize,

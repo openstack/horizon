@@ -26,7 +26,6 @@ INSTANCES_KEYPAIR = r'^(?P<instance_id>[^/]+)/(?P<keypair_name>[^/]+)/%s$'
 
 urlpatterns = [
     url(r'^$', views.IndexView.as_view(), name='index'),
-    url(r'^launch$', views.LaunchInstanceView.as_view(), name='launch'),
     url(r'^(?P<instance_id>[^/]+)/$',
         views.DetailView.as_view(), name='detail'),
     url(INSTANCES % 'update', views.UpdateView.as_view(), name='update'),

@@ -1,0 +1,9 @@
+---
+upgrade:
+  - |
+    The Django version of the launch instance form was dropped.
+    It was deprecated since Wallaby release.
+    ``LAUNCH_INSTANCE_LEGACY_ENABLED`` and ``LAUNCH_INSTANCE_NG_ENABLED``
+    setting were dropped as horizon uses angular version of launch instance
+    by default.
+

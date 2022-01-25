@@ -299,19 +299,6 @@ def check_chinese_locale_rename(dummy):
     return upgradecheck.Result(upgradecheck.Code.SUCCESS)
 
 
-@register_check(_("Django launch instance form"))
-def check_django_launch_instance_form(dummy):
-    if settings.LAUNCH_INSTANCE_LEGACY_ENABLED:
-        return upgradecheck.Result(
-            upgradecheck.Code.WARNING,
-            _("The Django version of the launch instance form is deprecated "
-              "since Wallaby release. Switch to the AngularJS version of the "
-              "form by setting LAUNCH_INSTANCE_NG_ENABLED to True and "
-              "LAUNCH_INSTANCE_LEGACY_ENABLED to False.")
-        )
-    return upgradecheck.Result(upgradecheck.Code.SUCCESS)
-
-
 class UpgradeCheckTable(upgradecheck.UpgradeCommands):
     _upgrade_checks = CHECKS
 
