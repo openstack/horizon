@@ -20,6 +20,7 @@ import json
 import logging
 from operator import attrgetter
 import sys
+from urllib import parse
 
 from django.conf import settings
 from django.core import exceptions as core_exceptions
@@ -32,7 +33,6 @@ from django.template.loader import render_to_string
 from django import urls
 from django.utils import encoding
 from django.utils.html import escape
-from django.utils import http
 from django.utils.http import urlencode
 from django.utils.safestring import mark_safe
 from django.utils import termcolors
@@ -1861,7 +1861,7 @@ class DataTable(object, metaclass=DataTableMetaclass):
 
         The return value will be used as marker/limit-based paging in the API.
         """
-        return http.urlquote_plus(self.get_object_id(self.data[0])) \
+        return parse.quote_plus(self.get_object_id(self.data[0])) \
             if self.data else ''
 
     def get_marker(self):
@@ -1869,7 +1869,7 @@ class DataTable(object, metaclass=DataTableMetaclass):
 
         The return value will be used as marker/limit-based paging in the API.
         """
-        return http.urlquote_plus(self.get_object_id(self.data[-1])) \
+        return parse.quote_plus(self.get_object_id(self.data[-1])) \
             if self.data else ''
 
     def get_prev_pagination_string(self):

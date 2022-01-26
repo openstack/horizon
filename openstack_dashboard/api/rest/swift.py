@@ -14,10 +14,10 @@
 """API for the swift service."""
 
 import os
+from urllib import parse
 
 from django import forms
 from django.http import StreamingHttpResponse
-from django.utils.http import urlunquote
 from django.views.decorators.csrf import csrf_exempt
 from django.views import generic
 
@@ -148,7 +148,7 @@ class Objects(generic.View):
         """
         path = request.GET.get('path')
         if path is not None:
-            path = urlunquote(path)
+            path = parse.unquote(path)
 
         objects = api.swift.swift_get_objects(
             request,

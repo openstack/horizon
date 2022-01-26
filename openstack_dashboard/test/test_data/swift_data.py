@@ -11,9 +11,10 @@
 #    WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
 #    License for the specific language governing permissions and limitations
 #    under the License.
-from oslo_utils import timeutils
 
-from django.utils import http as utils_http
+from urllib import parse
+
+from oslo_utils import timeutils
 
 from openstack_dashboard.api import swift
 from openstack_dashboard.test.test_data import utils
@@ -45,8 +46,7 @@ def data(TEST):
                         "is_public": True,
                         "public_url":
                             "http://public.swift.example.com:8080/" +
-                            "v1/project_id/%s" % utils_http.urlquote(
-                                container_2_name)}
+                            "v1/project_id/%s" % parse.quote(container_2_name)}
     container_2 = swift.Container(container_dict_2)
     container_dict_3 = {"name": "container,three%\u6346",
                         "container_object_count": 2,

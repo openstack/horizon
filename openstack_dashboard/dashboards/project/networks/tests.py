@@ -14,10 +14,10 @@
 
 import collections
 from unittest import mock
+from urllib import parse
 
 from django.urls import reverse
 from django.utils.html import escape
-from django.utils.http import urlunquote
 
 from horizon.workflows import views
 
@@ -200,8 +200,8 @@ class NetworkTests(test.TestCase, NetworkStubMixin):
         self._stub_is_extension_supported({'mac-learning': mac_learning,
                                            'network_availability_zone': True})
 
-        url = urlunquote(reverse('horizon:project:networks:detail',
-                                 args=[network_id]))
+        url = parse.unquote(reverse('horizon:project:networks:detail',
+                                    args=[network_id]))
 
         res = self.client.get(url)
         network = res.context['network']
@@ -234,8 +234,8 @@ class NetworkTests(test.TestCase, NetworkStubMixin):
         self._stub_is_extension_supported({'mac-learning': mac_learning,
                                            'network_availability_zone': True})
 
-        url = urlunquote(reverse('horizon:project:networks:subnets_tab',
-                         args=[network_id]))
+        url = parse.unquote(reverse('horizon:project:networks:subnets_tab',
+                                    args=[network_id]))
         res = self.client.get(url)
 
         self.assertTemplateUsed(res, 'horizon/common/_detail.html')
@@ -304,8 +304,8 @@ class NetworkTests(test.TestCase, NetworkStubMixin):
         self._stub_is_extension_supported({'mac-learning': mac_learning,
                                            'network_availability_zone': True})
 
-        url = urlunquote(reverse('horizon:project:networks:subnets_tab',
-                                 args=[network_id]))
+        url = parse.unquote(reverse('horizon:project:networks:subnets_tab',
+                                    args=[network_id]))
         res = self.client.get(url)
 
         self.assertTemplateUsed(res, 'horizon/common/_detail.html')
@@ -345,8 +345,8 @@ class NetworkTests(test.TestCase, NetworkStubMixin):
         self._stub_is_extension_supported({'mac-learning': mac_learning,
                                            'network_availability_zone': True})
 
-        url = urlunquote(reverse('horizon:project:networks:subnets_tab',
-                                 args=[network_id]))
+        url = parse.unquote(reverse('horizon:project:networks:subnets_tab',
+                                    args=[network_id]))
         res = self.client.get(url)
         self.assertTemplateUsed(res, 'horizon/common/_detail.html')
         subnets = res.context['subnets_table'].data
@@ -1248,8 +1248,8 @@ class NetworkViewTests(test.TestCase, NetworkStubMixin):
                                            'network_availability_zone': True})
         self.mock_tenant_quota_usages.return_value = quota_data
 
-        url = urlunquote(reverse('horizon:project:networks:subnets_tab',
-                                 args=[network_id]))
+        url = parse.unquote(reverse('horizon:project:networks:subnets_tab',
+                                    args=[network_id]))
 
         res = self.client.get(url)
         self.assertTemplateUsed(res, 'horizon/common/_detail.html')
@@ -1320,8 +1320,8 @@ class NetworkViewTests(test.TestCase, NetworkStubMixin):
                                            'network_availability_zone': True})
         self.mock_tenant_quota_usages.return_value = quota_data
 
-        url = urlunquote(reverse('horizon:project:networks:ports_tab',
-                                 args=[network_id]))
+        url = parse.unquote(reverse('horizon:project:networks:ports_tab',
+                                    args=[network_id]))
         res = self.client.get(url)
         self.assertTemplateUsed(res, 'horizon/common/_detail.html')
 

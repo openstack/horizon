@@ -11,11 +11,11 @@
 # under the License.
 
 from unittest import mock
+from urllib import parse
 
 from django.conf import settings
 from django.test.utils import override_settings
 from django.urls import reverse
-from django.utils.http import urlunquote
 
 from openstack_dashboard.api import cinder
 from openstack_dashboard.api import keystone
@@ -38,7 +38,7 @@ class VolumeSnapshotsViewTests(test.BaseAdminViewTests):
         self.mock_tenant_list.return_value = [self.tenants.list(), False]
 
         url = reverse(INDEX_URL)
-        res = self.client.get(urlunquote(url))
+        res = self.client.get(parse.unquote(url))
 
         self.assertEqual(res.status_code, 200)
         self.assertTemplateUsed(res, 'horizon/common/_data_table_view.html')
@@ -63,7 +63,7 @@ class VolumeSnapshotsViewTests(test.BaseAdminViewTests):
         self.mock_volume_list.return_value = self.cinder_volumes.list()
         self.mock_tenant_list.return_value = [self.tenants.list(), False]
 
-        res = self.client.get(urlunquote(url))
+        res = self.client.get(parse.unquote(url))
 
         self.assertTemplateUsed(res, 'horizon/common/_data_table_view.html')
         self.assertEqual(res.status_code, 200)

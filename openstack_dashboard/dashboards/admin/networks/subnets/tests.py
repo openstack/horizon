@@ -15,6 +15,7 @@
 
 import collections
 from unittest import mock
+from urllib import parse
 
 from django.urls import reverse
 
@@ -410,9 +411,8 @@ class NetworkSubnetTests(test.BaseAdminViewTests):
         self.mock_subnet_list.return_value = [self.subnets.first()]
         self.mock_tenant_quota_usages.return_value = quota_data
 
-        from django.utils.http import urlunquote
-        url = urlunquote(reverse('horizon:admin:networks:subnets_tab',
-                                 args=[network.id]))
+        url = parse.unquote(reverse('horizon:admin:networks:subnets_tab',
+                                    args=[network.id]))
         res = self.client.get(url)
         self.assertTemplateUsed(res, 'horizon/common/_detail.html')
         subnets = res.context['subnets_table'].data

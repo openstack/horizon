@@ -14,13 +14,13 @@
 
 import copy
 from unittest import mock
+from urllib import parse
 
 from django.conf import settings
 from django.forms import widgets
 from django.template.defaultfilters import slugify
 from django.test.utils import override_settings
 from django.urls import reverse
-from django.utils.http import urlunquote
 
 from openstack_dashboard import api
 from openstack_dashboard.api import cinder
@@ -122,7 +122,7 @@ class VolumeIndexViewTests(test.ResetImageAPIVersionMixin, test.TestCase):
         self.mock_tenant_absolute_limits.return_value = \
             self.cinder_limits['absolute']
 
-        res = self.client.get(urlunquote(url))
+        res = self.client.get(parse.unquote(url))
 
         self.assertEqual(2, self.mock_volume_backup_supported.call_count)
         self.mock_volume_list_paged.assert_called_once_with(

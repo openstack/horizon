@@ -10,11 +10,12 @@
 # License for the specific language governing permissions and limitations
 # under the License.
 
+from urllib import parse
+
 from django.conf import settings
 from django.test.utils import override_settings
 from django.urls import reverse
 from django.utils.http import urlencode
-from django.utils.http import urlunquote
 
 from openstack_dashboard import api
 from openstack_dashboard.dashboards.project.backups \
@@ -39,7 +40,7 @@ class VolumeBackupsViewTests(test.TestCase):
         self.mock_volume_snapshot_list.return_value \
             = self.cinder_volume_snapshots.list()
 
-        res = self.client.get(urlunquote(url))
+        res = self.client.get(parse.unquote(url))
 
         self.assertEqual(res.status_code, 200)
         self.assertTemplateUsed(res, 'horizon/common/_data_table_view.html')
