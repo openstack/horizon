@@ -16,8 +16,8 @@ import logging
 
 from django.template import defaultfilters
 from django.urls import reverse
-from django.utils.translation import ugettext_lazy as _
-from django.utils.translation import ungettext_lazy
+from django.utils.translation import gettext_lazy as _
+from django.utils.translation import ngettext_lazy
 
 from horizon import tables
 
@@ -62,7 +62,7 @@ class EditGroupLink(policy.PolicyTargetMixin, tables.LinkAction):
 class DeleteGroupsAction(policy.PolicyTargetMixin, tables.DeleteAction):
     @staticmethod
     def action_present(count):
-        return ungettext_lazy(
+        return ngettext_lazy(
             "Delete Group",
             "Delete Groups",
             count
@@ -70,7 +70,7 @@ class DeleteGroupsAction(policy.PolicyTargetMixin, tables.DeleteAction):
 
     @staticmethod
     def action_past(count):
-        return ungettext_lazy(
+        return ngettext_lazy(
             "Deleted Group",
             "Deleted Groups",
             count
@@ -130,7 +130,7 @@ class UserFilterAction(tables.FilterAction):
 class RemoveMembers(tables.DeleteAction):
     @staticmethod
     def action_present(count):
-        return ungettext_lazy(
+        return ngettext_lazy(
             "Remove User",
             "Remove Users",
             count
@@ -138,7 +138,7 @@ class RemoveMembers(tables.DeleteAction):
 
     @staticmethod
     def action_past(count):
-        return ungettext_lazy(
+        return ngettext_lazy(
             "Removed User",
             "Removed Users",
             count
@@ -206,7 +206,7 @@ class GroupMembersTable(UsersTable):
 class AddMembers(tables.BatchAction):
     @staticmethod
     def action_present(count):
-        return ungettext_lazy(
+        return ngettext_lazy(
             "Add User",
             "Add Users",
             count
@@ -214,7 +214,7 @@ class AddMembers(tables.BatchAction):
 
     @staticmethod
     def action_past(count):
-        return ungettext_lazy(
+        return ngettext_lazy(
             "Added User",
             "Added Users",
             count

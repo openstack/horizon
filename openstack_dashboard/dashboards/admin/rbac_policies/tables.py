@@ -12,8 +12,8 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
-from django.utils.translation import ugettext_lazy as _
-from django.utils.translation import ungettext_lazy
+from django.utils.translation import gettext_lazy as _
+from django.utils.translation import ngettext_lazy
 
 from horizon import tables
 
@@ -35,7 +35,7 @@ class DeleteRBACPolicy(policy.PolicyTargetMixin, tables.DeleteAction):
 
     @staticmethod
     def action_present(count):
-        return ungettext_lazy(
+        return ngettext_lazy(
             "Delete RBAC Policy",
             "Delete RBAC Policies",
             count
@@ -43,7 +43,7 @@ class DeleteRBACPolicy(policy.PolicyTargetMixin, tables.DeleteAction):
 
     @staticmethod
     def action_past(count):
-        return ungettext_lazy(
+        return ngettext_lazy(
             "Deleted RBAC Policy",
             "Deleted RBAC Policies",
             count

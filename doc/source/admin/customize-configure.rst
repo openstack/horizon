@@ -176,7 +176,7 @@ The standard installation uses a non-encrypted HTTP channel.
 
       import os
 
-      from django.utils.translation import ugettext_lazy as _
+      from django.utils.translation import gettext_lazy as _
 
       DEBUG = False
       TEMPLATE_DEBUG = DEBUG

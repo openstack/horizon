@@ -17,8 +17,8 @@ import functools
 from django.conf import settings
 from django.template import defaultfilters
 from django.urls import reverse
-from django.utils.translation import ugettext_lazy as _
-from django.utils.translation import ungettext_lazy
+from django.utils.translation import gettext_lazy as _
+from django.utils.translation import ngettext_lazy
 
 from horizon import exceptions
 from horizon import tables
@@ -34,7 +34,7 @@ class DeleteGroup(policy.PolicyTargetMixin, tables.DeleteAction):
 
     @staticmethod
     def action_present(count):
-        return ungettext_lazy(
+        return ngettext_lazy(
             "Delete Security Group",
             "Delete Security Groups",
             count
@@ -42,7 +42,7 @@ class DeleteGroup(policy.PolicyTargetMixin, tables.DeleteAction):
 
     @staticmethod
     def action_past(count):
-        return ungettext_lazy(
+        return ngettext_lazy(
             "Deleted Security Group",
             "Deleted Security Groups",
             count
@@ -170,7 +170,7 @@ class DeleteRule(policy.PolicyTargetMixin, tables.DeleteAction):
 
     @staticmethod
     def action_present(count):
-        return ungettext_lazy(
+        return ngettext_lazy(
             "Delete Rule",
             "Delete Rules",
             count
@@ -178,7 +178,7 @@ class DeleteRule(policy.PolicyTargetMixin, tables.DeleteAction):
 
     @staticmethod
     def action_past(count):
-        return ungettext_lazy(
+        return ngettext_lazy(
             "Deleted Rule",
             "Deleted Rules",
             count

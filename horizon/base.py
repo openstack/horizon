@@ -37,7 +37,7 @@ from django.urls import reverse
 from django.utils.functional import empty
 from django.utils.functional import SimpleLazyObject
 from django.utils.module_loading import module_has_submodule
-from django.utils.translation import ugettext_lazy as _
+from django.utils.translation import gettext_lazy as _
 
 from horizon import conf
 from horizon.decorators import _current_component

@@ -31,7 +31,7 @@ from django.utils.encoding import force_str
 from django.utils.functional import Promise
 from django.utils import html
 from django.utils.safestring import mark_safe
-from django.utils.translation import ugettext_lazy as _
+from django.utils.translation import gettext_lazy as _
 
 ip_allowed_symbols_re = re.compile(r'^[a-fA-F0-9:/\.]+$')
 IPv4 = 1

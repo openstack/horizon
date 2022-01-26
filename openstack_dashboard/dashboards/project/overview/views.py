@@ -19,7 +19,7 @@
 
 from django.template.defaultfilters import capfirst
 from django.template.defaultfilters import floatformat
-from django.utils.translation import ugettext_lazy as _
+from django.utils.translation import gettext_lazy as _
 
 from horizon.utils import csvbase
 from horizon import views

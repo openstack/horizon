@@ -24,10 +24,10 @@ from django import urls
 from django.utils.http import urlencode
 from django.utils.safestring import mark_safe
 from django.utils.text import format_lazy
+from django.utils.translation import gettext_lazy as _
+from django.utils.translation import ngettext_lazy
 from django.utils.translation import npgettext_lazy
 from django.utils.translation import pgettext_lazy
-from django.utils.translation import ugettext_lazy as _
-from django.utils.translation import ungettext_lazy
 import netaddr
 
 from horizon import exceptions
@@ -88,7 +88,7 @@ class DeleteInstance(policy.PolicyTargetMixin, tables.DeleteAction):
 
     @staticmethod
     def action_present(count):
-        return ungettext_lazy(
+        return ngettext_lazy(
             "Delete Instance",
             "Delete Instances",
             count
@@ -96,7 +96,7 @@ class DeleteInstance(policy.PolicyTargetMixin, tables.DeleteAction):
 
     @staticmethod
     def action_past(count):
-        return ungettext_lazy(
+        return ngettext_lazy(
             "Scheduled deletion of Instance",
             "Scheduled deletion of Instances",
             count
@@ -122,7 +122,7 @@ class RebootInstance(policy.PolicyTargetMixin, tables.BatchAction):
 
     @staticmethod
     def action_present(count):
-        return ungettext_lazy(
+        return ngettext_lazy(
             "Hard Reboot Instance",
             "Hard Reboot Instances",
             count
@@ -130,7 +130,7 @@ class RebootInstance(policy.PolicyTargetMixin, tables.BatchAction):
 
     @staticmethod
     def action_past(count):
-        return ungettext_lazy(
+        return ngettext_lazy(
             "Hard Rebooted Instance",
             "Hard Rebooted Instances",
             count
@@ -152,7 +152,7 @@ class SoftRebootInstance(RebootInstance):
 
     @staticmethod
     def action_present(count):
-        return ungettext_lazy(
+        return ngettext_lazy(
             "Soft Reboot Instance",
             "Soft Reboot Instances",
             count
@@ -160,7 +160,7 @@ class SoftRebootInstance(RebootInstance):
 
     @staticmethod
     def action_past(count):
-        return ungettext_lazy(
+        return ngettext_lazy(
             "Soft Rebooted Instance",
             "Soft Rebooted Instances",
             count
@@ -196,7 +196,7 @@ class UnRescueInstance(tables.BatchAction):
 
     @staticmethod
     def action_present(count):
-        return ungettext_lazy(
+        return ngettext_lazy(
             "Unrescue Instance",
             "Unrescue Instances",
             count
@@ -204,7 +204,7 @@ class UnRescueInstance(tables.BatchAction):
 
     @staticmethod
     def action_past(count):
-        return ungettext_lazy(
+        return ngettext_lazy(
             "Unrescued Instance",
             "Unrescued Instances",
             count
@@ -226,12 +226,12 @@ class TogglePause(tables.BatchAction):
     @staticmethod
     def action_present(count):
         return (
-            ungettext_lazy(
+            ngettext_lazy(
                 "Pause Instance",
                 "Pause Instances",
                 count
             ),
-            ungettext_lazy(
+            ngettext_lazy(
                 "Resume Instance",
                 "Resume Instances",
                 count
@@ -241,12 +241,12 @@ class TogglePause(tables.BatchAction):
     @staticmethod
     def action_past(count):
         return (
-            ungettext_lazy(
+            ngettext_lazy(
                 "Paused Instance",
                 "Paused Instances",
                 count
             ),
-            ungettext_lazy(
+            ngettext_lazy(
                 "Resumed Instance",
                 "Resumed Instances",
                 count
@@ -290,12 +290,12 @@ class ToggleSuspend(tables.BatchAction):
     @staticmethod
     def action_present(count):
         return (
-            ungettext_lazy(
+            ngettext_lazy(
                 "Suspend Instance",
                 "Suspend Instances",
                 count
             ),
-            ungettext_lazy(
+            ngettext_lazy(
                 "Resume Instance",
                 "Resume Instances",
                 count
@@ -305,12 +305,12 @@ class ToggleSuspend(tables.BatchAction):
     @staticmethod
     def action_past(count):
         return (
-            ungettext_lazy(
+            ngettext_lazy(
                 "Suspended Instance",
                 "Suspended Instances",
                 count
             ),
-            ungettext_lazy(
+            ngettext_lazy(
                 "Resumed Instance",
                 "Resumed Instances",
                 count
@@ -354,12 +354,12 @@ class ToggleShelve(tables.BatchAction):
     @staticmethod
     def action_present(count):
         return (
-            ungettext_lazy(
+            ngettext_lazy(
                 "Shelve Instance",
                 "Shelve Instances",
                 count
             ),
-            ungettext_lazy(
+            ngettext_lazy(
                 "Unshelve Instance",
                 "Unshelve Instances",
                 count
@@ -369,12 +369,12 @@ class ToggleShelve(tables.BatchAction):
     @staticmethod
     def action_past(count):
         return (
-            ungettext_lazy(
+            ngettext_lazy(
                 "Shelved Instance",
                 "Shelved Instances",
                 count
             ),
-            ungettext_lazy(
+            ngettext_lazy(
                 "Unshelved Instance",
                 "Unshelved Instances",
                 count
@@ -809,7 +809,7 @@ class StartInstance(policy.PolicyTargetMixin, tables.BatchAction):
 
     @staticmethod
     def action_present(count):
-        return ungettext_lazy(
+        return ngettext_lazy(
             "Start Instance",
             "Start Instances",
             count
@@ -817,7 +817,7 @@ class StartInstance(policy.PolicyTargetMixin, tables.BatchAction):
 
     @staticmethod
     def action_past(count):
-        return ungettext_lazy(
+        return ngettext_lazy(
             "Started Instance",
             "Started Instances",
             count
@@ -870,7 +870,7 @@ class LockInstance(policy.PolicyTargetMixin, tables.BatchAction):
 
     @staticmethod
     def action_present(count):
-        return ungettext_lazy(
+        return ngettext_lazy(
             "Lock Instance",
             "Lock Instances",
             count
@@ -878,7 +878,7 @@ class LockInstance(policy.PolicyTargetMixin, tables.BatchAction):
 
     @staticmethod
     def action_past(count):
-        return ungettext_lazy(
+        return ngettext_lazy(
             "Locked Instance",
             "Locked Instances",
             count
@@ -902,7 +902,7 @@ class UnlockInstance(policy.PolicyTargetMixin, tables.BatchAction):
 
     @staticmethod
     def action_present(count):
-        return ungettext_lazy(
+        return ngettext_lazy(
             "Unlock Instance",
             "Unlock Instances",
             count
@@ -910,7 +910,7 @@ class UnlockInstance(policy.PolicyTargetMixin, tables.BatchAction):
 
     @staticmethod
     def action_past(count):
-        return ungettext_lazy(
+        return ngettext_lazy(
             "Unlocked Instance",
             "Unlocked Instances",
             count

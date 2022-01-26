@@ -112,7 +112,7 @@ module in dotted python path notation. Example::
 You can do essentially anything you like in the customization module. For
 example, you could change the name of a panel::
 
-    from django.utils.translation import ugettext_lazy as _
+    from django.utils.translation import gettext_lazy as _
 
     import horizon
 
@@ -208,7 +208,7 @@ Horizon is able to show these extra information as a custom column.
 For example, if a user in Keystone has an attribute ``phone_num``, you could
 define new column::
 
-    from django.utils.translation import ugettext_lazy as _
+    from django.utils.translation import gettext_lazy as _
 
     from horizon import forms
     from horizon import tables

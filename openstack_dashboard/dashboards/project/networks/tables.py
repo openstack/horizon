@@ -16,9 +16,9 @@ import logging
 from django import template
 from django.template import defaultfilters as filters
 from django.urls import reverse
+from django.utils.translation import gettext_lazy as _
+from django.utils.translation import ngettext_lazy
 from django.utils.translation import pgettext_lazy
-from django.utils.translation import ugettext_lazy as _
-from django.utils.translation import ungettext_lazy
 from neutronclient.common import exceptions as neutron_exceptions
 
 from horizon import exceptions
@@ -38,7 +38,7 @@ LOG = logging.getLogger(__name__)
 class DeleteNetwork(policy.PolicyTargetMixin, tables.DeleteAction):
     @staticmethod
     def action_present(count):
-        return ungettext_lazy(
+        return ngettext_lazy(
             "Delete Network",
             "Delete Networks",
             count
@@ -46,7 +46,7 @@ class DeleteNetwork(policy.PolicyTargetMixin, tables.DeleteAction):
 
     @staticmethod
     def action_past(count):
-        return ungettext_lazy(
+        return ngettext_lazy(
             "Deleted Network",
             "Deleted Networks",
             count

@@ -11,7 +11,7 @@
 #    under the License.
 
 from django.conf.urls import url
-from django.utils.translation import ugettext_lazy as _
+from django.utils.translation import gettext_lazy as _
 
 from horizon.browsers import views
 

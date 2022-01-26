@@ -93,7 +93,7 @@ Defining a dashboard
 Open the ``dashboard.py`` file. You will notice the following code has been
 automatically generated::
 
-   from django.utils.translation import ugettext_lazy as _
+   from django.utils.translation import gettext_lazy as _
 
    import horizon
 
@@ -154,7 +154,7 @@ thoroughly vetted in Django's admin codebase).
 
 Open the ``panel.py`` file, you will have the following auto-generated code::
 
-    from django.utils.translation import ugettext_lazy as _
+    from django.utils.translation import gettext_lazy as _
 
     import horizon
 
@@ -199,7 +199,7 @@ the default panel::
 The completed ``dashboard.py`` file should look like
 the following::
 
-    from django.utils.translation import ugettext_lazy as _
+    from django.utils.translation import gettext_lazy as _
 
     import horizon
 
@@ -236,7 +236,7 @@ displaying data to an end-user. We're just going to skim the surface here, but
 it has a tremendous number of capabilities. Create a ``tables.py`` file under
 the ``mypanel`` directory and add the following code::
 
-    from django.utils.translation import ugettext_lazy as _
+    from django.utils.translation import gettext_lazy as _
 
     from horizon import tables
 
@@ -311,7 +311,7 @@ Then, we add that action to the table actions for our table.::
 
 The completed ``tables.py`` file should look like the following::
 
-    from django.utils.translation import ugettext_lazy as _
+    from django.utils.translation import gettext_lazy as _
 
     from horizon import tables
 
@@ -347,7 +347,7 @@ Create a ``tabs.py`` file under the ``mypanel`` directory. Let's make a tab
 group which has one tab. The completed code should look like the following::
 
 
-    from django.utils.translation import ugettext_lazy as _
+    from django.utils.translation import gettext_lazy as _
 
     from horizon import exceptions
     from horizon import tabs

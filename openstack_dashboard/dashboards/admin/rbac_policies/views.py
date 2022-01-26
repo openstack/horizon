@@ -14,7 +14,7 @@ from collections import OrderedDict
 
 from django.urls import reverse
 from django.urls import reverse_lazy
-from django.utils.translation import ugettext_lazy as _
+from django.utils.translation import gettext_lazy as _
 
 from horizon import exceptions
 from horizon import forms

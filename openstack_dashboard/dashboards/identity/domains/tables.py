@@ -19,8 +19,8 @@ from django import shortcuts
 from django.template import defaultfilters as filters
 from django.urls import reverse
 from django.utils.http import urlencode
-from django.utils.translation import ugettext_lazy as _
-from django.utils.translation import ungettext_lazy
+from django.utils.translation import gettext_lazy as _
+from django.utils.translation import ngettext_lazy
 
 from keystoneclient import exceptions as keystoneclient_exceptions
 
@@ -92,7 +92,7 @@ class EditDomainLink(tables.LinkAction):
 class DeleteDomainsAction(tables.DeleteAction):
     @staticmethod
     def action_present(count):
-        return ungettext_lazy(
+        return ngettext_lazy(
             "Delete Domain",
             "Delete Domains",
             count
@@ -100,7 +100,7 @@ class DeleteDomainsAction(tables.DeleteAction):
 
     @staticmethod
     def action_past(count):
-        return ungettext_lazy(
+        return ngettext_lazy(
             "Deleted Domain",
             "Deleted Domains",
             count
@@ -126,7 +126,7 @@ class DeleteDomainsAction(tables.DeleteAction):
 class DisableDomainsAction(tables.BatchAction):
     @staticmethod
     def action_present(count):
-        return ungettext_lazy(
+        return ngettext_lazy(
             "Disable Domain",
             "Disable Domains",
             count
@@ -134,7 +134,7 @@ class DisableDomainsAction(tables.BatchAction):
 
     @staticmethod
     def action_past(count):
-        return ungettext_lazy(
+        return ngettext_lazy(
             "Disabled Domain",
             "Disabled Domains",
             count
@@ -166,7 +166,7 @@ class DisableDomainsAction(tables.BatchAction):
 class EnableDomainsAction(tables.BatchAction):
     @staticmethod
     def action_present(count):
-        return ungettext_lazy(
+        return ngettext_lazy(
             "Enable Domain",
             "Enable Domains",
             count
@@ -174,7 +174,7 @@ class EnableDomainsAction(tables.BatchAction):
 
     @staticmethod
     def action_past(count):
-        return ungettext_lazy(
+        return ngettext_lazy(
             "Enabled Domain",
             "Enabled Domains",
             count

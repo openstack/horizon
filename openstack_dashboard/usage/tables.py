@@ -12,7 +12,7 @@
 
 from django.template.defaultfilters import floatformat
 from django import urls
-from django.utils.translation import ugettext_lazy as _
+from django.utils.translation import gettext_lazy as _
 
 from horizon import tables
 from horizon.templatetags import sizeformat

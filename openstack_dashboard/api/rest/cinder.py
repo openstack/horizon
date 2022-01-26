@@ -13,7 +13,7 @@
 # limitations under the License.
 """API over the cinder service."""
 
-from django.utils.translation import ugettext_lazy as _
+from django.utils.translation import gettext_lazy as _
 from django.views import generic
 
 from openstack_dashboard import api

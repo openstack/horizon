@@ -13,7 +13,7 @@
 #    under the License.
 
 from django import template
-from django.utils.translation import ugettext_lazy as _
+from django.utils.translation import gettext_lazy as _
 
 from horizon.browsers.breadcrumb import Breadcrumb
 from horizon.tables import DataTable

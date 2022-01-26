@@ -15,7 +15,7 @@ from collections import OrderedDict
 import logging
 
 from django.utils.http import urlencode
-from django.utils.translation import ugettext_lazy as _
+from django.utils.translation import gettext_lazy as _
 from novaclient import exceptions as nova_exception
 
 from horizon import exceptions

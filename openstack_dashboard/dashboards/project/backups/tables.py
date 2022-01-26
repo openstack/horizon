@@ -14,9 +14,9 @@ from django.urls import reverse
 from django.utils import html
 from django.utils import http
 from django.utils import safestring
+from django.utils.translation import gettext_lazy as _
+from django.utils.translation import ngettext_lazy
 from django.utils.translation import pgettext_lazy
-from django.utils.translation import ugettext_lazy as _
-from django.utils.translation import ungettext_lazy
 
 from horizon import tables
 
@@ -70,7 +70,7 @@ class DeleteBackup(tables.DeleteAction):
 
     @staticmethod
     def action_present(count):
-        return ungettext_lazy(
+        return ngettext_lazy(
             "Delete Volume Backup",
             "Delete Volume Backups",
             count
@@ -78,7 +78,7 @@ class DeleteBackup(tables.DeleteAction):
 
     @staticmethod
     def action_past(count):
-        return ungettext_lazy(
+        return ngettext_lazy(
             "Scheduled deletion of Volume Backup",
             "Scheduled deletion of Volume Backups",
             count

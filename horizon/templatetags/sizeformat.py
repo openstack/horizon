@@ -24,8 +24,8 @@ from oslo_utils import units
 
 from django import template
 from django.utils import formats
-from django.utils.translation import ugettext_lazy as _
-from django.utils.translation import ungettext_lazy
+from django.utils.translation import gettext_lazy as _
+from django.utils.translation import ngettext_lazy
 
 
 register = template.Library()
@@ -48,15 +48,15 @@ def filesizeformat(bytes, filesize_number_format):
     try:
         bytes = float(bytes)
     except (TypeError, ValueError, UnicodeDecodeError):
-        return ungettext_lazy("%(size)d B",
-                              "%(size)d B", 0) % {'size': 0}
+        return ngettext_lazy("%(size)d B",
+                             "%(size)d B", 0) % {'size': 0}
 
     if bytes == float('inf'):
         return _('Infinity')
     if bytes < units.Ki:
         bytes = int(bytes)
-        return ungettext_lazy("%(size)d B",
-                              "%(size)d B", bytes) % {'size': bytes}
+        return ngettext_lazy("%(size)d B",
+                             "%(size)d B", bytes) % {'size': bytes}
     if bytes < units.Mi:
         return _("%s KB") % filesize_number_format(bytes / units.Ki)
     if bytes < units.Gi:

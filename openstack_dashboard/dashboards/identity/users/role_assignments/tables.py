@@ -11,7 +11,7 @@
 # under the License.
 
 from django import urls
-from django.utils.translation import ugettext_lazy as _
+from django.utils.translation import gettext_lazy as _
 
 from horizon import forms
 from horizon import tables

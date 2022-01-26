@@ -15,7 +15,7 @@
 from collections import OrderedDict
 
 from django.utils import http as utils_http
-from django.utils.translation import ugettext_lazy as _
+from django.utils.translation import gettext_lazy as _
 from django.views import generic
 from novaclient import exceptions
 

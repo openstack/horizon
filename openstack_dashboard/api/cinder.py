@@ -22,8 +22,8 @@ import logging
 import math
 
 from django.conf import settings
+from django.utils.translation import gettext_lazy as _
 from django.utils.translation import pgettext_lazy
-from django.utils.translation import ugettext_lazy as _
 
 from cinderclient import api_versions
 from cinderclient import client as cinder_client

@@ -11,7 +11,7 @@
 # under the License.
 
 from django.core import validators
-from django.utils.translation import ugettext_lazy as _
+from django.utils.translation import gettext_lazy as _
 
 
 no_slash_validator = validators.RegexValidator(r'^(?u)[^/]+$',

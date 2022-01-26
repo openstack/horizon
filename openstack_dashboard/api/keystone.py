@@ -22,7 +22,7 @@ import logging
 from urllib import parse
 
 from django.conf import settings
-from django.utils.translation import ugettext_lazy as _
+from django.utils.translation import gettext_lazy as _
 
 from keystoneauth1 import session
 from keystoneauth1 import token_endpoint

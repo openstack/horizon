@@ -19,7 +19,7 @@ from django import template
 from django.template import Node
 from django.utils.encoding import force_str
 from django.utils import translation
-from django.utils.translation import ugettext_lazy as _
+from django.utils.translation import gettext_lazy as _
 
 from horizon.base import Horizon
 from horizon import conf
