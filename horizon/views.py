@@ -53,9 +53,9 @@ class PageTitleMixin(object):
 
         if "page_title" not in context:
             con = template.Context(context)
-            # NOTE(sambetts): Use force_text to ensure lazy translations
+            # NOTE(sambetts): Use force_str to ensure lazy translations
             # are handled correctly.
-            temp = template.Template(encoding.force_text(self.page_title))
+            temp = template.Template(encoding.force_str(self.page_title))
             context["page_title"] = temp.render(con)
         return context
 

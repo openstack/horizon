@@ -27,7 +27,7 @@ from django.forms.utils import flatatt
 from django.forms import widgets
 from django.template.loader import get_template
 from django import urls
-from django.utils.encoding import force_text
+from django.utils.encoding import force_str
 from django.utils.functional import Promise
 from django.utils import html
 from django.utils.safestring import mark_safe
@@ -242,7 +242,7 @@ class SelectWidget(widgets.Widget):
         return attrs
 
     def render_option(self, selected_choices, option_value, option_label):
-        option_value = force_text(option_value)
+        option_value = force_str(option_value)
         other_html = (' selected="selected"'
                       if option_value in selected_choices else '')
 
@@ -259,12 +259,12 @@ class SelectWidget(widgets.Widget):
 
     def render_options(self, selected_choices):
         # Normalize to strings.
-        selected_choices = set(force_text(v) for v in selected_choices)
+        selected_choices = set(force_str(v) for v in selected_choices)
         output = []
         for option_value, option_label in self.choices:
             if isinstance(option_label, (list, tuple)):
                 output.append(html.format_html(
-                    '<optgroup label="{}">', force_text(option_value)))
+                    '<optgroup label="{}">', force_str(option_value)))
                 for option in option_label:
                     output.append(
                         self.render_option(selected_choices, *option))
@@ -279,8 +279,7 @@ class SelectWidget(widgets.Widget):
         if not isinstance(option_label, (str, Promise)):
             for data_attr in self.data_attrs:
                 data_value = html.conditional_escape(
-                    force_text(getattr(option_label,
-                                       data_attr, "")))
+                    force_str(getattr(option_label, data_attr, "")))
                 other_html.append('data-%s="%s"' % (data_attr, data_value))
         return ' '.join(other_html)
 
@@ -288,7 +287,7 @@ class SelectWidget(widgets.Widget):
         if (not isinstance(option_label, (str, Promise)) and
                 callable(self.transform)):
             option_label = self.transform(option_label)
-        return html.conditional_escape(force_text(option_label))
+        return html.conditional_escape(force_str(option_label))
 
     def transform_option_html_attrs(self, option_label):
         if not callable(self.transform_html_attrs):
@@ -473,8 +472,8 @@ class ChoiceInput(SubWidget):
         self.name = name
         self.value = value
         self.attrs = attrs
-        self.choice_value = force_text(choice[0])
-        self.choice_label = force_text(choice[1])
+        self.choice_value = force_str(choice[0])
+        self.choice_label = force_str(choice[1])
         self.index = index
         if 'id' in self.attrs:
             self.attrs['id'] += "_%d" % self.index
@@ -529,7 +528,7 @@ class ThemableCheckboxChoiceInput(ChoiceInput):
         super().__init__(*args, **kwargs)
         # NOTE(e0ne): Django sets default value to None
         if self.value:
-            self.value = set(force_text(v) for v in self.value)
+            self.value = set(force_str(v) for v in self.value)
 
     def is_checked(self):
         if self.value:
@@ -589,7 +588,7 @@ class ThemableCheckboxSelectMultiple(widgets.CheckboxSelectMultiple):
                     self.name, self.value, self.attrs.copy(), choice, i)
                 output.append(html.format_html(
                     self.inner_html,
-                    choice_value=force_text(w),
+                    choice_value=force_str(w),
                     sub_widgets=''))
         return html.format_html(
             self.outer_html,

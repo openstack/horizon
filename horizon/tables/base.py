@@ -730,7 +730,7 @@ class Cell(html.HTMLElement):
             # those columns where truncate is False leads to multiple errors
             # in unit tests
             data = getattr(datum, column.name, '') or ''
-            data = encoding.force_text(data)
+            data = encoding.force_str(data)
             if len(data) > column.truncate:
                 self.attrs['data-toggle'] = 'tooltip'
                 self.attrs['title'] = data
