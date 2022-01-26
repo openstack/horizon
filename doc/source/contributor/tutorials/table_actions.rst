@@ -176,17 +176,17 @@ the ``mypanel`` directory and add the following as a new url pattern::
 
 The complete ``urls.py`` file should look like this::
 
-    from django.conf.urls import url
+    from django.urls import re_path
 
     from openstack_dashboard.dashboards.mydashboard.mypanel import views
 
 
     urlpatterns = [
-        url(r'^$',
-            views.IndexView.as_view(), name='index'),
-        url(r'^(?P<instance_id>[^/]+)/create_snapshot/$',
-            views.CreateSnapshotView.as_view(),
-            name='create_snapshot'),
+        re_path(r'^$',
+                views.IndexView.as_view(), name='index'),
+        re_path(r'^(?P<instance_id>[^/]+)/create_snapshot/$',
+                views.CreateSnapshotView.as_view(),
+                name='create_snapshot'),
     ]
 
 

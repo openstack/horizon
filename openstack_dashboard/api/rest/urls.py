@@ -11,7 +11,8 @@
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
 # limitations under the License.
-from django.conf import urls
+
+from django.urls import re_path
 
 urlpatterns = []
 
@@ -27,6 +28,6 @@ def register(view):
     as_view() method. The url_regex attribute of the view should be a standard
     Django URL regex pattern.
     """
-    p = urls.url(view.url_regex, view.as_view())
+    p = re_path(view.url_regex, view.as_view())
     urlpatterns.append(p)
     return view

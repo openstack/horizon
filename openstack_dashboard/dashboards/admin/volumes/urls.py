@@ -10,28 +10,28 @@
 # License for the specific language governing permissions and limitations
 # under the License.
 
-from django.conf.urls import url
+from django.urls import re_path
 
 from openstack_dashboard.dashboards.admin.volumes import views
 
 
 urlpatterns = [
-    url(r'^$',
-        views.VolumesView.as_view(),
-        name='index'),
-    url(r'^manage/$',
-        views.ManageVolumeView.as_view(),
-        name='manage'),
-    url(r'^(?P<volume_id>[^/]+)/$',
-        views.DetailView.as_view(),
-        name='detail'),
-    url(r'^(?P<volume_id>[^/]+)/update_status$',
-        views.UpdateStatusView.as_view(),
-        name='update_status'),
-    url(r'^(?P<volume_id>[^/]+)/unmanage$',
-        views.UnmanageVolumeView.as_view(),
-        name='unmanage'),
-    url(r'^(?P<volume_id>[^/]+)/migrate$',
-        views.MigrateVolumeView.as_view(),
-        name='migrate'),
+    re_path(r'^$',
+            views.VolumesView.as_view(),
+            name='index'),
+    re_path(r'^manage/$',
+            views.ManageVolumeView.as_view(),
+            name='manage'),
+    re_path(r'^(?P<volume_id>[^/]+)/$',
+            views.DetailView.as_view(),
+            name='detail'),
+    re_path(r'^(?P<volume_id>[^/]+)/update_status$',
+            views.UpdateStatusView.as_view(),
+            name='update_status'),
+    re_path(r'^(?P<volume_id>[^/]+)/unmanage$',
+            views.UnmanageVolumeView.as_view(),
+            name='unmanage'),
+    re_path(r'^(?P<volume_id>[^/]+)/migrate$',
+            views.MigrateVolumeView.as_view(),
+            name='migrate'),
 ]

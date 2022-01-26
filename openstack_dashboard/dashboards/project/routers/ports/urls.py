@@ -12,12 +12,12 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
-from django.conf.urls import url
+from django.urls import re_path
 
 from openstack_dashboard.dashboards.project.routers.ports import views
 
 PORTS = r'^(?P<port_id>[^/]+)/%s$'
 
 urlpatterns = [
-    url(PORTS % 'detail', views.DetailView.as_view(), name='detail'),
+    re_path(PORTS % 'detail', views.DetailView.as_view(), name='detail'),
 ]

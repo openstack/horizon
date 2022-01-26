@@ -12,7 +12,7 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
-from django.conf.urls import url
+from django.urls import re_path
 
 from horizon.browsers.views import AngularIndexView
 
@@ -24,16 +24,16 @@ from openstack_dashboard.utils import settings as setting_utils
 if setting_utils.get_dict_config('ANGULAR_FEATURES', 'groups_panel'):
     title = panel.Groups.name
     urlpatterns = [
-        url(r'^$', AngularIndexView.as_view(title=title), name='index'),
+        re_path(r'^$', AngularIndexView.as_view(title=title), name='index'),
     ]
 else:
     urlpatterns = [
-        url(r'^$', views.IndexView.as_view(), name='index'),
-        url(r'^create$', views.CreateView.as_view(), name='create'),
-        url(r'^(?P<group_id>[^/]+)/update/$',
-            views.UpdateView.as_view(), name='update'),
-        url(r'^(?P<group_id>[^/]+)/manage_members/$',
-            views.ManageMembersView.as_view(), name='manage_members'),
-        url(r'^(?P<group_id>[^/]+)/add_members/$',
-            views.NonMembersView.as_view(), name='add_members'),
+        re_path(r'^$', views.IndexView.as_view(), name='index'),
+        re_path(r'^create$', views.CreateView.as_view(), name='create'),
+        re_path(r'^(?P<group_id>[^/]+)/update/$',
+                views.UpdateView.as_view(), name='update'),
+        re_path(r'^(?P<group_id>[^/]+)/manage_members/$',
+                views.ManageMembersView.as_view(), name='manage_members'),
+        re_path(r'^(?P<group_id>[^/]+)/add_members/$',
+                views.NonMembersView.as_view(), name='add_members'),
     ]

@@ -209,12 +209,12 @@ urls.py
 Now that we have a panel, we need to provide a URL so that users can visit our
 new panel! This URL generally will point to a view.::
 
-    from django.conf.urls import url
+    from django.urls import re_path
 
     from myplugin.content.mypanel import views
 
     urlpatterns = [
-        url(r'^$', views.IndexView.as_view(), name='index'),
+        re_path(r'^$', views.IndexView.as_view(), name='index'),
     ]
 
 views.py

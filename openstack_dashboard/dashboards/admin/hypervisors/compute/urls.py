@@ -10,19 +10,19 @@
 # License for the specific language governing permissions and limitations
 # under the License.
 
-from django.conf.urls import url
+from django.urls import re_path
 
 from openstack_dashboard.dashboards.admin.hypervisors.compute import views
 
 
 urlpatterns = [
-    url(r'^(?P<compute_host>[^/]+)/evacuate_host$',
-        views.EvacuateHostView.as_view(),
-        name='evacuate_host'),
-    url(r'^(?P<compute_host>[^/]+)/disable_service$',
-        views.DisableServiceView.as_view(),
-        name='disable_service'),
-    url(r'^(?P<compute_host>[^/]+)/migrate_host$',
-        views.MigrateHostView.as_view(),
-        name='migrate_host'),
+    re_path(r'^(?P<compute_host>[^/]+)/evacuate_host$',
+            views.EvacuateHostView.as_view(),
+            name='evacuate_host'),
+    re_path(r'^(?P<compute_host>[^/]+)/disable_service$',
+            views.DisableServiceView.as_view(),
+            name='disable_service'),
+    re_path(r'^(?P<compute_host>[^/]+)/migrate_host$',
+            views.MigrateHostView.as_view(),
+            name='migrate_host'),
 ]

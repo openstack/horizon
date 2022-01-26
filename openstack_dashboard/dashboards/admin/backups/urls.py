@@ -10,20 +10,20 @@
 # License for the specific language governing permissions and limitations
 # under the License.
 
-from django.conf.urls import url
+from django.urls import re_path
 
 from openstack_dashboard.dashboards.admin.backups import views
 
 
 urlpatterns = [
-    url(r'^$', views.AdminBackupsView.as_view(), name='index'),
-    url(r'^(?P<backup_id>[^/]+)/$',
-        views.AdminBackupDetailView.as_view(),
-        name='detail'),
-    url(r'^(?P<backup_id>[^/]+)/restore/$',
-        views.AdminRestoreBackupView.as_view(),
-        name='restore'),
-    url(r'^(?P<backup_id>[^/]+)/update_status$',
-        views.UpdateStatusView.as_view(),
-        name='update_status'),
+    re_path(r'^$', views.AdminBackupsView.as_view(), name='index'),
+    re_path(r'^(?P<backup_id>[^/]+)/$',
+            views.AdminBackupDetailView.as_view(),
+            name='detail'),
+    re_path(r'^(?P<backup_id>[^/]+)/restore/$',
+            views.AdminRestoreBackupView.as_view(),
+            name='restore'),
+    re_path(r'^(?P<backup_id>[^/]+)/update_status$',
+            views.UpdateStatusView.as_view(),
+            name='update_status'),
 ]

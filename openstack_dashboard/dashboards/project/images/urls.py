@@ -17,7 +17,7 @@
 #    under the License.
 
 from django.conf.urls import include
-from django.conf.urls import url
+from django.urls import re_path
 from django.utils.translation import gettext_lazy as _
 
 from horizon.browsers.views import AngularIndexView
@@ -33,13 +33,13 @@ if setting_utils.get_dict_config('ANGULAR_FEATURES', 'images_panel'):
     title = _("Images")
     # New angular images
     urlpatterns = [
-        url(r'^$', AngularIndexView.as_view(title=title), name='index'),
-        url(r'', include((image_urls, 'images'))),
-        url(r'', include((snapshot_urls, 'snapshots'))),
+        re_path(r'^$', AngularIndexView.as_view(title=title), name='index'),
+        re_path(r'', include((image_urls, 'images'))),
+        re_path(r'', include((snapshot_urls, 'snapshots'))),
     ]
 else:
     urlpatterns = [
-        url(r'^$', views.IndexView.as_view(), name='index'),
-        url(r'', include((image_urls, 'images'))),
-        url(r'', include((snapshot_urls, 'snapshots'))),
+        re_path(r'^$', views.IndexView.as_view(), name='index'),
+        re_path(r'', include((image_urls, 'images'))),
+        re_path(r'', include((snapshot_urls, 'snapshots'))),
     ]

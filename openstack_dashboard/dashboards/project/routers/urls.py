@@ -12,7 +12,7 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
-from django.conf.urls import url
+from django.urls import re_path
 
 from openstack_dashboard.dashboards.project.routers.extensions.extraroutes\
     import views as er_views
@@ -25,21 +25,21 @@ ROUTER_URL = r'^(?P<router_id>[^/]+)/%s'
 
 
 urlpatterns = [
-    url(r'^$', views.IndexView.as_view(), name='index'),
-    url(r'^create/$', views.CreateView.as_view(), name='create'),
-    url(ROUTER_URL % '$',
-        views.DetailView.as_view(),
-        name='detail'),
-    url(ROUTER_URL % 'update',
-        views.UpdateView.as_view(),
-        name='update'),
-    url(ROUTER_URL % 'addinterface',
-        port_views.AddInterfaceView.as_view(),
-        name='addinterface'),
-    url(ROUTER_URL % 'addrouterroute',
-        er_views.AddRouterRouteView.as_view(),
-        name='addrouterroute'),
-    url(ROUTER_URL % 'setgateway',
-        port_views.SetGatewayView.as_view(),
-        name='setgateway'),
+    re_path(r'^$', views.IndexView.as_view(), name='index'),
+    re_path(r'^create/$', views.CreateView.as_view(), name='create'),
+    re_path(ROUTER_URL % '$',
+            views.DetailView.as_view(),
+            name='detail'),
+    re_path(ROUTER_URL % 'update',
+            views.UpdateView.as_view(),
+            name='update'),
+    re_path(ROUTER_URL % 'addinterface',
+            port_views.AddInterfaceView.as_view(),
+            name='addinterface'),
+    re_path(ROUTER_URL % 'addrouterroute',
+            er_views.AddRouterRouteView.as_view(),
+            name='addrouterroute'),
+    re_path(ROUTER_URL % 'setgateway',
+            port_views.SetGatewayView.as_view(),
+            name='setgateway'),
 ]

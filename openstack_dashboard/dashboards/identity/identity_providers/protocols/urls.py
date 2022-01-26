@@ -12,7 +12,7 @@
 # License for the specific language governing permissions and limitations
 # under the License.
 
-from django.conf.urls import url
+from django.urls import re_path
 
 from openstack_dashboard.dashboards.identity.identity_providers.protocols \
     import views
@@ -20,5 +20,5 @@ from openstack_dashboard.dashboards.identity.identity_providers.protocols \
 PORTS = r'^(?P<protocol_id>[^/]+)/%s$'
 
 urlpatterns = [
-    url(r'^create/$', views.AddProtocolView.as_view(), name='create'),
+    re_path(r'^create/$', views.AddProtocolView.as_view(), name='create'),
 ]

@@ -18,7 +18,7 @@
 
 from django.conf import settings
 from django.conf.urls import include
-from django.conf.urls import url
+from django.urls import re_path
 from django.utils import timezone
 from django.views.decorators.http import last_modified
 from django.views.generic import TemplateView
@@ -28,28 +28,28 @@ from horizon.test.jasmine import jasmine
 from horizon import views
 
 urlpatterns = [
-    url(r'^home/$', views.user_home, name='user_home')
+    re_path(r'^home/$', views.user_home, name='user_home')
 ]
 
 last_modified_date = timezone.now()
 
 # Client-side i18n URLconf.
 urlpatterns.extend([
-    url(r'^i18n/js/(?P<packages>\S+?)/$',
-        last_modified(lambda req, **kw: last_modified_date)(
-            i18n.JavaScriptCatalog.as_view()),
-        name='jsi18n'),
-    url(r'^i18n/setlang/$',
-        i18n.set_language,
-        name="set_language"),
-    url(r'^i18n/', include('django.conf.urls.i18n'))
+    re_path(r'^i18n/js/(?P<packages>\S+?)/$',
+            last_modified(lambda req, **kw: last_modified_date)(
+                i18n.JavaScriptCatalog.as_view()),
+            name='jsi18n'),
+    re_path(r'^i18n/setlang/$',
+            i18n.set_language,
+            name="set_language"),
+    re_path(r'^i18n/', include('django.conf.urls.i18n'))
 ])
 
 if settings.DEBUG:
     urlpatterns.extend([
-        url(r'^jasmine-legacy/$',
-            TemplateView.as_view(
-                template_name="horizon/jasmine/jasmine_legacy.html"),
-            name='jasmine_tests'),
-        url(r'^jasmine/.*?$', jasmine.dispatcher),
+        re_path(r'^jasmine-legacy/$',
+                TemplateView.as_view(
+                    template_name="horizon/jasmine/jasmine_legacy.html"),
+                name='jasmine_tests'),
+        re_path(r'^jasmine/.*?$', jasmine.dispatcher),
     ])

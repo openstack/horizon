@@ -10,10 +10,10 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
-from django.conf.urls import url
+from django.urls import re_path
 
 from horizon.test.test_dashboards.cats.tigers.views import IndexView
 
 urlpatterns = [
-    url(r'^$', IndexView.as_view(), name='index'),
+    re_path(r'^$', IndexView.as_view(), name='index'),
 ]

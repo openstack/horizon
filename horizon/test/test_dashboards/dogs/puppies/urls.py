@@ -10,12 +10,12 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
-from django.conf.urls import url
+from django.urls import re_path
 
 from horizon.test.test_dashboards.dogs.puppies.views import IndexView
 from horizon.test.test_dashboards.dogs.puppies.views import TwoTabsView
 
 urlpatterns = [
-    url(r'^$', IndexView.as_view(), name='index'),
-    url(r'^tabs/$', TwoTabsView.as_view(), name='tabs'),
+    re_path(r'^$', IndexView.as_view(), name='index'),
+    re_path(r'^tabs/$', TwoTabsView.as_view(), name='tabs'),
 ]

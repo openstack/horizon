@@ -23,8 +23,8 @@ URL patterns for the OpenStack Dashboard.
 from django.conf import settings
 from django.conf.urls import include
 from django.conf.urls.static import static
-from django.conf.urls import url
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
+from django.urls import re_path
 from django.views import defaults
 
 import horizon
@@ -36,21 +36,21 @@ from openstack_dashboard.api import rest
 from openstack_dashboard import views
 
 urlpatterns = [
-    url(r'^$', views.splash, name='splash'),
-    url(r'^api/', include(rest.urls)),
-    url(r'^header/', views.ExtensibleHeaderView.as_view()),
-    url(r'', horizon.base._wrapped_include(horizon.urls)),
+    re_path(r'^$', views.splash, name='splash'),
+    re_path(r'^api/', include(rest.urls)),
+    re_path(r'^header/', views.ExtensibleHeaderView.as_view()),
+    re_path(r'', horizon.base._wrapped_include(horizon.urls)),
 ]
 
 # add URL for ngdetails
-ngdetails_url = url(r'^ngdetails/',
-                    browsers_views.AngularDetailsView.as_view(),
-                    name='ngdetails')
+ngdetails_url = re_path(r'^ngdetails/',
+                        browsers_views.AngularDetailsView.as_view(),
+                        name='ngdetails')
 urlpatterns.append(ngdetails_url)
 horizon.base._decorate_urlconf([ngdetails_url], require_auth)
 
 for u in settings.AUTHENTICATION_URLS:
-    urlpatterns.append(url(r'^auth/', include(u)))
+    urlpatterns.append(re_path(r'^auth/', include(u)))
 
 # Development static app and project media serving using the staticfiles app.
 urlpatterns += staticfiles_urlpatterns()
@@ -61,4 +61,4 @@ urlpatterns += staticfiles_urlpatterns()
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 if settings.DEBUG:
-    urlpatterns.append(url(r'^500/$', defaults.server_error))
+    urlpatterns.append(re_path(r'^500/$', defaults.server_error))

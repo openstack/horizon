@@ -12,10 +12,10 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-from django.conf.urls import url
+from django.urls import re_path
 
 from openstack_dashboard.contrib.developer.form_builder import views
 
 urlpatterns = [
-    url('', views.IndexView.as_view(), name='index'),
+    re_path('', views.IndexView.as_view(), name='index'),
 ]

@@ -13,14 +13,14 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
-from django.conf.urls import url
+from django.urls import re_path
 
 from openstack_dashboard.dashboards.admin.floating_ips import views
 
 
 urlpatterns = [
-    url(r'^$', views.IndexView.as_view(), name='index'),
-    url(r'^allocate/$', views.AllocateView.as_view(), name='allocate'),
-    url(r'^(?P<floating_ip_id>[^/]+)/detail/$',
-        views.DetailView.as_view(), name='detail')
+    re_path(r'^$', views.IndexView.as_view(), name='index'),
+    re_path(r'^allocate/$', views.AllocateView.as_view(), name='allocate'),
+    re_path(r'^(?P<floating_ip_id>[^/]+)/detail/$',
+            views.DetailView.as_view(), name='detail')
 ]

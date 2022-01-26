@@ -10,9 +10,9 @@
 #  License for the specific language governing permissions and limitations
 #  under the License.
 
-from django.conf.urls import url
+from django.urls import re_path
 from django.views import defaults
 
 from openstack_dashboard.urls import urlpatterns
 
-urlpatterns.append(url(r'^500/$', defaults.server_error))
+urlpatterns.append(re_path(r'^500/$', defaults.server_error))

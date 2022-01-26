@@ -12,7 +12,7 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
-from django.conf.urls import url
+from django.urls import re_path
 
 from openstack_dashboard.dashboards.admin.routers import views
 
@@ -21,15 +21,15 @@ ROUTER_URL = r'^(?P<router_id>[^/]+)/%s'
 
 
 urlpatterns = [
-    url(r'^$', views.IndexView.as_view(), name='index'),
-    url(r'^create/$', views.CreateView.as_view(), name='create'),
-    url(ROUTER_URL % '$',
-        views.DetailView.as_view(),
-        name='detail'),
-    url(ROUTER_URL % 'update',
-        views.UpdateView.as_view(),
-        name='update'),
-    url(r'^(?P<l3_agent_id>[^/]+)/l3_agent_list',
-        views.L3AgentView.as_view(),
-        name='l3_agent_list'),
+    re_path(r'^$', views.IndexView.as_view(), name='index'),
+    re_path(r'^create/$', views.CreateView.as_view(), name='create'),
+    re_path(ROUTER_URL % '$',
+            views.DetailView.as_view(),
+            name='detail'),
+    re_path(ROUTER_URL % 'update',
+            views.UpdateView.as_view(),
+            name='update'),
+    re_path(r'^(?P<l3_agent_id>[^/]+)/l3_agent_list',
+            views.L3AgentView.as_view(),
+            name='l3_agent_list'),
 ]

@@ -10,7 +10,7 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
-from django.conf.urls import url
+from django.urls import re_path
 from django.utils.translation import gettext_lazy as _
 
 from horizon.browsers import views
@@ -18,5 +18,5 @@ from horizon.browsers import views
 
 title = _("Network QoS Policies")
 urlpatterns = [
-    url(r'^$', views.AngularIndexView.as_view(title=title), name='index'),
+    re_path(r'^$', views.AngularIndexView.as_view(title=title), name='index'),
 ]

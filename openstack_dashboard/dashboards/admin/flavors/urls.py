@@ -16,7 +16,7 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
-from django.conf.urls import url
+from django.urls import re_path
 from django.utils.translation import gettext_lazy as _
 
 from horizon.browsers.views import AngularIndexView
@@ -28,16 +28,17 @@ if setting_utils.get_dict_config('ANGULAR_FEATURES', 'flavors_panel'):
     title = _("Flavors")
     # New angular panel
     urlpatterns = [
-        url(r'^$', AngularIndexView.as_view(title=title), name='index'),
-        url(r'^create/$', AngularIndexView.as_view(title=title),
-            name='create'),
-        url(r'^(?P<id>[^/]+)/update/$', AngularIndexView.as_view(title=title),
-            name='index'),
+        re_path(r'^$', AngularIndexView.as_view(title=title), name='index'),
+        re_path(r'^create/$', AngularIndexView.as_view(title=title),
+                name='create'),
+        re_path(r'^(?P<id>[^/]+)/update/$',
+                AngularIndexView.as_view(title=title),
+                name='index'),
     ]
 else:
     urlpatterns = [
-        url(r'^$', views.IndexView.as_view(), name='index'),
-        url(r'^create/$', views.CreateView.as_view(), name='create'),
-        url(r'^(?P<id>[^/]+)/update/$',
-            views.UpdateView.as_view(), name='update'),
+        re_path(r'^$', views.IndexView.as_view(), name='index'),
+        re_path(r'^create/$', views.CreateView.as_view(), name='create'),
+        re_path(r'^(?P<id>[^/]+)/update/$',
+                views.UpdateView.as_view(), name='update'),
     ]

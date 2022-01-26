@@ -16,7 +16,7 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
-from django.conf.urls import url
+from django.urls import re_path
 
 from openstack_dashboard.dashboards.admin.instances import views
 
@@ -25,15 +25,16 @@ INSTANCES = r'^(?P<instance_id>[^/]+)/%s$'
 
 
 urlpatterns = [
-    url(r'^$', views.AdminIndexView.as_view(), name='index'),
-    url(INSTANCES % 'update', views.AdminUpdateView.as_view(), name='update'),
-    url(INSTANCES % 'detail', views.DetailView.as_view(), name='detail'),
-    url(INSTANCES % 'console', views.console, name='console'),
-    url(INSTANCES % 'vnc', views.vnc, name='vnc'),
-    url(INSTANCES % 'mks', views.mks, name='mks'),
-    url(INSTANCES % 'spice', views.spice, name='spice'),
-    url(INSTANCES % 'rdp', views.rdp, name='rdp'),
-    url(INSTANCES % 'live_migrate', views.LiveMigrateView.as_view(),
-        name='live_migrate'),
-    url(INSTANCES % 'rescue', views.RescueView.as_view(), name='rescue'),
+    re_path(r'^$', views.AdminIndexView.as_view(), name='index'),
+    re_path(INSTANCES % 'update', views.AdminUpdateView.as_view(),
+            name='update'),
+    re_path(INSTANCES % 'detail', views.DetailView.as_view(), name='detail'),
+    re_path(INSTANCES % 'console', views.console, name='console'),
+    re_path(INSTANCES % 'vnc', views.vnc, name='vnc'),
+    re_path(INSTANCES % 'mks', views.mks, name='mks'),
+    re_path(INSTANCES % 'spice', views.spice, name='spice'),
+    re_path(INSTANCES % 'rdp', views.rdp, name='rdp'),
+    re_path(INSTANCES % 'live_migrate', views.LiveMigrateView.as_view(),
+            name='live_migrate'),
+    re_path(INSTANCES % 'rescue', views.RescueView.as_view(), name='rescue'),
 ]

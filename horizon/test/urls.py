@@ -21,9 +21,9 @@ URL patterns for testing Horizon views.
 """
 
 from django.conf.urls import include
-from django.conf.urls import url
 from django.contrib.auth import views
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
+from django.urls import re_path
 from django.views.generic import TemplateView
 
 import horizon
@@ -32,16 +32,16 @@ from horizon.test.jasmine import jasmine
 
 
 urlpatterns = [
-    url(r'', horizon.base._wrapped_include(horizon.urls)),
-    url(r"auth/login/",
-        views.LoginView.as_view(template_name="auth/login.html"),
-        name='login'),
-    url(r'auth/', include('django.contrib.auth.urls')),
-    url(r'^jasmine/.*?$', jasmine.dispatcher),
-    url(r'^jasmine-legacy/$',
-        TemplateView.as_view(
-            template_name="horizon/jasmine/jasmine_legacy.html"),
-        name='jasmine_tests'),
+    re_path(r'', horizon.base._wrapped_include(horizon.urls)),
+    re_path(r"auth/login/",
+            views.LoginView.as_view(template_name="auth/login.html"),
+            name='login'),
+    re_path(r'auth/', include('django.contrib.auth.urls')),
+    re_path(r'^jasmine/.*?$', jasmine.dispatcher),
+    re_path(r'^jasmine-legacy/$',
+            TemplateView.as_view(
+                template_name="horizon/jasmine/jasmine_legacy.html"),
+            name='jasmine_tests'),
 ]
 
 urlpatterns += staticfiles_urlpatterns()
