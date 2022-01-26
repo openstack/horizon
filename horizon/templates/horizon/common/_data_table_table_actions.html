@@ -4,7 +4,7 @@
   {% if filter.filter_type == 'fixed' %}
     <div class="table_filter btn-group" data-toggle="buttons-radio">
       {% for button in filter.fixed_buttons %}
-        <button name="{{ filter.get_param_name }}" type="submit" value="{{ button.value }}" class="btn btn-default{% ifequal button.value filter.filter_string %} active{% endifequal %}">
+        <button name="{{ filter.get_param_name }}" type="submit" value="{{ button.value }}" class="btn btn-default{% if button.value == filter.filter_string %} active{% endif %}">
           {% if button.icon %}
             <span class="fa {{ button.icon }}"></span>
           {% endif %}
