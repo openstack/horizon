@@ -35,6 +35,7 @@ from horizon import base
 from horizon import exceptions
 from horizon.templatetags.horizon import has_permissions
 from horizon.utils import html
+from horizon.utils import http as http_utils
 
 
 LOG = logging.getLogger(__name__)
@@ -904,7 +905,7 @@ class Workflow(html.HTMLElement, metaclass=WorkflowMetaclass):
         """Renders the workflow."""
         workflow_template = template.loader.get_template(self.template_name)
         extra_context = {"workflow": self}
-        if self.request.is_ajax():
+        if http_utils.is_ajax(self.request):
             extra_context['modal'] = True
         return workflow_template.render(extra_context, self.request)
 

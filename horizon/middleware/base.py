@@ -36,6 +36,7 @@ from django.utils import timezone
 
 from horizon import exceptions
 from horizon.utils import functions as utils
+from horizon.utils import http as http_utils
 
 
 LOG = logging.getLogger(__name__)
@@ -77,7 +78,7 @@ class HorizonMiddleware(object):
             session_time = min(timeout, int(token_life.total_seconds()))
             request.session.set_expiry(session_time)
 
-        if request.is_ajax():
+        if http_utils.is_ajax(request):
             # if the request is Ajax we do not want to proceed, as clients can
             #  1) create pages with constant polling, which can create race
             #     conditions when a page navigation occurs
@@ -140,7 +141,7 @@ class HorizonMiddleware(object):
                 return shortcuts.render(request, 'not_authorized.html',
                                         status=403)
 
-            if request.is_ajax():
+            if http_utils.is_ajax(request):
                 response_401 = http.HttpResponse(status=401)
                 response_401['X-Horizon-Location'] = response['location']
                 return response_401
@@ -166,7 +167,7 @@ class HorizonMiddleware(object):
 
         This is to allow ajax request to redirect url.
         """
-        if request.is_ajax() and hasattr(request, 'horizon'):
+        if http_utils.is_ajax(request) and hasattr(request, 'horizon'):
             queued_msgs = request.horizon['async_messages']
             if type(response) == http.HttpResponseRedirect:
                 # Drop our messages back into the session as per usual so they

@@ -39,7 +39,7 @@ class FakeFlavor(object):
         return {"id": self.id}
 
 
-class NovaRestTestCase(test.TestCase):
+class NovaRestTestCase(test.RestAPITestCase):
 
     #
     # Snapshots

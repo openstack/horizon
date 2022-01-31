@@ -16,7 +16,7 @@ from openstack_dashboard.api.rest import utils
 from openstack_dashboard.test import helpers as test
 
 
-class RestUtilsTestCase(test.TestCase):
+class RestUtilsTestCase(test.RestAPITestCase):
 
     def test_api_success(self):
         @utils.ajax()
@@ -164,7 +164,7 @@ class RestUtilsTestCase(test.TestCase):
         self.assertDictEqual({}, output_filters)
 
 
-class JSONEncoderTestCase(test.TestCase):
+class JSONEncoderTestCase(test.RestAPITestCase):
 
     # NOTE(tsufiev): NaN numeric is "conventional" in a sense that the custom
     # NaNJSONEncoder encoder translates it to the same token that the standard

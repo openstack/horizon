@@ -46,6 +46,7 @@ from horizon.tables.actions import BatchAction
 from horizon.tables.actions import FilterAction
 from horizon.tables.actions import LinkAction
 from horizon.utils import html
+from horizon.utils import http as http_utils
 from horizon.utils import settings as utils_settings
 
 
@@ -1684,7 +1685,7 @@ class DataTable(object, metaclass=DataTableMetaclass):
                 except Exception:
                     datum = None
                     error = exceptions.handle(request, ignore=True)
-                if request.is_ajax():
+                if http_utils.is_ajax(request):
                     if not error:
                         return HttpResponse(new_row.render())
                     return HttpResponse(status=error.status_code)
@@ -1744,7 +1745,7 @@ class DataTable(object, metaclass=DataTableMetaclass):
         except Exception:
             datum = None
             error = exceptions.handle(request, ignore=True)
-        if request.is_ajax():
+        if http_utils.is_ajax(request):
             if not error:
                 return HttpResponse(cell.render())
             return HttpResponse(status=error.status_code)

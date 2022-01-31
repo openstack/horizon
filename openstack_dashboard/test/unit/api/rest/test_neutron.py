@@ -24,7 +24,7 @@ from openstack_dashboard.test import helpers as test
 from openstack_dashboard.usage import quotas
 
 
-class NeutronNetworksTestCase(test.TestCase):
+class NeutronNetworksTestCase(test.RestAPITestCase):
 
     def _dictify_network(self, network):
         net_dict = network.to_dict()
@@ -109,7 +109,7 @@ class NeutronNetworksTestCase(test.TestCase):
         mock_is_service_enabled.assert_called_once_with(request, 'network')
 
 
-class NeutronSubnetsTestCase(test.TestCase):
+class NeutronSubnetsTestCase(test.RestAPITestCase):
 
     @mock.patch.object(api.neutron, 'subnet_list')
     def test_get(self, mock_subnet_list):
@@ -141,7 +141,7 @@ class NeutronSubnetsTestCase(test.TestCase):
             network_id=network_id)
 
 
-class NeutronPortsTestCase(test.TestCase):
+class NeutronPortsTestCase(test.RestAPITestCase):
 
     @mock.patch.object(api.neutron, 'port_list_with_trunk_types')
     def test_get(self, mock_port_list_with_trunk_types):
@@ -155,7 +155,7 @@ class NeutronPortsTestCase(test.TestCase):
             request, network_id=network_id)
 
 
-class NeutronTrunkTestCase(test.TestCase):
+class NeutronTrunkTestCase(test.RestAPITestCase):
 
     @mock.patch.object(api.neutron, 'trunk_delete')
     def test_trunk_delete(self, mock_trunk_delete):
@@ -189,7 +189,7 @@ class NeutronTrunkTestCase(test.TestCase):
         )
 
 
-class NeutronTrunksTestCase(test.TestCase):
+class NeutronTrunksTestCase(test.RestAPITestCase):
 
     @mock.patch.object(api.neutron, 'trunk_list')
     def test_trunks_get(self, mock_trunk_list):
@@ -216,7 +216,7 @@ class NeutronTrunksTestCase(test.TestCase):
                                                   port_id='1')
 
 
-class NeutronExtensionsTestCase(test.TestCase):
+class NeutronExtensionsTestCase(test.RestAPITestCase):
 
     @mock.patch.object(api.neutron, 'list_extensions')
     def test_list_extensions(self, mock_list_extensions):
@@ -228,7 +228,7 @@ class NeutronExtensionsTestCase(test.TestCase):
         mock_list_extensions.assert_called_once_with(request)
 
 
-class NeutronDefaultQuotasTestCase(test.TestCase):
+class NeutronDefaultQuotasTestCase(test.RestAPITestCase):
 
     @test.create_mocks({api.base: ['is_service_enabled'],
                         api.neutron: ['tenant_quota_get']})
@@ -268,7 +268,7 @@ class NeutronDefaultQuotasTestCase(test.TestCase):
         mock_is_service_enabled.assert_called_once_with(request, 'network')
 
 
-class NeutronQuotaSetsTestCase(test.TestCase):
+class NeutronQuotaSetsTestCase(test.RestAPITestCase):
 
     @test.create_mocks({api.base: ['is_service_enabled'],
                         api.neutron: ['is_extension_supported',

@@ -20,7 +20,7 @@ from openstack_dashboard.test import helpers as test
 from openstack_dashboard.usage import quotas
 
 
-class CinderRestTestCase(test.TestCase):
+class CinderRestTestCase(test.RestAPITestCase):
 
     #
     # Volumes

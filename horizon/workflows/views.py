@@ -25,6 +25,7 @@ from horizon import exceptions
 from horizon.forms import views as hz_views
 from horizon.forms.views import ADD_TO_FIELD_HEADER
 from horizon import messages
+from horizon.utils import http as http_utils
 
 
 class WorkflowView(hz_views.ModalBackdropMixin, generic.TemplateView):
@@ -115,7 +116,7 @@ class WorkflowView(hz_views.ModalBackdropMixin, generic.TemplateView):
         The returned classes are determied based on
         the workflow characteristics.
         """
-        if self.request.is_ajax():
+        if http_utils.is_ajax(self.request):
             layout = ['modal', ]
         else:
             layout = ['static_page', ]
@@ -127,7 +128,7 @@ class WorkflowView(hz_views.ModalBackdropMixin, generic.TemplateView):
 
     def get_template_names(self):
         """Returns the template name to use for this request."""
-        if self.request.is_ajax():
+        if http_utils.is_ajax(self.request):
             template = self.ajax_template_name
         else:
             template = self.template_name

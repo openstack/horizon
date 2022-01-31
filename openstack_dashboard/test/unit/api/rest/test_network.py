@@ -18,7 +18,7 @@ from openstack_dashboard.api.rest import network
 from openstack_dashboard.test import helpers as test
 
 
-class RestNetworkApiSecurityGroupTests(test.TestCase):
+class RestNetworkApiSecurityGroupTests(test.RestAPITestCase):
 
     @test.create_mocks({api.neutron: ['security_group_list']})
     def test_security_group_detailed(self):
@@ -34,7 +34,7 @@ class RestNetworkApiSecurityGroupTests(test.TestCase):
         self.mock_security_group_list.assert_called_once_with(request)
 
 
-class RestNetworkApiFloatingIpTests(test.TestCase):
+class RestNetworkApiFloatingIpTests(test.RestAPITestCase):
 
     @test.create_mocks({api.neutron: ['tenant_floating_ip_list']})
     def test_floating_ip_list(self):

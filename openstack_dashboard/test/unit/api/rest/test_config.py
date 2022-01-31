@@ -18,7 +18,7 @@ from openstack_dashboard import api
 from openstack_dashboard.test import helpers as test
 
 
-class ConfigRestTestCase(test.TestCase):
+class ConfigRestTestCase(test.RestAPITestCase):
 
     @mock.patch.object(api.glance, 'get_image_schemas')
     def test_settings_config_get(self, mock_schemas_list):

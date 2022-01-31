@@ -389,7 +389,6 @@ class TestCase(horizon_helpers.TestCase):
     def mock_rest_request(**args):
         mock_args = {
             'user.is_authenticated': True,
-            'is_ajax.return_value': True,
             'policy.check.return_value': True,
             'body': ''
         }
@@ -481,6 +480,12 @@ class APITestCase(TestCase):
     def setUp(self):
         super().setUp()
         utils.patch_middleware_get_user()
+
+
+class RestAPITestCase(TestCase):
+    def setUp(self):
+        super().setUp()
+        mock.patch('horizon.utils.http.is_ajax', return_value=True).start()
 
 
 # APIMockTestCase was introduced to support mox to mock migration smoothly
