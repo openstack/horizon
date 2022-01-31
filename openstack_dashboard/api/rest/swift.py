@@ -252,7 +252,8 @@ class Object(generic.View):
         safe = filename.replace(",", "")
         response['Content-Disposition'] = 'attachment; filename="%s"' % safe
         response['Content-Type'] = 'application/octet-stream'
-        response['Content-Length'] = obj.bytes
+        if obj.bytes is not None:
+            response['Content-Length'] = obj.bytes
         return response
 
 
