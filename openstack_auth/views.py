@@ -460,7 +460,10 @@ class PasswordView(edit_views.FormView):
     success_url = settings.LOGIN_URL
 
     def get_initial(self):
-        return {'user_id': self.kwargs['user_id']}
+        return {
+            'user_id': self.kwargs['user_id'],
+            'region': self.request.COOKIES.get('login_region'),
+        }
 
     def form_valid(self, form):
         # We have no session here, so regular messages don't work.
