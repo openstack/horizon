@@ -256,6 +256,10 @@ function ajax_poll(poll_time){
       if (needs_update === true){
         update();
       }
+    }).fail(function (jqXHR) {
+      if (jqXHR.status === 401 || jqXHR.status === 403) {
+        window.location.replace(logout_url);
+      }
     });
     //if no nodes still in progress, slow AJAX polling
     if (in_progress === false) { poll_time = 30000; }
@@ -270,6 +274,7 @@ if ($(container).length){
     height = 500,
     stack_id = $("#stack_id").data("stack_id"),
     ajax_url = WEBROOT + 'project/stacks/get_d3_data/' + stack_id + '/',
+    logout_url = WEBROOT + 'auth/logout',
     graph = $("#d3_data").data("d3_data"),
     force = d3.layout.force()
       .nodes(graph.nodes)
