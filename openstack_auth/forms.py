@@ -209,9 +209,6 @@ class Password(forms.Form):
         if len(self.fields['region'].choices) == 1:
             self.fields['region'].initial = self.fields['region'].choices[0][0]
             self.fields['region'].widget = forms.widgets.HiddenInput()
-        elif len(self.fields['region'].choices) > 1:
-            self.fields['region'].initial = self.request.COOKIES.get(
-                'login_region')
 
     @sensitive_variables('password', 'confirm_password', 'original_password')
     def clean(self):
