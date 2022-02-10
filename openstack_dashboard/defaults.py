@@ -367,7 +367,7 @@ OPENSTACK_CINDER_FEATURES = {
 #    "cloud_admin": "rule:admin_required and domain_id:<your domain id>"
 # This value must be the name of the domain whose ID is specified there.
 OPENSTACK_KEYSTONE_DEFAULT_DOMAIN = 'Default'
-OPENSTACK_KEYSTONE_DEFAULT_ROLE = '_member_'
+OPENSTACK_KEYSTONE_DEFAULT_ROLE = 'member'
 # The OPENSTACK_KEYSTONE_BACKEND settings can be used to identify the
 # capabilities of the auth backend for Keystone.
 # If Keystone has been configured to use LDAP as the auth backend then set

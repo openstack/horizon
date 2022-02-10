@@ -1379,13 +1379,13 @@ class DetailProjectViewTests(test.BaseAdminViewTests):
         # Check the content of the table
         users_expected = {
             '1': {'roles': ['admin'],
-                  'roles_from_groups': [('_member_', 'group_one'), ], },
-            '2': {'roles': ['_member_'],
+                  'roles_from_groups': [('member', 'group_one'), ], },
+            '2': {'roles': ['member'],
                   'roles_from_groups': [], },
-            '3': {'roles': ['_member_'],
-                  'roles_from_groups': [('_member_', 'group_one'), ], },
+            '3': {'roles': ['member'],
+                  'roles_from_groups': [('member', 'group_one'), ], },
             '4': {'roles': [],
-                  'roles_from_groups': [('_member_', 'group_one'), ], }
+                  'roles_from_groups': [('member', 'group_one'), ], }
         }
 
         users_id_observed = [user.id for user in
@@ -1490,7 +1490,7 @@ class DetailProjectViewTests(test.BaseAdminViewTests):
                                 "horizon/common/_detail_table.html")
 
         # Check the table content
-        groups_expected = {'1': ["_member_"], }
+        groups_expected = {'1': ["member"], }
         groups_id_observed = [group.id for group in
                               res.context["groupstable_table"].data]
 
