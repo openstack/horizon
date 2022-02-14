@@ -28,11 +28,12 @@
 
   LaunchInstanceNetworkController.$inject = [
     '$scope',
+    'horizon.dashboard.project.workflow.launch-instance.basePath',
     'horizon.framework.widgets.action-list.button-tooltip.row-warning.service',
     'launchInstanceModel'
   ];
 
-  function LaunchInstanceNetworkController($scope, tooltipService, launchInstanceModel) {
+  function LaunchInstanceNetworkController($scope, basePath, tooltipService, launchInstanceModel) {
     var ctrl = this;
 
     ctrl.networkStatuses = {
@@ -45,21 +46,45 @@
       'DOWN': gettext('Down')
     };
 
+    function getStatus(status) {
+      return ctrl.networkStatuses[status];
+    }
+
+    function getAdminState(state) {
+      return ctrl.networkAdminStates[state];
+    }
+
     ctrl.tableDataMulti = {
-      available: $scope.model.networks,
-      allocated: $scope.model.newInstanceSpec.networks,
-      displayedAvailable: [],
-      displayedAllocated: [],
+      available: launchInstanceModel.networks,
+      allocated: launchInstanceModel.newInstanceSpec.networks,
       minItems: 1
     };
+
+    ctrl.availableTableConfig = {
+      selectAll: false,
+      trackId: 'id',
+      detailsTemplateUrl: basePath + 'network/network-details.html',
+      columns: [
+        {id: 'name', title: gettext('Network'), priority: 1,
+          template: '<div>{$ item.name || item.id $}</div>'},
+        {id: 'subnets', title: gettext('Subnets Associated'), priority: 2,
+          template: '<div ng-repeat="subnet in item.subnets">{$ subnet.name || subnet.id $}</div>'},
+        {id: 'shared', title: gettext('Shared'), filters: ['yesno'], priority: 1},
+        {id: 'admin_state', title: gettext('Admin State'), filters: [getAdminState], priority: 1},
+        {id: 'status', title: gettext('Status'), filters: [getStatus], priority: 1}
+      ]
+    };
+
+    ctrl.allocatedTableConfig = angular.copy(ctrl.availableTableConfig);
+    ctrl.allocatedTableConfig.noItemsMessage = gettext(
+      'Select one or more networks from the available networks below.');
 
     ctrl.tableLimits = {
       maxAllocation: -1
     };
 
     ctrl.tableHelpText = {
-      allocHelpText: gettext('Select networks from those listed below.'),
-      availHelpText: gettext('Select at least one network')
+      availHelpText: gettext('Select one or more')
     };
 
     ctrl.tooltipModel = tooltipService;

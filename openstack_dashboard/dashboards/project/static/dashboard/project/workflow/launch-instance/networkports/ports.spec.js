@@ -59,7 +59,6 @@
 
       it('contains help text for the table', function() {
         expect(ctrl.tableHelpText).toBeDefined();
-        expect(ctrl.tableHelpText.allocHelpText).toBeDefined();
       });
 
       it('nameOrID returns the name', function() {
