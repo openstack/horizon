@@ -2175,9 +2175,6 @@ class InstanceTests2(InstanceTestBase, InstanceTableTestMixin):
                          workflows.ResizeInstance.name)
         self.assertContains(res, 'Disk Partition')
 
-        config_drive_field_label = 'Configuration Drive'
-        self.assertNotContains(res, config_drive_field_label)
-
         step = workflow.get_step("flavor_choice")
         self.assertEqual(step.action.initial['old_flavor_id'], flavor.id)
 
