@@ -4147,13 +4147,26 @@ class InstanceTests2(InstanceTestBase, InstanceTableTestMixin):
     def test_disassociate_floating_ip_with_release(self):
         self._test_disassociate_floating_ip(is_release=True)
 
+    def _populate_server_flavor_nova_api_ge_2_47(self, server):
+        flavor_id = server.flavor['id']
+        flavor = self.flavors.get(id=flavor_id)
+        server.flavor = {
+            'original_name': flavor.name,
+            'vcpus': flavor.vcpus,
+            'ram': flavor.ram,
+            'swap': flavor.swap,
+            'disk': flavor.disk,
+            'ephemeral': flavor.ephemeral,
+            'extra_specs': flavor.extra_specs,
+        }
+        return server
+
     @helpers.create_mocks({api.nova: ('server_get',
                                       'flavor_list',
                                       'server_group_list',
                                       'tenant_absolute_limits',
                                       'is_feature_available')})
-    def test_instance_resize_get(self):
-        server = self.servers.first()
+    def _test_instance_resize_get(self, server, nova_api_lt_2_47=False):
         self.mock_server_get.return_value = server
         self.mock_flavor_list.return_value = self.flavors.list()
         self.mock_server_group_list.return_value = self.server_groups.list()
@@ -4162,14 +4175,35 @@ class InstanceTests2(InstanceTestBase, InstanceTableTestMixin):
         url = reverse('horizon:project:instances:resize', args=[server.id])
         res = self.client.get(url)
 
+        workflow = res.context['workflow']
         self.assertTemplateUsed(res, views.WorkflowView.template_name)
+        self.assertEqual(res.context['workflow'].name,
+                         workflows.ResizeInstance.name)
+        self.assertContains(res, 'Disk Partition')
 
         config_drive_field_label = 'Configuration Drive'
         self.assertNotContains(res, config_drive_field_label)
 
+        step = workflow.get_step("flavor_choice")
+        self.assertEqual(step.action.initial['old_flavor_name'],
+                         self.flavors.first().name)
+
+        step = workflow.get_step("setadvancedaction")
+        self.assertEqual(step.action.fields['disk_config'].label,
+                         'Disk Partition')
+        self.assertQuerysetEqual(workflow.steps,
+                                 ['<SetFlavorChoice: flavor_choice>',
+                                  '<SetAdvanced: setadvancedaction>'])
         option = '<option value="%s">%s</option>'
+
+        def is_original_flavor(server, flavor, nova_api_lt_2_47):
+            if nova_api_lt_2_47:
+                return flavor.id == server.flavor['id']
+            else:
+                return flavor.name == server.flavor['original_name']
+
         for flavor in self.flavors.list():
-            if flavor.id == server.flavor['id']:
+            if is_original_flavor(server, flavor, nova_api_lt_2_47):
                 self.assertNotContains(res, option % (flavor.id, flavor.name))
             else:
                 self.assertContains(res, option % (flavor.id, flavor.name))
@@ -4183,6 +4217,15 @@ class InstanceTests2(InstanceTestBase, InstanceTableTestMixin):
             helpers.IsHttpRequest())
         self.mock_tenant_absolute_limits.assert_called_once_with(
             helpers.IsHttpRequest(), reserved=True)
+
+    def test_instance_resize_get_nova_api_lt_2_47(self):
+        server = self.servers.first()
+        self._test_instance_resize_get(server, nova_api_lt_2_47=True)
+
+    def test_instance_resize_get_nova_api_ge_2_47(self):
+        server = self.servers.first()
+        self._populate_server_flavor_nova_api_ge_2_47(server)
+        self._test_instance_resize_get(server)
 
     @helpers.create_mocks({api.nova: ('server_get',)})
     def test_instance_resize_get_server_get_exception(self):
@@ -4202,7 +4245,6 @@ class InstanceTests2(InstanceTestBase, InstanceTableTestMixin):
                                       'flavor_list',)})
     def test_instance_resize_get_flavor_list_exception(self):
         server = self.servers.first()
-
         self.mock_server_get.return_value = server
         self.mock_flavor_list.side_effect = self.exceptions.nova
 
@@ -4216,6 +4258,8 @@ class InstanceTests2(InstanceTestBase, InstanceTableTestMixin):
                                                      server.id)
         self.mock_flavor_list.assert_called_once_with(helpers.IsHttpRequest())
 
+    # TODO(amotoki): This is requred only when nova API <=2.46 is used.
+    # Once server_get() uses nova API >=2.47 only, this test can be droppped.
     @helpers.create_mocks({api.nova: ('server_get',
                                       'flavor_list',
                                       'flavor_get',
