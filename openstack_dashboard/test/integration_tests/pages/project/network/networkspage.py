@@ -56,6 +56,10 @@ class NetworksPage(basepage.BaseNavigationPage):
             self.NETWORKS_TABLE_NAME_COLUMN, name)
 
     @property
+    def is_admin(self):
+        return False
+
+    @property
     def networks_table(self):
         return NetworksTable(self.driver, self.conf)
 
@@ -66,9 +70,15 @@ class NetworksPage(basepage.BaseNavigationPage):
                        gateway_ip=None,
                        disable_gateway=DEFAULT_DISABLE_GATEWAY,
                        enable_dhcp=DEFAULT_ENABLE_DHCP, allocation_pools=None,
-                       dns_name_servers=None, host_routes=None):
+                       dns_name_servers=None, host_routes=None,
+                       project='admin', net_type='Local'):
         create_network_form = self.networks_table.create_network()
-        create_network_form.net_name.text = network_name
+        if self.is_admin:
+            create_network_form.network_type.text = net_type
+            create_network_form.tenant_id.text = project
+            create_network_form.name.text = network_name
+        else:
+            create_network_form.net_name.text = network_name
         create_network_form.admin_state.value = admin_state
         if not create_subnet:
             create_network_form.with_subnet.unmark()

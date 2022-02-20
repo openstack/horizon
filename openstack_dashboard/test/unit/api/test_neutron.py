@@ -23,9 +23,11 @@ from django.test.utils import override_settings
 from openstack_dashboard import api
 from openstack_dashboard import policy
 from openstack_dashboard.test import helpers as test
+from openstack_dashboard.test.test_data import neutron_data
 
 
 class NeutronApiTests(test.APIMockTestCase):
+
     @mock.patch.object(api.neutron, 'neutronclient')
     def test_network_list(self, mock_neutronclient):
         networks = {'networks': self.api_networks.list()}
@@ -46,8 +48,8 @@ class NeutronApiTests(test.APIMockTestCase):
     @test.create_mocks({api.neutron: ('network_list',
                                       'subnet_list')})
     def _test_network_list_for_tenant(
-            self, include_external,
-            filter_params, should_called, **extra_kwargs):
+            self, include_external, filter_params, should_called,
+            expected_networks, source_networks=None, **extra_kwargs):
         """Convenient method to test network_list_for_tenant.
 
         :param include_external: Passed to network_list_for_tenant.
@@ -55,38 +57,74 @@ class NeutronApiTests(test.APIMockTestCase):
         :param should_called: this argument specifies which methods
             should be called. Methods in this list should be called.
             Valid values are non_shared, shared, and external.
+        :param expected_networks: the networks to be compared with the result.
+        :param source_networks: networks to override the mocks.
         """
+        has_more_data = None
+        has_prev_data = None
+        marker_calls = []
         filter_params = filter_params or {}
-        all_networks = self.networks.list()
-        tenant_id = '1'
-        tenant_networks = [n for n in all_networks
-                           if n['tenant_id'] == tenant_id]
-        shared_networks = [n for n in all_networks if n['shared']]
-        external_networks = [n for n in all_networks if n['router:external']]
+        if 'page_data' not in extra_kwargs:
+            call_args = {'single_page': False}
+        else:
+            sort_dir = extra_kwargs['page_data']['sort_dir']
+            # invert sort_dir for calls
+            sort_dir = 'asc' if sort_dir == 'desc' else 'desc'
+            call_args = {'single_page': True, 'limit': 21, 'sort_key': 'id',
+                         'sort_dir': sort_dir}
+            marker_id = extra_kwargs['page_data'].get('marker_id')
+            if extra_kwargs.get('marker_calls') is not None:
+                marker_calls = extra_kwargs.pop('marker_calls')
 
+        tenant_id = '1'
         return_values = []
+        all_networks = (self.networks.list() if source_networks is None
+                        else source_networks)
+
         expected_calls = []
-        if 'non_shared' in should_called:
-            params = filter_params.copy()
-            params['shared'] = False
-            return_values.append(tenant_networks)
-            expected_calls.append(
-                mock.call(test.IsHttpRequest(), tenant_id=tenant_id, **params),
-            )
-        if 'shared' in should_called:
-            params = filter_params.copy()
-            params['shared'] = True
-            return_values.append(shared_networks)
-            expected_calls.append(
-                mock.call(test.IsHttpRequest(), **params),
-            )
-        if 'external' in should_called:
-            params = filter_params.copy()
-            params['router:external'] = True
-            return_values.append(external_networks)
-            expected_calls.append(
-                mock.call(test.IsHttpRequest(), **params),
-            )
+        call_order = ['shared', 'non_shared', 'external']
+        if call_args.get('sort_dir') == 'desc':
+            call_order.reverse()
+
+        for call in call_order:
+            if call in should_called:
+                params = filter_params.copy()
+                params.update(call_args)
+                if call in marker_calls:
+                    params.update({'marker': marker_id})
+                if call == 'external':
+                    params['router:external'] = True
+                    params['shared'] = False
+                    return_values.append(
+                        [n for n in all_networks
+                         if n['router:external'] is True and
+                         n['shared'] is False])
+                    expected_calls.append(
+                        mock.call(test.IsHttpRequest(), **params))
+                elif call == 'shared':
+                    params['shared'] = True
+                    external = params.get('router:external')
+                    return_values.append(
+                        [n for n in all_networks
+                         if (n['shared'] is True and
+                             n['router:external'] == (
+                                 external if external is not None
+                                 else n['router:external']))])
+                    expected_calls.append(
+                        mock.call(test.IsHttpRequest(), **params))
+                elif call == 'non_shared':
+                    params['shared'] = False
+                    external = params.get('router:external')
+                    return_values.append(
+                        [n for n in all_networks
+                         if (n['tenant_id'] == '1' and
+                             n['shared'] is False and
+                             n['router:external'] == (
+                                 external if external is not None
+                                 else n['router:external']))])
+                    expected_calls.append(
+                        mock.call(test.IsHttpRequest(),
+                                  tenant_id=tenant_id, **params))
         self.mock_network_list.side_effect = return_values
 
         extra_kwargs.update(filter_params)
@@ -94,88 +132,186 @@ class NeutronApiTests(test.APIMockTestCase):
             self.request, tenant_id,
             include_external=include_external,
             **extra_kwargs)
-
-        expected = []
-        if 'non_shared' in should_called:
-            expected += tenant_networks
-        if 'shared' in should_called:
-            expected += shared_networks
-        if 'external' in should_called and include_external:
-            expected += external_networks
-        self.assertEqual(set(n.id for n in expected),
-                         set(n.id for n in ret_val))
+        if 'page_data' in extra_kwargs:
+            has_more_data = ret_val[1]
+            has_prev_data = ret_val[2]
+            ret_val = ret_val[0]
         self.mock_network_list.assert_has_calls(expected_calls)
+        self.assertEqual(set(n.id for n in expected_networks),
+                         set(n.id for n in ret_val))
+        self.assertNotIn(api.neutron.AUTO_ALLOCATE_ID,
+                         [n.id for n in ret_val])
+        return ret_val, has_more_data, has_prev_data
 
+    @override_settings(OPENSTACK_NEUTRON_NETWORK={
+        'enable_auto_allocated_network': True})
+    @test.create_mocks({api.neutron: ('network_list',
+                                      'subnet_list')})
+    def _test_network_list_paged(
+            self, filter_params, expected_networks, page_data,
+            source_networks=None, **extra_kwargs):
+        """Convenient method to test network_list_paged.
+
+        :param filter_params: Filters passed to network_list_for_tenant
+        :param expected_networks: the networks to be compared with the result.
+        :param page_data: dict provided by UI with pagination info
+        :param source_networks: networks to override the mocks.
+        """
+        filter_params = filter_params or {}
+        sort_dir = page_data['sort_dir']
+        # invert sort_dir for calls
+        sort_dir = 'asc' if sort_dir == 'desc' else 'desc'
+        call_args = {'single_page': True, 'limit': 21, 'sort_key': 'id',
+                     'sort_dir': sort_dir}
+
+        return_values = []
+        all_networks = (self.networks.list() if source_networks is None
+                        else source_networks)
+
+        expected_calls = []
+
+        params = filter_params.copy()
+        params.update(call_args)
+        if page_data.get('marker_id'):
+            params.update({'marker': page_data.get('marker_id')})
+            extra_kwargs.update({'marker': page_data.get('marker_id')})
+        return_values.append(all_networks[0:21])
+        expected_calls.append(
+            mock.call(test.IsHttpRequest(), **params))
+
+        self.mock_network_list.side_effect = return_values
+
+        extra_kwargs.update(filter_params)
+        ret_val, has_more_data, has_prev_data = api.neutron.network_list_paged(
+            self.request, page_data, **extra_kwargs)
+        self.mock_network_list.assert_has_calls(expected_calls)
+        self.assertEqual(set(n.id for n in expected_networks),
+                         set(n.id for n in ret_val))
+        self.assertNotIn(api.neutron.AUTO_ALLOCATE_ID,
+                         [n.id for n in ret_val])
+        return ret_val, has_more_data, has_prev_data
+
+    def test_no_pre_auto_allocate_network(self):
         # Ensure all three types of networks are not empty. This is required
         # to check 'pre_auto_allocate' network is not included.
+        tenant_id = '1'
+        all_networks = self.networks.list()
+        tenant_networks = [n for n in all_networks
+                           if n['tenant_id'] == tenant_id]
+        shared_networks = [n for n in all_networks if n['shared']]
+        external_networks = [n for n in all_networks if n['router:external']]
         self.assertTrue(tenant_networks)
         self.assertTrue(shared_networks)
         self.assertTrue(external_networks)
-        self.assertNotIn(api.neutron.AUTO_ALLOCATE_ID,
-                         [n.id for n in ret_val])
 
     def test_network_list_for_tenant(self):
+        expected_networks = [n for n in self.networks.list()
+                             if (n['tenant_id'] == '1' or n['shared'] is True)]
         self._test_network_list_for_tenant(
             include_external=False, filter_params=None,
-            should_called=['non_shared', 'shared'])
+            should_called=['non_shared', 'shared'],
+            expected_networks=expected_networks)
 
     def test_network_list_for_tenant_with_external(self):
+        expected_networks = [n for n in self.networks.list()
+                             if (n['tenant_id'] == '1' or
+                                 n['shared'] is True or
+                                 n['router:external'] is True)]
         self._test_network_list_for_tenant(
             include_external=True, filter_params=None,
-            should_called=['non_shared', 'shared', 'external'])
+            should_called=['non_shared', 'shared', 'external'],
+            expected_networks=expected_networks)
 
     def test_network_list_for_tenant_with_filters_shared_false_wo_incext(self):
+        expected_networks = [n for n in self.networks.list()
+                             if (n['tenant_id'] == '1' and
+                                 n['shared'] is False)]
         self._test_network_list_for_tenant(
-            include_external=False, filter_params={'shared': True},
-            should_called=['shared'])
+            include_external=False, filter_params={'shared': False},
+            should_called=['non_shared'],
+            expected_networks=expected_networks)
 
     def test_network_list_for_tenant_with_filters_shared_true_w_incext(self):
+        expected_networks = [n for n in self.networks.list()
+                             if n['shared'] is True]
         self._test_network_list_for_tenant(
             include_external=True, filter_params={'shared': True},
-            should_called=['shared', 'external'])
+            should_called=['shared'],
+            expected_networks=expected_networks)
 
     def test_network_list_for_tenant_with_filters_ext_false_wo_incext(self):
+        expected_networks = [n for n in self.networks.list()
+                             if ((n['tenant_id'] == '1' or
+                                 n['shared'] is True) and
+                                 n['router:external'] is False)]
         self._test_network_list_for_tenant(
             include_external=False, filter_params={'router:external': False},
-            should_called=['non_shared', 'shared'])
+            should_called=['non_shared', 'shared'],
+            expected_networks=expected_networks)
 
     def test_network_list_for_tenant_with_filters_ext_true_wo_incext(self):
+        expected_networks = [n for n in self.networks.list()
+                             if ((n['tenant_id'] == '1' or
+                                  n['shared'] is True) and
+                                 n['router:external'] is True)]
         self._test_network_list_for_tenant(
             include_external=False, filter_params={'router:external': True},
-            should_called=['non_shared', 'shared'])
+            should_called=['non_shared', 'shared'],
+            expected_networks=expected_networks)
 
     def test_network_list_for_tenant_with_filters_ext_false_w_incext(self):
+        expected_networks = [n for n in self.networks.list()
+                             if ((n['tenant_id'] == '1' or
+                                 n['shared'] is True) and
+                                 n['router:external'] is False)]
         self._test_network_list_for_tenant(
             include_external=True, filter_params={'router:external': False},
-            should_called=['non_shared', 'shared'])
+            should_called=['non_shared', 'shared'],
+            expected_networks=expected_networks)
 
     def test_network_list_for_tenant_with_filters_ext_true_w_incext(self):
+        expected_networks = [n for n in self.networks.list()
+                             if n['router:external'] is True]
         self._test_network_list_for_tenant(
             include_external=True, filter_params={'router:external': True},
-            should_called=['non_shared', 'shared', 'external'])
+            should_called=['external', 'shared', 'non_shared'],
+            expected_networks=expected_networks)
 
     def test_network_list_for_tenant_with_filters_both_shared_ext(self):
         # To check 'shared' filter is specified in network_list
         # to look up external networks.
+        expected_networks = [n for n in self.networks.list()
+                             if (n['shared'] is True and
+                                 n['router:external'] is True)]
         self._test_network_list_for_tenant(
             include_external=True,
             filter_params={'router:external': True, 'shared': True},
-            should_called=['shared', 'external'])
+            should_called=['shared'],
+            expected_networks=expected_networks)
 
     def test_network_list_for_tenant_with_other_filters(self):
         # To check filter parameters other than shared and
         # router:external are passed as expected.
+        expected_networks = [n for n in self.networks.list()
+                             if (n['router:external'] is True and
+                                 n['shared'] is False)]
         self._test_network_list_for_tenant(
             include_external=True,
             filter_params={'router:external': True, 'shared': False,
                            'foo': 'bar'},
-            should_called=['non_shared', 'external'])
+            should_called=['external', 'non_shared'],
+            expected_networks=expected_networks)
 
     def test_network_list_for_tenant_no_pre_auto_allocate_if_net_exists(self):
+        expected_networks = [n for n in self.networks.list()
+                             if (n['tenant_id'] == '1' or
+                                 n['shared'] is True or
+                                 n['router:external'] is True)]
         self._test_network_list_for_tenant(
             include_external=True, filter_params=None,
             should_called=['non_shared', 'shared', 'external'],
-            include_pre_auto_allocate=True)
+            include_pre_auto_allocate=True,
+            expected_networks=expected_networks)
 
     @override_settings(OPENSTACK_NEUTRON_NETWORK={
         'enable_auto_allocated_network': True})
@@ -197,9 +333,9 @@ class NeutronApiTests(test.APIMockTestCase):
 
         self.assertEqual(2, self.mock_network_list.call_count)
         self.mock_network_list.assert_has_calls([
-            mock.call(test.IsHttpRequest(), tenant_id=tenant_id,
-                      shared=False),
-            mock.call(test.IsHttpRequest(), shared=True),
+            mock.call(test.IsHttpRequest(), single_page=False, shared=True),
+            mock.call(test.IsHttpRequest(), single_page=False,
+                      shared=False, tenant_id=tenant_id)
         ])
         self.mock_is_extension_supported.assert_called_once_with(
             test.IsHttpRequest(), 'auto-allocated-topology')
@@ -219,10 +355,553 @@ class NeutronApiTests(test.APIMockTestCase):
 
         self.assertEqual(2, self.mock_network_list.call_count)
         self.mock_network_list.assert_has_calls([
-            mock.call(test.IsHttpRequest(), tenant_id=tenant_id,
-                      shared=False),
-            mock.call(test.IsHttpRequest(), shared=True),
+            mock.call(test.IsHttpRequest(), single_page=False, shared=True),
+            mock.call(test.IsHttpRequest(), single_page=False,
+                      shared=False, tenant_id=tenant_id),
         ])
+
+    def test_network_list_for_tenant_first_page_has_more(self):
+        source_networks = neutron_data.source_nets_pagination1
+        all_nets = neutron_data.all_nets_pagination1
+        page1 = all_nets[0:20]
+        page_data = {
+            'sort_dir': 'desc',
+            'marker_id': None,
+        }
+        result, more, prev = self._test_network_list_for_tenant(
+            include_external=True, filter_params=None,
+            should_called=['non_shared', 'shared'],
+            expected_networks=page1,
+            page_data=page_data,
+            source_networks=source_networks)
+
+        self.assertEqual(20, len(result))
+        self.assertTrue(more)
+        self.assertFalse(prev)
+        self.assertEqual('net_shr', result[0]['name'])
+        self.assertFalse(result[1]['shared'])
+        self.assertEqual(page1, result)
+
+    @mock.patch.object(api.neutron, 'network_get')
+    def test_network_list_for_tenant_second_page_has_more(self, mock_net_get):
+        all_nets = neutron_data.all_nets_pagination1
+        mock_net_get.return_value = all_nets[19]
+        page2 = all_nets[20:40]
+        page_data = {
+            'sort_dir': 'desc',
+            'marker_id': all_nets[19]['id'],
+        }
+        result, more, prev = self._test_network_list_for_tenant(
+            include_external=True, filter_params=None,
+            should_called=['non_shared'],
+            expected_networks=page2,
+            page_data=page_data,
+            source_networks=all_nets[20:41],
+            marker_calls=['non_shared'])
+
+        self.assertEqual(20, len(result))
+        self.assertFalse(result[0]['shared'])
+        self.assertEqual(page2[0]['name'], result[0]['name'])
+        self.assertTrue(more)
+        self.assertTrue(prev)
+        self.assertEqual(page2, result)
+
+    @mock.patch.object(api.neutron, 'network_get')
+    def test_network_list_for_tenant_last_page(self, mock_net_get):
+        all_nets = neutron_data.all_nets_pagination1
+        mock_net_get.return_value = all_nets[39]
+        page3 = all_nets[40:60]
+        page_data = {
+            'sort_dir': 'desc',
+            'marker_id': all_nets[39]['id'],
+        }
+        result, more, prev = self._test_network_list_for_tenant(
+            include_external=True, filter_params=None,
+            should_called=['non_shared', 'external'],
+            expected_networks=page3,
+            page_data=page_data,
+            source_networks=page3,
+            marker_calls=['non_shared'])
+
+        self.assertEqual(20, len(result))
+        self.assertFalse(result[0]['router:external'])
+        self.assertEqual('net_ext', result[-1]['name'])
+        self.assertEqual(page3[0]['name'], result[0]['name'])
+        self.assertFalse(more)
+        self.assertTrue(prev)
+        self.assertEqual(page3, result)
+
+    @mock.patch.object(api.neutron, 'network_get')
+    def test_network_list_for_tenant_second_page_by_prev(self, mock_net_get):
+        all_nets = list(neutron_data.all_nets_pagination1)
+        all_nets.reverse()
+        mock_net_get.return_value = all_nets[19]
+        page2 = all_nets[20:40]
+        page_data = {
+            'sort_dir': 'asc',
+            'marker_id': all_nets[19]['id'],
+        }
+        result, more, prev = self._test_network_list_for_tenant(
+            include_external=True, filter_params=None,
+            should_called=['non_shared'],
+            expected_networks=page2,
+            page_data=page_data,
+            source_networks=all_nets[20:41],
+            marker_calls=['non_shared'])
+
+        self.assertEqual(20, len(result))
+        self.assertFalse(result[0]['router:external'])
+        self.assertFalse(result[0]['shared'])
+        self.assertFalse(result[-1]['router:external'])
+        self.assertFalse(result[-1]['shared'])
+        self.assertTrue(more)
+        self.assertTrue(prev)
+        page2.reverse()
+        self.assertEqual(page2, result)
+
+    @mock.patch.object(api.neutron, 'network_get')
+    def test_network_list_for_tenant_first_page_by_prev(self, mock_net_get):
+        all_nets = list(neutron_data.all_nets_pagination1)
+        all_nets.reverse()
+        mock_net_get.return_value = all_nets[39]
+        page1 = all_nets[40:60]
+        page_data = {
+            'sort_dir': 'asc',
+            'marker_id': all_nets[39]['id'],
+        }
+        result, more, prev = self._test_network_list_for_tenant(
+            include_external=True, filter_params=None,
+            should_called=['non_shared', 'shared'],
+            expected_networks=page1,
+            page_data=page_data,
+            source_networks=page1,
+            marker_calls=['non_shared'])
+
+        self.assertEqual(20, len(result))
+        self.assertTrue(more)
+        self.assertFalse(prev)
+        self.assertFalse(result[1]['shared'])
+        self.assertEqual('net_shr', result[0]['name'])
+        page1.reverse()
+        self.assertEqual(page1, result)
+
+    def test_network_list_for_tenant_first_page_has_more2(self):
+        source_networks = neutron_data.source_nets_pagination2
+        all_nets = neutron_data.all_nets_pagination2
+        page1 = all_nets[0:20]
+        page_data = {
+            'sort_dir': 'desc',
+            'marker_id': None,
+        }
+        result, more, prev = self._test_network_list_for_tenant(
+            include_external=True, filter_params=None,
+            should_called=['shared'],
+            expected_networks=page1,
+            page_data=page_data,
+            source_networks=source_networks)
+
+        self.assertEqual(20, len(result))
+        self.assertTrue(more)
+        self.assertFalse(prev)
+        self.assertTrue(result[0]['shared'])
+        self.assertTrue(result[-1]['shared'])
+        self.assertFalse(result[0]['router:external'])
+        self.assertFalse(result[-1]['router:external'])
+        self.assertEqual(page1, result)
+
+    @mock.patch.object(api.neutron, 'network_get')
+    def test_network_list_for_tenant_second_page_has_more2(self, mock_net_get):
+        all_nets = neutron_data.all_nets_pagination2
+        mock_net_get.return_value = all_nets[19]
+        page2 = all_nets[20:40]
+        page_data = {
+            'sort_dir': 'desc',
+            'marker_id': all_nets[19]['id'],
+        }
+        result, more, prev = self._test_network_list_for_tenant(
+            include_external=True, filter_params=None,
+            should_called=['shared', 'non_shared', 'external'],
+            expected_networks=page2,
+            page_data=page_data,
+            source_networks=all_nets[20:41],
+            marker_calls=['shared'])
+
+        self.assertEqual(20, len(result))
+        self.assertTrue(result[0]['shared'])
+        self.assertFalse(result[-1]['shared'])
+        self.assertTrue(result[-1]['router:external'])
+        self.assertFalse(result[0]['router:external'])
+        self.assertTrue(more)
+        self.assertTrue(prev)
+        self.assertEqual(page2, result)
+
+    @mock.patch.object(api.neutron, 'network_get')
+    def test_network_list_for_tenant_last_page2(self, mock_net_get):
+        all_nets = neutron_data.all_nets_pagination2
+        mock_net_get.return_value = all_nets[39]
+        page3 = all_nets[40:60]
+        page_data = {
+            'sort_dir': 'desc',
+            'marker_id': all_nets[39]['id'],
+        }
+        result, more, prev = self._test_network_list_for_tenant(
+            include_external=True, filter_params=None,
+            should_called=['external'],
+            expected_networks=page3,
+            page_data=page_data,
+            source_networks=page3,
+            marker_calls=['external'])
+
+        self.assertEqual(20, len(result))
+        self.assertTrue(result[0]['router:external'])
+        self.assertFalse(result[0]['shared'])
+        self.assertFalse(result[-1]['shared'])
+        self.assertTrue(result[-1]['router:external'])
+        self.assertFalse(more)
+        self.assertTrue(prev)
+        self.assertEqual(page3, result)
+
+    @mock.patch.object(api.neutron, 'network_get')
+    def test_network_list_for_tenant_second_page_by_prev2(self, mock_net_get):
+        all_nets = list(neutron_data.all_nets_pagination2)
+        all_nets.reverse()
+        mock_net_get.return_value = all_nets[19]
+        page2 = all_nets[20:40]
+        page_data = {
+            'sort_dir': 'asc',
+            'marker_id': all_nets[19]['id'],
+        }
+        result, more, prev = self._test_network_list_for_tenant(
+            include_external=True, filter_params=None,
+            should_called=['shared', 'external', 'non_shared'],
+            expected_networks=page2,
+            page_data=page_data,
+            source_networks=all_nets[20:41],
+            marker_calls=['external'])
+
+        self.assertEqual(20, len(result))
+        self.assertTrue(result[0]['shared'])
+        self.assertFalse(result[-1]['shared'])
+        self.assertTrue(result[-1]['router:external'])
+        self.assertFalse(result[0]['router:external'])
+        self.assertTrue(more)
+        self.assertTrue(prev)
+        page2.reverse()
+        self.assertEqual(page2, result)
+
+    @mock.patch.object(api.neutron, 'network_get')
+    def test_network_list_for_tenant_first_page_by_prev2(self, mock_net_get):
+        all_nets = list(neutron_data.all_nets_pagination2)
+        all_nets.reverse()
+        mock_net_get.return_value = all_nets[39]
+        page1 = all_nets[40:60]
+        page_data = {
+            'sort_dir': 'asc',
+            'marker_id': all_nets[39]['id'],
+        }
+        result, more, prev = self._test_network_list_for_tenant(
+            include_external=True, filter_params=None,
+            should_called=['shared'],
+            expected_networks=page1,
+            page_data=page_data,
+            source_networks=page1,
+            marker_calls=['shared'])
+
+        self.assertEqual(20, len(result))
+        self.assertTrue(more)
+        self.assertFalse(prev)
+        self.assertTrue(result[0]['shared'])
+        self.assertTrue(result[-1]['shared'])
+        self.assertFalse(result[0]['router:external'])
+        self.assertFalse(result[-1]['router:external'])
+        page1.reverse()
+        self.assertEqual(page1, result)
+
+    def test_network_list_paged_first_page_has_more(self):
+        source_networks = neutron_data.source_nets_pagination1
+        page1 = source_networks[0:20]
+        page_data = {
+            'sort_dir': 'desc',
+            'marker_id': None,
+        }
+        result, more, prev = self._test_network_list_paged(
+            filter_params=None,
+            expected_networks=page1,
+            page_data=page_data,
+            source_networks=source_networks)
+
+        self.assertEqual(20, len(result))
+        self.assertTrue(more)
+        self.assertFalse(prev)
+        self.assertEqual(page1, result)
+
+    @mock.patch.object(api.neutron, 'network_get')
+    def test_network_list_paged_second_page_has_more(self, mock_net_get):
+        source_networks = neutron_data.source_nets_pagination1
+        mock_net_get.return_value = source_networks[19]
+        page2 = source_networks[20:40]
+        page_data = {
+            'sort_dir': 'desc',
+            'marker_id': source_networks[19]['id'],
+        }
+        result, more, prev = self._test_network_list_paged(
+            filter_params=None,
+            expected_networks=page2,
+            page_data=page_data,
+            source_networks=source_networks[20:41])
+
+        self.assertEqual(20, len(result))
+        self.assertTrue(more)
+        self.assertTrue(prev)
+        self.assertEqual(page2, result)
+
+    @mock.patch.object(api.neutron, 'network_get')
+    def test_network_list_paged_last_page(self, mock_net_get):
+        source_networks = neutron_data.source_nets_pagination1
+        mock_net_get.return_value = source_networks[39]
+        page3 = source_networks[40:60]
+        page_data = {
+            'sort_dir': 'desc',
+            'marker_id': source_networks[39]['id'],
+        }
+        result, more, prev = self._test_network_list_paged(
+            filter_params=None,
+            expected_networks=page3,
+            page_data=page_data,
+            source_networks=page3)
+
+        self.assertEqual(20, len(result))
+        self.assertFalse(more)
+        self.assertTrue(prev)
+        self.assertEqual(page3, result)
+
+    @mock.patch.object(api.neutron, 'network_get')
+    def test_network_list_paged_second_page_by_prev(self, mock_net_get):
+        source_networks = neutron_data.source_nets_pagination1
+        source_networks.reverse()
+        mock_net_get.return_value = source_networks[19]
+        page2 = source_networks[20:40]
+        page_data = {
+            'sort_dir': 'asc',
+            'marker_id': source_networks[19]['id'],
+        }
+        result, more, prev = self._test_network_list_paged(
+            filter_params=None,
+            expected_networks=page2,
+            page_data=page_data,
+            source_networks=source_networks[20:41])
+
+        self.assertEqual(20, len(result))
+        self.assertTrue(more)
+        self.assertTrue(prev)
+        page2.reverse()
+        self.assertEqual(page2, result)
+
+    @mock.patch.object(api.neutron, 'network_get')
+    def test_network_list_paged_first_page_by_prev(self, mock_net_get):
+        source_networks = neutron_data.source_nets_pagination1
+        source_networks.reverse()
+        mock_net_get.return_value = source_networks[39]
+        page1 = source_networks[40:60]
+        page_data = {
+            'sort_dir': 'asc',
+            'marker_id': source_networks[39]['id'],
+        }
+        result, more, prev = self._test_network_list_paged(
+            filter_params=None,
+            expected_networks=page1,
+            page_data=page_data,
+            source_networks=page1)
+
+        self.assertEqual(20, len(result))
+        self.assertTrue(more)
+        self.assertFalse(prev)
+        page1.reverse()
+        self.assertEqual(page1, result)
+
+    def test__perform_query_delete_last_project_without_marker(self):
+        marker_net = neutron_data.source_nets_pagination3[3]
+        query_result = (neutron_data.source_nets_pagination3[0:3], False, True)
+        query_func = mock.Mock(side_effect=[([], False, True), query_result])
+        self.request.session['network_deleted'] = \
+            neutron_data.source_nets_pagination3[4]
+        query_kwargs = {
+            'request': self.request,
+            'page_data': {'single_page': True,
+                          'marker_type': 'proj',
+                          'sort_dir': 'asc'},
+            'sort_dir': 'asc',
+        }
+        modified_query_kwargs = {
+            'request': self.request,
+            'page_data': {'single_page': True,
+                          'marker_type': 'proj',
+                          'sort_dir': 'desc'},
+            'sort_dir': 'desc',
+        }
+        result = api.neutron._perform_query(
+            query_func, dict(query_kwargs), marker_net)
+        self.assertEqual(query_result, result)
+        query_func.assert_has_calls([
+            mock.call(**query_kwargs), mock.call(**modified_query_kwargs)
+        ])
+
+    def test__perform_query_delete_last_project_with_marker(self):
+        marker_net = neutron_data.source_nets_pagination3[3]
+        query_result = (neutron_data.source_nets_pagination3[0:4], False, False)
+        query_func = mock.Mock(side_effect=[([], False, True), query_result])
+        self.request.session['network_deleted'] = \
+            neutron_data.source_nets_pagination3[4]
+        query_kwargs = {
+            'request': self.request,
+            'page_data': {'single_page': True,
+                          'marker_type': 'proj',
+                          'sort_dir': 'asc'},
+            'sort_dir': 'asc',
+        }
+        modified_query_kwargs = {
+            'request': self.request,
+            'page_data': {'single_page': True,
+                          'marker_type': 'proj',
+                          'sort_dir': 'desc'},
+            'sort_dir': 'desc',
+        }
+        result = api.neutron._perform_query(
+            query_func, dict(query_kwargs), marker_net)
+        self.assertEqual(query_result, result)
+        query_func.assert_has_calls([
+            mock.call(**query_kwargs), mock.call(**modified_query_kwargs)
+        ])
+
+    def test__perform_query_delete_last_admin_with_marker(self):
+        marker_net = neutron_data.source_nets_pagination3[3]
+        query_result = (neutron_data.source_nets_pagination3[0:4], False, False)
+        query_func = mock.Mock(side_effect=[([], False, True), query_result])
+        self.request.session['network_deleted'] = \
+            neutron_data.source_nets_pagination3[4]
+        query_kwargs = {
+            'request': self.request,
+            'page_data': {'single_page': True,
+                          'marker_type': 'proj',
+                          'sort_dir': 'asc'},
+            'params': {'sort_dir': 'asc'},
+        }
+        modified_query_kwargs = {
+            'request': self.request,
+            'page_data': {'single_page': True,
+                          'marker_type': 'proj',
+                          'sort_dir': 'desc'},
+            'params': {'sort_dir': 'desc'},
+        }
+        result = api.neutron._perform_query(
+            query_func, dict(query_kwargs), marker_net)
+        self.assertEqual(query_result, result)
+        query_func.assert_has_calls([
+            mock.call(**query_kwargs), mock.call(**modified_query_kwargs)
+        ])
+
+    def test__perform_query_delete_first_admin(self):
+        marker_net = neutron_data.source_nets_pagination3[3]
+        query_result = (neutron_data.source_nets_pagination3[0:3], True, False)
+        query_func = mock.Mock(side_effect=[([], True, False), query_result])
+        self.request.session['network_deleted'] = \
+            neutron_data.source_nets_pagination3[0]
+        query_kwargs = {
+            'request': self.request,
+            'page_data': {'single_page': True,
+                          'marker_type': 'proj',
+                          'sort_dir': 'desc',
+                          'marker_id': marker_net['id']},
+            'params': {'sort_dir': 'desc',
+                       'marker': marker_net['id']},
+        }
+        modified_query_kwargs = {
+            'request': self.request,
+            'page_data': {'single_page': True,
+                          'marker_type': None,
+                          'sort_dir': 'asc',
+                          'marker_id': None},
+            'params': {'sort_dir': 'asc'},
+        }
+        result = api.neutron._perform_query(
+            query_func, dict(query_kwargs), marker_net)
+        self.assertEqual(query_result, result)
+        query_func.assert_has_calls([
+            mock.call(**query_kwargs), mock.call(**modified_query_kwargs)
+        ])
+
+    def test__perform_query_delete_first_proj(self):
+        marker_net = neutron_data.source_nets_pagination3[3]
+        query_result = (neutron_data.source_nets_pagination3[0:3], True, False)
+        query_func = mock.Mock(side_effect=[([], True, False), query_result])
+        self.request.session['network_deleted'] = \
+            neutron_data.source_nets_pagination3[0]
+        query_kwargs = {
+            'request': self.request,
+            'page_data': {'single_page': True,
+                          'marker_type': 'proj',
+                          'sort_dir': 'desc',
+                          'marker_id': marker_net['id']},
+            'sort_dir': 'desc',
+        }
+        modified_query_kwargs = {
+            'request': self.request,
+            'page_data': {'single_page': True,
+                          'marker_type': None,
+                          'sort_dir': 'asc',
+                          'marker_id': None},
+            'sort_dir': 'asc',
+        }
+        result = api.neutron._perform_query(
+            query_func, dict(query_kwargs), marker_net)
+        self.assertEqual(query_result, result)
+        query_func.assert_has_calls([
+            mock.call(**query_kwargs), mock.call(**modified_query_kwargs)
+        ])
+
+    def test__perform_query_normal_paginated(self):
+        query_result = (self.networks.list(), True, True)
+        query_func = mock.Mock(return_value=query_result)
+        query_kwargs = {'request': self.request,
+                        'page_data': {'single_page': True}}
+
+        result = api.neutron._perform_query(query_func, query_kwargs, None)
+        self.assertEqual(query_result, result)
+        query_func.assert_called_once_with(**query_kwargs)
+
+    @override_settings(OPENSTACK_NEUTRON_NETWORK={
+        'enable_auto_allocated_network': True})
+    @test.create_mocks({api.neutron: ['is_extension_supported'],
+                        api.nova: ['is_feature_available']})
+    def test__perform_query_with_preallocated(self):
+        self.mock_is_extension_supported.return_value = True
+        self.mock_is_feature_available.return_value = True
+        query_func = mock.Mock(return_value=([], False, False))
+        query_kwargs = {'request': self.request,
+                        'page_data': {'single_page': True}}
+
+        result = api.neutron._perform_query(
+            query_func, query_kwargs, None, include_pre_auto_allocate=True)
+        self.assertIsInstance(result[0][0], api.neutron.PreAutoAllocateNetwork)
+        self.assertEqual(False, result[1])
+        self.assertEqual(False, result[2])
+        query_func.assert_called_once_with(**query_kwargs)
+
+    def test__perform_query_not_paginated(self):
+        query_result = self.networks.list()
+        query_func = mock.Mock(return_value=(query_result, False, False))
+        query_kwargs1 = {'page_data': {'single_page': False}}
+        query_kwargs2 = {'page_data': {}}
+
+        result = api.neutron._perform_query(query_func, query_kwargs1, None)
+        self.assertEqual(query_result, result)
+        query_func.assert_called_once_with(**query_kwargs1)
+
+        query_func.reset_mock()
+
+        result = api.neutron._perform_query(query_func, query_kwargs2, None)
+        self.assertEqual(query_result, result)
+        query_func.assert_called_once_with(**query_kwargs2)
 
     @mock.patch.object(api.neutron, 'neutronclient')
     def test_network_get(self, mock_neutronclient):

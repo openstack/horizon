@@ -103,19 +103,25 @@ class NetworkStubMixin(object):
         all_networks = self.networks.list()
         self.mock_network_list.side_effect = [
             [network for network in all_networks
-             if network['tenant_id'] == self.tenant.id],
+             if network.get('shared') is True],
             [network for network in all_networks
-             if network.get('shared')],
+             if network['tenant_id'] == self.tenant.id and
+             network.get('shared') is False],
             [network for network in all_networks
-             if network.get('router:external')],
+             if network.get('router:external') is True and
+             network.get('shared') is False],
         ]
 
     def _check_net_list(self):
         self.mock_network_list.assert_has_calls([
-            mock.call(test.IsHttpRequest(), tenant_id=self.tenant.id,
-                      shared=False),
-            mock.call(test.IsHttpRequest(), shared=True),
-            mock.call(test.IsHttpRequest(), **{'router:external': True}),
+            mock.call(test.IsHttpRequest(), single_page=True, limit=21,
+                      sort_dir='asc', sort_key='id', shared=True),
+            mock.call(test.IsHttpRequest(), single_page=True, limit=21,
+                      sort_dir='asc', sort_key='id',
+                      shared=False, tenant_id=self.tenant.id),
+            mock.call(test.IsHttpRequest(), single_page=True, limit=21,
+                      sort_dir='asc', sort_key='id',
+                      **{'router:external': True}, shared=False),
         ])
 
     def _stub_is_extension_supported(self, features):
@@ -148,16 +154,19 @@ class NetworkTests(test.TestCase, NetworkStubMixin):
         res = self.client.get(INDEX_URL)
         self.assertTemplateUsed(res, INDEX_TEMPLATE)
         networks = res.context['networks_table'].data
-        self.assertCountEqual(networks, self.networks.list())
 
         self.mock_tenant_quota_usages.assert_has_calls([
             mock.call(test.IsHttpRequest(), targets=('network', )),
             mock.call(test.IsHttpRequest(), targets=('subnet', )),
         ])
-        self.assertEqual(7, self.mock_tenant_quota_usages.call_count)
+        self.assertEqual(11, self.mock_tenant_quota_usages.call_count)
         self.mock_is_extension_supported.assert_called_once_with(
             test.IsHttpRequest(), 'network_availability_zone')
         self._check_net_list()
+        self.assertCountEqual(networks, [net for net in self.networks.list()
+                                         if net['tenant_id'] == '1' or
+                                         net['router:external'] is True or
+                                         net['shared'] is True])
 
     @test.create_mocks({api.neutron: ('network_list',
                                       'is_extension_supported'),
@@ -175,8 +184,8 @@ class NetworkTests(test.TestCase, NetworkStubMixin):
         self.assertMessageCount(res, error=1)
 
         self.mock_network_list.assert_called_once_with(
-            test.IsHttpRequest(), tenant_id=self.tenant.id,
-            shared=False)
+            test.IsHttpRequest(), single_page=True, limit=21, sort_dir='asc',
+            sort_key='id', shared=True)
         self.assert_mock_multiple_calls_with_same_arguments(
             self.mock_tenant_quota_usages, 2,
             mock.call(test.IsHttpRequest(), targets=('network', )))
@@ -787,7 +796,7 @@ class NetworkTests(test.TestCase, NetworkStubMixin):
     def test_network_create_post_with_subnet_cidr_invalid_v6_range(
             self, test_with_subnetpool=False):
         network = self.networks.first()
-        subnet_v6 = self.subnets.list()[4]
+        subnet_v6 = self.subnets.list()[9]
 
         self._stub_is_extension_supported({'network_availability_zone': False,
                                            'subnet_allocation': True})
@@ -1144,7 +1153,6 @@ class NetworkViewTests(test.TestCase, NetworkStubMixin):
         self.assertTemplateUsed(res, INDEX_TEMPLATE)
 
         networks = res.context['networks_table'].data
-        self.assertCountEqual(networks, self.networks.list())
 
         button = find_button_fn(res)
         self.assertFalse('disabled' in button.classes,
@@ -1155,9 +1163,13 @@ class NetworkViewTests(test.TestCase, NetworkStubMixin):
             mock.call(test.IsHttpRequest(), targets=('network', )),
             mock.call(test.IsHttpRequest(), targets=('subnet', )),
         ])
-        self.assertEqual(8, self.mock_tenant_quota_usages.call_count)
+        self.assertEqual(12, self.mock_tenant_quota_usages.call_count)
         self.mock_is_extension_supported.assert_called_once_with(
             test.IsHttpRequest(), 'network_availability_zone')
+        self.assertCountEqual(networks, [net for net in self.networks.list()
+                                         if net['tenant_id'] == '1' or
+                                         net['router:external'] is True or
+                                         net['shared'] is True])
 
         return button
 
@@ -1181,7 +1193,6 @@ class NetworkViewTests(test.TestCase, NetworkStubMixin):
         self.assertTemplateUsed(res, INDEX_TEMPLATE)
 
         networks = res.context['networks_table'].data
-        self.assertCountEqual(networks, self.networks.list())
 
         button = find_button_fn(res)
         self.assertIn('disabled', button.classes,
@@ -1192,9 +1203,13 @@ class NetworkViewTests(test.TestCase, NetworkStubMixin):
             mock.call(test.IsHttpRequest(), targets=('network', )),
             mock.call(test.IsHttpRequest(), targets=('subnet', )),
         ])
-        self.assertEqual(8, self.mock_tenant_quota_usages.call_count)
+        self.assertEqual(12, self.mock_tenant_quota_usages.call_count)
         self.mock_is_extension_supported.assert_called_once_with(
             test.IsHttpRequest(), 'network_availability_zone')
+        self.assertCountEqual(networks, [net for net in self.networks.list()
+                                         if net['tenant_id'] == '1' or
+                                         net['router:external'] is True or
+                                         net['shared'] is True])
 
         return button
 

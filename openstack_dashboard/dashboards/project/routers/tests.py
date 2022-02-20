@@ -830,11 +830,9 @@ class RouterActionTests(test.TestCase):
             test.IsHttpRequest(), device_id=router.id)
         self.assertEqual(2, self.mock_network_list.call_count)
         self.mock_network_list.assert_has_calls([
-            mock.call(test.IsHttpRequest(),
-                      shared=False,
-                      tenant_id=router['tenant_id']),
-            mock.call(test.IsHttpRequest(),
-                      shared=True),
+            mock.call(test.IsHttpRequest(), single_page=False, shared=True),
+            mock.call(test.IsHttpRequest(), single_page=False,
+                      shared=False, tenant_id=router['tenant_id']),
         ])
 
     @test.create_mocks({api.neutron: ('router_get',
