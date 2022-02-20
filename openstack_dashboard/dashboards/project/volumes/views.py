@@ -278,7 +278,7 @@ class CreateView(forms.ModalFormView):
                 _("If \"No volume type\" is selected, the volume will be "
                   "created without a volume type.")
 
-            no_type_description = encoding.force_text(message)
+            no_type_description = encoding.force_str(message)
 
         type_descriptions = [{'name': '',
                               'description': no_type_description}] + \

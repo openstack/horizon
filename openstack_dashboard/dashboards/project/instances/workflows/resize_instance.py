@@ -125,5 +125,5 @@ class ResizeInstance(workflows.Workflow):
             api.nova.server_resize(request, instance_id, flavor, disk_config)
             return True
         except Exception as e:
-            self.failure_message = encoding.force_text(e)
+            self.failure_message = encoding.force_str(e)
             return False

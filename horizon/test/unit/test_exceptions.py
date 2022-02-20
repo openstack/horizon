@@ -10,7 +10,7 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
-from django.utils.encoding import force_text
+from django.utils.encoding import force_str
 
 from horizon import exceptions
 from horizon.test import helpers as test
@@ -25,9 +25,9 @@ class HandleTests(test.TestCase):
         # Japanese translation of:
         # 'Because the container is not empty, it can not be deleted.'
 
-        expected = ['error', force_text(translated_unicode +
-                                        exceptions.SEPARATOR +
-                                        translated_unicode), '']
+        expected = ['error', force_str(translated_unicode +
+                                       exceptions.SEPARATOR +
+                                       translated_unicode), '']
 
         req = self.request
         req.META['HTTP_X_REQUESTED_WITH'] = 'XMLHttpRequest'

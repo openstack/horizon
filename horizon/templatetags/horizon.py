@@ -17,7 +17,7 @@ from collections import OrderedDict
 from django.conf import settings
 from django import template
 from django.template import Node
-from django.utils.encoding import force_text
+from django.utils.encoding import force_str
 from django.utils import translation
 from django.utils.translation import ugettext_lazy as _
 
@@ -34,7 +34,7 @@ class MinifiedNode(Node):
 
     def render(self, context):
         return ' '.join(
-            force_text(self.nodelist.render(context).strip()).split()
+            force_str(self.nodelist.render(context).strip()).split()
         ).replace(' > ', '>').replace(' <', '<')
 
 
@@ -142,9 +142,9 @@ def quota(val, units=None):
     if val == float("inf"):
         return _("(No Limit)")
     if units is not None:
-        return "%s %s %s" % (val, force_text(units),
-                             force_text(_("Available")))
-    return "%s %s" % (val, force_text(_("Available")))
+        return "%s %s %s" % (val, force_str(units),
+                             force_str(_("Available")))
+    return "%s %s" % (val, force_str(_("Available")))
 
 
 @register.filter

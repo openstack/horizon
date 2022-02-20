@@ -15,7 +15,7 @@
 import json
 
 from django import http
-from django.utils.encoding import force_text
+from django.utils.encoding import force_str
 from django.utils.safestring import mark_safe
 
 from horizon import messages
@@ -27,7 +27,7 @@ class MessageTests(test.TestCase):
     def test_middleware_header(self):
         req = self.request
         string = "Giant ants are attacking San Francisco!"
-        expected = ["error", force_text(string), ""]
+        expected = ["error", force_str(string), ""]
         self.assertIn("async_messages", req.horizon)
         self.assertCountEqual(req.horizon['async_messages'], [])
         req.META['HTTP_X_REQUESTED_WITH'] = 'XMLHttpRequest'
@@ -42,7 +42,7 @@ class MessageTests(test.TestCase):
     def test_error_message(self):
         req = self.request
         string = mark_safe("We are now safe from ants! Go <a>here</a>!")
-        expected = ["error", force_text(string), " safe"]
+        expected = ["error", force_str(string), " safe"]
         self.assertIn("async_messages", req.horizon)
         self.assertCountEqual(req.horizon['async_messages'], [])
         req.META['HTTP_X_REQUESTED_WITH'] = 'XMLHttpRequest'

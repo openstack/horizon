@@ -93,7 +93,7 @@ class Translate(types.ConfigType):
 
     def _formatter(self, value):
         return self.quote_trailing_and_leading_space(
-            encoding.force_text(value))
+            encoding.force_str(value))
 
 
 class Literal(types.ConfigType):
@@ -181,7 +181,7 @@ class Literal(types.ConfigType):
             return '(%s)' % ', '.join(self._format(value) for value in result)
         if isinstance(result, functional.Promise):
             # Lazy translatable string.
-            return repr(encoding.force_text(result))
+            return repr(encoding.force_str(result))
         return repr(result)
 
     def _formatter(self, value):

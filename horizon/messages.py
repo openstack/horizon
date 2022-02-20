@@ -19,12 +19,12 @@ messaging needs (e.g. AJAX communication, etc.).
 
 from django.contrib import messages as _messages
 from django.contrib.messages import constants
-from django.utils.encoding import force_text
+from django.utils.encoding import force_str
 from django.utils.safestring import SafeData
 
 
 def horizon_message_already_queued(request, message):
-    _message = force_text(message)
+    _message = force_str(message)
     if request.is_ajax():
         for tag, msg, extra in request.horizon['async_messages']:
             if _message == msg:
@@ -46,7 +46,7 @@ def add_message(request, level, message, extra_tags='', fail_silently=False):
             if isinstance(message, SafeData):
                 extra_tags = extra_tags + ' safe'
             request.horizon['async_messages'].append([tag,
-                                                      force_text(message),
+                                                      force_str(message),
                                                       extra_tags])
         else:
             return _messages.add_message(request, level, message,

@@ -263,8 +263,8 @@ HANDLE_EXC_METHODS = [
 
 
 def _append_detail(message, details):
-    return encoding.force_text(message) + SEPARATOR + \
-        encoding.force_text(details)
+    return encoding.force_str(message) + SEPARATOR + \
+        encoding.force_str(details)
 
 
 def handle(request, message=None, redirect=None, ignore=False,
@@ -315,7 +315,7 @@ def handle(request, message=None, redirect=None, ignore=False,
         exc_type, exc_value, exc_traceback = exc_value.wrapped
         wrap = True
 
-    log_entry = encoding.force_text(exc_value)
+    log_entry = encoding.force_str(exc_value)
 
     user_message = ""
     # We trust messages from our own exceptions
@@ -323,9 +323,9 @@ def handle(request, message=None, redirect=None, ignore=False,
         user_message = log_entry
     # If the message has a placeholder for the exception, fill it in
     elif message and "%(exc)s" in message:
-        user_message = encoding.force_text(message) % {"exc": log_entry}
+        user_message = encoding.force_str(message) % {"exc": log_entry}
     elif message:
-        user_message = encoding.force_text(message)
+        user_message = encoding.force_str(message)
     if details is None:
         user_message = _append_detail(user_message, exc_value)
     elif details:

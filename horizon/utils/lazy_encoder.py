@@ -13,7 +13,7 @@
 #    under the License.
 
 from django.core.serializers.json import DjangoJSONEncoder
-from django.utils.encoding import force_text
+from django.utils.encoding import force_str
 from django.utils.functional import Promise
 
 
@@ -21,5 +21,5 @@ class LazyTranslationEncoder(DjangoJSONEncoder):
     """JSON encoder that resolves lazy objects like translations"""
     def default(self, obj):
         if isinstance(obj, Promise):
-            return force_text(obj)
+            return force_str(obj)
         return super().default(obj)

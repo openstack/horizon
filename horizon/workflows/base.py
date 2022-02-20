@@ -26,7 +26,7 @@ from django.template.defaultfilters import linebreaks
 from django.template.defaultfilters import safe
 from django.template.defaultfilters import slugify
 from django import urls
-from django.utils.encoding import force_text
+from django.utils.encoding import force_str
 from django.utils import module_loading
 from django.utils.translation import ugettext_lazy as _
 from openstack_auth import policy
@@ -163,7 +163,7 @@ class Action(forms.Form, metaclass=ActionMetaclass):
         self.required_css_class = 'required'
 
     def __str__(self):
-        return force_text(self.name)
+        return force_str(self.name)
 
     def __repr__(self):
         return "<%s: %s>" % (self.__class__.__name__, self.slug)
@@ -182,7 +182,7 @@ class Action(forms.Form, metaclass=ActionMetaclass):
             tmpl = template.loader.get_template(self.help_text_template)
             text += tmpl.render(extra_context, self.request)
         else:
-            text += linebreaks(force_text(self.help_text))
+            text += linebreaks(force_str(self.help_text))
         return safe(text)
 
     def add_action_error(self, message):
@@ -310,7 +310,7 @@ class Step(object):
         return "<%s: %s>" % (self.__class__.__name__, self.slug)
 
     def __str__(self):
-        return force_text(self.name)
+        return force_str(self.name)
 
     def __init__(self, workflow):
         super().__init__()
@@ -453,7 +453,7 @@ class Step(object):
 
     def get_help_text(self):
         """Returns the help text for this step."""
-        text = linebreaks(force_text(self.help_text))
+        text = linebreaks(force_str(self.help_text))
         text += self.action.get_help_text()
         return safe(text)
 

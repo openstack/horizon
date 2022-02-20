@@ -20,14 +20,13 @@ from oslo_utils import units
 from django.conf import settings
 from django.contrib.auth import logout
 from django import http
-from django.utils.encoding import force_text
+from django.utils.encoding import force_str
 from django.utils.functional import lazy
 from django.utils import translation
 
 
 def _lazy_join(separator, strings):
-    return separator.join([force_text(s)
-                           for s in strings])
+    return separator.join([force_str(s) for s in strings])
 
 
 lazy_join = lazy(_lazy_join, str)
@@ -43,7 +42,7 @@ def add_logout_reason(request, response, reason, status='success'):
     # Store the translated string in the cookie
     lang = translation.get_language_from_request(request)
     with translation.override(lang):
-        reason = force_text(reason).encode('unicode_escape').decode('ascii')
+        reason = force_str(reason).encode('unicode_escape').decode('ascii')
         response.set_cookie('logout_reason', reason, max_age=10)
         response.set_cookie('logout_status', status, max_age=10)
 

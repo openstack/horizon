@@ -38,7 +38,7 @@ from django import test as django_test
 from django.test.client import RequestFactory
 from django.test import tag
 from django.test import utils as django_test_utils
-from django.utils.encoding import force_text
+from django.utils.encoding import force_str
 
 from django.contrib.staticfiles.testing \
     import StaticLiveServerTestCase as LiveServerTestCase
@@ -230,7 +230,7 @@ class TestCase(django_test.TestCase):
 
         # Otherwise, make sure we got the expected messages.
         for msg_type, count in kwargs.items():
-            msgs = [force_text(m.message)
+            msgs = [force_str(m.message)
                     for m in messages if msg_type in m.tags]
             assert len(msgs) == count, \
                 "%s messages not as expected: %s" % (msg_type.title(),

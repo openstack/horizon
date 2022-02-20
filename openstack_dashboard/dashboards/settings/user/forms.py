@@ -120,6 +120,6 @@ class UserSettingsForm(forms.SelfHandlingForm):
 
         with translation.override(lang_code):
             messages.success(request,
-                             encoding.force_text(_("Settings saved.")))
+                             encoding.force_str(_("Settings saved.")))
 
         return response
