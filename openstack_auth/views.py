@@ -22,6 +22,7 @@ from django.contrib import messages
 from django import http as django_http
 from django.middleware import csrf
 from django import shortcuts
+from django.urls import NoReverseMatch
 from django.urls import reverse
 from django.utils import http
 from django.utils.translation import gettext_lazy as _
@@ -317,7 +318,10 @@ def switch(request, tenant_id, redirect_field_name=auth.REDIRECT_FIELD_NAME):
             _('Switch to project "%(project_name)s" successful.') %
             {'project_name': request.user.project_name})
         messages.success(request, message)
-    response = shortcuts.redirect(redirect_to)
+    try:
+        response = shortcuts.redirect(redirect_to)
+    except NoReverseMatch:
+        response = django_http.HttpResponseRedirect(settings.LOGIN_REDIRECT_URL)
     utils.set_response_cookie(response, 'recent_project',
                               request.user.project_id)
     return response

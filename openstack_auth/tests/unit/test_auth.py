@@ -16,8 +16,10 @@ import uuid
 
 from django.conf import settings
 from django.contrib import auth
+from django import shortcuts
 from django import test
 from django.test.utils import override_settings
+from django.urls import NoReverseMatch
 from django.urls import reverse
 from keystoneauth1 import exceptions as keystone_exceptions
 from keystoneauth1.identity import v3 as v3_auth
@@ -1279,6 +1281,12 @@ class OpenStackAuthTests(test.TestCase):
     def test_switch(self, mock_get_access, mock_project_list,
                     mock_get_access_token,
                     next=None):
+        def mock_redirect_return(param):
+            if 'bad' not in param:
+                return original_redirect(param)
+            else:
+                raise NoReverseMatch
+
         project = self.data.project_two
         projects = [self.data.project_one, self.data.project_two]
         user = self.data.user
@@ -1290,24 +1298,26 @@ class OpenStackAuthTests(test.TestCase):
         mock_get_access_token.return_value = scoped
         mock_project_list.return_value = projects
 
-        url = reverse('login')
+        original_redirect = shortcuts.redirect
+        with mock.patch('django.shortcuts.redirect',
+                        side_effect=mock_redirect_return):
+            url = reverse('login')
 
-        response = self.client.get(url)
-        self.assertEqual(response.status_code, 200)
+            response = self.client.get(url)
+            self.assertEqual(response.status_code, 200)
 
-        response = self.client.post(url, form_data)
-        self.assertRedirects(response, settings.LOGIN_REDIRECT_URL)
+            response = self.client.post(url, form_data)
+            self.assertRedirects(response, settings.LOGIN_REDIRECT_URL)
 
-        url = reverse('switch_tenants', args=[project.id])
+            url = reverse('switch_tenants', args=[project.id])
 
-        scoped._project['id'] = self.data.project_two.id
+            scoped._project['id'] = self.data.project_two.id
 
-        if next:
-            form_data.update({auth.REDIRECT_FIELD_NAME: next})
+            if next:
+                form_data.update({auth.REDIRECT_FIELD_NAME: next})
+            response = self.client.get(url, form_data)
 
-        response = self.client.get(url, form_data)
-
-        if next:
+        if next and 'bad' not in next:
             expected_url = next
             self.assertEqual(response['location'], expected_url)
         else:
@@ -1325,6 +1335,9 @@ class OpenStackAuthTests(test.TestCase):
 
     def test_switch_with_next(self):
         self.test_switch(next='/next_url')
+
+    def test_switch_with_wrong_next(self):
+        self.test_switch(next='/bad_url')
 
     @mock.patch.object(v3_auth.Token, 'get_access')
     @mock.patch.object(password.PasswordPlugin, 'list_projects')
