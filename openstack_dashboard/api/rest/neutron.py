@@ -330,3 +330,157 @@ class QoSPolicy(generic.View):
         """Get a specific policy"""
         policy = api.neutron.policy_get(request, policy_id)
         return policy.to_dict()
+
+
+@urls.register
+class MinimumBandwidthRules(generic.View):
+    """API for Minimum Bandwidth Rule create."""
+    url_regex = (
+        r'neutron/qos/policies/' +
+        r'(?P<policy_id>[^/]+)/minimum_bandwidth_rules/$')
+
+    @rest_utils.ajax(data_required=True)
+    def post(self, req, policy_id):
+        minimum_bandwidth_rule = api.neutron.minimum_bandwidth_rule_create(
+            req, policy_id, **req.DATA)
+        return rest_utils.CreatedResponse(
+            '/api/neutron/qospolicies/minimumbandwidthrules/%s'
+            % minimum_bandwidth_rule.id,
+            minimum_bandwidth_rule.to_dict()
+        )
+
+
+@urls.register
+class MinimumBandwidthRule(generic.View):
+    """API for Minimum Bandwidth Rule update and delete."""
+    url_regex = (
+        r'neutron/qos/policies/' +
+        r'(?P<policy_id>[^/]+)/minimum_bandwidth_rules/(?P<rule_id>[^/]+)$'
+    )
+
+    @rest_utils.ajax(data_required=True)
+    def patch(self, req, policy_id, rule_id):
+        """Update a QoS Minimum Bandwidth rule."""
+        return api.neutron.minimum_bandwidth_rule_update(
+            req, policy_id, rule_id, **req.DATA)
+
+    @rest_utils.ajax()
+    def delete(self, req, policy_id, rule_id):
+        """Delete a QoS Minimum Badwidth rule"""
+        api.neutron.minimum_bandwidth_rule_delete(req, policy_id, rule_id)
+
+
+@urls.register
+class DSCPMarkingRules(generic.View):
+    """API for DSCP Marking Rule create"""
+    url_regex = (
+        r'neutron/qos/policies/(?P<policy_id>[^/]+)' +
+        r'/dscp_marking_rules/$')
+
+    @rest_utils.ajax(data_required=True)
+    def post(self, req, policy_id):
+        """Create QoS DSCP Marking rules."""
+        dscp_marking_rule = api.neutron.dscp_marking_rule_create(
+            req, policy_id, **req.DATA)
+        return rest_utils.CreatedResponse(
+            '/api/neutron/qospolicies/dscpmarkingrules/%s'
+            % dscp_marking_rule.id,
+            dscp_marking_rule.to_dict()
+        )
+
+
+@urls.register
+class DSCPMarkingRule(generic.View):
+    """API for DSCP Marking Rule Delete and Update"""
+    url_regex = (
+        r'neutron/qos/policies/(?P<policy_id>[^/]+)' +
+        r'/dscp_marking_rules/(?P<rule_id>[^/]+)$')
+
+    @rest_utils.ajax(data_required=True)
+    def patch(self, req, policy_id, rule_id):
+        """Update a qos DSCP Marking rule."""
+        return api.neutron.dscp_marking_rule_update(
+            req, policy_id, rule_id, **req.DATA)
+
+    @rest_utils.ajax()
+    def delete(self, req, policy_id, rule_id):
+        """Delete a qos DSCP Marking rule."""
+        api.neutron.dscp_marking_rule_delete(req, policy_id, rule_id)
+
+
+@urls.register
+class BandwidthLimitRules(generic.View):
+    """API for Bandwidth Limit Rule Create"""
+    url_regex = (
+        r'neutron/qos/policies/(?P<policy_id>[^/]+)' +
+        r'/bandwidth_limit_rules/$'
+    )
+
+    @rest_utils.ajax(data_required=True)
+    def post(self, req, policy_id):
+        """Create QoS Bandwidth Limit rules."""
+        bandwidth_limit_rule = api.neutron.bandwidth_limit_rule_create(
+            req, policy_id, **req.DATA)
+        return rest_utils.CreatedResponse(
+            '/api/neutron/qospolicies/bandwidthlimitrules/%s'
+            % bandwidth_limit_rule.id,
+            bandwidth_limit_rule.to_dict()
+        )
+
+
+@urls.register
+class BandwidthLimitRule(generic.View):
+    """API for Bandwidth Limit Rule Update and Delete"""
+    url_regex = (
+        r'neutron/qos/policies/(?P<policy_id>[^/]+)' +
+        r'/bandwidth_limit_rules/(?P<rule_id>[^/]+)$')
+
+    @rest_utils.ajax(data_required=True)
+    def patch(self, req, policy_id, rule_id):
+        """Update a QoS Bandwidth Limit rule."""
+        return api.neutron.bandwidth_limit_rule_update(
+            req, policy_id, rule_id, **req.DATA)
+
+    @rest_utils.ajax()
+    def delete(self, req, policy_id, rule_id):
+        """Delete a QoS Bandwidth Limit rule."""
+        api.neutron.bandwidth_limit_rule_delete(req, policy_id, rule_id)
+
+
+@urls.register
+class MinimumPacketRateRules(generic.View):
+    """API for Minimum Packet Rate Rule Create."""
+    url_regex = (
+        r'neutron/qos/policies/' +
+        r'(?P<policy_id>[^/]+)/minimum_packet_rate_rules/$')
+
+    @rest_utils.ajax(data_required=True)
+    def post(self, req, policy_id):
+        """Create QoS Minimum Packet Rate rules."""
+        minimum_packet_rate_rule = api.neutron.minimum_packet_rate_rule_create(
+            req, policy_id, **req.DATA)
+        return rest_utils.CreatedResponse(
+            '/api/neutron/qospolicies/minimumpacketraterules/%s'
+            % minimum_packet_rate_rule.id,
+            minimum_packet_rate_rule.to_dict()
+        )
+
+
+@urls.register
+class MinimumPacketRateRule(generic.View):
+    """API for Updating and Deleting Minimum Packet Rate Rule"""
+    url_regex = (
+        r'neutron/qos/policies/' +
+        r'(?P<policy_id>[^/]+)/minimum_packet_rate_rules/(?P<rule_id>[^/]+)$'
+    )
+
+    @rest_utils.ajax(data_required=True)
+    def patch(self, req, policy_id, rule_id):
+        """Update a QoS Minimum Packet Rate rule."""
+        return api.neutron.minimum_packet_rate_rule_update(
+            req, policy_id, rule_id, **req.DATA)
+
+    @rest_utils.ajax()
+    def delete(self, req, policy_id, rule_id):
+        """Delete a QoS Minimum Packet Rate rule."""
+        api.neutron.minimum_packet_rate_rule_delete(req, policy_id, rule_id)

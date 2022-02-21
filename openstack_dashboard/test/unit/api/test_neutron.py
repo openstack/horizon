@@ -1799,6 +1799,265 @@ class NeutronApiTests(test.APIMockTestCase):
         self.assertEqual(qos_policy['name'], ret_val.name)
         neutronclient.create_qos_policy.assert_called_once_with(body=post_data)
 
+    @mock.patch.object(api.neutron, 'neutronclient')
+    def test_dscp_mark_rule_create(self, mock_neutronclient):
+        qos_policy = self.api_qos_policies.first()
+        dscp_mark_rule = self.api_dscp_mark_rule.first()
+        post_data = {'dscp_marking_rule': {
+            "dscp_mark": dscp_mark_rule["dscp_mark"],
+            "tenant_id": dscp_mark_rule["tenant_id"]}
+        }
+
+        neutronclient = mock_neutronclient.return_value
+
+        neutronclient.create_dscp_marking_rule.return_value = {
+            'dscp_marking_rule': dscp_mark_rule
+        }
+
+        ret_val = api.neutron.dscp_marking_rule_create(
+            self.request,
+            policy_id=qos_policy['id'],
+            dscp_mark=dscp_mark_rule['dscp_mark'])
+
+        self.assertIsInstance(ret_val, api.neutron.DSCPMarkingRule)
+        self.assertEqual(dscp_mark_rule['dscp_mark'], ret_val.dscp_mark)
+        neutronclient.create_dscp_marking_rule.assert_called_once_with(
+            qos_policy['id'], post_data)
+
+    @mock.patch.object(api.neutron, 'neutronclient')
+    def test_dscp_mark_rule_update(self, mock_neutronclient):
+        qos_policy = self.api_qos_policies.first()
+        dscp_mark_rule = self.api_dscp_mark_rule.first()
+        dscp_mark_rule["dscp_mark"] = 28
+        post_data = {'dscp_marking_rule': {
+            "dscp_mark": 28}
+        }
+
+        neutronclient = mock_neutronclient.return_value
+
+        neutronclient.update_dscp_marking_rule.return_value = {
+            'dscp_marking_rule': dscp_mark_rule
+        }
+
+        ret_val = api.neutron.dscp_marking_rule_update(
+            self.request,
+            policy_id=qos_policy['id'],
+            rule_id=dscp_mark_rule['id'],
+            dscp_mark=dscp_mark_rule['dscp_mark'])
+
+        self.assertIsInstance(ret_val, api.neutron.DSCPMarkingRule)
+        self.assertEqual(
+            dscp_mark_rule['dscp_mark'], ret_val.dscp_mark)
+        neutronclient.update_dscp_marking_rule.assert_called_once_with(
+            dscp_mark_rule['id'], qos_policy['id'], post_data)
+
+    @mock.patch.object(api.neutron, 'neutronclient')
+    def test_dscp_mark_rule_delete(self, mock_neutronclient):
+        qos_policy = self.api_qos_policies.first()
+        dscp_mark_rule = self.api_dscp_mark_rule.first()
+
+        neutronclient = mock_neutronclient.return_value
+
+        neutronclient.delete_dscp_marking_rule.return_value = None
+
+        api.neutron.dscp_marking_rule_delete(
+            self.request, qos_policy['id'], dscp_mark_rule['id'])
+
+        neutronclient.delete_dscp_marking_rule.assert_called_once_with(
+            dscp_mark_rule['id'], qos_policy['id'])
+
+    @mock.patch.object(api.neutron, 'neutronclient')
+    def test_bandwidth_limit_rule_create(self, mock_neutronclient):
+        qos_policy = self.api_qos_policies.first()
+        bwd_limit_rule = self.api_bandwidth_limit_rule.first()
+        post_data = {
+            'bandwidth_limit_rule': {
+                "max_kbps": bwd_limit_rule["max_kbps"],
+                "tenant_id": bwd_limit_rule["tenant_id"]
+            }
+        }
+
+        neutronclient = mock_neutronclient.return_value
+
+        neutronclient.create_bandwidth_limit_rule.return_value = {
+            'bandwidth_limit_rule': bwd_limit_rule}
+
+        ret_val = api.neutron.bandwidth_limit_rule_create(
+            self.request,
+            policy_id=qos_policy['id'],
+            max_kbps=bwd_limit_rule["max_kbps"])
+
+        self.assertIsInstance(ret_val, api.neutron.BandwidthLimitRule)
+        self.assertEqual(bwd_limit_rule["max_kbps"], ret_val.max_kbps)
+        neutronclient.create_bandwidth_limit_rule.assert_called_once_with(
+            qos_policy['id'], post_data)
+
+    @mock.patch.object(api.neutron, 'neutronclient')
+    def test_bandwidth_limit_rule_update(self, mock_neutronclient):
+        qos_policy = self.api_qos_policies.first()
+        bwd_limit_rule = self.api_bandwidth_limit_rule.first()
+        bwd_limit_rule["max_kbps"] = 20000
+        post_data = {
+            "bandwidth_limit_rule": {
+                "max_kbps": 20000
+            }
+        }
+
+        neutronclient = mock_neutronclient.return_value
+
+        neutronclient.update_bandwidth_limit_rule.return_value = {
+            'bandwidth_limit_rule': bwd_limit_rule}
+
+        ret_val = api.neutron.bandwidth_limit_rule_update(
+            self.request,
+            policy_id=qos_policy['id'],
+            rule_id=bwd_limit_rule['id'],
+            max_kbps=bwd_limit_rule["max_kbps"])
+
+        self.assertIsInstance(ret_val, api.neutron.BandwidthLimitRule)
+        self.assertEqual(bwd_limit_rule["max_kbps"], ret_val.max_kbps)
+        neutronclient.update_bandwidth_limit_rule.assert_called_once_with(
+            bwd_limit_rule['id'], qos_policy['id'], post_data)
+
+    @mock.patch.object(api.neutron, 'neutronclient')
+    def test_bandwidth_limit_rule_delete(self, mock_neutronclient):
+        qos_policy = self.api_qos_policies.first()
+        bandwidth_limit_rule = self.api_bandwidth_limit_rule.first()
+
+        neutronclient = mock_neutronclient.return_value
+
+        neutronclient.delete_bandwidth_limit_rule.return_value = None
+
+        api.neutron.bandwidth_limit_rule_delete(
+            self.request, qos_policy['id'], bandwidth_limit_rule['id'])
+
+        neutronclient.delete_bandwidth_limit_rule.assert_called_once_with(
+            bandwidth_limit_rule['id'], qos_policy['id'])
+
+    @mock.patch.object(api.neutron, 'neutronclient')
+    def test_minimum_bandwidth_rule_create(self, mock_neutronclient):
+        qos_policy = self.api_qos_policies.first()
+        min_bwd_rule = self.api_minimum_bandwidth_rule.first()
+        post_data = {'minimum_bandwidth_rule': {
+            "min_kbps": min_bwd_rule["min_kbps"],
+            "tenant_id": min_bwd_rule["tenant_id"]}}
+
+        neutronclient = mock_neutronclient.return_value
+
+        neutronclient.create_minimum_bandwidth_rule.return_value = {
+            'minimum_bandwidth_rule': min_bwd_rule}
+
+        ret_val = api.neutron.minimum_bandwidth_rule_create(
+            self.request,
+            policy_id=qos_policy['id'],
+            min_kbps=min_bwd_rule["min_kbps"])
+
+        self.assertIsInstance(ret_val, api.neutron.MinimumBandwidthRule)
+        self.assertEqual(min_bwd_rule["min_kbps"], ret_val.min_kbps)
+        neutronclient.create_minimum_bandwidth_rule.assert_called_once_with(
+            qos_policy['id'], post_data)
+
+    @mock.patch.object(api.neutron, 'neutronclient')
+    def test_minimum_bandwidth_rule_update(self, mock_neutronclient):
+        qos_policy = self.api_qos_policies.first()
+        min_bwd_rule = self.api_minimum_bandwidth_rule.first()
+        min_bwd_rule['min_kbps'] = 20000
+        post_data = {'minimum_bandwidth_rule': {
+            "min_kbps": 20000}}
+
+        neutronclient = mock_neutronclient.return_value
+
+        neutronclient.update_minimum_bandwidth_rule.return_value = {
+            'minimum_bandwidth_rule': min_bwd_rule}
+
+        ret_val = api.neutron.minimum_bandwidth_rule_update(
+            self.request,
+            policy_id=qos_policy['id'],
+            rule_id=min_bwd_rule['id'],
+            min_kbps=min_bwd_rule["min_kbps"])
+
+        self.assertIsInstance(ret_val, api.neutron.MinimumBandwidthRule)
+        self.assertEqual(min_bwd_rule["min_kbps"], ret_val.min_kbps)
+        neutronclient.update_minimum_bandwidth_rule.assert_called_once_with(
+            min_bwd_rule['id'], qos_policy['id'], post_data)
+
+    @mock.patch.object(api.neutron, 'neutronclient')
+    def test_minimum_bandwidth_rule_delete(self, mock_neutronclient):
+        qos_policy = self.api_qos_policies.first()
+        min_bwd_rule = self.api_minimum_bandwidth_rule.first()
+
+        neutronclient = mock_neutronclient.return_value
+
+        neutronclient.delete_minimum_bandwidth_rule.return_value = None
+
+        api.neutron.minimum_bandwidth_rule_delete(
+            self.request, qos_policy['id'], min_bwd_rule['id'])
+
+        neutronclient.delete_minimum_bandwidth_rule.assert_called_once_with(
+            min_bwd_rule['id'], qos_policy['id'])
+
+    @mock.patch.object(api.neutron, 'neutronclient')
+    def test_minimum_packer_rate_rule_create(self, mock_neutronclient):
+        qos_policy = self.api_qos_policies.first()
+        min_pckt_rt_rule = self.api_minimum_packet_rate_rule.first()
+        post_data = {'minimum_packet_rate_rule': {
+            "min_kpps": min_pckt_rt_rule["min_kpps"],
+            "tenant_id": min_pckt_rt_rule["tenant_id"]}}
+
+        neutronclient = mock_neutronclient.return_value
+
+        neutronclient.create_minimum_packet_rate_rule.return_value = {
+            'minimum_packet_rate_rule': min_pckt_rt_rule}
+
+        ret_val = api.neutron.minimum_packet_rate_rule_create(
+            self.request,
+            policy_id=qos_policy['id'],
+            min_kpps=min_pckt_rt_rule["min_kpps"])
+
+        self.assertIsInstance(ret_val, api.neutron.MinimumPacketRateRule)
+        self.assertEqual(min_pckt_rt_rule['min_kpps'], ret_val.min_kpps)
+        neutronclient.create_minimum_packet_rate_rule.assert_called_once_with(
+            qos_policy['id'], post_data)
+
+    @mock.patch.object(api.neutron, 'neutronclient')
+    def test_minimum_packer_rate_rule_update(self, mock_neutronclient):
+        qos_policy = self.api_qos_policies.first()
+        min_pckt_rt_rule = self.api_minimum_packet_rate_rule.first()
+        min_pckt_rt_rule['min_kpps'] = 11000
+        post_data = {'minimum_packet_rate_rule': {
+            "min_kpps": 11000}}
+
+        neutronclient = mock_neutronclient.return_value
+
+        neutronclient.update_minimum_packet_rate_rule.return_value = {
+            'minimum_packet_rate_rule': min_pckt_rt_rule}
+
+        ret_val = api.neutron.minimum_packet_rate_rule_update(
+            self.request,
+            policy_id=qos_policy['id'],
+            rule_id=min_pckt_rt_rule['id'],
+            min_kpps=min_pckt_rt_rule["min_kpps"])
+
+        self.assertIsInstance(ret_val, api.neutron.MinimumPacketRateRule)
+        self.assertEqual(min_pckt_rt_rule["min_kpps"], ret_val.min_kpps)
+        neutronclient.update_minimum_packet_rate_rule.assert_called_once_with(
+            min_pckt_rt_rule['id'], qos_policy['id'], post_data)
+
+    @mock.patch.object(api.neutron, 'neutronclient')
+    def test_minimum_packet_rate_rule_delete(self, mock_neutronclient):
+        qos_policy = self.api_qos_policies.first()
+        min_pckt_rt_rule = self.api_minimum_packet_rate_rule.first()
+
+        neutronclient = mock_neutronclient.return_value
+
+        neutronclient.delete_minimum_packet_rate_rule.return_value = None
+
+        api.neutron.minimum_packet_rate_rule_delete(
+            self.request, qos_policy['id'], min_pckt_rt_rule['id'])
+
+        neutronclient.delete_minimum_packet_rate_rule.assert_called_once_with(
+            min_pckt_rt_rule['id'], qos_policy['id'])
+
 
 class NeutronApiSecurityGroupTests(test.APIMockTestCase):
 

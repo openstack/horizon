@@ -45,6 +45,10 @@ def data(TEST):
     TEST.neutron_quota_usages = utils.TestDataContainer()
     TEST.ip_availability = utils.TestDataContainer()
     TEST.qos_policies = utils.TestDataContainer()
+    TEST.dscp_mark_rule = utils.TestDataContainer()
+    TEST.bandwidth_limit_rule = utils.TestDataContainer()
+    TEST.minimum_bandwidth_rule = utils.TestDataContainer()
+    TEST.minimum_packet_rate_rule = utils.TestDataContainer()
     TEST.rbac_policies = utils.TestDataContainer()
     TEST.tp_ports = utils.TestDataContainer()
     TEST.neutron_availability_zones = utils.TestDataContainer()
@@ -69,6 +73,10 @@ def data(TEST):
     TEST.api_ip_availability = utils.TestDataContainer()
     TEST.api_rbac_policies = utils.TestDataContainer()
     TEST.api_qos_policies = utils.TestDataContainer()
+    TEST.api_dscp_mark_rule = utils.TestDataContainer()
+    TEST.api_bandwidth_limit_rule = utils.TestDataContainer()
+    TEST.api_minimum_bandwidth_rule = utils.TestDataContainer()
+    TEST.api_minimum_packet_rate_rule = utils.TestDataContainer()
     TEST.api_tp_trunks = utils.TestDataContainer()
     TEST.api_tp_ports = utils.TestDataContainer()
 
@@ -962,6 +970,49 @@ def data(TEST):
                     'tenant_id': '1'}
     TEST.api_qos_policies.add(policy_dict1)
     TEST.qos_policies.add(neutron.QoSPolicy(policy_dict1))
+
+    # qos rule - dscp mark
+    dscp_mark_rule_dict = {
+        "id": "5f126d84-551a-4dcf-bb01-0e9c0df0c794",
+        "dscp_mark": 26,
+        "tenant_id": "1"
+    }
+    TEST.api_dscp_mark_rule.add(dscp_mark_rule_dict)
+    TEST.dscp_mark_rule.add(neutron.DSCPMarkingRule(dscp_mark_rule_dict))
+
+    # qos rule - bandwidth limit
+    bandwidth_limit_rule = {
+        "id": "5f126d84-551a-4dcf-bb01-0e9c0df0c793",
+        "max_kbps": 10000,
+        "max_burst_kbps": 0,
+        "direction": "egress",
+        "tenant_id": "1"
+    }
+    TEST.api_bandwidth_limit_rule.add(bandwidth_limit_rule)
+    TEST.bandwidth_limit_rule.add(neutron.BandwidthLimitRule(
+        bandwidth_limit_rule))
+
+    # qos rule - minimum bandwidth
+    minimum_bandwidth_rule = {
+        "id": "1eddf7af-0b4c-42c5-8ae1-390b32f1de08",
+        "min_kbps": 10000,
+        "direction": "egress",
+        "tenant_id": "1"
+    }
+    TEST.api_minimum_bandwidth_rule.add(minimum_bandwidth_rule)
+    TEST.minimum_bandwidth_rule.add(neutron.MinimumBandwidthRule(
+        minimum_bandwidth_rule))
+
+    # qos rule - minimum packet rate
+    minimum_packet_rate_rule = {
+        "id": "1eddf7af-0b4c-42c5-8ae1-390b32f1de08",
+        "min_kpps": 10000,
+        "direction": "egress",
+        "tenant_id": "1"
+    }
+    TEST.api_minimum_packet_rate_rule.add(minimum_packet_rate_rule)
+    TEST.minimum_packet_rate_rule.add(neutron.MinimumPacketRateRule(
+        minimum_packet_rate_rule))
 
     # rbac policies
     rbac_policy_dict = {"project_id": "1",

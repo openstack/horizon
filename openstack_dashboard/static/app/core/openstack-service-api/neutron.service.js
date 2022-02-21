@@ -39,6 +39,10 @@
       createSubnet: createSubnet,
       createTrunk: createTrunk,
       createNetworkQoSPolicy: createNetworkQoSPolicy,
+      createBandwidthLimitRule: createBandwidthLimitRule,
+      createDSCPMarkingRule: createDSCPMarkingRule,
+      createMinimumBandwidthRule: createMinimumBandwidthRule,
+      createMinimumPacketRateRule: createMinimumPacketRateRule,
       deletePolicy: deletePolicy,
       deleteTrunk: deleteTrunk,
       getAgents: getAgents,
@@ -52,7 +56,15 @@
       getTrunk: getTrunk,
       getTrunks: getTrunks,
       updateProjectQuota: updateProjectQuota,
-      updateTrunk: updateTrunk
+      updateTrunk: updateTrunk,
+      deleteDSCPMarkingRule: deleteDSCPMarkingRule,
+      deleteBandwidthLimitRule: deleteBandwidthLimitRule,
+      deleteMinimumBandwidthRule: deleteMinimumBandwidthRule,
+      deleteMinimumPacketRateRule: deleteMinimumPacketRateRule,
+      updateMinimumBandwidthRule: updateMinimumBandwidthRule,
+      updateDSCPMarkingRule: updateDSCPMarkingRule,
+      updateBandwidthRule: updateBandwidthRule,
+      updateMinimumPacketRateRule: updateMinimumPacketRateRule
     };
 
     return service;
@@ -428,13 +440,13 @@
         });
     }
 
-    /**
-     * @name deletePolicy
-     * @description
-     * Delete a single neutron qos policy.
-     * @param {string} policyId
-     * Specifies the id of the policy to be deleted.
-     */
+   /**
+    * @name deletePolicy
+    * @description
+    * Delete a single neutron qos policy.
+    * @param {string} policyId
+    * Specifies the id of the policy to be deleted.
+    */
     function deletePolicy(policyId, suppressError) {
       var promise = apiService.delete('/api/neutron/qos_policies/' + policyId + '/');
       promise = suppressError ? promise : promise.error(function() {
@@ -443,6 +455,344 @@
       });
       return promise;
     }
+
+    /**
+     * @name createBandwidthLimitRule
+     * @description
+     * Creates a bandwidth limit rule for a QoS policy
+     * @returns {Object} A bandwidth_limit_rule object on success.
+     *
+     * @param {Object} policyId
+     * This param is for qos policy.
+     *
+     * @param {Object} ruleId
+     * The bandwidth limit rule to create. Required.
+     *
+     * Example new bandwidth limit rule response object
+     * {
+     *   "bandwidth_limit_rule": {
+     *     "id": "5f126d84-551a-4dcf-bb01-0e9c0df0c793",
+     *      "max_kbps": 10000,
+     *      "max_burst_kbps": 0,
+     *      "direction": "egress"
+     *    }
+     * }
+     *
+     * Description of properties on the bandwidth limit rule object
+     *
+     * @property {integer} ruleId.max_kbps
+     * The maximum KBPS (kilobits per second) value.
+     * If you specify this value, must be greater than '0'
+     * otherwise max_kbps will have no value. Required.
+     *
+     * @property {integer} ruleId.max_burst_kbps
+     * The maximum burst size (in kilobits). Default is '0'. Optional.
+     *
+     * @property {string} ruleId.direction
+     * The direction of the traffic to which the QoS rule is applied,
+     * as seen from the point of view of the port.
+     * Valid values are egress and ingress. Default value is egress.
+     * Optional.
+     *
+     */
+    function createBandwidthLimitRule(policyId, ruleId) {
+      return apiService.post('/api/neutron/qos/policies/' + policyId +
+             '/bandwidth_limit_rules/', ruleId)
+       .error(function () {
+         toastService.add('error', gettext('Unable to add the bandwidthrule .'));
+       });
+    }
+
+    /**
+     * @name createDSCPMarkingRule
+     * @description
+     * Creates a DSCP marking rule for a QoS policy.
+     * @returns {Object} A dscp_marking_rule object on success.
+     *
+     * @param {Object} policyId
+     * This param is for qos policy.
+     *
+     * @param {Object} ruleId
+     * The dscp marking rule to create. Required.
+     *
+     * Example new dscp mark rule response object
+     * {
+     *   "dscp_marking_rule": {
+     *      "id": "5f126d84-551a-4dcf-bb01-0e9c0df0c794",
+     *      "dscp_mark": 26
+     *    }
+     * }
+     *
+     * Description of properties on the dscp marking rule object
+     *
+     * @property {integer} ruleId.dscp_mark
+     * The DSCP mark value. Required.
+     * Valid DSCP mark values are even numbers between 0 and 56,
+     * except 2-6, 42, 44, and 50-54. The full list of valid DSCP marks is:
+     * 0, 8, 10, 12, 14, 16, 18, 20, 22, 24, 26, 28, 30, 32, 34, 36, 38, 40, 46, 48, 56
+     *
+     */
+    function createDSCPMarkingRule(policyId, ruleId) {
+      return apiService.post('/api/neutron/qos/policies/' + policyId +
+             '/dscp_marking_rules/', ruleId)
+       .error(function () {
+         toastService.add('error', gettext('Unable to add the dscp_marking_rule .'));
+       });
+    }
+
+    /**
+     * @name createMinimumBandwidthRule
+     * @description
+     * Creates a minimum bandwidth rule for a QoS policy
+     * @returns {Object} A minimum_bandwidth_rule object on success.
+     *
+     * @param {Object} policyId
+     * This param is for qos policy.
+     *
+     * @param {Object} ruleId
+     * The minimum bandwidth rule to create.  Required.
+     *
+     * Example new minimum bandwidth rule response object
+     * {
+     *   "minimum_bandwidth_rule": {
+     *      "id": "1eddf7af-0b4c-42c5-8ae1-390b32f1de08",
+     *      "min_kbps": 10000,
+     *      "direction": "egress"
+     *    }
+     * }
+     *
+     * Description of properties on the minimum bandwidth rule object
+     *
+     * @property {integer} ruleId.min_kbps
+     * The minimum KBPS (kilobits per second) value which should be available for port.
+     * Required.
+     *
+     * @property {string} ruleId.direction
+     * The direction of the traffic to which the QoS rule is applied,
+     * as seen from the point of view of the port.
+     * Valid values are egress and ingress. Default value is egress.
+     * Optional.
+     *
+     */
+    function createMinimumBandwidthRule(policyId, ruleId) {
+      return apiService.post('/api/neutron/qos/policies/' + policyId +
+             '/minimum_bandwidth_rules/', ruleId)
+       .error(function () {
+         toastService.add('error', gettext('Unable to add the minimum_bandwidth_rule .'));
+       });
+    }
+
+    /**
+     * @name createMinimumPacketRateRule
+     * @description
+     * Creates a minimum packet rate rule for a QoS policy
+     * @returns {Object} A minimum_bandwidth_rule object on success.
+     *
+     * @param {Object} policyId
+     * This param is for qos policy.
+     *
+     * @param {Object} ruleId
+     * The minimum packet rate rule to create.  Required.
+     *
+     * Example new minimum packet rate rule response object
+     * {
+     *   "minimum_packet_rate_rule": {
+     *      "id": "1eddf7af-0b4c-42c5-8ae1-390b32f1de08",
+     *      "min_kpps": 10000,
+     *      "direction": "egress"
+     *    }
+     * }
+     *
+     * Description of properties on the minimum packet rate rule object
+     *
+     * @property {integer} ruleId.min_kbps
+     * The minimum kpps (kilo(1000) packets per second) value which should be available for port.
+     * Required.
+     *
+     * @property {string} ruleId.direction
+     * The direction of the traffic to which the QoS rule is applied,
+     * as seen from the point of view of the port.
+     * Valid values are egress and ingress. Default value is egress.
+     * Optional.
+     *
+     */
+    function createMinimumPacketRateRule(policyId, ruleId) {
+      return apiService.post('/api/neutron/qos/policies/' + policyId +
+              '/minimum_packet_rate_rules/', ruleId)
+        .error(function () {
+          toastService.add('error', gettext('Unable to add the minimum_packet_rate_rule.'));
+        });
+    }
+
+    /**
+     * @name updateBandwidthRule
+     * @description
+     * Update an existing bandwidth limit rule for a QoS policy.
+     * @returns {Object} A bandwidth_limit_rule object on success.
+     *
+     * @param {Object} policyId
+     * This param is for qos policy.
+     *
+     * @param {Object} ruleId
+     * This param is for rule.
+     *
+     * @param {Object} updateRuleId
+     * The bandwidth limit rule to update.  Required.
+     *
+     */
+    function updateBandwidthRule(policyId, ruleId, updateRuleId) {
+      return apiService.patch('/api/neutron/qos/policies/' + policyId +
+             '/bandwidth_limit_rules/' + ruleId , updateRuleId)
+       .error(function () {
+         toastService.add('error', gettext('Unable to update the bandwidthrule.'));
+       });
+    }
+
+    /**
+     * @name updateDSCPMarkingRule
+     * @description
+     * Update an existing bandwidth limit rule for a QoS policy.
+     * @returns {Object} A bandwidth_limit_rule object on success.
+     *
+     * @param {Object} policyId
+     * This param is for qos policy.
+     *
+     * @param {Object} ruleId
+     * This param is for rule.
+     *
+     * @param {Object} updateRuleId
+     * The bandwidth limit rule to update.  Required.
+     *
+     */
+    function updateDSCPMarkingRule(policyId, ruleId, updateRuleId) {
+      return apiService.patch('/api/neutron/qos/policies/' + policyId +
+             '/dscp_marking_rules/' + ruleId , updateRuleId)
+       .error(function () {
+         toastService.add('error', gettext('Unable to update the dscp marking rule.'));
+       });
+    }
+
+    /**
+     * @name updateMinimumBandwidthRule
+     * @description
+     * Update an existing minimum bandwidth rule for a QoS policy.
+     * @returns {Object} A minimum_bandwidth_rule object on success.
+     *
+     * @param {Object} policyId
+     * This param is for qos policy.
+     *
+     * @param {Object} ruleId
+     * This param is for rule.
+     *
+     * @param {Object} updateRuleId
+     * The minimum bandwidth limit rule to update. Required.
+     *
+     */
+    function updateMinimumBandwidthRule(policyId, ruleId, updateRuleId) {
+      return apiService.patch('/api/neutron/qos/policies/' + policyId +
+             '/minimum_bandwidth_rules/' + ruleId , updateRuleId)
+       .error(function () {
+         toastService.add('error', gettext('Unable to update the minimum bandwidth rule.'));
+       });
+    }
+
+    /**
+     * @name updateMinimumPacketRateRule
+     * @description
+     * Update an existing minimum packet rate limit rule for a QoS policy.
+     * @returns {Object} A minimum_packet_rate_rule object on success.
+     *
+     * @param {Object} policyId
+     * This param is for qos policy.
+     *
+     * @param {Object} ruleId
+     * This param is for rule.
+     *
+     * @param {Object} updateRuleId
+     * The minimum packet rate limit rule to update.  Required.
+     *
+     */
+    function updateMinimumPacketRateRule(policyId, ruleId, updateRuleId) {
+      return apiService.patch('/api/neutron/qos/policies/' + policyId +
+              '/minimum_packet_rate_rules/' + ruleId , updateRuleId)
+        .error(function () {
+          toastService.add('error', gettext('Unable to update the minimum packet rate rule.'));
+        });
+    }
+
+    /**
+     * @name deleteBandwidthLimitRule
+     * @description
+     * Delete a single bandwidth limit rule.
+     *
+     * @param {string} policyId
+     * The ID of the QoS policy.
+     *
+     * @param {string} deleteruleId
+     * The ID of the QoS rule.
+     *
+     */
+    function deleteBandwidthLimitRule(policyId, deleteRuleId) {
+      return apiService.delete('/api/neutron/qos/policies/' + policyId +
+             '/bandwidth_limit_rules/' + deleteRuleId).error(function() {
+               toastService.add('error', gettext('Unable to delete the bandwidth_limit_rule.'));
+             });
+    }
+
+    /**
+     * @name deleteDSCPMarkingRule
+     * @description
+     * Delete a single dscp mark rule.
+     *
+     * @param {string} policyId
+     * The ID of the QoS policy.
+     *
+     * @param {string} deleteruleId
+     * The ID of the QoS rule.
+     */
+    function deleteDSCPMarkingRule(policyId, deleteRuleId) {
+      return apiService.delete('/api/neutron/qos/policies/' + policyId +
+             '/dscp_marking_rules/' + deleteRuleId).error(function() {
+               toastService.add('error', gettext('Unable to delete the dscp_marking_rule.'));
+             });
+    }
+
+    /**
+     * @name deleteMinimumBandwidthRule
+     * @description
+     * Delete a single minimum bandwidth rule.
+     *
+     * @param {string} policyId
+     * The ID of the QoS policy.
+     *
+     * @param {string} deleteruleId
+     * The ID of the QoS rule.
+     */
+    function deleteMinimumBandwidthRule(policyId, deleteRuleId) {
+      return apiService.delete('/api/neutron/qos/policies/' + policyId +
+             '/minimum_bandwidth_rules/' + deleteRuleId).error(function() {
+               toastService.add('error', gettext('Unable to delete the minimum_bandwidth_rule .'));
+             });
+    }
+
+    /**
+     * @name deleteMinimumPacketRateRule
+     * @description
+     * Delete a single minimum packet rate rule.
+     *
+     * @param {string} policyId
+     * The ID of the QoS policy.
+     *
+     * @param {string} deleteruleId
+     * The ID of the QoS rule.
+     */
+    function deleteMinimumPacketRateRule(policyId, deleteRuleId) {
+      return apiService.delete('/api/neutron/qos/policies/' + policyId +
+            '/minimum_packet_rate_rules/' + deleteRuleId).error(function() {
+              toastService.add('error', gettext('Unable to delete the minimum_packet_rate_rule .'));
+            });
+    }
+
     // Trunks
 
     /**

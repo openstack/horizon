@@ -33,6 +33,9 @@
     'horizon.framework.conf.resource-type-registry.service',
     'horizon.app.core.network_qos.actions.create.service',
     'horizon.app.core.network_qos.actions.delete.service',
+    'horizon.app.core.network_qos.actions.add-rule.service',
+    'horizon.app.core.network_qos.actions.edit-rule.service',
+    'horizon.app.core.network_qos.actions.delete-rule.service',
     'horizon.app.core.network_qos.resourceType'
   ];
 
@@ -40,6 +43,9 @@
     registry,
     createService,
     deleteService,
+    addRuleService,
+    editRuleService,
+    deleteRuleService,
     qosResourceTypeCode
   ) {
     var qosResourceType = registry.getResourceType(qosResourceTypeCode);
@@ -54,6 +60,34 @@
         }
       }
     );
+
+    qosResourceType.itemActions
+      .append({
+        id: 'addRulePolicyAction',
+        service: addRuleService,
+        template: {
+          text: gettext('Add Rule')
+        }
+      });
+
+    qosResourceType.itemActions
+      .append({
+        id: 'editRuleAction',
+        service: editRuleService,
+        template: {
+          text: gettext('Edit Rule')
+        }
+      });
+
+    qosResourceType.itemActions
+      .append({
+        id: 'deleteRuleAction',
+        service: deleteRuleService,
+        template: {
+          text: gettext('Delete Rule'),
+          type: 'delete'
+        }
+      });
 
     qosResourceType.itemActions
       .append({

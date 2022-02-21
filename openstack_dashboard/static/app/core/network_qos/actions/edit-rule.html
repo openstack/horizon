@@ -1,0 +1,106 @@
+<div ng-controller="horizon.app.core.network_qos.actions.EditQoSRuleController as ctrl" class="form-group">
+    <label class="control-label  required">
+      <translate>QoS Policy ID</translate>
+      <span class="hz-icon-required fa fa-asterisk"></span>
+    </label>
+    <input class="form-control ng-pristine ng-untouched ng-valid" ng-value="ctrl.qospolicy" name="qospolicyid" readonly>
+    <label class="control-label  required">
+      <translate>QoS Policy Name</translate>
+      <span class="hz-icon-required fa fa-asterisk"></span>
+    </label>
+    <input class="form-control ng-pristine ng-untouched ng-valid" ng-value="ctrl.qospolicyname" name="qospolicyname" readonly>
+    <label class="control-label required">
+      <translate>Rule to edit</translate>
+      <span class="hz-icon-required fa fa-asterisk"></span>
+    </label>
+    <select class="form-control switchable ng-pristine ng-untouched ng-valid"
+            ng-model="rule_type"
+            ng-options="option.val for option in ctrl.rule_types"
+            name="edit-rule"
+            ng-change="ctrl.onRuleTypeChange(rule_type)">
+    </select>
+    <div ng-show="rule_type.name === 'bandwidth_limit'">
+      <label class="control-label  required">
+        <translate>Max bandwidth (in kbps)</translate>
+        <span class="hz-icon-required fa fa-asterisk"></span>
+      </label>
+      <input class="form-control ng-pristine ng-untouched ng-valid"
+              ng-model="bwd.maxkbps"
+              name="maxkbps"
+              ng-value="ctrl.maxkbps"
+              ng-change="ctrl.bwdLimit(bwd)">
+      <label class="control-label  required">
+        <translate>Max Burst Size (in kbps)</translate>
+      </label>
+      <input class="form-control ng-pristine ng-untouched ng-valid"
+              ng-model="bwd.maxburstkbps"
+              name="maxburstkbps"
+              ng-value="ctrl.maxburstkbps"
+              ng-change="ctrl.bwdLimit(bwd)">
+      <label class="control-label  required">
+        <translate>Direction</translate>
+      </label>
+      <select class="form-control switchable ng-pristine ng-untouched ng-valid"
+              ng-model="bwd.direction"
+              ng-init="ctrl.bwddirection"
+              ng-options="val as label for (val, label) in ctrl.directions"
+              name="direction"
+              ng-change="ctrl.bwdLimit(bwd)">
+      </select>
+    </div>
+    <div ng-show="rule_type.name === 'dscp_marking'">
+      <label class="control-label  required">
+        <translate>DSCP Mark</translate>
+        <span class="hz-icon-required fa fa-asterisk"></span>
+      </label>
+      <input class="form-control ng-pristine ng-untouched ng-valid"
+              ng-model="dscpmark"
+              name="dscpmarking"
+              ng-value="ctrl.dscpmark"
+              placeholder="valid DSCP marks is:
+              0, 8, 10, 12, 14, 16, 18, 20, 22, 24, 26, 28, 30, 32, 34, 36, 38, 40, 46, 48, 56"
+              ng-change="ctrl.onDSCPChange(dscpmark)">
+    </div>
+    <div ng-show="rule_type.name === 'minimum_bandwidth'">
+      <label class="control-label  required">
+        <translate>Minimum bandwidth (in kbps)</translate>
+        <span class="hz-icon-required fa fa-asterisk"></span>
+      </label>
+      <input class="form-control ng-pristine ng-untouched ng-valid"
+              ng-model="mb.minkbps"
+              name="minkbps"
+              ng-value="ctrl.minkbps"
+              ng-change="ctrl.minBandwidth(mb)">
+      <label class="control-label  required">
+        <translate>Direction</translate>
+      </label>
+      <select class="form-control switchable ng-pristine ng-untouched ng-valid"
+              ng-model="mb.direction"
+              ng-options="val as label for (val, label) in ctrl.directions"
+              name="direction"
+              ng-init="ctrl.minbwddirection"
+              ng-change="ctrl.minBandwidth(mb)">
+      </select>
+    </div>
+    <div ng-show="rule_type.name === 'minimum_packet_rate'">
+      <label class="control-label  required">
+        <translate>Minimum packet rate (in kpps)</translate>
+        <span class="hz-icon-required fa fa-asterisk"></span>
+      </label>
+      <input class="form-control ng-pristine ng-untouched ng-valid"
+              ng-model="mpr.minkpps"
+              name="minkpps"
+              ng-value="ctrl.minkpps"
+              ng-change="ctrl.minPacketRate(mpr)">
+      <label class="control-label  required">
+        <translate>Direction</translate>
+      </label>
+      <select class="form-control switchable ng-pristine ng-untouched ng-valid"
+              ng-model="mpr.direction"
+              ng-options="val as label for (val, label) in ctrl.ppsDirections"
+              name="direction"
+              ng-init="ctrl.minpckrtdirection"
+              ng-change="ctrl.minPacketRate(mpr)">
+      </select>
+    </div>
+  </div>
