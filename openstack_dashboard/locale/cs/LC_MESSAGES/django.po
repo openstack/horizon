@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: horizon VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2021-05-11 12:54+0000\n"
+"POT-Creation-Date: 2022-02-21 20:31+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -32,12 +32,6 @@ msgstr ""
 "Položka protokolu obsahuje informace, které určují jaká pravidla mapování je "
 "vhodné použít pro daný požadavek. Poskytovatel identit může mít více "
 "podporovaných protokolů."
-
-msgid ""
-"\"Customization Script\" is analogous to \"User Data\" in other systems."
-msgstr ""
-"\"Skript přizpůsobení\" je podobné jako \"Uživatelská data\" v ostatních "
-"systémech."
 
 msgid ""
 "\"Manage\" an existing volume from a Cinder host. This will make the volume "
@@ -70,10 +64,6 @@ msgstr "%(field_name)s: Neplatná IP adresa (hodnota=%(network)s)"
 #, python-format
 msgid "%(instance_name)s %(fixed_ip)s"
 msgstr "%(instance_name)s %(fixed_ip)s"
-
-#, python-format
-msgid "%(name)s - %(size)s GB (%(label)s)"
-msgstr "%(name)s - %(size)s GB (%(label)s)"
 
 #. Translators:  UTC offset and timezone label
 #, python-format
@@ -109,10 +99,6 @@ msgstr "%s (aktuálně)"
 #, python-format
 msgid "%s GB"
 msgstr "%s GB"
-
-#, python-format
-msgid "%s instances"
-msgstr "%s instancí"
 
 #, python-format
 msgid "%sGB"
@@ -152,20 +138,6 @@ msgstr "Lokální obraz pro upload."
 
 msgid "A local metadata definition file to upload."
 msgstr "Lokální soubor s definicemi metadat pro upload."
-
-msgid ""
-"A port is a connection point for attaching a single device, such as the NIC "
-"of a virtual server, to a virtual network."
-msgstr ""
-"Port je bod připojení pro upevnění jediného zařízení (např. NIC virtuálního "
-"serveru) do virtuální sítě."
-
-msgid ""
-"A script or set of commands to be executed after the instance has been built "
-"(max 16kb)."
-msgstr ""
-"Skript nebo sada příkazů, která bude provedena po sestavení instance (max. "
-"16kb)."
 
 msgid "A single IP Address or CIDR"
 msgstr "Jedinečná IP adresa nebo CIDR"
@@ -209,9 +181,6 @@ msgstr "Přijmout převod"
 
 msgid "Accept Volume Transfer"
 msgstr "Přijmout převod svazku"
-
-msgid "Access & Security"
-msgstr "Přístup a zabezpečení"
 
 msgid "Action"
 msgstr "Činnost"
@@ -452,13 +421,6 @@ msgid "An external (HTTP/HTTPS) URL to load the image from."
 msgstr "Externí (HTTP/HTTPS) URL, z které nahrát obraz."
 
 msgid ""
-"An instance can be launched with varying types of attached storage. You may "
-"select from those options here."
-msgstr ""
-"Instance může být spuštěna s různými druhy připojených úložišť. Ty si můžete "
-"vybrat zde."
-
-msgid ""
 "An unexpected error has occurred. Try refreshing the page. If that doesn't "
 "help, contact your local administrator."
 msgstr ""
@@ -494,9 +456,6 @@ msgstr "Specifikace Qos přidružena"
 
 msgid "Associated Resource Types"
 msgstr "Přidružené typy prostředků"
-
-msgid "At least one network must be specified."
-msgstr "Musí být zadána alespoň jedna síť."
 
 msgid "Attach Interface"
 msgstr "Připojit rozhraní"
@@ -592,9 +551,6 @@ msgstr "Dostupné"
 msgid "Available Types"
 msgstr "Dostupné typy"
 
-msgid "Available networks"
-msgstr "Dostupné sítě"
-
 msgctxt "Current status of a Volume"
 msgid "Backing Up"
 msgstr "Zálohování"
@@ -630,21 +586,6 @@ msgstr "Služby blokového úložiště"
 msgctxt "Power state of an Instance"
 msgid "Blocked"
 msgstr "Blokováno"
-
-msgid "Boot from image"
-msgstr "Zavést z obrazu"
-
-msgid "Boot from image (creates a new volume)"
-msgstr "Zavést z obrazu (vytvoří nový svazek)"
-
-msgid "Boot from snapshot"
-msgstr "Zavést ze snapshotu"
-
-msgid "Boot from volume"
-msgstr "Zavést ze svazku"
-
-msgid "Boot from volume snapshot (creates a new volume)"
-msgstr "Zavést ze snapshotu svazku (vytvoří nový svazek)"
 
 msgid "Bootable"
 msgstr "Zaveditelné"
@@ -743,9 +684,6 @@ msgstr ""
 "Zvolte \"Formát disku\" pro obraz. Obrazy svazku jsou vytvářeny pomocí "
 "nástroje obrazu disku QEMU."
 
-msgid "Choose Your Boot Source Type."
-msgstr "Zvolte typ zdroje zavedení."
-
 msgid "Choose a Host to migrate to."
 msgstr "Zvolte hostitele na který se má migrovat."
 
@@ -773,13 +711,6 @@ msgstr "Zvolte přidruženou specifikaci QoS."
 
 msgid "Choose consumer for this QoS Spec."
 msgstr "Zvolte spotřebitele pro tuto specifikaci QoS."
-
-msgid ""
-"Choose network from Available networks to Selected networks by push button "
-"or drag and drop, you may change NIC order by drag and drop as well. "
-msgstr ""
-"Síť vyberete z Dostupných sítí do Vybraných sítí pomocí tlačítka, nebo "
-"přetažením, jímž můžete také změnit pořadí NIC."
 
 msgid "Choose the flavor to launch."
 msgstr "Zvolte typ ke spuštění."
@@ -841,19 +772,6 @@ msgstr "Hostitel výpočtu"
 msgid "Compute Services"
 msgstr "Služby Compute"
 
-msgid "Configuration Drive"
-msgstr "Konfigurační jednotka"
-
-msgid ""
-"Configure OpenStack to write metadata to a special configuration drive that "
-"attaches to the instance when it boots."
-msgstr ""
-"Nastaví zapsání metadat do speciálního konfiguračního disku, který bude "
-"připojen k instanci při jejím spuštění."
-
-msgid "Confirm Admin Password"
-msgstr "Potvrďte heslo správce"
-
 msgid "Confirm Password"
 msgstr "Potvrdit heslo"
 
@@ -906,19 +824,8 @@ msgstr "Obsah"
 msgid "Control Location"
 msgstr "Ovládací místo"
 
-msgid ""
-"Control access to your instance via key pairs, security groups, and other "
-"mechanisms."
-msgstr ""
-"Kontrolujte přístup do vaší instance pomocí klíčů, bezpečnostních skupin a "
-"dalších mechanismů."
-
 msgid "Copy Data"
 msgstr "Kopírovat data"
-
-#, python-format
-msgid "Cores(Available: %(avail)s, Requested: %(req)s)"
-msgstr "Jádra(Dostupná: %(avail)s, Vyžadovaná: %(req)s)"
 
 #, python-format
 msgid "Could not find default role \"%s\" in Keystone"
@@ -1216,9 +1123,6 @@ msgstr "Vlastní pravidlo TCP"
 msgid "Custom UDP Rule"
 msgstr "Vlastní pravidlo UDP"
 
-msgid "Customization Script Source"
-msgstr "Zdroj skriptu přizpůsobení"
-
 msgid "DHCP Agents"
 msgstr "Agenti DHCP"
 
@@ -1465,18 +1369,12 @@ msgstr[0] "Smazat typ svazku"
 msgstr[1] "Smazat typy svazku"
 msgstr[2] "Smazat typy svazku"
 
-msgid "Delete Volume on Instance Delete"
-msgstr "Smazat svazek při mazání instance"
-
 msgid "Delete Volumes"
 msgstr "Smazat svazky"
 
 #, python-format
 msgid "Delete the created network \"%s\" due to subnet creation failure."
 msgstr "Smazat vytvořenou síť \"%s\" kvůli neúspěšnému vytvoření podsítě."
-
-msgid "Delete volume when the instance is deleted"
-msgstr "Smazat svazek když je smazána instance"
 
 msgid "Deleted"
 msgstr "Smazáno"
@@ -1759,9 +1657,6 @@ msgstr "Název zařízení"
 
 msgid "Device Owner"
 msgstr "Vlastník zařízení"
-
-msgid "Device size (GB)"
-msgstr "Velikost zařízení (GB)"
 
 msgid "Direct"
 msgstr "Přímo"
@@ -2430,12 +2325,6 @@ msgstr "Chyba"
 msgid "Federation"
 msgstr "Federace"
 
-msgid "File"
-msgstr "Soubor"
-
-msgid "File exceeds maximum size (16kb)"
-msgstr "Soubor přesahuje maximální velikost (16kb)"
-
 msgid "Filter"
 msgstr "Filtr"
 
@@ -2955,9 +2844,6 @@ msgstr "Seznam činností instance"
 msgid "Instance Admin Password"
 msgstr "Heslo správce instance"
 
-msgid "Instance Boot Source"
-msgstr "Zdroj zavedení instance"
-
 msgid "Instance Console"
 msgstr "Konzole instance"
 
@@ -2984,9 +2870,6 @@ msgstr "Heslo instance není nastaveno nebo není zatím dostupné"
 
 msgid "Instance Security Groups"
 msgstr "Bezpečnostní skupiny instance"
-
-msgid "Instance Snapshot"
-msgstr "Snapshot instance"
 
 msgid "Instances"
 msgstr "Instance"
@@ -3082,9 +2965,6 @@ msgstr ""
 "Název klíče může obsahovat pouze písmena, čísla, podtržítka, mezery a "
 "pomlčky a nemůže obsahovat prázdné znaky."
 
-msgid "Key pair to use for authentication."
-msgstr "Klíč použitý pro autentizaci."
-
 msgid "Key-Value Pairs"
 msgstr "Páry klíč-hodnota"
 
@@ -3113,21 +2993,6 @@ msgstr "Spustit instanci (kvóta překročena)"
 
 msgid "Launch as Instance"
 msgstr "Spustit jako instanci"
-
-msgid "Launch instance in these security groups."
-msgstr "Spustit instanci v těchto bezpečnostních skupinách."
-
-msgid "Launch instance with these networks"
-msgstr "Spustit instanci s těmito sítěmi"
-
-msgid "Launch instance with these ports"
-msgstr "Spustit instanci s těmito porty"
-
-msgid ""
-"Launching multiple instances is only supported for images and instance "
-"snapshots."
-msgstr ""
-"Spouštění více instancí je podporováno pouze obrazy a snapshoty instancí."
 
 msgid "Length of Injected File Path"
 msgstr "Délka vložené cesty souboru"
@@ -3503,9 +3368,6 @@ msgstr "Maska sítě"
 msgid "Network Name"
 msgstr "Název sítě"
 
-msgid "Network Ports"
-msgstr "Síťové porty"
-
 msgid "Network Topology"
 msgstr "Topologie sítě"
 
@@ -3520,9 +3382,6 @@ msgstr "Síťová adresa ve formátu CIDR (např.: 192.168.0.0/24, 2001:DB8::/48
 
 msgid "Network list can not be retrieved."
 msgstr "Nelze získat seznam sítí."
-
-msgid "Networking"
-msgstr "Síťování"
 
 msgctxt "Task status of an Instance"
 msgid "Networking"
@@ -3695,9 +3554,6 @@ msgstr "Nenalezeny žádné bezpečnostní skupiny."
 msgid "No server groups available"
 msgstr "Skupiny serveru nejsou dostupné"
 
-msgid "No snapshots available"
-msgstr "Žádné snaphoty nejsou dostupné"
-
 msgid "No source, empty volume"
 msgstr "Žádný zdroj, prázdný svazek"
 
@@ -3709,9 +3565,6 @@ msgstr "Žádní uživatelé nenalezeni."
 
 msgid "No users."
 msgstr "Žádní uživatelé."
-
-msgid "No volume snapshots available"
-msgstr "Žádné snapshoty svazků nejsou dostupné"
 
 msgid "No volume type"
 msgstr "Žádný typ svazku"
@@ -3947,16 +3800,6 @@ msgstr "Port který má být přidružen"
 msgid "Ports"
 msgstr "Porty"
 
-msgid ""
-"Ports are optional and can be used with networks to add extra IP addresses "
-"to your instances or select specific types of ports."
-msgstr ""
-"Porty jsou volitelné a mohou být použity se sítěmi pro přidání další IP "
-"adresy do vaší instance nebo zvolte konkrétní typy portů."
-
-msgid "Post-Creation"
-msgstr "Po vytvoření"
-
 msgid "Power State"
 msgstr "Stav napájení"
 
@@ -3989,9 +3832,6 @@ msgstr "Profil"
 
 msgid "Project"
 msgstr "Projekt"
-
-msgid "Project & User"
-msgstr "Projekt a uživatel"
 
 msgid "Project ="
 msgstr "Projekt ="
@@ -4126,10 +3966,6 @@ msgstr "RAM (celkem)"
 
 msgid "RAM (used)"
 msgstr "RAM (použitá)"
-
-#, python-format
-msgid "RAM(Available: %(avail)s, Requested: %(req)s)"
-msgstr "RAM(Dostupná: %(avail)s, Vyžadovaná: %(req)s)"
 
 msgid "RX/TX Factor"
 msgstr "RX/TX Faktor"
@@ -4277,11 +4113,6 @@ msgstr "Nahlásit chybu"
 
 msgid "Request ID"
 msgstr "ID požadavku"
-
-#, python-format
-msgid "Request for launching %(count)s named \"%(name)s\" has been submitted."
-msgstr ""
-"Požadavek pro spuštění %(count)s  pojmenován \"%(name)s\" byl odeslán. "
 
 #, python-format
 msgid "Request for resizing of instance \"%s\" has been submitted."
@@ -4574,12 +4405,6 @@ msgctxt "Task status of an Instance"
 msgid "Scheduling"
 msgstr "Plánování"
 
-msgid "Script Data"
-msgstr "Data skriptu"
-
-msgid "Script File"
-msgstr "Soubor se skriptem"
-
 msgid "Security Group"
 msgstr "Bezpečnostní skupina"
 
@@ -4604,9 +4429,6 @@ msgstr "Vyberte konfiguraci"
 msgid "Select Image"
 msgstr "Vyberte obraz"
 
-msgid "Select Instance Snapshot"
-msgstr "Vyberte snapshot instance"
-
 msgid "Select Mapping"
 msgstr "Vyberte mapování"
 
@@ -4616,9 +4438,6 @@ msgstr "Vyberte síť"
 msgid "Select Port"
 msgstr "Vyberte port"
 
-msgid "Select Script Source"
-msgstr "Vyberte zdroj skriptu"
-
 msgid "Select Server Group"
 msgstr "Vyberte skupinu serveru"
 
@@ -4627,9 +4446,6 @@ msgstr "Vyberte podsíť"
 
 msgid "Select Volume"
 msgstr "Vyberte svazek"
-
-msgid "Select Volume Snapshot"
-msgstr "Vyberte snapshot svazku"
 
 msgid "Select a New Flavor"
 msgstr "Vyberte nový typ"
@@ -4694,12 +4510,6 @@ msgstr "Vyberte formát"
 msgid "Select network"
 msgstr "Vyberte síť"
 
-msgid "Select networks for your instance."
-msgstr "Vyberte sítě pro vaší instanci."
-
-msgid "Select source"
-msgstr "Vyberte zdroj"
-
 msgid ""
 "Select the IP address you wish to associate with the selected instance or "
 "port."
@@ -4731,17 +4541,11 @@ msgstr "Vybrané projekty"
 msgid "Selected hosts"
 msgstr "Vybraní hostitelé"
 
-msgid "Selected networks"
-msgstr "Vybrané sítě"
-
 msgid "Selected volume types"
 msgstr "Vybrané typy svazků"
 
 msgid "Selected volumes"
 msgstr "Vybrané svazky"
-
-msgid "Server Group"
-msgstr "Skupina serveru"
 
 msgid "Server Group Members"
 msgstr "Členové skupiny serveru"
@@ -4751,9 +4555,6 @@ msgstr "Skupiny serveru"
 
 msgid "Server error"
 msgstr "Chyba na serveru"
-
-msgid "Server group to associate with this instance."
-msgstr "Skupina serveru, kterou chcete přidružit k této instanci."
 
 msgid "Servers"
 msgstr "Servery"
@@ -4886,9 +4687,6 @@ msgstr "Velikost"
 msgid "Size (GiB)"
 msgstr "Velikost (GiB)"
 
-msgid "Size of image to launch."
-msgstr "Velikost obrazu pro spuštění."
-
 msgid "Size(GiB) ="
 msgstr "Velikost (GiB)"
 
@@ -4998,17 +4796,11 @@ msgstr "Zadejte jmenný prostor určení metadat pro import."
 msgid "Specify additional attributes for the subnet."
 msgstr "Zadejte dodatečné vlastnosti podsítě."
 
-msgid "Specify advanced options to use when launching an instance."
-msgstr "Zadejte pokročilé volby použité při spuštění instance."
-
 msgid "Specify an IP address for the interface created (e.g. 192.168.0.254)."
 msgstr "Zadejte IP adresu vytvořeného rozhraní (např. 192.168.0.254)."
 
 msgid "Specify an image to upload to the Image Service."
 msgstr "Zadejte obraz pro nahrání do služby obrazů."
-
-msgid "Specify the details for launching an instance."
-msgstr "Zadejte podrobnosti spuštění instance."
 
 msgid ""
 "Specify this option to copy image data to the image service. If unspecified, "
@@ -5344,23 +5136,8 @@ msgstr ""
 "klíč pro autorizaci. Prosím uložte oba údaje a poskytněte je příjemci "
 "převodu."
 
-#, python-format
-msgid ""
-"The Volume size is too small for the '%(image_name)s' image and has to be "
-"greater than or equal to '%(smallest_size)d' GB."
-msgstr ""
-"Velikost svazku je pro obraz '%(image_name)s' příliš malá a musí být větší "
-"nebo rovna '%(smallest_size)d' GB."
-
 msgid "The admin password is incorrect."
 msgstr "Heslo správce není správné."
-
-msgid ""
-"The chart below shows the resources used by this project in relation to the "
-"project's quotas."
-msgstr ""
-"Graf níže zobrazuje prostředky používané tímto projektem v souvislosti s "
-"kvótami projektu."
 
 msgid "The container cannot be deleted since it is not empty."
 msgstr "Kontejner nelze smazat, protože není prázdný."
@@ -5371,15 +5148,6 @@ msgid ""
 msgstr ""
 "Data zůstanou ve svazku a ostatní instance k nim budou mít přístup, pokud k "
 "nim tento svazek připojíte."
-
-#, python-format
-msgid ""
-"The flavor '%(flavor)s' is too small for requested image.\n"
-"Minimum requirements: %(min_ram)s MB of RAM and %(min_disk)s GB of Root Disk."
-msgstr ""
-"Typ '%(flavor)s' je pro požadovaný obraz příliš malý.\n"
-"Minimální požadavky: %(min_ram)s MB RAM a %(min_disk)s GB na systémovém "
-"disku."
 
 msgid "The instance is preparing the live migration to a new host."
 msgstr "Instance se připravuje na živou migraci na nového hostitele."
@@ -5421,13 +5189,6 @@ msgid "The physical mechanism by which the virtual network is implemented."
 msgstr "Fyzický mechanismus podle kterého je virtuální síť zavedena."
 
 msgid ""
-"The port also describes the associated network configuration, such as the "
-"MAC and IP addresses to be used on that port."
-msgstr ""
-"Port také popisuje spojené konfigurace sítí, jako např. MAC a IP adresy, "
-"které se používají na tomto portu."
-
-msgid ""
 "The private key will be only used in your browser and will not be sent to "
 "the server"
 msgstr ""
@@ -5436,22 +5197,6 @@ msgstr ""
 
 msgid "The pseudo folder cannot be deleted since it is not empty."
 msgstr "Pseudosložku nelze smazat, protože není prázdná."
-
-#, python-format
-msgid ""
-"The requested instance cannot be launched. Requested volume exceeds quota: "
-"Available: %(avail)s, Requested: %(req)s."
-msgstr ""
-"Požadovanou instanci nelze spustit. Požadovaný svazek překračuje kvótu: "
-"Dostupné: %(avail)s, Požadované: %(req)s."
-
-#, python-format
-msgid ""
-"The requested instance cannot be launched. The following requested "
-"resource(s) exceed quota(s): %s."
-msgstr ""
-"Požadovanou instanci nelze spustit. Následující požadované prostředky "
-"překročily kvóty: %s."
 
 msgid ""
 "The requested instance port is already associated with another floating IP."
@@ -5500,10 +5245,6 @@ msgstr ""
 #, python-format
 msgid "There was a problem loading the namespace: %s."
 msgstr "Při načítání jmenného prostoru došlo k chybě: %s."
-
-#, python-format
-msgid "There was a problem parsing the %(prefix)s: %(error)s"
-msgstr "Při parsování %(prefix)s nastal problém: %(error)s"
 
 msgid "This action cannot be undone."
 msgstr "Toto nelze vrátit."
@@ -5891,10 +5632,6 @@ msgstr "Klíč nelze importovat."
 msgid "Unable to initialize subnetpools"
 msgstr "Nelze zavést zásoby podsítě"
 
-#, python-format
-msgid "Unable to launch %(count)s named \"%(name)s\"."
-msgstr "Nelze spustit %(count)s pojmenovaných \"%(name)s\"."
-
 msgid "Unable to list dhcp agents hosting network."
 msgstr "Nelze získat informace o agentech dhcp hostujících síť."
 
@@ -6057,9 +5794,6 @@ msgstr "Nelze získat seznam domén."
 msgid "Unable to retrieve encryption type."
 msgstr "Nelze získat typ šifrování."
 
-msgid "Unable to retrieve extensions information."
-msgstr "Nelze získat informace o rozšířeních."
-
 msgid "Unable to retrieve extra spec list."
 msgstr "Nelze získat seznam dodatečných specifikací."
 
@@ -6170,12 +5904,6 @@ msgstr "Nelze získat seznam klíčů."
 
 msgid "Unable to retrieve key pairs."
 msgstr "Nelze získat seznam klíčů."
-
-msgid "Unable to retrieve list of security groups"
-msgstr "Nelze získat seznam bezpečnostních skupin"
-
-msgid "Unable to retrieve list of volume snapshots."
-msgstr "Nelze získat seznam snapshotů svazku."
 
 msgid "Unable to retrieve list of volumes."
 msgstr "Nelze získat seznam svazků."
@@ -6700,9 +6428,6 @@ msgstr "Využito  <span> %(used)s </span> z <span> %(available)s </span>"
 msgid "Used IPs"
 msgstr "Použité IP adresy"
 
-msgid "User"
-msgstr "Uživatel"
-
 #, python-format
 msgid "User \"%s\" was successfully created."
 msgstr "Uživatel \"%s\" byl úspěšně vytvořen."
@@ -6853,9 +6578,6 @@ msgstr "Název svazku"
 msgid "Volume Name ="
 msgstr "Jméno svazku ="
 
-msgid "Volume Snapshot"
-msgstr "Snapshot svazku"
-
 msgid "Volume Snapshots"
 msgstr "Snapshoty svazku"
 
@@ -6913,18 +6635,8 @@ msgstr "Typy svazků"
 msgid "Volume is Unencrypted"
 msgstr "Svazek není zašifrován"
 
-msgid ""
-"Volume mount point (e.g. 'vda' mounts at '/dev/vda'). Leave this field blank "
-"to let the system choose a device name for you."
-msgstr ""
-"Bod připojení svazku (např.  'vda' je připojeno v '/dev/vda'). Nechejte toto "
-"pole prázdné, aby systém zvolil název zařízení za Vás."
-
 msgid "Volume name to be assigned"
 msgstr "Název svazku, který bude přidělen"
-
-msgid "Volume size in gigabytes (integer value)."
-msgstr "Velikost svazku v gigabajtech (celočíselná hodnota)."
 
 #, python-format
 msgid ""
@@ -6947,9 +6659,6 @@ msgstr ""
 msgid "Volume size must be equal to or greater than the snapshot size (%sGiB)"
 msgstr ""
 "Velikost svazku musí být stejná nebo větší než velikost snapshotu (%sGiB)"
-
-msgid "Volume size must be greater than 0"
-msgstr "Velikost svazku musí být větší než 0"
 
 msgid "Volume source must be specified"
 msgstr "Zdroj svazku musí být zadán."
@@ -7024,13 +6733,6 @@ msgstr ""
 "připojeno, zařízení se připojí přes vytvořený port."
 
 msgid ""
-"You can customize your instance after it has launched using the options "
-"available here."
-msgstr ""
-"Vaší instanci si můžete po jejím spuštění přizpůsobit pomocí možností "
-"dostupných zde."
-
-msgid ""
 "You can specify the desired rule template or use custom rules, the options "
 "are Custom TCP Rule, Custom UDP Rule, or Custom ICMP Rule."
 msgstr ""
@@ -7087,18 +6789,6 @@ msgstr "Zde můžete aktualizovat upravitelné vlastnosti vaší sítě."
 msgid "You may update the editable properties of your router here."
 msgstr "Zde můžete aktualizovat upravitelné vlastnosti vašeho routeru."
 
-msgid "You must select a snapshot."
-msgstr "Musíte vybrat snapshot."
-
-msgid "You must select a volume."
-msgstr "Musíte vybrat svazek."
-
-msgid "You must select an image."
-msgstr "Musíte vybrat obraz."
-
-msgid "You must set volume size"
-msgstr "Musíte nastavit velikost svazku"
-
 msgid ""
 "You must specify the source of the traffic to be allowed via this rule. You "
 "may do so either in the form of an IP address block (CIDR) or via a source "
@@ -7137,9 +6827,6 @@ msgstr "např. Ano/Ne"
 
 msgid "front-end"
 msgstr "rozhraní"
-
-msgid "instance"
-msgstr "instance"
 
 msgid "no"
 msgstr "ne"

@@ -30,7 +30,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: horizon VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2021-05-11 12:54+0000\n"
+"POT-Creation-Date: 2022-02-21 20:31+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -117,11 +117,6 @@ msgstr ""
 "습니다."
 
 msgid ""
-"\"Customization Script\" is analogous to \"User Data\" in other systems."
-msgstr ""
-"\"사용자 정의 스크립트\"는 다른 시스템의 \"사용자 데이터\"와 유사합니다."
-
-msgid ""
 "\"Manage\" an existing volume from a Cinder host. This will make the volume "
 "visible within OpenStack. <br> <br> This is equivalent to the <tt>cinder "
 "manage</tt> command."
@@ -151,10 +146,6 @@ msgstr "%(field_name)s: 잘못된 IP 주소 (값=%(network)s)"
 #, python-format
 msgid "%(instance_name)s %(fixed_ip)s"
 msgstr "%(instance_name)s %(fixed_ip)s"
-
-#, python-format
-msgid "%(name)s - %(size)s GB (%(label)s)"
-msgstr "%(name)s - %(size)s GB (%(label)s)"
 
 #. Translators:  UTC offset and timezone label
 #, python-format
@@ -206,10 +197,6 @@ msgstr "%s (현재)"
 #, python-format
 msgid "%s GB"
 msgstr "%s GB"
-
-#, python-format
-msgid "%s instances"
-msgstr "%s 인스턴스"
 
 #, python-format
 msgid "%sGB"
@@ -358,22 +345,9 @@ msgstr ""
 "은 user 및 group만 있습니다."
 
 msgid ""
-"A port is a connection point for attaching a single device, such as the NIC "
-"of a virtual server, to a virtual network."
-msgstr ""
-"포트는 가상 서버의 NIC와 같은 가상 네트워크와 하나의 디바이스를 연결하기위한 "
-"하난의 접촉 점입니다."
-
-msgid ""
 "A rule contains a remote attribute description and the destination local "
 "attribute."
 msgstr "규칙은 원격 속성에 대한 설명과 목적지에 대한 로컬 속성을 포함합니다."
-
-msgid ""
-"A script or set of commands to be executed after the instance has been built "
-"(max 16kb)."
-msgstr ""
-"인스턴스 시작 후 명령어 스크립트 또는 세트를 실행할 수 있습니다 (최대 16kb)."
 
 msgid "A single IP Address or CIDR"
 msgstr "단일 IP 주소 또는 CIDR"
@@ -418,9 +392,6 @@ msgstr "볼륨 이전 받기"
 
 msgid "Accept Volume Transfer"
 msgstr "볼륨 이전 받기"
-
-msgid "Access & Security"
-msgstr "접근 & 보안"
 
 msgid "Access Rules"
 msgstr "액세스 규칙"
@@ -732,13 +703,6 @@ msgid "An image file or an external location must be specified."
 msgstr "이미지 파일 또는 외부 위치를 지정해야 합니다."
 
 msgid ""
-"An instance can be launched with varying types of attached storage. You may "
-"select from those options here."
-msgstr ""
-"인스턴스는 다양한 타입의 스토리지에서 구동할 수 있습니다. 여기에서 옵션을 선"
-"택할 수 있습니다."
-
-msgid ""
 "An unexpected error has occurred. Try refreshing the page. If that doesn't "
 "help, contact your local administrator."
 msgstr ""
@@ -787,9 +751,6 @@ msgstr "연결된 QoS 스펙"
 
 msgid "Associated Resource Types"
 msgstr "연결된 리소스 유형"
-
-msgid "At least one network must be specified."
-msgstr "최소 하나의 네트워크가 지정되어야 합니다."
 
 msgid "At least one volume type must be assigned to a group."
 msgstr "그룹에 최소한 하나의 볼륨 타입이 할당되어야 합니다."
@@ -913,9 +874,6 @@ msgstr "Available"
 msgid "Available Types"
 msgstr "사용 가능한 유형"
 
-msgid "Available networks"
-msgstr "사용 가능한 네트워크"
-
 msgctxt "Current status of a Volume"
 msgid "Awaiting Transfer"
 msgstr "전송을 기다리는 중"
@@ -964,21 +922,6 @@ msgstr "블록 스토리지 서비스"
 msgctxt "Power state of an Instance"
 msgid "Blocked"
 msgstr "Blocked"
-
-msgid "Boot from image"
-msgstr "이미지로 부팅"
-
-msgid "Boot from image (creates a new volume)"
-msgstr "이미지로 부팅 (새로운 볼륨 생성)"
-
-msgid "Boot from snapshot"
-msgstr "스냅샷으로 부팅"
-
-msgid "Boot from volume"
-msgstr "볼륨으로 부팅"
-
-msgid "Boot from volume snapshot (creates a new volume)"
-msgstr "볼륨 스냅샷으로 부팅 (새로운 볼륨 생성)"
 
 msgid "Bootable"
 msgstr "부팅가능"
@@ -1108,9 +1051,6 @@ msgstr ""
 "이미지에 대한 \"디스크 포맷\"을 선택합니다. 볼륨 이미지는 QEMU 디스크 이미지 "
 "유틸리티로 생성됩니다."
 
-msgid "Choose Your Boot Source Type."
-msgstr "부팅 소스 타입을 고르세요."
-
 msgid ""
 "Choose a Host to evacuate servers to. If not selected, the scheduler will "
 "auto select target host."
@@ -1143,13 +1083,6 @@ msgstr "연결할 QoS 스펙을 선택해주세요."
 
 msgid "Choose consumer for this QoS Spec."
 msgstr "해당 QoS 스펙에 대한 사용자를 선택하세요."
-
-msgid ""
-"Choose network from Available networks to Selected networks by push button "
-"or drag and drop, you may change NIC order by drag and drop as well. "
-msgstr ""
-"푸시 버튼이나 드래그 앤 드롭을 이용하여 사용할 수 있는 네트워크에서 선택한 네"
-"트워크로 네트워크를 선택합니다. 드래그 앤 드롭으로 NIC를 변경할 수 있습니다."
 
 msgid "Choose the flavor to launch."
 msgstr "시작시 flavor을 고릅니다."
@@ -1220,21 +1153,8 @@ msgstr "Compute 할당량"
 msgid "Compute Services"
 msgstr "Compute 서비스"
 
-msgid "Configuration Drive"
-msgstr "드라이브 구성"
-
-msgid ""
-"Configure OpenStack to write metadata to a special configuration drive that "
-"attaches to the instance when it boots."
-msgstr ""
-"부팅할때 인스턴스에 연결할 특별한 구성 드라이브에 대한 메타데이터를 작성하여 "
-"OpenStack을 구성합니다."
-
 msgid "Confirm"
 msgstr "확인"
-
-msgid "Confirm Admin Password"
-msgstr "관리자 비밀 번호 확인"
 
 msgid "Confirm Password"
 msgstr "비밀번호 확인"
@@ -1288,19 +1208,8 @@ msgstr "내용"
 msgid "Control Location"
 msgstr "제어 위치"
 
-msgid ""
-"Control access to your instance via key pairs, security groups, and other "
-"mechanisms."
-msgstr ""
-"키 페어, 보안 그룹 및 다른 메커니즘을 통해 인스턴스에 접근하는 것을 제어합니"
-"다."
-
 msgid "Copy Data"
 msgstr "데이터 복사"
-
-#, python-format
-msgid "Cores(Available: %(avail)s, Requested: %(req)s)"
-msgstr "코어(사용: %(avail)s, 요청: %(req)s)"
 
 #, python-format
 msgid "Could not find default role \"%s\" in Keystone"
@@ -1672,9 +1581,6 @@ msgstr "사용자 정의 TCP 규칙"
 msgid "Custom UDP Rule"
 msgstr "사용자 정의 UDP 규칙"
 
-msgid "Customization Script Source"
-msgstr "사용자 정의 스크립트 소스"
-
 msgid "DHCP Agents"
 msgstr "DHCP 에이전트"
 
@@ -1872,18 +1778,12 @@ msgid "Delete Volume Type"
 msgid_plural "Delete Volume Types"
 msgstr[0] "볼륨 타입 삭제"
 
-msgid "Delete Volume on Instance Delete"
-msgstr "인스턴스 삭제시 볼륨 삭제"
-
 msgid "Delete Volumes"
 msgstr "볼륨 삭제"
 
 #, python-format
 msgid "Delete the created network \"%s\" due to subnet creation failure."
 msgstr "서브넷 생성 실패로 생성한 네트워크 \"%s\" 삭제."
-
-msgid "Delete volume when the instance is deleted"
-msgstr "인스턴스가 삭제 될 때, 볼륨을 삭제"
 
 msgid "Deleted"
 msgstr "삭제됨"
@@ -2141,9 +2041,6 @@ msgstr "장치 소유자"
 
 msgid "Device owner attached to the port."
 msgstr "포트에 연결된 장치 소유자"
-
-msgid "Device size (GB)"
-msgstr "장치 크기 (GB)"
 
 msgid "Direct"
 msgstr "Direct"
@@ -2958,12 +2855,6 @@ msgstr "Fault"
 msgid "Federation"
 msgstr "페더레이션"
 
-msgid "File"
-msgstr "파일"
-
-msgid "File exceeds maximum size (16kb)"
-msgstr "파일 최대 크기 (16kb) 초과"
-
 msgid "Filter"
 msgstr "필터"
 
@@ -3627,9 +3518,6 @@ msgstr "인스턴스 액션 목록"
 msgid "Instance Admin Password"
 msgstr "인스턴스 관리자 비밀번호"
 
-msgid "Instance Boot Source"
-msgstr "인스턴스 부팅 소스"
-
 msgid "Instance Console"
 msgstr "인스턴스 콘솔"
 
@@ -3656,9 +3544,6 @@ msgstr "인스턴스 암호가 설정되지 않았거나 아직 사용할 수 �
 
 msgid "Instance Security Groups"
 msgstr "인스턴스 보안 그룹"
-
-msgid "Instance Snapshot"
-msgstr "인스턴스 스냅샷"
 
 msgid "Instances"
 msgstr "인스턴스"
@@ -3780,9 +3665,6 @@ msgstr ""
 " 키 페어 이름은 영문, 숫자, 밑줄, 스페이스, 하이픈만 사용 가능하며 공백을 사"
 "용할 수 없습니다."
 
-msgid "Key pair to use for authentication."
-msgstr "키 페어는 인증에 사용합니다."
-
 #, python-format
 msgid ""
 "Key with name \"%s\" already exists. Use Edit to update the value, else "
@@ -3840,22 +3722,6 @@ msgstr "인스턴스 시작 (Quota 초과)"
 
 msgid "Launch as Instance"
 msgstr "인스턴스로 시작"
-
-msgid "Launch instance in these security groups."
-msgstr "이 보안 그룹에서 인스턴스를 시작하십시오."
-
-msgid "Launch instance with these networks"
-msgstr "정한 네트워크로 인스턴스 시작"
-
-msgid "Launch instance with these ports"
-msgstr "이 포트로 인스턴스 시작"
-
-msgid ""
-"Launching multiple instances is only supported for images and instance "
-"snapshots."
-msgstr ""
-"여러 개의 인스턴스를 구동하는 것은 이미지 및 인스턴스 스냅샷에서만 지원됩니"
-"다. "
 
 msgid "Length of Injected File Path"
 msgstr "첨부한 파일 경로 길이"
@@ -4278,9 +4144,6 @@ msgstr "네트워크 마스크"
 msgid "Network Name"
 msgstr "네트워크 이름"
 
-msgid "Network Ports"
-msgstr "네트워크 포트"
-
 msgid "Network QoS"
 msgstr "네트워크 QoS"
 
@@ -4304,9 +4167,6 @@ msgstr "CIDR 형식의 네트워크 주소 (예. 192.168.0.0/24, 2001:DB8::/48)"
 
 msgid "Network list can not be retrieved."
 msgstr "네트워크 목록을 찾을 수 없습니다."
-
-msgid "Networking"
-msgstr "네트워크"
 
 msgctxt "Task status of an Instance"
 msgid "Networking"
@@ -4500,9 +4360,6 @@ msgstr "사용 가능한 서버 그룹이 없습니다"
 msgid "No snapshot for this volume"
 msgstr "이 볼륨에는 스냅샷이 없습니다."
 
-msgid "No snapshots available"
-msgstr "사용 가능한 스냅샷이 없습니다."
-
 msgid "No source, empty volume"
 msgstr "소스가 없음, 빈 볼륨"
 
@@ -4517,9 +4374,6 @@ msgstr "사용자 없음"
 
 msgid "No valid group type"
 msgstr "올바른 그룹 유형이 아님"
-
-msgid "No volume snapshots available"
-msgstr "사용 가능한 볼륨 스냅샷이 없습니다."
 
 msgid "No volume type"
 msgstr "볼륨 타입이 없음"
@@ -4822,16 +4676,6 @@ msgstr "연결된 포트"
 msgid "Ports"
 msgstr "포트"
 
-msgid ""
-"Ports are optional and can be used with networks to add extra IP addresses "
-"to your instances or select specific types of ports."
-msgstr ""
-"포트는 옵션이며, 인스턴스에 임시 IP 주소를 추가하거나 포트에 대한 특정 타입"
-"을 선택하여 사용할 수 있습니다."
-
-msgid "Post-Creation"
-msgstr "생성 이후"
-
 msgid "Power State"
 msgstr "전원 상태"
 
@@ -4864,9 +4708,6 @@ msgstr "프로필"
 
 msgid "Project"
 msgstr "프로젝트"
-
-msgid "Project & User"
-msgstr "프로젝트 & 사용자"
 
 msgid "Project ="
 msgstr "Project ="
@@ -5025,10 +4866,6 @@ msgstr "RAM (전체)"
 
 msgid "RAM (used)"
 msgstr "RAM (사용중)"
-
-#, python-format
-msgid "RAM(Available: %(avail)s, Requested: %(req)s)"
-msgstr "RAM(사용: %(avail)s, 요청: %(req)s)"
 
 msgid "RBAC Policies"
 msgstr "RBAC 정책"
@@ -5206,11 +5043,6 @@ msgstr "버그 보고"
 
 msgid "Request ID"
 msgstr "요청 ID"
-
-#, python-format
-msgid "Request for launching %(count)s named \"%(name)s\" has been submitted."
-msgstr ""
-"\"%(name)s\" 이름을 가진 %(count)s 인스턴스 구동 요청을 제출하였습니다."
 
 #, python-format
 msgid "Request for resizing of instance \"%s\" has been submitted."
@@ -5518,12 +5350,6 @@ msgctxt "Task status of an Instance"
 msgid "Scheduling"
 msgstr "Scheduling"
 
-msgid "Script Data"
-msgstr "스크립트 데이터"
-
-msgid "Script File"
-msgstr "스크립트 파일"
-
 msgid "Secret"
 msgstr "비밀"
 
@@ -5573,9 +5399,6 @@ msgstr "Flavor 선택"
 msgid "Select Image"
 msgstr "이미지 선택"
 
-msgid "Select Instance Snapshot"
-msgstr "인스턴스 스냅샷 선택"
-
 msgid "Select Mapping"
 msgstr "맵핑 선택"
 
@@ -5585,9 +5408,6 @@ msgstr "네트워크 선택"
 msgid "Select Port"
 msgstr "포트 선택"
 
-msgid "Select Script Source"
-msgstr "스크립트 소스 선택"
-
 msgid "Select Server Group"
 msgstr "서버 그룹 선택"
 
@@ -5596,9 +5416,6 @@ msgstr "서브넷 선택"
 
 msgid "Select Volume"
 msgstr "볼륨 선택"
-
-msgid "Select Volume Snapshot"
-msgstr "볼륨 스냅샷 선택"
 
 msgid "Select a New Flavor"
 msgstr "새로운 Flavor 선택"
@@ -5678,14 +5495,8 @@ msgstr "그룹 타입 선택"
 msgid "Select network"
 msgstr "네트워크 선택"
 
-msgid "Select networks for your instance."
-msgstr "인스턴스 네트워크 선택"
-
 msgid "Select snapshot to backup (Optional)"
 msgstr "백업할 스냅샷을 선택하세요 (선택사항)"
-
-msgid "Select source"
-msgstr "소스 선택"
 
 msgid ""
 "Select the IP address you wish to associate with the selected instance or "
@@ -5727,17 +5538,11 @@ msgstr "선택된 프로젝트"
 msgid "Selected hosts"
 msgstr "선택된 호스트"
 
-msgid "Selected networks"
-msgstr "네트워크 선택됨"
-
 msgid "Selected volume types"
 msgstr "선택된 볼륨 타입"
 
 msgid "Selected volumes"
 msgstr "선택된 볼륨"
-
-msgid "Server Group"
-msgstr "서버 그룹"
 
 msgid "Server Group Members"
 msgstr "서버 그룹 멤버"
@@ -5747,9 +5552,6 @@ msgstr "서버 그룹"
 
 msgid "Server error"
 msgstr "서버 오류"
-
-msgid "Server group to associate with this instance."
-msgstr "해당 인스턴스와 연결할 서버 그룹입니다."
 
 msgid "Servers"
 msgstr "서버"
@@ -5889,9 +5691,6 @@ msgstr "크기"
 msgid "Size (GiB)"
 msgstr "크기 (GiB)"
 
-msgid "Size of image to launch."
-msgstr "시작시 이미지 크기"
-
 msgid "Size(GiB) ="
 msgstr "Size(GiB) ="
 
@@ -6012,9 +5811,6 @@ msgstr "가져올 메타데이터 정의 네임스페이스를 지정합니다."
 msgid "Specify additional attributes for the subnet."
 msgstr "서브넷에 대한 추가 속성을 명시하세요."
 
-msgid "Specify advanced options to use when launching an instance."
-msgstr "인스턴스가 시작될때 사용할 고급 옵션을 지정합니다."
-
 msgid "Specify an IP address for the interface created (e.g. 192.168.0.254)."
 msgstr "생성한 인터페이스에대한 IP 주소를 지정합니다 (예. 192.168.0.254)."
 
@@ -6026,9 +5822,6 @@ msgstr "네트워크 주소 지정"
 
 msgid "Specify the MAC address for the new port"
 msgstr "새 포트에 대한 MAC 주소를 지정합니다."
-
-msgid "Specify the details for launching an instance."
-msgstr "인스턴스를 구동하기 위하여 세부 사양을 지정하십시오. "
 
 msgid "Specify the subnet IP address for the new port"
 msgstr "새 포트에 대한 서브넷 IP 주소를 지정합니다"
@@ -6427,14 +6220,6 @@ msgstr ""
 msgid "The VNIC type that is bound to the network port"
 msgstr "네트워크 포트에 바인딩된 VNIC 유형"
 
-#, python-format
-msgid ""
-"The Volume size is too small for the '%(image_name)s' image and has to be "
-"greater than or equal to '%(smallest_size)d' GB."
-msgstr ""
-"'%(image_name)s' 이미지의 볼륨 크기가 작습니다. '%(smallest_size)d' GB 와 같"
-"거나 더 크게 조정하십시오."
-
 msgid "The admin password is incorrect."
 msgstr "관리자 암호가 잘못되었습니다."
 
@@ -6451,12 +6236,6 @@ msgid ""
 "The application credential will be created for the currently selected "
 "project."
 msgstr "현재 선택한 프로젝트에 대한 어플리케이션 증명서가 생성됩니다."
-
-msgid ""
-"The chart below shows the resources used by this project in relation to the "
-"project's quotas."
-msgstr ""
-"다음 차트는 이 프로젝트에 관련된 프로젝트 quota에 관한 리소스를 보여줍니다."
 
 msgid "The container cannot be deleted since it is not empty."
 msgstr "컨테이너가 비어있지 않아 삭제할 수 없습니다."
@@ -6476,14 +6255,6 @@ msgid ""
 msgstr ""
 "데이터는 동일 볼륨 내 남아있으며, 다른 인스턴스에서 해당 볼륨을 연결하면 데이"
 "터 액세스가 가능할 것입니다."
-
-#, python-format
-msgid ""
-"The flavor '%(flavor)s' is too small for requested image.\n"
-"Minimum requirements: %(min_ram)s MB of RAM and %(min_disk)s GB of Root Disk."
-msgstr ""
-"요청한 이미지의 flavor '%(flavor)s'가 적습니다.\n"
-"최소 사항: 램 %(min_ram)s MB와 root 디스크 %(min_disk)s GB."
 
 msgid "The instance is preparing the live migration to a new host."
 msgstr "인스턴스가 신규 호스트로 라이브 마이그레이션을 준비중입니다."
@@ -6557,13 +6328,6 @@ msgid "The physical mechanism by which the virtual network is implemented."
 msgstr "가상 네트워크를 구현하는 물리적 메커니즘입니다."
 
 msgid ""
-"The port also describes the associated network configuration, such as the "
-"MAC and IP addresses to be used on that port."
-msgstr ""
-"포트는 그 포트에서 사용하는 MAC 주소와 IP 주소등과 관련된 네트워크 구성을 묘"
-"사합니다."
-
-msgid ""
 "The private key will be only used in your browser and will not be sent to "
 "the server"
 msgstr "개인 키는 브라우저에서만 사용되며 서버에 전송되지 않습니다."
@@ -6571,33 +6335,9 @@ msgstr "개인 키는 브라우저에서만 사용되며 서버에 전송되지 
 msgid "The pseudo folder cannot be deleted since it is not empty."
 msgstr "Pseudo 폴더가 비어있지 않아 삭제할 수 없습니다."
 
-#, python-format
-msgid ""
-"The requested instance cannot be launched. Requested volume exceeds quota: "
-"Available: %(avail)s, Requested: %(req)s."
-msgstr ""
-"요청한 인스턴스를 구동할 수 없습니다. 요청한 볼륨은 쿼터를 초과합니다: 사용 "
-"가능량: %(avail)s, 요청량: %(req)s."
-
-#, python-format
-msgid ""
-"The requested instance cannot be launched. The following requested "
-"resource(s) exceed quota(s): %s."
-msgstr ""
-"요청된 인스턴스를 작동하지 못 했습니다. 요청된 리소스가 quota를 초과했습니"
-"다: %s."
-
 msgid ""
 "The requested instance port is already associated with another floating IP."
 msgstr "요청 인스턴스 포트는 이미 다른 유동 IP에 연결되어 있습니다."
-
-#, python-format
-msgid ""
-"The requested instance(s) cannot be launched as your quota will be exceeded: "
-"Available: %(avail)s, Requested: %(req)s."
-msgstr ""
-"할당된 quota 량을 초가하여 인스턴스를 실행할 수 없습니다: 사용가능: "
-"%(avail)s, 요청됨: %(req)s"
 
 msgid ""
 "The rescue mode is only for emergency purpose, for example in case of a "
@@ -6674,10 +6414,6 @@ msgstr ""
 #, python-format
 msgid "There was a problem loading the namespace: %s."
 msgstr "%s의 네임스페이스를 가져오는 중에 문제가 발생했습니다."
-
-#, python-format
-msgid "There was a problem parsing the %(prefix)s: %(error)s"
-msgstr "%(prefix)s를 파싱하는동안 문제가 발생했습니다: %(error)s"
 
 msgid "This action cannot be undone."
 msgstr "이 작업은 취소할 수 없습니다."
@@ -7225,10 +6961,6 @@ msgstr "키 페어를 가져오지 못 했습니다."
 msgid "Unable to initialize subnetpools"
 msgstr "서브넷 풀을 초기화할 수 없습니다."
 
-#, python-format
-msgid "Unable to launch %(count)s named \"%(name)s\"."
-msgstr "%(count)s 개의 \"%(name)s\"을 구동할 수 없습니다."
-
 msgid "Unable to list dhcp agents hosting network."
 msgstr "Dhcp 에이전트 호스팅 네트워크를 나열할 수 없습니다."
 
@@ -7433,9 +7165,6 @@ msgstr "도메인 목록을 찾지 못 했습니다."
 msgid "Unable to retrieve encryption type."
 msgstr "암호화 타입을 찾지 못했습니다."
 
-msgid "Unable to retrieve extensions information."
-msgstr "확장 정보를 찾지 못 했습니다."
-
 msgid "Unable to retrieve extra spec list."
 msgstr "추가 사양 목록을 찾지 못 했습니다."
 
@@ -7605,12 +7334,6 @@ msgstr "키 페어를 찾지 못 했습니다."
 
 msgid "Unable to retrieve limits information."
 msgstr "제한 정보를 가져올 수 없습니다."
-
-msgid "Unable to retrieve list of security groups"
-msgstr "보안 그룹 목록을 찾지 못 했습니다."
-
-msgid "Unable to retrieve list of volume snapshots."
-msgstr "볼륨 스냅샷 목록을 찾지 못 했습니다."
 
 msgid "Unable to retrieve list of volumes."
 msgstr "볼륨 목록을 찾지 못 했습니다."
@@ -8263,9 +7986,6 @@ msgstr "<span> %(available)s </span> 중에서 <span> %(used)s </span> 사용 �
 msgid "Used IPs"
 msgstr "사용된 IP"
 
-msgid "User"
-msgstr "사용자"
-
 #, python-format
 msgid "User \"%s\" has been updated successfully."
 msgstr "사용자 \"%s\"는 성공적으로 업데이트 되었습니다."
@@ -8434,9 +8154,6 @@ msgstr "Volume Name ="
 msgid "Volume Quotas"
 msgstr "볼륨 할당량"
 
-msgid "Volume Snapshot"
-msgstr "볼륨 스냅샷"
-
 msgid "Volume Snapshots"
 msgstr "볼륨 스냅샷"
 
@@ -8518,18 +8235,8 @@ msgstr ""
 msgid "Volume is Unencrypted"
 msgstr "볼륨이 암호화되지 않은 상태임"
 
-msgid ""
-"Volume mount point (e.g. 'vda' mounts at '/dev/vda'). Leave this field blank "
-"to let the system choose a device name for you."
-msgstr ""
-"볼륨 마운트 지점 (예: 'vda'를 '/dev/vda'에 마운트). 해당 필드를 비우면 시스템"
-"에서 당신을 위한 장치 이름을 선택할 수 있도록 합니다."
-
 msgid "Volume name to be assigned"
 msgstr "지정할 볼륨 이름"
-
-msgid "Volume size in gigabytes (integer value)."
-msgstr "볼륨 크기 기가 바이트 (정수 값)."
 
 #, python-format
 msgid ""
@@ -8549,9 +8256,6 @@ msgstr "볼륨크기는 원본 볼륨 크기(%sGiB) 보다 크거나 같아야 �
 #, python-format
 msgid "Volume size must be equal to or greater than the snapshot size (%sGiB)"
 msgstr "볼륨 크기는 스냅샷 크기 (%sGiB)보다 크거나 같아야합니다."
-
-msgid "Volume size must be greater than 0"
-msgstr "볼륨 크기는 0 이상이어야 합니다."
 
 msgid "Volume source must be specified"
 msgstr "볼륨 소스를 선택해야 합니다."
@@ -8657,11 +8361,6 @@ msgstr ""
 "네트워크의 포트를 만들 수 있습니다. 연결할 장치 ID를 지정하면, 장치에 포트를 "
 "만들어 연결합니다."
 
-msgid ""
-"You can customize your instance after it has launched using the options "
-"available here."
-msgstr "여기서 인스턴스를 시작한후 사용할 옵션을 커스텀마이즈 할수 있습니다."
-
 msgid "You can edit the properties of your port here."
 msgstr "여기서 포트 속성을 수정 할 수 있습니다."
 
@@ -8732,18 +8431,6 @@ msgstr "여기서 네트워크의 편집 가능한 속성을 업데이트할 수
 msgid "You may update the editable properties of your router here."
 msgstr "라우터의 편집 가능한 속성을 업데이트 할 수 있습니다."
 
-msgid "You must select a snapshot."
-msgstr "스냅샷을 선택해야 합니다."
-
-msgid "You must select a volume."
-msgstr "볼륨을 선택해야 합니다."
-
-msgid "You must select an image."
-msgstr "이미지를 선택해야 합니다."
-
-msgid "You must set volume size"
-msgstr "볼륨 크기를 설정해야 합니다."
-
 msgid ""
 "You must specify the source of the traffic to be allowed via this rule. You "
 "may do so either in the form of an IP address block (CIDR) or via a source "
@@ -8809,9 +8496,6 @@ msgstr ""
 
 msgid "front-end"
 msgstr "프론트-엔드"
-
-msgid "instance"
-msgstr "인스턴스"
 
 #, python-format
 msgid ""

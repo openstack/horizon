@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: horizon VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2021-05-11 12:54+0000\n"
+"POT-Creation-Date: 2022-02-21 20:31+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -33,10 +33,6 @@ msgid "%(instance_name)s %(fixed_ip)s"
 msgstr "%(instance_name)s %(fixed_ip)s"
 
 #, python-format
-msgid "%(name)s - %(size)s GB (%(label)s)"
-msgstr "%(name)s - %(size)s GB (%(label)s)"
-
-#, python-format
 msgid "%(type)s (%(backend)s backend)"
 msgstr "%(type)s (%(backend)s backend)"
 
@@ -63,10 +59,6 @@ msgid "%s GB"
 msgstr "%s GB"
 
 #, python-format
-msgid "%s instances"
-msgstr "%s इंस्टेंस"
-
-#, python-format
 msgid "%sGB"
 msgstr "%sGB"
 
@@ -89,11 +81,6 @@ msgstr "-"
 msgid "A local image to upload."
 msgstr "अपलोड करने के लिए स्थानीय बिंब।"
 
-msgid ""
-"A script or set of commands to be executed after the instance has been built "
-"(max 16kb)."
-msgstr "इंस्टेंस के बनने के बाद निष्पादित होने वाले  स्क्रिप्ट या कमांड का सेट (अधिकतम 16kb)"
-
 msgid "AKI - Amazon Kernel Image"
 msgstr "AKI - अमेज़न कर्नेल बिंब"
 
@@ -112,9 +99,6 @@ msgstr "API अंतबिंदु"
 
 msgid "ARI - Amazon Ramdisk Image"
 msgstr "ARI - अमेज़न रैमडिस्क बिंब"
-
-msgid "Access & Security"
-msgstr "पहुँच और सुरक्षा"
 
 msgid "Action"
 msgstr "क्रिया"
@@ -268,13 +252,6 @@ msgid "Allocation Pools"
 msgstr "आवंटन पूल"
 
 msgid ""
-"An instance can be launched with varying types of attached storage. You may "
-"select from those options here."
-msgstr ""
-"एक इंस्टेंस संलग्न भंडारण के अलग प्रकार के साथ शुरू किया जा सकता है. आप यहाँ उन विकल्पों में से "
-"चुन सकते हैं."
-
-msgid ""
 "An unexpected error has occurred. Try refreshing the page. If that doesn't "
 "help, contact your local administrator."
 msgstr ""
@@ -295,9 +272,6 @@ msgstr "एसोसियेट"
 
 msgid "Associate Floating IP"
 msgstr "अस्थायी आईपी जोड़ें"
-
-msgid "At least one network must be specified."
-msgstr "कम से कम एक नेटवर्क निर्दिष्ट किया जाना चाहिए."
 
 msgid "Attach To Instance"
 msgstr "इंस्टेंस के लिए संलग्न करें"
@@ -351,9 +325,6 @@ msgctxt "Current status of a Volume Backup"
 msgid "Available"
 msgstr "उपलब्ध"
 
-msgid "Available networks"
-msgstr "उपलब्ध संजाल "
-
 msgid "Backup Name"
 msgstr "बैकअप नाम"
 
@@ -369,21 +340,6 @@ msgstr "भंडार सेवाएँ रोकें"
 msgctxt "Power state of an Instance"
 msgid "Blocked"
 msgstr "रोका हुआ"
-
-msgid "Boot from image"
-msgstr "बिंब से बूट करें"
-
-msgid "Boot from image (creates a new volume)"
-msgstr "बिंब से बूट करें (नया वॉल्यूम बनाता है)"
-
-msgid "Boot from snapshot"
-msgstr "स्नैपशॉट से बूट करें"
-
-msgid "Boot from volume"
-msgstr "वॉल्यूम से बूट करें"
-
-msgid "Boot from volume snapshot (creates a new volume)"
-msgstr "वॉल्यूम स्नैपशॉट से बूट करें (नया वॉल्यूम बनाता है)"
 
 msgid "Bootable"
 msgstr "बूट करने योग्य"
@@ -432,9 +388,6 @@ msgstr "बदल रहा पासवर्ड समर्थित नह�
 msgid "Checksum"
 msgstr "चेकसम"
 
-msgid "Choose Your Boot Source Type."
-msgstr "अपने बूट स्रोत प्रकार चुनें."
-
 msgid "Choose a Host to migrate to."
 msgstr "उत्प्रवासित होने के लिये होस्ट चुनें :"
 
@@ -456,13 +409,6 @@ msgstr "संलग्न करने के लिए एक DHCP प्र�
 
 msgid "Choose an image"
 msgstr "कोई छवि चुनें"
-
-msgid ""
-"Choose network from Available networks to Selected networks by push button "
-"or drag and drop, you may change NIC order by drag and drop as well. "
-msgstr ""
-"उपलब्ध नेटवर्क से पुश बटन या खींचें और ड्रॉप द्वारा चयनित नेटवर्क के लिए नेटवर्क चुनें, आप को "
-"खींच द्वारा एनआईसी क्रम बदल सकते हैं और साथ ही साथ छोड़ सकते हैं."
 
 msgid "Choose the flavor to launch."
 msgstr "लांच करने के लिए फ्लेवर चुनें."
@@ -532,11 +478,6 @@ msgstr "कंटेनर का नाम"
 
 msgid "Containers"
 msgstr "कंटेनर"
-
-msgid ""
-"Control access to your instance via key pairs, security groups, and other "
-"mechanisms."
-msgstr "कुंजी जोड़े, सुरक्षा समूह, और अन्य तंत्र के माध्यम से अपने इंस्टेंस के लिए अभिगम नियंत्रण."
 
 #, python-format
 msgid "Could not find default role \"%s\" in Keystone"
@@ -973,9 +914,6 @@ msgstr "युक्ति नाम"
 msgid "Device Owner"
 msgstr "युक्ति ओनर"
 
-msgid "Device size (GB)"
-msgstr "डिवाइस का आकार (जीबी)"
-
 msgid "Direct Input"
 msgstr "प्रत्यक्ष निवेश"
 
@@ -1334,9 +1272,6 @@ msgstr "%s संजाल अद्यतन करने में विफ�
 msgid "Fault"
 msgstr "दोष"
 
-msgid "File"
-msgstr "फ़ाइल"
-
 msgid "Filter"
 msgstr "छानना शुरू..."
 
@@ -1654,9 +1589,6 @@ msgstr "इंस्टेंस"
 msgid "Instance Admin Password"
 msgstr "इंस्टांस व्यवस्थापक पासवर्ड"
 
-msgid "Instance Boot Source"
-msgstr "इंस्टांस बूट स्रोत"
-
 msgid "Instance Console"
 msgstr "इंस्टांस कंसोल"
 
@@ -1677,9 +1609,6 @@ msgstr "इंस्टांस पासवर्ड सेट नहीं �
 
 msgid "Instance Security Groups"
 msgstr "इंस्टांस सुरक्षा समूह"
-
-msgid "Instance Snapshot"
-msgstr "इंस्टांस स्नैपशॉट"
 
 msgid "Instances"
 msgstr "इंस्टेंस"
@@ -1762,17 +1691,6 @@ msgstr "इंस्टांस लॉन्च करें"
 
 msgid "Launch as Instance"
 msgstr "इंस्टांस के रूप में लॉन्च करें"
-
-msgid "Launch instance in these security groups."
-msgstr "इन सुरक्षा समूहों में इंस्टेंस लॉन्च करें"
-
-msgid "Launch instance with these networks"
-msgstr "इन नेटवर्कों के साथ इंस्टेंस लॉन्च करें"
-
-msgid ""
-"Launching multiple instances is only supported for images and instance "
-"snapshots."
-msgstr "एक से अधिक इंस्टेंस को लांच करना केवल बिंब और इंस्टेंस स्नैपशॉट के लिए समर्थित है."
 
 msgid "Length of Injected File Path"
 msgstr "इंजेक्ट फ़ाइल पथ की लंबाई"
@@ -1946,9 +1864,6 @@ msgstr "सीआईडीआर प्रारूप में संजाल
 msgid "Network list can not be retrieved."
 msgstr "संजाल सूची प्राप्त नहीं किया जा सकता है."
 
-msgid "Networking"
-msgstr "संजालन"
-
 msgctxt "Task status of an Instance"
 msgid "Networking"
 msgstr "संजालन"
@@ -2056,9 +1971,6 @@ msgstr "कोई सुरक्षा समूह सक्षम नही�
 msgid "No security groups found."
 msgstr "कोई सुरक्षा समूह नहीं मिला "
 
-msgid "No snapshots available"
-msgstr "कोई स्नैपशॉट उपलब्ध नहीं"
-
 msgid "No source, empty volume"
 msgstr "कोई स्रोत नहीं, खाली वॉल्यूम"
 
@@ -2070,9 +1982,6 @@ msgstr "कोई उपयोगकर्ता नहीं मिला."
 
 msgid "No users."
 msgstr "कोई उपयोक्ता नही."
-
-msgid "No volume snapshots available"
-msgstr "कोई वॉल्यूम स्नैपशॉट उपलब्ध नहीं"
 
 msgid "No volumes attached."
 msgstr "कोई वॉल्यूम जुड़ा हुआ नहीं है."
@@ -2203,9 +2112,6 @@ msgstr "जुड़े होने के लिए पोर्ट"
 msgid "Ports"
 msgstr "पोर्ट"
 
-msgid "Post-Creation"
-msgstr "पोस्ट निर्माण"
-
 msgid "Power State"
 msgstr "पॉवर की स्थिति"
 
@@ -2221,9 +2127,6 @@ msgstr "निजी कुंजी फाइल"
 
 msgid "Project"
 msgstr "परियोजना"
-
-msgid "Project & User"
-msgstr "परियोजना और उपयोगकर्ता"
 
 msgid "Project Groups"
 msgstr "परियोजना समूह"
@@ -2523,12 +2426,6 @@ msgctxt "Task status of an Instance"
 msgid "Scheduling"
 msgstr "समय-सारणी"
 
-msgid "Script Data"
-msgstr "स्क्रिप्ट डाटा"
-
-msgid "Script File"
-msgstr "स्क्रिप्ट फ़ाइल"
-
 msgid "Security Group"
 msgstr " सुरक्षा समूह "
 
@@ -2544,17 +2441,11 @@ msgstr "विभाजन आईडी"
 msgid "Select Image"
 msgstr "बिंब चुनें"
 
-msgid "Select Instance Snapshot"
-msgstr "इंस्टांस स्नैपशॉट चुनें "
-
 msgid "Select Subnet"
 msgstr "सबनेट चयन करें"
 
 msgid "Select Volume"
 msgstr "वॉल्यूम चुनें"
-
-msgid "Select Volume Snapshot"
-msgstr "वॉल्यूम स्नैपशॉट चुनें"
 
 msgid "Select a New Flavor"
 msgstr "नया फ्लेवर चुने"
@@ -2592,12 +2483,6 @@ msgstr "प्रारूप चुनें"
 msgid "Select network"
 msgstr "संजाल चुनें"
 
-msgid "Select networks for your instance."
-msgstr "अपने इंस्टेंस के लिए नेटवर्क का चयन करें."
-
-msgid "Select source"
-msgstr "स्रोत चुनें"
-
 msgid "Select the image to rebuild your instance."
 msgstr "अपने इंस्टेंस के पुनर्निर्माण के लिए बिंब का चयन करें."
 
@@ -2616,9 +2501,6 @@ msgstr "चयनित परियोजना"
 
 msgid "Selected hosts"
 msgstr "चयनित होस्ट"
-
-msgid "Selected networks"
-msgstr "चयनित संजाल"
 
 msgid "Server error"
 msgstr "सर्वर त्रुटि"
@@ -2677,9 +2559,6 @@ msgstr "साइन आउट"
 msgid "Size"
 msgstr "आकार"
 
-msgid "Size of image to launch."
-msgstr "लॉन्च करने के लिए बिंब का आकार."
-
 msgid "Slash is not an allowed character."
 msgstr "स्लैश एक अनुमत वर्ण नहीं है."
 
@@ -2711,9 +2590,6 @@ msgstr ""
 
 msgid "Specify an image to upload to the Image Service."
 msgstr " बिंब सेवा पर अपलोड करने के लिए एक  बिंब निर्दिष्ट करें."
-
-msgid "Specify the details for launching an instance."
-msgstr "इंस्टेंस शुरू करने के लिए विवरण निर्दिष्ट करें."
 
 msgid "Specs"
 msgstr "विशिष्टताएं"
@@ -2863,29 +2739,6 @@ msgstr ""
 msgid "The Key Pair name that was associated with the instance"
 msgstr "इंस्टेंस के साथ जुड़े हुए कुंजी युग्म नाम"
 
-#, python-format
-msgid ""
-"The Volume size is too small for the '%(image_name)s' image and has to be "
-"greater than or equal to '%(smallest_size)d' GB."
-msgstr ""
-"वॉल्यूम आकार '%(image_name)s' छवि के लिए बहुत छोटा है और अधिक से अधिक या "
-"'%(smallest_size)d' जीबी के बराबर हो गया है."
-
-msgid ""
-"The chart below shows the resources used by this project in relation to the "
-"project's quotas."
-msgstr ""
-"नीचे दिए गए चार्ट परियोजना के लिए कोटा के संबंध में इस प्रोजेक्ट के द्वारा प्रयुक्त संसाधनों से "
-"पता चलता है."
-
-#, python-format
-msgid ""
-"The flavor '%(flavor)s' is too small for requested image.\n"
-"Minimum requirements: %(min_ram)s MB of RAM and %(min_disk)s GB of Root Disk."
-msgstr ""
-"फ्लेवर %(flavor)s' के लिए अनुरोध बिंब बहुत छोटा है.\n"
-"न्यूनतम आवश्यकताओं: %(min_ram)s रैम की एमबी और %(min_disk)s जड़ डिस्क के जीबी."
-
 msgid "The instance password encrypted with your public key."
 msgstr "आपकी सार्वजनिक कुंजी के साथ एन्क्रिप्टेड इंस्टेंस पासवर्ड."
 
@@ -2936,10 +2789,6 @@ msgid ""
 msgstr ""
 "चयनित उपलब्धता क्षेत्र में इस स्वाद के लिए पर्याप्त क्षमता नहीं है. बाद में फिर से कोशिश करें "
 "या एक अलग उपलब्धता क्षेत्र का चयन करें."
-
-#, python-format
-msgid "There was a problem parsing the %(prefix)s: %(error)s"
-msgstr " %(prefix)s पार्स करने में कोई समस्या हुई थी: %(error)s"
 
 msgid "This action cannot be undone."
 msgstr "यह क्रिया पूर्ववत नहीं किया जा सकता।"
@@ -3138,10 +2987,6 @@ msgstr "उपलब्ध होस्ट पाने में असमर�
 msgid "Unable to import key pair."
 msgstr "कुंजी युग्म आयात करने में असमर्थ."
 
-#, python-format
-msgid "Unable to launch %(count)s named \"%(name)s\"."
-msgstr " %(count)s \"%(name)s\" नामित प्रारंभ करने में अक्षम"
-
 msgid "Unable to list dhcp agents hosting network."
 msgstr "dhcp प्रतिनिधि संजाल पुनः प्राप्त करने में असमर्थ."
 
@@ -3234,9 +3079,6 @@ msgstr "डोमेन जानकारी पाने में अक्�
 msgid "Unable to retrieve domain list."
 msgstr "डोमेन सूची ला सकने में असमर्थ."
 
-msgid "Unable to retrieve extensions information."
-msgstr "एक्सटेंशन के बारे में सूचना पाने में असमर्थ."
-
 msgid "Unable to retrieve extra spec list."
 msgstr "अतिरिक्त विनिर्देश सूची को प्राप्त करने में असमर्थ."
 
@@ -3323,12 +3165,6 @@ msgstr "कुंजी युग्म सूची को प्राप्�
 
 msgid "Unable to retrieve key pairs."
 msgstr "कुंजी युग्मों को पुनः प्राप्त करने में असमर्थ."
-
-msgid "Unable to retrieve list of security groups"
-msgstr "सुरक्षा समूहों की सूची को प्राप्त करने में असमर्थ"
-
-msgid "Unable to retrieve list of volume snapshots."
-msgstr "वॉल्यूम स्नैपशॉट के सूची को प्राप्त करने में असमर्थ."
 
 msgid "Unable to retrieve list of volumes."
 msgstr "संस्करणों की सूची को प्राप्त करने में असमर्थ."
@@ -3626,9 +3462,6 @@ msgstr "स्रोत के रूप में स्नैपशॉट क�
 msgid "Used <span> %(used)s </span> of <span> %(available)s </span>"
 msgstr "<span> %(available)s </span> का <span> %(used)s </span> उपलब्ध."
 
-msgid "User"
-msgstr "उपयोगकर्ता"
-
 #, python-format
 msgid "User \"%s\" was successfully created."
 msgstr "उपयोगकर्ता \"%s\" सफलतापूर्वक बनाया गया था."
@@ -3693,9 +3526,6 @@ msgstr "वॉल्यूम सीमाएं"
 msgid "Volume Name"
 msgstr "वॉल्यूम नाम"
 
-msgid "Volume Snapshot"
-msgstr "वॉल्यूम स्नैपशॉट"
-
 msgid "Volume Snapshots"
 msgstr "वॉल्यूम स्नैपशॉट"
 
@@ -3710,9 +3540,6 @@ msgstr "वॉल्यूम प्रकार अतिरिक्त स्
 
 msgid "Volume Types"
 msgstr "वॉल्यूम प्रकार"
-
-msgid "Volume size in gigabytes (integer value)."
-msgstr "गीगाबाइट में वॉल्यूम आकार (पूर्णांक मान)."
 
 #, python-format
 msgid "Volume size must be equal to or greater than the image size (%s)"
@@ -3789,18 +3616,6 @@ msgstr "आप यहाँ अपने नेटवर्क का संप�
 msgid "You may update the editable properties of your router here."
 msgstr "आप यहाँ अपने रॉटर के संपादन योग्य गुण अद्यतन कर सकते हैं."
 
-msgid "You must select a snapshot."
-msgstr "आप एक स्नैपशॉट का चयन करना होगा."
-
-msgid "You must select a volume."
-msgstr "आपको  वॉल्यूम का चयन करना होगा."
-
-msgid "You must select an image."
-msgstr "आप एक बिंब का चयन करना होगा."
-
-msgid "You must set volume size"
-msgstr "आप हमेशा वॉल्यूम आकर सेट कर सकते हैं"
-
 msgid ""
 "You must specify the source of the traffic to be allowed via this rule. You "
 "may do so either in the form of an IP address block (CIDR) or via a source "
@@ -3832,9 +3647,6 @@ msgstr "dm-crypt"
 
 msgid "front-end"
 msgstr "फ्रंट - एंड"
-
-msgid "instance"
-msgstr "इंस्टेंस"
 
 msgid "undefined"
 msgstr "अपारिभाषित"

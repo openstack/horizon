@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: horizon VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2021-05-11 12:54+0000\n"
+"POT-Creation-Date: 2022-02-21 20:31+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -20,10 +20,6 @@ msgstr " - শেষ"
 msgid " : Next hop"
 msgstr " : পরের হপ"
 
-msgid ""
-"\"Customization Script\" is analogous to \"User Data\" in other systems."
-msgstr "অন্যান্য সিস্টেমগুলিতে \"Customization Script\" হল \"User Data\" এর অনুরূপ."
-
 #, python-format
 msgid "%(field_name)s: Invalid IP address (value=%(ip)s)"
 msgstr "%(field_name)s: অবৈধ IP ঠিকানা (value=%(ip)s)"
@@ -35,10 +31,6 @@ msgstr "%(field_name)s: অবৈধ IP ঠিকানা (value=%(network)s)"
 #, python-format
 msgid "%(instance_name)s %(fixed_ip)s"
 msgstr "%(instance_name)s %(fixed_ip)s"
-
-#, python-format
-msgid "%(name)s - %(size)s GB (%(label)s)"
-msgstr "%(name)s - %(size)s GB (%(label)s)"
 
 #. Translators:  UTC offset and timezone label
 #, python-format
@@ -66,10 +58,6 @@ msgid "%s GB"
 msgstr "%s GB"
 
 #, python-format
-msgid "%s instances"
-msgstr "%s উদাহরণ"
-
-#, python-format
 msgid "%sGB"
 msgstr "%sGB"
 
@@ -92,13 +80,6 @@ msgstr "-"
 msgid "A local image to upload."
 msgstr "আপলোড করতে এক স্থানীয় ইমেজ."
 
-msgid ""
-"A script or set of commands to be executed after the instance has been built "
-"(max 16kb)."
-msgstr ""
-"উদাহরণ তৈরি হওয়ার পরে একটি স্ক্রিপ্ট বা আদেশের সেট সম্পাদিত করতে হবে (সর্বাধিক "
-"16kb)."
-
 msgid "AKI - Amazon Kernel Image"
 msgstr "AKI - আমাজন কার্নেল ইমেজ"
 
@@ -117,9 +98,6 @@ msgstr "API অন্তিমবিন্দু"
 
 msgid "ARI - Amazon Ramdisk Image"
 msgstr "ARI - আমাজন রামডিস্ক ইমেজ"
-
-msgid "Access & Security"
-msgstr "অ্যাক্সেস ও সুরক্ষা"
 
 msgid "Action"
 msgstr "ক্রিয়া"
@@ -276,13 +254,6 @@ msgid "Allocation Pools"
 msgstr "বণ্টন পুল"
 
 msgid ""
-"An instance can be launched with varying types of attached storage. You may "
-"select from those options here."
-msgstr ""
-"একটি উদাহরণ সংযুক্ত ভাণ্ডারের বিভিন্ন প্রকারের সঙ্গে শুরু করা যেতে পারে. আপনি এখানে "
-"ঐ বিকল্পগুলির থেকে নির্বাচন করতেও পারেন."
-
-msgid ""
 "An unexpected error has occurred. Try refreshing the page. If that doesn't "
 "help, contact your local administrator."
 msgstr ""
@@ -312,9 +283,6 @@ msgstr "ভলিয়্যুম প্রকার সহ QoS স্পেক �
 
 msgid "Associated QoS Spec"
 msgstr "মিলিত QoS স্পেক"
-
-msgid "At least one network must be specified."
-msgstr "কমপক্ষে একটি নেটওয়ার্ক নির্দিষ্ট হওয়া চাই."
 
 msgid "Attach To Instance"
 msgstr "উদাহরণে সংযুক্ত করুন"
@@ -378,9 +346,6 @@ msgctxt "Current status of a Volume Backup"
 msgid "Available"
 msgstr "লভ্য"
 
-msgid "Available networks"
-msgstr "লভ্য নেটওয়ার্ক"
-
 msgid "Backup Name"
 msgstr "ব্যাকআপ নাম"
 
@@ -392,21 +357,6 @@ msgstr "ব্লক স্থানান্তরণ"
 
 msgid "Block Storage Services"
 msgstr "ভাণ্ডার সেবা ব্লক করুন"
-
-msgid "Boot from image"
-msgstr "ইমেজ থেকে বুট করুন"
-
-msgid "Boot from image (creates a new volume)"
-msgstr "ইমেজ থেকে বুট করুন (একটি নতুন ভলিয়্যুম তৈরি করে)"
-
-msgid "Boot from snapshot"
-msgstr "স্ন্যাপশট থেকে বুট করুন"
-
-msgid "Boot from volume"
-msgstr "ভলিয়্যুম থেকে বুট করুন"
-
-msgid "Boot from volume snapshot (creates a new volume)"
-msgstr "ভলিয়্যুম স্ন্যাপশট থেকে বুট করুন (একটি নতুন ভলিয়্যুম তৈরি করে)"
 
 msgid "Bootable"
 msgstr "বুটযোগ্য"
@@ -441,9 +391,6 @@ msgstr "পাসওয়ার্ড বদলানো সমর্থিত ন
 msgid "Checksum"
 msgstr "চেকসাম"
 
-msgid "Choose Your Boot Source Type."
-msgstr "আপনার বুট উত্স প্রকার বাছুন."
-
 msgid "Choose a Host to migrate to."
 msgstr "তে মাইগ্রেট করতে একটি হোস্ট বাছুন."
 
@@ -472,13 +419,6 @@ msgstr "মিলিত QoS স্পেক বাছুন."
 msgid "Choose consumer for this QoS Spec."
 msgstr "এই QoS স্পেকের জন্য ক্রেতা বাছুন."
 
-msgid ""
-"Choose network from Available networks to Selected networks by push button "
-"or drag and drop, you may change NIC order by drag and drop as well. "
-msgstr ""
-"লভ্য নেটওয়ার্ক থেকে পুশ বোতাম বা ড্র্যাগ ও ড্রপ বোতাম দ্বারা নির্বাচিত নেটওয়ার্কে "
-"নেটওয়ার্ক বাছুন, আপনি সাথে সাথে ড্র্যাগ ও ড্রপ দ্বারা NIC ক্রম বদল করতে পারেন. "
-
 msgid "Choose the flavor to launch."
 msgstr "শুরু করতে ফ্লেভার বাছুন."
 
@@ -505,19 +445,6 @@ msgstr "গণনা হোস্ট"
 
 msgid "Compute Services"
 msgstr "গণনা সেবা"
-
-msgid "Configuration Drive"
-msgstr "রূপাকৃতি ড্রাইভ"
-
-msgid ""
-"Configure OpenStack to write metadata to a special configuration drive that "
-"attaches to the instance when it boots."
-msgstr ""
-"বিশেষ রূপাকৃতি ড্রাইভে মেটাডেটা লিখতে OpenStack রূপাকৃতি করুন যা বুট হওয়ার সময "
-"উদাহরণে সংলগ্ন করে."
-
-msgid "Confirm Admin Password"
-msgstr "নিশ্চিত অ্যাডমিন পাসওয়ার্ড"
 
 msgid "Confirm Password"
 msgstr "নিশ্চিত পাসওয়ার্ড"
@@ -556,17 +483,6 @@ msgstr "কন্টেনার"
 
 msgid "Control Location"
 msgstr "নিয়ন্ত্রণ অবস্থান"
-
-msgid ""
-"Control access to your instance via key pairs, security groups, and other "
-"mechanisms."
-msgstr ""
-"কী জোড়া, সুরক্ষা শ্রেণি এবং অন্যান্য পদ্ধতির মাধ্যমে আপনার উদাহরণে প্রবেশ করতে "
-"নিয়ন্ত্রণ."
-
-#, python-format
-msgid "Cores(Available: %(avail)s, Requested: %(req)s)"
-msgstr "কোর(লভ্য: %(avail)s, অনুরোধ করা: %(req)s)"
 
 #, python-format
 msgid "Could not find default role \"%s\" in Keystone"
@@ -789,9 +705,6 @@ msgstr "ব্যবহর্তা-বিহিত TCP নিয়ম"
 msgid "Custom UDP Rule"
 msgstr "ব্যবহর্তা-বিহিত UDP নিয়ম"
 
-msgid "Customization Script Source"
-msgstr "কাস্টমাইজেশন স্ক্রিপ্ট উত্স"
-
 msgid "DHCP Agents"
 msgstr "DHCP এজেন্ট"
 
@@ -870,9 +783,6 @@ msgstr "ডিভাইস নাম"
 
 msgid "Device Owner"
 msgstr "ডিভাইস মালিক"
-
-msgid "Device size (GB)"
-msgstr "ডিভাইস আয়তন (GB)"
 
 msgid "Direct Input"
 msgstr "সরাসরি ইনপুট"
@@ -1293,12 +1203,6 @@ msgstr "রাউটার %s আপডেট করতে ব্যর্থ"
 msgid "Fault"
 msgstr "ত্রুটি"
 
-msgid "File"
-msgstr "ফাইল"
-
-msgid "File exceeds maximum size (16kb)"
-msgstr "ফাইল সর্বাধিক আয়তন পেরিয়ে গেছে (16kb)"
-
 msgid "Filter"
 msgstr "ফিল্টার"
 
@@ -1630,9 +1534,6 @@ msgstr "উদাহরণ ক্রিয়া তালিকা"
 msgid "Instance Admin Password"
 msgstr "উদাহরণ অ্যাডমিন পাসওয়ার্ড"
 
-msgid "Instance Boot Source"
-msgstr "উদাহরণ বুট উত্স"
-
 msgid "Instance Console"
 msgstr "উদাহরণ কনসোল"
 
@@ -1653,9 +1554,6 @@ msgstr "উদাহরণ পাসওয়ার্ড সেট নেই ব�
 
 msgid "Instance Security Groups"
 msgstr "উদাহরণ সুরক্ষা শ্রেণি"
-
-msgid "Instance Snapshot"
-msgstr "উদাহরণ স্ন্যাপশট"
 
 msgid "Instances"
 msgstr "উদাহরণ"
@@ -1724,9 +1622,6 @@ msgstr "কী জোড়া আপনি কীভাবে উদাহর�
 msgid "Key Size (bits)"
 msgstr "কী আয়তন (bits)"
 
-msgid "Key pair to use for authentication."
-msgstr "প্রত্যয়নের জন্য ব্যবহার করতে কী জোড়া."
-
 msgid "Key-Value Pairs"
 msgstr "কী-মান জোড়া"
 
@@ -1748,17 +1643,6 @@ msgstr "উদাহরণ শুরু করুন (কোটা পেরি�
 
 msgid "Launch as Instance"
 msgstr "উদাহরণ হিসেবে শুরু করুন"
-
-msgid "Launch instance in these security groups."
-msgstr "এই  সুরক্ষা শ্রেণিগুলিতে উদাহরণ শুরু করুন."
-
-msgid "Launch instance with these networks"
-msgstr "এই নেটওয়ার্কগুলি সহ উদাহরণ চালু করুন"
-
-msgid ""
-"Launching multiple instances is only supported for images and instance "
-"snapshots."
-msgstr "বহু উদাহরণ শুরু করা কেবলমাত্র উদাহরণ স্ন্যাপশট এবং ইমেজের জন্য সমর্থিত."
 
 msgid "Length of Injected File Path"
 msgstr "ইঞ্জেক্ট করা ফাইল পথের দৈর্ঘ্য"
@@ -1963,9 +1847,6 @@ msgstr "CIDR ফরম্যাটে নেটওয়ার্ক ঠিকা�
 msgid "Network list can not be retrieved."
 msgstr "নেটওয়ার্ক তালিকা পুনরুদ্ধার করা যেতে পারে না."
 
-msgid "Networking"
-msgstr "নেটওয়ার্কিং"
-
 msgctxt "Task status of an Instance"
 msgid "Networking"
 msgstr "নেটওয়ার্কিং"
@@ -2078,9 +1959,6 @@ msgstr "কোনো সুরক্ষা শ্রেণি সমর্থ �
 msgid "No security groups found."
 msgstr "কোনো সুরক্ষা শ্রেণি পাওয়া গেল না."
 
-msgid "No snapshots available"
-msgstr "কোনো স্ন্যাপশট লভ্য নয়"
-
 msgid "No source, empty volume"
 msgstr "কোনো উত্স নেই, খালি ভলিয়্যুম"
 
@@ -2092,9 +1970,6 @@ msgstr "কোনো ব্যবহর্তা পাওয়া গেল ন�
 
 msgid "No users."
 msgstr "কোনো ব্যবহর্তা নেই."
-
-msgid "No volume snapshots available"
-msgstr "কোনো ভলিয়্যুম স্ন্যাপশট লভ্য নয়"
 
 msgid "No volume type"
 msgstr "কোনো ভলিয়্যুম প্রকার নেই"
@@ -2232,9 +2107,6 @@ msgstr "মিলিত হতে পোর্ট"
 msgid "Ports"
 msgstr "পোর্ট"
 
-msgid "Post-Creation"
-msgstr "উত্তর-সৃষ্টি"
-
 msgid "Power State"
 msgstr "শক্তির স্থিতি"
 
@@ -2246,9 +2118,6 @@ msgstr "প্রাইভেট কী ফাইল"
 
 msgid "Project"
 msgstr "প্রোজেক্ট"
-
-msgid "Project & User"
-msgstr "প্রোজেক্ট ও ব্যবহর্তা"
 
 msgid "Project Groups"
 msgstr "প্রোজেক্ট শ্রেণি"
@@ -2334,10 +2203,6 @@ msgstr "RAM (মোট)"
 
 msgid "RAM (used)"
 msgstr "RAM (ব্যবহৃত)"
-
-#, python-format
-msgid "RAM(Available: %(avail)s, Requested: %(req)s)"
-msgstr "RAM(লভ্য: %(avail)s, অনুরোধিত: %(req)s)"
 
 msgid "Ramdisk ID"
 msgstr "Ramdisk ID"
@@ -2496,12 +2361,6 @@ msgstr "বাঁচানো অতিরিক্ত স্পেক \"%s\"."
 msgid "Saved spec \"%s\"."
 msgstr "বাঁচানো স্পেক \"%s\"."
 
-msgid "Script Data"
-msgstr "স্ক্রিপ্ট ডেটা"
-
-msgid "Script File"
-msgstr "স্ক্রিপ্ট ফাইল"
-
 msgid "Security Group"
 msgstr "সুরক্ষা শ্রেণি"
 
@@ -2520,20 +2379,11 @@ msgstr "বৃত্তাংশ বিভাজন ID:"
 msgid "Select Image"
 msgstr "ইমেজ নির্বাচন করুন"
 
-msgid "Select Instance Snapshot"
-msgstr "উদাহরণ স্ন্যাপশট নির্বাচন করুন"
-
-msgid "Select Script Source"
-msgstr "স্ক্রিপ্ট উত্স নির্বাচন করুন"
-
 msgid "Select Subnet"
 msgstr "সাবনেট নির্বাচন করুন"
 
 msgid "Select Volume"
 msgstr "ভলিয়্যুম নির্বাচন করুন"
-
-msgid "Select Volume Snapshot"
-msgstr "ভলিয়্যুম স্ন্যাপশট নির্বাচন করুন"
 
 msgid "Select a New Flavor"
 msgstr "একটি নতুন ফ্লেভার নির্বাচন করুন"
@@ -2574,12 +2424,6 @@ msgstr "ফরম্যাট নির্বাচন করুন"
 msgid "Select network"
 msgstr "নেটওয়ার্ক নির্বাচন করুন"
 
-msgid "Select networks for your instance."
-msgstr "আপনার উদাহরণের জন্য নেটওয়ার্ক নির্বাচন করুন."
-
-msgid "Select source"
-msgstr "উত্স নির্বাচন করুন"
-
 msgid "Select the image to rebuild your instance."
 msgstr "আপনার উদাহরণ পুনরায় তৈরি করতে ইমেজ নির্বাচন করুন."
 
@@ -2598,9 +2442,6 @@ msgstr "নির্বাচিত প্রোজেক্ট"
 
 msgid "Selected hosts"
 msgstr "নির্বাচিত হোস্ট"
-
-msgid "Selected networks"
-msgstr "নির্বাচিত নেটওয়ার্ক"
 
 msgid "Server error"
 msgstr "সার্ভার ভুল"
@@ -2650,9 +2491,6 @@ msgstr "সাইন আউট"
 msgid "Size"
 msgstr "আয়তন"
 
-msgid "Size of image to launch."
-msgstr "চালু করতে ইমেজের আয়তন."
-
 msgid "Slash is not an allowed character."
 msgstr "Slash অনুমোদিত হরফ নয়."
 
@@ -2693,18 +2531,12 @@ msgstr ""
 msgid "Specify additional attributes for the subnet."
 msgstr "সাবনেটের জন্য অতিরিক্ত বৈশিষ্ট্য নির্দিষ্ট করুন."
 
-msgid "Specify advanced options to use when launching an instance."
-msgstr "একটি উদাহরণ শুরু করার সময ব্যবহার করতে উন্নত বিকল্পগুলি নির্দিষ্ট করুন."
-
 msgid "Specify an IP address for the interface created (e.g. 192.168.0.254)."
 msgstr ""
 "তৈরি করা ইন্টারফেসের জন্য একটি IP ঠিকানা নির্দিষ্ট করুন (যেমন 192.168.0.254)."
 
 msgid "Specify an image to upload to the Image Service."
 msgstr "ইমেজ সেবাতে আপলোড করতে একটি ইমেজ নির্দিষ্ট করুন."
-
-msgid "Specify the details for launching an instance."
-msgstr "একটি উদাহরণ চালু করার জন্য বিশদ নির্দিষ্ট করুন."
 
 msgid "Specs"
 msgstr "স্পেক"
@@ -2897,29 +2729,8 @@ msgstr ""
 msgid "The Key Pair name that was associated with the instance"
 msgstr "কী জোড়ার নাম যা উদাহরণের সাথে জড়িত ছিল"
 
-#, python-format
-msgid ""
-"The Volume size is too small for the '%(image_name)s' image and has to be "
-"greater than or equal to '%(smallest_size)d' GB."
-msgstr ""
-"'%(image_name)s' ইমেজের জন্য ভলিয়্যুম আয়তন খুবই ছোটো এবং '%(smallest_size)d' GB "
-"এর চেয়ে বেশি বা সমান হওয়া চাই."
-
-msgid ""
-"The chart below shows the resources used by this project in relation to the "
-"project's quotas."
-msgstr "নিচের চার্ট প্রোজেক্ট কোটা সম্বন্ধে এই প্রোজেক্ট দ্বারা ব্যবহৃত উৎস দেখায়."
-
 msgid "The container cannot be deleted since it is not empty."
 msgstr "কন্টেনারটি খালি না থাকায় এটি মুছে ফেলা যেতে পারে না."
-
-#, python-format
-msgid ""
-"The flavor '%(flavor)s' is too small for requested image.\n"
-"Minimum requirements: %(min_ram)s MB of RAM and %(min_disk)s GB of Root Disk."
-msgstr ""
-"অনুরোধ করা ইমেজের জন্য ফ্লেভার '%(flavor)s' খুবই ছোটো.\n"
-"ন্যূনতম প্রয়োজন: RAM  এর %(min_ram)s MB এবং রুট ডিস্কের %(min_disk)s GB."
 
 msgid "The instance password encrypted with your public key."
 msgstr "আপনার পাবলিক কী সহ এনক্রিপ্ট করা উদাহরণ পাসওয়ার্ড."
@@ -2963,14 +2774,6 @@ msgstr ""
 msgid "The pseudo folder cannot be deleted since it is not empty."
 msgstr "সুডো ফোল্ডার খালি না থাকায় এটি মুছে ফেলা যেতে পারে না."
 
-#, python-format
-msgid ""
-"The requested instance cannot be launched. The following requested "
-"resource(s) exceed quota(s): %s."
-msgstr ""
-"অনুরোধিত উদাহরণ শুরু করা যেতে পারে না. নিম্নলিখিত অনুরোধিত উত্স কোটা পেরিয়ে গেছে: "
-"%s."
-
 msgid ""
 "The requested instance port is already associated with another floating IP."
 msgstr "অনুরোধ করা উদাহরণ পোর্ট ইতিমধ্যেই অন্য ফ্লোটিং IP-এর সঙ্গে মিলিত."
@@ -2995,10 +2798,6 @@ msgid ""
 msgstr ""
 "নির্বাচিত লভ্যতা অঞ্চলে এই ফ্লেভারের জন্য যথেষ্ট ক্ষমতা নেই. পরে আবার চেষ্টা করুন বা "
 "অন্য লভ্যতা অঞ্চল নির্বাচন করুন."
-
-#, python-format
-msgid "There was a problem parsing the %(prefix)s: %(error)s"
-msgstr "%(prefix)s পার্স করতে সমস্যা ছিল: %(error)s"
 
 msgid ""
 "This generates a pair of keys: a key you keep private (cloud.key) and a "
@@ -3231,10 +3030,6 @@ msgstr "লভ্য হোস্ট পেতে অসমর্থ"
 msgid "Unable to import key pair."
 msgstr "কী যুগ্ম আমদানি করতে অসমর্থ."
 
-#, python-format
-msgid "Unable to launch %(count)s named \"%(name)s\"."
-msgstr "\"%(name)s\"নামের %(count)s শুরু করতে অসমর্থ."
-
 msgid "Unable to list dhcp agents hosting network."
 msgstr "dhcp এজেন্ট হোস্টিং নেটওয়ার্ক তালিকা করতে অসমর্থ."
 
@@ -3352,9 +3147,6 @@ msgstr "ডোমেন তথ্যা পুনরুদ্ধার করত
 msgid "Unable to retrieve domain list."
 msgstr "ডোমেন তালিকা পুনরুদ্ধার করতে অসমর্থ."
 
-msgid "Unable to retrieve extensions information."
-msgstr "এক্সটেনশন তথ্য পুনরুদ্ধার করতে অসমর্থ."
-
 msgid "Unable to retrieve extra spec list."
 msgstr "অতিরিক্ত স্পেক তালিকা পুনরুদ্ধার করতে অসমর্থ."
 
@@ -3453,12 +3245,6 @@ msgstr "কী জোড়া তালিকা পুনরুদ্ধার
 
 msgid "Unable to retrieve key pairs."
 msgstr "কী জোড়া পুনরুদ্ধার করতে অসমর্থ."
-
-msgid "Unable to retrieve list of security groups"
-msgstr "সুরক্ষা শ্রেণির তালিকা পুনরুদ্ধার করতে অসমর্থ."
-
-msgid "Unable to retrieve list of volume snapshots."
-msgstr "ভলিয়্যুম স্ন্যাপশটের তালিকা পুনরুদ্ধার করতে অসমর্থ."
 
 msgid "Unable to retrieve list of volumes."
 msgstr "ভলিয়্যুমের তালিকা পুনরুদ্ধার করতে অসমর্থ."
@@ -3797,9 +3583,6 @@ msgstr "উত্স হিসেবে স্ন্যাপশট ব্যব
 msgid "Used <span> %(used)s </span> of <span> %(available)s </span>"
 msgstr "<span> %(available)s </span> এর <span> %(used)s </span> ব্যবহৃত"
 
-msgid "User"
-msgstr "ব্যবহর্তা"
-
 #, python-format
 msgid "User \"%s\" was successfully created."
 msgstr "\"%s\" ব্যবহর্তা সফলভাবে তৈরি হয়েছিল."
@@ -3884,9 +3667,6 @@ msgstr "ভলিয়্যুম সীমা"
 msgid "Volume Name"
 msgstr "ভলিয়্যুম নাম"
 
-msgid "Volume Snapshot"
-msgstr "ভলিয়্যুম স্ন্যাপশট"
-
 msgid "Volume Snapshots"
 msgstr "ভলিয়্যুম স্ন্যাপশট"
 
@@ -3916,22 +3696,9 @@ msgstr "ভলিয়্যুম প্রকার: %(volume_type_name)s "
 msgid "Volume Types"
 msgstr "ভলিয়্যুম প্রকার"
 
-msgid ""
-"Volume mount point (e.g. 'vda' mounts at '/dev/vda'). Leave this field blank "
-"to let the system choose a device name for you."
-msgstr ""
-"ভলিয়্যুম মাউন্ট পয়েন্ট (যেমন  '/dev/vda' তো  'vda' মাউন্ট). সিস্টেমকে আপনার জন্য "
-"একটি ডিভাইস বাছতে দিতে এই ক্ষেত্র খালি ছাড়ুন."
-
-msgid "Volume size in gigabytes (integer value)."
-msgstr "গিগাবাইটে ভলিয়্যুম আয়তন (পূর্ণাঙ্ক মান)."
-
 #, python-format
 msgid "Volume size must be equal to or greater than the image size (%s)"
 msgstr "ভলিয়্যুম আয়তন ইমেজ আয়তন সমান বা বড় হওয়া চাই  (%s)"
-
-msgid "Volume size must be greater than 0"
-msgstr "ভলিয়্যুম আয়তন 0 এর চেয়ে বড় হওয়া চাই"
 
 msgid "Volume source must be specified"
 msgstr "ভলিয়্যুম উত্স নির্দিষ্ট হওয়া চাই"
@@ -3971,13 +3738,6 @@ msgstr ""
 "করলে, নির্দিষ্ট ডিভাইস পোর্ট তৈরি করতে সংযুক্ত হবে."
 
 msgid ""
-"You can customize your instance after it has launched using the options "
-"available here."
-msgstr ""
-"আপনি এখানে লভ্য বিকল্প ব্যবহার করে এটি শুরু করার পরে আপনার উদাহরণ ব্যবহর্তা-বিহিত "
-"করতে পারেন."
-
-msgid ""
 "You can specify the desired rule template or use custom rules, the options "
 "are Custom TCP Rule, Custom UDP Rule, or Custom ICMP Rule."
 msgstr ""
@@ -4015,18 +3775,6 @@ msgstr "এখানে আপনি আপনার নেটওয়ার্ক
 msgid "You may update the editable properties of your router here."
 msgstr "এখানে আপনি আপনার রাউটারের সম্পাদনযোগ্য বৈশিষ্ট্যগুলি আপডেট করতেও পারেন."
 
-msgid "You must select a snapshot."
-msgstr "আপনাকে একটি স্ন্যাপশট নির্বাচন করা চাই."
-
-msgid "You must select a volume."
-msgstr "আপনাকে একটি ভলিয়্যুম নির্বাচন করা চাই."
-
-msgid "You must select an image."
-msgstr "আপনাকে একটি ইমেজ নির্বাচন করা চাই."
-
-msgid "You must set volume size"
-msgstr "আপনার ভলিয়্যুম আয়তন সেট থাকা চাই"
-
 msgid ""
 "You must specify the source of the traffic to be allowed via this rule. You "
 "may do so either in the form of an IP address block (CIDR) or via a source "
@@ -4054,9 +3802,6 @@ msgstr "dm-crypt"
 
 msgid "front-end"
 msgstr "ফ্রন্ট-এন্ড"
-
-msgid "instance"
-msgstr "উদাহরণ"
 
 msgid "undefined"
 msgstr "অনির্ধারিত"

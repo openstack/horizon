@@ -2,9 +2,9 @@
 # Andi Chandler <andi@gowling.com>, 2019. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon\n"
+"Project-Id-Version: horizon 21.0.1.dev22\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-02-02 13:36+0000\n"
+"POT-Creation-Date: 2022-02-21 20:31+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -798,15 +798,6 @@ msgstr ""
 "server load and scaling problems."
 
 msgid ""
-"In OpenStack, a flavor defines the compute, memory, and storage capacity of "
-"a virtual server, also known as an instance. As an administrative user, you "
-"can create, edit, and delete flavors."
-msgstr ""
-"In OpenStack, a flavour defines the compute, memory, and storage capacity of "
-"a virtual server, also known as an instance. As an administrative user, you "
-"can create, edit, and delete flavours."
-
-msgid ""
 "In the :guilabel:`Add/Remove Hosts to Aggregate` dialog box, click **+** to "
 "assign a host to an aggregate. Click **-** to remove a host that is assigned "
 "to an aggregate."
@@ -885,13 +876,6 @@ msgid ""
 "In the :guilabel:`Create Snapshot` window, enter a name for the snapshot."
 msgstr ""
 "In the :guilabel:`Create Snapshot` window, enter a name for the snapshot."
-
-msgid ""
-"In the :guilabel:`Edit Flavor` window, you can change the flavor name, "
-"VCPUs, RAM, root disk, ephemeral disk, and swap disk values."
-msgstr ""
-"In the :guilabel:`Edit Flavour` window, you can change the flavour name, "
-"VCPUs, RAM, root disk, ephemeral disk, and swap disk values."
 
 msgid ""
 "In the :guilabel:`Edit Host Aggregate` dialog box, you can change the name "
@@ -1349,10 +1333,6 @@ msgstr ""
 
 msgid "Select the checkbox to the left of the user you would like to delete."
 msgstr "Select the checkbox to the left of the user you would like to delete."
-
-msgid "Select the flavor that you want to edit. Click :guilabel:`Edit Flavor`."
-msgstr ""
-"Select the flavour that you want to edit. Click :guilabel:`Edit Flavour`."
 
 msgid ""
 "Select the flavor that you want to update. In the drop-down list, click :"
@@ -1813,9 +1793,6 @@ msgstr "Update a project"
 
 msgid "Update a user"
 msgstr "Update a user"
-
-msgid "Update flavors"
-msgstr "Update flavours"
 
 msgid "Update images"
 msgstr "Update images"

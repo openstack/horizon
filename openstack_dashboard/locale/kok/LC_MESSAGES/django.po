@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: horizon VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2021-05-11 12:54+0000\n"
+"POT-Creation-Date: 2022-02-21 20:31+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -20,10 +20,6 @@ msgstr " - शेवट"
 msgid " : Next hop"
 msgstr " :  फुडलो थांबो"
 
-msgid ""
-"\"Customization Script\" is analogous to \"User Data\" in other systems."
-msgstr "\"कस्टमायझेशन लिपी\" ही हेर व्यवस्थांतल्या \"वापरपी डेटा\" कडेन मेळपी."
-
 #, python-format
 msgid "%(field_name)s: Invalid IP address (value=%(ip)s)"
 msgstr "%(field_name)s: अमान्य IP नामो (value=%(ip)s)"
@@ -35,10 +31,6 @@ msgstr "%(field_name)s: अमान्य IP नामो (value=%(network)s)"
 #, python-format
 msgid "%(instance_name)s %(fixed_ip)s"
 msgstr "%(instance_name)s %(fixed_ip)s"
-
-#, python-format
-msgid "%(name)s - %(size)s GB (%(label)s)"
-msgstr "%(name)s - %(size)s GB (%(label)s)"
 
 #. Translators:  UTC offset and timezone label
 #, python-format
@@ -72,10 +64,6 @@ msgid "%s GB"
 msgstr "%s GB"
 
 #, python-format
-msgid "%s instances"
-msgstr "%s इंस्टंसिस"
-
-#, python-format
 msgid "%sGB"
 msgstr "%sGB"
 
@@ -98,12 +86,6 @@ msgstr "-"
 msgid "A local image to upload."
 msgstr "अपलोड करपाक थळावी प्रतिमा"
 
-msgid ""
-"A script or set of commands to be executed after the instance has been built "
-"(max 16kb)."
-msgstr ""
-"इन्स्टन्स बांदल्या उपरांत कार्यवाहींत हाडपाची लिपी वो आदेशांचो संच (चडांत चड 16kb)."
-
 msgid "AKI - Amazon Kernel Image"
 msgstr "AKI - एमेझॉन कर्नल प्रतिमा"
 
@@ -122,9 +104,6 @@ msgstr "API एंडपॉयंट"
 
 msgid "ARI - Amazon Ramdisk Image"
 msgstr "ARI - एमेझॉन रॅमडिस्क प्रतिमा"
-
-msgid "Access & Security"
-msgstr "प्रवेश आनी सुरक्षा"
 
 msgid "Action"
 msgstr "कारवाय"
@@ -280,13 +259,6 @@ msgid "Allocation Pools"
 msgstr "नेमणूक पूल्स"
 
 msgid ""
-"An instance can be launched with varying types of attached storage. You may "
-"select from those options here."
-msgstr ""
-"विंगडविंगड प्रकारच्या जोडिल्ल्या साठ्यासंयत इंस्टंस चालू करपाक मेळटा. हांगा तुमी त्या "
-"विकल्पातल्यान निवडपाक शकता."
-
-msgid ""
 "An unexpected error has occurred. Try refreshing the page. If that doesn't "
 "help, contact your local administrator."
 msgstr ""
@@ -316,9 +288,6 @@ msgstr "QoS Spec  आकार प्रकारासंयत जोडात
 
 msgid "Associated QoS Spec"
 msgstr "संबंधित QoS Spec"
-
-msgid "At least one network must be specified."
-msgstr "किमान एक नेटवर्क स्पश्ट करपाक जाय."
 
 msgid "Attach To Instance"
 msgstr "इंस्टंसाक जोडात"
@@ -382,9 +351,6 @@ msgctxt "Current status of a Volume Backup"
 msgid "Available"
 msgstr "उपलब्ध"
 
-msgid "Available networks"
-msgstr "उपलब्ध नेटवर्क्स"
-
 msgid "Backup Name"
 msgstr "बॅकएपाचे नाव"
 
@@ -404,21 +370,6 @@ msgstr "साठो सेवा आडयात"
 msgctxt "Power state of an Instance"
 msgid "Blocked"
 msgstr "आडयला"
-
-msgid "Boot from image"
-msgstr "प्रतिमेतल्यान बूट करात"
-
-msgid "Boot from image (creates a new volume)"
-msgstr "प्रतिमेतल्यान बूट करात (नवो आकार तयार करता)"
-
-msgid "Boot from snapshot"
-msgstr "स्नॅपशॉटातल्यान बूट करात"
-
-msgid "Boot from volume"
-msgstr "आकारातल्यान बूट करात"
-
-msgid "Boot from volume snapshot (creates a new volume)"
-msgstr "आकार स्नॅपशॉटातल्यान बूट करात (नवो आकार तयार करता)"
 
 msgid "Bootable"
 msgstr "बूट जावपी"
@@ -473,9 +424,6 @@ msgstr "पासवर्ड बदलुपाक फाटबळ ना."
 msgid "Checksum"
 msgstr "चेकसम"
 
-msgid "Choose Your Boot Source Type."
-msgstr "तुमचो बूट स्त्रोत प्रकार निवडात."
-
 msgid "Choose a Host to migrate to."
 msgstr "स्थलांतर करपाक येजमान निवडात."
 
@@ -503,13 +451,6 @@ msgstr "संबंधित QoS Spec निवडात"
 msgid "Choose consumer for this QoS Spec."
 msgstr "ह्या QoS Spec खातीर गिरायक निवडात."
 
-msgid ""
-"Choose network from Available networks to Selected networks by push button "
-"or drag and drop, you may change NIC order by drag and drop as well. "
-msgstr ""
-"उपलब्ध नेटवर्क्स ते निवडिल्ल्या नेटवर्क्सातल्यान पूश बटण वो ओडात आनी सोडातसंयत नेटवर्क "
-"निवडात, तुमी NIC क्रम लेगीत ओडात आनी सोडातसंयत बदलुपाक शकता."
-
 msgid "Choose the flavor to launch."
 msgstr "चालू करपाक फ्लेवर निवडात."
 
@@ -536,19 +477,6 @@ msgstr "येजमान मेजात"
 
 msgid "Compute Services"
 msgstr "सेवा मेजात"
-
-msgid "Configuration Drive"
-msgstr "संरचनाय ड्रायव्ह"
-
-msgid ""
-"Configure OpenStack to write metadata to a special configuration drive that "
-"attaches to the instance when it boots."
-msgstr ""
-"खास संरचनाय ड्रायव्हान बूट जातकेर इंस्टंसाक जुळपी मेटाडेटा बरोवपाक ओपनस्टॅकाची संरचनाय "
-"करात."
-
-msgid "Confirm Admin Password"
-msgstr "एडमिन पासवर्डाची खात्री करात"
 
 msgid "Confirm Password"
 msgstr "पासवर्डाची खात्री करात"
@@ -591,16 +519,6 @@ msgstr "कंटेनर्स"
 
 msgid "Control Location"
 msgstr "थळ नियंत्रण"
-
-msgid ""
-"Control access to your instance via key pairs, security groups, and other "
-"mechanisms."
-msgstr ""
-"की जोडी, सुरक्षआ गट आणि हेर यंत्रणांतल्यान तुमच्या इन्स्टन्सांच्या प्रवेशार नियंत्रण करात."
-
-#, python-format
-msgid "Cores(Available: %(avail)s, Requested: %(req)s)"
-msgstr "कोअर्स (उपलब्ध: %(avail)s, विनंती केल्ले: %(req)s)"
 
 #, python-format
 msgid "Could not find default role \"%s\" in Keystone"
@@ -826,9 +744,6 @@ msgstr "कस्टम TCP नेम"
 msgid "Custom UDP Rule"
 msgstr "कस्टम UDP नेम"
 
-msgid "Customization Script Source"
-msgstr "कस्टमायझेशन लिपी स्त्रोत"
-
 msgid "DHCP Agents"
 msgstr "DHCP एजंट"
 
@@ -907,9 +822,6 @@ msgstr "उपकरणाचे नाव"
 
 msgid "Device Owner"
 msgstr "उपकरण मालक"
-
-msgid "Device size (GB)"
-msgstr "उपकरण  आकार (GB)"
 
 msgid "Direct Input"
 msgstr "थेट इनपूट"
@@ -1331,12 +1243,6 @@ msgstr "%s राऊटर सुदारपाक शकना."
 msgid "Fault"
 msgstr "चूक"
 
-msgid "File"
-msgstr "फायल"
-
-msgid "File exceeds maximum size (16kb)"
-msgstr "फायल कमाल आकारापरस व्हड आसा (16kb)"
-
 msgid "Filter"
 msgstr "फिल्टर"
 
@@ -1695,9 +1601,6 @@ msgstr "इन्स्टन्स कारवाय वळेरी"
 msgid "Instance Admin Password"
 msgstr "इंस्टंस एडमिन पासवर्ड"
 
-msgid "Instance Boot Source"
-msgstr "इंस्टंस बूट स्त्रोत"
-
 msgid "Instance Console"
 msgstr "इंस्टंस कंसोल"
 
@@ -1718,9 +1621,6 @@ msgstr "इंस्टंस पासवर्ड थारायल्लो 
 
 msgid "Instance Security Groups"
 msgstr "इंस्टंस सुरक्षा गट"
-
-msgid "Instance Snapshot"
-msgstr "इंस्टंस स्नॅपशॉट"
 
 msgid "Instances"
 msgstr "इंस्टंसिस"
@@ -1788,9 +1688,6 @@ msgstr "की जोडी म्हळ्यार तुमी कशे त�
 msgid "Key Size (bits)"
 msgstr "की आकार(बीट्स)"
 
-msgid "Key pair to use for authentication."
-msgstr "अधिकृतीकरणाखातीर वापरपाची की जोडी."
-
 msgid "Key-Value Pairs"
 msgstr "की-मोल जोडीं"
 
@@ -1812,17 +1709,6 @@ msgstr "इंस्टंस चालू करात (कोटा वाड�
 
 msgid "Launch as Instance"
 msgstr "इंस्टंस म्हण चालू करात"
-
-msgid "Launch instance in these security groups."
-msgstr "ह्या सुरक्षा गटांत इन्स्टन्स चालू करात."
-
-msgid "Launch instance with these networks"
-msgstr "ह्या नेटवर्कांसंयत इंस्टंस चालू करात"
-
-msgid ""
-"Launching multiple instances is only supported for images and instance "
-"snapshots."
-msgstr "भौ इन्स्टन्स चालू करप हे फकत प्रतिमा आणि इन्स्टन्स स्नॅपशॉटस् खातीर आसा."
 
 msgid "Length of Injected File Path"
 msgstr "इंजेक्टेड फायल वाटेची लांबाय"
@@ -2027,9 +1913,6 @@ msgstr "CIDR स्वरूप (देख. 192.168.0.0/24, 2001:DB8::/48) न �
 msgid "Network list can not be retrieved."
 msgstr "नेटवर्क वळेरी परत मेळोवपाक शकना."
 
-msgid "Networking"
-msgstr "नेटवर्किंग"
-
 msgctxt "Task status of an Instance"
 msgid "Networking"
 msgstr "नेटवर्किंग"
@@ -2146,9 +2029,6 @@ msgstr "सुरक्षा गट सक्रिय ना."
 msgid "No security groups found."
 msgstr "सुरक्षा गट मेळू ना."
 
-msgid "No snapshots available"
-msgstr "स्नॅपशॉट उपलब्ध ना"
-
 msgid "No source, empty volume"
 msgstr "स्त्रोत ना, रिकामो आकार"
 
@@ -2160,9 +2040,6 @@ msgstr "वापरपी मेळू ना."
 
 msgid "No users."
 msgstr "वापरपी ना."
-
-msgid "No volume snapshots available"
-msgstr "आकार स्नॅपशॉट्स उपलब्ध ना"
 
 msgid "No volume type"
 msgstr "आकाराचो प्रकार"
@@ -2304,9 +2181,6 @@ msgstr "जोडपाचो पोर्ट"
 msgid "Ports"
 msgstr "पोर्ट्स"
 
-msgid "Post-Creation"
-msgstr "निर्मणे-उपरांत"
-
 msgid "Power State"
 msgstr "ऊर्जा स्थिती"
 
@@ -2330,9 +2204,6 @@ msgstr "खासगी की फायल"
 
 msgid "Project"
 msgstr "प्रकल्प"
-
-msgid "Project & User"
-msgstr "प्रकल्प & वापरपी"
 
 msgid "Project Groups"
 msgstr "प्रकल्प गट"
@@ -2418,10 +2289,6 @@ msgstr "RAM (एकूण)"
 
 msgid "RAM (used)"
 msgstr "RAM (वापरिल्ले)"
-
-#, python-format
-msgid "RAM(Available: %(avail)s, Requested: %(req)s)"
-msgstr "RAM(उपलब्ध: %(avail)s, विनंती केला: %(req)s)"
 
 msgid "Ramdisk ID"
 msgstr "रॅमडिस्क ID"
@@ -2656,12 +2523,6 @@ msgctxt "Task status of an Instance"
 msgid "Scheduling"
 msgstr "नेमून दिता"
 
-msgid "Script Data"
-msgstr "लिपी डेटा"
-
-msgid "Script File"
-msgstr "लिपी फायल"
-
 msgid "Security Group"
 msgstr "सुरक्षा गट"
 
@@ -2680,20 +2541,11 @@ msgstr "विभागीकरण ID:"
 msgid "Select Image"
 msgstr "प्रतिमा निवडात"
 
-msgid "Select Instance Snapshot"
-msgstr "इंस्टंस स्नॅपशॉट निवडात"
-
-msgid "Select Script Source"
-msgstr "स्क्रिप्ट स्त्रोत निवडला"
-
 msgid "Select Subnet"
 msgstr "उपनेट निवडात"
 
 msgid "Select Volume"
 msgstr "आकार निवडात"
-
-msgid "Select Volume Snapshot"
-msgstr "आकार स्नॅपशॉट निवडात"
 
 msgid "Select a New Flavor"
 msgstr "नवो फ्लेवर निवडात"
@@ -2734,12 +2586,6 @@ msgstr "स्वरूप निवडात"
 msgid "Select network"
 msgstr "नेटवर्क निवडात"
 
-msgid "Select networks for your instance."
-msgstr "तुमच्या इंस्टंसाखातीर नेटवर्क्स निवडात."
-
-msgid "Select source"
-msgstr "स्त्रोत निवडात"
-
 msgid "Select the image to rebuild your instance."
 msgstr "तुमचो इंस्टंस परत बांधपाक प्रतिमा निवडात."
 
@@ -2758,9 +2604,6 @@ msgstr "निवडील्ले प्रकल्प"
 
 msgid "Selected hosts"
 msgstr "निवडील्ले येजमान"
-
-msgid "Selected networks"
-msgstr "निवडिल्ले नेटवर्क्स"
 
 msgid "Server error"
 msgstr "सर्वर एरर"
@@ -2846,9 +2689,6 @@ msgstr "सायन आवट"
 msgid "Size"
 msgstr "आकार"
 
-msgid "Size of image to launch."
-msgstr "चालू करपाच्या प्रतिमेचो आकार."
-
 msgid "Slash is not an allowed character."
 msgstr "स्लॅशाक परवानगी ना."
 
@@ -2905,17 +2745,11 @@ msgstr ""
 msgid "Specify additional attributes for the subnet."
 msgstr "उपनेटाखातीर अदिक गुणधर्म स्पश्ट करात."
 
-msgid "Specify advanced options to use when launching an instance."
-msgstr "इंस्टंस चालू करतना वापरपाचे अद्ययावत विकल्प स्पश्ट करात."
-
 msgid "Specify an IP address for the interface created (e.g. 192.168.0.254)."
 msgstr "तयार केल्ल्या इंटरफेसाक IP नामो स्पश्ट करात (देखीक. 192.168.0.254)."
 
 msgid "Specify an image to upload to the Image Service."
 msgstr "प्रतिमा सेवेन अपलोड करपाची प्रतिमा स्पश्ट करात."
-
-msgid "Specify the details for launching an instance."
-msgstr "इंस्टंस चालू करपाक तपशील दियात."
 
 msgid "Specs"
 msgstr "Specs"
@@ -3113,29 +2947,8 @@ msgstr ""
 msgid "The Key Pair name that was associated with the instance"
 msgstr "इंस्टंसाकडे संबंधित की जोडीचे नाव"
 
-#, python-format
-msgid ""
-"The Volume size is too small for the '%(image_name)s' image and has to be "
-"greater than or equal to '%(smallest_size)d' GB."
-msgstr ""
-"'%(image_name)s' प्रतिमेखातीर आकारमान आकार खूप ल्हान आसा आनी '%(smallest_size)d' "
-"GB परस व्हडले वो समान आसपाक जाय."
-
-msgid ""
-"The chart below shows the resources used by this project in relation to the "
-"project's quotas."
-msgstr "सकयलो चार्ट ह्या प्रकल्पान प्रकल्पाच्या कोटाच्या संबंधान वापरिल्ली संसाधना दाखयता."
-
 msgid "The container cannot be deleted since it is not empty."
 msgstr "कंटेनर काडून उडोवपाक शकना कारण तो रिकमी ना."
-
-#, python-format
-msgid ""
-"The flavor '%(flavor)s' is too small for requested image.\n"
-"Minimum requirements: %(min_ram)s MB of RAM and %(min_disk)s GB of Root Disk."
-msgstr ""
-"निवंती केल्ल्या प्रतिमेखातीर फ्लेवर '%(flavor)s' खूप ल्हान आसा.\n"
-"किमान गरजों: %(min_ram)s MB  RAM तली आनी %(min_disk)s GB रूट डिस्कातली."
 
 msgid "The instance password encrypted with your public key."
 msgstr "तुमच्या भौशिक की संयत एनक्रिप्ट केल्लो इंस्टंस पासवर्ड."
@@ -3178,14 +2991,6 @@ msgstr "फकत तुमच्या ब्रावजरान खाजग
 msgid "The pseudo folder cannot be deleted since it is not empty."
 msgstr "सूडो फोल्डर काडून उडोवपाक शकना कारण तो रिकमी ना."
 
-#, python-format
-msgid ""
-"The requested instance cannot be launched. The following requested "
-"resource(s) exceed quota(s): %s."
-msgstr ""
-"विनंती केल्लो इंस्टंस चालू करपाक शकना. मुखावयले विनंती केल्ले संसाधन(नां) कोटा(ज) परस चड "
-"आसा: %s."
-
 msgid ""
 "The requested instance port is already associated with another floating IP."
 msgstr "विनंती केल्लो इंस्टंस पोर्ट पयलीच हेर फ्लोटिंग IP संयत जोडला."
@@ -3210,10 +3015,6 @@ msgid ""
 msgstr ""
 "निवडील्ल्या उपलब्धताय विभागान ह्या फ्लेवराक जायती क्षमता ना. मागीर यत्न करात वो दुसरो "
 "उपलब्धताय विभागा निवडात."
-
-#, python-format
-msgid "There was a problem parsing the %(prefix)s: %(error)s"
-msgstr "%(prefix)s: %(error)s पार्सिंग करतास्तना आडमेळ आयली."
 
 msgid ""
 "This generates a pair of keys: a key you keep private (cloud.key) and a "
@@ -3445,10 +3246,6 @@ msgstr "उपलब्ध आशिल्ले येजमान मेळो
 msgid "Unable to import key pair."
 msgstr "की जोडी आयात करपाक शकना."
 
-#, python-format
-msgid "Unable to launch %(count)s named \"%(name)s\"."
-msgstr "\"%(name)s\" नाव आशिल्ले चालू करपाक %(count)s शकना."
-
 msgid "Unable to list dhcp agents hosting network."
 msgstr "नेटवर्काचे येजमानपद करपी डीएचसीपी एजंटांची वळेरी करपाक शकना."
 
@@ -3565,9 +3362,6 @@ msgstr "डोमेन माहिती परत मेळोवपाक �
 msgid "Unable to retrieve domain list."
 msgstr "डोमेन वळेरी परत मेळोवपाक शकना."
 
-msgid "Unable to retrieve extensions information."
-msgstr "विस्तार माहिती परत मेळोवपाक शकना."
-
 msgid "Unable to retrieve extra spec list."
 msgstr "अदिक Spec वळेरी परत मेळोवपाक शकना."
 
@@ -3666,12 +3460,6 @@ msgstr "की जोडी वळेरी परत मेळोवपाक �
 
 msgid "Unable to retrieve key pairs."
 msgstr "की जोडी परत मेळोवपाक शकना."
-
-msgid "Unable to retrieve list of security groups"
-msgstr "सुरक्षआ गटांची वळेरी परतून मेळोवपाक जाले ना"
-
-msgid "Unable to retrieve list of volume snapshots."
-msgstr "आकार स्नॅपशॉटांची वळेरी परत मेळोवपाक शकना."
 
 msgid "Unable to retrieve list of volumes."
 msgstr "आकारांची वळेरी परत मेळोवपाक शकना."
@@ -4020,9 +3808,6 @@ msgstr "स्नॅपशॉट स्त्रोत म्हण वापर
 msgid "Used <span> %(used)s </span> of <span> %(available)s </span>"
 msgstr "वापरिल्ले <span> %(used)s </span> ची <span> %(available)s </span>"
 
-msgid "User"
-msgstr "वापरपी"
-
 #, python-format
 msgid "User \"%s\" was successfully created."
 msgstr "\"%s\" वापरपी यशस्विपणान तयार जाला."
@@ -4107,9 +3892,6 @@ msgstr "आकाराची मर्यादा"
 msgid "Volume Name"
 msgstr "आकाराचे नाव"
 
-msgid "Volume Snapshot"
-msgstr " आकार स्नॅपशॉट"
-
 msgid "Volume Snapshots"
 msgstr "आकार स्नॅपशॉट्स"
 
@@ -4139,22 +3921,9 @@ msgstr "आकार प्रकार: %(volume_type_name)s "
 msgid "Volume Types"
 msgstr "आकाराचे प्रकार"
 
-msgid ""
-"Volume mount point (e.g. 'vda' mounts at '/dev/vda'). Leave this field blank "
-"to let the system choose a device name for you."
-msgstr ""
-"आकारमान माऊंट बिंदू (देखीक 'vda' माउंट जाता '/dev/vda' हांगा). तुमच्याखातीर उपकरणाचे "
-"नाव सिस्टमान निवडपाखातीर हे क्षेत्र रिकामे दवरात."
-
-msgid "Volume size in gigabytes (integer value)."
-msgstr "गिगाबायटांनी आकारमानाचो आकार (पूर्णांक मोल)"
-
 #, python-format
 msgid "Volume size must be equal to or greater than the image size (%s)"
 msgstr "आकारमान आकार प्रतिमा आकाराइतलोच वो व्हड आसपाक जाय (%s) "
-
-msgid "Volume size must be greater than 0"
-msgstr "आकारमानाचे आकार 0 परस व्हड जाय"
 
 msgid "Volume source must be specified"
 msgstr "आकार स्त्रोत स्पश्ट करपाक जाय"
@@ -4193,11 +3962,6 @@ msgstr ""
 "केल्ले उपकरण तयार केल्ल्या पोर्टाक जोडले वतले."
 
 msgid ""
-"You can customize your instance after it has launched using the options "
-"available here."
-msgstr "चालू जातकेर हांगा उपलब्ध आशिल्ले विकल्प वापरून तुमी तुमचो इंस्टंस थारावपाक शकतात."
-
-msgid ""
 "You can specify the desired rule template or use custom rules, the options "
 "are Custom TCP Rule, Custom UDP Rule, or Custom ICMP Rule."
 msgstr ""
@@ -4234,18 +3998,6 @@ msgstr "तुमी तुमच्या नेटवर्काची सं
 msgid "You may update the editable properties of your router here."
 msgstr "तुमच्या राऊटराची संपादित करपायोग्य वैशिट्यां तुमी हांगा सुदारपाक शकता."
 
-msgid "You must select a snapshot."
-msgstr "तुमी स्नॅपशॉट निवडपाकूच जाय."
-
-msgid "You must select a volume."
-msgstr "तुमी आकार निवडपाक जाय."
-
-msgid "You must select an image."
-msgstr "तुमी प्रतिमा निवडपाकूच जाय."
-
-msgid "You must set volume size"
-msgstr "तुमी आकारमानाचो आकार थारावपाक जाय"
-
 msgid ""
 "You must specify the source of the traffic to be allowed via this rule. You "
 "may do so either in the form of an IP address block (CIDR) or via a source "
@@ -4277,9 +4029,6 @@ msgstr "dm-crypt"
 
 msgid "front-end"
 msgstr "फ्रंट एंड"
-
-msgid "instance"
-msgstr "इंस्टंस"
 
 msgid "undefined"
 msgstr "स्पश्ट करू ना"

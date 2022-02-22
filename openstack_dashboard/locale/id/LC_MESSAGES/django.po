@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: horizon VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2021-05-11 12:54+0000\n"
+"POT-Creation-Date: 2022-02-21 20:31+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -96,12 +96,6 @@ msgstr ""
 "memiliki beberapa protokol yang didukung."
 
 msgid ""
-"\"Customization Script\" is analogous to \"User Data\" in other systems."
-msgstr ""
-"\"Customization Script\" merupakan analog dengan \"User Data\" di sistem "
-"lain."
-
-msgid ""
 "\"Manage\" an existing volume from a Cinder host. This will make the volume "
 "visible within OpenStack. <br> <br> This is equivalent to the <tt>cinder "
 "manage</tt> command."
@@ -132,10 +126,6 @@ msgstr "%(field_name)s: alamat IP yang tidak valid (value=%(network)s)"
 #, python-format
 msgid "%(instance_name)s %(fixed_ip)s"
 msgstr "%(instance_name)s %(fixed_ip)s"
-
-#, python-format
-msgid "%(name)s - %(size)s GB (%(label)s)"
-msgstr "%(name)s - %(size)s GB (%(label)s)"
 
 #. Translators:  UTC offset and timezone label
 #, python-format
@@ -187,10 +177,6 @@ msgstr "%s (current)"
 #, python-format
 msgid "%s GB"
 msgstr "%s GB"
-
-#, python-format
-msgid "%s instances"
-msgstr "%s instances"
 
 #, python-format
 msgid "%sGB"
@@ -343,23 +329,9 @@ msgstr ""
 "group."
 
 msgid ""
-"A port is a connection point for attaching a single device, such as the NIC "
-"of a virtual server, to a virtual network."
-msgstr ""
-"Sebuah port adalah titik koneksi untuk menghubungkan satu perangkat, seperti "
-"NIC dari server virtual, ke jaringan virtual."
-
-msgid ""
 "A rule contains a remote attribute description and the destination local "
 "attribute."
 msgstr "Aturan berisi deskripsi atribut remote dan atribut lokal tujuan."
-
-msgid ""
-"A script or set of commands to be executed after the instance has been built "
-"(max 16kb)."
-msgstr ""
-"Sebuah skrip atau seperangkat perintah yang akan dieksekusi setelah instance "
-"telah dibangun (max 16kb)."
 
 msgid "A single IP Address or CIDR"
 msgstr "Alamat IP tunggal atau CIDR"
@@ -405,9 +377,6 @@ msgstr "Accept Transfer"
 
 msgid "Accept Volume Transfer"
 msgstr "Accept Volume Transfer"
-
-msgid "Access & Security"
-msgstr "Access & Security"
 
 msgid "Access Rules"
 msgstr "Access Rules (aturan akses)"
@@ -722,13 +691,6 @@ msgid "An image file or an external location must be specified."
 msgstr "File image atau lokasi eksternal harus ditentukan."
 
 msgid ""
-"An instance can be launched with varying types of attached storage. You may "
-"select from those options here."
-msgstr ""
-"Sebuah instance dapat diluncurkan dengan tipe yang berbeda-beda penyimpanan "
-"terpasang. Anda dapat memilih dari beberapa pilihan di sini."
-
-msgid ""
 "An unexpected error has occurred. Try refreshing the page. If that doesn't "
 "help, contact your local administrator."
 msgstr ""
@@ -777,9 +739,6 @@ msgstr "Associated QoS Spec"
 
 msgid "Associated Resource Types"
 msgstr "Associated Resource Types (tipe sumber daya yang terkait)"
-
-msgid "At least one network must be specified."
-msgstr "Setidaknya satu jaringan harus ditentukan."
 
 msgid "At least one volume type must be assigned to a group."
 msgstr "Setidaknya satu jenis volume harus ditetapkan ke grup."
@@ -904,9 +863,6 @@ msgstr "Tersedia"
 msgid "Available Types"
 msgstr "Available Types (tipe yang tersedia)"
 
-msgid "Available networks"
-msgstr "Jaringan yang tersedia"
-
 msgctxt "Current status of a Volume"
 msgid "Awaiting Transfer"
 msgstr "Menunggu Transfer"
@@ -955,21 +911,6 @@ msgstr "Block Storage Services (layanan block storage)"
 msgctxt "Power state of an Instance"
 msgid "Blocked"
 msgstr "Blocked"
-
-msgid "Boot from image"
-msgstr "Boot dari image"
-
-msgid "Boot from image (creates a new volume)"
-msgstr "Boot dari image (buatlah volume baru)"
-
-msgid "Boot from snapshot"
-msgstr "Boot dari snapshot"
-
-msgid "Boot from volume"
-msgstr "Boot dari volume"
-
-msgid "Boot from volume snapshot (creates a new volume)"
-msgstr "Boot dari snapshot volume (buatlah volume baru)"
 
 msgid "Bootable"
 msgstr "Bootable"
@@ -1104,9 +1045,6 @@ msgstr ""
 "Pilih \"Disk Format\" untuk image. Image volume diciptakan dengan QEMU "
 "utilitas disk image."
 
-msgid "Choose Your Boot Source Type."
-msgstr "Choose Your Boot Source Type. (pilih tipe number boot Anda)"
-
 msgid ""
 "Choose a Host to evacuate servers to. If not selected, the scheduler will "
 "auto select target host."
@@ -1141,14 +1079,6 @@ msgstr "Pilih QoS Spec yang diasosiasikan"
 
 msgid "Choose consumer for this QoS Spec."
 msgstr "Pilih konsumen untuk QoS Spec ini."
-
-msgid ""
-"Choose network from Available networks to Selected networks by push button "
-"or drag and drop, you may change NIC order by drag and drop as well. "
-msgstr ""
-"Pilih jaringan dari jaringan yang tersedia untuk jaringan dipilih oleh push "
-"button atau drag dan drop, Anda dapat mengubah urutan NIC dengan drag dan "
-"drop juga."
 
 msgid "Choose the flavor to launch."
 msgstr "Pilih flavor untuk memulai."
@@ -1223,21 +1153,8 @@ msgstr "Kuota Komputasi"
 msgid "Compute Services"
 msgstr "Compute Services (layanan komputasi)"
 
-msgid "Configuration Drive"
-msgstr "Configuration Drive"
-
-msgid ""
-"Configure OpenStack to write metadata to a special configuration drive that "
-"attaches to the instance when it boots."
-msgstr ""
-"Melakukan konfigurasi OpenStack menulis metadata ke drive konfigurasi khusus "
-"yang melekat pada instance ketika boot."
-
 msgid "Confirm"
 msgstr "Confirm"
-
-msgid "Confirm Admin Password"
-msgstr "Confirm Admin Password (konfirmasi password admin)"
 
 msgid "Confirm Password"
 msgstr "Konfirmasi Password"
@@ -1293,19 +1210,8 @@ msgstr "Contents (konten)"
 msgid "Control Location"
 msgstr "Control Location"
 
-msgid ""
-"Control access to your instance via key pairs, security groups, and other "
-"mechanisms."
-msgstr ""
-"Mengontrol akses ke instance Anda melalui pasangan kunci, grup keamanan, dan "
-"mekanisme lainnya."
-
 msgid "Copy Data"
 msgstr "Copy Data (menyalin data)"
-
-#, python-format
-msgid "Cores(Available: %(avail)s, Requested: %(req)s)"
-msgstr "Cores(Available: %(avail)s, Requested: %(req)s)"
 
 #, python-format
 msgid "Could not find default role \"%s\" in Keystone"
@@ -1683,9 +1589,6 @@ msgstr "Custom TCP Rule (aturan TCP kustom)"
 msgid "Custom UDP Rule"
 msgstr "Custom UDP Rule (aturan TCP kustom)"
 
-msgid "Customization Script Source"
-msgstr "Customization Script Source (sumber skrip kustomisasi)"
-
 msgid "DHCP Agents"
 msgstr "DHCP Agents (agen DHCP)"
 
@@ -1883,18 +1786,12 @@ msgid "Delete Volume Type"
 msgid_plural "Delete Volume Types"
 msgstr[0] "Delete Volume Type"
 
-msgid "Delete Volume on Instance Delete"
-msgstr "Hapus volume pada penghapusan instance"
-
 msgid "Delete Volumes"
 msgstr "Hapus Volume"
 
 #, python-format
 msgid "Delete the created network \"%s\" due to subnet creation failure."
 msgstr "Hapus jaringan yang dibuat \"%s\" karena kegagalan pembuatan subnet."
-
-msgid "Delete volume when the instance is deleted"
-msgstr "Hapus volume saat instance dihapus"
 
 msgid "Deleted"
 msgstr "Terhapus"
@@ -2154,9 +2051,6 @@ msgstr "Device Owner (pemilik perangkat)"
 
 msgid "Device owner attached to the port."
 msgstr "Pemilik perangkat terpasang pada port."
-
-msgid "Device size (GB)"
-msgstr "Device size (GB)"
 
 msgid "Direct"
 msgstr "Direct"
@@ -2998,12 +2892,6 @@ msgstr "Fault"
 msgid "Federation"
 msgstr "Federation"
 
-msgid "File"
-msgstr "File"
-
-msgid "File exceeds maximum size (16kb)"
-msgstr "File melebihi ukuran maksimum (16kb)"
-
 msgid "Filter"
 msgstr "Filter (penyaring)"
 
@@ -3682,9 +3570,6 @@ msgstr "Instance Action List (daftar aksi instance sedang berjalan)"
 msgid "Instance Admin Password"
 msgstr "Instance Admin Password"
 
-msgid "Instance Boot Source"
-msgstr "Instance Boot Source"
-
 msgid "Instance Console"
 msgstr "Instance Console (konsol instance)"
 
@@ -3711,9 +3596,6 @@ msgstr "Password instance tidak diatur atau belum tersedia"
 
 msgid "Instance Security Groups"
 msgstr "Instance Security Groups (kelompok keamanan instance)"
-
-msgid "Instance Snapshot"
-msgstr "Instance Snapshot"
 
 msgid "Instances"
 msgstr "Instances"
@@ -3839,9 +3721,6 @@ msgstr ""
 "Nama key pair hanya dapat berisi huruf, angka, garis bawah, spasi, dan tanda "
 "hubung dan mungkin tidak spasi."
 
-msgid "Key pair to use for authentication."
-msgstr "Sepasang kunci yang digunakan untuk otentikasi."
-
 #, python-format
 msgid ""
 "Key with name \"%s\" already exists. Use Edit to update the value, else "
@@ -3902,21 +3781,6 @@ msgstr "Peluncuran Instance (Quota terlampaui)"
 
 msgid "Launch as Instance"
 msgstr "Peluncuran sebagai Instance"
-
-msgid "Launch instance in these security groups."
-msgstr "Luncurkan instance dalam kelompok keamanan ini."
-
-msgid "Launch instance with these networks"
-msgstr "Peluncuran instance dengan jaringan ini"
-
-msgid "Launch instance with these ports"
-msgstr "Peluncuran instance dengan port ini"
-
-msgid ""
-"Launching multiple instances is only supported for images and instance "
-"snapshots."
-msgstr ""
-"Launching beberapa instance hanya didukung untuk image dan instance snapshot."
 
 msgid "Length of Injected File Path"
 msgstr "Length of Injected File Path "
@@ -4346,9 +4210,6 @@ msgstr "Network Mask"
 msgid "Network Name"
 msgstr "Nama jaringan"
 
-msgid "Network Ports"
-msgstr "Network Ports (port jaringan)"
-
 msgid "Network QoS"
 msgstr "Network QoS"
 
@@ -4372,9 +4233,6 @@ msgstr "Alamat jaringan dalam format CIDR (e.g. 192.168.0.0/24, 2001:DB8::/48)"
 
 msgid "Network list can not be retrieved."
 msgstr "Daftar jaringan tidak bisa diambil"
-
-msgid "Networking"
-msgstr "Networking"
 
 msgctxt "Task status of an Instance"
 msgid "Networking"
@@ -4570,9 +4428,6 @@ msgstr "Tidak ada kelompok server yang tersedia"
 msgid "No snapshot for this volume"
 msgstr "Tidak ada snapshot untuk volume ini"
 
-msgid "No snapshots available"
-msgstr "Tidak ada snapshot tersedia"
-
 msgid "No source, empty volume"
 msgstr "Tidak ada sumber, volume yang kosong"
 
@@ -4587,9 +4442,6 @@ msgstr "Tidak ada pengguna."
 
 msgid "No valid group type"
 msgstr "Tidak ada tipe grup yang valid"
-
-msgid "No volume snapshots available"
-msgstr "Tidak ada snapshot volume yang tersedia"
 
 msgid "No volume type"
 msgstr "Tidak ada tipe volume"
@@ -4896,16 +4748,6 @@ msgstr "Port untuk dihubungkan"
 msgid "Ports"
 msgstr "Port-Port"
 
-msgid ""
-"Ports are optional and can be used with networks to add extra IP addresses "
-"to your instances or select specific types of ports."
-msgstr ""
-"Port adalah opsional dan dapat digunakan dengan jaringan untuk menambahkan "
-"alamat IP tambahan bagi instance Anda atau memilih tipe port yang specifik."
-
-msgid "Post-Creation"
-msgstr "Post-Creation (pasca pembuatan)"
-
 msgid "Power State"
 msgstr "Power State"
 
@@ -4938,9 +4780,6 @@ msgstr "Profile"
 
 msgid "Project"
 msgstr "Proyek"
-
-msgid "Project & User"
-msgstr "Project & User"
 
 msgid "Project ="
 msgstr "Project ="
@@ -5100,10 +4939,6 @@ msgstr "RAM(total)"
 
 msgid "RAM (used)"
 msgstr "RAM (terpakai)"
-
-#, python-format
-msgid "RAM(Available: %(avail)s, Requested: %(req)s)"
-msgstr "RAM(Available: %(avail)s, Requested: %(req)s)"
 
 msgid "RBAC Policies"
 msgstr "RBAC Policies"
@@ -5284,10 +5119,6 @@ msgstr "Report Bug"
 
 msgid "Request ID"
 msgstr "Request ID"
-
-#, python-format
-msgid "Request for launching %(count)s named \"%(name)s\" has been submitted."
-msgstr "Permintaan meluncurkan %(count)s named \"%(name)s\" telah disampaikan."
 
 #, python-format
 msgid "Request for resizing of instance \"%s\" has been submitted."
@@ -5601,12 +5432,6 @@ msgctxt "Task status of an Instance"
 msgid "Scheduling"
 msgstr "Scheduling"
 
-msgid "Script Data"
-msgstr "Script Data"
-
-msgid "Script File"
-msgstr "Script File"
-
 msgid "Secret"
 msgstr "Rahasia"
 
@@ -5658,9 +5483,6 @@ msgstr "Pilih flavor"
 msgid "Select Image"
 msgstr "Pilih Image"
 
-msgid "Select Instance Snapshot"
-msgstr "Select Instance Snapshot (pilih snapshot instance)"
-
 msgid "Select Mapping"
 msgstr "Select Mapping"
 
@@ -5670,9 +5492,6 @@ msgstr "Select Network (pilih jaringan)"
 msgid "Select Port"
 msgstr "Pilih port"
 
-msgid "Select Script Source"
-msgstr "Select Script Source (pilih sumber skrip)"
-
 msgid "Select Server Group"
 msgstr "Select Server Group (pilih grup server)"
 
@@ -5681,9 +5500,6 @@ msgstr "Pilih subnet"
 
 msgid "Select Volume"
 msgstr "Select Volume"
-
-msgid "Select Volume Snapshot"
-msgstr "Select Volume Snapshot (pilih snapshot volume)"
 
 msgid "Select a New Flavor"
 msgstr "Select a New Flavor (pilih flavor baru)"
@@ -5763,14 +5579,8 @@ msgstr "Pilih jenis grup"
 msgid "Select network"
 msgstr "Pilih jaringan"
 
-msgid "Select networks for your instance."
-msgstr "Pilih jaringan instance Anda."
-
 msgid "Select snapshot to backup (Optional)"
 msgstr "Pilih snapshot untuk dicadangkan (opsional)"
-
-msgid "Select source"
-msgstr "Select source (pilih sumber)"
 
 msgid ""
 "Select the IP address you wish to associate with the selected instance or "
@@ -5815,17 +5625,11 @@ msgstr "Proyek-proyek pilihan"
 msgid "Selected hosts"
 msgstr "Host yang dipilih"
 
-msgid "Selected networks"
-msgstr "Pilih jaringan"
-
 msgid "Selected volume types"
 msgstr "Tipe volume yang dipilih"
 
 msgid "Selected volumes"
 msgstr "Volume yang dipilih"
-
-msgid "Server Group"
-msgstr "Server Group"
 
 msgid "Server Group Members"
 msgstr "Server Group Members"
@@ -5835,9 +5639,6 @@ msgstr "Server Groups"
 
 msgid "Server error"
 msgstr "Server error (kesalahan server)"
-
-msgid "Server group to associate with this instance."
-msgstr "Kelompok server mengkait dengan instance ini."
 
 msgid "Servers"
 msgstr "Servers"
@@ -5978,9 +5779,6 @@ msgstr "Ukuran"
 msgid "Size (GiB)"
 msgstr "Size (GiB)"
 
-msgid "Size of image to launch."
-msgstr "Size of image to launch."
-
 msgid "Size(GiB) ="
 msgstr "Size(GiB) ="
 
@@ -6103,11 +5901,6 @@ msgstr "Lakukan spesifikasi namespace definisi metadata untuk mengimpor."
 msgid "Specify additional attributes for the subnet."
 msgstr "Tentukan atribut tambahan untuk subnet."
 
-msgid "Specify advanced options to use when launching an instance."
-msgstr ""
-"Tentukan pilihan lanjutan untuk menggunakan ketika peluncuran sebuah "
-"instance."
-
 msgid "Specify an IP address for the interface created (e.g. 192.168.0.254)."
 msgstr "Menentukan alamat IP untuk antarmuka dibuat (misalnya 192.168.0.254)."
 
@@ -6119,9 +5912,6 @@ msgstr "Tentukan alamat jaringan"
 
 msgid "Specify the MAC address for the new port"
 msgstr "Tentukan MAC address untuk port baru"
-
-msgid "Specify the details for launching an instance."
-msgstr "Tentukan rincian untuk meluncurkan sebuah instance."
 
 msgid "Specify the subnet IP address for the new port"
 msgstr "Lakukan spesifikasi alamat IP subnet untuk port baru"
@@ -6526,14 +6316,6 @@ msgstr ""
 msgid "The VNIC type that is bound to the network port"
 msgstr "Tipe VNIC yang terikat ke port jaringan"
 
-#, python-format
-msgid ""
-"The Volume size is too small for the '%(image_name)s' image and has to be "
-"greater than or equal to '%(smallest_size)d' GB."
-msgstr ""
-"Ukuran volume terlalu kecil untuk image'%(image_name)s' dan harus lebih "
-"besar dari atau sama dengan '%(smallest_size)d' GB."
-
 msgid "The admin password is incorrect."
 msgstr "Password admin salah"
 
@@ -6550,13 +6332,6 @@ msgid ""
 "The application credential will be created for the currently selected "
 "project."
 msgstr "Kredensial aplikasi akan dibuat untuk proyek yang sedang dipilih."
-
-msgid ""
-"The chart below shows the resources used by this project in relation to the "
-"project's quotas."
-msgstr ""
-"Grafik di bawah ini menunjukkan sumber daya yang digunakan oleh proyek ini "
-"dalam kaitannya dengan kuota proyek."
 
 msgid "The container cannot be deleted since it is not empty."
 msgstr "Kontainer tidak dapat dihapus karena tidak kosong."
@@ -6576,15 +6351,6 @@ msgid ""
 msgstr ""
 "Data akan tetap dalam volume dan instance lain akan dapat mengakses data "
 "jika Anda memasang buku ini untuk itu."
-
-#, python-format
-msgid ""
-"The flavor '%(flavor)s' is too small for requested image.\n"
-"Minimum requirements: %(min_ram)s MB of RAM and %(min_disk)s GB of Root Disk."
-msgstr ""
-"Flavor '%(flavor)s' terlalu kecil untuk image yang diminta.\n"
-"Persyaratan minimum: %(min_ram)s MB dari RAM dan %(min_disk)s GB dari Root "
-"Disk."
 
 msgid "The instance is preparing the live migration to a new host."
 msgstr "Instance sedang mempersiapkan migrasi hidup ke host baru."
@@ -6658,13 +6424,6 @@ msgid "The physical mechanism by which the virtual network is implemented."
 msgstr "Mekanisme fisik dimana jaringan virtual diterapkan"
 
 msgid ""
-"The port also describes the associated network configuration, such as the "
-"MAC and IP addresses to be used on that port."
-msgstr ""
-"Port juga menjelaskan konfigurasi jaringan yang terkait, seperti alamat IP "
-"dan alamat MAC yang akan digunakan pada port tersebut."
-
-msgid ""
 "The private key will be only used in your browser and will not be sent to "
 "the server"
 msgstr ""
@@ -6674,33 +6433,9 @@ msgstr ""
 msgid "The pseudo folder cannot be deleted since it is not empty."
 msgstr "Folder palsu (pseudo folder) tidak dapat dihapus karena tidak kosong."
 
-#, python-format
-msgid ""
-"The requested instance cannot be launched. Requested volume exceeds quota: "
-"Available: %(avail)s, Requested: %(req)s."
-msgstr ""
-"Instance yang diminta tidak dapat diluncurkan. Volume diminta melebihi "
-"kuota: Available: %(avail)s, Requested: %(req)s."
-
-#, python-format
-msgid ""
-"The requested instance cannot be launched. The following requested "
-"resource(s) exceed quota(s): %s."
-msgstr ""
-"Instance yang diminta tidak dapat diluncurkan. Sumber daya yang diminta "
-"berikut melebihi kuota: %s."
-
 msgid ""
 "The requested instance port is already associated with another floating IP."
 msgstr "Port instance yang diminta sudah dikaitkan dengan IP mengambang lain."
-
-#, python-format
-msgid ""
-"The requested instance(s) cannot be launched as your quota will be exceeded: "
-"Available: %(avail)s, Requested: %(req)s."
-msgstr ""
-"The requested instance(s) cannot be launched as your quota will be exceeded: "
-"Available: %(avail)s, Requested: %(req)s."
 
 msgid ""
 "The rescue mode is only for emergency purpose, for example in case of a "
@@ -6778,10 +6513,6 @@ msgstr ""
 #, python-format
 msgid "There was a problem loading the namespace: %s."
 msgstr "Ada masalah saat memuat namespace: %s."
-
-#, python-format
-msgid "There was a problem parsing the %(prefix)s: %(error)s"
-msgstr "Ada masalah parsing (analisa) %(prefix)s: %(error)s"
 
 msgid "This action cannot be undone."
 msgstr "Aksi ini tidak dapat diselesaikan"
@@ -7341,10 +7072,6 @@ msgstr "Tidak dapat mengimpor pasangan kunci."
 msgid "Unable to initialize subnetpools"
 msgstr "Tidak dapat menginisialisasi kolam subnet (subnetpool)"
 
-#, python-format
-msgid "Unable to launch %(count)s named \"%(name)s\"."
-msgstr "Tidak dapat meluncurkan %(count)s named \"%(name)s\"."
-
 msgid "Unable to list dhcp agents hosting network."
 msgstr "Tidak bisa mendaftarkan agen-agen DHCP jaringan hosting."
 
@@ -7556,9 +7283,6 @@ msgstr "Tidak dapat mengambil daftar domain."
 msgid "Unable to retrieve encryption type."
 msgstr "Tidak dapat mengambil tipe enkripsi."
 
-msgid "Unable to retrieve extensions information."
-msgstr "Tidak dapat mengambil informasi ekstensi."
-
 msgid "Unable to retrieve extra spec list."
 msgstr "Tidak dapat mengambil daftar spesifikasi tambahan."
 
@@ -7728,12 +7452,6 @@ msgstr "Tidak dapat mengambil pasangan kunci."
 
 msgid "Unable to retrieve limits information."
 msgstr "Tidak dapat mengambil informasi batas."
-
-msgid "Unable to retrieve list of security groups"
-msgstr "Tidak dapat mengambil daftar grup keamanan"
-
-msgid "Unable to retrieve list of volume snapshots."
-msgstr "Tidak dapat mengambil daftar snapshot volume."
 
 msgid "Unable to retrieve list of volumes."
 msgstr "Tidak dapat mengambil daftar volume."
@@ -8396,9 +8114,6 @@ msgstr "Digunakan <span> %(used)s </span> dari <span> %(available)s </span>"
 msgid "Used IPs"
 msgstr "Used IPs (IP yang digunakan)"
 
-msgid "User"
-msgstr "User"
-
 #, python-format
 msgid "User \"%s\" has been updated successfully."
 msgstr "Pengguna \"%s\" telah berhasil diperbarui."
@@ -8573,9 +8288,6 @@ msgstr "Volume Name ="
 msgid "Volume Quotas"
 msgstr "Kuota Volume"
 
-msgid "Volume Snapshot"
-msgstr "Volume Snapshot"
-
 msgid "Volume Snapshots"
 msgstr "Volume Snapshot"
 
@@ -8657,19 +8369,8 @@ msgstr ""
 msgid "Volume is Unencrypted"
 msgstr "Volume is Unencrypted"
 
-msgid ""
-"Volume mount point (e.g. 'vda' mounts at '/dev/vda'). Leave this field blank "
-"to let the system choose a device name for you."
-msgstr ""
-"Volume mengkait pada titik (misalnya 'vda' mengkait pada '/dev/vda'). "
-"Kosongkan kolom ini untuk membiarkan sistem memilih nama perangkat untuk "
-"Anda."
-
 msgid "Volume name to be assigned"
 msgstr "Nama volume yang akan ditugaskan"
-
-msgid "Volume size in gigabytes (integer value)."
-msgstr "Ukuran volume dalam gigabyte (nilai integer)."
 
 #, python-format
 msgid ""
@@ -8693,9 +8394,6 @@ msgstr ""
 #, python-format
 msgid "Volume size must be equal to or greater than the snapshot size (%sGiB)"
 msgstr "Ukuran volume harus sama atau lebih besar dari ukuran snapshot (%sGiB)"
-
-msgid "Volume size must be greater than 0"
-msgstr "Ukuran volume harus lebih besar dari 0"
 
 msgid "Volume source must be specified"
 msgstr "Sumber Volume harus ditentukan"
@@ -8803,13 +8501,6 @@ msgstr ""
 "Anda dapat membuat port untuk jaringan. Jika Anda menentukan ID perangkat "
 "harus terpasang, perangkat tertentu itu akan melekat ke port dibuat."
 
-msgid ""
-"You can customize your instance after it has launched using the options "
-"available here."
-msgstr ""
-"Anda dapat menyesuaikan instance Anda setelah itu telah diluncurkan "
-"menggunakan pilihan yang tersedia di sini."
-
 msgid "You can edit the properties of your port here."
 msgstr "Anda dapat mengedit properti dari port Anda di sini."
 
@@ -8888,18 +8579,6 @@ msgid "You may update the editable properties of your router here."
 msgstr ""
 "Anda dapat memperbarui properti yang dapat diubah dari router Anda di sini."
 
-msgid "You must select a snapshot."
-msgstr "Anda harus memilih snapshot."
-
-msgid "You must select a volume."
-msgstr "Anda harus memilih volume."
-
-msgid "You must select an image."
-msgstr "Anda harus memilih image."
-
-msgid "You must set volume size"
-msgstr "Anda harus mengatur ukuran volume"
-
 msgid ""
 "You must specify the source of the traffic to be allowed via this rule. You "
 "may do so either in the form of an IP address block (CIDR) or via a source "
@@ -8966,9 +8645,6 @@ msgstr ""
 
 msgid "front-end"
 msgstr "front-end"
-
-msgid "instance"
-msgstr "instance"
 
 #, python-format
 msgid ""

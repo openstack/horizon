@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: horizon VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2021-05-11 12:54+0000\n"
+"POT-Creation-Date: 2022-02-21 20:31+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -20,10 +20,6 @@ msgstr "خَتم"
 msgid " : Next hop"
 msgstr " :بیاکھ ہاپ"
 
-msgid ""
-"\"Customization Script\" is analogous to \"User Data\" in other systems."
-msgstr "\"Customization Script\" چُھ ہیوی \"User Data\" بآقی سِسٹم مَنز"
-
 #, python-format
 msgid "%(field_name)s: Invalid IP address (value=%(ip)s)"
 msgstr "%(field_name)s: نا واجِب IP ایڈریس (value=%(ip)s)"
@@ -35,10 +31,6 @@ msgstr "%(field_name)s: نا واجِب IP ایڈریس (value=%(network)s)"
 #, python-format
 msgid "%(instance_name)s %(fixed_ip)s"
 msgstr "%(instance_name)s %(fixed_ip)s"
-
-#, python-format
-msgid "%(name)s - %(size)s GB (%(label)s)"
-msgstr "%(name)s - %(size)s GB (%(label)s)"
 
 #. Translators:  UTC offset and timezone label
 #, python-format
@@ -66,10 +58,6 @@ msgid "%s GB"
 msgstr "%s GB"
 
 #, python-format
-msgid "%s instances"
-msgstr "%s اِنسٹئنسز"
-
-#, python-format
 msgid "%sGB"
 msgstr "%sGB"
 
@@ -92,11 +80,6 @@ msgstr "-"
 msgid "A local image to upload."
 msgstr "لوکل شکل اَپلوڈ کرنہ خبببآطرہ"
 
-msgid ""
-"A script or set of commands to be executed after the instance has been built "
-"(max 16kb)."
-msgstr "اَکھ سِکریپٹ یا کمانڈ سیت چھ ایکزیکوٹ کرین ا۳نسٹنس بَنہ پَتہ (max 16kb)."
-
 msgid "AKI - Amazon Kernel Image"
 msgstr "AKI - امیزان کئرنل شکل"
 
@@ -115,9 +98,6 @@ msgstr "آخری پآنٹ API "
 
 msgid "ARI - Amazon Ramdisk Image"
 msgstr "ARI - امیزان ریئم ڈیسک شکل"
-
-msgid "Access & Security"
-msgstr "حِفآظتی  ایکسس تہ "
 
 msgid "Action"
 msgstr "کئم"
@@ -271,13 +251,6 @@ msgid "Allocation Pools"
 msgstr "ایلوکئشن پولز"
 
 msgid ""
-"An instance can be launched with varying types of attached storage. You may "
-"select from those options here."
-msgstr ""
-"اَکھ اِنسٹنس ہیکو لانچ کریتھ جوڈیتھ سِٹوریج ۔  واریاہ قِسمو سیتھ ۔ توہیہ ہیکو "
-"ژاریتھ واریاہ آپشنز سیتھ"
-
-msgid ""
 "An unexpected error has occurred. Try refreshing the page. If that doesn't "
 "help, contact your local administrator."
 msgstr ""
@@ -307,9 +280,6 @@ msgstr "جوڈیو QoS سِپیکس والیوم قِسم سیتھ"
 
 msgid "Associated QoS Spec"
 msgstr "جوڈیتھ  QoS سِپیک   "
-
-msgid "At least one network must be specified."
-msgstr "کم از کم اَکھ نیٹ ورک گژہ آسون وَضاحت کریتھ"
 
 msgid "Attach To Instance"
 msgstr "جوڈیئو اَکھ اِنسئنس"
@@ -373,9 +343,6 @@ msgctxt "Current status of a Volume Backup"
 msgid "Available"
 msgstr " دَستِیاب "
 
-msgid "Available networks"
-msgstr "دَستِیاب نیٹ ورک"
-
 msgid "Backup Name"
 msgstr "بیک اَپ نآو"
 
@@ -387,21 +354,6 @@ msgstr "مئگریشن کئریو بُلاک"
 
 msgid "Block Storage Services"
 msgstr "بُلاک کئریو سُٹوریج سئروِس"
-
-msgid "Boot from image"
-msgstr "شکل پئٹھ کئریو بوٹ"
-
-msgid "Boot from image (creates a new volume)"
-msgstr "بوٹ شَکل پیٹھ (بَنآیئو اَکھ نئوہ والیوم)"
-
-msgid "Boot from snapshot"
-msgstr "بوٹ سِنیپ شٲٹس"
-
-msgid "Boot from volume"
-msgstr "بوٹ الیوم پیٹھ"
-
-msgid "Boot from volume snapshot (creates a new volume)"
-msgstr "بوٹ الیوم سِنیپ شٲٹس پیٹھ (بَنآیئو اَکھ نئوہ والیوم)"
 
 msgid "Bootable"
 msgstr "بئوٹ کئرون لائق"
@@ -438,9 +390,6 @@ msgstr " پآس وئرڈ تَبدیل کئرون خآطرہ چُھ نہٕ تعا
 msgid "Checksum"
 msgstr "چیک کریو سم"
 
-msgid "Choose Your Boot Source Type."
-msgstr "ژاریئو تُہند بُٹ ضریعہٖ قِسم"
-
 msgid "Choose a Host to migrate to."
 msgstr "ژاریئو اَکھ ہوسٹ مئگریٹ کئرنہٖ خآطرہ"
 
@@ -469,13 +418,6 @@ msgstr "ژإریئو جوڈیتھ QoS سِپیک"
 msgid "Choose consumer for this QoS Spec."
 msgstr "ژریئو کئنزیومر یَتھ QoS سِپیک خآطرہ"
 
-msgid ""
-"Choose network from Available networks to Selected networks by push button "
-"or drag and drop, you may change NIC order by drag and drop as well. "
-msgstr ""
-" توہیہ ہیکو بدلاویتھNIC آرڈر ڈریگ تہ ڈراپ سیتھ اریو رول  دَستِیاب رولز مَنز "
-"ژارنہ خآطرہ رول پُش بَٹن سیتھ یا ڈریگ تھ ڈراپ، "
-
 msgid "Choose the flavor to launch."
 msgstr "ژاریئو اَکھ فِلوئر لانچ خآطرہ"
 
@@ -502,19 +444,6 @@ msgstr "کئمپیوٹ ہوسٹ"
 
 msgid "Compute Services"
 msgstr "کئمپیوٹ سئروِس"
-
-msgid "Configuration Drive"
-msgstr "کئنفِگریشن ڈریئو"
-
-msgid ""
-"Configure OpenStack to write metadata to a special configuration drive that "
-"attaches to the instance when it boots."
-msgstr ""
-"کنفِیگر اوپن سِٹیک لیکھنہ خآطرہ میٹا ڈیٹا خاص کنفِیگریشن ڈریو یُس جوڈیو اِنسٹنس "
-"بڈت گژہنہ برونٹہ"
-
-msgid "Confirm Admin Password"
-msgstr "کئفعرم کئریو ایڈمِن پآس وئرڈ"
 
 msgid "Confirm Password"
 msgstr "پآس وئرڈ کئنفئرم"
@@ -549,15 +478,6 @@ msgstr "کنٹینر"
 
 msgid "Control Location"
 msgstr "کئنٹرول لوکیشن "
-
-msgid ""
-"Control access to your instance via key pairs, security groups, and other "
-"mechanisms."
-msgstr "کنٹرول ایکسس تُندِ اِنسٹنس کی جورٖ ضریعہ،  حِفاظتی گروپ، تہ بآقی طَریقہ"
-
-#, python-format
-msgid "Cores(Available: %(avail)s, Requested: %(req)s)"
-msgstr "Cores(Available: %(avail)s, Requested: %(req)s)"
 
 #, python-format
 msgid "Could not find default role \"%s\" in Keystone"
@@ -780,9 +700,6 @@ msgstr "قسٹم TCPرول"
 msgid "Custom UDP Rule"
 msgstr "قسٹم UDP رول"
 
-msgid "Customization Script Source"
-msgstr "کئسٹئمئزیشن سِکریپٹ سورس"
-
 msgid "DHCP Agents"
 msgstr "DHCP ایجینٹ"
 
@@ -867,9 +784,6 @@ msgstr "آلہٖ نآو"
 
 msgid "Device Owner"
 msgstr "آلہٖ   مالِک"
-
-msgid "Device size (GB)"
-msgstr "آلہٖ سآئز (GB)"
 
 msgid "Direct Input"
 msgstr "سئودی اِنپُٹ"
@@ -1293,12 +1207,6 @@ msgstr "نا کامیاب گئو راوٹر  اَپڈیٹ کئرنہٖ خٲطر�
 msgid "Fault"
 msgstr "غلطی"
 
-msgid "File"
-msgstr "فآیل"
-
-msgid "File exceeds maximum size (16kb)"
-msgstr "فٲئل چھ سٲئز خوتئ زیادہ (16kb)"
-
 msgid "Filter"
 msgstr "فِلٹر"
 
@@ -1631,9 +1539,6 @@ msgstr "اِنسٹس کئم لِسٹ"
 msgid "Instance Admin Password"
 msgstr "اِنسٹئنس ایڈمِن پآس وئرڈ"
 
-msgid "Instance Boot Source"
-msgstr "اِنسٹئنس  بُٹ ضریعہٖ"
-
 msgid "Instance Console"
 msgstr "اِنسٹئنس کئنسول"
 
@@ -1654,9 +1559,6 @@ msgstr "اِنسٹنس پٲس ورڈ چُھ نہ دَستِیاب یا چُھ ن
 
 msgid "Instance Security Groups"
 msgstr "اِنسٹئنس مَحفوظی گروپ "
-
-msgid "Instance Snapshot"
-msgstr "اِنسٹئنس سِنیپ شآٹس"
 
 msgid "Instances"
 msgstr "اِنسٹئنسِز"
@@ -1724,9 +1626,6 @@ msgstr "کی جورہ چھ کتھ کن کریو لاگِن تُہدِس اِنس
 msgid "Key Size (bits)"
 msgstr "کئی سآئز (بِٹس)"
 
-msgid "Key pair to use for authentication."
-msgstr "کئی جورہ اِستعمال کئرنہٖ خآطرہ آتھینٹِکیشن"
-
 msgid "Key-Value Pairs"
 msgstr "کئی -ویلیو جورہ"
 
@@ -1748,17 +1647,6 @@ msgstr "لانچ کئریو اِنسٹئنسِز (کئوٹا گئو زیادہ)"
 
 msgid "Launch as Instance"
 msgstr "لانچ کئریو اِنسٹئنس"
-
-msgid "Launch instance in these security groups."
-msgstr "لآنچ کئریو اَنسٹئنسِر حِفاظتی گروپس مَنز"
-
-msgid "Launch instance with these networks"
-msgstr "لانچ کریتھ اِنسٹنس یَمہ نیٹ ورک خآطرہ"
-
-msgid ""
-"Launching multiple instances is only supported for images and instance "
-"snapshots."
-msgstr "لانچینگ ملٹیپل اِنسٹنسِز چُھ تعاوُن شکل تہ  اِنسٹنسِ سِنیپ شٲٹس سیتھ"
 
 msgid "Length of Injected File Path"
 msgstr "زیچھر  اِنجیکٹِڈ فآئل پآتھ"
@@ -1963,9 +1851,6 @@ msgstr "نیٹ وئرک ایڈریس  CIDR فارمیٹس مَنز (مِثال 1
 msgid "Network list can not be retrieved."
 msgstr "نیٹ وئرک لِسٹ ہیکو نہٖ واپس اَنیتھ"
 
-msgid "Networking"
-msgstr "نیٹوئرکِنگ"
-
 msgctxt "Task status of an Instance"
 msgid "Networking"
 msgstr "نیٹوئرکِنگ"
@@ -2078,9 +1963,6 @@ msgstr "کاہ مَحفوظی گروپ چُھنہٖ چآلو"
 msgid "No security groups found."
 msgstr "کاہ مَحفوظی گروپ آو نہٖ لَبنہٕ"
 
-msgid "No snapshots available"
-msgstr "کاہ  سِنیپ شآٹس چُھ  نہ دَستیاب"
-
 msgid "No source, empty volume"
 msgstr "کاہ ضریعہٕ نہٖ خٲلی والیوم"
 
@@ -2092,9 +1974,6 @@ msgstr "کاہ یوزر آو نہٖ لَبنہٕ"
 
 msgid "No users."
 msgstr "کاہ یوزر نہٕ"
-
-msgid "No volume snapshots available"
-msgstr "کاہ والیوم سِنیپ شٲٹس  چھ نئ دَستِیاب"
 
 msgid "No volume type"
 msgstr "کاہ والیوم قِسم نہٕ"
@@ -2232,9 +2111,6 @@ msgstr " جوڈیتھ چُھ پورٹ یُس "
 msgid "Ports"
 msgstr "پورٹس"
 
-msgid "Post-Creation"
-msgstr "بَناونئ پَتئ"
-
 msgid "Power State"
 msgstr "پٲور سِٹیٹ"
 
@@ -2246,9 +2122,6 @@ msgstr " فآئل زاتی کئی"
 
 msgid "Project"
 msgstr "پروجیکٹ"
-
-msgid "Project & User"
-msgstr "پروجیکٹ تہٖ یوزر"
 
 msgid "Project Groups"
 msgstr "پروجیکٹ گروپس"
@@ -2334,10 +2207,6 @@ msgstr "RAM (کُل)"
 
 msgid "RAM (used)"
 msgstr "RAM (اِستعمال)"
-
-#, python-format
-msgid "RAM(Available: %(avail)s, Requested: %(req)s)"
-msgstr "RAM(Available: %(avail)s, Requested: %(req)s)"
 
 msgid "Ramdisk ID"
 msgstr "ریم ڈِسک ID"
@@ -2496,12 +2365,6 @@ msgstr "مَحفوظ علاوہ  سِپیک \"%s\""
 msgid "Saved spec \"%s\"."
 msgstr "مَحفوظ سِپیک  \"%s\""
 
-msgid "Script Data"
-msgstr "سِکریپٹ ڈیٹا"
-
-msgid "Script File"
-msgstr "سِکریپٹ فٲئل"
-
 msgid "Security Group"
 msgstr "حِفآظتی گروپ"
 
@@ -2520,20 +2383,11 @@ msgstr "سیگمینٹیشن آئی ڈی"
 msgid "Select Image"
 msgstr "ژاریو شکل"
 
-msgid "Select Instance Snapshot"
-msgstr "ژاریئو اِنسٹئنس   سِنیپ شآٹس"
-
-msgid "Select Script Source"
-msgstr "ژاریئو سِکریپٹ سورس"
-
 msgid "Select Subnet"
 msgstr "ژاریئو سب نیٹ"
 
 msgid "Select Volume"
 msgstr "ژاریئو والیوم "
-
-msgid "Select Volume Snapshot"
-msgstr "ژاریئو والیوم سِنیپ شآٹس"
 
 msgid "Select a New Flavor"
 msgstr "ژاریئو اَکھ نئوہ فِلوئر"
@@ -2574,12 +2428,6 @@ msgstr "Select format"
 msgid "Select network"
 msgstr "ژاریئو نیٹ وئرک"
 
-msgid "Select networks for your instance."
-msgstr " تُہند اِنسٹنسِز خآطرہ ژاریئو نیٹ ورک "
-
-msgid "Select source"
-msgstr "ژاریئو ضریعہٖ"
-
 msgid "Select the image to rebuild your instance."
 msgstr "ژاریئو شَکل دو بآرہ بَناونہ کآطرہ اِنسٹنسِز"
 
@@ -2598,9 +2446,6 @@ msgstr "ژارمیت پروجیکٹس"
 
 msgid "Selected hosts"
 msgstr "ژاریمیت ہوسٹ"
-
-msgid "Selected networks"
-msgstr "ژاریئو نیٹ ورک"
 
 msgid "Server error"
 msgstr "سٗرور غَلطی"
@@ -2650,9 +2495,6 @@ msgstr "سآئن آوٹ"
 msgid "Size"
 msgstr "سآئز"
 
-msgid "Size of image to launch."
-msgstr "سآیز شَکلہ ہُند لانچ خٲلرہ"
-
 msgid "Slash is not an allowed character."
 msgstr "سِلیش چحُھ نہ اِجازت کریکٹر پٹھ"
 
@@ -2693,17 +2535,11 @@ msgstr ""
 msgid "Specify additional attributes for the subnet."
 msgstr "وَضاحت کئریو مزید ایٹریبیوٹس سب نیٹ خآطرہ"
 
-msgid "Specify advanced options to use when launching an instance."
-msgstr "وَضاحت کریو ایڈوانسڈ آپشنز  اِنسٹنس لانچ کرنہ پَتھ اِستعمال کر"
-
 msgid "Specify an IP address for the interface created (e.g. 192.168.0.254)."
 msgstr "وَضاحت کئریو اَکھ IP ایڈریس اینٹر فیس خآطرہ( مِثال 192.168.0.254)"
 
 msgid "Specify an image to upload to the Image Service."
 msgstr "وَضاحت کئریو اَکھ شکل أپلوڈ کئرنہٕ خآطرہ شکل سئروِس"
-
-msgid "Specify the details for launching an instance."
-msgstr "وَضاحت کئریو تَفصیل اِنسٹنس لانچ خآطرہ"
 
 msgid "Specs"
 msgstr "سِپیکس"
@@ -2897,30 +2733,8 @@ msgstr ""
 msgid "The Key Pair name that was associated with the instance"
 msgstr "کی جورہ نآو یُس جوڈیتھ چُھ اِنسٹنس سیتھ"
 
-#, python-format
-msgid ""
-"The Volume size is too small for the '%(image_name)s' image and has to be "
-"greater than or equal to '%(smallest_size)d' GB."
-msgstr ""
-"والیوم سٲیز چھ واریاہ ل لَکوٹ  '%(image_name)s'خآطرہ گژہ آسون بوڈہ یا بَرابر "
-"'%(smallest_size)d' GB"
-
-msgid ""
-"The chart below shows the resources used by this project in relation to the "
-"project's quotas."
-msgstr ""
-"چآرٹ بونکین چُھ ہاوان ریسورسِز اِستعمال گیمِت پروجیکٹ سیتھ پروجیکٹ  کوٹا مُطلِق"
-
 msgid "The container cannot be deleted since it is not empty."
 msgstr "کئنٹینر  ہیکئو نہٖ خآلی کئریتھ کیازکہٕ یہٕ چُھنہٖ خٲلی"
-
-#, python-format
-msgid ""
-"The flavor '%(flavor)s' is too small for requested image.\n"
-"Minimum requirements: %(min_ram)s MB of RAM and %(min_disk)s GB of Root Disk."
-msgstr ""
-"The flavor '%(flavor)s' is too small for requested image.\n"
-"Minimum requirements: %(min_ram)s MB of RAM and %(min_disk)s GB of Root Disk."
 
 msgid "The instance password encrypted with your public key."
 msgstr "اِنسٹنس پٲس ورڈ چُھ اینکریپٹ تُہندِ عام کی سیتھ"
@@ -2963,14 +2777,6 @@ msgstr "زاتی کی یہ اِستعمال کرنہ تُہندِس براوزر
 msgid "The pseudo folder cannot be deleted since it is not empty."
 msgstr "سیوڈو فولڈر  ہیکئو نہٖ خآلی کئریتھ کیازکہٕ یہٕ چُھنہٖ خٲلی"
 
-#, python-format
-msgid ""
-"The requested instance cannot be launched. The following requested "
-"resource(s) exceed quota(s): %s."
-msgstr ""
-"دَرخواست کئورمُت اِنسٹنس گی لانچ ۔ بونیم  دَرخواست ریسورس چُھ کوٹا خوتہ زیادہ : "
-"%s."
-
 msgid ""
 "The requested instance port is already associated with another floating IP."
 msgstr "  اِنسٹنس پورٹ چُھ گوڈے جوڈیتہ بیکَس فلوٹینگIP سیتھدَرخواست کئورمُت"
@@ -2995,10 +2801,6 @@ msgid ""
 msgstr ""
 "زیادہ جآے چھ نہ یَتھ فِلیور خآطرہ ژارمِت دَستِیاب زون مَنز ۔ کوشیش کریو دوبارہ یا "
 "ژاریو مُختَلِف   دَستِیاب زون مَنز"
-
-#, python-format
-msgid "There was a problem parsing the %(prefix)s: %(error)s"
-msgstr "اَکھ مُشکِل گئی دَرپیش پٲرسِنگ  وَقتئ  %(prefix)s: %(error)s"
 
 msgid ""
 "This generates a pair of keys: a key you keep private (cloud.key) and a "
@@ -3229,10 +3031,6 @@ msgstr "نا قابِل دَستِیاب  ہوسٹ لِسٹ عنہٕ خآطرہ"
 msgid "Unable to import key pair."
 msgstr "نا قابِل کئی جورہ در آمد کئرنہٕ  خآطرہ "
 
-#, python-format
-msgid "Unable to launch %(count)s named \"%(name)s\"."
-msgstr "نا قابِل لانچ کئرنہٕ خآطرہ  %(count)s named \"%(name)s\"."
-
 msgid "Unable to list dhcp agents hosting network."
 msgstr "نا قابِل کئرنہٕ  خآطرہ اِیجینٹ ہوسٹِنگ نیٹوئرک"
 
@@ -3349,9 +3147,6 @@ msgstr "نا قابِل واپس اَنہٕ ٕ خآطرہ   ڈومین اِطل�
 msgid "Unable to retrieve domain list."
 msgstr "نا قابِل واپس اَنہٕ ٕ خآطرہ   ڈومین لِسٹ"
 
-msgid "Unable to retrieve extensions information."
-msgstr "نا قابِل  ایکسٹئنشن اِطلاعواپس  اَنہٕ خآطرہ"
-
 msgid "Unable to retrieve extra spec list."
 msgstr "نا قابِل بناَنہٕ خآطرہ  والیوم قِسم علاوہ سِپیک"
 
@@ -3451,12 +3246,6 @@ msgstr "نا قابِل کئی جورہ لِسٹ واپس اَنہٕ  خآطرہ
 
 msgid "Unable to retrieve key pairs."
 msgstr "نا قابِلکئی جورہ واپس اَنہٕ  خآطرہ "
-
-msgid "Unable to retrieve list of security groups"
-msgstr "نا قابِل حِفاظتی گروپ لِسٹ واپس اَنہٕ  خآطرہ "
-
-msgid "Unable to retrieve list of volume snapshots."
-msgstr "نا قابِل والیوم سِنیپ شآٹس واپس اَنہٕ  خآطرہ "
 
 msgid "Unable to retrieve list of volumes."
 msgstr "نا قابِل والیوم لِسٹ واپس اَنہٕ  خآطرہ "
@@ -3797,9 +3586,6 @@ msgstr "اِستعمال کئریو  اَکھ سِنیپ شآئٹس ضریعہٕ
 msgid "Used <span> %(used)s </span> of <span> %(available)s </span>"
 msgstr "Used <span> %(used)s </span> of <span> %(available)s </span>"
 
-msgid "User"
-msgstr "یوزر"
-
 #, python-format
 msgid "User \"%s\" was successfully created."
 msgstr "یوزر \"%s\"  ٲو کامیابی سٲن بَناوان"
@@ -3884,9 +3670,6 @@ msgstr "والیوم حد"
 msgid "Volume Name"
 msgstr "والیوم  نآو"
 
-msgid "Volume Snapshot"
-msgstr "والیوم سِنیپ شآئٹس"
-
 msgid "Volume Snapshots"
 msgstr "جٲے سِنیپ شآٹس ہِنز"
 
@@ -3916,22 +3699,9 @@ msgstr "والیوم قِسم : %(volume_type_name)s "
 msgid "Volume Types"
 msgstr "والیوم  قِسم"
 
-msgid ""
-"Volume mount point (e.g. 'vda' mounts at '/dev/vda'). Leave this field blank "
-"to let the system choose a device name for you."
-msgstr ""
-"والیوم مآنٹ پآینٹ  (e.g. 'vda' mounts at '/dev/vda').  ترایو یہ فیلڈ خآلی "
-"تآکہ سِسٹم ژارن اَکھ آلہ نآو توہیہ خآطرہ"
-
-msgid "Volume size in gigabytes (integer value)."
-msgstr "والیوم سآئز گیگا بئٹس مَنز(اِنٹیجر ویلیو)"
-
 #, python-format
 msgid "Volume size must be equal to or greater than the image size (%s)"
 msgstr "والیوم سآئز گئژہ آسون برابر یا زیادہ شکل سآئز خوتہٕ(%s)"
-
-msgid "Volume size must be greater than 0"
-msgstr "والیوم سآئز گئزہ آسیون 0 خوتہٖ زیادہ"
 
 msgid "Volume source must be specified"
 msgstr "والیوم ضریعہٕ کئریو وَضاحت"
@@ -3969,12 +3739,6 @@ msgid ""
 msgstr ""
 "توہیہ ہیکو   بَناویتھ اَکھ پورٹ نیٹ ورک خآطرہ اگر توہیہ  وَضاحت کریو ٲلہ ID "
 "جوڈنہ خآطرہ،  ٲلہ  وَضاحت کریتھ یہ جوڈنہ بَناومِت پورٹ سیتھ"
-
-msgid ""
-"You can customize your instance after it has launched using the options "
-"available here."
-msgstr ""
-"توہیہ ہیکو کسٹمآیز کریتھ تُہند اِنسٹنس لانچ کرنہ پَتھ اِستعمال کریتھ یِم آپشنز"
 
 msgid ""
 "You can specify the desired rule template or use custom rules, the options "
@@ -4015,18 +3779,6 @@ msgstr ""
 "توہیہٕ ہیکئو اَپڈیٹ کئریتھ  توہیہٕ ہیکئو اَپڈیٹ کئریتھ شیرنہٕ واجین خَصوصیت تُہندٕ "
 "راوٹرِک یَتینس"
 
-msgid "You must select a snapshot."
-msgstr "توہیہٕ پئزیئو ژارُن اَکھ سِنیپ شآٹس"
-
-msgid "You must select a volume."
-msgstr "توہیہٕ پئزیئو ژارُن اَکھ والیوم"
-
-msgid "You must select an image."
-msgstr "توہیہٕ پئزیئو ژارُن اَکھ شکل"
-
-msgid "You must set volume size"
-msgstr "توہیہٕ پئزیئو  والیوم سآئز سیٹ کئرون"
-
 msgid ""
 "You must specify the source of the traffic to be allowed via this rule. You "
 "may do so either in the form of an IP address block (CIDR) or via a source "
@@ -4054,9 +3806,6 @@ msgstr "ڈی ایم ـ کئریپٹ"
 
 msgid "front-end"
 msgstr "بئتھُم -عند"
-
-msgid "instance"
-msgstr " اِنسٹنس"
 
 msgid "undefined"
 msgstr "وَضاحت کئریتھ نہٖ"

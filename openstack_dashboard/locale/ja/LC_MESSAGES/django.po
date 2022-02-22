@@ -14,7 +14,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: horizon VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2021-10-06 20:57+0000\n"
+"POT-Creation-Date: 2022-02-21 20:31+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -104,11 +104,6 @@ msgstr ""
 "ように設定することができます。"
 
 msgid ""
-"\"Customization Script\" is analogous to \"User Data\" in other systems."
-msgstr ""
-"「カスタマイズスクリプト」は他のシステムの「ユーザーデータ」と同じです。"
-
-msgid ""
 "\"Manage\" an existing volume from a Cinder host. This will make the volume "
 "visible within OpenStack. <br> <br> This is equivalent to the <tt>cinder "
 "manage</tt> command."
@@ -139,10 +134,6 @@ msgstr "%(field_name)s: 無効な IP アドレス (値=%(network)s)"
 #, python-format
 msgid "%(instance_name)s %(fixed_ip)s"
 msgstr "%(instance_name)s %(fixed_ip)s"
-
-#, python-format
-msgid "%(name)s - %(size)s GB (%(label)s)"
-msgstr "%(name)s - %(size)s GB (%(label)s)"
 
 #. Translators:  UTC offset and timezone label
 #, python-format
@@ -194,10 +185,6 @@ msgstr "%s (このグループ)"
 #, python-format
 msgid "%s GB"
 msgstr "%s GB"
-
-#, python-format
-msgid "%s instances"
-msgstr "%s インスタンス"
 
 #, python-format
 msgid "%sGB"
@@ -348,23 +335,9 @@ msgstr ""
 "す。"
 
 msgid ""
-"A port is a connection point for attaching a single device, such as the NIC "
-"of a virtual server, to a virtual network."
-msgstr ""
-"ポートは、仮想サーバーの NIC などの 1 つのデバイスを、仮想ネットワークに接続"
-"する接続点です。"
-
-msgid ""
 "A rule contains a remote attribute description and the destination local "
 "attribute."
 msgstr "ルールには、接続相手の属性の説明と宛先のローカル属性が含まれます。"
-
-msgid ""
-"A script or set of commands to be executed after the instance has been built "
-"(max 16kb)."
-msgstr ""
-"インスタンスが構築された後に実行されるスクリプトまたは一組のコマンドです (最"
-"大 16 kb)。"
 
 msgid "A single IP Address or CIDR"
 msgstr "単一の IP アドレスまたは CIDR"
@@ -410,9 +383,6 @@ msgstr "譲渡の受理"
 
 msgid "Accept Volume Transfer"
 msgstr "ボリュームの譲渡の受理"
-
-msgid "Access & Security"
-msgstr "アクセスとセキュリティー"
 
 msgid "Access Rules"
 msgstr "アクセスルール"
@@ -729,13 +699,6 @@ msgid "An image file or an external location must be specified."
 msgstr "イメージファイルまたは外部の場所を指定する必要があります。"
 
 msgid ""
-"An instance can be launched with varying types of attached storage. You may "
-"select from those options here."
-msgstr ""
-"インスタンスはさまざまな形式のストレージを接続して起動できます。これらのオプ"
-"ションをここから選択できます。"
-
-msgid ""
 "An unexpected error has occurred. Try refreshing the page. If that doesn't "
 "help, contact your local administrator."
 msgstr ""
@@ -784,9 +747,6 @@ msgstr "QoS スペックの関連付け"
 
 msgid "Associated Resource Types"
 msgstr "関連リソース種別"
-
-msgid "At least one network must be specified."
-msgstr "ネットワークを少なくとも 1 つ指定する必要があります。"
 
 msgid "At least one volume type must be assigned to a group."
 msgstr ""
@@ -912,9 +872,6 @@ msgstr "利用可能"
 msgid "Available Types"
 msgstr "利用可能な種別"
 
-msgid "Available networks"
-msgstr "利用可能なネットワーク"
-
 msgctxt "Current status of a Volume"
 msgid "Awaiting Transfer"
 msgstr "譲渡待ち"
@@ -963,21 +920,6 @@ msgstr "ブロックストレージサービス"
 msgctxt "Power state of an Instance"
 msgid "Blocked"
 msgstr "実行待ち"
-
-msgid "Boot from image"
-msgstr "イメージから起動"
-
-msgid "Boot from image (creates a new volume)"
-msgstr "イメージから起動 (新しいボリュームを作成)"
-
-msgid "Boot from snapshot"
-msgstr "スナップショットから起動"
-
-msgid "Boot from volume"
-msgstr "ボリュームから起動"
-
-msgid "Boot from volume snapshot (creates a new volume)"
-msgstr "ボリュームスナップショットから起動 (新しいボリュームを作成)"
 
 msgid "Bootable"
 msgstr "起動可能"
@@ -1125,9 +1067,6 @@ msgstr ""
 "イメージの「ディスク形式」を選択してください。ボリュームイメージの作成は "
 "QEMU ディスクイメージツールを使って行われます。"
 
-msgid "Choose Your Boot Source Type."
-msgstr "ブートソース種別を選択してください。"
-
 msgid ""
 "Choose a Host to evacuate servers to. If not selected, the scheduler will "
 "auto select target host."
@@ -1161,14 +1100,6 @@ msgstr "関連付ける QoS スペックを選択してください"
 
 msgid "Choose consumer for this QoS Spec."
 msgstr "この QoS スペックの使用者を選択してください"
-
-msgid ""
-"Choose network from Available networks to Selected networks by push button "
-"or drag and drop, you may change NIC order by drag and drop as well. "
-msgstr ""
-"ボタンを押すかドラッグアンドドロップで、「利用可能なネットワーク」から「選択"
-"済みネットワーク」にネットワークを移動します。ドラッグアンドドロップにより "
-"NIC の順番を変更できます。"
 
 msgid "Choose the flavor to launch."
 msgstr "起動するフレーバーを選択してください。"
@@ -1240,21 +1171,8 @@ msgstr "コンピュートクォータ"
 msgid "Compute Services"
 msgstr "コンピュートサービス"
 
-msgid "Configuration Drive"
-msgstr "コンフィグドライブ"
-
-msgid ""
-"Configure OpenStack to write metadata to a special configuration drive that "
-"attaches to the instance when it boots."
-msgstr ""
-"起動時にインスタンスに接続される特別なコンフィグドライブにメタデータを書き込"
-"むように OpenStack に指定します。"
-
 msgid "Confirm"
 msgstr "確認"
-
-msgid "Confirm Admin Password"
-msgstr "管理者パスワード (確認)"
 
 msgid "Confirm Password"
 msgstr "パスワード (確認)"
@@ -1308,19 +1226,8 @@ msgstr "内容"
 msgid "Control Location"
 msgstr "制御場所"
 
-msgid ""
-"Control access to your instance via key pairs, security groups, and other "
-"mechanisms."
-msgstr ""
-"キーペア、セキュリティーグループやその他の仕組みを使用して、インスタンスへの"
-"アクセスを制御します。"
-
 msgid "Copy Data"
 msgstr "データのコピー"
-
-#, python-format
-msgid "Cores(Available: %(avail)s, Requested: %(req)s)"
-msgstr "コア (利用可能: %(avail)s, 要求: %(req)s)"
 
 #, python-format
 msgid "Could not find default role \"%s\" in Keystone"
@@ -1702,9 +1609,6 @@ msgstr "カスタム TCP ルール"
 msgid "Custom UDP Rule"
 msgstr "カスタム UDP ルール"
 
-msgid "Customization Script Source"
-msgstr "カスタマイズスクリプトの入力方法"
-
 msgid "DHCP Agents"
 msgstr "DHCP エージェント"
 
@@ -1902,9 +1806,6 @@ msgid "Delete Volume Type"
 msgid_plural "Delete Volume Types"
 msgstr[0] "ボリューム種別の削除"
 
-msgid "Delete Volume on Instance Delete"
-msgstr "インスタンス削除時にボリュームを削除"
-
 msgid "Delete Volumes"
 msgstr "ボリュームの削除"
 
@@ -1912,9 +1813,6 @@ msgstr "ボリュームの削除"
 msgid "Delete the created network \"%s\" due to subnet creation failure."
 msgstr ""
 "サブネット作成に失敗したため、作成したネットワーク \"%s\" を削除しました。"
-
-msgid "Delete volume when the instance is deleted"
-msgstr "インスタンスの削除時にボリュームを削除します"
 
 msgid "Deleted"
 msgstr "削除"
@@ -2174,9 +2072,6 @@ msgstr "デバイス所有者"
 msgid "Device owner attached to the port."
 msgstr "ポートに接続されるデバイスの所有者。"
 
-msgid "Device size (GB)"
-msgstr "デバイスサイズ (GB)"
-
 msgid "Direct"
 msgstr "Direct"
 
@@ -2263,9 +2158,6 @@ msgstr "表示名"
 
 msgid "Distributed"
 msgstr "分散ルーター"
-
-msgid "Django launch instance form"
-msgstr "Django 版のインスタンスの起動のフォーム"
 
 msgid ""
 "Do not use a colon ':' with OS::Glance::Images. This resource type does not "
@@ -3037,12 +2929,6 @@ msgstr "失敗"
 msgid "Federation"
 msgstr "フェデレーション"
 
-msgid "File"
-msgstr "ファイル"
-
-msgid "File exceeds maximum size (16kb)"
-msgstr "ファイルサイズが最大サイズ (16KB) を超えています"
-
 msgid "Filter"
 msgstr "フィルター"
 
@@ -3728,9 +3614,6 @@ msgstr "インスタンスのアクション一覧"
 msgid "Instance Admin Password"
 msgstr "インスタンスの管理パスワード"
 
-msgid "Instance Boot Source"
-msgstr "インスタンスのブートソース"
-
 msgid "Instance Console"
 msgstr "インスタンスのコンソール"
 
@@ -3757,9 +3640,6 @@ msgstr "インスタンスのパスワードが設定されていないか利用
 
 msgid "Instance Security Groups"
 msgstr "インスタンスのセキュリティーグループ"
-
-msgid "Instance Snapshot"
-msgstr "インスタンススナップショット"
 
 msgid "Instances"
 msgstr "インスタンス"
@@ -3879,9 +3759,6 @@ msgstr ""
 "キーペア名に使用できる文字は、英数字、アンダースコア、半角スペース、ハイフン"
 "のみです。半角スペース以外のホワイトスペースは使用できません。"
 
-msgid "Key pair to use for authentication."
-msgstr "認証に使用するキーペア。"
-
 #, python-format
 msgid ""
 "Key with name \"%s\" already exists. Use Edit to update the value, else "
@@ -3942,22 +3819,6 @@ msgstr "インスタンスの起動 (クォータを超過しました)"
 
 msgid "Launch as Instance"
 msgstr "インスタンスとして起動"
-
-msgid "Launch instance in these security groups."
-msgstr "これらのセキュリティーグループでインスタンスを起動します。"
-
-msgid "Launch instance with these networks"
-msgstr "これらのネットワークでインスタンスを起動します。"
-
-msgid "Launch instance with these ports"
-msgstr "これらのポートでインスタンスを起動します。"
-
-msgid ""
-"Launching multiple instances is only supported for images and instance "
-"snapshots."
-msgstr ""
-"複数インスタンスの起動は、イメージとインスタンスのスナップショットについての"
-"みサポートされています。"
 
 msgid "Length of Injected File Path"
 msgstr "注入ファイルのパス長"
@@ -4395,9 +4256,6 @@ msgstr "ネットマスク"
 msgid "Network Name"
 msgstr "ネットワーク名"
 
-msgid "Network Ports"
-msgstr "ネットワークポート"
-
 msgid "Network QoS"
 msgstr "ネットワーク QoS"
 
@@ -4421,9 +4279,6 @@ msgstr "CIDR 形式のネットワークアドレス (例: 192.168.0.0/24, 2001:
 
 msgid "Network list can not be retrieved."
 msgstr "ネットワーク一覧を取得できません。"
-
-msgid "Networking"
-msgstr "ネットワーク"
 
 msgctxt "Task status of an Instance"
 msgid "Networking"
@@ -4619,9 +4474,6 @@ msgstr "サーバーグループがありません。"
 msgid "No snapshot for this volume"
 msgstr "このボリュームにはスナップショットはありません"
 
-msgid "No snapshots available"
-msgstr "利用可能なスナップショットがありません"
-
 msgid "No source, empty volume"
 msgstr "ソースの指定なし (空のボリューム)"
 
@@ -4636,9 +4488,6 @@ msgstr "ユーザーがいません。"
 
 msgid "No valid group type"
 msgstr "有効なグループタイプがありません。"
-
-msgid "No volume snapshots available"
-msgstr "利用可能なボリュームスナップショットがありません"
 
 msgid "No volume type"
 msgstr "ボリューム種別の指定なし"
@@ -4943,16 +4792,6 @@ msgstr "IP を割り当てるポート"
 msgid "Ports"
 msgstr "ポート"
 
-msgid ""
-"Ports are optional and can be used with networks to add extra IP addresses "
-"to your instances or select specific types of ports."
-msgstr ""
-"ポートは省略可能です。ネットワークに使用して、インスタンスに IP アドレスを追"
-"加したり、特定の種別のポートを選択することができます。"
-
-msgid "Post-Creation"
-msgstr "作成後"
-
 msgid "Power State"
 msgstr "電源状態"
 
@@ -4985,9 +4824,6 @@ msgstr "プロファイル"
 
 msgid "Project"
 msgstr "プロジェクト"
-
-msgid "Project & User"
-msgstr "プロジェクトとユーザー"
 
 msgid "Project ="
 msgstr "プロジェクト ="
@@ -5147,10 +4983,6 @@ msgstr "メモリー (総量)"
 
 msgid "RAM (used)"
 msgstr "メモリー (使用中)"
-
-#, python-format
-msgid "RAM(Available: %(avail)s, Requested: %(req)s)"
-msgstr "メモリー (利用可能: %(avail)s, 要求: %(req)s)"
 
 msgid "RBAC Policies"
 msgstr "RBAC ポリシー"
@@ -5329,10 +5161,6 @@ msgstr "バグ報告"
 
 msgid "Request ID"
 msgstr "リクエスト ID"
-
-#, python-format
-msgid "Request for launching %(count)s named \"%(name)s\" has been submitted."
-msgstr "%(count)s 個の \"%(name)s\" を起動する要求を送信しました。"
 
 #, python-format
 msgid "Request for resizing of instance \"%s\" has been submitted."
@@ -5651,12 +5479,6 @@ msgctxt "Task status of an Instance"
 msgid "Scheduling"
 msgstr "スケジューリング中"
 
-msgid "Script Data"
-msgstr "スクリプトデータ"
-
-msgid "Script File"
-msgstr "スクリプトファイル"
-
 msgid "Secret"
 msgstr "シークレットキー"
 
@@ -5708,9 +5530,6 @@ msgstr "フレーバーを選択してください"
 msgid "Select Image"
 msgstr "イメージを選択してください"
 
-msgid "Select Instance Snapshot"
-msgstr "インスタンススナップショットの選択"
-
 msgid "Select Mapping"
 msgstr "マッピングの選択"
 
@@ -5720,9 +5539,6 @@ msgstr "ネットワークを選択してください"
 msgid "Select Port"
 msgstr "ポートを選択してください"
 
-msgid "Select Script Source"
-msgstr "スクリプトの入力方法を選択してください"
-
 msgid "Select Server Group"
 msgstr "サーバーグループを選択してください"
 
@@ -5731,9 +5547,6 @@ msgstr "サブネットの選択"
 
 msgid "Select Volume"
 msgstr "ボリュームの選択"
-
-msgid "Select Volume Snapshot"
-msgstr "ボリュームスナップショットの選択"
 
 msgid "Select a New Flavor"
 msgstr "新しいフレーバーを選択してください"
@@ -5813,14 +5626,8 @@ msgstr "グループタイプの選択"
 msgid "Select network"
 msgstr "ネットワークの選択"
 
-msgid "Select networks for your instance."
-msgstr "インスタンスのネットワークを選択します。"
-
 msgid "Select snapshot to backup (Optional)"
 msgstr "バックアップを作成するスナップショットを選択してください (オプション)"
-
-msgid "Select source"
-msgstr "ソースを選択してください"
 
 msgid ""
 "Select the IP address you wish to associate with the selected instance or "
@@ -5863,17 +5670,11 @@ msgstr "選択済みのプロジェクト"
 msgid "Selected hosts"
 msgstr "選択されたホスト"
 
-msgid "Selected networks"
-msgstr "選択済みネットワーク"
-
 msgid "Selected volume types"
 msgstr "選択したボリューム種別"
 
 msgid "Selected volumes"
 msgstr "選択済みのボリューム"
-
-msgid "Server Group"
-msgstr "サーバーグループ"
 
 msgid "Server Group Members"
 msgstr "サーバーグループのメンバー"
@@ -5883,9 +5684,6 @@ msgstr "サーバーグループ"
 
 msgid "Server error"
 msgstr "内部サーバーエラー"
-
-msgid "Server group to associate with this instance."
-msgstr "インスタンスに関連付けるサーバーグループ。"
 
 msgid "Servers"
 msgstr "サーバー"
@@ -6027,9 +5825,6 @@ msgstr "サイズ"
 msgid "Size (GiB)"
 msgstr "サイズ (GiB)"
 
-msgid "Size of image to launch."
-msgstr "起動するイメージの容量"
-
 msgid "Size(GiB) ="
 msgstr "サイズ (GiB) ="
 
@@ -6155,9 +5950,6 @@ msgstr "インポートする名前空間のメタデータ定義を指定しま
 msgid "Specify additional attributes for the subnet."
 msgstr "サブネットの追加属性を指定します。"
 
-msgid "Specify advanced options to use when launching an instance."
-msgstr "インスタンス起動時に使用する高度な設定を行います。"
-
 msgid "Specify an IP address for the interface created (e.g. 192.168.0.254)."
 msgstr ""
 "作成するインタフェースの IP アドレスを指定できます (例: 192.168.0.254)。"
@@ -6170,9 +5962,6 @@ msgstr "ネットワークアドレスを指定してください"
 
 msgid "Specify the MAC address for the new port"
 msgstr "新規ポートの MAC アドレスを指定します"
-
-msgid "Specify the details for launching an instance."
-msgstr "インスタンスを起動するために詳細を指定します。"
 
 msgid "Specify the subnet IP address for the new port"
 msgstr "新規ポートのサブネット IP アドレスを指定します"
@@ -6524,16 +6313,6 @@ msgstr ""
 "か、ダウンロードする必要があります。認証キーがなければ、作成した譲渡は使えな"
 "くなります。"
 
-msgid ""
-"The Django version of the launch instance form is deprecated since Wallaby "
-"release. Switch to the AngularJS version of the form by setting "
-"LAUNCH_INSTANCE_NG_ENABLED to True and LAUNCH_INSTANCE_LEGACY_ENABLED to "
-"False."
-msgstr ""
-"Django 版のインスタンスの起動のフォームは、Wallaby リリースより非推奨となりま"
-"す。 LAUNCH_INSTANCE_NG_ENABLED を True に、 LAUNCH_INSTANCE_LEGACY_ENABLED "
-"を False に設定して、AngularJS 版のフォームに切り替えてください。"
-
 msgid "The ICMP code not in range (-1, 255)"
 msgstr "ICMP コードが (-1, 255) の範囲ではありません"
 
@@ -6587,14 +6366,6 @@ msgstr ""
 msgid "The VNIC type that is bound to the network port"
 msgstr "このネットワークポートにバインドする仮想 NIC の種別"
 
-#, python-format
-msgid ""
-"The Volume size is too small for the '%(image_name)s' image and has to be "
-"greater than or equal to '%(smallest_size)d' GB."
-msgstr ""
-"イメージ  '%(image_name)s' に対してボリュームサイズが小さすぎます。ボリューム"
-"サイズは  '%(smallest_size)d' GB 以上でなければいけません。"
-
 msgid "The admin password is incorrect."
 msgstr "管理者パスワードが正しくありません。"
 
@@ -6614,13 +6385,6 @@ msgstr ""
 "アプリケーション認証情報は、現在選択されているプロジェクト向けに作成されま"
 "す。"
 
-msgid ""
-"The chart below shows the resources used by this project in relation to the "
-"project's quotas."
-msgstr ""
-"下のグラフは、このプロジェクトで使用しているリソースを、プロジェクトのクォー"
-"タと対比して表示しています。"
-
 msgid "The container cannot be deleted since it is not empty."
 msgstr "コンテナーが空ではないため、削除できません。"
 
@@ -6639,15 +6403,6 @@ msgid ""
 msgstr ""
 "データはボリュームに残ります。このボリュームを別のインスタンスに接続すると、"
 "そのインスタンスはデータにアクセスすることができます。"
-
-#, python-format
-msgid ""
-"The flavor '%(flavor)s' is too small for requested image.\n"
-"Minimum requirements: %(min_ram)s MB of RAM and %(min_disk)s GB of Root Disk."
-msgstr ""
-"要求したイメージに対してフレーバー '%(flavor)s' は小さすぎます。\n"
-"最小でも %(min_ram)s MB の RAM と %(min_disk)s GB のルートディスクが必要で"
-"す。"
 
 msgid "The instance is preparing the live migration to a new host."
 msgstr "インスタンスは新しいホストへのライブマイグレーションを準備中。"
@@ -6721,13 +6476,6 @@ msgid "The physical mechanism by which the virtual network is implemented."
 msgstr "仮想ネットワークを実装する物理メカニズム"
 
 msgid ""
-"The port also describes the associated network configuration, such as the "
-"MAC and IP addresses to be used on that port."
-msgstr ""
-"ポートは、そのポートで使用される MAC アドレスや IP アドレスなどの関連するネッ"
-"トワーク設定の表現でもあります。"
-
-msgid ""
 "The private key will be only used in your browser and will not be sent to "
 "the server"
 msgstr "秘密鍵はブラウザー内でのみ使用され、サーバーには送信されません。"
@@ -6735,36 +6483,11 @@ msgstr "秘密鍵はブラウザー内でのみ使用され、サーバーには
 msgid "The pseudo folder cannot be deleted since it is not empty."
 msgstr "擬似フォルダーが空ではないため、削除できません。"
 
-#, python-format
-msgid ""
-"The requested instance cannot be launched. Requested volume exceeds quota: "
-"Available: %(avail)s, Requested: %(req)s."
-msgstr ""
-"要求されたインスタンスを起動できません。要求されたボリュームがクォータを超過"
-"しています。利用可能なクォータは %(avail)s ですが、要求された値は %(req)s で"
-"す。"
-
-#, python-format
-msgid ""
-"The requested instance cannot be launched. The following requested "
-"resource(s) exceed quota(s): %s."
-msgstr ""
-"要求されたインスタンスを起動できません。次のリソースがクォータを超過していま"
-"す: %s。"
-
 msgid ""
 "The requested instance port is already associated with another floating IP."
 msgstr ""
 "要求されたインスタンスのポートはすでに別の Floating IP に関連付けられていま"
 "す。"
-
-#, python-format
-msgid ""
-"The requested instance(s) cannot be launched as your quota will be exceeded: "
-"Available: %(avail)s, Requested: %(req)s."
-msgstr ""
-"要求されたインスタンスを起動できません。クォータが超過します。利用可能な"
-"クォータは %(avail)s ですが、要求された値は %(req)s です。"
 
 msgid ""
 "The rescue mode is only for emergency purpose, for example in case of a "
@@ -6850,10 +6573,6 @@ msgstr ""
 #, python-format
 msgid "There was a problem loading the namespace: %s."
 msgstr "名前空間の読み込み中に問題が発生しました。 %s"
-
-#, python-format
-msgid "There was a problem parsing the %(prefix)s: %(error)s"
-msgstr "%(prefix)s の解析中に問題がありました: %(error)s"
 
 msgid "This action cannot be undone."
 msgstr "この操作は取り消せません。"
@@ -7430,10 +7149,6 @@ msgstr "キーペアをインポートできません。"
 msgid "Unable to initialize subnetpools"
 msgstr "サブネットプールを初期化できません。"
 
-#, python-format
-msgid "Unable to launch %(count)s named \"%(name)s\"."
-msgstr "名前が \"%(name)s\" の %(count)s が起動できません。"
-
 msgid "Unable to list dhcp agents hosting network."
 msgstr ""
 "ネットワークを担当している DHCP エージェントの一覧を取得できませんでした。"
@@ -7645,9 +7360,6 @@ msgstr "ドメインの一覧を取得できません。"
 msgid "Unable to retrieve encryption type."
 msgstr "  ボリューム種別の暗号化設定を取得できません。"
 
-msgid "Unable to retrieve extensions information."
-msgstr "API 拡張機能の情報を取得できません。"
-
 msgid "Unable to retrieve extra spec list."
 msgstr "追加スペックの一覧を取得できません。"
 
@@ -7817,12 +7529,6 @@ msgstr "キーペアの一覧を取得できません。"
 
 msgid "Unable to retrieve limits information."
 msgstr "上限情報を取得できません。"
-
-msgid "Unable to retrieve list of security groups"
-msgstr "セキュリティーグループの一覧を取得できません"
-
-msgid "Unable to retrieve list of volume snapshots."
-msgstr "ボリュームスナップショットの一覧を取得できません。"
 
 msgid "Unable to retrieve list of volumes."
 msgstr "ボリュームの一覧を取得できません。"
@@ -8501,9 +8207,6 @@ msgstr "<span>%(used)s</span> / <span>%(available)s</span> 使用中"
 msgid "Used IPs"
 msgstr "使用中 IP"
 
-msgid "User"
-msgstr "ユーザー"
-
 #, python-format
 msgid "User \"%s\" has been updated successfully."
 msgstr "ユーザー \"%s\" が正常に更新されました。"
@@ -8678,9 +8381,6 @@ msgstr "ボリューム名 ="
 msgid "Volume Quotas"
 msgstr "ボリュームクォータ"
 
-msgid "Volume Snapshot"
-msgstr "ボリュームスナップショット"
-
 msgid "Volume Snapshots"
 msgstr "ボリュームスナップショット"
 
@@ -8765,18 +8465,8 @@ msgstr ""
 msgid "Volume is Unencrypted"
 msgstr "ボリュームは暗号化されていません。"
 
-msgid ""
-"Volume mount point (e.g. 'vda' mounts at '/dev/vda'). Leave this field blank "
-"to let the system choose a device name for you."
-msgstr ""
-"ボリュームのマウントポイント (例: 'vda' と指定すると '/dev/vda' にマウントさ"
-"れます)。このフィールドを空欄にすると、システム側でデバイス名が選択されます。"
-
 msgid "Volume name to be assigned"
 msgstr "割り当てるボリューム名"
-
-msgid "Volume size in gigabytes (integer value)."
-msgstr "ギガバイト単位のボリュームサイズ (整数値)"
 
 #, python-format
 msgid ""
@@ -8800,9 +8490,6 @@ msgstr ""
 msgid "Volume size must be equal to or greater than the snapshot size (%sGiB)"
 msgstr ""
 "ボリュームサイズはスナップショットサイズ (%sGiB) 以上でなければいけません。"
-
-msgid "Volume size must be greater than 0"
-msgstr "ボリュームサイズは 0 より大きい値でなければなりません。"
 
 msgid "Volume source must be specified"
 msgstr "ボリュームを指定しなければいけません。"
@@ -8909,13 +8596,6 @@ msgstr ""
 "ネットワークのポートを作成できます。接続するデバイス ID を指定すると、指定し"
 "たデバイスが作成されたポートに接続されます。"
 
-msgid ""
-"You can customize your instance after it has launched using the options "
-"available here."
-msgstr ""
-"ここにあるオプションを使って、インスタンス起動後にインスタンスをカスタマイズ"
-"することができます。"
-
 msgid "You can edit the properties of your port here."
 msgstr "ポートの属性をここから編集できます。"
 
@@ -8989,18 +8669,6 @@ msgstr "ネットワークの編集可能な属性をここから更新できま
 msgid "You may update the editable properties of your router here."
 msgstr "ルーターの変更可能な属性を更新できます。"
 
-msgid "You must select a snapshot."
-msgstr "スナップショットを選択しなければいけません。"
-
-msgid "You must select a volume."
-msgstr "ボリュームを選択しなければいけません。"
-
-msgid "You must select an image."
-msgstr "イメージを選択しなければいけません。"
-
-msgid "You must set volume size"
-msgstr "ボリュームサイズを指定しなければいけません。"
-
 msgid ""
 "You must specify the source of the traffic to be allowed via this rule. You "
 "may do so either in the form of an IP address block (CIDR) or via a source "
@@ -9067,9 +8735,6 @@ msgstr ""
 
 msgid "front-end"
 msgstr "フロントエンド"
-
-msgid "instance"
-msgstr "インスタンス"
 
 #, python-format
 msgid ""

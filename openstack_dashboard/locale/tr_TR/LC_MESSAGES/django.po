@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: horizon VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2021-05-11 12:54+0000\n"
+"POT-Creation-Date: 2022-02-21 20:31+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -55,12 +55,6 @@ msgstr ""
 "iletişim kuralını destekliyor olabilir."
 
 msgid ""
-"\"Customization Script\" is analogous to \"User Data\" in other systems."
-msgstr ""
-"\"Özelleştirme Betiği\" diğer sistemlerdeki \"Kullanıcı Verisi\" ile "
-"benzeşir."
-
-msgid ""
 "\"Manage\" an existing volume from a Cinder host. This will make the volume "
 "visible within OpenStack. <br> <br> This is equivalent to the <tt>cinder "
 "manage</tt> command."
@@ -91,10 +85,6 @@ msgstr "%(field_name)s: Geçersiz IP adresi (değer=%(network)s)"
 #, python-format
 msgid "%(instance_name)s %(fixed_ip)s"
 msgstr "%(instance_name)s %(fixed_ip)s"
-
-#, python-format
-msgid "%(name)s - %(size)s GB (%(label)s)"
-msgstr "%(name)s - %(size)s GB (%(label)s)"
 
 #. Translators:  UTC offset and timezone label
 #, python-format
@@ -142,10 +132,6 @@ msgstr "%s (geçerli)"
 #, python-format
 msgid "%s GB"
 msgstr "%s GB"
-
-#, python-format
-msgid "%s instances"
-msgstr "%s sunucu"
 
 #, python-format
 msgid "%sGB"
@@ -198,23 +184,9 @@ msgstr ""
 "Eşleştirmeyi destekleyen tek Kimlik API nesneleri: kullanıcı ve grup'dur."
 
 msgid ""
-"A port is a connection point for attaching a single device, such as the NIC "
-"of a virtual server, to a virtual network."
-msgstr ""
-"Bağlantı noktası tek bir aygıtı, mesela bir sanal sunucunun NIC'ini sanal "
-"ağa eklemek için bir bağlantı noktasıdır."
-
-msgid ""
 "A rule contains a remote attribute description and the destination local "
 "attribute."
 msgstr "Bir kural uzak öznitelik açıklaması ve hedef yerel özniteliği içerir."
-
-msgid ""
-"A script or set of commands to be executed after the instance has been built "
-"(max 16kb)."
-msgstr ""
-"Sunucu oluşturulduktan sonra çalıştırılacak bir betik ya da komut kümesi "
-"(azami 16kb)."
 
 msgid "A single IP Address or CIDR"
 msgstr "Tek bir IP Adresi veya CIDR"
@@ -259,9 +231,6 @@ msgstr "Aktarımı Kabul Et"
 
 msgid "Accept Volume Transfer"
 msgstr "Mantıksal Sürücü Aktarımını Kabul Et"
-
-msgid "Access & Security"
-msgstr "Erişim & Güvenlik"
 
 msgid "Action"
 msgstr "Aksiyon"
@@ -520,13 +489,6 @@ msgid "An image file or an external location must be specified."
 msgstr "İmaj dosyası ya da harici konum belirtilmeli."
 
 msgid ""
-"An instance can be launched with varying types of attached storage. You may "
-"select from those options here."
-msgstr ""
-"Sanal makine çeşitli türde bağlı depolama ile başlatılabilir. Burada bu "
-"seçeneklerden seçebilirsiniz."
-
-msgid ""
 "An unexpected error has occurred. Try refreshing the page. If that doesn't "
 "help, contact your local administrator."
 msgstr ""
@@ -562,9 +524,6 @@ msgstr "İlişkili QoS Özellikleri"
 
 msgid "Associated Resource Types"
 msgstr "İlişkili Kaynak Türleri"
-
-msgid "At least one network must be specified."
-msgstr "En az bir ağ belirtilmelidir."
 
 msgid "Attach Interface"
 msgstr "Arabirim Ekle"
@@ -660,9 +619,6 @@ msgstr "Uygun"
 msgid "Available Types"
 msgstr "Kullanılabilir Türler"
 
-msgid "Available networks"
-msgstr "Kullanılabilir ağlar"
-
 msgctxt "Current status of a Volume"
 msgid "Backing Up"
 msgstr "Yedekleniyor"
@@ -701,21 +657,6 @@ msgstr "Blok Depolama Servisleri"
 msgctxt "Power state of an Instance"
 msgid "Blocked"
 msgstr "Bloklanmış"
-
-msgid "Boot from image"
-msgstr "İmajdan başlat"
-
-msgid "Boot from image (creates a new volume)"
-msgstr "İmajdan ön yükle (yeni bir birim oluşturur)"
-
-msgid "Boot from snapshot"
-msgstr "Anlık görüntüden ön yükle"
-
-msgid "Boot from volume"
-msgstr "Birimden ön yükle"
-
-msgid "Boot from volume snapshot (creates a new volume)"
-msgstr "Birim anlık görüntüsünden ön yükle (yeni bir birim oluşturur)"
 
 msgid "Bootable"
 msgstr "Başlatılabilir"
@@ -830,9 +771,6 @@ msgstr ""
 "İmaj için \"Disk Biçimi\" seçin. Mantıksal sürücü imajları QEMU disk imaj "
 "aracı ile oluşturulur."
 
-msgid "Choose Your Boot Source Type."
-msgstr "Ön Yükleme Kaynağı Türünüzü Seçin."
-
 msgid ""
 "Choose a Host to evacuate servers to. If not selected, the scheduler will "
 "auto select target host."
@@ -867,13 +805,6 @@ msgstr "İlişkilendirilmiş QoS Özelliği seçin."
 
 msgid "Choose consumer for this QoS Spec."
 msgstr "Bu QoS Özelliği için tüketici seç."
-
-msgid ""
-"Choose network from Available networks to Selected networks by push button "
-"or drag and drop, you may change NIC order by drag and drop as well. "
-msgstr ""
-"Kullanılabilir ağlardan Seçili ağlara sürükle bırak veya düğme ile taşıyarak "
-"ağ seçin, NIC sırasını da sürükle bırak ile değiştirebilirsiniz. "
 
 msgid "Choose the flavor to launch."
 msgstr "Başlatma için şablon seçin."
@@ -932,19 +863,6 @@ msgstr "Hesap İstemcisi"
 msgid "Compute Services"
 msgstr "Hesaplama servisleri"
 
-msgid "Configuration Drive"
-msgstr "Yapılandırma Sürücüsü"
-
-msgid ""
-"Configure OpenStack to write metadata to a special configuration drive that "
-"attaches to the instance when it boots."
-msgstr ""
-"OpenStack'i metaveri'yi ön yükleme sırasında sunucuya eklenecek özel bir "
-"yapılandırma sürücüsüne yazacak şekilde yapılandır."
-
-msgid "Confirm Admin Password"
-msgstr "Yöneticisi Parolasını Onayla"
-
 msgid "Confirm Password"
 msgstr "Parolayı Onayla"
 
@@ -997,19 +915,8 @@ msgstr "İçerik"
 msgid "Control Location"
 msgstr "Denetim Konumu"
 
-msgid ""
-"Control access to your instance via key pairs, security groups, and other "
-"mechanisms."
-msgstr ""
-"Sanal makinelerinize erişimi anahtar çiftleri, güvenlik grupları, ve diğer "
-"mekanizmalarla denetleyin."
-
 msgid "Copy Data"
 msgstr "Veriyi Kopyala"
-
-#, python-format
-msgid "Cores(Available: %(avail)s, Requested: %(req)s)"
-msgstr "Çekirdekler(Kullanılabilir: %(avail)s, İstenen: %(req)s)"
 
 #, python-format
 msgid "Could not find default role \"%s\" in Keystone"
@@ -1312,9 +1219,6 @@ msgstr "Özel TCP Kuralı"
 msgid "Custom UDP Rule"
 msgstr "Özel UDP Kuralı"
 
-msgid "Customization Script Source"
-msgstr "Özelleştirme Betiği Kaynağı"
-
 msgid "DHCP Agents"
 msgstr "DHCP Ajanları"
 
@@ -1529,18 +1433,12 @@ msgid_plural "Delete Volume Types"
 msgstr[0] "Mantıksal Sürücü Türünü Sil"
 msgstr[1] "Mantıksal Sürücü Türlerini Sil"
 
-msgid "Delete Volume on Instance Delete"
-msgstr "Sunucu Siliminde Birimi'de Sil"
-
 msgid "Delete Volumes"
 msgstr "Mantıksal Sürücüleri Sil"
 
 #, python-format
 msgid "Delete the created network \"%s\" due to subnet creation failure."
 msgstr "Oluşturulan \"%s\" ağını alt ağ oluşturma hatası sebebiyle sil."
-
-msgid "Delete volume when the instance is deleted"
-msgstr "Sunucu silindiğinde birimi de sil"
 
 msgid "Deleted"
 msgstr "Silinmiş"
@@ -1793,9 +1691,6 @@ msgstr "Aygıt İsmi"
 
 msgid "Device Owner"
 msgstr "Cihaz Sahibi"
-
-msgid "Device size (GB)"
-msgstr "Aygıt boyutu (GB)"
 
 msgid "Direct"
 msgstr "Doğrudan"
@@ -2515,12 +2410,6 @@ msgstr "Arıza"
 msgid "Federation"
 msgstr "Birleşim"
 
-msgid "File"
-msgstr "Dosya"
-
-msgid "File exceeds maximum size (16kb)"
-msgstr "Dosya azami boyutu geçiyor (16kb)"
-
 msgid "Filter"
 msgstr "Filtre"
 
@@ -3077,9 +2966,6 @@ msgstr "Sanal Makine Eylem Listesi"
 msgid "Instance Admin Password"
 msgstr "Sanal makine Yönetici Parolası"
 
-msgid "Instance Boot Source"
-msgstr "Sunucu Ön Yükleme Kaynağı"
-
 msgid "Instance Console"
 msgstr "Sanal Makine Konsolu"
 
@@ -3103,9 +2989,6 @@ msgstr "Sunucu Parolası ayarlanmamış veya henüz kullanılabilir değil"
 
 msgid "Instance Security Groups"
 msgstr "Sunucu Güvenlik Grupları"
-
-msgid "Instance Snapshot"
-msgstr "Sanal Makine Anlık Görüntüsü"
 
 msgid "Instances"
 msgstr "Sanal Makineler"
@@ -3208,9 +3091,6 @@ msgstr ""
 "Anahtar çifti ismi yalnızca harf, sayı, alt çizgi, boşluk, tire içerebilir, "
 "alfabe dışı karakter içeremez."
 
-msgid "Key pair to use for authentication."
-msgstr "Kimlik doğrulama için kullanılacak anahtar çifti."
-
 msgid "Key-Value Pairs"
 msgstr "Anahtar-Değer Çiftleri"
 
@@ -3239,22 +3119,6 @@ msgstr "Sanal makineyi Başlat (Kota aşıldı)"
 
 msgid "Launch as Instance"
 msgstr "Sanal Makine olarak Başlat"
-
-msgid "Launch instance in these security groups."
-msgstr "Sanal makineyi bu güvenlik gruplarında başlat."
-
-msgid "Launch instance with these networks"
-msgstr "Bu ağlarla sanal makine başlat"
-
-msgid "Launch instance with these ports"
-msgstr "Sanal makineyi bu bağlantı noktalarıyla başlat"
-
-msgid ""
-"Launching multiple instances is only supported for images and instance "
-"snapshots."
-msgstr ""
-"Birden çok sanal makine başlatma yalnızca imajlarda ve sunucu anlık "
-"görüntülerinde desteklenir."
 
 msgid "Length of Injected File Path"
 msgstr "İçeri Atılan Dosya Yolunun Uzunluğu"
@@ -3641,9 +3505,6 @@ msgstr "Ağ Maskesi"
 msgid "Network Name"
 msgstr "Ağ Adı"
 
-msgid "Network Ports"
-msgstr "Ağ Bağlantı Noktaları"
-
 msgid "Network QoS"
 msgstr "Ağ QoS"
 
@@ -3664,9 +3525,6 @@ msgstr "CIDR biçiminde ağ adresi (örn. 192.168.0.0/24, 2001:DB8::/48)"
 
 msgid "Network list can not be retrieved."
 msgstr "Ağ listesi alınamadı."
-
-msgid "Networking"
-msgstr "Ağ"
 
 msgctxt "Task status of an Instance"
 msgid "Networking"
@@ -3853,9 +3711,6 @@ msgstr "Güvenlik grubu bulanamadı."
 msgid "No server groups available"
 msgstr "Kullanılabilir sunucu grubu yok"
 
-msgid "No snapshots available"
-msgstr "Kullanılabilir anlık görüntü yok"
-
 msgid "No source, empty volume"
 msgstr "Kaynak yok, mantıksal sürücü boş"
 
@@ -3867,9 +3722,6 @@ msgstr "Hiç kullanıcı bulunamadı."
 
 msgid "No users."
 msgstr "Kullanıcı yok."
-
-msgid "No volume snapshots available"
-msgstr "Kullanılabilir mantıksal sürücü anlık görüntüsü yok"
 
 msgid "No volume type"
 msgstr "Mantıksal sürücü türü yok"
@@ -4144,16 +3996,6 @@ msgstr "Bağlanacak bağlantı noktası"
 msgid "Ports"
 msgstr "Bağlantı Noktaları"
 
-msgid ""
-"Ports are optional and can be used with networks to add extra IP addresses "
-"to your instances or select specific types of ports."
-msgstr ""
-"Bağlantı noktaları isteğe bağlıdır ve ağlar tarafından sunucularınıza ek IP "
-"adresleri eklemek veya belirli bağlantı noktaları seçmek için kullanılabilir."
-
-msgid "Post-Creation"
-msgstr "Oluşturma-Sonrası"
-
 msgid "Power State"
 msgstr "Güç Durumu"
 
@@ -4186,9 +4028,6 @@ msgstr "Profil"
 
 msgid "Project"
 msgstr "Proje"
-
-msgid "Project & User"
-msgstr "Proje & Kullanıcı"
 
 msgid "Project ="
 msgstr "Proje ="
@@ -4343,10 +4182,6 @@ msgstr "RAM (toplam)"
 
 msgid "RAM (used)"
 msgstr "RAM (kullanılan)"
-
-#, python-format
-msgid "RAM(Available: %(avail)s, Requested: %(req)s)"
-msgstr "RAM(Kullanılabilir: %(avail)s, İstenen: %(req)s)"
 
 msgid "RX/TX Factor"
 msgstr "RX/TX Factor"
@@ -4506,10 +4341,6 @@ msgstr "Hata Bildir"
 
 msgid "Request ID"
 msgstr "İstek ID'si"
-
-#, python-format
-msgid "Request for launching %(count)s named \"%(name)s\" has been submitted."
-msgstr "%(count)s isimli \"%(name)s\" başlatma isteği gönderildi."
 
 #, python-format
 msgid "Request for resizing of instance \"%s\" has been submitted."
@@ -4800,12 +4631,6 @@ msgctxt "Task status of an Instance"
 msgid "Scheduling"
 msgstr "Zamanlanıyor"
 
-msgid "Script Data"
-msgstr "Betik Verisi"
-
-msgid "Script File"
-msgstr "Betik Dosyası"
-
 msgid "Security Group"
 msgstr "Güvenlik Grubu"
 
@@ -4850,9 +4675,6 @@ msgstr "Şablon Seçin"
 msgid "Select Image"
 msgstr "İmaj Seçin"
 
-msgid "Select Instance Snapshot"
-msgstr "Sanal makine Anlık Görüntüsü Seçin"
-
 msgid "Select Mapping"
 msgstr "Eşleştirme Seçin"
 
@@ -4862,9 +4684,6 @@ msgstr "Ağ Seç"
 msgid "Select Port"
 msgstr "Bağlantı Noktası Seçin"
 
-msgid "Select Script Source"
-msgstr "Betik Kaynağını Seçin"
-
 msgid "Select Server Group"
 msgstr "Sunucu Grubu Seçin"
 
@@ -4873,9 +4692,6 @@ msgstr "Alt Ağ Seçin"
 
 msgid "Select Volume"
 msgstr "Mantıksal Sürücü Seç"
-
-msgid "Select Volume Snapshot"
-msgstr "Mantıksal sürücü Anlık Görüntüsü Seçin"
 
 msgid "Select a New Flavor"
 msgstr "Yeni bir Şablon Seç"
@@ -4940,12 +4756,6 @@ msgstr "Format seçiniz"
 msgid "Select network"
 msgstr "Ağ seçin"
 
-msgid "Select networks for your instance."
-msgstr "Sanal makineniz için ağlar seçin."
-
-msgid "Select source"
-msgstr "Kaynak seçin"
-
 msgid ""
 "Select the IP address you wish to associate with the selected instance or "
 "port."
@@ -4986,17 +4796,11 @@ msgstr "Seçili Projeler"
 msgid "Selected hosts"
 msgstr "Seçili hostlar"
 
-msgid "Selected networks"
-msgstr "Seçili ağlar"
-
 msgid "Selected volume types"
 msgstr "Seçili mantıksal sürücü türleri"
 
 msgid "Selected volumes"
 msgstr "Seçili mantıksal sürücüler"
-
-msgid "Server Group"
-msgstr "Sunucu Grubu"
 
 msgid "Server Group Members"
 msgstr "Sunucu Grubu Üyeleri"
@@ -5006,9 +4810,6 @@ msgstr "Sunucu Grupları"
 
 msgid "Server error"
 msgstr "Sunucu hatası"
-
-msgid "Server group to associate with this instance."
-msgstr "Bu sunucuyla ilişkilendirilecek sunucu grubu."
 
 msgid "Servers"
 msgstr "Sunucular"
@@ -5143,9 +4944,6 @@ msgstr "Boyut"
 msgid "Size (GiB)"
 msgstr "Boyut (GiB)"
 
-msgid "Size of image to launch."
-msgstr "Başlatılacak imaj boyutu."
-
 msgid "Size(GiB) ="
 msgstr "Boyut(GiB) ="
 
@@ -5267,9 +5065,6 @@ msgstr "İçe aktarılacak isim uzayı metaveri tanımlaması belirtin."
 msgid "Specify additional attributes for the subnet."
 msgstr "Alt ağ için ek öznitelikler belirtin."
 
-msgid "Specify advanced options to use when launching an instance."
-msgstr "Bir sanal makine açarken kullanılacak gelişmiş seçenekleri belirtin."
-
 msgid "Specify an IP address for the interface created (e.g. 192.168.0.254)."
 msgstr "Oluşturulan arabirim için IP adresi belirtin (örn. 192.168.0.254)."
 
@@ -5278,9 +5073,6 @@ msgstr "İmaj servisine yüklemek için bir imaj belirtin."
 
 msgid "Specify the MAC address for the new port"
 msgstr "Yeni bağlantı noktası için MAC adresini belirtin"
-
-msgid "Specify the details for launching an instance."
-msgstr "Sanal makine açmak için gerekli detayları belirtin."
 
 msgid "Specify the subnet IP address for the new port"
 msgstr "Yeni bağlantı noktası için alt ağ IP adresini belirtin"
@@ -5633,23 +5425,8 @@ msgstr ""
 "için gereklidir. Lütfen Transfer ID ve Yetkilendirme Anahtarını alın ve "
 "aktarım alıcınıza ulaştırın."
 
-#, python-format
-msgid ""
-"The Volume size is too small for the '%(image_name)s' image and has to be "
-"greater than or equal to '%(smallest_size)d' GB."
-msgstr ""
-"Mantıksal Sürücü boyutu '%(image_name)s' imajı için çok küçük, en az "
-"'%(smallest_size)d' GB ya da daha büyük olmalı."
-
 msgid "The admin password is incorrect."
 msgstr "Yönetici parolası hatalı."
-
-msgid ""
-"The chart below shows the resources used by this project in relation to the "
-"project's quotas."
-msgstr ""
-"Aşağıdaki çizelge bu projenin proje kotasına göre kullandığı kaynakları "
-"gösterir."
 
 msgid "The container cannot be deleted since it is not empty."
 msgstr "Konteyner boş olmadığından silinemez."
@@ -5669,14 +5446,6 @@ msgid ""
 msgstr ""
 "Veri birimde kalacak, bu birimi bağlayarak başka bir sunucudan veriye "
 "erişebileceksiniz."
-
-#, python-format
-msgid ""
-"The flavor '%(flavor)s' is too small for requested image.\n"
-"Minimum requirements: %(min_ram)s MB of RAM and %(min_disk)s GB of Root Disk."
-msgstr ""
-"'%(flavor)s' niteliği istenen imaj için çok küçük.\n"
-"Asgari gereksinimler: %(min_ram)s MB RAM ve %(min_disk)s GB Kök Diski."
 
 msgid "The instance is preparing the live migration to a new host."
 msgstr "Sunucu yeni bir istemciye canlı geçiş hazırlığında."
@@ -5734,13 +5503,6 @@ msgid "The physical mechanism by which the virtual network is implemented."
 msgstr "Sanal ağın uygulandığı fiziksel mekanizma."
 
 msgid ""
-"The port also describes the associated network configuration, such as the "
-"MAC and IP addresses to be used on that port."
-msgstr ""
-"Bağlantı noktası aynı zamanda ilişkili ağ yapılandırmasını, örneğin bu "
-"bağlantı noktasında kullanılacak MAC ve IP adreslerini de tanımlar."
-
-msgid ""
 "The private key will be only used in your browser and will not be sent to "
 "the server"
 msgstr ""
@@ -5749,35 +5511,11 @@ msgstr ""
 msgid "The pseudo folder cannot be deleted since it is not empty."
 msgstr "Sahte dizin boş olmadığından silinemez."
 
-#, python-format
-msgid ""
-"The requested instance cannot be launched. Requested volume exceeds quota: "
-"Available: %(avail)s, Requested: %(req)s."
-msgstr ""
-"İstenen sunucu başlatılamaz. İstenen birim kotayı aşıyor: Kullanılabilir: "
-"%(avail)s, İstenen: %(req)s."
-
-#, python-format
-msgid ""
-"The requested instance cannot be launched. The following requested "
-"resource(s) exceed quota(s): %s."
-msgstr ""
-"İstenen sanal makine başlatılamaz. İstenen şu kaynak(lar) kota(lar)ı aşıyor:"
-"%s."
-
 msgid ""
 "The requested instance port is already associated with another floating IP."
 msgstr ""
 "İstenen sunucu bağlantı noktası zaten başka bir değişken IP ile "
 "ilişkilendirilmiş."
-
-#, python-format
-msgid ""
-"The requested instance(s) cannot be launched as your quota will be exceeded: "
-"Available: %(avail)s, Requested: %(req)s."
-msgstr ""
-"Kotanız aşılacağından istenen sunucu(lar) başlatılamadı: Kullanılabilir: "
-"%(avail)s, İstenen: %(req)s."
 
 msgid "The specified port is invalid."
 msgstr "Belirtilmiş bağlantı noktası geçersiz."
@@ -5842,10 +5580,6 @@ msgstr ""
 #, python-format
 msgid "There was a problem loading the namespace: %s."
 msgstr "İsim uzayı yüklenirken bir problem oluştu: %s."
-
-#, python-format
-msgid "There was a problem parsing the %(prefix)s: %(error)s"
-msgstr "%(prefix)s ayrıştırmasında hata: %(error)s"
 
 msgid "This action cannot be undone."
 msgstr "Bu işlem geri alınamaz."
@@ -6274,10 +6008,6 @@ msgstr "Anahtar çifti içe aktarılamıyor."
 msgid "Unable to initialize subnetpools"
 msgstr "Alt ağ havuzları başlatılamadı"
 
-#, python-format
-msgid "Unable to launch %(count)s named \"%(name)s\"."
-msgstr "\"%(name)s\" isimli %(count)s çalıştırılamadı."
-
 msgid "Unable to list dhcp agents hosting network."
 msgstr "Ağa sunan dhcp ajanları listelenemiyor."
 
@@ -6446,9 +6176,6 @@ msgstr "Alan listesi alınamıyor."
 msgid "Unable to retrieve encryption type."
 msgstr "Şifreleme türü alınamıyor."
 
-msgid "Unable to retrieve extensions information."
-msgstr "Eklenti bilgisi alınamadı."
-
 msgid "Unable to retrieve extra spec list."
 msgstr "Ekstra özellik listesi alınamadı."
 
@@ -6559,12 +6286,6 @@ msgstr "Anahtar çifti listesi alınamadı."
 
 msgid "Unable to retrieve key pairs."
 msgstr "Anahtar çiftleri getirilemiyor."
-
-msgid "Unable to retrieve list of security groups"
-msgstr "Güvenlik grupları listesi alınamıyor"
-
-msgid "Unable to retrieve list of volume snapshots."
-msgstr "Mantıksal sürücü anlık görüntüleri listesi alınamadı."
 
 msgid "Unable to retrieve list of volumes."
 msgstr "Mantıksal sürücü listesi alınamadı."
@@ -7116,9 +6837,6 @@ msgstr ""
 msgid "Used IPs"
 msgstr "Kullanılan IP'ler"
 
-msgid "User"
-msgstr "Kullanıcı"
-
 #, python-format
 msgid "User \"%s\" was successfully created."
 msgstr "\"%s\" kullanıcısı başarıyla oluşturuldu."
@@ -7274,9 +6992,6 @@ msgstr "Mantıksal Sürücü Adı"
 msgid "Volume Name ="
 msgstr "Mantıksal Sürücü Adı ="
 
-msgid "Volume Snapshot"
-msgstr "Mantıksal Sürücü Anlık Görüntüsü"
-
 msgid "Volume Snapshots"
 msgstr "Mantıksal Sürücülerin Anlık Görüntüleri"
 
@@ -7334,18 +7049,8 @@ msgstr "Mantıksal Sürücü Türleri"
 msgid "Volume is Unencrypted"
 msgstr "Mantıksal Sürücü Şifrelenmemiş"
 
-msgid ""
-"Volume mount point (e.g. 'vda' mounts at '/dev/vda'). Leave this field blank "
-"to let the system choose a device name for you."
-msgstr ""
-"Birim bağlama noktası (örn. 'vda' '/dev/vda'da bağlanır). Sistemin sizin "
-"için bir aygıt ismi seçmesini istiyorsanız bu alanı boş bırakın."
-
 msgid "Volume name to be assigned"
 msgstr "Atanacak mantıksal sürücü ismi"
-
-msgid "Volume size in gigabytes (integer value)."
-msgstr "Gigabyte olarak birimin boyutu (tamsayı değer)."
 
 #, python-format
 msgid ""
@@ -7371,9 +7076,6 @@ msgid "Volume size must be equal to or greater than the snapshot size (%sGiB)"
 msgstr ""
 "Birim boyutu anlık görüntü boyutuna eşit ya da boyutundan büyük olmalı "
 "(%sGiB)"
-
-msgid "Volume size must be greater than 0"
-msgstr "Birim boyutu 0'dan büyük olmalıdır"
 
 msgid "Volume source must be specified"
 msgstr "Mantıksal sürücü kaynağı belirtilmelidir"
@@ -7465,13 +7167,6 @@ msgstr ""
 "belirtirseniz, oluşturulan port bu cihaza bağlanır. "
 
 msgid ""
-"You can customize your instance after it has launched using the options "
-"available here."
-msgstr ""
-"Buradaki uygun seçenekleri kullanarak sunucunuzu açıldıktan sonra "
-"özelleştirebilirsiniz."
-
-msgid ""
 "You can specify the desired rule template or use custom rules, the options "
 "are Custom TCP Rule, Custom UDP Rule, or Custom ICMP Rule."
 msgstr ""
@@ -7531,18 +7226,6 @@ msgid "You may update the editable properties of your router here."
 msgstr ""
 "Yönlendiricinizin düzenlenebilir özelliklerini buradan güncelleyebilirsiniz."
 
-msgid "You must select a snapshot."
-msgstr "Bir anlık görüntü seçmelisiniz."
-
-msgid "You must select a volume."
-msgstr "Bir mantıksal sürücü seçmelisiniz."
-
-msgid "You must select an image."
-msgstr "Bir imaj seçmelisiniz."
-
-msgid "You must set volume size"
-msgstr "Birim boyutu ayarlamalısınız"
-
 msgid ""
 "You must specify the source of the traffic to be allowed via this rule. You "
 "may do so either in the form of an IP address block (CIDR) or via a source "
@@ -7586,9 +7269,6 @@ msgstr "örn. Evet/Hayır"
 
 msgid "front-end"
 msgstr "front-end"
-
-msgid "instance"
-msgstr "sunucu"
 
 msgid "no"
 msgstr "hayır"

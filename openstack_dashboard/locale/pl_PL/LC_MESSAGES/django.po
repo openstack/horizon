@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: horizon VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2021-05-11 12:54+0000\n"
+"POT-Creation-Date: 2022-02-21 20:31+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -22,12 +22,6 @@ msgstr " - Koniec"
 
 msgid " : Next hop"
 msgstr ": następny przeskok"
-
-msgid ""
-"\"Customization Script\" is analogous to \"User Data\" in other systems."
-msgstr ""
-"„Skrypt dostosowujący” jest odpowiednikiem „danych użytkownika” w innych "
-"systemach."
 
 msgid ""
 "\"None\" indicates that no QoS Spec is currently associated. Conversely, "
@@ -48,10 +42,6 @@ msgstr "%(field_name)s: Nieprawidłowy adres IP (wartość=%(network)s)"
 #, python-format
 msgid "%(instance_name)s %(fixed_ip)s"
 msgstr "%(instance_name)s %(fixed_ip)s"
-
-#, python-format
-msgid "%(name)s - %(size)s GB (%(label)s)"
-msgstr "%(name)s - %(size)s GB (%(label)s)"
 
 #. Translators:  UTC offset and timezone label
 #, python-format
@@ -85,10 +75,6 @@ msgid "%s GB"
 msgstr "%s GB"
 
 #, python-format
-msgid "%s instances"
-msgstr "%s instancje"
-
-#, python-format
 msgid "%sGB"
 msgstr "%sGB"
 
@@ -113,13 +99,6 @@ msgstr "Lokalny obraz do wysłania."
 
 msgid "A local metadata definition file to upload."
 msgstr "Lokalny plik metadanych, który ma zostać przesłany"
-
-msgid ""
-"A script or set of commands to be executed after the instance has been built "
-"(max 16kb)."
-msgstr ""
-"Skrypt lub zestaw poleceń, który należy wykonać po zbudowaniu instancji "
-"(maks. 16kb)."
 
 msgid ""
 "A snapshot is an image which preserves the disk state of a running instance."
@@ -150,9 +129,6 @@ msgstr "Przyjmij przeniesienie"
 
 msgid "Accept Volume Transfer"
 msgstr "Przyjmij przeniesienie wolumenu"
-
-msgid "Access & Security"
-msgstr "Dostęp i bezpieczeństwo"
 
 msgid "Action"
 msgstr "Akcja"
@@ -378,13 +354,6 @@ msgid "Allocation Pools"
 msgstr "Pule przydziałów"
 
 msgid ""
-"An instance can be launched with varying types of attached storage. You may "
-"select from those options here."
-msgstr ""
-"Instancja może zostać uruchomiona z różnymi typami dołączonej pamięci "
-"masowej. Można ją wybrać spośród podanych tutaj opcji."
-
-msgid ""
 "An unexpected error has occurred. Try refreshing the page. If that doesn't "
 "help, contact your local administrator."
 msgstr ""
@@ -417,9 +386,6 @@ msgstr "Powiązane specyfikacje QoS."
 
 msgid "Associated Resource Types"
 msgstr "Powiązane typy zasobów"
-
-msgid "At least one network must be specified."
-msgstr "Należy podać przynajmniej jedną sieć."
 
 msgid "Attach Interface"
 msgstr "Dołącz interfejs"
@@ -503,9 +469,6 @@ msgstr "Dostępne"
 msgid "Available Types"
 msgstr "Dostępne typy"
 
-msgid "Available networks"
-msgstr "Dostępne sieci"
-
 msgctxt "Current status of a Volume"
 msgid "Backing Up"
 msgstr "Tworzenie kopii zapasowej"
@@ -541,21 +504,6 @@ msgstr "Usługi przechowywania blokowego"
 msgctxt "Power state of an Instance"
 msgid "Blocked"
 msgstr "Zablokowane"
-
-msgid "Boot from image"
-msgstr "Uruchom z obrazu"
-
-msgid "Boot from image (creates a new volume)"
-msgstr "Uruchom z obrazu (tworzy nowy wolumen)"
-
-msgid "Boot from snapshot"
-msgstr "Uruchom z migawki"
-
-msgid "Boot from volume"
-msgstr "Bootuj z wolumenu"
-
-msgid "Boot from volume snapshot (creates a new volume)"
-msgstr "Uruchom z migawki wolumenu (tworzy nowy wolumen)"
 
 msgid "Bootable"
 msgstr "Uruchamialny"
@@ -631,9 +579,6 @@ msgstr "Zmiana hasła nie jest wspierana."
 msgid "Checksum"
 msgstr "Checksum"
 
-msgid "Choose Your Boot Source Type."
-msgstr "Wybór źródła uruchamiania."
-
 msgid "Choose a Host to migrate to."
 msgstr "Wybór hosta, na który należy dokonać migracji."
 
@@ -661,14 +606,6 @@ msgstr "Wybór powiązanej specyfikacji QoS."
 
 msgid "Choose consumer for this QoS Spec."
 msgstr "Wybór konsumenta dla tej specyfikacji QoS."
-
-msgid ""
-"Choose network from Available networks to Selected networks by push button "
-"or drag and drop, you may change NIC order by drag and drop as well. "
-msgstr ""
-"Należy wybrać sieć z listy dostępnych sieci, poprzez kliknięcie przycisku "
-"lub przeciągnięcie i upuszczenie na listę wybranych sieci. Można też zmienić "
-"kolejność kart sieciowych poprzez przeciąganie i upuszczanie."
 
 msgid "Choose the flavor to launch."
 msgstr "Wybierz odmianę do uruchomienia."
@@ -722,19 +659,6 @@ msgstr "Host obliczeniowy"
 msgid "Compute Services"
 msgstr "Usługi obliczeniowe"
 
-msgid "Configuration Drive"
-msgstr "Dysk konfiguracyjny"
-
-msgid ""
-"Configure OpenStack to write metadata to a special configuration drive that "
-"attaches to the instance when it boots."
-msgstr ""
-"Pozwala skonfigurować OpenStack by zapisywał metadane do specjalnego dysku "
-"konfiguracyjnego, który jest dołączany do instancji podczas uruchamiania."
-
-msgid "Confirm Admin Password"
-msgstr "Potwierdź hasło administracyjne"
-
 msgid "Confirm Password"
 msgstr "Potwierdź hasło"
 
@@ -784,19 +708,8 @@ msgstr "Zawartość"
 msgid "Control Location"
 msgstr "Lokalizacja kontrolna"
 
-msgid ""
-"Control access to your instance via key pairs, security groups, and other "
-"mechanisms."
-msgstr ""
-"Zarządzanie dostępem do instancji za pomocą par kluczy, grup zabezpieczeń i "
-"innych mechanizmów."
-
 msgid "Copy Data"
 msgstr "Kopiuj dane"
-
-#, python-format
-msgid "Cores(Available: %(avail)s, Requested: %(req)s)"
-msgstr "Rdzenie (Dostępne: %(avail)s, Żądane: %(req)s)"
 
 #, python-format
 msgid "Could not find default role \"%s\" in Keystone"
@@ -1046,9 +959,6 @@ msgstr "Własna reguła TCP"
 
 msgid "Custom UDP Rule"
 msgstr "Własna reguła UDP"
-
-msgid "Customization Script Source"
-msgstr "Źródło skryptu dostosowującego"
 
 msgid "DHCP Agents"
 msgstr "Agenci DHCP"
@@ -1462,9 +1372,6 @@ msgstr "Nazwa urządzenia"
 
 msgid "Device Owner"
 msgstr "Właściciel urządzenia"
-
-msgid "Device size (GB)"
-msgstr "Rozmiar urządzenia (w GB)"
 
 msgid "Direct"
 msgstr "Bezpośredni"
@@ -2083,12 +1990,6 @@ msgstr "Fałsz"
 msgid "Fault"
 msgstr "Defekt"
 
-msgid "File"
-msgstr "Plik"
-
-msgid "File exceeds maximum size (16kb)"
-msgstr "Plik przekracza dozwolony rozmiar (16kb)"
-
 msgid "Filter"
 msgstr "Filtr"
 
@@ -2526,9 +2427,6 @@ msgstr "Lista akcji instancji"
 msgid "Instance Admin Password"
 msgstr "Hasło administracyjne instancji"
 
-msgid "Instance Boot Source"
-msgstr "Źródło uruchamiania instancji"
-
 msgid "Instance Console"
 msgstr "Konsola instancji"
 
@@ -2549,9 +2447,6 @@ msgstr "Nie ustawiono hasła instancji lub nie jest ono jeszcze dostępne"
 
 msgid "Instance Security Groups"
 msgstr "Grupy zabezpieczeń instancji"
-
-msgid "Instance Snapshot"
-msgstr "Migawka instancji"
 
 msgid "Instances"
 msgstr "Instancje"
@@ -2636,9 +2531,6 @@ msgstr ""
 msgid "Key Size (bits)"
 msgstr "Rozmiar klucza (w bitach)"
 
-msgid "Key pair to use for authentication."
-msgstr "Para kluczy, która będzie użyta do autentykacji."
-
 msgid "Key-Value Pairs"
 msgstr "Pary klucz - wartość"
 
@@ -2664,19 +2556,6 @@ msgstr "Uruchom instancję (przekroczono limit)"
 
 msgid "Launch as Instance"
 msgstr "Uruchom jako Instancję"
-
-msgid "Launch instance in these security groups."
-msgstr "Uruchom instancję w podanych grupach zabezpieczeń."
-
-msgid "Launch instance with these networks"
-msgstr "Uruchom instancję z tymi sieciami"
-
-msgid ""
-"Launching multiple instances is only supported for images and instance "
-"snapshots."
-msgstr ""
-"Uruchamianie wielu instancji jest wspierane wyłącznie dla obrazów i migawek "
-"instancji."
 
 msgid "Length of Injected File Path"
 msgstr "Długość wstrzykiwanej ścieżki plików"
@@ -3021,9 +2900,6 @@ msgstr "Adres sieciowy w formacie CIDR (np. 192.168.0.0/24, 2001:DB8::/48)"
 msgid "Network list can not be retrieved."
 msgstr "Nie można pobrać listy sieci."
 
-msgid "Networking"
-msgstr "Sieć"
-
 msgctxt "Task status of an Instance"
 msgid "Networking"
 msgstr "Sieć"
@@ -3186,9 +3062,6 @@ msgstr "Nie włączono grup zabezpieczeń."
 msgid "No security groups found."
 msgstr "Nie znaleziono grup zabezpieczeń."
 
-msgid "No snapshots available"
-msgstr "Brak dostępnych migawek"
-
 msgid "No source, empty volume"
 msgstr "Brak źródła, pusty wolumen"
 
@@ -3200,9 +3073,6 @@ msgstr "Nie znaleziono użytkowników"
 
 msgid "No users."
 msgstr "Brak użytkowników."
-
-msgid "No volume snapshots available"
-msgstr "Brak dostępnych migawek wolumenów"
 
 msgid "No volume type"
 msgstr "Brak typu wolumenu"
@@ -3395,9 +3265,6 @@ msgstr "Port, który ma zostać powiązany"
 msgid "Ports"
 msgstr "Porty"
 
-msgid "Post-Creation"
-msgstr "Po uruchomieniu"
-
 msgid "Power State"
 msgstr "Stan zasilania"
 
@@ -3427,9 +3294,6 @@ msgstr "Profil"
 
 msgid "Project"
 msgstr "Projekt"
-
-msgid "Project & User"
-msgstr "Projekt i użytkownik"
 
 msgid "Project ="
 msgstr "Projekt="
@@ -3542,10 +3406,6 @@ msgstr "RAM (łącznie)"
 
 msgid "RAM (used)"
 msgstr "RAM (używane)"
-
-#, python-format
-msgid "RAM(Available: %(avail)s, Requested: %(req)s)"
-msgstr "RAM (Dostępna: %(avail)s, Żądana: %(req)s)"
 
 msgid "RX/TX Factor"
 msgstr "Współczynnik RX/TX"
@@ -3904,12 +3764,6 @@ msgctxt "Task status of an Instance"
 msgid "Scheduling"
 msgstr "Kolejkowanie"
 
-msgid "Script Data"
-msgstr "Dane skryptu"
-
-msgid "Script File"
-msgstr "Plik skryptu"
-
 msgid "Security Group"
 msgstr "Grupa zabezpieczeń"
 
@@ -3934,26 +3788,17 @@ msgstr "Wybór odmiany"
 msgid "Select Image"
 msgstr "Wybierz obraz"
 
-msgid "Select Instance Snapshot"
-msgstr "Wybierz migawkę instancji"
-
 msgid "Select Network"
 msgstr "Wybierz sieć"
 
 msgid "Select Port"
 msgstr "Wybór portu"
 
-msgid "Select Script Source"
-msgstr "Wybór źródła skryptu"
-
 msgid "Select Subnet"
 msgstr "Wybierz podsieć"
 
 msgid "Select Volume"
 msgstr "Wybierz wolumen"
-
-msgid "Select Volume Snapshot"
-msgstr "Wybierz migawkę wolumenu"
 
 msgid "Select a New Flavor"
 msgstr "Wybór nowej odmiany"
@@ -4006,12 +3851,6 @@ msgstr "Wybierz format"
 msgid "Select network"
 msgstr "Wybierz sieć"
 
-msgid "Select networks for your instance."
-msgstr "Wybierz sieci dla instancji"
-
-msgid "Select source"
-msgstr "Wybierz źródło"
-
 msgid ""
 "Select the IP address you wish to associate with the selected instance or "
 "port."
@@ -4044,9 +3883,6 @@ msgstr "Wybrane projekty"
 
 msgid "Selected hosts"
 msgstr "Wybrane hosty"
-
-msgid "Selected networks"
-msgstr "Wybrane sieci"
 
 msgid "Server Group Members"
 msgstr "Członkowie grupy serwerów"
@@ -4180,9 +4016,6 @@ msgstr "Wyloguj"
 msgid "Size"
 msgstr "Rozmiar"
 
-msgid "Size of image to launch."
-msgstr "Rozmiar obrazu do uruchomienia."
-
 msgid "Slash is not an allowed character."
 msgstr "Ukośnik nie jest dozwolony."
 
@@ -4265,17 +4098,11 @@ msgstr "Należy podać definicję metadanych przestrzeni nazw do zaimportowania.
 msgid "Specify additional attributes for the subnet."
 msgstr "Dodatkowe atrybuty dla podsieci."
 
-msgid "Specify advanced options to use when launching an instance."
-msgstr "Zaawansowane opcje podczas uruchamiania instancji."
-
 msgid "Specify an IP address for the interface created (e.g. 192.168.0.254)."
 msgstr "Należy podać adres IP dla utworzonego interfejsu (np. 192.168.0.254)."
 
 msgid "Specify an image to upload to the Image Service."
 msgstr "Należy podać obraz do wysłania do usługi obrazów."
-
-msgid "Specify the details for launching an instance."
-msgstr "Proszę podać szczegóły, aby można było uruchomić instancję."
 
 msgid ""
 "Specify this option to copy image data to the image service. If unspecified, "
@@ -4584,21 +4411,8 @@ msgstr ""
 "ID transferu i klucz autoryzacyjny jest wymagany przez odbiorcę, by móc "
 "zaakceptować przeniesienie. Należy je zanotować i przekazać odbiorcy."
 
-#, python-format
-msgid ""
-"The Volume size is too small for the '%(image_name)s' image and has to be "
-"greater than or equal to '%(smallest_size)d' GB."
-msgstr ""
-"Rozmiar wolumenu jest za mały dla obrazu „%(image_name)s”, gdyż musi być "
-"większy lub równy %(smallest_size)d GB."
-
 msgid "The admin password is incorrect."
 msgstr "Błędne hasło administracyjne."
-
-msgid ""
-"The chart below shows the resources used by this project in relation to the "
-"project's quotas."
-msgstr "Poniższy wykres obrazuje wykorzystanie zasobów względem jego limitów."
 
 msgid "The container cannot be deleted since it is not empty."
 msgstr "Kontener nie może zostać usunięty, ponieważ nie jest pusty."
@@ -4609,14 +4423,6 @@ msgid ""
 msgstr ""
 "Dane pozostaną na wolumenie i inna instancja będzie mogła uzyskać do nich "
 "dostęp, jeśli wolumen ten zostanie do niej podłączony."
-
-#, python-format
-msgid ""
-"The flavor '%(flavor)s' is too small for requested image.\n"
-"Minimum requirements: %(min_ram)s MB of RAM and %(min_disk)s GB of Root Disk."
-msgstr ""
-"Odmiana „%(flavor)s” jest za mała dla żądanego obrazu.\n"
-"Minimalne wymagania: %(min_ram)s MB RAM oraz %(min_disk)s GB głównego dysku."
 
 msgid "The instance is preparing the live migration to a new host."
 msgstr "Instancja przygotowuje się do migracji na nowy serwer."
@@ -4668,22 +4474,6 @@ msgstr ""
 msgid "The pseudo folder cannot be deleted since it is not empty."
 msgstr "Pseudo katalog nie może zostać usunięty, gdyż nie jest on pusty."
 
-#, python-format
-msgid ""
-"The requested instance cannot be launched. Requested volume exceeds quota: "
-"Available: %(avail)s, Requested: %(req)s."
-msgstr ""
-"Nie można uruchomić żądanej instancji. Żądany wolumen przekracza limit: "
-"dostępne %(avail)s, żądane: %(req)s."
-
-#, python-format
-msgid ""
-"The requested instance cannot be launched. The following requested "
-"resource(s) exceed quota(s): %s."
-msgstr ""
-"Nie można uruchomić żądanej instancji. Następujące limit/y zostały "
-"przekroczony/e: %s."
-
 msgid ""
 "The requested instance port is already associated with another floating IP."
 msgstr ""
@@ -4719,10 +4509,6 @@ msgstr ""
 #, python-format
 msgid "There was a problem loading the namespace: %s."
 msgstr "Wystąpił problem podczas wczytywania przestrzeni nazwy: %s."
-
-#, python-format
-msgid "There was a problem parsing the %(prefix)s: %(error)s"
-msgstr "Wystąpił problem podczas przetwarzania %(prefix)s: %(error)s"
 
 msgid "This action cannot be undone."
 msgstr "Tej czynności nie można cofnąć."
@@ -5078,10 +4864,6 @@ msgstr "Nie można zaimportować pary kluczy."
 msgid "Unable to initialize subnetpools"
 msgstr "Nie można zainicjalizować puli podsieci"
 
-#, python-format
-msgid "Unable to launch %(count)s named \"%(name)s\"."
-msgstr "Nie można uruchomić %(count)s nazwanych „%(name)s”."
-
 msgid "Unable to list dhcp agents hosting network."
 msgstr "Nie można pobrać listy agentów DHCP dla sieci."
 
@@ -5213,9 +4995,6 @@ msgstr "Nie można pobrać informacji o domenie."
 msgid "Unable to retrieve domain list."
 msgstr "Nie można pobrać listy domen."
 
-msgid "Unable to retrieve extensions information."
-msgstr "Nie można pobrać informacji o rozszerzeniach."
-
 msgid "Unable to retrieve extra spec list."
 msgstr "Nie można pobrać listy dodatkowych opcji."
 
@@ -5321,12 +5100,6 @@ msgstr "Nie można pobrać listy par kluczy."
 
 msgid "Unable to retrieve key pairs."
 msgstr "Nie można pobrać pary kluczy."
-
-msgid "Unable to retrieve list of security groups"
-msgstr "Nie można pobrać listy grup zabezpieczeń"
-
-msgid "Unable to retrieve list of volume snapshots."
-msgstr "Nie można pobrać listy migawek wolumenu."
 
 msgid "Unable to retrieve list of volumes."
 msgstr "Nie można pobrać listy wolumenów."
@@ -5785,9 +5558,6 @@ msgstr "Wykorzystano <span> %(used)s </span> z <span> %(available)s </span>"
 msgid "Used IPs"
 msgstr "Wykorzystane adresy IP"
 
-msgid "User"
-msgstr "Użytkownik"
-
 #, python-format
 msgid "User \"%s\" was successfully created."
 msgstr "Użytkownik \"%s\" został utworzony."
@@ -5919,9 +5689,6 @@ msgstr "Limity wolumenów"
 msgid "Volume Name"
 msgstr "Nazwa wolumenu"
 
-msgid "Volume Snapshot"
-msgstr "Migawka wolumenu"
-
 msgid "Volume Snapshots"
 msgstr "Migawki wolumenu"
 
@@ -5976,25 +5743,12 @@ msgstr "Typy wolumenu"
 msgid "Volume is Unencrypted"
 msgstr "Wolumen nie jest zaszyfrowany"
 
-msgid ""
-"Volume mount point (e.g. 'vda' mounts at '/dev/vda'). Leave this field blank "
-"to let the system choose a device name for you."
-msgstr ""
-"Punkt montowania wolumenu (np. 'vda' jest montowane pod '/dev/vda'). Należy "
-"pozostawić to pole puste, aby system mógł sam wybrać nazwę urządzenia."
-
 msgid "Volume name to be assigned"
 msgstr "Nazwa wolumenu jaka ma zostać przypisana"
-
-msgid "Volume size in gigabytes (integer value)."
-msgstr "Rozmiar wolumenu w gigabajtach (wartość całkowita)."
 
 #, python-format
 msgid "Volume size must be equal to or greater than the image size (%s)"
 msgstr "Rozmiar wolumenu musi być większy lub równy rozmiarowi obrazu (%s)"
-
-msgid "Volume size must be greater than 0"
-msgstr "Rozmiar wolumenu musi być większy od 0"
 
 msgid "Volume source must be specified"
 msgstr "Źródło wolumenu musi być podane"
@@ -6045,13 +5799,6 @@ msgstr ""
 "identyfikator urządzenia, zostanie ono przypięte do tego portu."
 
 msgid ""
-"You can customize your instance after it has launched using the options "
-"available here."
-msgstr ""
-"Można dostosować instancję po jej uruchomieniu wykorzystując dostępne w tym "
-"miejscu opcje."
-
-msgid ""
 "You can specify the desired rule template or use custom rules, the options "
 "are Custom TCP Rule, Custom UDP Rule, or Custom ICMP Rule."
 msgstr ""
@@ -6099,18 +5846,6 @@ msgstr "Pozwala zaktualizować dostępne właściwości sieci."
 msgid "You may update the editable properties of your router here."
 msgstr "Pozwala na modyfikacje edytowalnych parametrów routera."
 
-msgid "You must select a snapshot."
-msgstr "Należy wybrać migawkę."
-
-msgid "You must select a volume."
-msgstr "Należy wybrać wolumen."
-
-msgid "You must select an image."
-msgstr "Należy wybrać obraz."
-
-msgid "You must set volume size"
-msgstr "Należy ustawić rozmiar wolumenu"
-
 msgid ""
 "You must specify the source of the traffic to be allowed via this rule. You "
 "may do so either in the form of an IP address block (CIDR) or via a source "
@@ -6145,9 +5880,6 @@ msgstr "w dół"
 
 msgid "front-end"
 msgstr "front-end"
-
-msgid "instance"
-msgstr "instancja"
 
 msgid "no"
 msgstr "nie"

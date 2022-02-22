@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: horizon VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2021-05-11 12:54+0000\n"
+"POT-Creation-Date: 2022-02-21 20:31+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -55,11 +55,6 @@ msgstr ""
 "supported protocols."
 
 msgid ""
-"\"Customization Script\" is analogous to \"User Data\" in other systems."
-msgstr ""
-"\"Customisation Script\" is analogous to \"User Data\" in other systems."
-
-msgid ""
 "\"Manage\" an existing volume from a Cinder host. This will make the volume "
 "visible within OpenStack. <br> <br> This is equivalent to the <tt>cinder "
 "manage</tt> command."
@@ -90,10 +85,6 @@ msgstr "%(field_name)s: Invalid IP address (value=%(network)s)"
 #, python-format
 msgid "%(instance_name)s %(fixed_ip)s"
 msgstr "%(instance_name)s %(fixed_ip)s"
-
-#, python-format
-msgid "%(name)s - %(size)s GB (%(label)s)"
-msgstr "%(name)s - %(size)s GB (%(label)s)"
 
 #. Translators:  UTC offset and timezone label
 #, python-format
@@ -141,10 +132,6 @@ msgstr "%s (current)"
 #, python-format
 msgid "%s GB"
 msgstr "%s GB"
-
-#, python-format
-msgid "%s instances"
-msgstr "%s instances"
 
 #, python-format
 msgid "%sGB"
@@ -196,25 +183,11 @@ msgstr ""
 "Identity API objects that will support mapping are: user and group."
 
 msgid ""
-"A port is a connection point for attaching a single device, such as the NIC "
-"of a virtual server, to a virtual network."
-msgstr ""
-"A port is a connection point for attaching a single device, such as the NIC "
-"of a virtual server, to a virtual network."
-
-msgid ""
 "A rule contains a remote attribute description and the destination local "
 "attribute."
 msgstr ""
 "A rule contains a remote attribute description and the destination local "
 "attribute."
-
-msgid ""
-"A script or set of commands to be executed after the instance has been built "
-"(max 16kb)."
-msgstr ""
-"A script or set of commands to be executed after the instance has been built "
-"(max 16kb)."
 
 msgid "A single IP Address or CIDR"
 msgstr "A single IP Address or CIDR"
@@ -259,9 +232,6 @@ msgstr "Accept Transfer"
 
 msgid "Accept Volume Transfer"
 msgstr "Accept Volume Transfer"
-
-msgid "Access & Security"
-msgstr "Access & Security"
 
 msgid "Action"
 msgstr "Action"
@@ -519,13 +489,6 @@ msgid "An image file or an external location must be specified."
 msgstr "An image file or an external location must be specified."
 
 msgid ""
-"An instance can be launched with varying types of attached storage. You may "
-"select from those options here."
-msgstr ""
-"An instance can be launched with varying types of attached storage. You may "
-"select from those options here."
-
-msgid ""
 "An unexpected error has occurred. Try refreshing the page. If that doesn't "
 "help, contact your local administrator."
 msgstr ""
@@ -561,9 +524,6 @@ msgstr "Associated QoS Spec"
 
 msgid "Associated Resource Types"
 msgstr "Associated Resource Types"
-
-msgid "At least one network must be specified."
-msgstr "At least one network must be specified."
 
 msgid "Attach Interface"
 msgstr "Attach Interface"
@@ -658,9 +618,6 @@ msgstr "Available"
 msgid "Available Types"
 msgstr "Available Types"
 
-msgid "Available networks"
-msgstr "Available networks"
-
 msgctxt "Current status of a Volume"
 msgid "Backing Up"
 msgstr "Backing Up"
@@ -699,21 +656,6 @@ msgstr "Block Storage Services"
 msgctxt "Power state of an Instance"
 msgid "Blocked"
 msgstr "Blocked"
-
-msgid "Boot from image"
-msgstr "Boot from image"
-
-msgid "Boot from image (creates a new volume)"
-msgstr "Boot from image (creates a new volume)"
-
-msgid "Boot from snapshot"
-msgstr "Boot from snapshot"
-
-msgid "Boot from volume"
-msgstr "Boot from volume"
-
-msgid "Boot from volume snapshot (creates a new volume)"
-msgstr "Boot from volume snapshot (creates a new volume)"
 
 msgid "Bootable"
 msgstr "Bootable"
@@ -826,9 +768,6 @@ msgstr ""
 "Choose \"Disk Format\" for the image. The volume images are created with the "
 "QEMU disk image utility."
 
-msgid "Choose Your Boot Source Type."
-msgstr "Choose Your Boot Source Type."
-
 msgid ""
 "Choose a Host to evacuate servers to. If not selected, the scheduler will "
 "auto select target host."
@@ -863,13 +802,6 @@ msgstr "Choose associated QoS Spec."
 
 msgid "Choose consumer for this QoS Spec."
 msgstr "Choose consumer for this QoS Spec."
-
-msgid ""
-"Choose network from Available networks to Selected networks by push button "
-"or drag and drop, you may change NIC order by drag and drop as well. "
-msgstr ""
-"Choose network from Available networks to Selected networks by push button "
-"or drag and drop, you may change NIC order by drag and drop as well. "
 
 msgid "Choose the flavor to launch."
 msgstr "Choose the flavor to launch."
@@ -928,19 +860,6 @@ msgstr "Compute Host"
 msgid "Compute Services"
 msgstr "Compute Services"
 
-msgid "Configuration Drive"
-msgstr "Configuration Drive"
-
-msgid ""
-"Configure OpenStack to write metadata to a special configuration drive that "
-"attaches to the instance when it boots."
-msgstr ""
-"Configure OpenStack to write metadata to a special configuration drive that "
-"attaches to the instance when it boots."
-
-msgid "Confirm Admin Password"
-msgstr "Confirm Admin Password"
-
 msgid "Confirm Password"
 msgstr "Confirm Password"
 
@@ -993,19 +912,8 @@ msgstr "Contents"
 msgid "Control Location"
 msgstr "Control Location"
 
-msgid ""
-"Control access to your instance via key pairs, security groups, and other "
-"mechanisms."
-msgstr ""
-"Control access to your instance via key pairs, security groups, and other "
-"mechanisms."
-
 msgid "Copy Data"
 msgstr "Copy Data"
-
-#, python-format
-msgid "Cores(Available: %(avail)s, Requested: %(req)s)"
-msgstr "Cores(Available: %(avail)s, Requested: %(req)s)"
 
 #, python-format
 msgid "Could not find default role \"%s\" in Keystone"
@@ -1305,9 +1213,6 @@ msgstr "Custom TCP Rule"
 msgid "Custom UDP Rule"
 msgstr "Custom UDP Rule"
 
-msgid "Customization Script Source"
-msgstr "Customization Script Source"
-
 msgid "DHCP Agents"
 msgstr "DHCP Agents"
 
@@ -1522,18 +1427,12 @@ msgid_plural "Delete Volume Types"
 msgstr[0] "Delete Volume Type"
 msgstr[1] "Delete Volume Types"
 
-msgid "Delete Volume on Instance Delete"
-msgstr "Delete Volume on Instance Delete"
-
 msgid "Delete Volumes"
 msgstr "Delete Volumes"
 
 #, python-format
 msgid "Delete the created network \"%s\" due to subnet creation failure."
 msgstr "Delete the created network \"%s\" due to subnet creation failure."
-
-msgid "Delete volume when the instance is deleted"
-msgstr "Delete volume when the instance is deleted"
 
 msgid "Deleted"
 msgstr "Deleted"
@@ -1775,9 +1674,6 @@ msgstr "Device Name"
 
 msgid "Device Owner"
 msgstr "Device Owner"
-
-msgid "Device size (GB)"
-msgstr "Device size (GB)"
 
 msgid "Direct"
 msgstr "Direct"
@@ -2495,12 +2391,6 @@ msgstr "Fault"
 msgid "Federation"
 msgstr "Federation"
 
-msgid "File"
-msgstr "File"
-
-msgid "File exceeds maximum size (16kb)"
-msgstr "File exceeds maximum size (16kb)"
-
 msgid "Filter"
 msgstr "Filter"
 
@@ -3052,9 +2942,6 @@ msgstr "Instance Action List"
 msgid "Instance Admin Password"
 msgstr "Instance Admin Password"
 
-msgid "Instance Boot Source"
-msgstr "Instance Boot Source"
-
 msgid "Instance Console"
 msgstr "Instance Console"
 
@@ -3081,9 +2968,6 @@ msgstr "Instance Password is not set or is not yet available"
 
 msgid "Instance Security Groups"
 msgstr "Instance Security Groups"
-
-msgid "Instance Snapshot"
-msgstr "Instance Snapshot"
 
 msgid "Instances"
 msgstr "Instances"
@@ -3186,9 +3070,6 @@ msgstr ""
 "Key pair name may only contain letters, numbers, underscores, spaces, and "
 "hyphens and may not be white space."
 
-msgid "Key pair to use for authentication."
-msgstr "Key pair to use for authentication."
-
 msgid "Key-Value Pairs"
 msgstr "Key-Value Pairs"
 
@@ -3217,22 +3098,6 @@ msgstr "Launch Instance (Quota exceeded)"
 
 msgid "Launch as Instance"
 msgstr "Launch as Instance"
-
-msgid "Launch instance in these security groups."
-msgstr "Launch instance in these security groups."
-
-msgid "Launch instance with these networks"
-msgstr "Launch instance with these networks"
-
-msgid "Launch instance with these ports"
-msgstr "Launch instance with these ports"
-
-msgid ""
-"Launching multiple instances is only supported for images and instance "
-"snapshots."
-msgstr ""
-"Launching multiple instances is only supported for images and instance "
-"snapshots."
 
 msgid "Length of Injected File Path"
 msgstr "Length of Injected File Path"
@@ -3618,9 +3483,6 @@ msgstr "Network Mask"
 msgid "Network Name"
 msgstr "Network Name"
 
-msgid "Network Ports"
-msgstr "Network Ports"
-
 msgid "Network QoS"
 msgstr "Network QoS"
 
@@ -3641,9 +3503,6 @@ msgstr "Network address in CIDR format (e.g. 192.168.0.0/24, 2001:DB8::/48)"
 
 msgid "Network list can not be retrieved."
 msgstr "Network list can not be retrieved."
-
-msgid "Networking"
-msgstr "Networking"
 
 msgctxt "Task status of an Instance"
 msgid "Networking"
@@ -3828,9 +3687,6 @@ msgstr "No security groups found."
 msgid "No server groups available"
 msgstr "No server groups available"
 
-msgid "No snapshots available"
-msgstr "No snapshots available"
-
 msgid "No source, empty volume"
 msgstr "No source, empty volume"
 
@@ -3842,9 +3698,6 @@ msgstr "No users found."
 
 msgid "No users."
 msgstr "No users."
-
-msgid "No volume snapshots available"
-msgstr "No volume snapshots available"
 
 msgid "No volume type"
 msgstr "No volume type"
@@ -4118,16 +3971,6 @@ msgstr "Port to be associated"
 msgid "Ports"
 msgstr "Ports"
 
-msgid ""
-"Ports are optional and can be used with networks to add extra IP addresses "
-"to your instances or select specific types of ports."
-msgstr ""
-"Ports are optional and can be used with networks to add extra IP addresses "
-"to your instances or select specific types of ports."
-
-msgid "Post-Creation"
-msgstr "Post-Creation"
-
 msgid "Power State"
 msgstr "Power State"
 
@@ -4160,9 +4003,6 @@ msgstr "Profile"
 
 msgid "Project"
 msgstr "Project"
-
-msgid "Project & User"
-msgstr "Project & User"
 
 msgid "Project ="
 msgstr "Project ="
@@ -4316,10 +4156,6 @@ msgstr "RAM (total)"
 
 msgid "RAM (used)"
 msgstr "RAM (used)"
-
-#, python-format
-msgid "RAM(Available: %(avail)s, Requested: %(req)s)"
-msgstr "RAM(Available: %(avail)s, Requested: %(req)s)"
 
 msgid "RX/TX Factor"
 msgstr "RX/TX Factor"
@@ -4478,10 +4314,6 @@ msgstr "Report Bug"
 
 msgid "Request ID"
 msgstr "Request ID"
-
-#, python-format
-msgid "Request for launching %(count)s named \"%(name)s\" has been submitted."
-msgstr "Request for launching %(count)s named \"%(name)s\" has been submitted."
 
 #, python-format
 msgid "Request for resizing of instance \"%s\" has been submitted."
@@ -4768,12 +4600,6 @@ msgctxt "Task status of an Instance"
 msgid "Scheduling"
 msgstr "Scheduling"
 
-msgid "Script Data"
-msgstr "Script Data"
-
-msgid "Script File"
-msgstr "Script File"
-
 msgid "Security Group"
 msgstr "Security Group"
 
@@ -4819,9 +4645,6 @@ msgstr "Select Flavor"
 msgid "Select Image"
 msgstr "Select Image"
 
-msgid "Select Instance Snapshot"
-msgstr "Select Instance Snapshot"
-
 msgid "Select Mapping"
 msgstr "Select Mapping"
 
@@ -4831,9 +4654,6 @@ msgstr "Select Network"
 msgid "Select Port"
 msgstr "Select Port"
 
-msgid "Select Script Source"
-msgstr "Select Script Source"
-
 msgid "Select Server Group"
 msgstr "Select Server Group"
 
@@ -4842,9 +4662,6 @@ msgstr "Select Subnet"
 
 msgid "Select Volume"
 msgstr "Select Volume"
-
-msgid "Select Volume Snapshot"
-msgstr "Select Volume Snapshot"
 
 msgid "Select a New Flavor"
 msgstr "Select a New Flavor"
@@ -4909,12 +4726,6 @@ msgstr "Select format"
 msgid "Select network"
 msgstr "Select network"
 
-msgid "Select networks for your instance."
-msgstr "Select networks for your instance."
-
-msgid "Select source"
-msgstr "Select source"
-
 msgid ""
 "Select the IP address you wish to associate with the selected instance or "
 "port."
@@ -4954,17 +4765,11 @@ msgstr "Selected Projects"
 msgid "Selected hosts"
 msgstr "Selected hosts"
 
-msgid "Selected networks"
-msgstr "Selected networks"
-
 msgid "Selected volume types"
 msgstr "Selected volume types"
 
 msgid "Selected volumes"
 msgstr "Selected volumes"
-
-msgid "Server Group"
-msgstr "Server Group"
 
 msgid "Server Group Members"
 msgstr "Server Group Members"
@@ -4974,9 +4779,6 @@ msgstr "Server Groups"
 
 msgid "Server error"
 msgstr "Server error"
-
-msgid "Server group to associate with this instance."
-msgstr "Server group to associate with this instance."
 
 msgid "Servers"
 msgstr "Servers"
@@ -5110,9 +4912,6 @@ msgstr "Size"
 msgid "Size (GiB)"
 msgstr "Size (GiB)"
 
-msgid "Size of image to launch."
-msgstr "Size of image to launch."
-
 msgid "Size(GiB) ="
 msgstr "Size(GiB) ="
 
@@ -5229,9 +5028,6 @@ msgstr "Specify a metadata definition namespace to import."
 msgid "Specify additional attributes for the subnet."
 msgstr "Specify additional attributes for the subnet."
 
-msgid "Specify advanced options to use when launching an instance."
-msgstr "Specify advanced options to use when launching an instance."
-
 msgid "Specify an IP address for the interface created (e.g. 192.168.0.254)."
 msgstr "Specify an IP address for the interface created (e.g. 192.168.0.254)."
 
@@ -5240,9 +5036,6 @@ msgstr "Specify an image to upload to the Image Service."
 
 msgid "Specify the MAC address for the new port"
 msgstr "Specify the MAC address for the new port"
-
-msgid "Specify the details for launching an instance."
-msgstr "Specify the details for launching an instance."
 
 msgid "Specify the subnet IP address for the new port"
 msgstr "Specify the subnet IP address for the new port"
@@ -5599,23 +5392,8 @@ msgstr ""
 "order to accept the transfer. Please capture both the Transfer ID and the "
 "Authorisation Key and provide them to your transfer recipient."
 
-#, python-format
-msgid ""
-"The Volume size is too small for the '%(image_name)s' image and has to be "
-"greater than or equal to '%(smallest_size)d' GB."
-msgstr ""
-"The Volume size is too small for the '%(image_name)s' image and has to be "
-"greater than or equal to '%(smallest_size)d' GB."
-
 msgid "The admin password is incorrect."
 msgstr "The admin password is incorrect."
-
-msgid ""
-"The chart below shows the resources used by this project in relation to the "
-"project's quotas."
-msgstr ""
-"The chart below shows the resources used by this project in relation to the "
-"project's quotas."
 
 msgid "The container cannot be deleted since it is not empty."
 msgstr "The container cannot be deleted since it is not empty."
@@ -5635,14 +5413,6 @@ msgid ""
 msgstr ""
 "The data will remain in the volume and another instance will be able to "
 "access the data if you attach this volume to it."
-
-#, python-format
-msgid ""
-"The flavor '%(flavor)s' is too small for requested image.\n"
-"Minimum requirements: %(min_ram)s MB of RAM and %(min_disk)s GB of Root Disk."
-msgstr ""
-"The flavor '%(flavor)s' is too small for requested image.\n"
-"Minimum requirements: %(min_ram)s MB of RAM and %(min_disk)s GB of Root Disk."
 
 msgid "The instance is preparing the live migration to a new host."
 msgstr "The instance is preparing the live migration to a new host."
@@ -5703,13 +5473,6 @@ msgid "The physical mechanism by which the virtual network is implemented."
 msgstr "The physical mechanism by which the virtual network is implemented."
 
 msgid ""
-"The port also describes the associated network configuration, such as the "
-"MAC and IP addresses to be used on that port."
-msgstr ""
-"The port also describes the associated network configuration, such as the "
-"MAC and IP addresses to be used on that port."
-
-msgid ""
 "The private key will be only used in your browser and will not be sent to "
 "the server"
 msgstr ""
@@ -5719,34 +5482,10 @@ msgstr ""
 msgid "The pseudo folder cannot be deleted since it is not empty."
 msgstr "The pseudo folder cannot be deleted since it is not empty."
 
-#, python-format
-msgid ""
-"The requested instance cannot be launched. Requested volume exceeds quota: "
-"Available: %(avail)s, Requested: %(req)s."
-msgstr ""
-"The requested instance cannot be launched. Requested volume exceeds quota: "
-"Available: %(avail)s, Requested: %(req)s."
-
-#, python-format
-msgid ""
-"The requested instance cannot be launched. The following requested "
-"resource(s) exceed quota(s): %s."
-msgstr ""
-"The requested instance cannot be launched. The following requested "
-"resource(s) exceed quota(s): %s."
-
 msgid ""
 "The requested instance port is already associated with another floating IP."
 msgstr ""
 "The requested instance port is already associated with another floating IP."
-
-#, python-format
-msgid ""
-"The requested instance(s) cannot be launched as your quota will be exceeded: "
-"Available: %(avail)s, Requested: %(req)s."
-msgstr ""
-"The requested instance(s) cannot be launched as your quota will be exceeded: "
-"Available: %(avail)s, Requested: %(req)s."
 
 msgid "The specified port is invalid."
 msgstr "The specified port is invalid."
@@ -5813,10 +5552,6 @@ msgstr ""
 #, python-format
 msgid "There was a problem loading the namespace: %s."
 msgstr "There was a problem loading the namespace: %s."
-
-#, python-format
-msgid "There was a problem parsing the %(prefix)s: %(error)s"
-msgstr "There was a problem parsing the %(prefix)s: %(error)s"
 
 msgid "This action cannot be undone."
 msgstr "This action cannot be undone."
@@ -6233,10 +5968,6 @@ msgstr "Unable to import key pair."
 msgid "Unable to initialize subnetpools"
 msgstr "Unable to initialize subnetpools"
 
-#, python-format
-msgid "Unable to launch %(count)s named \"%(name)s\"."
-msgstr "Unable to launch %(count)s named \"%(name)s\"."
-
 msgid "Unable to list dhcp agents hosting network."
 msgstr "Unable to list dhcp agents hosting network."
 
@@ -6401,9 +6132,6 @@ msgstr "Unable to retrieve domain list."
 msgid "Unable to retrieve encryption type."
 msgstr "Unable to retrieve encryption type."
 
-msgid "Unable to retrieve extensions information."
-msgstr "Unable to retrieve extensions information."
-
 msgid "Unable to retrieve extra spec list."
 msgstr "Unable to retrieve extra spec list."
 
@@ -6515,12 +6243,6 @@ msgstr "Unable to retrieve key pair list."
 
 msgid "Unable to retrieve key pairs."
 msgstr "Unable to retrieve key pairs."
-
-msgid "Unable to retrieve list of security groups"
-msgstr "Unable to retrieve list of security groups"
-
-msgid "Unable to retrieve list of volume snapshots."
-msgstr "Unable to retrieve list of volume snapshots."
 
 msgid "Unable to retrieve list of volumes."
 msgstr "Unable to retrieve list of volumes."
@@ -7066,9 +6788,6 @@ msgstr "Used <span> %(used)s </span> of <span> %(available)s </span>"
 msgid "Used IPs"
 msgstr "Used IPs"
 
-msgid "User"
-msgstr "User"
-
 #, python-format
 msgid "User \"%s\" was successfully created."
 msgstr "User \"%s\" was successfully created."
@@ -7224,9 +6943,6 @@ msgstr "Volume Name"
 msgid "Volume Name ="
 msgstr "Volume Name ="
 
-msgid "Volume Snapshot"
-msgstr "Volume Snapshot"
-
 msgid "Volume Snapshots"
 msgstr "Volume Snapshots"
 
@@ -7284,18 +7000,8 @@ msgstr "Volume Types"
 msgid "Volume is Unencrypted"
 msgstr "Volume is Unencrypted"
 
-msgid ""
-"Volume mount point (e.g. 'vda' mounts at '/dev/vda'). Leave this field blank "
-"to let the system choose a device name for you."
-msgstr ""
-"Volume mount point (e.g. 'vda' mounts at '/dev/vda'). Leave this field blank "
-"to let the system choose a device name for you."
-
 msgid "Volume name to be assigned"
 msgstr "Volume name to be assigned"
-
-msgid "Volume size in gigabytes (integer value)."
-msgstr "Volume size in gigabytes (integer value)."
 
 #, python-format
 msgid ""
@@ -7318,9 +7024,6 @@ msgstr ""
 #, python-format
 msgid "Volume size must be equal to or greater than the snapshot size (%sGiB)"
 msgstr "Volume size must be equal to or greater than the snapshot size (%sGiB)"
-
-msgid "Volume size must be greater than 0"
-msgstr "Volume size must be greater than 0"
 
 msgid "Volume source must be specified"
 msgstr "Volume source must be specified"
@@ -7411,13 +7114,6 @@ msgstr ""
 "attached, the device specified will be attached to the port created."
 
 msgid ""
-"You can customize your instance after it has launched using the options "
-"available here."
-msgstr ""
-"You can customise your instance after it has launched using the options "
-"available here."
-
-msgid ""
 "You can specify the desired rule template or use custom rules, the options "
 "are Custom TCP Rule, Custom UDP Rule, or Custom ICMP Rule."
 msgstr ""
@@ -7474,18 +7170,6 @@ msgstr "You may update the editable properties of your network here."
 msgid "You may update the editable properties of your router here."
 msgstr "You may update the editable properties of your router here."
 
-msgid "You must select a snapshot."
-msgstr "You must select a snapshot."
-
-msgid "You must select a volume."
-msgstr "You must select a volume."
-
-msgid "You must select an image."
-msgstr "You must select an image."
-
-msgid "You must set volume size"
-msgstr "You must set volume size"
-
 msgid ""
 "You must specify the source of the traffic to be allowed via this rule. You "
 "may do so either in the form of an IP address block (CIDR) or via a source "
@@ -7530,9 +7214,6 @@ msgstr "e.g. Yes/No"
 
 msgid "front-end"
 msgstr "front-end"
-
-msgid "instance"
-msgstr "instance"
 
 msgid "no"
 msgstr "no"

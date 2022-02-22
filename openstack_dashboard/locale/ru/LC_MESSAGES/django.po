@@ -35,15 +35,16 @@
 # Roman Gorshunov <roman.gorshunov@att.com>, 2019. #zanata
 # Dmitriy Rabotyagov <noonedeadpunk@ya.ru>, 2020. #zanata
 # Roman Gorshunov <roman.gorshunov@att.com>, 2021. #zanata
+# Roman Gorshunov <roman.gorshunov@att.com>, 2022. #zanata
 msgid ""
 msgstr ""
 "Project-Id-Version: horizon VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2021-09-09 10:31+0000\n"
+"POT-Creation-Date: 2022-02-21 20:31+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2021-09-06 04:32+0000\n"
+"PO-Revision-Date: 2022-02-21 12:43+0000\n"
 "Last-Translator: Roman Gorshunov <roman.gorshunov@att.com>\n"
 "Language: ru\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
@@ -130,12 +131,6 @@ msgstr ""
 "поддерживать несколько протоколов."
 
 msgid ""
-"\"Customization Script\" is analogous to \"User Data\" in other systems."
-msgstr ""
-"\"Скрипт настройки\" - это аналог \"Пользовательских данных\" в других "
-"системах."
-
-msgid ""
 "\"Manage\" an existing volume from a Cinder host. This will make the volume "
 "visible within OpenStack. <br> <br> This is equivalent to the <tt>cinder "
 "manage</tt> command."
@@ -166,10 +161,6 @@ msgstr "%(field_name)s: Неверный IP адрес (значение=%(netwo
 #, python-format
 msgid "%(instance_name)s %(fixed_ip)s"
 msgstr "%(instance_name)s %(fixed_ip)s"
-
-#, python-format
-msgid "%(name)s - %(size)s GB (%(label)s)"
-msgstr "%(name)s - %(size)s ГБ (%(label)s)"
 
 #. Translators:  UTC offset and timezone label
 #, python-format
@@ -221,10 +212,6 @@ msgstr "%s (сейчас)"
 #, python-format
 msgid "%s GB"
 msgstr "%s ГБ"
-
-#, python-format
-msgid "%s instances"
-msgstr "%s инстансов"
 
 #, python-format
 msgid "%sGB"
@@ -377,25 +364,11 @@ msgstr ""
 "пользователь и группа."
 
 msgid ""
-"A port is a connection point for attaching a single device, such as the NIC "
-"of a virtual server, to a virtual network."
-msgstr ""
-"Порт - это точка подключения отдельного устройства, такого как сетевой "
-"интерфейс виртуального сервера, к виртуальной сети."
-
-msgid ""
 "A rule contains a remote attribute description and the destination local "
 "attribute."
 msgstr ""
 "Правило содержит описание удаленного атрибута и локальный атрибут для "
 "целевого объекта."
-
-msgid ""
-"A script or set of commands to be executed after the instance has been built "
-"(max 16kb)."
-msgstr ""
-"Скрипт или набор команд, который будет выполнен после построения инстанса "
-"(максимально 16 Кб)"
 
 msgid "A single IP Address or CIDR"
 msgstr "Один IP-адрес или CIDR"
@@ -440,9 +413,6 @@ msgstr "Принять передачу"
 
 msgid "Accept Volume Transfer"
 msgstr "Принять передача диска."
-
-msgid "Access & Security"
-msgstr "Доступ и безопасность"
 
 msgid "Access Rules"
 msgstr "Правила доступа"
@@ -760,13 +730,6 @@ msgid "An image file or an external location must be specified."
 msgstr "Файл образа или внешнее место расположения должны быть указаны."
 
 msgid ""
-"An instance can be launched with varying types of attached storage. You may "
-"select from those options here."
-msgstr ""
-"Инстан может быть запущен с различными типами подключенных хранилищ. Вы "
-"можете выбрать эти опции здесь."
-
-msgid ""
 "An unexpected error has occurred. Try refreshing the page. If that doesn't "
 "help, contact your local administrator."
 msgstr ""
@@ -815,9 +778,6 @@ msgstr "Привязанная спецификация QoS"
 
 msgid "Associated Resource Types"
 msgstr "Связанные типы ресурсов"
-
-msgid "At least one network must be specified."
-msgstr "По крайней мере одна сеть должна быть указана."
 
 msgid "At least one volume type must be assigned to a group."
 msgstr "Как минимум один тип дисков должен быть назначен группе."
@@ -943,9 +903,6 @@ msgstr "Доступен"
 msgid "Available Types"
 msgstr "Доступные Типы"
 
-msgid "Available networks"
-msgstr "Доступные сети"
-
 msgctxt "Current status of a Volume"
 msgid "Awaiting Transfer"
 msgstr "Ожидание передачи"
@@ -994,21 +951,6 @@ msgstr "Службы блочного хранилища"
 msgctxt "Power state of an Instance"
 msgid "Blocked"
 msgstr "Заблокирован"
-
-msgid "Boot from image"
-msgstr "Загрузить с образа"
-
-msgid "Boot from image (creates a new volume)"
-msgstr "Загрузить с образа (создает новый диск)"
-
-msgid "Boot from snapshot"
-msgstr "Загрузить со снимка"
-
-msgid "Boot from volume"
-msgstr "Загружать с носителя"
-
-msgid "Boot from volume snapshot (creates a new volume)"
-msgstr "Загружать со снимка носителя (создаёт новый диск)"
 
 msgid "Bootable"
 msgstr "Загрузочный"
@@ -1135,6 +1077,17 @@ msgstr ""
 msgid "Checksum"
 msgstr "Контрольная сумма"
 
+msgid ""
+"Chinese locale 'zh-cn' and 'zh-tw' must be renamed to 'zh-hans' and 'zh-"
+"hant' respectively in 'LANGUAGES' setting. If you define them in "
+"local_settings.py or local_settings.d explicitly, ensure to rename them to "
+"the new locales."
+msgstr ""
+"Локали китая 'zh-cn' and 'zh-tw' должны быть переименованы в 'zh-hans' и 'zh-"
+"hant' соответственно в настройках 'LANGUAGES'. Если вы принудительно задаёте "
+"их в local_settings.py или local_settings.d, то убедитесь. что вы "
+"переименовали их и там."
+
 msgid "Chinese locale rename"
 msgstr "Переименование китайской локализации"
 
@@ -1144,9 +1097,6 @@ msgid ""
 msgstr ""
 "Выберите \"Формат диска\" для образа. Образы дисков создаются с помощью "
 "утилиты QEMU disk image."
-
-msgid "Choose Your Boot Source Type."
-msgstr "Выберите тип источника загрузки."
 
 msgid ""
 "Choose a Host to evacuate servers to. If not selected, the scheduler will "
@@ -1182,13 +1132,6 @@ msgstr "Выберите связанную спецификацию QoS."
 
 msgid "Choose consumer for this QoS Spec."
 msgstr "Выберите потребителя для этой спецификации QoS."
-
-msgid ""
-"Choose network from Available networks to Selected networks by push button "
-"or drag and drop, you may change NIC order by drag and drop as well. "
-msgstr ""
-"Выберите сеть из Доступных сетей в Выбранные сети нажав на кнопку или "
-"перетащив мышью, вы также можете изменить NIC порядок с помощью мыши."
 
 msgid "Choose the flavor to launch."
 msgstr "Выберите тип инстансов для запуска."
@@ -1267,21 +1210,8 @@ msgstr "Квоты вычислительных ресурсов"
 msgid "Compute Services"
 msgstr "Службы вычислительных ресурсов"
 
-msgid "Configuration Drive"
-msgstr "Конфигурация накопителя"
-
-msgid ""
-"Configure OpenStack to write metadata to a special configuration drive that "
-"attaches to the instance when it boots."
-msgstr ""
-"Настройке OpenStack для записи метаданных в специальный конфигурационный "
-"диск, которые подключается к инстансу при загрузке."
-
 msgid "Confirm"
 msgstr "Подтвердить"
-
-msgid "Confirm Admin Password"
-msgstr "Подтвердите пароль администратора"
 
 msgid "Confirm Password"
 msgstr "Подтверждение пароля"
@@ -1335,19 +1265,8 @@ msgstr "Содержимое"
 msgid "Control Location"
 msgstr "Контрольная точка"
 
-msgid ""
-"Control access to your instance via key pairs, security groups, and other "
-"mechanisms."
-msgstr ""
-"Контроль доступа к инстансу с помощью ключевой пары, групп безопасности и "
-"других механизмов."
-
 msgid "Copy Data"
 msgstr "Копирование данных"
-
-#, python-format
-msgid "Cores(Available: %(avail)s, Requested: %(req)s)"
-msgstr "Ядра(Доступные: %(avail)s, Запрашиваемые: %(req)s)"
 
 #, python-format
 msgid "Could not find default role \"%s\" in Keystone"
@@ -1728,9 +1647,6 @@ msgstr "Настраиваемое правило TCP"
 msgid "Custom UDP Rule"
 msgstr "Настраиваемое правило UDP"
 
-msgid "Customization Script Source"
-msgstr "Источник скрипта настройки"
-
 msgid "DHCP Agents"
 msgstr "Агенты DHCP"
 
@@ -1998,18 +1914,12 @@ msgstr[0] "Удалить типа дисков"
 msgstr[1] "Удалить типы дисков"
 msgstr[2] "Удалить типы дисков"
 
-msgid "Delete Volume on Instance Delete"
-msgstr "Удалить диск при удалении инстанса"
-
 msgid "Delete Volumes"
 msgstr "Удалить диски."
 
 #, python-format
 msgid "Delete the created network \"%s\" due to subnet creation failure."
 msgstr "Удалите созданную сеть \"%s\" в связи со сбоем создания подсети."
-
-msgid "Delete volume when the instance is deleted"
-msgstr "Удалить диск в случае удалении инстанса"
 
 msgid "Deleted"
 msgstr "Удалено"
@@ -2333,9 +2243,6 @@ msgstr "Владелец устройства"
 msgid "Device owner attached to the port."
 msgstr "Владелец устройства подключенного к порту."
 
-msgid "Device size (GB)"
-msgstr "Размер устройства (ГБ)"
-
 msgid "Direct"
 msgstr "Напрямую"
 
@@ -2430,9 +2337,6 @@ msgstr "Отображаемое имя."
 
 msgid "Distributed"
 msgstr "Распространенный"
-
-msgid "Django launch instance form"
-msgstr "Форма запуска инстанса Django"
 
 msgid ""
 "Do not use a colon ':' with OS::Glance::Images. This resource type does not "
@@ -3051,6 +2955,9 @@ msgstr ""
 msgid "Failed to check if nova supports \"auto_allocated_network\"."
 msgstr "Не удалось проверить, поддерживает ли Nova \"auto_allocated_network\"."
 
+msgid "Failed to check if shared field is supported."
+msgstr "Не удалось проверить поддержку поля описания."
+
 msgid "Failed to create a rbac policy."
 msgstr "Не удалось создать rbac политику."
 
@@ -3202,12 +3109,6 @@ msgstr "Ошибка"
 
 msgid "Federation"
 msgstr "Федерация"
-
-msgid "File"
-msgstr "Файл"
-
-msgid "File exceeds maximum size (16kb)"
-msgstr "Файл превышает максимальный размер (16кб)"
 
 msgid "Filter"
 msgstr "Фильтр"
@@ -3901,9 +3802,6 @@ msgstr "Список действий инстанса"
 msgid "Instance Admin Password"
 msgstr "Пароль администратора инстанса"
 
-msgid "Instance Boot Source"
-msgstr "Источник загрузки инстанса"
-
 msgid "Instance Console"
 msgstr "Консоль инстанса"
 
@@ -3930,9 +3828,6 @@ msgstr "Пароль инстанса не установлен или пока 
 
 msgid "Instance Security Groups"
 msgstr "Группы безопасности инстанса"
-
-msgid "Instance Snapshot"
-msgstr "Снимок инстанса"
 
 msgid "Instances"
 msgstr "Инстансы"
@@ -4056,9 +3951,6 @@ msgstr ""
 "Имя ключевой пары может содержать только буквы, числа, нижние подчеркивания, "
 "пробелы, дефисы и не может содержать пробелы."
 
-msgid "Key pair to use for authentication."
-msgstr "Ключевые пары используют для аутентификации."
-
 #, python-format
 msgid ""
 "Key with name \"%s\" already exists. Use Edit to update the value, else "
@@ -4122,22 +4014,6 @@ msgstr "Запустить инстанс (Превышен лимит)"
 
 msgid "Launch as Instance"
 msgstr "Запустить как инстанс"
-
-msgid "Launch instance in these security groups."
-msgstr "Запустить инстанс в этих группах безопасности."
-
-msgid "Launch instance with these networks"
-msgstr "Запустить инстанс с этими сетями"
-
-msgid "Launch instance with these ports"
-msgstr "Запустить инстанс с этими портами"
-
-msgid ""
-"Launching multiple instances is only supported for images and instance "
-"snapshots."
-msgstr ""
-"Запуск нескольких инстансов поддерживается только для образов и снимков "
-"инстансов."
 
 msgid "Length of Injected File Path"
 msgstr "Протяженность пути загруженного файла"
@@ -4578,9 +4454,6 @@ msgstr "Маска сети"
 msgid "Network Name"
 msgstr "Имя сети"
 
-msgid "Network Ports"
-msgstr "Сетевые порты"
-
 msgid "Network QoS"
 msgstr "Сетевые сервисы QoS"
 
@@ -4604,9 +4477,6 @@ msgstr "Адрес сети в CIDR формате (например 192.168.0.0
 
 msgid "Network list can not be retrieved."
 msgstr "Не удалось получить список сетей."
-
-msgid "Networking"
-msgstr "Сеть"
 
 msgctxt "Task status of an Instance"
 msgid "Networking"
@@ -4802,9 +4672,6 @@ msgstr "Нет доступных групп серверов"
 msgid "No snapshot for this volume"
 msgstr "Не удалось сделать снимок этого тома"
 
-msgid "No snapshots available"
-msgstr "Нет доступных снимков."
-
 msgid "No source, empty volume"
 msgstr "Нет источников, чистый диск."
 
@@ -4819,9 +4686,6 @@ msgstr "Нет пользователей."
 
 msgid "No valid group type"
 msgstr "Нет допустимых типов групп"
-
-msgid "No volume snapshots available"
-msgstr "Нет доступных снимков дисков"
 
 msgid "No volume type"
 msgstr "Не указан тип дисков"
@@ -5133,17 +4997,6 @@ msgstr "Порт для назначения"
 msgid "Ports"
 msgstr "Порты"
 
-msgid ""
-"Ports are optional and can be used with networks to add extra IP addresses "
-"to your instances or select specific types of ports."
-msgstr ""
-"Порты не являются обязательными и могут использоваться в сетях для "
-"добавления дополнительных IP-адресов инстансам или выбора определенных типов "
-"портов."
-
-msgid "Post-Creation"
-msgstr "После Создания"
-
 msgid "Power State"
 msgstr "Состояние"
 
@@ -5176,9 +5029,6 @@ msgstr "Профиль"
 
 msgid "Project"
 msgstr "Проект"
-
-msgid "Project & User"
-msgstr "Проект и Пользователь"
 
 msgid "Project ="
 msgstr "Проект ="
@@ -5341,10 +5191,6 @@ msgstr "RAM (всего)"
 
 msgid "RAM (used)"
 msgstr "RAM (использовано)"
-
-#, python-format
-msgid "RAM(Available: %(avail)s, Requested: %(req)s)"
-msgstr "RAM(Доступные: %(avail)s, Запрашиваемые: %(req)s)"
 
 msgid "RBAC Policies"
 msgstr "Политики RABC"
@@ -5530,10 +5376,6 @@ msgstr "Сообщить об ошибке"
 
 msgid "Request ID"
 msgstr "ID запроса"
-
-#, python-format
-msgid "Request for launching %(count)s named \"%(name)s\" has been submitted."
-msgstr "Запрос на запуск %(count)s инстансов \"%(name)s\" отправлен."
 
 #, python-format
 msgid "Request for resizing of instance \"%s\" has been submitted."
@@ -5869,12 +5711,6 @@ msgctxt "Task status of an Instance"
 msgid "Scheduling"
 msgstr "Планируется"
 
-msgid "Script Data"
-msgstr "Скрипт данных"
-
-msgid "Script File"
-msgstr "Файл скрипта"
-
 msgid "Secret"
 msgstr "Защищенный ключ"
 
@@ -5926,9 +5762,6 @@ msgstr "Выберите тип инстансов"
 msgid "Select Image"
 msgstr "Выберите Образ"
 
-msgid "Select Instance Snapshot"
-msgstr "Выберите снимок инстанса"
-
 msgid "Select Mapping"
 msgstr "Выберите преобразование"
 
@@ -5938,9 +5771,6 @@ msgstr "Выберите сеть"
 msgid "Select Port"
 msgstr "Выберите порт"
 
-msgid "Select Script Source"
-msgstr "Выберите источник скрипта"
-
 msgid "Select Server Group"
 msgstr "Выберите группу серверов."
 
@@ -5949,9 +5779,6 @@ msgstr "Выберите подсеть"
 
 msgid "Select Volume"
 msgstr "Выберите диск"
-
-msgid "Select Volume Snapshot"
-msgstr "Выбрать снимок диска"
 
 msgid "Select a New Flavor"
 msgstr "Выберите новый тип инстансов"
@@ -6031,14 +5858,8 @@ msgstr "Выберите тип группы"
 msgid "Select network"
 msgstr "Выберите сеть"
 
-msgid "Select networks for your instance."
-msgstr "выберите сети для вашего инстанса."
-
 msgid "Select snapshot to backup (Optional)"
 msgstr "Выберите снимок для резервного копирования (опционально)"
-
-msgid "Select source"
-msgstr "Выбрать источник"
 
 msgid ""
 "Select the IP address you wish to associate with the selected instance or "
@@ -6081,17 +5902,11 @@ msgstr "Выбранные проекты"
 msgid "Selected hosts"
 msgstr "Выбранные узлы"
 
-msgid "Selected networks"
-msgstr "Выбранные сети"
-
 msgid "Selected volume types"
 msgstr "Выбранные типы томов"
 
 msgid "Selected volumes"
 msgstr "Выбранные тома"
-
-msgid "Server Group"
-msgstr "Группа серверов"
 
 msgid "Server Group Members"
 msgstr "Участники группы серверов"
@@ -6101,9 +5916,6 @@ msgstr "Группы серверов"
 
 msgid "Server error"
 msgstr "Ошибка сервера"
-
-msgid "Server group to associate with this instance."
-msgstr "Группа серверов для связи с инстансом."
 
 msgid "Servers"
 msgstr "Серверы"
@@ -6252,9 +6064,6 @@ msgstr "Размер"
 msgid "Size (GiB)"
 msgstr "Размер (ГиБ)"
 
-msgid "Size of image to launch."
-msgstr "Размер образа для запуска"
-
 msgid "Size(GiB) ="
 msgstr "Размер (ГБ) ="
 
@@ -6379,10 +6188,6 @@ msgstr "Укажите импортируемое пространство им�
 msgid "Specify additional attributes for the subnet."
 msgstr "Указать дополнительные атрибуты для подсети."
 
-msgid "Specify advanced options to use when launching an instance."
-msgstr ""
-"Укажите дополнительные параметры для использования при запуске инстанса "
-
 msgid "Specify an IP address for the interface created (e.g. 192.168.0.254)."
 msgstr "Указать IP-адрес для создания интерфейса (например 192.168.0.254)."
 
@@ -6394,9 +6199,6 @@ msgstr "Укажите сетевой адрес"
 
 msgid "Specify the MAC address for the new port"
 msgstr "Укажите MAC адрес нового порта"
-
-msgid "Specify the details for launching an instance."
-msgstr "Задайте детали запуска инстанса."
 
 msgid "Specify the subnet IP address for the new port"
 msgstr "Укажите IP адресс подсети  для нового порта"
@@ -6661,6 +6463,9 @@ msgstr "Системная информация"
 msgid "System Scope"
 msgstr "Системная область доступности"
 
+msgid "Systems:"
+msgstr "Системы:"
+
 msgid "Target Host"
 msgstr "Целевой Узел"
 
@@ -6810,14 +6615,6 @@ msgstr ""
 msgid "The VNIC type that is bound to the network port"
 msgstr "Тип VNIC привязанный к сетевому порту."
 
-#, python-format
-msgid ""
-"The Volume size is too small for the '%(image_name)s' image and has to be "
-"greater than or equal to '%(smallest_size)d' GB."
-msgstr ""
-"Размер диска слишком мал для  '%(image_name)s' образа и он должен быть "
-"больше или равен '%(smallest_size)d' ГБ."
-
 msgid "The admin password is incorrect."
 msgstr "Неверный пароль администратора."
 
@@ -6835,13 +6632,6 @@ msgid ""
 "The application credential will be created for the currently selected "
 "project."
 msgstr "Детали для приложения будут созданы для текущего проекта."
-
-msgid ""
-"The chart below shows the resources used by this project in relation to the "
-"project's quotas."
-msgstr ""
-"Диаграмма ниже показывает ресурсы используемые в этом проекте по отношению к "
-"квотам."
 
 msgid "The container cannot be deleted since it is not empty."
 msgstr "Нельзя удалить непустой контейнер."
@@ -6861,15 +6651,6 @@ msgid ""
 msgstr ""
 "Данные останутся на диске и другой инстанс сможет получить к ним доступ если "
 "вы подключите к нему этот диск."
-
-#, python-format
-msgid ""
-"The flavor '%(flavor)s' is too small for requested image.\n"
-"Minimum requirements: %(min_ram)s MB of RAM and %(min_disk)s GB of Root Disk."
-msgstr ""
-"Тип инстансов '%(flavor)s' слишком мал для запрашиваемого образа.\n"
-"Минимальные требования: %(min_ram)s МБ RAM и  %(min_disk)s ГБ корневого "
-"диска."
 
 msgid "The instance is preparing the live migration to a new host."
 msgstr "Инстанс готовится к живой миграции на новый узел."
@@ -6944,13 +6725,6 @@ msgid "The physical mechanism by which the virtual network is implemented."
 msgstr "Физический механизм, с помощью которого реализуется виртуальная сеть."
 
 msgid ""
-"The port also describes the associated network configuration, such as the "
-"MAC and IP addresses to be used on that port."
-msgstr ""
-"Порт также описывает связанную конфигурацию сети, например, MAC- и IP-адреса "
-"для порта."
-
-msgid ""
 "The private key will be only used in your browser and will not be sent to "
 "the server"
 msgstr ""
@@ -6960,33 +6734,9 @@ msgstr ""
 msgid "The pseudo folder cannot be deleted since it is not empty."
 msgstr "Нельзя удалить непустой псевдокаталог."
 
-#, python-format
-msgid ""
-"The requested instance cannot be launched. Requested volume exceeds quota: "
-"Available: %(avail)s, Requested: %(req)s."
-msgstr ""
-"Запрашиваемые инстансы не могут быть запущены. Запрошеный диск превышает "
-"квоту: Доступно: %(avail)s, Запрошено: %(req)s."
-
-#, python-format
-msgid ""
-"The requested instance cannot be launched. The following requested "
-"resource(s) exceed quota(s): %s."
-msgstr ""
-"Запрашиваемые инстансы не могут быть запущены. Следующие запрашиваемые "
-"ресурс(ы) превышают квоту(ы): %s."
-
 msgid ""
 "The requested instance port is already associated with another floating IP."
 msgstr "Выбранный порт инстанса уже связан с другим плавающим IP."
-
-#, python-format
-msgid ""
-"The requested instance(s) cannot be launched as your quota will be exceeded: "
-"Available: %(avail)s, Requested: %(req)s."
-msgstr ""
-"Запрашиваемые инстансы не могут быть запущены, так как будет превышена "
-"квота : Доступно: %(avail)s, Требуется: %(req)s."
 
 msgid ""
 "The rescue mode is only for emergency purpose, for example in case of a "
@@ -7074,10 +6824,6 @@ msgstr ""
 #, python-format
 msgid "There was a problem loading the namespace: %s."
 msgstr "Произошла проблема при загрузке пространства имён: %s."
-
-#, python-format
-msgid "There was a problem parsing the %(prefix)s: %(error)s"
-msgstr "Возникла проблема при разборе %(prefix)s: %(error)s"
 
 msgid "This action cannot be undone."
 msgstr "Это действие не может быть отменено."
@@ -7635,10 +7381,6 @@ msgstr "Не удалось импортировать ключевую пару
 msgid "Unable to initialize subnetpools"
 msgstr "Невозможно инициализировать пулы подсетей"
 
-#, python-format
-msgid "Unable to launch %(count)s named \"%(name)s\"."
-msgstr "Не удалось запустить %(count)s названных \"%(name)s\"."
-
 msgid "Unable to list dhcp agents hosting network."
 msgstr "Не удалось перечислить dhcp агенты на которых размещена сеть."
 
@@ -7851,9 +7593,6 @@ msgstr "Не удалось получить список доменов."
 msgid "Unable to retrieve encryption type."
 msgstr "Не удалось получить тип шифрования."
 
-msgid "Unable to retrieve extensions information."
-msgstr "Не удалось получить информацию о расширениях."
-
 msgid "Unable to retrieve extra spec list."
 msgstr "Не удалось получить список доп. параметров."
 
@@ -8024,12 +7763,6 @@ msgstr "Не удалось получить ключевую пару"
 
 msgid "Unable to retrieve limits information."
 msgstr "Не удалось получить информацию об ограничениях."
-
-msgid "Unable to retrieve list of security groups"
-msgstr "Не удалось получить список групп безопасности"
-
-msgid "Unable to retrieve list of volume snapshots."
-msgstr "Не удалось получить список снимков дисков."
 
 msgid "Unable to retrieve list of volumes."
 msgstr "Не удалось получить список дисков."
@@ -8723,9 +8456,6 @@ msgstr "Использовано <span> %(used)s </span> из <span> %(available
 msgid "Used IPs"
 msgstr "Использованные IP-адресы"
 
-msgid "User"
-msgstr "Пользователь"
-
 #, python-format
 msgid "User \"%s\" has been updated successfully."
 msgstr "Пользователь \"%s\" успешно обновлён."
@@ -8902,9 +8632,6 @@ msgstr "Имя диска ="
 msgid "Volume Quotas"
 msgstr "Дисковые квоты"
 
-msgid "Volume Snapshot"
-msgstr "Снимок диска"
-
 msgid "Volume Snapshots"
 msgstr "Снимки дисков"
 
@@ -8986,18 +8713,8 @@ msgstr ""
 msgid "Volume is Unencrypted"
 msgstr "Диск не зашифрован"
 
-msgid ""
-"Volume mount point (e.g. 'vda' mounts at '/dev/vda'). Leave this field blank "
-"to let the system choose a device name for you."
-msgstr ""
-"Точка монтирования диска (т.е. 'vda' монтируется на '/dev/vda'). Оставьте "
-"это полу пустым чтобы системы выбрала название устройства за вас. "
-
 msgid "Volume name to be assigned"
 msgstr "Имя диска"
-
-msgid "Volume size in gigabytes (integer value)."
-msgstr "Размер диска в гигабайтах (целое значение)."
 
 #, python-format
 msgid ""
@@ -9018,9 +8735,6 @@ msgstr "Размер тома должен быть не меньше исход
 #, python-format
 msgid "Volume size must be equal to or greater than the snapshot size (%sGiB)"
 msgstr "Размер тома должен быть не меньше размера моментальной копии (%s ГиБ)"
-
-msgid "Volume size must be greater than 0"
-msgstr "Размер диска должен быть больше 0"
 
 msgid "Volume source must be specified"
 msgstr "Ресурс диска должен быть указан"
@@ -9129,13 +8843,6 @@ msgstr ""
 "Вы можете создать порт сети. Если вы укажете ID устройства, то это "
 "устройство будет подключено к созданному порту."
 
-msgid ""
-"You can customize your instance after it has launched using the options "
-"available here."
-msgstr ""
-"Вы можете настроить свой инстанс после его запуска, используя параметры "
-"доступные здесь"
-
 msgid "You can edit the properties of your port here."
 msgstr "Здесь вы можете отредактировать свойства Вашего порта."
 
@@ -9208,18 +8915,6 @@ msgstr "Здесь вы можете обновить изменяемые св�
 msgid "You may update the editable properties of your router here."
 msgstr "Здесь вы можете обновить изменяемые свойства маршрутизатора"
 
-msgid "You must select a snapshot."
-msgstr "Вы должны выбрать снимок."
-
-msgid "You must select a volume."
-msgstr "Необходимо выбрать диск."
-
-msgid "You must select an image."
-msgstr "Необходимо выбрать образ"
-
-msgid "You must set volume size"
-msgstr "Вы должны указать размер диска"
-
 msgid ""
 "You must specify the source of the traffic to be allowed via this rule. You "
 "may do so either in the form of an IP address block (CIDR) or via a source "
@@ -9286,9 +8981,6 @@ msgstr ""
 msgid "front-end"
 msgstr "фронтэнд"
 
-msgid "instance"
-msgstr "инстанс"
-
 #, python-format
 msgid ""
 "key with name \"%s\" already exists.Use Edit to update the value, else "
@@ -9302,6 +8994,9 @@ msgstr "нет"
 
 msgid "rbac policy quota exceeded."
 msgstr "Превышена квота RBAC политики."
+
+msgid "system scope"
+msgstr "Системная область доступности"
 
 msgid "undefined"
 msgstr "Неопределенный"

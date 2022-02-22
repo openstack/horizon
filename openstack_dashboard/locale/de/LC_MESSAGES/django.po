@@ -19,7 +19,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: horizon VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2021-05-11 12:54+0000\n"
+"POT-Creation-Date: 2022-02-21 20:31+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -106,11 +106,6 @@ msgstr ""
 "müssen. Ein Identitätsanbieter kann mehrere unterstützte Protokolle haben."
 
 msgid ""
-"\"Customization Script\" is analogous to \"User Data\" in other systems."
-msgstr ""
-"\"Anpassungsskript\" entspricht \"Benutzer Daten\" in anderen Systemen."
-
-msgid ""
 "\"Manage\" an existing volume from a Cinder host. This will make the volume "
 "visible within OpenStack. <br> <br> This is equivalent to the <tt>cinder "
 "manage</tt> command."
@@ -142,10 +137,6 @@ msgstr "%(field_name)s: ungültige IP-Adresse (Wert=%(network)s)"
 #, python-format
 msgid "%(instance_name)s %(fixed_ip)s"
 msgstr "%(instance_name)s %(fixed_ip)s"
-
-#, python-format
-msgid "%(name)s - %(size)s GB (%(label)s)"
-msgstr "%(name)s - %(size)s GB (%(label)s)"
 
 #. Translators:  UTC offset and timezone label
 #, python-format
@@ -197,10 +188,6 @@ msgstr "%s (aktuell)"
 #, python-format
 msgid "%s GB"
 msgstr "%s GB"
-
-#, python-format
-msgid "%s instances"
-msgstr "%s Instanzen"
 
 #, python-format
 msgid "%sGB"
@@ -335,25 +322,11 @@ msgstr ""
 "Objekte, die Zuordnungen unterstützen, sind 'user' und 'group'."
 
 msgid ""
-"A port is a connection point for attaching a single device, such as the NIC "
-"of a virtual server, to a virtual network."
-msgstr ""
-"Ein Port ist ein Verbindungspunkt zwischen einem einzelnen Gerät und einem "
-"virtuellen Netzwerk, z.B. die Netzwerkkarte eines virtuellen Servers."
-
-msgid ""
 "A rule contains a remote attribute description and the destination local "
 "attribute."
 msgstr ""
 "Eine Regel beinhaltet eine Beschreibung des Attributs 'remote' und des "
 "Attribut 'local' des Ziels."
-
-msgid ""
-"A script or set of commands to be executed after the instance has been built "
-"(max 16kb)."
-msgstr ""
-"Ein Skript oder eine Befehlsgruppe, die nach der Erstellung einer Instanz "
-"ausgeführt werden sollen (max. 16 Kb)."
 
 msgid "A single IP Address or CIDR"
 msgstr "Eine einzelne IP-Adresse oder CIDR"
@@ -399,9 +372,6 @@ msgstr "Transfer akzeptieren"
 
 msgid "Accept Volume Transfer"
 msgstr "Datenträgertransfer annehmen"
-
-msgid "Access & Security"
-msgstr "Zugriff & Sicherheit"
 
 msgid "Access Rules"
 msgstr "Zugriffsregeln"
@@ -724,13 +694,6 @@ msgstr ""
 "Es muss eine Abbilddatei oder ein externer Speicherort angegeben werden."
 
 msgid ""
-"An instance can be launched with varying types of attached storage. You may "
-"select from those options here."
-msgstr ""
-"Eine Instamz kann mit verschiedenen Typen von zugewiesenem Speicher "
-"gestartet werden. Sie können hier die Optionen auswählen."
-
-msgid ""
 "An unexpected error has occurred. Try refreshing the page. If that doesn't "
 "help, contact your local administrator."
 msgstr ""
@@ -779,9 +742,6 @@ msgstr "Verbundene QoS Spezifikation"
 
 msgid "Associated Resource Types"
 msgstr "Zugewiesene Ressourcetypen"
-
-msgid "At least one network must be specified."
-msgstr "Es muss mindestens ein Netzwerk angegeben werden."
 
 msgid "At least one volume type must be assigned to a group."
 msgstr "Einer Gruppe muss mindestens ein Datenträgertyp zugewiesen werden."
@@ -905,9 +865,6 @@ msgstr "Verfügbar"
 msgid "Available Types"
 msgstr "Verfügbare Typen"
 
-msgid "Available networks"
-msgstr "Verfügbare Netzwerke"
-
 msgctxt "Current status of a Volume"
 msgid "Awaiting Transfer"
 msgstr "Warte auf Transfer"
@@ -956,21 +913,6 @@ msgstr "Block Storage Dienste"
 msgctxt "Power state of an Instance"
 msgid "Blocked"
 msgstr "Blockiert"
-
-msgid "Boot from image"
-msgstr "Von Abbild starten"
-
-msgid "Boot from image (creates a new volume)"
-msgstr "Von Abbild starten (erzeugt neuen Datenträger)"
-
-msgid "Boot from snapshot"
-msgstr "Von Schattenkopie starten"
-
-msgid "Boot from volume"
-msgstr "Von Datenträger starten"
-
-msgid "Boot from volume snapshot (creates a new volume)"
-msgstr "Von Schattenkopie starten (erzeugt neuen Datenträger)"
 
 msgid "Bootable"
 msgstr "Bootfähig"
@@ -1105,9 +1047,6 @@ msgstr ""
 "Wählen Sie \"Festplattenformat\" für das Abbild. Die Datenträgerabbilder "
 "werden mit dem QEMU Disk Image Utility erstellt."
 
-msgid "Choose Your Boot Source Type."
-msgstr "Wählen Sie Ihren Boot Source-Typ aus."
-
 msgid ""
 "Choose a Host to evacuate servers to. If not selected, the scheduler will "
 "auto select target host."
@@ -1142,14 +1081,6 @@ msgstr "Verbundene QoS Spezifikation auswählen"
 
 msgid "Choose consumer for this QoS Spec."
 msgstr "Verbraucher für diese QoS Spezifikation auswählen."
-
-msgid ""
-"Choose network from Available networks to Selected networks by push button "
-"or drag and drop, you may change NIC order by drag and drop as well. "
-msgstr ""
-"Durch Knopfdruck oder Ziehen und Ablegen das Netzwerk aus den verfügbaren "
-"Netzwerken zu den ausgewählten Netzwerken verschieben. Die Reihenfolge der "
-"Netzwerkkarten kann ebenfalls durch Ziehen und Ablegen verändert werden."
 
 msgid "Choose the flavor to launch."
 msgstr "Wählen Sie die zu startende Variante."
@@ -1226,22 +1157,8 @@ msgstr "Compute-Kontingente"
 msgid "Compute Services"
 msgstr "Compute Dienste"
 
-msgid "Configuration Drive"
-msgstr "Konfigurationslaufwerk"
-
-msgid ""
-"Configure OpenStack to write metadata to a special configuration drive that "
-"attaches to the instance when it boots."
-msgstr ""
-"Konfigurieren Sie OpenStack, um Metadaten auf ein spezielles "
-"Konfigurationslaufwerk zu schreiben, das beim Start einer Instanz mit ihr "
-"verbunden wird."
-
 msgid "Confirm"
 msgstr "Bestätigen"
-
-msgid "Confirm Admin Password"
-msgstr "Administratorpasswort bestätigen"
 
 msgid "Confirm Password"
 msgstr "Passwort bestätigen"
@@ -1295,19 +1212,8 @@ msgstr "Inhalte"
 msgid "Control Location"
 msgstr "Steuerungsort"
 
-msgid ""
-"Control access to your instance via key pairs, security groups, and other "
-"mechanisms."
-msgstr ""
-"Kontrollieren Sie den Zugriff auf Ihre Instanz durch Schlüsselpaare, "
-"Sicherheitsgruppen und andere Mechanismen."
-
 msgid "Copy Data"
 msgstr "Daten kopieren"
-
-#, python-format
-msgid "Cores(Available: %(avail)s, Requested: %(req)s)"
-msgstr "Kerne(Verfügbar: %(avail)s, Angefordert: %(req)s)"
 
 #, python-format
 msgid "Could not find default role \"%s\" in Keystone"
@@ -1691,9 +1597,6 @@ msgstr "Angepasste TCP-Regel"
 msgid "Custom UDP Rule"
 msgstr "Angepasste UDP-Regel"
 
-msgid "Customization Script Source"
-msgstr "Anpassungsskriptquelle"
-
 msgid "DHCP Agents"
 msgstr "DHCP Agenten"
 
@@ -1926,9 +1829,6 @@ msgid_plural "Delete Volume Types"
 msgstr[0] "Datenträgertyp löschen"
 msgstr[1] "Datenträgertypen löschen"
 
-msgid "Delete Volume on Instance Delete"
-msgstr "Lösche Datenträger beim Löschen der Instanz"
-
 msgid "Delete Volumes"
 msgstr "Datenträger löschen"
 
@@ -1936,9 +1836,6 @@ msgstr "Datenträger löschen"
 msgid "Delete the created network \"%s\" due to subnet creation failure."
 msgstr ""
 "Lösche das Netzwerk \"%s\" wegen eines Fehlers beim Erzeugen des Subnetzes."
-
-msgid "Delete volume when the instance is deleted"
-msgstr "Lösche Datenträger, wenn die Instanz gelöscht wurde"
 
 msgid "Deleted"
 msgstr "Gelöscht"
@@ -2231,9 +2128,6 @@ msgstr "Gerätebesitzer"
 
 msgid "Device owner attached to the port."
 msgstr "Besitzer des Gerätes, das dem Port zugewiesen wurde."
-
-msgid "Device size (GB)"
-msgstr "Gerätegröße (GB)"
 
 msgid "Direct"
 msgstr "Direkt"
@@ -3106,12 +3000,6 @@ msgstr "Fehler"
 msgid "Federation"
 msgstr "Föderation"
 
-msgid "File"
-msgstr "Datei"
-
-msgid "File exceeds maximum size (16kb)"
-msgstr "Dateigröße übersteigt die Maximalgröße (16kb)"
-
 msgid "Filter"
 msgstr "Filter"
 
@@ -3796,9 +3684,6 @@ msgstr "Instanz Aktionsliste"
 msgid "Instance Admin Password"
 msgstr "Instanzen-Administrator Passwort"
 
-msgid "Instance Boot Source"
-msgstr "Boot-Quelle der Instanz"
-
 msgid "Instance Console"
 msgstr "Instanzkonsole"
 
@@ -3825,9 +3710,6 @@ msgstr "Instanz-Passwort wurde nicht gesetzt oder ist noch nicht verfügbar"
 
 msgid "Instance Security Groups"
 msgstr "Instanz Sicherheitsgruppen"
-
-msgid "Instance Snapshot"
-msgstr "Instanz-Schattenkopie"
 
 msgid "Instances"
 msgstr "Instanzen"
@@ -3959,9 +3841,6 @@ msgstr ""
 "Schlüsselpaar-Namen dürfen nur Buchstaben, Zahlen, Unterstriche, Leerzeichen "
 "und Bindestriche enthalten und dürfen nicht leer sein."
 
-msgid "Key pair to use for authentication."
-msgstr "Für die Authentifizierung zu verwendendes Schlüsselpaar."
-
 #, python-format
 msgid ""
 "Key with name \"%s\" already exists. Use Edit to update the value, else "
@@ -4022,22 +3901,6 @@ msgstr "Instanz starten (Kontingent überschritten)"
 
 msgid "Launch as Instance"
 msgstr "Starten als Instanz"
-
-msgid "Launch instance in these security groups."
-msgstr "Starten Sie die Instanz in diesen Sicherheitsgruppen."
-
-msgid "Launch instance with these networks"
-msgstr "Instanz mit diesen Netzwerken starten"
-
-msgid "Launch instance with these ports"
-msgstr "Starte Instanzen mit diesen Ports"
-
-msgid ""
-"Launching multiple instances is only supported for images and instance "
-"snapshots."
-msgstr ""
-"Starten von mehreren Instanzen wird nur für Abbilder und Schattenkopien "
-"unterstützt."
 
 msgid "Length of Injected File Path"
 msgstr "Länge des injizierten Dateipfades"
@@ -4470,9 +4333,6 @@ msgstr "Netzwerkmaske"
 msgid "Network Name"
 msgstr "Netzwerkname"
 
-msgid "Network Ports"
-msgstr "Netzwerk-Ports"
-
 msgid "Network QoS"
 msgstr "Netzwerk QoS"
 
@@ -4496,9 +4356,6 @@ msgstr "Netzwerkadresse im CIDR Format (z.B. 192.168.0.0/24, 2001:DB8::/48)"
 
 msgid "Network list can not be retrieved."
 msgstr "Netzwerkliste kann nicht abgerufen werden."
-
-msgid "Networking"
-msgstr "Netzwerk"
 
 msgctxt "Task status of an Instance"
 msgid "Networking"
@@ -4692,9 +4549,6 @@ msgstr "Keine Servergruppen verfügbar."
 msgid "No snapshot for this volume"
 msgstr "Keine Schattenkopie für diesen Datenträger"
 
-msgid "No snapshots available"
-msgstr "Keine Schattenkopien verfügbar"
-
 msgid "No source, empty volume"
 msgstr "Keine Quelle, leerer Datenträger"
 
@@ -4709,9 +4563,6 @@ msgstr "Keine Benutzer."
 
 msgid "No valid group type"
 msgstr "Kein gültiger Gruppentyp"
-
-msgid "No volume snapshots available"
-msgstr "Keine Datenträgerschattenkopien verfügbar"
 
 msgid "No volume type"
 msgstr "Kein Datenträgertyp"
@@ -5021,17 +4872,6 @@ msgstr "Protokoll wird verknüpft"
 msgid "Ports"
 msgstr "Ports"
 
-msgid ""
-"Ports are optional and can be used with networks to add extra IP addresses "
-"to your instances or select specific types of ports."
-msgstr ""
-"Ports sind optional und können mit Netzwerken verwendet werden, um weitere "
-"IP-Adressen zu Ihren Instanzen hinzuzufügen oder besondere Porttypen "
-"auszuwählen."
-
-msgid "Post-Creation"
-msgstr "Nach Erstellung"
-
 msgid "Power State"
 msgstr "Zustand"
 
@@ -5064,9 +4904,6 @@ msgstr "Profil"
 
 msgid "Project"
 msgstr "Projekt"
-
-msgid "Project & User"
-msgstr "Projekt & Benutzer"
 
 msgid "Project ="
 msgstr "Projekt ="
@@ -5230,10 +5067,6 @@ msgstr "RAM (gesamt)"
 
 msgid "RAM (used)"
 msgstr "RAM (benutzt)"
-
-#, python-format
-msgid "RAM(Available: %(avail)s, Requested: %(req)s)"
-msgstr "RAM(Verfügbar: %(avail)s, Angefordert: %(req)s)"
 
 msgid "RBAC Policies"
 msgstr "RBAC-Richtlinien"
@@ -5418,10 +5251,6 @@ msgstr "Fehler melden"
 
 msgid "Request ID"
 msgstr "Anfrage ID"
-
-#, python-format
-msgid "Request for launching %(count)s named \"%(name)s\" has been submitted."
-msgstr "Anfrage zum Starten von %(count)s \"%(name)s\" wurde übermittelt."
 
 #, python-format
 msgid "Request for resizing of instance \"%s\" has been submitted."
@@ -5744,12 +5573,6 @@ msgctxt "Task status of an Instance"
 msgid "Scheduling"
 msgstr "Geplant"
 
-msgid "Script Data"
-msgstr "Skript-Daten"
-
-msgid "Script File"
-msgstr "Skript-Datei"
-
 msgid "Secret"
 msgstr "Geheimnis"
 
@@ -5801,9 +5624,6 @@ msgstr "Variante auswählen"
 msgid "Select Image"
 msgstr "Abbild auswählen"
 
-msgid "Select Instance Snapshot"
-msgstr "Instanz-Schattenkopie auswählen"
-
 msgid "Select Mapping"
 msgstr "Zuordnung auswählen"
 
@@ -5813,9 +5633,6 @@ msgstr "Netzwerk auswählen"
 msgid "Select Port"
 msgstr "Port auswählen"
 
-msgid "Select Script Source"
-msgstr "Skriptquelle auswählen"
-
 msgid "Select Server Group"
 msgstr "Servergruppe auswählen"
 
@@ -5824,9 +5641,6 @@ msgstr "Subnetz auswählen"
 
 msgid "Select Volume"
 msgstr "Datenträger auswählen"
-
-msgid "Select Volume Snapshot"
-msgstr "Datenträgerschattenkopie auswählen"
 
 msgid "Select a New Flavor"
 msgstr "Neue Variante auswählen"
@@ -5906,14 +5720,8 @@ msgstr "Gruppentyp auswählen"
 msgid "Select network"
 msgstr "Netzwerk auswählen"
 
-msgid "Select networks for your instance."
-msgstr "Wählen Sie die Netzwerke für Ihre Instanz."
-
 msgid "Select snapshot to backup (Optional)"
 msgstr "Wählen Sie eine Schattenkopie zum Sichern (optional)"
-
-msgid "Select source"
-msgstr "Quelle auswählen"
 
 msgid ""
 "Select the IP address you wish to associate with the selected instance or "
@@ -5958,17 +5766,11 @@ msgstr "Ausgewählte Projekte"
 msgid "Selected hosts"
 msgstr "Ausgewählte Hosts"
 
-msgid "Selected networks"
-msgstr "Ausgewählte Netzwerke"
-
 msgid "Selected volume types"
 msgstr "Ausgewählte Datenträgertypen"
 
 msgid "Selected volumes"
 msgstr "Ausgewählte Datenträger"
-
-msgid "Server Group"
-msgstr "Servergruppe"
 
 msgid "Server Group Members"
 msgstr "Servergruppenmitglieder"
@@ -5978,9 +5780,6 @@ msgstr "Servergruppen"
 
 msgid "Server error"
 msgstr "Serverfehler"
-
-msgid "Server group to associate with this instance."
-msgstr "Mit der Instanz zu verbindende Servergruppe."
 
 msgid "Servers"
 msgstr "Server"
@@ -6126,9 +5925,6 @@ msgstr "Größe"
 msgid "Size (GiB)"
 msgstr "Größe (GiB)"
 
-msgid "Size of image to launch."
-msgstr "Größe des zu startenden Abbildes."
-
 msgid "Size(GiB) ="
 msgstr "Größe (GiB) ="
 
@@ -6257,9 +6053,6 @@ msgstr "Geben Sie einen Metadatendefinitions-Namensraum für den Import an."
 msgid "Specify additional attributes for the subnet."
 msgstr "Zusätzliche Eigenschaften des Subnetzes angeben."
 
-msgid "Specify advanced options to use when launching an instance."
-msgstr "Geben Sie weitere zu verwendende Optionen zum Start einer Instanz an."
-
 msgid "Specify an IP address for the interface created (e.g. 192.168.0.254)."
 msgstr ""
 "IP-Adresse für die erzeugte Schnittstelle angeben (z.B. 192.168.0.254)."
@@ -6272,9 +6065,6 @@ msgstr "\"Netzwerkadresse\" angeben"
 
 msgid "Specify the MAC address for the new port"
 msgstr "Geben Sie die MAC-Adresse für den neuen Port an"
-
-msgid "Specify the details for launching an instance."
-msgstr "Geben Sie die Details zum Start einer Instanz an."
 
 msgid "Specify the subnet IP address for the new port"
 msgstr "Subnetz-IP-Adresse für den neuen Port angeben"
@@ -6687,14 +6477,6 @@ msgstr ""
 msgid "The VNIC type that is bound to the network port"
 msgstr "Der mit dem Netzwerkport verbundene VNIC Typ"
 
-#, python-format
-msgid ""
-"The Volume size is too small for the '%(image_name)s' image and has to be "
-"greater than or equal to '%(smallest_size)d' GB."
-msgstr ""
-"Die Partition/Platte ist zu klein für das Abbild '%(image_name)s' und muss "
-"größer oder gleich '%(smallest_size)d' GB sein."
-
 msgid "The admin password is incorrect."
 msgstr "Das Administratorpasswort ist nicht richtig"
 
@@ -6712,13 +6494,6 @@ msgid ""
 "The application credential will be created for the currently selected "
 "project."
 msgstr "Applikations-Zugangsdaten werden für das ausgewählte Projekt erstellt."
-
-msgid ""
-"The chart below shows the resources used by this project in relation to the "
-"project's quotas."
-msgstr ""
-"Das Diagramm unten zeigt die von diesem Projekt verwendeten Ressourcen im "
-"Verhältnis zu den Projektkontingenten."
 
 msgid "The container cannot be deleted since it is not empty."
 msgstr "Der Container kann nicht gelöscht werden, denn er ist nicht leer."
@@ -6739,15 +6514,6 @@ msgid ""
 msgstr ""
 "Die Daten verbleiben im Datenträger und eine andere Instanz kann auf die "
 "Daten zugreifen, wenn Sie diesen Datenträger der Instanz zuweisen."
-
-#, python-format
-msgid ""
-"The flavor '%(flavor)s' is too small for requested image.\n"
-"Minimum requirements: %(min_ram)s MB of RAM and %(min_disk)s GB of Root Disk."
-msgstr ""
-"Die Variante '%(flavor)s' ist zu klein für das angeforderte Abbild. \n"
-"Minimale Anforderungen: %(min_ram)s MB RAM und %(min_disk)s GB Root-"
-"Festplatte."
 
 msgid "The instance is preparing the live migration to a new host."
 msgstr "Die Instanz bereitet die Live-Migration zu einem neuen Host vor."
@@ -6829,13 +6595,6 @@ msgstr ""
 "implementiert wurde."
 
 msgid ""
-"The port also describes the associated network configuration, such as the "
-"MAC and IP addresses to be used on that port."
-msgstr ""
-"Der Port beschreibt außerdem die zugeordnete Netzwerkkonfiguration, wie etwa "
-"die zu nutzenden MAC- und IP-Adressen auf diesem Port."
-
-msgid ""
 "The private key will be only used in your browser and will not be sent to "
 "the server"
 msgstr ""
@@ -6845,36 +6604,11 @@ msgstr ""
 msgid "The pseudo folder cannot be deleted since it is not empty."
 msgstr "Der Pseudoordner kann nicht gelöscht werden, denn er ist nicht leer."
 
-#, python-format
-msgid ""
-"The requested instance cannot be launched. Requested volume exceeds quota: "
-"Available: %(avail)s, Requested: %(req)s."
-msgstr ""
-"Die angeforderte Instanz kann nicht gestartet werden. Der angeforderte "
-"Datenträger überschreitet das Kontingent:: Verfügbar: %(avail)s, "
-"Angefordert: %(req)s."
-
-#, python-format
-msgid ""
-"The requested instance cannot be launched. The following requested "
-"resource(s) exceed quota(s): %s."
-msgstr ""
-"Die angeforderte Instanz kann nicht gestartet werden. Die folgende(n) "
-"angeforderte(n) Ressource(n) überschreitet/n Kontingent(e): %s."
-
 msgid ""
 "The requested instance port is already associated with another floating IP."
 msgstr ""
 "Der angeforderte Port der Instanz ist bereits mit einer anderen Floating IP "
 "verbunden."
-
-#, python-format
-msgid ""
-"The requested instance(s) cannot be launched as your quota will be exceeded: "
-"Available: %(avail)s, Requested: %(req)s."
-msgstr ""
-"Die angeforderte Instanz kann nicht gestartet werden, da das Kontingent "
-"überschritten wird: verfügbar: %(avail)s, angefordert: %(req)s."
 
 msgid ""
 "The rescue mode is only for emergency purpose, for example in case of a "
@@ -6960,10 +6694,6 @@ msgstr ""
 #, python-format
 msgid "There was a problem loading the namespace: %s."
 msgstr "Beim Laden des Namensraumes ist ein Problem aufgetreten: %s"
-
-#, python-format
-msgid "There was a problem parsing the %(prefix)s: %(error)s"
-msgstr "Es gab ein Problem beim Analysieren von %(prefix)s: %(error)s"
 
 msgid "This action cannot be undone."
 msgstr "Diese Aktion kann nicht rückgängig gemacht werden."
@@ -7542,10 +7272,6 @@ msgstr "Schlüsselpaar kann nicht importiert werden."
 msgid "Unable to initialize subnetpools"
 msgstr "Initialisierung des Subnetzpools nicht möglich."
 
-#, python-format
-msgid "Unable to launch %(count)s named \"%(name)s\"."
-msgstr "Außerstande %(count)s mal \"%(name)s\" zu starten."
-
 msgid "Unable to list dhcp agents hosting network."
 msgstr "Anzeige des Bereitstellungsnetzwerks des DHCP Agenten nicht möglich."
 
@@ -7763,9 +7489,6 @@ msgstr "Domänen-Liste kann nicht abgerufen werden."
 msgid "Unable to retrieve encryption type."
 msgstr "Verschlüsselungstyp kann nicht abgerufen werden."
 
-msgid "Unable to retrieve extensions information."
-msgstr "Informationen zu Erweiterungen können nicht abgerufen werden."
-
 msgid "Unable to retrieve extra spec list."
 msgstr "Liste der zusätzlichen Spezifikationen kann nicht abgerufen werden."
 
@@ -7947,12 +7670,6 @@ msgstr "Schlüsselpaare können nicht abgerufen werden."
 
 msgid "Unable to retrieve limits information."
 msgstr "Die Begrenzungsinformationen können nicht abgerufen werden."
-
-msgid "Unable to retrieve list of security groups"
-msgstr "Die Liste der Sicherheitsgruppen kann nicht abgerufen werden."
-
-msgid "Unable to retrieve list of volume snapshots."
-msgstr "Liste der Datenträgerschattenkopien kann nicht abgerufen werden."
 
 msgid "Unable to retrieve list of volumes."
 msgstr "Liste der Datenträger kann nicht abgerufen werden."
@@ -8643,9 +8360,6 @@ msgstr "<span> %(used)s </span> von <span> %(available)s </span> benutzt"
 msgid "Used IPs"
 msgstr "Verwendete IPs"
 
-msgid "User"
-msgstr "Benutzer"
-
 #, python-format
 msgid "User \"%s\" has been updated successfully."
 msgstr "Benutzer \"%s\" wurde erfolgreich aktualisiert."
@@ -8821,9 +8535,6 @@ msgstr "Datenträgername ="
 msgid "Volume Quotas"
 msgstr "Datenträger-Kontingente"
 
-msgid "Volume Snapshot"
-msgstr "Schattenkopie"
-
 msgid "Volume Snapshots"
 msgstr "Schattenkopien"
 
@@ -8909,18 +8620,8 @@ msgstr ""
 msgid "Volume is Unencrypted"
 msgstr "Datenträger ist unverschlüsselt"
 
-msgid ""
-"Volume mount point (e.g. 'vda' mounts at '/dev/vda'). Leave this field blank "
-"to let the system choose a device name for you."
-msgstr ""
-"Datenträger-Einhängepunkt (z.B. 'vda' hängt bei '/dev/vda' ein). Lassen Sie "
-"dieses Feld leer, um den Gerätenamen vom System bestimmen zu lassen."
-
 msgid "Volume name to be assigned"
 msgstr "Zuzuweisender Datenträgername"
-
-msgid "Volume size in gigabytes (integer value)."
-msgstr "Datenträgergröße in Gigabytes (ganze Zahl)"
 
 #, python-format
 msgid ""
@@ -8946,9 +8647,6 @@ msgid "Volume size must be equal to or greater than the snapshot size (%sGiB)"
 msgstr ""
 "Die Datenträgergröße muss gleich oder größer der Größe der Schattenkopie "
 "sein (%sGiB)"
-
-msgid "Volume size must be greater than 0"
-msgstr "Datenträgergröße muß größer als 0 sein"
 
 msgid "Volume source must be specified"
 msgstr "Quelle des Datenträgers muss angegeben werden"
@@ -9061,13 +8759,6 @@ msgstr ""
 "Sie können einen Port für Ihr Netzwerk erstellen. Wenn Sie Ihre Geräte-ID "
 "angeben wird das Gerät mit dem neu erstellten Port verbunden."
 
-msgid ""
-"You can customize your instance after it has launched using the options "
-"available here."
-msgstr ""
-"Die Instanz kann, nachdem sie gestartet wurde, mit den hier verfügbaren "
-"Optionen angepasst werden"
-
 msgid "You can edit the properties of your port here."
 msgstr "Sie können die Eigenschaften Ihres Ports hier ändern."
 
@@ -9146,18 +8837,6 @@ msgid "You may update the editable properties of your router here."
 msgstr ""
 "Hier können die editierbaren Eigenschaften ihres Routers aktualisiert werden."
 
-msgid "You must select a snapshot."
-msgstr "Sie müssen eine Schattenkopie auswählen."
-
-msgid "You must select a volume."
-msgstr "Sie müssen einen Datenträger auswählen."
-
-msgid "You must select an image."
-msgstr "Sie müssen ein Abbild auswählen."
-
-msgid "You must set volume size"
-msgstr "Sie müssen die Datenträger Größe angeben."
-
 msgid ""
 "You must specify the source of the traffic to be allowed via this rule. You "
 "may do so either in the form of an IP address block (CIDR) or via a source "
@@ -9225,9 +8904,6 @@ msgstr ""
 
 msgid "front-end"
 msgstr "Frontend"
-
-msgid "instance"
-msgstr "Instanz"
 
 #, python-format
 msgid ""

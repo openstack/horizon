@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: horizon VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2021-05-11 12:54+0000\n"
+"POT-Creation-Date: 2022-02-21 20:31+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -94,11 +94,6 @@ msgstr ""
 "subtenitajn protokolojn."
 
 msgid ""
-"\"Customization Script\" is analogous to \"User Data\" in other systems."
-msgstr ""
-"\"Agordado Skripto\" estas simila al \"Uzanto Datumo\" en aliaj sistemoj"
-
-msgid ""
 "\"Manage\" an existing volume from a Cinder host. This will make the volume "
 "visible within OpenStack. <br> <br> This is equivalent to the <tt>cinder "
 "manage</tt> command."
@@ -129,10 +124,6 @@ msgstr "%(field_name)s: Nevalida IP adreso (value=%(network)s)"
 #, python-format
 msgid "%(instance_name)s %(fixed_ip)s"
 msgstr "%(instance_name)s %(fixed_ip)s"
-
-#, python-format
-msgid "%(name)s - %(size)s GB (%(label)s)"
-msgstr "%(name)s - %(size)s GB (%(label)s)"
 
 #. Translators:  UTC offset and timezone label
 #, python-format
@@ -184,10 +175,6 @@ msgstr "%s (nuntempe)"
 #, python-format
 msgid "%s GB"
 msgstr "%s GB"
-
-#, python-format
-msgid "%s instances"
-msgstr "%s aperojn"
 
 #, python-format
 msgid "%sGB"
@@ -337,23 +324,10 @@ msgstr ""
 "Identeco API objektoj kiu subtenos mapigon estas: uzanto kaj grupo."
 
 msgid ""
-"A port is a connection point for attaching a single device, such as the NIC "
-"of a virtual server, to a virtual network."
-msgstr ""
-"Pordo estas konekto punkto por kunligi unuopan funkciilon, kiel la NIC de "
-"virtuala servilo, al virtuala reto."
-
-msgid ""
 "A rule contains a remote attribute description and the destination local "
 "attribute."
 msgstr ""
 "Regulo enhavas foran atributo priskribon kaj la destino lokan atributon."
-
-msgid ""
-"A script or set of commands to be executed after the instance has been built "
-"(max 16kb)."
-msgstr ""
-"Skripto aŭ aro da komandoj rulonta post la apero estas kreiita (max 16kb)."
 
 msgid "A single IP Address or CIDR"
 msgstr "Unuopa IP Adreso aŭ CIDR"
@@ -398,9 +372,6 @@ msgstr "Akceptu Transigon"
 
 msgid "Accept Volume Transfer"
 msgstr "Akceptu Volumo Transigon"
-
-msgid "Access & Security"
-msgstr "Aliro & Secureco"
 
 msgid "Access Rules"
 msgstr "Aliro Reguloj"
@@ -716,13 +687,6 @@ msgid "An image file or an external location must be specified."
 msgstr "Bildo dosiero aŭ ekstera loko devas esti difinita."
 
 msgid ""
-"An instance can be launched with varying types of attached storage. You may "
-"select from those options here."
-msgstr ""
-"Apero povas esti lanĉita kun diversaj tipoj de kunligita memorilo. Vi eble "
-"elektas de tiuj opcioj ĉi tie."
-
-msgid ""
 "An unexpected error has occurred. Try refreshing the page. If that doesn't "
 "help, contact your local administrator."
 msgstr ""
@@ -771,9 +735,6 @@ msgstr "Asociigita QoS Spec"
 
 msgid "Associated Resource Types"
 msgstr "Asociigitaj Risurco Tipoj"
-
-msgid "At least one network must be specified."
-msgstr "Almenaŭ unu reto devas esti difinita. "
 
 msgid "At least one volume type must be assigned to a group."
 msgstr "Minimume unu volumo tipo devas esti atribuita je grupo. "
@@ -897,9 +858,6 @@ msgstr "Havebla"
 msgid "Available Types"
 msgstr "Disponeblaj Tipoj"
 
-msgid "Available networks"
-msgstr "Disponeblaj retoj"
-
 msgctxt "Current status of a Volume"
 msgid "Awaiting Transfer"
 msgstr "Akceptanta Transigon"
@@ -948,21 +906,6 @@ msgstr "Blokmemorilo Servoj"
 msgctxt "Power state of an Instance"
 msgid "Blocked"
 msgstr "Blokita"
-
-msgid "Boot from image"
-msgstr "Praŝargu de bildo"
-
-msgid "Boot from image (creates a new volume)"
-msgstr "Praŝargu de bildo (kreas novan volumon)"
-
-msgid "Boot from snapshot"
-msgstr "Praŝargu de savkopio"
-
-msgid "Boot from volume"
-msgstr "Praŝargu de volumo"
-
-msgid "Boot from volume snapshot (creates a new volume)"
-msgstr "Praŝargu de volumo savkopio (kreas novan volumon)"
 
 msgid "Bootable"
 msgstr "Praŝargebla"
@@ -1106,9 +1049,6 @@ msgstr ""
 "Selektu \"Disko Formato\" por la bildo. La volumo bildoj estas kreita kun la "
 "QEMU disko bildo ilaro."
 
-msgid "Choose Your Boot Source Type."
-msgstr "Elektu vian Praŝargfonto Tipon."
-
 msgid ""
 "Choose a Host to evacuate servers to. If not selected, the scheduler will "
 "auto select target host."
@@ -1143,13 +1083,6 @@ msgstr "Elektu asociigita QoS Specifon."
 
 msgid "Choose consumer for this QoS Spec."
 msgstr "Elektu konsumanto por tiu QoS Spec."
-
-msgid ""
-"Choose network from Available networks to Selected networks by push button "
-"or drag and drop, you may change NIC order by drag and drop as well. "
-msgstr ""
-"Elektu reton de Disponeblaj retoj al Selektitaj retoj per prem butono aŭ "
-"ŝovmeti, vi eble ankaŭ ŝanĝas NIC vicordo per ŝovmeti. "
 
 msgid "Choose the flavor to launch."
 msgstr "Elektu la variaĵon lanĉonta "
@@ -1226,21 +1159,8 @@ msgstr "Komputaj Kvotoj"
 msgid "Compute Services"
 msgstr "Komputaj Servoj"
 
-msgid "Configuration Drive"
-msgstr "Konfigura Diskingo "
-
-msgid ""
-"Configure OpenStack to write metadata to a special configuration drive that "
-"attaches to the instance when it boots."
-msgstr ""
-"Konfiguru Openstack por skribi metadatumo al speciala konfigura diskingo kiu "
-"ligas al apero kiam ĝi praŝargas. "
-
 msgid "Confirm"
 msgstr "Konfirmu"
-
-msgid "Confirm Admin Password"
-msgstr "Konfirmu Admin Pasvorton"
 
 msgid "Confirm Password"
 msgstr "Konfirmu Pasvorton"
@@ -1294,19 +1214,8 @@ msgstr "Enhavo"
 msgid "Control Location"
 msgstr "Kontrolo Loko"
 
-msgid ""
-"Control access to your instance via key pairs, security groups, and other "
-"mechanisms."
-msgstr ""
-"Kontrolu aliron al vian aperon per ŝlosilaj paroj, secureca grupoj, kaj "
-"aliaj mekanismoj."
-
 msgid "Copy Data"
 msgstr "Kopiu Datumo"
-
-#, python-format
-msgid "Cores(Available: %(avail)s, Requested: %(req)s)"
-msgstr "Kernoj(Haveblaj: %(avail)s, Petitaj: %(req)s)"
 
 #, python-format
 msgid "Could not find default role \"%s\" in Keystone"
@@ -1683,9 +1592,6 @@ msgstr " Propra TCP Regulo"
 msgid "Custom UDP Rule"
 msgstr "Propra UDP Regulo"
 
-msgid "Customization Script Source"
-msgstr "Tajlorado Skripto fonto"
-
 msgid "DHCP Agents"
 msgstr "DHCP Agentoj"
 
@@ -1918,18 +1824,12 @@ msgid_plural "Delete Volume Types"
 msgstr[0] "Forigu Volumo Tipon"
 msgstr[1] "Forigu Volumojn Tipojn"
 
-msgid "Delete Volume on Instance Delete"
-msgstr "Forigu Volumon kun Forigo de Apero"
-
 msgid "Delete Volumes"
 msgstr "Forigu Volumojn"
 
 #, python-format
 msgid "Delete the created network \"%s\" due to subnet creation failure."
 msgstr "Forigi la kreita reto \"%s\" pro subreto kreado eraro."
-
-msgid "Delete volume when the instance is deleted"
-msgstr "Forigu volumon kiam la apero estas forigita"
 
 msgid "Deleted"
 msgstr "Forigita"
@@ -2220,9 +2120,6 @@ msgstr "Uzaĵo Posedanto"
 
 msgid "Device owner attached to the port."
 msgstr "Uzaĵo Posedanto alkroĉita al la pordo."
-
-msgid "Device size (GB)"
-msgstr "Funkciilo grando (GB)"
 
 msgid "Direct"
 msgstr "Direkta"
@@ -3076,12 +2973,6 @@ msgstr "Eraro"
 msgid "Federation"
 msgstr "Federacio"
 
-msgid "File"
-msgstr "Dosiero"
-
-msgid "File exceeds maximum size (16kb)"
-msgstr "Dosiero transpasas maximuman grandon (16kb)"
-
 msgid "Filter"
 msgstr "Filtrilo"
 
@@ -3758,9 +3649,6 @@ msgstr "Apero Ago Listo"
 msgid "Instance Admin Password"
 msgstr "Apero Admin Pasvorto"
 
-msgid "Instance Boot Source"
-msgstr "Apero Praŝargfonto"
-
 msgid "Instance Console"
 msgstr "Apero Konzolo"
 
@@ -3787,9 +3675,6 @@ msgstr "Apero Pasvorto ne estas agordita aŭ ankoraŭ ne estas disponebla "
 
 msgid "Instance Security Groups"
 msgstr "Apero Secureco Grupoj"
-
-msgid "Instance Snapshot"
-msgstr "Apero Savkopio"
 
 msgid "Instances"
 msgstr "Instancoj"
@@ -3911,9 +3796,6 @@ msgstr ""
 "Ŝlosilparo nomo devas nur enhavi literoj, nombroj, substrekojn, spacetojn, "
 "kaj streketojn kaj ne devas esti blankspaco  .   "
 
-msgid "Key pair to use for authentication."
-msgstr "Ŝlosila paro uzonta por aŭtentigon."
-
 #, python-format
 msgid ""
 "Key with name \"%s\" already exists. Use Edit to update the value, else "
@@ -3974,21 +3856,6 @@ msgstr "Lanĉu Aperon (Kvoto transpasita)"
 
 msgid "Launch as Instance"
 msgstr "Lanĉi kiel Aperon"
-
-msgid "Launch instance in these security groups."
-msgstr "Lanĉu aperon en tiu secureca grupo."
-
-msgid "Launch instance with these networks"
-msgstr "Lanĉu aperon kun tiujn retojn"
-
-msgid "Launch instance with these ports"
-msgstr "Lanĉu aperon kun tiuj pordoj"
-
-msgid ""
-"Launching multiple instances is only supported for images and instance "
-"snapshots."
-msgstr ""
-"Lanĉi plurajn aperojn nur estas subtenita por bildoj kaj aperaj savkopiojn."
 
 msgid "Length of Injected File Path"
 msgstr "Longeco de Injektita dosierindiko"
@@ -4426,9 +4293,6 @@ msgstr "Reto Masko"
 msgid "Network Name"
 msgstr "Reto Nomo"
 
-msgid "Network Ports"
-msgstr "Retaj pordoj"
-
 msgid "Network QoS"
 msgstr "Reto QoS"
 
@@ -4452,9 +4316,6 @@ msgstr "Retadreso en CIDR formato  (e.g. 192.168.0.0/24, 2001:DB8::/48)"
 
 msgid "Network list can not be retrieved."
 msgstr "Neeblas ricevi Reto listo."
-
-msgid "Networking"
-msgstr "Retumilanta"
 
 msgctxt "Task status of an Instance"
 msgid "Networking"
@@ -4649,9 +4510,6 @@ msgstr "Neniuj servilo grupoj haveblaj"
 msgid "No snapshot for this volume"
 msgstr "Neniu savkopio por ĉi tiu volumo"
 
-msgid "No snapshots available"
-msgstr "Neniuj savkopioj disponeblaj."
-
 msgid "No source, empty volume"
 msgstr "Neniu fonto, malplena volumo"
 
@@ -4666,9 +4524,6 @@ msgstr "Neniuj uzantoj."
 
 msgid "No valid group type"
 msgstr "Neniu valida grupa tipo"
-
-msgid "No volume snapshots available"
-msgstr "Neniuj volumo savkopiojn disponeblaj."
 
 msgid "No volume type"
 msgstr "Neniu volumo tipo"
@@ -4976,16 +4831,6 @@ msgstr "Pordo asociigonta"
 msgid "Ports"
 msgstr "Pordoj"
 
-msgid ""
-"Ports are optional and can be used with networks to add extra IP addresses "
-"to your instances or select specific types of ports."
-msgstr ""
-"Pordoj estas nedevigaj kaj povas esti uzitaj kun retoj por aldoni ekstrajn "
-"IP adresojn al viaj aperoj aŭ por elekti difinajn tipojn de pordoj."
-
-msgid "Post-Creation"
-msgstr "Postan-Kreadon"
-
 msgid "Power State"
 msgstr "Povo   Stato"
 
@@ -5018,9 +4863,6 @@ msgstr "Profilo"
 
 msgid "Project"
 msgstr "Projekto"
-
-msgid "Project & User"
-msgstr "Projekto & Uzanto"
 
 msgid "Project ="
 msgstr "Projekto ="
@@ -5181,10 +5023,6 @@ msgstr "RAM (sume)"
 
 msgid "RAM (used)"
 msgstr "RAM (uzita)"
-
-#, python-format
-msgid "RAM(Available: %(avail)s, Requested: %(req)s)"
-msgstr "RAM(Havebla: %(avail)s, Petita: %(req)s)"
 
 msgid "RBAC Policies"
 msgstr "RBAC Regularo  "
@@ -5366,10 +5204,6 @@ msgstr "Raportu Cimon"
 
 msgid "Request ID"
 msgstr "Peto ID"
-
-#, python-format
-msgid "Request for launching %(count)s named \"%(name)s\" has been submitted."
-msgstr "Peto por lanĉi %(count)s nomita(j) \"%(name)s\" estas sendita."
 
 #, python-format
 msgid "Request for resizing of instance \"%s\" has been submitted."
@@ -5690,12 +5524,6 @@ msgctxt "Task status of an Instance"
 msgid "Scheduling"
 msgstr "Enviciganta"
 
-msgid "Script Data"
-msgstr "Skripto Datumo"
-
-msgid "Script File"
-msgstr "Skripto Dosiero"
-
 msgid "Secret"
 msgstr "Sekreto"
 
@@ -5747,9 +5575,6 @@ msgstr "Elektu variaĵon."
 msgid "Select Image"
 msgstr "Elekti Bildo"
 
-msgid "Select Instance Snapshot"
-msgstr "Elektu Apero Savkopio"
-
 msgid "Select Mapping"
 msgstr "Elektu Mapigon"
 
@@ -5759,9 +5584,6 @@ msgstr "Elektu Reton"
 msgid "Select Port"
 msgstr "Elektu Pordon"
 
-msgid "Select Script Source"
-msgstr "Elektu scripto fonton"
-
 msgid "Select Server Group"
 msgstr "Elektu Servilo Grupo"
 
@@ -5770,9 +5592,6 @@ msgstr "Elektu subreton"
 
 msgid "Select Volume"
 msgstr "Elektu Volumon"
-
-msgid "Select Volume Snapshot"
-msgstr "Elektu Volumo Savkopion"
 
 msgid "Select a New Flavor"
 msgstr "Elektu novan variaĵon"
@@ -5852,14 +5671,8 @@ msgstr "Elektu grupo tipon"
 msgid "Select network"
 msgstr "Elektu reton"
 
-msgid "Select networks for your instance."
-msgstr "Elektu retojn por via apero."
-
 msgid "Select snapshot to backup (Optional)"
 msgstr "Elektu savkopion por stori (laŭvole)"
-
-msgid "Select source"
-msgstr "Elektu fonto"
 
 msgid ""
 "Select the IP address you wish to associate with the selected instance or "
@@ -5904,17 +5717,11 @@ msgstr "Selektitaj Projektoj"
 msgid "Selected hosts"
 msgstr "Elektitaj serviloj"
 
-msgid "Selected networks"
-msgstr "Elektitaj retoj"
-
 msgid "Selected volume types"
 msgstr "Selektitaj volumo tipoj"
 
 msgid "Selected volumes"
 msgstr "Elektitaj volumoj"
-
-msgid "Server Group"
-msgstr "Servilo Grupo"
 
 msgid "Server Group Members"
 msgstr "Servilogrupo Membroj"
@@ -5924,9 +5731,6 @@ msgstr "Servilo Grupoj"
 
 msgid "Server error"
 msgstr "Servilo eraro"
-
-msgid "Server group to associate with this instance."
-msgstr "Servilo Grupo asociigonta kun tiu apero."
 
 msgid "Servers"
 msgstr "Serviloj"
@@ -6071,9 +5875,6 @@ msgstr "Grando"
 msgid "Size (GiB)"
 msgstr "Grando (GiB)"
 
-msgid "Size of image to launch."
-msgstr "Grando de apero lanĉota."
-
 msgid "Size(GiB) ="
 msgstr "Grando (GiB) ="
 
@@ -6196,9 +5997,6 @@ msgstr "Specifu metadatuma difino nomspaco por importi."
 msgid "Specify additional attributes for the subnet."
 msgstr "Difinu aldonaj atribuoj por la subreto."
 
-msgid "Specify advanced options to use when launching an instance."
-msgstr "Difinu specialaj opcioj uzonta kiam lanĉi aperon."
-
 msgid "Specify an IP address for the interface created (e.g. 192.168.0.254)."
 msgstr "Difinu IP adreson por la interfaco kreita (e.g. 192.168.0.254)."
 
@@ -6210,9 +6008,6 @@ msgstr "Difinu reto adreso"
 
 msgid "Specify the MAC address for the new port"
 msgstr "Difinu la MAC adreso por la nova pordo"
-
-msgid "Specify the details for launching an instance."
-msgstr "Difini la detajlojn por lanĉi aperon."
 
 msgid "Specify the subnet IP address for the new port"
 msgstr "Difinu la subreto IP adreso por la nova pordo"
@@ -6615,14 +6410,6 @@ msgstr ""
 msgid "The VNIC type that is bound to the network port"
 msgstr "La VNIC tipo kiu estas ligita al la retpordo"
 
-#, python-format
-msgid ""
-"The Volume size is too small for the '%(image_name)s' image and has to be "
-"greater than or equal to '%(smallest_size)d' GB."
-msgstr ""
-"La Volumo grando estas tro malgranda por la '%(image_name)s' bildo kaj devas "
-"esti pli granda aŭ samgranda  ol  '%(smallest_size)d' GB."
-
 msgid "The admin password is incorrect."
 msgstr "La admin pasvorto estas malĝusta."
 
@@ -6639,13 +6426,6 @@ msgid ""
 "The application credential will be created for the currently selected "
 "project."
 msgstr "La aplikado legitimaĵo estos kreita por la nun selektita  projeko."
-
-msgid ""
-"The chart below shows the resources used by this project in relation to the "
-"project's quotas."
-msgstr ""
-"La diagramo malsupren vidigas la rizurcoj uzita de tiu projekto rilatitaj al "
-"la kvotoj de la projekto."
 
 msgid "The container cannot be deleted since it is not empty."
 msgstr "Neeblas forigi la kontenero ĉar ĝi estas ne malplena."
@@ -6665,14 +6445,6 @@ msgid ""
 msgstr ""
 "La datumo restos en la volumo kaj alia apero povas aliri la datumon se vi "
 "alligas tiun volumon al ĝi."
-
-#, python-format
-msgid ""
-"The flavor '%(flavor)s' is too small for requested image.\n"
-"Minimum requirements: %(min_ram)s MB of RAM and %(min_disk)s GB of Root Disk."
-msgstr ""
-"La variaĵo '%(flavor)s' estas tro malgranda por la bildo petita. Minimuma "
-"postuloj: %(min_ram)s MB de RAM kaj %(min_disk)s GB de Radika Disko."
 
 msgid "The instance is preparing the live migration to a new host."
 msgstr "La apero estas preparanta la tujan transmeton al freŝa gastiganto."
@@ -6746,13 +6518,6 @@ msgid "The physical mechanism by which the virtual network is implemented."
 msgstr "La fisika mekanismo helpe de la virtuala reto estas realigita."
 
 msgid ""
-"The port also describes the associated network configuration, such as the "
-"MAC and IP addresses to be used on that port."
-msgstr ""
-"La pordo ankaŭ priskribas la asociitan retan agordon, kiel la MAC kaj la IP "
-"adreso uzata je tiu pordo."
-
-msgid ""
 "The private key will be only used in your browser and will not be sent to "
 "the server"
 msgstr ""
@@ -6762,33 +6527,9 @@ msgstr ""
 msgid "The pseudo folder cannot be deleted since it is not empty."
 msgstr "Neeblas forigi la pseŭdodosiero ĉar ĝi estas ne malplena."
 
-#, python-format
-msgid ""
-"The requested instance cannot be launched. Requested volume exceeds quota: "
-"Available: %(avail)s, Requested: %(req)s."
-msgstr ""
-"La petita apero ne povas esti lanĉita. Petita volumo transpasas kvoton: "
-"Havebla: %(avail)s, Petita: %(req)s."
-
-#, python-format
-msgid ""
-"The requested instance cannot be launched. The following requested "
-"resource(s) exceed quota(s): %s."
-msgstr ""
-"La petita apero ne povas esti lanĉita. La sekvantaj petitaj rizurco(j) "
-"transpasas kvoto(j)n: Havebla: %s."
-
 msgid ""
 "The requested instance port is already associated with another floating IP."
 msgstr "La petita apero pordo jam estas asociita kun alia glita IP. "
-
-#, python-format
-msgid ""
-"The requested instance(s) cannot be launched as your quota will be exceeded: "
-"Available: %(avail)s, Requested: %(req)s."
-msgstr ""
-"La petita apero(j) ne povas esti lanĉita ĉar via kvoto estos transpasita: "
-"Havebla: %(avail)s, Petita: %(req)s."
 
 msgid ""
 "The rescue mode is only for emergency purpose, for example in case of a "
@@ -6870,10 +6611,6 @@ msgstr ""
 #, python-format
 msgid "There was a problem loading the namespace: %s."
 msgstr "Estis Problemo elŝuti la nospaco: %s. "
-
-#, python-format
-msgid "There was a problem parsing the %(prefix)s: %(error)s"
-msgstr "Estis problemo sintakse analizi la %(prefix)s: %(error)s"
 
 msgid "This action cannot be undone."
 msgstr "Tiu ago ne povas esti malfarita."
@@ -7429,10 +7166,6 @@ msgstr "Neeblas importi ŝlosilo paron."
 msgid "Unable to initialize subnetpools"
 msgstr "Neeblas pravalorizi subretajn komunaĵon  "
 
-#, python-format
-msgid "Unable to launch %(count)s named \"%(name)s\"."
-msgstr "Neeblas lanĉi %(count)s nomita(j) \"%(name)s\"."
-
 msgid "Unable to list dhcp agents hosting network."
 msgstr "Neeblas listigi dhcp agentoj gastiganto reto."
 
@@ -7639,9 +7372,6 @@ msgstr "Neeblas ricevi domajno listo."
 msgid "Unable to retrieve encryption type."
 msgstr "Neeblas ricevi  ĉifradan tipon."
 
-msgid "Unable to retrieve extensions information."
-msgstr "Neeblas ricevi etendoj informon."
-
 msgid "Unable to retrieve extra spec list."
 msgstr "Neeblas ricevi ekstra specifo liston."
 
@@ -7810,12 +7540,6 @@ msgstr "Neeblas ricevi klavo parojn."
 
 msgid "Unable to retrieve limits information."
 msgstr "Ne eblas ricevi limajn informojn."
-
-msgid "Unable to retrieve list of security groups"
-msgstr "Neeblas ricevi listo de secureca grupoj."
-
-msgid "Unable to retrieve list of volume snapshots."
-msgstr "Neeblas ricevi listo de volumo savkopiojn."
 
 msgid "Unable to retrieve list of volumes."
 msgstr "Neeblas ricevi listo de volumojn."
@@ -8484,9 +8208,6 @@ msgstr "Uzita <span> %(used)s </span> de <span> %(available)s </span>"
 msgid "Used IPs"
 msgstr "Uzitaj IP-oj"
 
-msgid "User"
-msgstr "Uzanto"
-
 #, python-format
 msgid "User \"%s\" has been updated successfully."
 msgstr "Uzanto \"%s\" sukcese ĝisdatigita."
@@ -8661,9 +8382,6 @@ msgstr "Volumo Nomo ="
 msgid "Volume Quotas"
 msgstr "Volumaj Kvotoj"
 
-msgid "Volume Snapshot"
-msgstr "Volumo Savkopio"
-
 msgid "Volume Snapshots"
 msgstr "Volumaj Savkopiojn"
 
@@ -8745,18 +8463,8 @@ msgstr ""
 msgid "Volume is Unencrypted"
 msgstr "Volumo ne estas ĉifradita. "
 
-msgid ""
-"Volume mount point (e.g. 'vda' mounts at '/dev/vda'). Leave this field blank "
-"to let the system choose a device name for you."
-msgstr ""
-"Volumo muntopunkto  (ekz. 'vda' muntoj je '/dev/vda'). Lasu tiun kampon "
-"malplena por lasi la sistemon elekti la funkciilo nomo por vi."
-
 msgid "Volume name to be assigned"
 msgstr "Volumo nomo asociigonta"
-
-msgid "Volume size in gigabytes (integer value)."
-msgstr "Volumo grando en gigabajto (entjera valoro)."
 
 #, python-format
 msgid ""
@@ -8783,9 +8491,6 @@ msgid "Volume size must be equal to or greater than the snapshot size (%sGiB)"
 msgstr ""
 "Volumo grando devas esti samgranda aŭ pli granda ol la savkopio grando "
 "(%sGiB)"
-
-msgid "Volume size must be greater than 0"
-msgstr "Volumo grando devas esti pli granda ol 0"
 
 msgid "Volume source must be specified"
 msgstr "Volumo donto devas esti difinita"
@@ -8893,12 +8598,6 @@ msgstr ""
 "Vi povas krei pordon por la reto. Se vi difinas uzaĵo ID alkroĉonta, la "
 "uzaĵo difinita estos alkroĉata al la pordo kreita."
 
-msgid ""
-"You can customize your instance after it has launched using the options "
-"available here."
-msgstr ""
-"Vi povas agordi vian aperon post lanĉado uzante la opciojn havebla ĉi tie."
-
 msgid "You can edit the properties of your port here."
 msgstr "Vi povas redakti la redakteblaj ecoj de via pordo ĉi tie."
 
@@ -8971,18 +8670,6 @@ msgstr "Vi povus ĝisdatigi la redaktiblaj ecoj de via reto ĉi tie."
 msgid "You may update the editable properties of your router here."
 msgstr "Vi povus ĝisdatigi la redaktiblaj ecoj de via enkursigilo ĉi tie."
 
-msgid "You must select a snapshot."
-msgstr "Vi devas elekti savkopion."
-
-msgid "You must select a volume."
-msgstr "Vi devas elekti volumon."
-
-msgid "You must select an image."
-msgstr "Vi devas elekti bildon."
-
-msgid "You must set volume size"
-msgstr "Vi devas agordi volumo grando"
-
 msgid ""
 "You must specify the source of the traffic to be allowed via this rule. You "
 "may do so either in the form of an IP address block (CIDR) or via a source "
@@ -9049,9 +8736,6 @@ msgstr ""
 
 msgid "front-end"
 msgstr "fasada"
-
-msgid "instance"
-msgstr "apero"
 
 #, python-format
 msgid ""

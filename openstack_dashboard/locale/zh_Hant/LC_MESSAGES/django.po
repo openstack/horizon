@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: horizon VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2021-05-11 12:54+0000\n"
+"POT-Creation-Date: 2022-02-21 20:31+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -90,10 +90,6 @@ msgstr ""
 "多個支援的通訊協定。"
 
 msgid ""
-"\"Customization Script\" is analogous to \"User Data\" in other systems."
-msgstr "「客製化腳本」類比於其他系統的「用戶資料」。"
-
-msgid ""
 "\"Manage\" an existing volume from a Cinder host. This will make the volume "
 "visible within OpenStack. <br> <br> This is equivalent to the <tt>cinder "
 "manage</tt> command."
@@ -123,10 +119,6 @@ msgstr "%(field_name)s：無效的 IP 位址（值為 %(network)s）"
 #, python-format
 msgid "%(instance_name)s %(fixed_ip)s"
 msgstr "%(instance_name)s %(fixed_ip)s"
-
-#, python-format
-msgid "%(name)s - %(size)s GB (%(label)s)"
-msgstr "%(name)s - %(size)s GB（%(label)s）"
 
 #. Translators:  UTC offset and timezone label
 #, python-format
@@ -178,10 +170,6 @@ msgstr "%s（目前）"
 #, python-format
 msgid "%s GB"
 msgstr "%s GB"
-
-#, python-format
-msgid "%s instances"
-msgstr "%s 個雲實例"
 
 #, python-format
 msgid "%sGB"
@@ -239,21 +227,9 @@ msgstr ""
 "API」物件是：使用者及群組。"
 
 msgid ""
-"A port is a connection point for attaching a single device, such as the NIC "
-"of a virtual server, to a virtual network."
-msgstr ""
-"埠是一個連接點，用於將單個設備（例如，虛擬伺服器的網路卡）連接到一個虛擬網"
-"路。"
-
-msgid ""
 "A rule contains a remote attribute description and the destination local "
 "attribute."
 msgstr "規則包含遠端屬性說明及目的地本端屬性。"
-
-msgid ""
-"A script or set of commands to be executed after the instance has been built "
-"(max 16kb)."
-msgstr "會在建立雲實例後執行的腳本或一組指令（最大 16kb）。"
 
 msgid "A single IP Address or CIDR"
 msgstr "一個 IP 位址或 CIDR"
@@ -295,9 +271,6 @@ msgstr "允許轉移"
 
 msgid "Accept Volume Transfer"
 msgstr "允許雲硬碟轉移"
-
-msgid "Access & Security"
-msgstr "存取權以及安全性"
 
 msgid "Action"
 msgstr "行為"
@@ -559,11 +532,6 @@ msgid "An image file or an external location must be specified."
 msgstr "必須指定映像檔或外部映像檔位置。"
 
 msgid ""
-"An instance can be launched with varying types of attached storage. You may "
-"select from those options here."
-msgstr "可以以不同類型的附加儲存空間發動雲實例。您可以從這裡的選項擇擇。"
-
-msgid ""
 "An unexpected error has occurred. Try refreshing the page. If that doesn't "
 "help, contact your local administrator."
 msgstr "發生了意外錯誤。試著重整頁面。若這沒有幫助，請聯絡您的在地管理員。"
@@ -610,9 +578,6 @@ msgstr "已聯結的 QoS 規格"
 
 msgid "Associated Resource Types"
 msgstr "已聯結的資源類型"
-
-msgid "At least one network must be specified."
-msgstr "最少要指定一組網路。"
 
 msgid "Attach Interface"
 msgstr "附加網路卡"
@@ -710,9 +675,6 @@ msgstr "可用"
 msgid "Available Types"
 msgstr "可用的類型"
 
-msgid "Available networks"
-msgstr "可用的網路"
-
 msgid "Back-End Example:"
 msgstr "後端例子："
 
@@ -757,21 +719,6 @@ msgstr "區塊類型儲存伺服器"
 msgctxt "Power state of an Instance"
 msgid "Blocked"
 msgstr "已故障"
-
-msgid "Boot from image"
-msgstr "從映像檔開機"
-
-msgid "Boot from image (creates a new volume)"
-msgstr "從映像檔開機（新增新的雲硬碟）"
-
-msgid "Boot from snapshot"
-msgstr "從即時存檔開機"
-
-msgid "Boot from volume"
-msgstr "從雲硬碟開機"
-
-msgid "Boot from volume snapshot (creates a new volume)"
-msgstr "從雲硬碟的即時存檔開機（新增新的雲硬碟）"
 
 msgid "Bootable"
 msgstr "可用於開機"
@@ -897,9 +844,6 @@ msgstr ""
 " 為映像檔選擇「硬碟格式」。會以 QEMU 硬碟映像檔工具來新增雲硬碟映像檔。\n"
 "        "
 
-msgid "Choose Your Boot Source Type."
-msgstr "選擇您要開機的來源類型"
-
 msgid ""
 "Choose a Host to evacuate servers to. If not selected, the scheduler will "
 "auto select target host."
@@ -930,13 +874,6 @@ msgstr "選擇已聯結的 QoS 規格。"
 
 msgid "Choose consumer for this QoS Spec."
 msgstr "為此 QoS 規格選擇規範用戶。"
-
-msgid ""
-"Choose network from Available networks to Selected networks by push button "
-"or drag and drop, you may change NIC order by drag and drop as well. "
-msgstr ""
-"可以用點擊按鈕或拖拉的方式從「可用的網路」選擇網路到「已選擇的網路」，您可以"
-"自行以拖拉的方式更換網路卡的順序。"
 
 msgid "Choose the flavor to launch."
 msgstr "選擇要發動的虛擬硬體樣板。"
@@ -993,19 +930,8 @@ msgstr "運算資源配額"
 msgid "Compute Services"
 msgstr "運算伺服器"
 
-msgid "Configuration Drive"
-msgstr "設定檔硬碟"
-
-msgid ""
-"Configure OpenStack to write metadata to a special configuration drive that "
-"attaches to the instance when it boots."
-msgstr "設置 OpenStack 來寫入詮釋資料到一開機雲實例就會附加的設定檔硬碟。"
-
 msgid "Confirm"
 msgstr "確認"
-
-msgid "Confirm Admin Password"
-msgstr "確認管理員密碼"
 
 msgid "Confirm Password"
 msgstr "確認密碼"
@@ -1059,17 +985,8 @@ msgstr "內容"
 msgid "Control Location"
 msgstr "控制位置"
 
-msgid ""
-"Control access to your instance via key pairs, security groups, and other "
-"mechanisms."
-msgstr "從密鑰對、安全性群組及其他機制控制存取您的雲實例。"
-
 msgid "Copy Data"
 msgstr "複製資料"
-
-#, python-format
-msgid "Cores(Available: %(avail)s, Requested: %(req)s)"
-msgstr "核心數（可用：%(avail)s、已請求：%(req)s）"
 
 #, python-format
 msgid "Could not find default role \"%s\" in Keystone"
@@ -1406,9 +1323,6 @@ msgstr "自訂 TCP 規則"
 msgid "Custom UDP Rule"
 msgstr "自訂 UDP 規則"
 
-msgid "Customization Script Source"
-msgstr "客製化腳本來源"
-
 msgid "DHCP Agents"
 msgstr "DHCP 媒介"
 
@@ -1604,18 +1518,12 @@ msgid "Delete Volume Type"
 msgid_plural "Delete Volume Types"
 msgstr[0] "刪除雲硬碟類型"
 
-msgid "Delete Volume on Instance Delete"
-msgstr "在雲實例刪除時刪除雲硬碟"
-
 msgid "Delete Volumes"
 msgstr "刪除雲硬碟"
 
 #, python-format
 msgid "Delete the created network \"%s\" due to subnet creation failure."
 msgstr "刪除已新增的網路「%s」直到子網路建立失敗。"
-
-msgid "Delete volume when the instance is deleted"
-msgstr "在刪除雲實例時刪除雲硬碟"
 
 msgid "Deleted"
 msgstr "已刪除"
@@ -1858,9 +1766,6 @@ msgstr "裝置持有人"
 
 msgid "Device owner attached to the port."
 msgstr "附加到接口的裝置的持有人"
-
-msgid "Device size (GB)"
-msgstr "裝置容量（GB）"
 
 msgid "Direct"
 msgstr "方向"
@@ -2626,12 +2531,6 @@ msgstr "故障"
 msgid "Federation"
 msgstr "聯合"
 
-msgid "File"
-msgstr "檔案"
-
-msgid "File exceeds maximum size (16kb)"
-msgstr "檔案超過最大容量（16kb）"
-
 msgid "Filter"
 msgstr "篩選"
 
@@ -3250,9 +3149,6 @@ msgstr "雲實例行為列表"
 msgid "Instance Admin Password"
 msgstr "雲實例管理員密碼"
 
-msgid "Instance Boot Source"
-msgstr "雲實例開機來源"
-
 msgid "Instance Console"
 msgstr "雲實例主控臺"
 
@@ -3279,9 +3175,6 @@ msgstr "未設定或無可用的雲實例密碼"
 
 msgid "Instance Security Groups"
 msgstr "雲實例的安全性群組"
-
-msgid "Instance Snapshot"
-msgstr "雲實例即時存檔"
 
 msgid "Instances"
 msgstr "雲實例"
@@ -3396,9 +3289,6 @@ msgid ""
 "hyphens and may not be white space."
 msgstr "密鑰對名稱只能包含英文字母、數字、底線、空格和連字號而不能為空白。"
 
-msgid "Key pair to use for authentication."
-msgstr "用於認證的密鑰對。"
-
 #, python-format
 msgid ""
 "Key with name \"%s\" already exists. Use Edit to update the value, else "
@@ -3456,20 +3346,6 @@ msgstr "發動雲實例（超過配額）"
 
 msgid "Launch as Instance"
 msgstr "發動成雲實例"
-
-msgid "Launch instance in these security groups."
-msgstr "在這些安全性群組中發動雲實例。"
-
-msgid "Launch instance with these networks"
-msgstr "以這些網路發動雲實例"
-
-msgid "Launch instance with these ports"
-msgstr "以這些埠發動雲實例"
-
-msgid ""
-"Launching multiple instances is only supported for images and instance "
-"snapshots."
-msgstr "只提供映像檔和雲實例的即時存檔發動多個雲實例。"
 
 msgid "Length of Injected File Path"
 msgstr "已注入的資料路徑長度"
@@ -3875,9 +3751,6 @@ msgstr "網路遮罩"
 msgid "Network Name"
 msgstr "網路名稱"
 
-msgid "Network Ports"
-msgstr "網路埠"
-
 msgid "Network QoS"
 msgstr "網路 QoS"
 
@@ -3901,9 +3774,6 @@ msgstr "用 CIDR 格式的網路位址（如 192.168.0.0/24、2001:DB8::/48）"
 
 msgid "Network list can not be retrieved."
 msgstr "不能獲得網路列表。"
-
-msgid "Networking"
-msgstr "網路連線"
 
 msgctxt "Task status of an Instance"
 msgid "Networking"
@@ -4092,9 +3962,6 @@ msgstr "無可用的主機群組"
 msgid "No snapshot for this volume"
 msgstr "此雲硬碟並沒有快照"
 
-msgid "No snapshots available"
-msgstr "無可用的即時存檔"
-
 msgid "No source, empty volume"
 msgstr "無來源，空的雲硬碟"
 
@@ -4106,9 +3973,6 @@ msgstr "找不到任何用戶。"
 
 msgid "No users."
 msgstr "沒有用戶。"
-
-msgid "No volume snapshots available"
-msgstr "無可用的雲硬碟的即時存檔"
 
 msgid "No volume type"
 msgstr "無雲硬碟類型"
@@ -4396,16 +4260,6 @@ msgstr "欲聯結的接口"
 msgid "Ports"
 msgstr "接口"
 
-msgid ""
-"Ports are optional and can be used with networks to add extra IP addresses "
-"to your instances or select specific types of ports."
-msgstr ""
-"埠是選用項目，可與網路搭配使用，以將額外的 IP 位址新增至實例或者選取特定類型"
-"的埠。"
-
-msgid "Post-Creation"
-msgstr "前置作業"
-
 msgid "Power State"
 msgstr "電源狀態"
 
@@ -4438,9 +4292,6 @@ msgstr "基本資料"
 
 msgid "Project"
 msgstr "專案"
-
-msgid "Project & User"
-msgstr "專案與用戶"
 
 msgid "Project ="
 msgstr "專案 ="
@@ -4597,10 +4448,6 @@ msgstr "隨機存取記憶體（總計）"
 
 msgid "RAM (used)"
 msgstr "隨機存取記憶體（使用中）"
-
-#, python-format
-msgid "RAM(Available: %(avail)s, Requested: %(req)s)"
-msgstr "隨機存取記憶體（可用：%(avail)s、已請求：%(req)s）"
 
 msgid "RBAC Policies"
 msgstr "RBAC 政策"
@@ -4768,10 +4615,6 @@ msgstr "回報錯誤"
 
 msgid "Request ID"
 msgstr "請求識別號"
-
-#, python-format
-msgid "Request for launching %(count)s named \"%(name)s\" has been submitted."
-msgstr "發動名為「%(name)s」%(count)s 個的請求已經被送出"
 
 #, python-format
 msgid "Request for resizing of instance \"%s\" has been submitted."
@@ -5071,12 +4914,6 @@ msgctxt "Task status of an Instance"
 msgid "Scheduling"
 msgstr "正在排程"
 
-msgid "Script Data"
-msgstr "腳本資料"
-
-msgid "Script File"
-msgstr "腳本檔案"
-
 msgid "Secret"
 msgstr "祕密"
 
@@ -5126,9 +4963,6 @@ msgstr "選擇虛擬硬體樣板"
 msgid "Select Image"
 msgstr "選擇映像檔"
 
-msgid "Select Instance Snapshot"
-msgstr "選擇雲實例即時存檔"
-
 msgid "Select Mapping"
 msgstr "選取對映"
 
@@ -5138,9 +4972,6 @@ msgstr "選擇網路"
 msgid "Select Port"
 msgstr "選擇接口"
 
-msgid "Select Script Source"
-msgstr "選擇腳本來源"
-
 msgid "Select Server Group"
 msgstr "選擇主機群組"
 
@@ -5149,9 +4980,6 @@ msgstr "選擇子網路"
 
 msgid "Select Volume"
 msgstr "選擇雲硬碟"
-
-msgid "Select Volume Snapshot"
-msgstr "選擇雲硬碟的即時存檔"
 
 msgid "Select a New Flavor"
 msgstr "選擇新的虛擬硬體樣板"
@@ -5228,14 +5056,8 @@ msgstr "選擇格式"
 msgid "Select network"
 msgstr "選擇網路"
 
-msgid "Select networks for your instance."
-msgstr "為您的雲實例選擇網路。"
-
 msgid "Select snapshot to backup (Optional)"
 msgstr "選擇要備份的快照（選填）"
-
-msgid "Select source"
-msgstr "選擇來源"
 
 msgid ""
 "Select the IP address you wish to associate with the selected instance or "
@@ -5272,17 +5094,11 @@ msgstr "已選擇的專案"
 msgid "Selected hosts"
 msgstr "已選擇的主機"
 
-msgid "Selected networks"
-msgstr "已選擇的網路"
-
 msgid "Selected volume types"
 msgstr "所選雲硬碟類型"
 
 msgid "Selected volumes"
 msgstr "已選取雲硬碟"
-
-msgid "Server Group"
-msgstr "伺服器群組"
 
 msgid "Server Group Members"
 msgstr "伺服器群組成員"
@@ -5292,9 +5108,6 @@ msgstr "伺服器群組"
 
 msgid "Server error"
 msgstr "伺服器錯誤"
-
-msgid "Server group to associate with this instance."
-msgstr "與雲實例相關的伺服器群組"
 
 msgid "Servers"
 msgstr "伺服器"
@@ -5433,9 +5246,6 @@ msgstr "容量"
 msgid "Size (GiB)"
 msgstr "容量 (GiB)"
 
-msgid "Size of image to launch."
-msgstr "要發動的映像檔容量。"
-
 msgid "Size(GiB) ="
 msgstr "大小(GiB) ="
 
@@ -5543,9 +5353,6 @@ msgstr "指定要匯入來定義命名空間的詮釋資料。"
 msgid "Specify additional attributes for the subnet."
 msgstr "為子網路指定額外的屬性。"
 
-msgid "Specify advanced options to use when launching an instance."
-msgstr "指定進階的選項以用於發動雲實例。"
-
 msgid "Specify an IP address for the interface created (e.g. 192.168.0.254)."
 msgstr "為已新增的網路卡指定 IP 位址（如 192.168.0.254）。"
 
@@ -5557,9 +5364,6 @@ msgstr "指定網路位址"
 
 msgid "Specify the MAC address for the new port"
 msgstr "指定配置給此新埠的 MAC 位址"
-
-msgid "Specify the details for launching an instance."
-msgstr "為發動雲實例指定詳細資料。"
 
 msgid "Specify the subnet IP address for the new port"
 msgstr "指定配置給此埠的 IP 位址"
@@ -5945,13 +5749,6 @@ msgstr ""
 msgid "The VNIC type that is bound to the network port"
 msgstr "綁在網路端口上的虛擬網路卡類型"
 
-#, python-format
-msgid ""
-"The Volume size is too small for the '%(image_name)s' image and has to be "
-"greater than or equal to '%(smallest_size)d' GB."
-msgstr ""
-"雲硬碟容量對映像檔「%(image_name)s」太小，要大於等於「%(smallest_size)d」GB。"
-
 msgid "The admin password is incorrect."
 msgstr "管理員密碼不正確。"
 
@@ -5959,11 +5756,6 @@ msgid ""
 "The application credential will be created for the currently selected "
 "project."
 msgstr "應用程序憑證會被建立給目前選擇的專案。"
-
-msgid ""
-"The chart below shows the resources used by this project in relation to the "
-"project's quotas."
-msgstr "下列的圖表顯示此專案的專案配額中資源的使用情形。"
 
 msgid "The container cannot be deleted since it is not empty."
 msgstr "容器仍然不是空的，不能刪除。"
@@ -5981,14 +5773,6 @@ msgid ""
 "access the data if you attach this volume to it."
 msgstr ""
 "資料將會留在雲硬碟裡，而其他的雲實例可以在附加這個雲硬碟後存取裡面的的資料。"
-
-#, python-format
-msgid ""
-"The flavor '%(flavor)s' is too small for requested image.\n"
-"Minimum requirements: %(min_ram)s MB of RAM and %(min_disk)s GB of Root Disk."
-msgstr ""
-"虛擬硬體樣板「%(flavor)s」對所要求的映像檔太小。\n"
-"最低需求：%(min_ram)s MB 記憶體及 %(min_disk)s GB 根硬碟。"
 
 msgid "The instance is preparing the live migration to a new host."
 msgstr "雲實例已準備要即時轉移到新主機。"
@@ -6055,11 +5839,6 @@ msgid "The physical mechanism by which the virtual network is implemented."
 msgstr "來自已實作的虛擬網路的實體機制。"
 
 msgid ""
-"The port also describes the associated network configuration, such as the "
-"MAC and IP addresses to be used on that port."
-msgstr "埠還說明了相關的網路配置（例如，要在該埠上使用的 MAC 和 IP 位址）。"
-
-msgid ""
 "The private key will be only used in your browser and will not be sent to "
 "the server"
 msgstr "私鑰只會在您的瀏覽器中使用而不會傳送到伺服器裡"
@@ -6067,30 +5846,9 @@ msgstr "私鑰只會在您的瀏覽器中使用而不會傳送到伺服器裡"
 msgid "The pseudo folder cannot be deleted since it is not empty."
 msgstr "虛擬資料夾仍然不是空的，不能刪除。"
 
-#, python-format
-msgid ""
-"The requested instance cannot be launched. Requested volume exceeds quota: "
-"Available: %(avail)s, Requested: %(req)s."
-msgstr ""
-"不能發動所請求的雲實例。請求的雲硬碟超出配額：可用：%(avail)s、請求："
-"%(req)s。"
-
-#, python-format
-msgid ""
-"The requested instance cannot be launched. The following requested "
-"resource(s) exceed quota(s): %s."
-msgstr "不能發動所請求的雲實例。以下所請求的資源已超過配額了：%s。"
-
 msgid ""
 "The requested instance port is already associated with another floating IP."
 msgstr "所要求的雲實例接口已與其他浮動 IP 聯結。"
-
-#, python-format
-msgid ""
-"The requested instance(s) cannot be launched as your quota will be exceeded: "
-"Available: %(avail)s, Requested: %(req)s."
-msgstr ""
-"不能發動所請求的雲實例因請求超出可用配額：可用：%(avail)s、請求：%(req)s。"
 
 msgid ""
 "The rescue mode is only for emergency purpose, for example in case of a "
@@ -6163,10 +5921,6 @@ msgstr ""
 #, python-format
 msgid "There was a problem loading the namespace: %s."
 msgstr "讀取命名空間出了問題：%s。"
-
-#, python-format
-msgid "There was a problem parsing the %(prefix)s: %(error)s"
-msgstr "解析 %(prefix)s 時出了問題：%(error)s"
 
 msgid "This action cannot be undone."
 msgstr "不能反悔這個動作。"
@@ -6643,10 +6397,6 @@ msgstr "無法匯入密鑰對。"
 msgid "Unable to initialize subnetpools"
 msgstr "無法初始化子網路倉庫"
 
-#, python-format
-msgid "Unable to launch %(count)s named \"%(name)s\"."
-msgstr "無法發動名為「%(name)s」%(count)s 個。"
-
 msgid "Unable to list dhcp agents hosting network."
 msgstr "無法列出 DHCP 媒介所服務的網路。"
 
@@ -6840,9 +6590,6 @@ msgstr "無法獲得地域列表。"
 msgid "Unable to retrieve encryption type."
 msgstr "無法獲得加密類型。"
 
-msgid "Unable to retrieve extensions information."
-msgstr "無法獲得擴充套件的資訊。"
-
 msgid "Unable to retrieve extra spec list."
 msgstr "無法獲得額外規格的列表。"
 
@@ -6990,12 +6737,6 @@ msgstr "無法獲得密鑰對列表。"
 
 msgid "Unable to retrieve key pairs."
 msgstr "無法獲得密鑰對。"
-
-msgid "Unable to retrieve list of security groups"
-msgstr "無法獲得安全性群組列表"
-
-msgid "Unable to retrieve list of volume snapshots."
-msgstr "無法獲得雲硬碟的即時存檔列表。"
 
 msgid "Unable to retrieve list of volumes."
 msgstr "無法獲得雲硬碟列表。"
@@ -7599,9 +7340,6 @@ msgstr "已使用 <span>%(available)s</span> 個中的 <span>%(used)s</span> 個
 msgid "Used IPs"
 msgstr "已使用的 IP"
 
-msgid "User"
-msgstr "用戶"
-
 #, python-format
 msgid "User \"%s\" has been updated successfully."
 msgstr "已成功更新用戶 %s。"
@@ -7770,9 +7508,6 @@ msgstr "雲硬碟名稱 = "
 msgid "Volume Quotas"
 msgstr "雲硬碟配額"
 
-msgid "Volume Snapshot"
-msgstr "雲硬碟即時存檔"
-
 msgid "Volume Snapshots"
 msgstr "雲硬碟即時存檔"
 
@@ -7833,18 +7568,8 @@ msgstr "含有雲硬碟的雲硬碟群組無法被刪除。"
 msgid "Volume is Unencrypted"
 msgstr "雲硬碟未加密"
 
-msgid ""
-"Volume mount point (e.g. 'vda' mounts at '/dev/vda'). Leave this field blank "
-"to let the system choose a device name for you."
-msgstr ""
-"雲硬碟的掛載點（例如「vda」掛載於「/dev/vda」）。將欄位留空以讓系統為您選擇裝"
-"置名稱。"
-
 msgid "Volume name to be assigned"
 msgstr "欲指派的雲硬碟名稱"
-
-msgid "Volume size in gigabytes (integer value)."
-msgstr "雲硬碟的 GB 容量（整數值）。"
 
 #, python-format
 msgid ""
@@ -7864,9 +7589,6 @@ msgstr "雲硬碟容量必須大於等於原始的雲硬碟容量 (%sGiB)"
 #, python-format
 msgid "Volume size must be equal to or greater than the snapshot size (%sGiB)"
 msgstr "雲硬碟容量必須大於或等於即時存檔容量 (%sGiB)"
-
-msgid "Volume size must be greater than 0"
-msgstr "雲硬碟容量必須大於 0。"
 
 msgid "Volume source must be specified"
 msgstr "必須指定雲硬碟來源"
@@ -7955,11 +7677,6 @@ msgstr ""
 "您可以為這組網路新增接口。若您有指定要附加的裝置識別號，此裝置將會在接口新增"
 "時附加上去。"
 
-msgid ""
-"You can customize your instance after it has launched using the options "
-"available here."
-msgstr "您可以用在此出現的選項來客製化您之後會發動的雲實例。"
-
 msgid "You can edit the properties of your port here."
 msgstr "您可以在這更新您的端口的屬性。"
 
@@ -8024,18 +7741,6 @@ msgstr "您將在這更新您的網路上可供編輯的屬性。"
 msgid "You may update the editable properties of your router here."
 msgstr "您將在這更新您的路由器上可供編輯的屬性。"
 
-msgid "You must select a snapshot."
-msgstr "您必須選擇即時存檔。"
-
-msgid "You must select a volume."
-msgstr "您必須選擇雲硬碟。"
-
-msgid "You must select an image."
-msgstr "您必須選擇映像檔。"
-
-msgid "You must set volume size"
-msgstr "您必須設定雲硬碟容量"
-
 msgid ""
 "You must specify the source of the traffic to be allowed via this rule. You "
 "may do so either in the form of an IP address block (CIDR) or via a source "
@@ -8098,9 +7803,6 @@ msgstr "樣板 ID 名稱只能包含英數字元、底線、句點、連字號�
 
 msgid "front-end"
 msgstr "前端"
-
-msgid "instance"
-msgstr "雲實例"
 
 #, python-format
 msgid ""

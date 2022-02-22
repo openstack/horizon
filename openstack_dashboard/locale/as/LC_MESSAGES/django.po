@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: horizon VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2021-05-11 12:54+0000\n"
+"POT-Creation-Date: 2022-02-21 20:31+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -20,10 +20,6 @@ msgstr " - সমাপ্ত"
 msgid " : Next hop"
 msgstr " : পৰৱৰ্তী হপ"
 
-msgid ""
-"\"Customization Script\" is analogous to \"User Data\" in other systems."
-msgstr "অন্য ছিষ্টেমবোৰত \"Customization Script\" টো \"User Data\" ৰ অনুৰূপ."
-
 #, python-format
 msgid "%(field_name)s: Invalid IP address (value=%(ip)s)"
 msgstr "%(field_name)s: অবৈধ IP ঠিকনা (মান=%(ip)s)"
@@ -35,10 +31,6 @@ msgstr "%(field_name)s: অবৈধ IP ঠিকনা (মান=%(network)s)"
 #, python-format
 msgid "%(instance_name)s %(fixed_ip)s"
 msgstr "%(instance_name)s %(fixed_ip)s"
-
-#, python-format
-msgid "%(name)s - %(size)s GB (%(label)s)"
-msgstr "%(name)s - %(size)s GB (%(label)s)"
 
 #. Translators:  UTC offset and timezone label
 #, python-format
@@ -72,10 +64,6 @@ msgid "%s GB"
 msgstr "%s GB"
 
 #, python-format
-msgid "%s instances"
-msgstr "%s উদাহৰণবোৰ"
-
-#, python-format
 msgid "%sGB"
 msgstr "%sGB"
 
@@ -98,13 +86,6 @@ msgstr "-"
 msgid "A local image to upload."
 msgstr "আপলোড কৰিবলৈ এটা স্থানীয় ছবি."
 
-msgid ""
-"A script or set of commands to be executed after the instance has been built "
-"(max 16kb)."
-msgstr ""
-"উদাহৰণ এটা প্ৰস্তুত কৰাৰ পিছত কাৰ্যকৰী কৰিবলগীয়া এখন স্ক্ৰিপ্ট বা নিৰ্দেশবোৰৰ ছেট "
-"(সৰ্বাধিক 16kb)."
-
 msgid "AKI - Amazon Kernel Image"
 msgstr "AKI - আমাজন কাৰ্ণেল ছবি"
 
@@ -123,9 +104,6 @@ msgstr "API শেষবিন্দুবোৰ"
 
 msgid "ARI - Amazon Ramdisk Image"
 msgstr "ARI - আমাজন ৰেমডিস্ক ছবি"
-
-msgid "Access & Security"
-msgstr "প্ৰৱেশ & সুৰক্ষা"
 
 msgid "Action"
 msgstr "কাৰ্য"
@@ -282,13 +260,6 @@ msgid "Allocation Pools"
 msgstr "নিৰ্ধাৰিত পুলবোৰ"
 
 msgid ""
-"An instance can be launched with varying types of attached storage. You may "
-"select from those options here."
-msgstr ""
-"সংযোজিত ভঁৰালৰ প্ৰকাৰবোৰৰ ভিন্নতাৰ সৈতে উদাহৰণ এটা আৰম্ভ কৰিব পাৰি. আপুনি ইয়াত "
-"সেই বিকল্পবোৰৰ পৰা নিৰ্বাচন কৰিব পাৰে."
-
-msgid ""
 "An unexpected error has occurred. Try refreshing the page. If that doesn't "
 "help, contact your local administrator."
 msgstr ""
@@ -318,9 +289,6 @@ msgstr "আয়তন প্ৰকাৰৰ সৈতে জড়িত QoS স�
 
 msgid "Associated QoS Spec"
 msgstr "জড়িত QoS স্পেক"
-
-msgid "At least one network must be specified."
-msgstr "অতিকমেও এটা নেটৱৰ্ক নিৰ্ধাৰণ কৰাটো অপৰিহাৰ্য."
 
 msgid "Attach To Instance"
 msgstr "উদাহৰণলৈ সংলগ্ন কৰক"
@@ -385,9 +353,6 @@ msgctxt "Current status of a Volume Backup"
 msgid "Available"
 msgstr "উপলব্ধ"
 
-msgid "Available networks"
-msgstr "উপলব্ধ নেটৱৰ্কবোৰ"
-
 msgid "Backup Name"
 msgstr "বেকআপ নাম"
 
@@ -407,21 +372,6 @@ msgstr "ভঁৰাল সেৱাবোৰ আৱদ্ধ কৰক"
 msgctxt "Power state of an Instance"
 msgid "Blocked"
 msgstr "আৱদ্ধ কৰা হল"
-
-msgid "Boot from image"
-msgstr "ছবিৰ পৰা বুট কৰক"
-
-msgid "Boot from image (creates a new volume)"
-msgstr "ছবিৰ পৰা বুট কৰক (এটা নতুন আয়তন তৈয়াৰ কৰে)"
-
-msgid "Boot from snapshot"
-msgstr "স্নেপশ্বটৰ পৰা বুট কৰক"
-
-msgid "Boot from volume"
-msgstr "আয়তনৰ পৰা বুট কৰক"
-
-msgid "Boot from volume snapshot (creates a new volume)"
-msgstr "আয়তন স্নেপশ্বটৰ পৰা বুট কৰক (এটা নতুন আয়তন তৈয়াৰ কৰে)"
 
 msgid "Bootable"
 msgstr "বুট কৰিব পৰা"
@@ -477,9 +427,6 @@ msgstr "পাছৱৰ্ড সলনি কৰাটো সমৰ্থন �
 msgid "Checksum"
 msgstr "ছেকছাম"
 
-msgid "Choose Your Boot Source Type."
-msgstr "আপোনাৰ বুট উত্সৰ প্ৰকাৰ নিৰ্বাচন কৰক."
-
 msgid "Choose a Host to migrate to."
 msgstr "...লৈ প্ৰব্ৰজন কৰিবলৈ হষ্ট এটা নিৰ্বাচন কৰক."
 
@@ -508,13 +455,6 @@ msgstr "জড়িত QoS স্পেক পছন্দ কৰক."
 msgid "Choose consumer for this QoS Spec."
 msgstr "এই QoS স্পেকটোৰ বাবে উপভোক্তা নিৰ্বাচন কৰক."
 
-msgid ""
-"Choose network from Available networks to Selected networks by push button "
-"or drag and drop, you may change NIC order by drag and drop as well. "
-msgstr ""
-"পুছ বাটন বা ড্ৰেগ আৰু ড্ৰপৰ দ্বাৰা নিৰ্বাচিত নেটৱৰ্কবোৰলৈ উপলব্ধ নেটৱৰ্কবোৰৰ পৰা "
-"নেটৱৰ্ক নিৰ্বাচন কৰক, একেদৰে ড্ৰেগ আৰু  ড্ৰপৰ দ্বাৰা আপুনি NIC ক্ৰম সলনি কৰিব পাৰে. "
-
 msgid "Choose the flavor to launch."
 msgstr "আৰম্ভ কৰিবলৈ ফ্লেভাৰটো পছন্দ কৰক."
 
@@ -541,19 +481,6 @@ msgstr "হষ্ট গণনা কৰক"
 
 msgid "Compute Services"
 msgstr "সেৱাবোৰ গণনা কৰক"
-
-msgid "Configuration Drive"
-msgstr "ৰূপৰেখা কৰা চালক"
-
-msgid ""
-"Configure OpenStack to write metadata to a special configuration drive that "
-"attaches to the instance when it boots."
-msgstr ""
-"এটা বিশেষ ৰূপৰেখা ড্ৰাইভলৈ মেটাডাটা লিখিবলৈ মুক্ত ষ্টেক ৰূপৰেখা কৰক সেইটোৱে "
-"উদাহৰণটোৰ সৈতে সংলগ্ন কৰে যেতিয়া এইটো বুট কৰে."
-
-msgid "Confirm Admin Password"
-msgstr "কৰ্তৃপক্ষৰ পাছৱৰ্ড নিশ্চিত কৰক"
 
 msgid "Confirm Password"
 msgstr "পাছৱৰ্ড নিশ্চিত কৰক"
@@ -596,17 +523,6 @@ msgstr "ধাৰকবোৰ"
 
 msgid "Control Location"
 msgstr "স্থান নিয়ন্ত্ৰণ কৰক"
-
-msgid ""
-"Control access to your instance via key pairs, security groups, and other "
-"mechanisms."
-msgstr ""
-"মুখ্য যোৰাবোৰ, সুৰক্ষাৰ গোটবোৰ, আৰু অন্য কাৰিকৰীবোৰৰ যোগেদি আপোনাৰ উদাহৰণলৈ প্ৰৱেশ "
-"নিয়ন্ত্ৰণ কৰক."
-
-#, python-format
-msgid "Cores(Available: %(avail)s, Requested: %(req)s)"
-msgstr "ক'ৰবোৰ(উপলব্ধ: %(avail)s, দাবী কৰা: %(req)s)"
 
 #, python-format
 msgid "Could not find default role \"%s\" in Keystone"
@@ -833,9 +749,6 @@ msgstr "TCP নিয়ম ব্যৱস্থা কৰক"
 msgid "Custom UDP Rule"
 msgstr "UDP নিয়ম ব্যৱস্থা কৰক"
 
-msgid "Customization Script Source"
-msgstr "ব্যৱস্থা কৰা স্ক্ৰিপ্ট উত্স"
-
 msgid "DHCP Agents"
 msgstr "DHCP এজেন্টবোৰ"
 
@@ -914,9 +827,6 @@ msgstr "ডিভাইচ নাম"
 
 msgid "Device Owner"
 msgstr "ডিভাইচৰ গৰাকী"
-
-msgid "Device size (GB)"
-msgstr "ডিভাইচ আকাৰ (GB)"
 
 msgid "Direct Input"
 msgstr "প্ৰত্যক্ষ ইনপুট"
@@ -1344,12 +1254,6 @@ msgstr "%s ৰাউটাৰ আপডেট কৰিবলৈ ব্যৰ্
 msgid "Fault"
 msgstr "ত্ৰূটি"
 
-msgid "File"
-msgstr "ফাইল"
-
-msgid "File exceeds maximum size (16kb)"
-msgstr "ফাইলে সৰ্বাধিক আকাৰ (16kb) অতিক্ৰম কৰিছে"
-
 msgid "Filter"
 msgstr "ফিল্টাৰ কৰক"
 
@@ -1713,9 +1617,6 @@ msgstr "উদাহৰণৰ কাৰ্য তালিকা"
 msgid "Instance Admin Password"
 msgstr "উদাহৰণ কৰ্তৃপক্ষ পাছৱৰ্ড"
 
-msgid "Instance Boot Source"
-msgstr "উদাহৰণ বুট উত্স"
-
 msgid "Instance Console"
 msgstr "উদাহৰণ কনছোল"
 
@@ -1736,9 +1637,6 @@ msgstr "উদাহৰণ পাছৱৰ্ড টো ছেট কৰা ন�
 
 msgid "Instance Security Groups"
 msgstr "উদাহৰণ সুৰক্ষাৰ গোট"
-
-msgid "Instance Snapshot"
-msgstr "উদাহৰণ স্নেপশ্বট"
 
 msgid "Instances"
 msgstr "উদাহৰণবোৰ"
@@ -1808,9 +1706,6 @@ msgstr ""
 msgid "Key Size (bits)"
 msgstr "মুখ্য আকাৰ (bits)"
 
-msgid "Key pair to use for authentication."
-msgstr "বৈধতাৰ বাবে ব্যৱহাৰ কৰিবলৈ মুখ্য যোৰা."
-
 msgid "Key-Value Pairs"
 msgstr "মুখ্য-মান যোৰাবোৰ"
 
@@ -1832,19 +1727,6 @@ msgstr "উদাহৰণ আৰম্ভ কৰক (কোটা অতিক�
 
 msgid "Launch as Instance"
 msgstr "উদাহৰণ হিচাপে আৰম্ভ কৰক"
-
-msgid "Launch instance in these security groups."
-msgstr "এইবোৰ সুৰক্ষাৰ গোটত উদাহৰণ এটা আৰম্ভ কৰক."
-
-msgid "Launch instance with these networks"
-msgstr "এই নেটৱৰ্কবোৰৰ সৈতে উদাহৰণ আৰম্ভ কৰক"
-
-msgid ""
-"Launching multiple instances is only supported for images and instance "
-"snapshots."
-msgstr ""
-"বিভিন্ন উদাহৰণবোৰ আৰম্ভ কৰাটো কেৱল ছবিবোৰ আৰু উদাহৰণ স্নেপশ্বটবোৰৰ বাবে সমৰ্থন কৰা "
-"হয়."
 
 msgid "Length of Injected File Path"
 msgstr "ইনজেক্ট কৰা ফাইল পাথৰ দৈৰ্ঘ"
@@ -2049,9 +1931,6 @@ msgstr "CIDR ফৰমেটত নেটৱৰ্ক ঠিকনা (উদা
 msgid "Network list can not be retrieved."
 msgstr "নেটৱৰক তালিকা উদ্ধাৰ কৰিব পৰা নগল."
 
-msgid "Networking"
-msgstr "নেটৱৰ্কিং"
-
 msgctxt "Task status of an Instance"
 msgid "Networking"
 msgstr "নেটৱৰ্কিং"
@@ -2169,9 +2048,6 @@ msgstr "কোনো সুৰক্ষাৰ গোট সক্ষম কৰ�
 msgid "No security groups found."
 msgstr "কোনো সুৰক্ষাৰ গোট বিচাৰি পোৱা নগল."
 
-msgid "No snapshots available"
-msgstr "কোনো স্নেপশ্বট উপলব্ধ নাই"
-
 msgid "No source, empty volume"
 msgstr "কোনো উত্স নাই, খালী আয়তন"
 
@@ -2183,9 +2059,6 @@ msgstr "কোনো ব্যৱহাৰকৰ্তা বিচাৰি প
 
 msgid "No users."
 msgstr "কোনো ব্যৱহাৰকৰ্তা নাই."
-
-msgid "No volume snapshots available"
-msgstr "কোনো আয়তন স্নেপশ্বট উপলব্ধ নাই"
 
 msgid "No volume type"
 msgstr "কোনো আয়তন প্ৰকাৰ নাই"
@@ -2327,9 +2200,6 @@ msgstr "জড়িত হবলগীয়া পোৰ্ট"
 msgid "Ports"
 msgstr "পোৰ্টবোৰ"
 
-msgid "Post-Creation"
-msgstr "আগতীয়া-তৈয়াৰীটো"
-
 msgid "Power State"
 msgstr "শক্তিৰ অৱস্থা"
 
@@ -2353,9 +2223,6 @@ msgstr "ব্যক্তিগত মুখ্য ফাইল"
 
 msgid "Project"
 msgstr "প্ৰক্ষেপ"
-
-msgid "Project & User"
-msgstr "প্ৰক্ষেপ & ব্যৱহাৰকৰ্তা"
 
 msgid "Project Groups"
 msgstr "প্ৰক্ষেপ গোটবোৰ"
@@ -2441,10 +2308,6 @@ msgstr "RAM (মুঠ)"
 
 msgid "RAM (used)"
 msgstr "RAM (ব্যৱহৃত)"
-
-#, python-format
-msgid "RAM(Available: %(avail)s, Requested: %(req)s)"
-msgstr "RAM(উপলব্ধ: %(avail)s, দাবী কৰা: %(req)s)"
 
 msgid "Ramdisk ID"
 msgstr "ৰেমডিস্ক ID"
@@ -2679,12 +2542,6 @@ msgctxt "Task status of an Instance"
 msgid "Scheduling"
 msgstr "কাৰ্যসূচী নিৰ্ধাৰণ কৰিছে"
 
-msgid "Script Data"
-msgstr "স্ক্ৰিপ্ট ডাটা"
-
-msgid "Script File"
-msgstr "স্ক্ৰিপ্ট ফাইল"
-
 msgid "Security Group"
 msgstr "সুৰক্ষাৰ গোট"
 
@@ -2703,20 +2560,11 @@ msgstr "খণ্ড কৰা ID:"
 msgid "Select Image"
 msgstr "নিৰ্বাচিত ছবি"
 
-msgid "Select Instance Snapshot"
-msgstr "উদাহৰণ স্নেপশ্বট নিৰ্বাচন কৰক"
-
-msgid "Select Script Source"
-msgstr "স্ক্ৰিপ্ট উত্স নিৰ্বাচন কৰক"
-
 msgid "Select Subnet"
 msgstr "উপনেট নিৰ্বাচন কৰক"
 
 msgid "Select Volume"
 msgstr "আয়তন নিৰ্বাচন কৰক"
-
-msgid "Select Volume Snapshot"
-msgstr "আয়তন স্নেপশ্বট নিৰ্বাচন কৰক"
 
 msgid "Select a New Flavor"
 msgstr "নতুন ফ্লেভাৰ এটা নিৰ্বাচন কৰক"
@@ -2757,12 +2605,6 @@ msgstr "ফৰমেট নিৰ্বাচন কৰক"
 msgid "Select network"
 msgstr "নেটৱৰ্ক নিৰ্বাচন কৰক"
 
-msgid "Select networks for your instance."
-msgstr "আপোনাৰ উদাহৰণৰ বাবে নেটৱৰ্কবোৰ নিৰ্বাচন কৰক."
-
-msgid "Select source"
-msgstr "উত্স নিৰ্বাচন কৰক"
-
 msgid "Select the image to rebuild your instance."
 msgstr "আপোনাৰ উদাহৰণ পুনৰ তৈয়াৰ কৰিবলৈ ছবি এটা নিৰ্বাচন কৰক."
 
@@ -2781,9 +2623,6 @@ msgstr "নিৰ্বাচিত প্ৰক্ষেপবোৰ"
 
 msgid "Selected hosts"
 msgstr "হষ্টবোৰ নিৰ্বাচন কৰক"
-
-msgid "Selected networks"
-msgstr "নেটৱৰ্কবোৰ নিৰ্বাচিত কৰা হল"
 
 msgid "Server error"
 msgstr "ছাৰ্ভাৰৰ ভুল"
@@ -2869,9 +2708,6 @@ msgstr "ছাইন আউট কৰক"
 msgid "Size"
 msgstr "আকাৰ"
 
-msgid "Size of image to launch."
-msgstr "আৰম্ভ কৰিবলৈ ছবিৰ আকাৰ."
-
 msgid "Slash is not an allowed character."
 msgstr "শ্লেছটো এটা অনুমোদিত আখৰ নহয়."
 
@@ -2928,18 +2764,12 @@ msgstr ""
 msgid "Specify additional attributes for the subnet."
 msgstr "উপনেটটোৰ বাবে অতিৰিক্ত উপাদনাবোৰ নিৰ্ধাৰণ কৰক."
 
-msgid "Specify advanced options to use when launching an instance."
-msgstr "উদাহৰণ এটা আৰম্ভ কৰোতে ব্যৱহাৰ কৰিবলৈ উন্নত বিকল্পবোৰ নিৰ্দিষ্ট কৰক."
-
 msgid "Specify an IP address for the interface created (e.g. 192.168.0.254)."
 msgstr ""
 "ইন্টাৰফেছ তৈয়াৰ কৰাৰ বাবে IP ঠিকনা এটা নিৰ্দিষ্ট কৰক (উদাহৰণ. 192.168.0.254)."
 
 msgid "Specify an image to upload to the Image Service."
 msgstr "ছবি সেৱাটো আপলোড কৰিবলৈ ছবি এটা নিৰ্ধাৰণ কৰক."
-
-msgid "Specify the details for launching an instance."
-msgstr "উদাহৰণ এটা আৰম্ভ কৰিবৰ বাবে পূংখানুপূংখবোৰ নিৰ্দিষ্ট কৰক."
 
 msgid "Specs"
 msgstr "স্পেকবোৰ"
@@ -3137,31 +2967,8 @@ msgstr ""
 msgid "The Key Pair name that was associated with the instance"
 msgstr "মুখ্য যোৰা নামটো যিটো উদাহৰণটোৰ সৈতে জড়িত আছিল"
 
-#, python-format
-msgid ""
-"The Volume size is too small for the '%(image_name)s' image and has to be "
-"greater than or equal to '%(smallest_size)d' GB."
-msgstr ""
-"'%(image_name)s' ছবিটোৰ বাবে আয়তনৰ আকাৰটো অতি সৰু আৰু '%(smallest_size)d' GB "
-"তকৈ ডাঙৰ বা সৰু."
-
-msgid ""
-"The chart below shows the resources used by this project in relation to the "
-"project's quotas."
-msgstr ""
-"তলৰ তালিকাখনে প্ৰকল্পৰ কোটাবোৰ সম্পৰ্কত এই প্ৰকল্পটোৰ দ্বাৰা ব্যৱহাৰ কৰা সম্পদবোৰ "
-"দেখুৱায়."
-
 msgid "The container cannot be deleted since it is not empty."
 msgstr "ধাৰকটো ডিলিট কৰিব নোৱাৰি যিহেতু এইটো খালী নহয়."
-
-#, python-format
-msgid ""
-"The flavor '%(flavor)s' is too small for requested image.\n"
-"Minimum requirements: %(min_ram)s MB of RAM and %(min_disk)s GB of Root Disk."
-msgstr ""
-"দাবী কৰা ছবিটোৰ বাবে '%(flavor)s' ফ্লেভাৰটো অতি সৰু.\n"
-"নূন্যতম প্ৰয়োজনীয়তাবোৰ: RAM ৰ %(min_ram)s MB  আৰু মুখ্য ডিস্কৰ %(min_disk)s GB."
 
 msgid "The instance password encrypted with your public key."
 msgstr "আপোনাৰ ৰাজহুৱা কীৰ সৈতে উদাহৰণ পাছৱৰ্ডটো এনক্ৰিপ্ট কৰা হল."
@@ -3204,14 +3011,6 @@ msgstr "ব্যক্তিগত কীটো কেৱল আপোনাৰ
 msgid "The pseudo folder cannot be deleted since it is not empty."
 msgstr "ছিউড' ফল্ডাৰটো ডিলিট কৰিব পৰা নগল যিহেতু এইটো খালী নহয়."
 
-#, python-format
-msgid ""
-"The requested instance cannot be launched. The following requested "
-"resource(s) exceed quota(s): %s."
-msgstr ""
-"দাবী কৰা উদাহৰণটো আৰম্ভ কৰিব পৰা নগল. নিম্নোক্ত দাবী কৰা সম্পদটোৱে (বোৰ) "
-"কোটা(বোৰ) অতিক্ৰম কৰিছে: %s."
-
 msgid ""
 "The requested instance port is already associated with another floating IP."
 msgstr "দাবী কৰা উদাৰণটো ইতিমধ্যে অন্য ফ্লটিং IP ৰ সৈতে জড়িত হৈছে."
@@ -3236,10 +3035,6 @@ msgid ""
 msgstr ""
 "নিৰ্বাচিত উপলব্ধতাৰ মণ্ডলটোত এই ফ্লেভাৰটোৰ বাবে যথেষ্ট ঠাই নাই. অনুগ্ৰহ কৰি পিছত "
 "পুনৰ চেষ্টা কৰক বা এটা বেলেগ উপলব্ধতাৰ মণ্ডল নিৰ্বাচনক কৰক."
-
-#, python-format
-msgid "There was a problem parsing the %(prefix)s: %(error)s"
-msgstr "%(prefix)s টো ভাগ কৰোতে এটা সমস্যা আছিল: %(error)s"
 
 msgid ""
 "This generates a pair of keys: a key you keep private (cloud.key) and a "
@@ -3474,10 +3269,6 @@ msgstr "উপলব্ধ হষ্টবোৰ লাভ কৰিবলৈ �
 msgid "Unable to import key pair."
 msgstr "মুখ্য যোৰা আমদানি কৰিবলৈ অক্ষম."
 
-#, python-format
-msgid "Unable to launch %(count)s named \"%(name)s\"."
-msgstr "\"%(name)s\" নামৰ %(count)s আৰম্ভ কৰিবলৈ অক্ষম."
-
 msgid "Unable to list dhcp agents hosting network."
 msgstr "এজেন্টবোৰ হষ্ট কৰা নেটৱৰ্ক তালিকা কৰিবলৈ অক্ষম."
 
@@ -3595,9 +3386,6 @@ msgstr "ক্ষেত্ৰ তথ্য উদ্ধাৰ কৰিবলৈ
 msgid "Unable to retrieve domain list."
 msgstr "ক্ষেত্ৰ তালিকা উদ্ধাৰ কৰিবলৈ অক্ষম."
 
-msgid "Unable to retrieve extensions information."
-msgstr "সম্প্ৰসাৰিতবোৰৰ তথ্য উদ্ধাৰ কৰিবলৈ অক্ষম."
-
 msgid "Unable to retrieve extra spec list."
 msgstr "অতিৰিক্ত স্পেক তালিকা উদ্ধাৰ কৰিবলৈ অক্ষম."
 
@@ -3696,12 +3484,6 @@ msgstr "মুখ্য যোৰা তালিকা উদ্ধাৰ ক�
 
 msgid "Unable to retrieve key pairs."
 msgstr "মুখ্য যোৰাবোৰ উদ্ধাৰ কৰিবলৈ অক্ষম."
-
-msgid "Unable to retrieve list of security groups"
-msgstr "সুৰক্ষিত গোটবোৰৰ তালিকা উদ্ধাৰ কৰিবলৈ অক্ষম"
-
-msgid "Unable to retrieve list of volume snapshots."
-msgstr "আয়তন স্নেপশ্বটবোৰৰ তালিকা উদ্ধাৰ কৰিবলৈ অক্ষম."
 
 msgid "Unable to retrieve list of volumes."
 msgstr "আয়তনবোৰৰ তালিকা উদ্ধাৰ কৰিবলৈ অক্ষম."
@@ -4052,9 +3834,6 @@ msgstr "এটা উত্স হিচাপে স্নেপশ্বট �
 msgid "Used <span> %(used)s </span> of <span> %(available)s </span>"
 msgstr "<span> %(available)s </span> ৰ <span> %(used)s </span> ব্যৱহাৰ কৰা হল"
 
-msgid "User"
-msgstr "ব্যৱহাৰকৰ্তা"
-
 #, python-format
 msgid "User \"%s\" was successfully created."
 msgstr "\"%s\" ব্যৱহাৰকৰ্তা সফলতাৰে তৈয়াৰ কৰা হল."
@@ -4139,9 +3918,6 @@ msgstr "আয়তন সীমাবোৰ"
 msgid "Volume Name"
 msgstr "আয়তনৰ নাম"
 
-msgid "Volume Snapshot"
-msgstr "আয়তন স্নেপশ্বট"
-
 msgid "Volume Snapshots"
 msgstr "আয়নত স্নেপশ্বট"
 
@@ -4171,22 +3947,9 @@ msgstr "আয়তন প্ৰকাৰ: %(volume_type_name)s "
 msgid "Volume Types"
 msgstr "আয়তন প্ৰকাৰবোৰ"
 
-msgid ""
-"Volume mount point (e.g. 'vda' mounts at '/dev/vda'). Leave this field blank "
-"to let the system choose a device name for you."
-msgstr ""
-"আয়তন মাউন্ট বিন্দু (উদাহৰণ '/dev/vda' ত 'vda' মাউন্টবোৰ). আপোনাৰ বাবে ছিষ্টেমে "
-"ডিভাইচ নাম এটা পছন্দ কৰিবৰ বাবে এই ক্ষেত্ৰখন খালী এৰক."
-
-msgid "Volume size in gigabytes (integer value)."
-msgstr "জিগাবাইটবোৰত আয়তনৰ আকাৰ (অখণ্ড মান)."
-
 #, python-format
 msgid "Volume size must be equal to or greater than the image size (%s)"
 msgstr "আয়তনৰ আকাৰটো ছবিৰ আকাৰতকৈ ডাঙৰ বা সমান হোৱাটো অপৰিহাৰ্য (%s)"
-
-msgid "Volume size must be greater than 0"
-msgstr "আয়তন আকাৰটো 0 তকৈ ডাঙৰ হোৱাটো অপৰিহাৰ্য"
 
 msgid "Volume source must be specified"
 msgstr "আয়তন উত্স নিৰ্ধাৰণ কৰাটো অপৰিহাৰ্য"
@@ -4227,13 +3990,6 @@ msgstr ""
 "কৰা হব."
 
 msgid ""
-"You can customize your instance after it has launched using the options "
-"available here."
-msgstr ""
-"ইয়াত উপলব্ধ বিকল্পবোৰ ব্যৱহাৰ কৰি এইটো আৰম্ভ কৰাৰ পিছত আপুনি আপোনাৰ উদাহৰণৰ "
-"ব্যৱস্থা কৰিব পাৰে."
-
-msgid ""
 "You can specify the desired rule template or use custom rules, the options "
 "are Custom TCP Rule, Custom UDP Rule, or Custom ICMP Rule."
 msgstr ""
@@ -4270,18 +4026,6 @@ msgstr "ইয়াত আপুনি আপোনাৰ নেটৱৰ্কৰ
 msgid "You may update the editable properties of your router here."
 msgstr "আপুনি ইয়াত আপোনাৰ ৰাউটাৰৰ সম্পাদনযোগ্য সম্পত্তিবোৰ আপডেট কৰিব পাৰে."
 
-msgid "You must select a snapshot."
-msgstr "আপুনি স্নেপশ্বট এটা নিৰ্বাচন কৰাটো অপৰিহাৰ্য."
-
-msgid "You must select a volume."
-msgstr "আপুনি আয়তন এটা নিৰ্বাচন কৰাটো অপৰিহাৰ্য."
-
-msgid "You must select an image."
-msgstr "আপুনি ছবি এটা নিৰ্বাচন কৰাটো অপৰিহাৰ্য."
-
-msgid "You must set volume size"
-msgstr "আপুনি আয়তন প্ৰকাৰ ছেট কৰাটো অপৰিহাৰ্য"
-
 msgid ""
 "You must specify the source of the traffic to be allowed via this rule. You "
 "may do so either in the form of an IP address block (CIDR) or via a source "
@@ -4314,9 +4058,6 @@ msgstr "dm-ক্ৰিপ্ট"
 
 msgid "front-end"
 msgstr "সন্মুখফাল"
-
-msgid "instance"
-msgstr "উদাহৰণ"
 
 msgid "undefined"
 msgstr "অনিৰ্ধাৰিত "
