@@ -236,11 +236,12 @@ def server_group_field_data(request):
     return [("", _("No server groups available")), ]
 
 
-def resolve_flavor(request, instance, **kwargs):
+def resolve_flavor(request, instance, flavors=None, **kwargs):
     """Resolves name of instance flavor independent of API microversion
 
     :param request: django http request object
     :param instance: api._nova.Server instance to resolve flavor
+    :param flavors: dict of flavors already retrieved
     :param kwargs: flavor parameters to return if hit some flavor discrepancy
     :return: flavor name or default placeholder
     """
@@ -252,8 +253,12 @@ def resolve_flavor(request, instance, **kwargs):
         """
         return namedtuple('Flavor', flavor_dict.keys())(*flavor_dict.values())
 
+    if flavors is None:
+        flavors = {}
     flavor_id = instance.flavor.get('id')
     if flavor_id:  # Nova API <=2.46
+        if flavor_id in flavors:
+            return flavors[flavor_id]
         try:
             return api.nova.flavor_get(request, flavor_id)
         except Exception:

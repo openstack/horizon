@@ -588,8 +588,9 @@ class ResizeView(workflows.WorkflowView):
             redirect = reverse("horizon:project:instances:index")
             msg = _('Unable to retrieve instance details.')
             exceptions.handle(self.request, msg, redirect=redirect)
-        instance.flavor_name = instance_utils.resolve_flavor(self.request,
-                                                             instance).name
+        flavors = self.get_flavors()
+        flavor = instance_utils.resolve_flavor(self.request, instance, flavors)
+        instance.flavor_name = flavor.name
         return instance
 
     @memoized.memoized_method
