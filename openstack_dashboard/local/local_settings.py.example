@@ -237,6 +237,14 @@ LOGGING = {
             'level': 'DEBUG',
             'propagate': False,
         },
+        # VariableDoesNotExist error in the debug level from django.template
+        # is VERY noisy and it is output even for valid cases,
+        # so set the default log level of django.template to INFO.
+        'django.template': {
+            'handlers': ['console'],
+            'level': 'INFO',
+            'propagate': False,
+        },
         # Logging from django.db.backends is VERY verbose, send to null
         # by default.
         'django.db.backends': {
