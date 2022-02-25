@@ -532,10 +532,10 @@ class FloatingIpTarget(base.APIDictWrapper):
     :param ip_address: IP address of the ``port``. It must be one of
         IP address of a given port.
     :param label: String displayed in the floating IP association form.
-        IP address will be appended to a specified label.
+        IP address will be appended to a specified label. (Optional)
     """
 
-    def __init__(self, port, ip_address, label):
+    def __init__(self, port, ip_address, label=None):
         name = '%s: %s' % (label, ip_address) if label else ip_address
         target = {'name': name,
                   'id': '%s_%s' % (port.id, ip_address),
@@ -670,8 +670,7 @@ class FloatingIpManager(object):
         ``port_id`` represents a VNIC of an instance.
         ``port_id`` argument is different from a normal neutron port ID.
         A value passed as ``port_id`` must be one of target_id returned by
-        ``list_targets``, ``get_target_by_instance`` or
-        ``list_targets_by_instance`` method.
+        ``list_targets`` or ``list_targets_by_instance`` method.
         """
         # NOTE: In Neutron Horizon floating IP support, port_id is
         # "<port_id>_<ip_address>" format to identify multiple ports.
