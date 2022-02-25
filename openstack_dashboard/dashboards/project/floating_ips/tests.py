@@ -90,7 +90,7 @@ class FloatingIpViewTests(test.TestCase):
         for p in self._get_compute_ports():
             for ip in p.fixed_ips:
                 targets.append(api.neutron.FloatingIpTarget(
-                    p, ip['ip_address'], server_dict[p.device_id]))
+                    p, ip['ip_address'], server_dict.get(p.device_id)))
         return targets
 
     @staticmethod

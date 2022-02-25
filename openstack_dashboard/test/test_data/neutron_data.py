@@ -222,6 +222,26 @@ def data(TEST):
     TEST.api_ports.add(port_dict)
     TEST.ports.add(neutron.Port(port_dict))
 
+    # unbound port on 1st network
+    port_dict = {
+        'admin_state_up': True,
+        'device_id': '',
+        'device_owner': '',
+        'fixed_ips': [{'ip_address': '10.0.0.5',
+                       'subnet_id': subnet_dict['id']}],
+        'id': 'a5aa0d62-cd5f-4e7d-b022-4ff63f981bcd',
+        'mac_address': 'fa:16:3e:ce:e0:f8',
+        'name': '',
+        'network_id': network_dict['id'],
+        'status': 'DOWN',
+        'tenant_id': network_dict['tenant_id'],
+        'binding:vnic_type': 'normal',
+        'binding:host_id': '',
+        'security_groups': [],
+    }
+    TEST.api_ports.add(port_dict)
+    TEST.ports.add(neutron.Port(port_dict))
+
     # 2nd network.
     network_dict = {'admin_state_up': True,
                     'id': '72c3ab6c-c80f-4341-9dc5-210fa31ac6c2',

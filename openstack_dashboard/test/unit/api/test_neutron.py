@@ -2488,9 +2488,11 @@ class NeutronApiFloatingIpTests(test.APIMockTestCase):
         return '%(id)s_%(addr)s' % param
 
     def _get_target_name(self, port, ip=None):
-        param = {'svrid': port['device_id'],
-                 'addr': ip or port['fixed_ips'][0]['ip_address']}
-        return 'server_%(svrid)s: %(addr)s' % param
+        ip_address = ip or port['fixed_ips'][0]['ip_address']
+        if port['device_id']:
+            return 'server_%s: %s' % (port['device_id'], ip_address)
+        else:
+            return ip_address
 
     @override_settings(
         OPENSTACK_NEUTRON_NETWORK={

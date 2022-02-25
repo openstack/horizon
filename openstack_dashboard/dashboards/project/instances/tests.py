@@ -3054,11 +3054,14 @@ class ConsoleManagerTests(helpers.ResetImageAPIVersionMixin, helpers.TestCase):
                                          'port_list_with_trunk_types')})
     def test_interface_attach_get(self):
         server = self.servers.first()
-        self.mock_network_list_for_tenant.side_effect = [
-            self.networks.list()[:1],
-            [],
-        ]
-        self.mock_port_list_with_trunk_types.return_value = self.ports.list()
+        tenant_networks = [net for net in self.networks.list()
+                           if not net['router:external']]
+        net1 = tenant_networks[0]
+        self.mock_network_list_for_tenant.return_value = tenant_networks
+        ports = self.ports.list()
+        # Pick up the first unbound port for check
+        unbound_port = [p for p in ports if not p.device_owner][0]
+        self.mock_port_list_with_trunk_types.return_value = ports
 
         url = reverse('horizon:project:instances:attach_interface',
                       args=[server.id])
@@ -3066,6 +3069,13 @@ class ConsoleManagerTests(helpers.ResetImageAPIVersionMixin, helpers.TestCase):
 
         self.assertTemplateUsed(res,
                                 'project/instances/attach_interface.html')
+        expected_label = (
+            '%(port_name)s (%(ip_address)s) - %(net_name)s'
+            % {'port_name': unbound_port.name_or_id,
+               'ip_address': unbound_port.fixed_ips[0]['ip_address'],
+               'net_name': net1.name_or_id}
+        )
+        self.assertContains(res, expected_label)
         self.mock_network_list_for_tenant.assert_has_calls([
             mock.call(helpers.IsHttpRequest(), self.tenant.id),
             mock.call(helpers.IsHttpRequest(), self.tenant.id),
@@ -3077,21 +3087,31 @@ class ConsoleManagerTests(helpers.ResetImageAPIVersionMixin, helpers.TestCase):
     @helpers.create_mocks({api.neutron: ('network_list_for_tenant',
                                          'port_list_with_trunk_types'),
                            api.nova: ('interface_attach',)})
-    def test_interface_attach_post(self):
+    def _test_interface_attach_post(self, by_port=False):
         fixed_ip = '10.0.0.10'
         server = self.servers.first()
         network = self.networks.first()
-        self.mock_network_list_for_tenant.side_effect = [
-            [network],
-            [],
-        ]
-        self.mock_port_list_with_trunk_types.return_value = self.ports.list()
+        ports = self.ports.list()
+        # Pick up the first unbound port for check
+        unbound_port = [p for p in ports if not p.device_owner][0]
+
+        self.mock_network_list_for_tenant.return_value = [network]
+        self.mock_port_list_with_trunk_types.return_value = ports
         self.mock_interface_attach.return_value = None
 
-        form_data = {'instance_id': server.id,
-                     'network': network.id,
-                     'specification_method': 'network',
-                     'fixed_ip': fixed_ip}
+        if by_port:
+            form_data = {
+                'instance_id': server.id,
+                'specification_method': 'port',
+                'port': unbound_port.id,
+            }
+        else:
+            form_data = {
+                'instance_id': server.id,
+                'specification_method': 'network',
+                'network': network.id,
+                'fixed_ip': fixed_ip,
+            }
 
         url = reverse('horizon:project:instances:attach_interface',
                       args=[server.id])
@@ -3107,9 +3127,20 @@ class ConsoleManagerTests(helpers.ResetImageAPIVersionMixin, helpers.TestCase):
         self.assertEqual(2, self.mock_network_list_for_tenant.call_count)
         self.mock_port_list_with_trunk_types.assert_called_once_with(
             helpers.IsHttpRequest(), tenant_id=self.tenant.id)
-        self.mock_interface_attach.assert_called_once_with(
-            helpers.IsHttpRequest(), server.id,
-            net_id=network.id, fixed_ip=fixed_ip, port_id=None)
+        if by_port:
+            self.mock_interface_attach.assert_called_once_with(
+                helpers.IsHttpRequest(), server.id,
+                net_id=None, fixed_ip=None, port_id=unbound_port.id)
+        else:
+            self.mock_interface_attach.assert_called_once_with(
+                helpers.IsHttpRequest(), server.id,
+                net_id=network.id, fixed_ip=fixed_ip, port_id=None)
+
+    def test_interface_attach_post_by_network(self):
+        self._test_interface_attach_post()
+
+    def test_interface_attach_post_by_port(self):
+        self._test_interface_attach_post(by_port=True)
 
     @helpers.create_mocks({api.cinder: ('volume_list',)})
     def test_volume_attach_get(self):
