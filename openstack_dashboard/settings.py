@@ -82,6 +82,7 @@ MIDDLEWARE = (
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'horizon.middleware.OperationLogMiddleware',
+    'horizon.middleware.SimultaneousSessionsMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'horizon.middleware.HorizonMiddleware',
     'horizon.themes.ThemeMiddleware',

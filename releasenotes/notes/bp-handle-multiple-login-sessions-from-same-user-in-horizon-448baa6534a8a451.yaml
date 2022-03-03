@@ -1,0 +1,11 @@
+features:
+  - |
+    [:blueprint:`handle-multiple-login-sessions-from-same-user-in-horizon`]
+    This blueprint allows operators to control if multiple simultaneous
+    dashboard sessions are allowed or not for a user. A new setting
+    ``SIMULTANEOUS_SESSIONS`` controls the behavior. The default behavior
+    allows multiple dashboard sessions for a user. The new setting allows
+    operators to configure horizon to disallow multiple sessions per user.
+    When multiple simultaneous sessions are disabled, the most recent
+    authenticated session will be considered as the valid one and
+    the previous session will be invalidated.
