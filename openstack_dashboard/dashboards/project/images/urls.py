@@ -18,7 +18,7 @@
 
 from django.conf.urls import include
 from django.conf.urls import url
-from django.utils.translation import ugettext_lazy as _
+from django.utils.translation import gettext_lazy as _
 
 from horizon.browsers.views import AngularIndexView
 from openstack_dashboard.dashboards.project.images.images \

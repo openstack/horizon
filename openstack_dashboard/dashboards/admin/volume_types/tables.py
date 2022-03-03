@@ -12,8 +12,8 @@
 
 from django.template import defaultfilters as filters
 from django.urls import reverse
-from django.utils.translation import ugettext_lazy as _
-from django.utils.translation import ungettext_lazy
+from django.utils.translation import gettext_lazy as _
+from django.utils.translation import ngettext_lazy
 
 from horizon import exceptions
 from horizon import forms
@@ -74,7 +74,7 @@ class ManageQosSpecAssociation(tables.LinkAction):
 class DeleteVolumeType(tables.DeleteAction):
     @staticmethod
     def action_present(count):
-        return ungettext_lazy(
+        return ngettext_lazy(
             "Delete Volume Type",
             "Delete Volume Types",
             count
@@ -82,7 +82,7 @@ class DeleteVolumeType(tables.DeleteAction):
 
     @staticmethod
     def action_past(count):
-        return ungettext_lazy(
+        return ngettext_lazy(
             "Deleted Volume Type",
             "Deleted Volume Types",
             count
@@ -125,7 +125,7 @@ class DeleteVolumeTypeEncryption(tables.DeleteAction):
 
     @staticmethod
     def action_present(count):
-        return ungettext_lazy(
+        return ngettext_lazy(
             "Delete Encryption",
             "Delete Encryptions",
             count
@@ -133,7 +133,7 @@ class DeleteVolumeTypeEncryption(tables.DeleteAction):
 
     @staticmethod
     def action_past(count):
-        return ungettext_lazy(
+        return ngettext_lazy(
             "Deleted Encryption",
             "Deleted Encryptions",
             count
@@ -292,7 +292,7 @@ class CreateQosSpec(tables.LinkAction):
 class DeleteQosSpecs(tables.DeleteAction):
     @staticmethod
     def action_present(count):
-        return ungettext_lazy(
+        return ngettext_lazy(
             "Delete QoS Spec",
             "Delete QoS Specs",
             count
@@ -300,7 +300,7 @@ class DeleteQosSpecs(tables.DeleteAction):
 
     @staticmethod
     def action_past(count):
-        return ungettext_lazy(
+        return ngettext_lazy(
             "Deleted QoS Spec",
             "Deleted QoS Specs",
             count

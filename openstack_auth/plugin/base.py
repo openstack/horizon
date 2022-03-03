@@ -14,7 +14,7 @@ import abc
 import logging
 import re
 
-from django.utils.translation import ugettext_lazy as _
+from django.utils.translation import gettext_lazy as _
 from keystoneauth1 import exceptions as keystone_exceptions
 from keystoneclient.v3 import client as v3_client
 

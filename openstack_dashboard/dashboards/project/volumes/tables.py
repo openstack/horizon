@@ -20,10 +20,10 @@ from django.utils import html
 from django.utils.http import urlencode
 from django.utils import safestring
 from django.utils.text import format_lazy
+from django.utils.translation import gettext_lazy as _
+from django.utils.translation import ngettext_lazy
 from django.utils.translation import npgettext_lazy
 from django.utils.translation import pgettext_lazy
-from django.utils.translation import ugettext_lazy as _
-from django.utils.translation import ungettext_lazy
 
 from horizon import exceptions
 from horizon import messages
@@ -96,7 +96,7 @@ class DeleteVolume(VolumePolicyTargetMixin, tables.DeleteAction):
 
     @staticmethod
     def action_present(count):
-        return ungettext_lazy(
+        return ngettext_lazy(
             "Delete Volume",
             "Delete Volumes",
             count
@@ -104,7 +104,7 @@ class DeleteVolume(VolumePolicyTargetMixin, tables.DeleteAction):
 
     @staticmethod
     def action_past(count):
-        return ungettext_lazy(
+        return ngettext_lazy(
             "Scheduled deletion of Volume",
             "Scheduled deletion of Volumes",
             count

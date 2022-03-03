@@ -26,7 +26,7 @@ import logging
 import netaddr
 
 from django.conf import settings
-from django.utils.translation import ugettext_lazy as _
+from django.utils.translation import gettext_lazy as _
 from neutronclient.common import exceptions as neutron_exc
 from neutronclient.v2_0 import client as neutron_client
 from novaclient import exceptions as nova_exc

@@ -22,7 +22,7 @@ import os
 import sys
 import warnings
 
-from django.utils.translation import ugettext_lazy as _
+from django.utils.translation import gettext_lazy as _
 
 from horizon.utils.escape import monkeypatch_escape
 

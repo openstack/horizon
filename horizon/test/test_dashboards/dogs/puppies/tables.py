@@ -10,7 +10,7 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
-from django.utils.translation import ungettext_lazy
+from django.utils.translation import ngettext_lazy
 
 from horizon import tables
 
@@ -27,7 +27,7 @@ class SellPuppy(tables.DeleteAction):
     @staticmethod
     def action_present(count):
         # Translators: test code, don't really have to translate
-        return ungettext_lazy(
+        return ngettext_lazy(
             "Sell Puppy",
             "Sell Puppies",
             count
@@ -36,7 +36,7 @@ class SellPuppy(tables.DeleteAction):
     @staticmethod
     def action_past(count):
         # Translators: test code, don't really have to translate
-        return ungettext_lazy(
+        return ngettext_lazy(
             "Sold Puppy",
             "Sold Puppies",
             count

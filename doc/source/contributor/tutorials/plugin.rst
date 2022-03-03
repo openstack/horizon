@@ -190,7 +190,7 @@ necessity even for Angular plugins. The slug is the panel's unique identifier
 and is often use as part of the URL. Make sure that it matches what you have in
 your enabled file.::
 
-    from django.utils.translation import ugettext_lazy as _
+    from django.utils.translation import gettext_lazy as _
     import horizon
 
 

@@ -69,7 +69,7 @@ Create the ``forms.py`` file under the ``mypanel`` directory and add the
 following::
 
     from django.urls import reverse
-    from django.utils.translation import ugettext_lazy as _
+    from django.utils.translation import gettext_lazy as _
 
     from horizon import exceptions
     from horizon import forms
@@ -107,7 +107,7 @@ file should now look something like this::
 
     from django.urls import reverse
     from django.urls import reverse_lazy
-    from django.utils.translation import ugettext_lazy as _
+    from django.utils.translation import gettext_lazy as _
 
     from horizon import tabs
     from horizon import exceptions
@@ -232,7 +232,7 @@ We must also add our new action as a row action for the table::
 
 The complete ``tables.py`` file should look like this::
 
-    from django.utils.translation import ugettext_lazy as _
+    from django.utils.translation import gettext_lazy as _
 
     from horizon import tables
 

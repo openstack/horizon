@@ -11,8 +11,8 @@
 # under the License.
 
 from django.template import defaultfilters
-from django.utils.translation import ugettext_lazy as _
-from django.utils.translation import ungettext_lazy
+from django.utils.translation import gettext_lazy as _
+from django.utils.translation import ngettext_lazy
 
 from horizon import forms
 from horizon import tables
@@ -75,12 +75,12 @@ class ToggleEnabled(policy.PolicyTargetMixin, tables.BatchAction):
     @staticmethod
     def action_present(count):
         return (
-            ungettext_lazy(
+            ngettext_lazy(
                 "Enable User",
                 "Enable Users",
                 count
             ),
-            ungettext_lazy(
+            ngettext_lazy(
                 "Disable User",
                 "Disable Users",
                 count
@@ -90,12 +90,12 @@ class ToggleEnabled(policy.PolicyTargetMixin, tables.BatchAction):
     @staticmethod
     def action_past(count):
         return (
-            ungettext_lazy(
+            ngettext_lazy(
                 "Enabled User",
                 "Enabled Users",
                 count
             ),
-            ungettext_lazy(
+            ngettext_lazy(
                 "Disabled User",
                 "Disabled Users",
                 count
@@ -133,7 +133,7 @@ class ToggleEnabled(policy.PolicyTargetMixin, tables.BatchAction):
 class DeleteUsersAction(policy.PolicyTargetMixin, tables.DeleteAction):
     @staticmethod
     def action_present(count):
-        return ungettext_lazy(
+        return ngettext_lazy(
             "Delete User",
             "Delete Users",
             count
@@ -141,7 +141,7 @@ class DeleteUsersAction(policy.PolicyTargetMixin, tables.DeleteAction):
 
     @staticmethod
     def action_past(count):
-        return ungettext_lazy(
+        return ngettext_lazy(
             "Deleted User",
             "Deleted Users",
             count

@@ -13,8 +13,8 @@
 
 from django.template import defaultfilters as filters
 from django.urls import reverse
-from django.utils.translation import ugettext_lazy as _
-from django.utils.translation import ungettext_lazy
+from django.utils.translation import gettext_lazy as _
+from django.utils.translation import ngettext_lazy
 
 from horizon import exceptions
 from horizon import forms
@@ -62,7 +62,7 @@ class GroupTypesFilterAction(tables.FilterAction):
 class DeleteGroupType(tables.DeleteAction):
     @staticmethod
     def action_present(count):
-        return ungettext_lazy(
+        return ngettext_lazy(
             "Delete Group Type",
             "Delete Group Types",
             count
@@ -70,7 +70,7 @@ class DeleteGroupType(tables.DeleteAction):
 
     @staticmethod
     def action_past(count):
-        return ungettext_lazy(
+        return ngettext_lazy(
             "Deleted Group Type",
             "Deleted Group Types",
             count

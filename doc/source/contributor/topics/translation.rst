@@ -119,9 +119,9 @@ scenarios, such as interpolation, contextual markers and translation comments.
 
 .. code-block:: python
 
+  from django.utils.translation import gettext as _
+  from django.utils.translation import ngettext
   from django.utils.translation import pgettext
-  from django.utils.translation import ugettext as _
-  from django.utils.translation import ungettext
 
   class IndexView(request):
 
@@ -129,7 +129,7 @@ scenarios, such as interpolation, contextual markers and translation comments.
       _("Images")
 
       # Plural example
-      ungettext(
+      ngettext(
           "there is %(count)d object",
           "there are %(count)d objects",
           count) % { "count": count }
@@ -142,11 +142,11 @@ scenarios, such as interpolation, contextual markers and translation comments.
       pgettext("the month name", "May")
 
       # Translators: This message appears as a comment for translators!
-      ugettext("Welcome translators.")
+      gettext("Welcome translators.")
 
 .. note::
 
-  In the example above, we imported ``ugettext`` as ``_``. This is a common
+  In the example above, we imported ``gettext`` as ``_``. This is a common
   alias for gettext or any of its variants.
 
 In Django templates

@@ -18,8 +18,8 @@ from neutronclient.common import exceptions as neutron_exceptions
 
 from django.urls import reverse
 from django.urls import reverse_lazy
-from django.utils.translation import ugettext_lazy as _
-from django.utils.translation import ungettext_lazy
+from django.utils.translation import gettext_lazy as _
+from django.utils.translation import ngettext_lazy
 
 from horizon import exceptions
 from horizon import tables
@@ -59,7 +59,7 @@ class SubnetPolicyTargetMixin(policy.PolicyTargetMixin):
 class DeleteSubnet(SubnetPolicyTargetMixin, tables.DeleteAction):
     @staticmethod
     def action_present(count):
-        return ungettext_lazy(
+        return ngettext_lazy(
             "Delete Subnet",
             "Delete Subnets",
             count
@@ -67,7 +67,7 @@ class DeleteSubnet(SubnetPolicyTargetMixin, tables.DeleteAction):
 
     @staticmethod
     def action_past(count):
-        return ungettext_lazy(
+        return ngettext_lazy(
             "Deleted Subnet",
             "Deleted Subnets",
             count

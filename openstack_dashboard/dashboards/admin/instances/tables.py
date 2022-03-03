@@ -15,8 +15,8 @@
 
 from django.template.defaultfilters import title
 from django import urls
-from django.utils.translation import ugettext_lazy as _
-from django.utils.translation import ungettext_lazy
+from django.utils.translation import gettext_lazy as _
+from django.utils.translation import ngettext_lazy
 from keystoneclient import exceptions as keystone_exceptions
 
 from horizon import tables
@@ -55,7 +55,7 @@ class MigrateInstance(policy.PolicyTargetMixin, tables.BatchAction):
 
     @staticmethod
     def action_present(count):
-        return ungettext_lazy(
+        return ngettext_lazy(
             "Migrate Instance",
             "Migrate Instances",
             count
@@ -63,7 +63,7 @@ class MigrateInstance(policy.PolicyTargetMixin, tables.BatchAction):
 
     @staticmethod
     def action_past(count):
-        return ungettext_lazy(
+        return ngettext_lazy(
             "Scheduled migration (pending confirmation) of Instance",
             "Scheduled migration (pending confirmation) of Instances",
             count

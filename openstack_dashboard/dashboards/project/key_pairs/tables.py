@@ -16,8 +16,8 @@ from urllib import parse
 
 from django import urls
 from django.utils.text import format_lazy
-from django.utils.translation import ugettext_lazy as _
-from django.utils.translation import ungettext_lazy
+from django.utils.translation import gettext_lazy as _
+from django.utils.translation import ngettext_lazy
 
 from horizon import tables
 
@@ -33,7 +33,7 @@ class DeleteKeyPairs(tables.DeleteAction):
 
     @staticmethod
     def action_present(count):
-        return ungettext_lazy(
+        return ngettext_lazy(
             "Delete Key Pair",
             "Delete Key Pairs",
             count
@@ -41,7 +41,7 @@ class DeleteKeyPairs(tables.DeleteAction):
 
     @staticmethod
     def action_past(count):
-        return ungettext_lazy(
+        return ngettext_lazy(
             "Deleted Key Pair",
             "Deleted Key Pairs",
             count

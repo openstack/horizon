@@ -17,7 +17,7 @@ from oslo_upgradecheck import upgradecheck
 
 from django.conf import settings
 from django.core.management.base import BaseCommand
-from django.utils.translation import ugettext_lazy as _
+from django.utils.translation import gettext_lazy as _
 
 from openstack_dashboard import defaults
 

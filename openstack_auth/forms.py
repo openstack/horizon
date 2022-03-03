@@ -18,7 +18,7 @@ from django.conf import settings
 from django.contrib.auth import authenticate
 from django.contrib.auth import forms as django_auth_forms
 from django import forms
-from django.utils.translation import ugettext_lazy as _
+from django.utils.translation import gettext_lazy as _
 from django.views.decorators.debug import sensitive_variables
 
 from keystoneauth1 import plugin as auth_plugin

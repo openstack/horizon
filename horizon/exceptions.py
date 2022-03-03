@@ -23,7 +23,7 @@ import sys
 from debtcollector import removals
 from django.core.management import color_style
 from django.utils import encoding
-from django.utils.translation import ugettext_lazy as _
+from django.utils.translation import gettext_lazy as _
 from django.views.debug import SafeExceptionReporterFilter
 
 from horizon.conf import HORIZON_CONFIG

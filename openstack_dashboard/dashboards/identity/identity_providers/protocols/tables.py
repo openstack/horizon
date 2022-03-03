@@ -13,8 +13,8 @@
 # under the License.
 
 from django.urls import reverse
-from django.utils.translation import ugettext_lazy as _
-from django.utils.translation import ungettext_lazy
+from django.utils.translation import gettext_lazy as _
+from django.utils.translation import ngettext_lazy
 
 from horizon import tables
 from openstack_dashboard import api
@@ -37,7 +37,7 @@ class AddProtocol(policy.PolicyTargetMixin, tables.LinkAction):
 class RemoveProtocol(policy.PolicyTargetMixin, tables.DeleteAction):
     @staticmethod
     def action_present(count):
-        return ungettext_lazy(
+        return ngettext_lazy(
             "Delete Protocol",
             "Delete Protocols",
             count
@@ -45,7 +45,7 @@ class RemoveProtocol(policy.PolicyTargetMixin, tables.DeleteAction):
 
     @staticmethod
     def action_past(count):
-        return ungettext_lazy(
+        return ngettext_lazy(
             "Deleted Protocol",
             "Deleted Protocols",
             count

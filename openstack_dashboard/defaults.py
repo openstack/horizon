@@ -14,8 +14,8 @@
 
 import os
 
+from django.utils.translation import gettext_lazy as _
 from django.utils.translation import pgettext_lazy
-from django.utils.translation import ugettext_lazy as _
 
 # openstack_auth.default is imported in horizon.defaults.
 from horizon.defaults import *  # noqa: F401,F403,H303

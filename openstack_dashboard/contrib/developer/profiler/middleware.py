@@ -17,7 +17,7 @@ from django.conf import settings
 from django.core import exceptions
 from django.urls import reverse
 from django.utils import safestring
-from django.utils.translation import ugettext_lazy as _
+from django.utils.translation import gettext_lazy as _
 from osprofiler import _utils as profiler_utils
 from osprofiler import profiler
 from osprofiler import web

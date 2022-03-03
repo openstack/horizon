@@ -25,7 +25,7 @@ from django import shortcuts
 from django.template import defaultfilters
 from django.test.utils import override_settings
 from django.urls import reverse
-from django.utils.translation import ungettext_lazy
+from django.utils.translation import ngettext_lazy
 
 from horizon import exceptions
 from horizon import tables
@@ -157,7 +157,7 @@ class MyBatchAction(tables.BatchAction):
     @staticmethod
     def action_present(count):
         # Translators: test code, don't really have to translate
-        return ungettext_lazy(
+        return ngettext_lazy(
             "Batch Item",
             "Batch Items",
             count
@@ -166,7 +166,7 @@ class MyBatchAction(tables.BatchAction):
     @staticmethod
     def action_past(count):
         # Translators: test code, don't really have to translate
-        return ungettext_lazy(
+        return ngettext_lazy(
             "Batched Item",
             "Batched Items",
             count
@@ -194,14 +194,14 @@ class MyToggleAction(tables.BatchAction):
     def action_present(self, count):
         if self.current_present_action:
             # Translators: test code, don't really have to translate
-            return ungettext_lazy(
+            return ngettext_lazy(
                 "Up Item",
                 "Up Items",
                 count
             )
         else:
             # Translators: test code, don't really have to translate
-            return ungettext_lazy(
+            return ngettext_lazy(
                 "Down Item",
                 "Down Items",
                 count
@@ -210,14 +210,14 @@ class MyToggleAction(tables.BatchAction):
     def action_past(self, count):
         if self.current_past_action:
             # Translators: test code, don't really have to translate
-            return ungettext_lazy(
+            return ngettext_lazy(
                 "Upped Item",
                 "Upped Items",
                 count
             )
         else:
             # Translators: test code, don't really have to translate
-            return ungettext_lazy(
+            return ngettext_lazy(
                 "Downed Item",
                 "Downed Items",
                 count

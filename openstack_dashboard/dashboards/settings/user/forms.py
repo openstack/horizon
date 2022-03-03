@@ -21,7 +21,7 @@ from django.conf import settings
 from django import shortcuts
 from django.utils import encoding
 from django.utils import translation
-from django.utils.translation import ugettext_lazy as _
+from django.utils.translation import gettext_lazy as _
 import pytz
 
 from horizon import forms

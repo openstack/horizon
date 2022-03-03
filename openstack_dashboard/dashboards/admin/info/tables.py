@@ -13,8 +13,8 @@
 from django import template
 from django.template import defaultfilters as filters
 from django import urls
+from django.utils.translation import gettext_lazy as _
 from django.utils.translation import pgettext_lazy
-from django.utils.translation import ugettext_lazy as _
 
 from horizon import tables
 from horizon.utils import filters as utils_filters
