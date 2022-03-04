@@ -1,0 +1,6 @@
+---
+fixes:
+  - |
+    Previously, ToggleSuspend class checked os-rescue policy for resume operation.
+    By this fix, the class checks 'os_compute_api:os-suspend-server:resume' policy
+    to align to resume operation.
