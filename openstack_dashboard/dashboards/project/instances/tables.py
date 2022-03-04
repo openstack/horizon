@@ -324,7 +324,7 @@ class ToggleSuspend(tables.BatchAction):
         if self.suspended:
             self.current_present_action = RESUME
             policy_rules = (
-                ("compute", "os_compute_api:os-rescue"),)
+                ("compute", "os_compute_api:os-suspend-server:resume"),)
         else:
             self.current_present_action = SUSPEND
             policy_rules = (
