@@ -268,19 +268,10 @@ setup.py
 --------
 ::
 
-    # THIS FILE IS MANAGED BY THE GLOBAL REQUIREMENTS REPO - DO NOT EDIT
     import setuptools
 
-    # In python < 2.7.4, a lazy loading of package `pbr` will break
-    # setuptools if some other modules registered functions in `atexit`.
-    # solution from: http://bugs.python.org/issue15881#msg170215
-    try:
-        import multiprocessing  # noqa
-    except ImportError:
-        pass
-
     setuptools.setup(
-        setup_requires=['pbr>=1.8'],
+        setup_requires=['pbr>=2.0.0'],
         pbr=True)
 
 setup.cfg
@@ -290,11 +281,11 @@ setup.cfg
     [metadata]
     name = myplugin
     summary = A panel plugin for OpenStack Dashboard
-    description-file =
+    description_file =
         README.rst
     author = myname
     author_email = myemail
-    home-page = https://docs.openstack.org/horizon/latest/
+    home_page = __REPLACE_YOUR_PLGUIN_HOMEPAGE_URL__
     classifier =
         Environment :: OpenStack
         Framework :: Django
@@ -303,10 +294,11 @@ setup.cfg
         License :: OSI Approved :: Apache Software License
         Operating System :: POSIX :: Linux
         Programming Language :: Python
-        Programming Language :: Python :: 2
-        Programming Language :: Python :: 2.7
         Programming Language :: Python :: 3
-        Programming Language :: Python :: 3.5
+        Programming Language :: Python :: 3.6
+        Programming Language :: Python :: 3.7
+        Programming Language :: Python :: 3.8
+        Programming Language :: Python :: 3.9
 
     [files]
     packages =
