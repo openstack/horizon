@@ -2246,6 +2246,7 @@ class InstanceTests2(InstanceTestBase, InstanceTableTestMixin):
                                       'flavor_list',)})
     def test_instance_resize_get_flavor_list_exception(self):
         server = self.servers.first()
+        self.mock_server_get.return_value = server
         self.mock_flavor_list.side_effect = self.exceptions.nova
 
         url = reverse('horizon:project:instances:resize',
