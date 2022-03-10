@@ -11,17 +11,17 @@
 #    under the License.
 
 from unittest import mock
+from urllib import parse
 
 from django.urls import reverse
-from django.utils.http import urlunquote
 
 from openstack_dashboard.api import cinder
 from openstack_dashboard.test import helpers as test
 
 
 INDEX_URL = reverse('horizon:project:volume_groups:index')
-VOLUME_GROUPS_SNAP_INDEX_URL = urlunquote(reverse(
-    'horizon:project:vg_snapshots:index'))
+VOLUME_GROUPS_SNAP_INDEX_URL = parse.unquote(
+    reverse('horizon:project:vg_snapshots:index'))
 
 
 class VolumeGroupTests(test.TestCase):

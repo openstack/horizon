@@ -14,9 +14,9 @@
 
 import collections
 from unittest import mock
+from urllib import parse
 
 from django.urls import reverse
-from django.utils.http import urlunquote
 
 from horizon import forms
 
@@ -123,8 +123,8 @@ class NetworkTests(test.BaseAdminViewTests):
              'mac-learning': mac_learning,
              'dhcp_agent_scheduler': True})
 
-        url = urlunquote(reverse('horizon:admin:networks:detail',
-                                 args=[network.id]))
+        url = parse.unquote(reverse('horizon:admin:networks:detail',
+                                    args=[network.id]))
 
         res = self.client.get(url)
         network = res.context['network']
@@ -171,8 +171,8 @@ class NetworkTests(test.BaseAdminViewTests):
              'dhcp_agent_scheduler': True})
         self.mock_tenant_quota_usages.return_value = quota_data
 
-        url = urlunquote(reverse('horizon:admin:networks:subnets_tab',
-                         args=[network.id]))
+        url = parse.unquote(reverse('horizon:admin:networks:subnets_tab',
+                                    args=[network.id]))
         res = self.client.get(url)
 
         self.assertTemplateUsed(res, 'horizon/common/_detail.html')
@@ -215,7 +215,7 @@ class NetworkTests(test.BaseAdminViewTests):
 
         url = reverse('horizon:admin:networks:ports_tab',
                       args=[network.id])
-        res = self.client.get(urlunquote(url))
+        res = self.client.get(parse.unquote(url))
 
         self.assertTemplateUsed(res, 'horizon/common/_detail.html')
         ports = res.context['ports_table'].data
@@ -260,7 +260,7 @@ class NetworkTests(test.BaseAdminViewTests):
         self.mock_tenant_quota_usages.return_value = quota_data
 
         url = reverse('horizon:admin:networks:agents_tab', args=[network.id])
-        res = self.client.get(urlunquote(url))
+        res = self.client.get(parse.unquote(url))
 
         self.assertTemplateUsed(res, 'horizon/common/_detail.html')
         result_agents = res.context['agents_table'].data
@@ -304,8 +304,8 @@ class NetworkTests(test.BaseAdminViewTests):
             {'network-ip-availability': True,
              'mac-learning': mac_learning})
 
-        url = urlunquote(reverse('horizon:admin:networks:subnets_tab',
-                                 args=[network_id]))
+        url = parse.unquote(reverse('horizon:admin:networks:subnets_tab',
+                                    args=[network_id]))
         res = self.client.get(url)
 
         redir_url = INDEX_URL
@@ -349,8 +349,8 @@ class NetworkTests(test.BaseAdminViewTests):
              'network_availability_zone': True})
         self.mock_tenant_quota_usages.return_value = quota_data
 
-        url = urlunquote(reverse('horizon:admin:networks:subnets_tab',
-                         args=[network.id]))
+        url = parse.unquote(reverse('horizon:admin:networks:subnets_tab',
+                                    args=[network.id]))
         res = self.client.get(url)
 
         self.assertTemplateUsed(res, 'horizon/common/_detail.html')
@@ -401,8 +401,8 @@ class NetworkTests(test.BaseAdminViewTests):
              'dhcp_agent_scheduler': True})
         self.mock_tenant_quota_usages.return_value = quota_data
 
-        url = urlunquote(reverse('horizon:admin:networks:subnets_tab',
-                         args=[network.id]))
+        url = parse.unquote(reverse('horizon:admin:networks:subnets_tab',
+                                    args=[network.id]))
         res = self.client.get(url)
 
         self.assertTemplateUsed(res, 'horizon/common/_detail.html')

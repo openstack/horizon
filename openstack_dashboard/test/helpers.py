@@ -22,6 +22,7 @@ import logging
 import os
 import traceback
 from unittest import mock
+from urllib import parse
 
 from django.conf import settings
 from django.contrib.messages.storage import cookie as cookie_storage
@@ -31,7 +32,6 @@ from django.test.client import RequestFactory
 from django.test import tag
 from django.test import testcases
 from django import urls
-from django.utils import http
 
 from openstack_auth import user
 from openstack_auth import utils
@@ -289,8 +289,8 @@ class TestCase(horizon_helpers.TestCase):
             loc = response['location']
         else:
             loc = ''
-        loc = http.urlunquote(loc)
-        expected_url = http.urlunquote(expected_url)
+        loc = parse.unquote(loc)
+        expected_url = parse.unquote(expected_url)
         self.assertEqual(loc, expected_url)
         self.assertEqual(response.status_code, 302)
 

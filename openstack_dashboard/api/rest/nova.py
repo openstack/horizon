@@ -13,6 +13,7 @@
 # limitations under the License.
 """API over the nova service."""
 from collections import OrderedDict
+from urllib import parse
 
 from django.utils import http as utils_http
 from django.utils.translation import gettext_lazy as _
@@ -91,7 +92,7 @@ class Keypairs(generic.View):
                                           request.DATA['name'],
                                           request.DATA['key_type'])
         return rest_utils.CreatedResponse(
-            '/api/nova/keypairs/%s' % utils_http.urlquote(new.name),
+            '/api/nova/keypairs/%s' % parse.quote(new.name),
             new.to_dict()
         )
 
@@ -380,7 +381,7 @@ class Servers(generic.View):
 
         new = api.nova.server_create(*args, **kw)
         return rest_utils.CreatedResponse(
-            '/api/nova/servers/%s' % utils_http.urlquote(new.id),
+            '/api/nova/servers/%s' % parse.quote(new.id),
             new.to_dict()
         )
 
@@ -445,7 +446,7 @@ class ServerGroups(generic.View):
         """
         new_servergroup = api.nova.server_group_create(request, **request.DATA)
         return rest_utils.CreatedResponse(
-            '/api/nova/servergroups/%s' % utils_http.urlquote(
+            '/api/nova/servergroups/%s' % parse.quote(
                 new_servergroup.id), new_servergroup.to_dict()
         )
 

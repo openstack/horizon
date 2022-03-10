@@ -13,11 +13,11 @@
 #    under the License.
 
 import copy
+from urllib import parse
 
 from django.conf import settings
 from django.test.utils import override_settings
 from django.urls import reverse
-from django.utils.http import urlunquote
 
 from openstack_dashboard import api
 from openstack_dashboard.dashboards.project.volumes \
@@ -92,7 +92,7 @@ class VolumeTests(test.BaseAdminViewTests):
         self.mock_server_list.return_value = [self.servers.list(), False]
         self.mock_tenant_list.return_value = [self.tenants.list(), False]
 
-        res = self.client.get(urlunquote(url))
+        res = self.client.get(parse.unquote(url))
 
         self.mock_server_list.assert_called_once_with(
             test.IsHttpRequest(), search_opts={'all_tenants': True})
