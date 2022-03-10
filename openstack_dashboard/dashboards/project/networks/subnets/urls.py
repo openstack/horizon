@@ -12,7 +12,7 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
-from django.conf.urls import url
+from django.urls import re_path
 
 from openstack_dashboard.dashboards.project.networks.subnets import views
 
@@ -20,5 +20,5 @@ from openstack_dashboard.dashboards.project.networks.subnets import views
 SUBNETS = r'^(?P<subnet_id>[^/]+)/%s$'
 
 urlpatterns = [
-    url(SUBNETS % 'detail', views.DetailView.as_view(), name='detail'),
+    re_path(SUBNETS % 'detail', views.DetailView.as_view(), name='detail'),
 ]

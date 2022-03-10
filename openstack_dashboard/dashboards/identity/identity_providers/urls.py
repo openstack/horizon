@@ -13,7 +13,7 @@
 # under the License.
 
 from django.conf.urls import include
-from django.conf.urls import url
+from django.urls import re_path
 
 from openstack_dashboard.dashboards.identity.identity_providers.protocols \
     import urls as protocol_urls
@@ -21,16 +21,16 @@ from openstack_dashboard.dashboards.identity.identity_providers \
     import views
 
 urlpatterns = [
-    url(r'^$', views.IndexView.as_view(), name='index'),
-    url(r'^(?P<identity_provider_id>[^/]+)/detail/$',
-        views.DetailView.as_view(), name='detail'),
-    url(r'^(?P<identity_provider_id>[^/]+)/detail/'
-        r'\?tab=idp_details__protocols$',
-        views.DetailView.as_view(),
-        name='protocols_tab'),
-    url(r'^(?P<identity_provider_id>[^/]+)/update/$',
-        views.UpdateView.as_view(), name='update'),
-    url(r'^register/$', views.RegisterView.as_view(), name='register'),
-    url(r'(?P<identity_provider_id>[^/]+)/protocols/',
-        include((protocol_urls, 'protocols'))),
+    re_path(r'^$', views.IndexView.as_view(), name='index'),
+    re_path(r'^(?P<identity_provider_id>[^/]+)/detail/$',
+            views.DetailView.as_view(), name='detail'),
+    re_path(r'^(?P<identity_provider_id>[^/]+)/detail/'
+            r'\?tab=idp_details__protocols$',
+            views.DetailView.as_view(),
+            name='protocols_tab'),
+    re_path(r'^(?P<identity_provider_id>[^/]+)/update/$',
+            views.UpdateView.as_view(), name='update'),
+    re_path(r'^register/$', views.RegisterView.as_view(), name='register'),
+    re_path(r'(?P<identity_provider_id>[^/]+)/protocols/',
+            include((protocol_urls, 'protocols'))),
 ]

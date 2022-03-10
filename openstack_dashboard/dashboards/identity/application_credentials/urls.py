@@ -13,23 +13,23 @@
 #    under the License.
 
 
-from django.conf.urls import url
+from django.urls import re_path
 
 from openstack_dashboard.dashboards.identity.application_credentials \
     import views
 
 
 urlpatterns = [
-    url(r'^$', views.IndexView.as_view(), name='index'),
-    url(r'^create/$', views.CreateView.as_view(), name='create'),
-    url(r'^(?P<application_credential_id>[^/]+)/detail/$',
-        views.DetailView.as_view(), name='detail'),
-    url(r'^success/$',
-        views.CreateSuccessfulView.as_view(), name='success'),
-    url(r'^download_openrc/$',
-        views.download_rc_file, name='download_openrc'),
-    url(r'^download_kubeconfig/$',
-        views.download_kubeconfig_file, name='download_kubeconfig'),
-    url(r'^download_clouds_yaml/$',
-        views.download_clouds_yaml_file, name='download_clouds_yaml'),
+    re_path(r'^$', views.IndexView.as_view(), name='index'),
+    re_path(r'^create/$', views.CreateView.as_view(), name='create'),
+    re_path(r'^(?P<application_credential_id>[^/]+)/detail/$',
+            views.DetailView.as_view(), name='detail'),
+    re_path(r'^success/$',
+            views.CreateSuccessfulView.as_view(), name='success'),
+    re_path(r'^download_openrc/$',
+            views.download_rc_file, name='download_openrc'),
+    re_path(r'^download_kubeconfig/$',
+            views.download_kubeconfig_file, name='download_kubeconfig'),
+    re_path(r'^download_clouds_yaml/$',
+            views.download_clouds_yaml_file, name='download_clouds_yaml'),
 ]

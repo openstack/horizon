@@ -11,7 +11,7 @@
 # under the License.
 
 from django.conf.urls import include
-from django.conf.urls import url
+from django.urls import re_path
 
 from openstack_dashboard.dashboards.admin.volume_types.extras \
     import urls as extras_urls
@@ -22,33 +22,33 @@ from openstack_dashboard.dashboards.admin.volume_types \
 
 
 urlpatterns = [
-    url(r'^$', views.VolumeTypesView.as_view(), name='index'),
-    url(r'^create_type$', views.CreateVolumeTypeView.as_view(),
-        name='create_type'),
-    url(r'^(?P<type_id>[^/]+)/update_type/$',
-        views.EditVolumeTypeView.as_view(),
-        name='update_type'),
-    url(r'^create_qos_spec$', views.CreateQosSpecView.as_view(),
-        name='create_qos_spec'),
-    url(r'^(?P<type_id>[^/]+)/manage_qos_spec_association/$',
-        views.ManageQosSpecAssociationView.as_view(),
-        name='manage_qos_spec_association'),
-    url(r'^(?P<qos_spec_id>[^/]+)/edit_qos_spec_consumer/$',
-        views.EditQosSpecConsumerView.as_view(),
-        name='edit_qos_spec_consumer'),
-    url(r'^(?P<type_id>[^/]+)/extras/',
-        include((extras_urls, 'extras'))),
-    url(r'^(?P<volume_type_id>[^/]+)/create_type_encryption/$',
-        views.CreateVolumeTypeEncryptionView.as_view(),
-        name='create_type_encryption'),
-    url(r'^(?P<volume_type_id>[^/]+)/update_type_encryption/$',
-        views.UpdateVolumeTypeEncryptionView.as_view(),
-        name='update_type_encryption'),
-    url(r'^(?P<volume_type_id>[^/]+)/type_encryption_detail/$',
-        views.VolumeTypeEncryptionDetailView.as_view(),
-        name='type_encryption_detail'),
-    url(r'^qos_specs/',
-        include((qos_specs_urls, 'qos_specs'))),
-    url(r'^(?P<volume_type_id>[^/]+)/edit_access/$',
-        views.EditAccessView.as_view(), name='edit_access'),
+    re_path(r'^$', views.VolumeTypesView.as_view(), name='index'),
+    re_path(r'^create_type$', views.CreateVolumeTypeView.as_view(),
+            name='create_type'),
+    re_path(r'^(?P<type_id>[^/]+)/update_type/$',
+            views.EditVolumeTypeView.as_view(),
+            name='update_type'),
+    re_path(r'^create_qos_spec$', views.CreateQosSpecView.as_view(),
+            name='create_qos_spec'),
+    re_path(r'^(?P<type_id>[^/]+)/manage_qos_spec_association/$',
+            views.ManageQosSpecAssociationView.as_view(),
+            name='manage_qos_spec_association'),
+    re_path(r'^(?P<qos_spec_id>[^/]+)/edit_qos_spec_consumer/$',
+            views.EditQosSpecConsumerView.as_view(),
+            name='edit_qos_spec_consumer'),
+    re_path(r'^(?P<type_id>[^/]+)/extras/',
+            include((extras_urls, 'extras'))),
+    re_path(r'^(?P<volume_type_id>[^/]+)/create_type_encryption/$',
+            views.CreateVolumeTypeEncryptionView.as_view(),
+            name='create_type_encryption'),
+    re_path(r'^(?P<volume_type_id>[^/]+)/update_type_encryption/$',
+            views.UpdateVolumeTypeEncryptionView.as_view(),
+            name='update_type_encryption'),
+    re_path(r'^(?P<volume_type_id>[^/]+)/type_encryption_detail/$',
+            views.VolumeTypeEncryptionDetailView.as_view(),
+            name='type_encryption_detail'),
+    re_path(r'^qos_specs/',
+            include((qos_specs_urls, 'qos_specs'))),
+    re_path(r'^(?P<volume_type_id>[^/]+)/edit_access/$',
+            views.EditAccessView.as_view(), name='edit_access'),
 ]

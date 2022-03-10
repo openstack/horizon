@@ -16,27 +16,29 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
-from django.conf.urls import url
+from django.urls import re_path
 
 from openstack_dashboard.dashboards.project.network_topology import views
 
 
 urlpatterns = [
-    url(r'^$', views.NetworkTopologyView.as_view(), name='index'),
-    url(r'^router$', views.RouterView.as_view(), name='router'),
-    url(r'^network$', views.NetworkView.as_view(), name='network'),
-    url(r'^instance$', views.InstanceView.as_view(), name='instance'),
-    url(r'^router/(?P<router_id>[^/]+)/$', views.RouterDetailView.as_view(),
-        name='detail'),
-    url(r'^router/(?P<router_id>[^/]+)/addinterface$',
-        views.NTAddInterfaceView.as_view(), name='interface'),
-    url(r'^network/(?P<network_id>[^/]+)/$', views.NetworkDetailView.as_view(),
-        name='detail'),
-    url(r'^network/(?P<network_id>[^/]+)/subnet/create$',
-        views.NTCreateSubnetView.as_view(), name='subnet'),
-    url(r'^json$', views.JSONView.as_view(), name='json'),
-    url(r'^createnetwork$', views.NTCreateNetworkView.as_view(),
-        name='createnetwork'),
-    url(r'^createrouter$', views.NTCreateRouterView.as_view(),
-        name='createrouter'),
+    re_path(r'^$', views.NetworkTopologyView.as_view(), name='index'),
+    re_path(r'^router$', views.RouterView.as_view(), name='router'),
+    re_path(r'^network$', views.NetworkView.as_view(), name='network'),
+    re_path(r'^instance$', views.InstanceView.as_view(), name='instance'),
+    re_path(r'^router/(?P<router_id>[^/]+)/$',
+            views.RouterDetailView.as_view(),
+            name='detail'),
+    re_path(r'^router/(?P<router_id>[^/]+)/addinterface$',
+            views.NTAddInterfaceView.as_view(), name='interface'),
+    re_path(r'^network/(?P<network_id>[^/]+)/$',
+            views.NetworkDetailView.as_view(),
+            name='detail'),
+    re_path(r'^network/(?P<network_id>[^/]+)/subnet/create$',
+            views.NTCreateSubnetView.as_view(), name='subnet'),
+    re_path(r'^json$', views.JSONView.as_view(), name='json'),
+    re_path(r'^createnetwork$', views.NTCreateNetworkView.as_view(),
+            name='createnetwork'),
+    re_path(r'^createrouter$', views.NTCreateRouterView.as_view(),
+            name='createrouter'),
 ]

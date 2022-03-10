@@ -10,19 +10,19 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
-from django.conf.urls import url
+from django.urls import re_path
 
 from openstack_dashboard.dashboards.admin.aggregates \
     import views
 
 
 urlpatterns = [
-    url(r'^$',
-        views.IndexView.as_view(), name='index'),
-    url(r'^create/$',
-        views.CreateView.as_view(), name='create'),
-    url(r'^(?P<id>[^/]+)/update/$',
-        views.UpdateView.as_view(), name='update'),
-    url(r'^(?P<id>[^/]+)/manage_hosts/$',
-        views.ManageHostsView.as_view(), name='manage_hosts'),
+    re_path(r'^$',
+            views.IndexView.as_view(), name='index'),
+    re_path(r'^create/$',
+            views.CreateView.as_view(), name='create'),
+    re_path(r'^(?P<id>[^/]+)/update/$',
+            views.UpdateView.as_view(), name='update'),
+    re_path(r'^(?P<id>[^/]+)/manage_hosts/$',
+            views.ManageHostsView.as_view(), name='manage_hosts'),
 ]

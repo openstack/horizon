@@ -13,7 +13,7 @@
 #    under the License.
 
 from django.conf.urls import include
-from django.conf.urls import url
+from django.urls import re_path
 
 from openstack_dashboard.dashboards.project.networks.ports \
     import urls as port_urls
@@ -30,24 +30,24 @@ NETWORKS = r'^(?P<network_id>[^/]+)/%s$'
 
 
 urlpatterns = [
-    url(r'^$', views.IndexView.as_view(), name='index'),
-    url(r'^create$', views.CreateView.as_view(), name='create'),
-    url(NETWORKS % r'detail(\?tab=network_tabs__overview)?$',
-        views.DetailView.as_view(),
-        name='detail'),
-    url(NETWORKS % r'detail\?tab=network_tabs__ports_tab$',
-        views.DetailView.as_view(), name='ports_tab'),
-    url(NETWORKS % r'detail\?tab=network_tabs__subnets_tab$',
-        views.DetailView.as_view(), name='subnets_tab'),
-    url(NETWORKS % 'update', views.UpdateView.as_view(), name='update'),
-    url(NETWORKS % 'subnets/create', subnet_views.CreateView.as_view(),
-        name='createsubnet'),
-    url(NETWORKS % 'ports/create',
-        port_views.CreateView.as_view(), name='addport'),
-    url(r'^(?P<network_id>[^/]+)/subnets/(?P<subnet_id>[^/]+)/update$',
-        subnet_views.UpdateView.as_view(), name='editsubnet'),
-    url(r'^(?P<network_id>[^/]+)/ports/(?P<port_id>[^/]+)/update$',
-        port_views.UpdateView.as_view(), name='editport'),
-    url(r'^subnets/', include((subnet_urls, 'subnets'))),
-    url(r'^ports/', include((port_urls, 'ports'))),
+    re_path(r'^$', views.IndexView.as_view(), name='index'),
+    re_path(r'^create$', views.CreateView.as_view(), name='create'),
+    re_path(NETWORKS % r'detail(\?tab=network_tabs__overview)?$',
+            views.DetailView.as_view(),
+            name='detail'),
+    re_path(NETWORKS % r'detail\?tab=network_tabs__ports_tab$',
+            views.DetailView.as_view(), name='ports_tab'),
+    re_path(NETWORKS % r'detail\?tab=network_tabs__subnets_tab$',
+            views.DetailView.as_view(), name='subnets_tab'),
+    re_path(NETWORKS % 'update', views.UpdateView.as_view(), name='update'),
+    re_path(NETWORKS % 'subnets/create', subnet_views.CreateView.as_view(),
+            name='createsubnet'),
+    re_path(NETWORKS % 'ports/create',
+            port_views.CreateView.as_view(), name='addport'),
+    re_path(r'^(?P<network_id>[^/]+)/subnets/(?P<subnet_id>[^/]+)/update$',
+            subnet_views.UpdateView.as_view(), name='editsubnet'),
+    re_path(r'^(?P<network_id>[^/]+)/ports/(?P<port_id>[^/]+)/update$',
+            port_views.UpdateView.as_view(), name='editport'),
+    re_path(r'^subnets/', include((subnet_urls, 'subnets'))),
+    re_path(r'^ports/', include((port_urls, 'ports'))),
 ]

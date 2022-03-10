@@ -31,8 +31,8 @@ import os
 
 from django.conf import settings
 from django.conf.urls import include
-from django.conf.urls import url
 from django.core.exceptions import ImproperlyConfigured
+from django.urls import re_path
 from django.urls import reverse
 from django.utils.functional import empty
 from django.utils.functional import SimpleLazyObject
@@ -550,14 +550,15 @@ class Dashboard(Registry, HorizonComponent):
                 default_panel = panel
                 continue
             url_slug = panel.slug.replace('.', '/')
-            urlpatterns.append(url(r'^%s/' % url_slug,
-                                   _wrapped_include(panel._decorated_urls)))
+            urlpatterns.append(
+                re_path(r'^%s/' % url_slug,
+                        _wrapped_include(panel._decorated_urls)))
         # Now the default view, which should come last
         if not default_panel:
             raise NotRegistered('The default panel "%s" is not registered.'
                                 % self.default_panel)
         urlpatterns.append(
-            url(r'', _wrapped_include(default_panel._decorated_urls)))
+            re_path(r'', _wrapped_include(default_panel._decorated_urls)))
 
         # Apply access controls to all views in the patterns
         permissions = getattr(self, 'permissions', [])
@@ -871,8 +872,9 @@ class Site(Registry, HorizonComponent):
 
         # Compile the dynamic urlconf.
         for dash in self._registry.values():
-            urlpatterns.append(url(r'^%s/' % dash.slug,
-                                   _wrapped_include(dash._decorated_urls)))
+            urlpatterns.append(
+                re_path(r'^%s/' % dash.slug,
+                        _wrapped_include(dash._decorated_urls)))
 
         # Return the three arguments to django.conf.urls.include
         return urlpatterns, self.namespace, self.slug

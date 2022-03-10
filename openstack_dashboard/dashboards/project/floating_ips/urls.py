@@ -16,12 +16,12 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
-from django.conf.urls import url
+from django.urls import re_path
 
 from openstack_dashboard.dashboards.project.floating_ips import views
 
 urlpatterns = [
-    url(r'^$', views.IndexView.as_view(), name='index'),
-    url(r'^associate/$', views.AssociateView.as_view(), name='associate'),
-    url(r'^allocate/$', views.AllocateView.as_view(), name='allocate'),
+    re_path(r'^$', views.IndexView.as_view(), name='index'),
+    re_path(r'^associate/$', views.AssociateView.as_view(), name='associate'),
+    re_path(r'^allocate/$', views.AllocateView.as_view(), name='allocate'),
 ]

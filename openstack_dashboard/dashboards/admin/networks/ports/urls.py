@@ -12,7 +12,7 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
-from django.conf.urls import url
+from django.urls import re_path
 
 from openstack_dashboard.dashboards.admin.networks.ports import views
 from openstack_dashboard.dashboards.admin.networks.ports.extensions. \
@@ -22,8 +22,8 @@ PORTS = r'^(?P<port_id>[^/]+)/%s$'
 
 
 urlpatterns = [
-    url(PORTS % 'detail', views.DetailView.as_view(), name='detail'),
-    url(PORTS % 'addallowedaddresspairs',
-        addr_pairs_views.AddAllowedAddressPair.as_view(),
-        name='addallowedaddresspairs'),
+    re_path(PORTS % 'detail', views.DetailView.as_view(), name='detail'),
+    re_path(PORTS % 'addallowedaddresspairs',
+            addr_pairs_views.AddAllowedAddressPair.as_view(),
+            name='addallowedaddresspairs'),
 ]

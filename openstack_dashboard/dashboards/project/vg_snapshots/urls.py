@@ -10,16 +10,16 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
-from django.conf.urls import url
+from django.urls import re_path
 
 from openstack_dashboard.dashboards.project.vg_snapshots import views
 
 urlpatterns = [
-    url(r'^$', views.IndexView.as_view(), name='index'),
-    url(r'^(?P<vg_snapshot_id>[^/]+)/detail/$',
-        views.DetailView.as_view(),
-        name='detail'),
-    url(r'^(?P<vg_snapshot_id>[^/]+)/create_group/$',
-        views.CreateGroupView.as_view(),
-        name='create_group'),
+    re_path(r'^$', views.IndexView.as_view(), name='index'),
+    re_path(r'^(?P<vg_snapshot_id>[^/]+)/detail/$',
+            views.DetailView.as_view(),
+            name='detail'),
+    re_path(r'^(?P<vg_snapshot_id>[^/]+)/create_group/$',
+            views.CreateGroupView.as_view(),
+            name='create_group'),
 ]

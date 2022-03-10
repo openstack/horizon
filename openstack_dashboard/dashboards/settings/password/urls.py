@@ -12,11 +12,11 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
-from django.conf.urls import url
+from django.urls import re_path
 
 from openstack_dashboard.dashboards.settings.password import views
 
 
 urlpatterns = [
-    url(r'^$', views.PasswordView.as_view(), name='index'),
+    re_path(r'^$', views.PasswordView.as_view(), name='index'),
 ]

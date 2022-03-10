@@ -16,20 +16,20 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
-from django.conf.urls import url
+from django.urls import re_path
 
 from openstack_dashboard.dashboards.identity.projects import views
 
 
 urlpatterns = [
-    url(r'^$', views.IndexView.as_view(), name='index'),
-    url(r'^create$', views.CreateProjectView.as_view(), name='create'),
-    url(r'^(?P<tenant_id>[^/]+)/update/$',
-        views.UpdateProjectView.as_view(), name='update'),
-    url(r'^(?P<project_id>[^/]+)/usage/$',
-        views.ProjectUsageView.as_view(), name='usage'),
-    url(r'^(?P<project_id>[^/]+)/detail/$',
-        views.DetailProjectView.as_view(), name='detail'),
-    url(r'^(?P<tenant_id>[^/]+)/update_quotas/$',
-        views.UpdateQuotasView.as_view(), name='update_quotas'),
+    re_path(r'^$', views.IndexView.as_view(), name='index'),
+    re_path(r'^create$', views.CreateProjectView.as_view(), name='create'),
+    re_path(r'^(?P<tenant_id>[^/]+)/update/$',
+            views.UpdateProjectView.as_view(), name='update'),
+    re_path(r'^(?P<project_id>[^/]+)/usage/$',
+            views.ProjectUsageView.as_view(), name='usage'),
+    re_path(r'^(?P<project_id>[^/]+)/detail/$',
+            views.DetailProjectView.as_view(), name='detail'),
+    re_path(r'^(?P<tenant_id>[^/]+)/update_quotas/$',
+            views.UpdateQuotasView.as_view(), name='update_quotas'),
 ]

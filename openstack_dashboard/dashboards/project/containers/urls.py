@@ -16,14 +16,14 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
-from django.conf.urls import url
+from django.urls import re_path
 
 from openstack_dashboard.dashboards.project.containers import views
 
 urlpatterns = [
-    url(r'^container/((?P<container_name>.+?)/)?'
-        '(?P<subfolder_path>.+)?$',
-        views.NgIndexView.as_view(), name='index'),
-    url(r'^$',
-        views.NgIndexView.as_view(), name='index')
+    re_path(r'^container/((?P<container_name>.+?)/)?'
+            '(?P<subfolder_path>.+)?$',
+            views.NgIndexView.as_view(), name='index'),
+    re_path(r'^$',
+            views.NgIndexView.as_view(), name='index')
 ]

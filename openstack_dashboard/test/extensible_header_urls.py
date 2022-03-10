@@ -10,9 +10,9 @@
 #  License for the specific language governing permissions and limitations
 #  under the License.
 
-from django.conf.urls import url
+from django.urls import re_path
 
 from openstack_dashboard.urls import urlpatterns  # noqa
 from openstack_dashboard import views
 
-urlpatterns.append(url(r'^header/', views.ExtensibleHeaderView.as_view()))
+urlpatterns.append(re_path(r'^header/', views.ExtensibleHeaderView.as_view()))

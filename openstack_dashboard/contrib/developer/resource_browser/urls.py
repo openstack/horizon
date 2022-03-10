@@ -12,10 +12,10 @@
 # License for the specific language governing permissions and limitations
 # under the License.
 
-from django.conf.urls import url
+from django.urls import re_path
 
 from horizon.browsers.views import AngularIndexView
 
 urlpatterns = [
-    url('', AngularIndexView.as_view(), name='index'),
+    re_path('', AngularIndexView.as_view(), name='index'),
 ]

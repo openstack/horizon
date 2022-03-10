@@ -12,14 +12,15 @@
 # limitations under the License.
 
 from django.conf.urls import include
-from django.conf.urls import url
+from django.urls import re_path
 from django.views import generic
 
 from openstack_auth import views
 
 
 urlpatterns = [
-    url(r"", include('openstack_auth.urls')),
-    url(r"^websso/$", views.websso, name='websso'),
-    url(r"^$", generic.TemplateView.as_view(template_name="auth/blank.html"))
+    re_path(r"", include('openstack_auth.urls')),
+    re_path(r"^websso/$", views.websso, name='websso'),
+    re_path(r"^$",
+            generic.TemplateView.as_view(template_name="auth/blank.html"))
 ]

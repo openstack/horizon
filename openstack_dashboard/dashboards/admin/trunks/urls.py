@@ -12,7 +12,7 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
-from django.conf.urls import url
+from django.urls import re_path
 from django.utils.translation import gettext_lazy as _
 
 from horizon.browsers.views import AngularIndexView
@@ -20,7 +20,7 @@ from horizon.browsers.views import AngularIndexView
 
 title = _("Trunks")
 urlpatterns = [
-    url(r'^$', AngularIndexView.as_view(title=title), name='index'),
-    url(r'^(?P<trunk_id>[^/]+)/$',
-        AngularIndexView.as_view(title=title), name='detail'),
+    re_path(r'^$', AngularIndexView.as_view(title=title), name='index'),
+    re_path(r'^(?P<trunk_id>[^/]+)/$',
+            AngularIndexView.as_view(title=title), name='detail'),
 ]

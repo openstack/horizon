@@ -11,7 +11,7 @@
 # under the License.
 
 from django.conf.urls import include
-from django.conf.urls import url
+from django.urls import re_path
 
 from openstack_dashboard.dashboards.admin.group_types.specs \
     import urls as specs_urls
@@ -20,12 +20,12 @@ from openstack_dashboard.dashboards.admin.group_types \
 
 
 urlpatterns = [
-    url(r'^$', views.GroupTypesView.as_view(), name='index'),
-    url(r'^create_type$', views.CreateGroupTypeView.as_view(),
-        name='create_type'),
-    url(r'^(?P<type_id>[^/]+)/update_type/$',
-        views.EditGroupTypeView.as_view(),
-        name='update_type'),
-    url(r'^(?P<type_id>[^/]+)/specs/',
-        include((specs_urls, 'specs'))),
+    re_path(r'^$', views.GroupTypesView.as_view(), name='index'),
+    re_path(r'^create_type$', views.CreateGroupTypeView.as_view(),
+            name='create_type'),
+    re_path(r'^(?P<type_id>[^/]+)/update_type/$',
+            views.EditGroupTypeView.as_view(),
+            name='update_type'),
+    re_path(r'^(?P<type_id>[^/]+)/specs/',
+            include((specs_urls, 'specs'))),
 ]
