@@ -94,9 +94,10 @@ class WorkflowView(hz_views.ModalBackdropMixin, generic.TemplateView):
 
         redirect_to = self.request.GET.get(workflow.redirect_param_name)
         # Make sure the requested redirect is safe
-        if redirect_to and not utils_http.is_safe_url(
-                url=redirect_to,
-                allowed_hosts=[self.request.get_host()]):
+        if (redirect_to and
+                not utils_http.url_has_allowed_host_and_scheme(
+                    url=redirect_to,
+                    allowed_hosts=[self.request.get_host()])):
             redirect_to = None
         context['REDIRECT_URL'] = redirect_to
 
