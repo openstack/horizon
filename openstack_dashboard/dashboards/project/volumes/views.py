@@ -33,6 +33,7 @@ from horizon import exceptions
 from horizon import forms
 from horizon import tables
 from horizon import tabs
+from horizon.utils import http as http_utils
 from horizon.utils import memoized
 
 from openstack_dashboard.api import cinder
@@ -566,7 +567,7 @@ class EditAttachmentsView(tables.DataTableView, forms.ModalFormView):
         else:
             context['show_attach'] = False
         context['volume'] = volume
-        if self.request.is_ajax():
+        if http_utils.is_ajax(self.request):
             context['hide'] = True
         return context
 

@@ -22,10 +22,12 @@ from django.contrib.messages import constants
 from django.utils.encoding import force_str
 from django.utils.safestring import SafeData
 
+from horizon.utils import http as http_utils
+
 
 def horizon_message_already_queued(request, message):
     _message = force_str(message)
-    if request.is_ajax():
+    if http_utils.is_ajax(request):
         for tag, msg, extra in request.horizon['async_messages']:
             if _message == msg:
                 return True
@@ -39,7 +41,7 @@ def horizon_message_already_queued(request, message):
 def add_message(request, level, message, extra_tags='', fail_silently=False):
     """Attempts to add a message to the request using the 'messages' app."""
     if not horizon_message_already_queued(request, message):
-        if request.is_ajax():
+        if http_utils.is_ajax(request):
             tag = constants.DEFAULT_TAGS[level]
             # if message is marked as safe, pass "safe" tag as extra_tags so
             # that client can skip HTML escape for the message when rendering

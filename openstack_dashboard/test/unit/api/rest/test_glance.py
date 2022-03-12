@@ -19,7 +19,7 @@ from openstack_dashboard.api.rest import glance
 from openstack_dashboard.test import helpers as test
 
 
-class ImagesRestTestCase(test.ResetImageAPIVersionMixin, test.TestCase):
+class ImagesRestTestCase(test.ResetImageAPIVersionMixin, test.RestAPITestCase):
 
     def setUp(self):
         super().setUp()

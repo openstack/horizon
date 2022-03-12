@@ -20,6 +20,7 @@ from django import http
 from django.utils.translation import gettext_lazy as _
 
 from horizon import exceptions
+from horizon.utils import http as http_utils
 from horizon import views
 
 
@@ -59,7 +60,7 @@ class ModalBackdropMixin(object):
 
 class ModalFormMixin(ModalBackdropMixin):
     def get_template_names(self):
-        if self.request.is_ajax():
+        if http_utils.is_ajax(self.request):
             if not hasattr(self, "ajax_template_name"):
                 # Transform standard template name to ajax name (leading "_")
                 bits = list(os.path.split(self.template_name))
@@ -74,7 +75,7 @@ class ModalFormMixin(ModalBackdropMixin):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        if self.request.is_ajax():
+        if http_utils.is_ajax(self.request):
             context['hide'] = True
         if ADD_TO_FIELD_HEADER in self.request.META:
             context['add_to_field'] = self.request.META[ADD_TO_FIELD_HEADER]

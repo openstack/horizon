@@ -71,6 +71,13 @@ def set_logout_reason(res, msg):
     res.set_cookie('logout_reason', msg, max_age=10)
 
 
+def is_ajax(request):
+    # See horizon.utils.http.is_ajax() for more detail.
+    # NOTE: openstack_auth does not import modules from horizon to avoid
+    # import loops, so we copy the logic from horizon.utils.http.
+    return request.headers.get('x-requested-with') == 'XMLHttpRequest'
+
+
 # TODO(stephenfin): Migrate to CBV
 @sensitive_post_parameters()
 @csrf_protect
@@ -102,7 +109,7 @@ def login(request):
             url = utils.get_websso_url(request, auth_url, auth_type)
             return shortcuts.redirect(url)
 
-    if not request.is_ajax():
+    if not is_ajax(request):
         # If the user is already authenticated, redirect them to the
         # dashboard straight away, unless the 'next' parameter is set as it
         # usually indicates requesting access to a page that requires different
@@ -143,7 +150,7 @@ def login(request):
         'logout_status': logout_status,
     }
 
-    if request.is_ajax():
+    if is_ajax(request):
         template_name = 'auth/_login.html'
         extra_context['hide'] = True
     else:

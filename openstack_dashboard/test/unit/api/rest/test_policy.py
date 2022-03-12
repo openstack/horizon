@@ -11,6 +11,7 @@
 # limitations under the License.
 
 import json
+from unittest import mock
 
 from django.test.utils import override_settings
 
@@ -18,7 +19,7 @@ from openstack_dashboard.api.rest import policy
 from openstack_dashboard.test import helpers as test
 
 
-class PolicyRestTestCase(test.TestCase):
+class PolicyRestTestCase(test.RestAPITestCase):
 
     @override_settings(POLICY_CHECK_FUNCTION='openstack_auth.policy.check')
     def _test_policy(self, body, expected=True):
@@ -77,6 +78,14 @@ class PolicyRestTestCase(test.TestCase):
 
 
 class AdminPolicyRestTestCase(test.BaseAdminViewTests):
+
+    # NOTE: BaseAdminViewTests is used by other unit tests too,
+    # so mock for is_ajax() is prepared explicitly here.
+    # It should match horizon.test.helpers.RestAPITestCase.setUp().
+    def setUp(self):
+        super().setUp()
+        mock.patch('horizon.utils.http.is_ajax', return_value=True).start()
+
     @override_settings(POLICY_CHECK_FUNCTION='openstack_auth.policy.check')
     def test_rule_with_target(self):
         body = json.dumps(

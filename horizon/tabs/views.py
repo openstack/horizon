@@ -15,6 +15,7 @@ from django import http
 from horizon import exceptions
 from horizon import tables
 from horizon.tabs.base import TableTab
+from horizon.utils import http as http_utils
 from horizon import views
 
 
@@ -60,7 +61,7 @@ class TabView(views.HorizonTemplateView):
 
         Otherwise renders the response as normal.
         """
-        if self.request.is_ajax():
+        if http_utils.is_ajax(self.request):
             if tab_group.selected:
                 return http.HttpResponse(tab_group.selected.render())
             return http.HttpResponse(tab_group.render())

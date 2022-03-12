@@ -22,7 +22,7 @@ from openstack_dashboard.api.rest import keystone
 from openstack_dashboard.test import helpers as test
 
 
-class KeystoneRestTestCase(test.TestCase):
+class KeystoneRestTestCase(test.RestAPITestCase):
 
     #
     # Version

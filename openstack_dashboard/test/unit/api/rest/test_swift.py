@@ -18,7 +18,7 @@ from openstack_dashboard.api.rest import swift
 from openstack_dashboard.test import helpers as test
 
 
-class SwiftRestTestCase(test.TestCase):
+class SwiftRestTestCase(test.RestAPITestCase):
 
     #
     # Version
