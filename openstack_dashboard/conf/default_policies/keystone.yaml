@@ -118,12 +118,11 @@
   scope_types:
   - project
 - check_str: (role:reader and system_scope:all) or rule:owner
-  deprecated_reason: The application credential API is now aware of system scope and
-    default roles.
+  deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_or_owner
-    name: identity:get_application_credentials
-  deprecated_since: T
+    name: identity:get_application_credential
+  deprecated_since: null
   description: Show application credential details.
   name: identity:get_application_credential
   operations:
@@ -135,12 +134,11 @@
   - system
   - project
 - check_str: (role:reader and system_scope:all) or rule:owner
-  deprecated_reason: The application credential API is now aware of system scope and
-    default roles.
+  deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_or_owner
     name: identity:list_application_credentials
-  deprecated_since: T
+  deprecated_since: null
   description: List application credentials for a user.
   name: identity:list_application_credentials
   operations:
@@ -160,12 +158,11 @@
   scope_types:
   - project
 - check_str: (role:admin and system_scope:all) or rule:owner
-  deprecated_reason: The application credential API is now aware of system scope and
-    default roles.
+  deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_or_owner
-    name: identity:delete_application_credentials
-  deprecated_since: T
+    name: identity:delete_application_credential
+  deprecated_since: null
   description: Delete an application credential.
   name: identity:delete_application_credential
   operations:
@@ -211,12 +208,11 @@
     path: /v3/auth/system
   scope_types: null
 - check_str: role:reader and system_scope:all
-  deprecated_reason: The OAUTH1 consumer API is now aware of system scope and default
-    roles.
+  deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_required
     name: identity:get_consumer
-  deprecated_since: T
+  deprecated_since: null
   description: Show OAUTH1 consumer details.
   name: identity:get_consumer
   operations:
@@ -225,12 +221,11 @@
   scope_types:
   - system
 - check_str: role:reader and system_scope:all
-  deprecated_reason: The OAUTH1 consumer API is now aware of system scope and default
-    roles.
+  deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_required
     name: identity:list_consumers
-  deprecated_since: T
+  deprecated_since: null
   description: List OAUTH1 consumers.
   name: identity:list_consumers
   operations:
@@ -239,12 +234,11 @@
   scope_types:
   - system
 - check_str: role:admin and system_scope:all
-  deprecated_reason: The OAUTH1 consumer API is now aware of system scope and default
-    roles.
+  deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_required
     name: identity:create_consumer
-  deprecated_since: T
+  deprecated_since: null
   description: Create OAUTH1 consumer.
   name: identity:create_consumer
   operations:
@@ -253,12 +247,11 @@
   scope_types:
   - system
 - check_str: role:admin and system_scope:all
-  deprecated_reason: The OAUTH1 consumer API is now aware of system scope and default
-    roles.
+  deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_required
     name: identity:update_consumer
-  deprecated_since: T
+  deprecated_since: null
   description: Update OAUTH1 consumer.
   name: identity:update_consumer
   operations:
@@ -267,12 +260,11 @@
   scope_types:
   - system
 - check_str: role:admin and system_scope:all
-  deprecated_reason: The OAUTH1 consumer API is now aware of system scope and default
-    roles.
+  deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_required
     name: identity:delete_consumer
-  deprecated_since: T
+  deprecated_since: null
   description: Delete OAUTH1 consumer.
   name: identity:delete_consumer
   operations:
@@ -281,11 +273,11 @@
   scope_types:
   - system
 - check_str: (role:reader and system_scope:all) or user_id:%(target.credential.user_id)s
-  deprecated_reason: The credential API is now aware of system scope and default roles.
+  deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_required
     name: identity:get_credential
-  deprecated_since: S
+  deprecated_since: null
   description: Show credentials details.
   name: identity:get_credential
   operations:
@@ -295,11 +287,11 @@
   - system
   - project
 - check_str: (role:reader and system_scope:all) or user_id:%(target.credential.user_id)s
-  deprecated_reason: The credential API is now aware of system scope and default roles.
+  deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_required
     name: identity:list_credentials
-  deprecated_since: S
+  deprecated_since: null
   description: List credentials.
   name: identity:list_credentials
   operations:
@@ -309,11 +301,11 @@
   - system
   - project
 - check_str: (role:admin and system_scope:all) or user_id:%(target.credential.user_id)s
-  deprecated_reason: The credential API is now aware of system scope and default roles.
+  deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_required
     name: identity:create_credential
-  deprecated_since: S
+  deprecated_since: null
   description: Create credential.
   name: identity:create_credential
   operations:
@@ -323,11 +315,11 @@
   - system
   - project
 - check_str: (role:admin and system_scope:all) or user_id:%(target.credential.user_id)s
-  deprecated_reason: The credential API is now aware of system scope and default roles.
+  deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_required
     name: identity:update_credential
-  deprecated_since: S
+  deprecated_since: null
   description: Update credential.
   name: identity:update_credential
   operations:
@@ -337,11 +329,11 @@
   - system
   - project
 - check_str: (role:admin and system_scope:all) or user_id:%(target.credential.user_id)s
-  deprecated_reason: The credential API is now aware of system scope and default roles.
+  deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_required
     name: identity:delete_credential
-  deprecated_since: S
+  deprecated_since: null
   description: Delete credential.
   name: identity:delete_credential
   operations:
@@ -352,11 +344,11 @@
   - project
 - check_str: (role:reader and system_scope:all) or token.domain.id:%(target.domain.id)s
     or token.project.domain.id:%(target.domain.id)s
-  deprecated_reason: The domain API is now aware of system scope and default roles.
+  deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_required or token.project.domain.id:%(target.domain.id)s
     name: identity:get_domain
-  deprecated_since: S
+  deprecated_since: null
   description: Show domain details.
   name: identity:get_domain
   operations:
@@ -367,11 +359,11 @@
   - domain
   - project
 - check_str: role:reader and system_scope:all
-  deprecated_reason: The domain API is now aware of system scope and default roles.
+  deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_required
     name: identity:list_domains
-  deprecated_since: S
+  deprecated_since: null
   description: List domains.
   name: identity:list_domains
   operations:
@@ -380,11 +372,11 @@
   scope_types:
   - system
 - check_str: role:admin and system_scope:all
-  deprecated_reason: The domain API is now aware of system scope and default roles.
+  deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_required
     name: identity:create_domain
-  deprecated_since: S
+  deprecated_since: null
   description: Create domain.
   name: identity:create_domain
   operations:
@@ -393,11 +385,11 @@
   scope_types:
   - system
 - check_str: role:admin and system_scope:all
-  deprecated_reason: The domain API is now aware of system scope and default roles.
+  deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_required
     name: identity:update_domain
-  deprecated_since: S
+  deprecated_since: null
   description: Update domain.
   name: identity:update_domain
   operations:
@@ -406,11 +398,11 @@
   scope_types:
   - system
 - check_str: role:admin and system_scope:all
-  deprecated_reason: The domain API is now aware of system scope and default roles.
+  deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_required
     name: identity:delete_domain
-  deprecated_since: S
+  deprecated_since: null
   description: Delete domain.
   name: identity:delete_domain
   operations:
@@ -419,12 +411,11 @@
   scope_types:
   - system
 - check_str: role:admin and system_scope:all
-  deprecated_reason: The domain config API is now aware of system scope and default
-    roles.
+  deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_required
     name: identity:create_domain_config
-  deprecated_since: T
+  deprecated_since: null
   description: Create domain configuration.
   name: identity:create_domain_config
   operations:
@@ -433,12 +424,11 @@
   scope_types:
   - system
 - check_str: role:reader and system_scope:all
-  deprecated_reason: The domain config API is now aware of system scope and default
-    roles.
+  deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_required
     name: identity:get_domain_config
-  deprecated_since: T
+  deprecated_since: null
   description: Get the entire domain configuration for a domain, an option group within
     a domain, or a specific configuration option within a group for a domain.
   name: identity:get_domain_config
@@ -475,12 +465,11 @@
   - domain
   - project
 - check_str: role:admin and system_scope:all
-  deprecated_reason: The domain config API is now aware of system scope and default
-    roles.
+  deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_required
     name: identity:update_domain_config
-  deprecated_since: T
+  deprecated_since: null
   description: Update domain configuration for either a domain, specific group or
     a specific option in a group.
   name: identity:update_domain_config
@@ -494,12 +483,11 @@
   scope_types:
   - system
 - check_str: role:admin and system_scope:all
-  deprecated_reason: The domain config API is now aware of system scope and default
-    roles.
+  deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_required
     name: identity:delete_domain_config
-  deprecated_since: T
+  deprecated_since: null
   description: Delete domain configuration for either a domain, specific group or
     a specific option in a group.
   name: identity:delete_domain_config
@@ -513,12 +501,11 @@
   scope_types:
   - system
 - check_str: role:reader and system_scope:all
-  deprecated_reason: The domain config API is now aware of system scope and default
-    roles.
+  deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_required
     name: identity:get_domain_config_default
-  deprecated_since: T
+  deprecated_since: null
   description: Get domain configuration default for either a domain, specific group
     or a specific option in a group.
   name: identity:get_domain_config_default
@@ -538,12 +525,11 @@
   scope_types:
   - system
 - check_str: (role:reader and system_scope:all) or user_id:%(target.credential.user_id)s
-  deprecated_reason: The EC2 credential API is now aware of system scope and default
-    roles.
+  deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_required or (rule:owner and user_id:%(target.credential.user_id)s)
     name: identity:ec2_get_credential
-  deprecated_since: T
+  deprecated_since: null
   description: Show ec2 credential details.
   name: identity:ec2_get_credential
   operations:
@@ -553,12 +539,11 @@
   - system
   - project
 - check_str: (role:reader and system_scope:all) or rule:owner
-  deprecated_reason: The EC2 credential API is now aware of system scope and default
-    roles.
+  deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_or_owner
     name: identity:ec2_list_credentials
-  deprecated_since: T
+  deprecated_since: null
   description: List ec2 credentials.
   name: identity:ec2_list_credentials
   operations:
@@ -568,12 +553,11 @@
   - system
   - project
 - check_str: (role:admin and system_scope:all) or rule:owner
-  deprecated_reason: The EC2 credential API is now aware of system scope and default
-    roles.
+  deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_or_owner
-    name: identity:ec2_create_credentials
-  deprecated_since: T
+    name: identity:ec2_create_credential
+  deprecated_since: null
   description: Create ec2 credential.
   name: identity:ec2_create_credential
   operations:
@@ -583,12 +567,11 @@
   - system
   - project
 - check_str: (role:admin and system_scope:all) or user_id:%(target.credential.user_id)s
-  deprecated_reason: The EC2 credential API is now aware of system scope and default
-    roles.
+  deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_required or (rule:owner and user_id:%(target.credential.user_id)s)
-    name: identity:ec2_delete_credentials
-  deprecated_since: T
+    name: identity:ec2_delete_credential
+  deprecated_since: null
   description: Delete ec2 credential.
   name: identity:ec2_delete_credential
   operations:
@@ -598,11 +581,11 @@
   - system
   - project
 - check_str: role:reader and system_scope:all
-  deprecated_reason: The endpoint API is now aware of system scope and default roles.
+  deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_required
     name: identity:get_endpoint
-  deprecated_since: S
+  deprecated_since: null
   description: Show endpoint details.
   name: identity:get_endpoint
   operations:
@@ -611,11 +594,11 @@
   scope_types:
   - system
 - check_str: role:reader and system_scope:all
-  deprecated_reason: The endpoint API is now aware of system scope and default roles.
+  deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_required
     name: identity:list_endpoints
-  deprecated_since: S
+  deprecated_since: null
   description: List endpoints.
   name: identity:list_endpoints
   operations:
@@ -624,11 +607,11 @@
   scope_types:
   - system
 - check_str: role:admin and system_scope:all
-  deprecated_reason: The endpoint API is now aware of system scope and default roles.
+  deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_required
     name: identity:create_endpoint
-  deprecated_since: S
+  deprecated_since: null
   description: Create endpoint.
   name: identity:create_endpoint
   operations:
@@ -637,11 +620,11 @@
   scope_types:
   - system
 - check_str: role:admin and system_scope:all
-  deprecated_reason: The endpoint API is now aware of system scope and default roles.
+  deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_required
     name: identity:update_endpoint
-  deprecated_since: S
+  deprecated_since: null
   description: Update endpoint.
   name: identity:update_endpoint
   operations:
@@ -650,11 +633,11 @@
   scope_types:
   - system
 - check_str: role:admin and system_scope:all
-  deprecated_reason: The endpoint API is now aware of system scope and default roles.
+  deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_required
     name: identity:delete_endpoint
-  deprecated_since: S
+  deprecated_since: null
   description: Delete endpoint.
   name: identity:delete_endpoint
   operations:
@@ -663,12 +646,11 @@
   scope_types:
   - system
 - check_str: role:admin and system_scope:all
-  deprecated_reason: The endpoint groups API is now aware of system scope and default
-    roles.
+  deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_required
     name: identity:create_endpoint_group
-  deprecated_since: T
+  deprecated_since: null
   description: Create endpoint group.
   name: identity:create_endpoint_group
   operations:
@@ -677,12 +659,11 @@
   scope_types:
   - system
 - check_str: role:reader and system_scope:all
-  deprecated_reason: The endpoint groups API is now aware of system scope and default
-    roles.
+  deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_required
     name: identity:list_endpoint_groups
-  deprecated_since: T
+  deprecated_since: null
   description: List endpoint groups.
   name: identity:list_endpoint_groups
   operations:
@@ -691,12 +672,11 @@
   scope_types:
   - system
 - check_str: role:reader and system_scope:all
-  deprecated_reason: The endpoint groups API is now aware of system scope and default
-    roles.
+  deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_required
     name: identity:get_endpoint_group
-  deprecated_since: T
+  deprecated_since: null
   description: Get endpoint group.
   name: identity:get_endpoint_group
   operations:
@@ -707,12 +687,11 @@
   scope_types:
   - system
 - check_str: role:admin and system_scope:all
-  deprecated_reason: The endpoint groups API is now aware of system scope and default
-    roles.
+  deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_required
     name: identity:update_endpoint_group
-  deprecated_since: T
+  deprecated_since: null
   description: Update endpoint group.
   name: identity:update_endpoint_group
   operations:
@@ -721,12 +700,11 @@
   scope_types:
   - system
 - check_str: role:admin and system_scope:all
-  deprecated_reason: The endpoint groups API is now aware of system scope and default
-    roles.
+  deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_required
     name: identity:delete_endpoint_group
-  deprecated_since: T
+  deprecated_since: null
   description: Delete endpoint group.
   name: identity:delete_endpoint_group
   operations:
@@ -735,12 +713,11 @@
   scope_types:
   - system
 - check_str: role:reader and system_scope:all
-  deprecated_reason: The endpoint groups API is now aware of system scope and default
-    roles.
+  deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_required
     name: identity:list_projects_associated_with_endpoint_group
-  deprecated_since: T
+  deprecated_since: null
   description: List all projects associated with a specific endpoint group.
   name: identity:list_projects_associated_with_endpoint_group
   operations:
@@ -749,12 +726,11 @@
   scope_types:
   - system
 - check_str: role:reader and system_scope:all
-  deprecated_reason: The endpoint groups API is now aware of system scope and default
-    roles.
+  deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_required
     name: identity:list_endpoints_associated_with_endpoint_group
-  deprecated_since: T
+  deprecated_since: null
   description: List all endpoints associated with an endpoint group.
   name: identity:list_endpoints_associated_with_endpoint_group
   operations:
@@ -763,12 +739,11 @@
   scope_types:
   - system
 - check_str: role:reader and system_scope:all
-  deprecated_reason: The endpoint groups API is now aware of system scope and default
-    roles.
+  deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_required
     name: identity:get_endpoint_group_in_project
-  deprecated_since: T
+  deprecated_since: null
   description: Check if an endpoint group is associated with a project.
   name: identity:get_endpoint_group_in_project
   operations:
@@ -779,12 +754,11 @@
   scope_types:
   - system
 - check_str: role:reader and system_scope:all
-  deprecated_reason: The endpoint groups API is now aware of system scope and default
-    roles.
+  deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_required
     name: identity:list_endpoint_groups_for_project
-  deprecated_since: T
+  deprecated_since: null
   description: List endpoint groups associated with a specific project.
   name: identity:list_endpoint_groups_for_project
   operations:
@@ -793,12 +767,11 @@
   scope_types:
   - system
 - check_str: role:admin and system_scope:all
-  deprecated_reason: The endpoint groups API is now aware of system scope and default
-    roles.
+  deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_required
     name: identity:add_endpoint_group_to_project
-  deprecated_since: T
+  deprecated_since: null
   description: Allow a project to access an endpoint group.
   name: identity:add_endpoint_group_to_project
   operations:
@@ -807,12 +780,11 @@
   scope_types:
   - system
 - check_str: role:admin and system_scope:all
-  deprecated_reason: The endpoint groups API is now aware of system scope and default
-    roles.
+  deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_required
     name: identity:remove_endpoint_group_from_project
-  deprecated_since: T
+  deprecated_since: null
   description: Remove endpoint group from project.
   name: identity:remove_endpoint_group_from_project
   operations:
@@ -826,11 +798,11 @@
     and domain_id:%(target.project.domain_id)s) or (role:reader and domain_id:%(target.group.domain_id)s
     and domain_id:%(target.domain.id)s)) and (domain_id:%(target.role.domain_id)s
     or None:%(target.role.domain_id)s)
-  deprecated_reason: The assignment API is now aware of system scope and default roles.
+  deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_required
     name: identity:check_grant
-  deprecated_since: S
+  deprecated_since: null
   description: Check a role grant between a target and an actor. A target can be either
     a domain or a project. An actor can be either a user or a group. These terms also
     apply to the OS-INHERIT APIs, where grants on the target are inherited to all
@@ -877,11 +849,11 @@
     and domain_id:%(target.domain.id)s) or (role:reader and domain_id:%(target.group.domain_id)s
     and domain_id:%(target.project.domain_id)s) or (role:reader and domain_id:%(target.group.domain_id)s
     and domain_id:%(target.domain.id)s)
-  deprecated_reason: The assignment API is now aware of system scope and default roles.
+  deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_required
     name: identity:list_grants
-  deprecated_since: S
+  deprecated_since: null
   description: List roles granted to an actor on a target. A target can be either
     a domain or a project. An actor can be either a user or a group. For the OS-INHERIT
     APIs, it is possible to list inherited role grants for actors on domains, where
@@ -917,11 +889,11 @@
     and domain_id:%(target.project.domain_id)s) or (role:admin and domain_id:%(target.group.domain_id)s
     and domain_id:%(target.domain.id)s)) and (domain_id:%(target.role.domain_id)s
     or None:%(target.role.domain_id)s)
-  deprecated_reason: The assignment API is now aware of system scope and default roles.
+  deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_required
     name: identity:create_grant
-  deprecated_since: S
+  deprecated_since: null
   description: Create a role grant between a target and an actor. A target can be
     either a domain or a project. An actor can be either a user or a group. These
     terms also apply to the OS-INHERIT APIs, where grants on the target are inherited
@@ -953,11 +925,11 @@
     and domain_id:%(target.project.domain_id)s) or (role:admin and domain_id:%(target.group.domain_id)s
     and domain_id:%(target.domain.id)s)) and (domain_id:%(target.role.domain_id)s
     or None:%(target.role.domain_id)s)
-  deprecated_reason: The assignment API is now aware of system scope and default roles.
+  deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_required
     name: identity:revoke_grant
-  deprecated_since: S
+  deprecated_since: null
   description: Revoke a role grant between a target and an actor. A target can be
     either a domain or a project. An actor can be either a user or a group. These
     terms also apply to the OS-INHERIT APIs, where grants on the target are inherited
@@ -986,11 +958,11 @@
   - system
   - domain
 - check_str: role:reader and system_scope:all
-  deprecated_reason: The assignment API is now aware of system scope and default roles.
+  deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_required
     name: identity:list_system_grants_for_user
-  deprecated_since: S
+  deprecated_since: null
   description: List all grants a specific user has on the system.
   name: identity:list_system_grants_for_user
   operations:
@@ -1001,11 +973,11 @@
   scope_types:
   - system
 - check_str: role:reader and system_scope:all
-  deprecated_reason: The assignment API is now aware of system scope and default roles.
+  deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_required
     name: identity:check_system_grant_for_user
-  deprecated_since: S
+  deprecated_since: null
   description: Check if a user has a role on the system.
   name: identity:check_system_grant_for_user
   operations:
@@ -1016,11 +988,11 @@
   scope_types:
   - system
 - check_str: role:admin and system_scope:all
-  deprecated_reason: The assignment API is now aware of system scope and default roles.
+  deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_required
     name: identity:create_system_grant_for_user
-  deprecated_since: S
+  deprecated_since: null
   description: Grant a user a role on the system.
   name: identity:create_system_grant_for_user
   operations:
@@ -1030,11 +1002,11 @@
   scope_types:
   - system
 - check_str: role:admin and system_scope:all
-  deprecated_reason: The assignment API is now aware of system scope and default roles.
+  deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_required
     name: identity:revoke_system_grant_for_user
-  deprecated_since: S
+  deprecated_since: null
   description: Remove a role from a user on the system.
   name: identity:revoke_system_grant_for_user
   operations:
@@ -1044,11 +1016,11 @@
   scope_types:
   - system
 - check_str: role:reader and system_scope:all
-  deprecated_reason: The assignment API is now aware of system scope and default roles.
+  deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_required
     name: identity:list_system_grants_for_group
-  deprecated_since: S
+  deprecated_since: null
   description: List all grants a specific group has on the system.
   name: identity:list_system_grants_for_group
   operations:
@@ -1059,11 +1031,11 @@
   scope_types:
   - system
 - check_str: role:reader and system_scope:all
-  deprecated_reason: The assignment API is now aware of system scope and default roles.
+  deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_required
     name: identity:check_system_grant_for_group
-  deprecated_since: S
+  deprecated_since: null
   description: Check if a group has a role on the system.
   name: identity:check_system_grant_for_group
   operations:
@@ -1074,11 +1046,11 @@
   scope_types:
   - system
 - check_str: role:admin and system_scope:all
-  deprecated_reason: The assignment API is now aware of system scope and default roles.
+  deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_required
     name: identity:create_system_grant_for_group
-  deprecated_since: S
+  deprecated_since: null
   description: Grant a group a role on the system.
   name: identity:create_system_grant_for_group
   operations:
@@ -1088,11 +1060,11 @@
   scope_types:
   - system
 - check_str: role:admin and system_scope:all
-  deprecated_reason: The assignment API is now aware of system scope and default roles.
+  deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_required
     name: identity:revoke_system_grant_for_group
-  deprecated_since: S
+  deprecated_since: null
   description: Remove a role from a group on the system.
   name: identity:revoke_system_grant_for_group
   operations:
@@ -1102,11 +1074,11 @@
   scope_types:
   - system
 - check_str: (role:reader and system_scope:all) or (role:reader and domain_id:%(target.group.domain_id)s)
-  deprecated_reason: The group API is now aware of system scope and default roles.
+  deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_required
     name: identity:get_group
-  deprecated_since: S
+  deprecated_since: null
   description: Show group details.
   name: identity:get_group
   operations:
@@ -1118,11 +1090,11 @@
   - system
   - domain
 - check_str: (role:reader and system_scope:all) or (role:reader and domain_id:%(target.group.domain_id)s)
-  deprecated_reason: The group API is now aware of system scope and default roles.
+  deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_required
     name: identity:list_groups
-  deprecated_since: S
+  deprecated_since: null
   description: List groups.
   name: identity:list_groups
   operations:
@@ -1135,11 +1107,11 @@
   - domain
 - check_str: (role:reader and system_scope:all) or (role:reader and domain_id:%(target.user.domain_id)s)
     or user_id:%(user_id)s
-  deprecated_reason: The group API is now aware of system scope and default roles.
+  deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_or_owner
     name: identity:list_groups_for_user
-  deprecated_since: S
+  deprecated_since: null
   description: List groups to which a user belongs.
   name: identity:list_groups_for_user
   operations:
@@ -1152,11 +1124,11 @@
   - domain
   - project
 - check_str: (role:admin and system_scope:all) or (role:admin and domain_id:%(target.group.domain_id)s)
-  deprecated_reason: The group API is now aware of system scope and default roles.
+  deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_required
     name: identity:create_group
-  deprecated_since: S
+  deprecated_since: null
   description: Create group.
   name: identity:create_group
   operations:
@@ -1166,11 +1138,11 @@
   - system
   - domain
 - check_str: (role:admin and system_scope:all) or (role:admin and domain_id:%(target.group.domain_id)s)
-  deprecated_reason: The group API is now aware of system scope and default roles.
+  deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_required
     name: identity:update_group
-  deprecated_since: S
+  deprecated_since: null
   description: Update group.
   name: identity:update_group
   operations:
@@ -1180,11 +1152,11 @@
   - system
   - domain
 - check_str: (role:admin and system_scope:all) or (role:admin and domain_id:%(target.group.domain_id)s)
-  deprecated_reason: The group API is now aware of system scope and default roles.
+  deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_required
     name: identity:delete_group
-  deprecated_since: S
+  deprecated_since: null
   description: Delete group.
   name: identity:delete_group
   operations:
@@ -1194,11 +1166,11 @@
   - system
   - domain
 - check_str: (role:reader and system_scope:all) or (role:reader and domain_id:%(target.group.domain_id)s)
-  deprecated_reason: The group API is now aware of system scope and default roles.
+  deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_required
     name: identity:list_users_in_group
-  deprecated_since: S
+  deprecated_since: null
   description: List members of a specific group.
   name: identity:list_users_in_group
   operations:
@@ -1211,11 +1183,11 @@
   - domain
 - check_str: (role:admin and system_scope:all) or (role:admin and domain_id:%(target.group.domain_id)s
     and domain_id:%(target.user.domain_id)s)
-  deprecated_reason: The group API is now aware of system scope and default roles.
+  deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_required
     name: identity:remove_user_from_group
-  deprecated_since: S
+  deprecated_since: null
   description: Remove user from group.
   name: identity:remove_user_from_group
   operations:
@@ -1226,11 +1198,11 @@
   - domain
 - check_str: (role:reader and system_scope:all) or (role:reader and domain_id:%(target.group.domain_id)s
     and domain_id:%(target.user.domain_id)s)
-  deprecated_reason: The group API is now aware of system scope and default roles.
+  deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_required
     name: identity:check_user_in_group
-  deprecated_since: S
+  deprecated_since: null
   description: Check whether a user is a member of a group.
   name: identity:check_user_in_group
   operations:
@@ -1243,11 +1215,11 @@
   - domain
 - check_str: (role:admin and system_scope:all) or (role:admin and domain_id:%(target.group.domain_id)s
     and domain_id:%(target.user.domain_id)s)
-  deprecated_reason: The group API is now aware of system scope and default roles.
+  deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_required
     name: identity:add_user_to_group
-  deprecated_since: S
+  deprecated_since: null
   description: Add user to group.
   name: identity:add_user_to_group
   operations:
@@ -1257,12 +1229,11 @@
   - system
   - domain
 - check_str: role:admin and system_scope:all
-  deprecated_reason: The identity provider API is now aware of system scope and default
-    roles.
+  deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_required
-    name: identity:create_identity_providers
-  deprecated_since: S
+    name: identity:create_identity_provider
+  deprecated_since: null
   description: Create identity provider.
   name: identity:create_identity_provider
   operations:
@@ -1271,12 +1242,11 @@
   scope_types:
   - system
 - check_str: role:reader and system_scope:all
-  deprecated_reason: The identity provider API is now aware of system scope and default
-    roles.
+  deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_required
     name: identity:list_identity_providers
-  deprecated_since: S
+  deprecated_since: null
   description: List identity providers.
   name: identity:list_identity_providers
   operations:
@@ -1287,12 +1257,11 @@
   scope_types:
   - system
 - check_str: role:reader and system_scope:all
-  deprecated_reason: The identity provider API is now aware of system scope and default
-    roles.
+  deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_required
-    name: identity:get_identity_providers
-  deprecated_since: S
+    name: identity:get_identity_provider
+  deprecated_since: null
   description: Get identity provider.
   name: identity:get_identity_provider
   operations:
@@ -1303,12 +1272,11 @@
   scope_types:
   - system
 - check_str: role:admin and system_scope:all
-  deprecated_reason: The identity provider API is now aware of system scope and default
-    roles.
+  deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_required
-    name: identity:update_identity_providers
-  deprecated_since: S
+    name: identity:update_identity_provider
+  deprecated_since: null
   description: Update identity provider.
   name: identity:update_identity_provider
   operations:
@@ -1317,12 +1285,11 @@
   scope_types:
   - system
 - check_str: role:admin and system_scope:all
-  deprecated_reason: The identity provider API is now aware of system scope and default
-    roles.
+  deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_required
-    name: identity:delete_identity_providers
-  deprecated_since: S
+    name: identity:delete_identity_provider
+  deprecated_since: null
   description: Delete identity provider.
   name: identity:delete_identity_provider
   operations:
@@ -1331,12 +1298,11 @@
   scope_types:
   - system
 - check_str: role:reader and system_scope:all
-  deprecated_reason: The implied role API is now aware of system scope and default
-    roles.
+  deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_required
     name: identity:get_implied_role
-  deprecated_since: T
+  deprecated_since: null
   description: Get information about an association between two roles. When a relationship
     exists between a prior role and an implied role and the prior role is assigned
     to a user, the user also assumes the implied role.
@@ -1347,12 +1313,11 @@
   scope_types:
   - system
 - check_str: role:reader and system_scope:all
-  deprecated_reason: The implied role API is now aware of system scope and default
-    roles.
+  deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_required
     name: identity:list_implied_roles
-  deprecated_since: T
+  deprecated_since: null
   description: List associations between two roles. When a relationship exists between
     a prior role and an implied role and the prior role is assigned to a user, the
     user also assumes the implied role. This will return all the implied roles that
@@ -1366,12 +1331,11 @@
   scope_types:
   - system
 - check_str: role:admin and system_scope:all
-  deprecated_reason: The implied role API is now aware of system scope and default
-    roles.
+  deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_required
     name: identity:create_implied_role
-  deprecated_since: T
+  deprecated_since: null
   description: Create an association between two roles. When a relationship exists
     between a prior role and an implied role and the prior role is assigned to a user,
     the user also assumes the implied role.
@@ -1382,12 +1346,11 @@
   scope_types:
   - system
 - check_str: role:admin and system_scope:all
-  deprecated_reason: The implied role API is now aware of system scope and default
-    roles.
+  deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_required
     name: identity:delete_implied_role
-  deprecated_since: T
+  deprecated_since: null
   description: Delete the association between two roles. When a relationship exists
     between a prior role and an implied role and the prior role is assigned to a user,
     the user also assumes the implied role. Removing the association will cause that
@@ -1399,12 +1362,11 @@
   scope_types:
   - system
 - check_str: role:reader and system_scope:all
-  deprecated_reason: The implied role API is now aware of system scope and default
-    roles.
+  deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_required
     name: identity:list_role_inference_rules
-  deprecated_since: T
+  deprecated_since: null
   description: List all associations between two roles in the system. When a relationship
     exists between a prior role and an implied role and the prior role is assigned
     to a user, the user also assumes the implied role.
@@ -1417,12 +1379,11 @@
   scope_types:
   - system
 - check_str: role:reader and system_scope:all
-  deprecated_reason: The implied role API is now aware of system scope and default
-    roles.
+  deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_required
     name: identity:check_implied_role
-  deprecated_since: T
+  deprecated_since: null
   description: Check an association between two roles. When a relationship exists
     between a prior role and an implied role and the prior role is assigned to a user,
     the user also assumes the implied role.
@@ -1495,12 +1456,11 @@
   scope_types:
   - system
 - check_str: role:admin and system_scope:all
-  deprecated_reason: The federated mapping API is now aware of system scope and default
-    roles.
+  deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_required
     name: identity:create_mapping
-  deprecated_since: S
+  deprecated_since: null
   description: Create a new federated mapping containing one or more sets of rules.
   name: identity:create_mapping
   operations:
@@ -1509,12 +1469,11 @@
   scope_types:
   - system
 - check_str: role:reader and system_scope:all
-  deprecated_reason: The federated mapping API is now aware of system scope and default
-    roles.
+  deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_required
     name: identity:get_mapping
-  deprecated_since: S
+  deprecated_since: null
   description: Get a federated mapping.
   name: identity:get_mapping
   operations:
@@ -1525,12 +1484,11 @@
   scope_types:
   - system
 - check_str: role:reader and system_scope:all
-  deprecated_reason: The federated mapping API is now aware of system scope and default
-    roles.
+  deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_required
     name: identity:list_mappings
-  deprecated_since: S
+  deprecated_since: null
   description: List federated mappings.
   name: identity:list_mappings
   operations:
@@ -1541,12 +1499,11 @@
   scope_types:
   - system
 - check_str: role:admin and system_scope:all
-  deprecated_reason: The federated mapping API is now aware of system scope and default
-    roles.
+  deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_required
     name: identity:delete_mapping
-  deprecated_since: S
+  deprecated_since: null
   description: Delete a federated mapping.
   name: identity:delete_mapping
   operations:
@@ -1555,12 +1512,11 @@
   scope_types:
   - system
 - check_str: role:admin and system_scope:all
-  deprecated_reason: The federated mapping API is now aware of system scope and default
-    roles.
+  deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_required
     name: identity:update_mapping
-  deprecated_since: S
+  deprecated_since: null
   description: Update a federated mapping.
   name: identity:update_mapping
   operations:
@@ -1569,11 +1525,11 @@
   scope_types:
   - system
 - check_str: role:reader and system_scope:all
-  deprecated_reason: The policy API is now aware of system scope and default roles.
+  deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_required
     name: identity:get_policy
-  deprecated_since: T
+  deprecated_since: null
   description: Show policy details.
   name: identity:get_policy
   operations:
@@ -1582,11 +1538,11 @@
   scope_types:
   - system
 - check_str: role:reader and system_scope:all
-  deprecated_reason: The policy API is now aware of system scope and default roles.
+  deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_required
     name: identity:list_policies
-  deprecated_since: T
+  deprecated_since: null
   description: List policies.
   name: identity:list_policies
   operations:
@@ -1595,11 +1551,11 @@
   scope_types:
   - system
 - check_str: role:admin and system_scope:all
-  deprecated_reason: The policy API is now aware of system scope and default roles.
+  deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_required
     name: identity:create_policy
-  deprecated_since: T
+  deprecated_since: null
   description: Create policy.
   name: identity:create_policy
   operations:
@@ -1608,11 +1564,11 @@
   scope_types:
   - system
 - check_str: role:admin and system_scope:all
-  deprecated_reason: The policy API is now aware of system scope and default roles.
+  deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_required
     name: identity:update_policy
-  deprecated_since: T
+  deprecated_since: null
   description: Update policy.
   name: identity:update_policy
   operations:
@@ -1621,11 +1577,11 @@
   scope_types:
   - system
 - check_str: role:admin and system_scope:all
-  deprecated_reason: The policy API is now aware of system scope and default roles.
+  deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_required
     name: identity:delete_policy
-  deprecated_since: T
+  deprecated_since: null
   description: Delete policy.
   name: identity:delete_policy
   operations:
@@ -1634,12 +1590,11 @@
   scope_types:
   - system
 - check_str: role:admin and system_scope:all
-  deprecated_reason: The policy association API is now aware of system scope and default
-    roles.
+  deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_required
     name: identity:create_policy_association_for_endpoint
-  deprecated_since: T
+  deprecated_since: null
   description: Associate a policy to a specific endpoint.
   name: identity:create_policy_association_for_endpoint
   operations:
@@ -1648,12 +1603,11 @@
   scope_types:
   - system
 - check_str: role:reader and system_scope:all
-  deprecated_reason: The policy association API is now aware of system scope and default
-    roles.
+  deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_required
     name: identity:check_policy_association_for_endpoint
-  deprecated_since: T
+  deprecated_since: null
   description: Check policy association for endpoint.
   name: identity:check_policy_association_for_endpoint
   operations:
@@ -1664,12 +1618,11 @@
   scope_types:
   - system
 - check_str: role:admin and system_scope:all
-  deprecated_reason: The policy association API is now aware of system scope and default
-    roles.
+  deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_required
     name: identity:delete_policy_association_for_endpoint
-  deprecated_since: T
+  deprecated_since: null
   description: Delete policy association for endpoint.
   name: identity:delete_policy_association_for_endpoint
   operations:
@@ -1678,12 +1631,11 @@
   scope_types:
   - system
 - check_str: role:admin and system_scope:all
-  deprecated_reason: The policy association API is now aware of system scope and default
-    roles.
+  deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_required
     name: identity:create_policy_association_for_service
-  deprecated_since: T
+  deprecated_since: null
   description: Associate a policy to a specific service.
   name: identity:create_policy_association_for_service
   operations:
@@ -1692,12 +1644,11 @@
   scope_types:
   - system
 - check_str: role:reader and system_scope:all
-  deprecated_reason: The policy association API is now aware of system scope and default
-    roles.
+  deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_required
     name: identity:check_policy_association_for_service
-  deprecated_since: T
+  deprecated_since: null
   description: Check policy association for service.
   name: identity:check_policy_association_for_service
   operations:
@@ -1708,12 +1659,11 @@
   scope_types:
   - system
 - check_str: role:admin and system_scope:all
-  deprecated_reason: The policy association API is now aware of system scope and default
-    roles.
+  deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_required
     name: identity:delete_policy_association_for_service
-  deprecated_since: T
+  deprecated_since: null
   description: Delete policy association for service.
   name: identity:delete_policy_association_for_service
   operations:
@@ -1722,12 +1672,11 @@
   scope_types:
   - system
 - check_str: role:admin and system_scope:all
-  deprecated_reason: The policy association API is now aware of system scope and default
-    roles.
+  deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_required
     name: identity:create_policy_association_for_region_and_service
-  deprecated_since: T
+  deprecated_since: null
   description: Associate a policy to a specific region and service combination.
   name: identity:create_policy_association_for_region_and_service
   operations:
@@ -1736,12 +1685,11 @@
   scope_types:
   - system
 - check_str: role:reader and system_scope:all
-  deprecated_reason: The policy association API is now aware of system scope and default
-    roles.
+  deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_required
     name: identity:check_policy_association_for_region_and_service
-  deprecated_since: T
+  deprecated_since: null
   description: Check policy association for region and service.
   name: identity:check_policy_association_for_region_and_service
   operations:
@@ -1752,12 +1700,11 @@
   scope_types:
   - system
 - check_str: role:admin and system_scope:all
-  deprecated_reason: The policy association API is now aware of system scope and default
-    roles.
+  deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_required
     name: identity:delete_policy_association_for_region_and_service
-  deprecated_since: T
+  deprecated_since: null
   description: Delete policy association for region and service.
   name: identity:delete_policy_association_for_region_and_service
   operations:
@@ -1766,12 +1713,11 @@
   scope_types:
   - system
 - check_str: role:reader and system_scope:all
-  deprecated_reason: The policy association API is now aware of system scope and default
-    roles.
+  deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_required
     name: identity:get_policy_for_endpoint
-  deprecated_since: T
+  deprecated_since: null
   description: Get policy for endpoint.
   name: identity:get_policy_for_endpoint
   operations:
@@ -1782,12 +1728,11 @@
   scope_types:
   - system
 - check_str: role:reader and system_scope:all
-  deprecated_reason: The policy association API is now aware of system scope and default
-    roles.
+  deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_required
     name: identity:list_endpoints_for_policy
-  deprecated_since: T
+  deprecated_since: null
   description: List endpoints for policy.
   name: identity:list_endpoints_for_policy
   operations:
@@ -1797,11 +1742,11 @@
   - system
 - check_str: (role:reader and system_scope:all) or (role:reader and domain_id:%(target.project.domain_id)s)
     or project_id:%(target.project.id)s
-  deprecated_reason: The project API is now aware of system scope and default roles.
+  deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_required or project_id:%(target.project.id)s
     name: identity:get_project
-  deprecated_since: S
+  deprecated_since: null
   description: Show project details.
   name: identity:get_project
   operations:
@@ -1812,11 +1757,11 @@
   - domain
   - project
 - check_str: (role:reader and system_scope:all) or (role:reader and domain_id:%(target.domain_id)s)
-  deprecated_reason: The project API is now aware of system scope and default roles.
+  deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_required
     name: identity:list_projects
-  deprecated_since: S
+  deprecated_since: null
   description: List projects.
   name: identity:list_projects
   operations:
@@ -1827,11 +1772,11 @@
   - domain
 - check_str: (role:reader and system_scope:all) or (role:reader and domain_id:%(target.user.domain_id)s)
     or user_id:%(target.user.id)s
-  deprecated_reason: The project API is now aware of system scope and default roles.
+  deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_or_owner
     name: identity:list_user_projects
-  deprecated_since: S
+  deprecated_since: null
   description: List projects for user.
   name: identity:list_user_projects
   operations:
@@ -1842,11 +1787,11 @@
   - domain
   - project
 - check_str: (role:admin and system_scope:all) or (role:admin and domain_id:%(target.project.domain_id)s)
-  deprecated_reason: The project API is now aware of system scope and default roles.
+  deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_required
     name: identity:create_project
-  deprecated_since: S
+  deprecated_since: null
   description: Create project.
   name: identity:create_project
   operations:
@@ -1856,11 +1801,11 @@
   - system
   - domain
 - check_str: (role:admin and system_scope:all) or (role:admin and domain_id:%(target.project.domain_id)s)
-  deprecated_reason: The project API is now aware of system scope and default roles.
+  deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_required
     name: identity:update_project
-  deprecated_since: S
+  deprecated_since: null
   description: Update project.
   name: identity:update_project
   operations:
@@ -1870,11 +1815,11 @@
   - system
   - domain
 - check_str: (role:admin and system_scope:all) or (role:admin and domain_id:%(target.project.domain_id)s)
-  deprecated_reason: The project API is now aware of system scope and default roles.
+  deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_required
     name: identity:delete_project
-  deprecated_since: S
+  deprecated_since: null
   description: Delete project.
   name: identity:delete_project
   operations:
@@ -1885,15 +1830,11 @@
   - domain
 - check_str: (role:reader and system_scope:all) or (role:reader and domain_id:%(target.project.domain_id)s)
     or project_id:%(target.project.id)s
-  deprecated_reason: '
-
-    The project API is now aware of system scope and default roles.
-
-    '
+  deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_required or project_id:%(target.project.id)s
     name: identity:list_project_tags
-  deprecated_since: T
+  deprecated_since: null
   description: List tags for a project.
   name: identity:list_project_tags
   operations:
@@ -1907,15 +1848,11 @@
   - project
 - check_str: (role:reader and system_scope:all) or (role:reader and domain_id:%(target.project.domain_id)s)
     or project_id:%(target.project.id)s
-  deprecated_reason: '
-
-    The project API is now aware of system scope and default roles.
-
-    '
+  deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_required or project_id:%(target.project.id)s
     name: identity:get_project_tag
-  deprecated_since: T
+  deprecated_since: null
   description: Check if project contains a tag.
   name: identity:get_project_tag
   operations:
@@ -1929,15 +1866,11 @@
   - project
 - check_str: (role:admin and system_scope:all) or (role:admin and domain_id:%(target.project.domain_id)s)
     or (role:admin and project_id:%(target.project.id)s)
-  deprecated_reason: '
-
-    The project API is now aware of system scope and default roles.
-
-    '
+  deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_required
     name: identity:update_project_tags
-  deprecated_since: T
+  deprecated_since: null
   description: Replace all tags on a project with the new set of tags.
   name: identity:update_project_tags
   operations:
@@ -1949,15 +1882,11 @@
   - project
 - check_str: (role:admin and system_scope:all) or (role:admin and domain_id:%(target.project.domain_id)s)
     or (role:admin and project_id:%(target.project.id)s)
-  deprecated_reason: '
-
-    The project API is now aware of system scope and default roles.
-
-    '
+  deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_required
     name: identity:create_project_tag
-  deprecated_since: T
+  deprecated_since: null
   description: Add a single tag to a project.
   name: identity:create_project_tag
   operations:
@@ -1969,15 +1898,11 @@
   - project
 - check_str: (role:admin and system_scope:all) or (role:admin and domain_id:%(target.project.domain_id)s)
     or (role:admin and project_id:%(target.project.id)s)
-  deprecated_reason: '
-
-    The project API is now aware of system scope and default roles.
-
-    '
+  deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_required
     name: identity:delete_project_tags
-  deprecated_since: T
+  deprecated_since: null
   description: Remove all tags from a project.
   name: identity:delete_project_tags
   operations:
@@ -1989,15 +1914,11 @@
   - project
 - check_str: (role:admin and system_scope:all) or (role:admin and domain_id:%(target.project.domain_id)s)
     or (role:admin and project_id:%(target.project.id)s)
-  deprecated_reason: '
-
-    The project API is now aware of system scope and default roles.
-
-    '
+  deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_required
     name: identity:delete_project_tag
-  deprecated_since: T
+  deprecated_since: null
   description: Delete a specified tag from project.
   name: identity:delete_project_tag
   operations:
@@ -2008,23 +1929,11 @@
   - domain
   - project
 - check_str: role:reader and system_scope:all
-  deprecated_reason: '
-
-    As of the Train release, the project endpoint API now understands default
-
-    roles and system-scoped tokens, making the API more granular by default without
-
-    compromising security. The new policy defaults account for these changes
-
-    automatically. Be sure to take these new defaults into consideration if you are
-
-    relying on overrides in your deployment for the project endpoint API.
-
-    '
+  deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_required
     name: identity:list_projects_for_endpoint
-  deprecated_since: T
+  deprecated_since: null
   description: List projects allowed to access an endpoint.
   name: identity:list_projects_for_endpoint
   operations:
@@ -2033,23 +1942,11 @@
   scope_types:
   - system
 - check_str: role:admin and system_scope:all
-  deprecated_reason: '
-
-    As of the Train release, the project endpoint API now understands default
-
-    roles and system-scoped tokens, making the API more granular by default without
-
-    compromising security. The new policy defaults account for these changes
-
-    automatically. Be sure to take these new defaults into consideration if you are
-
-    relying on overrides in your deployment for the project endpoint API.
-
-    '
+  deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_required
     name: identity:add_endpoint_to_project
-  deprecated_since: T
+  deprecated_since: null
   description: Allow project to access an endpoint.
   name: identity:add_endpoint_to_project
   operations:
@@ -2058,23 +1955,11 @@
   scope_types:
   - system
 - check_str: role:reader and system_scope:all
-  deprecated_reason: '
-
-    As of the Train release, the project endpoint API now understands default
-
-    roles and system-scoped tokens, making the API more granular by default without
-
-    compromising security. The new policy defaults account for these changes
-
-    automatically. Be sure to take these new defaults into consideration if you are
-
-    relying on overrides in your deployment for the project endpoint API.
-
-    '
+  deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_required
     name: identity:check_endpoint_in_project
-  deprecated_since: T
+  deprecated_since: null
   description: Check if a project is allowed to access an endpoint.
   name: identity:check_endpoint_in_project
   operations:
@@ -2085,23 +1970,11 @@
   scope_types:
   - system
 - check_str: role:reader and system_scope:all
-  deprecated_reason: '
-
-    As of the Train release, the project endpoint API now understands default
-
-    roles and system-scoped tokens, making the API more granular by default without
-
-    compromising security. The new policy defaults account for these changes
-
-    automatically. Be sure to take these new defaults into consideration if you are
-
-    relying on overrides in your deployment for the project endpoint API.
-
-    '
+  deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_required
     name: identity:list_endpoints_for_project
-  deprecated_since: T
+  deprecated_since: null
   description: List the endpoints a project is allowed to access.
   name: identity:list_endpoints_for_project
   operations:
@@ -2110,23 +1983,11 @@
   scope_types:
   - system
 - check_str: role:admin and system_scope:all
-  deprecated_reason: '
-
-    As of the Train release, the project endpoint API now understands default
-
-    roles and system-scoped tokens, making the API more granular by default without
-
-    compromising security. The new policy defaults account for these changes
-
-    automatically. Be sure to take these new defaults into consideration if you are
-
-    relying on overrides in your deployment for the project endpoint API.
-
-    '
+  deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_required
     name: identity:remove_endpoint_from_project
-  deprecated_since: T
+  deprecated_since: null
   description: Remove access to an endpoint from a project that has previously been
     given explicit access.
   name: identity:remove_endpoint_from_project
@@ -2136,12 +1997,11 @@
   scope_types:
   - system
 - check_str: role:admin and system_scope:all
-  deprecated_reason: The federated protocol API is now aware of system scope and default
-    roles.
+  deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_required
     name: identity:create_protocol
-  deprecated_since: S
+  deprecated_since: null
   description: Create federated protocol.
   name: identity:create_protocol
   operations:
@@ -2150,12 +2010,11 @@
   scope_types:
   - system
 - check_str: role:admin and system_scope:all
-  deprecated_reason: The federated protocol API is now aware of system scope and default
-    roles.
+  deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_required
     name: identity:update_protocol
-  deprecated_since: S
+  deprecated_since: null
   description: Update federated protocol.
   name: identity:update_protocol
   operations:
@@ -2164,12 +2023,11 @@
   scope_types:
   - system
 - check_str: role:reader and system_scope:all
-  deprecated_reason: The federated protocol API is now aware of system scope and default
-    roles.
+  deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_required
     name: identity:get_protocol
-  deprecated_since: S
+  deprecated_since: null
   description: Get federated protocol.
   name: identity:get_protocol
   operations:
@@ -2178,12 +2036,11 @@
   scope_types:
   - system
 - check_str: role:reader and system_scope:all
-  deprecated_reason: The federated protocol API is now aware of system scope and default
-    roles.
+  deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_required
     name: identity:list_protocols
-  deprecated_since: S
+  deprecated_since: null
   description: List federated protocols.
   name: identity:list_protocols
   operations:
@@ -2192,12 +2049,11 @@
   scope_types:
   - system
 - check_str: role:admin and system_scope:all
-  deprecated_reason: The federated protocol API is now aware of system scope and default
-    roles.
+  deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_required
     name: identity:delete_protocol
-  deprecated_since: S
+  deprecated_since: null
   description: Delete federated protocol.
   name: identity:delete_protocol
   operations:
@@ -2230,11 +2086,11 @@
   - domain
   - project
 - check_str: role:admin and system_scope:all
-  deprecated_reason: The region API is now aware of system scope and default roles.
+  deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_required
     name: identity:create_region
-  deprecated_since: S
+  deprecated_since: null
   description: Create region.
   name: identity:create_region
   operations:
@@ -2245,11 +2101,11 @@
   scope_types:
   - system
 - check_str: role:admin and system_scope:all
-  deprecated_reason: The region API is now aware of system scope and default roles.
+  deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_required
     name: identity:update_region
-  deprecated_since: S
+  deprecated_since: null
   description: Update region.
   name: identity:update_region
   operations:
@@ -2258,11 +2114,11 @@
   scope_types:
   - system
 - check_str: role:admin and system_scope:all
-  deprecated_reason: The region API is now aware of system scope and default roles.
+  deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_required
     name: identity:delete_region
-  deprecated_since: S
+  deprecated_since: null
   description: Delete region.
   name: identity:delete_region
   operations:
@@ -2327,11 +2183,11 @@
   scope_types:
   - system
 - check_str: role:reader and system_scope:all
-  deprecated_reason: The role API is now aware of system scope and default roles.
+  deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_required
     name: identity:get_role
-  deprecated_since: S
+  deprecated_since: null
   description: Show role details.
   name: identity:get_role
   operations:
@@ -2342,11 +2198,11 @@
   scope_types:
   - system
 - check_str: role:reader and system_scope:all
-  deprecated_reason: The role API is now aware of system scope and default roles.
+  deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_required
     name: identity:list_roles
-  deprecated_since: S
+  deprecated_since: null
   description: List roles.
   name: identity:list_roles
   operations:
@@ -2357,11 +2213,11 @@
   scope_types:
   - system
 - check_str: role:admin and system_scope:all
-  deprecated_reason: The role API is now aware of system scope and default roles.
+  deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_required
     name: identity:create_role
-  deprecated_since: S
+  deprecated_since: null
   description: Create role.
   name: identity:create_role
   operations:
@@ -2370,11 +2226,11 @@
   scope_types:
   - system
 - check_str: role:admin and system_scope:all
-  deprecated_reason: The role API is now aware of system scope and default roles.
+  deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_required
     name: identity:update_role
-  deprecated_since: S
+  deprecated_since: null
   description: Update role.
   name: identity:update_role
   operations:
@@ -2383,11 +2239,11 @@
   scope_types:
   - system
 - check_str: role:admin and system_scope:all
-  deprecated_reason: The role API is now aware of system scope and default roles.
+  deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_required
     name: identity:delete_role
-  deprecated_since: S
+  deprecated_since: null
   description: Delete role.
   name: identity:delete_role
   operations:
@@ -2396,11 +2252,11 @@
   scope_types:
   - system
 - check_str: role:reader and system_scope:all
-  deprecated_reason: The role API is now aware of system scope and default roles.
+  deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_required
     name: identity:get_domain_role
-  deprecated_since: T
+  deprecated_since: null
   description: Show domain role.
   name: identity:get_domain_role
   operations:
@@ -2411,11 +2267,11 @@
   scope_types:
   - system
 - check_str: role:reader and system_scope:all
-  deprecated_reason: The role API is now aware of system scope and default roles.
+  deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_required
     name: identity:list_domain_roles
-  deprecated_since: T
+  deprecated_since: null
   description: List domain roles.
   name: identity:list_domain_roles
   operations:
@@ -2426,11 +2282,11 @@
   scope_types:
   - system
 - check_str: role:admin and system_scope:all
-  deprecated_reason: The role API is now aware of system scope and default roles.
+  deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_required
     name: identity:create_domain_role
-  deprecated_since: T
+  deprecated_since: null
   description: Create domain role.
   name: identity:create_domain_role
   operations:
@@ -2439,11 +2295,11 @@
   scope_types:
   - system
 - check_str: role:admin and system_scope:all
-  deprecated_reason: The role API is now aware of system scope and default roles.
+  deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_required
     name: identity:update_domain_role
-  deprecated_since: T
+  deprecated_since: null
   description: Update domain role.
   name: identity:update_domain_role
   operations:
@@ -2452,11 +2308,11 @@
   scope_types:
   - system
 - check_str: role:admin and system_scope:all
-  deprecated_reason: The role API is now aware of system scope and default roles.
+  deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_required
     name: identity:delete_domain_role
-  deprecated_since: T
+  deprecated_since: null
   description: Delete domain role.
   name: identity:delete_domain_role
   operations:
@@ -2465,11 +2321,11 @@
   scope_types:
   - system
 - check_str: (role:reader and system_scope:all) or (role:reader and domain_id:%(target.domain_id)s)
-  deprecated_reason: The assignment API is now aware of system scope and default roles.
+  deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_required
     name: identity:list_role_assignments
-  deprecated_since: S
+  deprecated_since: null
   description: List role assignments.
   name: identity:list_role_assignments
   operations:
@@ -2482,11 +2338,11 @@
   - domain
 - check_str: (role:reader and system_scope:all) or (role:reader and domain_id:%(target.project.domain_id)s)
     or (role:admin and project_id:%(target.project.id)s)
-  deprecated_reason: The assignment API is now aware of system scope and default roles.
+  deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_required
     name: identity:list_role_assignments_for_tree
-  deprecated_since: T
+  deprecated_since: null
   description: List all role assignments for a given tree of hierarchical projects.
   name: identity:list_role_assignments_for_tree
   operations:
@@ -2499,11 +2355,11 @@
   - domain
   - project
 - check_str: role:reader and system_scope:all
-  deprecated_reason: The service API is now aware of system scope and default roles.
+  deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_required
     name: identity:get_service
-  deprecated_since: S
+  deprecated_since: null
   description: Show service details.
   name: identity:get_service
   operations:
@@ -2512,11 +2368,11 @@
   scope_types:
   - system
 - check_str: role:reader and system_scope:all
-  deprecated_reason: The service API is now aware of system scope and default roles.
+  deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_required
     name: identity:list_services
-  deprecated_since: S
+  deprecated_since: null
   description: List services.
   name: identity:list_services
   operations:
@@ -2525,11 +2381,11 @@
   scope_types:
   - system
 - check_str: role:admin and system_scope:all
-  deprecated_reason: The service API is now aware of system scope and default roles.
+  deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_required
     name: identity:create_service
-  deprecated_since: S
+  deprecated_since: null
   description: Create service.
   name: identity:create_service
   operations:
@@ -2538,11 +2394,11 @@
   scope_types:
   - system
 - check_str: role:admin and system_scope:all
-  deprecated_reason: The service API is now aware of system scope and default roles.
+  deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_required
     name: identity:update_service
-  deprecated_since: S
+  deprecated_since: null
   description: Update service.
   name: identity:update_service
   operations:
@@ -2551,11 +2407,11 @@
   scope_types:
   - system
 - check_str: role:admin and system_scope:all
-  deprecated_reason: The service API is now aware of system scope and default roles.
+  deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_required
     name: identity:delete_service
-  deprecated_since: S
+  deprecated_since: null
   description: Delete service.
   name: identity:delete_service
   operations:
@@ -2564,12 +2420,11 @@
   scope_types:
   - system
 - check_str: role:admin and system_scope:all
-  deprecated_reason: The service provider API is now aware of system scope and default
-    roles.
+  deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_required
     name: identity:create_service_provider
-  deprecated_since: S
+  deprecated_since: null
   description: Create federated service provider.
   name: identity:create_service_provider
   operations:
@@ -2578,12 +2433,11 @@
   scope_types:
   - system
 - check_str: role:reader and system_scope:all
-  deprecated_reason: The service provider API is now aware of system scope and default
-    roles.
+  deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_required
     name: identity:list_service_providers
-  deprecated_since: S
+  deprecated_since: null
   description: List federated service providers.
   name: identity:list_service_providers
   operations:
@@ -2594,12 +2448,11 @@
   scope_types:
   - system
 - check_str: role:reader and system_scope:all
-  deprecated_reason: The service provider API is now aware of system scope and default
-    roles.
+  deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_required
     name: identity:get_service_provider
-  deprecated_since: S
+  deprecated_since: null
   description: Get federated service provider.
   name: identity:get_service_provider
   operations:
@@ -2610,12 +2463,11 @@
   scope_types:
   - system
 - check_str: role:admin and system_scope:all
-  deprecated_reason: The service provider API is now aware of system scope and default
-    roles.
+  deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_required
     name: identity:update_service_provider
-  deprecated_since: S
+  deprecated_since: null
   description: Update federated service provider.
   name: identity:update_service_provider
   operations:
@@ -2624,12 +2476,11 @@
   scope_types:
   - system
 - check_str: role:admin and system_scope:all
-  deprecated_reason: The service provider API is now aware of system scope and default
-    roles.
+  deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_required
     name: identity:delete_service_provider
-  deprecated_since: S
+  deprecated_since: null
   description: Delete federated service provider.
   name: identity:delete_service_provider
   operations:
@@ -2660,11 +2511,11 @@
   - system
   - project
 - check_str: (role:reader and system_scope:all) or rule:token_subject
-  deprecated_reason: The token API is now aware of system scope and default roles.
+  deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_or_token_subject
     name: identity:check_token
-  deprecated_since: T
+  deprecated_since: null
   description: Check a token.
   name: identity:check_token
   operations:
@@ -2675,11 +2526,11 @@
   - domain
   - project
 - check_str: (role:reader and system_scope:all) or rule:service_role or rule:token_subject
-  deprecated_reason: The token API is now aware of system scope and default roles.
+  deprecated_reason: null
   deprecated_rule:
     check_str: rule:service_admin_or_token_subject
     name: identity:validate_token
-  deprecated_since: T
+  deprecated_since: null
   description: Validate a token.
   name: identity:validate_token
   operations:
@@ -2690,11 +2541,11 @@
   - domain
   - project
 - check_str: (role:admin and system_scope:all) or rule:token_subject
-  deprecated_reason: The token API is now aware of system scope and default roles.
+  deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_or_token_subject
     name: identity:revoke_token
-  deprecated_since: T
+  deprecated_since: null
   description: Revoke a token.
   name: identity:revoke_token
   operations:
@@ -2713,11 +2564,11 @@
   scope_types:
   - project
 - check_str: role:reader and system_scope:all
-  deprecated_reason: The trust API is now aware of system scope and default roles.
+  deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_required
     name: identity:list_trusts
-  deprecated_since: T
+  deprecated_since: null
   description: List trusts.
   name: identity:list_trusts
   operations:
@@ -2751,11 +2602,11 @@
   - project
 - check_str: role:reader and system_scope:all or user_id:%(target.trust.trustor_user_id)s
     or user_id:%(target.trust.trustee_user_id)s
-  deprecated_reason: The trust API is now aware of system scope and default roles.
+  deprecated_reason: null
   deprecated_rule:
     check_str: user_id:%(target.trust.trustor_user_id)s or user_id:%(target.trust.trustee_user_id)s
     name: identity:list_roles_for_trust
-  deprecated_since: T
+  deprecated_since: null
   description: List roles delegated by a trust.
   name: identity:list_roles_for_trust
   operations:
@@ -2768,11 +2619,11 @@
   - project
 - check_str: role:reader and system_scope:all or user_id:%(target.trust.trustor_user_id)s
     or user_id:%(target.trust.trustee_user_id)s
-  deprecated_reason: The trust API is now aware of system scope and default roles.
+  deprecated_reason: null
   deprecated_rule:
     check_str: user_id:%(target.trust.trustor_user_id)s or user_id:%(target.trust.trustee_user_id)s
     name: identity:get_role_for_trust
-  deprecated_since: T
+  deprecated_since: null
   description: Check if trust delegates a particular role.
   name: identity:get_role_for_trust
   operations:
@@ -2784,11 +2635,11 @@
   - system
   - project
 - check_str: role:admin and system_scope:all or user_id:%(target.trust.trustor_user_id)s
-  deprecated_reason: The trust API is now aware of system scope and default roles.
+  deprecated_reason: null
   deprecated_rule:
     check_str: user_id:%(target.trust.trustor_user_id)s
     name: identity:delete_trust
-  deprecated_since: T
+  deprecated_since: null
   description: Revoke trust.
   name: identity:delete_trust
   operations:
@@ -2799,11 +2650,11 @@
   - project
 - check_str: role:reader and system_scope:all or user_id:%(target.trust.trustor_user_id)s
     or user_id:%(target.trust.trustee_user_id)s
-  deprecated_reason: The trust API is now aware of system scope and default roles.
+  deprecated_reason: null
   deprecated_rule:
     check_str: user_id:%(target.trust.trustor_user_id)s or user_id:%(target.trust.trustee_user_id)s
     name: identity:get_trust
-  deprecated_since: T
+  deprecated_since: null
   description: Get trust.
   name: identity:get_trust
   operations:
@@ -2816,11 +2667,11 @@
   - project
 - check_str: (role:reader and system_scope:all) or (role:reader and token.domain.id:%(target.user.domain_id)s)
     or user_id:%(target.user.id)s
-  deprecated_reason: The user API is now aware of system scope and default roles.
+  deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_or_owner
     name: identity:get_user
-  deprecated_since: S
+  deprecated_since: null
   description: Show user details.
   name: identity:get_user
   operations:
@@ -2833,11 +2684,11 @@
   - domain
   - project
 - check_str: (role:reader and system_scope:all) or (role:reader and domain_id:%(target.domain_id)s)
-  deprecated_reason: The user API is now aware of system scope and default roles.
+  deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_required
     name: identity:list_users
-  deprecated_since: S
+  deprecated_since: null
   description: List users.
   name: identity:list_users
   operations:
@@ -2863,11 +2714,11 @@
     path: /v3/auth/domains
   scope_types: null
 - check_str: (role:admin and system_scope:all) or (role:admin and token.domain.id:%(target.user.domain_id)s)
-  deprecated_reason: The user API is now aware of system scope and default roles.
+  deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_required
     name: identity:create_user
-  deprecated_since: S
+  deprecated_since: null
   description: Create a user.
   name: identity:create_user
   operations:
@@ -2877,11 +2728,11 @@
   - system
   - domain
 - check_str: (role:admin and system_scope:all) or (role:admin and token.domain.id:%(target.user.domain_id)s)
-  deprecated_reason: The user API is now aware of system scope and default roles.
+  deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_required
     name: identity:update_user
-  deprecated_since: S
+  deprecated_since: null
   description: Update a user, including administrative password resets.
   name: identity:update_user
   operations:
@@ -2891,11 +2742,11 @@
   - system
   - domain
 - check_str: (role:admin and system_scope:all) or (role:admin and token.domain.id:%(target.user.domain_id)s)
-  deprecated_reason: The user API is now aware of system scope and default roles.
+  deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_required
     name: identity:delete_user
-  deprecated_since: S
+  deprecated_since: null
   description: Delete a user.
   name: identity:delete_user
   operations:

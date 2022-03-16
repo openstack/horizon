@@ -46,14 +46,13 @@
 # Get an address group
 # GET  /address-groups
 # GET  /address-groups/{id}
-# Intended scope(s): system, project
-#"get_address_group": "(role:reader and system_scope:all) or (role:reader and project_id:%(project_id)s) or rule:shared_address_groups"
+# Intended scope(s): project
+#"get_address_group": "role:reader and project_id:%(project_id)s or rule:shared_address_groups"
 
 # DEPRECATED
 # "get_address_group":"rule:admin_or_owner or
 # rule:shared_address_groups" has been deprecated since W in favor of
-# "get_address_group":"(role:reader and system_scope:all) or
-# (role:reader and project_id:%(project_id)s) or
+# "get_address_group":"role:reader and project_id:%(project_id)s or
 # rule:shared_address_groups".
 # The Address scope API now supports system scope and default roles.
 
@@ -62,71 +61,70 @@
 
 # Create an address scope
 # POST  /address-scopes
-# Intended scope(s): system, project
-#"create_address_scope": "(role:admin and system_scope:all) or (role:member and project_id:%(project_id)s)"
+# Intended scope(s): project
+#"create_address_scope": "role:member and project_id:%(project_id)s"
 
 # DEPRECATED
 # "create_address_scope":"rule:regular_user" has been deprecated since
-# W in favor of "create_address_scope":"(role:admin and
-# system_scope:all) or (role:member and project_id:%(project_id)s)".
+# W in favor of "create_address_scope":"role:member and
+# project_id:%(project_id)s".
 # The Address scope API now supports system scope and default roles.
 
 # Create a shared address scope
 # POST  /address-scopes
-# Intended scope(s): system, project
-#"create_address_scope:shared": "role:admin and system_scope:all"
+# Intended scope(s): project
+#"create_address_scope:shared": "role:admin and project_id:%(project_id)s"
 
 # DEPRECATED
 # "create_address_scope:shared":"rule:admin_only" has been deprecated
 # since W in favor of "create_address_scope:shared":"role:admin and
-# system_scope:all".
+# project_id:%(project_id)s".
 # The Address scope API now supports system scope and default roles.
 
 # Get an address scope
 # GET  /address-scopes
 # GET  /address-scopes/{id}
-# Intended scope(s): system, project
-#"get_address_scope": "(role:reader and system_scope:all) or (role:reader and project_id:%(project_id)s) or rule:shared_address_scopes"
+# Intended scope(s): project
+#"get_address_scope": "role:reader and project_id:%(project_id)s or rule:shared_address_scopes"
 
 # DEPRECATED
 # "get_address_scope":"rule:admin_or_owner or
 # rule:shared_address_scopes" has been deprecated since W in favor of
-# "get_address_scope":"(role:reader and system_scope:all) or
-# (role:reader and project_id:%(project_id)s) or
+# "get_address_scope":"role:reader and project_id:%(project_id)s or
 # rule:shared_address_scopes".
 # The Address scope API now supports system scope and default roles.
 
 # Update an address scope
 # PUT  /address-scopes/{id}
-# Intended scope(s): system, project
-#"update_address_scope": "(role:admin and system_scope:all) or (role:member and project_id:%(project_id)s)"
+# Intended scope(s): project
+#"update_address_scope": "role:member and project_id:%(project_id)s"
 
 # DEPRECATED
 # "update_address_scope":"rule:admin_or_owner" has been deprecated
-# since W in favor of "update_address_scope":"(role:admin and
-# system_scope:all) or (role:member and project_id:%(project_id)s)".
+# since W in favor of "update_address_scope":"role:member and
+# project_id:%(project_id)s".
 # The Address scope API now supports system scope and default roles.
 
 # Update ``shared`` attribute of an address scope
 # PUT  /address-scopes/{id}
-# Intended scope(s): system, project
-#"update_address_scope:shared": "role:admin and system_scope:all"
+# Intended scope(s): project
+#"update_address_scope:shared": "role:admin and project_id:%(project_id)s"
 
 # DEPRECATED
 # "update_address_scope:shared":"rule:admin_only" has been deprecated
 # since W in favor of "update_address_scope:shared":"role:admin and
-# system_scope:all".
+# project_id:%(project_id)s".
 # The Address scope API now supports system scope and default roles.
 
 # Delete an address scope
 # DELETE  /address-scopes/{id}
-# Intended scope(s): system, project
-#"delete_address_scope": "(role:admin and system_scope:all) or (role:member and project_id:%(project_id)s)"
+# Intended scope(s): project
+#"delete_address_scope": "role:member and project_id:%(project_id)s"
 
 # DEPRECATED
 # "delete_address_scope":"rule:admin_or_owner" has been deprecated
-# since W in favor of "delete_address_scope":"(role:admin and
-# system_scope:all) or (role:member and project_id:%(project_id)s)".
+# since W in favor of "delete_address_scope":"role:member and
+# project_id:%(project_id)s".
 # The Address scope API now supports system scope and default roles.
 
 # Get an agent
@@ -176,10 +174,9 @@
 #"get_dhcp-networks": "role:reader and system_scope:all"
 
 # DEPRECATED
-# "get_dhcp-networs":"rule:admin_only" has been deprecated since W in
+# "get_dhcp-networks":"rule:admin_only" has been deprecated since W in
 # favor of "get_dhcp-networks":"role:reader and system_scope:all".
 # The Agent API now supports system scope and default roles.
-#"get_dhcp-networs": "rule:get_dhcp-networks"
 
 # Remove a network from a DHCP agent
 # DELETE  /agents/{agent_id}/dhcp-networks/{network_id}
@@ -187,10 +184,9 @@
 #"delete_dhcp-network": "role:admin and system_scope:all"
 
 # DEPRECATED
-# "delete_dhcp-networ":"rule:admin_only" has been deprecated since W
+# "delete_dhcp-network":"rule:admin_only" has been deprecated since W
 # in favor of "delete_dhcp-network":"role:admin and system_scope:all".
 # The Agent API now supports system scope and default roles.
-#"delete_dhcp-networ": "rule:delete_dhcp-network"
 
 # Add a router to an L3 agent
 # POST  /agents/{agent_id}/l3-routers
@@ -244,27 +240,27 @@
 
 # Get a project's auto-allocated topology
 # GET  /auto-allocated-topology/{project_id}
-# Intended scope(s): system, project
-#"get_auto_allocated_topology": "(role:reader and system_scope:all) or (role:reader and project_id:%(project_id)s)"
+# Intended scope(s): project
+#"get_auto_allocated_topology": "role:reader and project_id:%(project_id)s"
 
 # DEPRECATED
 # "get_auto_allocated_topology":"rule:admin_or_owner" has been
 # deprecated since W in favor of
-# "get_auto_allocated_topology":"(role:reader and system_scope:all) or
-# (role:reader and project_id:%(project_id)s)".
+# "get_auto_allocated_topology":"role:reader and
+# project_id:%(project_id)s".
 # The Auto allocated topology API now supports system scope and
 # default roles.
 
 # Delete a project's auto-allocated topology
 # DELETE  /auto-allocated-topology/{project_id}
-# Intended scope(s): system, project
-#"delete_auto_allocated_topology": "(role:admin and system_scope:all) or (role:member and project_id:%(project_id)s)"
+# Intended scope(s): project
+#"delete_auto_allocated_topology": "role:member and project_id:%(project_id)s"
 
 # DEPRECATED
 # "delete_auto_allocated_topology":"rule:admin_or_owner" has been
 # deprecated since W in favor of
-# "delete_auto_allocated_topology":"(role:admin and system_scope:all)
-# or (role:member and project_id:%(project_id)s)".
+# "delete_auto_allocated_topology":"role:member and
+# project_id:%(project_id)s".
 # The Auto allocated topology API now supports system scope and
 # default roles.
 
@@ -403,186 +399,259 @@
 
 # Create a floating IP
 # POST  /floatingips
-# Intended scope(s): system, project
-#"create_floatingip": "(role:admin and system_scope:all) or (role:member and project_id:%(project_id)s)"
+# Intended scope(s): project
+#"create_floatingip": "role:member and project_id:%(project_id)s"
 
 # DEPRECATED
 # "create_floatingip":"rule:regular_user" has been deprecated since W
-# in favor of "create_floatingip":"(role:admin and system_scope:all)
-# or (role:member and project_id:%(project_id)s)".
+# in favor of "create_floatingip":"role:member and
+# project_id:%(project_id)s".
 # The Floating IP API now supports system scope and default roles.
 
 # Create a floating IP with a specific IP address
 # POST  /floatingips
-# Intended scope(s): system, project
-#"create_floatingip:floating_ip_address": "role:admin and system_scope:all"
+# Intended scope(s): project
+#"create_floatingip:floating_ip_address": "role:admin and project_id:%(project_id)s"
 
 # DEPRECATED
 # "create_floatingip:floating_ip_address":"rule:admin_only" has been
 # deprecated since W in favor of
 # "create_floatingip:floating_ip_address":"role:admin and
-# system_scope:all".
+# project_id:%(project_id)s".
 # The Floating IP API now supports system scope and default roles.
 
 # Get a floating IP
 # GET  /floatingips
 # GET  /floatingips/{id}
-# Intended scope(s): system, project
-#"get_floatingip": "(role:reader and system_scope:all) or (role:reader and project_id:%(project_id)s)"
+# Intended scope(s): project
+#"get_floatingip": "role:reader and project_id:%(project_id)s"
 
 # DEPRECATED
 # "get_floatingip":"rule:admin_or_owner" has been deprecated since W
-# in favor of "get_floatingip":"(role:reader and system_scope:all) or
-# (role:reader and project_id:%(project_id)s)".
+# in favor of "get_floatingip":"role:reader and
+# project_id:%(project_id)s".
 # The Floating IP API now supports system scope and default roles.
 
 # Update a floating IP
 # PUT  /floatingips/{id}
-# Intended scope(s): system, project
-#"update_floatingip": "(role:admin and system_scope:all) or (role:member and project_id:%(project_id)s)"
+# Intended scope(s): project
+#"update_floatingip": "role:member and project_id:%(project_id)s"
 
 # DEPRECATED
 # "update_floatingip":"rule:admin_or_owner" has been deprecated since
-# W in favor of "update_floatingip":"(role:admin and system_scope:all)
-# or (role:member and project_id:%(project_id)s)".
+# W in favor of "update_floatingip":"role:member and
+# project_id:%(project_id)s".
 # The Floating IP API now supports system scope and default roles.
 
 # Delete a floating IP
 # DELETE  /floatingips/{id}
-# Intended scope(s): system, project
-#"delete_floatingip": "(role:admin and system_scope:all) or (role:member and project_id:%(project_id)s)"
+# Intended scope(s): project
+#"delete_floatingip": "role:member and project_id:%(project_id)s"
 
 # DEPRECATED
 # "delete_floatingip":"rule:admin_or_owner" has been deprecated since
-# W in favor of "delete_floatingip":"(role:admin and system_scope:all)
-# or (role:member and project_id:%(project_id)s)".
+# W in favor of "delete_floatingip":"role:member and
+# project_id:%(project_id)s".
 # The Floating IP API now supports system scope and default roles.
 
 # Get floating IP pools
 # GET  /floatingip_pools
-# Intended scope(s): system, project
-#"get_floatingip_pool": "(role:reader and system_scope:all) or (role:reader and project_id:%(project_id)s)"
+# Intended scope(s): project
+#"get_floatingip_pool": "role:reader and project_id:%(project_id)s"
 
 # DEPRECATED
 # "get_floatingip_pool":"rule:regular_user" has been deprecated since
-# W in favor of "get_floatingip_pool":"(role:reader and
-# system_scope:all) or (role:reader and project_id:%(project_id)s)".
+# W in favor of "get_floatingip_pool":"role:reader and
+# project_id:%(project_id)s".
 # The Floating IP Pool API now supports system scope and default
 # roles.
 
 # Create a floating IP port forwarding
 # POST  /floatingips/{floatingip_id}/port_forwardings
-# Intended scope(s): system, project
-#"create_floatingip_port_forwarding": "(role:admin and system_scope:all) or (role:member and project_id:%(project_id)s) or rule:ext_parent_owner"
+# Intended scope(s): project
+#"create_floatingip_port_forwarding": "role:member and project_id:%(project_id)s or rule:ext_parent_owner"
 
 # DEPRECATED
 # "create_floatingip_port_forwarding":"rule:admin_or_ext_parent_owner"
 # has been deprecated since W in favor of
-# "create_floatingip_port_forwarding":"(role:admin and
-# system_scope:all) or (role:member and project_id:%(project_id)s) or
-# rule:ext_parent_owner".
+# "create_floatingip_port_forwarding":"role:member and
+# project_id:%(project_id)s or rule:ext_parent_owner".
 # The floating IP port forwarding API now supports system scope and
 # default roles.
 
 # Get a floating IP port forwarding
 # GET  /floatingips/{floatingip_id}/port_forwardings
 # GET  /floatingips/{floatingip_id}/port_forwardings/{port_forwarding_id}
-# Intended scope(s): system, project
-#"get_floatingip_port_forwarding": "(role:reader and system_scope:all) or (role:reader and project_id:%(project_id)s) or rule:ext_parent_owner"
+# Intended scope(s): project
+#"get_floatingip_port_forwarding": "role:reader and project_id:%(project_id)s or rule:ext_parent_owner"
 
 # DEPRECATED
 # "get_floatingip_port_forwarding":"rule:admin_or_ext_parent_owner"
 # has been deprecated since W in favor of
-# "get_floatingip_port_forwarding":"(role:reader and system_scope:all)
-# or (role:reader and project_id:%(project_id)s) or
-# rule:ext_parent_owner".
+# "get_floatingip_port_forwarding":"role:reader and
+# project_id:%(project_id)s or rule:ext_parent_owner".
 # The floating IP port forwarding API now supports system scope and
 # default roles.
 
 # Update a floating IP port forwarding
 # PUT  /floatingips/{floatingip_id}/port_forwardings/{port_forwarding_id}
-# Intended scope(s): system, project
-#"update_floatingip_port_forwarding": "(role:admin and system_scope:all) or (role:member and project_id:%(project_id)s) or rule:ext_parent_owner"
+# Intended scope(s): project
+#"update_floatingip_port_forwarding": "role:member and project_id:%(project_id)s or rule:ext_parent_owner"
 
 # DEPRECATED
 # "update_floatingip_port_forwarding":"rule:admin_or_ext_parent_owner"
 # has been deprecated since W in favor of
-# "update_floatingip_port_forwarding":"(role:admin and
-# system_scope:all) or (role:member and project_id:%(project_id)s) or
-# rule:ext_parent_owner".
+# "update_floatingip_port_forwarding":"role:member and
+# project_id:%(project_id)s or rule:ext_parent_owner".
 # The floating IP port forwarding API now supports system scope and
 # default roles.
 
 # Delete a floating IP port forwarding
 # DELETE  /floatingips/{floatingip_id}/port_forwardings/{port_forwarding_id}
-# Intended scope(s): system, project
-#"delete_floatingip_port_forwarding": "(role:admin and system_scope:all) or (role:member and project_id:%(project_id)s) or rule:ext_parent_owner"
+# Intended scope(s): project
+#"delete_floatingip_port_forwarding": "role:member and project_id:%(project_id)s or rule:ext_parent_owner"
 
 # DEPRECATED
 # "delete_floatingip_port_forwarding":"rule:admin_or_ext_parent_owner"
 # has been deprecated since W in favor of
-# "delete_floatingip_port_forwarding":"(role:admin and
-# system_scope:all) or (role:member and project_id:%(project_id)s) or
-# rule:ext_parent_owner".
+# "delete_floatingip_port_forwarding":"role:member and
+# project_id:%(project_id)s or rule:ext_parent_owner".
 # The floating IP port forwarding API now supports system scope and
 # default roles.
 
 # Create a router conntrack helper
 # POST  /routers/{router_id}/conntrack_helpers
-# Intended scope(s): system, project
-#"create_router_conntrack_helper": "(role:admin and system_scope:all) or (role:member and project_id:%(project_id)s) or rule:ext_parent_owner"
+# Intended scope(s): project
+#"create_router_conntrack_helper": "role:member and project_id:%(project_id)s or rule:ext_parent_owner"
 
 # DEPRECATED
 # "create_router_conntrack_helper":"rule:admin_or_ext_parent_owner"
 # has been deprecated since W in favor of
-# "create_router_conntrack_helper":"(role:admin and system_scope:all)
-# or (role:member and project_id:%(project_id)s) or
-# rule:ext_parent_owner".
+# "create_router_conntrack_helper":"role:member and
+# project_id:%(project_id)s or rule:ext_parent_owner".
 # The router conntrack API now supports system scope and default
 # roles.
 
 # Get a router conntrack helper
 # GET  /routers/{router_id}/conntrack_helpers
 # GET  /routers/{router_id}/conntrack_helpers/{conntrack_helper_id}
-# Intended scope(s): system, project
-#"get_router_conntrack_helper": "(role:reader and system_scope:all) or (role:reader and project_id:%(project_id)s) or rule:ext_parent_owner"
+# Intended scope(s): project
+#"get_router_conntrack_helper": "role:reader and project_id:%(project_id)s or rule:ext_parent_owner"
 
 # DEPRECATED
 # "get_router_conntrack_helper":"rule:admin_or_ext_parent_owner" has
 # been deprecated since W in favor of
-# "get_router_conntrack_helper":"(role:reader and system_scope:all) or
-# (role:reader and project_id:%(project_id)s) or
-# rule:ext_parent_owner".
+# "get_router_conntrack_helper":"role:reader and
+# project_id:%(project_id)s or rule:ext_parent_owner".
 # The router conntrack API now supports system scope and default
 # roles.
 
 # Update a router conntrack helper
 # PUT  /routers/{router_id}/conntrack_helpers/{conntrack_helper_id}
-# Intended scope(s): system, project
-#"update_router_conntrack_helper": "(role:admin and system_scope:all) or (role:member and project_id:%(project_id)s) or rule:ext_parent_owner"
+# Intended scope(s): project
+#"update_router_conntrack_helper": "role:member and project_id:%(project_id)s or rule:ext_parent_owner"
 
 # DEPRECATED
 # "update_router_conntrack_helper":"rule:admin_or_ext_parent_owner"
 # has been deprecated since W in favor of
-# "update_router_conntrack_helper":"(role:admin and system_scope:all)
-# or (role:member and project_id:%(project_id)s) or
-# rule:ext_parent_owner".
+# "update_router_conntrack_helper":"role:member and
+# project_id:%(project_id)s or rule:ext_parent_owner".
 # The router conntrack API now supports system scope and default
 # roles.
 
 # Delete a router conntrack helper
 # DELETE  /routers/{router_id}/conntrack_helpers/{conntrack_helper_id}
-# Intended scope(s): system, project
-#"delete_router_conntrack_helper": "(role:admin and system_scope:all) or (role:member and project_id:%(project_id)s) or rule:ext_parent_owner"
+# Intended scope(s): project
+#"delete_router_conntrack_helper": "role:member and project_id:%(project_id)s or rule:ext_parent_owner"
 
 # DEPRECATED
 # "delete_router_conntrack_helper":"rule:admin_or_ext_parent_owner"
 # has been deprecated since W in favor of
-# "delete_router_conntrack_helper":"(role:admin and system_scope:all)
-# or (role:member and project_id:%(project_id)s) or
-# rule:ext_parent_owner".
+# "delete_router_conntrack_helper":"role:member and
+# project_id:%(project_id)s or rule:ext_parent_owner".
 # The router conntrack API now supports system scope and default
 # roles.
+
+# Create a Local IP
+# POST  /local-ips
+# Intended scope(s): project
+#"create_local_ip": "role:member and project_id:%(project_id)s"
+
+# DEPRECATED
+# "create_local_ip":"rule:regular_user" has been deprecated since W in
+# favor of "create_local_ip":"role:member and
+# project_id:%(project_id)s".
+# The Local IP API now supports system scope and default roles.
+
+# Get a Local IP
+# GET  /local-ips
+# GET  /local-ips/{id}
+# Intended scope(s): project
+#"get_local_ip": "role:reader and project_id:%(project_id)s"
+
+# DEPRECATED
+# "get_local_ip":"rule:admin_or_owner" has been deprecated since W in
+# favor of "get_local_ip":"role:reader and project_id:%(project_id)s".
+# The Local IP API now supports system scope and default roles.
+
+# Update a Local IP
+# PUT  /local-ips/{id}
+# Intended scope(s): project
+#"update_local_ip": "role:member and project_id:%(project_id)s"
+
+# DEPRECATED
+# "update_local_ip":"rule:admin_or_owner" has been deprecated since W
+# in favor of "update_local_ip":"role:member and
+# project_id:%(project_id)s".
+# The Local IP API now supports system scope and default roles.
+
+# Delete a Local IP
+# DELETE  /local-ips/{id}
+# Intended scope(s): project
+#"delete_local_ip": "role:member and project_id:%(project_id)s"
+
+# DEPRECATED
+# "delete_local_ip":"rule:admin_or_owner" has been deprecated since W
+# in favor of "delete_local_ip":"role:member and
+# project_id:%(project_id)s".
+# The Local IP API now supports system scope and default roles.
+
+# Create a Local IP port association
+# POST  /local_ips/{local_ip_id}/port_associations
+# Intended scope(s): project
+#"create_local_ip_port_association": "role:member and project_id:%(project_id)s or rule:ext_parent_owner"
+
+# DEPRECATED
+# "create_local_ip_port_association":"rule:admin_or_ext_parent_owner"
+# has been deprecated since W in favor of
+# "create_local_ip_port_association":"role:member and
+# project_id:%(project_id)s or rule:ext_parent_owner".
+# The Local IP API now supports system scope and default roles.
+
+# Get a Local IP port association
+# GET  /local_ips/{local_ip_id}/port_associations
+# GET  /local_ips/{local_ip_id}/port_associations/{fixed_port_id}
+# Intended scope(s): project
+#"get_local_ip_port_association": "role:reader and project_id:%(project_id)s or rule:ext_parent_owner"
+
+# DEPRECATED
+# "get_local_ip_port_association":"rule:admin_or_ext_parent_owner" has
+# been deprecated since W in favor of
+# "get_local_ip_port_association":"role:reader and
+# project_id:%(project_id)s or rule:ext_parent_owner".
+# The Local IP API now supports system scope and default roles.
+
+# Delete a Local IP port association
+# DELETE  /local_ips/{local_ip_id}/port_associations/{fixed_port_id}
+# Intended scope(s): project
+#"delete_local_ip_port_association": "role:member and project_id:%(project_id)s or rule:ext_parent_owner"
+
+# DEPRECATED
+# "delete_local_ip_port_association":"rule:admin_or_ext_parent_owner"
+# has been deprecated since W in favor of
+# "delete_local_ip_port_association":"role:member and
+# project_id:%(project_id)s or rule:ext_parent_owner".
+# The Local IP API now supports system scope and default roles.
 
 # Get loggable resources
 # GET  /log/loggable-resources
@@ -638,367 +707,414 @@
 
 # Create a metering label
 # POST  /metering/metering-labels
-# Intended scope(s): system, project
-#"create_metering_label": "role:admin and system_scope:all"
+# Intended scope(s): project
+#"create_metering_label": "role:admin and project_id:%(project_id)s"
 
 # DEPRECATED
 # "create_metering_label":"rule:admin_only" has been deprecated since
 # W in favor of "create_metering_label":"role:admin and
-# system_scope:all".
+# project_id:%(project_id)s".
 # The metering API now supports system scope and default roles.
 
 # Get a metering label
 # GET  /metering/metering-labels
 # GET  /metering/metering-labels/{id}
-# Intended scope(s): system, project
-#"get_metering_label": "role:reader and system_scope:all"
+# Intended scope(s): project
+#"get_metering_label": "role:reader and project_id:%(project_id)s"
 
 # DEPRECATED
 # "get_metering_label":"rule:admin_only" has been deprecated since W
-# in favor of "get_metering_label":"role:reader and system_scope:all".
+# in favor of "get_metering_label":"role:reader and
+# project_id:%(project_id)s".
 # The metering API now supports system scope and default roles.
 
 # Delete a metering label
 # DELETE  /metering/metering-labels/{id}
-# Intended scope(s): system, project
-#"delete_metering_label": "role:admin and system_scope:all"
+# Intended scope(s): project
+#"delete_metering_label": "role:admin and project_id:%(project_id)s"
 
 # DEPRECATED
 # "delete_metering_label":"rule:admin_only" has been deprecated since
 # W in favor of "delete_metering_label":"role:admin and
-# system_scope:all".
+# project_id:%(project_id)s".
 # The metering API now supports system scope and default roles.
 
 # Create a metering label rule
 # POST  /metering/metering-label-rules
-# Intended scope(s): system, project
-#"create_metering_label_rule": "role:admin and system_scope:all"
+# Intended scope(s): project
+#"create_metering_label_rule": "role:admin and project_id:%(project_id)s"
 
 # DEPRECATED
 # "create_metering_label_rule":"rule:admin_only" has been deprecated
 # since W in favor of "create_metering_label_rule":"role:admin and
-# system_scope:all".
+# project_id:%(project_id)s".
 # The metering API now supports system scope and default roles.
 
 # Get a metering label rule
 # GET  /metering/metering-label-rules
 # GET  /metering/metering-label-rules/{id}
-# Intended scope(s): system, project
-#"get_metering_label_rule": "role:reader and system_scope:all"
+# Intended scope(s): project
+#"get_metering_label_rule": "role:reader and project_id:%(project_id)s"
 
 # DEPRECATED
 # "get_metering_label_rule":"rule:admin_only" has been deprecated
 # since W in favor of "get_metering_label_rule":"role:reader and
-# system_scope:all".
+# project_id:%(project_id)s".
 # The metering API now supports system scope and default roles.
 
 # Delete a metering label rule
 # DELETE  /metering/metering-label-rules/{id}
-# Intended scope(s): system, project
-#"delete_metering_label_rule": "role:admin and system_scope:all"
+# Intended scope(s): project
+#"delete_metering_label_rule": "role:admin and project_id:%(project_id)s"
 
 # DEPRECATED
 # "delete_metering_label_rule":"rule:admin_only" has been deprecated
 # since W in favor of "delete_metering_label_rule":"role:admin and
-# system_scope:all".
+# project_id:%(project_id)s".
 # The metering API now supports system scope and default roles.
+
+# Create a ndp proxy
+# POST  /ndp_proxies
+# Intended scope(s): project
+#"create_ndp_proxy": "role:member and project_id:%(project_id)s"
+
+# DEPRECATED
+# "create_ndp_proxy":"rule:regular_user" has been deprecated since W
+# in favor of "create_ndp_proxy":"role:member and
+# project_id:%(project_id)s".
+# The ndp proxy API now supports system scope and default roles.
+
+# Get a ndp proxy
+# GET  /ndp_proxies
+# GET  /ndp_proxies/{id}
+# Intended scope(s): project
+#"get_ndp_proxy": "role:reader and project_id:%(project_id)s"
+
+# DEPRECATED
+# "get_ndp_proxy":"rule:admin_or_owner" has been deprecated since W in
+# favor of "get_ndp_proxy":"role:reader and
+# project_id:%(project_id)s".
+# The ndp proxy API now supports system scope and default roles.
+
+# Update a ndp proxy
+# PUT  /ndp_proxies/{id}
+# Intended scope(s): project
+#"update_ndp_proxy": "role:member and project_id:%(project_id)s"
+
+# DEPRECATED
+# "update_ndp_proxy":"rule:admin_or_owner" has been deprecated since W
+# in favor of "update_ndp_proxy":"role:member and
+# project_id:%(project_id)s".
+# The ndp proxy API now supports system scope and default roles.
+
+# Delete a ndp proxy
+# DELETE  /ndp_proxies/{id}
+# Intended scope(s): project
+#"delete_ndp_proxy": "role:member and project_id:%(project_id)s"
+
+# DEPRECATED
+# "delete_ndp_proxy":"rule:admin_or_owner" has been deprecated since W
+# in favor of "delete_ndp_proxy":"role:member and
+# project_id:%(project_id)s".
+# The ndp proxy API now supports system scope and default roles.
 
 # Definition of an external network
 #"external": "field:networks:router:external=True"
 
 # Create a network
 # POST  /networks
-# Intended scope(s): system, project
-#"create_network": "(role:admin and system_scope:all) or (role:member and project_id:%(project_id)s)"
+# Intended scope(s): project
+#"create_network": "role:member and project_id:%(project_id)s"
 
 # DEPRECATED
 # "create_network":"rule:regular_user" has been deprecated since W in
-# favor of "create_network":"(role:admin and system_scope:all) or
-# (role:member and project_id:%(project_id)s)".
+# favor of "create_network":"role:member and
+# project_id:%(project_id)s".
 # The network API now supports system scope and default roles.
 
 # Create a shared network
 # POST  /networks
-# Intended scope(s): system
-#"create_network:shared": "role:admin and system_scope:all"
+# Intended scope(s): project
+#"create_network:shared": "role:admin and project_id:%(project_id)s"
 
 # DEPRECATED
 # "create_network:shared":"rule:admin_only" has been deprecated since
 # W in favor of "create_network:shared":"role:admin and
-# system_scope:all".
+# project_id:%(project_id)s".
 # The network API now supports system scope and default roles.
 
 # Create an external network
 # POST  /networks
-# Intended scope(s): system
-#"create_network:router:external": "role:admin and system_scope:all"
+# Intended scope(s): project
+#"create_network:router:external": "role:admin and project_id:%(project_id)s"
 
 # DEPRECATED
 # "create_network:router:external":"rule:admin_only" has been
 # deprecated since W in favor of
-# "create_network:router:external":"role:admin and system_scope:all".
+# "create_network:router:external":"role:admin and
+# project_id:%(project_id)s".
 # The network API now supports system scope and default roles.
 
 # Specify ``is_default`` attribute when creating a network
 # POST  /networks
-# Intended scope(s): system
-#"create_network:is_default": "role:admin and system_scope:all"
+# Intended scope(s): project
+#"create_network:is_default": "role:admin and project_id:%(project_id)s"
 
 # DEPRECATED
 # "create_network:is_default":"rule:admin_only" has been deprecated
 # since W in favor of "create_network:is_default":"role:admin and
-# system_scope:all".
+# project_id:%(project_id)s".
 # The network API now supports system scope and default roles.
 
 # Specify ``port_security_enabled`` attribute when creating a network
 # POST  /networks
-# Intended scope(s): system, project
-#"create_network:port_security_enabled": "(role:admin and system_scope:all) or (role:member and project_id:%(project_id)s)"
+# Intended scope(s): project
+#"create_network:port_security_enabled": "role:member and project_id:%(project_id)s"
 
 # DEPRECATED
 # "create_network:port_security_enabled":"rule:regular_user" has been
 # deprecated since W in favor of
-# "create_network:port_security_enabled":"(role:admin and
-# system_scope:all) or (role:member and project_id:%(project_id)s)".
+# "create_network:port_security_enabled":"role:member and
+# project_id:%(project_id)s".
 # The network API now supports system scope and default roles.
 
 # Specify ``segments`` attribute when creating a network
 # POST  /networks
-# Intended scope(s): system
-#"create_network:segments": "role:admin and system_scope:all"
+# Intended scope(s): project
+#"create_network:segments": "role:admin and project_id:%(project_id)s"
 
 # DEPRECATED
 # "create_network:segments":"rule:admin_only" has been deprecated
 # since W in favor of "create_network:segments":"role:admin and
-# system_scope:all".
+# project_id:%(project_id)s".
 # The network API now supports system scope and default roles.
 
 # Specify ``provider:network_type`` when creating a network
 # POST  /networks
-# Intended scope(s): system
-#"create_network:provider:network_type": "role:admin and system_scope:all"
+# Intended scope(s): project
+#"create_network:provider:network_type": "role:admin and project_id:%(project_id)s"
 
 # DEPRECATED
 # "create_network:provider:network_type":"rule:admin_only" has been
 # deprecated since W in favor of
 # "create_network:provider:network_type":"role:admin and
-# system_scope:all".
+# project_id:%(project_id)s".
 # The network API now supports system scope and default roles.
 
 # Specify ``provider:physical_network`` when creating a network
 # POST  /networks
-# Intended scope(s): system
-#"create_network:provider:physical_network": "role:admin and system_scope:all"
+# Intended scope(s): project
+#"create_network:provider:physical_network": "role:admin and project_id:%(project_id)s"
 
 # DEPRECATED
 # "create_network:provider:physical_network":"rule:admin_only" has
 # been deprecated since W in favor of
 # "create_network:provider:physical_network":"role:admin and
-# system_scope:all".
+# project_id:%(project_id)s".
 # The network API now supports system scope and default roles.
 
 # Specify ``provider:segmentation_id`` when creating a network
 # POST  /networks
-# Intended scope(s): system
-#"create_network:provider:segmentation_id": "role:admin and system_scope:all"
+# Intended scope(s): project
+#"create_network:provider:segmentation_id": "role:admin and project_id:%(project_id)s"
 
 # DEPRECATED
 # "create_network:provider:segmentation_id":"rule:admin_only" has been
 # deprecated since W in favor of
 # "create_network:provider:segmentation_id":"role:admin and
-# system_scope:all".
+# project_id:%(project_id)s".
 # The network API now supports system scope and default roles.
 
 # Get a network
 # GET  /networks
 # GET  /networks/{id}
-# Intended scope(s): system, project
-#"get_network": "(role:reader and system_scope:all) or (role:reader and project_id:%(project_id)s) or rule:shared or rule:external or rule:context_is_advsvc"
+# Intended scope(s): project
+#"get_network": "role:reader and project_id:%(project_id)s or rule:shared or rule:external or rule:context_is_advsvc"
 
 # DEPRECATED
 # "get_network":"rule:admin_or_owner or rule:shared or rule:external
 # or rule:context_is_advsvc" has been deprecated since W in favor of
-# "get_network":"(role:reader and system_scope:all) or (role:reader
-# and project_id:%(project_id)s) or rule:shared or rule:external or
-# rule:context_is_advsvc".
+# "get_network":"role:reader and project_id:%(project_id)s or
+# rule:shared or rule:external or rule:context_is_advsvc".
 # The network API now supports system scope and default roles.
 
 # Get ``router:external`` attribute of a network
 # GET  /networks
 # GET  /networks/{id}
-# Intended scope(s): system, project
-#"get_network:router:external": "(role:reader and system_scope:all) or (role:reader and project_id:%(project_id)s)"
+# Intended scope(s): project
+#"get_network:router:external": "role:reader and project_id:%(project_id)s"
 
 # DEPRECATED
 # "get_network:router:external":"rule:regular_user" has been
 # deprecated since W in favor of
-# "get_network:router:external":"(role:reader and system_scope:all) or
-# (role:reader and project_id:%(project_id)s)".
+# "get_network:router:external":"role:reader and
+# project_id:%(project_id)s".
 # The network API now supports system scope and default roles.
 
 # Get ``segments`` attribute of a network
 # GET  /networks
 # GET  /networks/{id}
-# Intended scope(s): system
-#"get_network:segments": "role:reader and system_scope:all"
+# Intended scope(s): project
+#"get_network:segments": "role:admin and project_id:%(project_id)s"
 
 # DEPRECATED
 # "get_network:segments":"rule:admin_only" has been deprecated since W
-# in favor of "get_network:segments":"role:reader and
-# system_scope:all".
+# in favor of "get_network:segments":"role:admin and
+# project_id:%(project_id)s".
 # The network API now supports system scope and default roles.
 
 # Get ``provider:network_type`` attribute of a network
 # GET  /networks
 # GET  /networks/{id}
-# Intended scope(s): system
-#"get_network:provider:network_type": "role:reader and system_scope:all"
+# Intended scope(s): project
+#"get_network:provider:network_type": "role:admin and project_id:%(project_id)s"
 
 # DEPRECATED
 # "get_network:provider:network_type":"rule:admin_only" has been
 # deprecated since W in favor of
-# "get_network:provider:network_type":"role:reader and
-# system_scope:all".
+# "get_network:provider:network_type":"role:admin and
+# project_id:%(project_id)s".
 # The network API now supports system scope and default roles.
 
 # Get ``provider:physical_network`` attribute of a network
 # GET  /networks
 # GET  /networks/{id}
-# Intended scope(s): system
-#"get_network:provider:physical_network": "role:reader and system_scope:all"
+# Intended scope(s): project
+#"get_network:provider:physical_network": "role:admin and project_id:%(project_id)s"
 
 # DEPRECATED
 # "get_network:provider:physical_network":"rule:admin_only" has been
 # deprecated since W in favor of
-# "get_network:provider:physical_network":"role:reader and
-# system_scope:all".
+# "get_network:provider:physical_network":"role:admin and
+# project_id:%(project_id)s".
 # The network API now supports system scope and default roles.
 
 # Get ``provider:segmentation_id`` attribute of a network
 # GET  /networks
 # GET  /networks/{id}
-# Intended scope(s): system
-#"get_network:provider:segmentation_id": "role:reader and system_scope:all"
+# Intended scope(s): project
+#"get_network:provider:segmentation_id": "role:admin and project_id:%(project_id)s"
 
 # DEPRECATED
 # "get_network:provider:segmentation_id":"rule:admin_only" has been
 # deprecated since W in favor of
-# "get_network:provider:segmentation_id":"role:reader and
-# system_scope:all".
+# "get_network:provider:segmentation_id":"role:admin and
+# project_id:%(project_id)s".
 # The network API now supports system scope and default roles.
 
 # Update a network
 # PUT  /networks/{id}
-# Intended scope(s): system, project
-#"update_network": "(role:admin and system_scope:all) or (role:member and project_id:%(project_id)s)"
+# Intended scope(s): project
+#"update_network": "role:member and project_id:%(project_id)s"
 
 # DEPRECATED
 # "update_network":"rule:admin_or_owner" has been deprecated since W
-# in favor of "update_network":"(role:admin and system_scope:all) or
-# (role:member and project_id:%(project_id)s)".
+# in favor of "update_network":"role:member and
+# project_id:%(project_id)s".
 # The network API now supports system scope and default roles.
 
 # Update ``segments`` attribute of a network
 # PUT  /networks/{id}
-# Intended scope(s): system
-#"update_network:segments": "role:admin and system_scope:all"
+# Intended scope(s): project
+#"update_network:segments": "role:admin and project_id:%(project_id)s"
 
 # DEPRECATED
 # "update_network:segments":"rule:admin_only" has been deprecated
 # since W in favor of "update_network:segments":"role:admin and
-# system_scope:all".
+# project_id:%(project_id)s".
 # The network API now supports system scope and default roles.
 
 # Update ``shared`` attribute of a network
 # PUT  /networks/{id}
-# Intended scope(s): system
-#"update_network:shared": "role:admin and system_scope:all"
+# Intended scope(s): project
+#"update_network:shared": "role:admin and project_id:%(project_id)s"
 
 # DEPRECATED
 # "update_network:shared":"rule:admin_only" has been deprecated since
 # W in favor of "update_network:shared":"role:admin and
-# system_scope:all".
+# project_id:%(project_id)s".
 # The network API now supports system scope and default roles.
 
 # Update ``provider:network_type`` attribute of a network
 # PUT  /networks/{id}
-# Intended scope(s): system
-#"update_network:provider:network_type": "role:admin and system_scope:all"
+# Intended scope(s): project
+#"update_network:provider:network_type": "role:admin and project_id:%(project_id)s"
 
 # DEPRECATED
 # "update_network:provider:network_type":"rule:admin_only" has been
 # deprecated since W in favor of
 # "update_network:provider:network_type":"role:admin and
-# system_scope:all".
+# project_id:%(project_id)s".
 # The network API now supports system scope and default roles.
 
 # Update ``provider:physical_network`` attribute of a network
 # PUT  /networks/{id}
-# Intended scope(s): system
-#"update_network:provider:physical_network": "role:admin and system_scope:all"
+# Intended scope(s): project
+#"update_network:provider:physical_network": "role:admin and project_id:%(project_id)s"
 
 # DEPRECATED
 # "update_network:provider:physical_network":"rule:admin_only" has
 # been deprecated since W in favor of
 # "update_network:provider:physical_network":"role:admin and
-# system_scope:all".
+# project_id:%(project_id)s".
 # The network API now supports system scope and default roles.
 
 # Update ``provider:segmentation_id`` attribute of a network
 # PUT  /networks/{id}
-# Intended scope(s): system
-#"update_network:provider:segmentation_id": "role:admin and system_scope:all"
+# Intended scope(s): project
+#"update_network:provider:segmentation_id": "role:admin and project_id:%(project_id)s"
 
 # DEPRECATED
 # "update_network:provider:segmentation_id":"rule:admin_only" has been
 # deprecated since W in favor of
 # "update_network:provider:segmentation_id":"role:admin and
-# system_scope:all".
+# project_id:%(project_id)s".
 # The network API now supports system scope and default roles.
 
 # Update ``router:external`` attribute of a network
 # PUT  /networks/{id}
-# Intended scope(s): system
-#"update_network:router:external": "role:admin and system_scope:all"
+# Intended scope(s): project
+#"update_network:router:external": "role:admin and project_id:%(project_id)s"
 
 # DEPRECATED
 # "update_network:router:external":"rule:admin_only" has been
 # deprecated since W in favor of
-# "update_network:router:external":"role:admin and system_scope:all".
+# "update_network:router:external":"role:admin and
+# project_id:%(project_id)s".
 # The network API now supports system scope and default roles.
 
 # Update ``is_default`` attribute of a network
 # PUT  /networks/{id}
-# Intended scope(s): system
-#"update_network:is_default": "role:admin and system_scope:all"
+# Intended scope(s): project
+#"update_network:is_default": "role:admin and project_id:%(project_id)s"
 
 # DEPRECATED
 # "update_network:is_default":"rule:admin_only" has been deprecated
 # since W in favor of "update_network:is_default":"role:admin and
-# system_scope:all".
+# project_id:%(project_id)s".
 # The network API now supports system scope and default roles.
 
 # Update ``port_security_enabled`` attribute of a network
 # PUT  /networks/{id}
-# Intended scope(s): system, project
-#"update_network:port_security_enabled": "(role:admin and system_scope:all) or (role:member and project_id:%(project_id)s)"
+# Intended scope(s): project
+#"update_network:port_security_enabled": "role:member and project_id:%(project_id)s"
 
 # DEPRECATED
 # "update_network:port_security_enabled":"rule:admin_or_owner" has
 # been deprecated since W in favor of
-# "update_network:port_security_enabled":"(role:admin and
-# system_scope:all) or (role:member and project_id:%(project_id)s)".
+# "update_network:port_security_enabled":"role:member and
+# project_id:%(project_id)s".
 # The network API now supports system scope and default roles.
 
 # Delete a network
 # DELETE  /networks/{id}
-# Intended scope(s): system, project
-#"delete_network": "(role:admin and system_scope:all) or (role:member and project_id:%(project_id)s)"
+# Intended scope(s): project
+#"delete_network": "role:member and project_id:%(project_id)s"
 
 # DEPRECATED
 # "delete_network":"rule:admin_or_owner" has been deprecated since W
-# in favor of "delete_network":"(role:admin and system_scope:all) or
-# (role:member and project_id:%(project_id)s)".
+# in favor of "delete_network":"role:member and
+# project_id:%(project_id)s".
 # The network API now supports system scope and default roles.
 
 # Get network IP availability
@@ -1071,665 +1187,757 @@
 
 # Create a port
 # POST  /ports
-# Intended scope(s): system, project
-#"create_port": "(role:admin and system_scope:all) or (role:member and project_id:%(project_id)s)"
+# Intended scope(s): project
+#"create_port": "role:member and project_id:%(project_id)s"
 
 # DEPRECATED
 # "create_port":"rule:regular_user" has been deprecated since W in
-# favor of "create_port":"(role:admin and system_scope:all) or
-# (role:member and project_id:%(project_id)s)".
+# favor of "create_port":"role:member and project_id:%(project_id)s".
 # The port API now supports system scope and default roles.
 
 # Specify ``device_owner`` attribute when creting a port
 # POST  /ports
-# Intended scope(s): system, project
-#"create_port:device_owner": "not rule:network_device or role:admin and system_scope:all or role:admin and project_id:%(project_id)s or rule:context_is_advsvc or rule:network_owner"
+# Intended scope(s): project
+#"create_port:device_owner": "not rule:network_device or role:admin and project_id:%(project_id)s or rule:context_is_advsvc or rule:network_owner"
 
 # DEPRECATED
 # "create_port:device_owner":"not rule:network_device or
 # rule:context_is_advsvc or rule:admin_or_network_owner" has been
 # deprecated since W in favor of "create_port:device_owner":"not
-# rule:network_device or role:admin and system_scope:all or role:admin
-# and project_id:%(project_id)s or rule:context_is_advsvc or
-# rule:network_owner".
+# rule:network_device or role:admin and project_id:%(project_id)s or
+# rule:context_is_advsvc or rule:network_owner".
 # The port API now supports system scope and default roles.
 
 # Specify ``mac_address`` attribute when creating a port
 # POST  /ports
-# Intended scope(s): system, project
-#"create_port:mac_address": "rule:context_is_advsvc or rule:network_owner or role:admin and system_scope:all or role:admin and project_id:%(project_id)s"
+# Intended scope(s): project
+#"create_port:mac_address": "rule:context_is_advsvc or rule:network_owner or role:admin and project_id:%(project_id)s"
 
 # DEPRECATED
 # "create_port:mac_address":"rule:context_is_advsvc or
 # rule:admin_or_network_owner" has been deprecated since W in favor of
 # "create_port:mac_address":"rule:context_is_advsvc or
-# rule:network_owner or role:admin and system_scope:all or role:admin
-# and project_id:%(project_id)s".
+# rule:network_owner or role:admin and project_id:%(project_id)s".
 # The port API now supports system scope and default roles.
 
 # Specify ``fixed_ips`` information when creating a port
 # POST  /ports
-# Intended scope(s): system, project
-#"create_port:fixed_ips": "rule:context_is_advsvc or rule:network_owner or role:admin and system_scope:all or role:admin and project_id:%(project_id)s or rule:shared"
+# Intended scope(s): project
+#"create_port:fixed_ips": "rule:context_is_advsvc or rule:network_owner or role:admin and project_id:%(project_id)s or rule:shared"
 
 # DEPRECATED
 # "create_port:fixed_ips":"rule:context_is_advsvc or
 # rule:admin_or_network_owner or rule:shared" has been deprecated
 # since W in favor of "create_port:fixed_ips":"rule:context_is_advsvc
-# or rule:network_owner or role:admin and system_scope:all or
-# role:admin and project_id:%(project_id)s or rule:shared".
+# or rule:network_owner or role:admin and project_id:%(project_id)s or
+# rule:shared".
 # The port API now supports system scope and default roles.
 
 # Specify IP address in ``fixed_ips`` when creating a port
 # POST  /ports
-# Intended scope(s): system, project
-#"create_port:fixed_ips:ip_address": "rule:context_is_advsvc or rule:network_owner or role:admin and system_scope:all or role:admin and project_id:%(project_id)s"
+# Intended scope(s): project
+#"create_port:fixed_ips:ip_address": "rule:context_is_advsvc or rule:network_owner or role:admin and project_id:%(project_id)s"
 
 # DEPRECATED
 # "create_port:fixed_ips:ip_address":"rule:context_is_advsvc or
 # rule:admin_or_network_owner" has been deprecated since W in favor of
 # "create_port:fixed_ips:ip_address":"rule:context_is_advsvc or
-# rule:network_owner or role:admin and system_scope:all or role:admin
-# and project_id:%(project_id)s".
+# rule:network_owner or role:admin and project_id:%(project_id)s".
 # The port API now supports system scope and default roles.
 
 # Specify subnet ID in ``fixed_ips`` when creating a port
 # POST  /ports
-# Intended scope(s): system, project
-#"create_port:fixed_ips:subnet_id": "rule:context_is_advsvc or rule:network_owner or role:admin and system_scope:all or role:admin and project_id:%(project_id)s or rule:shared"
+# Intended scope(s): project
+#"create_port:fixed_ips:subnet_id": "rule:context_is_advsvc or rule:network_owner or role:admin and project_id:%(project_id)s or rule:shared"
 
 # DEPRECATED
 # "create_port:fixed_ips:subnet_id":"rule:context_is_advsvc or
 # rule:admin_or_network_owner or rule:shared" has been deprecated
 # since W in favor of
 # "create_port:fixed_ips:subnet_id":"rule:context_is_advsvc or
-# rule:network_owner or role:admin and system_scope:all or role:admin
-# and project_id:%(project_id)s or rule:shared".
+# rule:network_owner or role:admin and project_id:%(project_id)s or
+# rule:shared".
 # The port API now supports system scope and default roles.
 
 # Specify ``port_security_enabled`` attribute when creating a port
 # POST  /ports
-# Intended scope(s): system, project
-#"create_port:port_security_enabled": "rule:context_is_advsvc or rule:network_owner or role:admin and system_scope:all or role:admin and project_id:%(project_id)s"
+# Intended scope(s): project
+#"create_port:port_security_enabled": "rule:context_is_advsvc or rule:network_owner or role:admin and project_id:%(project_id)s"
 
 # DEPRECATED
 # "create_port:port_security_enabled":"rule:context_is_advsvc or
 # rule:admin_or_network_owner" has been deprecated since W in favor of
 # "create_port:port_security_enabled":"rule:context_is_advsvc or
-# rule:network_owner or role:admin and system_scope:all or role:admin
-# and project_id:%(project_id)s".
+# rule:network_owner or role:admin and project_id:%(project_id)s".
 # The port API now supports system scope and default roles.
 
 # Specify ``binding:host_id`` attribute when creating a port
 # POST  /ports
-# Intended scope(s): system
-#"create_port:binding:host_id": "role:admin and system_scope:all"
+# Intended scope(s): project
+#"create_port:binding:host_id": "role:admin and project_id:%(project_id)s"
 
 # DEPRECATED
 # "create_port:binding:host_id":"rule:admin_only" has been deprecated
 # since W in favor of "create_port:binding:host_id":"role:admin and
-# system_scope:all".
+# project_id:%(project_id)s".
 # The port API now supports system scope and default roles.
 
 # Specify ``binding:profile`` attribute when creating a port
 # POST  /ports
-# Intended scope(s): system
-#"create_port:binding:profile": "role:admin and system_scope:all"
+# Intended scope(s): project
+#"create_port:binding:profile": "role:admin and project_id:%(project_id)s"
 
 # DEPRECATED
 # "create_port:binding:profile":"rule:admin_only" has been deprecated
 # since W in favor of "create_port:binding:profile":"role:admin and
-# system_scope:all".
+# project_id:%(project_id)s".
 # The port API now supports system scope and default roles.
 
 # Specify ``binding:vnic_type`` attribute when creating a port
 # POST  /ports
-# Intended scope(s): system, project
-#"create_port:binding:vnic_type": "(role:admin and system_scope:all) or (role:member and project_id:%(project_id)s)"
+# Intended scope(s): project
+#"create_port:binding:vnic_type": "role:member and project_id:%(project_id)s"
 
 # DEPRECATED
 # "create_port:binding:vnic_type":"rule:regular_user" has been
 # deprecated since W in favor of
-# "create_port:binding:vnic_type":"(role:admin and system_scope:all)
-# or (role:member and project_id:%(project_id)s)".
+# "create_port:binding:vnic_type":"role:member and
+# project_id:%(project_id)s".
 # The port API now supports system scope and default roles.
 
 # Specify ``allowed_address_pairs`` attribute when creating a port
 # POST  /ports
-# Intended scope(s): project, system
-#"create_port:allowed_address_pairs": "role:admin and system_scope:all or role:admin and project_id:%(project_id)s or rule:network_owner"
+# Intended scope(s): project
+#"create_port:allowed_address_pairs": "role:admin and project_id:%(project_id)s or rule:network_owner"
 
 # DEPRECATED
 # "create_port:allowed_address_pairs":"rule:admin_or_network_owner"
 # has been deprecated since W in favor of
-# "create_port:allowed_address_pairs":"role:admin and system_scope:all
-# or role:admin and project_id:%(project_id)s or rule:network_owner".
+# "create_port:allowed_address_pairs":"role:admin and
+# project_id:%(project_id)s or rule:network_owner".
 # The port API now supports system scope and default roles.
 
 # Specify ``mac_address` of `allowed_address_pairs`` attribute when
 # creating a port
 # POST  /ports
-# Intended scope(s): project, system
-#"create_port:allowed_address_pairs:mac_address": "role:admin and system_scope:all or role:admin and project_id:%(project_id)s or rule:network_owner"
+# Intended scope(s): project
+#"create_port:allowed_address_pairs:mac_address": "role:admin and project_id:%(project_id)s or rule:network_owner"
 
 # DEPRECATED
 # "create_port:allowed_address_pairs:mac_address":"rule:admin_or_netwo
 # rk_owner" has been deprecated since W in favor of
 # "create_port:allowed_address_pairs:mac_address":"role:admin and
-# system_scope:all or role:admin and project_id:%(project_id)s or
-# rule:network_owner".
+# project_id:%(project_id)s or rule:network_owner".
 # The port API now supports system scope and default roles.
 
 # Specify ``ip_address`` of ``allowed_address_pairs`` attribute when
 # creating a port
 # POST  /ports
-# Intended scope(s): project, system
-#"create_port:allowed_address_pairs:ip_address": "role:admin and system_scope:all or role:admin and project_id:%(project_id)s or rule:network_owner"
+# Intended scope(s): project
+#"create_port:allowed_address_pairs:ip_address": "role:admin and project_id:%(project_id)s or rule:network_owner"
 
 # DEPRECATED
 # "create_port:allowed_address_pairs:ip_address":"rule:admin_or_networ
 # k_owner" has been deprecated since W in favor of
 # "create_port:allowed_address_pairs:ip_address":"role:admin and
-# system_scope:all or role:admin and project_id:%(project_id)s or
-# rule:network_owner".
+# project_id:%(project_id)s or rule:network_owner".
 # The port API now supports system scope and default roles.
 
 # Get a port
 # GET  /ports
 # GET  /ports/{id}
-# Intended scope(s): project, system
-#"get_port": "rule:context_is_advsvc or (role:reader and system_scope:all) or (role:reader and project_id:%(project_id)s)"
+# Intended scope(s): project
+#"get_port": "rule:context_is_advsvc or role:reader and project_id:%(project_id)s"
 
 # DEPRECATED
 # "get_port":"rule:context_is_advsvc or
 # rule:admin_owner_or_network_owner" has been deprecated since W in
-# favor of "get_port":"rule:context_is_advsvc or (role:reader and
-# system_scope:all) or (role:reader and project_id:%(project_id)s)".
+# favor of "get_port":"rule:context_is_advsvc or role:reader and
+# project_id:%(project_id)s".
 # The port API now supports system scope and default roles.
 
 # Get ``binding:vif_type`` attribute of a port
 # GET  /ports
 # GET  /ports/{id}
-# Intended scope(s): system
-#"get_port:binding:vif_type": "role:reader and system_scope:all"
+# Intended scope(s): project
+#"get_port:binding:vif_type": "role:admin and project_id:%(project_id)s"
 
 # DEPRECATED
 # "get_port:binding:vif_type":"rule:admin_only" has been deprecated
-# since W in favor of "get_port:binding:vif_type":"role:reader and
-# system_scope:all".
+# since W in favor of "get_port:binding:vif_type":"role:admin and
+# project_id:%(project_id)s".
 # The port API now supports system scope and default roles.
 
 # Get ``binding:vif_details`` attribute of a port
 # GET  /ports
 # GET  /ports/{id}
-# Intended scope(s): system
-#"get_port:binding:vif_details": "role:reader and system_scope:all"
+# Intended scope(s): project
+#"get_port:binding:vif_details": "role:admin and project_id:%(project_id)s"
 
 # DEPRECATED
 # "get_port:binding:vif_details":"rule:admin_only" has been deprecated
-# since W in favor of "get_port:binding:vif_details":"role:reader and
-# system_scope:all".
+# since W in favor of "get_port:binding:vif_details":"role:admin and
+# project_id:%(project_id)s".
 # The port API now supports system scope and default roles.
 
 # Get ``binding:host_id`` attribute of a port
 # GET  /ports
 # GET  /ports/{id}
-# Intended scope(s): system
-#"get_port:binding:host_id": "role:reader and system_scope:all"
+# Intended scope(s): project
+#"get_port:binding:host_id": "role:admin and project_id:%(project_id)s"
 
 # DEPRECATED
 # "get_port:binding:host_id":"rule:admin_only" has been deprecated
-# since W in favor of "get_port:binding:host_id":"role:reader and
-# system_scope:all".
+# since W in favor of "get_port:binding:host_id":"role:admin and
+# project_id:%(project_id)s".
 # The port API now supports system scope and default roles.
 
 # Get ``binding:profile`` attribute of a port
 # GET  /ports
 # GET  /ports/{id}
-# Intended scope(s): system
-#"get_port:binding:profile": "role:reader and system_scope:all"
+# Intended scope(s): project
+#"get_port:binding:profile": "role:admin and project_id:%(project_id)s"
 
 # DEPRECATED
 # "get_port:binding:profile":"rule:admin_only" has been deprecated
-# since W in favor of "get_port:binding:profile":"role:reader and
-# system_scope:all".
+# since W in favor of "get_port:binding:profile":"role:admin and
+# project_id:%(project_id)s".
 # The port API now supports system scope and default roles.
 
 # Get ``resource_request`` attribute of a port
 # GET  /ports
 # GET  /ports/{id}
-# Intended scope(s): system
-#"get_port:resource_request": "role:reader and system_scope:all"
+# Intended scope(s): project
+#"get_port:resource_request": "role:admin and project_id:%(project_id)s"
 
 # DEPRECATED
 # "get_port:resource_request":"rule:admin_only" has been deprecated
-# since W in favor of "get_port:resource_request":"role:reader and
-# system_scope:all".
+# since W in favor of "get_port:resource_request":"role:admin and
+# project_id:%(project_id)s".
 # The port API now supports system scope and default roles.
 
 # Update a port
 # PUT  /ports/{id}
-# Intended scope(s): system, project
-#"update_port": "(role:admin and system_scope:all) or (role:member and project_id:%(project_id)s) or rule:context_is_advsvc"
+# Intended scope(s): project
+#"update_port": "role:member and project_id:%(project_id)s or rule:context_is_advsvc"
 
 # DEPRECATED
 # "update_port":"rule:admin_or_owner or rule:context_is_advsvc" has
-# been deprecated since W in favor of "update_port":"(role:admin and
-# system_scope:all) or (role:member and project_id:%(project_id)s) or
-# rule:context_is_advsvc".
+# been deprecated since W in favor of "update_port":"role:member and
+# project_id:%(project_id)s or rule:context_is_advsvc".
 # The port API now supports system scope and default roles.
 
 # Update ``device_owner`` attribute of a port
 # PUT  /ports/{id}
-# Intended scope(s): system, project
-#"update_port:device_owner": "not rule:network_device or rule:context_is_advsvc or rule:network_owner or role:admin and system_scope:all or role:admin and project_id:%(project_id)s"
+# Intended scope(s): project
+#"update_port:device_owner": "not rule:network_device or rule:context_is_advsvc or rule:network_owner or role:admin and project_id:%(project_id)s"
 
 # DEPRECATED
 # "update_port:device_owner":"not rule:network_device or
 # rule:context_is_advsvc or rule:admin_or_network_owner" has been
 # deprecated since W in favor of "update_port:device_owner":"not
 # rule:network_device or rule:context_is_advsvc or rule:network_owner
-# or role:admin and system_scope:all or role:admin and
-# project_id:%(project_id)s".
+# or role:admin and project_id:%(project_id)s".
 # The port API now supports system scope and default roles.
 
 # Update ``mac_address`` attribute of a port
 # PUT  /ports/{id}
-# Intended scope(s): system, project
-#"update_port:mac_address": "role:admin and system_scope:all or rule:context_is_advsvc"
+# Intended scope(s): project
+#"update_port:mac_address": "role:admin and project_id:%(project_id)s or rule:context_is_advsvc"
 
 # DEPRECATED
 # "update_port:mac_address":"rule:admin_only or
 # rule:context_is_advsvc" has been deprecated since W in favor of
-# "update_port:mac_address":"role:admin and system_scope:all or
-# rule:context_is_advsvc".
+# "update_port:mac_address":"role:admin and project_id:%(project_id)s
+# or rule:context_is_advsvc".
 # The port API now supports system scope and default roles.
 
 # Specify ``fixed_ips`` information when updating a port
 # PUT  /ports/{id}
-# Intended scope(s): system, project
-#"update_port:fixed_ips": "rule:context_is_advsvc or rule:network_owner or role:admin and system_scope:all or role:admin and project_id:%(project_id)s"
+# Intended scope(s): project
+#"update_port:fixed_ips": "rule:context_is_advsvc or rule:network_owner or role:admin and project_id:%(project_id)s"
 
 # DEPRECATED
 # "update_port:fixed_ips":"rule:context_is_advsvc or
 # rule:admin_or_network_owner" has been deprecated since W in favor of
 # "update_port:fixed_ips":"rule:context_is_advsvc or
-# rule:network_owner or role:admin and system_scope:all or role:admin
-# and project_id:%(project_id)s".
+# rule:network_owner or role:admin and project_id:%(project_id)s".
 # The port API now supports system scope and default roles.
 
 # Specify IP address in ``fixed_ips`` information when updating a port
 # PUT  /ports/{id}
-# Intended scope(s): system, project
-#"update_port:fixed_ips:ip_address": "rule:context_is_advsvc or rule:network_owner or role:admin and system_scope:all or role:admin and project_id:%(project_id)s"
+# Intended scope(s): project
+#"update_port:fixed_ips:ip_address": "rule:context_is_advsvc or rule:network_owner or role:admin and project_id:%(project_id)s"
 
 # DEPRECATED
 # "update_port:fixed_ips:ip_address":"rule:context_is_advsvc or
 # rule:admin_or_network_owner" has been deprecated since W in favor of
 # "update_port:fixed_ips:ip_address":"rule:context_is_advsvc or
-# rule:network_owner or role:admin and system_scope:all or role:admin
-# and project_id:%(project_id)s".
+# rule:network_owner or role:admin and project_id:%(project_id)s".
 # The port API now supports system scope and default roles.
 
 # Specify subnet ID in ``fixed_ips`` information when updating a port
 # PUT  /ports/{id}
-# Intended scope(s): system, project
-#"update_port:fixed_ips:subnet_id": "rule:context_is_advsvc or rule:network_owner or role:admin and system_scope:all or role:admin and project_id:%(project_id)s or rule:shared"
+# Intended scope(s): project
+#"update_port:fixed_ips:subnet_id": "rule:context_is_advsvc or rule:network_owner or role:admin and project_id:%(project_id)s or rule:shared"
 
 # DEPRECATED
 # "update_port:fixed_ips:subnet_id":"rule:context_is_advsvc or
 # rule:admin_or_network_owner or rule:shared" has been deprecated
 # since W in favor of
 # "update_port:fixed_ips:subnet_id":"rule:context_is_advsvc or
-# rule:network_owner or role:admin and system_scope:all or role:admin
-# and project_id:%(project_id)s or rule:shared".
+# rule:network_owner or role:admin and project_id:%(project_id)s or
+# rule:shared".
 # The port API now supports system scope and default roles.
 
 # Update ``port_security_enabled`` attribute of a port
 # PUT  /ports/{id}
-# Intended scope(s): system, project
-#"update_port:port_security_enabled": "rule:context_is_advsvc or rule:network_owner or role:admin and system_scope:all or role:admin and project_id:%(project_id)s"
+# Intended scope(s): project
+#"update_port:port_security_enabled": "rule:context_is_advsvc or rule:network_owner or role:admin and project_id:%(project_id)s"
 
 # DEPRECATED
 # "update_port:port_security_enabled":"rule:context_is_advsvc or
 # rule:admin_or_network_owner" has been deprecated since W in favor of
 # "update_port:port_security_enabled":"rule:context_is_advsvc or
-# rule:network_owner or role:admin and system_scope:all or role:admin
-# and project_id:%(project_id)s".
+# rule:network_owner or role:admin and project_id:%(project_id)s".
 # The port API now supports system scope and default roles.
 
 # Update ``binding:host_id`` attribute of a port
 # PUT  /ports/{id}
-# Intended scope(s): system
-#"update_port:binding:host_id": "role:admin and system_scope:all"
+# Intended scope(s): project
+#"update_port:binding:host_id": "role:admin and project_id:%(project_id)s"
 
 # DEPRECATED
 # "update_port:binding:host_id":"rule:admin_only" has been deprecated
 # since W in favor of "update_port:binding:host_id":"role:admin and
-# system_scope:all".
+# project_id:%(project_id)s".
 # The port API now supports system scope and default roles.
 
 # Update ``binding:profile`` attribute of a port
 # PUT  /ports/{id}
-# Intended scope(s): system
-#"update_port:binding:profile": "role:admin and system_scope:all"
+# Intended scope(s): project
+#"update_port:binding:profile": "role:admin and project_id:%(project_id)s"
 
 # DEPRECATED
 # "update_port:binding:profile":"rule:admin_only" has been deprecated
 # since W in favor of "update_port:binding:profile":"role:admin and
-# system_scope:all".
+# project_id:%(project_id)s".
 # The port API now supports system scope and default roles.
 
 # Update ``binding:vnic_type`` attribute of a port
 # PUT  /ports/{id}
-# Intended scope(s): system, project
-#"update_port:binding:vnic_type": "(role:admin and system_scope:all) or (role:member and project_id:%(project_id)s) or rule:context_is_advsvc"
+# Intended scope(s): project
+#"update_port:binding:vnic_type": "role:member and project_id:%(project_id)s or rule:context_is_advsvc"
 
 # DEPRECATED
 # "update_port:binding:vnic_type":"rule:admin_or_owner or
 # rule:context_is_advsvc" has been deprecated since W in favor of
-# "update_port:binding:vnic_type":"(role:admin and system_scope:all)
-# or (role:member and project_id:%(project_id)s) or
-# rule:context_is_advsvc".
+# "update_port:binding:vnic_type":"role:member and
+# project_id:%(project_id)s or rule:context_is_advsvc".
 # The port API now supports system scope and default roles.
 
 # Update ``allowed_address_pairs`` attribute of a port
 # PUT  /ports/{id}
-# Intended scope(s): system, project
-#"update_port:allowed_address_pairs": "role:admin and system_scope:all or role:admin and project_id:%(project_id)s or rule:network_owner"
+# Intended scope(s): project
+#"update_port:allowed_address_pairs": "role:admin and project_id:%(project_id)s or rule:network_owner"
 
 # DEPRECATED
 # "update_port:allowed_address_pairs":"rule:admin_or_network_owner"
 # has been deprecated since W in favor of
-# "update_port:allowed_address_pairs":"role:admin and system_scope:all
-# or role:admin and project_id:%(project_id)s or rule:network_owner".
+# "update_port:allowed_address_pairs":"role:admin and
+# project_id:%(project_id)s or rule:network_owner".
 # The port API now supports system scope and default roles.
 
 # Update ``mac_address`` of ``allowed_address_pairs`` attribute of a
 # port
 # PUT  /ports/{id}
-# Intended scope(s): system, project
-#"update_port:allowed_address_pairs:mac_address": "role:admin and system_scope:all or role:admin and project_id:%(project_id)s or rule:network_owner"
+# Intended scope(s): project
+#"update_port:allowed_address_pairs:mac_address": "role:admin and project_id:%(project_id)s or rule:network_owner"
 
 # DEPRECATED
 # "update_port:allowed_address_pairs:mac_address":"rule:admin_or_netwo
 # rk_owner" has been deprecated since W in favor of
 # "update_port:allowed_address_pairs:mac_address":"role:admin and
-# system_scope:all or role:admin and project_id:%(project_id)s or
-# rule:network_owner".
+# project_id:%(project_id)s or rule:network_owner".
 # The port API now supports system scope and default roles.
 
 # Update ``ip_address`` of ``allowed_address_pairs`` attribute of a
 # port
 # PUT  /ports/{id}
-# Intended scope(s): system, project
-#"update_port:allowed_address_pairs:ip_address": "role:admin and system_scope:all or role:admin and project_id:%(project_id)s or rule:network_owner"
+# Intended scope(s): project
+#"update_port:allowed_address_pairs:ip_address": "role:admin and project_id:%(project_id)s or rule:network_owner"
 
 # DEPRECATED
 # "update_port:allowed_address_pairs:ip_address":"rule:admin_or_networ
 # k_owner" has been deprecated since W in favor of
 # "update_port:allowed_address_pairs:ip_address":"role:admin and
-# system_scope:all or role:admin and project_id:%(project_id)s or
-# rule:network_owner".
+# project_id:%(project_id)s or rule:network_owner".
 # The port API now supports system scope and default roles.
 
 # Update ``data_plane_status`` attribute of a port
 # PUT  /ports/{id}
-# Intended scope(s): system, project
-#"update_port:data_plane_status": "role:admin and system_scope:all or role:data_plane_integrator"
+# Intended scope(s): project
+#"update_port:data_plane_status": "role:admin and project_id:%(project_id)s or role:data_plane_integrator"
 
 # DEPRECATED
 # "update_port:data_plane_status":"rule:admin_or_data_plane_int" has
 # been deprecated since W in favor of
-# "update_port:data_plane_status":"role:admin and system_scope:all or
-# role:data_plane_integrator".
+# "update_port:data_plane_status":"role:admin and
+# project_id:%(project_id)s or role:data_plane_integrator".
 # The port API now supports system scope and default roles.
 
 # Delete a port
 # DELETE  /ports/{id}
-# Intended scope(s): system, project
-#"delete_port": "rule:context_is_advsvc or (role:admin and system_scope:all) or (role:member and project_id:%(project_id)s)"
+# Intended scope(s): project
+#"delete_port": "rule:context_is_advsvc or role:member and project_id:%(project_id)s"
 
 # DEPRECATED
 # "delete_port":"rule:context_is_advsvc or
 # rule:admin_owner_or_network_owner" has been deprecated since W in
-# favor of "delete_port":"rule:context_is_advsvc or (role:admin and
-# system_scope:all) or (role:member and project_id:%(project_id)s)".
+# favor of "delete_port":"rule:context_is_advsvc or role:member and
+# project_id:%(project_id)s".
 # The port API now supports system scope and default roles.
 
 # Get QoS policies
 # GET  /qos/policies
 # GET  /qos/policies/{id}
-# Intended scope(s): system, project
-#"get_policy": "(role:reader and system_scope:all) or (role:reader and project_id:%(project_id)s)"
+# Intended scope(s): project
+#"get_policy": "role:reader and project_id:%(project_id)s"
 
 # DEPRECATED
 # "get_policy":"rule:regular_user" has been deprecated since W in
-# favor of "get_policy":"(role:reader and system_scope:all) or
-# (role:reader and project_id:%(project_id)s)".
+# favor of "get_policy":"role:reader and project_id:%(project_id)s".
 # The QoS API now supports system scope and default roles.
 
 # Create a QoS policy
 # POST  /qos/policies
-# Intended scope(s): system
-#"create_policy": "role:admin and system_scope:all"
+# Intended scope(s): project
+#"create_policy": "role:admin and project_id:%(project_id)s"
 
 # DEPRECATED
 # "create_policy":"rule:admin_only" has been deprecated since W in
-# favor of "create_policy":"role:admin and system_scope:all".
+# favor of "create_policy":"role:admin and project_id:%(project_id)s".
 # The QoS API now supports system scope and default roles.
 
 # Update a QoS policy
 # PUT  /qos/policies/{id}
-# Intended scope(s): system
-#"update_policy": "role:admin and system_scope:all"
+# Intended scope(s): project
+#"update_policy": "role:admin and project_id:%(project_id)s"
 
 # DEPRECATED
 # "update_policy":"rule:admin_only" has been deprecated since W in
-# favor of "update_policy":"role:admin and system_scope:all".
+# favor of "update_policy":"role:admin and project_id:%(project_id)s".
 # The QoS API now supports system scope and default roles.
 
 # Delete a QoS policy
 # DELETE  /qos/policies/{id}
-# Intended scope(s): system
-#"delete_policy": "role:admin and system_scope:all"
+# Intended scope(s): project
+#"delete_policy": "role:admin and project_id:%(project_id)s"
 
 # DEPRECATED
 # "delete_policy":"rule:admin_only" has been deprecated since W in
-# favor of "delete_policy":"role:admin and system_scope:all".
+# favor of "delete_policy":"role:admin and project_id:%(project_id)s".
 # The QoS API now supports system scope and default roles.
 
 # Get available QoS rule types
 # GET  /qos/rule-types
 # GET  /qos/rule-types/{rule_type}
 # Intended scope(s): system, project
-#"get_rule_type": "(role:reader and system_scope:all) or (role:reader and project_id:%(project_id)s)"
+#"get_rule_type": "role:admin or role:reader and system_scope:all"
 
 # DEPRECATED
 # "get_rule_type":"rule:regular_user" has been deprecated since W in
-# favor of "get_rule_type":"(role:reader and system_scope:all) or
-# (role:reader and project_id:%(project_id)s)".
+# favor of "get_rule_type":"role:admin or role:reader and
+# system_scope:all".
 # The QoS API now supports system scope and default roles.
 
 # Get a QoS bandwidth limit rule
 # GET  /qos/policies/{policy_id}/bandwidth_limit_rules
 # GET  /qos/policies/{policy_id}/bandwidth_limit_rules/{rule_id}
-# Intended scope(s): system, project
-#"get_policy_bandwidth_limit_rule": "(role:reader and system_scope:all) or (role:reader and project_id:%(project_id)s)"
+# Intended scope(s): project
+#"get_policy_bandwidth_limit_rule": "role:reader and project_id:%(project_id)s"
 
 # DEPRECATED
 # "get_policy_bandwidth_limit_rule":"rule:regular_user" has been
 # deprecated since W in favor of
-# "get_policy_bandwidth_limit_rule":"(role:reader and
-# system_scope:all) or (role:reader and project_id:%(project_id)s)".
+# "get_policy_bandwidth_limit_rule":"role:reader and
+# project_id:%(project_id)s".
 # The QoS API now supports system scope and default roles.
 
 # Create a QoS bandwidth limit rule
 # POST  /qos/policies/{policy_id}/bandwidth_limit_rules
-# Intended scope(s): system
-#"create_policy_bandwidth_limit_rule": "role:admin and system_scope:all"
+# Intended scope(s): project
+#"create_policy_bandwidth_limit_rule": "role:admin and project_id:%(project_id)s"
 
 # DEPRECATED
 # "create_policy_bandwidth_limit_rule":"rule:admin_only" has been
 # deprecated since W in favor of
 # "create_policy_bandwidth_limit_rule":"role:admin and
-# system_scope:all".
+# project_id:%(project_id)s".
 # The QoS API now supports system scope and default roles.
 
 # Update a QoS bandwidth limit rule
 # PUT  /qos/policies/{policy_id}/bandwidth_limit_rules/{rule_id}
-# Intended scope(s): system
-#"update_policy_bandwidth_limit_rule": "role:admin and system_scope:all"
+# Intended scope(s): project
+#"update_policy_bandwidth_limit_rule": "role:admin and project_id:%(project_id)s"
 
 # DEPRECATED
 # "update_policy_bandwidth_limit_rule":"rule:admin_only" has been
 # deprecated since W in favor of
 # "update_policy_bandwidth_limit_rule":"role:admin and
-# system_scope:all".
+# project_id:%(project_id)s".
 # The QoS API now supports system scope and default roles.
 
 # Delete a QoS bandwidth limit rule
 # DELETE  /qos/policies/{policy_id}/bandwidth_limit_rules/{rule_id}
-# Intended scope(s): system
-#"delete_policy_bandwidth_limit_rule": "role:admin and system_scope:all"
+# Intended scope(s): project
+#"delete_policy_bandwidth_limit_rule": "role:admin and project_id:%(project_id)s"
 
 # DEPRECATED
 # "delete_policy_bandwidth_limit_rule":"rule:admin_only" has been
 # deprecated since W in favor of
 # "delete_policy_bandwidth_limit_rule":"role:admin and
-# system_scope:all".
+# project_id:%(project_id)s".
 # The QoS API now supports system scope and default roles.
 
 # Get a QoS DSCP marking rule
 # GET  /qos/policies/{policy_id}/dscp_marking_rules
 # GET  /qos/policies/{policy_id}/dscp_marking_rules/{rule_id}
-# Intended scope(s): system, project
-#"get_policy_dscp_marking_rule": "(role:reader and system_scope:all) or (role:reader and project_id:%(project_id)s)"
+# Intended scope(s): project
+#"get_policy_dscp_marking_rule": "role:reader and project_id:%(project_id)s"
 
 # DEPRECATED
 # "get_policy_dscp_marking_rule":"rule:regular_user" has been
 # deprecated since W in favor of
-# "get_policy_dscp_marking_rule":"(role:reader and system_scope:all)
-# or (role:reader and project_id:%(project_id)s)".
+# "get_policy_dscp_marking_rule":"role:reader and
+# project_id:%(project_id)s".
 # The QoS API now supports system scope and default roles.
 
 # Create a QoS DSCP marking rule
 # POST  /qos/policies/{policy_id}/dscp_marking_rules
-# Intended scope(s): system
-#"create_policy_dscp_marking_rule": "role:admin and system_scope:all"
+# Intended scope(s): project
+#"create_policy_dscp_marking_rule": "role:admin and project_id:%(project_id)s"
 
 # DEPRECATED
 # "create_policy_dscp_marking_rule":"rule:admin_only" has been
 # deprecated since W in favor of
-# "create_policy_dscp_marking_rule":"role:admin and system_scope:all".
+# "create_policy_dscp_marking_rule":"role:admin and
+# project_id:%(project_id)s".
 # The QoS API now supports system scope and default roles.
 
 # Update a QoS DSCP marking rule
 # PUT  /qos/policies/{policy_id}/dscp_marking_rules/{rule_id}
-# Intended scope(s): system
-#"update_policy_dscp_marking_rule": "role:admin and system_scope:all"
+# Intended scope(s): project
+#"update_policy_dscp_marking_rule": "role:admin and project_id:%(project_id)s"
 
 # DEPRECATED
 # "update_policy_dscp_marking_rule":"rule:admin_only" has been
 # deprecated since W in favor of
-# "update_policy_dscp_marking_rule":"role:admin and system_scope:all".
+# "update_policy_dscp_marking_rule":"role:admin and
+# project_id:%(project_id)s".
 # The QoS API now supports system scope and default roles.
 
 # Delete a QoS DSCP marking rule
 # DELETE  /qos/policies/{policy_id}/dscp_marking_rules/{rule_id}
-# Intended scope(s): system
-#"delete_policy_dscp_marking_rule": "role:admin and system_scope:all"
+# Intended scope(s): project
+#"delete_policy_dscp_marking_rule": "role:admin and project_id:%(project_id)s"
 
 # DEPRECATED
 # "delete_policy_dscp_marking_rule":"rule:admin_only" has been
 # deprecated since W in favor of
-# "delete_policy_dscp_marking_rule":"role:admin and system_scope:all".
+# "delete_policy_dscp_marking_rule":"role:admin and
+# project_id:%(project_id)s".
 # The QoS API now supports system scope and default roles.
 
 # Get a QoS minimum bandwidth rule
 # GET  /qos/policies/{policy_id}/minimum_bandwidth_rules
 # GET  /qos/policies/{policy_id}/minimum_bandwidth_rules/{rule_id}
-# Intended scope(s): system, project
-#"get_policy_minimum_bandwidth_rule": "(role:reader and system_scope:all) or (role:reader and project_id:%(project_id)s)"
+# Intended scope(s): project
+#"get_policy_minimum_bandwidth_rule": "role:reader and project_id:%(project_id)s"
 
 # DEPRECATED
 # "get_policy_minimum_bandwidth_rule":"rule:regular_user" has been
 # deprecated since W in favor of
-# "get_policy_minimum_bandwidth_rule":"(role:reader and
-# system_scope:all) or (role:reader and project_id:%(project_id)s)".
+# "get_policy_minimum_bandwidth_rule":"role:reader and
+# project_id:%(project_id)s".
 # The QoS API now supports system scope and default roles.
 
 # Create a QoS minimum bandwidth rule
 # POST  /qos/policies/{policy_id}/minimum_bandwidth_rules
-# Intended scope(s): system
-#"create_policy_minimum_bandwidth_rule": "role:admin and system_scope:all"
+# Intended scope(s): project
+#"create_policy_minimum_bandwidth_rule": "role:admin and project_id:%(project_id)s"
 
 # DEPRECATED
 # "create_policy_minimum_bandwidth_rule":"rule:admin_only" has been
 # deprecated since W in favor of
 # "create_policy_minimum_bandwidth_rule":"role:admin and
-# system_scope:all".
+# project_id:%(project_id)s".
 # The QoS API now supports system scope and default roles.
 
 # Update a QoS minimum bandwidth rule
 # PUT  /qos/policies/{policy_id}/minimum_bandwidth_rules/{rule_id}
-# Intended scope(s): system
-#"update_policy_minimum_bandwidth_rule": "role:admin and system_scope:all"
+# Intended scope(s): project
+#"update_policy_minimum_bandwidth_rule": "role:admin and project_id:%(project_id)s"
 
 # DEPRECATED
 # "update_policy_minimum_bandwidth_rule":"rule:admin_only" has been
 # deprecated since W in favor of
 # "update_policy_minimum_bandwidth_rule":"role:admin and
-# system_scope:all".
+# project_id:%(project_id)s".
 # The QoS API now supports system scope and default roles.
 
 # Delete a QoS minimum bandwidth rule
 # DELETE  /qos/policies/{policy_id}/minimum_bandwidth_rules/{rule_id}
-# Intended scope(s): system
-#"delete_policy_minimum_bandwidth_rule": "role:admin and system_scope:all"
+# Intended scope(s): project
+#"delete_policy_minimum_bandwidth_rule": "role:admin and project_id:%(project_id)s"
 
 # DEPRECATED
 # "delete_policy_minimum_bandwidth_rule":"rule:admin_only" has been
 # deprecated since W in favor of
 # "delete_policy_minimum_bandwidth_rule":"role:admin and
-# system_scope:all".
+# project_id:%(project_id)s".
 # The QoS API now supports system scope and default roles.
+
+# Get a QoS minimum packet rate rule
+# GET  /qos/policies/{policy_id}/minimum_packet_rate_rules
+# GET  /qos/policies/{policy_id}/minimum_packet_rate_rules/{rule_id}
+# Intended scope(s): project
+#"get_policy_minimum_packet_rate_rule": "role:reader and project_id:%(project_id)s"
+
+# Create a QoS minimum packet rate rule
+# POST  /qos/policies/{policy_id}/minimum_packet_rate_rules
+# Intended scope(s): project
+#"create_policy_minimum_packet_rate_rule": "role:admin and project_id:%(project_id)s"
+
+# Update a QoS minimum packet rate rule
+# PUT  /qos/policies/{policy_id}/minimum_packet_rate_rules/{rule_id}
+# Intended scope(s): project
+#"update_policy_minimum_packet_rate_rule": "role:admin and project_id:%(project_id)s"
+
+# Delete a QoS minimum packet rate rule
+# DELETE  /qos/policies/{policy_id}/minimum_packet_rate_rules/{rule_id}
+# Intended scope(s): project
+#"delete_policy_minimum_packet_rate_rule": "role:admin and project_id:%(project_id)s"
 
 # Get a QoS bandwidth limit rule through alias
 # GET  /qos/alias_bandwidth_limit_rules/{rule_id}/
-#"get_alias_bandwidth_limit_rule": "rule:get_policy_bandwidth_limit_rule"
+# Intended scope(s): project
+#"get_alias_bandwidth_limit_rule": "role:reader and project_id:%(project_id)s"
+
+# DEPRECATED
+# "get_alias_bandwidth_limit_rule":"rule:regular_user" has been
+# deprecated since W in favor of
+# "get_alias_bandwidth_limit_rule":"role:reader and
+# project_id:%(project_id)s".
+# The QoS API now supports system scope and default roles.
 
 # Update a QoS bandwidth limit rule through alias
 # PUT  /qos/alias_bandwidth_limit_rules/{rule_id}/
-#"update_alias_bandwidth_limit_rule": "rule:update_policy_bandwidth_limit_rule"
+# Intended scope(s): project
+#"update_alias_bandwidth_limit_rule": "role:admin and project_id:%(project_id)s"
+
+# DEPRECATED
+# "update_alias_bandwidth_limit_rule":"rule:admin_only" has been
+# deprecated since W in favor of
+# "update_alias_bandwidth_limit_rule":"role:admin and
+# project_id:%(project_id)s".
+# The QoS API now supports system scope and default roles.
 
 # Delete a QoS bandwidth limit rule through alias
 # DELETE  /qos/alias_bandwidth_limit_rules/{rule_id}/
-#"delete_alias_bandwidth_limit_rule": "rule:delete_policy_bandwidth_limit_rule"
+# Intended scope(s): project
+#"delete_alias_bandwidth_limit_rule": "role:admin and project_id:%(project_id)s"
+
+# DEPRECATED
+# "delete_alias_bandwidth_limit_rule":"rule:admin_only" has been
+# deprecated since W in favor of
+# "delete_alias_bandwidth_limit_rule":"role:admin and
+# project_id:%(project_id)s".
+# The QoS API now supports system scope and default roles.
 
 # Get a QoS DSCP marking rule through alias
 # GET  /qos/alias_dscp_marking_rules/{rule_id}/
-#"get_alias_dscp_marking_rule": "rule:get_policy_dscp_marking_rule"
+# Intended scope(s): project
+#"get_alias_dscp_marking_rule": "role:reader and project_id:%(project_id)s"
+
+# DEPRECATED
+# "get_alias_dscp_marking_rule":"rule:regular_user" has been
+# deprecated since W in favor of
+# "get_alias_dscp_marking_rule":"role:reader and
+# project_id:%(project_id)s".
+# The QoS API now supports system scope and default roles.
 
 # Update a QoS DSCP marking rule through alias
 # PUT  /qos/alias_dscp_marking_rules/{rule_id}/
-#"update_alias_dscp_marking_rule": "rule:update_policy_dscp_marking_rule"
+# Intended scope(s): project
+#"update_alias_dscp_marking_rule": "role:admin and project_id:%(project_id)s"
+
+# DEPRECATED
+# "update_alias_dscp_marking_rule":"rule:admin_only" has been
+# deprecated since W in favor of
+# "update_alias_dscp_marking_rule":"role:admin and
+# project_id:%(project_id)s".
+# The QoS API now supports system scope and default roles.
 
 # Delete a QoS DSCP marking rule through alias
 # DELETE  /qos/alias_dscp_marking_rules/{rule_id}/
-#"delete_alias_dscp_marking_rule": "rule:delete_policy_dscp_marking_rule"
+# Intended scope(s): project
+#"delete_alias_dscp_marking_rule": "role:admin and project_id:%(project_id)s"
+
+# DEPRECATED
+# "delete_alias_dscp_marking_rule":"rule:admin_only" has been
+# deprecated since W in favor of
+# "delete_alias_dscp_marking_rule":"role:admin and
+# project_id:%(project_id)s".
+# The QoS API now supports system scope and default roles.
 
 # Get a QoS minimum bandwidth rule through alias
 # GET  /qos/alias_minimum_bandwidth_rules/{rule_id}/
-#"get_alias_minimum_bandwidth_rule": "rule:get_policy_minimum_bandwidth_rule"
+# Intended scope(s): project
+#"get_alias_minimum_bandwidth_rule": "role:reader and project_id:%(project_id)s"
+
+# DEPRECATED
+# "get_alias_minimum_bandwidth_rule":"rule:regular_user" has been
+# deprecated since W in favor of
+# "get_alias_minimum_bandwidth_rule":"role:reader and
+# project_id:%(project_id)s".
+# The QoS API now supports system scope and default roles.
 
 # Update a QoS minimum bandwidth rule through alias
 # PUT  /qos/alias_minimum_bandwidth_rules/{rule_id}/
-#"update_alias_minimum_bandwidth_rule": "rule:update_policy_minimum_bandwidth_rule"
+# Intended scope(s): project
+#"update_alias_minimum_bandwidth_rule": "role:admin and project_id:%(project_id)s"
+
+# DEPRECATED
+# "update_alias_minimum_bandwidth_rule":"rule:admin_only" has been
+# deprecated since W in favor of
+# "update_alias_minimum_bandwidth_rule":"role:admin and
+# project_id:%(project_id)s".
+# The QoS API now supports system scope and default roles.
 
 # Delete a QoS minimum bandwidth rule through alias
 # DELETE  /qos/alias_minimum_bandwidth_rules/{rule_id}/
-#"delete_alias_minimum_bandwidth_rule": "rule:delete_policy_minimum_bandwidth_rule"
+# Intended scope(s): project
+#"delete_alias_minimum_bandwidth_rule": "role:admin and project_id:%(project_id)s"
+
+# DEPRECATED
+# "delete_alias_minimum_bandwidth_rule":"rule:admin_only" has been
+# deprecated since W in favor of
+# "delete_alias_minimum_bandwidth_rule":"role:admin and
+# project_id:%(project_id)s".
+# The QoS API now supports system scope and default roles.
+
+# Get a QoS minimum packet rate rule through alias
+# GET  /qos/alias_minimum_packet_rate_rules/{rule_id}/
+#"get_alias_minimum_packet_rate_rule": "rule:get_policy_minimum_packet_rate_rule"
+
+# Update a QoS minimum packet rate rule through alias
+# PUT  /qos/alias_minimum_packet_rate_rules/{rule_id}/
+#"update_alias_minimum_packet_rate_rule": "rule:update_policy_minimum_packet_rate_rule"
+
+# Delete a QoS minimum packet rate rule through alias
+# DELETE  /qos/alias_minimum_packet_rate_rules/{rule_id}/
+#"delete_alias_minimum_packet_rate_rule": "rule:delete_policy_minimum_packet_rate_rule"
 
 # Get a resource quota
 # GET  /quota
@@ -1762,332 +1970,335 @@
 # favor of "delete_quota":"role:admin and system_scope:all".
 # The quotas API now supports system scope and default roles.
 
-# Definition of a wildcard target_tenant
-#"restrict_wildcard": "(not field:rbac_policy:target_tenant=*) or rule:admin_only"
+# Definition of a wildcard target_project
+#"restrict_wildcard": "(not field:rbac_policy:target_tenant=* and not field:rbac_policy:target_project=*) or rule:admin_only"
 
 # Create an RBAC policy
 # POST  /rbac-policies
-# Intended scope(s): system, project
-#"create_rbac_policy": "(role:admin and system_scope:all) or (role:member and project_id:%(project_id)s)"
+# Intended scope(s): project
+#"create_rbac_policy": "role:member and project_id:%(project_id)s"
 
 # DEPRECATED
 # "create_rbac_policy":"rule:regular_user" has been deprecated since W
-# in favor of "create_rbac_policy":"(role:admin and system_scope:all)
-# or (role:member and project_id:%(project_id)s)".
+# in favor of "create_rbac_policy":"role:member and
+# project_id:%(project_id)s".
 # The RBAC API now supports system scope and default roles.
 
 # Specify ``target_tenant`` when creating an RBAC policy
 # POST  /rbac-policies
-# Intended scope(s): system, project
-#"create_rbac_policy:target_tenant": "role:admin and system_scope:all or (not field:rbac_policy:target_tenant=*)"
+# Intended scope(s): project
+#"create_rbac_policy:target_tenant": "role:admin and project_id:%(project_id)s or (not field:rbac_policy:target_tenant=* and not field:rbac_policy:target_project=*)"
 
 # DEPRECATED
 # "create_rbac_policy:target_tenant":"rule:restrict_wildcard" has been
 # deprecated since W in favor of
-# "create_rbac_policy:target_tenant":"role:admin and system_scope:all
-# or (not field:rbac_policy:target_tenant=*)".
+# "create_rbac_policy:target_tenant":"role:admin and
+# project_id:%(project_id)s or (not field:rbac_policy:target_tenant=*
+# and not field:rbac_policy:target_project=*)".
 # The RBAC API now supports system scope and default roles.
 
 # Update an RBAC policy
 # PUT  /rbac-policies/{id}
-# Intended scope(s): project, system
-#"update_rbac_policy": "(role:admin and system_scope:all) or (role:member and project_id:%(project_id)s)"
+# Intended scope(s): project
+#"update_rbac_policy": "role:member and project_id:%(project_id)s"
 
 # DEPRECATED
 # "update_rbac_policy":"rule:admin_or_owner" has been deprecated since
-# W in favor of "update_rbac_policy":"(role:admin and
-# system_scope:all) or (role:member and project_id:%(project_id)s)".
+# W in favor of "update_rbac_policy":"role:member and
+# project_id:%(project_id)s".
 # The RBAC API now supports system scope and default roles.
 
 # Update ``target_tenant`` attribute of an RBAC policy
 # PUT  /rbac-policies/{id}
-# Intended scope(s): system, project
-#"update_rbac_policy:target_tenant": "role:admin and system_scope:all or (not field:rbac_policy:target_tenant=*)"
+# Intended scope(s): project
+#"update_rbac_policy:target_tenant": "role:admin and project_id:%(project_id)s or (not field:rbac_policy:target_tenant=* and not field:rbac_policy:target_project=*)"
 
 # DEPRECATED
 # "update_rbac_policy:target_tenant":"rule:restrict_wildcard and
 # rule:admin_or_owner" has been deprecated since W in favor of
-# "update_rbac_policy:target_tenant":"role:admin and system_scope:all
-# or (not field:rbac_policy:target_tenant=*)".
+# "update_rbac_policy:target_tenant":"role:admin and
+# project_id:%(project_id)s or (not field:rbac_policy:target_tenant=*
+# and not field:rbac_policy:target_project=*)".
 # The RBAC API now supports system scope and default roles.
 
 # Get an RBAC policy
 # GET  /rbac-policies
 # GET  /rbac-policies/{id}
-# Intended scope(s): project, system
-#"get_rbac_policy": "(role:reader and system_scope:all) or (role:reader and project_id:%(project_id)s)"
+# Intended scope(s): project
+#"get_rbac_policy": "role:reader and project_id:%(project_id)s"
 
 # DEPRECATED
 # "get_rbac_policy":"rule:admin_or_owner" has been deprecated since W
-# in favor of "get_rbac_policy":"(role:reader and system_scope:all) or
-# (role:reader and project_id:%(project_id)s)".
+# in favor of "get_rbac_policy":"role:reader and
+# project_id:%(project_id)s".
 # The RBAC API now supports system scope and default roles.
 
 # Delete an RBAC policy
 # DELETE  /rbac-policies/{id}
-# Intended scope(s): project, system
-#"delete_rbac_policy": "(role:admin and system_scope:all) or (role:member and project_id:%(project_id)s)"
+# Intended scope(s): project
+#"delete_rbac_policy": "role:member and project_id:%(project_id)s"
 
 # DEPRECATED
 # "delete_rbac_policy":"rule:admin_or_owner" has been deprecated since
-# W in favor of "delete_rbac_policy":"(role:admin and
-# system_scope:all) or (role:member and project_id:%(project_id)s)".
+# W in favor of "delete_rbac_policy":"role:member and
+# project_id:%(project_id)s".
 # The RBAC API now supports system scope and default roles.
 
 # Create a router
 # POST  /routers
-# Intended scope(s): system, project
-#"create_router": "(role:admin and system_scope:all) or (role:member and project_id:%(project_id)s)"
+# Intended scope(s): project
+#"create_router": "role:member and project_id:%(project_id)s"
 
 # DEPRECATED
 # "create_router":"rule:regular_user" has been deprecated since W in
-# favor of "create_router":"(role:admin and system_scope:all) or
-# (role:member and project_id:%(project_id)s)".
+# favor of "create_router":"role:member and
+# project_id:%(project_id)s".
 # The router API now supports system scope and default roles.
 
 # Specify ``distributed`` attribute when creating a router
 # POST  /routers
-# Intended scope(s): system
-#"create_router:distributed": "role:admin and system_scope:all"
+# Intended scope(s): project
+#"create_router:distributed": "role:admin and project_id:%(project_id)s"
 
 # DEPRECATED
 # "create_router:distributed":"rule:admin_only" has been deprecated
 # since W in favor of "create_router:distributed":"role:admin and
-# system_scope:all".
+# project_id:%(project_id)s".
 # The router API now supports system scope and default roles.
 
 # Specify ``ha`` attribute when creating a router
 # POST  /routers
-# Intended scope(s): system
-#"create_router:ha": "role:admin and system_scope:all"
+# Intended scope(s): project
+#"create_router:ha": "role:admin and project_id:%(project_id)s"
 
 # DEPRECATED
 # "create_router:ha":"rule:admin_only" has been deprecated since W in
-# favor of "create_router:ha":"role:admin and system_scope:all".
+# favor of "create_router:ha":"role:admin and
+# project_id:%(project_id)s".
 # The router API now supports system scope and default roles.
 
 # Specify ``external_gateway_info`` information when creating a router
 # POST  /routers
-# Intended scope(s): system, project
-#"create_router:external_gateway_info": "(role:admin and system_scope:all) or (role:member and project_id:%(project_id)s)"
+# Intended scope(s): project
+#"create_router:external_gateway_info": "role:member and project_id:%(project_id)s"
 
 # DEPRECATED
 # "create_router:external_gateway_info":"rule:admin_or_owner" has been
 # deprecated since W in favor of
-# "create_router:external_gateway_info":"(role:admin and
-# system_scope:all) or (role:member and project_id:%(project_id)s)".
+# "create_router:external_gateway_info":"role:member and
+# project_id:%(project_id)s".
 # The router API now supports system scope and default roles.
 
 # Specify ``network_id`` in ``external_gateway_info`` information when
 # creating a router
 # POST  /routers
-# Intended scope(s): system, project
-#"create_router:external_gateway_info:network_id": "(role:admin and system_scope:all) or (role:member and project_id:%(project_id)s)"
+# Intended scope(s): project
+#"create_router:external_gateway_info:network_id": "role:member and project_id:%(project_id)s"
 
 # DEPRECATED
 # "create_router:external_gateway_info:network_id":"rule:admin_or_owne
 # r" has been deprecated since W in favor of
-# "create_router:external_gateway_info:network_id":"(role:admin and
-# system_scope:all) or (role:member and project_id:%(project_id)s)".
+# "create_router:external_gateway_info:network_id":"role:member and
+# project_id:%(project_id)s".
 # The router API now supports system scope and default roles.
 
 # Specify ``enable_snat`` in ``external_gateway_info`` information
 # when creating a router
 # POST  /routers
-# Intended scope(s): system
-#"create_router:external_gateway_info:enable_snat": "role:admin and system_scope:all"
+# Intended scope(s): project
+#"create_router:external_gateway_info:enable_snat": "role:admin and project_id:%(project_id)s"
 
 # DEPRECATED
 # "create_router:external_gateway_info:enable_snat":"rule:admin_only"
 # has been deprecated since W in favor of
 # "create_router:external_gateway_info:enable_snat":"role:admin and
-# system_scope:all".
+# project_id:%(project_id)s".
 # The router API now supports system scope and default roles.
 
 # Specify ``external_fixed_ips`` in ``external_gateway_info``
 # information when creating a router
 # POST  /routers
-# Intended scope(s): system
-#"create_router:external_gateway_info:external_fixed_ips": "role:admin and system_scope:all"
+# Intended scope(s): project
+#"create_router:external_gateway_info:external_fixed_ips": "role:admin and project_id:%(project_id)s"
 
 # DEPRECATED
 # "create_router:external_gateway_info:external_fixed_ips":"rule:admin
 # _only" has been deprecated since W in favor of
 # "create_router:external_gateway_info:external_fixed_ips":"role:admin
-# and system_scope:all".
+# and project_id:%(project_id)s".
 # The router API now supports system scope and default roles.
 
 # Get a router
 # GET  /routers
 # GET  /routers/{id}
-# Intended scope(s): system, project
-#"get_router": "(role:reader and system_scope:all) or (role:reader and project_id:%(project_id)s)"
+# Intended scope(s): project
+#"get_router": "role:reader and project_id:%(project_id)s"
 
 # DEPRECATED
 # "get_router":"rule:admin_or_owner" has been deprecated since W in
-# favor of "get_router":"(role:reader and system_scope:all) or
-# (role:reader and project_id:%(project_id)s)".
+# favor of "get_router":"role:reader and project_id:%(project_id)s".
 # The router API now supports system scope and default roles.
 
 # Get ``distributed`` attribute of a router
 # GET  /routers
 # GET  /routers/{id}
-# Intended scope(s): system
-#"get_router:distributed": "role:reader and system_scope:all"
+# Intended scope(s): project
+#"get_router:distributed": "role:admin and project_id:%(project_id)s"
 
 # DEPRECATED
 # "get_router:distributed":"rule:admin_only" has been deprecated since
-# W in favor of "get_router:distributed":"role:reader and
-# system_scope:all".
+# W in favor of "get_router:distributed":"role:admin and
+# project_id:%(project_id)s".
 # The router API now supports system scope and default roles.
 
 # Get ``ha`` attribute of a router
 # GET  /routers
 # GET  /routers/{id}
-# Intended scope(s): system
-#"get_router:ha": "role:reader and system_scope:all"
+# Intended scope(s): project
+#"get_router:ha": "role:admin and project_id:%(project_id)s"
 
 # DEPRECATED
 # "get_router:ha":"rule:admin_only" has been deprecated since W in
-# favor of "get_router:ha":"role:reader and system_scope:all".
+# favor of "get_router:ha":"role:admin and project_id:%(project_id)s".
 # The router API now supports system scope and default roles.
 
 # Update a router
 # PUT  /routers/{id}
-# Intended scope(s): system, project
-#"update_router": "(role:admin and system_scope:all) or (role:member and project_id:%(project_id)s)"
+# Intended scope(s): project
+#"update_router": "role:member and project_id:%(project_id)s"
 
 # DEPRECATED
 # "update_router":"rule:admin_or_owner" has been deprecated since W in
-# favor of "update_router":"(role:admin and system_scope:all) or
-# (role:member and project_id:%(project_id)s)".
+# favor of "update_router":"role:member and
+# project_id:%(project_id)s".
 # The router API now supports system scope and default roles.
 
 # Update ``distributed`` attribute of a router
 # PUT  /routers/{id}
-# Intended scope(s): system
-#"update_router:distributed": "role:admin and system_scope:all"
+# Intended scope(s): project
+#"update_router:distributed": "role:admin and project_id:%(project_id)s"
 
 # DEPRECATED
 # "update_router:distributed":"rule:admin_only" has been deprecated
 # since W in favor of "update_router:distributed":"role:admin and
-# system_scope:all".
+# project_id:%(project_id)s".
 # The router API now supports system scope and default roles.
 
 # Update ``ha`` attribute of a router
 # PUT  /routers/{id}
-# Intended scope(s): system
-#"update_router:ha": "role:admin and system_scope:all"
+# Intended scope(s): project
+#"update_router:ha": "role:admin and project_id:%(project_id)s"
 
 # DEPRECATED
 # "update_router:ha":"rule:admin_only" has been deprecated since W in
-# favor of "update_router:ha":"role:admin and system_scope:all".
+# favor of "update_router:ha":"role:admin and
+# project_id:%(project_id)s".
 # The router API now supports system scope and default roles.
 
 # Update ``external_gateway_info`` information of a router
 # PUT  /routers/{id}
-# Intended scope(s): system, project
-#"update_router:external_gateway_info": "(role:admin and system_scope:all) or (role:member and project_id:%(project_id)s)"
+# Intended scope(s): project
+#"update_router:external_gateway_info": "role:member and project_id:%(project_id)s"
 
 # DEPRECATED
 # "update_router:external_gateway_info":"rule:admin_or_owner" has been
 # deprecated since W in favor of
-# "update_router:external_gateway_info":"(role:admin and
-# system_scope:all) or (role:member and project_id:%(project_id)s)".
+# "update_router:external_gateway_info":"role:member and
+# project_id:%(project_id)s".
 # The router API now supports system scope and default roles.
 
 # Update ``network_id`` attribute of ``external_gateway_info``
 # information of a router
 # PUT  /routers/{id}
-# Intended scope(s): system, project
-#"update_router:external_gateway_info:network_id": "(role:admin and system_scope:all) or (role:member and project_id:%(project_id)s)"
+# Intended scope(s): project
+#"update_router:external_gateway_info:network_id": "role:member and project_id:%(project_id)s"
 
 # DEPRECATED
 # "update_router:external_gateway_info:network_id":"rule:admin_or_owne
 # r" has been deprecated since W in favor of
-# "update_router:external_gateway_info:network_id":"(role:admin and
-# system_scope:all) or (role:member and project_id:%(project_id)s)".
+# "update_router:external_gateway_info:network_id":"role:member and
+# project_id:%(project_id)s".
 # The router API now supports system scope and default roles.
 
 # Update ``enable_snat`` attribute of ``external_gateway_info``
 # information of a router
 # PUT  /routers/{id}
-# Intended scope(s): system
-#"update_router:external_gateway_info:enable_snat": "role:admin and system_scope:all"
+# Intended scope(s): project
+#"update_router:external_gateway_info:enable_snat": "role:admin and project_id:%(project_id)s"
 
 # DEPRECATED
 # "update_router:external_gateway_info:enable_snat":"rule:admin_only"
 # has been deprecated since W in favor of
 # "update_router:external_gateway_info:enable_snat":"role:admin and
-# system_scope:all".
+# project_id:%(project_id)s".
 # The router API now supports system scope and default roles.
 
 # Update ``external_fixed_ips`` attribute of ``external_gateway_info``
 # information of a router
 # PUT  /routers/{id}
-# Intended scope(s): system
-#"update_router:external_gateway_info:external_fixed_ips": "role:admin and system_scope:all"
+# Intended scope(s): project
+#"update_router:external_gateway_info:external_fixed_ips": "role:admin and project_id:%(project_id)s"
 
 # DEPRECATED
 # "update_router:external_gateway_info:external_fixed_ips":"rule:admin
 # _only" has been deprecated since W in favor of
 # "update_router:external_gateway_info:external_fixed_ips":"role:admin
-# and system_scope:all".
+# and project_id:%(project_id)s".
 # The router API now supports system scope and default roles.
 
 # Delete a router
 # DELETE  /routers/{id}
-# Intended scope(s): system, project
-#"delete_router": "(role:admin and system_scope:all) or (role:member and project_id:%(project_id)s)"
+# Intended scope(s): project
+#"delete_router": "role:member and project_id:%(project_id)s"
 
 # DEPRECATED
 # "delete_router":"rule:admin_or_owner" has been deprecated since W in
-# favor of "delete_router":"(role:admin and system_scope:all) or
-# (role:member and project_id:%(project_id)s)".
+# favor of "delete_router":"role:member and
+# project_id:%(project_id)s".
 # The router API now supports system scope and default roles.
 
 # Add an interface to a router
 # PUT  /routers/{id}/add_router_interface
-# Intended scope(s): system, project
-#"add_router_interface": "(role:admin and system_scope:all) or (role:member and project_id:%(project_id)s)"
+# Intended scope(s): project
+#"add_router_interface": "role:member and project_id:%(project_id)s"
 
 # DEPRECATED
 # "add_router_interface":"rule:admin_or_owner" has been deprecated
-# since W in favor of "add_router_interface":"(role:admin and
-# system_scope:all) or (role:member and project_id:%(project_id)s)".
+# since W in favor of "add_router_interface":"role:member and
+# project_id:%(project_id)s".
 # The router API now supports system scope and default roles.
 
 # Remove an interface from a router
 # PUT  /routers/{id}/remove_router_interface
-# Intended scope(s): system, project
-#"remove_router_interface": "(role:admin and system_scope:all) or (role:member and project_id:%(project_id)s)"
+# Intended scope(s): project
+#"remove_router_interface": "role:member and project_id:%(project_id)s"
 
 # DEPRECATED
 # "remove_router_interface":"rule:admin_or_owner" has been deprecated
-# since W in favor of "remove_router_interface":"(role:admin and
-# system_scope:all) or (role:member and project_id:%(project_id)s)".
+# since W in favor of "remove_router_interface":"role:member and
+# project_id:%(project_id)s".
 # The router API now supports system scope and default roles.
 
 # Add extra route to a router
 # PUT  /routers/{id}/add_extraroutes
-# Intended scope(s): system, project
-#"add_extraroutes": "(role:admin and system_scope:all) or (role:member and project_id:%(project_id)s)"
+# Intended scope(s): project
+#"add_extraroutes": "role:member and project_id:%(project_id)s"
 
 # DEPRECATED
 # "add_extraroutes":"rule:admin_or_owner" has been deprecated since
-# Xena in favor of "add_extraroutes":"(role:admin and
-# system_scope:all) or (role:member and project_id:%(project_id)s)".
+# Xena in favor of "add_extraroutes":"role:member and
+# project_id:%(project_id)s".
 # The router API now supports system scope and default roles.
 
 # Remove extra route from a router
 # PUT  /routers/{id}/remove_extraroutes
-# Intended scope(s): system, project
-#"remove_extraroutes": "(role:admin and system_scope:all) or (role:member and project_id:%(project_id)s)"
+# Intended scope(s): project
+#"remove_extraroutes": "role:member and project_id:%(project_id)s"
 
 # DEPRECATED
 # "remove_extraroutes":"rule:admin_or_owner" has been deprecated since
-# Xena in favor of "remove_extraroutes":"(role:admin and
-# system_scope:all) or (role:member and project_id:%(project_id)s)".
+# Xena in favor of "remove_extraroutes":"role:member and
+# project_id:%(project_id)s".
 # The router API now supports system scope and default roles.
 
 # Rule for admin or security group owner access
@@ -2098,84 +2309,84 @@
 
 # Create a security group
 # POST  /security-groups
-# Intended scope(s): system, project
-#"create_security_group": "(role:admin and system_scope:all) or (role:member and project_id:%(project_id)s)"
+# Intended scope(s): project
+#"create_security_group": "role:member and project_id:%(project_id)s"
 
 # DEPRECATED
 # "create_security_group":"rule:admin_or_owner" has been deprecated
-# since W in favor of "create_security_group":"(role:admin and
-# system_scope:all) or (role:member and project_id:%(project_id)s)".
+# since W in favor of "create_security_group":"role:member and
+# project_id:%(project_id)s".
 # The security group API now supports system scope and default roles.
 
 # Get a security group
 # GET  /security-groups
 # GET  /security-groups/{id}
-# Intended scope(s): system, project
-#"get_security_group": "(role:reader and system_scope:all) or (role:reader and project_id:%(project_id)s)"
+# Intended scope(s): project
+#"get_security_group": "role:reader and project_id:%(project_id)s"
 
 # DEPRECATED
 # "get_security_group":"rule:regular_user" has been deprecated since W
-# in favor of "get_security_group":"(role:reader and system_scope:all)
-# or (role:reader and project_id:%(project_id)s)".
+# in favor of "get_security_group":"role:reader and
+# project_id:%(project_id)s".
 # The security group API now supports system scope and default roles.
 
 # Update a security group
 # PUT  /security-groups/{id}
-# Intended scope(s): system, project
-#"update_security_group": "(role:admin and system_scope:all) or (role:member and project_id:%(project_id)s)"
+# Intended scope(s): project
+#"update_security_group": "role:member and project_id:%(project_id)s"
 
 # DEPRECATED
 # "update_security_group":"rule:admin_or_owner" has been deprecated
-# since W in favor of "update_security_group":"(role:admin and
-# system_scope:all) or (role:member and project_id:%(project_id)s)".
+# since W in favor of "update_security_group":"role:member and
+# project_id:%(project_id)s".
 # The security group API now supports system scope and default roles.
 
 # Delete a security group
 # DELETE  /security-groups/{id}
-# Intended scope(s): system, project
-#"delete_security_group": "(role:admin and system_scope:all) or (role:member and project_id:%(project_id)s)"
+# Intended scope(s): project
+#"delete_security_group": "role:member and project_id:%(project_id)s"
 
 # DEPRECATED
 # "delete_security_group":"rule:admin_or_owner" has been deprecated
-# since W in favor of "delete_security_group":"(role:admin and
-# system_scope:all) or (role:member and project_id:%(project_id)s)".
+# since W in favor of "delete_security_group":"role:member and
+# project_id:%(project_id)s".
 # The security group API now supports system scope and default roles.
 
 # Create a security group rule
 # POST  /security-group-rules
-# Intended scope(s): system, project
-#"create_security_group_rule": "(role:admin and system_scope:all) or (role:member and project_id:%(project_id)s)"
+# Intended scope(s): project
+#"create_security_group_rule": "role:member and project_id:%(project_id)s"
 
 # DEPRECATED
 # "create_security_group_rule":"rule:admin_or_owner" has been
 # deprecated since W in favor of
-# "create_security_group_rule":"(role:admin and system_scope:all) or
-# (role:member and project_id:%(project_id)s)".
+# "create_security_group_rule":"role:member and
+# project_id:%(project_id)s".
 # The security group API now supports system scope and default roles.
 
 # Get a security group rule
 # GET  /security-group-rules
 # GET  /security-group-rules/{id}
-# Intended scope(s): system, project
-#"get_security_group_rule": "(role:reader and system_scope:all) or (role:reader and project_id:%(project_id)s) or rule:sg_owner"
+# Intended scope(s): project
+#"get_security_group_rule": "role:reader and project_id:%(project_id)s or rule:sg_owner"
 
 # DEPRECATED
 # "get_security_group_rule":"rule:admin_owner_or_sg_owner" has been
 # deprecated since W in favor of
-# "get_security_group_rule":"(role:reader and system_scope:all) or
-# (role:reader and project_id:%(project_id)s) or rule:sg_owner".
+# "get_security_group_rule":"role:reader and project_id:%(project_id)s
+# or rule:sg_owner".
 # The security group API now supports system scope and default roles.
 
 # Delete a security group rule
 # DELETE  /security-group-rules/{id}
-# Intended scope(s): system, project
-#"delete_security_group_rule": "(role:admin and system_scope:all) or (role:member and project_id:%(project_id)s)"
+# Intended scope(s): project
+#"delete_security_group_rule": "role:member and project_id:%(project_id)s"
 
 # DEPRECATED
 # "delete_security_group_rule":"rule:admin_or_owner" has been
 # deprecated since W in favor of
-# "delete_security_group_rule":"(role:admin and system_scope:all) or
-# (role:member and project_id:%(project_id)s)".
+# "delete_security_group_rule":"role:member and
+# project_id:%(project_id)s".
 # The security group API now supports system scope and default roles.
 
 # Create a segment
@@ -2232,107 +2443,103 @@
 
 # Create a subnet
 # POST  /subnets
-# Intended scope(s): system, project
-#"create_subnet": "(role:admin and system_scope:all) or (role:member and project_id:%(project_id)s) or rule:network_owner"
+# Intended scope(s): project
+#"create_subnet": "role:member and project_id:%(project_id)s or rule:network_owner"
 
 # DEPRECATED
 # "create_subnet":"rule:admin_or_network_owner" has been deprecated
-# since W in favor of "create_subnet":"(role:admin and
-# system_scope:all) or (role:member and project_id:%(project_id)s) or
-# rule:network_owner".
+# since W in favor of "create_subnet":"role:member and
+# project_id:%(project_id)s or rule:network_owner".
 # The subnet API now supports system scope and default roles.
 
 # Specify ``segment_id`` attribute when creating a subnet
 # POST  /subnets
-# Intended scope(s): system
-#"create_subnet:segment_id": "role:admin and system_scope:all"
+# Intended scope(s): project
+#"create_subnet:segment_id": "role:admin and project_id:%(project_id)s"
 
 # DEPRECATED
 # "create_subnet:segment_id":"rule:admin_only" has been deprecated
 # since W in favor of "create_subnet:segment_id":"role:admin and
-# system_scope:all".
+# project_id:%(project_id)s".
 # The subnet API now supports system scope and default roles.
 
 # Specify ``service_types`` attribute when creating a subnet
 # POST  /subnets
-# Intended scope(s): system
-#"create_subnet:service_types": "role:admin and system_scope:all"
+# Intended scope(s): project
+#"create_subnet:service_types": "role:admin and project_id:%(project_id)s"
 
 # DEPRECATED
 # "create_subnet:service_types":"rule:admin_only" has been deprecated
 # since W in favor of "create_subnet:service_types":"role:admin and
-# system_scope:all".
+# project_id:%(project_id)s".
 # The subnet API now supports system scope and default roles.
 
 # Get a subnet
 # GET  /subnets
 # GET  /subnets/{id}
-# Intended scope(s): system, project
-#"get_subnet": "(role:reader and system_scope:all) or (role:reader and project_id:%(project_id)s) or rule:shared"
+# Intended scope(s): project
+#"get_subnet": "role:reader and project_id:%(project_id)s or rule:shared"
 
 # DEPRECATED
 # "get_subnet":"rule:admin_or_owner or rule:shared" has been
-# deprecated since W in favor of "get_subnet":"(role:reader and
-# system_scope:all) or (role:reader and project_id:%(project_id)s) or
-# rule:shared".
+# deprecated since W in favor of "get_subnet":"role:reader and
+# project_id:%(project_id)s or rule:shared".
 # The subnet API now supports system scope and default roles.
 
 # Get ``segment_id`` attribute of a subnet
 # GET  /subnets
 # GET  /subnets/{id}
-# Intended scope(s): system
-#"get_subnet:segment_id": "role:reader and system_scope:all"
+# Intended scope(s): project
+#"get_subnet:segment_id": "role:admin and project_id:%(project_id)s"
 
 # DEPRECATED
 # "get_subnet:segment_id":"rule:admin_only" has been deprecated since
-# W in favor of "get_subnet:segment_id":"role:reader and
-# system_scope:all".
+# W in favor of "get_subnet:segment_id":"role:admin and
+# project_id:%(project_id)s".
 # The subnet API now supports system scope and default roles.
 
 # Update a subnet
 # PUT  /subnets/{id}
-# Intended scope(s): system, project
-#"update_subnet": "(role:admin and system_scope:all) or (role:member and project_id:%(project_id)s) or rule:network_owner"
+# Intended scope(s): project
+#"update_subnet": "role:member and project_id:%(project_id)s or rule:network_owner"
 
 # DEPRECATED
 # "update_subnet":"rule:admin_or_network_owner" has been deprecated
-# since W in favor of "update_subnet":"(role:admin and
-# system_scope:all) or (role:member and project_id:%(project_id)s) or
-# rule:network_owner".
+# since W in favor of "update_subnet":"role:member and
+# project_id:%(project_id)s or rule:network_owner".
 # The subnet API now supports system scope and default roles.
 
 # Update ``segment_id`` attribute of a subnet
 # PUT  /subnets/{id}
-# Intended scope(s): system
-#"update_subnet:segment_id": "role:admin and system_scope:all"
+# Intended scope(s): project
+#"update_subnet:segment_id": "role:admin and project_id:%(project_id)s"
 
 # DEPRECATED
 # "update_subnet:segment_id":"rule:admin_only" has been deprecated
 # since W in favor of "update_subnet:segment_id":"role:admin and
-# system_scope:all".
+# project_id:%(project_id)s".
 # The subnet API now supports system scope and default roles.
 
 # Update ``service_types`` attribute of a subnet
 # PUT  /subnets/{id}
-# Intended scope(s): system
-#"update_subnet:service_types": "role:admin and system_scope:all"
+# Intended scope(s): project
+#"update_subnet:service_types": "role:admin and project_id:%(project_id)s"
 
 # DEPRECATED
 # "update_subnet:service_types":"rule:admin_only" has been deprecated
 # since W in favor of "update_subnet:service_types":"role:admin and
-# system_scope:all".
+# project_id:%(project_id)s".
 # The subnet API now supports system scope and default roles.
 
 # Delete a subnet
 # DELETE  /subnets/{id}
-# Intended scope(s): system, project
-#"delete_subnet": "(role:admin and system_scope:all) or (role:member and project_id:%(project_id)s) or rule:network_owner"
+# Intended scope(s): project
+#"delete_subnet": "role:member and project_id:%(project_id)s or rule:network_owner"
 
 # DEPRECATED
 # "delete_subnet":"rule:admin_or_network_owner" has been deprecated
-# since W in favor of "delete_subnet":"(role:admin and
-# system_scope:all) or (role:member and project_id:%(project_id)s) or
-# rule:network_owner".
+# since W in favor of "delete_subnet":"role:member and
+# project_id:%(project_id)s or rule:network_owner".
 # The subnet API now supports system scope and default roles.
 
 # Definition of a shared subnetpool
@@ -2340,191 +2547,184 @@
 
 # Create a subnetpool
 # POST  /subnetpools
-# Intended scope(s): project, system
-#"create_subnetpool": "(role:admin and system_scope:all) or (role:member and project_id:%(project_id)s)"
+# Intended scope(s): project
+#"create_subnetpool": "role:member and project_id:%(project_id)s"
 
 # DEPRECATED
 # "create_subnetpool":"rule:regular_user" has been deprecated since W
-# in favor of "create_subnetpool":"(role:admin and system_scope:all)
-# or (role:member and project_id:%(project_id)s)".
+# in favor of "create_subnetpool":"role:member and
+# project_id:%(project_id)s".
 # The subnet pool API now supports system scope and default roles.
 
 # Create a shared subnetpool
 # POST  /subnetpools
-# Intended scope(s): system
-#"create_subnetpool:shared": "role:admin and system_scope:all"
+# Intended scope(s): project
+#"create_subnetpool:shared": "role:admin and project_id:%(project_id)s"
 
 # DEPRECATED
 # "create_subnetpool:shared":"rule:admin_only" has been deprecated
 # since W in favor of "create_subnetpool:shared":"role:admin and
-# system_scope:all".
+# project_id:%(project_id)s".
 # The subnet pool API now supports system scope and default roles.
 
 # Specify ``is_default`` attribute when creating a subnetpool
 # POST  /subnetpools
-# Intended scope(s): system
-#"create_subnetpool:is_default": "role:admin and system_scope:all"
+# Intended scope(s): project
+#"create_subnetpool:is_default": "role:admin and project_id:%(project_id)s"
 
 # DEPRECATED
 # "create_subnetpool:is_default":"rule:admin_only" has been deprecated
 # since W in favor of "create_subnetpool:is_default":"role:admin and
-# system_scope:all".
+# project_id:%(project_id)s".
 # The subnet pool API now supports system scope and default roles.
 
 # Get a subnetpool
 # GET  /subnetpools
 # GET  /subnetpools/{id}
-# Intended scope(s): system, project
-#"get_subnetpool": "(role:reader and system_scope:all) or (role:reader and project_id:%(project_id)s) or rule:shared_subnetpools"
+# Intended scope(s): project
+#"get_subnetpool": "role:reader and project_id:%(project_id)s or rule:shared_subnetpools"
 
 # DEPRECATED
 # "get_subnetpool":"rule:admin_or_owner or rule:shared_subnetpools"
 # has been deprecated since W in favor of
-# "get_subnetpool":"(role:reader and system_scope:all) or (role:reader
-# and project_id:%(project_id)s) or rule:shared_subnetpools".
+# "get_subnetpool":"role:reader and project_id:%(project_id)s or
+# rule:shared_subnetpools".
 # The subnet pool API now supports system scope and default roles.
 
 # Update a subnetpool
 # PUT  /subnetpools/{id}
-# Intended scope(s): system, project
-#"update_subnetpool": "(role:admin and system_scope:all) or (role:member and project_id:%(project_id)s)"
+# Intended scope(s): project
+#"update_subnetpool": "role:member and project_id:%(project_id)s"
 
 # DEPRECATED
 # "update_subnetpool":"rule:admin_or_owner" has been deprecated since
-# W in favor of "update_subnetpool":"(role:admin and system_scope:all)
-# or (role:member and project_id:%(project_id)s)".
+# W in favor of "update_subnetpool":"role:member and
+# project_id:%(project_id)s".
 # The subnet pool API now supports system scope and default roles.
 
 # Update ``is_default`` attribute of a subnetpool
 # PUT  /subnetpools/{id}
-# Intended scope(s): system
-#"update_subnetpool:is_default": "role:admin and system_scope:all"
+# Intended scope(s): project
+#"update_subnetpool:is_default": "role:admin and project_id:%(project_id)s"
 
 # DEPRECATED
 # "update_subnetpool:is_default":"rule:admin_only" has been deprecated
 # since W in favor of "update_subnetpool:is_default":"role:admin and
-# system_scope:all".
+# project_id:%(project_id)s".
 # The subnet pool API now supports system scope and default roles.
 
 # Delete a subnetpool
 # DELETE  /subnetpools/{id}
-# Intended scope(s): system, project
-#"delete_subnetpool": "(role:admin and system_scope:all) or (role:member and project_id:%(project_id)s)"
+# Intended scope(s): project
+#"delete_subnetpool": "role:member and project_id:%(project_id)s"
 
 # DEPRECATED
 # "delete_subnetpool":"rule:admin_or_owner" has been deprecated since
-# W in favor of "delete_subnetpool":"(role:admin and system_scope:all)
-# or (role:member and project_id:%(project_id)s)".
+# W in favor of "delete_subnetpool":"role:member and
+# project_id:%(project_id)s".
 # The subnet pool API now supports system scope and default roles.
 
 # Onboard existing subnet into a subnetpool
 # PUT  /subnetpools/{id}/onboard_network_subnets
-# Intended scope(s): system, project
-#"onboard_network_subnets": "(role:admin and system_scope:all) or (role:member and project_id:%(project_id)s)"
+# Intended scope(s): project
+#"onboard_network_subnets": "role:member and project_id:%(project_id)s"
 
 # DEPRECATED
 # "onboard_network_subnets":"rule:admin_or_owner" has been deprecated
-# since W in favor of "onboard_network_subnets":"(role:admin and
-# system_scope:all) or (role:member and project_id:%(project_id)s)".
+# since W in favor of "onboard_network_subnets":"role:member and
+# project_id:%(project_id)s".
 # The subnet pool API now supports system scope and default roles.
 
 # Add prefixes to a subnetpool
 # PUT  /subnetpools/{id}/add_prefixes
-# Intended scope(s): system, project
-#"add_prefixes": "(role:admin and system_scope:all) or (role:member and project_id:%(project_id)s)"
+# Intended scope(s): project
+#"add_prefixes": "role:member and project_id:%(project_id)s"
 
 # DEPRECATED
 # "add_prefixes":"rule:admin_or_owner" has been deprecated since W in
-# favor of "add_prefixes":"(role:admin and system_scope:all) or
-# (role:member and project_id:%(project_id)s)".
+# favor of "add_prefixes":"role:member and project_id:%(project_id)s".
 # The subnet pool API now supports system scope and default roles.
 
 # Remove unallocated prefixes from a subnetpool
 # PUT  /subnetpools/{id}/remove_prefixes
-# Intended scope(s): system, project
-#"remove_prefixes": "(role:admin and system_scope:all) or (role:member and project_id:%(project_id)s)"
+# Intended scope(s): project
+#"remove_prefixes": "role:member and project_id:%(project_id)s"
 
 # DEPRECATED
 # "remove_prefixes":"rule:admin_or_owner" has been deprecated since W
-# in favor of "remove_prefixes":"(role:admin and system_scope:all) or
-# (role:member and project_id:%(project_id)s)".
+# in favor of "remove_prefixes":"role:member and
+# project_id:%(project_id)s".
 # The subnet pool API now supports system scope and default roles.
 
 # Create a trunk
 # POST  /trunks
-# Intended scope(s): project, system
-#"create_trunk": "(role:admin and system_scope:all) or (role:member and project_id:%(project_id)s)"
+# Intended scope(s): project
+#"create_trunk": "role:member and project_id:%(project_id)s"
 
 # DEPRECATED
 # "create_trunk":"rule:regular_user" has been deprecated since W in
-# favor of "create_trunk":"(role:admin and system_scope:all) or
-# (role:member and project_id:%(project_id)s)".
+# favor of "create_trunk":"role:member and project_id:%(project_id)s".
 # The trunks API now supports system scope and default roles.
 
 # Get a trunk
 # GET  /trunks
 # GET  /trunks/{id}
-# Intended scope(s): project, system
-#"get_trunk": "(role:reader and system_scope:all) or (role:reader and project_id:%(project_id)s)"
+# Intended scope(s): project
+#"get_trunk": "role:reader and project_id:%(project_id)s"
 
 # DEPRECATED
 # "get_trunk":"rule:admin_or_owner" has been deprecated since W in
-# favor of "get_trunk":"(role:reader and system_scope:all) or
-# (role:reader and project_id:%(project_id)s)".
+# favor of "get_trunk":"role:reader and project_id:%(project_id)s".
 # The trunks API now supports system scope and default roles.
 
 # Update a trunk
 # PUT  /trunks/{id}
-# Intended scope(s): project, system
-#"update_trunk": "(role:admin and system_scope:all) or (role:member and project_id:%(project_id)s)"
+# Intended scope(s): project
+#"update_trunk": "role:member and project_id:%(project_id)s"
 
 # DEPRECATED
 # "update_trunk":"rule:admin_or_owner" has been deprecated since W in
-# favor of "update_trunk":"(role:admin and system_scope:all) or
-# (role:member and project_id:%(project_id)s)".
+# favor of "update_trunk":"role:member and project_id:%(project_id)s".
 # The trunks API now supports system scope and default roles.
 
 # Delete a trunk
 # DELETE  /trunks/{id}
-# Intended scope(s): project, system
-#"delete_trunk": "(role:admin and system_scope:all) or (role:member and project_id:%(project_id)s)"
+# Intended scope(s): project
+#"delete_trunk": "role:member and project_id:%(project_id)s"
 
 # DEPRECATED
 # "delete_trunk":"rule:admin_or_owner" has been deprecated since W in
-# favor of "delete_trunk":"(role:admin and system_scope:all) or
-# (role:member and project_id:%(project_id)s)".
+# favor of "delete_trunk":"role:member and project_id:%(project_id)s".
 # The trunks API now supports system scope and default roles.
 
 # List subports attached to a trunk
 # GET  /trunks/{id}/get_subports
-# Intended scope(s): project, system
-#"get_subports": "(role:reader and system_scope:all) or (role:reader and project_id:%(project_id)s)"
+# Intended scope(s): project
+#"get_subports": "role:reader and project_id:%(project_id)s"
 
 # DEPRECATED
 # "get_subports":"rule:regular_user" has been deprecated since W in
-# favor of "get_subports":"(role:reader and system_scope:all) or
-# (role:reader and project_id:%(project_id)s)".
+# favor of "get_subports":"role:reader and project_id:%(project_id)s".
 # The trunks API now supports system scope and default roles.
 
 # Add subports to a trunk
 # PUT  /trunks/{id}/add_subports
-# Intended scope(s): project, system
-#"add_subports": "(role:admin and system_scope:all) or (role:member and project_id:%(project_id)s)"
+# Intended scope(s): project
+#"add_subports": "role:member and project_id:%(project_id)s"
 
 # DEPRECATED
 # "add_subports":"rule:admin_or_owner" has been deprecated since W in
-# favor of "add_subports":"(role:admin and system_scope:all) or
-# (role:member and project_id:%(project_id)s)".
+# favor of "add_subports":"role:member and project_id:%(project_id)s".
 # The trunks API now supports system scope and default roles.
 
 # Delete subports from a trunk
 # PUT  /trunks/{id}/remove_subports
-# Intended scope(s): project, system
-#"remove_subports": "(role:admin and system_scope:all) or (role:member and project_id:%(project_id)s)"
+# Intended scope(s): project
+#"remove_subports": "role:member and project_id:%(project_id)s"
 
 # DEPRECATED
 # "remove_subports":"rule:admin_or_owner" has been deprecated since W
-# in favor of "remove_subports":"(role:admin and system_scope:all) or
-# (role:member and project_id:%(project_id)s)".
+# in favor of "remove_subports":"role:member and
+# project_id:%(project_id)s".
 # The trunks API now supports system scope and default roles.
 

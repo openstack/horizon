@@ -1,13 +1,9 @@
 - check_str: ''
-  deprecated_reason: In order to allow operators to accept the default policies from
-    code by not defining them in the policy file, while still working with old policy
-    files that rely on the ``default`` rule for policies that are not specified in
-    the policy file, the ``default`` rule must now be explicitly set to ``"role:admin"``
-    when that is the desired default for unspecified rules.
+  deprecated_reason: null
   deprecated_rule:
     check_str: role:admin
     name: default
-  deprecated_since: Ussuri
+  deprecated_since: null
   description: Defines the default rule used for policies that historically had an
     empty policy in the supplied policy.json file.
   name: default
@@ -18,16 +14,12 @@
   name: context_is_admin
   operations: []
   scope_types: null
-- check_str: role:role:admin or (role:member and project_id:%(project_id)s and project_id:%(owner)s)
-  deprecated_reason: '
-
-    The image API now supports roles.
-
-    '
+- check_str: role:admin or (role:member and project_id:%(project_id)s and project_id:%(owner)s)
+  deprecated_reason: null
   deprecated_rule:
     check_str: rule:default
     name: add_image
-  deprecated_since: W
+  deprecated_since: null
   description: Create new image
   name: add_image
   operations:
@@ -37,15 +29,11 @@
   - system
   - project
 - check_str: role:admin or (role:member and project_id:%(project_id)s)
-  deprecated_reason: '
-
-    The image API now supports roles.
-
-    '
+  deprecated_reason: null
   deprecated_rule:
     check_str: rule:default
     name: delete_image
-  deprecated_since: W
+  deprecated_since: null
   description: Deletes the image
   name: delete_image
   operations:
@@ -55,16 +43,12 @@
   - system
   - project
 - check_str: role:admin or (role:reader and (project_id:%(project_id)s or project_id:%(member_id)s
-    or "community":%(visibility)s or "public":%(visibility)s or "shared":%(visibility)s))
-  deprecated_reason: '
-
-    The image API now supports roles.
-
-    '
+    or 'community':%(visibility)s or 'public':%(visibility)s or 'shared':%(visibility)s))
+  deprecated_reason: null
   deprecated_rule:
     check_str: rule:default
     name: get_image
-  deprecated_since: W
+  deprecated_since: null
   description: Get specified image
   name: get_image
   operations:
@@ -74,15 +58,11 @@
   - system
   - project
 - check_str: role:admin or (role:reader and project_id:%(project_id)s)
-  deprecated_reason: '
-
-    The image API now supports roles.
-
-    '
+  deprecated_reason: null
   deprecated_rule:
     check_str: rule:default
     name: get_images
-  deprecated_since: W
+  deprecated_since: null
   description: Get all available images
   name: get_images
   operations:
@@ -92,15 +72,11 @@
   - system
   - project
 - check_str: role:admin or (role:member and project_id:%(project_id)s)
-  deprecated_reason: '
-
-    The image API now supports roles.
-
-    '
+  deprecated_reason: null
   deprecated_rule:
     check_str: rule:default
     name: modify_image
-  deprecated_since: W
+  deprecated_since: null
   description: Updates given image
   name: modify_image
   operations:
@@ -119,15 +95,11 @@
   - system
   - project
 - check_str: role:admin or (role:member and project_id:%(project_id)s)
-  deprecated_reason: '
-
-    The image API now supports roles.
-
-    '
+  deprecated_reason: null
   deprecated_rule:
     check_str: rule:default
     name: communitize_image
-  deprecated_since: W
+  deprecated_since: null
   description: Communitize given image
   name: communitize_image
   operations:
@@ -137,16 +109,12 @@
   - system
   - project
 - check_str: role:admin or (role:member and (project_id:%(project_id)s or project_id:%(member_id)s
-    or "community":%(visibility)s or "public":%(visibility)s))
-  deprecated_reason: '
-
-    The image API now supports roles.
-
-    '
+    or 'community':%(visibility)s or 'public':%(visibility)s or 'shared':%(visibility)s))
+  deprecated_reason: null
   deprecated_rule:
     check_str: rule:default
     name: download_image
-  deprecated_since: W
+  deprecated_since: null
   description: Downloads given image
   name: download_image
   operations:
@@ -156,15 +124,11 @@
   - system
   - project
 - check_str: role:admin or (role:member and project_id:%(project_id)s)
-  deprecated_reason: '
-
-    The image API now supports roles.
-
-    '
+  deprecated_reason: null
   deprecated_rule:
     check_str: rule:default
     name: upload_image
-  deprecated_since: W
+  deprecated_since: null
   description: Uploads data to specified image
   name: upload_image
   operations:
@@ -174,15 +138,11 @@
   - system
   - project
 - check_str: role:admin
-  deprecated_reason: '
-
-    The image API now supports roles.
-
-    '
+  deprecated_reason: null
   deprecated_rule:
     check_str: rule:default
     name: delete_image_location
-  deprecated_since: W
+  deprecated_since: null
   description: Deletes the location of given image
   name: delete_image_location
   operations:
@@ -192,15 +152,11 @@
   - system
   - project
 - check_str: role:admin or (role:reader and project_id:%(project_id)s)
-  deprecated_reason: '
-
-    The image API now supports roles.
-
-    '
+  deprecated_reason: null
   deprecated_rule:
     check_str: rule:default
     name: get_image_location
-  deprecated_since: W
+  deprecated_since: null
   description: Reads the location of the image
   name: get_image_location
   operations:
@@ -210,15 +166,11 @@
   - system
   - project
 - check_str: role:admin or (role:member and project_id:%(project_id)s)
-  deprecated_reason: '
-
-    The image API now supports roles.
-
-    '
+  deprecated_reason: null
   deprecated_rule:
     check_str: rule:default
     name: set_image_location
-  deprecated_since: W
+  deprecated_since: null
   description: Sets location URI to given image
   name: set_image_location
   operations:
@@ -228,15 +180,11 @@
   - system
   - project
 - check_str: role:admin or (role:member and project_id:%(project_id)s)
-  deprecated_reason: '
-
-    The image API now supports roles.
-
-    '
+  deprecated_reason: null
   deprecated_rule:
     check_str: rule:default
     name: add_member
-  deprecated_since: W
+  deprecated_since: null
   description: Create image member
   name: add_member
   operations:
@@ -246,15 +194,11 @@
   - system
   - project
 - check_str: role:admin or (role:member and project_id:%(project_id)s)
-  deprecated_reason: '
-
-    The image API now supports roles.
-
-    '
+  deprecated_reason: null
   deprecated_rule:
     check_str: rule:default
     name: delete_member
-  deprecated_since: W
+  deprecated_since: null
   description: Delete image member
   name: delete_member
   operations:
@@ -264,15 +208,11 @@
   - system
   - project
 - check_str: role:admin or role:reader and (project_id:%(project_id)s or project_id:%(member_id)s)
-  deprecated_reason: '
-
-    The image API now supports roles.
-
-    '
+  deprecated_reason: null
   deprecated_rule:
     check_str: rule:default
     name: get_member
-  deprecated_since: W
+  deprecated_since: null
   description: Show image member details
   name: get_member
   operations:
@@ -282,15 +222,11 @@
   - system
   - project
 - check_str: role:admin or role:reader and (project_id:%(project_id)s or project_id:%(member_id)s)
-  deprecated_reason: '
-
-    The image API now supports roles.
-
-    '
+  deprecated_reason: null
   deprecated_rule:
     check_str: rule:default
     name: get_members
-  deprecated_since: W
+  deprecated_since: null
   description: List image members
   name: get_members
   operations:
@@ -300,15 +236,11 @@
   - system
   - project
 - check_str: role:admin or (role:member and project_id:%(member_id)s)
-  deprecated_reason: '
-
-    The image API now supports roles.
-
-    '
+  deprecated_reason: null
   deprecated_rule:
     check_str: rule:default
     name: modify_member
-  deprecated_since: W
+  deprecated_since: null
   description: Update image member
   name: modify_member
   operations:
@@ -325,15 +257,11 @@
   - system
   - project
 - check_str: role:admin or (role:member and project_id:%(project_id)s)
-  deprecated_reason: '
-
-    The image API now supports roles.
-
-    '
+  deprecated_reason: null
   deprecated_rule:
     check_str: rule:default
     name: deactivate
-  deprecated_since: W
+  deprecated_since: null
   description: Deactivate image
   name: deactivate
   operations:
@@ -343,15 +271,11 @@
   - system
   - project
 - check_str: role:admin or (role:member and project_id:%(project_id)s)
-  deprecated_reason: '
-
-    The image API now supports roles.
-
-    '
+  deprecated_reason: null
   deprecated_rule:
     check_str: rule:default
     name: reactivate
-  deprecated_since: W
+  deprecated_since: null
   description: Reactivate image
   name: reactivate
   operations:
@@ -370,18 +294,11 @@
   - system
   - project
 - check_str: rule:default
-  deprecated_reason: '
-
-    From Xena we are enforcing policy checks in the API and policy layer where task
-    policies were enforcing will be removed. Since task APIs are already deprecated
-    and `tasks_api_access` is checked for each API at API layer, there will be no
-    benefit of other having other task related policies.
-
-    '
+  deprecated_reason: null
   deprecated_rule:
     check_str: rule:default
     name: get_task
-  deprecated_since: X
+  deprecated_since: null
   description: 'Get an image task.
 
 
@@ -406,18 +323,11 @@
   - system
   - project
 - check_str: rule:default
-  deprecated_reason: '
-
-    From Xena we are enforcing policy checks in the API and policy layer where task
-    policies were enforcing will be removed. Since task APIs are already deprecated
-    and `tasks_api_access` is checked for each API at API layer, there will be no
-    benefit of other having other task related policies.
-
-    '
+  deprecated_reason: null
   deprecated_rule:
     check_str: rule:default
-    name: get_task
-  deprecated_since: X
+    name: get_tasks
+  deprecated_since: null
   description: 'List tasks for all images.
 
 
@@ -442,18 +352,11 @@
   - system
   - project
 - check_str: rule:default
-  deprecated_reason: '
-
-    From Xena we are enforcing policy checks in the API and policy layer where task
-    policies were enforcing will be removed. Since task APIs are already deprecated
-    and `tasks_api_access` is checked for each API at API layer, there will be no
-    benefit of other having other task related policies.
-
-    '
+  deprecated_reason: null
   deprecated_rule:
     check_str: rule:default
     name: add_task
-  deprecated_since: X
+  deprecated_since: null
   description: 'List tasks for all images.
 
 
@@ -528,133 +431,337 @@
   name: metadef_admin
   operations: []
   scope_types: null
-- check_str: rule:metadef_default
-  description: null
+- check_str: role:admin or (role:reader and (project_id:%(project_id)s or 'public':%(visibility)s))
+  deprecated_reason: null
+  deprecated_rule:
+    check_str: rule:metadef_default
+    name: get_metadef_namespace
+  deprecated_since: null
+  description: Get a specific namespace.
   name: get_metadef_namespace
-  operations: []
-  scope_types: null
-- check_str: rule:metadef_default
-  description: null
+  operations:
+  - method: GET
+    path: /v2/metadefs/namespaces/{namespace_name}
+  scope_types:
+  - system
+  - project
+- check_str: role:admin or (role:reader and project_id:%(project_id)s)
+  deprecated_reason: null
+  deprecated_rule:
+    check_str: rule:metadef_default
+    name: get_metadef_namespaces
+  deprecated_since: null
+  description: List namespace.
   name: get_metadef_namespaces
-  operations: []
-  scope_types: null
+  operations:
+  - method: GET
+    path: /v2/metadefs/namespaces
+  scope_types:
+  - system
+  - project
 - check_str: rule:metadef_admin
-  description: null
+  description: Modify an existing namespace.
   name: modify_metadef_namespace
-  operations: []
-  scope_types: null
+  operations:
+  - method: PUT
+    path: /v2/metadefs/namespaces/{namespace_name}
+  scope_types:
+  - system
+  - project
 - check_str: rule:metadef_admin
-  description: null
+  description: Create a namespace.
   name: add_metadef_namespace
-  operations: []
-  scope_types: null
+  operations:
+  - method: POST
+    path: /v2/metadefs/namespaces
+  scope_types:
+  - system
+  - project
 - check_str: rule:metadef_admin
-  description: null
+  description: Delete a namespace.
   name: delete_metadef_namespace
-  operations: []
-  scope_types: null
-- check_str: rule:metadef_default
-  description: null
+  operations:
+  - method: DELETE
+    path: /v2/metadefs/namespaces/{namespace_name}
+  scope_types:
+  - system
+  - project
+- check_str: role:admin or (role:reader and (project_id:%(project_id)s or 'public':%(visibility)s))
+  deprecated_reason: null
+  deprecated_rule:
+    check_str: rule:metadef_default
+    name: get_metadef_object
+  deprecated_since: null
+  description: Get a specific object from a namespace.
   name: get_metadef_object
-  operations: []
-  scope_types: null
-- check_str: rule:metadef_default
-  description: null
+  operations:
+  - method: GET
+    path: /v2/metadefs/namespaces/{namespace_name}/objects/{object_name}
+  scope_types:
+  - system
+  - project
+- check_str: role:admin or (role:reader and (project_id:%(project_id)s or 'public':%(visibility)s))
+  deprecated_reason: null
+  deprecated_rule:
+    check_str: rule:metadef_default
+    name: get_metadef_objects
+  deprecated_since: null
+  description: Get objects from a namespace.
   name: get_metadef_objects
-  operations: []
-  scope_types: null
+  operations:
+  - method: GET
+    path: /v2/metadefs/namespaces/{namespace_name}/objects
+  scope_types:
+  - system
+  - project
 - check_str: rule:metadef_admin
-  description: null
+  description: Update an object within a namespace.
   name: modify_metadef_object
-  operations: []
-  scope_types: null
+  operations:
+  - method: PUT
+    path: /v2/metadefs/namespaces/{namespace_name}/objects/{object_name}
+  scope_types:
+  - system
+  - project
 - check_str: rule:metadef_admin
-  description: null
+  description: Create an object within a namespace.
   name: add_metadef_object
-  operations: []
-  scope_types: null
+  operations:
+  - method: POST
+    path: /v2/metadefs/namespaces/{namespace_name}/objects
+  scope_types:
+  - system
+  - project
 - check_str: rule:metadef_admin
-  description: null
+  description: Delete an object within a namespace.
   name: delete_metadef_object
-  operations: []
-  scope_types: null
-- check_str: rule:metadef_default
-  description: null
+  operations:
+  - method: DELETE
+    path: /v2/metadefs/namespaces/{namespace_name}/objects/{object_name}
+  scope_types:
+  - system
+  - project
+- check_str: role:admin or (role:reader and (project_id:%(project_id)s or 'public':%(visibility)s))
+  deprecated_reason: null
+  deprecated_rule:
+    check_str: rule:metadef_default
+    name: list_metadef_resource_types
+  deprecated_since: null
+  description: List meta definition resource types.
   name: list_metadef_resource_types
-  operations: []
-  scope_types: null
-- check_str: rule:metadef_default
-  description: null
+  operations:
+  - method: GET
+    path: /v2/metadefs/resource_types
+  scope_types:
+  - system
+  - project
+- check_str: role:admin or (role:reader and (project_id:%(project_id)s or 'public':%(visibility)s))
+  deprecated_reason: null
+  deprecated_rule:
+    check_str: rule:metadef_default
+    name: get_metadef_resource_type
+  deprecated_since: null
+  description: Get meta definition resource types associations.
   name: get_metadef_resource_type
-  operations: []
-  scope_types: null
+  operations:
+  - method: GET
+    path: /v2/metadefs/namespaces/{namespace_name}/resource_types
+  scope_types:
+  - system
+  - project
 - check_str: rule:metadef_admin
-  description: null
+  description: Create meta definition resource types association.
   name: add_metadef_resource_type_association
-  operations: []
-  scope_types: null
+  operations:
+  - method: POST
+    path: /v2/metadefs/namespaces/{namespace_name}/resource_types
+  scope_types:
+  - system
+  - project
 - check_str: rule:metadef_admin
-  description: null
+  description: Delete meta definition resource types association.
   name: remove_metadef_resource_type_association
-  operations: []
-  scope_types: null
-- check_str: rule:metadef_default
-  description: null
+  operations:
+  - method: POST
+    path: /v2/metadefs/namespaces/{namespace_name}/resource_types/{name}
+  scope_types:
+  - system
+  - project
+- check_str: role:admin or (role:reader and (project_id:%(project_id)s or 'public':%(visibility)s))
+  deprecated_reason: null
+  deprecated_rule:
+    check_str: rule:metadef_default
+    name: get_metadef_property
+  deprecated_since: null
+  description: Get a specific meta definition property.
   name: get_metadef_property
-  operations: []
-  scope_types: null
-- check_str: rule:metadef_default
-  description: null
+  operations:
+  - method: GET
+    path: /v2/metadefs/namespaces/{namespace_name}/properties/{property_name}
+  scope_types:
+  - system
+  - project
+- check_str: role:admin or (role:reader and (project_id:%(project_id)s or 'public':%(visibility)s))
+  deprecated_reason: null
+  deprecated_rule:
+    check_str: rule:metadef_default
+    name: get_metadef_properties
+  deprecated_since: null
+  description: List meta definition properties.
   name: get_metadef_properties
-  operations: []
-  scope_types: null
+  operations:
+  - method: GET
+    path: /v2/metadefs/namespaces/{namespace_name}/properties
+  scope_types:
+  - system
+  - project
 - check_str: rule:metadef_admin
-  description: null
+  description: Update meta definition property.
   name: modify_metadef_property
-  operations: []
-  scope_types: null
+  operations:
+  - method: GET
+    path: /v2/metadefs/namespaces/{namespace_name}/properties/{property_name}
+  scope_types:
+  - system
+  - project
 - check_str: rule:metadef_admin
-  description: null
+  description: Create meta definition property.
   name: add_metadef_property
-  operations: []
-  scope_types: null
+  operations:
+  - method: POST
+    path: /v2/metadefs/namespaces/{namespace_name}/properties
+  scope_types:
+  - system
+  - project
 - check_str: rule:metadef_admin
-  description: null
+  description: Delete meta definition property.
   name: remove_metadef_property
-  operations: []
-  scope_types: null
-- check_str: rule:metadef_default
-  description: null
+  operations:
+  - method: DELETE
+    path: /v2/metadefs/namespaces/{namespace_name}/properties/{property_name}
+  scope_types:
+  - system
+  - project
+- check_str: role:admin or (role:reader and (project_id:%(project_id)s or 'public':%(visibility)s))
+  deprecated_reason: null
+  deprecated_rule:
+    check_str: rule:metadef_default
+    name: get_metadef_tag
+  deprecated_since: null
+  description: Get tag definition.
   name: get_metadef_tag
-  operations: []
-  scope_types: null
-- check_str: rule:metadef_default
-  description: null
+  operations:
+  - method: GET
+    path: /v2/metadefs/namespaces/{namespace_name}/tags/{tag_name}
+  scope_types:
+  - system
+  - project
+- check_str: role:admin or (role:reader and (project_id:%(project_id)s or 'public':%(visibility)s))
+  deprecated_reason: null
+  deprecated_rule:
+    check_str: rule:metadef_default
+    name: get_metadef_tags
+  deprecated_since: null
+  description: List tag definitions.
   name: get_metadef_tags
-  operations: []
-  scope_types: null
+  operations:
+  - method: GET
+    path: /v2/metadefs/namespaces/{namespace_name}/tags
+  scope_types:
+  - system
+  - project
 - check_str: rule:metadef_admin
-  description: null
+  description: Update tag definition.
   name: modify_metadef_tag
-  operations: []
-  scope_types: null
+  operations:
+  - method: PUT
+    path: /v2/metadefs/namespaces/{namespace_name}/tags/{tag_name}
+  scope_types:
+  - system
+  - project
 - check_str: rule:metadef_admin
-  description: null
+  description: Add tag definition.
   name: add_metadef_tag
-  operations: []
-  scope_types: null
+  operations:
+  - method: POST
+    path: /v2/metadefs/namespaces/{namespace_name}/tags/{tag_name}
+  scope_types:
+  - system
+  - project
 - check_str: rule:metadef_admin
-  description: null
+  description: Create tag definitions.
   name: add_metadef_tags
-  operations: []
-  scope_types: null
+  operations:
+  - method: POST
+    path: /v2/metadefs/namespaces/{namespace_name}/tags
+  scope_types:
+  - system
+  - project
 - check_str: rule:metadef_admin
-  description: null
+  description: Delete tag definition.
   name: delete_metadef_tag
-  operations: []
-  scope_types: null
+  operations:
+  - method: DELETE
+    path: /v2/metadefs/namespaces/{namespace_name}/tags/{tag_name}
+  scope_types:
+  - system
+  - project
 - check_str: rule:metadef_admin
-  description: null
+  description: Delete tag definitions.
   name: delete_metadef_tags
-  operations: []
-  scope_types: null
+  operations:
+  - method: DELETE
+    path: /v2/metadefs/namespaces/{namespace_name}/tags
+  scope_types:
+  - system
+  - project
+- check_str: role:admin
+  deprecated_reason: null
+  deprecated_rule:
+    check_str: rule:manage_image_cache
+    name: cache_image
+  deprecated_since: null
+  description: Queue image for caching
+  name: cache_image
+  operations:
+  - method: PUT
+    path: /v2/cache/{image_id}
+  scope_types:
+  - project
+- check_str: role:admin
+  deprecated_reason: null
+  deprecated_rule:
+    check_str: rule:manage_image_cache
+    name: cache_list
+  deprecated_since: null
+  description: List cache status
+  name: cache_list
+  operations:
+  - method: GET
+    path: /v2/cache
+  scope_types:
+  - project
+- check_str: role:admin
+  deprecated_reason: null
+  deprecated_rule:
+    check_str: rule:manage_image_cache
+    name: cache_delete
+  deprecated_since: null
+  description: Delete image(s) from cache and/or queue
+  name: cache_delete
+  operations:
+  - method: DELETE
+    path: /v2/cache
+  - method: DELETE
+    path: /v2/cache/{image_id}
+  scope_types:
+  - project
+- check_str: role:admin
+  description: Expose store specific information
+  name: stores_info_detail
+  operations:
+  - method: GET
+    path: /v2/info/stores/detail
+  scope_types:
+  - system
+  - project

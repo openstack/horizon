@@ -40,14 +40,14 @@
 # Get specified image
 # GET  /v2/images/{image_id}
 # Intended scope(s): system, project
-#"get_image": "role:admin or (role:reader and (project_id:%(project_id)s or project_id:%(member_id)s or "community":%(visibility)s or "public":%(visibility)s or "shared":%(visibility)s))"
+#"get_image": "role:admin or (role:reader and (project_id:%(project_id)s or project_id:%(member_id)s or 'community':%(visibility)s or 'public':%(visibility)s or 'shared':%(visibility)s))"
 
 # DEPRECATED
 # "get_image":"rule:default" has been deprecated since W in favor of
 # "get_image":"role:admin or (role:reader and
 # (project_id:%(project_id)s or project_id:%(member_id)s or
-# "community":%(visibility)s or "public":%(visibility)s or
-# "shared":%(visibility)s))".
+# 'community':%(visibility)s or 'public':%(visibility)s or
+# 'shared':%(visibility)s))".
 # The image API now supports roles.
 
 # Get all available images
@@ -91,14 +91,14 @@
 # Downloads given image
 # GET  /v2/images/{image_id}/file
 # Intended scope(s): system, project
-#"download_image": "role:admin or (role:member and (project_id:%(project_id)s or project_id:%(member_id)s or "community":%(visibility)s or "public":%(visibility)s or "shared":%(visibility)s))"
+#"download_image": "role:admin or (role:member and (project_id:%(project_id)s or project_id:%(member_id)s or 'community':%(visibility)s or 'public':%(visibility)s or 'shared':%(visibility)s))"
 
 # DEPRECATED
 # "download_image":"rule:default" has been deprecated since W in favor
 # of "download_image":"role:admin or (role:member and
 # (project_id:%(project_id)s or project_id:%(member_id)s or
-# "community":%(visibility)s or "public":%(visibility)s or
-# "shared":%(visibility)s))".
+# 'community':%(visibility)s or 'public':%(visibility)s or
+# 'shared':%(visibility)s))".
 # The image API now supports roles.
 
 # Uploads data to specified image
@@ -319,55 +319,235 @@
 
 #"metadef_admin": "role:admin"
 
-#"get_metadef_namespace": "rule:metadef_default"
+# Get a specific namespace.
+# GET  /v2/metadefs/namespaces/{namespace_name}
+# Intended scope(s): system, project
+#"get_metadef_namespace": "role:admin or (role:reader and (project_id:%(project_id)s or 'public':%(visibility)s))"
 
-#"get_metadef_namespaces": "rule:metadef_default"
+# DEPRECATED
+# "get_metadef_namespace":"rule:metadef_default" has been deprecated
+# since X in favor of "get_metadef_namespace":"role:admin or
+# (role:reader and (project_id:%(project_id)s or
+# 'public':%(visibility)s))".
+# The metadata API now supports project scope and default roles.
 
+# List namespace.
+# GET  /v2/metadefs/namespaces
+# Intended scope(s): system, project
+#"get_metadef_namespaces": "role:admin or (role:reader and project_id:%(project_id)s)"
+
+# DEPRECATED
+# "get_metadef_namespaces":"rule:metadef_default" has been deprecated
+# since X in favor of "get_metadef_namespaces":"role:admin or
+# (role:reader and project_id:%(project_id)s)".
+# The metadata API now supports project scope and default roles.
+
+# Modify an existing namespace.
+# PUT  /v2/metadefs/namespaces/{namespace_name}
+# Intended scope(s): system, project
 #"modify_metadef_namespace": "rule:metadef_admin"
 
+# Create a namespace.
+# POST  /v2/metadefs/namespaces
+# Intended scope(s): system, project
 #"add_metadef_namespace": "rule:metadef_admin"
 
+# Delete a namespace.
+# DELETE  /v2/metadefs/namespaces/{namespace_name}
+# Intended scope(s): system, project
 #"delete_metadef_namespace": "rule:metadef_admin"
 
-#"get_metadef_object": "rule:metadef_default"
+# Get a specific object from a namespace.
+# GET  /v2/metadefs/namespaces/{namespace_name}/objects/{object_name}
+# Intended scope(s): system, project
+#"get_metadef_object": "role:admin or (role:reader and (project_id:%(project_id)s or 'public':%(visibility)s))"
 
-#"get_metadef_objects": "rule:metadef_default"
+# DEPRECATED
+# "get_metadef_object":"rule:metadef_default" has been deprecated
+# since X in favor of "get_metadef_object":"role:admin or (role:reader
+# and (project_id:%(project_id)s or 'public':%(visibility)s))".
+# The metadata API now supports project scope and default roles.
 
+# Get objects from a namespace.
+# GET  /v2/metadefs/namespaces/{namespace_name}/objects
+# Intended scope(s): system, project
+#"get_metadef_objects": "role:admin or (role:reader and (project_id:%(project_id)s or 'public':%(visibility)s))"
+
+# DEPRECATED
+# "get_metadef_objects":"rule:metadef_default" has been deprecated
+# since X in favor of "get_metadef_objects":"role:admin or
+# (role:reader and (project_id:%(project_id)s or
+# 'public':%(visibility)s))".
+# The metadata API now supports project scope and default roles.
+
+# Update an object within a namespace.
+# PUT  /v2/metadefs/namespaces/{namespace_name}/objects/{object_name}
+# Intended scope(s): system, project
 #"modify_metadef_object": "rule:metadef_admin"
 
+# Create an object within a namespace.
+# POST  /v2/metadefs/namespaces/{namespace_name}/objects
+# Intended scope(s): system, project
 #"add_metadef_object": "rule:metadef_admin"
 
+# Delete an object within a namespace.
+# DELETE  /v2/metadefs/namespaces/{namespace_name}/objects/{object_name}
+# Intended scope(s): system, project
 #"delete_metadef_object": "rule:metadef_admin"
 
-#"list_metadef_resource_types": "rule:metadef_default"
+# List meta definition resource types.
+# GET  /v2/metadefs/resource_types
+# Intended scope(s): system, project
+#"list_metadef_resource_types": "role:admin or (role:reader and (project_id:%(project_id)s or 'public':%(visibility)s))"
 
-#"get_metadef_resource_type": "rule:metadef_default"
+# DEPRECATED
+# "list_metadef_resource_types":"rule:metadef_default" has been
+# deprecated since X in favor of
+# "list_metadef_resource_types":"role:admin or (role:reader and
+# (project_id:%(project_id)s or 'public':%(visibility)s))".
+# The metadata API now supports project scope and default roles.
 
+# Get meta definition resource types associations.
+# GET  /v2/metadefs/namespaces/{namespace_name}/resource_types
+# Intended scope(s): system, project
+#"get_metadef_resource_type": "role:admin or (role:reader and (project_id:%(project_id)s or 'public':%(visibility)s))"
+
+# DEPRECATED
+# "get_metadef_resource_type":"rule:metadef_default" has been
+# deprecated since X in favor of
+# "get_metadef_resource_type":"role:admin or (role:reader and
+# (project_id:%(project_id)s or 'public':%(visibility)s))".
+# The metadata API now supports project scope and default roles.
+
+# Create meta definition resource types association.
+# POST  /v2/metadefs/namespaces/{namespace_name}/resource_types
+# Intended scope(s): system, project
 #"add_metadef_resource_type_association": "rule:metadef_admin"
 
+# Delete meta definition resource types association.
+# POST  /v2/metadefs/namespaces/{namespace_name}/resource_types/{name}
+# Intended scope(s): system, project
 #"remove_metadef_resource_type_association": "rule:metadef_admin"
 
-#"get_metadef_property": "rule:metadef_default"
+# Get a specific meta definition property.
+# GET  /v2/metadefs/namespaces/{namespace_name}/properties/{property_name}
+# Intended scope(s): system, project
+#"get_metadef_property": "role:admin or (role:reader and (project_id:%(project_id)s or 'public':%(visibility)s))"
 
-#"get_metadef_properties": "rule:metadef_default"
+# DEPRECATED
+# "get_metadef_property":"rule:metadef_default" has been deprecated
+# since X in favor of "get_metadef_property":"role:admin or
+# (role:reader and (project_id:%(project_id)s or
+# 'public':%(visibility)s))".
+# The metadata API now supports project scope and default roles.
 
+# List meta definition properties.
+# GET  /v2/metadefs/namespaces/{namespace_name}/properties
+# Intended scope(s): system, project
+#"get_metadef_properties": "role:admin or (role:reader and (project_id:%(project_id)s or 'public':%(visibility)s))"
+
+# DEPRECATED
+# "get_metadef_properties":"rule:metadef_default" has been deprecated
+# since X in favor of "get_metadef_properties":"role:admin or
+# (role:reader and (project_id:%(project_id)s or
+# 'public':%(visibility)s))".
+# The metadata API now supports project scope and default roles.
+
+# Update meta definition property.
+# GET  /v2/metadefs/namespaces/{namespace_name}/properties/{property_name}
+# Intended scope(s): system, project
 #"modify_metadef_property": "rule:metadef_admin"
 
+# Create meta definition property.
+# POST  /v2/metadefs/namespaces/{namespace_name}/properties
+# Intended scope(s): system, project
 #"add_metadef_property": "rule:metadef_admin"
 
+# Delete meta definition property.
+# DELETE  /v2/metadefs/namespaces/{namespace_name}/properties/{property_name}
+# Intended scope(s): system, project
 #"remove_metadef_property": "rule:metadef_admin"
 
-#"get_metadef_tag": "rule:metadef_default"
+# Get tag definition.
+# GET  /v2/metadefs/namespaces/{namespace_name}/tags/{tag_name}
+# Intended scope(s): system, project
+#"get_metadef_tag": "role:admin or (role:reader and (project_id:%(project_id)s or 'public':%(visibility)s))"
 
-#"get_metadef_tags": "rule:metadef_default"
+# DEPRECATED
+# "get_metadef_tag":"rule:metadef_default" has been deprecated since X
+# in favor of "get_metadef_tag":"role:admin or (role:reader and
+# (project_id:%(project_id)s or 'public':%(visibility)s))".
+# The metadata API now supports project scope and default roles.
 
+# List tag definitions.
+# GET  /v2/metadefs/namespaces/{namespace_name}/tags
+# Intended scope(s): system, project
+#"get_metadef_tags": "role:admin or (role:reader and (project_id:%(project_id)s or 'public':%(visibility)s))"
+
+# DEPRECATED
+# "get_metadef_tags":"rule:metadef_default" has been deprecated since
+# X in favor of "get_metadef_tags":"role:admin or (role:reader and
+# (project_id:%(project_id)s or 'public':%(visibility)s))".
+# The metadata API now supports project scope and default roles.
+
+# Update tag definition.
+# PUT  /v2/metadefs/namespaces/{namespace_name}/tags/{tag_name}
+# Intended scope(s): system, project
 #"modify_metadef_tag": "rule:metadef_admin"
 
+# Add tag definition.
+# POST  /v2/metadefs/namespaces/{namespace_name}/tags/{tag_name}
+# Intended scope(s): system, project
 #"add_metadef_tag": "rule:metadef_admin"
 
+# Create tag definitions.
+# POST  /v2/metadefs/namespaces/{namespace_name}/tags
+# Intended scope(s): system, project
 #"add_metadef_tags": "rule:metadef_admin"
 
+# Delete tag definition.
+# DELETE  /v2/metadefs/namespaces/{namespace_name}/tags/{tag_name}
+# Intended scope(s): system, project
 #"delete_metadef_tag": "rule:metadef_admin"
 
+# Delete tag definitions.
+# DELETE  /v2/metadefs/namespaces/{namespace_name}/tags
+# Intended scope(s): system, project
 #"delete_metadef_tags": "rule:metadef_admin"
+
+# Queue image for caching
+# PUT  /v2/cache/{image_id}
+# Intended scope(s): project
+#"cache_image": "role:admin"
+
+# DEPRECATED
+# "cache_image":"rule:manage_image_cache" has been deprecated since X
+# in favor of "cache_image":"role:admin".
+# The image API now supports roles.
+
+# List cache status
+# GET  /v2/cache
+# Intended scope(s): project
+#"cache_list": "role:admin"
+
+# DEPRECATED
+# "cache_list":"rule:manage_image_cache" has been deprecated since X
+# in favor of "cache_list":"role:admin".
+# The image API now supports roles.
+
+# Delete image(s) from cache and/or queue
+# DELETE  /v2/cache
+# DELETE  /v2/cache/{image_id}
+# Intended scope(s): project
+#"cache_delete": "role:admin"
+
+# DEPRECATED
+# "cache_delete":"rule:manage_image_cache" has been deprecated since X
+# in favor of "cache_delete":"role:admin".
+# The image API now supports roles.
+
+# Expose store specific information
+# GET  /v2/info/stores/detail
+# Intended scope(s): system, project
+#"stores_info_detail": "role:admin"
 

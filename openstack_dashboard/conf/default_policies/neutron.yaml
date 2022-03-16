@@ -73,8 +73,7 @@
   name: shared_address_groups
   operations: []
   scope_types: null
-- check_str: (role:reader and system_scope:all) or (role:reader and project_id:%(project_id)s)
-    or rule:shared_address_groups
+- check_str: role:reader and project_id:%(project_id)s or rule:shared_address_groups
   deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_or_owner or rule:shared_address_groups
@@ -88,14 +87,13 @@
   - method: GET
     path: /address-groups/{id}
   scope_types:
-  - system
   - project
 - check_str: field:address_scopes:shared=True
   description: Definition of a shared address scope
   name: shared_address_scopes
   operations: []
   scope_types: null
-- check_str: (role:admin and system_scope:all) or (role:member and project_id:%(project_id)s)
+- check_str: role:member and project_id:%(project_id)s
   deprecated_reason: null
   deprecated_rule:
     check_str: rule:regular_user
@@ -107,9 +105,8 @@
   - method: POST
     path: /address-scopes
   scope_types:
-  - system
   - project
-- check_str: role:admin and system_scope:all
+- check_str: role:admin and project_id:%(project_id)s
   deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_only
@@ -121,10 +118,8 @@
   - method: POST
     path: /address-scopes
   scope_types:
-  - system
   - project
-- check_str: (role:reader and system_scope:all) or (role:reader and project_id:%(project_id)s)
-    or rule:shared_address_scopes
+- check_str: role:reader and project_id:%(project_id)s or rule:shared_address_scopes
   deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_or_owner or rule:shared_address_scopes
@@ -138,9 +133,8 @@
   - method: GET
     path: /address-scopes/{id}
   scope_types:
-  - system
   - project
-- check_str: (role:admin and system_scope:all) or (role:member and project_id:%(project_id)s)
+- check_str: role:member and project_id:%(project_id)s
   deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_or_owner
@@ -152,9 +146,8 @@
   - method: PUT
     path: /address-scopes/{id}
   scope_types:
-  - system
   - project
-- check_str: role:admin and system_scope:all
+- check_str: role:admin and project_id:%(project_id)s
   deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_only
@@ -166,9 +159,8 @@
   - method: PUT
     path: /address-scopes/{id}
   scope_types:
-  - system
   - project
-- check_str: (role:admin and system_scope:all) or (role:member and project_id:%(project_id)s)
+- check_str: role:member and project_id:%(project_id)s
   deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_or_owner
@@ -180,7 +172,6 @@
   - method: DELETE
     path: /address-scopes/{id}
   scope_types:
-  - system
   - project
 - check_str: role:reader and system_scope:all
   deprecated_reason: null
@@ -240,7 +231,7 @@
   deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_only
-    name: get_dhcp-networs
+    name: get_dhcp-networks
   deprecated_since: null
   description: List networks on a DHCP agent
   name: get_dhcp-networks
@@ -253,7 +244,7 @@
   deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_only
-    name: delete_dhcp-networ
+    name: delete_dhcp-network
   deprecated_since: null
   description: Remove a network from a DHCP agent
   name: delete_dhcp-network
@@ -327,7 +318,7 @@
     path: /routers/{router_id}/l3-agents
   scope_types:
   - system
-- check_str: (role:reader and system_scope:all) or (role:reader and project_id:%(project_id)s)
+- check_str: role:reader and project_id:%(project_id)s
   deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_or_owner
@@ -339,9 +330,8 @@
   - method: GET
     path: /auto-allocated-topology/{project_id}
   scope_types:
-  - system
   - project
-- check_str: (role:admin and system_scope:all) or (role:member and project_id:%(project_id)s)
+- check_str: role:member and project_id:%(project_id)s
   deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_or_owner
@@ -353,7 +343,6 @@
   - method: DELETE
     path: /auto-allocated-topology/{project_id}
   scope_types:
-  - system
   - project
 - check_str: role:reader and system_scope:all
   deprecated_reason: null
@@ -517,7 +506,7 @@
     path: /flavors/{flavor_id}/service_profiles/{profile_id}
   scope_types:
   - system
-- check_str: (role:admin and system_scope:all) or (role:member and project_id:%(project_id)s)
+- check_str: role:member and project_id:%(project_id)s
   deprecated_reason: null
   deprecated_rule:
     check_str: rule:regular_user
@@ -529,9 +518,8 @@
   - method: POST
     path: /floatingips
   scope_types:
-  - system
   - project
-- check_str: role:admin and system_scope:all
+- check_str: role:admin and project_id:%(project_id)s
   deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_only
@@ -543,9 +531,8 @@
   - method: POST
     path: /floatingips
   scope_types:
-  - system
   - project
-- check_str: (role:reader and system_scope:all) or (role:reader and project_id:%(project_id)s)
+- check_str: role:reader and project_id:%(project_id)s
   deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_or_owner
@@ -559,9 +546,8 @@
   - method: GET
     path: /floatingips/{id}
   scope_types:
-  - system
   - project
-- check_str: (role:admin and system_scope:all) or (role:member and project_id:%(project_id)s)
+- check_str: role:member and project_id:%(project_id)s
   deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_or_owner
@@ -573,9 +559,8 @@
   - method: PUT
     path: /floatingips/{id}
   scope_types:
-  - system
   - project
-- check_str: (role:admin and system_scope:all) or (role:member and project_id:%(project_id)s)
+- check_str: role:member and project_id:%(project_id)s
   deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_or_owner
@@ -587,9 +572,8 @@
   - method: DELETE
     path: /floatingips/{id}
   scope_types:
-  - system
   - project
-- check_str: (role:reader and system_scope:all) or (role:reader and project_id:%(project_id)s)
+- check_str: role:reader and project_id:%(project_id)s
   deprecated_reason: null
   deprecated_rule:
     check_str: rule:regular_user
@@ -601,10 +585,8 @@
   - method: GET
     path: /floatingip_pools
   scope_types:
-  - system
   - project
-- check_str: (role:admin and system_scope:all) or (role:member and project_id:%(project_id)s)
-    or rule:ext_parent_owner
+- check_str: role:member and project_id:%(project_id)s or rule:ext_parent_owner
   deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_or_ext_parent_owner
@@ -616,10 +598,8 @@
   - method: POST
     path: /floatingips/{floatingip_id}/port_forwardings
   scope_types:
-  - system
   - project
-- check_str: (role:reader and system_scope:all) or (role:reader and project_id:%(project_id)s)
-    or rule:ext_parent_owner
+- check_str: role:reader and project_id:%(project_id)s or rule:ext_parent_owner
   deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_or_ext_parent_owner
@@ -633,10 +613,8 @@
   - method: GET
     path: /floatingips/{floatingip_id}/port_forwardings/{port_forwarding_id}
   scope_types:
-  - system
   - project
-- check_str: (role:admin and system_scope:all) or (role:member and project_id:%(project_id)s)
-    or rule:ext_parent_owner
+- check_str: role:member and project_id:%(project_id)s or rule:ext_parent_owner
   deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_or_ext_parent_owner
@@ -648,10 +626,8 @@
   - method: PUT
     path: /floatingips/{floatingip_id}/port_forwardings/{port_forwarding_id}
   scope_types:
-  - system
   - project
-- check_str: (role:admin and system_scope:all) or (role:member and project_id:%(project_id)s)
-    or rule:ext_parent_owner
+- check_str: role:member and project_id:%(project_id)s or rule:ext_parent_owner
   deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_or_ext_parent_owner
@@ -663,10 +639,8 @@
   - method: DELETE
     path: /floatingips/{floatingip_id}/port_forwardings/{port_forwarding_id}
   scope_types:
-  - system
   - project
-- check_str: (role:admin and system_scope:all) or (role:member and project_id:%(project_id)s)
-    or rule:ext_parent_owner
+- check_str: role:member and project_id:%(project_id)s or rule:ext_parent_owner
   deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_or_ext_parent_owner
@@ -678,10 +652,8 @@
   - method: POST
     path: /routers/{router_id}/conntrack_helpers
   scope_types:
-  - system
   - project
-- check_str: (role:reader and system_scope:all) or (role:reader and project_id:%(project_id)s)
-    or rule:ext_parent_owner
+- check_str: role:reader and project_id:%(project_id)s or rule:ext_parent_owner
   deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_or_ext_parent_owner
@@ -695,10 +667,8 @@
   - method: GET
     path: /routers/{router_id}/conntrack_helpers/{conntrack_helper_id}
   scope_types:
-  - system
   - project
-- check_str: (role:admin and system_scope:all) or (role:member and project_id:%(project_id)s)
-    or rule:ext_parent_owner
+- check_str: role:member and project_id:%(project_id)s or rule:ext_parent_owner
   deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_or_ext_parent_owner
@@ -710,10 +680,8 @@
   - method: PUT
     path: /routers/{router_id}/conntrack_helpers/{conntrack_helper_id}
   scope_types:
-  - system
   - project
-- check_str: (role:admin and system_scope:all) or (role:member and project_id:%(project_id)s)
-    or rule:ext_parent_owner
+- check_str: role:member and project_id:%(project_id)s or rule:ext_parent_owner
   deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_or_ext_parent_owner
@@ -725,7 +693,101 @@
   - method: DELETE
     path: /routers/{router_id}/conntrack_helpers/{conntrack_helper_id}
   scope_types:
-  - system
+  - project
+- check_str: role:member and project_id:%(project_id)s
+  deprecated_reason: null
+  deprecated_rule:
+    check_str: rule:regular_user
+    name: create_local_ip
+  deprecated_since: null
+  description: Create a Local IP
+  name: create_local_ip
+  operations:
+  - method: POST
+    path: /local-ips
+  scope_types:
+  - project
+- check_str: role:reader and project_id:%(project_id)s
+  deprecated_reason: null
+  deprecated_rule:
+    check_str: rule:admin_or_owner
+    name: get_local_ip
+  deprecated_since: null
+  description: Get a Local IP
+  name: get_local_ip
+  operations:
+  - method: GET
+    path: /local-ips
+  - method: GET
+    path: /local-ips/{id}
+  scope_types:
+  - project
+- check_str: role:member and project_id:%(project_id)s
+  deprecated_reason: null
+  deprecated_rule:
+    check_str: rule:admin_or_owner
+    name: update_local_ip
+  deprecated_since: null
+  description: Update a Local IP
+  name: update_local_ip
+  operations:
+  - method: PUT
+    path: /local-ips/{id}
+  scope_types:
+  - project
+- check_str: role:member and project_id:%(project_id)s
+  deprecated_reason: null
+  deprecated_rule:
+    check_str: rule:admin_or_owner
+    name: delete_local_ip
+  deprecated_since: null
+  description: Delete a Local IP
+  name: delete_local_ip
+  operations:
+  - method: DELETE
+    path: /local-ips/{id}
+  scope_types:
+  - project
+- check_str: role:member and project_id:%(project_id)s or rule:ext_parent_owner
+  deprecated_reason: null
+  deprecated_rule:
+    check_str: rule:admin_or_ext_parent_owner
+    name: create_local_ip_port_association
+  deprecated_since: null
+  description: Create a Local IP port association
+  name: create_local_ip_port_association
+  operations:
+  - method: POST
+    path: /local_ips/{local_ip_id}/port_associations
+  scope_types:
+  - project
+- check_str: role:reader and project_id:%(project_id)s or rule:ext_parent_owner
+  deprecated_reason: null
+  deprecated_rule:
+    check_str: rule:admin_or_ext_parent_owner
+    name: get_local_ip_port_association
+  deprecated_since: null
+  description: Get a Local IP port association
+  name: get_local_ip_port_association
+  operations:
+  - method: GET
+    path: /local_ips/{local_ip_id}/port_associations
+  - method: GET
+    path: /local_ips/{local_ip_id}/port_associations/{fixed_port_id}
+  scope_types:
+  - project
+- check_str: role:member and project_id:%(project_id)s or rule:ext_parent_owner
+  deprecated_reason: null
+  deprecated_rule:
+    check_str: rule:admin_or_ext_parent_owner
+    name: delete_local_ip_port_association
+  deprecated_since: null
+  description: Delete a Local IP port association
+  name: delete_local_ip_port_association
+  operations:
+  - method: DELETE
+    path: /local_ips/{local_ip_id}/port_associations/{fixed_port_id}
+  scope_types:
   - project
 - check_str: role:reader and system_scope:all
   deprecated_reason: null
@@ -753,7 +815,6 @@
     path: /log/logs
   scope_types:
   - system
-  - project
 - check_str: role:reader and system_scope:all
   deprecated_reason: null
   deprecated_rule:
@@ -795,7 +856,7 @@
     path: /log/logs/{id}
   scope_types:
   - system
-- check_str: role:admin and system_scope:all
+- check_str: role:admin and project_id:%(project_id)s
   deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_only
@@ -807,9 +868,8 @@
   - method: POST
     path: /metering/metering-labels
   scope_types:
-  - system
   - project
-- check_str: role:reader and system_scope:all
+- check_str: role:reader and project_id:%(project_id)s
   deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_only
@@ -823,9 +883,8 @@
   - method: GET
     path: /metering/metering-labels/{id}
   scope_types:
-  - system
   - project
-- check_str: role:admin and system_scope:all
+- check_str: role:admin and project_id:%(project_id)s
   deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_only
@@ -837,9 +896,8 @@
   - method: DELETE
     path: /metering/metering-labels/{id}
   scope_types:
-  - system
   - project
-- check_str: role:admin and system_scope:all
+- check_str: role:admin and project_id:%(project_id)s
   deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_only
@@ -851,9 +909,8 @@
   - method: POST
     path: /metering/metering-label-rules
   scope_types:
-  - system
   - project
-- check_str: role:reader and system_scope:all
+- check_str: role:reader and project_id:%(project_id)s
   deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_only
@@ -867,9 +924,8 @@
   - method: GET
     path: /metering/metering-label-rules/{id}
   scope_types:
-  - system
   - project
-- check_str: role:admin and system_scope:all
+- check_str: role:admin and project_id:%(project_id)s
   deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_only
@@ -881,14 +937,67 @@
   - method: DELETE
     path: /metering/metering-label-rules/{id}
   scope_types:
-  - system
+  - project
+- check_str: role:member and project_id:%(project_id)s
+  deprecated_reason: null
+  deprecated_rule:
+    check_str: rule:regular_user
+    name: create_ndp_proxy
+  deprecated_since: null
+  description: Create a ndp proxy
+  name: create_ndp_proxy
+  operations:
+  - method: POST
+    path: /ndp_proxies
+  scope_types:
+  - project
+- check_str: role:reader and project_id:%(project_id)s
+  deprecated_reason: null
+  deprecated_rule:
+    check_str: rule:admin_or_owner
+    name: get_ndp_proxy
+  deprecated_since: null
+  description: Get a ndp proxy
+  name: get_ndp_proxy
+  operations:
+  - method: GET
+    path: /ndp_proxies
+  - method: GET
+    path: /ndp_proxies/{id}
+  scope_types:
+  - project
+- check_str: role:member and project_id:%(project_id)s
+  deprecated_reason: null
+  deprecated_rule:
+    check_str: rule:admin_or_owner
+    name: update_ndp_proxy
+  deprecated_since: null
+  description: Update a ndp proxy
+  name: update_ndp_proxy
+  operations:
+  - method: PUT
+    path: /ndp_proxies/{id}
+  scope_types:
+  - project
+- check_str: role:member and project_id:%(project_id)s
+  deprecated_reason: null
+  deprecated_rule:
+    check_str: rule:admin_or_owner
+    name: delete_ndp_proxy
+  deprecated_since: null
+  description: Delete a ndp proxy
+  name: delete_ndp_proxy
+  operations:
+  - method: DELETE
+    path: /ndp_proxies/{id}
+  scope_types:
   - project
 - check_str: field:networks:router:external=True
   description: Definition of an external network
   name: external
   operations: []
   scope_types: null
-- check_str: (role:admin and system_scope:all) or (role:member and project_id:%(project_id)s)
+- check_str: role:member and project_id:%(project_id)s
   deprecated_reason: null
   deprecated_rule:
     check_str: rule:regular_user
@@ -900,9 +1009,8 @@
   - method: POST
     path: /networks
   scope_types:
-  - system
   - project
-- check_str: role:admin and system_scope:all
+- check_str: role:admin and project_id:%(project_id)s
   deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_only
@@ -912,8 +1020,8 @@
   name: create_network:shared
   operations: *id001
   scope_types:
-  - system
-- check_str: role:admin and system_scope:all
+  - project
+- check_str: role:admin and project_id:%(project_id)s
   deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_only
@@ -923,8 +1031,8 @@
   name: create_network:router:external
   operations: *id001
   scope_types:
-  - system
-- check_str: role:admin and system_scope:all
+  - project
+- check_str: role:admin and project_id:%(project_id)s
   deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_only
@@ -934,8 +1042,8 @@
   name: create_network:is_default
   operations: *id001
   scope_types:
-  - system
-- check_str: (role:admin and system_scope:all) or (role:member and project_id:%(project_id)s)
+  - project
+- check_str: role:member and project_id:%(project_id)s
   deprecated_reason: null
   deprecated_rule:
     check_str: rule:regular_user
@@ -945,9 +1053,8 @@
   name: create_network:port_security_enabled
   operations: *id001
   scope_types:
-  - system
   - project
-- check_str: role:admin and system_scope:all
+- check_str: role:admin and project_id:%(project_id)s
   deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_only
@@ -957,8 +1064,8 @@
   name: create_network:segments
   operations: *id001
   scope_types:
-  - system
-- check_str: role:admin and system_scope:all
+  - project
+- check_str: role:admin and project_id:%(project_id)s
   deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_only
@@ -968,8 +1075,8 @@
   name: create_network:provider:network_type
   operations: *id001
   scope_types:
-  - system
-- check_str: role:admin and system_scope:all
+  - project
+- check_str: role:admin and project_id:%(project_id)s
   deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_only
@@ -979,8 +1086,8 @@
   name: create_network:provider:physical_network
   operations: *id001
   scope_types:
-  - system
-- check_str: role:admin and system_scope:all
+  - project
+- check_str: role:admin and project_id:%(project_id)s
   deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_only
@@ -990,9 +1097,9 @@
   name: create_network:provider:segmentation_id
   operations: *id001
   scope_types:
-  - system
-- check_str: (role:reader and system_scope:all) or (role:reader and project_id:%(project_id)s)
-    or rule:shared or rule:external or rule:context_is_advsvc
+  - project
+- check_str: role:reader and project_id:%(project_id)s or rule:shared or rule:external
+    or rule:context_is_advsvc
   deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_or_owner or rule:shared or rule:external or rule:context_is_advsvc
@@ -1006,9 +1113,8 @@
   - method: GET
     path: /networks/{id}
   scope_types:
-  - system
   - project
-- check_str: (role:reader and system_scope:all) or (role:reader and project_id:%(project_id)s)
+- check_str: role:reader and project_id:%(project_id)s
   deprecated_reason: null
   deprecated_rule:
     check_str: rule:regular_user
@@ -1018,9 +1124,8 @@
   name: get_network:router:external
   operations: *id002
   scope_types:
-  - system
   - project
-- check_str: role:reader and system_scope:all
+- check_str: role:admin and project_id:%(project_id)s
   deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_only
@@ -1030,8 +1135,8 @@
   name: get_network:segments
   operations: *id002
   scope_types:
-  - system
-- check_str: role:reader and system_scope:all
+  - project
+- check_str: role:admin and project_id:%(project_id)s
   deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_only
@@ -1041,8 +1146,8 @@
   name: get_network:provider:network_type
   operations: *id002
   scope_types:
-  - system
-- check_str: role:reader and system_scope:all
+  - project
+- check_str: role:admin and project_id:%(project_id)s
   deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_only
@@ -1052,8 +1157,8 @@
   name: get_network:provider:physical_network
   operations: *id002
   scope_types:
-  - system
-- check_str: role:reader and system_scope:all
+  - project
+- check_str: role:admin and project_id:%(project_id)s
   deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_only
@@ -1063,8 +1168,8 @@
   name: get_network:provider:segmentation_id
   operations: *id002
   scope_types:
-  - system
-- check_str: (role:admin and system_scope:all) or (role:member and project_id:%(project_id)s)
+  - project
+- check_str: role:member and project_id:%(project_id)s
   deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_or_owner
@@ -1076,9 +1181,8 @@
   - method: PUT
     path: /networks/{id}
   scope_types:
-  - system
   - project
-- check_str: role:admin and system_scope:all
+- check_str: role:admin and project_id:%(project_id)s
   deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_only
@@ -1088,8 +1192,8 @@
   name: update_network:segments
   operations: *id003
   scope_types:
-  - system
-- check_str: role:admin and system_scope:all
+  - project
+- check_str: role:admin and project_id:%(project_id)s
   deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_only
@@ -1099,8 +1203,8 @@
   name: update_network:shared
   operations: *id003
   scope_types:
-  - system
-- check_str: role:admin and system_scope:all
+  - project
+- check_str: role:admin and project_id:%(project_id)s
   deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_only
@@ -1110,8 +1214,8 @@
   name: update_network:provider:network_type
   operations: *id003
   scope_types:
-  - system
-- check_str: role:admin and system_scope:all
+  - project
+- check_str: role:admin and project_id:%(project_id)s
   deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_only
@@ -1121,8 +1225,8 @@
   name: update_network:provider:physical_network
   operations: *id003
   scope_types:
-  - system
-- check_str: role:admin and system_scope:all
+  - project
+- check_str: role:admin and project_id:%(project_id)s
   deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_only
@@ -1132,8 +1236,8 @@
   name: update_network:provider:segmentation_id
   operations: *id003
   scope_types:
-  - system
-- check_str: role:admin and system_scope:all
+  - project
+- check_str: role:admin and project_id:%(project_id)s
   deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_only
@@ -1143,8 +1247,8 @@
   name: update_network:router:external
   operations: *id003
   scope_types:
-  - system
-- check_str: role:admin and system_scope:all
+  - project
+- check_str: role:admin and project_id:%(project_id)s
   deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_only
@@ -1154,8 +1258,8 @@
   name: update_network:is_default
   operations: *id003
   scope_types:
-  - system
-- check_str: (role:admin and system_scope:all) or (role:member and project_id:%(project_id)s)
+  - project
+- check_str: role:member and project_id:%(project_id)s
   deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_or_owner
@@ -1165,9 +1269,8 @@
   name: update_network:port_security_enabled
   operations: *id003
   scope_types:
-  - system
   - project
-- check_str: (role:admin and system_scope:all) or (role:member and project_id:%(project_id)s)
+- check_str: role:member and project_id:%(project_id)s
   deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_or_owner
@@ -1179,7 +1282,6 @@
   - method: DELETE
     path: /networks/{id}
   scope_types:
-  - system
   - project
 - check_str: role:reader and system_scope:all
   deprecated_reason: null
@@ -1260,7 +1362,7 @@
   name: admin_or_data_plane_int
   operations: []
   scope_types: null
-- check_str: (role:admin and system_scope:all) or (role:member and project_id:%(project_id)s)
+- check_str: role:member and project_id:%(project_id)s
   deprecated_reason: null
   deprecated_rule:
     check_str: rule:regular_user
@@ -1272,10 +1374,9 @@
   - method: POST
     path: /ports
   scope_types:
-  - system
   - project
-- check_str: not rule:network_device or role:admin and system_scope:all or role:admin
-    and project_id:%(project_id)s or rule:context_is_advsvc or rule:network_owner
+- check_str: not rule:network_device or role:admin and project_id:%(project_id)s or
+    rule:context_is_advsvc or rule:network_owner
   deprecated_reason: null
   deprecated_rule:
     check_str: not rule:network_device or rule:context_is_advsvc or rule:admin_or_network_owner
@@ -1285,10 +1386,8 @@
   name: create_port:device_owner
   operations: *id004
   scope_types:
-  - system
   - project
-- check_str: rule:context_is_advsvc or rule:network_owner or role:admin and system_scope:all
-    or role:admin and project_id:%(project_id)s
+- check_str: rule:context_is_advsvc or rule:network_owner or role:admin and project_id:%(project_id)s
   deprecated_reason: null
   deprecated_rule:
     check_str: rule:context_is_advsvc or rule:admin_or_network_owner
@@ -1298,10 +1397,9 @@
   name: create_port:mac_address
   operations: *id004
   scope_types:
-  - system
   - project
-- check_str: rule:context_is_advsvc or rule:network_owner or role:admin and system_scope:all
-    or role:admin and project_id:%(project_id)s or rule:shared
+- check_str: rule:context_is_advsvc or rule:network_owner or role:admin and project_id:%(project_id)s
+    or rule:shared
   deprecated_reason: null
   deprecated_rule:
     check_str: rule:context_is_advsvc or rule:admin_or_network_owner or rule:shared
@@ -1311,10 +1409,8 @@
   name: create_port:fixed_ips
   operations: *id004
   scope_types:
-  - system
   - project
-- check_str: rule:context_is_advsvc or rule:network_owner or role:admin and system_scope:all
-    or role:admin and project_id:%(project_id)s
+- check_str: rule:context_is_advsvc or rule:network_owner or role:admin and project_id:%(project_id)s
   deprecated_reason: null
   deprecated_rule:
     check_str: rule:context_is_advsvc or rule:admin_or_network_owner
@@ -1324,10 +1420,9 @@
   name: create_port:fixed_ips:ip_address
   operations: *id004
   scope_types:
-  - system
   - project
-- check_str: rule:context_is_advsvc or rule:network_owner or role:admin and system_scope:all
-    or role:admin and project_id:%(project_id)s or rule:shared
+- check_str: rule:context_is_advsvc or rule:network_owner or role:admin and project_id:%(project_id)s
+    or rule:shared
   deprecated_reason: null
   deprecated_rule:
     check_str: rule:context_is_advsvc or rule:admin_or_network_owner or rule:shared
@@ -1337,10 +1432,8 @@
   name: create_port:fixed_ips:subnet_id
   operations: *id004
   scope_types:
-  - system
   - project
-- check_str: rule:context_is_advsvc or rule:network_owner or role:admin and system_scope:all
-    or role:admin and project_id:%(project_id)s
+- check_str: rule:context_is_advsvc or rule:network_owner or role:admin and project_id:%(project_id)s
   deprecated_reason: null
   deprecated_rule:
     check_str: rule:context_is_advsvc or rule:admin_or_network_owner
@@ -1350,9 +1443,8 @@
   name: create_port:port_security_enabled
   operations: *id004
   scope_types:
-  - system
   - project
-- check_str: role:admin and system_scope:all
+- check_str: role:admin and project_id:%(project_id)s
   deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_only
@@ -1362,8 +1454,8 @@
   name: create_port:binding:host_id
   operations: *id004
   scope_types:
-  - system
-- check_str: role:admin and system_scope:all
+  - project
+- check_str: role:admin and project_id:%(project_id)s
   deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_only
@@ -1373,8 +1465,8 @@
   name: create_port:binding:profile
   operations: *id004
   scope_types:
-  - system
-- check_str: (role:admin and system_scope:all) or (role:member and project_id:%(project_id)s)
+  - project
+- check_str: role:member and project_id:%(project_id)s
   deprecated_reason: null
   deprecated_rule:
     check_str: rule:regular_user
@@ -1384,10 +1476,8 @@
   name: create_port:binding:vnic_type
   operations: *id004
   scope_types:
-  - system
   - project
-- check_str: role:admin and system_scope:all or role:admin and project_id:%(project_id)s
-    or rule:network_owner
+- check_str: role:admin and project_id:%(project_id)s or rule:network_owner
   deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_or_network_owner
@@ -1398,9 +1488,7 @@
   operations: *id004
   scope_types:
   - project
-  - system
-- check_str: role:admin and system_scope:all or role:admin and project_id:%(project_id)s
-    or rule:network_owner
+- check_str: role:admin and project_id:%(project_id)s or rule:network_owner
   deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_or_network_owner
@@ -1412,9 +1500,7 @@
   operations: *id004
   scope_types:
   - project
-  - system
-- check_str: role:admin and system_scope:all or role:admin and project_id:%(project_id)s
-    or rule:network_owner
+- check_str: role:admin and project_id:%(project_id)s or rule:network_owner
   deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_or_network_owner
@@ -1426,9 +1512,7 @@
   operations: *id004
   scope_types:
   - project
-  - system
-- check_str: rule:context_is_advsvc or (role:reader and system_scope:all) or (role:reader
-    and project_id:%(project_id)s)
+- check_str: rule:context_is_advsvc or role:reader and project_id:%(project_id)s
   deprecated_reason: null
   deprecated_rule:
     check_str: rule:context_is_advsvc or rule:admin_owner_or_network_owner
@@ -1443,8 +1527,7 @@
     path: /ports/{id}
   scope_types:
   - project
-  - system
-- check_str: role:reader and system_scope:all
+- check_str: role:admin and project_id:%(project_id)s
   deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_only
@@ -1454,8 +1537,8 @@
   name: get_port:binding:vif_type
   operations: *id005
   scope_types:
-  - system
-- check_str: role:reader and system_scope:all
+  - project
+- check_str: role:admin and project_id:%(project_id)s
   deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_only
@@ -1465,8 +1548,8 @@
   name: get_port:binding:vif_details
   operations: *id005
   scope_types:
-  - system
-- check_str: role:reader and system_scope:all
+  - project
+- check_str: role:admin and project_id:%(project_id)s
   deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_only
@@ -1476,8 +1559,8 @@
   name: get_port:binding:host_id
   operations: *id005
   scope_types:
-  - system
-- check_str: role:reader and system_scope:all
+  - project
+- check_str: role:admin and project_id:%(project_id)s
   deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_only
@@ -1487,8 +1570,8 @@
   name: get_port:binding:profile
   operations: *id005
   scope_types:
-  - system
-- check_str: role:reader and system_scope:all
+  - project
+- check_str: role:admin and project_id:%(project_id)s
   deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_only
@@ -1498,9 +1581,8 @@
   name: get_port:resource_request
   operations: *id005
   scope_types:
-  - system
-- check_str: (role:admin and system_scope:all) or (role:member and project_id:%(project_id)s)
-    or rule:context_is_advsvc
+  - project
+- check_str: role:member and project_id:%(project_id)s or rule:context_is_advsvc
   deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_or_owner or rule:context_is_advsvc
@@ -1512,10 +1594,9 @@
   - method: PUT
     path: /ports/{id}
   scope_types:
-  - system
   - project
 - check_str: not rule:network_device or rule:context_is_advsvc or rule:network_owner
-    or role:admin and system_scope:all or role:admin and project_id:%(project_id)s
+    or role:admin and project_id:%(project_id)s
   deprecated_reason: null
   deprecated_rule:
     check_str: not rule:network_device or rule:context_is_advsvc or rule:admin_or_network_owner
@@ -1525,9 +1606,8 @@
   name: update_port:device_owner
   operations: *id006
   scope_types:
-  - system
   - project
-- check_str: role:admin and system_scope:all or rule:context_is_advsvc
+- check_str: role:admin and project_id:%(project_id)s or rule:context_is_advsvc
   deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_only or rule:context_is_advsvc
@@ -1537,10 +1617,8 @@
   name: update_port:mac_address
   operations: *id006
   scope_types:
-  - system
   - project
-- check_str: rule:context_is_advsvc or rule:network_owner or role:admin and system_scope:all
-    or role:admin and project_id:%(project_id)s
+- check_str: rule:context_is_advsvc or rule:network_owner or role:admin and project_id:%(project_id)s
   deprecated_reason: null
   deprecated_rule:
     check_str: rule:context_is_advsvc or rule:admin_or_network_owner
@@ -1550,10 +1628,8 @@
   name: update_port:fixed_ips
   operations: *id006
   scope_types:
-  - system
   - project
-- check_str: rule:context_is_advsvc or rule:network_owner or role:admin and system_scope:all
-    or role:admin and project_id:%(project_id)s
+- check_str: rule:context_is_advsvc or rule:network_owner or role:admin and project_id:%(project_id)s
   deprecated_reason: null
   deprecated_rule:
     check_str: rule:context_is_advsvc or rule:admin_or_network_owner
@@ -1563,10 +1639,9 @@
   name: update_port:fixed_ips:ip_address
   operations: *id006
   scope_types:
-  - system
   - project
-- check_str: rule:context_is_advsvc or rule:network_owner or role:admin and system_scope:all
-    or role:admin and project_id:%(project_id)s or rule:shared
+- check_str: rule:context_is_advsvc or rule:network_owner or role:admin and project_id:%(project_id)s
+    or rule:shared
   deprecated_reason: null
   deprecated_rule:
     check_str: rule:context_is_advsvc or rule:admin_or_network_owner or rule:shared
@@ -1576,10 +1651,8 @@
   name: update_port:fixed_ips:subnet_id
   operations: *id006
   scope_types:
-  - system
   - project
-- check_str: rule:context_is_advsvc or rule:network_owner or role:admin and system_scope:all
-    or role:admin and project_id:%(project_id)s
+- check_str: rule:context_is_advsvc or rule:network_owner or role:admin and project_id:%(project_id)s
   deprecated_reason: null
   deprecated_rule:
     check_str: rule:context_is_advsvc or rule:admin_or_network_owner
@@ -1589,9 +1662,8 @@
   name: update_port:port_security_enabled
   operations: *id006
   scope_types:
-  - system
   - project
-- check_str: role:admin and system_scope:all
+- check_str: role:admin and project_id:%(project_id)s
   deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_only
@@ -1601,8 +1673,8 @@
   name: update_port:binding:host_id
   operations: *id006
   scope_types:
-  - system
-- check_str: role:admin and system_scope:all
+  - project
+- check_str: role:admin and project_id:%(project_id)s
   deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_only
@@ -1612,9 +1684,8 @@
   name: update_port:binding:profile
   operations: *id006
   scope_types:
-  - system
-- check_str: (role:admin and system_scope:all) or (role:member and project_id:%(project_id)s)
-    or rule:context_is_advsvc
+  - project
+- check_str: role:member and project_id:%(project_id)s or rule:context_is_advsvc
   deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_or_owner or rule:context_is_advsvc
@@ -1624,10 +1695,8 @@
   name: update_port:binding:vnic_type
   operations: *id006
   scope_types:
-  - system
   - project
-- check_str: role:admin and system_scope:all or role:admin and project_id:%(project_id)s
-    or rule:network_owner
+- check_str: role:admin and project_id:%(project_id)s or rule:network_owner
   deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_or_network_owner
@@ -1637,10 +1706,8 @@
   name: update_port:allowed_address_pairs
   operations: *id006
   scope_types:
-  - system
   - project
-- check_str: role:admin and system_scope:all or role:admin and project_id:%(project_id)s
-    or rule:network_owner
+- check_str: role:admin and project_id:%(project_id)s or rule:network_owner
   deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_or_network_owner
@@ -1651,10 +1718,8 @@
   name: update_port:allowed_address_pairs:mac_address
   operations: *id006
   scope_types:
-  - system
   - project
-- check_str: role:admin and system_scope:all or role:admin and project_id:%(project_id)s
-    or rule:network_owner
+- check_str: role:admin and project_id:%(project_id)s or rule:network_owner
   deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_or_network_owner
@@ -1664,9 +1729,8 @@
   name: update_port:allowed_address_pairs:ip_address
   operations: *id006
   scope_types:
-  - system
   - project
-- check_str: role:admin and system_scope:all or role:data_plane_integrator
+- check_str: role:admin and project_id:%(project_id)s or role:data_plane_integrator
   deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_or_data_plane_int
@@ -1676,10 +1740,8 @@
   name: update_port:data_plane_status
   operations: *id006
   scope_types:
-  - system
   - project
-- check_str: rule:context_is_advsvc or (role:admin and system_scope:all) or (role:member
-    and project_id:%(project_id)s)
+- check_str: rule:context_is_advsvc or role:member and project_id:%(project_id)s
   deprecated_reason: null
   deprecated_rule:
     check_str: rule:context_is_advsvc or rule:admin_owner_or_network_owner
@@ -1691,9 +1753,8 @@
   - method: DELETE
     path: /ports/{id}
   scope_types:
-  - system
   - project
-- check_str: (role:reader and system_scope:all) or (role:reader and project_id:%(project_id)s)
+- check_str: role:reader and project_id:%(project_id)s
   deprecated_reason: null
   deprecated_rule:
     check_str: rule:regular_user
@@ -1707,9 +1768,8 @@
   - method: GET
     path: /qos/policies/{id}
   scope_types:
-  - system
   - project
-- check_str: role:admin and system_scope:all
+- check_str: role:admin and project_id:%(project_id)s
   deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_only
@@ -1721,8 +1781,8 @@
   - method: POST
     path: /qos/policies
   scope_types:
-  - system
-- check_str: role:admin and system_scope:all
+  - project
+- check_str: role:admin and project_id:%(project_id)s
   deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_only
@@ -1734,8 +1794,8 @@
   - method: PUT
     path: /qos/policies/{id}
   scope_types:
-  - system
-- check_str: role:admin and system_scope:all
+  - project
+- check_str: role:admin and project_id:%(project_id)s
   deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_only
@@ -1747,8 +1807,8 @@
   - method: DELETE
     path: /qos/policies/{id}
   scope_types:
-  - system
-- check_str: (role:reader and system_scope:all) or (role:reader and project_id:%(project_id)s)
+  - project
+- check_str: role:admin or role:reader and system_scope:all
   deprecated_reason: null
   deprecated_rule:
     check_str: rule:regular_user
@@ -1764,7 +1824,7 @@
   scope_types:
   - system
   - project
-- check_str: (role:reader and system_scope:all) or (role:reader and project_id:%(project_id)s)
+- check_str: role:reader and project_id:%(project_id)s
   deprecated_reason: null
   deprecated_rule:
     check_str: rule:regular_user
@@ -1778,9 +1838,8 @@
   - method: GET
     path: /qos/policies/{policy_id}/bandwidth_limit_rules/{rule_id}
   scope_types:
-  - system
   - project
-- check_str: role:admin and system_scope:all
+- check_str: role:admin and project_id:%(project_id)s
   deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_only
@@ -1792,8 +1851,8 @@
   - method: POST
     path: /qos/policies/{policy_id}/bandwidth_limit_rules
   scope_types:
-  - system
-- check_str: role:admin and system_scope:all
+  - project
+- check_str: role:admin and project_id:%(project_id)s
   deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_only
@@ -1805,8 +1864,8 @@
   - method: PUT
     path: /qos/policies/{policy_id}/bandwidth_limit_rules/{rule_id}
   scope_types:
-  - system
-- check_str: role:admin and system_scope:all
+  - project
+- check_str: role:admin and project_id:%(project_id)s
   deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_only
@@ -1818,8 +1877,8 @@
   - method: DELETE
     path: /qos/policies/{policy_id}/bandwidth_limit_rules/{rule_id}
   scope_types:
-  - system
-- check_str: (role:reader and system_scope:all) or (role:reader and project_id:%(project_id)s)
+  - project
+- check_str: role:reader and project_id:%(project_id)s
   deprecated_reason: null
   deprecated_rule:
     check_str: rule:regular_user
@@ -1833,9 +1892,8 @@
   - method: GET
     path: /qos/policies/{policy_id}/dscp_marking_rules/{rule_id}
   scope_types:
-  - system
   - project
-- check_str: role:admin and system_scope:all
+- check_str: role:admin and project_id:%(project_id)s
   deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_only
@@ -1847,8 +1905,8 @@
   - method: POST
     path: /qos/policies/{policy_id}/dscp_marking_rules
   scope_types:
-  - system
-- check_str: role:admin and system_scope:all
+  - project
+- check_str: role:admin and project_id:%(project_id)s
   deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_only
@@ -1860,8 +1918,8 @@
   - method: PUT
     path: /qos/policies/{policy_id}/dscp_marking_rules/{rule_id}
   scope_types:
-  - system
-- check_str: role:admin and system_scope:all
+  - project
+- check_str: role:admin and project_id:%(project_id)s
   deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_only
@@ -1873,8 +1931,8 @@
   - method: DELETE
     path: /qos/policies/{policy_id}/dscp_marking_rules/{rule_id}
   scope_types:
-  - system
-- check_str: (role:reader and system_scope:all) or (role:reader and project_id:%(project_id)s)
+  - project
+- check_str: role:reader and project_id:%(project_id)s
   deprecated_reason: null
   deprecated_rule:
     check_str: rule:regular_user
@@ -1888,9 +1946,8 @@
   - method: GET
     path: /qos/policies/{policy_id}/minimum_bandwidth_rules/{rule_id}
   scope_types:
-  - system
   - project
-- check_str: role:admin and system_scope:all
+- check_str: role:admin and project_id:%(project_id)s
   deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_only
@@ -1902,8 +1959,8 @@
   - method: POST
     path: /qos/policies/{policy_id}/minimum_bandwidth_rules
   scope_types:
-  - system
-- check_str: role:admin and system_scope:all
+  - project
+- check_str: role:admin and project_id:%(project_id)s
   deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_only
@@ -1915,8 +1972,8 @@
   - method: PUT
     path: /qos/policies/{policy_id}/minimum_bandwidth_rules/{rule_id}
   scope_types:
-  - system
-- check_str: role:admin and system_scope:all
+  - project
+- check_str: role:admin and project_id:%(project_id)s
   deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_only
@@ -1928,69 +1985,178 @@
   - method: DELETE
     path: /qos/policies/{policy_id}/minimum_bandwidth_rules/{rule_id}
   scope_types:
-  - system
-- check_str: rule:get_policy_bandwidth_limit_rule
+  - project
+- check_str: role:reader and project_id:%(project_id)s
+  description: Get a QoS minimum packet rate rule
+  name: get_policy_minimum_packet_rate_rule
+  operations:
+  - method: GET
+    path: /qos/policies/{policy_id}/minimum_packet_rate_rules
+  - method: GET
+    path: /qos/policies/{policy_id}/minimum_packet_rate_rules/{rule_id}
+  scope_types:
+  - project
+- check_str: role:admin and project_id:%(project_id)s
+  description: Create a QoS minimum packet rate rule
+  name: create_policy_minimum_packet_rate_rule
+  operations:
+  - method: POST
+    path: /qos/policies/{policy_id}/minimum_packet_rate_rules
+  scope_types:
+  - project
+- check_str: role:admin and project_id:%(project_id)s
+  description: Update a QoS minimum packet rate rule
+  name: update_policy_minimum_packet_rate_rule
+  operations:
+  - method: PUT
+    path: /qos/policies/{policy_id}/minimum_packet_rate_rules/{rule_id}
+  scope_types:
+  - project
+- check_str: role:admin and project_id:%(project_id)s
+  description: Delete a QoS minimum packet rate rule
+  name: delete_policy_minimum_packet_rate_rule
+  operations:
+  - method: DELETE
+    path: /qos/policies/{policy_id}/minimum_packet_rate_rules/{rule_id}
+  scope_types:
+  - project
+- check_str: role:reader and project_id:%(project_id)s
+  deprecated_reason: null
+  deprecated_rule:
+    check_str: rule:regular_user
+    name: get_alias_bandwidth_limit_rule
+  deprecated_since: null
   description: Get a QoS bandwidth limit rule through alias
   name: get_alias_bandwidth_limit_rule
   operations:
   - method: GET
     path: /qos/alias_bandwidth_limit_rules/{rule_id}/
-  scope_types: null
-- check_str: rule:update_policy_bandwidth_limit_rule
+  scope_types:
+  - project
+- check_str: role:admin and project_id:%(project_id)s
+  deprecated_reason: null
+  deprecated_rule:
+    check_str: rule:admin_only
+    name: update_alias_bandwidth_limit_rule
+  deprecated_since: null
   description: Update a QoS bandwidth limit rule through alias
   name: update_alias_bandwidth_limit_rule
   operations:
   - method: PUT
     path: /qos/alias_bandwidth_limit_rules/{rule_id}/
-  scope_types: null
-- check_str: rule:delete_policy_bandwidth_limit_rule
+  scope_types:
+  - project
+- check_str: role:admin and project_id:%(project_id)s
+  deprecated_reason: null
+  deprecated_rule:
+    check_str: rule:admin_only
+    name: delete_alias_bandwidth_limit_rule
+  deprecated_since: null
   description: Delete a QoS bandwidth limit rule through alias
   name: delete_alias_bandwidth_limit_rule
   operations:
   - method: DELETE
     path: /qos/alias_bandwidth_limit_rules/{rule_id}/
-  scope_types: null
-- check_str: rule:get_policy_dscp_marking_rule
+  scope_types:
+  - project
+- check_str: role:reader and project_id:%(project_id)s
+  deprecated_reason: null
+  deprecated_rule:
+    check_str: rule:regular_user
+    name: get_alias_dscp_marking_rule
+  deprecated_since: null
   description: Get a QoS DSCP marking rule through alias
   name: get_alias_dscp_marking_rule
   operations:
   - method: GET
     path: /qos/alias_dscp_marking_rules/{rule_id}/
-  scope_types: null
-- check_str: rule:update_policy_dscp_marking_rule
+  scope_types:
+  - project
+- check_str: role:admin and project_id:%(project_id)s
+  deprecated_reason: null
+  deprecated_rule:
+    check_str: rule:admin_only
+    name: update_alias_dscp_marking_rule
+  deprecated_since: null
   description: Update a QoS DSCP marking rule through alias
   name: update_alias_dscp_marking_rule
   operations:
   - method: PUT
     path: /qos/alias_dscp_marking_rules/{rule_id}/
-  scope_types: null
-- check_str: rule:delete_policy_dscp_marking_rule
+  scope_types:
+  - project
+- check_str: role:admin and project_id:%(project_id)s
+  deprecated_reason: null
+  deprecated_rule:
+    check_str: rule:admin_only
+    name: delete_alias_dscp_marking_rule
+  deprecated_since: null
   description: Delete a QoS DSCP marking rule through alias
   name: delete_alias_dscp_marking_rule
   operations:
   - method: DELETE
     path: /qos/alias_dscp_marking_rules/{rule_id}/
-  scope_types: null
-- check_str: rule:get_policy_minimum_bandwidth_rule
+  scope_types:
+  - project
+- check_str: role:reader and project_id:%(project_id)s
+  deprecated_reason: null
+  deprecated_rule:
+    check_str: rule:regular_user
+    name: get_alias_minimum_bandwidth_rule
+  deprecated_since: null
   description: Get a QoS minimum bandwidth rule through alias
   name: get_alias_minimum_bandwidth_rule
   operations:
   - method: GET
     path: /qos/alias_minimum_bandwidth_rules/{rule_id}/
-  scope_types: null
-- check_str: rule:update_policy_minimum_bandwidth_rule
+  scope_types:
+  - project
+- check_str: role:admin and project_id:%(project_id)s
+  deprecated_reason: null
+  deprecated_rule:
+    check_str: rule:admin_only
+    name: update_alias_minimum_bandwidth_rule
+  deprecated_since: null
   description: Update a QoS minimum bandwidth rule through alias
   name: update_alias_minimum_bandwidth_rule
   operations:
   - method: PUT
     path: /qos/alias_minimum_bandwidth_rules/{rule_id}/
-  scope_types: null
-- check_str: rule:delete_policy_minimum_bandwidth_rule
+  scope_types:
+  - project
+- check_str: role:admin and project_id:%(project_id)s
+  deprecated_reason: null
+  deprecated_rule:
+    check_str: rule:admin_only
+    name: delete_alias_minimum_bandwidth_rule
+  deprecated_since: null
   description: Delete a QoS minimum bandwidth rule through alias
   name: delete_alias_minimum_bandwidth_rule
   operations:
   - method: DELETE
     path: /qos/alias_minimum_bandwidth_rules/{rule_id}/
+  scope_types:
+  - project
+- check_str: rule:get_policy_minimum_packet_rate_rule
+  description: Get a QoS minimum packet rate rule through alias
+  name: get_alias_minimum_packet_rate_rule
+  operations:
+  - method: GET
+    path: /qos/alias_minimum_packet_rate_rules/{rule_id}/
+  scope_types: null
+- check_str: rule:update_policy_minimum_packet_rate_rule
+  description: Update a QoS minimum packet rate rule through alias
+  name: update_alias_minimum_packet_rate_rule
+  operations:
+  - method: PUT
+    path: /qos/alias_minimum_packet_rate_rules/{rule_id}/
+  scope_types: null
+- check_str: rule:delete_policy_minimum_packet_rate_rule
+  description: Delete a QoS minimum packet rate rule through alias
+  name: delete_alias_minimum_packet_rate_rule
+  operations:
+  - method: DELETE
+    path: /qos/alias_minimum_packet_rate_rules/{rule_id}/
   scope_types: null
 - check_str: role:reader and system_scope:all
   deprecated_reason: null
@@ -2033,12 +2199,13 @@
     path: /quota/{id}
   scope_types:
   - system
-- check_str: (not field:rbac_policy:target_tenant=*) or rule:admin_only
-  description: Definition of a wildcard target_tenant
+- check_str: (not field:rbac_policy:target_tenant=* and not field:rbac_policy:target_project=*)
+    or rule:admin_only
+  description: Definition of a wildcard target_project
   name: restrict_wildcard
   operations: []
   scope_types: null
-- check_str: (role:admin and system_scope:all) or (role:member and project_id:%(project_id)s)
+- check_str: role:member and project_id:%(project_id)s
   deprecated_reason: null
   deprecated_rule:
     check_str: rule:regular_user
@@ -2050,9 +2217,9 @@
   - method: POST
     path: /rbac-policies
   scope_types:
-  - system
   - project
-- check_str: role:admin and system_scope:all or (not field:rbac_policy:target_tenant=*)
+- check_str: role:admin and project_id:%(project_id)s or (not field:rbac_policy:target_tenant=*
+    and not field:rbac_policy:target_project=*)
   deprecated_reason: null
   deprecated_rule:
     check_str: rule:restrict_wildcard
@@ -2064,9 +2231,8 @@
   - method: POST
     path: /rbac-policies
   scope_types:
-  - system
   - project
-- check_str: (role:admin and system_scope:all) or (role:member and project_id:%(project_id)s)
+- check_str: role:member and project_id:%(project_id)s
   deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_or_owner
@@ -2079,8 +2245,8 @@
     path: /rbac-policies/{id}
   scope_types:
   - project
-  - system
-- check_str: role:admin and system_scope:all or (not field:rbac_policy:target_tenant=*)
+- check_str: role:admin and project_id:%(project_id)s or (not field:rbac_policy:target_tenant=*
+    and not field:rbac_policy:target_project=*)
   deprecated_reason: null
   deprecated_rule:
     check_str: rule:restrict_wildcard and rule:admin_or_owner
@@ -2092,9 +2258,8 @@
   - method: PUT
     path: /rbac-policies/{id}
   scope_types:
-  - system
   - project
-- check_str: (role:reader and system_scope:all) or (role:reader and project_id:%(project_id)s)
+- check_str: role:reader and project_id:%(project_id)s
   deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_or_owner
@@ -2109,8 +2274,7 @@
     path: /rbac-policies/{id}
   scope_types:
   - project
-  - system
-- check_str: (role:admin and system_scope:all) or (role:member and project_id:%(project_id)s)
+- check_str: role:member and project_id:%(project_id)s
   deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_or_owner
@@ -2123,8 +2287,7 @@
     path: /rbac-policies/{id}
   scope_types:
   - project
-  - system
-- check_str: (role:admin and system_scope:all) or (role:member and project_id:%(project_id)s)
+- check_str: role:member and project_id:%(project_id)s
   deprecated_reason: null
   deprecated_rule:
     check_str: rule:regular_user
@@ -2136,9 +2299,8 @@
   - method: POST
     path: /routers
   scope_types:
-  - system
   - project
-- check_str: role:admin and system_scope:all
+- check_str: role:admin and project_id:%(project_id)s
   deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_only
@@ -2148,8 +2310,8 @@
   name: create_router:distributed
   operations: *id007
   scope_types:
-  - system
-- check_str: role:admin and system_scope:all
+  - project
+- check_str: role:admin and project_id:%(project_id)s
   deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_only
@@ -2159,8 +2321,8 @@
   name: create_router:ha
   operations: *id007
   scope_types:
-  - system
-- check_str: (role:admin and system_scope:all) or (role:member and project_id:%(project_id)s)
+  - project
+- check_str: role:member and project_id:%(project_id)s
   deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_or_owner
@@ -2170,9 +2332,8 @@
   name: create_router:external_gateway_info
   operations: *id007
   scope_types:
-  - system
   - project
-- check_str: (role:admin and system_scope:all) or (role:member and project_id:%(project_id)s)
+- check_str: role:member and project_id:%(project_id)s
   deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_or_owner
@@ -2183,9 +2344,8 @@
   name: create_router:external_gateway_info:network_id
   operations: *id007
   scope_types:
-  - system
   - project
-- check_str: role:admin and system_scope:all
+- check_str: role:admin and project_id:%(project_id)s
   deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_only
@@ -2196,8 +2356,8 @@
   name: create_router:external_gateway_info:enable_snat
   operations: *id007
   scope_types:
-  - system
-- check_str: role:admin and system_scope:all
+  - project
+- check_str: role:admin and project_id:%(project_id)s
   deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_only
@@ -2208,8 +2368,8 @@
   name: create_router:external_gateway_info:external_fixed_ips
   operations: *id007
   scope_types:
-  - system
-- check_str: (role:reader and system_scope:all) or (role:reader and project_id:%(project_id)s)
+  - project
+- check_str: role:reader and project_id:%(project_id)s
   deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_or_owner
@@ -2223,9 +2383,8 @@
   - method: GET
     path: /routers/{id}
   scope_types:
-  - system
   - project
-- check_str: role:reader and system_scope:all
+- check_str: role:admin and project_id:%(project_id)s
   deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_only
@@ -2235,8 +2394,8 @@
   name: get_router:distributed
   operations: *id008
   scope_types:
-  - system
-- check_str: role:reader and system_scope:all
+  - project
+- check_str: role:admin and project_id:%(project_id)s
   deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_only
@@ -2246,8 +2405,8 @@
   name: get_router:ha
   operations: *id008
   scope_types:
-  - system
-- check_str: (role:admin and system_scope:all) or (role:member and project_id:%(project_id)s)
+  - project
+- check_str: role:member and project_id:%(project_id)s
   deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_or_owner
@@ -2259,9 +2418,8 @@
   - method: PUT
     path: /routers/{id}
   scope_types:
-  - system
   - project
-- check_str: role:admin and system_scope:all
+- check_str: role:admin and project_id:%(project_id)s
   deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_only
@@ -2271,8 +2429,8 @@
   name: update_router:distributed
   operations: *id009
   scope_types:
-  - system
-- check_str: role:admin and system_scope:all
+  - project
+- check_str: role:admin and project_id:%(project_id)s
   deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_only
@@ -2282,8 +2440,8 @@
   name: update_router:ha
   operations: *id009
   scope_types:
-  - system
-- check_str: (role:admin and system_scope:all) or (role:member and project_id:%(project_id)s)
+  - project
+- check_str: role:member and project_id:%(project_id)s
   deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_or_owner
@@ -2293,9 +2451,8 @@
   name: update_router:external_gateway_info
   operations: *id009
   scope_types:
-  - system
   - project
-- check_str: (role:admin and system_scope:all) or (role:member and project_id:%(project_id)s)
+- check_str: role:member and project_id:%(project_id)s
   deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_or_owner
@@ -2306,9 +2463,8 @@
   name: update_router:external_gateway_info:network_id
   operations: *id009
   scope_types:
-  - system
   - project
-- check_str: role:admin and system_scope:all
+- check_str: role:admin and project_id:%(project_id)s
   deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_only
@@ -2319,8 +2475,8 @@
   name: update_router:external_gateway_info:enable_snat
   operations: *id009
   scope_types:
-  - system
-- check_str: role:admin and system_scope:all
+  - project
+- check_str: role:admin and project_id:%(project_id)s
   deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_only
@@ -2331,8 +2487,8 @@
   name: update_router:external_gateway_info:external_fixed_ips
   operations: *id009
   scope_types:
-  - system
-- check_str: (role:admin and system_scope:all) or (role:member and project_id:%(project_id)s)
+  - project
+- check_str: role:member and project_id:%(project_id)s
   deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_or_owner
@@ -2344,9 +2500,8 @@
   - method: DELETE
     path: /routers/{id}
   scope_types:
-  - system
   - project
-- check_str: (role:admin and system_scope:all) or (role:member and project_id:%(project_id)s)
+- check_str: role:member and project_id:%(project_id)s
   deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_or_owner
@@ -2358,9 +2513,8 @@
   - method: PUT
     path: /routers/{id}/add_router_interface
   scope_types:
-  - system
   - project
-- check_str: (role:admin and system_scope:all) or (role:member and project_id:%(project_id)s)
+- check_str: role:member and project_id:%(project_id)s
   deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_or_owner
@@ -2372,9 +2526,8 @@
   - method: PUT
     path: /routers/{id}/remove_router_interface
   scope_types:
-  - system
   - project
-- check_str: (role:admin and system_scope:all) or (role:member and project_id:%(project_id)s)
+- check_str: role:member and project_id:%(project_id)s
   deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_or_owner
@@ -2386,9 +2539,8 @@
   - method: PUT
     path: /routers/{id}/add_extraroutes
   scope_types:
-  - system
   - project
-- check_str: (role:admin and system_scope:all) or (role:member and project_id:%(project_id)s)
+- check_str: role:member and project_id:%(project_id)s
   deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_or_owner
@@ -2400,7 +2552,6 @@
   - method: PUT
     path: /routers/{id}/remove_extraroutes
   scope_types:
-  - system
   - project
 - check_str: rule:context_is_admin or tenant_id:%(security_group:tenant_id)s
   description: Rule for admin or security group owner access
@@ -2412,7 +2563,7 @@
   name: admin_owner_or_sg_owner
   operations: []
   scope_types: null
-- check_str: (role:admin and system_scope:all) or (role:member and project_id:%(project_id)s)
+- check_str: role:member and project_id:%(project_id)s
   deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_or_owner
@@ -2424,9 +2575,8 @@
   - method: POST
     path: /security-groups
   scope_types:
-  - system
   - project
-- check_str: (role:reader and system_scope:all) or (role:reader and project_id:%(project_id)s)
+- check_str: role:reader and project_id:%(project_id)s
   deprecated_reason: null
   deprecated_rule:
     check_str: rule:regular_user
@@ -2440,9 +2590,8 @@
   - method: GET
     path: /security-groups/{id}
   scope_types:
-  - system
   - project
-- check_str: (role:admin and system_scope:all) or (role:member and project_id:%(project_id)s)
+- check_str: role:member and project_id:%(project_id)s
   deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_or_owner
@@ -2454,9 +2603,8 @@
   - method: PUT
     path: /security-groups/{id}
   scope_types:
-  - system
   - project
-- check_str: (role:admin and system_scope:all) or (role:member and project_id:%(project_id)s)
+- check_str: role:member and project_id:%(project_id)s
   deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_or_owner
@@ -2468,9 +2616,8 @@
   - method: DELETE
     path: /security-groups/{id}
   scope_types:
-  - system
   - project
-- check_str: (role:admin and system_scope:all) or (role:member and project_id:%(project_id)s)
+- check_str: role:member and project_id:%(project_id)s
   deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_or_owner
@@ -2482,10 +2629,8 @@
   - method: POST
     path: /security-group-rules
   scope_types:
-  - system
   - project
-- check_str: (role:reader and system_scope:all) or (role:reader and project_id:%(project_id)s)
-    or rule:sg_owner
+- check_str: role:reader and project_id:%(project_id)s or rule:sg_owner
   deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_owner_or_sg_owner
@@ -2499,9 +2644,8 @@
   - method: GET
     path: /security-group-rules/{id}
   scope_types:
-  - system
   - project
-- check_str: (role:admin and system_scope:all) or (role:member and project_id:%(project_id)s)
+- check_str: role:member and project_id:%(project_id)s
   deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_or_owner
@@ -2513,7 +2657,6 @@
   - method: DELETE
     path: /security-group-rules/{id}
   scope_types:
-  - system
   - project
 - check_str: role:admin and system_scope:all
   deprecated_reason: null
@@ -2583,8 +2726,7 @@
   scope_types:
   - system
   - project
-- check_str: (role:admin and system_scope:all) or (role:member and project_id:%(project_id)s)
-    or rule:network_owner
+- check_str: role:member and project_id:%(project_id)s or rule:network_owner
   deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_or_network_owner
@@ -2596,9 +2738,8 @@
   - method: POST
     path: /subnets
   scope_types:
-  - system
   - project
-- check_str: role:admin and system_scope:all
+- check_str: role:admin and project_id:%(project_id)s
   deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_only
@@ -2608,8 +2749,8 @@
   name: create_subnet:segment_id
   operations: *id010
   scope_types:
-  - system
-- check_str: role:admin and system_scope:all
+  - project
+- check_str: role:admin and project_id:%(project_id)s
   deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_only
@@ -2619,9 +2760,8 @@
   name: create_subnet:service_types
   operations: *id010
   scope_types:
-  - system
-- check_str: (role:reader and system_scope:all) or (role:reader and project_id:%(project_id)s)
-    or rule:shared
+  - project
+- check_str: role:reader and project_id:%(project_id)s or rule:shared
   deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_or_owner or rule:shared
@@ -2635,9 +2775,8 @@
   - method: GET
     path: /subnets/{id}
   scope_types:
-  - system
   - project
-- check_str: role:reader and system_scope:all
+- check_str: role:admin and project_id:%(project_id)s
   deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_only
@@ -2647,9 +2786,8 @@
   name: get_subnet:segment_id
   operations: *id011
   scope_types:
-  - system
-- check_str: (role:admin and system_scope:all) or (role:member and project_id:%(project_id)s)
-    or rule:network_owner
+  - project
+- check_str: role:member and project_id:%(project_id)s or rule:network_owner
   deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_or_network_owner
@@ -2661,9 +2799,8 @@
   - method: PUT
     path: /subnets/{id}
   scope_types:
-  - system
   - project
-- check_str: role:admin and system_scope:all
+- check_str: role:admin and project_id:%(project_id)s
   deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_only
@@ -2673,8 +2810,8 @@
   name: update_subnet:segment_id
   operations: *id012
   scope_types:
-  - system
-- check_str: role:admin and system_scope:all
+  - project
+- check_str: role:admin and project_id:%(project_id)s
   deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_only
@@ -2684,9 +2821,8 @@
   name: update_subnet:service_types
   operations: *id012
   scope_types:
-  - system
-- check_str: (role:admin and system_scope:all) or (role:member and project_id:%(project_id)s)
-    or rule:network_owner
+  - project
+- check_str: role:member and project_id:%(project_id)s or rule:network_owner
   deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_or_network_owner
@@ -2698,14 +2834,13 @@
   - method: DELETE
     path: /subnets/{id}
   scope_types:
-  - system
   - project
 - check_str: field:subnetpools:shared=True
   description: Definition of a shared subnetpool
   name: shared_subnetpools
   operations: []
   scope_types: null
-- check_str: (role:admin and system_scope:all) or (role:member and project_id:%(project_id)s)
+- check_str: role:member and project_id:%(project_id)s
   deprecated_reason: null
   deprecated_rule:
     check_str: rule:regular_user
@@ -2718,8 +2853,7 @@
     path: /subnetpools
   scope_types:
   - project
-  - system
-- check_str: role:admin and system_scope:all
+- check_str: role:admin and project_id:%(project_id)s
   deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_only
@@ -2731,8 +2865,8 @@
   - method: POST
     path: /subnetpools
   scope_types:
-  - system
-- check_str: role:admin and system_scope:all
+  - project
+- check_str: role:admin and project_id:%(project_id)s
   deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_only
@@ -2744,9 +2878,8 @@
   - method: POST
     path: /subnetpools
   scope_types:
-  - system
-- check_str: (role:reader and system_scope:all) or (role:reader and project_id:%(project_id)s)
-    or rule:shared_subnetpools
+  - project
+- check_str: role:reader and project_id:%(project_id)s or rule:shared_subnetpools
   deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_or_owner or rule:shared_subnetpools
@@ -2760,9 +2893,8 @@
   - method: GET
     path: /subnetpools/{id}
   scope_types:
-  - system
   - project
-- check_str: (role:admin and system_scope:all) or (role:member and project_id:%(project_id)s)
+- check_str: role:member and project_id:%(project_id)s
   deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_or_owner
@@ -2774,9 +2906,8 @@
   - method: PUT
     path: /subnetpools/{id}
   scope_types:
-  - system
   - project
-- check_str: role:admin and system_scope:all
+- check_str: role:admin and project_id:%(project_id)s
   deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_only
@@ -2788,8 +2919,8 @@
   - method: PUT
     path: /subnetpools/{id}
   scope_types:
-  - system
-- check_str: (role:admin and system_scope:all) or (role:member and project_id:%(project_id)s)
+  - project
+- check_str: role:member and project_id:%(project_id)s
   deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_or_owner
@@ -2801,9 +2932,8 @@
   - method: DELETE
     path: /subnetpools/{id}
   scope_types:
-  - system
   - project
-- check_str: (role:admin and system_scope:all) or (role:member and project_id:%(project_id)s)
+- check_str: role:member and project_id:%(project_id)s
   deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_or_owner
@@ -2815,9 +2945,8 @@
   - method: PUT
     path: /subnetpools/{id}/onboard_network_subnets
   scope_types:
-  - system
   - project
-- check_str: (role:admin and system_scope:all) or (role:member and project_id:%(project_id)s)
+- check_str: role:member and project_id:%(project_id)s
   deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_or_owner
@@ -2829,9 +2958,8 @@
   - method: PUT
     path: /subnetpools/{id}/add_prefixes
   scope_types:
-  - system
   - project
-- check_str: (role:admin and system_scope:all) or (role:member and project_id:%(project_id)s)
+- check_str: role:member and project_id:%(project_id)s
   deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_or_owner
@@ -2843,9 +2971,8 @@
   - method: PUT
     path: /subnetpools/{id}/remove_prefixes
   scope_types:
-  - system
   - project
-- check_str: (role:admin and system_scope:all) or (role:member and project_id:%(project_id)s)
+- check_str: role:member and project_id:%(project_id)s
   deprecated_reason: null
   deprecated_rule:
     check_str: rule:regular_user
@@ -2858,8 +2985,7 @@
     path: /trunks
   scope_types:
   - project
-  - system
-- check_str: (role:reader and system_scope:all) or (role:reader and project_id:%(project_id)s)
+- check_str: role:reader and project_id:%(project_id)s
   deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_or_owner
@@ -2874,8 +3000,7 @@
     path: /trunks/{id}
   scope_types:
   - project
-  - system
-- check_str: (role:admin and system_scope:all) or (role:member and project_id:%(project_id)s)
+- check_str: role:member and project_id:%(project_id)s
   deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_or_owner
@@ -2888,8 +3013,7 @@
     path: /trunks/{id}
   scope_types:
   - project
-  - system
-- check_str: (role:admin and system_scope:all) or (role:member and project_id:%(project_id)s)
+- check_str: role:member and project_id:%(project_id)s
   deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_or_owner
@@ -2902,8 +3026,7 @@
     path: /trunks/{id}
   scope_types:
   - project
-  - system
-- check_str: (role:reader and system_scope:all) or (role:reader and project_id:%(project_id)s)
+- check_str: role:reader and project_id:%(project_id)s
   deprecated_reason: null
   deprecated_rule:
     check_str: rule:regular_user
@@ -2916,8 +3039,7 @@
     path: /trunks/{id}/get_subports
   scope_types:
   - project
-  - system
-- check_str: (role:admin and system_scope:all) or (role:member and project_id:%(project_id)s)
+- check_str: role:member and project_id:%(project_id)s
   deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_or_owner
@@ -2930,8 +3052,7 @@
     path: /trunks/{id}/add_subports
   scope_types:
   - project
-  - system
-- check_str: (role:admin and system_scope:all) or (role:member and project_id:%(project_id)s)
+- check_str: role:member and project_id:%(project_id)s
   deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_or_owner
@@ -2944,4 +3065,3 @@
     path: /trunks/{id}/remove_subports
   scope_types:
   - project
-  - system

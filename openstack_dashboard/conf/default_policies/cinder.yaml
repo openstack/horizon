@@ -1,11 +1,19 @@
+- check_str: is_admin:True or (role:admin and is_admin_project:True) or project_id:%(project_id)s
+  description: 'DEPRECATED: This rule will be removed in the Yoga release.            Default
+    rule for most non-Admin APIs.'
+  name: admin_or_owner
+  operations: []
+  scope_types: null
+- check_str: (role:admin and system_scope:all) or (role:admin and domain_id:%(domain_id)s)
+    or (role:admin and project_id:%(project_id)s)
+  description: 'DEPRECATED: This rule will be removed in the Yoga release.            Default
+    rule for admins of cloud, domain or a project.'
+  name: system_or_domain_or_project_admin
+  operations: []
+  scope_types: null
 - check_str: role:admin
   description: Decides what is required for the 'is_admin:True' check to succeed.
   name: context_is_admin
-  operations: []
-  scope_types: null
-- check_str: is_admin:True or (role:admin and is_admin_project:True) or project_id:%(project_id)s
-  description: Default rule for most non-Admin APIs.
-  name: admin_or_owner
   operations: []
   scope_types: null
 - check_str: is_admin:True or (role:admin and is_admin_project:True)
@@ -13,62 +21,106 @@
   name: admin_api
   operations: []
   scope_types: null
-- check_str: (role:admin and system_scope:all) or (role:admin and domain_id:%(domain_id)s)
-    or (role:admin and project_id:%(project_id)s)
-  description: Default rule for admins of cloud, domain or a project.
-  name: system_or_domain_or_project_admin
+- check_str: (role:admin) or (role:reader and project_id:%(project_id)s)
+  description: 'NOTE: this purely role-based rule recognizes only project scope'
+  name: xena_system_admin_or_project_reader
   operations: []
   scope_types: null
-- check_str: ''
+- check_str: (role:admin) or (role:member and project_id:%(project_id)s)
+  description: 'NOTE: this purely role-based rule recognizes only project scope'
+  name: xena_system_admin_or_project_member
+  operations: []
+  scope_types: null
+- check_str: rule:xena_system_admin_or_project_member
+  deprecated_reason: null
+  deprecated_rule:
+    check_str: ''
+    name: volume:attachment_create
+  deprecated_since: null
   description: Create attachment.
   name: volume:attachment_create
   operations:
   - method: POST
     path: /attachments
   scope_types: null
-- check_str: rule:admin_or_owner
+- check_str: rule:xena_system_admin_or_project_member
+  deprecated_reason: null
+  deprecated_rule:
+    check_str: rule:admin_or_owner
+    name: volume:attachment_update
+  deprecated_since: null
   description: Update attachment.
   name: volume:attachment_update
   operations:
   - method: PUT
     path: /attachments/{attachment_id}
   scope_types: null
-- check_str: rule:admin_or_owner
+- check_str: rule:xena_system_admin_or_project_member
+  deprecated_reason: null
+  deprecated_rule:
+    check_str: rule:admin_or_owner
+    name: volume:attachment_delete
+  deprecated_since: null
   description: Delete attachment.
   name: volume:attachment_delete
   operations:
   - method: DELETE
     path: /attachments/{attachment_id}
   scope_types: null
-- check_str: rule:admin_or_owner
+- check_str: rule:xena_system_admin_or_project_member
+  deprecated_reason: null
+  deprecated_rule:
+    check_str: rule:admin_or_owner
+    name: volume:attachment_complete
+  deprecated_since: null
   description: Mark a volume attachment process as completed (in-use)
   name: volume:attachment_complete
   operations:
   - method: POST
     path: /attachments/{attachment_id}/action (os-complete)
   scope_types: null
-- check_str: rule:admin_or_owner
+- check_str: rule:xena_system_admin_or_project_member
+  deprecated_reason: null
+  deprecated_rule:
+    check_str: rule:admin_or_owner
+    name: volume:multiattach_bootable_volume
+  deprecated_since: null
   description: Allow multiattach of bootable volumes.
   name: volume:multiattach_bootable_volume
   operations:
   - method: POST
     path: /attachments
   scope_types: null
-- check_str: rule:admin_or_owner
+- check_str: rule:xena_system_admin_or_project_reader
+  deprecated_reason: null
+  deprecated_rule:
+    check_str: rule:admin_or_owner
+    name: message:get_all
+  deprecated_since: null
   description: List messages.
   name: message:get_all
   operations:
   - method: GET
     path: /messages
   scope_types: null
-- check_str: rule:admin_or_owner
+- check_str: rule:xena_system_admin_or_project_reader
+  deprecated_reason: null
+  deprecated_rule:
+    check_str: rule:admin_or_owner
+    name: message:get
+  deprecated_since: null
   description: Show message.
   name: message:get
   operations:
   - method: GET
     path: /messages/{message_id}
   scope_types: null
-- check_str: rule:admin_or_owner
+- check_str: rule:xena_system_admin_or_project_member
+  deprecated_reason: null
+  deprecated_rule:
+    check_str: rule:admin_or_owner
+    name: message:delete
+  deprecated_since: null
   description: Delete message.
   name: message:delete
   operations:
@@ -105,7 +157,12 @@
   - method: POST
     path: /workers/cleanup
   scope_types: null
-- check_str: rule:admin_or_owner
+- check_str: rule:xena_system_admin_or_project_reader
+  deprecated_reason: null
+  deprecated_rule:
+    check_str: rule:admin_or_owner
+    name: volume:get_snapshot_metadata
+  deprecated_since: null
   description: Show snapshot's metadata or one specified metadata with a given key.
   name: volume:get_snapshot_metadata
   operations:
@@ -114,23 +171,38 @@
   - method: GET
     path: /snapshots/{snapshot_id}/metadata/{key}
   scope_types: null
-- check_str: rule:admin_or_owner
+- check_str: rule:xena_system_admin_or_project_member
+  deprecated_reason: null
+  deprecated_rule:
+    check_str: rule:admin_or_owner
+    name: volume:update_snapshot_metadata
+  deprecated_since: null
   description: Update snapshot's metadata or one specified metadata with a given key.
   name: volume:update_snapshot_metadata
   operations:
-  - method: PUT
+  - method: POST
     path: /snapshots/{snapshot_id}/metadata
   - method: PUT
     path: /snapshots/{snapshot_id}/metadata/{key}
   scope_types: null
-- check_str: rule:admin_or_owner
+- check_str: rule:xena_system_admin_or_project_member
+  deprecated_reason: null
+  deprecated_rule:
+    check_str: rule:admin_or_owner
+    name: volume:delete_snapshot_metadata
+  deprecated_since: null
   description: Delete snapshot's specified metadata with a given key.
   name: volume:delete_snapshot_metadata
   operations:
   - method: DELETE
     path: /snapshots/{snapshot_id}/metadata/{key}
   scope_types: null
-- check_str: rule:admin_or_owner
+- check_str: rule:xena_system_admin_or_project_reader
+  deprecated_reason: null
+  deprecated_rule:
+    check_str: rule:admin_or_owner
+    name: volume:get_all_snapshots
+  deprecated_since: null
   description: List snapshots.
   name: volume:get_all_snapshots
   operations:
@@ -139,7 +211,12 @@
   - method: GET
     path: /snapshots/detail
   scope_types: null
-- check_str: rule:admin_or_owner
+- check_str: rule:xena_system_admin_or_project_reader
+  deprecated_reason: null
+  deprecated_rule:
+    check_str: rule:admin_or_owner
+    name: volume_extension:extended_snapshot_attributes
+  deprecated_since: null
   description: List or show snapshots with extended attributes.
   name: volume_extension:extended_snapshot_attributes
   operations:
@@ -148,28 +225,48 @@
   - method: GET
     path: /snapshots/detail
   scope_types: null
-- check_str: rule:admin_or_owner
+- check_str: rule:xena_system_admin_or_project_member
+  deprecated_reason: null
+  deprecated_rule:
+    check_str: rule:admin_or_owner
+    name: volume:create_snapshot
+  deprecated_since: null
   description: Create snapshot.
   name: volume:create_snapshot
   operations:
   - method: POST
     path: /snapshots
   scope_types: null
-- check_str: rule:admin_or_owner
+- check_str: rule:xena_system_admin_or_project_reader
+  deprecated_reason: null
+  deprecated_rule:
+    check_str: rule:admin_or_owner
+    name: volume:get_snapshot
+  deprecated_since: null
   description: Show snapshot.
   name: volume:get_snapshot
   operations:
   - method: GET
     path: /snapshots/{snapshot_id}
   scope_types: null
-- check_str: rule:admin_or_owner
+- check_str: rule:xena_system_admin_or_project_member
+  deprecated_reason: null
+  deprecated_rule:
+    check_str: rule:admin_or_owner
+    name: volume:update_snapshot
+  deprecated_since: null
   description: Update snapshot.
   name: volume:update_snapshot
   operations:
   - method: PUT
     path: /snapshots/{snapshot_id}
   scope_types: null
-- check_str: rule:admin_or_owner
+- check_str: rule:xena_system_admin_or_project_member
+  deprecated_reason: null
+  deprecated_rule:
+    check_str: rule:admin_or_owner
+    name: volume:delete_snapshot
+  deprecated_since: null
   description: Delete snapshot.
   name: volume:delete_snapshot
   operations:
@@ -183,7 +280,12 @@
   - method: POST
     path: /snapshots/{snapshot_id}/action (os-reset_status)
   scope_types: null
-- check_str: ''
+- check_str: rule:xena_system_admin_or_project_member
+  deprecated_reason: null
+  deprecated_rule:
+    check_str: ''
+    name: snapshot_extension:snapshot_actions:update_snapshot_status
+  deprecated_since: null
   description: Update database fields of snapshot.
   name: snapshot_extension:snapshot_actions:update_snapshot_status
   operations:
@@ -220,7 +322,12 @@
   - method: POST
     path: /snapshots/{snapshot_id}/action (os-unmanage)
   scope_types: null
-- check_str: rule:admin_or_owner
+- check_str: rule:xena_system_admin_or_project_reader
+  deprecated_reason: null
+  deprecated_rule:
+    check_str: rule:admin_or_owner
+    name: backup:get_all
+  deprecated_since: null
   description: List backups.
   name: backup:get_all
   operations:
@@ -238,35 +345,60 @@
   - method: GET
     path: /backups/detail
   scope_types: null
-- check_str: ''
+- check_str: rule:xena_system_admin_or_project_member
+  deprecated_reason: null
+  deprecated_rule:
+    check_str: ''
+    name: backup:create
+  deprecated_since: null
   description: Create backup.
   name: backup:create
   operations:
   - method: POST
     path: /backups
   scope_types: null
-- check_str: rule:admin_or_owner
+- check_str: rule:xena_system_admin_or_project_reader
+  deprecated_reason: null
+  deprecated_rule:
+    check_str: rule:admin_or_owner
+    name: backup:get
+  deprecated_since: null
   description: Show backup.
   name: backup:get
   operations:
   - method: GET
     path: /backups/{backup_id}
   scope_types: null
-- check_str: rule:admin_or_owner
+- check_str: rule:xena_system_admin_or_project_member
+  deprecated_reason: null
+  deprecated_rule:
+    check_str: rule:admin_or_owner
+    name: backup:update
+  deprecated_since: null
   description: Update backup.
   name: backup:update
   operations:
   - method: PUT
     path: /backups/{backup_id}
   scope_types: null
-- check_str: rule:admin_or_owner
+- check_str: rule:xena_system_admin_or_project_member
+  deprecated_reason: null
+  deprecated_rule:
+    check_str: rule:admin_or_owner
+    name: backup:delete
+  deprecated_since: null
   description: Delete backup.
   name: backup:delete
   operations:
   - method: DELETE
     path: /backups/{backup_id}
   scope_types: null
-- check_str: rule:admin_or_owner
+- check_str: rule:xena_system_admin_or_project_member
+  deprecated_reason: null
+  deprecated_rule:
+    check_str: rule:admin_or_owner
+    name: backup:restore
+  deprecated_since: null
   description: Restore backup.
   name: backup:restore
   operations:
@@ -301,7 +433,12 @@
   - method: POST
     path: /backups/{backup_id}/action (os-force_delete)
   scope_types: null
-- check_str: rule:admin_or_owner
+- check_str: rule:xena_system_admin_or_project_reader
+  deprecated_reason: null
+  deprecated_rule:
+    check_str: rule:admin_or_owner
+    name: group:get_all
+  deprecated_since: null
   description: List groups.
   name: group:get_all
   operations:
@@ -310,21 +447,36 @@
   - method: GET
     path: /groups/detail
   scope_types: null
-- check_str: ''
+- check_str: rule:xena_system_admin_or_project_member
+  deprecated_reason: null
+  deprecated_rule:
+    check_str: ''
+    name: group:create
+  deprecated_since: null
   description: Create group.
   name: group:create
   operations:
   - method: POST
     path: /groups
   scope_types: null
-- check_str: rule:admin_or_owner
+- check_str: rule:xena_system_admin_or_project_reader
+  deprecated_reason: null
+  deprecated_rule:
+    check_str: rule:admin_or_owner
+    name: group:get
+  deprecated_since: null
   description: Show group.
   name: group:get
   operations:
   - method: GET
     path: /groups/{group_id}
   scope_types: null
-- check_str: rule:admin_or_owner
+- check_str: rule:xena_system_admin_or_project_member
+  deprecated_reason: null
+  deprecated_rule:
+    check_str: rule:admin_or_owner
+    name: group:update
+  deprecated_since: null
   description: Update group.
   name: group:update
   operations:
@@ -341,13 +493,38 @@
     path: /groups/detail
   scope_types: null
 - check_str: rule:admin_api
-  description: Create, update or delete a group type.
-  name: group:group_types_manage
+  deprecated_reason: null
+  deprecated_rule:
+    check_str: rule:admin_api
+    name: group:group_types_manage
+  deprecated_since: null
+  description: Create a group type.
+  name: group:group_types:create
   operations:
   - method: POST
     path: /group_types/
+  scope_types: null
+- check_str: rule:admin_api
+  deprecated_reason: null
+  deprecated_rule:
+    check_str: rule:admin_api
+    name: group:group_types_manage
+  deprecated_since: null
+  description: Update a group type.
+  name: group:group_types:update
+  operations:
   - method: PUT
     path: /group_types/{group_type_id}
+  scope_types: null
+- check_str: rule:admin_api
+  deprecated_reason: null
+  deprecated_rule:
+    check_str: rule:admin_api
+    name: group:group_types_manage
+  deprecated_since: null
+  description: Delete a group type.
+  name: group:group_types:delete
+  operations:
   - method: DELETE
     path: /group_types/{group_type_id}
   scope_types: null
@@ -359,21 +536,71 @@
     path: /group_types/{group_type_id}
   scope_types: null
 - check_str: rule:admin_api
-  description: Create, show, update and delete group type spec.
-  name: group:group_types_specs
+  deprecated_reason: null
+  deprecated_rule:
+    check_str: rule:admin_api
+    name: group:group_types_specs
+  deprecated_since: null
+  description: Show a group type spec.
+  name: group:group_types_specs:get
   operations:
   - method: GET
     path: /group_types/{group_type_id}/group_specs/{g_spec_id}
+  scope_types: null
+- check_str: rule:admin_api
+  deprecated_reason: null
+  deprecated_rule:
+    check_str: rule:admin_api
+    name: group:group_types_specs
+  deprecated_since: null
+  description: List group type specs.
+  name: group:group_types_specs:get_all
+  operations:
   - method: GET
     path: /group_types/{group_type_id}/group_specs
+  scope_types: null
+- check_str: rule:admin_api
+  deprecated_reason: null
+  deprecated_rule:
+    check_str: rule:admin_api
+    name: group:group_types_specs
+  deprecated_since: null
+  description: Create a group type spec.
+  name: group:group_types_specs:create
+  operations:
   - method: POST
     path: /group_types/{group_type_id}/group_specs
+  scope_types: null
+- check_str: rule:admin_api
+  deprecated_reason: null
+  deprecated_rule:
+    check_str: rule:admin_api
+    name: group:group_types_specs
+  deprecated_since: null
+  description: Update a group type spec.
+  name: group:group_types_specs:update
+  operations:
   - method: PUT
     path: /group_types/{group_type_id}/group_specs/{g_spec_id}
+  scope_types: null
+- check_str: rule:admin_api
+  deprecated_reason: null
+  deprecated_rule:
+    check_str: rule:admin_api
+    name: group:group_types_specs
+  deprecated_since: null
+  description: Delete a group type spec.
+  name: group:group_types_specs:delete
+  operations:
   - method: DELETE
     path: /group_types/{group_type_id}/group_specs/{g_spec_id}
   scope_types: null
-- check_str: rule:admin_or_owner
+- check_str: rule:xena_system_admin_or_project_reader
+  deprecated_reason: null
+  deprecated_rule:
+    check_str: rule:admin_or_owner
+    name: group:get_all_group_snapshots
+  deprecated_since: null
   description: List group snapshots.
   name: group:get_all_group_snapshots
   operations:
@@ -382,28 +609,48 @@
   - method: GET
     path: /group_snapshots/detail
   scope_types: null
-- check_str: ''
+- check_str: rule:xena_system_admin_or_project_member
+  deprecated_reason: null
+  deprecated_rule:
+    check_str: ''
+    name: group:create_group_snapshot
+  deprecated_since: null
   description: Create group snapshot.
   name: group:create_group_snapshot
   operations:
   - method: POST
     path: /group_snapshots
   scope_types: null
-- check_str: rule:admin_or_owner
+- check_str: rule:xena_system_admin_or_project_reader
+  deprecated_reason: null
+  deprecated_rule:
+    check_str: rule:admin_or_owner
+    name: group:get_group_snapshot
+  deprecated_since: null
   description: Show group snapshot.
   name: group:get_group_snapshot
   operations:
   - method: GET
     path: /group_snapshots/{group_snapshot_id}
   scope_types: null
-- check_str: rule:admin_or_owner
+- check_str: rule:xena_system_admin_or_project_member
+  deprecated_reason: null
+  deprecated_rule:
+    check_str: rule:admin_or_owner
+    name: group:delete_group_snapshot
+  deprecated_since: null
   description: Delete group snapshot.
   name: group:delete_group_snapshot
   operations:
   - method: DELETE
     path: /group_snapshots/{group_snapshot_id}
   scope_types: null
-- check_str: rule:admin_or_owner
+- check_str: rule:xena_system_admin_or_project_member
+  deprecated_reason: null
+  deprecated_rule:
+    check_str: rule:admin_or_owner
+    name: group:update_group_snapshot
+  deprecated_since: null
   description: Update group snapshot.
   name: group:update_group_snapshot
   operations:
@@ -426,7 +673,12 @@
   - method: POST
     path: /group_snapshots/{g_snapshot_id}/action (reset_status)
   scope_types: null
-- check_str: rule:admin_or_owner
+- check_str: rule:xena_system_admin_or_project_member
+  deprecated_reason: null
+  deprecated_rule:
+    check_str: rule:admin_or_owner
+    name: group:delete
+  deprecated_since: null
   description: Delete group.
   name: group:delete
   operations:
@@ -440,28 +692,48 @@
   - method: POST
     path: /groups/{group_id}/action (reset_status)
   scope_types: null
-- check_str: rule:admin_or_owner
+- check_str: rule:xena_system_admin_or_project_member
+  deprecated_reason: null
+  deprecated_rule:
+    check_str: rule:admin_or_owner
+    name: group:enable_replication
+  deprecated_since: null
   description: Enable replication.
   name: group:enable_replication
   operations:
   - method: POST
     path: /groups/{group_id}/action (enable_replication)
   scope_types: null
-- check_str: rule:admin_or_owner
+- check_str: rule:xena_system_admin_or_project_member
+  deprecated_reason: null
+  deprecated_rule:
+    check_str: rule:admin_or_owner
+    name: group:disable_replication
+  deprecated_since: null
   description: Disable replication.
   name: group:disable_replication
   operations:
   - method: POST
     path: /groups/{group_id}/action (disable_replication)
   scope_types: null
-- check_str: rule:admin_or_owner
+- check_str: rule:xena_system_admin_or_project_member
+  deprecated_reason: null
+  deprecated_rule:
+    check_str: rule:admin_or_owner
+    name: group:failover_replication
+  deprecated_since: null
   description: Fail over replication.
   name: group:failover_replication
   operations:
   - method: POST
     path: /groups/{group_id}/action (failover_replication)
   scope_types: null
-- check_str: rule:admin_or_owner
+- check_str: rule:xena_system_admin_or_project_member
+  deprecated_reason: null
+  deprecated_rule:
+    check_str: rule:admin_or_owner
+    name: group:list_replication_targets
+  deprecated_since: null
   description: List failover replication.
   name: group:list_replication_targets
   operations:
@@ -514,15 +786,35 @@
     path: /qos-specs/{qos_id}/delete_keys
   scope_types: null
 - check_str: rule:admin_api
-  description: Show or update project quota class.
-  name: volume_extension:quota_classes
+  deprecated_reason: null
+  deprecated_rule:
+    check_str: rule:admin_api
+    name: volume_extension:quota_classes
+  deprecated_since: null
+  description: Show project quota class.
+  name: volume_extension:quota_classes:get
   operations:
   - method: GET
     path: /os-quota-class-sets/{project_id}
+  scope_types: null
+- check_str: rule:admin_api
+  deprecated_reason: null
+  deprecated_rule:
+    check_str: rule:admin_api
+    name: volume_extension:quota_classes
+  deprecated_since: null
+  description: Update project quota class.
+  name: volume_extension:quota_classes:update
+  operations:
   - method: PUT
     path: /os-quota-class-sets/{project_id}
   scope_types: null
-- check_str: rule:admin_or_owner
+- check_str: rule:xena_system_admin_or_project_reader
+  deprecated_reason: null
+  deprecated_rule:
+    check_str: rule:admin_or_owner
+    name: volume_extension:quotas:show
+  deprecated_since: null
   description: Show project quota (including usage and default).
   name: volume_extension:quotas:show
   operations:
@@ -608,7 +900,12 @@
   - method: GET
     path: /os-hosts/{host_id}
   scope_types: null
-- check_str: rule:admin_or_owner
+- check_str: rule:xena_system_admin_or_project_reader
+  deprecated_reason: null
+  deprecated_rule:
+    check_str: rule:admin_or_owner
+    name: limits_extension:used_limits
+  deprecated_since: null
   description: Show limits with used limit attributes.
   name: limits_extension:used_limits
   operations:
@@ -639,80 +936,73 @@
     path: /volumes/{volume_id}/action (os-unmanage)
   scope_types: null
 - check_str: rule:admin_api
-  description: Create, update and delete volume type.
-  name: volume_extension:types_manage
+  deprecated_reason: null
+  deprecated_rule:
+    check_str: rule:admin_api
+    name: volume_extension:types_manage
+  deprecated_since: null
+  description: Create volume type.
+  name: volume_extension:type_create
   operations:
   - method: POST
     path: /types
+  scope_types: null
+- check_str: rule:admin_api
+  deprecated_reason: null
+  deprecated_rule:
+    check_str: rule:admin_api
+    name: volume_extension:types_manage
+  deprecated_since: null
+  description: Update volume type.
+  name: volume_extension:type_update
+  operations:
   - method: PUT
     path: /types
+  scope_types: null
+- check_str: rule:admin_api
+  deprecated_reason: null
+  deprecated_rule:
+    check_str: rule:admin_api
+    name: volume_extension:types_manage
+  deprecated_since: null
+  description: Delete volume type.
+  name: volume_extension:type_delete
+  operations:
   - method: DELETE
     path: /types
   scope_types: null
-- check_str: ''
+- check_str: rule:xena_system_admin_or_project_reader
+  deprecated_reason: null
+  deprecated_rule:
+    check_str: ''
+    name: volume_extension:type_get
+  deprecated_since: null
   description: Get one specific volume type.
   name: volume_extension:type_get
   operations:
   - method: GET
     path: /types/{type_id}
   scope_types: null
-- check_str: ''
+- check_str: rule:xena_system_admin_or_project_reader
+  deprecated_reason: null
+  deprecated_rule:
+    check_str: ''
+    name: volume_extension:type_get_all
+  deprecated_since: null
   description: List volume types.
   name: volume_extension:type_get_all
   operations:
   - method: GET
     path: /types/
   scope_types: null
-- check_str: rule:admin_api
-  description: Base policy for all volume type encryption type operations.  This can
-    be used to set the policies for a volume type's encryption type create, show,
-    update, and delete actions in one place, or any of those may be set individually
-    using the following policy targets for finer grained control.
-  name: volume_extension:volume_type_encryption
-  operations:
-  - method: POST
-    path: /types/{type_id}/encryption
-  - method: PUT
-    path: /types/{type_id}/encryption/{encryption_id}
-  - method: GET
-    path: /types/{type_id}/encryption
-  - method: GET
-    path: /types/{type_id}/encryption/{key}
-  - method: DELETE
-    path: /types/{type_id}/encryption/{encryption_id}
-  scope_types: null
-- check_str: rule:volume_extension:volume_type_encryption
-  description: Create volume type encryption.
-  name: volume_extension:volume_type_encryption:create
-  operations:
-  - method: POST
-    path: /types/{type_id}/encryption
-  scope_types: null
-- check_str: rule:volume_extension:volume_type_encryption
-  description: Show a volume type's encryption type, show an encryption specs item.
-  name: volume_extension:volume_type_encryption:get
-  operations:
-  - method: GET
-    path: /types/{type_id}/encryption
-  - method: GET
-    path: /types/{type_id}/encryption/{key}
-  scope_types: null
-- check_str: rule:volume_extension:volume_type_encryption
-  description: Update volume type encryption.
-  name: volume_extension:volume_type_encryption:update
-  operations:
-  - method: PUT
-    path: /types/{type_id}/encryption/{encryption_id}
-  scope_types: null
-- check_str: rule:volume_extension:volume_type_encryption
-  description: Delete volume type encryption.
-  name: volume_extension:volume_type_encryption:delete
-  operations:
-  - method: DELETE
-    path: /types/{type_id}/encryption/{encryption_id}
-  scope_types: null
-- check_str: rule:admin_api
-  description: List or show volume type with access type extra specs attribute.
+- check_str: rule:xena_system_admin_or_project_reader
+  deprecated_reason: null
+  deprecated_rule:
+    check_str: rule:admin_api
+    name: volume_extension:access_types_extra_specs
+  deprecated_since: null
+  description: Include the volume type's extra_specs attribute in the volume type
+    list or show requests.  The ability to make these calls is governed by other policies.
   name: volume_extension:access_types_extra_specs
   operations:
   - method: GET
@@ -721,7 +1011,9 @@
     path: /types
   scope_types: null
 - check_str: rule:admin_api
-  description: List or show volume type with access type qos specs id attribute.
+  description: Include the volume type's QoS specifications ID attribute in the volume
+    type list or show requests.  The ability to make these calls is governed by other
+    policies.
   name: volume_extension:access_types_qos_specs_id
   operations:
   - method: GET
@@ -729,14 +1021,73 @@
   - method: GET
     path: /types
   scope_types: null
-- check_str: rule:admin_or_owner
-  description: Volume type access related APIs.
+- check_str: rule:admin_api
+  description: 'DEPRECATED: This rule will be removed in the Yoga release.'
+  name: volume_extension:volume_type_encryption
+  operations: []
+  scope_types: null
+- check_str: rule:admin_api
+  deprecated_reason: null
+  deprecated_rule:
+    check_str: rule:volume_extension:volume_type_encryption
+    name: volume_extension:volume_type_encryption:create
+  deprecated_since: null
+  description: Create volume type encryption.
+  name: volume_extension:volume_type_encryption:create
+  operations:
+  - method: POST
+    path: /types/{type_id}/encryption
+  scope_types: null
+- check_str: rule:admin_api
+  deprecated_reason: null
+  deprecated_rule:
+    check_str: rule:volume_extension:volume_type_encryption
+    name: volume_extension:volume_type_encryption:get
+  deprecated_since: null
+  description: Show a volume type's encryption type, show an encryption specs item.
+  name: volume_extension:volume_type_encryption:get
+  operations:
+  - method: GET
+    path: /types/{type_id}/encryption
+  - method: GET
+    path: /types/{type_id}/encryption/{key}
+  scope_types: null
+- check_str: rule:admin_api
+  deprecated_reason: null
+  deprecated_rule:
+    check_str: rule:volume_extension:volume_type_encryption
+    name: volume_extension:volume_type_encryption:update
+  deprecated_since: null
+  description: Update volume type encryption.
+  name: volume_extension:volume_type_encryption:update
+  operations:
+  - method: PUT
+    path: /types/{type_id}/encryption/{encryption_id}
+  scope_types: null
+- check_str: rule:admin_api
+  deprecated_reason: null
+  deprecated_rule:
+    check_str: rule:volume_extension:volume_type_encryption
+    name: volume_extension:volume_type_encryption:delete
+  deprecated_since: null
+  description: Delete volume type encryption.
+  name: volume_extension:volume_type_encryption:delete
+  operations:
+  - method: DELETE
+    path: /types/{type_id}/encryption/{encryption_id}
+  scope_types: null
+- check_str: rule:xena_system_admin_or_project_member
+  deprecated_reason: null
+  deprecated_rule:
+    check_str: rule:admin_or_owner
+    name: volume_extension:volume_type_access
+  deprecated_since: null
+  description: Adds the boolean field 'os-volume-type-access:is_public' to the responses
+    for these API calls.  The ability to make these calls is governed by other policies.
   name: volume_extension:volume_type_access
   operations:
   - method: GET
     path: /types
-  - method: GET
-    path: /types/detail
   - method: GET
     path: /types/{type_id}
   - method: POST
@@ -756,21 +1107,49 @@
   - method: POST
     path: /types/{type_id}/action (removeProjectAccess)
   scope_types: null
-- check_str: rule:admin_or_owner
+- check_str: rule:admin_api
+  deprecated_reason: null
+  deprecated_rule:
+    check_str: volume_extension:volume_type_access
+    name: volume_extension:volume_type_access:get_all_for_type
+  deprecated_since: null
+  description: List private volume type access detail, that is, list the projects
+    that have access to this volume type.
+  name: volume_extension:volume_type_access:get_all_for_type
+  operations:
+  - method: GET
+    path: /types/{type_id}/os-volume-type-access
+  scope_types: null
+- check_str: rule:xena_system_admin_or_project_member
+  deprecated_reason: null
+  deprecated_rule:
+    check_str: rule:admin_or_owner
+    name: volume:extend
+  deprecated_since: null
   description: Extend a volume.
   name: volume:extend
   operations:
   - method: POST
     path: /volumes/{volume_id}/action (os-extend)
   scope_types: null
-- check_str: rule:admin_or_owner
+- check_str: rule:xena_system_admin_or_project_member
+  deprecated_reason: null
+  deprecated_rule:
+    check_str: rule:admin_or_owner
+    name: volume:extend_attached_volume
+  deprecated_since: null
   description: Extend a attached volume.
   name: volume:extend_attached_volume
   operations:
   - method: POST
     path: /volumes/{volume_id}/action (os-extend)
   scope_types: null
-- check_str: rule:admin_or_owner
+- check_str: rule:xena_system_admin_or_project_member
+  deprecated_reason: null
+  deprecated_rule:
+    check_str: rule:admin_or_owner
+    name: volume:revert_to_snapshot
+  deprecated_since: null
   description: Revert a volume to a snapshot.
   name: volume:revert_to_snapshot
   operations:
@@ -784,14 +1163,24 @@
   - method: POST
     path: /volumes/{volume_id}/action (os-reset_status)
   scope_types: null
-- check_str: rule:admin_or_owner
+- check_str: rule:xena_system_admin_or_project_member
+  deprecated_reason: null
+  deprecated_rule:
+    check_str: rule:admin_or_owner
+    name: volume:retype
+  deprecated_since: null
   description: Retype a volume.
   name: volume:retype
   operations:
   - method: POST
     path: /volumes/{volume_id}/action (os-retype)
   scope_types: null
-- check_str: rule:admin_or_owner
+- check_str: rule:xena_system_admin_or_project_member
+  deprecated_reason: null
+  deprecated_rule:
+    check_str: rule:admin_or_owner
+    name: volume:update_readonly_flag
+  deprecated_since: null
   description: Update a volume's readonly flag.
   name: volume:update_readonly_flag
   operations:
@@ -812,7 +1201,12 @@
   - method: POST
     path: /volumes/{volume_id}/action (os-volume_upload_image)
   scope_types: null
-- check_str: rule:admin_or_owner
+- check_str: rule:xena_system_admin_or_project_member
+  deprecated_reason: null
+  deprecated_rule:
+    check_str: rule:admin_or_owner
+    name: volume_extension:volume_actions:upload_image
+  deprecated_since: null
   description: Upload a volume to image.
   name: volume_extension:volume_actions:upload_image
   operations:
@@ -840,63 +1234,122 @@
   - method: POST
     path: /volumes/{volume_id}/action (os-migrate_volume_completion)
   scope_types: null
-- check_str: rule:admin_or_owner
+- check_str: rule:xena_system_admin_or_project_member
+  deprecated_reason: null
+  deprecated_rule:
+    check_str: rule:admin_or_owner
+    name: volume_extension:volume_actions:initialize_connection
+  deprecated_since: null
   description: Initialize volume attachment.
   name: volume_extension:volume_actions:initialize_connection
   operations:
   - method: POST
     path: /volumes/{volume_id}/action (os-initialize_connection)
   scope_types: null
-- check_str: rule:admin_or_owner
+- check_str: rule:xena_system_admin_or_project_member
+  deprecated_reason: null
+  deprecated_rule:
+    check_str: rule:admin_or_owner
+    name: volume_extension:volume_actions:terminate_connection
+  deprecated_since: null
   description: Terminate volume attachment.
   name: volume_extension:volume_actions:terminate_connection
   operations:
   - method: POST
     path: /volumes/{volume_id}/action (os-terminate_connection)
   scope_types: null
-- check_str: rule:admin_or_owner
+- check_str: rule:xena_system_admin_or_project_member
+  deprecated_reason: null
+  deprecated_rule:
+    check_str: rule:admin_or_owner
+    name: volume_extension:volume_actions:roll_detaching
+  deprecated_since: null
   description: Roll back volume status to 'in-use'.
   name: volume_extension:volume_actions:roll_detaching
   operations:
   - method: POST
     path: /volumes/{volume_id}/action (os-roll_detaching)
   scope_types: null
-- check_str: rule:admin_or_owner
+- check_str: rule:xena_system_admin_or_project_member
+  deprecated_reason: null
+  deprecated_rule:
+    check_str: rule:admin_or_owner
+    name: volume_extension:volume_actions:reserve
+  deprecated_since: null
   description: Mark volume as reserved.
   name: volume_extension:volume_actions:reserve
   operations:
   - method: POST
     path: /volumes/{volume_id}/action (os-reserve)
   scope_types: null
-- check_str: rule:admin_or_owner
+- check_str: rule:xena_system_admin_or_project_member
+  deprecated_reason: null
+  deprecated_rule:
+    check_str: rule:admin_or_owner
+    name: volume_extension:volume_actions:unreserve
+  deprecated_since: null
   description: Unmark volume as reserved.
   name: volume_extension:volume_actions:unreserve
   operations:
   - method: POST
     path: /volumes/{volume_id}/action (os-unreserve)
   scope_types: null
-- check_str: rule:admin_or_owner
+- check_str: rule:xena_system_admin_or_project_member
+  deprecated_reason: null
+  deprecated_rule:
+    check_str: rule:admin_or_owner
+    name: volume_extension:volume_actions:begin_detaching
+  deprecated_since: null
   description: Begin detach volumes.
   name: volume_extension:volume_actions:begin_detaching
   operations:
   - method: POST
     path: /volumes/{volume_id}/action (os-begin_detaching)
   scope_types: null
-- check_str: rule:admin_or_owner
+- check_str: rule:xena_system_admin_or_project_member
+  deprecated_reason: null
+  deprecated_rule:
+    check_str: rule:admin_or_owner
+    name: volume_extension:volume_actions:attach
+  deprecated_since: null
   description: Add attachment metadata.
   name: volume_extension:volume_actions:attach
   operations:
   - method: POST
     path: /volumes/{volume_id}/action (os-attach)
   scope_types: null
-- check_str: rule:admin_or_owner
+- check_str: rule:xena_system_admin_or_project_member
+  deprecated_reason: null
+  deprecated_rule:
+    check_str: rule:admin_or_owner
+    name: volume_extension:volume_actions:detach
+  deprecated_since: null
   description: Clear attachment metadata.
   name: volume_extension:volume_actions:detach
   operations:
   - method: POST
     path: /volumes/{volume_id}/action (os-detach)
   scope_types: null
-- check_str: rule:admin_or_owner
+- check_str: rule:xena_system_admin_or_project_member
+  description: Reimage a volume in 'available' or 'error' status.
+  name: volume:reimage
+  operations:
+  - method: POST
+    path: /volumes/{volume_id}/action (os-reimage)
+  scope_types: null
+- check_str: rule:xena_system_admin_or_project_member
+  description: Reimage a volume in 'reserved' status.
+  name: volume:reimage_reserved
+  operations:
+  - method: POST
+    path: /volumes/{volume_id}/action (os-reimage)
+  scope_types: null
+- check_str: rule:xena_system_admin_or_project_reader
+  deprecated_reason: null
+  deprecated_rule:
+    check_str: rule:admin_or_owner
+    name: volume:get_all_transfers
+  deprecated_since: null
   description: List volume transfer.
   name: volume:get_all_transfers
   operations:
@@ -909,7 +1362,12 @@
   - method: GET
     path: /volume-transfers/detail
   scope_types: null
-- check_str: rule:admin_or_owner
+- check_str: rule:xena_system_admin_or_project_member
+  deprecated_reason: null
+  deprecated_rule:
+    check_str: rule:admin_or_owner
+    name: volume:create_transfer
+  deprecated_since: null
   description: Create a volume transfer.
   name: volume:create_transfer
   operations:
@@ -918,7 +1376,12 @@
   - method: POST
     path: /volume_transfers
   scope_types: null
-- check_str: rule:admin_or_owner
+- check_str: rule:xena_system_admin_or_project_reader
+  deprecated_reason: null
+  deprecated_rule:
+    check_str: rule:admin_or_owner
+    name: volume:get_transfer
+  deprecated_since: null
   description: Show one specified volume transfer.
   name: volume:get_transfer
   operations:
@@ -927,7 +1390,12 @@
   - method: GET
     path: /volume-transfers/{transfer_id}
   scope_types: null
-- check_str: ''
+- check_str: rule:xena_system_admin_or_project_member
+  deprecated_reason: null
+  deprecated_rule:
+    check_str: ''
+    name: volume:accept_transfer
+  deprecated_since: null
   description: Accept a volume transfer.
   name: volume:accept_transfer
   operations:
@@ -936,7 +1404,12 @@
   - method: POST
     path: /volume-transfers/{transfer_id}/accept
   scope_types: null
-- check_str: rule:admin_or_owner
+- check_str: rule:xena_system_admin_or_project_member
+  deprecated_reason: null
+  deprecated_rule:
+    check_str: rule:admin_or_owner
+    name: volume:delete_transfer
+  deprecated_since: null
   description: Delete volume transfer.
   name: volume:delete_transfer
   operations:
@@ -945,7 +1418,12 @@
   - method: DELETE
     path: /volume-transfers/{transfer_id}
   scope_types: null
-- check_str: rule:admin_or_owner
+- check_str: rule:xena_system_admin_or_project_reader
+  deprecated_reason: null
+  deprecated_rule:
+    check_str: rule:admin_or_owner
+    name: volume:get_volume_metadata
+  deprecated_since: null
   description: Show volume's metadata or one specified metadata with a given key.
   name: volume:get_volume_metadata
   operations:
@@ -953,16 +1431,29 @@
     path: /volumes/{volume_id}/metadata
   - method: GET
     path: /volumes/{volume_id}/metadata/{key}
+  - method: POST
+    path: /volumes/{volume_id}/action  (os-show_image_metadata)
   scope_types: null
-- check_str: rule:admin_or_owner
+- check_str: rule:xena_system_admin_or_project_member
+  deprecated_reason: null
+  deprecated_rule:
+    check_str: rule:admin_or_owner
+    name: volume:create_volume_metadata
+  deprecated_since: null
   description: Create volume metadata.
   name: volume:create_volume_metadata
   operations:
   - method: POST
     path: /volumes/{volume_id}/metadata
   scope_types: null
-- check_str: rule:admin_or_owner
-  description: Update volume's metadata or one specified metadata with a given key.
+- check_str: rule:xena_system_admin_or_project_member
+  deprecated_reason: null
+  deprecated_rule:
+    check_str: rule:admin_or_owner
+    name: volume:update_volume_metadata
+  deprecated_since: null
+  description: Replace a volume's metadata dictionary or update a single metadatum
+    with a given key.
   name: volume:update_volume_metadata
   operations:
   - method: PUT
@@ -970,30 +1461,60 @@
   - method: PUT
     path: /volumes/{volume_id}/metadata/{key}
   scope_types: null
-- check_str: rule:admin_or_owner
-  description: Delete volume's specified metadata with a given key.
+- check_str: rule:xena_system_admin_or_project_member
+  deprecated_reason: null
+  deprecated_rule:
+    check_str: rule:admin_or_owner
+    name: volume:delete_volume_metadata
+  deprecated_since: null
+  description: Delete a volume's metadatum with the given key.
   name: volume:delete_volume_metadata
   operations:
   - method: DELETE
     path: /volumes/{volume_id}/metadata/{key}
   scope_types: null
-- check_str: rule:admin_or_owner
-  description: Volume's image metadata related operation, create, delete, show and
-    list.
-  name: volume_extension:volume_image_metadata
+- check_str: rule:xena_system_admin_or_project_reader
+  deprecated_reason: null
+  deprecated_rule:
+    check_str: rule:admin_or_owner
+    name: volume_extension:volume_image_metadata
+  deprecated_since: null
+  description: Include a volume's image metadata in volume detail responses.  The
+    ability to make these calls is governed by other policies.
+  name: volume_extension:volume_image_metadata:show
   operations:
   - method: GET
     path: /volumes/detail
   - method: GET
     path: /volumes/{volume_id}
+  scope_types: null
+- check_str: rule:xena_system_admin_or_project_member
+  deprecated_reason: null
+  deprecated_rule:
+    check_str: rule:admin_or_owner
+    name: volume_extension:volume_image_metadata
+  deprecated_since: null
+  description: Set image metadata for a volume
+  name: volume_extension:volume_image_metadata:set
+  operations:
   - method: POST
     path: /volumes/{volume_id}/action (os-set_image_metadata)
+  scope_types: null
+- check_str: rule:xena_system_admin_or_project_member
+  deprecated_reason: null
+  deprecated_rule:
+    check_str: rule:admin_or_owner
+    name: volume_extension:volume_image_metadata
+  deprecated_since: null
+  description: Remove specific image metadata from a volume
+  name: volume_extension:volume_image_metadata:remove
+  operations:
   - method: POST
     path: /volumes/{volume_id}/action (os-unset_image_metadata)
   scope_types: null
 - check_str: rule:admin_api
-  description: Update volume admin metadata. It's used in `attach` and `os-update_readonly_flag`
-    APIs
+  description: Update volume admin metadata. This permission is required to complete
+    these API calls, though the ability to make these calls is governed by other policies.
   name: volume:update_volume_admin_metadata
   operations:
   - method: POST
@@ -1001,7 +1522,12 @@
   - method: POST
     path: /volumes/{volume_id}/action (os-attach)
   scope_types: null
-- check_str: rule:admin_api
+- check_str: rule:xena_system_admin_or_project_reader
+  deprecated_reason: null
+  deprecated_rule:
+    check_str: ''
+    name: volume_extension:types_extra_specs:index
+  deprecated_since: null
   description: List type extra specs.
   name: volume_extension:types_extra_specs:index
   operations:
@@ -1015,10 +1541,31 @@
   - method: POST
     path: /types/{type_id}/extra_specs
   scope_types: null
-- check_str: rule:admin_api
+- check_str: rule:xena_system_admin_or_project_reader
+  deprecated_reason: null
+  deprecated_rule:
+    check_str: ''
+    name: volume_extension:types_extra_specs:show
+  deprecated_since: null
   description: Show one specified type extra specs.
   name: volume_extension:types_extra_specs:show
   operations:
+  - method: GET
+    path: /types/{type_id}/extra_specs/{extra_spec_key}
+  scope_types: null
+- check_str: rule:admin_api
+  description: Include extra_specs fields that may reveal sensitive information about
+    the deployment that should not be exposed to end users in various volume-type
+    responses that show extra_specs. The ability to make these calls is governed by
+    other policies.
+  name: volume_extension:types_extra_specs:read_sensitive
+  operations:
+  - method: GET
+    path: /types
+  - method: GET
+    path: /types/{type_id}
+  - method: GET
+    path: /types/{type_id}/extra_specs
   - method: GET
     path: /types/{type_id}/extra_specs/{extra_spec_key}
   scope_types: null
@@ -1036,28 +1583,48 @@
   - method: DELETE
     path: /types/{type_id}/extra_specs/{extra_spec_key}
   scope_types: null
-- check_str: ''
+- check_str: rule:xena_system_admin_or_project_member
+  deprecated_reason: null
+  deprecated_rule:
+    check_str: ''
+    name: volume:create
+  deprecated_since: null
   description: Create volume.
   name: volume:create
   operations:
   - method: POST
     path: /volumes
   scope_types: null
-- check_str: ''
+- check_str: rule:xena_system_admin_or_project_member
+  deprecated_reason: null
+  deprecated_rule:
+    check_str: ''
+    name: volume:create_from_image
+  deprecated_since: null
   description: Create volume from image.
   name: volume:create_from_image
   operations:
   - method: POST
     path: /volumes
   scope_types: null
-- check_str: rule:admin_or_owner
+- check_str: rule:xena_system_admin_or_project_reader
+  deprecated_reason: null
+  deprecated_rule:
+    check_str: rule:admin_or_owner
+    name: volume:get
+  deprecated_since: null
   description: Show volume.
   name: volume:get
   operations:
   - method: GET
     path: /volumes/{volume_id}
   scope_types: null
-- check_str: rule:admin_or_owner
+- check_str: rule:xena_system_admin_or_project_reader
+  deprecated_reason: null
+  deprecated_rule:
+    check_str: rule:admin_or_owner
+    name: volume:get_all
+  deprecated_since: null
   description: List volumes or get summary of volumes.
   name: volume:get_all
   operations:
@@ -1068,7 +1635,12 @@
   - method: GET
     path: /volumes/summary
   scope_types: null
-- check_str: rule:admin_or_owner
+- check_str: rule:xena_system_admin_or_project_member
+  deprecated_reason: null
+  deprecated_rule:
+    check_str: rule:admin_or_owner
+    name: volume:update
+  deprecated_since: null
   description: Update volume or update a volume's bootable status.
   name: volume:update
   operations:
@@ -1077,7 +1649,12 @@
   - method: POST
     path: /volumes/{volume_id}/action (os-set_bootable)
   scope_types: null
-- check_str: rule:admin_or_owner
+- check_str: rule:xena_system_admin_or_project_member
+  deprecated_reason: null
+  deprecated_rule:
+    check_str: rule:admin_or_owner
+    name: volume:delete
+  deprecated_since: null
   description: Delete volume.
   name: volume:delete
   operations:
@@ -1100,7 +1677,12 @@
   - method: GET
     path: /volumes/detail
   scope_types: null
-- check_str: rule:admin_or_owner
+- check_str: rule:xena_system_admin_or_project_reader
+  deprecated_reason: null
+  deprecated_rule:
+    check_str: rule:admin_or_owner
+    name: volume_extension:volume_tenant_attribute
+  deprecated_since: null
   description: List or show volume with tenant attribute.
   name: volume_extension:volume_tenant_attribute
   operations:
@@ -1118,7 +1700,12 @@
   - method: GET
     path: /volumes/detail
   scope_types: null
-- check_str: rule:admin_or_owner
+- check_str: rule:xena_system_admin_or_project_reader
+  deprecated_reason: null
+  deprecated_rule:
+    check_str: rule:admin_or_owner
+    name: volume_extension:volume_encryption_metadata
+  deprecated_since: null
   description: Show volume's encryption metadata.
   name: volume_extension:volume_encryption_metadata
   operations:
@@ -1127,43 +1714,64 @@
   - method: GET
     path: /volumes/{volume_id}/encryption/{encryption_key}
   scope_types: null
-- check_str: rule:admin_or_owner
+- check_str: rule:xena_system_admin_or_project_member
+  deprecated_reason: null
+  deprecated_rule:
+    check_str: rule:admin_or_owner
+    name: volume:multiattach
+  deprecated_since: null
   description: Create multiattach capable volume.
   name: volume:multiattach
   operations:
   - method: POST
     path: /volumes
   scope_types: null
-- check_str: rule:system_or_domain_or_project_admin
+- check_str: rule:admin_api
+  deprecated_reason: null
+  deprecated_rule:
+    check_str: rule:system_or_domain_or_project_admin
+    name: volume_extension:default_set_or_update
+  deprecated_since: null
   description: Set or update default volume type.
   name: volume_extension:default_set_or_update
   operations:
   - method: PUT
     path: /default-types
-  scope_types:
-  - system
-- check_str: rule:system_or_domain_or_project_admin
+  scope_types: null
+- check_str: rule:admin_api
+  deprecated_reason: null
+  deprecated_rule:
+    check_str: rule:system_or_domain_or_project_admin
+    name: volume_extension:default_get
+  deprecated_since: null
   description: Get default types.
   name: volume_extension:default_get
   operations:
   - method: GET
     path: /default-types/{project-id}
-  scope_types:
-  - system
-- check_str: role:admin and system_scope:all
+  scope_types: null
+- check_str: rule:admin_api
+  deprecated_reason: null
+  deprecated_rule:
+    check_str: role:admin and system_scope:all
+    name: volume_extension:default_get_all
+  deprecated_since: null
   description: 'Get all default types. WARNING: Changing this might open up too much
     information regarding cloud deployment.'
   name: volume_extension:default_get_all
   operations:
   - method: GET
     path: /default-types/
-  scope_types:
-  - system
-- check_str: rule:system_or_domain_or_project_admin
+  scope_types: null
+- check_str: rule:admin_api
+  deprecated_reason: null
+  deprecated_rule:
+    check_str: rule:system_or_domain_or_project_admin
+    name: volume_extension:default_unset
+  deprecated_since: null
   description: Unset default type.
   name: volume_extension:default_unset
   operations:
   - method: DELETE
     path: /default-types/{project-id}
-  scope_types:
-  - system
+  scope_types: null
