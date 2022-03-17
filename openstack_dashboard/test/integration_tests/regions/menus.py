@@ -464,7 +464,5 @@ class InstanceAvailableResourceMenuRegion(baseregion.BaseRegion):
 
 
 class InstanceFlavorMenuRegion(InstanceAvailableResourceMenuRegion):
-    _action_column_btn_locator = (by.By.CSS_SELECTOR, "td.action-col button")
-
     def _get_column_text(self, cols):
         return cols[1].text.strip()

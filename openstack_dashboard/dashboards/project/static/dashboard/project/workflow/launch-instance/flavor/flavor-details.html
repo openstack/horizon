@@ -1,0 +1,39 @@
+<div ng-controller="LaunchInstanceFlavorController as ctrl">
+  <dl class="flavor-details">
+    <span class="h5" translate>Impact on your quota</span>
+    <div class="row">
+      <div class="col-xs-4">
+        <pie-chart chart-data="item.instancesChartData"
+                   chart-settings="chartSettings"></pie-chart>
+      </div>
+      <div class="col-xs-4">
+        <pie-chart chart-data="item.vcpusChartData"
+                   chart-settings="chartSettings"></pie-chart>
+      </div>
+      <div class="col-xs-4">
+        <pie-chart chart-data="item.ramChartData"
+                   chart-settings="chartSettings"></pie-chart>
+      </div>
+    </div>
+    <div class="row" ng-if="ctrl.cinderLimits">
+      <div class="col-xs-4">
+        <pie-chart chart-data="item.volumeChartData"
+                   chart-settings="chartSettings"></pie-chart>
+      </div>
+      <div class="col-xs-4">
+        <pie-chart chart-data="item.volumeStorageChartData"
+                   chart-settings="chartSettings"></pie-chart>
+      </div>
+    </div>
+    <div ng-if="ctrl.metadataDefs.flavor">
+      <div class="row" ng-if="item.extras">
+        <div class="col-sm-12">
+          <metadata-display
+            available="::ctrl.metadataDefs.flavor"
+            existing="::item.extras">
+          </metadata-display>
+        </div>
+      </div>
+    </div>
+  </dl>
+</div>
