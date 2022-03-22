@@ -11,3 +11,4 @@ This page collects basic policies on horizon development.
    horizon-groups
    core-reviewers
    horizon-bugs
+   releasing
