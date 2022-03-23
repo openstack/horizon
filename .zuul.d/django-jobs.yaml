@@ -29,7 +29,7 @@
       jobs:
         # Currently we only support Django 3.2, so there is no need
         # to run tests with different versions of Django.
-        # We specify a job in openstack-python3-yoga-jobs(-horizon)
+        # We specify a job in openstack-python3-zed-jobs(-horizon)
         # to keep this project template as it is used in horizon plugins.
         # NOTE: We keep it as a template even though it is not used now.
         - openstack-tox-py39
