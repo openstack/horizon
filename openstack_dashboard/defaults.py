@@ -551,3 +551,8 @@ REST_API_ADDITIONAL_SETTINGS = []
 KUBECONFIG_ENABLED = False
 KUBECONFIG_KUBERNETES_URL = ""
 KUBECONFIG_CERTIFICATE_AUTHORITY_DATA = ""
+
+
+# Services may require a System Scope token for certain operations. This
+# settings enables the use of the system scope token on per-service basis.
+SYSTEM_SCOPE_SERVICES = []

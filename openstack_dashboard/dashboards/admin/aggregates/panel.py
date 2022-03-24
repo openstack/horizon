@@ -12,6 +12,7 @@
 
 import logging
 
+from django.conf import settings
 from django.utils.translation import gettext_lazy as _
 
 import horizon
@@ -25,3 +26,9 @@ class Aggregates(horizon.Panel):
     slug = 'aggregates'
     policy_rules = (("compute", "compute_extension:aggregates"),)
     permissions = ('openstack.services.compute',)
+
+    def allowed(self, context):
+        if (('compute' in settings.SYSTEM_SCOPE_SERVICES) !=
+                bool(context['request'].user.system_scoped)):
+            return False
+        return super().allowed(context)

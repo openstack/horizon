@@ -31,8 +31,8 @@
     {% endif %}
 
 
-    {% is_system_user as system_user %}
-    {% if system_user %}
+    {% show_systems as system_scope_enabled %}
+    {% if system_scope_enabled %}
       <li>
         {% show_system_list %}
       </li>

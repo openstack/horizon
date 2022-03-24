@@ -2656,3 +2656,16 @@ generated ``kubeconfig`` file.
 .. seealso::
 
    `KUBECONFIG_ENABLED`_ to enable the ``kubeconfig`` file generation.
+
+
+SYSTEM_SCOPE_SERVICES
+---------------------
+.. versionadded:: 21.1.0(Yoga)
+
+Default: ``[]``
+
+A list of names of services for which the system scope token should be used.
+If empty, system scope will be removed from the context switching menu. If not
+empty, the context switching menu will show a "system scope" option, and the
+admin panels for the services listed will be moved to that context, no longer
+showing up in the project context.
