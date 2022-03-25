@@ -1,0 +1,12 @@
+---
+upgrade:
+  - |
+    Horizon no longer requires the keystone admin endpoint. keystone does
+    not distinguish public and admin endpoints and there is no functional
+    difference between public and admin endpoints. There is no need for
+    a separate endpoint for keystone admin operations, but horizon required
+    the keystone admin endpoint is configured previously. This requirement
+    no longer exists. An endpoint specified by ``OPENSTACK_ENDPOINT_TYPE``
+    setting is used for the keystone admin operations. You can drop
+    the admin endpoint for keystone (unless other services require it).
+    [:bug:`1950659`]
