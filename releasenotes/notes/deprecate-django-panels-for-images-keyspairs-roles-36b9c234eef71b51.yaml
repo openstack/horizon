@@ -1,0 +1,12 @@
+---
+deprecations:
+  - |
+    The Django version of the Images, Keypairs, and Roles panels
+    is deprecated now. Switch to the AngularJS version by setting
+    ``images_panel``, ``key_pairs_panel`` and ``roles_panel`` keys
+    in ``ANGULAR_FEATURES`` setting to ``True``
+    (or dropping these keys from ``ANGULAR_FEATURES`` setting).
+    The horizon team believes that feature gaps between Django and
+    AngularJS implementations have been closed for all these panels and
+    we can drop the Django version. If you see any feature gap, please
+    file a bug to horizon or contact the horizon team.

@@ -44,6 +44,13 @@ ANGULAR_FEATURES
 
 .. versionadded:: 10.0.0(Newton)
 
+
+.. deprecated:: 22.2.0(Zed)
+   The Django version of the Images, Keypairs, and Roles panels are deprecated.
+   As a result, "images_panel", "key_pairs_panel" and "roles_panel" keys in
+   this setting are deprecated. Consider switching to the AngujarJS version
+   by setting corresponding entries to True (the default value).
+
 Default:
 
 .. code-block:: python

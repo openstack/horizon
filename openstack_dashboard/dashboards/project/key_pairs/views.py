@@ -12,6 +12,8 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
+import logging
+
 from django.urls import reverse
 from django.urls import reverse_lazy
 from django.utils.translation import gettext_lazy as _
@@ -29,10 +31,18 @@ from openstack_dashboard.dashboards.project.key_pairs \
     import tables as key_pairs_tables
 from openstack_dashboard import policy
 
+LOG = logging.getLogger(__name__)
+
 
 class IndexView(tables.DataTableView):
     table_class = key_pairs_tables.KeyPairsTable
     page_title = _("Key Pairs")
+
+    def __init__(self):
+        super().__init__()
+        LOG.warning('The Django version of the Key Pairs panel is deprecated '
+                    'since Zed release. Switch to the AngularJS version by '
+                    'setting "ANGULAR_FEATURES[\'key_pairs_panel\'] = True".')
 
     def get_data(self):
         if not policy.check(

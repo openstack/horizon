@@ -12,6 +12,8 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
+import logging
+
 from django.urls import reverse
 from django.urls import reverse_lazy
 from django.utils.translation import gettext_lazy as _
@@ -32,9 +34,18 @@ from openstack_dashboard.dashboards.identity.roles \
     import tables as project_tables
 
 
+LOG = logging.getLogger(__name__)
+
+
 class IndexView(tables.DataTableView):
     table_class = project_tables.RolesTable
     page_title = _("Roles")
+
+    def __init__(self):
+        super().__init__()
+        LOG.warning('The Django version of the Roles panel is deprecated '
+                    'since Zed release. Switch to the AngularJS version by '
+                    'setting "ANGULAR_FEATURES[\'roles_panel\'] = True".')
 
     def needs_filter_first(self, table):
         return self._needs_filter_first
