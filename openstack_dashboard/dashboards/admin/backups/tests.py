@@ -33,15 +33,24 @@ class AdminVolumeBackupsViewTests(test.BaseAdminViewTests):
                      'volume_backup_list_paged_with_page_menu']})
     def _test_backups_index_paginated(self, page_number, backups,
                                       url, page_size, total_of_entries,
-                                      number_of_pages, has_prev, has_more):
+                                      number_of_pages, has_prev, has_more,
+                                      search_opts=None):
         self.mock_volume_backup_list_paged_with_page_menu.return_value = [
             backups, page_size, total_of_entries, number_of_pages]
         self.mock_volume_list.return_value = self.cinder_volumes.list()
         self.mock_volume_snapshot_list.return_value \
             = self.cinder_volume_snapshots.list()
         self.mock_tenant_list.return_value = [self.tenants.list(), False]
-
-        res = self.client.get(parse.unquote(url))
+        formData = {}
+        if search_opts:
+            search_key, search_value = search_opts.popitem()
+            formData['volume_backups__action_filter_admin_volume_backups'] \
+                = search_value
+            formData['volume_backups__filter_admin_volume_backups__q_field'] \
+                = search_key
+        else:
+            search_opts = {}
+        res = self.client.get(parse.unquote(url), formData)
 
         self.assertEqual(res.status_code, 200)
         self.assertTemplateUsed(res, 'horizon/common/_data_table_view.html')
@@ -55,6 +64,7 @@ class AdminVolumeBackupsViewTests(test.BaseAdminViewTests):
             number_of_pages, res.context_data['view'].number_of_pages(None))
         self.mock_volume_backup_list_paged_with_page_menu.\
             assert_called_once_with(test.IsHttpRequest(),
+                                    search_opts=search_opts,
                                     page_number=page_number,
                                     all_tenants=True)
         self.mock_volume_list.assert_called_once_with(
@@ -63,6 +73,51 @@ class AdminVolumeBackupsViewTests(test.BaseAdminViewTests):
             test.IsHttpRequest(),
             search_opts={'all_tenants': 1})
         return res
+
+    @override_settings(API_RESULT_PAGE_SIZE=1)
+    def test_backups_index_paginated_with_filter(self):
+        size = settings.API_RESULT_PAGE_SIZE
+        base_url = INDEX_URL
+        page_number = 1
+
+        # get size filter
+        search_opts = {"size": 20}
+        backups = self.cinder_volume_backups.filter(**search_opts)
+        number_of_pages = len(backups)
+        expected_backups = backups[:size]
+        res = self._test_backups_index_paginated(
+            page_number=page_number, backups=expected_backups, url=base_url,
+            has_more=True, has_prev=False, page_size=size,
+            number_of_pages=number_of_pages, total_of_entries=number_of_pages,
+            search_opts=search_opts)
+        result = res.context['volume_backups_table'].data
+        self.assertCountEqual(result, expected_backups)
+
+        # get status filter
+        search_opts = {"status": "available"}
+        backups = self.cinder_volume_backups.filter(**search_opts)
+        number_of_pages = len(backups)
+        expected_backups = backups[:size]
+        res = self._test_backups_index_paginated(
+            page_number=page_number, backups=expected_backups, url=base_url,
+            has_more=True, has_prev=False, page_size=size,
+            number_of_pages=number_of_pages, total_of_entries=number_of_pages,
+            search_opts=search_opts)
+        result = res.context['volume_backups_table'].data
+        self.assertCountEqual(result, expected_backups)
+
+        # get name filter
+        search_opts = {"name": "backup2"}
+        backups = self.cinder_volume_backups.filter(**search_opts)
+        number_of_pages = len(backups)
+        expected_backups = backups[:size]
+        res = self._test_backups_index_paginated(
+            page_number=page_number, backups=expected_backups, url=base_url,
+            has_more=False, has_prev=False, page_size=size,
+            number_of_pages=number_of_pages, total_of_entries=number_of_pages,
+            search_opts=search_opts)
+        result = res.context['volume_backups_table'].data
+        self.assertCountEqual(result, expected_backups)
 
     @override_settings(API_RESULT_PAGE_SIZE=1)
     def test_backups_index_paginated(self):
@@ -165,6 +220,7 @@ class AdminVolumeBackupsViewTests(test.BaseAdminViewTests):
         self.assertMessageCount(success=1)
         self.mock_volume_backup_list_paged_with_page_menu.\
             assert_called_once_with(test.IsHttpRequest(),
+                                    search_opts={},
                                     page_number=page_number,
                                     all_tenants=True)
         self.mock_volume_list.assert_called_once_with(

@@ -94,6 +94,18 @@ class UpdateVolumeBackupStatusAction(tables.LinkAction):
                      "volume_extension:backup_admin_actions:reset_status"),)
 
 
+class BackupsFilterAction(tables.FilterAction):
+
+    filter_type = 'server'
+    filter_choices = (
+        ('project', _("Project ="), True),
+        ('name', _("Backup Name ="), True),
+        ('size', _("Size(GiB) ="), True),
+        ('status', _("Status ="), True),
+        ('volume_id', _("Volume ID ="), True,),
+    )
+
+
 class AdminBackupsTable(project_tables.BackupsTable):
     project = tables.Column("tenant_name", verbose_name=_("Project"))
     name = tables.Column("name",
@@ -112,7 +124,7 @@ class AdminBackupsTable(project_tables.BackupsTable):
         pagination_param = 'page'
         status_columns = ("status",)
         row_class = UpdateRow
-        table_actions = (AdminDeleteBackup,)
+        table_actions = (AdminDeleteBackup, BackupsFilterAction,)
         row_actions = (AdminRestoreBackup, ForceDeleteBackup,
                        AdminDeleteBackup, UpdateVolumeBackupStatusAction,)
         columns = ('project', 'name', 'description', 'size', 'status',
