@@ -175,7 +175,7 @@ def keystoneclient(request, admin=False):
         cacert = settings.OPENSTACK_SSL_CACERT
         verify = verify and cacert
         LOG.debug("Creating a new keystoneclient connection to %s.", endpoint)
-        remote_addr = request.environ.get('REMOTE_ADDR', '')
+        remote_addr = auth_utils.get_client_ip(request)
         token_auth = token_endpoint.Token(endpoint=endpoint,
                                           token=token_id)
         keystone_session = session.Session(auth=token_auth,
