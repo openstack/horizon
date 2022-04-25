@@ -267,7 +267,8 @@ def switch(request, tenant_id, redirect_field_name=auth.REDIRECT_FIELD_NAME):
               tenant_id, request.user.username)
 
     endpoint, __ = utils.fix_auth_url_version_prefix(request.user.endpoint)
-    session = utils.get_session()
+    client_ip = utils.get_client_ip(request)
+    session = utils.get_session(original_ip=client_ip)
     # Keystone can be configured to prevent exchanging a scoped token for
     # another token. Always use the unscoped token for requesting a
     # scoped token.
@@ -421,7 +422,8 @@ def switch_system_scope(request, redirect_field_name=auth.REDIRECT_FIELD_NAME):
     LOG.debug('Switching to system scope for user "%s".', request.user.username)
 
     endpoint, __ = utils.fix_auth_url_version_prefix(request.user.endpoint)
-    session = utils.get_session()
+    client_ip = utils.get_client_ip(request)
+    session = utils.get_session(original_ip=client_ip)
     # Keystone can be configured to prevent exchanging a scoped token for
     # another token. Always use the unscoped token for requesting a
     # scoped token.
