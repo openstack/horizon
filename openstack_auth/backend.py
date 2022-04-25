@@ -111,22 +111,27 @@ class KeystoneBackend(object):
 
         plugin, unscoped_auth = self._get_auth_backend(auth_url, **kwargs)
 
+        client_ip = utils.get_client_ip(request)
+        session = utils.get_session(original_ip=client_ip)
+
         # the recent project id a user might have set in a cookie
         recent_project = None
         if request:
             # Grab recent_project found in the cookie, try to scope
             # to the last project used.
             recent_project = request.COOKIES.get('recent_project')
-        unscoped_auth_ref = plugin.get_access_info(unscoped_auth)
+        unscoped_auth_ref = plugin.get_access_info(unscoped_auth,
+                                                   session=session)
 
         # Check expiry for our unscoped auth ref.
         self._check_auth_expiry(unscoped_auth_ref)
 
         domain_name = kwargs.get('user_domain_name', None)
         domain_auth, domain_auth_ref = plugin.get_domain_scoped_auth(
-            unscoped_auth, unscoped_auth_ref, domain_name)
+            unscoped_auth, unscoped_auth_ref, domain_name, session=session)
         scoped_auth, scoped_auth_ref = plugin.get_project_scoped_auth(
-            unscoped_auth, unscoped_auth_ref, recent_project=recent_project)
+            unscoped_auth, unscoped_auth_ref, recent_project=recent_project,
+            session=session)
 
         # Abort if there are no projects for this user and a valid domain
         # token has not been obtained
@@ -207,7 +212,6 @@ class KeystoneBackend(object):
             request.session.set_expiry(session_time)
 
             keystone_client_class = utils.get_keystone_client().Client
-            session = utils.get_session()
             scoped_client = keystone_client_class(session=session,
                                                   auth=scoped_auth)
 

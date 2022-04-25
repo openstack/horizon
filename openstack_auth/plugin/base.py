@@ -99,17 +99,19 @@ class BasePlugin(object, metaclass=abc.ABCMeta):
             msg = _('Unable to retrieve authorized domains.')
             raise exceptions.KeystoneRetrieveDomainsException(msg)
 
-    def get_access_info(self, keystone_auth):
+    def get_access_info(self, keystone_auth, session=None):
         """Get the access info from an unscoped auth
 
         This function provides the base functionality that the
         plugins will use to authenticate and get the access info object.
 
         :param keystone_auth: keystoneauth1 identity plugin
+        :param session: keystoneauth1 session to use otherwise gets one
         :raises: exceptions.KeystoneAuthException on auth failure
         :returns: keystoneclient.access.AccessInfo
         """
-        session = utils.get_session()
+        if session is None:
+            session = utils.get_session()
 
         try:
             unscoped_auth_ref = keystone_auth.get_access(session)
@@ -140,7 +142,7 @@ class BasePlugin(object, metaclass=abc.ABCMeta):
         return unscoped_auth_ref
 
     def get_project_scoped_auth(self, unscoped_auth, unscoped_auth_ref,
-                                recent_project=None):
+                                recent_project=None, session=None):
         """Get the project scoped keystone auth and access info
 
         This function returns a project scoped keystone token plugin
@@ -149,10 +151,13 @@ class BasePlugin(object, metaclass=abc.ABCMeta):
         :param unscoped_auth: keystone auth plugin
         :param unscoped_auth_ref: keystoneclient.access.AccessInfo` or None.
         :param recent_project: project that we should try to scope to
+        :param session: keystoneauth1 session to use otherwise gets one
         :return: keystone token auth plugin, AccessInfo object
         """
+        if session is None:
+            session = utils.get_session()
+
         auth_url = unscoped_auth.auth_url
-        session = utils.get_session()
 
         projects = self.list_projects(
             session, unscoped_auth, unscoped_auth_ref)
@@ -187,7 +192,7 @@ class BasePlugin(object, metaclass=abc.ABCMeta):
         return scoped_auth, scoped_auth_ref
 
     def get_domain_scoped_auth(self, unscoped_auth, unscoped_auth_ref,
-                               domain_name=None):
+                               domain_name=None, session=None):
         """Get the domain scoped keystone auth and access info
 
         This function returns a domain scoped keystone token plugin
@@ -196,9 +201,12 @@ class BasePlugin(object, metaclass=abc.ABCMeta):
         :param unscoped_auth: keystone auth plugin
         :param unscoped_auth_ref: keystoneclient.access.AccessInfo` or None.
         :param domain_name: domain that we should try to scope to
+        :param session: keystoneauth1 session to use otherwise gets one
         :return: keystone token auth plugin, AccessInfo object
         """
-        session = utils.get_session()
+        if session is None:
+            session = utils.get_session()
+
         auth_url = unscoped_auth.auth_url
 
         if domain_name:
@@ -235,7 +243,7 @@ class BasePlugin(object, metaclass=abc.ABCMeta):
         return domain_auth, domain_auth_ref
 
     def get_system_scoped_auth(self, unscoped_auth, unscoped_auth_ref,
-                               system_scope):
+                               system_scope, session=None):
         """Get the system scoped keystone auth and access info
 
         This function returns a system scoped keystone token plugin
@@ -244,9 +252,12 @@ class BasePlugin(object, metaclass=abc.ABCMeta):
         :param unscoped_auth: keystone auth plugin
         :param unscoped_auth_ref: keystoneclient.access.AccessInfo` or None.
         :param system_scope: system that we should try to scope to
+        :param session: keystoneauth1 session to use otherwise gets one
         :return: keystone token auth plugin, AccessInfo object
         """
-        session = utils.get_session()
+        if session is None:
+            session = utils.get_session()
+
         auth_url = unscoped_auth.auth_url
 
         system_auth = None
