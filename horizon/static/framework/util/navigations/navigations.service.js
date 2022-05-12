@@ -75,6 +75,8 @@
       // open panelgroup on nav_bar if exists
       if (panelgroup.length) {
         panelgroup.removeClass("collapsed").attr("aria-expanded", true);
+        panelgroup.siblings("ul").addClass("in").attr("style", null);
+        panelgroup.siblings("ul").removeClass("collapsed").attr("aria-expanded", true);
         // get panelgroup label
         labels.push(panelgroup.text().trim());
       }
