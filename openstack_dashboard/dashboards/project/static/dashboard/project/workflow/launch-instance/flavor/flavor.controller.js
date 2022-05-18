@@ -22,11 +22,17 @@
 
   LaunchInstanceFlavorController.$inject = [
     '$scope',
+    'horizon.dashboard.project.workflow.launch-instance.basePath',
     'horizon.framework.widgets.charts.quotaChartDefaults',
     'launchInstanceModel'
   ];
 
-  function LaunchInstanceFlavorController($scope, quotaChartDefaults, launchInstanceModel) {
+  function LaunchInstanceFlavorController(
+    $scope,
+    basePath,
+    quotaChartDefaults,
+    launchInstanceModel
+    ) {
     var ctrl = this;
 
     ctrl.defaultIfUndefined = defaultIfUndefined;
@@ -84,9 +90,7 @@
      * exposing only the data needed by this specific view.
      */
     ctrl.availableFlavorFacades = [];
-    ctrl.displayedAvailableFlavorFacades = [];
     ctrl.allocatedFlavorFacades = [];
-    ctrl.displayedAllocatedFlavorFacades = [];
 
     // Convenience references to launch instance model elements
     ctrl.flavors = [];
@@ -95,18 +99,55 @@
     ctrl.instanceCount = 1;
 
     // Data that drives the transfer table for flavors
-    ctrl.transferTableModel = {
-      allocated:          ctrl.allocatedFlavorFacades,
-      displayedAllocated: ctrl.displayedAllocatedFlavorFacades,
-      available:          ctrl.availableFlavorFacades,
-      displayedAvailable: ctrl.displayedAvailableFlavorFacades
+    ctrl.tableData = {
+      allocated: ctrl.allocatedFlavorFacades,
+      available: ctrl.availableFlavorFacades,
     };
+
+    // We need backticks for cell templates, and backticks need ES6
+    /* eslint-env es6 */
+    ctrl.availableTableConfig = {
+      selectAll: false,
+      trackId: 'id',
+      detailsTemplateUrl: basePath + 'flavor/flavor-details.html',
+      columns: [
+        {id: 'name', title: gettext('Name'), priority: 1},
+        {id: 'vcpus', title: gettext('VCPUS'), priority: 1,
+          template: `<span class="invalid fa fa-exclamation-triangle"
+            ng-show="item.errors.vcpus"
+            uib-popover="{$ item.errors.vcpus $}"
+            popover-placement="top" popover-append-to-body="true"
+            popover-trigger="'mouseenter'"/>
+            <span>{$ item.vcpus $}</span>`},
+        {id: 'ram', title: gettext('RAM'), priority: 1,
+          template: `<span class="invalid fa fa-exclamation-triangle"
+            ng-show="item.errors.ram"
+            uib-popover="{$ item.errors.ram $}"
+            popover-placement="top" popover-append-to-body="true"
+            popover-trigger="'mouseenter'"/>
+            <span>{$ item.ram | mb $}</span>`},
+        {id: 'totalDisk', title: gettext('Total Disk'), filters: ['gb'], priority: 1},
+        {id: 'rootDisk', title: gettext('Root Disk'), priority: 2,
+          template: `<span class="invalid fa fa-exclamation-triangle"
+            ng-show="item.errors.disk"
+            uib-popover="{$ item.errors.disk $}"
+            popover-placement="top" popover-append-to-body="true"
+            popover-trigger="'mouseenter'"/>
+            <span>{$ item.rootDisk | gb $}</span>`},
+        {id: 'ephemeralDisk', title: gettext('Ephemeral Disk'), filters: ['gb'], priority: 2},
+        {id: 'isPublic', title: gettext('Public'), filters: ['yesno'], priority: 1}
+      ]
+    };
+
+    ctrl.allocatedTableConfig = angular.copy(ctrl.availableTableConfig);
+    ctrl.allocatedTableConfig.noItemsMessage = gettext(
+      'Select a flavor from the available flavors below.');
 
     // Each flavor has an instances chart...but it is the same for all flavors
     ctrl.instancesChartData = {};
 
     // We can pick at most, 1 flavor at a time
-    ctrl.allocationLimits = {
+    ctrl.tableLimits = {
       maxAllocation: 1
     };
 
@@ -114,18 +155,22 @@
     var novaLimitsWatcher = $scope.$watch(function () {
       return launchInstanceModel.novaLimits;
     }, function (newValue, oldValue, scope) {
-      var ctrl = scope.selectFlavorCtrl;
+      var ctrl = scope.ctrl;
       ctrl.novaLimits = newValue;
-      ctrl.updateFlavorFacades();
+      if (!angular.equals(newValue, oldValue)) {
+        ctrl.updateFlavorFacades();
+      }
     }, true);
 
     // Flavor facades depend on flavors
     var flavorsWatcher = $scope.$watchCollection(function() {
       return launchInstanceModel.flavors;
     }, function (newValue, oldValue, scope) {
-      var ctrl = scope.selectFlavorCtrl;
+      var ctrl = scope.ctrl;
       ctrl.flavors = newValue;
-      ctrl.updateFlavorFacades();
+      if (!angular.equals(newValue, oldValue)) {
+        ctrl.updateFlavorFacades();
+      }
     });
 
     // Flavor quota charts depend on the current instance count
@@ -133,7 +178,7 @@
       return launchInstanceModel.newInstanceSpec.instance_count;
     }, function (newValue, oldValue, scope) {
       if (angular.isDefined(newValue)) {
-        var ctrl = scope.selectFlavorCtrl;
+        var ctrl = scope.ctrl;
         // Ignore any values <1
         ctrl.instanceCount = Math.max(1, newValue);
         ctrl.updateFlavorFacades();
@@ -143,13 +188,15 @@
 
     // Update the new instance model when the allocated flavor changes
     var facadesWatcher = $scope.$watchCollection(
-      "selectFlavorCtrl.allocatedFlavorFacades",
+      "ctrl.allocatedFlavorFacades",
       function (newValue, oldValue, scope) {
-        if (newValue && newValue.length > 0) {
-          launchInstanceModel.newInstanceSpec.flavor = newValue[0].flavor;
-          scope.selectFlavorCtrl.validateFlavor();
-        } else {
-          delete launchInstanceModel.newInstanceSpec.flavor;
+        if (!angular.equals(newValue, oldValue)) {
+          if (newValue && newValue.length > 0) {
+            launchInstanceModel.newInstanceSpec.flavor = newValue[0].flavor;
+            scope.ctrl.validateFlavor();
+          } else {
+            delete launchInstanceModel.newInstanceSpec.flavor;
+          }
         }
       }
     );
@@ -157,18 +204,22 @@
     var sourceWatcher = $scope.$watchCollection(function() {
       return launchInstanceModel.newInstanceSpec.source;
     }, function (newValue, oldValue, scope) {
-      var ctrl = scope.selectFlavorCtrl;
+      var ctrl = scope.ctrl;
       ctrl.source = newValue && newValue.length ? newValue[0] : null;
-      ctrl.updateFlavorFacades();
+      if (!angular.equals(newValue, oldValue)) {
+        ctrl.updateFlavorFacades();
+      }
       ctrl.validateFlavor();
     });
 
     var cinderLimitsWatcher = $scope.$watch(function () {
       return launchInstanceModel.cinderLimits;
     }, function (newValue, oldValue, scope) {
-      var ctrl = scope.selectFlavorCtrl;
+      var ctrl = scope.ctrl;
       ctrl.cinderLimits = newValue;
-      ctrl.updateFlavorFacades();
+      if (!angular.equals(newValue, oldValue)) {
+        ctrl.updateFlavorFacades();
+      }
     }, true);
 
     var volumeSizeWatcher = $scope.$watchCollection(function () {

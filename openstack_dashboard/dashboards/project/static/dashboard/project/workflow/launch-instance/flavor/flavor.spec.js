@@ -46,7 +46,7 @@
                      remainingColorClass: "class3"
                    };
 
-        ctrl = $controller('LaunchInstanceFlavorController as selectFlavorCtrl',
+        ctrl = $controller('LaunchInstanceFlavorController as ctrl',
                            { $scope:scope,
                              'horizon.framework.widgets.charts.quotaChartDefaults': defaults,
                              launchInstanceModel: model });
@@ -177,7 +177,7 @@
           });
         });
 
-        describe("selectFlavorCtrl.allocatedFlavorFacades", function () {
+        describe("ctrl.allocatedFlavorFacades", function () {
 
           it("deletes flavor if falsy facade", function () {
             model.newInstanceSpec.flavor = "to be removed";
@@ -420,9 +420,7 @@
 
       it('initializes empty facades', function () {
         expect(ctrl.availableFlavorFacades).toEqual([]);
-        expect(ctrl.displayedAvailableFlavorFacades).toEqual([]);
         expect(ctrl.allocatedFlavorFacades).toEqual([]);
-        expect(ctrl.displayedAllocatedFlavorFacades).toEqual([]);
       });
 
       it('initializes empty flavors', function () {
@@ -438,13 +436,11 @@
       });
 
       it('initializes transfer table model', function () {
-        expect(ctrl.transferTableModel).toBeDefined();
-        var mod = ctrl.transferTableModel;
+        expect(ctrl.tableData).toBeDefined();
+        var mod = ctrl.tableData;
         expect(mod.allocated).toBe(ctrl.allocatedFlavorFacades);
-        expect(mod.displayedAllocated).toBe(ctrl.displayedAllocatedFlavorFacades);
         expect(mod.available).toBe(ctrl.availableFlavorFacades);
-        expect(mod.displayedAvailable).toBe(ctrl.displayedAvailableFlavorFacades);
-        expect(Object.keys(mod).length).toBe(4);
+        expect(Object.keys(mod).length).toBe(2);
       });
 
       it('initializes chart data', function () {
@@ -452,8 +448,8 @@
       });
 
       it('allows only one allocation', function () {
-        expect(ctrl.allocationLimits).toBeDefined();
-        expect(ctrl.allocationLimits.maxAllocation).toBe(1);
+        expect(ctrl.tableLimits).toBeDefined();
+        expect(ctrl.tableLimits.maxAllocation).toBe(1);
       });
 
       describe('Functions', function () {
