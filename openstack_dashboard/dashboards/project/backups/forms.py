@@ -42,9 +42,30 @@ class CreateBackupForm(forms.SelfHandlingForm):
     volume_id = forms.CharField(widget=forms.HiddenInput())
     snapshot_id = forms.ThemableChoiceField(label=_("Backup Snapshot"),
                                             required=False)
+    incremental = forms.BooleanField(
+        label=_("Incremental"),
+        required=False,
+        help_text=_("By default, a backup is created as a full backup. "
+                    "Check this to do an incremental backup from latest "
+                    "backup. Only available if a prior backup exists."))
 
     def __init__(self, request, *args, **kwargs):
         super().__init__(request, *args, **kwargs)
+        search_opts = {"volume_id": kwargs['initial']['volume_id'],
+                       "status": "available"}
+        try:
+            if not api.cinder.volume_backup_list(request,
+                                                 search_opts=search_opts):
+                self.fields.pop('incremental')
+        except Exception:
+            #  Do not include incremental if list of prior backups fails
+            self.fields.pop('incremental')
+            msg = _('Unable to retrieve volume backup list '
+                    'for volume "%s", so incremental '
+                    'backup is disabled.') % search_opts['volume_id']
+
+            exceptions.handle(self.request, msg)
+
         if kwargs['initial'].get('snapshot_id'):
             snap_id = kwargs['initial']['snapshot_id']
             try:
@@ -84,12 +105,14 @@ class CreateBackupForm(forms.SelfHandlingForm):
             volume = api.cinder.volume_get(request, data['volume_id'])
             snapshot_id = data['snapshot_id'] or None
             force = False
+            incremental = data.get('incremental', False)
             if volume.status == 'in-use':
                 force = True
             backup = api.cinder.volume_backup_create(
                 request, data['volume_id'],
                 data['container_name'], data['name'],
                 data['description'], force=force,
+                incremental=incremental,
                 snapshot_id=snapshot_id
             )
 
