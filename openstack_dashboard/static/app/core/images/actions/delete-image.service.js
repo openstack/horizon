@@ -76,10 +76,10 @@
       }
 
       function afterCheck(result) {
-        var outcome = $q.reject();  // Reject the promise by default
+        var outcome = $q.reject().catch(angular.noop);  // Reject the promise by default
         if (result.fail.length > 0) {
           toast.add('error', getMessage(notAllowedMessage, result.fail));
-          outcome = $q.reject(result.fail);
+          outcome = $q.reject(result.fail).catch(angular.noop);
         }
         if (result.pass.length > 0) {
           outcome = deleteModal.open(scope, result.pass.map(getEntity), context).then(createResult);

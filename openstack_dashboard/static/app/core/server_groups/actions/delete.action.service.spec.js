@@ -17,7 +17,7 @@
 
   describe('horizon.app.core.server_groups.actions.delete.service', function() {
 
-    var $scope, deferredModal, novaAPI, service, $location;
+    var $scope, deferredModal, novaAPI, service, $location, $httpBackend;
     var deleteModalService = {
       open: function () {
         deferredModal.resolve({
@@ -36,10 +36,11 @@
     beforeEach(module('horizon.framework.widgets.modal', function($provide) {
       $provide.value('horizon.framework.widgets.modal.deleteModalService', deleteModalService);
     }));
-    beforeEach(inject(function($injector, _$rootScope_, $q) {
+    beforeEach(inject(function($injector, _$rootScope_, $q, _$httpBackend_) {
       $scope = _$rootScope_.$new();
       deferredModal = $q.defer();
       $location = $injector.get("$location");
+      $httpBackend = _$httpBackend_;
       novaAPI = $injector.get('horizon.app.core.openstack-service-api.nova');
       service = $injector.get('horizon.app.core.server_groups.actions.delete.service');
     }));
@@ -134,6 +135,7 @@
 
       function testDeleteResult() {
         $location.path("ngdetails/OS::Nova::ServerGroup/1");
+        $httpBackend.expectGET('/static/app/core/server_groups/panel.html').respond({});
         var servergroup = {id: 1, name: 'sg1'};
         deferredModal.resolve({fail: [], pass:[{data:{"data": "", "status": "204"},
                                                 context:servergroup}]});

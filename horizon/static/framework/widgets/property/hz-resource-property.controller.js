@@ -31,16 +31,18 @@
 
     // 'config' is the configuration for how to output the field, and 'config.id'
     // is the property name itself.
-    ctrl.config = registry.getResourceType(ctrl.resourceTypeName).getProperties()[ctrl.propName];
-    ctrl.config.id = ctrl.propName;
+    this.$onInit = function init() {
+      ctrl.config = registry.getResourceType(ctrl.resourceTypeName).getProperties()[ctrl.propName];
+      ctrl.config.id = ctrl.propName;
 
-    angular.forEach(registry.getResourceType(ctrl.resourceTypeName).getTableColumns(),
-      function(column) {
-        if (column.id === ctrl.propName) {
-          ctrl.config.priority = column.priority;
+      angular.forEach(registry.getResourceType(ctrl.resourceTypeName).getTableColumns(),
+        function(column) {
+          if (column.id === ctrl.propName) {
+            ctrl.config.priority = column.priority;
+          }
         }
-      }
-    );
+      );
+    };
   }
 
 })();

@@ -38,13 +38,16 @@
     ctrl.quickFilter = quickFilter;
     ctrl.checkNameUnique = checkNameUnique;
     ctrl.text = angular.extend({}, defaults.text, ctrl.text);
-    if (!ctrl.tree) {
-      ctrl.tree = new metadataTreeService.Tree(ctrl.available, ctrl.existing);
-    }
-    ctrl.customItem = '';
-    ctrl.filterText = {
-      available: '',
-      existing: ''
+
+    this.$onInit = function init() {
+      if (!ctrl.tree) {
+        ctrl.tree = new metadataTreeService.Tree(ctrl.available, ctrl.existing);
+      }
+      ctrl.customItem = '';
+      ctrl.filterText = {
+        available: '',
+        existing: ''
+      };
     };
 
     function availableFilter(item) {

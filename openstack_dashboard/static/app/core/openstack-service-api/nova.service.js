@@ -98,7 +98,7 @@
      */
     function isFeatureSupported(feature) {
       return apiService.get('/api/nova/features/' + feature)
-        .error(function () {
+        .catch(function onError() {
           toastService.add('error', gettext('Unable to check the Nova service feature.'));
         });
     }
@@ -114,7 +114,7 @@
      */
     function getServices() {
       return apiService.get('/api/nova/services/')
-        .error(function () {
+        .catch(function onError() {
           toastService.add('error', gettext('Unable to retrieve the nova services.'));
         });
     }
@@ -130,7 +130,7 @@
      */
     function getKeypairs() {
       return apiService.get('/api/nova/keypairs/')
-        .error(function () {
+        .catch(function onError() {
           toastService.add('error', gettext('Unable to retrieve the keypairs.'));
         });
     }
@@ -152,7 +152,7 @@
      */
     function createKeypair(newKeypair) {
       return apiService.post('/api/nova/keypairs/', newKeypair)
-        .error(function () {
+        .catch(function onError() {
           if (angular.isDefined(newKeypair.public_key)) {
             toastService.add('error', gettext('Unable to import the keypair.'));
           } else {
@@ -173,7 +173,7 @@
      */
     function getKeypair(name) {
       return apiService.get('/api/nova/keypairs/' + name)
-        .error(function () {
+        .catch(function onError() {
           toastService.add('error', gettext('Unable to retrieve the keypair.'));
         });
     }
@@ -194,7 +194,7 @@
      */
     function deleteKeypair(name, suppressError) {
       var promise = apiService.delete('/api/nova/keypairs/' + name);
-      return suppressError ? promise : promise.error(function() {
+      return suppressError ? promise : promise.catch(function onError() {
         var msg = gettext('Unable to delete the keypair with name: %(name)s');
         toastService.add('error', interpolate(msg, { name: name }, true));
       });
@@ -213,7 +213,7 @@
      */
     function getAvailabilityZones() {
       return apiService.get('/api/nova/availzones/')
-        .error(function () {
+        .catch(function onError() {
           toastService.add('error',
                         gettext('Unable to retrieve the availability zones.'));
         });
@@ -254,7 +254,7 @@
     function getLimits(reserved) {
       var params = { params: {reserved: reserved }};
       return apiService.get('/api/nova/limits/', params)
-        .error(function () {
+        .catch(function onError() {
           toastService.add('error', gettext('Unable to retrieve the limits.'));
         });
     }
@@ -282,7 +282,7 @@
      */
     function createServer(newServer) {
       return apiService.post('/api/nova/servers/', newServer)
-        .error(function () {
+        .catch(function onError() {
           toastService.add('error', gettext('Unable to create the server.'));
         });
     }
@@ -297,7 +297,7 @@
      */
     function getServer(id) {
       return apiService.get('/api/nova/servers/' + id)
-        .error(function () {
+        .catch(function onError() {
           toastService.add('error', gettext('Unable to retrieve the server.'));
         });
     }
@@ -313,7 +313,7 @@
      */
     function getServers() {
       return apiService.get('/api/nova/servers/')
-        .error(function () {
+        .catch(function onError() {
           toastService.add('error', gettext('Unable to retrieve instances.'));
         });
     }
@@ -328,7 +328,7 @@
      */
     function getServerGroup(id) {
       return apiService.get('/api/nova/servergroups/' + id)
-        .error(function () {
+        .catch(function onError() {
           toastService.add('error', gettext('Unable to retrieve the server group.'));
         });
     }
@@ -344,7 +344,7 @@
      */
     function getServerGroups() {
       return apiService.get('/api/nova/servergroups/')
-        .error(function () {
+        .catch(function onError() {
           toastService.add('error', gettext('Unable to retrieve server groups.'));
         });
     }
@@ -366,7 +366,7 @@
      */
     function createServerGroup(newServerGroup) {
       return apiService.post('/api/nova/servergroups/', newServerGroup)
-        .error(function () {
+        .catch(function onError() {
           toastService.add('error', gettext('Unable to create the server group.'));
         });
     }
@@ -387,7 +387,7 @@
      */
     function deleteServerGroup(serverGroupId, suppressError) {
       var promise = apiService.delete('/api/nova/servergroups/' + serverGroupId + '/');
-      return suppressError ? promise : promise.error(function() {
+      return suppressError ? promise : promise.catch(function onError() {
         var msg = gettext('Unable to delete the server group with id %(id)s');
         toastService.add('error', interpolate(msg, { id: serverGroupId }, true));
       });
@@ -405,7 +405,7 @@
     function deleteServer(serverId, suppressError) {
       var promise = apiService.delete('/api/nova/servers/' + serverId);
 
-      return suppressError ? promise : promise.error(function() {
+      return suppressError ? promise : promise.catch(function onError() {
         var msg = gettext('Unable to delete the server with id: %(id)s');
         toastService.add('error', interpolate(msg, { id: serverId }, true));
       });
@@ -415,7 +415,7 @@
       var instruction = {"operation": operation};
       var promise = apiService.post('/api/nova/servers/' + serverId, instruction);
 
-      return suppressError ? promise : promise.error(function() {
+      return suppressError ? promise : promise.catch(function onError() {
         toastService.add('error', interpolate(errMsg, { id: serverId }, true));
       });
 
@@ -549,13 +549,13 @@
     function getFlavors(params) {
       var config = params ? { 'params' : params} : { 'params' : {} };
       return apiService.get('/api/nova/flavors/', config)
-        .success(function (data) {
+        .then(function onSuccess(response) {
           // The colon character ':' in the flavor data causes problems when used
           // in Angular $parse() statements. Since these values are used as keys
           // to lookup data (and may end up in a $parse()) provide "user-friendly"
           // attributes
-          if (data && data.items) {
-            data.items.map(function(item) {
+          if (response.data && response.data.items) {
+            response.data.items.map(function(item) {
               if (item.hasOwnProperty('OS-FLV-EXT-DATA:ephemeral')) {
                 item.ephemeral = item['OS-FLV-EXT-DATA:ephemeral'];
               }
@@ -567,8 +567,9 @@
               }
             });
           }
+          return response;
         })
-        .error(function () {
+        .catch(function onError() {
           toastService.add('error', gettext('Unable to retrieve the flavors.'));
         });
     }
@@ -593,7 +594,7 @@
         config.params.get_access_list = 'true';
       }
       return apiService.get('/api/nova/flavors/' + id + '/' , config)
-        .error(function () {
+        .catch(function onError() {
           toastService.add('error', gettext('Unable to retrieve the flavor.'));
         });
     }
@@ -608,7 +609,7 @@
      */
     function createFlavor(flavor) {
       return apiService.post('/api/nova/flavors/', flavor)
-        .error(function () {
+        .catch(function onError() {
           toastService.add('error', gettext('Unable to create the flavor.'));
         });
     }
@@ -623,7 +624,7 @@
      */
     function updateFlavor(flavor) {
       return apiService.patch('/api/nova/flavors/' + flavor.id + '/', flavor)
-        .error(function () {
+        .catch(function onError() {
           toastService.add('error', gettext('Unable to update the flavor.'));
         });
     }
@@ -645,7 +646,7 @@
     function deleteFlavor(flavorId, suppressError) {
       var promise = apiService.delete('/api/nova/flavors/' + flavorId + '/');
 
-      return suppressError ? promise : promise.error(function() {
+      return suppressError ? promise : promise.catch(function onError() {
         var msg = gettext('Unable to delete the flavor with id: %(id)s');
         toastService.add('error', interpolate(msg, { id: flavorId }, true));
       });
@@ -662,7 +663,7 @@
      */
     function getFlavorExtraSpecs(id) {
       return apiService.get('/api/nova/flavors/' + id + '/extra-specs/')
-        .error(function () {
+        .catch(function onError() {
           toastService.add('error', gettext('Unable to retrieve the flavor extra specs.'));
         });
     }
@@ -683,7 +684,7 @@
           updated: updated,
           removed: removed
         }
-      ).error(function () {
+      ).catch(function onError() {
         toastService.add('error', gettext('Unable to edit the flavor extra specs.'));
       });
     }
@@ -698,7 +699,7 @@
      */
     function getAggregateExtraSpecs(id) {
       return apiService.get('/api/nova/aggregates/' + id + '/extra-specs/')
-        .error(function () {
+        .catch(function onError() {
           toastService.add('error', gettext('Unable to retrieve the aggregate extra specs.'));
         });
     }
@@ -719,7 +720,7 @@
           updated: updated,
           removed: removed
         }
-      ).error(function () {
+      ).catch(function onError() {
         toastService.add('error', gettext('Unable to edit the aggregate extra specs.'));
       });
     }
@@ -734,7 +735,7 @@
      */
     function getInstanceMetadata(id) {
       return apiService.get('/api/nova/servers/' + id + '/metadata')
-        .error(function () {
+        .catch(function onError() {
           toastService.add('error', gettext('Unable to retrieve instance metadata.'));
         });
     }
@@ -755,7 +756,7 @@
           updated: updated,
           removed: removed
         }
-      ).error(function () {
+      ).catch(function onError() {
         toastService.add('error', gettext('Unable to edit instance metadata.'));
       });
     }
@@ -773,7 +774,7 @@
      */
     function getDefaultQuotaSets() {
       return apiService.get('/api/nova/quota-sets/defaults/')
-        .error(function () {
+        .catch(function onError() {
           toastService.add('error', gettext('Unable to retrieve the default quotas.'));
         });
     }
@@ -786,7 +787,7 @@
      */
     function setDefaultQuotaSets(quotas) {
       return apiService.patch('/api/nova/quota-sets/defaults/', quotas)
-        .error(function () {
+        .catch(function onError() {
           toastService.add('error', gettext('Unable to set the default quotas.'));
         });
     }
@@ -803,7 +804,7 @@
      */
     function getEditableQuotas() {
       return apiService.get('/api/nova/quota-sets/editable/')
-        .error(function() {
+        .catch(function onError() {
           toastService.add('error', gettext('Unable to retrieve the editable quotas.'));
         });
     }
@@ -820,7 +821,7 @@
     function updateProjectQuota(quota, projectId) {
       var url = '/api/nova/quota-sets/' + projectId;
       return apiService.patch(url, quota)
-        .error(function() {
+        .catch(function onError() {
           toastService.add('error', gettext('Unable to update project quota data.'));
         });
     }
@@ -839,7 +840,7 @@
      */
     function createServerSnapshot(newSnapshot) {
       return apiService.post('/api/nova/snapshots/', newSnapshot)
-        .error(function () {
+        .catch(function onError() {
           toastService.add('error', gettext('Unable to create the server snapshot.'));
         });
     }
@@ -854,7 +855,7 @@
      */
     function getActionList(instanceId) {
       return apiService.get('/api/nova/servers/' + instanceId + '/actions/')
-        .error(function () {
+        .catch(function onError() {
           toastService.add('error', gettext('Unable to load the server actions.'));
         });
     }
@@ -874,7 +875,7 @@
         config.length = length;
       }
       return apiService.post('/api/nova/servers/' + instanceId + '/console-output/', config)
-        .error(function () {
+        .catch(function onError() {
           toastService.add('error', gettext('Unable to load the server console log.'));
         });
     }
@@ -894,7 +895,7 @@
         config.console_type = type;
       }
       return apiService.post('/api/nova/servers/' + instanceId + '/console-info/', config)
-        .error(function () {
+        .catch(function onError() {
           toastService.add('error', gettext('Unable to load the server console info.'));
         });
     }
@@ -909,7 +910,7 @@
      */
     function getServerVolumes(instanceId) {
       return apiService.get('/api/nova/servers/' + instanceId + '/volumes/')
-        .error(function () {
+        .catch(function onError() {
           toastService.add('error', gettext('Unable to load the server volumes.'));
         });
     }
@@ -924,7 +925,7 @@
      */
     function getServerSecurityGroups(instanceId) {
       return apiService.get('/api/nova/servers/' + instanceId + '/security-groups/')
-        .error(function () {
+        .catch(function onError() {
           toastService.add('error', gettext('Unable to load the server security groups.'));
         });
     }

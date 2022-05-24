@@ -234,30 +234,40 @@
           { id: 'one' },
           {
             id: 'two',
-            checkReadiness: function() { return checkReadinessPromises[0].promise; }
+            checkReadiness: function() {
+              return checkReadinessPromises[0].promise.catch(angular.noop);
+            }
           },
           {
             id: 'three',
-            checkReadiness: function() { return checkReadinessPromises[1].promise; }
+            checkReadiness: function() {
+              return checkReadinessPromises[1].promise.catch(angular.noop);
+            }
           },
           {
             id: 'four',
-            checkReadiness: function() { return checkReadinessPromises[2].promise; }
+            checkReadiness: function() {
+              return checkReadinessPromises[2].promise.catch(angular.noop);
+            }
           },
           {
             id: 'five',
-            checkReadiness: function() { return checkReadinessPromises[3].promise; }
+            checkReadiness: function() {
+              return checkReadinessPromises[3].promise.catch(angular.noop);
+            }
           },
           {
             id: 'six',
-            checkReadiness: function() { return checkReadinessPromises[4].promise; }
+            checkReadiness: function() {
+              return checkReadinessPromises[4].promise.catch(angular.noop);
+            }
           }
         ]
       };
 
-      checkReadinessPromises[0].reject();
+      checkReadinessPromises[0].reject('reject two');
       checkReadinessPromises[1].resolve(true);
-      checkReadinessPromises[2].reject();
+      checkReadinessPromises[2].reject('reject four');
       checkReadinessPromises[3].resolve(false);
       checkReadinessPromises[4].resolve(true);
       $scope.$apply();

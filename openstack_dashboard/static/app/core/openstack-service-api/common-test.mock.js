@@ -63,11 +63,11 @@
   function testCall(apiService, service, toastService, config) {
     // 'promise' simulates a promise, including a self-referential success
     // handler.
-    var promise = {error: angular.noop, success: function() {
+    var promise = {catch: angular.noop, then: function() {
       return this;
     }};
     spyOn(apiService, config.method).and.returnValue(promise);
-    spyOn(promise, 'error');
+    spyOn(promise, 'catch');
     service[config.func].apply(null, config.testInput);
 
     // Checks to ensure we call the api service with the appropriate
@@ -84,7 +84,7 @@
     // error spy.  This exposes the inner function that, when invoked,
     // allows us to inspect the error call and the message given.
     if (config.error) {
-      var innerFunc = promise.error.calls.argsFor(0)[0];
+      var innerFunc = promise.catch.calls.argsFor(0)[0];
       expect(innerFunc).toBeDefined();
       spyOn(toastService, 'add');
       innerFunc({status: 500});

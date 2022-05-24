@@ -21,13 +21,13 @@
 
     function fakeGlance() {
       return {
-        success: function(callback) {
-          callback({
+        then: function(callback) {
+          callback({data: {
             items: [
               {disk_format: 'aki'},
               {disk_format: 'ari'},
               {disk_format: ''}]
-          });
+          }});
         }
       };
     }

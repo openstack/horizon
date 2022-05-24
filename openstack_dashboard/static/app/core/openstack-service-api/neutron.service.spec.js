@@ -40,66 +40,66 @@
 
     it('converts created_at and updated_at to human readable if calling getTrunk' +
        'or getQosPolicy',function() {
-      var data = {
+      var response = {data: {
         id: 1,
         created_at: '2017-11-16',
         updated_at: '2017-11-16'
-      };
+      }};
       spyOn(apiService, 'get').and.callFake(function() {
         return {
-          success: function(c) {
-            c(data);
+          then: function(c) {
+            c(response);
             return this;
           },
-          error: function(c) {
+          catch: function(c) {
             c();
             return this;
           }
         };
       });
-      service.getTrunk(data.id, true).success(function(result) {
-        expect(result.id).toEqual(data.id);
-        expect(result.created_at).toEqual(new Date(data.created_at));
-        expect(result.updated_at).toEqual(new Date(data.updated_at));
+      service.getTrunk(response.data.id, true).then(function(result) {
+        expect(result.data.id).toEqual(response.data.id);
+        expect(result.data.created_at).toEqual(new Date(response.data.created_at));
+        expect(result.data.updated_at).toEqual(new Date(response.data.updated_at));
       });
-      service.getQosPolicy(data.id, true).success(function(result) {
-        expect(result.id).toEqual(data.id);
-        expect(result.created_at).toEqual(new Date(data.created_at));
-        expect(result.updated_at).toEqual(new Date(data.updated_at));
+      service.getQosPolicy(response.data.id, true).then(function(result) {
+        expect(result.data.id).toEqual(response.data.id);
+        expect(result.data.created_at).toEqual(new Date(response.data.created_at));
+        expect(result.data.updated_at).toEqual(new Date(response.data.updated_at));
       });
     });
 
     it('converts created_at and updated_at to human readable if calling getTrunks' +
        'or getQoSPolicies', function() {
-      var data = {items: [{
+      var response = {data: {items: [{
         id: 1,
         created_at: '2017-11-16',
         updated_at: '2017-11-16'
-      }]};
+      }]}};
       spyOn(apiService, 'get').and.callFake(function() {
         return {
-          success: function(c) {
-            c(data);
+          then: function(c) {
+            c(response);
             return this;
           },
-          error: function(c) {
+          catch: function(c) {
             c();
             return this;
           }
         };
       });
-      service.getTrunks().success(function(result) {
-        result.items.forEach(function(trunk) {
-          expect(trunk.id).toEqual(data.items[0].id);
-          expect(trunk.created_at).toEqual(new Date(data.items[0].created_at));
-          expect(trunk.updated_at).toEqual(new Date(data.items[0].updated_at));
+      service.getTrunks().then(function(result) {
+        result.data.items.forEach(function(trunk) {
+          expect(trunk.id).toEqual(response.data.items[0].id);
+          expect(trunk.created_at).toEqual(new Date(response.data.items[0].created_at));
+          expect(trunk.updated_at).toEqual(new Date(response.data.items[0].updated_at));
         });
       });
-      service.getQoSPolicies().success(function(result) {
-        result.items.forEach(function(policy) {
-          expect(policy.id).toEqual(data.items[0].id);
-          expect(policy.created_at).toEqual(new Date(data.items[0].created_at));
-          expect(policy.updated_at).toEqual(new Date(data.items[0].updated_at));
+      service.getQoSPolicies().then(function(result) {
+        result.data.items.forEach(function(policy) {
+          expect(policy.id).toEqual(response.data.items[0].id);
+          expect(policy.created_at).toEqual(new Date(response.data.items[0].created_at));
+          expect(policy.updated_at).toEqual(new Date(response.data.items[0].updated_at));
         });
       });
     });
@@ -107,11 +107,11 @@
     it('can suppress errors in case of deleting trunks', function() {
       spyOn(apiService, 'delete').and.callFake(function() {
         return {
-          success: function(c) {
+          then: function(c) {
             c();
             return this;
           },
-          error: function(c) {
+          catch: function(c) {
             c();
             return this;
           }
@@ -119,7 +119,7 @@
       });
       spyOn(toastService, 'add').and.callThrough();
 
-      service.deleteTrunk('42', true).error(function() {
+      service.deleteTrunk('42', true).catch(function() {
         expect(toastService.add).not.toHaveBeenCalled();
       });
     });

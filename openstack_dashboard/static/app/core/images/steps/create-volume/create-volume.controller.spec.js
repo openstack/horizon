@@ -22,22 +22,22 @@
     var cinder = {
       getVolumeTypes: function() {
         return {
-          success: function(callback) {
-            return callback({items: [{name: 'volumeType'}, {name: 'lvmdriver-1'}]});
+          then: function(callback) {
+            return callback({data: {items: [{name: 'volumeType'}, {name: 'lvmdriver-1'}]}});
           }
         };
       },
       getDefaultVolumeType: function() {
         return {
-          success: function(callback) {
-            return callback({name: 'lvmdriver-1'});
+          then: function(callback) {
+            return callback({data: {name: 'lvmdriver-1'}});
           }
         };
       },
       getAvailabilityZones: function() {
         return {
-          success: function(callback) {
-            return callback({ items: [{zoneName: 'zone1'}] });
+          then: function(callback) {
+            return callback({data: {items: [{zoneName: 'zone1'}]}});
           }
         };
       },
@@ -68,13 +68,13 @@
 
       getAbsoluteLimitsSpy = spyOn(cinder, 'getAbsoluteLimits');
       getAbsoluteLimitsSpy.and.returnValue({
-        success: function(callback) {
-          return callback({
+        then: function(callback) {
+          return callback({data: {
             maxTotalVolumeGigabytes: 20,
             totalVolumesUsed: 10,
             maxTotalVolumes: 50,
             totalGigabytesUsed: 10
-          });
+          }});
         }
       });
 
@@ -95,13 +95,13 @@
 
     it('should initialize default values using cinder and nova apis', function() {
       getAbsoluteLimitsSpy.and.returnValue({
-        success: function(callback) {
-          return callback({
+        then: function(callback) {
+          return callback({data: {
             maxTotalVolumeGigabytes: 2,
             totalVolumesUsed: 1,
             maxTotalVolumes: 5,
             totalGigabytesUsed: 1
-          });
+          }});
         }
       });
 
@@ -122,13 +122,13 @@
 
     it('should setup the storage graph with default values', function() {
       getAbsoluteLimitsSpy.and.returnValue({
-        success: function(callback) {
-          return callback({
+        then: function(callback) {
+          return callback({data: {
             maxTotalVolumeGigabytes: 2,
             totalVolumesUsed: 1,
             maxTotalVolumes: 5,
             totalGigabytesUsed: 1
-          });
+          }});
         }
       });
 
@@ -157,13 +157,13 @@
 
     it('should setup the volume quota instance graph with default values', function() {
       getAbsoluteLimitsSpy.and.returnValue({
-        success: function(callback) {
-          return callback({
+        then: function(callback) {
+          return callback({data: {
             maxTotalVolumeGigabytes: 2,
             totalVolumesUsed: 1,
             maxTotalVolumes: 5,
             totalGigabytesUsed: 1
-          });
+          }});
         }
       });
 
@@ -189,13 +189,13 @@
 
     it('should update storage stats on volume size change', function() {
       getAbsoluteLimitsSpy.and.returnValue({
-        success: function(callback) {
-          return callback({
+        then: function(callback) {
+          return callback({data: {
             maxTotalVolumeGigabytes: 2,
             totalVolumesUsed: 1,
             maxTotalVolumes: 5,
             totalGigabytesUsed: 1
-          });
+          }});
         }
       });
 
@@ -218,13 +218,13 @@
 
     it('should not change if volume size is 0', function() {
       getAbsoluteLimitsSpy.and.returnValue({
-        success: function(callback) {
-          return callback({
+        then: function(callback) {
+          return callback({data: {
             maxTotalVolumeGigabytes: 2,
             totalVolumesUsed: 1,
             maxTotalVolumes: 5,
             totalGigabytesUsed: 1
-          });
+          }});
         }
       });
 
@@ -246,13 +246,13 @@
 
     it('should not change if volume size is < 0', function() {
       getAbsoluteLimitsSpy.and.returnValue({
-        success: function(callback) {
-          return callback({
+        then: function(callback) {
+          return callback({data: {
             maxTotalVolumeGigabytes: 2,
             totalVolumesUsed: 1,
             maxTotalVolumes: 5,
             totalGigabytesUsed: 1
-          });
+          }});
         }
       });
 
@@ -282,13 +282,13 @@
 
     it('should set the validity of the volume size input field based on the limit', function() {
       getAbsoluteLimitsSpy.and.returnValue({
-        success: function(callback) {
-          return callback({
+        then: function(callback) {
+          return callback({data: {
             maxTotalVolumeGigabytes: 2,
             totalVolumesUsed: 1,
             maxTotalVolumes: 5,
             totalGigabytesUsed: 1
-          });
+          }});
         }
       });
 
@@ -309,13 +309,13 @@
 
     it('should deregister the storage watcher when the destroy event is thrown', function() {
       getAbsoluteLimitsSpy.and.returnValue({
-        success: function(callback) {
-          return callback({
+        then: function(callback) {
+          return callback({data: {
             maxTotalVolumeGigabytes: 2,
             totalVolumesUsed: 1,
             maxTotalVolumes: 5,
             totalGigabytesUsed: 1
-          });
+          }});
         }
       });
 
@@ -354,8 +354,8 @@
 
       cinder.getAvailabilityZones = function() {
         return {
-          success: function(callback) {
-            return callback({ items: [] });
+          then: function(callback) {
+            return callback({data: {items: []}});
           }
         };
       };
@@ -368,13 +368,13 @@
 
     it('should not update the graph if wrong values are given for volume size', function () {
       getAbsoluteLimitsSpy.and.returnValue({
-        success: function(callback) {
-          return callback({
+        then: function(callback) {
+          return callback({data: {
             maxTotalVolumeGigabytes: 2,
             totalVolumesUsed: 1,
             maxTotalVolumes: 5,
             totalGigabytesUsed: 1
-          });
+          }});
         }
       });
 

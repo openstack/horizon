@@ -76,7 +76,7 @@
     // Version
     function getVersion() {
       return apiService.get('/api/keystone/version/')
-        .error(function () {
+        .catch(function onError() {
           toastService.add('error', gettext('Unable to get the Keystone service version.'));
         });
     }
@@ -85,28 +85,28 @@
     function getUsers(params) {
       var config = params ? {'params': params} : {};
       return apiService.get('/api/keystone/users/', config)
-        .error(function () {
+        .catch(function onError() {
           toastService.add('error', gettext('Unable to retrieve the users.'));
         });
     }
 
     function createUser(newUser) {
       return apiService.post('/api/keystone/users/', newUser)
-        .error(function () {
+        .catch(function onError() {
           toastService.add('error', gettext('Unable to create the user.'));
         });
     }
 
     function deleteUsers(userIds) {
       return apiService.delete('/api/keystone/users/', userIds)
-        .error(function () {
+        .catch(function onError() {
           toastService.add('error', gettext('Unable to delete the users.'));
         });
     }
 
     function getServices() {
       return apiService.get('/api/keystone/services/')
-        .error(function () {
+        .catch(function onError() {
           toastService.add('error', gettext('Unable to fetch the services.'));
         });
     }
@@ -114,21 +114,21 @@
     // Group
     function getGroups() {
       return apiService.get('/api/keystone/groups/')
-        .error(function () {
+        .catch(function onError() {
           toastService.add('error', gettext('Unable to fetch the groups.'));
         });
     }
 
     function createGroup(newGroup) {
       return apiService.post('/api/keystone/groups/', newGroup)
-        .error(function () {
+        .catch(function onError() {
           toastService.add('error', gettext('Unable to create the group.'));
         });
     }
 
     function getGroup(groupId) {
       return apiService.get('/api/keystone/groups/' + groupId)
-        .error(function () {
+        .catch(function onError() {
           toastService.add('error', gettext('Unable to retrieve the group.'));
         });
     }
@@ -136,21 +136,21 @@
     function editGroup(updatedGroup) {
       var url = '/api/keystone/groups/' + updatedGroup.id;
       return apiService.patch(url, updatedGroup)
-        .error(function () {
+        .catch(function onError() {
           toastService.add('error', gettext('Unable to edit the group.'));
         });
     }
 
     function deleteGroup(groupId) {
       return apiService.delete('/api/keystone/groups/' + groupId)
-        .error(function () {
+        .catch(function onError() {
           toastService.add('error', gettext('Unable to delete the group.'));
         });
     }
 
     function deleteGroups(groupIds) {
       return apiService.delete('/api/keystone/groups/', groupIds)
-        .error(function () {
+        .catch(function onError() {
           toastService.add('error', gettext('Unable to delete the groups.'));
         });
     }
@@ -186,7 +186,7 @@
     */
     function getCurrentUserSession(config) {
       return apiService.get('/api/keystone/user-session/', config)
-        .error(function () {
+        .catch(function onError() {
           toastService.add('error',
             gettext('Unable to retrieve the current user session.'));
         });
@@ -194,7 +194,7 @@
 
     function getUser(userId) {
       return apiService.get('/api/keystone/users/' + userId)
-        .error(function () {
+        .catch(function onError() {
           toastService.add('error', gettext('Unable to retrieve the user.'));
         });
     }
@@ -202,14 +202,14 @@
     function editUser(updatedUser) {
       var url = '/api/keystone/users/' + updatedUser.id;
       return apiService.patch(url, updatedUser)
-        .error(function () {
+        .catch(function onError() {
           toastService.add('error', gettext('Unable to edit the user.'));
         });
     }
 
     function deleteUser(userId) {
       return apiService.delete('/api/keystone/users/' + userId)
-        .error(function () {
+        .catch(function onError() {
           toastService.add('error', gettext('Unable to delete the user.'));
         });
     }
@@ -217,28 +217,28 @@
     // Roles
     function getRoles() {
       return apiService.get('/api/keystone/roles/')
-        .error(function () {
+        .catch(function onError() {
           toastService.add('error', gettext('Unable to retrieve the roles.'));
         });
     }
 
     function createRole(newRole) {
       return apiService.post('/api/keystone/roles/', newRole)
-        .error(function () {
+        .catch(function onError() {
           toastService.add('error', gettext('Unable to create the role.'));
         });
     }
 
     function deleteRoles(roleIds) {
       return apiService.delete('/api/keystone/roles/', roleIds)
-        .error(function () {
+        .catch(function onError() {
           toastService.add('error', gettext('Unable to delete the roles.'));
         });
     }
 
     function getRole(roleId) {
       return apiService.get('/api/keystone/roles/' + roleId)
-        .error(function () {
+        .catch(function onError() {
           toastService.add('error', gettext('Unable to retrieve the role.'));
         });
     }
@@ -246,14 +246,14 @@
     function editRole(updatedRole) {
       var url = '/api/keystone/roles/' + updatedRole.id;
       return apiService.patch(url, updatedRole)
-        .error(function () {
+        .catch(function onError() {
           toastService.add('error', gettext('Unable to edit the role.'));
         });
     }
 
     function deleteRole(roleId) {
       return apiService.delete('/api/keystone/roles/' + roleId)
-        .error(function () {
+        .catch(function onError() {
           toastService.add('error', gettext('Unable to delete the role.'));
         });
     }
@@ -261,35 +261,35 @@
     // Domains
     function getDefaultDomain() {
       return apiService.get('/api/keystone/default_domain/')
-        .error(function () {
+        .catch(function onError() {
           toastService.add('error', gettext('Unable to retrieve the default domain.'));
         });
     }
 
     function getDomains() {
       return apiService.get('/api/keystone/domains/')
-        .error(function () {
+        .catch(function onError() {
           toastService.add('error', gettext('Unable to retrieve the domains.'));
         });
     }
 
     function createDomain(newDomain) {
       return apiService.post('/api/keystone/domains/', newDomain)
-        .error(function () {
+        .catch(function onError() {
           toastService.add('error', gettext('Unable to create the domain.'));
         });
     }
 
     function deleteDomains(domainIds) {
       return apiService.delete('/api/keystone/domains/', domainIds)
-        .error(function () {
+        .catch(function onError() {
           toastService.add('error', gettext('Unable to delete the domains.'));
         });
     }
 
     function getDomain(domainId) {
       return apiService.get('/api/keystone/domains/' + domainId)
-        .error(function () {
+        .catch(function onError() {
           toastService.add('error', gettext('Unable to retrieve the domain.'));
         });
     }
@@ -297,14 +297,14 @@
     function editDomain(updatedDomain) {
       var url = '/api/keystone/domains/' + updatedDomain.id;
       return apiService.patch(url, updatedDomain)
-        .error(function () {
+        .catch(function onError() {
           toastService.add('error', gettext('Unable to edit the domain.'));
         });
     }
 
     function deleteDomain(domainId) {
       return apiService.delete('/api/keystone/domains/' + domainId)
-        .error(function () {
+        .catch(function onError() {
           toastService.add('error', gettext('Unable to delete the domain.'));
         });
     }
@@ -313,28 +313,28 @@
     function getProjects(params) {
       var config = params ? {'params': params} : {};
       return apiService.get('/api/keystone/projects/', config)
-        .error(function () {
+        .catch(function onError() {
           toastService.add('error', gettext('Unable to retrieve the projects.'));
         });
     }
 
     function createProject(newProject) {
       return apiService.post('/api/keystone/projects/', newProject)
-        .error(function () {
+        .catch(function onError() {
           toastService.add('error', gettext('Unable to create the project.'));
         });
     }
 
     function deleteProjects(projectIds) {
       return apiService.delete('/api/keystone/projects/', projectIds)
-        .error(function () {
+        .catch(function onError() {
           toastService.add('error', gettext('Unable to delete the projects.'));
         });
     }
 
     function getProject(projectId) {
       return apiService.get('/api/keystone/projects/' + projectId)
-        .error(function () {
+        .catch(function onError() {
           toastService.add('error', gettext('Unable to retrieve the project.'));
         });
     }
@@ -358,6 +358,7 @@
       }
 
       function onFailure(message) {
+        deferred.promise.catch(angular.noop);
         deferred.reject(message);
       }
 
@@ -367,14 +368,14 @@
     function editProject(updatedProject) {
       var url = '/api/keystone/projects/' + updatedProject.id;
       return apiService.patch(url, updatedProject)
-        .error(function () {
+        .catch(function onError() {
           toastService.add('error', gettext('Unable to edit the project.'));
         });
     }
 
     function deleteProject(projectId) {
       return apiService.delete('/api/keystone/projects/' + projectId)
-        .error(function () {
+        .catch(function onError() {
           toastService.add('error', gettext('Unable to delete the project.'));
         });
     }
@@ -382,7 +383,7 @@
     function grantRole(projectId, roleId, userId) {
       return apiService.put('/api/keystone/projects/' + projectId + '/' +
                                roleId + '/' + userId)
-        .error(function () {
+        .catch(function onError() {
           toastService.add('error', gettext('Unable to grant the role.'));
         });
     }
@@ -402,6 +403,7 @@
         if (response["can_edit_" + type]) {
           deferred.resolve();
         } else {
+          deferred.promise.catch(angular.noop);
           deferred.reject();
         }
       }
@@ -417,7 +419,7 @@
      */
     function serviceCatalog(config) {
       return apiService.get('/api/keystone/svc-catalog/', config)
-        .error(function () {
+        .catch(function onError() {
           toastService.add('error', gettext('Unable to fetch the service catalog.'));
         });
     }

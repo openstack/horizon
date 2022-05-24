@@ -82,7 +82,7 @@
       // service errors (for better or worse), but when successful
       // unwraps the success result data for direct consumption.
       return apiService.get('/api/settings/', {cache: true})
-        .error(onError)
+        .catch(onError)
         .then(function (response) {
           return response.data;
         });

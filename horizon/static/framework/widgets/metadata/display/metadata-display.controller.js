@@ -51,9 +51,7 @@
       return item.addedCount > 0;
     };
 
-    init();
-
-    function init() {
+    this.$onInit = function init() {
       ctrl.tree = new metadataTreeService.Tree(ctrl.available, ctrl.existing);
       angular.forEach(ctrl.tree.flatTree, function (item) {
         if (item.added) {
@@ -83,6 +81,6 @@
           ctrl.count += 1;
         }
       });
-    }
+    };
   }
 })();

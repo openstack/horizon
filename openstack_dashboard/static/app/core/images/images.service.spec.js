@@ -17,9 +17,10 @@
   "use strict";
 
   describe('images service', function() {
-    var service, detailRoute;
+    var service, detailRoute, $httpBackend;
     beforeEach(module('horizon.app.core.images'));
-    beforeEach(inject(function($injector) {
+    beforeEach(inject(function($injector, _$httpBackend_) {
+      $httpBackend = _$httpBackend_;
       service = $injector.get('horizon.app.core.images.service');
       detailRoute = $injector.get('horizon.app.core.detailRoute');
     }));
@@ -132,6 +133,7 @@
       it("provides a promise and resolves the promise when setting==true", function() {
         location.path('/admin/images');
         service.getFilterFirstSettingPromise();
+        $httpBackend.expectGET('/static/app/core/images/admin-panel.html').respond({});
         deferred.resolve({'admin.images': true});
         scope.$apply();
         expect(settings.getSetting).toHaveBeenCalled();

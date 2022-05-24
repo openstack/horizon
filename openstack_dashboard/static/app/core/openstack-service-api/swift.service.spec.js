@@ -183,42 +183,42 @@
     });
 
     it('returns a relevant error message when createFolder returns a 409 error', function test() {
-      var promise = {error: angular.noop};
+      var promise = {catch: angular.noop};
       spyOn(apiService, 'post').and.returnValue(promise);
-      spyOn(promise, 'error');
+      spyOn(promise, 'catch');
       service.createFolder('spam', 'ham');
       spyOn(toastService, 'add');
-      var innerFunc = promise.error.calls.argsFor(0)[0];
+      var innerFunc = promise.catch.calls.argsFor(0)[0];
       // In the case of 409
       var message = 'A pseudo-folder with the name "ham" already exists.';
-      innerFunc(message, 409);
+      innerFunc({data: message, status: 409});
       expect(toastService.add).toHaveBeenCalledWith('error', message);
     });
 
     it('returns a relevant error message when deleteContainer returns a 409 error',
       function test() {
-        var promise = {error: angular.noop};
+        var promise = {catch: angular.noop};
         spyOn(apiService, 'delete').and.returnValue(promise);
-        spyOn(promise, 'error');
+        spyOn(promise, 'catch');
         service.deleteContainer('spam', 'ham');
         spyOn(toastService, 'add');
-        var innerFunc = promise.error.calls.argsFor(0)[0];
+        var innerFunc = promise.catch.calls.argsFor(0)[0];
         // In the case of 409
         var message = 'Unable to delete the container because it is not empty.';
-        innerFunc(message, 409);
+        innerFunc({data: message, status: 409});
         expect(toastService.add).toHaveBeenCalledWith('error', message);
       }
     );
 
     it('returns a relevant error message when deleteObject returns a 409 error', function test() {
-      var promise = {error: angular.noop};
+      var promise = {catch: angular.noop};
       spyOn(apiService, 'delete').and.returnValue(promise);
-      spyOn(promise, 'error');
+      spyOn(promise, 'catch');
       service.deleteObject('spam', 'ham');
 
       expect(apiService.delete).toHaveBeenCalledWith('/api/swift/containers/spam/object/ham');
 
-      var innerFunc = promise.error.calls.argsFor(0)[0];
+      var innerFunc = promise.catch.calls.argsFor(0)[0];
       expect(innerFunc).toBeDefined();
       spyOn(toastService, 'add');
       innerFunc({status: 409});
@@ -229,35 +229,35 @@
     });
 
     it('returns a relevant error message when copyObject returns a 409 error', function test() {
-      var promise = {error: angular.noop};
+      var promise = {catch: angular.noop};
       spyOn(apiService, 'post').and.returnValue(promise);
-      spyOn(promise, 'error');
+      spyOn(promise, 'catch');
       service.copyObject('spam', 'ham', 'eggs', 'bacon');
       spyOn(toastService, 'add');
-      var innerFunc = promise.error.calls.argsFor(0)[0];
+      var innerFunc = promise.catch.calls.argsFor(0)[0];
       // In the case of 409
       var message = 'Some error message';
-      innerFunc(message, 409);
+      innerFunc({data: message, status: 409});
       expect(toastService.add).toHaveBeenCalledWith('error', message);
     });
 
     it('getContainer suppresses errors when asked', function test() {
-      var promise = {error: angular.noop};
+      var promise = {catch: angular.noop};
       spyOn(apiService, 'get').and.returnValue(promise);
-      spyOn(promise, 'error');
+      spyOn(promise, 'catch');
       spyOn(toastService, 'add');
       service.getContainer('spam', true);
-      expect(promise.error).toHaveBeenCalledWith(angular.noop);
+      expect(promise.catch).toHaveBeenCalledWith(angular.noop);
       expect(toastService.add).not.toHaveBeenCalled();
     });
 
     it('getObjectDetails suppresses errors when asked', function test() {
-      var promise = {error: angular.noop};
+      var promise = {catch: angular.noop};
       spyOn(apiService, 'get').and.returnValue(promise);
-      spyOn(promise, 'error');
+      spyOn(promise, 'catch');
       spyOn(toastService, 'add');
       service.getObjectDetails('spam', 'ham', true);
-      expect(promise.error).toHaveBeenCalledWith(angular.noop);
+      expect(promise.catch).toHaveBeenCalledWith(angular.noop);
       expect(toastService.add).not.toHaveBeenCalled();
     });
 

@@ -85,7 +85,7 @@
      */
     function getInfo() {
       return apiService.get('/api/swift/info/')
-        .error(function () {
+        .catch(function onError() {
           toastService.add('error', gettext('Unable to get the Swift service info.'));
         });
     }
@@ -99,7 +99,7 @@
      *
      */
     function getPolicyDetails() {
-      return apiService.get('/api/swift/policies/').error(function() {
+      return apiService.get('/api/swift/policies/').catch(function onError() {
         toastService.add(
           'error',
           gettext('Unable to fetch the policy details.')
@@ -118,7 +118,7 @@
     function getContainers(params) {
       var config = params ? {'params': params} : {};
       return apiService.get('/api/swift/containers/', config)
-        .error(function() {
+        .catch(function onError() {
           toastService.add('error', gettext('Unable to get the Swift container listing.'));
         });
     }
@@ -137,9 +137,9 @@
     function getContainer(container, ignoreError) {
       var promise = apiService.get(service.getContainerURL(container) + '/metadata/');
       if (ignoreError) {
-        return promise.error(angular.noop);
+        return promise.catch(angular.noop);
       }
-      return promise.error(function() {
+      return promise.catch(function onError() {
         toastService.add('error', gettext('Unable to get the container details.'));
       });
     }
@@ -161,7 +161,7 @@
         data.is_public = true;
       }
       return apiService.post(service.getContainerURL(container) + '/metadata/', data)
-        .error(function (response) {
+        .catch(function onError (response) {
           if (response.status === 409) {
             toastService.add('error', response);
           } else {
@@ -180,9 +180,9 @@
      */
     function deleteContainer(container) {
       return apiService.delete(service.getContainerURL(container) + '/metadata/')
-        .error(function (response, status) {
-          if (status === 409) {
-            toastService.add('error', response);
+        .catch(function onError (response) {
+          if (response.status === 409) {
+            toastService.add('error', response.data);
           } else {
             toastService.add('error', gettext('Unable to delete the container.'));
           }
@@ -202,7 +202,7 @@
       var data = {is_public: isPublic};
 
       return apiService.put(service.getContainerURL(container) + '/metadata/', data)
-        .error(function () {
+        .catch(function onError() {
           toastService.add('error', gettext('Unable to change the container access.'));
         });
     }
@@ -228,7 +228,7 @@
       }
 
       return apiService.get(service.getContainerURL(container) + '/objects/', options)
-        .error(function () {
+        .catch(function onError() {
           toastService.add('error', gettext('Unable to get the objects in container.'));
         });
     }
@@ -249,9 +249,9 @@
         service.getObjectURL(container, objectName),
         {file: file}
       )
-        .error(function () {
-          toastService.add('error', gettext('Unable to upload the object.'));
-        });
+      .catch(function onError() {
+        toastService.add('error', gettext('Unable to upload the object.'));
+      });
     }
 
     /**
@@ -268,15 +268,15 @@
       return apiService.delete(
         service.getObjectURL(container, objectName)
       )
-        .error(function (response) {
-          if (response.status === 409) {
-            toastService.add('error', gettext(
-              'Unable to delete the folder because it is not empty.'
-            ));
-          } else {
-            toastService.add('error', gettext('Unable to delete the object.'));
-          }
-        });
+      .catch(function onError (response) {
+        if (response.status === 409) {
+          toastService.add('error', gettext(
+            'Unable to delete the folder because it is not empty.'
+          ));
+        } else {
+          toastService.add('error', gettext('Unable to delete the object.'));
+        }
+      });
     }
 
     /**
@@ -297,9 +297,9 @@
       );
       if (ignoreError) {
         // provide a noop error handler so the error is ignored
-        return promise.error(angular.noop);
+        return promise.catch(angular.noop);
       }
-      return promise.error(function () {
+      return promise.catch(function onError() {
         toastService.add('error', gettext('Unable to get details of the object.'));
       });
     }
@@ -318,13 +318,13 @@
         service.getObjectURL(container, folderName) + '/',
         {}
       )
-        .error(function (response, status) {
-          if (status === 409) {
-            toastService.add('error', response);
-          } else {
-            toastService.add('error', gettext('Unable to create the folder.'));
-          }
-        });
+      .catch(function onError (response) {
+        if (response.status === 409) {
+          toastService.add('error', response.data);
+        } else {
+          toastService.add('error', gettext('Unable to create the folder.'));
+        }
+      });
     }
 
     /**
@@ -343,13 +343,13 @@
         service.getObjectURL(container, objectName, 'copy'),
         {dest_container: destContainer, dest_name: destName}
       )
-        .error(function (response, status) {
-          if (status === 409) {
-            toastService.add('error', response);
-          } else {
-            toastService.add('error', gettext('Unable to copy the object.'));
-          }
-        });
+      .catch(function onError(response) {
+        if (response.status === 409) {
+          toastService.add('error', response.data);
+        } else {
+          toastService.add('error', gettext('Unable to copy the object.'));
+        }
+      });
     }
   }
 }());

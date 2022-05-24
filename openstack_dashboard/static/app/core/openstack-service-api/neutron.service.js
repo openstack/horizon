@@ -90,7 +90,7 @@
      */
     function getAgents() {
       return apiService.get('/api/neutron/agents/')
-        .error(function () {
+        .catch(function onError() {
           toastService.add('error', gettext('Unable to retrieve the agents.'));
         });
     }
@@ -106,7 +106,7 @@
      */
     function getNetworks() {
       return apiService.get('/api/neutron/networks/')
-        .error(function () {
+        .catch(function onError() {
           toastService.add('error', gettext('Unable to retrieve the networks.'));
         });
     }
@@ -151,7 +151,7 @@
      */
     function createNetwork(newNetwork) {
       return apiService.post('/api/neutron/networks/', newNetwork)
-        .error(function () {
+        .catch(function onError() {
           toastService.add('error', gettext('Unable to create the network.'));
         });
     }
@@ -172,7 +172,7 @@
      */
     function getSubnets(networkId) {
       return apiService.get('/api/neutron/subnets/', networkId)
-        .error(function () {
+        .catch(function onError() {
           toastService.add('error', gettext('Unable to retrieve the subnets.'));
         });
     }
@@ -236,7 +236,7 @@
      */
     function createSubnet(newSubnet) {
       return apiService.post('/api/neutron/subnets/', newSubnet)
-        .error(function () {
+        .catch(function onError() {
           toastService.add('error', gettext('Unable to create the subnet.'));
         });
     }
@@ -289,7 +289,7 @@
     function getPorts(params) {
       var config = params ? { 'params' : params} : {};
       return apiService.get('/api/neutron/ports/', config)
-        .error(function () {
+        .catch(function onError() {
           toastService.add('error', gettext('Unable to retrieve the ports.'));
         });
     }
@@ -321,7 +321,7 @@
      */
     function getExtensions() {
       return apiService.get('/api/neutron/extensions/')
-        .error(function() {
+        .catch(function onError() {
           toastService.add('error', gettext('Unable to retrieve the extensions.'));
         });
     }
@@ -339,7 +339,7 @@
      */
     function getDefaultQuotaSets() {
       return apiService.get('/api/neutron/quota-sets/defaults/')
-        .error(function() {
+        .catch(function onError() {
           toastService.add('error', gettext('Unable to retrieve the default quotas.'));
         });
     }
@@ -358,7 +358,7 @@
     function updateProjectQuota(quota, projectId) {
       var url = '/api/neutron/quotas-sets/' + projectId;
       return apiService.patch(url, quota)
-        .error(function() {
+        .catch(function onError() {
           toastService.add('error', gettext('Unable to update project quota data.'));
         });
     }
@@ -374,10 +374,10 @@
      */
     function getQosPolicy(id, suppressError) {
       var promise = apiService.get('/api/neutron/qos_policies/' + id + '/')
-        .success(function(policy) {
-          convertDatesHumanReadable(policy);
+        .then(function onSuccess(response) {
+          convertDatesHumanReadable(response.data);
         });
-      promise = suppressError ? promise : promise.error(function () {
+      promise = suppressError ? promise : promise.catch(function onError() {
         var msg = gettext('Unable to retrieve the policy with ID %(id)s');
         toastService.add('error', interpolate(msg, {id: id}, true));
       });
@@ -394,12 +394,12 @@
     function getQoSPolicies(params) {
       var config = params ? {'params' : params} : {};
       return apiService.get('/api/neutron/qos_policies/', config)
-        .success(function(policies) {
-          policies.items.forEach(function(policy) {
+        .then(function onSuccess(response) {
+          response.data.items.forEach(function(policy) {
             convertDatesHumanReadable(policy);
           });
         })
-        .error(function () {
+        .catch(function onError() {
           toastService.add('error', gettext('Unable to retrieve the qos policies.'));
         });
     }
@@ -435,7 +435,7 @@
      */
     function createNetworkQoSPolicy(newQosPolicy) {
       return apiService.post('/api/neutron/qos_policies/', newQosPolicy)
-        .error(function () {
+        .catch(function onError() {
           toastService.add('error', gettext('Unable to create the QoS Policy.'));
         });
     }
@@ -449,7 +449,7 @@
     */
     function deletePolicy(policyId, suppressError) {
       var promise = apiService.delete('/api/neutron/qos_policies/' + policyId + '/');
-      promise = suppressError ? promise : promise.error(function() {
+      promise = suppressError ? promise : promise.catch(function onError() {
         var msg = gettext('Unable to delete qos policy %(id)s');
         toastService.add('error', interpolate(msg, { id: policyId }, true));
       });
@@ -498,7 +498,7 @@
     function createBandwidthLimitRule(policyId, ruleId) {
       return apiService.post('/api/neutron/qos/policies/' + policyId +
              '/bandwidth_limit_rules/', ruleId)
-       .error(function () {
+       .catch(function onError() {
          toastService.add('error', gettext('Unable to add the bandwidthrule .'));
        });
     }
@@ -535,7 +535,7 @@
     function createDSCPMarkingRule(policyId, ruleId) {
       return apiService.post('/api/neutron/qos/policies/' + policyId +
              '/dscp_marking_rules/', ruleId)
-       .error(function () {
+       .catch(function onError() {
          toastService.add('error', gettext('Unable to add the dscp_marking_rule .'));
        });
     }
@@ -577,7 +577,7 @@
     function createMinimumBandwidthRule(policyId, ruleId) {
       return apiService.post('/api/neutron/qos/policies/' + policyId +
              '/minimum_bandwidth_rules/', ruleId)
-       .error(function () {
+       .catch(function onError() {
          toastService.add('error', gettext('Unable to add the minimum_bandwidth_rule .'));
        });
     }
@@ -619,7 +619,7 @@
     function createMinimumPacketRateRule(policyId, ruleId) {
       return apiService.post('/api/neutron/qos/policies/' + policyId +
               '/minimum_packet_rate_rules/', ruleId)
-        .error(function () {
+        .catch(function onError() {
           toastService.add('error', gettext('Unable to add the minimum_packet_rate_rule.'));
         });
     }
@@ -643,7 +643,7 @@
     function updateBandwidthRule(policyId, ruleId, updateRuleId) {
       return apiService.patch('/api/neutron/qos/policies/' + policyId +
              '/bandwidth_limit_rules/' + ruleId , updateRuleId)
-       .error(function () {
+       .catch(function onError() {
          toastService.add('error', gettext('Unable to update the bandwidthrule.'));
        });
     }
@@ -667,7 +667,7 @@
     function updateDSCPMarkingRule(policyId, ruleId, updateRuleId) {
       return apiService.patch('/api/neutron/qos/policies/' + policyId +
              '/dscp_marking_rules/' + ruleId , updateRuleId)
-       .error(function () {
+       .catch(function onError() {
          toastService.add('error', gettext('Unable to update the dscp marking rule.'));
        });
     }
@@ -691,7 +691,7 @@
     function updateMinimumBandwidthRule(policyId, ruleId, updateRuleId) {
       return apiService.patch('/api/neutron/qos/policies/' + policyId +
              '/minimum_bandwidth_rules/' + ruleId , updateRuleId)
-       .error(function () {
+       .catch(function onError() {
          toastService.add('error', gettext('Unable to update the minimum bandwidth rule.'));
        });
     }
@@ -715,7 +715,7 @@
     function updateMinimumPacketRateRule(policyId, ruleId, updateRuleId) {
       return apiService.patch('/api/neutron/qos/policies/' + policyId +
               '/minimum_packet_rate_rules/' + ruleId , updateRuleId)
-        .error(function () {
+        .catch(function onError() {
           toastService.add('error', gettext('Unable to update the minimum packet rate rule.'));
         });
     }
@@ -734,7 +734,7 @@
      */
     function deleteBandwidthLimitRule(policyId, deleteRuleId) {
       return apiService.delete('/api/neutron/qos/policies/' + policyId +
-             '/bandwidth_limit_rules/' + deleteRuleId).error(function() {
+             '/bandwidth_limit_rules/' + deleteRuleId).catch(function onError() {
                toastService.add('error', gettext('Unable to delete the bandwidth_limit_rule.'));
              });
     }
@@ -752,7 +752,7 @@
      */
     function deleteDSCPMarkingRule(policyId, deleteRuleId) {
       return apiService.delete('/api/neutron/qos/policies/' + policyId +
-             '/dscp_marking_rules/' + deleteRuleId).error(function() {
+             '/dscp_marking_rules/' + deleteRuleId).catch(function onError() {
                toastService.add('error', gettext('Unable to delete the dscp_marking_rule.'));
              });
     }
@@ -770,7 +770,7 @@
      */
     function deleteMinimumBandwidthRule(policyId, deleteRuleId) {
       return apiService.delete('/api/neutron/qos/policies/' + policyId +
-             '/minimum_bandwidth_rules/' + deleteRuleId).error(function() {
+             '/minimum_bandwidth_rules/' + deleteRuleId).catch(function onError() {
                toastService.add('error', gettext('Unable to delete the minimum_bandwidth_rule .'));
              });
     }
@@ -788,7 +788,7 @@
      */
     function deleteMinimumPacketRateRule(policyId, deleteRuleId) {
       return apiService.delete('/api/neutron/qos/policies/' + policyId +
-            '/minimum_packet_rate_rules/' + deleteRuleId).error(function() {
+            '/minimum_packet_rate_rules/' + deleteRuleId).catch(function onError() {
               toastService.add('error', gettext('Unable to delete the minimum_packet_rate_rule .'));
             });
     }
@@ -810,10 +810,10 @@
      */
     function getTrunk(id, suppressError) {
       var promise = apiService.get('/api/neutron/trunks/' + id + '/')
-        .success(function(trunk) {
-          convertDatesHumanReadable(trunk);
+        .then(function onSuccess(response) {
+          convertDatesHumanReadable(response.data);
         });
-      promise = suppressError ? promise : promise.error(function () {
+      promise = suppressError ? promise : promise.catch(function onError() {
         var msg = gettext('Unable to retrieve the trunk with id: %(id)s');
         toastService.add('error', interpolate(msg, {id: id}, true));
       });
@@ -830,12 +830,12 @@
     function getTrunks(params) {
       var config = params ? {'params' : params} : {};
       return apiService.get('/api/neutron/trunks/', config)
-        .success(function(trunks) {
-          trunks.items.forEach(function(trunk) {
+        .then(function onSuccess(response) {
+          response.data.items.forEach(function(trunk) {
             convertDatesHumanReadable(trunk);
           });
         })
-        .error(function () {
+        .catch(function onError() {
           toastService.add('error', gettext('Unable to retrieve the trunks.'));
         });
     }
@@ -847,7 +847,7 @@
      */
     function createTrunk(newTrunk) {
       return apiService.post('/api/neutron/trunks/', newTrunk)
-        .error(function () {
+        .catch(function onError() {
           toastService.add('error', gettext('Unable to create the trunk.'));
         });
     }
@@ -865,7 +865,7 @@
      */
     function deleteTrunk(trunkId, suppressError) {
       var promise = apiService.delete('/api/neutron/trunks/' + trunkId + '/');
-      promise = suppressError ? promise : promise.error(function() {
+      promise = suppressError ? promise : promise.catch(function onError() {
         var msg = gettext('Unable to delete trunk: %(id)s');
         toastService.add('error', interpolate(msg, { id: trunkId }, true));
       });
@@ -879,7 +879,7 @@
      */
     function updateTrunk(oldTrunk, newTrunk) {
       return apiService.patch('/api/neutron/trunks/' + oldTrunk.id + '/', [oldTrunk, newTrunk])
-      .error(function() {
+      .catch(function onError() {
         toastService.add('error', gettext('Unable to update the trunk.'));
       });
     }

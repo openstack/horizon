@@ -59,7 +59,7 @@
      */
     function getFloatingIps() {
       return apiService.get('/api/network/floatingips/')
-        .error(function () {
+        .catch(function onError() {
           toastService.add('error', gettext('Unable to retrieve floating IPs.'));
         });
     }
@@ -74,7 +74,7 @@
      */
     function getFloatingIpPools() {
       return apiService.get('/api/network/floatingippools/')
-        .error(function () {
+        .catch(function onError() {
           toastService.add('error', gettext('Unable to retrieve floating IP pools.'));
         });
     }
@@ -91,7 +91,7 @@
      */
     function allocateFloatingIp(poolId) {
       return apiService.post('/api/network/floatingip/', { pool_id: poolId })
-        .error(function () {
+        .catch(function onError() {
           toastService.add('error', gettext('Unable to allocate new floating IP address.'));
         });
     }
@@ -111,7 +111,7 @@
     function associateFloatingIp(addressId, portId) {
       var params = { address_id: addressId, port_id: portId };
       return apiService.patch('/api/network/floatingip/', params)
-        .error(function () {
+        .catch(function onError() {
           toastService.add('error', gettext('Unable to associate floating IP address.'));
         });
     }
@@ -127,7 +127,7 @@
      */
     function disassociateFloatingIp(addressId) {
       return apiService.patch('/api/network/floatingip/', { address_id: addressId })
-        .error(function () {
+        .catch(function onError() {
           toastService.add('error', gettext('Unable to disassociate floating IP address.'));
         });
     }

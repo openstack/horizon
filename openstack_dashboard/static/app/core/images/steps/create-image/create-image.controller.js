@@ -146,7 +146,7 @@
     }
 
     function init() {
-      glance.getImages({paginate: false}).success(onGetImages);
+      glance.getImages({paginate: false}).then(onGetImages);
       policyAPI.ifAllowed({rules: [['image', 'communitize_image']]}).then(
         function () {
           ctrl.imageVisibilityOptions.push({ label: gettext('Community'), value: 'community' });
@@ -160,11 +160,11 @@
     }
 
     function onGetImages(response) {
-      ctrl.kernelImages = response.items.filter(function(elem) {
+      ctrl.kernelImages = response.data.items.filter(function(elem) {
         return elem.disk_format === 'aki';
       });
 
-      ctrl.ramdiskImages = response.items.filter(function(elem) {
+      ctrl.ramdiskImages = response.data.items.filter(function(elem) {
         return elem.disk_format === 'ari';
       });
     }

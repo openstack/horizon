@@ -61,7 +61,7 @@
      */
     function getVersion() {
       return apiService.get('/api/glance/version/')
-        .error(function () {
+        .catch(function onError() {
           toastService.add('error', gettext('Unable to get the Glance service version.'));
         });
     }
@@ -80,7 +80,7 @@
      */
     function getImage(id) {
       return apiService.get('/api/glance/images/' + id + '/')
-        .error(function () {
+        .catch(function onError() {
           toastService.add('error', gettext('Unable to retrieve the image.'));
         });
     }
@@ -171,9 +171,9 @@
 
       function onError(error) {
         if (error && error.data) {
-          throw error;
+          toastService.add('error', error);
         } else {
-          throw gettext('Unable to create the image.');
+          toastService.add('error', gettext('Unable to create the image.'));
         }
       }
 
@@ -227,7 +227,7 @@
      */
     function updateImage(image) {
       return apiService.patch('/api/glance/images/' + image.id + '/', image)
-        .error(function () {
+        .catch(function onError() {
           toastService.add('error', gettext('Unable to update the image.'));
         });
     }
@@ -248,7 +248,7 @@
     function deleteImage(imageId, suppressError) {
       var promise = apiService.delete('/api/glance/images/' + imageId + '/');
 
-      return suppressError ? promise : promise.error(function() {
+      return suppressError ? promise : promise.catch(function onError() {
         var msg = gettext('Unable to delete the image with id: %(id)s');
         toastService.add('error', interpolate(msg, { id: imageId }, true));
       });
@@ -263,7 +263,7 @@
      */
     function getImageProps(id) {
       return apiService.get('/api/glance/images/' + id + '/properties/')
-        .error(function () {
+        .catch(function onError() {
           toastService.add('error', gettext('Unable to retrieve the image custom properties.'));
         });
     }
@@ -285,7 +285,7 @@
           removed: removed
         }
       )
-      .error(function () {
+      .catch(function onError() {
         toastService.add('error', gettext('Unable to edit the image custom properties.'));
       });
     }
@@ -328,7 +328,7 @@
     function getImages(params) {
       var config = params ? { 'params' : params} : {};
       return apiService.get('/api/glance/images/', config)
-        .error(function () {
+        .catch(function onError() {
           toastService.add('error', gettext('Unable to retrieve the images.'));
         });
     }
@@ -397,7 +397,7 @@
 
       var promise = apiService.get('/api/glance/metadefs/namespaces/', config);
 
-      return suppressError ? promise : promise.error(function() {
+      return suppressError ? promise : promise.catch(function onError() {
         toastService.add('error', gettext('Unable to retrieve the namespaces.'));
       });
     }
@@ -423,7 +423,7 @@
 
       return apiService
         .get('/api/glance/metadefs/resourcetypes/', config)
-        .error(function() {
+        .catch(function onError() {
           toastService.add('error', gettext('Unable to retrieve the resource types.'));
         });
     }

@@ -29,14 +29,15 @@
       $provide.value('$window', $window);
     }));
 
-    var rowActions, $uibModal, $rootScope, model;
+    var rowActions, $uibModal, $httpBackend, $rootScope, model;
 
-    beforeEach(inject(function inject($injector, _$uibModal_, _$rootScope_) {
+    beforeEach(inject(function inject($injector, _$uibModal_, _$httpBackend_, _$rootScope_) {
       var resourceService = $injector.get('horizon.framework.conf.resource-type-registry.service');
       var objectResCode = $injector.get('horizon.dashboard.project.containers.object.resourceType');
       rowActions = resourceService.getResourceType(objectResCode).itemActions;
       model = $injector.get('horizon.dashboard.project.containers.containers-model');
       $uibModal = _$uibModal_;
+      $httpBackend = _$httpBackend_;
       $rootScope = _$rootScope_;
     }));
 
@@ -319,6 +320,7 @@
         copyService.perform();
         model.container = {name: 'spam'};
         $rootScope.$apply();
+        $httpBackend.expectGET('/static/dashboard/project/containers/objects.html').respond({});
 
         // Close the modal, make sure API call succeeds
         var sourceObjectPath = 'sourceObjectPath';

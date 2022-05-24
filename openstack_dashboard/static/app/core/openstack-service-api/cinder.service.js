@@ -98,7 +98,7 @@
     function getVolumes(params) {
       var config = params ? {'params': params} : {};
       return apiService.get('/api/cinder/volumes/', config)
-        .error(function () {
+        .catch(function onError() {
           toastService.add('error', gettext('Unable to retrieve the volumes.'));
         });
     }
@@ -115,7 +115,7 @@
      */
     function getVolume(id) {
       return apiService.get('/api/cinder/volumes/' + id)
-        .error(function () {
+        .catch(function onError() {
           toastService.add('error', gettext('Unable to retrieve the volume.'));
         });
     }
@@ -129,7 +129,7 @@
      */
     function createVolume(newVolume) {
       return apiService.post('/api/cinder/volumes/', newVolume)
-        .error(function () {
+        .catch(function onError() {
           toastService.add('error', gettext('Unable to create the volume.'));
         });
     }
@@ -148,28 +148,28 @@
      */
     function getVolumeTypes() {
       return apiService.get('/api/cinder/volumetypes/')
-        .error(function () {
+        .catch(function onError() {
           toastService.add('error', gettext('Unable to retrieve the volume types.'));
         });
     }
 
     function getVolumeMetadata(id) {
       return apiService.get('/api/cinder/volumes/' + id + '/metadata')
-        .error(function () {
+        .catch(function onError() {
           toastService.add('error', gettext('Unable to retrieve the volume metadata.'));
         });
     }
 
     function getVolumeSnapshotMetadata(id) {
       return apiService.get('/api/cinder/volumesnapshots/' + id + '/metadata')
-        .error(function () {
+        .catch(function onError() {
           toastService.add('error', gettext('Unable to retrieve the snapshot metadata.'));
         });
     }
 
     function getVolumeTypeMetadata(id) {
       return apiService.get('/api/cinder/volumetypes/' + id + '/metadata')
-        .error(function () {
+        .catch(function onError() {
           toastService.add('error', gettext('Unable to retrieve the volume type metadata.'));
         });
     }
@@ -181,7 +181,7 @@
           updated: updated,
           removed: removed
         }
-      ).error(function () {
+      ).catch(function onError() {
         toastService.add('error', gettext('Unable to edit volume metadata.'));
       });
     }
@@ -193,7 +193,7 @@
           updated: updated,
           removed: removed
         }
-      ).error(function () {
+      ).catch(function onError() {
         toastService.add('error', gettext('Unable to edit snapshot metadata.'));
       });
     }
@@ -205,7 +205,7 @@
           updated: updated,
           removed: removed
         }
-      ).error(function () {
+      ).catch(function onError() {
         toastService.add('error', gettext('Unable to edit volume type metadata.'));
       });
     }
@@ -222,7 +222,7 @@
      */
     function getVolumeType(id) {
       return apiService.get('/api/cinder/volumetypes/' + id)
-        .error(function () {
+        .catch(function onError() {
           toastService.add('error', gettext('Unable to retrieve the volume type.'));
         });
     }
@@ -236,7 +236,7 @@
      */
     function getDefaultVolumeType() {
       return apiService.get('/api/cinder/volumetypes/default')
-        .error(function () {
+        .catch(function onError() {
           toastService.add('error', gettext('Unable to retrieve the default volume type.'));
         });
     }
@@ -263,7 +263,7 @@
     function getVolumeSnapshots(params) {
       var config = params ? {'params': params} : {};
       return apiService.get('/api/cinder/volumesnapshots/', config)
-        .error(function () {
+        .catch(function onError() {
           toastService.add('error', gettext('Unable to retrieve the volume snapshots.'));
         });
     }
@@ -296,7 +296,7 @@
      */
     function getExtensions(config) {
       return apiService.get('/api/cinder/extensions/', config)
-        .error(function () {
+        .catch(function onError() {
           toastService.add('error', gettext('Unable to retrieve the extensions.'));
         });
     }
@@ -312,7 +312,7 @@
     */
     function getServices() {
       return apiService.get('/api/cinder/services/')
-        .error(function () {
+        .catch(function onError() {
           toastService.add('error', gettext('Unable to retrieve the cinder services.'));
         });
     }
@@ -333,7 +333,7 @@
     function getQoSSpecs(params) {
       var config = params ? {'params': params} : {};
       return apiService.get('/api/cinder/qosspecs/', config)
-        .error(function () {
+        .catch(function onError() {
           toastService.add('error',
             gettext('Unable to retrieve the QoS Specs.'));
         });
@@ -348,7 +348,7 @@
      */
     function getAbsoluteLimits() {
       return apiService.get('/api/cinder/tenantabsolutelimits/')
-        .error(function () {
+        .catch(function onError() {
           toastService.add('error',
             gettext('Unable to retrieve the Absolute Limits.'));
         });
@@ -367,7 +367,7 @@
      */
     function getDefaultQuotaSets() {
       return apiService.get('/api/cinder/quota-sets/defaults/')
-        .error(function () {
+        .catch(function onError() {
           toastService.add('error', gettext('Unable to retrieve the default quotas.'));
         });
     }
@@ -380,7 +380,7 @@
      */
     function setDefaultQuotaSets(quotas) {
       return apiService.patch('/api/cinder/quota-sets/defaults/', quotas)
-        .error(function () {
+        .catch(function onError() {
           toastService.add('error', gettext('Unable to set the default quotas.'));
         });
     }
@@ -399,7 +399,7 @@
     function updateProjectQuota(quota, projectId) {
       var url = '/api/cinder/quota-sets/' + projectId;
       return apiService.patch(url, quota)
-        .error(function() {
+        .catch(function onError() {
           toastService.add('error', gettext('Unable to update project quota data.'));
         });
     }
@@ -417,7 +417,7 @@
      */
     function getAvailabilityZones() {
       return apiService.get('/api/cinder/availzones/')
-        .error(function () {
+        .catch(function onError() {
           toastService.add('error',
                         gettext('Unable to retrieve the volume availability zones.'));
         });

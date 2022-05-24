@@ -66,11 +66,8 @@
       it('should fail when error response', function () {
         responseMockOpts.succeed = false;
         spyOn(horizon.toast, 'add');
-        settingsService.getSettings().then(
-          function (actual) {
-            fail('Should not have succeeded: ' + angular.toJson(actual));
-          },
-          function (actual) {
+        settingsService.getSettings().catch(
+          function onError(actual) {
             expect(actual).toBeDefined();
           }
         );
@@ -82,11 +79,8 @@
       it('should suppress error messages if asked', function () {
         responseMockOpts.succeed = false;
         spyOn(horizon.toast, 'add');
-        settingsService.getSettings(true).then(
-          function (actual) {
-            fail('Should not have succeeded: ' + angular.toJson(actual));
-          },
-          function (actual) {
+        settingsService.getSettings(true).catch(
+          function onError(actual) {
             expect(actual).toBeDefined();
           }
         );
@@ -132,11 +126,8 @@
 
       it('should fail when error response', function () {
         responseMockOpts.succeed = false;
-        settingsService.getSetting('isTrue').then(
-          function (actual) {
-            fail('Should not have succeeded: ' + angular.toJson(actual));
-          },
-          function (actual) {
+        settingsService.getSetting('isTrue').catch(
+          function onError(actual) {
             expect(actual).toBeDefined();
           }
         );

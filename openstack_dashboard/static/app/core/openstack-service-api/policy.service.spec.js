@@ -94,13 +94,13 @@
       var input = 'abcdef';
       var successFunc, gotObject;
       var retVal = {
-        success: function(x) {
-          successFunc = x; return {error: angular.noop};
+        then: function(x) {
+          successFunc = x; return {catch: angular.noop};
         }
       };
       var spy = spyOn(apiService, 'post').and.returnValue(retVal);
       service.check(input).then(function(x) { gotObject = x; });
-      successFunc({hello: 'there'});
+      successFunc({data: {hello: 'there'}});
       $timeout.flush();
       expect(gotObject).toEqual({hello: 'there'});
       expect(apiService.post).toHaveBeenCalled();

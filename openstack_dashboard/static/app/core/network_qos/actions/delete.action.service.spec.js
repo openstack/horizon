@@ -219,6 +219,7 @@
 
       it('disallows delete if policy is not owned by user',
         function testOwner() {
+          deferred.promise.catch(angular.noop);
           deferred.reject();
           service.allowed().failure(resolver.error);
           $scope.$apply();

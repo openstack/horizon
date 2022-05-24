@@ -582,30 +582,30 @@
     });
 
     it('getFlavors converts specific property names with : in them', function() {
-      var postAction = {success: angular.noop};
+      var postAction = {then: angular.noop};
       spyOn(apiService, 'get').and.returnValue(postAction);
-      spyOn(postAction, 'success').and.returnValue({error: angular.noop});
+      spyOn(postAction, 'then').and.returnValue({catch: angular.noop});
       service.getFlavors();
-      var func = postAction.success.calls.argsFor(0)[0];
+      var func = postAction.then.calls.argsFor(0)[0];
 
-      // won't do anything.  Need to test that it won't do anything.
-      func();
+      var response = {data: {items: [{nada: 'puesNada'}]}};
+      func(response);
+      expect(response).toEqual({data: {items: [{nada: 'puesNada'}]}});
 
-      var data = {items: [{nada: 'puesNada'}]};
-      func(data);
-      expect(data).toEqual({items: [{nada: 'puesNada'}]});
+      response = {data: {items: [{'OS-FLV-EXT-DATA:ephemeral': true}]}};
+      func(response);
+      expect(response).toEqual(
+        {data: {items: [{'OS-FLV-EXT-DATA:ephemeral': true, ephemeral: true}]}});
 
-      data = {items: [{'OS-FLV-EXT-DATA:ephemeral': true}]};
-      func(data);
-      expect(data).toEqual({items: [{'OS-FLV-EXT-DATA:ephemeral': true, ephemeral: true}]});
+      response = {data: {items: [{'OS-FLV-DISABLED:disabled': true}]}};
+      func(response);
+      expect(response).toEqual(
+        {data: {items: [{'OS-FLV-DISABLED:disabled': true, disabled: true}]}});
 
-      data = {items: [{'OS-FLV-DISABLED:disabled': true}]};
-      func(data);
-      expect(data).toEqual({items: [{'OS-FLV-DISABLED:disabled': true, disabled: true}]});
-
-      data = {items: [{'os-flavor-access:is_public': true}]};
-      func(data);
-      expect(data).toEqual({items: [{'os-flavor-access:is_public': true, is_public: true}]});
+      response = {data: {items: [{'os-flavor-access:is_public': true}]}};
+      func(response);
+      expect(response).toEqual(
+        {data: {items: [{'os-flavor-access:is_public': true, is_public: true}]}});
 
     });
 

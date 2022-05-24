@@ -96,7 +96,6 @@
     'gettextCatalog',
     'horizon.framework.util.tech-debt.helper-functions',
     'horizon.framework.widgets.toast.service',
-    '$cookieStore',
     '$http',
     '$cookies',
     '$route'
@@ -106,7 +105,6 @@
     gettextCatalog,
     hzUtils,
     toastService,
-    $cookieStore,
     $http,
     $cookies,
     $route
@@ -124,8 +122,8 @@
     horizon.toast = toastService;
 
     if (angular.version.major === 1 && angular.version.minor < 4) {
-      horizon.cookies = angular.extend({}, $cookieStore, {
-        getObject: $cookieStore.get,
+      horizon.cookies = angular.extend({}, $cookies, {
+        getObject: $cookies.get,
         put: put,
         putObject: put,
         getRaw: getRaw
@@ -149,7 +147,7 @@
      */
     function put(key, value) {
       angular.element('body').scope().$apply(function () {
-        $cookieStore.put(key, value);
+        $cookies.put(key, value);
       });
     }
 

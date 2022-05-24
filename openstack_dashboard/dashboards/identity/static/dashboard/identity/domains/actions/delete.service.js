@@ -74,11 +74,11 @@
       }
 
       function afterCheck(result) {
-        var outcome = $q.reject();
+        var outcome = $q.reject().catch(angular.noop);
         if (result.fail.length > 0) {
           var notAllowedMessage = gettext("You are not allowed to delete domains: %s");
           toast.add('error', getMessage(notAllowedMessage, result.fail));
-          outcome = $q.reject(result.fail);
+          outcome = $q.reject(result.fail).catch(angular.noop);
         }
         if (result.pass.length > 0) {
           outcome = deleteModal.open(scope, result.pass.map(getEntity), context).then(createResult);

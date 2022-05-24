@@ -94,12 +94,12 @@
       var deferred = $q.defer();
 
       apiService.post('/api/policy/', policyRules)
-        .success(function successPath(result) {
-          deferred.resolve(result);
+        .then(function onSuccess(response) {
+          deferred.resolve(response.data);
         })
-        .error(function failurePath(result) {
+        .catch(function onError(response) {
           toastService.add('warning', gettext('Policy check failed.'));
-          deferred.reject(result);
+          deferred.reject(response.data);
         });
 
       deferred.promise.success = deferred.promise.then;

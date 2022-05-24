@@ -48,8 +48,8 @@
       var suppliedData = verb === 'GET' ? undefined : data;
       $httpBackend.when(verb, url, suppliedData).respond({status: 'good'});
       $httpBackend.expect(verb, url, suppliedData);
-      apiMethod('/good', suppliedData).success(function (data) {
-        called.data = data;
+      apiMethod('/good', suppliedData).then(function onSuccess(response) {
+        called.data = response.data;
       });
       $httpBackend.flush();
       expect(called.data.status).toBe('good');
@@ -61,7 +61,7 @@
       var suppliedData = verb === 'GET' ? undefined : 'some complicated data';
       $httpBackend.when(verb, url, suppliedData).respond(500, '');
       $httpBackend.expect(verb, url, suppliedData);
-      apiMethod('/bad', suppliedData).error(function () {
+      apiMethod('/bad', suppliedData).catch(function onError() {
         called.called = true;
       });
       $httpBackend.flush();
@@ -114,7 +114,7 @@
         var $scope = {};
         $httpBackend.when('GET', expectedUrl).respond(200, '');
         $httpBackend.expect('GET', expectedUrl);
-        api.get('/good').success(function() {
+        api.get('/good').then(function onSuccess() {
           $scope.success = true;
         });
 
@@ -127,7 +127,7 @@
         var $scope = {};
         $httpBackend.when('GET', expectedUrl).respond(200, '');
         $httpBackend.expect('GET', expectedUrl);
-        api.get('/good', {external: true}).success(function() {
+        api.get('/good', {external: true}).then(function onSuccess() {
           $scope.success = true;
         });
 

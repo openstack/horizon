@@ -17,7 +17,7 @@
 
   describe('horizon.dashboard.identity.domains.actions.delete.service', function() {
 
-    var service, $scope, deferredModal, deferredPolicy;
+    var service, $scope, deferredModal, deferredPolicy, $httpBackend;
 
     var deleteModalService = {
       onlyPass: false,
@@ -81,8 +81,9 @@
       spyOn(policyAPI, 'ifAllowed').and.callThrough();
     }));
 
-    beforeEach(inject(function($injector, _$rootScope_, $q) {
+    beforeEach(inject(function($injector, _$rootScope_, $q, _$httpBackend_) {
       $scope = _$rootScope_.$new();
+      $httpBackend = _$httpBackend_;
       service = $injector.get('horizon.dashboard.identity.domains.actions.delete.service');
       deferredModal = $q.defer();
       deferredPolicy = $q.defer();
@@ -96,6 +97,7 @@
 
         var domain = generateDomains(1)[0];
         service.perform(domain);
+        $httpBackend.expectGET('/static/dashboard/identity/domains/panel.html').respond({});
         $scope.$apply();
 
         var contextArg = deleteModalService.open.calls.argsFor(0)[2];

@@ -80,7 +80,7 @@
      */
     function query() {
       return apiService.get('/api/network/securitygroups/')
-        .error(function () {
+        .catch(function onError() {
           toastService.add('error', gettext('Unable to retrieve the security groups.'));
         });
     }

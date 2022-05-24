@@ -148,26 +148,26 @@
     init();
 
     function init() {
-      cinder.getVolumeTypes().success(onGetVolumeTypes);
-      cinder.getAbsoluteLimits().success(onGetAbsoluteLimits);
-      cinder.getAvailabilityZones().success(onGetAvailabilityZones);
+      cinder.getVolumeTypes().then(onGetVolumeTypes);
+      cinder.getAbsoluteLimits().then(onGetAbsoluteLimits);
+      cinder.getAvailabilityZones().then(onGetAvailabilityZones);
     }
 
     function onGetVolumeTypes(response) {
-      ctrl.volumeTypes = response.items;
-      cinder.getDefaultVolumeType().success(onGetDefaultVolumeType);
+      ctrl.volumeTypes = response.data.items;
+      cinder.getDefaultVolumeType().then(onGetDefaultVolumeType);
     }
 
     function onGetDefaultVolumeType(response) {
       ctrl.volumeTypes.forEach(function(volumeType) {
-        if (volumeType.name === response.name) {
+        if (volumeType.name === response.data.name) {
           ctrl.volumeType = volumeType;
         }
       });
     }
 
     function onGetAvailabilityZones(response) {
-      ctrl.availabilityZones = response.items.map(justNames);
+      ctrl.availabilityZones = response.data.items.map(justNames);
       if (ctrl.availabilityZones.length > 0) {
         ctrl.volume.availability_zone = ctrl.availabilityZones[0];
       }
@@ -178,12 +178,12 @@
     }
 
     function onGetAbsoluteLimits(response) {
-      ctrl.maxTotalVolumeGigabytes = response.maxTotalVolumeGigabytes;
-      ctrl.totalGigabytesUsed = response.totalGigabytesUsed;
+      ctrl.maxTotalVolumeGigabytes = response.data.maxTotalVolumeGigabytes;
+      ctrl.totalGigabytesUsed = response.data.totalGigabytesUsed;
       updateStorageGraph();
 
-      ctrl.totalVolumesUsed = response.totalVolumesUsed;
-      ctrl.maxTotalVolumes = response.maxTotalVolumes;
+      ctrl.totalVolumesUsed = response.data.totalVolumesUsed;
+      ctrl.maxTotalVolumes = response.data.maxTotalVolumes;
       updateInstanceGraph();
     }
 

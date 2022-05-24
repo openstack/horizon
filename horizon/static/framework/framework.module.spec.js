@@ -45,7 +45,7 @@
 
           spyOn($rootScope, '$broadcast').and.callThrough();
 
-          $http.get('/api').error(function() {
+          $http.get('/api').catch(function onError() {
             expect(toastService.add).toHaveBeenCalled();
             expect($rootScope.$broadcast).toHaveBeenCalled();
             expect($window.location.replace).toHaveBeenCalledWith('/dashboard/auth/logout');
@@ -66,7 +66,7 @@
 
           spyOn($rootScope, '$broadcast').and.callThrough();
 
-          $http.get('/api').error(function() {
+          $http.get('/api').catch(function onError() {
             expect(toastService.add).toHaveBeenCalled();
             expect($rootScope.$broadcast).toHaveBeenCalled();
           });
