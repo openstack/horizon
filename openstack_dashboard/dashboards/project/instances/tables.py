@@ -1196,7 +1196,6 @@ INSTANCE_FILTER_CHOICES = (
     ('availability_zone', _("Availability Zone ="), True),
     ('changes-since', _("Changes Since"), True,
         _("Filter by an ISO 8061 formatted time, e.g. 2016-06-14T06:27:59Z")),
-    ('vcpus', _("vCPUs ="), True),
 )
 
 
