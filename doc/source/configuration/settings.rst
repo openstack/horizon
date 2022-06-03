@@ -595,6 +595,16 @@ Default: ``"publicURL"``
 A string which specifies the endpoint type to use for the endpoints in the
 Keystone service catalog.
 
+OPENSTACK_KEYSTONE_ENDPOINT_TYPE
+--------------------------------
+
+.. versionadded:: 23.1.0(Antelope)
+
+Default: ``"publicURL"``
+
+A string which specifies the endpoint type to use for the Keystone (identity)
+endpoint when looking it up in the service catalog.
+
 OPENSTACK_HOST
 --------------
 

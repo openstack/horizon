@@ -1,0 +1,11 @@
+---
+features:
+  - |
+    Added new setting ``OPENSTACK_KEYSTONE_ENDPOINT_TYPE`` that can be used to
+    specify the endpoint type to use when talking to the identity API. The default
+    is set to the value of ``OPENSTACK_ENDPOINT_TYPE`` for backward compatibility.
+upgrade:
+  - |
+    If you are setting ``OPENSTACK_ENDPOINT_TYPE`` to change the default endpoint type
+    for Keystone you must now set ``OPENSTACK_KEYSTONE_ENDPOINT_TYPE`` as the former
+    now only applies to other services.

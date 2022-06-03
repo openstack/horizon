@@ -171,7 +171,7 @@ class KeystoneBackend(object):
                 region_name = id_endpoint['region']
                 break
 
-        interface = settings.OPENSTACK_ENDPOINT_TYPE
+        interface = settings.OPENSTACK_KEYSTONE_ENDPOINT_TYPE
 
         endpoint = scoped_auth_ref.service_catalog.url_for(
             service_type='identity',

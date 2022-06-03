@@ -28,6 +28,7 @@ OPENSTACK_KEYSTONE_URL = "http://localhost/identity/v3"
 # TODO(amotoki): The default value in openstack_dashboard is different:
 # publicURL. It should be consistent.
 OPENSTACK_ENDPOINT_TYPE = 'public'
+OPENSTACK_KEYSTONE_ENDPOINT_TYPE = 'public'
 OPENSTACK_SSL_NO_VERIFY = False
 # TODO(amotoki): Is it correct?
 OPENSTACK_SSL_CACERT = True
