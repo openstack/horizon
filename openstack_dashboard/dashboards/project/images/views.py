@@ -21,6 +21,8 @@
 Views for managing Images and Snapshots.
 """
 
+import logging
+
 from django.utils.translation import gettext_lazy as _
 
 from horizon import exceptions
@@ -34,9 +36,18 @@ from openstack_dashboard.dashboards.project.images.images \
     import tables as images_tables
 
 
+LOG = logging.getLogger(__name__)
+
+
 class IndexView(tables.DataTableView):
     table_class = images_tables.ImagesTable
     page_title = _("Images")
+
+    def __init__(self):
+        super().__init__()
+        LOG.warning('The Django version of the Images panel is deprecated '
+                    'since Zed release. Switch to the AngularJS version by '
+                    'setting "ANGULAR_FEATURES[\'images_panel\'] = True".')
 
     def has_prev_data(self, table):
         return getattr(self, "_prev", False)
