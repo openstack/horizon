@@ -169,6 +169,7 @@
         - horizon-openstack-tox-python3-django22
 
 - project:
+    queue: horizon
     templates:
       - check-requirements
       - horizon-nodejs10-jobs
@@ -187,7 +188,6 @@
         - horizon-tox-bandit-baseline
         - horizon-tempest-plugin-ipv6
     gate:
-      queue: horizon
       jobs:
         - horizon-dsvm-tempest-plugin
         - horizon-dsvm-tempest-plugin-py27
