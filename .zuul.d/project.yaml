@@ -1,4 +1,5 @@
 - project:
+    queue: horizon
     templates:
       - check-requirements
       - horizon-cross-jobs
@@ -16,7 +17,6 @@
         - horizon-tox-bandit-baseline
         - horizon-tempest-plugin-ipv6
     gate:
-      queue: horizon
       jobs:
         - horizon-dsvm-tempest-plugin
         - horizon-selenium-headless
