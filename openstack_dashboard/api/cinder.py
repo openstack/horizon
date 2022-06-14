@@ -121,7 +121,7 @@ class VolumeBackup(BaseCinderAPIResourceWrapper):
 
     _attrs = ['id', 'name', 'description', 'container', 'size', 'status',
               'created_at', 'volume_id', 'availability_zone', 'snapshot_id',
-              'os-backup-project-attr:project_id']
+              'os-backup-project-attr:project_id', 'fail_reason']
     _volume = None
     _snapshot = None
 

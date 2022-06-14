@@ -12,6 +12,10 @@
     {% endif %}
     <dt>{% trans "Status" %}</dt>
     <dd>{{ backup.status|capfirst }}</dd>
+    {% if backup.status == 'error' %}
+    <dt>{%trans "Fail reason"%}</dt>
+    <dd>{{ backup.fail_reason }} <dd>
+    {% endif %}
     {% if volume %}
     <dt>{% trans "Volume" %}</dt>
     <dd>

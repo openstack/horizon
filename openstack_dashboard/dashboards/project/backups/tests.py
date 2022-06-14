@@ -9,7 +9,7 @@
 # WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
 # License for the specific language governing permissions and limitations
 # under the License.
-
+from unittest import mock
 from urllib import parse
 
 from django.conf import settings
@@ -20,6 +20,8 @@ from django.utils.http import urlencode
 from openstack_dashboard import api
 from openstack_dashboard.dashboards.project.backups \
     import tables as backup_tables
+from openstack_dashboard.dashboards.project.backups \
+    import tabs
 from openstack_dashboard.test import helpers as test
 
 
@@ -398,6 +400,38 @@ class VolumeBackupsViewTests(test.TestCase):
             test.IsHttpRequest(), backup.id)
         self.mock_volume_get.assert_called_once_with(
             test.IsHttpRequest(), backup.volume_id)
+
+    @test.create_mocks({api.cinder: ('volume_backup_get',
+                                     'volume_get',
+                                     'message_list')})
+    def test_volume_backup_detail_view_with_messages_tab(self):
+
+        backup = self.cinder_volume_backups.first()
+        volume = self.cinder_volumes.first()
+
+        self.mock_volume_backup_get.return_value = backup
+        self.mock_volume_get.return_value = volume
+        messages = [msg for msg in self.cinder_messages.list()
+                    if msg.resource_type == 'VOLUME_BACKUP']
+        self.mock_message_list.return_value = messages
+        url = reverse('horizon:project:backups:detail',
+                      args=[backup.id])
+        detail_view = tabs.BackupDetailTabs(self.request)
+        messages_tab_link = "?%s=%s" % (
+            detail_view.param_name,
+            detail_view.get_tab("messages_tab").get_id())
+        url += messages_tab_link
+        res = self.client.get(url)
+        self.assertTemplateUsed(res, 'horizon/common/_detail.html')
+        self.assertContains(res, messages[0].user_message)
+        self.assertNoMessages()
+        self.mock_volume_backup_get.assert_has_calls([
+            mock.call(test.IsHttpRequest(), backup.id),
+        ])
+        search_opts = {'resource_type': 'volume_backup',
+                       'resource_uuid': backup.id}
+        self.mock_message_list.assert_called_once_with(
+            test.IsHttpRequest(), search_opts=search_opts)
 
     @test.create_mocks({api.cinder: ('volume_list',
                                      'volume_backup_restore')})

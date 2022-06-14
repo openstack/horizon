@@ -579,6 +579,20 @@ def data(TEST):
          'user_message': ('schedule allocate volume:'
                           'Could not find any available weighted backend.'),
          })
+    messages_4 = messages.Message(
+        messages.MessageManager(None),
+        {'created_at': '2020-09-24T11:03:31.000000',
+         'event_id': 'VOLUME_VOLUME_BACKUP_001_004',
+         'guaranteed_until': '2020-10-24T11:03:31.000000',
+         'id': '029c84a0-5810-47ed-94b6-c2aa61c5aaaf',
+         'resource_type': 'VOLUME_BACKUP',
+         'resource_uuid': '3c2106cb-ebef-490e-803d-b92f061e7308',
+         'message_level': 'ERROR',
+         'user_message': ('create backup:'
+                          'Backup driver failed to create backup.'),
+         })
+
     TEST.cinder_messages.add(api.cinder.Message(messages_1))
     TEST.cinder_messages.add(api.cinder.Message(messages_2))
     TEST.cinder_messages.add(api.cinder.Message(messages_3))
+    TEST.cinder_messages.add(api.cinder.Message(messages_4))

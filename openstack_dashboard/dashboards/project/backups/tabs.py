@@ -18,6 +18,8 @@ from horizon import exceptions
 from horizon import tabs
 
 from openstack_dashboard.api import cinder
+from openstack_dashboard.dashboards.project.backups \
+    import tables as backup_messages_tables
 
 
 class BackupOverviewTab(tabs.Tab):
@@ -53,6 +55,26 @@ class BackupOverviewTab(tabs.Tab):
                               redirect=redirect)
 
 
-class BackupDetailTabs(tabs.TabGroup):
+class BackupMessagesTab(tabs.TableTab):
+    table_classes = (backup_messages_tables.BackupMessagesTable,)
+    name = _("Messages")
+    slug = "messages_tab"
+    template_name = ("horizon/common/_detail_table.html")
+    preload = False
+
+    def get_backup_messages_data(self):
+        messages = []
+        backup = self.tab_group.kwargs['backup']
+        backup_id = backup.id
+        try:
+            messages = cinder.message_list(self.request, search_opts={
+                'resource_type': 'volume_backup', 'resource_uuid': backup_id})
+        except Exception:
+            exceptions.handle(self.request, _("Unable to retrieve "
+                                              "backup messages."))
+        return messages
+
+
+class BackupDetailTabs(tabs.DetailTabsGroup):
     slug = "backup_details"
-    tabs = (BackupOverviewTab,)
+    tabs = (BackupOverviewTab, BackupMessagesTab)
