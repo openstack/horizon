@@ -92,7 +92,7 @@
           push.apply(model.containers, data.data.items);
         }),
         swiftAPI.getInfo().then(function onInfo(data) {
-          model.swift_info = data.info;
+          model.swift_info = data.data.info;
         })
       ]).then(function resolve() {
         model.intialiseDeferred.resolve();
