@@ -7,15 +7,16 @@
 # Andi Chandler <andi@gowling.com>, 2019. #zanata
 # Andi Chandler <andi@gowling.com>, 2020. #zanata
 # Andi Chandler <andi@gowling.com>, 2021. #zanata
+# Andi Chandler <andi@gowling.com>, 2022. #zanata
 msgid ""
 msgstr ""
 "Project-Id-Version: horizon VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2021-03-22 10:52+0000\n"
+"POT-Creation-Date: 2022-05-19 10:45+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2021-03-21 09:45+0000\n"
+"PO-Revision-Date: 2022-05-25 09:13+0000\n"
 "Last-Translator: Andi Chandler <andi@gowling.com>\n"
 "Language-Team: English (United Kingdom)\n"
 "Language: en_GB\n"
@@ -267,6 +268,9 @@ msgstr "Add Interface"
 msgid "Add Ons, Required and Feedback"
 msgstr "Add Ons, Required and Feedback"
 
+msgid "Add Rule"
+msgstr "Add Rule"
+
 msgid "Admin Password"
 msgstr "Admin Password"
 
@@ -431,6 +435,15 @@ msgstr "Available Scheduler Hints"
 
 msgid "Badges"
 msgstr "Badges"
+
+msgid "Bandwidth Limit"
+msgstr "Bandwidth Limit"
+
+msgid "Bandwidth Limit - , , , "
+msgstr "Bandwidth Limit - , , , "
+
+msgid "Bandwidth Rules"
+msgstr "Bandwidth Rules"
 
 msgid "Bare Metal"
 msgstr "Bare Metal"
@@ -698,6 +711,12 @@ msgstr "Create Keypair"
 msgid "Create New Volume"
 msgstr "Create New Volume"
 
+msgid "Create Policy"
+msgstr "Create Policy"
+
+msgid "Create QoS Policy"
+msgstr "Create QoS Policy"
+
 msgid "Create Role"
 msgstr "Create Role"
 
@@ -772,6 +791,18 @@ msgstr[1] "DNS Records"
 
 msgid "DSCP Mark"
 msgstr "DSCP Mark"
+
+msgid "DSCP Mark - , "
+msgstr "DSCP Mark - , "
+
+msgid "DSCP Marking"
+msgstr "DSCP Marking"
+
+msgid "DSCP Rules"
+msgstr "DSCP Rules"
+
+msgid "DSCP mark"
+msgstr "DSCP mark"
 
 msgid "Danger"
 msgstr "Danger "
@@ -903,6 +934,9 @@ msgstr "Delete Roles"
 
 msgid "Delete Router"
 msgstr "Delete Router"
+
+msgid "Delete Rule"
+msgstr "Delete Rule"
 
 msgid "Delete Server Group"
 msgid_plural "Delete Server Groups"
@@ -1129,6 +1163,9 @@ msgstr "Edit Image"
 
 msgid "Edit Role"
 msgstr "Edit Role"
+
+msgid "Edit Rule"
+msgstr "Edit Rule"
 
 msgid "Edit Trunk"
 msgstr "Edit Trunk"
@@ -1717,11 +1754,17 @@ msgstr "Manual"
 msgid "Max Burst Kbits"
 msgstr "Max Burst Kbits"
 
+msgid "Max Burst Size (in kbps)"
+msgstr "Max Burst Size (in kbps)"
+
 msgid "Max Kbps"
 msgstr "Max Kbps"
 
 msgid "Max Port"
 msgstr "Max Port"
+
+msgid "Max bandwidth (in kbps)"
+msgstr "Max bandwidth (in kbps)"
 
 msgid "Max. Size (bytes)"
 msgstr "Max. Size (bytes)"
@@ -1770,6 +1813,9 @@ msgstr "Min Disk (GB)"
 msgid "Min Kbps"
 msgstr "Min Kbps"
 
+msgid "Min Kpps"
+msgstr "Min Kpps"
+
 msgid "Min Port"
 msgstr "Min Port"
 
@@ -1788,17 +1834,41 @@ msgstr "Min. Size (bytes)"
 msgid "Mini button"
 msgstr "Mini button"
 
+msgid "Minimum Bandwidth"
+msgstr "Minimum Bandwidth"
+
+msgid "Minimum Bandwidth - , , "
+msgstr "Minimum Bandwidth - , , "
+
+msgid "Minimum Bandwidth Rules"
+msgstr "Minimum Bandwidth Rules"
+
 msgid "Minimum Disk"
 msgstr "Minimum Disk"
 
 msgid "Minimum Disk (GB)"
 msgstr "Minimum Disk (GB)"
 
+msgid "Minimum Packet Rate"
+msgstr "Minimum Packet Rate"
+
+msgid "Minimum Packet Rate - , , "
+msgstr "Minimum Packet Rate - , , "
+
+msgid "Minimum Packet Rules"
+msgstr "Minimum Packet Rules"
+
 msgid "Minimum RAM"
 msgstr "Minimum RAM"
 
 msgid "Minimum RAM (MB)"
 msgstr "Minimum RAM (MB)"
+
+msgid "Minimum bandwidth (in kbps)"
+msgstr "Minimum bandwidth (in kbps)"
+
+msgid "Minimum packet rate (in kpps)"
+msgstr "Minimum packet rate (in kpps)"
 
 msgid "Modals"
 msgstr "Modals"
@@ -2245,6 +2315,32 @@ msgid_plural "QoS Policies"
 msgstr[0] "QoS Policy"
 msgstr[1] "QoS Policies"
 
+#, python-format
+msgid "QoS Policy %s was successfully created."
+msgstr "QoS Policy %s was successfully created."
+
+msgid "QoS Policy ID"
+msgstr "QoS Policy ID"
+
+msgid "QoS Policy Id"
+msgstr "QoS Policy Id"
+
+msgid "QoS Policy Name"
+msgstr "QoS Policy Name"
+
+msgid "QoSPolicyId"
+msgstr "QoSPolicyId"
+
+msgid "QoSPolicyName"
+msgstr "QoSPolicyName"
+
+msgid "Qos Policy  Rule  was successfully deleted."
+msgstr "QoS Policy  Rule was successfully deleted."
+
+#, python-format
+msgid "Qos Policy Rule %s was successfully updated."
+msgstr "QoS Policy Rule %s was successfully updated."
+
 msgid "Queued"
 msgstr "Queued"
 
@@ -2308,8 +2404,20 @@ msgstr "Role updated successfully."
 msgid "Root Disk"
 msgstr "Root Disk"
 
+msgid "Rule"
+msgstr "Rule"
+
 msgid "Rule ID"
 msgstr "Rule ID"
+
+msgid "Rule Type"
+msgstr "Rule Type"
+
+msgid "Rule to edit"
+msgstr "Rule to edit"
+
+msgid "RuleId"
+msgstr "RuleId"
 
 msgid "Rules"
 msgstr "Rules"
@@ -2410,6 +2518,9 @@ msgstr "Select Title"
 
 msgid "Select a container to browse."
 msgstr "Select a container to browse."
+
+msgid "Select a flavor from the available flavors below."
+msgstr "Select a flavour from the available flavours below."
 
 msgid "Select a key pair from the available key pairs below."
 msgstr "Select a key pair from the available key pairs below."
@@ -2758,6 +2869,19 @@ msgstr ""
 "assigned to the interfaces plugged into them."
 
 msgid ""
+"The maximum KBPS (kilobits per second) value.\n"
+"    If you specify this value, must be greater than 0 otherwise max_kbps "
+"will have no value.\n"
+"    \n"
+"        The maximum burst size (in kilobits). Default is 0."
+msgstr ""
+"The maximum KBPS (kilobits per second) value.\n"
+"    If you specify this value, must be greater than 0 otherwise max_kbps "
+"will have no value.\n"
+"    \n"
+"        The maximum burst size (in kilobits). Default is 0."
+
+msgid ""
 "The maximum number of key-value pairs that can be supplied per instance is "
 "determined by the compute provider."
 msgstr ""
@@ -2765,11 +2889,25 @@ msgstr ""
 "determined by the compute provider."
 
 msgid ""
+"The minimum KBPS (kilobits per second) value which should be available for "
+"port."
+msgstr ""
+"The minimum KBPS (kilobits per second) value which should be available for "
+"port."
+
+msgid ""
 "The minimum disk size required to boot the image. If unspecified, this value "
 "defaults to 0 (no minimum)."
 msgstr ""
 "The minimum disk size required to boot the image. If unspecified, this value "
 "defaults to 0 (no minimum)."
+
+msgid ""
+"The minimum kpps (kilo(1000) packets per second) value which should be "
+"available for port."
+msgstr ""
+"The minimum kpps (kilo(1000) packets per second) value which should be "
+"available for port."
 
 msgid ""
 "The minimum memory size required to boot the image. If unspecified, this "
@@ -2879,6 +3017,12 @@ msgid ""
 msgstr ""
 "There are no allowed boot\n"
 "      sources. If you think this is wrong please contact your administrator."
+
+msgid "There are no rules to delete."
+msgstr "There are no rules to delete."
+
+msgid "There are no rules to modify."
+msgstr "There are no rules to modify."
 
 msgid ""
 "There are two ways to generate a key pair. From a Linux system,\n"
@@ -3034,6 +3178,18 @@ msgstr "Typography"
 msgid "URL"
 msgstr "URL"
 
+msgid "Unable to add the bandwidthrule ."
+msgstr "Unable to add the bandwidthrule ."
+
+msgid "Unable to add the dscp_marking_rule ."
+msgstr "Unable to add the dscp_marking_rule ."
+
+msgid "Unable to add the minimum_bandwidth_rule ."
+msgstr "Unable to add the minimum_bandwidth_rule ."
+
+msgid "Unable to add the minimum_packet_rate_rule."
+msgstr "Unable to add the minimum_packet_rate_rule."
+
 msgid "Unable to allocate new floating IP address."
 msgstr "Unable to allocate new floating IP address."
 
@@ -3048,6 +3204,9 @@ msgstr "Unable to check the Nova service feature."
 
 msgid "Unable to copy the object."
 msgstr "Unable to copy the object."
+
+msgid "Unable to create the QoS Policy."
+msgstr "Unable to create the QoS Policy."
 
 msgid "Unable to create the container."
 msgstr "Unable to create the container."
@@ -3164,6 +3323,9 @@ msgstr[1] "Unable to delete policies: %s."
 msgid "Unable to delete qos policy %(id)s"
 msgstr "Unable to delete QoS policy %(id)s"
 
+msgid "Unable to delete the bandwidth_limit_rule."
+msgstr "Unable to delete the bandwidth_limit_rule."
+
 msgid "Unable to delete the container."
 msgstr "Unable to delete the container."
 
@@ -3172,6 +3334,9 @@ msgstr "Unable to delete the domain."
 
 msgid "Unable to delete the domains."
 msgstr "Unable to delete the domains."
+
+msgid "Unable to delete the dscp_marking_rule."
+msgstr "Unable to delete the dscp_marking_rule."
 
 #, python-format
 msgid "Unable to delete the flavor with id: %(id)s"
@@ -3193,6 +3358,12 @@ msgstr "Unable to delete the image with id: %(id)s"
 #, python-format
 msgid "Unable to delete the keypair with name: %(name)s"
 msgstr "Unable to delete the keypair with name: %(name)s"
+
+msgid "Unable to delete the minimum_bandwidth_rule ."
+msgstr "Unable to delete the minimum_bandwidth_rule ."
+
+msgid "Unable to delete the minimum_packet_rate_rule ."
+msgstr "Unable to delete the minimum_packet_rate_rule ."
 
 msgid "Unable to delete the object."
 msgstr "Unable to delete the object."
@@ -3537,11 +3708,23 @@ msgstr "Unable to update metadata."
 msgid "Unable to update project quota data."
 msgstr "Unable to update project quota data."
 
+msgid "Unable to update the bandwidthrule."
+msgstr "Unable to update the bandwidthrule."
+
+msgid "Unable to update the dscp marking rule."
+msgstr "Unable to update the DSCP marking rule."
+
 msgid "Unable to update the flavor."
 msgstr "Unable to update the flavour."
 
 msgid "Unable to update the image."
 msgstr "Unable to update the image."
+
+msgid "Unable to update the minimum bandwidth rule."
+msgstr "Unable to update the minimum bandwidth rule."
+
+msgid "Unable to update the minimum packet rate rule."
+msgstr "Unable to update the minimum packet rate rule."
 
 msgid "Unable to update the trunk."
 msgstr "Unable to update the trunk."
@@ -3694,6 +3877,17 @@ msgstr "VMDK - Virtual Machine Disk"
 
 msgid "VNIC type"
 msgstr "VNIC type"
+
+msgid ""
+"Valid DSCP mark values are even numbers between 0 and 56,\n"
+"    except 2-6, 42, 44, and 50-54. The full list of valid DSCP marks is:\n"
+"    0, 8, 10, 12, 14, 16, 18, 20, 22, 24, 26, 28, 30, 32, 34, 36, 38, 40, "
+"46, 48, 56."
+msgstr ""
+"Valid DSCP mark values are even numbers between 0 and 56,\n"
+"    except 2-6, 42, 44, and 50-54. The full list of valid DSCP marks is:\n"
+"    0, 8, 10, 12, 14, 16, 18, 20, 22, 24, 26, 28, 30, 32, 34, 36, 38, 40, "
+"46, 48, 56."
 
 msgid "View As Modal"
 msgstr "View As Modal"
@@ -3961,8 +4155,17 @@ msgstr[1] "You have selected \"%s\". Deleted users are not recoverable."
 msgid "Your Form as JavaScript"
 msgstr "Your Form as JavaScript"
 
+msgid "any"
+msgstr "any"
+
+msgid "egress"
+msgstr "egress"
+
 msgid "image"
 msgstr "image"
+
+msgid "ingress"
+msgstr "ingress"
 
 msgid "inherit"
 msgstr "inherit"

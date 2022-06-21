@@ -8,15 +8,16 @@
 # Andi Chandler <andi@gowling.com>, 2019. #zanata
 # Andi Chandler <andi@gowling.com>, 2020. #zanata
 # Andi Chandler <andi@gowling.com>, 2021. #zanata
+# Andi Chandler <andi@gowling.com>, 2022. #zanata
 msgid ""
 msgstr ""
 "Project-Id-Version: horizon VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2022-02-21 20:31+0000\n"
+"POT-Creation-Date: 2022-05-19 10:45+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2021-05-16 09:04+0000\n"
+"PO-Revision-Date: 2022-05-25 09:04+0000\n"
 "Last-Translator: Andi Chandler <andi@gowling.com>\n"
 "Language-Team: English (United Kingdom)\n"
 "Language: en_GB\n"
@@ -2822,6 +2823,9 @@ msgstr "Failed to check if Neutron supports \"auto_allocated_network\"."
 
 msgid "Failed to check if nova supports \"auto_allocated_network\"."
 msgstr "Failed to check if Nova supports \"auto_allocated_network\"."
+
+msgid "Failed to check if shared field is supported."
+msgstr "Failed to check if the shared field is supported."
 
 msgid "Failed to create a rbac policy."
 msgstr "Failed to create a RBAC policy."
@@ -6279,6 +6283,9 @@ msgstr "System Information"
 msgid "System Scope"
 msgstr "System Scope"
 
+msgid "Systems:"
+msgstr "Systems:"
+
 msgid "Target Host"
 msgstr "Target Host"
 
@@ -8789,6 +8796,9 @@ msgstr "no"
 
 msgid "rbac policy quota exceeded."
 msgstr "rbac policy quota exceeded."
+
+msgid "system scope"
+msgstr "system scope"
 
 msgid "undefined"
 msgstr "undefined"
