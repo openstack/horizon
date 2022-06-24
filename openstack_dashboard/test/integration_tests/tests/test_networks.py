@@ -51,6 +51,61 @@ class TestNetworks(helpers.TestCase):
             networks_page.find_message_and_dismiss(messages.ERROR))
         self.assertFalse(networks_page.is_network_present(self.NETWORK_NAME))
 
+
+@decorators.services_required("neutron")
+class TestAdminNetworks(helpers.AdminTestCase, TestNetworks):
+    NETWORK_NAME = helpers.gen_random_resource_name("network")
+    SUBNET_NAME = helpers.gen_random_resource_name("subnet")
+
+    @property
+    def networks_page(self):
+        return self.home_pg.go_to_admin_network_networkspage()
+
+
+@decorators.services_required("neutron")
+class TestNetworksPagination(helpers.TestCase):
+    NETWORK_NAME = helpers.gen_random_resource_name("network")
+    SUBNET_NAME = helpers.gen_random_resource_name("subnet")
+    ITEMS_PER_PAGE = 2
+
+    @property
+    def networks_page(self):
+        return self.home_pg.go_to_project_network_networkspage()
+
+    def setUp(self):
+        super().setUp()
+
+        count = 3
+        networks_names = ["{0}_{1}".format(self.NETWORK_NAME, i)
+                          for i in range(count)]
+        networks_page = self.networks_page
+        for network_name in networks_names:
+            networks_page.create_network(network_name, self.SUBNET_NAME)
+            self.assertTrue(
+                networks_page.find_message_and_dismiss(messages.SUCCESS))
+            self.assertFalse(
+                networks_page.find_message_and_dismiss(messages.ERROR))
+            self.assertTrue(networks_page.is_network_present(network_name))
+            self.assertTrue(networks_page.is_network_active(network_name))
+        # we have to get this now, before we change page size
+        self.names = networks_page.networks_table.get_column_data(
+            name_column=networks_page.NETWORKS_TABLE_NAME_COLUMN)
+
+        self._change_page_size_setting(self.ITEMS_PER_PAGE)
+
+        def cleanup():
+            self._change_page_size_setting()
+            networks_page = self.networks_page
+            for network_name in networks_names:
+                networks_page.delete_network(network_name)
+                self.assertTrue(
+                    networks_page.find_message_and_dismiss(messages.SUCCESS))
+                self.assertFalse(
+                    networks_page.find_message_and_dismiss(messages.ERROR))
+                self.assertFalse(networks_page.is_network_present(network_name))
+
+        self.addCleanup(cleanup)
+
     def test_networks_pagination(self):
         """This test checks networks pagination
 
@@ -73,40 +128,29 @@ class TestNetworks(helpers.TestCase):
         11) Go to user settings page and restore 'Items Per Page'
         12) Delete created networks
         """
-        networks_page = self.networks_page
-        count = 6
-        items_per_page = 2
-        networks_names = ["{0}_{1}".format(self.NETWORK_NAME, i)
-                          for i in range(count)]
-        for network_name in networks_names:
-            networks_page.create_network(network_name, self.SUBNET_NAME)
-            self.assertTrue(
-                networks_page.find_message_and_dismiss(messages.SUCCESS))
-            self.assertFalse(
-                networks_page.find_message_and_dismiss(messages.ERROR))
-            self.assertTrue(networks_page.is_network_present(network_name))
-            self.assertTrue(networks_page.is_network_active(network_name))
 
-        networks_page = self.networks_page
-        rows = networks_page.networks_table.get_column_data(
-            name_column=networks_page.NETWORKS_TABLE_NAME_COLUMN)
-        self._change_page_size_setting(items_per_page)
         networks_page = self.networks_page
         definitions = []
         i = 0
-        while i < len(rows):
-            prev = i >= items_per_page
-            next = i < (len(rows) - items_per_page)
-            definition = {'Next': next, 'Prev': prev,
-                          'Count': items_per_page,
-                          'Names': rows[i:i + items_per_page]}
+        total = len(self.names)
+        while i < total:
+            has_prev = i >= self.ITEMS_PER_PAGE
+            has_next = total - i > self.ITEMS_PER_PAGE
+            count = (self.ITEMS_PER_PAGE if has_next
+                     else total % self.ITEMS_PER_PAGE or self.ITEMS_PER_PAGE)
+            definition = {
+                'Next': has_next,
+                'Prev': has_prev,
+                'Count': count,
+                'Names': self.names[i:i + count],
+            }
             definitions.append(definition)
             networks_page.networks_table.assert_definition(
                 definition,
                 name_column=networks_page.NETWORKS_TABLE_NAME_COLUMN)
-            if next:
+            if has_next:
                 networks_page.networks_table.turn_next_page()
-            i = i + items_per_page
+            i = i + self.ITEMS_PER_PAGE
 
         definitions.reverse()
         for definition in definitions:
@@ -116,17 +160,6 @@ class TestNetworks(helpers.TestCase):
             if definition['Prev']:
                 networks_page.networks_table.turn_prev_page()
 
-        self._change_page_size_setting()
-
-        networks_page = self.networks_page
-        for network_name in networks_names:
-            networks_page.delete_network(network_name)
-            self.assertTrue(
-                networks_page.find_message_and_dismiss(messages.SUCCESS))
-            self.assertFalse(
-                networks_page.find_message_and_dismiss(messages.ERROR))
-            self.assertFalse(networks_page.is_network_present(network_name))
-
     def _change_page_size_setting(self, items_per_page=None):
         settings_page = self.home_pg.go_to_settings_usersettingspage()
         if items_per_page:
@@ -134,13 +167,3 @@ class TestNetworks(helpers.TestCase):
         else:
             settings_page.change_pagesize()
         settings_page.find_message_and_dismiss(messages.SUCCESS)
-
-
-@decorators.services_required("neutron")
-class TestAdminNetworks(helpers.AdminTestCase, TestNetworks):
-    NETWORK_NAME = helpers.gen_random_resource_name("network")
-    SUBNET_NAME = helpers.gen_random_resource_name("subnet")
-
-    @property
-    def networks_page(self):
-        return self.home_pg.go_to_admin_network_networkspage()
