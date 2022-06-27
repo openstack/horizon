@@ -1325,6 +1325,7 @@ class InstanceDetailTests(InstanceTestBase):
             "server_get",
             "instance_volumes_list",
             "flavor_get",
+            "flavor_list",
             'is_feature_available',
         ),
         api.neutron: (
@@ -1337,7 +1338,7 @@ class InstanceDetailTests(InstanceTestBase):
     def _get_instance_details(self, server, qs=None,
                               flavor_return=None, volumes_return=None,
                               security_groups_return=None,
-                              flavor_exception=False):
+                              flavor_exception=False, nova_api_ge_2_47=False):
 
         url = reverse('horizon:project:instances:detail', args=[server.id])
         if qs:
@@ -1372,8 +1373,12 @@ class InstanceDetailTests(InstanceTestBase):
             helpers.IsHttpRequest(), mock.ANY)
         self.mock_instance_volumes_list.assert_called_once_with(
             helpers.IsHttpRequest(), server.id)
-        self.mock_flavor_get.assert_called_once_with(
-            helpers.IsHttpRequest(), server.flavor['id'])
+        if nova_api_ge_2_47:
+            self.mock_flavor_list.assert_called_once_with(
+                helpers.IsHttpRequest())
+        else:
+            self.mock_flavor_get.assert_called_once_with(
+                helpers.IsHttpRequest(), server.flavor['id'])
         self.mock_server_security_groups.assert_called_once_with(
             helpers.IsHttpRequest(), server.id)
         self.mock_floating_ip_simple_associate_supported \
@@ -1554,6 +1559,19 @@ class InstanceDetailTests(InstanceTestBase):
         self.assertTemplateUsed(res,
                                 'project/instances/_detail_overview.html')
         self.assertContains(res, "Not available")
+        self.mock_is_extension_supported.assert_called_once_with(
+            helpers.IsHttpRequest(), 'mac-learning')
+
+    @helpers.create_mocks({api.neutron: ['is_extension_supported']})
+    def test_instance_details_nova_api_ge_2_47(self):
+        server = self.servers.first()
+        server.flavor = {
+            'original_name': 'm1.tiny',
+        }
+        self.mock_is_extension_supported.return_value = False
+        res = self._get_instance_details(server, nova_api_ge_2_47=True)
+        self.assertTemplateUsed(res,
+                                'project/instances/_detail_overview.html')
         self.mock_is_extension_supported.assert_called_once_with(
             helpers.IsHttpRequest(), 'mac-learning')
 
