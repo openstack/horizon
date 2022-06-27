@@ -28,6 +28,9 @@ from selenium.webdriver.remote import webelement
 if os.environ.get('SELENIUM_PHANTOMJS'):
     from selenium.webdriver import PhantomJS as WebDriver
     desired_capabilities = dc.DesiredCapabilities.PHANTOMJS
+elif os.environ.get('SELENIUM_CHROME'):
+    from selenium.webdriver import Chrome as WebDriver
+    desired_capabilities = dc.DesiredCapabilities.CHROME
 else:
     from horizon.test.firefox_binary import WebDriver
     desired_capabilities = dc.DesiredCapabilities.FIREFOX
