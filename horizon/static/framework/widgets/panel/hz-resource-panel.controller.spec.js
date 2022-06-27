@@ -39,6 +39,7 @@
       ctrl = $controller('horizon.framework.widgets.panel.HzResourcePanelController', {
         'horizon.framework.conf.resource-type-registry.service': registry,
         tableResourceType: 'OS::Test::Example'});
+      ctrl.$onInit();
     }));
 
     it('exists', function() {

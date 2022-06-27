@@ -27,8 +27,10 @@
   function controller(registry) {
     var ctrl = this;
 
-    ctrl.resourceType = registry.getResourceType(ctrl.resourceTypeName);
-    ctrl.pageName = ctrl.resourceType.getName();
+    this.$onInit = function init() {
+      ctrl.resourceType = registry.getResourceType(ctrl.resourceTypeName);
+      ctrl.pageName = ctrl.resourceType.getName();
+    };
   }
 
 })();
