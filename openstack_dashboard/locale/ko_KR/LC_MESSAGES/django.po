@@ -30,7 +30,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: horizon VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2022-02-21 20:31+0000\n"
+"POT-Creation-Date: 2022-06-21 10:46+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -8519,9 +8519,6 @@ msgstr "알 수 없는 IP 주소"
 
 msgid "up"
 msgstr "up"
-
-msgid "vCPUs ="
-msgstr "vCPUs ="
 
 msgid "yes"
 msgstr "네"
