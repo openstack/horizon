@@ -101,6 +101,15 @@ class TestVolumesBasic(helpers.TestCase):
         12) Delete created volumes
         """
         volumes_page = self.home_pg.go_to_project_volumes_volumespage()
+
+        # delete any old instances
+        garbage = volumes_page.volumes_table.get_column_data(
+            name_column='Name')
+        if garbage:
+            volumes_page.delete_volumes(garbage)
+            self.assertTrue(
+                volumes_page.find_message_and_dismiss(messages.INFO))
+
         count = 3
         items_per_page = 1
         volumes_names = ["{0}_{1}".format(self.VOLUME_NAME, i) for i in
