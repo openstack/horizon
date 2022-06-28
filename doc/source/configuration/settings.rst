@@ -2125,6 +2125,10 @@ LAUNCH_INSTANCE_DEFAULTS
 
     Added the ``hide_create_volume`` option.
 
+.. versionchanged:: 19.1.0(Wallaby)
+
+    Added the ``default_availability_zone`` option.
+
 Default:
 
 .. code-block:: python
@@ -2138,6 +2142,7 @@ Default:
         "disable_volume": False,
         "disable_volume_snapshot": False,
         "enable_scheduler_hints": True,
+        "default_availability_zone": "Any",
     }
 
 A dictionary of settings which can be used to provide the default values for
@@ -2223,6 +2228,22 @@ Default: ``True``
 
 This setting specifies whether or not Scheduler Hints can be provided when
 launching an instance.
+
+default_availability_zone
+#########################
+
+.. versionadded:: 19.1.0(Wallaby)
+
+Default: ``Any``
+
+This setting allows an administrator to specify a default availability zone
+for a new server creation. The valid value is ``Any`` or availability zone
+list. If ``Any`` is specified, the default availability zone is decided by
+the nova scheduler. If one of availability zones is specified, the specified
+availability zone is used as the default availability zone. If a value
+specified in this setting is not found in the availability zone list,
+the setting will be ignored and the behavior will be same as when ``Any``
+is specified.
 
 LAUNCH_INSTANCE_LEGACY_ENABLED
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

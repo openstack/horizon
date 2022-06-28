@@ -183,7 +183,8 @@
             disable_image: false,
             disable_instance_snapshot: false,
             disable_volume: false,
-            disable_volume_snapshot: false
+            disable_volume_snapshot: false,
+            default_availability_zone: 'Any'
           },
           DEFAULT_BOOT_SOURCE: 'image'
         };
@@ -505,6 +506,37 @@
           expect(model.newInstanceSpec.create_volume_default).toBe(false);
         });
 
+        it('should default availability_zone to empty based on default', function() {
+          model.initialize(true);
+          scope.$apply();
+
+          expect(model.newInstanceSpec.availability_zone).toBe('');
+        });
+
+        it('should default availability_zone to empty based on setting', function() {
+          settings.LAUNCH_INSTANCE_DEFAULTS.default_availability_zone = 'Any';
+          model.initialize(true);
+          scope.$apply();
+
+          expect(model.newInstanceSpec.availability_zone).toBe('');
+        });
+
+        it('should default availability_zone based on setting', function() {
+          settings.LAUNCH_INSTANCE_DEFAULTS.default_availability_zone = 'zone-1';
+          model.initialize(true);
+          scope.$apply();
+
+          expect(model.newInstanceSpec.availability_zone).toEqual('zone-1');
+        });
+
+        it('should default AZ to empty if AZ configured is not found', function() {
+          settings.LAUNCH_INSTANCE_DEFAULTS.default_availability_zone = 'non-existing';
+          model.initialize(true);
+          scope.$apply();
+
+          expect(model.newInstanceSpec.availability_zone).toEqual('');
+        });
+
         it('should default hide_create_volume to false if setting not provided', function() {
           delete settings.LAUNCH_INSTANCE_DEFAULTS.hide_create_volume;
           model.initialize(true);
@@ -626,6 +658,22 @@
           expect(model.allowedBootSources).toContain(VOLUME);
           expect(model.allowedBootSources).toContain(VOLUME_SNAPSHOT);
           expect(model.allowedBootSources).toContain(INSTANCE_SNAPSHOT);
+        });
+
+        it('should have proper availability_zone if specific setting is missing', function() {
+          delete settings.LAUNCH_INSTANCE_DEFAULTS.default_availability_zone;
+          model.initialize(true);
+          scope.$apply();
+
+          expect(model.newInstanceSpec.availability_zone).toBe('');
+        });
+
+        it('should have proper availability_zone if settings are missing', function() {
+          delete settings.LAUNCH_INSTANCE_DEFAULTS;
+          model.initialize(true);
+          scope.$apply();
+
+          expect(model.newInstanceSpec.availability_zone).toBe('');
         });
 
         it('should have proper allowedBootSources if settings are missing', function() {

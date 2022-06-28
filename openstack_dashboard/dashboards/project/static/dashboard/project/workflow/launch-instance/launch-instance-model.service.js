@@ -129,6 +129,7 @@
        * cloud service properties, they should be READ-ONLY to all UI controllers
        */
 
+      default_availability_zone: 'Any',
       availabilityZones: [],
       flavors: [],
       allowedBootSources: [],
@@ -250,6 +251,7 @@
           });
 
         promise = $q.all([
+          launchInstanceDefaults.then(setDefaultValues, noop),
           novaAPI.getAvailabilityZones().then(onGetAvailabilityZones)
             .finally(onGetAvailabilityZonesComplete),
           novaAPI.getFlavors({
@@ -261,7 +263,6 @@
           securityGroup.query().then(onGetSecurityGroups, noop),
           serviceCatalog.ifTypeEnabled('network').then(getNetworks, noop),
           launchInstanceDefaults.then(addImageSourcesIfEnabled, noop),
-          launchInstanceDefaults.then(setDefaultValues, noop),
           launchInstanceDefaults.then(addVolumeSourcesIfEnabled, noop)
         ]);
 
@@ -299,6 +300,9 @@
       }
       if ('hide_create_volume' in defaults) {
         model.newInstanceSpec.hide_create_volume = defaults.hide_create_volume;
+      }
+      if ('default_availability_zone' in defaults) {
+        model.default_availability_zone = defaults.default_availability_zone;
       }
     }
 
@@ -365,13 +369,33 @@
       if (model.availabilityZones.length === 1) {
         model.newInstanceSpec.availability_zone = model.availabilityZones[0].value;
       } else if (model.availabilityZones.length > 1) {
-        // There are 2 or more; allow ability for nova scheduler to pick,
-        // and make that the default.
+        // There are 2 or more; allow ability for nova scheduler to pick any AZ
         model.availabilityZones.unshift({
           label: gettext("Any Availability Zone"),
           value: ""
         });
-        model.newInstanceSpec.availability_zone = model.availabilityZones[0].value;
+        // if default_availability_zone is Any, pick the first one in the list
+        if (model.default_availability_zone === "Any") {
+          model.newInstanceSpec.availability_zone = model.availabilityZones[0].value;
+        } else {
+          var defaultZone = null;
+          for (var i = 0; i < model.availabilityZones.length; i++) {
+            if (model.availabilityZones[i].value === model.default_availability_zone) {
+              defaultZone = model.availabilityZones[i];
+              break;
+            }
+          }
+          if (defaultZone !== null) {
+            // if default_availability_zone is set, use that AZ by default.
+            model.newInstanceSpec.availability_zone = model.default_availability_zone;
+            // Add "(default)" suffix to the default AZ.
+            defaultZone.label = interpolate(gettext("%s (default)"), [defaultZone.value]);
+          } else {
+            // If the configured default AZ is not included in the AZ list (perhaps
+            // misconfiguration?), use the first one ("Any Availability Zone") by default.
+            model.newInstanceSpec.availability_zone = model.availabilityZones[0].value;
+          }
+        }
       }
 
     }
