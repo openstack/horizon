@@ -137,7 +137,7 @@
     function getContainer(container, ignoreError) {
       var promise = apiService.get(service.getContainerURL(container) + '/metadata/');
       if (ignoreError) {
-        return promise.catch(angular.noop);
+        return promise;
       }
       return promise.catch(function onError() {
         toastService.add('error', gettext('Unable to get the container details.'));

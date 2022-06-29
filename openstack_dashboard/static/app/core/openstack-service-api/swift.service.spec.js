@@ -247,7 +247,6 @@
       spyOn(promise, 'catch');
       spyOn(toastService, 'add');
       service.getContainer('spam', true);
-      expect(promise.catch).toHaveBeenCalledWith(angular.noop);
       expect(toastService.add).not.toHaveBeenCalled();
     });
 

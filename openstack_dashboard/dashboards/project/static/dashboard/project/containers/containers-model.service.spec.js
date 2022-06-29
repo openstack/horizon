@@ -46,7 +46,7 @@
       expect(swiftAPI.getInfo).toHaveBeenCalled();
       expect(swiftAPI.getContainers).toHaveBeenCalled();
 
-      infoDeferred.resolve({info: 'spam'});
+      infoDeferred.resolve({data: {info: 'spam'}});
       containersDeferred.resolve({data: {items: ['two', 'items']}});
       $rootScope.$apply();
 
