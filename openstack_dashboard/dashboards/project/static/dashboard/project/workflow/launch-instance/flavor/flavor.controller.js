@@ -117,14 +117,14 @@
             ng-show="item.errors.vcpus"
             uib-popover="{$ item.errors.vcpus $}"
             popover-placement="top" popover-append-to-body="true"
-            popover-trigger="'mouseenter'"/>
+            popover-trigger="'mouseenter'"></span>
             <span>{$ item.vcpus $}</span>`},
         {id: 'ram', title: gettext('RAM'), priority: 1,
           template: `<span class="invalid fa fa-exclamation-triangle"
             ng-show="item.errors.ram"
             uib-popover="{$ item.errors.ram $}"
             popover-placement="top" popover-append-to-body="true"
-            popover-trigger="'mouseenter'"/>
+            popover-trigger="'mouseenter'"></span>
             <span>{$ item.ram | mb $}</span>`},
         {id: 'totalDisk', title: gettext('Total Disk'), filters: ['gb'], priority: 1},
         {id: 'rootDisk', title: gettext('Root Disk'), priority: 2,
@@ -132,7 +132,7 @@
             ng-show="item.errors.disk"
             uib-popover="{$ item.errors.disk $}"
             popover-placement="top" popover-append-to-body="true"
-            popover-trigger="'mouseenter'"/>
+            popover-trigger="'mouseenter'"></span>
             <span>{$ item.rootDisk | gb $}</span>`},
         {id: 'ephemeralDisk', title: gettext('Ephemeral Disk'), filters: ['gb'], priority: 2},
         {id: 'isPublic', title: gettext('Public'), filters: ['yesno'], priority: 1}
