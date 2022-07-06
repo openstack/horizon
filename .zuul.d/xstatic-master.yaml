@@ -27,7 +27,7 @@
 
 - job:
     name: horizon-tox-py36-xstatic-master
-    parent: openstack-tox-py36
+    parent: openstack-tox-py39
     required-projects: *xstatic-projects
 
 - job:
