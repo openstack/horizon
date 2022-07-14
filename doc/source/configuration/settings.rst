@@ -593,9 +593,7 @@ OPENSTACK_ENDPOINT_TYPE
 Default: ``"publicURL"``
 
 A string which specifies the endpoint type to use for the endpoints in the
-Keystone service catalog. The default value for all services except for
-identity is ``"publicURL"`` . The default value for the identity service is
-``"internalURL"``.
+Keystone service catalog.
 
 OPENSTACK_HOST
 --------------
