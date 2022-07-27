@@ -12,14 +12,25 @@
       .. zuul:jobvar: django_version
 
          Django version to be used.
-         pip version specifier like ``>=1.11,<2.0`` should be passed.
+         pip version specifier like ``>=4.2,<4.3`` should be passed.
 
     pre-run: playbooks/horizon-tox-django/pre.yaml
     run: playbooks/horizon-tox-django/run.yaml
     vars:
-      tox_envlist: py39
+      tox_envlist: py311
+      # The following should match the base openstack-tox-pyNN job.
+      bindep_profile: test py311
+      python_version: "3.11"
     required-projects:
       - name: openstack/horizon
+
+# Let's keep at least one job definition as a template even when we support
+# only one version of Django covered by the default job.
+- job:
+    name: horizon-tox-python3-django42
+    parent: horizon-tox-python3-django
+    vars:
+      django_version: '>=4.2,<4.3'
 
 - project-template:
     name: horizon-non-primary-django-jobs
@@ -27,12 +38,19 @@
       Run unit tests with non-primary Django versions.
     check:
       jobs:
-        # Currently we only support Django 3.2, so there is no need
-        # to run tests with different versions of Django.
-        # We specify a job in openstack-python3-jobs(-horizon)
-        # to keep this project template as it is used in horizon plugins.
-        # NOTE: We keep it as a template even though it is not used now.
-        - openstack-tox-py39
+        # We specify a job in openstack-python3-jobs(-horizon) as a
+        # sentinel to make this project template valid even when we support
+        # only one version of Django used as the default.  Zuul project
+        # template configuration requires at least one job included.
+        - openstack-tox-py311
+        # Let's keep at least one job as a template even when we support
+        # only one version of Django covered by the default job.
+        # Just comment it out for such case.
+        - horizon-tox-python3-django42:
+            voting: false
     gate:
       jobs:
-        - openstack-tox-py39
+        # Default python job in openstack-python3-antelope-jobs(-horizon)
+        - openstack-tox-py311
+        # Skip the following until they become voting.
+        # - horizon-tox-python3-django42
