@@ -66,7 +66,8 @@
           templateUrl: basePath + 'networkports/ports.html',
           helpUrl: basePath + 'networkports/ports.help.html',
           formName: 'launchInstanceNetworkPortForm',
-          requiredServiceTypes: ['network']
+          requiredServiceTypes: ['network'],
+          setting: 'LAUNCH_INSTANCE_DEFAULTS.enable_net_ports'
         },
         {
           id: 'secgroups',
@@ -112,7 +113,8 @@
           title: gettext('Metadata'),
           templateUrl: basePath + 'metadata/metadata.html',
           helpUrl: basePath + 'metadata/metadata.help.html',
-          formName: 'launchInstanceMetadataForm'
+          formName: 'launchInstanceMetadataForm',
+          setting: 'LAUNCH_INSTANCE_DEFAULTS.enable_metadata'
         }
       ],
 

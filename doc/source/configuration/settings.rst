@@ -2174,6 +2174,10 @@ LAUNCH_INSTANCE_DEFAULTS
 
     Added the ``default_availability_zone`` option.
 
+.. versionchanged:: 22.3.0(Zed)
+
+    Added the ``enable_metadata``, ``enable_net_ports`` options.
+
 Default:
 
 .. code-block:: python
@@ -2187,6 +2191,8 @@ Default:
         "disable_volume": False,
         "disable_volume_snapshot": False,
         "enable_scheduler_hints": True,
+        "enable_metadata": True,
+        "enable_net_ports": True,
         "default_availability_zone": "Any",
     }
 
@@ -2272,6 +2278,26 @@ enable_scheduler_hints
 Default: ``True``
 
 This setting specifies whether or not Scheduler Hints can be provided when
+launching an instance.
+
+enable_metadata
+###############
+
+.. versionadded:: 22.3.0(Zed)
+
+Default: ``True``
+
+This setting specifies whether or not Metadata can be provided when launching
+an instance.
+
+enable_net_ports
+################
+
+.. versionadded:: 22.3.0(Zed)
+
+Default: ``True``
+
+This setting specifies whether or not Network Ports can be selected when
 launching an instance.
 
 default_availability_zone
