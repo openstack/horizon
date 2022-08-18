@@ -5,7 +5,6 @@
       - horizon-cross-jobs
       - horizon-nodejs-jobs
       - horizon-non-primary-django-jobs
-      - openstack-lower-constraints-jobs
       - openstack-python3-zed-jobs
       - periodic-stable-jobs
       - publish-openstack-docs-pti
