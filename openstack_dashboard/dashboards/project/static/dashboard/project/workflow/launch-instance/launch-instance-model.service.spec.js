@@ -186,7 +186,8 @@
             disable_volume_snapshot: false,
             default_availability_zone: 'Any'
           },
-          DEFAULT_BOOT_SOURCE: 'image'
+          DEFAULT_BOOT_SOURCE: 'image',
+          OPENSTACK_SERVER_DEFAULT_USER_DATA: ''
         };
         IMAGE = {type: 'image', label: 'Image', selected: true};
         VOLUME = {type: 'volume', label: 'Volume', selected: false};
@@ -883,7 +884,7 @@
         // This is here to ensure that as people add/change items, they
         // don't forget to implement tests for them.
         it('has the right number of properties', function() {
-          expect(Object.keys(model.newInstanceSpec).length).toBe(22);
+          expect(Object.keys(model.newInstanceSpec).length).toBe(23);
         });
 
         it('sets availability zone to null', function() {
@@ -908,6 +909,10 @@
 
         it('sets user data to an empty string', function() {
           expect(model.newInstanceSpec.user_data).toBe('');
+        });
+
+        it('sets default user data to an empty string', function() {
+          expect(model.newInstanceSpec.default_user_data).toBe('');
         });
 
         it('sets disk config to AUTO', function() {

@@ -17,6 +17,7 @@ from datetime import datetime
 
 from django.conf import settings
 from django.http import JsonResponse
+import django.template as django_template
 from django.views import generic
 import pytz
 
@@ -59,6 +60,7 @@ class Settings(generic.View):
                           in settings_allowed if k not in self.SPECIALS}
         plain_settings.update(self.SPECIALS)
         plain_settings.update(self.disk_formats(request))
+        plain_settings.update(self.default_user_data(request))
         return plain_settings
 
     def disk_formats(self, request):
@@ -69,6 +71,18 @@ class Settings(generic.View):
             value
             for (value, name) in api.glance.get_image_formats(request)
         ]}
+
+    def default_user_data(self, request):
+        template_code = settings.OPENSTACK_SERVER_DEFAULT_USER_DATA
+        if template_code:
+            engine = django_template.engine.Engine.get_default()
+            template = engine.from_string(template_code)
+            default_user_data = template.render(
+                django_template.Context(dict(request=request))
+            )
+        else:
+            default_user_data = ""
+        return {"OPENSTACK_SERVER_DEFAULT_USER_DATA": default_user_data}
 
 
 @urls.register

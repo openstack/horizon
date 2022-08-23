@@ -26,6 +26,7 @@
    *
    * @param {object} title
    * @param {object} model
+   * @param {object} modelDefaultValue
    * @param {object} maxBytes
    * @param {object} key
    * @param {object} required
@@ -49,6 +50,7 @@
       scope: {
         title: '@',
         model: '=',
+        modelDefaultValue: '=',
         maxBytes: '@',
         key: '@',
         required: '=',
@@ -140,6 +142,12 @@
         // Focus the <textarea> element after injecting the code into it.
         textarea.focus();
       }
+
+      $scope.$watch('modelDefaultValue', function(newValue, oldValue) {
+        if (newValue !== undefined && oldValue !== newValue) {
+          updateTextArea(newValue);
+        }
+      });
 
       /* The length property for string shows only number of character.
        * If text includes multibyte string, it doesn't mean number of bytes.

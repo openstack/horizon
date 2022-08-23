@@ -182,6 +182,7 @@
         description: null,
         // REQUIRED Server Key.  Null allowed.
         user_data: '',
+        default_user_data: '',
         disk_config: 'AUTO',
         // REQUIRED
         flavor: null,
@@ -248,6 +249,10 @@
         settings.getSetting('DEFAULT_BOOT_SOURCE').then(
           function (response) {
             model.defaultBootSource = response;
+          });
+        settings.getSetting("OPENSTACK_SERVER_DEFAULT_USER_DATA").then(
+          function (response) {
+            model.newInstanceSpec.default_user_data = response.OPENSTACK_SERVER_DEFAULT_USER_DATA;
           });
 
         promise = $q.all([

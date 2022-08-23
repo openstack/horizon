@@ -256,6 +256,9 @@ LAUNCH_INSTANCE_DEFAULTS = {
     'default_availability_zone': 'Any',
 }
 
+# A Django template astring that will be used as default user_data for new VMs
+OPENSTACK_SERVER_DEFAULT_USER_DATA = ""
+
 # The absolute path to the directory where message files are collected.
 # The message file must have a .json file extension. When the user logins to
 # horizon, the message files collected are processed and displayed to the user.

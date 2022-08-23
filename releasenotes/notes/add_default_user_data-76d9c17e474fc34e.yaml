@@ -1,0 +1,7 @@
+---
+features:
+  - |
+    The new setting ``OPENSTACK_SERVER_DEFAULT_USER_DATA`` allows an
+    administrator to specify a default user data (e.g. comments or
+    instructions for cloudinit) for new VMs. It can be a raw string or string
+    template that accepts the request.

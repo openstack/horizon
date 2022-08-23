@@ -2224,7 +2224,7 @@ hide_create_volume
 
 Default: ``False``
 
-This setting allow your to hide the "Create New Volume" option and rely on the
+This setting allows you to hide the "Create New Volume" option and rely on the
 default value you select with ``create_volume`` to be the most suitable for your
 users.
 
@@ -2313,6 +2313,17 @@ availability zone is used as the default availability zone. If a value
 specified in this setting is not found in the availability zone list,
 the setting will be ignored and the behavior will be same as when ``Any``
 is specified.
+
+OPENSTACK_SERVER_DEFAULT_USER_DATA
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. versionadded:: 22.3.0(Zed)
+
+Default: ``""``
+
+An administrator can specify a default user data (e.g. comments or instructions
+for cloudinit) via this settings. It can be a string or template string that
+accepts a request object.
 
 OPENSTACK_ENABLE_PASSWORD_RETRIEVE
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

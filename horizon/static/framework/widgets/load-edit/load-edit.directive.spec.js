@@ -39,8 +39,9 @@
       $compile = $injector.get('$compile');
       key = 'elementKey';
       element = $compile(
-        '<load-edit title="{}" model="{}" max-bytes="{}" key="' + key + '" ' +
-        'required="true" rows="8"></load-edit>'
+        '<load-edit title="{}" model="{}" model-default-value="{}"' +
+        'max-bytes="{}" key="' + key + '" ' + 'required="true" rows="8">' +
+        '</load-edit>'
       )($scope);
       $scope.$apply();
     }));
@@ -74,6 +75,15 @@
         $scope.$apply();
 
         expect(element.isolateScope().model).toBe('user input');
+      });
+
+      it('should update text area with default user data', function () {
+        element.isolateScope().modelDefaultValue = 'default user data';
+        $scope.$apply();
+        textarea.trigger('input');
+        $scope.$apply();
+
+        expect(element.isolateScope().model).toBe('default user data');
       });
     });
 
