@@ -251,6 +251,8 @@ LAUNCH_INSTANCE_DEFAULTS = {
     'disable_volume': False,
     'disable_volume_snapshot': False,
     'enable_scheduler_hints': True,
+    'enable_metadata': True,
+    'enable_net_ports': True,
     'default_availability_zone': 'Any',
 }
 

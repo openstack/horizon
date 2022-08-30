@@ -1,0 +1,6 @@
+---
+features:
+  - |
+    The new settings ``LAUNCH_INSTANCE_DEFAULTS.enable_metadata`` and
+    ``LAUNCH_INSTANCE_DEFAULTS.enable_net_ports`` allow to hide Metadata and
+    Network Ports tabs from launch instance workflow.
