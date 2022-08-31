@@ -82,7 +82,6 @@
 
       it('contains help text for the table', function() {
         expect(ctrl.tableHelpText).toBeDefined();
-        expect(ctrl.tableHelpText.allocHelpText).toBeDefined();
         expect(ctrl.tableHelpText.availHelpText).toBeDefined();
       });
 
@@ -90,8 +89,6 @@
         expect(ctrl.tableDataMulti).toBeDefined();
         expect(ctrl.tableDataMulti.available).toEqual(['net-a', 'net-b']);
         expect(ctrl.tableDataMulti.allocated).toEqual(['net-a']);
-        expect(ctrl.tableDataMulti.displayedAllocated).toEqual([]);
-        expect(ctrl.tableDataMulti.displayedAvailable).toEqual([]);
         expect(ctrl.tableDataMulti.minItems).toEqual(1);
       });
 

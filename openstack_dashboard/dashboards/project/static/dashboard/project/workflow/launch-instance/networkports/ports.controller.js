@@ -100,10 +100,11 @@
     };
 
     ctrl.allocatedTableConfig = angular.copy(ctrl.availableTableConfig);
+    ctrl.allocatedTableConfig.noItemsMessage = gettext(
+      'Select one or more ports from the available ports below.');
 
     ctrl.tableHelpText = {
-      allocHelpText: gettext('Select ports from those listed below.'),
-      availHelpText: gettext('Select one or more ports')
+      availHelpText: gettext('Select one or more')
     };
 
     ctrl.filterFacets = [{

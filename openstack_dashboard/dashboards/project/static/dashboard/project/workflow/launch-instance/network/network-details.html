@@ -1,0 +1,23 @@
+<dl class="network-details dl-horizontal">
+  <dt translate>ID</dt>
+  <dd>{$ item.id $}</dd>
+  <dt translate>Project</dt>
+  <dd>{$ item.tenant_id $}</dd>
+  <dt translate>External Network</dt>
+  <dd>{$ item['router:external'] | yesno $}</dd>
+</dl>
+<span class="h5" translate>Provider Network</span>
+<div class="item" class="detail">
+  <dl class="col-sm-4">
+    <dt translate>Type</dt>
+    <dd>{$ item['provider:network_type'] $}</dd>
+  </dl>
+  <dl class="col-sm-4">
+    <dt translate>Segmentation ID</dt>
+    <dd>{$ item['provider:segmentation_id'] $}</dd>
+  </dl>
+  <dl class="col-sm-4">
+    <dt translate>Physical Network</dt>
+    <dd>{$ item['provider:physical_network'] $}</dd>
+  </dl>
+</div>
