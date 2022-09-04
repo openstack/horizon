@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: horizon VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2022-05-19 10:45+0000\n"
+"POT-Creation-Date: 2022-09-03 19:04+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -1947,10 +1947,6 @@ msgstr ""
 "  moment of bootup. But they will be available after the trunk reached\n"
 "  the <em>ACTIVE</em> status."
 
-msgid "Networks provide the communication channels for instances in the cloud."
-msgstr ""
-"Networks provide the communication channels for instances in the cloud."
-
 msgid "New File Contents"
 msgstr "New File Contents"
 
@@ -2368,9 +2364,6 @@ msgstr "Ramdisk ID"
 msgid "Raw"
 msgstr "Raw"
 
-msgid "Re-order items using drag and drop"
-msgstr "Re-order items using drag and drop"
-
 msgid "Registered Resource Types"
 msgstr "Registered Resource Types"
 
@@ -2543,9 +2536,6 @@ msgstr ""
 msgid "Select an item from Available items below"
 msgstr "Select an item from Available items below"
 
-msgid "Select at least one network"
-msgstr "Select at least one network"
-
 msgid "Select from the list of available ports below."
 msgstr "Select from the list of available ports below."
 
@@ -2555,23 +2545,14 @@ msgstr "Select items from Available items below"
 msgid "Select many"
 msgstr "Select many"
 
-msgid "Select networks from those listed below."
-msgstr "Select networks from those listed below."
-
 msgid "Select one"
 msgstr "Select one"
 
 msgid "Select one or more"
 msgstr "Select one or more"
 
-msgid "Select one or more ports"
-msgstr "Select one or more ports"
-
 msgid "Select one or more security groups from the available groups below."
 msgstr "Select one or more security groups from the available groups below."
-
-msgid "Select ports from those listed below."
-msgstr "Select ports from those listed below."
 
 msgid "Select the Ramdisk from the drop down menu."
 msgstr "Select the Ramdisk from the drop down menu."

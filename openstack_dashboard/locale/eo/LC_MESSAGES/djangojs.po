@@ -7,11 +7,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: horizon VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2021-03-05 09:39+0000\n"
+"POT-Creation-Date: 2022-09-03 19:04+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2021-03-05 02:31+0000\n"
+"PO-Revision-Date: 2021-03-05 02:30+0000\n"
 "Last-Translator: Georg Hennemann <georg.hennemann@t-systems.com>\n"
 "Language-Team: Esperanto\n"
 "Language: eo\n"
@@ -1871,9 +1871,6 @@ msgstr ""
 " momento de praŝargo. Sed ili estos disponebla post la trunko atingis\n"
 " la <em>AKTIVA</em> statuson."
 
-msgid "Networks provide the communication channels for instances in the cloud."
-msgstr "Retoj provizas la komunikadajn kanalojn por aperoj en la nubo."
-
 msgid "New File Contents"
 msgstr "Nova Dosiero Enhavo"
 
@@ -2265,9 +2262,6 @@ msgstr "Ram-disko ID"
 msgid "Raw"
 msgstr "Kruda"
 
-msgid "Re-order items using drag and drop"
-msgstr "Re-ordigu elementojn ŝovmetante"
-
 msgid "Registered Resource Types"
 msgstr "Registritaj Risurco Tipoj"
 
@@ -2426,9 +2420,6 @@ msgstr ""
 msgid "Select an item from Available items below"
 msgstr "Elektu unu elemento de la haveblaj elementoj malsupren"
 
-msgid "Select at least one network"
-msgstr "Elektu minimume unu reton"
-
 msgid "Select from the list of available ports below."
 msgstr "Elektu el al listo de haveblaj pordoj suben."
 
@@ -2438,23 +2429,14 @@ msgstr "Elektu elementojn de Haveblaj elementoj suben"
 msgid "Select many"
 msgstr "Elektu multajn"
 
-msgid "Select networks from those listed below."
-msgstr "Elektu retojn de tiuj listigita suben."
-
 msgid "Select one"
 msgstr "Elektu unu"
 
 msgid "Select one or more"
 msgstr "Elektu unu aŭ pli"
 
-msgid "Select one or more ports"
-msgstr "Elektu unu aŭ pli pordojn"
-
 msgid "Select one or more security groups from the available groups below."
 msgstr "Elektu unu aŭ pli da secureco grupojn de la haveblaj grupojn suben."
-
-msgid "Select ports from those listed below."
-msgstr "Elektu pordojn de tiuj listigita suben."
 
 msgid "Select the Ramdisk from the drop down menu."
 msgstr "Elektu la Ram-disko el la kurtena menuo. "

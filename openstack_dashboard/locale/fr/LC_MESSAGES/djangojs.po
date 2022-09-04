@@ -30,7 +30,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: horizon VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2020-01-08 17:19+0000\n"
+"POT-Creation-Date: 2022-09-03 19:04+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -1840,11 +1840,6 @@ msgstr "Caractéristiques de réseau"
 msgid "Networks"
 msgstr "Réseaux"
 
-msgid "Networks provide the communication channels for instances in the cloud."
-msgstr ""
-"Les réseaux fournissent les canaux de communication des instances dans le "
-"cloud."
-
 msgid "New File Contents"
 msgstr "Nouveau contenu du fichier"
 
@@ -2214,10 +2209,6 @@ msgstr "ID Ramdisk"
 msgid "Raw"
 msgstr "Raw"
 
-msgid "Re-order items using drag and drop"
-msgstr ""
-"Ordonnancer les éléments à nouveau en utilisant l'opération glisser-déplacer"
-
 msgid "Registered Resource Types"
 msgstr "Types de ressources enregistrés"
 
@@ -2364,14 +2355,8 @@ msgstr "Sélectionnez une source parmi celles qui sont listées ci-dessous."
 msgid "Select an item from Available items below"
 msgstr "Sélectionner un élément depuis les éléments disponibles ci-dessous"
 
-msgid "Select at least one network"
-msgstr "Sélectionner au moins un réseau"
-
 msgid "Select items from Available items below"
 msgstr "Sélectionner des éléments parmi les éléments Disponibles ci-dessous"
-
-msgid "Select networks from those listed below."
-msgstr "Sélectionner des réseaux à partir de la liste fournie ci-dessous."
 
 msgid "Select one"
 msgstr "Sélectionnez-en une"
@@ -2383,9 +2368,6 @@ msgid "Select one or more security groups from the available groups below."
 msgstr ""
 "Sélectionner un ou plusieurs groupes de sécurité dans les groupes "
 "disponibles ci-dessous."
-
-msgid "Select ports from those listed below."
-msgstr "Sélectionnez des ports dans la liste ci-dessous."
 
 msgid "Select the Ramdisk from the drop down menu."
 msgstr "Sélectionner le Ramdisk depuis le menu déroulant."

@@ -26,11 +26,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: horizon VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2022-06-21 10:46+0000\n"
+"POT-Creation-Date: 2022-09-03 19:04+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2022-06-26 06:45+0000\n"
+"PO-Revision-Date: 2022-09-01 05:27+0000\n"
 "Last-Translator: Roman Gorshunov <roman.gorshunov@att.com>\n"
 "Language-Team: Russian\n"
 "Language: ru\n"
@@ -288,6 +288,9 @@ msgstr "Добавить интерфейс"
 msgid "Add Ons, Required and Feedback"
 msgstr "Дополнения, обязательные элементы и отзывы"
 
+msgid "Add Rule"
+msgstr "Добавить правило"
+
 msgid "Admin Password"
 msgstr "Пароль администратора"
 
@@ -455,6 +458,15 @@ msgstr "Доступные подсказки планировщика"
 
 msgid "Badges"
 msgstr "Бейджи"
+
+msgid "Bandwidth Limit"
+msgstr "Ограничение пропускной способности"
+
+msgid "Bandwidth Limit - , , , "
+msgstr "Лимит пропускной способности - , , ,"
+
+msgid "Bandwidth Rules"
+msgstr "Правила пропускной способности"
 
 msgid "Bare Metal"
 msgstr "Bare Metal"
@@ -819,6 +831,18 @@ msgstr[2] "Записи DNS"
 msgid "DSCP Mark"
 msgstr "DSCP метка"
 
+msgid "DSCP Mark - , "
+msgstr "DSCP метка - ,"
+
+msgid "DSCP Marking"
+msgstr "DSCP метка"
+
+msgid "DSCP Rules"
+msgstr "DSCP правила"
+
+msgid "DSCP mark"
+msgstr "DSCP метка"
+
 msgid "Danger"
 msgstr "Опасность"
 
@@ -956,6 +980,9 @@ msgstr "Удалить роли"
 
 msgid "Delete Router"
 msgstr "Удалить маршрутизатор"
+
+msgid "Delete Rule"
+msgstr "Удалить правило"
 
 msgid "Delete Server Group"
 msgid_plural "Delete Server Groups"
@@ -1197,6 +1224,9 @@ msgstr "Редактировать образ"
 
 msgid "Edit Role"
 msgstr "Редактировать роль"
+
+msgid "Edit Rule"
+msgstr "Редактировать правило"
 
 msgid "Edit Trunk"
 msgstr "Редактировать транк"
@@ -1803,11 +1833,17 @@ msgstr "Вручную"
 msgid "Max Burst Kbits"
 msgstr "Макс. пик. (кбит/с)"
 
+msgid "Max Burst Size (in kbps)"
+msgstr "Максимальная пиковая пропускная способность (в кбит/с)"
+
 msgid "Max Kbps"
 msgstr "Макс. (кбит/с)"
 
 msgid "Max Port"
 msgstr "По порт"
+
+msgid "Max bandwidth (in kbps)"
+msgstr "Максимальная пропускная способность (в кбит/с)"
 
 msgid "Max. Size (bytes)"
 msgstr "Макс. размер (байт)"
@@ -1857,6 +1893,9 @@ msgstr "Мин. размер диска (ГБ)"
 msgid "Min Kbps"
 msgstr "Мин. (кбит/с)"
 
+msgid "Min Kpps"
+msgstr "Мин. кпак./сек"
+
 msgid "Min Port"
 msgstr "От порта"
 
@@ -1875,17 +1914,41 @@ msgstr "Мин. размер (байт)"
 msgid "Mini button"
 msgstr "Микроскопическая кнопка"
 
+msgid "Minimum Bandwidth"
+msgstr "Минимальная пропускная способность"
+
+msgid "Minimum Bandwidth - , , "
+msgstr "Минимальная пропускная способность - , ,"
+
+msgid "Minimum Bandwidth Rules"
+msgstr "Правила минимальной пропускной способности"
+
 msgid "Minimum Disk"
 msgstr "Минимальный размер диска"
 
 msgid "Minimum Disk (GB)"
 msgstr "Минимальный размер диска (Гб)"
 
+msgid "Minimum Packet Rate"
+msgstr "Минимальная частота пакетов"
+
+msgid "Minimum Packet Rate - , , "
+msgstr "Минимальная частота пакетов - , ,"
+
+msgid "Minimum Packet Rules"
+msgstr "Правила минимальной частоты пакетов"
+
 msgid "Minimum RAM"
 msgstr "Минимальный размер памяти"
 
 msgid "Minimum RAM (MB)"
 msgstr "Минимальный размер памяти (Мб)"
+
+msgid "Minimum bandwidth (in kbps)"
+msgstr "Минимальная пропускная способность (в кбит/с)."
+
+msgid "Minimum packet rate (in kpps)"
+msgstr "Минимальная частота пакетов (в кпак./сек)."
 
 msgid "Modals"
 msgstr "Всплывающие диалоги"
@@ -1969,8 +2032,12 @@ msgstr ""
 "  загрузки. Они станут полностью доступны тогда, когда транк перейдёт\n"
 "  в статус <em>АКТИВЕН</em>."
 
-msgid "Networks provide the communication channels for instances in the cloud."
-msgstr "Сеть предоставляет канал связи между инстансами в облаке."
+msgid ""
+"Networks provide the communication channels for instances in the cloud. You "
+"can select ports instead of networks or a mix of both."
+msgstr ""
+"Сети обеспечивают каналы связи для инстансов в облаке. Можно выбирать порты "
+"и (или) сети в любом сочетании."
 
 msgid "New File Contents"
 msgstr "Содержимое Нового Файла"
@@ -2345,6 +2412,28 @@ msgstr[2] "Политики QoS"
 msgid "QoS Policy %s was successfully created."
 msgstr "QoS политика %s успешно создана."
 
+msgid "QoS Policy ID"
+msgstr "ИД стратегии QoS"
+
+msgid "QoS Policy Id"
+msgstr "ИД стратегии QoS"
+
+msgid "QoS Policy Name"
+msgstr "Имя стратегии QoS."
+
+msgid "QoSPolicyId"
+msgstr "ИД политики QoS"
+
+msgid "QoSPolicyName"
+msgstr "Имя политики QoS"
+
+msgid "Qos Policy  Rule  was successfully deleted."
+msgstr "Правило политики QoS было успешно удалено."
+
+#, python-format
+msgid "Qos Policy Rule %s was successfully updated."
+msgstr "Правило политики %s QoS было успешно обновлено."
+
 msgid "Queued"
 msgstr "Запланировано"
 
@@ -2371,9 +2460,6 @@ msgstr "ИД RAM-диска"
 
 msgid "Raw"
 msgstr "Raw"
-
-msgid "Re-order items using drag and drop"
-msgstr "Переопределите элементы перемещением"
 
 msgid "Registered Resource Types"
 msgstr "Зарегистрированные типы ресурсов"
@@ -2409,8 +2495,20 @@ msgstr "Роль успешно обновлена."
 msgid "Root Disk"
 msgstr "Основной диск"
 
+msgid "Rule"
+msgstr "Правило"
+
 msgid "Rule ID"
 msgstr "ID правила"
+
+msgid "Rule Type"
+msgstr "Тип правила"
+
+msgid "Rule to edit"
+msgstr "Правило для изменения"
+
+msgid "RuleId"
+msgstr "ИД правила"
 
 msgid "Rules"
 msgstr "Правила"
@@ -2516,6 +2614,9 @@ msgstr "Выберите заголовок"
 msgid "Select a container to browse."
 msgstr "Выберите контейнер для просмотра."
 
+msgid "Select a flavor from the available flavors below."
+msgstr "Выберите тип инстанса из списка доступных типов инстансов."
+
 msgid "Select a key pair from the available key pairs below."
 msgstr "Выберите одну из доступных пар ключей."
 
@@ -2537,9 +2638,6 @@ msgstr ""
 msgid "Select an item from Available items below"
 msgstr "Выберите элемент из доступных элементов ниже"
 
-msgid "Select at least one network"
-msgstr "Выберите как минимум одну сеть."
-
 msgid "Select from the list of available ports below."
 msgstr "Выберите из списка портов, перечисленных ниже."
 
@@ -2549,23 +2647,20 @@ msgstr "Выберите элемент из доступных ниже"
 msgid "Select many"
 msgstr "Выберите несколько"
 
-msgid "Select networks from those listed below."
-msgstr "Выберите сети из списка."
-
 msgid "Select one"
 msgstr "Выберите одно"
 
 msgid "Select one or more"
 msgstr "Выберите одну или несколько"
 
-msgid "Select one or more ports"
-msgstr "Выберите один или несколько портов"
+msgid "Select one or more networks from the available networks below."
+msgstr "Выберите одну или более сетей из доступных сетей, указанных ниже."
+
+msgid "Select one or more ports from the available ports below."
+msgstr "Выберите один или несколько портов из доступных ниже."
 
 msgid "Select one or more security groups from the available groups below."
 msgstr "Выберите одну или более групп безопасности из доступных."
-
-msgid "Select ports from those listed below."
-msgstr "Выберите порты из списка."
 
 msgid "Select the Ramdisk from the drop down menu."
 msgstr "Выберите \"Диск в памяти\" в выпадающем меню."
@@ -2864,6 +2959,19 @@ msgstr ""
 "связанным с ним интерфейсам."
 
 msgid ""
+"The maximum KBPS (kilobits per second) value.\n"
+"    If you specify this value, must be greater than 0 otherwise max_kbps "
+"will have no value.\n"
+"    \n"
+"        The maximum burst size (in kilobits). Default is 0."
+msgstr ""
+"Максимальное значение кбит/с (килобит в секунду).\n"
+"    Если вы его указываете, то оно должно быть больше 0, иначе max_kbps "
+"будет не определено.\n"
+"    \n"
+"        Максимальное пиковое значение (в килобитах). По-умолчанию – 0."
+
+msgid ""
 "The maximum number of key-value pairs that can be supplied per instance is "
 "determined by the compute provider."
 msgstr ""
@@ -2871,11 +2979,25 @@ msgstr ""
 "модуля вычислительных ресурсов."
 
 msgid ""
+"The minimum KBPS (kilobits per second) value which should be available for "
+"port."
+msgstr ""
+"Минимальное значение кбит/с (килобит в сек.), которое должно быть доступно "
+"для порта."
+
+msgid ""
 "The minimum disk size required to boot the image. If unspecified, this value "
 "defaults to 0 (no minimum)."
 msgstr ""
 "Минимальный размер диска необходимый для загрузки этого образа. Если не "
 "установлено, используется значение по умолчанию - 0 (нет минимума)"
+
+msgid ""
+"The minimum kpps (kilo(1000) packets per second) value which should be "
+"available for port."
+msgstr ""
+"Минимальное значение частоты пакетов в кпак./сек (тысяч пакетов в сек.), "
+"которое должно быть доступно для порта."
 
 msgid ""
 "The minimum memory size required to boot the image. If unspecified, this "
@@ -2987,6 +3109,12 @@ msgstr ""
 "Нет доступного загрузочного устройства или источника.\n"
 "     Если вы считаете, что тут что-то не так, пожалуйста, свяжитесь с вашим "
 "администратором."
+
+msgid "There are no rules to delete."
+msgstr "Нет правил для удаления."
+
+msgid "There are no rules to modify."
+msgstr "Нет правил для изменения."
 
 msgid ""
 "There are two ways to generate a key pair. From a Linux system,\n"
@@ -3148,6 +3276,18 @@ msgstr "Типография"
 msgid "URL"
 msgstr "URL"
 
+msgid "Unable to add the bandwidthrule ."
+msgstr "Не удалось добавить правило пропускной способности ."
+
+msgid "Unable to add the dscp_marking_rule ."
+msgstr "Не удалось добавить правило метки DSCP ."
+
+msgid "Unable to add the minimum_bandwidth_rule ."
+msgstr "Не удалось добавить правило минимальной пропускной способности ."
+
+msgid "Unable to add the minimum_packet_rate_rule."
+msgstr "Не удалось добавить правило минимальной частоты пакетов."
+
 msgid "Unable to allocate new floating IP address."
 msgstr "Не удаётся выделить новый плавающий IP-адрес."
 
@@ -3291,6 +3431,9 @@ msgstr[2] "Не удалось удалить политики: %s."
 msgid "Unable to delete qos policy %(id)s"
 msgstr "Не удалось удалить политику QoS %(id)s"
 
+msgid "Unable to delete the bandwidth_limit_rule."
+msgstr "Не удалось удалить правило пропускной способности."
+
 msgid "Unable to delete the container."
 msgstr "Не удаётся удалить контейнер."
 
@@ -3299,6 +3442,9 @@ msgstr "Не удалось удалить домен."
 
 msgid "Unable to delete the domains."
 msgstr "Не удалось удалить домены."
+
+msgid "Unable to delete the dscp_marking_rule."
+msgstr "Не удалось удалить правило метки DSCP."
 
 #, python-format
 msgid "Unable to delete the flavor with id: %(id)s"
@@ -3320,6 +3466,12 @@ msgstr "Не удаётся удалить образ с ИД: %(id)s"
 #, python-format
 msgid "Unable to delete the keypair with name: %(name)s"
 msgstr "Не удалось удалить пару ключей с именем %(name)s"
+
+msgid "Unable to delete the minimum_bandwidth_rule ."
+msgstr "Не удалось удалить правило минимальной пропускной способности."
+
+msgid "Unable to delete the minimum_packet_rate_rule ."
+msgstr "Не удалось удалить правило минимальной частоты пакетов."
 
 msgid "Unable to delete the object."
 msgstr "Не удаётся удалить объект."
@@ -3664,11 +3816,23 @@ msgstr "Не удалось обновить метаданные."
 msgid "Unable to update project quota data."
 msgstr "Не удается обновить данные по квотам проекта."
 
+msgid "Unable to update the bandwidthrule."
+msgstr "Не удалось обновить правило пропускной способности."
+
+msgid "Unable to update the dscp marking rule."
+msgstr "Не удалось обновить правило метки DSCP."
+
 msgid "Unable to update the flavor."
 msgstr "Не удаётся обновить разновидность."
 
 msgid "Unable to update the image."
 msgstr "Не удалось обновить образ."
+
+msgid "Unable to update the minimum bandwidth rule."
+msgstr "Не удалось обновить правило минимальной пропускной способности."
+
+msgid "Unable to update the minimum packet rate rule."
+msgstr "Не удалось обновить правило минимальной частоты пакетов."
 
 msgid "Unable to update the trunk."
 msgstr "Не удалось обновить транк."
@@ -3824,6 +3988,18 @@ msgstr "VMDK - Диск виртуальной машины"
 
 msgid "VNIC type"
 msgstr "Тип VNIC"
+
+msgid ""
+"Valid DSCP mark values are even numbers between 0 and 56,\n"
+"    except 2-6, 42, 44, and 50-54. The full list of valid DSCP marks is:\n"
+"    0, 8, 10, 12, 14, 16, 18, 20, 22, 24, 26, 28, 30, 32, 34, 36, 38, 40, "
+"46, 48, 56."
+msgstr ""
+"Корректными значениями DSCP меток могут быть только четные числа между 0 и "
+"56,\n"
+"    кроме 2-6, 42, 44, и 50-54. Полный список корректных DSCP меток:\n"
+"    0, 8, 10, 12, 14, 16, 18, 20, 22, 24, 26, 28, 30, 32, 34, 36, 38, 40, "
+"46, 48, 56."
 
 msgid "View As Modal"
 msgstr "Просмотр в модальном виде"
@@ -4109,8 +4285,17 @@ msgstr[2] "Вы выбрали \"%s\". Удаление пользователе
 msgid "Your Form as JavaScript"
 msgstr "Ваша форма в JavaScript"
 
+msgid "any"
+msgstr "Любой"
+
+msgid "egress"
+msgstr "Исходящий трафик"
+
 msgid "image"
 msgstr "образ"
+
+msgid "ingress"
+msgstr "Входящий трафик"
 
 msgid "inherit"
 msgstr "унаследовать"

@@ -24,7 +24,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: horizon VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2021-03-05 09:39+0000\n"
+"POT-Creation-Date: 2022-09-03 19:04+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -1798,9 +1798,6 @@ msgstr ""
 "有效。但它们会在中继成为\n"
 " <em>ACTIVE</em> 状态时有效。"
 
-msgid "Networks provide the communication channels for instances in the cloud."
-msgstr "在云中，网络为实例提供通信通道。"
-
 msgid "New File Contents"
 msgstr "新文件内容"
 
@@ -2184,9 +2181,6 @@ msgstr "内存盘 ID"
 msgid "Raw"
 msgstr "原始"
 
-msgid "Re-order items using drag and drop"
-msgstr "使用拖放重新排序"
-
 msgid "Registered Resource Types"
 msgstr "注册的资源类型"
 
@@ -2338,9 +2332,6 @@ msgstr ""
 msgid "Select an item from Available items below"
 msgstr "从以下可选项中选择一项"
 
-msgid "Select at least one network"
-msgstr "至少选择一个网络"
-
 msgid "Select from the list of available ports below."
 msgstr "从以下有效的端口列表中选择。"
 
@@ -2350,9 +2341,6 @@ msgstr "从以下可用项中选择一项"
 msgid "Select many"
 msgstr "选择多个"
 
-msgid "Select networks from those listed below."
-msgstr "从下拉列表选择网络"
-
 msgid "Select one"
 msgstr "选择一个"
 
@@ -2361,9 +2349,6 @@ msgstr "选择一个或多个"
 
 msgid "Select one or more security groups from the available groups below."
 msgstr "从以下可用的组中选择一个或多个安全组。"
-
-msgid "Select ports from those listed below."
-msgstr "选择下面列出的端口。"
 
 msgid "Select the Ramdisk from the drop down menu."
 msgstr "从下拉菜单中选择 Ramdisk。"

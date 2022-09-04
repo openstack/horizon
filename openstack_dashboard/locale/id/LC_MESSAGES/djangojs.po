@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: horizon VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2021-02-10 01:42+0000\n"
+"POT-Creation-Date: 2022-09-03 19:04+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -1845,9 +1845,6 @@ msgstr ""
 "   saat bootup. Tapi mereka akan tersedia setelah trunk tercapai\n"
 "   status <em>ACTIVE</ em>."
 
-msgid "Networks provide the communication channels for instances in the cloud."
-msgstr "Jaringan menyediakan saluran komunikasi untuk instance di cloud."
-
 msgid "New File Contents"
 msgstr "Konten file baru"
 
@@ -2238,9 +2235,6 @@ msgstr "ID Ramdisk"
 msgid "Raw"
 msgstr "Raw"
 
-msgid "Re-order items using drag and drop"
-msgstr "Menyusun ulang item menggunakan drag dan drop"
-
 msgid "Registered Resource Types"
 msgstr "Registered Resource Types (tipe sumber daya teregistrasi)"
 
@@ -2397,9 +2391,6 @@ msgstr ""
 msgid "Select an item from Available items below"
 msgstr "Pilih item dari item tersedia bawah"
 
-msgid "Select at least one network"
-msgstr "Pilih setidaknya satu jaringan"
-
 msgid "Select from the list of available ports below."
 msgstr "Pilih dari daftar port yang tersedia di bawah ini."
 
@@ -2408,9 +2399,6 @@ msgstr "Pilih item dari item yang tersedia di bawah ini"
 
 msgid "Select many"
 msgstr "Pilih beberapa"
-
-msgid "Select networks from those listed below."
-msgstr "Pilih jaringan dari yang tercantum di bawah ini."
 
 msgid "Select one"
 msgstr "Pilih satu"
@@ -2422,9 +2410,6 @@ msgid "Select one or more security groups from the available groups below."
 msgstr ""
 "Pilih satu atau lebih kelompok keamanan dari kelompok yang tersedia di bawah "
 "ini."
-
-msgid "Select ports from those listed below."
-msgstr "Pilih ports dari yang tercantum di bawah ini."
 
 msgid "Select the Ramdisk from the drop down menu."
 msgstr "Pilih Ramdisk dari menu drop down."

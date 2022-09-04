@@ -3,7 +3,7 @@
 # Andreas Jaeger <jaegerandi@gmail.com>, 2016. #zanata
 # Eunseop Shin <kairos9603@khu.ac.kr>, 2016. #zanata
 # Ian Y. Choi <ianyrchoi@gmail.com>, 2016. #zanata
-# SeongSoo Cho <ppiyakk2@printf.kr>, 2016. #zanata
+# Seongsoo Cho <ppiyakk2@printf.kr>, 2016. #zanata
 # Sungjin Kang <gang.sungjin@gmail.com>, 2016. #zanata
 # Ian Y. Choi <ianyrchoi@gmail.com>, 2017. #zanata
 # Sungjin Kang <gang.sungjin@gmail.com>, 2017. #zanata
@@ -25,7 +25,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: horizon VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2020-05-06 10:26+0000\n"
+"POT-Creation-Date: 2022-09-03 19:04+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -1836,9 +1836,6 @@ msgstr ""
 "  그러나 트렁크가 <em>ACTIVE</em> 상태가 되어야만\n"
 "  사용할 수 있습니다."
 
-msgid "Networks provide the communication channels for instances in the cloud."
-msgstr "네트워크는 클라우드 내 인스턴스에 대한 통신 채널을 제공합니다."
-
 msgid "New File Contents"
 msgstr "새로운 파일 내용"
 
@@ -2220,9 +2217,6 @@ msgstr "램디스크 ID"
 msgid "Raw"
 msgstr "Raw"
 
-msgid "Re-order items using drag and drop"
-msgstr "다시 주문할 아이템은 드래그 앤 드롭으로 가져옵니다."
-
 msgid "Registered Resource Types"
 msgstr "등록된 리소스 유형"
 
@@ -2377,9 +2371,6 @@ msgstr ""
 msgid "Select an item from Available items below"
 msgstr "아래에서 사용 가능한 항목에서 선택"
 
-msgid "Select at least one network"
-msgstr "적어도 하나 이상 네트워크를 선택합니다."
-
 msgid "Select from the list of available ports below."
 msgstr "아래 사용 가능한 포트에서 선택하세요."
 
@@ -2389,9 +2380,6 @@ msgstr "아래에서 사용 가능한 항목에서 선택"
 msgid "Select many"
 msgstr "여러 개 선택"
 
-msgid "Select networks from those listed below."
-msgstr "아래의 목록에서 네트워크를 선택합니다."
-
 msgid "Select one"
 msgstr "하나 선택"
 
@@ -2400,9 +2388,6 @@ msgstr "하나 이상 선택"
 
 msgid "Select one or more security groups from the available groups below."
 msgstr "아래 사용가능한 그룹에서 하나 이상의 보안 그룹을 선택합니다."
-
-msgid "Select ports from those listed below."
-msgstr "아래 목록에서 포트를 선택합니다."
 
 msgid "Select the Ramdisk from the drop down menu."
 msgstr "드롭 다운 메뉴에서 램디스크를 선택합니다."

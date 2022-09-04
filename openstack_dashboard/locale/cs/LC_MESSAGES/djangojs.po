@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: horizon VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2020-01-08 17:19+0000\n"
+"POT-Creation-Date: 2022-09-03 19:04+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -1204,9 +1204,6 @@ msgstr "Prvky sítě"
 msgid "Networks"
 msgstr "Sítě"
 
-msgid "Networks provide the communication channels for instances in the cloud."
-msgstr "Sítě poskytují komunikační kanály pro instance v cloudu."
-
 msgid "Newer"
 msgstr "Novější"
 
@@ -1473,9 +1470,6 @@ msgstr "ID ramdisku"
 msgid "Raw"
 msgstr "Raw"
 
-msgid "Re-order items using drag and drop"
-msgstr "Řazení položek změňte přetažením"
-
 msgid "Remote"
 msgstr "Vzdálené"
 
@@ -1554,12 +1548,6 @@ msgstr "Vyberte zdroj ze seznamu níže"
 msgid "Select an item from Available items below"
 msgstr "Vyberte položku ze seznamu níže"
 
-msgid "Select at least one network"
-msgstr "Vyberte alespoň jednu síť"
-
-msgid "Select networks from those listed below."
-msgstr "Vyberte sítě ze seznamu níže."
-
 msgid "Select one"
 msgstr "Vyberte jeden"
 
@@ -1569,9 +1557,6 @@ msgstr "Vyberte jeden nebo více"
 msgid "Select one or more security groups from the available groups below."
 msgstr ""
 "Vyberte jednu nebo více bezpečnostních skupin ze seznamu dostupných níže."
-
-msgid "Select ports from those listed below."
-msgstr "Vyberte porty ze seznamu níže."
 
 msgid "Select the Ramdisk from the drop down menu."
 msgstr "Vyberte Ramdisk dostupnosti ze seznamu."
