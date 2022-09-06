@@ -7,7 +7,16 @@
 # Nova API policies are introducing new default roles with scope_type
 # capabilities. Old policies are deprecated and silently going to be
 # ignored in nova 23.0.0 release.
-#"rule:admin_api": "rule:context_is_admin"
+# WARNING: A rule name change has been identified.
+#          This may be an artifact of new rules being
+#          included which require legacy fallback
+#          rules to ensure proper policy behavior.
+#          Alternatively, this may just be an alias.
+#          Please evaluate on a case by case basis
+#          keeping in mind the format for aliased
+#          rules is:
+#          "old_rule_name": "new_rule_name".
+# "rule:admin_api": "rule:context_is_admin"
 
 # DEPRECATED
 # "admin_or_owner" has been deprecated since 21.0.0.
@@ -25,18 +34,6 @@
 # Default rule for most Admin APIs.
 #"admin_api": "is_admin:True"
 
-# Default rule for Project level admin APIs.
-#"project_admin_api": "role:admin and project_id:%(project_id)s"
-
-# DEPRECATED
-# "rule:admin_api":"is_admin:True" has been deprecated since 21.0.0 in
-# favor of "project_admin_api":"role:admin and
-# project_id:%(project_id)s".
-# Nova API policies are introducing new default roles with scope_type
-# capabilities. Old policies are deprecated and silently going to be
-# ignored in nova 23.0.0 release.
-#"rule:admin_api": "rule:project_admin_api"
-
 # Default rule for Project level non admin APIs.
 #"project_member_api": "role:member and project_id:%(project_id)s"
 
@@ -47,7 +44,16 @@
 # Nova API policies are introducing new default roles with scope_type
 # capabilities. Old policies are deprecated and silently going to be
 # ignored in nova 23.0.0 release.
-#"rule:admin_or_owner": "rule:project_member_api"
+# WARNING: A rule name change has been identified.
+#          This may be an artifact of new rules being
+#          included which require legacy fallback
+#          rules to ensure proper policy behavior.
+#          Alternatively, this may just be an alias.
+#          Please evaluate on a case by case basis
+#          keeping in mind the format for aliased
+#          rules is:
+#          "old_rule_name": "new_rule_name".
+# "rule:admin_or_owner": "rule:project_member_api"
 
 # Default rule for Project level read only APIs.
 #"project_reader_api": "role:reader and project_id:%(project_id)s"
@@ -59,9 +65,40 @@
 # Nova API policies are introducing new default roles with scope_type
 # capabilities. Old policies are deprecated and silently going to be
 # ignored in nova 23.0.0 release.
-#"rule:admin_or_owner": "rule:project_reader_api"
+# WARNING: A rule name change has been identified.
+#          This may be an artifact of new rules being
+#          included which require legacy fallback
+#          rules to ensure proper policy behavior.
+#          Alternatively, this may just be an alias.
+#          Please evaluate on a case by case basis
+#          keeping in mind the format for aliased
+#          rules is:
+#          "old_rule_name": "new_rule_name".
+# "rule:admin_or_owner": "rule:project_reader_api"
 
-# Default rule for Project reader and admin APIs.
+# Default rule for Project Member or admin APIs.
+#"project_member_or_admin": "rule:project_member_api or rule:context_is_admin"
+
+# DEPRECATED
+# "rule:admin_or_owner":"is_admin:True or project_id:%(project_id)s"
+# has been deprecated since 21.0.0 in favor of
+# "project_member_or_admin":"rule:project_member_api or
+# rule:context_is_admin".
+# Nova API policies are introducing new default roles with scope_type
+# capabilities. Old policies are deprecated and silently going to be
+# ignored in nova 23.0.0 release.
+# WARNING: A rule name change has been identified.
+#          This may be an artifact of new rules being
+#          included which require legacy fallback
+#          rules to ensure proper policy behavior.
+#          Alternatively, this may just be an alias.
+#          Please evaluate on a case by case basis
+#          keeping in mind the format for aliased
+#          rules is:
+#          "old_rule_name": "new_rule_name".
+# "rule:admin_or_owner": "rule:project_member_or_admin"
+
+# Default rule for Project reader or admin APIs.
 #"project_reader_or_admin": "rule:project_reader_api or rule:context_is_admin"
 
 # DEPRECATED
@@ -72,66 +109,75 @@
 # Nova API policies are introducing new default roles with scope_type
 # capabilities. Old policies are deprecated and silently going to be
 # ignored in nova 23.0.0 release.
-#"rule:admin_or_owner": "rule:project_reader_or_admin"
+# WARNING: A rule name change has been identified.
+#          This may be an artifact of new rules being
+#          included which require legacy fallback
+#          rules to ensure proper policy behavior.
+#          Alternatively, this may just be an alias.
+#          Please evaluate on a case by case basis
+#          keeping in mind the format for aliased
+#          rules is:
+#          "old_rule_name": "new_rule_name".
+# "rule:admin_or_owner": "rule:project_reader_or_admin"
 
 # Reset the state of a given server
 # POST  /servers/{server_id}/action (os-resetState)
 # Intended scope(s): project
-#"os_compute_api:os-admin-actions:reset_state": "rule:project_admin_api"
+#"os_compute_api:os-admin-actions:reset_state": "rule:context_is_admin"
 
 # Inject network information into the server
 # POST  /servers/{server_id}/action (injectNetworkInfo)
 # Intended scope(s): project
-#"os_compute_api:os-admin-actions:inject_network_info": "rule:project_admin_api"
+#"os_compute_api:os-admin-actions:inject_network_info": "rule:context_is_admin"
 
 # Change the administrative password for a server
 # POST  /servers/{server_id}/action (changePassword)
 # Intended scope(s): project
-#"os_compute_api:os-admin-password": "rule:project_member_api"
+#"os_compute_api:os-admin-password": "rule:project_member_or_admin"
 
 # Create or replace metadata for an aggregate
 # POST  /os-aggregates/{aggregate_id}/action (set_metadata)
-# Intended scope(s): system
+# Intended scope(s): project
 #"os_compute_api:os-aggregates:set_metadata": "rule:context_is_admin"
 
 # Add a host to an aggregate
 # POST  /os-aggregates/{aggregate_id}/action (add_host)
-# Intended scope(s): system
+# Intended scope(s): project
 #"os_compute_api:os-aggregates:add_host": "rule:context_is_admin"
 
 # Create an aggregate
 # POST  /os-aggregates
-# Intended scope(s): system
+# Intended scope(s): project
 #"os_compute_api:os-aggregates:create": "rule:context_is_admin"
 
 # Remove a host from an aggregate
 # POST  /os-aggregates/{aggregate_id}/action (remove_host)
-# Intended scope(s): system
+# Intended scope(s): project
 #"os_compute_api:os-aggregates:remove_host": "rule:context_is_admin"
 
 # Update name and/or availability zone for an aggregate
 # PUT  /os-aggregates/{aggregate_id}
-# Intended scope(s): system
+# Intended scope(s): project
 #"os_compute_api:os-aggregates:update": "rule:context_is_admin"
 
 # List all aggregates
 # GET  /os-aggregates
-# Intended scope(s): system
+# Intended scope(s): project
 #"os_compute_api:os-aggregates:index": "rule:context_is_admin"
 
 # Delete an aggregate
 # DELETE  /os-aggregates/{aggregate_id}
-# Intended scope(s): system
+# Intended scope(s): project
 #"os_compute_api:os-aggregates:delete": "rule:context_is_admin"
 
 # Show details for an aggregate
 # GET  /os-aggregates/{aggregate_id}
-# Intended scope(s): system
+# Intended scope(s): project
 #"os_compute_api:os-aggregates:show": "rule:context_is_admin"
 
 # Request image caching for an aggregate
 # POST  /os-aggregates/{aggregate_id}/images
-# Intended scope(s): system
+# Intended scope(s): project
 #"compute:aggregates:images": "rule:context_is_admin"
 
 # Create an assisted volume snapshot
@@ -147,74 +193,110 @@
 # List port interfaces attached to a server
 # GET  /servers/{server_id}/os-interface
 # Intended scope(s): project
-#"os_compute_api:os-attach-interfaces:list": "rule:project_reader_api"
+#"os_compute_api:os-attach-interfaces:list": "rule:project_reader_or_admin"
 
 # DEPRECATED
 # "os_compute_api:os-attach-interfaces":"rule:admin_or_owner" has been
 # deprecated since 21.0.0 in favor of "os_compute_api:os-attach-
-# interfaces:list":"rule:project_reader_api".
+# interfaces:list":"rule:project_reader_or_admin".
 # Nova API policies are introducing new default roles with scope_type
 # capabilities. Old policies are deprecated and silently going to be
 # ignored in nova 23.0.0 release.
-#"os_compute_api:os-attach-interfaces": "rule:os_compute_api:os-attach-interfaces:list"
+# WARNING: A rule name change has been identified.
+#          This may be an artifact of new rules being
+#          included which require legacy fallback
+#          rules to ensure proper policy behavior.
+#          Alternatively, this may just be an alias.
+#          Please evaluate on a case by case basis
+#          keeping in mind the format for aliased
+#          rules is:
+#          "old_rule_name": "new_rule_name".
+# "os_compute_api:os-attach-interfaces": "rule:os_compute_api:os-attach-interfaces:list"
 
 # Show details of a port interface attached to a server
 # GET  /servers/{server_id}/os-interface/{port_id}
 # Intended scope(s): project
-#"os_compute_api:os-attach-interfaces:show": "rule:project_reader_api"
+#"os_compute_api:os-attach-interfaces:show": "rule:project_reader_or_admin"
 
 # DEPRECATED
 # "os_compute_api:os-attach-interfaces":"rule:admin_or_owner" has been
 # deprecated since 21.0.0 in favor of "os_compute_api:os-attach-
-# interfaces:show":"rule:project_reader_api".
+# interfaces:show":"rule:project_reader_or_admin".
 # Nova API policies are introducing new default roles with scope_type
 # capabilities. Old policies are deprecated and silently going to be
 # ignored in nova 23.0.0 release.
-#"os_compute_api:os-attach-interfaces": "rule:os_compute_api:os-attach-interfaces:show"
+# WARNING: A rule name change has been identified.
+#          This may be an artifact of new rules being
+#          included which require legacy fallback
+#          rules to ensure proper policy behavior.
+#          Alternatively, this may just be an alias.
+#          Please evaluate on a case by case basis
+#          keeping in mind the format for aliased
+#          rules is:
+#          "old_rule_name": "new_rule_name".
+# "os_compute_api:os-attach-interfaces": "rule:os_compute_api:os-attach-interfaces:show"
 
 # Attach an interface to a server
 # POST  /servers/{server_id}/os-interface
 # Intended scope(s): project
-#"os_compute_api:os-attach-interfaces:create": "rule:project_member_api"
+#"os_compute_api:os-attach-interfaces:create": "rule:project_member_or_admin"
 
 # DEPRECATED
 # "os_compute_api:os-attach-interfaces":"rule:admin_or_owner" has been
 # deprecated since 21.0.0 in favor of "os_compute_api:os-attach-
-# interfaces:create":"rule:project_member_api".
+# interfaces:create":"rule:project_member_or_admin".
 # Nova API policies are introducing new default roles with scope_type
 # capabilities. Old policies are deprecated and silently going to be
 # ignored in nova 23.0.0 release.
-#"os_compute_api:os-attach-interfaces": "rule:os_compute_api:os-attach-interfaces:create"
+# WARNING: A rule name change has been identified.
+#          This may be an artifact of new rules being
+#          included which require legacy fallback
+#          rules to ensure proper policy behavior.
+#          Alternatively, this may just be an alias.
+#          Please evaluate on a case by case basis
+#          keeping in mind the format for aliased
+#          rules is:
+#          "old_rule_name": "new_rule_name".
+# "os_compute_api:os-attach-interfaces": "rule:os_compute_api:os-attach-interfaces:create"
 
 # Detach an interface from a server
 # DELETE  /servers/{server_id}/os-interface/{port_id}
 # Intended scope(s): project
-#"os_compute_api:os-attach-interfaces:delete": "rule:project_member_api"
+#"os_compute_api:os-attach-interfaces:delete": "rule:project_member_or_admin"
 
 # DEPRECATED
 # "os_compute_api:os-attach-interfaces":"rule:admin_or_owner" has been
 # deprecated since 21.0.0 in favor of "os_compute_api:os-attach-
-# interfaces:delete":"rule:project_member_api".
+# interfaces:delete":"rule:project_member_or_admin".
 # Nova API policies are introducing new default roles with scope_type
 # capabilities. Old policies are deprecated and silently going to be
 # ignored in nova 23.0.0 release.
-#"os_compute_api:os-attach-interfaces": "rule:os_compute_api:os-attach-interfaces:delete"
+# WARNING: A rule name change has been identified.
+#          This may be an artifact of new rules being
+#          included which require legacy fallback
+#          rules to ensure proper policy behavior.
+#          Alternatively, this may just be an alias.
+#          Please evaluate on a case by case basis
+#          keeping in mind the format for aliased
+#          rules is:
+#          "old_rule_name": "new_rule_name".
+# "os_compute_api:os-attach-interfaces": "rule:os_compute_api:os-attach-interfaces:delete"
 
 # List availability zone information without host information
 # GET  /os-availability-zone
-# Intended scope(s): system, project
+# Intended scope(s): project
 #"os_compute_api:os-availability-zone:list": "@"
 
 # List detailed availability zone information with host information
 # GET  /os-availability-zone/detail
-# Intended scope(s): system
+# Intended scope(s): project
 #"os_compute_api:os-availability-zone:detail": "rule:context_is_admin"
 
 # List and show details of bare metal nodes.
 #
 # These APIs are proxy calls to the Ironic service and are deprecated.
 # GET  /os-baremetal-nodes
-# Intended scope(s): system
+# Intended scope(s): project
 #"os_compute_api:os-baremetal-nodes:list": "rule:context_is_admin"
 
 # DEPRECATED
@@ -224,11 +306,20 @@
 # Nova API policies are introducing new default roles with scope_type
 # capabilities. Old policies are deprecated and silently going to be
 # ignored in nova 23.0.0 release.
-#"os_compute_api:os-baremetal-nodes": "rule:os_compute_api:os-baremetal-nodes:list"
+# WARNING: A rule name change has been identified.
+#          This may be an artifact of new rules being
+#          included which require legacy fallback
+#          rules to ensure proper policy behavior.
+#          Alternatively, this may just be an alias.
+#          Please evaluate on a case by case basis
+#          keeping in mind the format for aliased
+#          rules is:
+#          "old_rule_name": "new_rule_name".
+# "os_compute_api:os-baremetal-nodes": "rule:os_compute_api:os-baremetal-nodes:list"
 
 # Show action details for a server.
 # GET  /os-baremetal-nodes/{node_id}
-# Intended scope(s): system
+# Intended scope(s): project
 #"os_compute_api:os-baremetal-nodes:show": "rule:context_is_admin"
 
 # DEPRECATED
@@ -238,56 +329,83 @@
 # Nova API policies are introducing new default roles with scope_type
 # capabilities. Old policies are deprecated and silently going to be
 # ignored in nova 23.0.0 release.
-#"os_compute_api:os-baremetal-nodes": "rule:os_compute_api:os-baremetal-nodes:show"
+# WARNING: A rule name change has been identified.
+#          This may be an artifact of new rules being
+#          included which require legacy fallback
+#          rules to ensure proper policy behavior.
+#          Alternatively, this may just be an alias.
+#          Please evaluate on a case by case basis
+#          keeping in mind the format for aliased
+#          rules is:
+#          "old_rule_name": "new_rule_name".
+# "os_compute_api:os-baremetal-nodes": "rule:os_compute_api:os-baremetal-nodes:show"
 
 # Show console connection information for a given console
 # authentication token
 # GET  /os-console-auth-tokens/{console_token}
 # Intended scope(s): project
-#"os_compute_api:os-console-auth-tokens": "rule:project_admin_api"
+#"os_compute_api:os-console-auth-tokens": "rule:context_is_admin"
 
 # Show console output for a server
 # POST  /servers/{server_id}/action (os-getConsoleOutput)
 # Intended scope(s): project
-#"os_compute_api:os-console-output": "rule:project_member_api"
+#"os_compute_api:os-console-output": "rule:project_member_or_admin"
 
 # Create a back up of a server
 # POST  /servers/{server_id}/action (createBackup)
 # Intended scope(s): project
-#"os_compute_api:os-create-backup": "rule:project_member_api"
+#"os_compute_api:os-create-backup": "rule:project_member_or_admin"
 
 # Restore a soft deleted server
 # POST  /servers/{server_id}/action (restore)
 # Intended scope(s): project
-#"os_compute_api:os-deferred-delete:restore": "rule:project_member_api"
+#"os_compute_api:os-deferred-delete:restore": "rule:project_member_or_admin"
 
 # DEPRECATED
 # "os_compute_api:os-deferred-delete":"rule:admin_or_owner" has been
 # deprecated since 21.0.0 in favor of "os_compute_api:os-deferred-
-# delete:restore":"rule:project_member_api".
+# delete:restore":"rule:project_member_or_admin".
 # Nova API policies are introducing new default roles with scope_type
 # capabilities. Old policies are deprecated and silently going to be
 # ignored in nova 23.0.0 release.
-#"os_compute_api:os-deferred-delete": "rule:os_compute_api:os-deferred-delete:restore"
+# WARNING: A rule name change has been identified.
+#          This may be an artifact of new rules being
+#          included which require legacy fallback
+#          rules to ensure proper policy behavior.
+#          Alternatively, this may just be an alias.
+#          Please evaluate on a case by case basis
+#          keeping in mind the format for aliased
+#          rules is:
+#          "old_rule_name": "new_rule_name".
+# "os_compute_api:os-deferred-delete": "rule:os_compute_api:os-deferred-delete:restore"
 
 # Force delete a server before deferred cleanup
 # POST  /servers/{server_id}/action (forceDelete)
 # Intended scope(s): project
-#"os_compute_api:os-deferred-delete:force": "rule:project_member_api"
+#"os_compute_api:os-deferred-delete:force": "rule:project_member_or_admin"
 
 # DEPRECATED
 # "os_compute_api:os-deferred-delete":"rule:admin_or_owner" has been
 # deprecated since 21.0.0 in favor of "os_compute_api:os-deferred-
-# delete:force":"rule:project_member_api".
+# delete:force":"rule:project_member_or_admin".
 # Nova API policies are introducing new default roles with scope_type
 # capabilities. Old policies are deprecated and silently going to be
 # ignored in nova 23.0.0 release.
-#"os_compute_api:os-deferred-delete": "rule:os_compute_api:os-deferred-delete:force"
+# WARNING: A rule name change has been identified.
+#          This may be an artifact of new rules being
+#          included which require legacy fallback
+#          rules to ensure proper policy behavior.
+#          Alternatively, this may just be an alias.
+#          Please evaluate on a case by case basis
+#          keeping in mind the format for aliased
+#          rules is:
+#          "old_rule_name": "new_rule_name".
+# "os_compute_api:os-deferred-delete": "rule:os_compute_api:os-deferred-delete:force"
 
 # Evacuate a server from a failed host to a new host
 # POST  /servers/{server_id}/action (evacuate)
 # Intended scope(s): project
-#"os_compute_api:os-evacuate": "rule:project_admin_api"
+#"os_compute_api:os-evacuate": "rule:context_is_admin"
 
 # Return extended attributes for server.
 #
@@ -318,23 +436,23 @@
 # PUT  /servers/{server_id}
 # POST  /servers/{server_id}/action (rebuild)
 # Intended scope(s): project
-#"os_compute_api:os-extended-server-attributes": "rule:project_admin_api"
+#"os_compute_api:os-extended-server-attributes": "rule:context_is_admin"
 
 # List available extensions and show information for an extension by
 # alias
 # GET  /extensions
 # GET  /extensions/{alias}
-# Intended scope(s): system, project
+# Intended scope(s): project
 #"os_compute_api:extensions": "@"
 
 # Add flavor access to a tenant
 # POST  /flavors/{flavor_id}/action (addTenantAccess)
-# Intended scope(s): system
+# Intended scope(s): project
 #"os_compute_api:os-flavor-access:add_tenant_access": "rule:context_is_admin"
 
 # Remove flavor access from a tenant
 # POST  /flavors/{flavor_id}/action (removeTenantAccess)
-# Intended scope(s): system
+# Intended scope(s): project
 #"os_compute_api:os-flavor-access:remove_tenant_access": "rule:context_is_admin"
 
 # List flavor access information
@@ -342,7 +460,7 @@
 # Allows access to the full list of tenants that have access to a
 # flavor via an os-flavor-access API.
 # GET  /flavors/{flavor_id}/os-flavor-access
-# Intended scope(s): system
+# Intended scope(s): project
 #"os_compute_api:os-flavor-access": "rule:context_is_admin"
 
 # DEPRECATED
@@ -355,22 +473,22 @@
 
 # Show an extra spec for a flavor
 # GET  /flavors/{flavor_id}/os-extra_specs/{flavor_extra_spec_key}
-# Intended scope(s): system, project
+# Intended scope(s): project
 #"os_compute_api:os-flavor-extra-specs:show": "rule:project_reader_or_admin"
 
 # Create extra specs for a flavor
 # POST  /flavors/{flavor_id}/os-extra_specs/
-# Intended scope(s): system
+# Intended scope(s): project
 #"os_compute_api:os-flavor-extra-specs:create": "rule:context_is_admin"
 
 # Update an extra spec for a flavor
 # PUT  /flavors/{flavor_id}/os-extra_specs/{flavor_extra_spec_key}
-# Intended scope(s): system
+# Intended scope(s): project
 #"os_compute_api:os-flavor-extra-specs:update": "rule:context_is_admin"
 
 # Delete an extra spec for a flavor
 # DELETE  /flavors/{flavor_id}/os-extra_specs/{flavor_extra_spec_key}
-# Intended scope(s): system
+# Intended scope(s): project
 #"os_compute_api:os-flavor-extra-specs:delete": "rule:context_is_admin"
 
 # List extra specs for a flavor. Starting with microversion 2.61,
@@ -380,118 +498,172 @@
 # GET  /flavors/detail
 # GET  /flavors/{flavor_id}
 # PUT  /flavors/{flavor_id}
-# Intended scope(s): system, project
+# Intended scope(s): project
 #"os_compute_api:os-flavor-extra-specs:index": "rule:project_reader_or_admin"
 
 # Create a flavor
 # POST  /flavors
-# Intended scope(s): system
+# Intended scope(s): project
 #"os_compute_api:os-flavor-manage:create": "rule:context_is_admin"
 
 # Update a flavor
 # PUT  /flavors/{flavor_id}
-# Intended scope(s): system
+# Intended scope(s): project
 #"os_compute_api:os-flavor-manage:update": "rule:context_is_admin"
 
 # Delete a flavor
 # DELETE  /flavors/{flavor_id}
-# Intended scope(s): system
+# Intended scope(s): project
 #"os_compute_api:os-flavor-manage:delete": "rule:context_is_admin"
 
 # List floating IP pools. This API is deprecated.
 # GET  /os-floating-ip-pools
-# Intended scope(s): system, project
+# Intended scope(s): project
 #"os_compute_api:os-floating-ip-pools": "@"
 
 # Associate floating IPs to server.  This API is deprecated.
 # POST  /servers/{server_id}/action (addFloatingIp)
 # Intended scope(s): project
-#"os_compute_api:os-floating-ips:add": "rule:project_member_api"
+#"os_compute_api:os-floating-ips:add": "rule:project_member_or_admin"
 
 # DEPRECATED
 # "os_compute_api:os-floating-ips":"rule:admin_or_owner" has been
 # deprecated since 22.0.0 in favor of "os_compute_api:os-floating-
-# ips:add":"rule:project_member_api".
+# ips:add":"rule:project_member_or_admin".
 # Nova API policies are introducing new default roles with scope_type
 # capabilities. Old policies are deprecated and silently going to be
 # ignored in nova 23.0.0 release.
-#"os_compute_api:os-floating-ips": "rule:os_compute_api:os-floating-ips:add"
+# WARNING: A rule name change has been identified.
+#          This may be an artifact of new rules being
+#          included which require legacy fallback
+#          rules to ensure proper policy behavior.
+#          Alternatively, this may just be an alias.
+#          Please evaluate on a case by case basis
+#          keeping in mind the format for aliased
+#          rules is:
+#          "old_rule_name": "new_rule_name".
+# "os_compute_api:os-floating-ips": "rule:os_compute_api:os-floating-ips:add"
 
 # Disassociate floating IPs to server.  This API is deprecated.
 # POST  /servers/{server_id}/action (removeFloatingIp)
 # Intended scope(s): project
-#"os_compute_api:os-floating-ips:remove": "rule:project_member_api"
+#"os_compute_api:os-floating-ips:remove": "rule:project_member_or_admin"
 
 # DEPRECATED
 # "os_compute_api:os-floating-ips":"rule:admin_or_owner" has been
 # deprecated since 22.0.0 in favor of "os_compute_api:os-floating-
-# ips:remove":"rule:project_member_api".
+# ips:remove":"rule:project_member_or_admin".
 # Nova API policies are introducing new default roles with scope_type
 # capabilities. Old policies are deprecated and silently going to be
 # ignored in nova 23.0.0 release.
-#"os_compute_api:os-floating-ips": "rule:os_compute_api:os-floating-ips:remove"
+# WARNING: A rule name change has been identified.
+#          This may be an artifact of new rules being
+#          included which require legacy fallback
+#          rules to ensure proper policy behavior.
+#          Alternatively, this may just be an alias.
+#          Please evaluate on a case by case basis
+#          keeping in mind the format for aliased
+#          rules is:
+#          "old_rule_name": "new_rule_name".
+# "os_compute_api:os-floating-ips": "rule:os_compute_api:os-floating-ips:remove"
 
 # List floating IPs. This API is deprecated.
 # GET  /os-floating-ips
 # Intended scope(s): project
-#"os_compute_api:os-floating-ips:list": "rule:project_reader_api"
+#"os_compute_api:os-floating-ips:list": "rule:project_reader_or_admin"
 
 # DEPRECATED
 # "os_compute_api:os-floating-ips":"rule:admin_or_owner" has been
 # deprecated since 22.0.0 in favor of "os_compute_api:os-floating-
-# ips:list":"rule:project_reader_api".
+# ips:list":"rule:project_reader_or_admin".
 # Nova API policies are introducing new default roles with scope_type
 # capabilities. Old policies are deprecated and silently going to be
 # ignored in nova 23.0.0 release.
-#"os_compute_api:os-floating-ips": "rule:os_compute_api:os-floating-ips:list"
+# WARNING: A rule name change has been identified.
+#          This may be an artifact of new rules being
+#          included which require legacy fallback
+#          rules to ensure proper policy behavior.
+#          Alternatively, this may just be an alias.
+#          Please evaluate on a case by case basis
+#          keeping in mind the format for aliased
+#          rules is:
+#          "old_rule_name": "new_rule_name".
+# "os_compute_api:os-floating-ips": "rule:os_compute_api:os-floating-ips:list"
 
 # Create floating IPs. This API is deprecated.
 # POST  /os-floating-ips
 # Intended scope(s): project
-#"os_compute_api:os-floating-ips:create": "rule:project_member_api"
+#"os_compute_api:os-floating-ips:create": "rule:project_member_or_admin"
 
 # DEPRECATED
 # "os_compute_api:os-floating-ips":"rule:admin_or_owner" has been
 # deprecated since 22.0.0 in favor of "os_compute_api:os-floating-
-# ips:create":"rule:project_member_api".
+# ips:create":"rule:project_member_or_admin".
 # Nova API policies are introducing new default roles with scope_type
 # capabilities. Old policies are deprecated and silently going to be
 # ignored in nova 23.0.0 release.
-#"os_compute_api:os-floating-ips": "rule:os_compute_api:os-floating-ips:create"
+# WARNING: A rule name change has been identified.
+#          This may be an artifact of new rules being
+#          included which require legacy fallback
+#          rules to ensure proper policy behavior.
+#          Alternatively, this may just be an alias.
+#          Please evaluate on a case by case basis
+#          keeping in mind the format for aliased
+#          rules is:
+#          "old_rule_name": "new_rule_name".
+# "os_compute_api:os-floating-ips": "rule:os_compute_api:os-floating-ips:create"
 
 # Show floating IPs. This API is deprecated.
 # GET  /os-floating-ips/{floating_ip_id}
 # Intended scope(s): project
-#"os_compute_api:os-floating-ips:show": "rule:project_reader_api"
+#"os_compute_api:os-floating-ips:show": "rule:project_reader_or_admin"
 
 # DEPRECATED
 # "os_compute_api:os-floating-ips":"rule:admin_or_owner" has been
 # deprecated since 22.0.0 in favor of "os_compute_api:os-floating-
-# ips:show":"rule:project_reader_api".
+# ips:show":"rule:project_reader_or_admin".
 # Nova API policies are introducing new default roles with scope_type
 # capabilities. Old policies are deprecated and silently going to be
 # ignored in nova 23.0.0 release.
-#"os_compute_api:os-floating-ips": "rule:os_compute_api:os-floating-ips:show"
+# WARNING: A rule name change has been identified.
+#          This may be an artifact of new rules being
+#          included which require legacy fallback
+#          rules to ensure proper policy behavior.
+#          Alternatively, this may just be an alias.
+#          Please evaluate on a case by case basis
+#          keeping in mind the format for aliased
+#          rules is:
+#          "old_rule_name": "new_rule_name".
+# "os_compute_api:os-floating-ips": "rule:os_compute_api:os-floating-ips:show"
 
 # Delete floating IPs. This API is deprecated.
 # DELETE  /os-floating-ips/{floating_ip_id}
 # Intended scope(s): project
-#"os_compute_api:os-floating-ips:delete": "rule:project_member_api"
+#"os_compute_api:os-floating-ips:delete": "rule:project_member_or_admin"
 
 # DEPRECATED
 # "os_compute_api:os-floating-ips":"rule:admin_or_owner" has been
 # deprecated since 22.0.0 in favor of "os_compute_api:os-floating-
-# ips:delete":"rule:project_member_api".
+# ips:delete":"rule:project_member_or_admin".
 # Nova API policies are introducing new default roles with scope_type
 # capabilities. Old policies are deprecated and silently going to be
 # ignored in nova 23.0.0 release.
-#"os_compute_api:os-floating-ips": "rule:os_compute_api:os-floating-ips:delete"
+# WARNING: A rule name change has been identified.
+#          This may be an artifact of new rules being
+#          included which require legacy fallback
+#          rules to ensure proper policy behavior.
+#          Alternatively, this may just be an alias.
+#          Please evaluate on a case by case basis
+#          keeping in mind the format for aliased
+#          rules is:
+#          "old_rule_name": "new_rule_name".
+# "os_compute_api:os-floating-ips": "rule:os_compute_api:os-floating-ips:delete"
 
 # List physical hosts.
 #
 # This API is deprecated in favor of os-hypervisors and os-services.
 # GET  /os-hosts
-# Intended scope(s): system
+# Intended scope(s): project
 #"os_compute_api:os-hosts:list": "rule:context_is_admin"
 
 # DEPRECATED
@@ -501,13 +673,22 @@
 # Nova API policies are introducing new default roles with scope_type
 # capabilities. Old policies are deprecated and silently going to be
 # ignored in nova 23.0.0 release.
-#"os_compute_api:os-hosts": "rule:os_compute_api:os-hosts:list"
+# WARNING: A rule name change has been identified.
+#          This may be an artifact of new rules being
+#          included which require legacy fallback
+#          rules to ensure proper policy behavior.
+#          Alternatively, this may just be an alias.
+#          Please evaluate on a case by case basis
+#          keeping in mind the format for aliased
+#          rules is:
+#          "old_rule_name": "new_rule_name".
+# "os_compute_api:os-hosts": "rule:os_compute_api:os-hosts:list"
 
 # Show physical host.
 #
 # This API is deprecated in favor of os-hypervisors and os-services.
 # GET  /os-hosts/{host_name}
-# Intended scope(s): system
+# Intended scope(s): project
 #"os_compute_api:os-hosts:show": "rule:context_is_admin"
 
 # DEPRECATED
@@ -517,13 +698,22 @@
 # Nova API policies are introducing new default roles with scope_type
 # capabilities. Old policies are deprecated and silently going to be
 # ignored in nova 23.0.0 release.
-#"os_compute_api:os-hosts": "rule:os_compute_api:os-hosts:show"
+# WARNING: A rule name change has been identified.
+#          This may be an artifact of new rules being
+#          included which require legacy fallback
+#          rules to ensure proper policy behavior.
+#          Alternatively, this may just be an alias.
+#          Please evaluate on a case by case basis
+#          keeping in mind the format for aliased
+#          rules is:
+#          "old_rule_name": "new_rule_name".
+# "os_compute_api:os-hosts": "rule:os_compute_api:os-hosts:show"
 
 # Update physical host.
 #
 # This API is deprecated in favor of os-hypervisors and os-services.
 # PUT  /os-hosts/{host_name}
-# Intended scope(s): system
+# Intended scope(s): project
 #"os_compute_api:os-hosts:update": "rule:context_is_admin"
 
 # DEPRECATED
@@ -533,13 +723,22 @@
 # Nova API policies are introducing new default roles with scope_type
 # capabilities. Old policies are deprecated and silently going to be
 # ignored in nova 23.0.0 release.
-#"os_compute_api:os-hosts": "rule:os_compute_api:os-hosts:update"
+# WARNING: A rule name change has been identified.
+#          This may be an artifact of new rules being
+#          included which require legacy fallback
+#          rules to ensure proper policy behavior.
+#          Alternatively, this may just be an alias.
+#          Please evaluate on a case by case basis
+#          keeping in mind the format for aliased
+#          rules is:
+#          "old_rule_name": "new_rule_name".
+# "os_compute_api:os-hosts": "rule:os_compute_api:os-hosts:update"
 
 # Reboot physical host.
 #
 # This API is deprecated in favor of os-hypervisors and os-services.
 # GET  /os-hosts/{host_name}/reboot
-# Intended scope(s): system
+# Intended scope(s): project
 #"os_compute_api:os-hosts:reboot": "rule:context_is_admin"
 
 # DEPRECATED
@@ -549,13 +748,22 @@
 # Nova API policies are introducing new default roles with scope_type
 # capabilities. Old policies are deprecated and silently going to be
 # ignored in nova 23.0.0 release.
-#"os_compute_api:os-hosts": "rule:os_compute_api:os-hosts:reboot"
+# WARNING: A rule name change has been identified.
+#          This may be an artifact of new rules being
+#          included which require legacy fallback
+#          rules to ensure proper policy behavior.
+#          Alternatively, this may just be an alias.
+#          Please evaluate on a case by case basis
+#          keeping in mind the format for aliased
+#          rules is:
+#          "old_rule_name": "new_rule_name".
+# "os_compute_api:os-hosts": "rule:os_compute_api:os-hosts:reboot"
 
 # Shutdown physical host.
 #
 # This API is deprecated in favor of os-hypervisors and os-services.
 # GET  /os-hosts/{host_name}/shutdown
-# Intended scope(s): system
+# Intended scope(s): project
 #"os_compute_api:os-hosts:shutdown": "rule:context_is_admin"
 
 # DEPRECATED
@@ -565,13 +773,22 @@
 # Nova API policies are introducing new default roles with scope_type
 # capabilities. Old policies are deprecated and silently going to be
 # ignored in nova 23.0.0 release.
-#"os_compute_api:os-hosts": "rule:os_compute_api:os-hosts:shutdown"
+# WARNING: A rule name change has been identified.
+#          This may be an artifact of new rules being
+#          included which require legacy fallback
+#          rules to ensure proper policy behavior.
+#          Alternatively, this may just be an alias.
+#          Please evaluate on a case by case basis
+#          keeping in mind the format for aliased
+#          rules is:
+#          "old_rule_name": "new_rule_name".
+# "os_compute_api:os-hosts": "rule:os_compute_api:os-hosts:shutdown"
 
 # Start physical host.
 #
 # This API is deprecated in favor of os-hypervisors and os-services.
 # GET  /os-hosts/{host_name}/startup
-# Intended scope(s): system
+# Intended scope(s): project
 #"os_compute_api:os-hosts:start": "rule:context_is_admin"
 
 # DEPRECATED
@@ -581,11 +798,20 @@
 # Nova API policies are introducing new default roles with scope_type
 # capabilities. Old policies are deprecated and silently going to be
 # ignored in nova 23.0.0 release.
-#"os_compute_api:os-hosts": "rule:os_compute_api:os-hosts:start"
+# WARNING: A rule name change has been identified.
+#          This may be an artifact of new rules being
+#          included which require legacy fallback
+#          rules to ensure proper policy behavior.
+#          Alternatively, this may just be an alias.
+#          Please evaluate on a case by case basis
+#          keeping in mind the format for aliased
+#          rules is:
+#          "old_rule_name": "new_rule_name".
+# "os_compute_api:os-hosts": "rule:os_compute_api:os-hosts:start"
 
 # List all hypervisors.
 # GET  /os-hypervisors
-# Intended scope(s): system
+# Intended scope(s): project
 #"os_compute_api:os-hypervisors:list": "rule:context_is_admin"
 
 # DEPRECATED
@@ -595,11 +821,20 @@
 # Nova API policies are introducing new default roles with scope_type
 # capabilities. Old policies are deprecated and silently going to be
 # ignored in nova 23.0.0 release.
-#"os_compute_api:os-hypervisors": "rule:os_compute_api:os-hypervisors:list"
+# WARNING: A rule name change has been identified.
+#          This may be an artifact of new rules being
+#          included which require legacy fallback
+#          rules to ensure proper policy behavior.
+#          Alternatively, this may just be an alias.
+#          Please evaluate on a case by case basis
+#          keeping in mind the format for aliased
+#          rules is:
+#          "old_rule_name": "new_rule_name".
+# "os_compute_api:os-hypervisors": "rule:os_compute_api:os-hypervisors:list"
 
 # List all hypervisors with details
 # GET  /os-hypervisors/details
-# Intended scope(s): system
+# Intended scope(s): project
 #"os_compute_api:os-hypervisors:list-detail": "rule:context_is_admin"
 
 # DEPRECATED
@@ -609,11 +844,20 @@
 # Nova API policies are introducing new default roles with scope_type
 # capabilities. Old policies are deprecated and silently going to be
 # ignored in nova 23.0.0 release.
-#"os_compute_api:os-hypervisors": "rule:os_compute_api:os-hypervisors:list-detail"
+# WARNING: A rule name change has been identified.
+#          This may be an artifact of new rules being
+#          included which require legacy fallback
+#          rules to ensure proper policy behavior.
+#          Alternatively, this may just be an alias.
+#          Please evaluate on a case by case basis
+#          keeping in mind the format for aliased
+#          rules is:
+#          "old_rule_name": "new_rule_name".
+# "os_compute_api:os-hypervisors": "rule:os_compute_api:os-hypervisors:list-detail"
 
 # Show summary statistics for all hypervisors over all compute nodes.
 # GET  /os-hypervisors/statistics
-# Intended scope(s): system
+# Intended scope(s): project
 #"os_compute_api:os-hypervisors:statistics": "rule:context_is_admin"
 
 # DEPRECATED
@@ -623,11 +867,20 @@
 # Nova API policies are introducing new default roles with scope_type
 # capabilities. Old policies are deprecated and silently going to be
 # ignored in nova 23.0.0 release.
-#"os_compute_api:os-hypervisors": "rule:os_compute_api:os-hypervisors:statistics"
+# WARNING: A rule name change has been identified.
+#          This may be an artifact of new rules being
+#          included which require legacy fallback
+#          rules to ensure proper policy behavior.
+#          Alternatively, this may just be an alias.
+#          Please evaluate on a case by case basis
+#          keeping in mind the format for aliased
+#          rules is:
+#          "old_rule_name": "new_rule_name".
+# "os_compute_api:os-hypervisors": "rule:os_compute_api:os-hypervisors:statistics"
 
 # Show details for a hypervisor.
 # GET  /os-hypervisors/{hypervisor_id}
-# Intended scope(s): system
+# Intended scope(s): project
 #"os_compute_api:os-hypervisors:show": "rule:context_is_admin"
 
 # DEPRECATED
@@ -637,11 +890,20 @@
 # Nova API policies are introducing new default roles with scope_type
 # capabilities. Old policies are deprecated and silently going to be
 # ignored in nova 23.0.0 release.
-#"os_compute_api:os-hypervisors": "rule:os_compute_api:os-hypervisors:show"
+# WARNING: A rule name change has been identified.
+#          This may be an artifact of new rules being
+#          included which require legacy fallback
+#          rules to ensure proper policy behavior.
+#          Alternatively, this may just be an alias.
+#          Please evaluate on a case by case basis
+#          keeping in mind the format for aliased
+#          rules is:
+#          "old_rule_name": "new_rule_name".
+# "os_compute_api:os-hypervisors": "rule:os_compute_api:os-hypervisors:show"
 
 # Show the uptime of a hypervisor.
 # GET  /os-hypervisors/{hypervisor_id}/uptime
-# Intended scope(s): system
+# Intended scope(s): project
 #"os_compute_api:os-hypervisors:uptime": "rule:context_is_admin"
 
 # DEPRECATED
@@ -651,11 +913,20 @@
 # Nova API policies are introducing new default roles with scope_type
 # capabilities. Old policies are deprecated and silently going to be
 # ignored in nova 23.0.0 release.
-#"os_compute_api:os-hypervisors": "rule:os_compute_api:os-hypervisors:uptime"
+# WARNING: A rule name change has been identified.
+#          This may be an artifact of new rules being
+#          included which require legacy fallback
+#          rules to ensure proper policy behavior.
+#          Alternatively, this may just be an alias.
+#          Please evaluate on a case by case basis
+#          keeping in mind the format for aliased
+#          rules is:
+#          "old_rule_name": "new_rule_name".
+# "os_compute_api:os-hypervisors": "rule:os_compute_api:os-hypervisors:uptime"
 
 # Search hypervisor by hypervisor_hostname pattern.
 # GET  /os-hypervisors/{hypervisor_hostname_pattern}/search
-# Intended scope(s): system
+# Intended scope(s): project
 #"os_compute_api:os-hypervisors:search": "rule:context_is_admin"
 
 # DEPRECATED
@@ -665,12 +936,21 @@
 # Nova API policies are introducing new default roles with scope_type
 # capabilities. Old policies are deprecated and silently going to be
 # ignored in nova 23.0.0 release.
-#"os_compute_api:os-hypervisors": "rule:os_compute_api:os-hypervisors:search"
+# WARNING: A rule name change has been identified.
+#          This may be an artifact of new rules being
+#          included which require legacy fallback
+#          rules to ensure proper policy behavior.
+#          Alternatively, this may just be an alias.
+#          Please evaluate on a case by case basis
+#          keeping in mind the format for aliased
+#          rules is:
+#          "old_rule_name": "new_rule_name".
+# "os_compute_api:os-hypervisors": "rule:os_compute_api:os-hypervisors:search"
 
 # List all servers on hypervisors that can match the provided
 # hypervisor_hostname pattern.
 # GET  /os-hypervisors/{hypervisor_hostname_pattern}/servers
-# Intended scope(s): system
+# Intended scope(s): project
 #"os_compute_api:os-hypervisors:servers": "rule:context_is_admin"
 
 # DEPRECATED
@@ -680,7 +960,16 @@
 # Nova API policies are introducing new default roles with scope_type
 # capabilities. Old policies are deprecated and silently going to be
 # ignored in nova 23.0.0 release.
-#"os_compute_api:os-hypervisors": "rule:os_compute_api:os-hypervisors:servers"
+# WARNING: A rule name change has been identified.
+#          This may be an artifact of new rules being
+#          included which require legacy fallback
+#          rules to ensure proper policy behavior.
+#          Alternatively, this may just be an alias.
+#          Please evaluate on a case by case basis
+#          keeping in mind the format for aliased
+#          rules is:
+#          "old_rule_name": "new_rule_name".
+# "os_compute_api:os-hypervisors": "rule:os_compute_api:os-hypervisors:servers"
 
 # Add "details" key in action events for a server.
 #
@@ -694,7 +983,7 @@
 # information about the deployment (e.g. the type of the hypervisor).
 # GET  /servers/{server_id}/os-instance-actions/{request_id}
 # Intended scope(s): project
-#"os_compute_api:os-instance-actions:events:details": "rule:project_admin_api"
+#"os_compute_api:os-instance-actions:events:details": "rule:context_is_admin"
 
 # Add events details in action details for a server. This check is
 # performed only after the check os_compute_api:os-instance-
@@ -705,39 +994,57 @@
 # enforcement passes, the name of the host.
 # GET  /servers/{server_id}/os-instance-actions/{request_id}
 # Intended scope(s): project
-#"os_compute_api:os-instance-actions:events": "rule:project_admin_api"
+#"os_compute_api:os-instance-actions:events": "rule:context_is_admin"
 
 # List actions for a server.
 # GET  /servers/{server_id}/os-instance-actions
 # Intended scope(s): project
-#"os_compute_api:os-instance-actions:list": "rule:project_reader_api"
+#"os_compute_api:os-instance-actions:list": "rule:project_reader_or_admin"
 
 # DEPRECATED
 # "os_compute_api:os-instance-actions":"rule:admin_or_owner" has been
 # deprecated since 21.0.0 in favor of "os_compute_api:os-instance-
-# actions:list":"rule:project_reader_api".
+# actions:list":"rule:project_reader_or_admin".
 # Nova API policies are introducing new default roles with scope_type
 # capabilities. Old policies are deprecated and silently going to be
 # ignored in nova 23.0.0 release.
-#"os_compute_api:os-instance-actions": "rule:os_compute_api:os-instance-actions:list"
+# WARNING: A rule name change has been identified.
+#          This may be an artifact of new rules being
+#          included which require legacy fallback
+#          rules to ensure proper policy behavior.
+#          Alternatively, this may just be an alias.
+#          Please evaluate on a case by case basis
+#          keeping in mind the format for aliased
+#          rules is:
+#          "old_rule_name": "new_rule_name".
+# "os_compute_api:os-instance-actions": "rule:os_compute_api:os-instance-actions:list"
 
 # Show action details for a server.
 # GET  /servers/{server_id}/os-instance-actions/{request_id}
 # Intended scope(s): project
-#"os_compute_api:os-instance-actions:show": "rule:project_reader_api"
+#"os_compute_api:os-instance-actions:show": "rule:project_reader_or_admin"
 
 # DEPRECATED
 # "os_compute_api:os-instance-actions":"rule:admin_or_owner" has been
 # deprecated since 21.0.0 in favor of "os_compute_api:os-instance-
-# actions:show":"rule:project_reader_api".
+# actions:show":"rule:project_reader_or_admin".
 # Nova API policies are introducing new default roles with scope_type
 # capabilities. Old policies are deprecated and silently going to be
 # ignored in nova 23.0.0 release.
-#"os_compute_api:os-instance-actions": "rule:os_compute_api:os-instance-actions:show"
+# WARNING: A rule name change has been identified.
+#          This may be an artifact of new rules being
+#          included which require legacy fallback
+#          rules to ensure proper policy behavior.
+#          Alternatively, this may just be an alias.
+#          Please evaluate on a case by case basis
+#          keeping in mind the format for aliased
+#          rules is:
+#          "old_rule_name": "new_rule_name".
+# "os_compute_api:os-instance-actions": "rule:os_compute_api:os-instance-actions:show"
 
 # List all usage audits.
 # GET  /os-instance_usage_audit_log
-# Intended scope(s): system
+# Intended scope(s): project
 #"os_compute_api:os-instance-usage-audit-log:list": "rule:context_is_admin"
 
 # DEPRECATED
@@ -747,12 +1054,21 @@
 # Nova API policies are introducing new default roles with scope_type
 # capabilities. Old policies are deprecated and silently going to be
 # ignored in nova 23.0.0 release.
-#"os_compute_api:os-instance-usage-audit-log": "rule:os_compute_api:os-instance-usage-audit-log:list"
+# WARNING: A rule name change has been identified.
+#          This may be an artifact of new rules being
+#          included which require legacy fallback
+#          rules to ensure proper policy behavior.
+#          Alternatively, this may just be an alias.
+#          Please evaluate on a case by case basis
+#          keeping in mind the format for aliased
+#          rules is:
+#          "old_rule_name": "new_rule_name".
+# "os_compute_api:os-instance-usage-audit-log": "rule:os_compute_api:os-instance-usage-audit-log:list"
 
 # List all usage audits occurred before a specified time for all
 # servers on all compute hosts where usage auditing is configured
 # GET  /os-instance_usage_audit_log/{before_timestamp}
-# Intended scope(s): system
+# Intended scope(s): project
 #"os_compute_api:os-instance-usage-audit-log:show": "rule:context_is_admin"
 
 # DEPRECATED
@@ -762,36 +1078,45 @@
 # Nova API policies are introducing new default roles with scope_type
 # capabilities. Old policies are deprecated and silently going to be
 # ignored in nova 23.0.0 release.
-#"os_compute_api:os-instance-usage-audit-log": "rule:os_compute_api:os-instance-usage-audit-log:show"
+# WARNING: A rule name change has been identified.
+#          This may be an artifact of new rules being
+#          included which require legacy fallback
+#          rules to ensure proper policy behavior.
+#          Alternatively, this may just be an alias.
+#          Please evaluate on a case by case basis
+#          keeping in mind the format for aliased
+#          rules is:
+#          "old_rule_name": "new_rule_name".
+# "os_compute_api:os-instance-usage-audit-log": "rule:os_compute_api:os-instance-usage-audit-log:show"
 
 # Show IP addresses details for a network label of a  server
 # GET  /servers/{server_id}/ips/{network_label}
 # Intended scope(s): project
-#"os_compute_api:ips:show": "rule:project_reader_api"
+#"os_compute_api:ips:show": "rule:project_reader_or_admin"
 
 # List IP addresses that are assigned to a server
 # GET  /servers/{server_id}/ips
 # Intended scope(s): project
-#"os_compute_api:ips:index": "rule:project_reader_api"
+#"os_compute_api:ips:index": "rule:project_reader_or_admin"
 
 # List all keypairs
 # GET  /os-keypairs
-# Intended scope(s): system, project
+# Intended scope(s): project
 #"os_compute_api:os-keypairs:index": "(rule:context_is_admin) or user_id:%(user_id)s"
 
 # Create a keypair
 # POST  /os-keypairs
-# Intended scope(s): system, project
+# Intended scope(s): project
 #"os_compute_api:os-keypairs:create": "(rule:context_is_admin) or user_id:%(user_id)s"
 
 # Delete a keypair
 # DELETE  /os-keypairs/{keypair_name}
-# Intended scope(s): system, project
+# Intended scope(s): project
 #"os_compute_api:os-keypairs:delete": "(rule:context_is_admin) or user_id:%(user_id)s"
 
 # Show details of a keypair
 # GET  /os-keypairs/{keypair_name}
-# Intended scope(s): system, project
+# Intended scope(s): project
 #"os_compute_api:os-keypairs:show": "(rule:context_is_admin) or user_id:%(user_id)s"
 
 # Show rate and absolute limits for the current user project
@@ -806,26 +1131,35 @@
 # os_compute_api:limits passes
 # GET  /limits
 # Intended scope(s): project
-#"os_compute_api:limits:other_project": "rule:project_admin_api"
+#"os_compute_api:limits:other_project": "rule:context_is_admin"
 
 # DEPRECATED
 # "os_compute_api:os-used-limits":"rule:admin_api" has been deprecated
 # since 21.0.0 in favor of
-# "os_compute_api:limits:other_project":"rule:project_admin_api".
+# "os_compute_api:limits:other_project":"rule:context_is_admin".
 # Nova API policies are introducing new default roles with scope_type
 # capabilities. Old policies are deprecated and silently going to be
 # ignored in nova 23.0.0 release.
-#"os_compute_api:os-used-limits": "rule:os_compute_api:limits:other_project"
+# WARNING: A rule name change has been identified.
+#          This may be an artifact of new rules being
+#          included which require legacy fallback
+#          rules to ensure proper policy behavior.
+#          Alternatively, this may just be an alias.
+#          Please evaluate on a case by case basis
+#          keeping in mind the format for aliased
+#          rules is:
+#          "old_rule_name": "new_rule_name".
+# "os_compute_api:os-used-limits": "rule:os_compute_api:limits:other_project"
 
 # Lock a server
 # POST  /servers/{server_id}/action (lock)
 # Intended scope(s): project
-#"os_compute_api:os-lock-server:lock": "rule:project_member_api"
+#"os_compute_api:os-lock-server:lock": "rule:project_member_or_admin"
 
 # Unlock a server
 # POST  /servers/{server_id}/action (unlock)
 # Intended scope(s): project
-#"os_compute_api:os-lock-server:unlock": "rule:project_member_api"
+#"os_compute_api:os-lock-server:unlock": "rule:project_member_or_admin"
 
 # Unlock a server, regardless who locked the server.
 #
@@ -833,131 +1167,167 @@
 # server:unlock passes
 # POST  /servers/{server_id}/action (unlock)
 # Intended scope(s): project
-#"os_compute_api:os-lock-server:unlock:unlock_override": "rule:project_admin_api"
+#"os_compute_api:os-lock-server:unlock:unlock_override": "rule:context_is_admin"
 
 # Cold migrate a server to a host
 # POST  /servers/{server_id}/action (migrate)
 # Intended scope(s): project
-#"os_compute_api:os-migrate-server:migrate": "rule:project_admin_api"
+#"os_compute_api:os-migrate-server:migrate": "rule:context_is_admin"
 
 # Live migrate a server to a new host without a reboot
 # POST  /servers/{server_id}/action (os-migrateLive)
 # Intended scope(s): project
-#"os_compute_api:os-migrate-server:migrate_live": "rule:project_admin_api"
+#"os_compute_api:os-migrate-server:migrate_live": "rule:context_is_admin"
 
 # List migrations
 # GET  /os-migrations
 # Intended scope(s): project
-#"os_compute_api:os-migrations:index": "rule:project_admin_api"
+#"os_compute_api:os-migrations:index": "rule:context_is_admin"
 
 # Add a fixed IP address to a server.
 #
 # This API is proxy calls to the Network service. This is deprecated.
 # POST  /servers/{server_id}/action (addFixedIp)
 # Intended scope(s): project
-#"os_compute_api:os-multinic:add": "rule:project_member_api"
+#"os_compute_api:os-multinic:add": "rule:project_member_or_admin"
 
 # DEPRECATED
 # "os_compute_api:os-multinic":"rule:admin_or_owner" has been
 # deprecated since 22.0.0 in favor of "os_compute_api:os-
-# multinic:add":"rule:project_member_api".
+# multinic:add":"rule:project_member_or_admin".
 # Nova API policies are introducing new default roles with scope_type
 # capabilities. Old policies are deprecated and silently going to be
 # ignored in nova 23.0.0 release.
-#"os_compute_api:os-multinic": "rule:os_compute_api:os-multinic:add"
+# WARNING: A rule name change has been identified.
+#          This may be an artifact of new rules being
+#          included which require legacy fallback
+#          rules to ensure proper policy behavior.
+#          Alternatively, this may just be an alias.
+#          Please evaluate on a case by case basis
+#          keeping in mind the format for aliased
+#          rules is:
+#          "old_rule_name": "new_rule_name".
+# "os_compute_api:os-multinic": "rule:os_compute_api:os-multinic:add"
 
 # Remove a fixed IP address from a server.
 #
 # This API is proxy calls to the Network service. This is deprecated.
 # POST  /servers/{server_id}/action (removeFixedIp)
 # Intended scope(s): project
-#"os_compute_api:os-multinic:remove": "rule:project_member_api"
+#"os_compute_api:os-multinic:remove": "rule:project_member_or_admin"
 
 # DEPRECATED
 # "os_compute_api:os-multinic":"rule:admin_or_owner" has been
 # deprecated since 22.0.0 in favor of "os_compute_api:os-
-# multinic:remove":"rule:project_member_api".
+# multinic:remove":"rule:project_member_or_admin".
 # Nova API policies are introducing new default roles with scope_type
 # capabilities. Old policies are deprecated and silently going to be
 # ignored in nova 23.0.0 release.
-#"os_compute_api:os-multinic": "rule:os_compute_api:os-multinic:remove"
+# WARNING: A rule name change has been identified.
+#          This may be an artifact of new rules being
+#          included which require legacy fallback
+#          rules to ensure proper policy behavior.
+#          Alternatively, this may just be an alias.
+#          Please evaluate on a case by case basis
+#          keeping in mind the format for aliased
+#          rules is:
+#          "old_rule_name": "new_rule_name".
+# "os_compute_api:os-multinic": "rule:os_compute_api:os-multinic:remove"
 
 # List networks for the project.
 #
 # This API is proxy calls to the Network service. This is deprecated.
 # GET  /os-networks
 # Intended scope(s): project
-#"os_compute_api:os-networks:list": "rule:project_reader_api"
+#"os_compute_api:os-networks:list": "rule:project_reader_or_admin"
 
 # DEPRECATED
 # "os_compute_api:os-networks:view":"rule:admin_or_owner" has been
 # deprecated since 22.0.0 in favor of "os_compute_api:os-
-# networks:list":"rule:project_reader_api".
+# networks:list":"rule:project_reader_or_admin".
 # Nova API policies are introducing new default roles with scope_type
 # capabilities. Old policies are deprecated and silently going to be
 # ignored in nova 23.0.0 release.
-#"os_compute_api:os-networks:view": "rule:os_compute_api:os-networks:list"
+# WARNING: A rule name change has been identified.
+#          This may be an artifact of new rules being
+#          included which require legacy fallback
+#          rules to ensure proper policy behavior.
+#          Alternatively, this may just be an alias.
+#          Please evaluate on a case by case basis
+#          keeping in mind the format for aliased
+#          rules is:
+#          "old_rule_name": "new_rule_name".
+# "os_compute_api:os-networks:view": "rule:os_compute_api:os-networks:list"
 
 # Show network details.
 #
 # This API is proxy calls to the Network service. This is deprecated.
 # GET  /os-networks/{network_id}
 # Intended scope(s): project
-#"os_compute_api:os-networks:show": "rule:project_reader_api"
+#"os_compute_api:os-networks:show": "rule:project_reader_or_admin"
 
 # DEPRECATED
 # "os_compute_api:os-networks:view":"rule:admin_or_owner" has been
 # deprecated since 22.0.0 in favor of "os_compute_api:os-
-# networks:show":"rule:project_reader_api".
+# networks:show":"rule:project_reader_or_admin".
 # Nova API policies are introducing new default roles with scope_type
 # capabilities. Old policies are deprecated and silently going to be
 # ignored in nova 23.0.0 release.
-#"os_compute_api:os-networks:view": "rule:os_compute_api:os-networks:show"
+# WARNING: A rule name change has been identified.
+#          This may be an artifact of new rules being
+#          included which require legacy fallback
+#          rules to ensure proper policy behavior.
+#          Alternatively, this may just be an alias.
+#          Please evaluate on a case by case basis
+#          keeping in mind the format for aliased
+#          rules is:
+#          "old_rule_name": "new_rule_name".
+# "os_compute_api:os-networks:view": "rule:os_compute_api:os-networks:show"
 
 # Pause a server
 # POST  /servers/{server_id}/action (pause)
 # Intended scope(s): project
-#"os_compute_api:os-pause-server:pause": "rule:project_member_api"
+#"os_compute_api:os-pause-server:pause": "rule:project_member_or_admin"
 
 # Unpause a paused server
 # POST  /servers/{server_id}/action (unpause)
 # Intended scope(s): project
-#"os_compute_api:os-pause-server:unpause": "rule:project_member_api"
+#"os_compute_api:os-pause-server:unpause": "rule:project_member_or_admin"
 
 # List quotas for specific quota classs
 # GET  /os-quota-class-sets/{quota_class}
-# Intended scope(s): system
+# Intended scope(s): project
 #"os_compute_api:os-quota-class-sets:show": "rule:context_is_admin"
 
 # Update quotas for specific quota class
 # PUT  /os-quota-class-sets/{quota_class}
-# Intended scope(s): system
+# Intended scope(s): project
 #"os_compute_api:os-quota-class-sets:update": "rule:context_is_admin"
 
 # Update the quotas
 # PUT  /os-quota-sets/{tenant_id}
 # Intended scope(s): project
-#"os_compute_api:os-quota-sets:update": "rule:project_admin_api"
+#"os_compute_api:os-quota-sets:update": "rule:context_is_admin"
 
 # List default quotas
 # GET  /os-quota-sets/{tenant_id}/defaults
-# Intended scope(s): system, project
+# Intended scope(s): project
 #"os_compute_api:os-quota-sets:defaults": "@"
 
 # Show a quota
 # GET  /os-quota-sets/{tenant_id}
 # Intended scope(s): project
-#"os_compute_api:os-quota-sets:show": "(rule:project_reader_api) or role:admin"
+#"os_compute_api:os-quota-sets:show": "rule:project_reader_or_admin"
 
 # Revert quotas to defaults
 # DELETE  /os-quota-sets/{tenant_id}
 # Intended scope(s): project
-#"os_compute_api:os-quota-sets:delete": "rule:project_admin_api"
+#"os_compute_api:os-quota-sets:delete": "rule:context_is_admin"
 
 # Show the detail of quota
 # GET  /os-quota-sets/{tenant_id}/detail
 # Intended scope(s): project
-#"os_compute_api:os-quota-sets:detail": "(rule:project_reader_api) or role:admin"
+#"os_compute_api:os-quota-sets:detail": "rule:project_reader_or_admin"
 
 # Generate a URL to access remove server console.
 #
@@ -972,170 +1342,269 @@
 # POST  /servers/{server_id}/action (os-getVNCConsole)
 # POST  /servers/{server_id}/remote-consoles
 # Intended scope(s): project
-#"os_compute_api:os-remote-consoles": "rule:project_member_api"
+#"os_compute_api:os-remote-consoles": "rule:project_member_or_admin"
 
 # Rescue a server
 # POST  /servers/{server_id}/action (rescue)
 # Intended scope(s): project
-#"os_compute_api:os-rescue": "rule:project_member_api"
+#"os_compute_api:os-rescue": "rule:project_member_or_admin"
 
 # Unrescue a server
 # POST  /servers/{server_id}/action (unrescue)
 # Intended scope(s): project
-#"os_compute_api:os-unrescue": "rule:project_member_api"
+#"os_compute_api:os-unrescue": "rule:project_member_or_admin"
 
 # DEPRECATED
 # "os_compute_api:os-rescue":"rule:admin_or_owner" has been deprecated
 # since 21.0.0 in favor of "os_compute_api:os-
-# unrescue":"rule:project_member_api".
+# unrescue":"rule:project_member_or_admin".
 # Rescue/Unrescue API policies are made granular with new policy for
 # unrescue and keeping old policy for rescue.
-#"os_compute_api:os-rescue": "rule:os_compute_api:os-unrescue"
+# WARNING: A rule name change has been identified.
+#          This may be an artifact of new rules being
+#          included which require legacy fallback
+#          rules to ensure proper policy behavior.
+#          Alternatively, this may just be an alias.
+#          Please evaluate on a case by case basis
+#          keeping in mind the format for aliased
+#          rules is:
+#          "old_rule_name": "new_rule_name".
+# "os_compute_api:os-rescue": "rule:os_compute_api:os-unrescue"
 
 # List security groups. This API is deprecated.
 # GET  /os-security-groups
 # Intended scope(s): project
-#"os_compute_api:os-security-groups:get": "rule:project_reader_api"
+#"os_compute_api:os-security-groups:get": "rule:project_reader_or_admin"
 
 # DEPRECATED
 # "os_compute_api:os-security-groups":"rule:admin_or_owner" has been
 # deprecated since 22.0.0 in favor of "os_compute_api:os-security-
-# groups:get":"rule:project_reader_api".
+# groups:get":"rule:project_reader_or_admin".
 # Nova API policies are introducing new default roles with scope_type
 # capabilities. Old policies are deprecated and silently going to be
 # ignored in nova 23.0.0 release.
-#"os_compute_api:os-security-groups": "rule:os_compute_api:os-security-groups:get"
+# WARNING: A rule name change has been identified.
+#          This may be an artifact of new rules being
+#          included which require legacy fallback
+#          rules to ensure proper policy behavior.
+#          Alternatively, this may just be an alias.
+#          Please evaluate on a case by case basis
+#          keeping in mind the format for aliased
+#          rules is:
+#          "old_rule_name": "new_rule_name".
+# "os_compute_api:os-security-groups": "rule:os_compute_api:os-security-groups:get"
 
 # Show security group. This API is deprecated.
 # GET  /os-security-groups/{security_group_id}
 # Intended scope(s): project
-#"os_compute_api:os-security-groups:show": "rule:project_reader_api"
+#"os_compute_api:os-security-groups:show": "rule:project_reader_or_admin"
 
 # DEPRECATED
 # "os_compute_api:os-security-groups":"rule:admin_or_owner" has been
 # deprecated since 22.0.0 in favor of "os_compute_api:os-security-
-# groups:show":"rule:project_reader_api".
+# groups:show":"rule:project_reader_or_admin".
 # Nova API policies are introducing new default roles with scope_type
 # capabilities. Old policies are deprecated and silently going to be
 # ignored in nova 23.0.0 release.
-#"os_compute_api:os-security-groups": "rule:os_compute_api:os-security-groups:show"
+# WARNING: A rule name change has been identified.
+#          This may be an artifact of new rules being
+#          included which require legacy fallback
+#          rules to ensure proper policy behavior.
+#          Alternatively, this may just be an alias.
+#          Please evaluate on a case by case basis
+#          keeping in mind the format for aliased
+#          rules is:
+#          "old_rule_name": "new_rule_name".
+# "os_compute_api:os-security-groups": "rule:os_compute_api:os-security-groups:show"
 
 # Create security group. This API is deprecated.
 # POST  /os-security-groups
 # Intended scope(s): project
-#"os_compute_api:os-security-groups:create": "rule:project_member_api"
+#"os_compute_api:os-security-groups:create": "rule:project_member_or_admin"
 
 # DEPRECATED
 # "os_compute_api:os-security-groups":"rule:admin_or_owner" has been
 # deprecated since 22.0.0 in favor of "os_compute_api:os-security-
-# groups:create":"rule:project_member_api".
+# groups:create":"rule:project_member_or_admin".
 # Nova API policies are introducing new default roles with scope_type
 # capabilities. Old policies are deprecated and silently going to be
 # ignored in nova 23.0.0 release.
-#"os_compute_api:os-security-groups": "rule:os_compute_api:os-security-groups:create"
+# WARNING: A rule name change has been identified.
+#          This may be an artifact of new rules being
+#          included which require legacy fallback
+#          rules to ensure proper policy behavior.
+#          Alternatively, this may just be an alias.
+#          Please evaluate on a case by case basis
+#          keeping in mind the format for aliased
+#          rules is:
+#          "old_rule_name": "new_rule_name".
+# "os_compute_api:os-security-groups": "rule:os_compute_api:os-security-groups:create"
 
 # Update security group. This API is deprecated.
 # PUT  /os-security-groups/{security_group_id}
 # Intended scope(s): project
-#"os_compute_api:os-security-groups:update": "rule:project_member_api"
+#"os_compute_api:os-security-groups:update": "rule:project_member_or_admin"
 
 # DEPRECATED
 # "os_compute_api:os-security-groups":"rule:admin_or_owner" has been
 # deprecated since 22.0.0 in favor of "os_compute_api:os-security-
-# groups:update":"rule:project_member_api".
+# groups:update":"rule:project_member_or_admin".
 # Nova API policies are introducing new default roles with scope_type
 # capabilities. Old policies are deprecated and silently going to be
 # ignored in nova 23.0.0 release.
-#"os_compute_api:os-security-groups": "rule:os_compute_api:os-security-groups:update"
+# WARNING: A rule name change has been identified.
+#          This may be an artifact of new rules being
+#          included which require legacy fallback
+#          rules to ensure proper policy behavior.
+#          Alternatively, this may just be an alias.
+#          Please evaluate on a case by case basis
+#          keeping in mind the format for aliased
+#          rules is:
+#          "old_rule_name": "new_rule_name".
+# "os_compute_api:os-security-groups": "rule:os_compute_api:os-security-groups:update"
 
 # Delete security group. This API is deprecated.
 # DELETE  /os-security-groups/{security_group_id}
 # Intended scope(s): project
-#"os_compute_api:os-security-groups:delete": "rule:project_member_api"
+#"os_compute_api:os-security-groups:delete": "rule:project_member_or_admin"
 
 # DEPRECATED
 # "os_compute_api:os-security-groups":"rule:admin_or_owner" has been
 # deprecated since 22.0.0 in favor of "os_compute_api:os-security-
-# groups:delete":"rule:project_member_api".
+# groups:delete":"rule:project_member_or_admin".
 # Nova API policies are introducing new default roles with scope_type
 # capabilities. Old policies are deprecated and silently going to be
 # ignored in nova 23.0.0 release.
-#"os_compute_api:os-security-groups": "rule:os_compute_api:os-security-groups:delete"
+# WARNING: A rule name change has been identified.
+#          This may be an artifact of new rules being
+#          included which require legacy fallback
+#          rules to ensure proper policy behavior.
+#          Alternatively, this may just be an alias.
+#          Please evaluate on a case by case basis
+#          keeping in mind the format for aliased
+#          rules is:
+#          "old_rule_name": "new_rule_name".
+# "os_compute_api:os-security-groups": "rule:os_compute_api:os-security-groups:delete"
 
 # Create security group Rule. This API is deprecated.
 # POST  /os-security-group-rules
 # Intended scope(s): project
-#"os_compute_api:os-security-groups:rule:create": "rule:project_member_api"
+#"os_compute_api:os-security-groups:rule:create": "rule:project_member_or_admin"
 
 # DEPRECATED
 # "os_compute_api:os-security-groups":"rule:admin_or_owner" has been
 # deprecated since 22.0.0 in favor of "os_compute_api:os-security-
-# groups:rule:create":"rule:project_member_api".
+# groups:rule:create":"rule:project_member_or_admin".
 # Nova API policies are introducing new default roles with scope_type
 # capabilities. Old policies are deprecated and silently going to be
 # ignored in nova 23.0.0 release.
-#"os_compute_api:os-security-groups": "rule:os_compute_api:os-security-groups:rule:create"
+# WARNING: A rule name change has been identified.
+#          This may be an artifact of new rules being
+#          included which require legacy fallback
+#          rules to ensure proper policy behavior.
+#          Alternatively, this may just be an alias.
+#          Please evaluate on a case by case basis
+#          keeping in mind the format for aliased
+#          rules is:
+#          "old_rule_name": "new_rule_name".
+# "os_compute_api:os-security-groups": "rule:os_compute_api:os-security-groups:rule:create"
 
 # Delete security group Rule. This API is deprecated.
 # DELETE  /os-security-group-rules/{security_group_id}
 # Intended scope(s): project
-#"os_compute_api:os-security-groups:rule:delete": "rule:project_member_api"
+#"os_compute_api:os-security-groups:rule:delete": "rule:project_member_or_admin"
 
 # DEPRECATED
 # "os_compute_api:os-security-groups":"rule:admin_or_owner" has been
 # deprecated since 22.0.0 in favor of "os_compute_api:os-security-
-# groups:rule:delete":"rule:project_member_api".
+# groups:rule:delete":"rule:project_member_or_admin".
 # Nova API policies are introducing new default roles with scope_type
 # capabilities. Old policies are deprecated and silently going to be
 # ignored in nova 23.0.0 release.
-#"os_compute_api:os-security-groups": "rule:os_compute_api:os-security-groups:rule:delete"
+# WARNING: A rule name change has been identified.
+#          This may be an artifact of new rules being
+#          included which require legacy fallback
+#          rules to ensure proper policy behavior.
+#          Alternatively, this may just be an alias.
+#          Please evaluate on a case by case basis
+#          keeping in mind the format for aliased
+#          rules is:
+#          "old_rule_name": "new_rule_name".
+# "os_compute_api:os-security-groups": "rule:os_compute_api:os-security-groups:rule:delete"
 
 # List security groups of server.
 # GET  /servers/{server_id}/os-security-groups
 # Intended scope(s): project
-#"os_compute_api:os-security-groups:list": "rule:project_reader_api"
+#"os_compute_api:os-security-groups:list": "rule:project_reader_or_admin"
 
 # DEPRECATED
 # "os_compute_api:os-security-groups":"rule:admin_or_owner" has been
 # deprecated since 22.0.0 in favor of "os_compute_api:os-security-
-# groups:list":"rule:project_reader_api".
+# groups:list":"rule:project_reader_or_admin".
 # Nova API policies are introducing new default roles with scope_type
 # capabilities. Old policies are deprecated and silently going to be
 # ignored in nova 23.0.0 release.
-#"os_compute_api:os-security-groups": "rule:os_compute_api:os-security-groups:list"
+# WARNING: A rule name change has been identified.
+#          This may be an artifact of new rules being
+#          included which require legacy fallback
+#          rules to ensure proper policy behavior.
+#          Alternatively, this may just be an alias.
+#          Please evaluate on a case by case basis
+#          keeping in mind the format for aliased
+#          rules is:
+#          "old_rule_name": "new_rule_name".
+# "os_compute_api:os-security-groups": "rule:os_compute_api:os-security-groups:list"
 
 # Add security groups to server.
 # POST  /servers/{server_id}/action (addSecurityGroup)
 # Intended scope(s): project
-#"os_compute_api:os-security-groups:add": "rule:project_member_api"
+#"os_compute_api:os-security-groups:add": "rule:project_member_or_admin"
 
 # DEPRECATED
 # "os_compute_api:os-security-groups":"rule:admin_or_owner" has been
 # deprecated since 22.0.0 in favor of "os_compute_api:os-security-
-# groups:add":"rule:project_member_api".
+# groups:add":"rule:project_member_or_admin".
 # Nova API policies are introducing new default roles with scope_type
 # capabilities. Old policies are deprecated and silently going to be
 # ignored in nova 23.0.0 release.
-#"os_compute_api:os-security-groups": "rule:os_compute_api:os-security-groups:add"
+# WARNING: A rule name change has been identified.
+#          This may be an artifact of new rules being
+#          included which require legacy fallback
+#          rules to ensure proper policy behavior.
+#          Alternatively, this may just be an alias.
+#          Please evaluate on a case by case basis
+#          keeping in mind the format for aliased
+#          rules is:
+#          "old_rule_name": "new_rule_name".
+# "os_compute_api:os-security-groups": "rule:os_compute_api:os-security-groups:add"
 
 # Remove security groups from server.
 # POST  /servers/{server_id}/action (removeSecurityGroup)
 # Intended scope(s): project
-#"os_compute_api:os-security-groups:remove": "rule:project_member_api"
+#"os_compute_api:os-security-groups:remove": "rule:project_member_or_admin"
 
 # DEPRECATED
 # "os_compute_api:os-security-groups":"rule:admin_or_owner" has been
 # deprecated since 22.0.0 in favor of "os_compute_api:os-security-
-# groups:remove":"rule:project_member_api".
+# groups:remove":"rule:project_member_or_admin".
 # Nova API policies are introducing new default roles with scope_type
 # capabilities. Old policies are deprecated and silently going to be
 # ignored in nova 23.0.0 release.
-#"os_compute_api:os-security-groups": "rule:os_compute_api:os-security-groups:remove"
+# WARNING: A rule name change has been identified.
+#          This may be an artifact of new rules being
+#          included which require legacy fallback
+#          rules to ensure proper policy behavior.
+#          Alternatively, this may just be an alias.
+#          Please evaluate on a case by case basis
+#          keeping in mind the format for aliased
+#          rules is:
+#          "old_rule_name": "new_rule_name".
+# "os_compute_api:os-security-groups": "rule:os_compute_api:os-security-groups:remove"
 
 # Show the usage data for a server
 # GET  /servers/{server_id}/diagnostics
 # Intended scope(s): project
-#"os_compute_api:os-server-diagnostics": "rule:project_admin_api"
+#"os_compute_api:os-server-diagnostics": "rule:context_is_admin"
 
 # Create one or more external events
 # POST  /os-server-external-events
@@ -1145,157 +1614,175 @@
 # Create a new server group
 # POST  /os-server-groups
 # Intended scope(s): project
-#"os_compute_api:os-server-groups:create": "rule:project_member_api"
+#"os_compute_api:os-server-groups:create": "rule:project_member_or_admin"
 
 # Delete a server group
 # DELETE  /os-server-groups/{server_group_id}
 # Intended scope(s): project
-#"os_compute_api:os-server-groups:delete": "rule:project_member_api"
+#"os_compute_api:os-server-groups:delete": "rule:project_member_or_admin"
 
 # List all server groups
 # GET  /os-server-groups
 # Intended scope(s): project
-#"os_compute_api:os-server-groups:index": "rule:project_reader_api"
+#"os_compute_api:os-server-groups:index": "rule:project_reader_or_admin"
 
 # List all server groups for all projects
 # GET  /os-server-groups
 # Intended scope(s): project
-#"os_compute_api:os-server-groups:index:all_projects": "rule:project_admin_api"
+#"os_compute_api:os-server-groups:index:all_projects": "rule:context_is_admin"
 
 # Show details of a server group
 # GET  /os-server-groups/{server_group_id}
 # Intended scope(s): project
-#"os_compute_api:os-server-groups:show": "rule:project_reader_api"
+#"os_compute_api:os-server-groups:show": "rule:project_reader_or_admin"
 
 # List all metadata of a server
 # GET  /servers/{server_id}/metadata
 # Intended scope(s): project
-#"os_compute_api:server-metadata:index": "rule:project_reader_api"
+#"os_compute_api:server-metadata:index": "rule:project_reader_or_admin"
 
 # Show metadata for a server
 # GET  /servers/{server_id}/metadata/{key}
 # Intended scope(s): project
-#"os_compute_api:server-metadata:show": "rule:project_reader_api"
+#"os_compute_api:server-metadata:show": "rule:project_reader_or_admin"
 
 # Create metadata for a server
 # POST  /servers/{server_id}/metadata
 # Intended scope(s): project
-#"os_compute_api:server-metadata:create": "rule:project_member_api"
+#"os_compute_api:server-metadata:create": "rule:project_member_or_admin"
 
 # Replace metadata for a server
 # PUT  /servers/{server_id}/metadata
 # Intended scope(s): project
-#"os_compute_api:server-metadata:update_all": "rule:project_member_api"
+#"os_compute_api:server-metadata:update_all": "rule:project_member_or_admin"
 
 # Update metadata from a server
 # PUT  /servers/{server_id}/metadata/{key}
 # Intended scope(s): project
-#"os_compute_api:server-metadata:update": "rule:project_member_api"
+#"os_compute_api:server-metadata:update": "rule:project_member_or_admin"
 
 # Delete metadata from a server
 # DELETE  /servers/{server_id}/metadata/{key}
 # Intended scope(s): project
-#"os_compute_api:server-metadata:delete": "rule:project_member_api"
+#"os_compute_api:server-metadata:delete": "rule:project_member_or_admin"
 
 # Show the encrypted administrative password of a server
 # GET  /servers/{server_id}/os-server-password
 # Intended scope(s): project
-#"os_compute_api:os-server-password:show": "rule:project_reader_api"
+#"os_compute_api:os-server-password:show": "rule:project_reader_or_admin"
 
 # DEPRECATED
 # "os_compute_api:os-server-password":"rule:admin_or_owner" has been
 # deprecated since 21.0.0 in favor of "os_compute_api:os-server-
-# password:show":"rule:project_reader_api".
+# password:show":"rule:project_reader_or_admin".
 # Nova API policies are introducing new default roles with scope_type
 # capabilities. Old policies are deprecated and silently going to be
 # ignored in nova 23.0.0 release.
-#"os_compute_api:os-server-password": "rule:os_compute_api:os-server-password:show"
+# WARNING: A rule name change has been identified.
+#          This may be an artifact of new rules being
+#          included which require legacy fallback
+#          rules to ensure proper policy behavior.
+#          Alternatively, this may just be an alias.
+#          Please evaluate on a case by case basis
+#          keeping in mind the format for aliased
+#          rules is:
+#          "old_rule_name": "new_rule_name".
+# "os_compute_api:os-server-password": "rule:os_compute_api:os-server-password:show"
 
 # Clear the encrypted administrative password of a server
 # DELETE  /servers/{server_id}/os-server-password
 # Intended scope(s): project
-#"os_compute_api:os-server-password:clear": "rule:project_member_api"
+#"os_compute_api:os-server-password:clear": "rule:project_member_or_admin"
 
 # DEPRECATED
 # "os_compute_api:os-server-password":"rule:admin_or_owner" has been
 # deprecated since 21.0.0 in favor of "os_compute_api:os-server-
-# password:clear":"rule:project_member_api".
+# password:clear":"rule:project_member_or_admin".
 # Nova API policies are introducing new default roles with scope_type
 # capabilities. Old policies are deprecated and silently going to be
 # ignored in nova 23.0.0 release.
-#"os_compute_api:os-server-password": "rule:os_compute_api:os-server-password:clear"
+# WARNING: A rule name change has been identified.
+#          This may be an artifact of new rules being
+#          included which require legacy fallback
+#          rules to ensure proper policy behavior.
+#          Alternatively, this may just be an alias.
+#          Please evaluate on a case by case basis
+#          keeping in mind the format for aliased
+#          rules is:
+#          "old_rule_name": "new_rule_name".
+# "os_compute_api:os-server-password": "rule:os_compute_api:os-server-password:clear"
 
 # Delete all the server tags
 # DELETE  /servers/{server_id}/tags
 # Intended scope(s): project
-#"os_compute_api:os-server-tags:delete_all": "rule:project_member_api"
+#"os_compute_api:os-server-tags:delete_all": "rule:project_member_or_admin"
 
 # List all tags for given server
 # GET  /servers/{server_id}/tags
 # Intended scope(s): project
-#"os_compute_api:os-server-tags:index": "rule:project_reader_api"
+#"os_compute_api:os-server-tags:index": "rule:project_reader_or_admin"
 
 # Replace all tags on specified server with the new set of tags.
 # PUT  /servers/{server_id}/tags
 # Intended scope(s): project
-#"os_compute_api:os-server-tags:update_all": "rule:project_member_api"
+#"os_compute_api:os-server-tags:update_all": "rule:project_member_or_admin"
 
 # Delete a single tag from the specified server
 # DELETE  /servers/{server_id}/tags/{tag}
 # Intended scope(s): project
-#"os_compute_api:os-server-tags:delete": "rule:project_member_api"
+#"os_compute_api:os-server-tags:delete": "rule:project_member_or_admin"
 
 # Add a single tag to the server if server has no specified tag
 # PUT  /servers/{server_id}/tags/{tag}
 # Intended scope(s): project
-#"os_compute_api:os-server-tags:update": "rule:project_member_api"
+#"os_compute_api:os-server-tags:update": "rule:project_member_or_admin"
 
 # Check tag existence on the server.
 # GET  /servers/{server_id}/tags/{tag}
 # Intended scope(s): project
-#"os_compute_api:os-server-tags:show": "rule:project_reader_api"
+#"os_compute_api:os-server-tags:show": "rule:project_reader_or_admin"
 
 # Show the NUMA topology data for a server
 # GET  /servers/{server_id}/topology
 # Intended scope(s): project
-#"compute:server:topology:index": "rule:project_reader_api"
+#"compute:server:topology:index": "rule:project_reader_or_admin"
 
 # Show the NUMA topology data for a server with host NUMA ID and CPU
 # pinning information
 # GET  /servers/{server_id}/topology
 # Intended scope(s): project
-#"compute:server:topology:host:index": "rule:project_admin_api"
+#"compute:server:topology:host:index": "rule:context_is_admin"
 
 # List all servers
 # GET  /servers
 # Intended scope(s): project
-#"os_compute_api:servers:index": "rule:project_reader_api"
+#"os_compute_api:servers:index": "rule:project_reader_or_admin"
 
 # List all servers with detailed information
 # GET  /servers/detail
 # Intended scope(s): project
-#"os_compute_api:servers:detail": "rule:project_reader_api"
+#"os_compute_api:servers:detail": "rule:project_reader_or_admin"
 
 # List all servers for all projects
 # GET  /servers
 # Intended scope(s): project
-#"os_compute_api:servers:index:get_all_tenants": "rule:project_admin_api"
+#"os_compute_api:servers:index:get_all_tenants": "rule:context_is_admin"
 
 # List all servers with detailed information for  all projects
 # GET  /servers/detail
 # Intended scope(s): project
-#"os_compute_api:servers:detail:get_all_tenants": "rule:project_admin_api"
+#"os_compute_api:servers:detail:get_all_tenants": "rule:context_is_admin"
 
 # Allow all filters when listing servers
 # GET  /servers
 # GET  /servers/detail
 # Intended scope(s): project
-#"os_compute_api:servers:allow_all_filters": "rule:project_admin_api"
+#"os_compute_api:servers:allow_all_filters": "rule:context_is_admin"
 
 # Show a server
 # GET  /servers/{server_id}
 # Intended scope(s): project
-#"os_compute_api:servers:show": "rule:project_reader_api"
+#"os_compute_api:servers:show": "rule:project_reader_or_admin"
 
 # Starting with microversion 2.47, the flavor and its extra specs used
 # for a server is also returned in the response when showing server
@@ -1305,17 +1792,26 @@
 # PUT  /servers/{server_id}
 # POST  /servers/{server_id}/action (rebuild)
 # Intended scope(s): project
-#"os_compute_api:servers:show:flavor-extra-specs": "rule:project_reader_api"
+#"os_compute_api:servers:show:flavor-extra-specs": "rule:project_reader_or_admin"
 
 # DEPRECATED
 # "os_compute_api:os-flavor-extra-specs:index":"rule:admin_or_owner"
 # has been deprecated since 25.0.0 in favor of
 # "os_compute_api:servers:show:flavor-extra-
-# specs":"rule:project_reader_api".
+# specs":"rule:project_reader_or_admin".
 # Policies for showing flavor extra specs in server APIs response is
 # seprated as new policy. This policy is deprecated only for that but
 # not for list extra specs and showing it in flavor API response.
-#"os_compute_api:os-flavor-extra-specs:index": "rule:os_compute_api:servers:show:flavor-extra-specs"
+# WARNING: A rule name change has been identified.
+#          This may be an artifact of new rules being
+#          included which require legacy fallback
+#          rules to ensure proper policy behavior.
+#          Alternatively, this may just be an alias.
+#          Please evaluate on a case by case basis
+#          keeping in mind the format for aliased
+#          rules is:
+#          "old_rule_name": "new_rule_name".
+# "os_compute_api:os-flavor-extra-specs:index": "rule:os_compute_api:servers:show:flavor-extra-specs"
 
 # Show a server with additional host status information.
 #
@@ -1333,7 +1829,7 @@
 # PUT  /servers/{server_id}
 # POST  /servers/{server_id}/action (rebuild)
 # Intended scope(s): project
-#"os_compute_api:servers:show:host_status": "rule:project_admin_api"
+#"os_compute_api:servers:show:host_status": "rule:context_is_admin"
 
 # Show a server with additional host status information, only if host
 # status is UNKNOWN.
@@ -1350,12 +1846,12 @@
 # PUT  /servers/{server_id}
 # POST  /servers/{server_id}/action (rebuild)
 # Intended scope(s): project
-#"os_compute_api:servers:show:host_status:unknown-only": "rule:project_admin_api"
+#"os_compute_api:servers:show:host_status:unknown-only": "rule:context_is_admin"
 
 # Create a server
 # POST  /servers
 # Intended scope(s): project
-#"os_compute_api:servers:create": "rule:project_member_api"
+#"os_compute_api:servers:create": "rule:project_member_or_admin"
 
 # Create a server on the specified host and/or node.
 #
@@ -1364,7 +1860,7 @@
 # ``compute:servers:create:requested_destination`` rule.
 # POST  /servers
 # Intended scope(s): project
-#"os_compute_api:servers:create:forced_host": "rule:project_admin_api"
+#"os_compute_api:servers:create:forced_host": "rule:context_is_admin"
 
 # Create a server on the requested compute service host and/or
 # hypervisor_hostname.
@@ -1374,22 +1870,22 @@
 # ``os_compute_api:servers:create:forced_host`` rule.
 # POST  /servers
 # Intended scope(s): project
-#"compute:servers:create:requested_destination": "rule:project_admin_api"
+#"compute:servers:create:requested_destination": "rule:context_is_admin"
 
 # Create a server with the requested volume attached to it
 # POST  /servers
 # Intended scope(s): project
-#"os_compute_api:servers:create:attach_volume": "rule:project_member_api"
+#"os_compute_api:servers:create:attach_volume": "rule:project_member_or_admin"
 
 # Create a server with the requested network attached  to it
 # POST  /servers
 # Intended scope(s): project
-#"os_compute_api:servers:create:attach_network": "rule:project_member_api"
+#"os_compute_api:servers:create:attach_network": "rule:project_member_or_admin"
 
 # Create a server with trusted image certificate IDs
 # POST  /servers
 # Intended scope(s): project
-#"os_compute_api:servers:create:trusted_certs": "rule:project_member_api"
+#"os_compute_api:servers:create:trusted_certs": "rule:project_member_or_admin"
 
 # This rule controls the compute API validation behavior of creating a
 # server with a flavor that has 0 disk, indicating the server should
@@ -1408,43 +1904,43 @@
 # https://bugs.launchpad.net/nova/+bug/1739646 for details.
 # POST  /servers
 # Intended scope(s): project
-#"os_compute_api:servers:create:zero_disk_flavor": "rule:project_admin_api"
+#"os_compute_api:servers:create:zero_disk_flavor": "rule:context_is_admin"
 
 # Attach an unshared external network to a server
 # POST  /servers
 # POST  /servers/{server_id}/os-interface
 # Intended scope(s): project
-#"network:attach_external_network": "rule:project_admin_api"
+#"network:attach_external_network": "rule:context_is_admin"
 
 # Delete a server
 # DELETE  /servers/{server_id}
 # Intended scope(s): project
-#"os_compute_api:servers:delete": "rule:project_member_api"
+#"os_compute_api:servers:delete": "rule:project_member_or_admin"
 
 # Update a server
 # PUT  /servers/{server_id}
 # Intended scope(s): project
-#"os_compute_api:servers:update": "rule:project_member_api"
+#"os_compute_api:servers:update": "rule:project_member_or_admin"
 
 # Confirm a server resize
 # POST  /servers/{server_id}/action (confirmResize)
 # Intended scope(s): project
-#"os_compute_api:servers:confirm_resize": "rule:project_member_api"
+#"os_compute_api:servers:confirm_resize": "rule:project_member_or_admin"
 
 # Revert a server resize
 # POST  /servers/{server_id}/action (revertResize)
 # Intended scope(s): project
-#"os_compute_api:servers:revert_resize": "rule:project_member_api"
+#"os_compute_api:servers:revert_resize": "rule:project_member_or_admin"
 
 # Reboot a server
 # POST  /servers/{server_id}/action (reboot)
 # Intended scope(s): project
-#"os_compute_api:servers:reboot": "rule:project_member_api"
+#"os_compute_api:servers:reboot": "rule:project_member_or_admin"
 
 # Resize a server
 # POST  /servers/{server_id}/action (resize)
 # Intended scope(s): project
-#"os_compute_api:servers:resize": "rule:project_member_api"
+#"os_compute_api:servers:resize": "rule:project_member_or_admin"
 
 # Resize a server across cells. By default, this is disabled for all
 # users and recommended to be tested in a deployment for admin users
@@ -1457,61 +1953,61 @@
 # Rebuild a server
 # POST  /servers/{server_id}/action (rebuild)
 # Intended scope(s): project
-#"os_compute_api:servers:rebuild": "rule:project_member_api"
+#"os_compute_api:servers:rebuild": "rule:project_member_or_admin"
 
 # Rebuild a server with trusted image certificate IDs
 # POST  /servers/{server_id}/action (rebuild)
 # Intended scope(s): project
-#"os_compute_api:servers:rebuild:trusted_certs": "rule:project_member_api"
+#"os_compute_api:servers:rebuild:trusted_certs": "rule:project_member_or_admin"
 
 # Create an image from a server
 # POST  /servers/{server_id}/action (createImage)
 # Intended scope(s): project
-#"os_compute_api:servers:create_image": "rule:project_member_api"
+#"os_compute_api:servers:create_image": "rule:project_member_or_admin"
 
 # Create an image from a volume backed server
 # POST  /servers/{server_id}/action (createImage)
 # Intended scope(s): project
-#"os_compute_api:servers:create_image:allow_volume_backed": "rule:project_member_api"
+#"os_compute_api:servers:create_image:allow_volume_backed": "rule:project_member_or_admin"
 
 # Start a server
 # POST  /servers/{server_id}/action (os-start)
 # Intended scope(s): project
-#"os_compute_api:servers:start": "rule:project_member_api"
+#"os_compute_api:servers:start": "rule:project_member_or_admin"
 
 # Stop a server
 # POST  /servers/{server_id}/action (os-stop)
 # Intended scope(s): project
-#"os_compute_api:servers:stop": "rule:project_member_api"
+#"os_compute_api:servers:stop": "rule:project_member_or_admin"
 
 # Trigger crash dump in a server
 # POST  /servers/{server_id}/action (trigger_crash_dump)
 # Intended scope(s): project
-#"os_compute_api:servers:trigger_crash_dump": "rule:project_member_api"
+#"os_compute_api:servers:trigger_crash_dump": "rule:project_member_or_admin"
 
 # Show details for an in-progress live migration for a given server
 # GET  /servers/{server_id}/migrations/{migration_id}
 # Intended scope(s): project
-#"os_compute_api:servers:migrations:show": "rule:project_admin_api"
+#"os_compute_api:servers:migrations:show": "rule:context_is_admin"
 
 # Force an in-progress live migration for a given server to complete
 # POST  /servers/{server_id}/migrations/{migration_id}/action (force_complete)
 # Intended scope(s): project
-#"os_compute_api:servers:migrations:force_complete": "rule:project_admin_api"
+#"os_compute_api:servers:migrations:force_complete": "rule:context_is_admin"
 
 # Delete(Abort) an in-progress live migration
 # DELETE  /servers/{server_id}/migrations/{migration_id}
 # Intended scope(s): project
-#"os_compute_api:servers:migrations:delete": "rule:project_admin_api"
+#"os_compute_api:servers:migrations:delete": "rule:context_is_admin"
 
 # Lists in-progress live migrations for a given server
 # GET  /servers/{server_id}/migrations
 # Intended scope(s): project
-#"os_compute_api:servers:migrations:index": "rule:project_admin_api"
+#"os_compute_api:servers:migrations:index": "rule:context_is_admin"
 
 # List all running Compute services in a region.
 # GET  /os-services
-# Intended scope(s): system
+# Intended scope(s): project
 #"os_compute_api:os-services:list": "rule:context_is_admin"
 
 # DEPRECATED
@@ -1521,11 +2017,20 @@
 # Nova API policies are introducing new default roles with scope_type
 # capabilities. Old policies are deprecated and silently going to be
 # ignored in nova 23.0.0 release.
-#"os_compute_api:os-services": "rule:os_compute_api:os-services:list"
+# WARNING: A rule name change has been identified.
+#          This may be an artifact of new rules being
+#          included which require legacy fallback
+#          rules to ensure proper policy behavior.
+#          Alternatively, this may just be an alias.
+#          Please evaluate on a case by case basis
+#          keeping in mind the format for aliased
+#          rules is:
+#          "old_rule_name": "new_rule_name".
+# "os_compute_api:os-services": "rule:os_compute_api:os-services:list"
 
 # Update a Compute service.
 # PUT  /os-services/{service_id}
-# Intended scope(s): system
+# Intended scope(s): project
 #"os_compute_api:os-services:update": "rule:context_is_admin"
 
 # DEPRECATED
@@ -1535,11 +2040,20 @@
 # Nova API policies are introducing new default roles with scope_type
 # capabilities. Old policies are deprecated and silently going to be
 # ignored in nova 23.0.0 release.
-#"os_compute_api:os-services": "rule:os_compute_api:os-services:update"
+# WARNING: A rule name change has been identified.
+#          This may be an artifact of new rules being
+#          included which require legacy fallback
+#          rules to ensure proper policy behavior.
+#          Alternatively, this may just be an alias.
+#          Please evaluate on a case by case basis
+#          keeping in mind the format for aliased
+#          rules is:
+#          "old_rule_name": "new_rule_name".
+# "os_compute_api:os-services": "rule:os_compute_api:os-services:update"
 
 # Delete a Compute service.
 # DELETE  /os-services/{service_id}
-# Intended scope(s): system
+# Intended scope(s): project
 #"os_compute_api:os-services:delete": "rule:context_is_admin"
 
 # DEPRECATED
@@ -1549,42 +2063,56 @@
 # Nova API policies are introducing new default roles with scope_type
 # capabilities. Old policies are deprecated and silently going to be
 # ignored in nova 23.0.0 release.
-#"os_compute_api:os-services": "rule:os_compute_api:os-services:delete"
+# WARNING: A rule name change has been identified.
+#          This may be an artifact of new rules being
+#          included which require legacy fallback
+#          rules to ensure proper policy behavior.
+#          Alternatively, this may just be an alias.
+#          Please evaluate on a case by case basis
+#          keeping in mind the format for aliased
+#          rules is:
+#          "old_rule_name": "new_rule_name".
+# "os_compute_api:os-services": "rule:os_compute_api:os-services:delete"
 
 # Shelve server
 # POST  /servers/{server_id}/action (shelve)
 # Intended scope(s): project
-#"os_compute_api:os-shelve:shelve": "rule:project_member_api"
+#"os_compute_api:os-shelve:shelve": "rule:project_member_or_admin"
 
 # Unshelve (restore) shelved server
 # POST  /servers/{server_id}/action (unshelve)
 # Intended scope(s): project
-#"os_compute_api:os-shelve:unshelve": "rule:project_member_api"
+#"os_compute_api:os-shelve:unshelve": "rule:project_member_or_admin"
+
+# Unshelve (restore) shelve offloaded server to a specific host
+# POST  /servers/{server_id}/action (unshelve)
+# Intended scope(s): project
+#"os_compute_api:os-shelve:unshelve_to_host": "rule:context_is_admin"
 
 # Shelf-offload (remove) server
 # POST  /servers/{server_id}/action (shelveOffload)
 # Intended scope(s): project
-#"os_compute_api:os-shelve:shelve_offload": "rule:project_admin_api"
+#"os_compute_api:os-shelve:shelve_offload": "rule:context_is_admin"
 
 # Show usage statistics for a specific tenant
 # GET  /os-simple-tenant-usage/{tenant_id}
 # Intended scope(s): project
-#"os_compute_api:os-simple-tenant-usage:show": "rule:project_reader_api"
+#"os_compute_api:os-simple-tenant-usage:show": "rule:project_reader_or_admin"
 
 # List per tenant usage statistics for all tenants
 # GET  /os-simple-tenant-usage
 # Intended scope(s): project
-#"os_compute_api:os-simple-tenant-usage:list": "rule:project_admin_api"
+#"os_compute_api:os-simple-tenant-usage:list": "rule:context_is_admin"
 
 # Resume suspended server
 # POST  /servers/{server_id}/action (resume)
 # Intended scope(s): project
-#"os_compute_api:os-suspend-server:resume": "rule:project_member_api"
+#"os_compute_api:os-suspend-server:resume": "rule:project_member_or_admin"
 
 # Suspend server
 # POST  /servers/{server_id}/action (suspend)
 # Intended scope(s): project
-#"os_compute_api:os-suspend-server:suspend": "rule:project_member_api"
+#"os_compute_api:os-suspend-server:suspend": "rule:project_member_or_admin"
 
 # List project networks.
 #
@@ -1600,7 +2128,16 @@
 # Nova API policies are introducing new default roles with scope_type
 # capabilities. Old policies are deprecated and silently going to be
 # ignored in nova 23.0.0 release.
-#"os_compute_api:os-tenant-networks": "rule:os_compute_api:os-tenant-networks:list"
+# WARNING: A rule name change has been identified.
+#          This may be an artifact of new rules being
+#          included which require legacy fallback
+#          rules to ensure proper policy behavior.
+#          Alternatively, this may just be an alias.
+#          Please evaluate on a case by case basis
+#          keeping in mind the format for aliased
+#          rules is:
+#          "old_rule_name": "new_rule_name".
+# "os_compute_api:os-tenant-networks": "rule:os_compute_api:os-tenant-networks:list"
 
 # Show project network details.
 #
@@ -1616,182 +2153,281 @@
 # Nova API policies are introducing new default roles with scope_type
 # capabilities. Old policies are deprecated and silently going to be
 # ignored in nova 23.0.0 release.
-#"os_compute_api:os-tenant-networks": "rule:os_compute_api:os-tenant-networks:show"
+# WARNING: A rule name change has been identified.
+#          This may be an artifact of new rules being
+#          included which require legacy fallback
+#          rules to ensure proper policy behavior.
+#          Alternatively, this may just be an alias.
+#          Please evaluate on a case by case basis
+#          keeping in mind the format for aliased
+#          rules is:
+#          "old_rule_name": "new_rule_name".
+# "os_compute_api:os-tenant-networks": "rule:os_compute_api:os-tenant-networks:show"
 
 # List volumes.
 #
 # This API is a proxy call to the Volume service. It is deprecated.
 # GET  /os-volumes
 # Intended scope(s): project
-#"os_compute_api:os-volumes:list": "rule:project_reader_api"
+#"os_compute_api:os-volumes:list": "rule:project_reader_or_admin"
 
 # DEPRECATED
 # "os_compute_api:os-volumes":"rule:admin_or_owner" has been
 # deprecated since 22.0.0 in favor of "os_compute_api:os-
-# volumes:list":"rule:project_reader_api".
+# volumes:list":"rule:project_reader_or_admin".
 # Nova API policies are introducing new default roles with scope_type
 # capabilities. Old policies are deprecated and silently going to be
 # ignored in nova 23.0.0 release.
-#"os_compute_api:os-volumes": "rule:os_compute_api:os-volumes:list"
+# WARNING: A rule name change has been identified.
+#          This may be an artifact of new rules being
+#          included which require legacy fallback
+#          rules to ensure proper policy behavior.
+#          Alternatively, this may just be an alias.
+#          Please evaluate on a case by case basis
+#          keeping in mind the format for aliased
+#          rules is:
+#          "old_rule_name": "new_rule_name".
+# "os_compute_api:os-volumes": "rule:os_compute_api:os-volumes:list"
 
 # Create volume.
 #
 # This API is a proxy call to the Volume service. It is deprecated.
 # POST  /os-volumes
 # Intended scope(s): project
-#"os_compute_api:os-volumes:create": "rule:project_member_api"
+#"os_compute_api:os-volumes:create": "rule:project_member_or_admin"
 
 # DEPRECATED
 # "os_compute_api:os-volumes":"rule:admin_or_owner" has been
 # deprecated since 22.0.0 in favor of "os_compute_api:os-
-# volumes:create":"rule:project_member_api".
+# volumes:create":"rule:project_member_or_admin".
 # Nova API policies are introducing new default roles with scope_type
 # capabilities. Old policies are deprecated and silently going to be
 # ignored in nova 23.0.0 release.
-#"os_compute_api:os-volumes": "rule:os_compute_api:os-volumes:create"
+# WARNING: A rule name change has been identified.
+#          This may be an artifact of new rules being
+#          included which require legacy fallback
+#          rules to ensure proper policy behavior.
+#          Alternatively, this may just be an alias.
+#          Please evaluate on a case by case basis
+#          keeping in mind the format for aliased
+#          rules is:
+#          "old_rule_name": "new_rule_name".
+# "os_compute_api:os-volumes": "rule:os_compute_api:os-volumes:create"
 
 # List volumes detail.
 #
 # This API is a proxy call to the Volume service. It is deprecated.
 # GET  /os-volumes/detail
 # Intended scope(s): project
-#"os_compute_api:os-volumes:detail": "rule:project_reader_api"
+#"os_compute_api:os-volumes:detail": "rule:project_reader_or_admin"
 
 # DEPRECATED
 # "os_compute_api:os-volumes":"rule:admin_or_owner" has been
 # deprecated since 22.0.0 in favor of "os_compute_api:os-
-# volumes:detail":"rule:project_reader_api".
+# volumes:detail":"rule:project_reader_or_admin".
 # Nova API policies are introducing new default roles with scope_type
 # capabilities. Old policies are deprecated and silently going to be
 # ignored in nova 23.0.0 release.
-#"os_compute_api:os-volumes": "rule:os_compute_api:os-volumes:detail"
+# WARNING: A rule name change has been identified.
+#          This may be an artifact of new rules being
+#          included which require legacy fallback
+#          rules to ensure proper policy behavior.
+#          Alternatively, this may just be an alias.
+#          Please evaluate on a case by case basis
+#          keeping in mind the format for aliased
+#          rules is:
+#          "old_rule_name": "new_rule_name".
+# "os_compute_api:os-volumes": "rule:os_compute_api:os-volumes:detail"
 
 # Show volume.
 #
 # This API is a proxy call to the Volume service. It is deprecated.
 # GET  /os-volumes/{volume_id}
 # Intended scope(s): project
-#"os_compute_api:os-volumes:show": "rule:project_reader_api"
+#"os_compute_api:os-volumes:show": "rule:project_reader_or_admin"
 
 # DEPRECATED
 # "os_compute_api:os-volumes":"rule:admin_or_owner" has been
 # deprecated since 22.0.0 in favor of "os_compute_api:os-
-# volumes:show":"rule:project_reader_api".
+# volumes:show":"rule:project_reader_or_admin".
 # Nova API policies are introducing new default roles with scope_type
 # capabilities. Old policies are deprecated and silently going to be
 # ignored in nova 23.0.0 release.
-#"os_compute_api:os-volumes": "rule:os_compute_api:os-volumes:show"
+# WARNING: A rule name change has been identified.
+#          This may be an artifact of new rules being
+#          included which require legacy fallback
+#          rules to ensure proper policy behavior.
+#          Alternatively, this may just be an alias.
+#          Please evaluate on a case by case basis
+#          keeping in mind the format for aliased
+#          rules is:
+#          "old_rule_name": "new_rule_name".
+# "os_compute_api:os-volumes": "rule:os_compute_api:os-volumes:show"
 
 # Delete volume.
 #
 # This API is a proxy call to the Volume service. It is deprecated.
 # DELETE  /os-volumes/{volume_id}
 # Intended scope(s): project
-#"os_compute_api:os-volumes:delete": "rule:project_member_api"
+#"os_compute_api:os-volumes:delete": "rule:project_member_or_admin"
 
 # DEPRECATED
 # "os_compute_api:os-volumes":"rule:admin_or_owner" has been
 # deprecated since 22.0.0 in favor of "os_compute_api:os-
-# volumes:delete":"rule:project_member_api".
+# volumes:delete":"rule:project_member_or_admin".
 # Nova API policies are introducing new default roles with scope_type
 # capabilities. Old policies are deprecated and silently going to be
 # ignored in nova 23.0.0 release.
-#"os_compute_api:os-volumes": "rule:os_compute_api:os-volumes:delete"
+# WARNING: A rule name change has been identified.
+#          This may be an artifact of new rules being
+#          included which require legacy fallback
+#          rules to ensure proper policy behavior.
+#          Alternatively, this may just be an alias.
+#          Please evaluate on a case by case basis
+#          keeping in mind the format for aliased
+#          rules is:
+#          "old_rule_name": "new_rule_name".
+# "os_compute_api:os-volumes": "rule:os_compute_api:os-volumes:delete"
 
 # List snapshots.
 #
 # This API is a proxy call to the Volume service. It is deprecated.
 # GET  /os-snapshots
 # Intended scope(s): project
-#"os_compute_api:os-volumes:snapshots:list": "rule:project_reader_api"
+#"os_compute_api:os-volumes:snapshots:list": "rule:project_reader_or_admin"
 
 # DEPRECATED
 # "os_compute_api:os-volumes":"rule:admin_or_owner" has been
 # deprecated since 22.0.0 in favor of "os_compute_api:os-
-# volumes:snapshots:list":"rule:project_reader_api".
+# volumes:snapshots:list":"rule:project_reader_or_admin".
 # Nova API policies are introducing new default roles with scope_type
 # capabilities. Old policies are deprecated and silently going to be
 # ignored in nova 23.0.0 release.
-#"os_compute_api:os-volumes": "rule:os_compute_api:os-volumes:snapshots:list"
+# WARNING: A rule name change has been identified.
+#          This may be an artifact of new rules being
+#          included which require legacy fallback
+#          rules to ensure proper policy behavior.
+#          Alternatively, this may just be an alias.
+#          Please evaluate on a case by case basis
+#          keeping in mind the format for aliased
+#          rules is:
+#          "old_rule_name": "new_rule_name".
+# "os_compute_api:os-volumes": "rule:os_compute_api:os-volumes:snapshots:list"
 
 # Create snapshots.
 #
 # This API is a proxy call to the Volume service. It is deprecated.
 # POST  /os-snapshots
 # Intended scope(s): project
-#"os_compute_api:os-volumes:snapshots:create": "rule:project_member_api"
+#"os_compute_api:os-volumes:snapshots:create": "rule:project_member_or_admin"
 
 # DEPRECATED
 # "os_compute_api:os-volumes":"rule:admin_or_owner" has been
 # deprecated since 22.0.0 in favor of "os_compute_api:os-
-# volumes:snapshots:create":"rule:project_member_api".
+# volumes:snapshots:create":"rule:project_member_or_admin".
 # Nova API policies are introducing new default roles with scope_type
 # capabilities. Old policies are deprecated and silently going to be
 # ignored in nova 23.0.0 release.
-#"os_compute_api:os-volumes": "rule:os_compute_api:os-volumes:snapshots:create"
+# WARNING: A rule name change has been identified.
+#          This may be an artifact of new rules being
+#          included which require legacy fallback
+#          rules to ensure proper policy behavior.
+#          Alternatively, this may just be an alias.
+#          Please evaluate on a case by case basis
+#          keeping in mind the format for aliased
+#          rules is:
+#          "old_rule_name": "new_rule_name".
+# "os_compute_api:os-volumes": "rule:os_compute_api:os-volumes:snapshots:create"
 
 # List snapshots details.
 #
 # This API is a proxy call to the Volume service. It is deprecated.
 # GET  /os-snapshots/detail
 # Intended scope(s): project
-#"os_compute_api:os-volumes:snapshots:detail": "rule:project_reader_api"
+#"os_compute_api:os-volumes:snapshots:detail": "rule:project_reader_or_admin"
 
 # DEPRECATED
 # "os_compute_api:os-volumes":"rule:admin_or_owner" has been
 # deprecated since 22.0.0 in favor of "os_compute_api:os-
-# volumes:snapshots:detail":"rule:project_reader_api".
+# volumes:snapshots:detail":"rule:project_reader_or_admin".
 # Nova API policies are introducing new default roles with scope_type
 # capabilities. Old policies are deprecated and silently going to be
 # ignored in nova 23.0.0 release.
-#"os_compute_api:os-volumes": "rule:os_compute_api:os-volumes:snapshots:detail"
+# WARNING: A rule name change has been identified.
+#          This may be an artifact of new rules being
+#          included which require legacy fallback
+#          rules to ensure proper policy behavior.
+#          Alternatively, this may just be an alias.
+#          Please evaluate on a case by case basis
+#          keeping in mind the format for aliased
+#          rules is:
+#          "old_rule_name": "new_rule_name".
+# "os_compute_api:os-volumes": "rule:os_compute_api:os-volumes:snapshots:detail"
 
 # Show snapshot.
 #
 # This API is a proxy call to the Volume service. It is deprecated.
 # GET  /os-snapshots/{snapshot_id}
 # Intended scope(s): project
-#"os_compute_api:os-volumes:snapshots:show": "rule:project_reader_api"
+#"os_compute_api:os-volumes:snapshots:show": "rule:project_reader_or_admin"
 
 # DEPRECATED
 # "os_compute_api:os-volumes":"rule:admin_or_owner" has been
 # deprecated since 22.0.0 in favor of "os_compute_api:os-
-# volumes:snapshots:show":"rule:project_reader_api".
+# volumes:snapshots:show":"rule:project_reader_or_admin".
 # Nova API policies are introducing new default roles with scope_type
 # capabilities. Old policies are deprecated and silently going to be
 # ignored in nova 23.0.0 release.
-#"os_compute_api:os-volumes": "rule:os_compute_api:os-volumes:snapshots:show"
+# WARNING: A rule name change has been identified.
+#          This may be an artifact of new rules being
+#          included which require legacy fallback
+#          rules to ensure proper policy behavior.
+#          Alternatively, this may just be an alias.
+#          Please evaluate on a case by case basis
+#          keeping in mind the format for aliased
+#          rules is:
+#          "old_rule_name": "new_rule_name".
+# "os_compute_api:os-volumes": "rule:os_compute_api:os-volumes:snapshots:show"
 
 # Delete snapshot.
 #
 # This API is a proxy call to the Volume service. It is deprecated.
 # DELETE  /os-snapshots/{snapshot_id}
 # Intended scope(s): project
-#"os_compute_api:os-volumes:snapshots:delete": "rule:project_member_api"
+#"os_compute_api:os-volumes:snapshots:delete": "rule:project_member_or_admin"
 
 # DEPRECATED
 # "os_compute_api:os-volumes":"rule:admin_or_owner" has been
 # deprecated since 22.0.0 in favor of "os_compute_api:os-
-# volumes:snapshots:delete":"rule:project_member_api".
+# volumes:snapshots:delete":"rule:project_member_or_admin".
 # Nova API policies are introducing new default roles with scope_type
 # capabilities. Old policies are deprecated and silently going to be
 # ignored in nova 23.0.0 release.
-#"os_compute_api:os-volumes": "rule:os_compute_api:os-volumes:snapshots:delete"
+# WARNING: A rule name change has been identified.
+#          This may be an artifact of new rules being
+#          included which require legacy fallback
+#          rules to ensure proper policy behavior.
+#          Alternatively, this may just be an alias.
+#          Please evaluate on a case by case basis
+#          keeping in mind the format for aliased
+#          rules is:
+#          "old_rule_name": "new_rule_name".
+# "os_compute_api:os-volumes": "rule:os_compute_api:os-volumes:snapshots:delete"
 
 # List volume attachments for an instance
 # GET  /servers/{server_id}/os-volume_attachments
 # Intended scope(s): project
-#"os_compute_api:os-volumes-attachments:index": "rule:project_reader_api"
+#"os_compute_api:os-volumes-attachments:index": "rule:project_reader_or_admin"
 
 # Attach a volume to an instance
 # POST  /servers/{server_id}/os-volume_attachments
 # Intended scope(s): project
-#"os_compute_api:os-volumes-attachments:create": "rule:project_member_api"
+#"os_compute_api:os-volumes-attachments:create": "rule:project_member_or_admin"
 
 # Show details of a volume attachment
 # GET  /servers/{server_id}/os-volume_attachments/{volume_id}
 # Intended scope(s): project
-#"os_compute_api:os-volumes-attachments:show": "rule:project_reader_api"
+#"os_compute_api:os-volumes-attachments:show": "rule:project_reader_or_admin"
 
 # Update a volume attachment. New 'update' policy about 'swap +
 # update' request (which is possible only >2.85) only <swap policy> is
@@ -1799,7 +2435,7 @@
 # policy permission.
 # PUT  /servers/{server_id}/os-volume_attachments/{volume_id}
 # Intended scope(s): project
-#"os_compute_api:os-volumes-attachments:update": "rule:project_member_api"
+#"os_compute_api:os-volumes-attachments:update": "rule:project_member_or_admin"
 
 # Update a volume attachment with a different volumeId
 # PUT  /servers/{server_id}/os-volume_attachments/{volume_id}
@@ -1809,5 +2445,5 @@
 # Detach a volume from an instance
 # DELETE  /servers/{server_id}/os-volume_attachments/{volume_id}
 # Intended scope(s): project
-#"os_compute_api:os-volumes-attachments:delete": "rule:project_member_api"
+#"os_compute_api:os-volumes-attachments:delete": "rule:project_member_or_admin"
 

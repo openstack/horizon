@@ -17,7 +17,7 @@
 
 # Create new image
 # POST  /v2/images
-# Intended scope(s): system, project
+# Intended scope(s): project
 #"add_image": "role:admin or (role:member and project_id:%(project_id)s and project_id:%(owner)s)"
 
 # DEPRECATED
@@ -28,7 +28,7 @@
 
 # Deletes the image
 # DELETE  /v2/images/{image_id}
-# Intended scope(s): system, project
+# Intended scope(s): project
 #"delete_image": "role:admin or (role:member and project_id:%(project_id)s)"
 
 # DEPRECATED
@@ -39,7 +39,7 @@
 
 # Get specified image
 # GET  /v2/images/{image_id}
-# Intended scope(s): system, project
+# Intended scope(s): project
 #"get_image": "role:admin or (role:reader and (project_id:%(project_id)s or project_id:%(member_id)s or 'community':%(visibility)s or 'public':%(visibility)s or 'shared':%(visibility)s))"
 
 # DEPRECATED
@@ -52,7 +52,7 @@
 
 # Get all available images
 # GET  /v2/images
-# Intended scope(s): system, project
+# Intended scope(s): project
 #"get_images": "role:admin or (role:reader and project_id:%(project_id)s)"
 
 # DEPRECATED
@@ -63,7 +63,7 @@
 
 # Updates given image
 # PATCH  /v2/images/{image_id}
-# Intended scope(s): system, project
+# Intended scope(s): project
 #"modify_image": "role:admin or (role:member and project_id:%(project_id)s)"
 
 # DEPRECATED
@@ -74,12 +74,12 @@
 
 # Publicize given image
 # PATCH  /v2/images/{image_id}
-# Intended scope(s): system, project
+# Intended scope(s): project
 #"publicize_image": "role:admin"
 
 # Communitize given image
 # PATCH  /v2/images/{image_id}
-# Intended scope(s): system, project
+# Intended scope(s): project
 #"communitize_image": "role:admin or (role:member and project_id:%(project_id)s)"
 
 # DEPRECATED
@@ -90,7 +90,7 @@
 
 # Downloads given image
 # GET  /v2/images/{image_id}/file
-# Intended scope(s): system, project
+# Intended scope(s): project
 #"download_image": "role:admin or (role:member and (project_id:%(project_id)s or project_id:%(member_id)s or 'community':%(visibility)s or 'public':%(visibility)s or 'shared':%(visibility)s))"
 
 # DEPRECATED
@@ -103,7 +103,7 @@
 
 # Uploads data to specified image
 # PUT  /v2/images/{image_id}/file
-# Intended scope(s): system, project
+# Intended scope(s): project
 #"upload_image": "role:admin or (role:member and project_id:%(project_id)s)"
 
 # DEPRECATED
@@ -114,7 +114,7 @@
 
 # Deletes the location of given image
 # PATCH  /v2/images/{image_id}
-# Intended scope(s): system, project
+# Intended scope(s): project
 #"delete_image_location": "role:admin"
 
 # DEPRECATED
@@ -124,7 +124,7 @@
 
 # Reads the location of the image
 # GET  /v2/images/{image_id}
-# Intended scope(s): system, project
+# Intended scope(s): project
 #"get_image_location": "role:admin or (role:reader and project_id:%(project_id)s)"
 
 # DEPRECATED
@@ -135,7 +135,7 @@
 
 # Sets location URI to given image
 # PATCH  /v2/images/{image_id}
-# Intended scope(s): system, project
+# Intended scope(s): project
 #"set_image_location": "role:admin or (role:member and project_id:%(project_id)s)"
 
 # DEPRECATED
@@ -146,7 +146,7 @@
 
 # Create image member
 # POST  /v2/images/{image_id}/members
-# Intended scope(s): system, project
+# Intended scope(s): project
 #"add_member": "role:admin or (role:member and project_id:%(project_id)s)"
 
 # DEPRECATED
@@ -157,7 +157,7 @@
 
 # Delete image member
 # DELETE  /v2/images/{image_id}/members/{member_id}
-# Intended scope(s): system, project
+# Intended scope(s): project
 #"delete_member": "role:admin or (role:member and project_id:%(project_id)s)"
 
 # DEPRECATED
@@ -168,7 +168,7 @@
 
 # Show image member details
 # GET  /v2/images/{image_id}/members/{member_id}
-# Intended scope(s): system, project
+# Intended scope(s): project
 #"get_member": "role:admin or role:reader and (project_id:%(project_id)s or project_id:%(member_id)s)"
 
 # DEPRECATED
@@ -179,7 +179,7 @@
 
 # List image members
 # GET  /v2/images/{image_id}/members
-# Intended scope(s): system, project
+# Intended scope(s): project
 #"get_members": "role:admin or role:reader and (project_id:%(project_id)s or project_id:%(member_id)s)"
 
 # DEPRECATED
@@ -190,7 +190,7 @@
 
 # Update image member
 # PUT  /v2/images/{image_id}/members/{member_id}
-# Intended scope(s): system, project
+# Intended scope(s): project
 #"modify_member": "role:admin or (role:member and project_id:%(member_id)s)"
 
 # DEPRECATED
@@ -200,12 +200,12 @@
 # The image API now supports roles.
 
 # Manage image cache
-# Intended scope(s): system, project
+# Intended scope(s): project
 #"manage_image_cache": "role:admin"
 
 # Deactivate image
 # POST  /v2/images/{image_id}/actions/deactivate
-# Intended scope(s): system, project
+# Intended scope(s): project
 #"deactivate": "role:admin or (role:member and project_id:%(project_id)s)"
 
 # DEPRECATED
@@ -216,7 +216,7 @@
 
 # Reactivate image
 # POST  /v2/images/{image_id}/actions/reactivate
-# Intended scope(s): system, project
+# Intended scope(s): project
 #"reactivate": "role:admin or (role:member and project_id:%(project_id)s)"
 
 # DEPRECATED
@@ -227,7 +227,7 @@
 
 # Copy existing image to other stores
 # POST  /v2/images/{image_id}/import
-# Intended scope(s): system, project
+# Intended scope(s): project
 #"copy_image": "role:admin"
 
 # Get an image task.
@@ -240,7 +240,7 @@
 # external tasks API should be restricted as desired by the
 # tasks_api_access policy. This may change in the future.
 # GET  /v2/tasks/{task_id}
-# Intended scope(s): system, project
+# Intended scope(s): project
 #"get_task": "rule:default"
 
 # DEPRECATED
@@ -262,7 +262,7 @@
 # external tasks API should be restricted as desired by the
 # tasks_api_access policy. This may change in the future.
 # GET  /v2/tasks
-# Intended scope(s): system, project
+# Intended scope(s): project
 #"get_tasks": "rule:default"
 
 # DEPRECATED
@@ -284,7 +284,7 @@
 # external tasks API should be restricted as desired by the
 # tasks_api_access policy. This may change in the future.
 # POST  /v2/tasks
-# Intended scope(s): system, project
+# Intended scope(s): project
 #"add_task": "rule:default"
 
 # DEPRECATED
@@ -302,7 +302,7 @@
 # removed in a future release.
 # This policy is not used.
 # DELETE  /v2/tasks/{task_id}
-# Intended scope(s): system, project
+# Intended scope(s): project
 #"modify_task": "rule:default"
 
 # This is a generic blanket policy for protecting all task APIs. It is
@@ -312,7 +312,7 @@
 # GET  /v2/tasks
 # POST  /v2/tasks
 # DELETE  /v2/tasks/{task_id}
-# Intended scope(s): system, project
+# Intended scope(s): project
 #"tasks_api_access": "role:admin"
 
 #"metadef_default": ""
@@ -321,7 +321,7 @@
 
 # Get a specific namespace.
 # GET  /v2/metadefs/namespaces/{namespace_name}
-# Intended scope(s): system, project
+# Intended scope(s): project
 #"get_metadef_namespace": "role:admin or (role:reader and (project_id:%(project_id)s or 'public':%(visibility)s))"
 
 # DEPRECATED
@@ -333,7 +333,7 @@
 
 # List namespace.
 # GET  /v2/metadefs/namespaces
-# Intended scope(s): system, project
+# Intended scope(s): project
 #"get_metadef_namespaces": "role:admin or (role:reader and project_id:%(project_id)s)"
 
 # DEPRECATED
@@ -344,22 +344,22 @@
 
 # Modify an existing namespace.
 # PUT  /v2/metadefs/namespaces/{namespace_name}
-# Intended scope(s): system, project
+# Intended scope(s): project
 #"modify_metadef_namespace": "rule:metadef_admin"
 
 # Create a namespace.
 # POST  /v2/metadefs/namespaces
-# Intended scope(s): system, project
+# Intended scope(s): project
 #"add_metadef_namespace": "rule:metadef_admin"
 
 # Delete a namespace.
 # DELETE  /v2/metadefs/namespaces/{namespace_name}
-# Intended scope(s): system, project
+# Intended scope(s): project
 #"delete_metadef_namespace": "rule:metadef_admin"
 
 # Get a specific object from a namespace.
 # GET  /v2/metadefs/namespaces/{namespace_name}/objects/{object_name}
-# Intended scope(s): system, project
+# Intended scope(s): project
 #"get_metadef_object": "role:admin or (role:reader and (project_id:%(project_id)s or 'public':%(visibility)s))"
 
 # DEPRECATED
@@ -370,7 +370,7 @@
 
 # Get objects from a namespace.
 # GET  /v2/metadefs/namespaces/{namespace_name}/objects
-# Intended scope(s): system, project
+# Intended scope(s): project
 #"get_metadef_objects": "role:admin or (role:reader and (project_id:%(project_id)s or 'public':%(visibility)s))"
 
 # DEPRECATED
@@ -382,22 +382,22 @@
 
 # Update an object within a namespace.
 # PUT  /v2/metadefs/namespaces/{namespace_name}/objects/{object_name}
-# Intended scope(s): system, project
+# Intended scope(s): project
 #"modify_metadef_object": "rule:metadef_admin"
 
 # Create an object within a namespace.
 # POST  /v2/metadefs/namespaces/{namespace_name}/objects
-# Intended scope(s): system, project
+# Intended scope(s): project
 #"add_metadef_object": "rule:metadef_admin"
 
 # Delete an object within a namespace.
 # DELETE  /v2/metadefs/namespaces/{namespace_name}/objects/{object_name}
-# Intended scope(s): system, project
+# Intended scope(s): project
 #"delete_metadef_object": "rule:metadef_admin"
 
 # List meta definition resource types.
 # GET  /v2/metadefs/resource_types
-# Intended scope(s): system, project
+# Intended scope(s): project
 #"list_metadef_resource_types": "role:admin or (role:reader and (project_id:%(project_id)s or 'public':%(visibility)s))"
 
 # DEPRECATED
@@ -409,7 +409,7 @@
 
 # Get meta definition resource types associations.
 # GET  /v2/metadefs/namespaces/{namespace_name}/resource_types
-# Intended scope(s): system, project
+# Intended scope(s): project
 #"get_metadef_resource_type": "role:admin or (role:reader and (project_id:%(project_id)s or 'public':%(visibility)s))"
 
 # DEPRECATED
@@ -421,17 +421,17 @@
 
 # Create meta definition resource types association.
 # POST  /v2/metadefs/namespaces/{namespace_name}/resource_types
-# Intended scope(s): system, project
+# Intended scope(s): project
 #"add_metadef_resource_type_association": "rule:metadef_admin"
 
 # Delete meta definition resource types association.
 # POST  /v2/metadefs/namespaces/{namespace_name}/resource_types/{name}
-# Intended scope(s): system, project
+# Intended scope(s): project
 #"remove_metadef_resource_type_association": "rule:metadef_admin"
 
 # Get a specific meta definition property.
 # GET  /v2/metadefs/namespaces/{namespace_name}/properties/{property_name}
-# Intended scope(s): system, project
+# Intended scope(s): project
 #"get_metadef_property": "role:admin or (role:reader and (project_id:%(project_id)s or 'public':%(visibility)s))"
 
 # DEPRECATED
@@ -443,7 +443,7 @@
 
 # List meta definition properties.
 # GET  /v2/metadefs/namespaces/{namespace_name}/properties
-# Intended scope(s): system, project
+# Intended scope(s): project
 #"get_metadef_properties": "role:admin or (role:reader and (project_id:%(project_id)s or 'public':%(visibility)s))"
 
 # DEPRECATED
@@ -455,22 +455,22 @@
 
 # Update meta definition property.
 # GET  /v2/metadefs/namespaces/{namespace_name}/properties/{property_name}
-# Intended scope(s): system, project
+# Intended scope(s): project
 #"modify_metadef_property": "rule:metadef_admin"
 
 # Create meta definition property.
 # POST  /v2/metadefs/namespaces/{namespace_name}/properties
-# Intended scope(s): system, project
+# Intended scope(s): project
 #"add_metadef_property": "rule:metadef_admin"
 
 # Delete meta definition property.
 # DELETE  /v2/metadefs/namespaces/{namespace_name}/properties/{property_name}
-# Intended scope(s): system, project
+# Intended scope(s): project
 #"remove_metadef_property": "rule:metadef_admin"
 
 # Get tag definition.
 # GET  /v2/metadefs/namespaces/{namespace_name}/tags/{tag_name}
-# Intended scope(s): system, project
+# Intended scope(s): project
 #"get_metadef_tag": "role:admin or (role:reader and (project_id:%(project_id)s or 'public':%(visibility)s))"
 
 # DEPRECATED
@@ -481,7 +481,7 @@
 
 # List tag definitions.
 # GET  /v2/metadefs/namespaces/{namespace_name}/tags
-# Intended scope(s): system, project
+# Intended scope(s): project
 #"get_metadef_tags": "role:admin or (role:reader and (project_id:%(project_id)s or 'public':%(visibility)s))"
 
 # DEPRECATED
@@ -492,27 +492,27 @@
 
 # Update tag definition.
 # PUT  /v2/metadefs/namespaces/{namespace_name}/tags/{tag_name}
-# Intended scope(s): system, project
+# Intended scope(s): project
 #"modify_metadef_tag": "rule:metadef_admin"
 
 # Add tag definition.
 # POST  /v2/metadefs/namespaces/{namespace_name}/tags/{tag_name}
-# Intended scope(s): system, project
+# Intended scope(s): project
 #"add_metadef_tag": "rule:metadef_admin"
 
 # Create tag definitions.
 # POST  /v2/metadefs/namespaces/{namespace_name}/tags
-# Intended scope(s): system, project
+# Intended scope(s): project
 #"add_metadef_tags": "rule:metadef_admin"
 
 # Delete tag definition.
 # DELETE  /v2/metadefs/namespaces/{namespace_name}/tags/{tag_name}
-# Intended scope(s): system, project
+# Intended scope(s): project
 #"delete_metadef_tag": "rule:metadef_admin"
 
 # Delete tag definitions.
 # DELETE  /v2/metadefs/namespaces/{namespace_name}/tags
-# Intended scope(s): system, project
+# Intended scope(s): project
 #"delete_metadef_tags": "rule:metadef_admin"
 
 # Queue image for caching
@@ -548,6 +548,6 @@
 
 # Expose store specific information
 # GET  /v2/info/stores/detail
-# Intended scope(s): system, project
+# Intended scope(s): project
 #"stores_info_detail": "role:admin"
 
