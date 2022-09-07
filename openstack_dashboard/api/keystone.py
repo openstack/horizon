@@ -120,7 +120,7 @@ def _get_endpoint_url(request, endpoint_type, catalog=None):
     return url
 
 
-def keystoneclient(request, admin=False):
+def keystoneclient(request, admin=False, force_scoped=False):
     """Returns a client connected to the Keystone backend.
 
     Several forms of authentication are supported:
@@ -152,7 +152,8 @@ def keystoneclient(request, admin=False):
 
         # If user is Cloud Admin, Domain Admin or Mixed Domain Admin and there
         # is no domain context specified, use domain scoped token
-        if is_domain_admin(request) and not is_domain_context_specified:
+        if (is_domain_admin(request) and not is_domain_context_specified and
+                not force_scoped):
             domain_token = request.session.get('domain_token')
             if domain_token:
                 token_id = getattr(domain_token, 'auth_token', None)
@@ -995,7 +996,17 @@ def application_credential_create(request, name, secret=None,
                                   roles=None, unrestricted=False,
                                   access_rules=None):
     user = request.user.id
-    manager = keystoneclient(request).application_credentials
+    # NOTE(ganso): users with domain admin role that are not cloud admins are
+    # not able to get scoped context and create an application credential with
+    # project_id, so only in this particular case we force a scoped context
+    force_scoped = False
+    if (request.user.project_id and request.session.get("domain_token") and
+            not policy.check(
+                (("identity", "identity:update_domain"),), request)):
+        force_scoped = True
+
+    manager = keystoneclient(
+        request, force_scoped=force_scoped).application_credentials
     try:
         return manager.create(name=name, user=user, secret=secret,
                               description=description, expires_at=expires_at,
