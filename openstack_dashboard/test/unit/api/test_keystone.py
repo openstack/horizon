@@ -21,6 +21,7 @@ from unittest import mock
 
 from django.test.utils import override_settings
 from openstack_dashboard import api
+from openstack_dashboard import policy
 from openstack_dashboard.test import helpers as test
 
 
@@ -164,3 +165,46 @@ class APIVersionTests(test.APIMockTestCase):
         keystoneclient.session.get_endpoint_data.assert_called_once_with(
             service_type='identity')
         self.assertEqual((3, 10), api_version)
+
+
+class ApplicationCredentialsAPITests(test.APIMockTestCase):
+
+    @mock.patch.object(policy, 'check')
+    @mock.patch.object(api.keystone, 'keystoneclient')
+    def test_application_credential_create_domain_token_removed(
+            self, mock_keystoneclient, mock_policy):
+        self.request.session['domain_token'] = 'some_token'
+        mock_policy.return_value = False
+        api.keystone.application_credential_create(self.request, None)
+        mock_keystoneclient.assert_called_once_with(
+            self.request, force_scoped=True)
+
+    @mock.patch.object(policy, 'check')
+    @mock.patch.object(api.keystone, 'keystoneclient')
+    def test_application_credential_create_domain_token_not_removed_policy_true(
+            self, mock_keystoneclient, mock_policy):
+        self.request.session['domain_token'] = 'some_token'
+        mock_policy.return_value = True
+        api.keystone.application_credential_create(self.request, None)
+        mock_keystoneclient.assert_called_once_with(
+            self.request, force_scoped=False)
+
+    @mock.patch.object(policy, 'check')
+    @mock.patch.object(api.keystone, 'keystoneclient')
+    def test_application_credential_create_domain_token_not_removed_no_token(
+            self, mock_keystoneclient, mock_policy):
+        mock_policy.return_value = True
+        api.keystone.application_credential_create(self.request, None)
+        mock_keystoneclient.assert_called_once_with(
+            self.request, force_scoped=False)
+
+    @mock.patch.object(policy, 'check')
+    @mock.patch.object(api.keystone, 'keystoneclient')
+    def test_application_credential_create_domain_token_not_removed_no_project(
+            self, mock_keystoneclient, mock_policy):
+        self.request.session['domain_token'] = 'some_token'
+        mock_policy.return_value = True
+        self.request.user.project_id = None
+        api.keystone.application_credential_create(self.request, None)
+        mock_keystoneclient.assert_called_once_with(
+            self.request, force_scoped=False)
