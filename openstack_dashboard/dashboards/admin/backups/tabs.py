@@ -11,6 +11,8 @@
 # under the License.
 
 from openstack_dashboard.dashboards.project.backups \
+    import tables as backup_messages_tables
+from openstack_dashboard.dashboards.project.backups \
     import tabs as project_tabs
 
 
@@ -19,5 +21,9 @@ class AdminBackupOverviewTab(project_tabs.BackupOverviewTab):
     redirect_url = 'horizon:admin:backups:index'
 
 
+class BackupMessagesTab(project_tabs.BackupMessagesTab):
+    table_classes = (backup_messages_tables.BackupMessagesTable,)
+
+
 class AdminBackupDetailTabs(project_tabs.BackupDetailTabs):
-    tabs = (AdminBackupOverviewTab,)
+    tabs = (AdminBackupOverviewTab, BackupMessagesTab)

@@ -68,6 +68,6 @@ class SnapshotMessagesTab(tabs.TableTab):
         return messages
 
 
-class SnapshotDetailTabs(tabs.TabGroup):
+class SnapshotDetailTabs(tabs.DetailTabsGroup):
     slug = "snapshot_details"
     tabs = (OverviewTab, SnapshotMessagesTab)

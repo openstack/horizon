@@ -34,6 +34,6 @@ class SnapshotMessagesTab(project_tab.SnapshotMessagesTab):
     table_classes = (snap_messages_tables.SnapshotMessagesTable,)
 
 
-class SnapshotDetailsTabs(tabs.TabGroup):
+class SnapshotDetailsTabs(tabs.DetailTabsGroup):
     slug = "snapshot_details"
     tabs = (OverviewTab, SnapshotMessagesTab)
