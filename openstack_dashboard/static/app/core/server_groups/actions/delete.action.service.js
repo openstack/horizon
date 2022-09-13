@@ -79,13 +79,6 @@
       deleteModalResult.fail.forEach(function markFailed(item) {
         actionResult.failed(serverGroupResourceType, item.context.id);
       });
-      var path = '/project/server_groups';
-      if ($location.url() !== path && actionResult.result.failed.length === 0 &&
-          actionResult.result.deleted.length > 0) {
-        $location.path(path);
-      } else {
-        return actionResult.result;
-      }
     }
 
     function labelize(count) {

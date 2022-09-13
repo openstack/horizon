@@ -162,23 +162,23 @@
 
       it('handles deleted results and redirect back to index view', function() {
         spyOn(actionResultService, 'getIdsOfType').and.returnValue([1, 2, 3]);
-        spyOn(navigationsService, 'getActivePanelUrl');
+        spyOn(ctrl.resourceType, 'getDefaultIndexUrl');
         var result = $q.defer();
         result.resolve({created: [], updated: [], deleted: ['image1'], failed: []});
         ctrl.resultHandler(result.promise);
         $timeout.flush();
         expect(ctrl.showDetails).toBe(false);
-        expect(navigationsService.getActivePanelUrl).toHaveBeenCalled();
+        expect(ctrl.resourceType.getDefaultIndexUrl).toHaveBeenCalled();
       });
 
       it('handles general results and do not redirect back to index view', function() {
-        spyOn(navigationsService, 'getActivePanelUrl');
+        spyOn(ctrl.resourceType, 'getDefaultIndexUrl');
         var result = $q.defer();
         result.resolve({created: [], updated: ['image1'], deleted: [], failed: []});
         ctrl.resultHandler(result.promise);
         $timeout.flush();
         expect(ctrl.showDetails).toBe(false);
-        expect(navigationsService.getActivePanelUrl).not.toHaveBeenCalled();
+        expect(ctrl.resourceType.getDefaultIndexUrl).not.toHaveBeenCalled();
       });
 
     });
