@@ -12,7 +12,6 @@
 
 from django.urls import reverse
 from django.urls import reverse_lazy
-from django.utils.http import urlencode
 from django.utils.translation import ugettext_lazy as _
 
 from horizon import exceptions
@@ -104,11 +103,8 @@ class UpdateView(forms.ModalFormView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context['snapshot'] = self.get_object()
-        success_url = self.request.GET.get('success_url', "")
         args = (self.kwargs['snapshot_id'],)
-        params = urlencode({"success_url": success_url})
-        context['submit_url'] = "?".join([reverse(self.submit_url, args=args),
-                                          params])
+        context['submit_url'] = reverse(self.submit_url, args=args)
         return context
 
     def get_initial(self):
@@ -116,12 +112,6 @@ class UpdateView(forms.ModalFormView):
         return {'snapshot_id': self.kwargs["snapshot_id"],
                 'name': snapshot.name,
                 'description': snapshot.description}
-
-    def get_success_url(self):
-        success_url = self.request.GET.get(
-            "success_url",
-            reverse_lazy("horizon:project:snapshots:index"))
-        return success_url
 
 
 class DetailView(tabs.TabView):
