@@ -26,7 +26,6 @@
   - method: POST
     path: /v2/images
   scope_types:
-  - system
   - project
 - check_str: role:admin or (role:member and project_id:%(project_id)s)
   deprecated_reason: null
@@ -40,7 +39,6 @@
   - method: DELETE
     path: /v2/images/{image_id}
   scope_types:
-  - system
   - project
 - check_str: role:admin or (role:reader and (project_id:%(project_id)s or project_id:%(member_id)s
     or 'community':%(visibility)s or 'public':%(visibility)s or 'shared':%(visibility)s))
@@ -55,7 +53,6 @@
   - method: GET
     path: /v2/images/{image_id}
   scope_types:
-  - system
   - project
 - check_str: role:admin or (role:reader and project_id:%(project_id)s)
   deprecated_reason: null
@@ -69,7 +66,6 @@
   - method: GET
     path: /v2/images
   scope_types:
-  - system
   - project
 - check_str: role:admin or (role:member and project_id:%(project_id)s)
   deprecated_reason: null
@@ -83,7 +79,6 @@
   - method: PATCH
     path: /v2/images/{image_id}
   scope_types:
-  - system
   - project
 - check_str: role:admin
   description: Publicize given image
@@ -92,7 +87,6 @@
   - method: PATCH
     path: /v2/images/{image_id}
   scope_types:
-  - system
   - project
 - check_str: role:admin or (role:member and project_id:%(project_id)s)
   deprecated_reason: null
@@ -106,7 +100,6 @@
   - method: PATCH
     path: /v2/images/{image_id}
   scope_types:
-  - system
   - project
 - check_str: role:admin or (role:member and (project_id:%(project_id)s or project_id:%(member_id)s
     or 'community':%(visibility)s or 'public':%(visibility)s or 'shared':%(visibility)s))
@@ -121,7 +114,6 @@
   - method: GET
     path: /v2/images/{image_id}/file
   scope_types:
-  - system
   - project
 - check_str: role:admin or (role:member and project_id:%(project_id)s)
   deprecated_reason: null
@@ -135,7 +127,6 @@
   - method: PUT
     path: /v2/images/{image_id}/file
   scope_types:
-  - system
   - project
 - check_str: role:admin
   deprecated_reason: null
@@ -149,7 +140,6 @@
   - method: PATCH
     path: /v2/images/{image_id}
   scope_types:
-  - system
   - project
 - check_str: role:admin or (role:reader and project_id:%(project_id)s)
   deprecated_reason: null
@@ -163,7 +153,6 @@
   - method: GET
     path: /v2/images/{image_id}
   scope_types:
-  - system
   - project
 - check_str: role:admin or (role:member and project_id:%(project_id)s)
   deprecated_reason: null
@@ -177,7 +166,6 @@
   - method: PATCH
     path: /v2/images/{image_id}
   scope_types:
-  - system
   - project
 - check_str: role:admin or (role:member and project_id:%(project_id)s)
   deprecated_reason: null
@@ -191,7 +179,6 @@
   - method: POST
     path: /v2/images/{image_id}/members
   scope_types:
-  - system
   - project
 - check_str: role:admin or (role:member and project_id:%(project_id)s)
   deprecated_reason: null
@@ -205,7 +192,6 @@
   - method: DELETE
     path: /v2/images/{image_id}/members/{member_id}
   scope_types:
-  - system
   - project
 - check_str: role:admin or role:reader and (project_id:%(project_id)s or project_id:%(member_id)s)
   deprecated_reason: null
@@ -219,7 +205,6 @@
   - method: GET
     path: /v2/images/{image_id}/members/{member_id}
   scope_types:
-  - system
   - project
 - check_str: role:admin or role:reader and (project_id:%(project_id)s or project_id:%(member_id)s)
   deprecated_reason: null
@@ -233,7 +218,6 @@
   - method: GET
     path: /v2/images/{image_id}/members
   scope_types:
-  - system
   - project
 - check_str: role:admin or (role:member and project_id:%(member_id)s)
   deprecated_reason: null
@@ -247,14 +231,12 @@
   - method: PUT
     path: /v2/images/{image_id}/members/{member_id}
   scope_types:
-  - system
   - project
 - check_str: role:admin
   description: Manage image cache
   name: manage_image_cache
   operations: []
   scope_types:
-  - system
   - project
 - check_str: role:admin or (role:member and project_id:%(project_id)s)
   deprecated_reason: null
@@ -268,7 +250,6 @@
   - method: POST
     path: /v2/images/{image_id}/actions/deactivate
   scope_types:
-  - system
   - project
 - check_str: role:admin or (role:member and project_id:%(project_id)s)
   deprecated_reason: null
@@ -282,7 +263,6 @@
   - method: POST
     path: /v2/images/{image_id}/actions/reactivate
   scope_types:
-  - system
   - project
 - check_str: role:admin
   description: Copy existing image to other stores
@@ -291,7 +271,6 @@
   - method: POST
     path: /v2/images/{image_id}/import
   scope_types:
-  - system
   - project
 - check_str: rule:default
   deprecated_reason: null
@@ -320,7 +299,6 @@
   - method: GET
     path: /v2/tasks/{task_id}
   scope_types:
-  - system
   - project
 - check_str: rule:default
   deprecated_reason: null
@@ -349,7 +327,6 @@
   - method: GET
     path: /v2/tasks
   scope_types:
-  - system
   - project
 - check_str: rule:default
   deprecated_reason: null
@@ -378,7 +355,6 @@
   - method: POST
     path: /v2/tasks
   scope_types:
-  - system
   - project
 - check_str: rule:default
   deprecated_for_removal: true
@@ -396,7 +372,6 @@
   - method: DELETE
     path: /v2/tasks/{task_id}
   scope_types:
-  - system
   - project
 - check_str: role:admin
   description: '
@@ -419,7 +394,6 @@
   - method: DELETE
     path: /v2/tasks/{task_id}
   scope_types:
-  - system
   - project
 - check_str: ''
   description: null
@@ -443,7 +417,6 @@
   - method: GET
     path: /v2/metadefs/namespaces/{namespace_name}
   scope_types:
-  - system
   - project
 - check_str: role:admin or (role:reader and project_id:%(project_id)s)
   deprecated_reason: null
@@ -457,7 +430,6 @@
   - method: GET
     path: /v2/metadefs/namespaces
   scope_types:
-  - system
   - project
 - check_str: rule:metadef_admin
   description: Modify an existing namespace.
@@ -466,7 +438,6 @@
   - method: PUT
     path: /v2/metadefs/namespaces/{namespace_name}
   scope_types:
-  - system
   - project
 - check_str: rule:metadef_admin
   description: Create a namespace.
@@ -475,7 +446,6 @@
   - method: POST
     path: /v2/metadefs/namespaces
   scope_types:
-  - system
   - project
 - check_str: rule:metadef_admin
   description: Delete a namespace.
@@ -484,7 +454,6 @@
   - method: DELETE
     path: /v2/metadefs/namespaces/{namespace_name}
   scope_types:
-  - system
   - project
 - check_str: role:admin or (role:reader and (project_id:%(project_id)s or 'public':%(visibility)s))
   deprecated_reason: null
@@ -498,7 +467,6 @@
   - method: GET
     path: /v2/metadefs/namespaces/{namespace_name}/objects/{object_name}
   scope_types:
-  - system
   - project
 - check_str: role:admin or (role:reader and (project_id:%(project_id)s or 'public':%(visibility)s))
   deprecated_reason: null
@@ -512,7 +480,6 @@
   - method: GET
     path: /v2/metadefs/namespaces/{namespace_name}/objects
   scope_types:
-  - system
   - project
 - check_str: rule:metadef_admin
   description: Update an object within a namespace.
@@ -521,7 +488,6 @@
   - method: PUT
     path: /v2/metadefs/namespaces/{namespace_name}/objects/{object_name}
   scope_types:
-  - system
   - project
 - check_str: rule:metadef_admin
   description: Create an object within a namespace.
@@ -530,7 +496,6 @@
   - method: POST
     path: /v2/metadefs/namespaces/{namespace_name}/objects
   scope_types:
-  - system
   - project
 - check_str: rule:metadef_admin
   description: Delete an object within a namespace.
@@ -539,7 +504,6 @@
   - method: DELETE
     path: /v2/metadefs/namespaces/{namespace_name}/objects/{object_name}
   scope_types:
-  - system
   - project
 - check_str: role:admin or (role:reader and (project_id:%(project_id)s or 'public':%(visibility)s))
   deprecated_reason: null
@@ -553,7 +517,6 @@
   - method: GET
     path: /v2/metadefs/resource_types
   scope_types:
-  - system
   - project
 - check_str: role:admin or (role:reader and (project_id:%(project_id)s or 'public':%(visibility)s))
   deprecated_reason: null
@@ -567,7 +530,6 @@
   - method: GET
     path: /v2/metadefs/namespaces/{namespace_name}/resource_types
   scope_types:
-  - system
   - project
 - check_str: rule:metadef_admin
   description: Create meta definition resource types association.
@@ -576,7 +538,6 @@
   - method: POST
     path: /v2/metadefs/namespaces/{namespace_name}/resource_types
   scope_types:
-  - system
   - project
 - check_str: rule:metadef_admin
   description: Delete meta definition resource types association.
@@ -585,7 +546,6 @@
   - method: POST
     path: /v2/metadefs/namespaces/{namespace_name}/resource_types/{name}
   scope_types:
-  - system
   - project
 - check_str: role:admin or (role:reader and (project_id:%(project_id)s or 'public':%(visibility)s))
   deprecated_reason: null
@@ -599,7 +559,6 @@
   - method: GET
     path: /v2/metadefs/namespaces/{namespace_name}/properties/{property_name}
   scope_types:
-  - system
   - project
 - check_str: role:admin or (role:reader and (project_id:%(project_id)s or 'public':%(visibility)s))
   deprecated_reason: null
@@ -613,7 +572,6 @@
   - method: GET
     path: /v2/metadefs/namespaces/{namespace_name}/properties
   scope_types:
-  - system
   - project
 - check_str: rule:metadef_admin
   description: Update meta definition property.
@@ -622,7 +580,6 @@
   - method: GET
     path: /v2/metadefs/namespaces/{namespace_name}/properties/{property_name}
   scope_types:
-  - system
   - project
 - check_str: rule:metadef_admin
   description: Create meta definition property.
@@ -631,7 +588,6 @@
   - method: POST
     path: /v2/metadefs/namespaces/{namespace_name}/properties
   scope_types:
-  - system
   - project
 - check_str: rule:metadef_admin
   description: Delete meta definition property.
@@ -640,7 +596,6 @@
   - method: DELETE
     path: /v2/metadefs/namespaces/{namespace_name}/properties/{property_name}
   scope_types:
-  - system
   - project
 - check_str: role:admin or (role:reader and (project_id:%(project_id)s or 'public':%(visibility)s))
   deprecated_reason: null
@@ -654,7 +609,6 @@
   - method: GET
     path: /v2/metadefs/namespaces/{namespace_name}/tags/{tag_name}
   scope_types:
-  - system
   - project
 - check_str: role:admin or (role:reader and (project_id:%(project_id)s or 'public':%(visibility)s))
   deprecated_reason: null
@@ -668,7 +622,6 @@
   - method: GET
     path: /v2/metadefs/namespaces/{namespace_name}/tags
   scope_types:
-  - system
   - project
 - check_str: rule:metadef_admin
   description: Update tag definition.
@@ -677,7 +630,6 @@
   - method: PUT
     path: /v2/metadefs/namespaces/{namespace_name}/tags/{tag_name}
   scope_types:
-  - system
   - project
 - check_str: rule:metadef_admin
   description: Add tag definition.
@@ -686,7 +638,6 @@
   - method: POST
     path: /v2/metadefs/namespaces/{namespace_name}/tags/{tag_name}
   scope_types:
-  - system
   - project
 - check_str: rule:metadef_admin
   description: Create tag definitions.
@@ -695,7 +646,6 @@
   - method: POST
     path: /v2/metadefs/namespaces/{namespace_name}/tags
   scope_types:
-  - system
   - project
 - check_str: rule:metadef_admin
   description: Delete tag definition.
@@ -704,7 +654,6 @@
   - method: DELETE
     path: /v2/metadefs/namespaces/{namespace_name}/tags/{tag_name}
   scope_types:
-  - system
   - project
 - check_str: rule:metadef_admin
   description: Delete tag definitions.
@@ -713,7 +662,6 @@
   - method: DELETE
     path: /v2/metadefs/namespaces/{namespace_name}/tags
   scope_types:
-  - system
   - project
 - check_str: role:admin
   deprecated_reason: null
@@ -763,5 +711,4 @@
   - method: GET
     path: /v2/info/stores/detail
   scope_types:
-  - system
   - project
