@@ -135,7 +135,8 @@
 
       function testDeleteResult() {
         $location.path("ngdetails/OS::Nova::ServerGroup/1");
-        $httpBackend.expectGET('/static/app/core/server_groups/panel.html').respond({});
+        $httpBackend.expectGET('/static/framework/widgets/details/routed-details-view.html')
+          .respond({});
         var servergroup = {id: 1, name: 'sg1'};
         deferredModal.resolve({fail: [], pass:[{data:{"data": "", "status": "204"},
                                                 context:servergroup}]});
@@ -147,7 +148,6 @@
         var deleteFunction = contextArg.deleteEntity;
         deleteFunction(servergroup.id);
         expect(novaAPI.deleteServerGroup).toHaveBeenCalledWith(servergroup.id, true);
-        expect($location.path()).toEqual("/project/server_groups");
       }
 
     }); // end of delete modal

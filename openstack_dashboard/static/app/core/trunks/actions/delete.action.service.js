@@ -82,17 +82,6 @@
         result.fail.forEach(function markFailed(item) {
           actionResult.failed(resourceType, item.context.id);
         });
-
-        var path = "admin/trunks";
-        if ($location.url().indexOf("admin") === -1) {
-          path = "project/trunks";
-        }
-        if ($location.url() !== path && actionResult.result.failed.length === 0 &&
-            actionResult.result.deleted.length > 0) {
-          $location.path(path);
-        } else {
-          return actionResult.result;
-        }
       }
     }
 
