@@ -134,11 +134,13 @@ class VolumeBackupsViewTests(test.TestCase):
         self.assertCountEqual(result, expected_backups)
 
     @test.create_mocks({api.cinder: ('volume_backup_create',
+                                     'volume_backup_list',
                                      'volume_snapshot_list',
                                      'volume_get')})
     def test_create_backup_available(self):
         volume = self.cinder_volumes.first()
         backup = self.cinder_volume_backups.first()
+        self.mock_volume_backup_list.return_value = []
 
         self.mock_volume_get.return_value = volume
         self.mock_volume_backup_create.return_value = backup
@@ -168,17 +170,61 @@ class VolumeBackupsViewTests(test.TestCase):
             backup.name,
             backup.description,
             force=False,
+            incremental=False,
+            snapshot_id=None)
+
+    @test.create_mocks({api.cinder: ('volume_backup_create',
+                                     'volume_backup_list',
+                                     'volume_snapshot_list',
+                                     'volume_get')})
+    def test_create_backup_available_incremental(self):
+        volume = self.cinder_volumes.first()
+        backup = self.cinder_volume_backups.list()[1]
+        prior_backups = [self.cinder_volume_backups.list()[0]]
+        self.mock_volume_backup_list.return_value = prior_backups
+
+        self.mock_volume_get.return_value = volume
+        self.mock_volume_backup_create.return_value = backup
+
+        formData = {'method': 'CreateBackupForm',
+                    'tenant_id': self.tenant.id,
+                    'volume_id': volume.id,
+                    'container_name': backup.container_name,
+                    'name': backup.name,
+                    'incremental': True,
+                    'description': backup.description}
+        url = reverse('horizon:project:volumes:create_backup',
+                      args=[volume.id])
+        res = self.client.post(url, formData)
+
+        self.assertNoFormErrors(res)
+        self.assertMessageCount(error=0, warning=0)
+        self.assertRedirectsNoFollow(res, INDEX_URL)
+        self.mock_volume_snapshot_list.assert_called_once_with(
+            test.IsHttpRequest(),
+            search_opts={'volume_id': volume.id})
+        self.mock_volume_get.assert_called_once_with(test.IsHttpRequest(),
+                                                     volume.id)
+        self.mock_volume_backup_create.assert_called_once_with(
+            test.IsHttpRequest(),
+            volume.id,
+            backup.container_name,
+            backup.name,
+            backup.description,
+            force=False,
+            incremental=True,
             snapshot_id=None)
 
     @test.create_mocks(
         {api.cinder: ('volume_backup_create', 'volume_snapshot_get',
-                      'volume_get')})
+                      'volume_get', 'volume_backup_list')})
     def test_create_backup_from_snapshot_table(self):
         backup = self.cinder_volume_backups.list()[1]
         volume = self.cinder_volumes.list()[4]
         snapshot = self.cinder_volume_snapshots.list()[1]
         self.mock_volume_backup_create.return_value = backup
         self.mock_volume_get.return_value = volume
+        self.mock_volume_backup_list.return_value = []
         self.mock_volume_snapshot_get.return_value = snapshot
         formData = {'method': 'CreateBackupForm',
                     'tenant_id': self.tenant.id,
@@ -204,18 +250,20 @@ class VolumeBackupsViewTests(test.TestCase):
             backup.name,
             backup.description,
             force=False,
+            incremental=False,
             snapshot_id=backup.snapshot_id)
 
     @test.create_mocks(
         {api.cinder: ('volume_backup_create',
                       'volume_snapshot_list',
-                      'volume_get')})
+                      'volume_get', 'volume_backup_list')})
     def test_create_backup_from_snapshot_volume_table(self):
         volume = self.cinder_volumes.list()[4]
         backup = self.cinder_volume_backups.list()[1]
         snapshots = self.cinder_volume_snapshots.list()[1:3]
         self.mock_volume_backup_create.return_value = backup
         self.mock_volume_get.return_value = volume
+        self.mock_volume_backup_list.return_value = []
         self.mock_volume_snapshot_list.return_value = snapshots
         formData = {'method': 'CreateBackupForm',
                     'tenant_id': self.tenant.id,
@@ -244,11 +292,12 @@ class VolumeBackupsViewTests(test.TestCase):
             backup.name,
             backup.description,
             force=False,
+            incremental=False,
             snapshot_id=backup.snapshot_id)
 
     @test.create_mocks(
         {api.cinder: ('volume_backup_create', 'volume_snapshot_list',
-                      'volume_get')})
+                      'volume_get', 'volume_backup_list')})
     def test_create_backup_in_use(self):
         # The third volume in the cinder test volume data is in-use
         volume = self.cinder_volumes.list()[2]
@@ -258,6 +307,7 @@ class VolumeBackupsViewTests(test.TestCase):
         self.mock_volume_get.return_value = volume
         self.mock_volume_backup_create.return_value = backup
         self.mock_volume_snapshot_list.return_value = snapshots
+        self.mock_volume_backup_list.return_value = []
         formData = {'method': 'CreateBackupForm',
                     'tenant_id': self.tenant.id,
                     'volume_id': volume.id,
@@ -283,7 +333,92 @@ class VolumeBackupsViewTests(test.TestCase):
             backup.name,
             backup.description,
             force=True,
-            snapshot_id=None)
+            snapshot_id=None,
+            incremental=False)
+
+    @test.create_mocks(
+        {api.cinder: ('volume_backup_create', 'volume_snapshot_list',
+                      'volume_get', 'volume_backup_list')})
+    def test_create_backup_in_use_incremental(self):
+        volume = self.cinder_volumes.list()[2]
+
+        backup = self.cinder_volume_backups.list()[1]
+        snapshots = []
+        self.mock_volume_get.return_value = volume
+        self.mock_volume_backup_create.return_value = backup
+        self.mock_volume_snapshot_list.return_value = snapshots
+        prior_backups = [self.cinder_volume_backups.list()[0]]
+        self.mock_volume_backup_list.return_value = prior_backups
+        formData = {'method': 'CreateBackupForm',
+                    'tenant_id': self.tenant.id,
+                    'volume_id': volume.id,
+                    'container_name': backup.container_name,
+                    'name': backup.name,
+                    'incremental': True,
+                    'description': backup.description}
+        url = reverse('horizon:project:volumes:create_backup',
+                      args=[volume.id])
+
+        res = self.client.post(url, formData)
+        self.mock_volume_snapshot_list.assert_called_once_with(
+            test.IsHttpRequest(),
+            search_opts={'volume_id': volume.id})
+        self.assertNoFormErrors(res)
+        self.assertMessageCount(error=0, warning=0)
+        self.assertRedirectsNoFollow(res, INDEX_URL)
+        self.mock_volume_get.assert_called_once_with(test.IsHttpRequest(),
+                                                     volume.id)
+        self.mock_volume_backup_create.assert_called_once_with(
+            test.IsHttpRequest(),
+            volume.id,
+            backup.container_name,
+            backup.name,
+            backup.description,
+            force=True,
+            snapshot_id=None,
+            incremental=True)
+
+    @test.create_mocks(
+        {api.cinder: ('volume_backup_create', 'volume_snapshot_list',
+                      'volume_get', 'volume_backup_list')})
+    def test_create_backup_in_use_incremental_set_false(self):
+        volume = self.cinder_volumes.list()[2]
+
+        backup = self.cinder_volume_backups.list()[1]
+        snapshots = []
+        self.mock_volume_get.return_value = volume
+        self.mock_volume_backup_create.return_value = backup
+        self.mock_volume_snapshot_list.return_value = snapshots
+        prior_backups = [self.cinder_volume_backups.list()[0]]
+        self.mock_volume_backup_list.return_value = prior_backups
+        formData = {'method': 'CreateBackupForm',
+                    'tenant_id': self.tenant.id,
+                    'volume_id': volume.id,
+                    'container_name': backup.container_name,
+                    'name': backup.name,
+                    'incremental': False,
+                    'description': backup.description}
+        url = reverse('horizon:project:volumes:create_backup',
+                      args=[volume.id])
+
+        res = self.client.post(url, formData)
+        self.mock_volume_snapshot_list.assert_called_once_with(
+            test.IsHttpRequest(),
+            search_opts={'volume_id': volume.id})
+        self.assertNoFormErrors(res)
+        self.assertMessageCount(error=0, warning=0)
+        self.assertRedirectsNoFollow(res, INDEX_URL)
+        self.mock_volume_get.assert_called_once_with(test.IsHttpRequest(),
+                                                     volume.id)
+        self.mock_volume_backup_create.assert_called_once_with(
+            test.IsHttpRequest(),
+            volume.id,
+            backup.container_name,
+            backup.name,
+            backup.description,
+            force=True,
+            snapshot_id=None,
+            incremental=False)
 
     @test.create_mocks({api.cinder: ('volume_list',
                                      'volume_snapshot_list',

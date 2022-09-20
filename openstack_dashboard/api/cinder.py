@@ -585,8 +585,9 @@ def volume_backup_get(request, backup_id):
     return VolumeBackup(backup)
 
 
-def volume_backup_list(request):
-    backups, _, __ = volume_backup_list_paged(request, paginate=False)
+def volume_backup_list(request, search_opts=None):
+    backups, _, __ = volume_backup_list_paged(request, paginate=False,
+                                              search_opts=search_opts)
     return backups
 
 
@@ -625,7 +626,7 @@ def volume_backup_list_paged_with_page_menu(request, page_number=1,
 
 @profiler.trace
 def volume_backup_list_paged(request, marker=None, paginate=False,
-                             sort_dir="desc"):
+                             sort_dir="desc", search_opts=None):
     has_more_data = False
     has_prev_data = False
     backups = []
@@ -642,13 +643,13 @@ def volume_backup_list_paged(request, marker=None, paginate=False,
         sort = 'created_at:' + sort_dir
         for b in c_client.backups.list(limit=page_size + 1,
                                        marker=marker,
-                                       sort=sort):
+                                       sort=sort, search_opts=search_opts):
             backups.append(VolumeBackup(b))
 
         backups, has_more_data, has_prev_data = update_pagination(
             backups, page_size, marker, sort_dir)
     else:
-        for b in c_client.backups.list():
+        for b in c_client.backups.list(search_opts=search_opts):
             backups.append(VolumeBackup(b))
 
     return backups, has_more_data, has_prev_data
@@ -661,6 +662,7 @@ def volume_backup_create(request,
                          name,
                          description,
                          force=False,
+                         incremental=False,
                          snapshot_id=None):
     # need to ensure the container name is not an empty
     # string, but pass None to get the container name
@@ -671,6 +673,7 @@ def volume_backup_create(request,
         name=name,
         description=description,
         snapshot_id=snapshot_id,
+        incremental=incremental,
         force=force)
     return VolumeBackup(backup)
 
