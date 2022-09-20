@@ -480,7 +480,7 @@ class NetworkPortTests(test.BaseAdminViewTests):
         self.assertRedirectsNoFollow(res, redir_url)
 
         self.assert_mock_multiple_calls_with_same_arguments(
-            self.mock_port_get, 2,
+            self.mock_port_get, 3,
             mock.call(test.IsHttpRequest(), port.id))
         self._check_is_extension_supported(
             {'binding': 1,
@@ -495,6 +495,10 @@ class NetworkPortTests(test.BaseAdminViewTests):
             extension_kwargs['mac_learning_enabled'] = True
         if port_security:
             extension_kwargs['port_security_enabled'] = True
+
+        if form_data.get('port_security_enabled') == port.port_security_enabled:
+            extension_kwargs.pop('port_security_enabled')
+
         self.mock_port_update.assert_called_once_with(
             test.IsHttpRequest(), port.id,
             name=port.name,
@@ -554,7 +558,7 @@ class NetworkPortTests(test.BaseAdminViewTests):
         self.assertRedirectsNoFollow(res, redir_url)
 
         self.assert_mock_multiple_calls_with_same_arguments(
-            self.mock_port_get, 2,
+            self.mock_port_get, 3,
             mock.call(test.IsHttpRequest(), port.id))
         self._check_is_extension_supported(
             {'binding': 1,
@@ -569,6 +573,8 @@ class NetworkPortTests(test.BaseAdminViewTests):
             extension_kwargs['mac_learning_enabled'] = True
         if port_security:
             extension_kwargs['port_security_enabled'] = True
+        if form_data.get('port_security_enabled') == port.port_security_enabled:
+            extension_kwargs.pop('port_security_enabled')
         self.mock_port_update.assert_called_once_with(
             test.IsHttpRequest(), port.id,
             name=port.name,
