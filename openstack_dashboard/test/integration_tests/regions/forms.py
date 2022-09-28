@@ -231,6 +231,22 @@ class SelectFormFieldRegion(BaseFormFieldRegion):
         self.driver.execute_script(js_cmd)
 
 
+class ButtonGroupFormFieldRegion(BaseFormFieldRegion):
+    """Select button group."""
+
+    _element_locator_str_suffix = 'div.btn-group'
+    _button_label_locator = (by.By.CSS_SELECTOR, 'label.btn')
+
+    @property
+    def options(self):
+        options = self._get_elements(*self._button_label_locator)
+        results = {opt.text: opt for opt in options}
+        return results
+
+    def pick(self, option):
+        return self.options[option].click()
+
+
 class ThemableSelectFormFieldRegion(BaseFormFieldRegion):
     """Select box field."""
 
@@ -420,6 +436,13 @@ class FormRegion(BaseFormRegion):
     def fields(self):
         """List of all fields that form contains."""
         return self._get_form_fields()
+
+
+class FormRegionNG(FormRegion):
+    """Angular-based form."""
+
+    _fields_locator = (by.By.CSS_SELECTOR, 'div.content')
+    _submit_locator = (by.By.CSS_SELECTOR, '*.btn.btn-primary.finish')
 
 
 class TabbedFormRegion(FormRegion):
