@@ -3,15 +3,16 @@
 # Georg Hennemann <georg.hennemann@t-systems.com>, 2019. #zanata
 # Georg Hennemann <georg.hennemann@t-systems.com>, 2020. #zanata
 # Georg Hennemann <georg.hennemann@t-systems.com>, 2021. #zanata
+# Georg Hennemann <georg.hennemann@t-systems.com>, 2022. #zanata
 msgid ""
 msgstr ""
 "Project-Id-Version: horizon VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2022-09-03 19:04+0000\n"
+"POT-Creation-Date: 2022-09-30 06:37+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2021-03-05 02:30+0000\n"
+"PO-Revision-Date: 2022-10-05 12:58+0000\n"
 "Last-Translator: Georg Hennemann <georg.hennemann@t-systems.com>\n"
 "Language-Team: Esperanto\n"
 "Language: eo\n"
@@ -20,6 +21,10 @@ msgstr ""
 
 msgid "#"
 msgstr "#"
+
+#, python-format
+msgid "%s (default)"
+msgstr "%s (default)"
 
 msgid "1"
 msgstr "1"
@@ -449,9 +454,6 @@ msgstr "Marko"
 
 msgid "Breadcrumbs"
 msgstr "Paneroj"
-
-msgid "Browse..."
-msgstr "Retumi ..."
 
 msgid "Build"
 msgstr "Konstruita"
@@ -2399,6 +2401,9 @@ msgstr "Elektu Titolo"
 msgid "Select a container to browse."
 msgstr "Elektuentenilo por foliumi."
 
+msgid "Select a flavor from the available flavors below."
+msgstr "Elektu varianto el al listo de haveblaj variantoj suben."
+
 msgid "Select a key pair from the available key pairs below."
 msgstr "Elektu ŝlosilparon de la disponeblaj ŝlosilparoj suben. "
 
@@ -2434,6 +2439,9 @@ msgstr "Elektu unu"
 
 msgid "Select one or more"
 msgstr "Elektu unu aŭ pli"
+
+msgid "Select one or more networks from the available networks below."
+msgstr "Elektu unu aŭ pli da retoj de la haveblaj retoj suben."
 
 msgid "Select one or more security groups from the available groups below."
 msgstr "Elektu unu aŭ pli da secureco grupojn de la haveblaj grupojn suben."

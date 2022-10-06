@@ -3,15 +3,16 @@
 # Georg Hennemann <georg.hennemann@t-systems.com>, 2019. #zanata
 # Georg Hennemann <georg.hennemann@t-systems.com>, 2020. #zanata
 # Georg Hennemann <georg.hennemann@t-systems.com>, 2021. #zanata
+# Georg Hennemann <georg.hennemann@t-systems.com>, 2022. #zanata
 msgid ""
 msgstr ""
 "Project-Id-Version: horizon VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2022-06-21 10:46+0000\n"
+"POT-Creation-Date: 2022-09-30 06:37+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2021-03-05 02:29+0000\n"
+"PO-Revision-Date: 2022-10-05 12:56+0000\n"
 "Last-Translator: Georg Hennemann <georg.hennemann@t-systems.com>\n"
 "Language-Team: Esperanto\n"
 "Language: eo\n"
@@ -939,6 +940,15 @@ msgstr "Konstruanta"
 msgctxt "Power state of an Instance"
 msgid "Building"
 msgstr "Konstruanta"
+
+msgid ""
+"By default, a backup is created as a full backup. Check this to do an "
+"incremental backup from latest backup. Only available if a prior backup "
+"exists."
+msgstr ""
+"Defaŭlte, sekurkopio estas kreita kiel plena sukurkopio.  Elektu ci-tion por "
+"fari inkrementan sekurkopion de la lasta sekurkopio. Nur uzebla kiam jam "
+"sekurkopio ekzistas."
 
 msgid ""
 "By default, group type is created as public. To create a private group type, "
@@ -2777,6 +2787,9 @@ msgstr "Ekstra Specifojn"
 msgid "FQDN"
 msgstr "FQDN"
 
+msgid "Fail reason"
+msgstr "Kialo Malsukceso"
+
 msgctxt "Power state of an Instance"
 msgid "Failed"
 msgstr "Malsukcesita"
@@ -2819,6 +2832,9 @@ msgstr "Malsukcesis kontroli se Neutron subtenas \"auto_allocated_network\"."
 
 msgid "Failed to check if nova supports \"auto_allocated_network\"."
 msgstr "Malsukcesis kontroli se Nova subtenas \"auto_allocated_network\"."
+
+msgid "Failed to check if shared field is supported."
+msgstr "Malsukcesis kontroli ĉu opuza priskriba kampo estas subtenata."
 
 msgid "Failed to create a rbac policy."
 msgstr "Malsukcesis krei rbac regularo ."
@@ -3083,6 +3099,11 @@ msgstr "Malpermesata"
 msgctxt "Force upload volume in in-use status to image"
 msgid "Force"
 msgstr "Devigu"
+
+msgid "Force Delete Volume Backup"
+msgid_plural "Force Delete Volume Backups"
+msgstr[0] "Perforte forigu Voluman Sekurkopion"
+msgstr[1] "Perforte forigu Voluman Sekurkopiojn"
 
 msgid "Force Host Copy"
 msgstr "Devigu Gastiganto Kopion"
@@ -3623,6 +3644,9 @@ msgctxt "Current status of a Volume"
 msgid "In-use"
 msgstr "Uzata"
 
+msgid "Incremental"
+msgstr "Inkrementa"
+
 msgid ""
 "Indicates whether this identity provider should accept federated "
 "authentication requests."
@@ -3636,6 +3660,12 @@ msgstr "Informo"
 
 msgid "Ingress"
 msgstr "Ŝargi datumojn"
+
+msgid "Injected File Content (B)"
+msgstr "Injektitita Dosiero enhavo (B)"
+
+msgid "Injected File Path (B)"
+msgstr "Injektita Dosiero Vojo (B)"
 
 msgid "Injected Files"
 msgstr "Injektitaj Dosieroj"
@@ -5515,6 +5545,11 @@ msgid_plural "Scheduled deletion of Volume Snapshots"
 msgstr[0] "Vicigilita forigon de Volumo Savkopion  "
 msgstr[1] "Vicigilita forigon de Volumo Savkopiojn  "
 
+msgid "Scheduled forced deletion of Volume Backup"
+msgid_plural "Scheduled forced deletion of Volume Backups"
+msgstr[0] "Vicigilita perfortan forigon de Voluma Sekurkopio  "
+msgstr[1] "Vicigilita perfortan forigon de Voluma Sekurkopioj  "
+
 msgid "Scheduled migration (pending confirmation) of Instance"
 msgid_plural "Scheduled migration (pending confirmation) of Instances"
 msgstr[0] "Envicigu transmeton (pritraktotan  konfirmon) de la Apero"
@@ -6212,6 +6247,10 @@ msgid "Successfully updated security group: %s"
 msgstr "Sukcese ĝisdatigita sekurecan grupon: %s"
 
 #, python-format
+msgid "Successfully updated volume backup status to \"%s\"."
+msgstr "Sukcese ĝisdatigita voluman sekurkopian staton al \"%s\"."
+
+#, python-format
 msgid "Successfully updated volume snapshot status: \"%s\"."
 msgstr "Sucese ĝisdatigita volumo savkopion : \"%s.\""
 
@@ -6262,6 +6301,9 @@ msgstr "Sistema Informo"
 
 msgid "System Scope"
 msgstr "Sistema Amplekso"
+
+msgid "Systems:"
+msgstr "Sistemoj:"
 
 msgid "Target Host"
 msgstr "Celo Gastiganto"
@@ -6543,6 +6585,16 @@ msgstr "La difinita glitaj IP ne plu ekzistas."
 
 msgid "The specified port is invalid."
 msgstr "La finita pordo nevalidas."
+
+msgid ""
+"The status of a volume backup is normally managed automatically. In some "
+"circumstances an administrator may need to explicitly update the status "
+"value. This is equivalent to the <tt>cinder backup-reset-state</tt> command."
+msgstr ""
+"La stato de ia voluma sekurkopio normale estas mastrumita automate. Sub ia "
+"ajn cirkumstancojn administratoro devus eksplicite  ĝisdatigi la statan "
+"valoron. Tiu estas ekvivalenta al la  <tt>cinder sekurkopia-reagordi-staton</"
+"tt> komando."
 
 msgid ""
 "The status of a volume is normally managed automatically.  In some "
@@ -7321,6 +7373,9 @@ msgstr "Neebla ricevi disponeblo zonojn."
 msgid "Unable to retrieve backup details."
 msgstr "Neeblas ricevi sekurkopio detajlojn"
 
+msgid "Unable to retrieve backup messages."
+msgstr "Neeblas ricevi sekurkopiajn mesaĝojn."
+
 msgid "Unable to retrieve community images."
 msgstr "Neeblas ricevi publikaj bildoj."
 
@@ -7704,6 +7759,20 @@ msgstr "Neeblas ricevi uzantojn."
 msgid "Unable to retrieve version information."
 msgstr "Neeblas ricevi versio informojn."
 
+msgid "Unable to retrieve volume backup details."
+msgstr "Neeblas ricevi voluman sekurkopian detajlojn."
+
+#, python-format
+msgid ""
+"Unable to retrieve volume backup list for volume \"%s\", so incremental "
+"backup is disabled."
+msgstr ""
+"Neeblas  ricevi voluman sekurkopian liston por volumo \"%s\", do inkrementa "
+"sekurkopio estas malebligita."
+
+msgid "Unable to retrieve volume backup project information."
+msgstr "Neeblas ricevi voluman sekurkopian projekto informon."
+
 msgid "Unable to retrieve volume backups."
 msgstr "Neeblas ricevi volumo sekurkopiojn."
 
@@ -7892,6 +7961,10 @@ msgstr "Neeblas ĝisdatigi uzanto pasvorto."
 
 msgid "Unable to update the user."
 msgstr "Neeblas ĝisdatigi uzanton."
+
+#, python-format
+msgid "Unable to update volume backup status to \"%s\"."
+msgstr "Neeblas ĝisdatigi voluman sekurkopian  staton al \"%s\"."
 
 msgid "Unable to update volume group."
 msgstr "Neeblas ĝisdatigi volumo grupo."
@@ -8088,6 +8161,9 @@ msgstr "Ĝisdatigu Volumo Staton"
 
 msgid "Update Volume Type Encryption"
 msgstr "Ĝisdatigu Volumo Tipo  ĉifradon"
+
+msgid "Update Volume backup Status"
+msgstr "Ĝisdatigu Volumo Staton"
 
 msgid "Update a Metadata Namespace"
 msgstr "Ĝisdatigu la metadatuma nomspaco"
@@ -8750,6 +8826,9 @@ msgstr "ne"
 
 msgid "rbac policy quota exceeded."
 msgstr "rbac regulara kvoto transpasita."
+
+msgid "system scope"
+msgstr "sistema amplekso"
 
 msgid "undefined"
 msgstr "nedifinita"

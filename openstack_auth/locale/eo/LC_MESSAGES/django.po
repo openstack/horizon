@@ -2,15 +2,16 @@
 # Georg Hennemann <georg.hennemann@t-systems.com>, 2018. #zanata
 # Georg Hennemann <georg.hennemann@t-systems.com>, 2019. #zanata
 # Georg Hennemann <georg.hennemann@t-systems.com>, 2021. #zanata
+# Georg Hennemann <georg.hennemann@t-systems.com>, 2022. #zanata
 msgid ""
 msgstr ""
 "Project-Id-Version: horizon VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2021-03-05 09:39+0000\n"
+"POT-Creation-Date: 2022-09-30 06:37+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2021-03-05 02:02+0000\n"
+"PO-Revision-Date: 2022-10-05 12:36+0000\n"
 "Last-Translator: Georg Hennemann <georg.hennemann@t-systems.com>\n"
 "Language-Team: Esperanto\n"
 "Language: eo\n"
@@ -98,6 +99,13 @@ msgstr "Ŝanĝo al Keystone Provizanto \"%(keystone_provider)s\"sukcesis."
 #, python-format
 msgid "Switch to project \"%(project_name)s\" successful."
 msgstr "Ŝanĝi al projekto \"%(project_name)s\" sukcesis."
+
+msgid "Switch to system scope successful."
+msgstr "Ŝanĝo al sistema amplekso sukcesis."
+
+#, python-format
+msgid "System switch failed for user \"%(username)s\"."
+msgstr "Sistema ŝanĝo malsukcesis por uzanto \"%(username)s\"."
 
 msgid "The authentication token issued by the Identity service has expired."
 msgstr ""
