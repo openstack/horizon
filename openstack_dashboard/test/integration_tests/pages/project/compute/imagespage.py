@@ -117,6 +117,14 @@ class ImagesPage(basepage.BaseNavigationPage):
                               'hz-magic-search-bar span.fa-search')
     _search_option_locator = (by.By.CSS_SELECTOR,
                               'magic-search.form-control span.search-entry')
+    _search_name_locator_filled = (
+        by.By.XPATH,
+        "//*[@id='imageForm-name'][contains(@class,'ng-not-empty')]"
+    )
+    _search_checkbox_loaded = (
+        by.By.CSS_SELECTOR,
+        "td .themable-checkbox [type='checkbox'] + label[for*='Zactive']"
+    )
 
     def __init__(self, driver, conf):
         super().__init__(driver, conf)
@@ -134,6 +142,7 @@ class ImagesPage(basepage.BaseNavigationPage):
         return self._get_element(*self._default_form_locator)
 
     def _get_row_with_image_name(self, name):
+        self.wait_until_element_is_visible(self._search_checkbox_loaded)
         return self.images_table.get_row(IMAGES_TABLE_NAME_COLUMN, name)
 
     def create_image(self, name, description=None,
@@ -178,6 +187,7 @@ class ImagesPage(basepage.BaseNavigationPage):
                    visibility=None, protected=None):
         row = self._get_row_with_image_name(name)
         confirm_edit_images_form = self.images_table.edit_image(row)
+        self.wait_until_element_is_visible(self._search_name_locator_filled)
 
         if new_name is not None:
             confirm_edit_images_form.name.text = new_name
