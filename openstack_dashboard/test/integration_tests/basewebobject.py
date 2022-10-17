@@ -152,6 +152,13 @@ class BaseWebObject(unittest.TestCase):
                 # it will raise the NoSuchElementException exception.
                 pass
 
+    def wait_until_element_is_visible(self, locator):
+        with self.waits_disabled():
+            try:
+                self._wait_till_element_visible(locator)
+            except Exceptions.NoSuchElementException:
+                pass
+
     def wait_till_spinner_disappears(self):
         def getter():
             return self.driver.find_element(*self._spinner_locator)
