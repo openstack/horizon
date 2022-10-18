@@ -10,16 +10,17 @@
 # Yuko Katabami <yukokatabami@gmail.com>, 2020. #zanata
 # Akihiro Motoki <amotoki@gmail.com>, 2021. #zanata
 # Yuko Katabami <yukokatabami@gmail.com>, 2021. #zanata
+# Akihiro Motoki <amotoki@gmail.com>, 2022. #zanata
 msgid ""
 msgstr ""
 "Project-Id-Version: horizon VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2022-06-21 10:46+0000\n"
+"POT-Creation-Date: 2022-10-13 05:54+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2021-10-06 01:29+0000\n"
-"Last-Translator: Yuko Katabami <yukokatabami@gmail.com>\n"
+"PO-Revision-Date: 2022-10-17 08:48+0000\n"
+"Last-Translator: Akihiro Motoki <amotoki@gmail.com>\n"
 "Language-Team: Japanese\n"
 "Language: ja\n"
 "X-Generator: Zanata 4.3.3\n"
@@ -953,6 +954,15 @@ msgstr "作成中"
 msgctxt "Power state of an Instance"
 msgid "Building"
 msgstr "作成中"
+
+msgid ""
+"By default, a backup is created as a full backup. Check this to do an "
+"incremental backup from latest backup. Only available if a prior backup "
+"exists."
+msgstr ""
+"デフォルトでは、バックアップはフルバックアップとして作成されます。このフラグ"
+"をチェックすると、直近のバックアップからの増分バックアップが作成されます。以"
+"前のバックアップが存在する場合のみ利用できます。"
 
 msgid ""
 "By default, group type is created as public. To create a private group type, "
@@ -2720,6 +2730,9 @@ msgstr "追加スペック"
 msgid "FQDN"
 msgstr "FQDN"
 
+msgid "Fail reason"
+msgstr "失敗の理由"
+
 msgctxt "Power state of an Instance"
 msgid "Failed"
 msgstr "失敗"
@@ -2771,6 +2784,9 @@ msgstr ""
 msgid "Failed to check if nova supports \"auto_allocated_network\"."
 msgstr ""
 "Nova が auto_allocated_network に対応しているかを確認できませんでした。"
+
+msgid "Failed to check if shared field is supported."
+msgstr "共有フィールドがサポートされているか確認できませんでした。"
 
 msgid "Failed to create a rbac policy."
 msgstr "RBAC ポリシーの作成に失敗しました。"
@@ -3579,6 +3595,9 @@ msgstr "使用中"
 msgctxt "Current status of a Volume"
 msgid "In-use"
 msgstr "使用中"
+
+msgid "Incremental"
+msgstr "差分"
 
 msgid ""
 "Indicates whether this identity provider should accept federated "
@@ -6218,6 +6237,9 @@ msgstr "システム情報"
 msgid "System Scope"
 msgstr "システムスコープ"
 
+msgid "Systems:"
+msgstr "システム:"
+
 msgid "Target Host"
 msgstr "移動先ホスト"
 
@@ -7309,6 +7331,9 @@ msgstr "アベイラビリティーゾーンを取得できません。"
 msgid "Unable to retrieve backup details."
 msgstr "バックアップの詳細を取得できません。"
 
+msgid "Unable to retrieve backup messages."
+msgstr "バックアップのメッセージを取得できません。"
+
 msgid "Unable to retrieve community images."
 msgstr "コミュニティーイメージを取得できません。"
 
@@ -7697,6 +7722,14 @@ msgstr "バージョン情報を取得できません。"
 
 msgid "Unable to retrieve volume backup details."
 msgstr "ボリュームバックアップの詳細を取得できません。"
+
+#, python-format
+msgid ""
+"Unable to retrieve volume backup list for volume \"%s\", so incremental "
+"backup is disabled."
+msgstr ""
+"ボリューム \"%s\" のバックアップ一覧を取得できないため、増分バックアップは無"
+"効になりました。"
 
 msgid "Unable to retrieve volume backup project information."
 msgstr "ボリュームバックアップのプロジェクト情報を取得できません。"
@@ -8749,6 +8782,9 @@ msgstr "いいえ"
 
 msgid "rbac policy quota exceeded."
 msgstr "RBAC ポリシーのクォータが超過しました。"
+
+msgid "system scope"
+msgstr "システムスコープ"
 
 msgid "undefined"
 msgstr "未定義"

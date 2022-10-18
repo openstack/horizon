@@ -35,17 +35,18 @@
 # Roman Gorshunov <roman.gorshunov@att.com>, 2019. #zanata
 # Dmitriy Rabotyagov <noonedeadpunk@ya.ru>, 2020. #zanata
 # Roman Gorshunov <roman.gorshunov@att.com>, 2021. #zanata
+# Dmitriy Rabotyagov <noonedeadpunk@ya.ru>, 2022. #zanata
 # Roman Gorshunov <roman.gorshunov@att.com>, 2022. #zanata
 msgid ""
 msgstr ""
 "Project-Id-Version: horizon VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2022-09-03 19:04+0000\n"
+"POT-Creation-Date: 2022-10-13 05:54+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2022-09-01 04:42+0000\n"
-"Last-Translator: Roman Gorshunov <roman.gorshunov@att.com>\n"
+"PO-Revision-Date: 2022-10-17 03:18+0000\n"
+"Last-Translator: Dmitriy Rabotyagov <noonedeadpunk@ya.ru>\n"
 "Language: ru\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
 "%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
@@ -984,6 +985,15 @@ msgstr "Создается"
 msgctxt "Power state of an Instance"
 msgid "Building"
 msgstr "Создание"
+
+msgid ""
+"By default, a backup is created as a full backup. Check this to do an "
+"incremental backup from latest backup. Only available if a prior backup "
+"exists."
+msgstr ""
+"По умолчанию, резервная копия создается как полная. Выберите данную опцию, "
+"чтобы выполнить инкрементальную резервную копию из последней копии. "
+"Доступно, только если предыдущая резервная копия существует."
 
 msgid ""
 "By default, group type is created as public. To create a private group type, "
@@ -2911,6 +2921,9 @@ msgstr "Доп. параметры"
 msgid "FQDN"
 msgstr "Полное доменное имя"
 
+msgid "Fail reason"
+msgstr "Причина ошибки"
+
 msgctxt "Power state of an Instance"
 msgid "Failed"
 msgstr "Не удалось"
@@ -3767,6 +3780,9 @@ msgstr "Используется"
 msgctxt "Current status of a Volume"
 msgid "In-use"
 msgstr "Используется"
+
+msgid "Incremental"
+msgstr "Инкрементальный"
 
 msgid ""
 "Indicates whether this identity provider should accept federated "
@@ -7542,6 +7558,9 @@ msgstr "Не удалось получить зоны доступности."
 msgid "Unable to retrieve backup details."
 msgstr "Не удалось получить подробную информацию о резервной копии."
 
+msgid "Unable to retrieve backup messages."
+msgstr "Не удалось получить сообщения резервной копии."
+
 msgid "Unable to retrieve community images."
 msgstr "Не удалось получить общедоступные образы."
 
@@ -7932,6 +7951,14 @@ msgstr "Не удалось получить сведения о версии"
 
 msgid "Unable to retrieve volume backup details."
 msgstr "Не удалось получить подробную информацию о снимке диска."
+
+#, python-format
+msgid ""
+"Unable to retrieve volume backup list for volume \"%s\", so incremental "
+"backup is disabled."
+msgstr ""
+"Не удалось получить список резервных копия для диска \"%s\", так как "
+"инкрементные резервные копии отключены."
 
 msgid "Unable to retrieve volume backup project information."
 msgstr "Не удалось получить информацию о снимке диска проекта."
