@@ -151,6 +151,8 @@
                 {id: '4', container_format: 'raw', properties: {}, name: 'raw_image'},
                 {id: '5', container_format: 'ami', properties: {image_type: 'image'}},
                 {id: '6', container_format: 'raw', properties: {image_type: 'image'}},
+                {id: '11', container_format: 'raw', properties: {image_type: ''}},
+                {id: '12', container_format: 'raw', properties: {block_device_mapping: '[]'}},
                 // The following images are considered as "snapshot" sources.
                 {id: '7', container_format: 'ami',
                  properties: {block_device_mapping: '[{"source_type": "snapshot"}]'}},
@@ -393,6 +395,9 @@
              name_or_id: 'raw_image'},
             {id: '5', container_format: 'ami', properties: {image_type: 'image'}, name_or_id: '5'},
             {id: '6', container_format: 'raw', properties: {image_type: 'image'}, name_or_id: '6'},
+            {id: '11', container_format: 'raw', properties: {image_type: ''}, name_or_id: '11'},
+            {id: '12', container_format: 'raw', properties: {block_device_mapping: '[]'},
+             name_or_id: '12'},
             {id: '10', container_format: 'raw', properties: {image_type: 'image'}, name_or_id: '10',
              visibility: 'community'},
           ];

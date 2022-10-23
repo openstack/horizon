@@ -676,14 +676,17 @@
     }
 
     function getImageType(image) {
-      if (image === null || !angular.isDefined(image.properties) ||
-          !(angular.isDefined(image.properties.image_type) ||
-            angular.isDefined(image.properties.block_device_mapping))) {
+      if (image === null || !image.properties) {
         return 'image';
       }
-      return image.properties.image_type ||
-             angular.fromJson(image.properties.block_device_mapping)[0].source_type ||
-             'image';
+      if (image.properties.image_type) {
+        return image.properties.image_type;
+      }
+      var bdm = angular.fromJson(image.properties.block_device_mapping || "[]");
+      if (bdm[0] && bdm[0].source_type) {
+        return bdm[0].source_type;
+      }
+      return 'image';
     }
 
     function isValidImage(image) {
