@@ -527,9 +527,16 @@ class DetailView(tabs.TabView):
 
     def _get_flavor(self, instance):
         instance_id = instance.id
+        flavor_id = instance.flavor.get('id')
         try:
-            instance.full_flavor = api.nova.flavor_get(
-                self.request, instance.flavor["id"])
+            if flavor_id:  # Nova API <= 2.46
+                instance.full_flavor = api.nova.flavor_get(
+                    self.request, flavor_id)
+            else:
+                flavors = api.nova.flavor_list(self.request)
+                flavor_name_dict = dict((str(f.name), f) for f in flavors)
+                instance.full_flavor = \
+                    flavor_name_dict[instance.flavor['original_name']]
         except Exception:
             msg = _('Unable to retrieve flavor information for instance '
                     '"%(name)s" (%(id)s).') % {'name': instance.name,
