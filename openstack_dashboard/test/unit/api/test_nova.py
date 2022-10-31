@@ -151,19 +151,17 @@ class ComputeApiTests(test.APIMockTestCase):
     def test_server_mks_console(self, mock_novaclient):
         server = self.servers.first()
         console = self.servers.mks_console_data
-        console_type = console["remote_console"]["type"]
 
         novaclient = mock_novaclient.return_value
         self._mock_current_version(novaclient, '2.53')
         novaclient.servers.get_mks_console.return_value = console
 
         ret_val = api.nova.server_mks_console(self.request,
-                                              server.id,
-                                              console_type)
+                                              server.id)
         self.assertIsInstance(ret_val, api.nova.MKSConsole)
         novaclient.versions.get_current.assert_called_once_with()
         novaclient.servers.get_mks_console.assert_called_once_with(
-            server.id, console_type)
+            server.id)
 
     @mock.patch.object(api._nova, 'novaclient')
     def test_server_list(self, mock_novaclient):

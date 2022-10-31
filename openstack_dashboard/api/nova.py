@@ -222,10 +222,10 @@ def server_serial_console(request, instance_id, console_type='serial'):
 
 
 @profiler.trace
-def server_mks_console(request, instance_id, console_type='mks'):
+def server_mks_console(request, instance_id):
     microver = get_microversion(request, "remote_console_mks")
     nc = _nova.novaclient(request, microver)
-    console = nc.servers.get_mks_console(instance_id, console_type)
+    console = nc.servers.get_mks_console(instance_id)
     return MKSConsole(console['remote_console'])
 
 
