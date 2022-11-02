@@ -30,7 +30,7 @@ class CreateFlavorInfoAction(workflows.Action):
     _flavor_id_regex = (r'^[a-zA-Z0-9. _-]+$')
     _flavor_id_help_text = _("flavor id can only contain alphanumeric "
                              "characters, underscores, periods, hyphens, "
-                             "spaces.")
+                             "spaces. Use 'auto' to automatically generate id")
     name = forms.CharField(
         label=_("Name"),
         max_length=255)
@@ -93,7 +93,7 @@ class CreateFlavorInfoAction(workflows.Action):
                     error_msg = _('The name "%s" is already used by '
                                   'another flavor.') % name
                     self._errors['name'] = self.error_class([error_msg])
-                if flavor.id == flavor_id:
+                if (flavor.id != 'auto') and (flavor.id == flavor_id):
                     error_msg = _('The ID "%s" is already used by '
                                   'another flavor.') % flavor_id
                     self._errors['flavor_id'] = self.error_class([error_msg])
