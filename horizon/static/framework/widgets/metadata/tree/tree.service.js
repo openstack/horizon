@@ -70,6 +70,8 @@
     Property.prototype.setValue = function (value) {
       if (value === null) {
         this.value = this.type !== 'array' ? null : [];
+        // if the existing property is null, make the field not required
+        this.required = false;
         return;
       }
 
