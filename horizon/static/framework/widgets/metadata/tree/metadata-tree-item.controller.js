@@ -16,6 +16,8 @@
 (function () {
   'use strict';
 
+  var READONLY_PROPERTIES = ['os_hash_algo', 'os_hash_value'];
+
   angular
     .module('horizon.framework.widgets.metadata.tree')
     .controller('MetadataTreeItemController', MetadataTreeItemController);
@@ -33,6 +35,12 @@
     ctrl.opened = false;
 
     this.$onInit = function init() {
+      if ('item' in ctrl && 'leaf' in ctrl.item &&
+        READONLY_PROPERTIES.includes(ctrl.item.leaf.name)) {
+        ctrl.item.leaf.readonly = true;
+        ctrl.item.leaf.required = false;
+      }
+
       if ('item' in ctrl && 'leaf' in ctrl.item && ctrl.item.leaf.type === 'array') {
         ctrl.values = ctrl.item.leaf.items.enum.filter(filter).sort();
 
