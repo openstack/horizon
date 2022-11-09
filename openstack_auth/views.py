@@ -47,6 +47,11 @@ from openstack_auth import utils
 LOG = logging.getLogger(__name__)
 
 
+def set_logout_reason(res, msg):
+    msg = msg.encode('unicode_escape').decode('ascii')
+    res.set_cookie('logout_reason', msg, max_age=10)
+
+
 # TODO(stephenfin): Migrate to CBV
 @sensitive_post_parameters()
 @csrf_protect
@@ -102,10 +107,15 @@ def login(request):
         form = functional.curry(forms.Login, initial=initial)
 
     choices = settings.WEBSSO_CHOICES
+    logout_reason = request.COOKIES.get(
+        'logout_reason', '').encode('ascii').decode('unicode_escape')
+    logout_status = request.COOKIES.get('logout_status')
     extra_context = {
         'redirect_field_name': auth.REDIRECT_FIELD_NAME,
         'csrf_failure': request.GET.get('csrf_failure'),
         'show_sso_opts': utils.is_websso_enabled() and len(choices) > 1,
+        'logout_reason': logout_reason,
+        'logout_status': logout_status,
     }
 
     if request.is_ajax():
@@ -125,7 +135,7 @@ def login(request):
         res = django_http.HttpResponseRedirect(
             reverse('password', args=[exc.user_id]))
         msg = _("Your password has expired. Please set a new password.")
-        res.set_cookie('logout_reason', msg, max_age=10)
+        set_logout_reason(res, msg)
 
     # Save the region in the cookie, this is used as the default
     # selected region next time the Login form loads.
@@ -176,7 +186,7 @@ def websso(request):
         else:
             msg = 'Login failed: %s' % exc
             res = django_http.HttpResponseRedirect(settings.LOGIN_URL)
-            res.set_cookie('logout_reason', msg, max_age=10)
+            set_logout_reason(res, msg)
         return res
 
     auth_user.set_session_from_user(request, request.user)
@@ -348,7 +358,7 @@ def switch_keystone_provider(request, keystone_provider=None,
         except exceptions.KeystoneAuthException as exc:
             msg = 'Keystone provider switch failed: %s' % exc
             res = django_http.HttpResponseRedirect(settings.LOGIN_URL)
-            res.set_cookie('logout_reason', msg, max_age=10)
+            set_logout_reason(res, msg)
             return res
         auth.login(request, request.user)
         auth_user.set_session_from_user(request, request.user)
@@ -378,5 +388,5 @@ class PasswordView(edit_views.FormView):
         # We have no session here, so regular messages don't work.
         msg = _('Password changed. Please log in to continue.')
         res = django_http.HttpResponseRedirect(self.success_url)
-        res.set_cookie('logout_reason', msg, max_age=10)
+        set_logout_reason(res, msg)
         return res
