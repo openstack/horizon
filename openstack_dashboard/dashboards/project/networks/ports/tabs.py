@@ -66,7 +66,9 @@ class PortsTab(tabs.TableTab):
     def get_ports_data(self):
         try:
             network_id = self.tab_group.kwargs['network_id']
-            ports = api.neutron.port_list(self.request, network_id=network_id)
+            project_id = self.request.user.project_id
+            ports = api.neutron.port_list(self.request, network_id=network_id,
+                                          project_id=project_id)
         except Exception:
             ports = []
             msg = _('Port list can not be retrieved.')

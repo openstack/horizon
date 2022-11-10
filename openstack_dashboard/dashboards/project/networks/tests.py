@@ -1347,7 +1347,8 @@ class NetworkViewTests(test.TestCase, NetworkStubMixin):
         self.mock_network_get.assert_called_once_with(
             test.IsHttpRequest(), network_id)
         self.mock_port_list.assert_called_once_with(
-            test.IsHttpRequest(), network_id=network_id)
+            test.IsHttpRequest(), network_id=network_id,
+            project_id=self.tenant.id)
         self._check_is_extension_supported({'mac-learning': 1,
                                             'network_availability_zone': 1})
         self.mock_tenant_quota_usages.assert_has_calls([

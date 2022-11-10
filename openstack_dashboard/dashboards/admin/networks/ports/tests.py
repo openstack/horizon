@@ -612,8 +612,10 @@ class NetworkPortTests(test.BaseAdminViewTests):
 
         self.assertRedirectsNoFollow(res, url)
 
-        self.mock_port_list.assert_called_once_with(test.IsHttpRequest(),
-                                                    network_id=network_id)
+        self.mock_port_list.assert_called_once_with(
+            test.IsHttpRequest(),
+            network_id=network_id,
+            project_id=port.tenant_id)
         self._check_is_extension_supported(
             {'network-ip-availability': 1,
              'mac-learning': 1})
@@ -648,8 +650,10 @@ class NetworkPortTests(test.BaseAdminViewTests):
 
         self.mock_port_delete.assert_called_once_with(test.IsHttpRequest(),
                                                       port.id)
-        self.mock_port_list.assert_called_once_with(test.IsHttpRequest(),
-                                                    network_id=network_id)
+        self.mock_port_list.assert_called_once_with(
+            test.IsHttpRequest(),
+            network_id=network_id,
+            project_id=port.tenant_id)
         self._check_is_extension_supported(
             {'network-ip-availability': 1,
              'mac-learning': 1})
