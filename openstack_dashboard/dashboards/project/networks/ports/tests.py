@@ -825,8 +825,10 @@ class NetworkPortTests(test.TestCase):
 
         self.mock_port_delete.assert_called_once_with(test.IsHttpRequest(),
                                                       port.id)
-        self.mock_port_list.assert_called_once_with(test.IsHttpRequest(),
-                                                    network_id=network_id)
+        self.mock_port_list.assert_called_once_with(
+            test.IsHttpRequest(),
+            network_id=network_id,
+            project_id=self.tenant.id)
         self.mock_is_extension_supported.assert_called_once_with(
             test.IsHttpRequest(), 'mac-learning')
 
@@ -855,7 +857,9 @@ class NetworkPortTests(test.TestCase):
 
         self.mock_port_delete.assert_called_once_with(test.IsHttpRequest(),
                                                       port.id)
-        self.mock_port_list.assert_called_once_with(test.IsHttpRequest(),
-                                                    network_id=network_id)
+        self.mock_port_list.assert_called_once_with(
+            test.IsHttpRequest(),
+            network_id=network_id,
+            project_id=self.tenant.id)
         self.mock_is_extension_supported.assert_called_once_with(
             test.IsHttpRequest(), 'mac-learning')
