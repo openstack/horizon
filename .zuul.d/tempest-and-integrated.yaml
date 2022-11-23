@@ -1,7 +1,7 @@
 - job:
     name: horizon-integration-tests
     parent: devstack
-    nodeset: openstack-single-node-focal
+    nodeset: devstack-single-node-debian-bullseye
     pre-run: playbooks/horizon-devstack-integration/pre.yaml
     run: playbooks/horizon-devstack-integration/run.yaml
     post-run: playbooks/horizon-devstack-integration/post.yaml
