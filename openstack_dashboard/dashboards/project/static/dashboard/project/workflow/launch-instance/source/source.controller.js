@@ -410,7 +410,7 @@
     );
 
     // When the allowedboot list changes, change the source_type
-    // and update the table for the new source selection. The devault value is
+    // and update the table for the new source selection. The default value is
     // set by the DEFAULT_BOOT_SOURCE config option.
     // The boot source is changed only if the selected value is not included
     // in the updated list (newValue)
@@ -418,7 +418,7 @@
       function getAllowedBootSources() {
         return $scope.model.allowedBootSources;
       },
-      function changeBootSource(newValue) {
+      function updateBootSource(newValue) {
         if (angular.isArray(newValue) && newValue.length > 0 ) {
           var opt = newValue[0];
           for (var index = 0; index < newValue.length; index++) {
@@ -484,8 +484,17 @@
       updateFacets(key);
     }
 
+    // Update the initial boot source selection when launching from a preselected source
     function updateDataSource(key, preSelection) {
       if (preSelection) {
+        for (var index = 0; index < $scope.model.allowedBootSources.length; index++) {
+          if ($scope.model.allowedBootSources[index].type === key) {
+            $scope.model.allowedBootSources[index].selected = true;
+          }
+          else {
+            $scope.model.allowedBootSources[index].selected = false;
+          }
+        }
         ctrl.selection.length = 0;
         push.apply(selection, preSelection);
       }
