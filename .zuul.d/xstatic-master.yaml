@@ -31,12 +31,6 @@
     required-projects: *xstatic-projects
 
 - job:
-    name: horizon-nodejs16-run-test-xstatic-master
-    parent: horizon-nodejs16-run-test
-    required-projects: *xstatic-projects
-    pre-run: playbooks/npm-test-xstatic-master/pre.yaml
-
-- job:
     name: horizon-nodejs18-run-test-xstatic-master
     parent: horizon-nodejs18-run-test
     required-projects: *xstatic-projects

@@ -26,10 +26,8 @@
       jobs:
         - horizon-integration-tests-xstatic-master
         - horizon-tox-py36-xstatic-master
-        - horizon-nodejs16-run-test-xstatic-master
         - horizon-nodejs18-run-test-xstatic-master
     periodic:
       jobs:
-        - horizon-nodejs16-run-test
         - horizon-nodejs18-run-test
         - horizon-integration-tests
