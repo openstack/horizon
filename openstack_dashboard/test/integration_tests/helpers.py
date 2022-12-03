@@ -149,15 +149,20 @@ class BaseTestCase(testtools.TestCase):
         self.video_recorder = VideoRecorder(width, height, display=display)
         self.video_recorder.start()
 
-        self.addOnException(
-            lambda exc_info: setattr(self, '_need_attach_video', True))
+        def attach_video(exc_info):
+            if getattr(self, '_attached_video', None):
+                return
+            self.video_recorder.stop()
+            self._attach_video()
+            setattr(self, '_attached_video', True)
+
+        self.addOnException(attach_video)
 
         def cleanup():
+            if getattr(self, '_attached_video', None):
+                return
             self.video_recorder.stop()
-            if getattr(self, '_need_attach_video', None):
-                self._attach_video()
-            else:
-                self.video_recorder.clear()
+            self.video_recorder.clear()
 
         self.addCleanup(cleanup)
 
