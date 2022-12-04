@@ -10,7 +10,7 @@
 - job:
     name: horizon-selenium-headless
     parent: horizon-openstack-tox-base
-    nodeset: ubuntu-focal
+    nodeset: debian-bullseye
     pre-run: playbooks/horizon-selenium-headless/pre.yaml
     vars:
       tox_envlist: selenium-headless
