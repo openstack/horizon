@@ -138,6 +138,14 @@ def get_size(backup):
     return _("%sGB") % backup.size
 
 
+class BackupsFilterAction(tables.FilterAction):
+
+    def filter(self, table, volumes, filter_string):
+        q = filter_string.lower()
+        return [volume for volume in volumes
+                if q in volume.name.lower()]
+
+
 class BackupsTable(tables.DataTable):
     STATUS_CHOICES = (
         ("available", True),
@@ -195,7 +203,7 @@ class BackupsTable(tables.DataTable):
         pagination_param = 'page'
         status_columns = ("status",)
         row_class = UpdateRow
-        table_actions = (DeleteBackup,)
+        table_actions = (DeleteBackup, BackupsFilterAction)
         row_actions = (RestoreBackup, DeleteBackup)
 
 

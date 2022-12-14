@@ -592,12 +592,15 @@ def volume_backup_list(request, search_opts=None):
 
 
 @profiler.trace
-def volume_backup_list_paged_with_page_menu(request, page_number=1,
+def volume_backup_list_paged_with_page_menu(request, search_opts=None,
+                                            page_number=1,
                                             sort_dir="desc",
                                             all_tenants=False):
     backups = []
     count = 0
     pages_count = 0
+    if search_opts is None:
+        search_opts = {}
     page_size = utils.get_page_size(request)
     c_client = cinderclient(request, '3.45')
 
@@ -606,12 +609,12 @@ def volume_backup_list_paged_with_page_menu(request, page_number=1,
 
     offset = (page_number - 1) * page_size
     sort = 'created_at:' + sort_dir
+    search_opts['all_tenants'] = all_tenants
+    search_opts['offset'] = offset
+    search_opts['with_count'] = True
     bkps, count = c_client.backups.list(limit=page_size,
                                         sort=sort,
-                                        search_opts={
-                                            'with_count': True,
-                                            'offset': offset,
-                                            'all_tenants': all_tenants})
+                                        search_opts=search_opts)
     if not bkps:
         return backups, page_size, count, pages_count
 

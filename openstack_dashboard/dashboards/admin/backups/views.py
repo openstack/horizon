@@ -46,14 +46,23 @@ class AdminBackupsView(tables.PagedTableWithPageMenu, tables.DataTableView,
         return api.cinder.volume_backup_supported(self.request)
 
     def get_data(self):
+        filters = self.get_filters()
+
+        # If the tenant filter selected and the tenant does not exist.
+        # We do not need to retrieve the list from cinder,just return
+        # an empty list.
+        if 'project_id' in filters and not filters['project_id']:
+            return []
+
         try:
-            search_opts = {'all_tenants': 1}
             self._current_page = self._get_page_number()
             (backups, self._page_size, self._total_of_entries,
              self._number_of_pages) = \
                 api.cinder.volume_backup_list_paged_with_page_menu(
-                    self.request, page_number=self._current_page,
-                    all_tenants=True)
+                    self.request, search_opts=filters,
+                    page_number=self._current_page,
+                    all_tenants=True
+            )
         except Exception as e:
             LOG.exception(e)
             backups = []
@@ -61,6 +70,8 @@ class AdminBackupsView(tables.PagedTableWithPageMenu, tables.DataTableView,
                                               "volume backups."))
         if not backups:
             return backups
+
+        search_opts = {'all_tenants': True}
         volumes = api.cinder.volume_list(self.request, search_opts=search_opts)
         volumes = dict((v.id, v) for v in volumes)
         snapshots = api.cinder.volume_snapshot_list(self.request,
@@ -83,6 +94,22 @@ class AdminBackupsView(tables.PagedTableWithPageMenu, tables.DataTableView,
             tenant = tenant_dict.get(tenant_id)
             backup.tenant_name = getattr(tenant, "name", None)
         return backups
+
+    def get_filters(self, filters=None, filters_map=None):
+        self.table = self._tables['volume_backups']
+        self.handle_server_filter(self.request, table=self.table)
+        self.update_server_filter_action(self.request, table=self.table)
+        filters = super().get_filters(filters, filters_map)
+        if 'project' in filters:
+            tenants = api.keystone.tenant_list(self.request)[0]
+            tenant_filter_ids = [t.id for t in tenants
+                                 if t.name == filters['project']]
+            if tenant_filter_ids:
+                filters['project_id'] = tenant_filter_ids[0]
+            else:
+                filters['project_id'] = tenant_filter_ids
+            del filters['project']
+        return filters
 
 
 class UpdateStatusView(forms.ModalFormView):
