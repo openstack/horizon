@@ -93,8 +93,8 @@ class RoleAPITests(test.APIMockTestCase):
 
 
 class ServiceAPITests(test.APIMockTestCase):
-    @override_settings(OPENSTACK_ENDPOINT_TYPE='internalURL')
-    def test_service_wrapper_for_internal_endpoint_type(self):
+    @override_settings(OPENSTACK_KEYSTONE_ENDPOINT_TYPE='internalURL')
+    def test_service_wrapper_for_keystone_endpoint_type(self):
         catalog = self.service_catalog
         identity_data = api.base.get_service_from_catalog(catalog, "identity")
         # 'Service' class below requires 'id', so populate it here.
@@ -107,6 +107,23 @@ class ServiceAPITests(test.APIMockTestCase):
         self.assertEqual("http://public.keystone.example.com/identity/v3",
                          service.public_url)
         self.assertEqual("int.keystone.example.com", service.host)
+        # Verify that the behavior of other services wanting public endpoint
+        self.test_service_wrapper_service_in_region_for_public_endpoint_type()
+
+    @override_settings(OPENSTACK_ENDPOINT_TYPE='internalURL')
+    def test_service_wrapper_for_internal_endpoint_type(self):
+        catalog = self.service_catalog
+        identity_data = api.base.get_service_from_catalog(catalog, "identity")
+        # 'Service' class below requires 'id', so populate it here.
+        identity_data['id'] = 1
+        service = api.keystone.Service(identity_data, "RegionOne")
+        self.assertEqual(u"identity (native backend)", str(service))
+        self.assertEqual("RegionOne", service.region)
+        self.assertEqual("http://public.keystone.example.com/identity/v3",
+                         service.url)
+        self.assertEqual("http://public.keystone.example.com/identity/v3",
+                         service.public_url)
+        self.assertEqual("public.keystone.example.com", service.host)
 
     @override_settings(OPENSTACK_ENDPOINT_TYPE='publicURL')
     def test_service_wrapper_for_public_endpoint_type(self):
