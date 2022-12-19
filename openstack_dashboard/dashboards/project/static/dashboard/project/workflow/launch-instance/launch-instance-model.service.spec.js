@@ -188,8 +188,7 @@
             disable_volume_snapshot: false,
             default_availability_zone: 'Any'
           },
-          DEFAULT_BOOT_SOURCE: 'image',
-          OPENSTACK_SERVER_DEFAULT_USER_DATA: ''
+          DEFAULT_BOOT_SOURCE: 'image'
         };
         IMAGE = {type: 'image', label: 'Image', selected: true};
         VOLUME = {type: 'volume', label: 'Volume', selected: false};
@@ -555,6 +554,13 @@
           scope.$apply();
 
           expect(model.newInstanceSpec.hide_create_volume).toBe(true);
+        });
+
+        it('should default user_data based on setting', function() {
+          settings.OPENSTACK_SERVER_DEFAULT_USER_DATA = 'default-data';
+          model.initialize(true);
+          scope.$apply();
+          expect(model.newInstanceSpec.default_user_data).toBe('default-data');
         });
 
         it('should not set availability zone if the zone list is empty', function () {
