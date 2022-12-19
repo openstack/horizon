@@ -252,7 +252,7 @@
           });
         settings.getSetting("OPENSTACK_SERVER_DEFAULT_USER_DATA").then(
           function (response) {
-            model.newInstanceSpec.default_user_data = response.OPENSTACK_SERVER_DEFAULT_USER_DATA;
+            model.newInstanceSpec.default_user_data = response;
           });
 
         promise = $q.all([
