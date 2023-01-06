@@ -6,6 +6,10 @@
     vars:
       node_version: 14
       tox_constraints_file: "{{ ansible_user_dir }}/{{ zuul.projects['opendev.org/openstack/requirements'].src_dir }}/upper-constraints.txt"
+      # NOTE: This is stable branch (<=stable/zed) job and new tox 4
+      # require some changes in tox.ini to be compatible with it. Let's
+      # pin tox <4 for stable branches testing (<=stable/zed).
+      ensure_tox_version: '<4'
     nodeset: ubuntu-focal
     pre-run: playbooks/horizon-nodejs/pre.yaml
     required-projects:
@@ -20,6 +24,10 @@
     vars:
       node_version: 14
       tox_constraints_file: "{{ ansible_user_dir }}/{{ zuul.projects['opendev.org/openstack/requirements'].src_dir }}/upper-constraints.txt"
+      # NOTE: This is stable branch (<=stable/zed) job and new tox 4
+      # require some changes in tox.ini to be compatible with it. Let's
+      # pin tox <4 for stable branches testing (<=stable/zed).
+      ensure_tox_version: '<4'
     pre-run: playbooks/horizon-nodejs/pre.yaml
     nodeset: ubuntu-focal
     required-projects:
