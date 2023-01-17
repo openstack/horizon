@@ -354,10 +354,9 @@ OPENSTACK_ENDPOINT_TYPE = 'publicURL'
 # value should differ from OPENSTACK_ENDPOINT_TYPE if used.
 SECONDARY_ENDPOINT_TYPE = None
 # OPENSTACK_KEYSTONE_ENDPOINT_TYPE specifies the endpoint type use from
-# service catalog when looking up the Keystone (identity) endpoint. The
-# default is 'publicURL' like OPENSTACK_ENDPOINT_TYPE to keep backward
-# compatibility.
-OPENSTACK_KEYSTONE_ENDPOINT_TYPE = 'publicURL'
+# service catalog when looking up the Keystone (identity) endpoint. This
+# parameter overrides OPENSTACK_ENDPOINT_TYPE.
+OPENSTACK_KEYSTONE_ENDPOINT_TYPE = None
 
 # Set True to disable SSL certificate checks
 # (useful for self-signed certificates):

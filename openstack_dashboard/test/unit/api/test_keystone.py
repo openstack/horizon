@@ -119,11 +119,11 @@ class ServiceAPITests(test.APIMockTestCase):
         service = api.keystone.Service(identity_data, "RegionOne")
         self.assertEqual(u"identity (native backend)", str(service))
         self.assertEqual("RegionOne", service.region)
-        self.assertEqual("http://public.keystone.example.com/identity/v3",
+        self.assertEqual("http://int.keystone.example.com/identity/v3",
                          service.url)
         self.assertEqual("http://public.keystone.example.com/identity/v3",
                          service.public_url)
-        self.assertEqual("public.keystone.example.com", service.host)
+        self.assertEqual("int.keystone.example.com", service.host)
 
     @override_settings(OPENSTACK_ENDPOINT_TYPE='publicURL')
     def test_service_wrapper_for_public_endpoint_type(self):

@@ -600,10 +600,12 @@ OPENSTACK_KEYSTONE_ENDPOINT_TYPE
 
 .. versionadded:: 23.1.0(Antelope)
 
-Default: ``"publicURL"``
+Default: ``None``
 
 A string which specifies the endpoint type to use for the Keystone (identity)
-endpoint when looking it up in the service catalog.
+endpoint when looking it up in the service catalog. This overrides
+the ``OPENSTACK_ENDPOINT_TYPE`` parameter. If set to ``None``,
+``OPENSTACK_ENDPOINT_TYPE`` is used for the identity endpoint.
 
 OPENSTACK_HOST
 --------------

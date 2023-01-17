@@ -77,7 +77,8 @@ class Service(base.APIDictWrapper):
         super().__init__(service, *args, **kwargs)
         self.public_url = base.get_url_for_service(service, region,
                                                    'publicURL')
-        if (service and 'type' in service and service['type'] == 'identity'):
+        if (service.get('type') == 'identity' and
+                settings.OPENSTACK_KEYSTONE_ENDPOINT_TYPE):
             endpoint_type = settings.OPENSTACK_KEYSTONE_ENDPOINT_TYPE
         else:
             endpoint_type = settings.OPENSTACK_ENDPOINT_TYPE
