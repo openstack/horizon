@@ -405,10 +405,18 @@ class UpdatePort(workflows.Workflow):
         name = self.context['name'] or self.context['port_id']
         return message % name
 
+    def _port_security_unchanged(self, request, port_id, params):
+        new = params.get('port_security_enabled')
+        port = api.neutron.port_get(request, port_id)
+        existing = port.get('port_security_enabled')
+        return existing == new
+
     def handle(self, request, data):
         port_id = self.context['port_id']
         LOG.debug('params = %s', data)
         params = self._construct_parameters(data)
+        if self._port_security_unchanged(request, port_id, params):
+            params.pop('port_security_enabled')
         try:
             api.neutron.port_update(request, port_id, **params)
             return True
