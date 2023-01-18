@@ -253,7 +253,8 @@ def _swap_filter(resources, search_opts, fake_field, real_field):
         return True
     filter_string = search_opts[fake_field]
     matched = [resource for resource in resources
-               if resource.name.lower() == filter_string.lower()]
+               if (resource.name is not None and
+                   resource.name.lower() == filter_string.lower())]
     if not matched:
         return False
     search_opts[real_field] = matched[0].id
