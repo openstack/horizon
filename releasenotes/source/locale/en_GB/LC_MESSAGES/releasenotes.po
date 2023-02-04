@@ -5,15 +5,16 @@
 # Andi Chandler <andi@gowling.com>, 2020. #zanata
 # Andi Chandler <andi@gowling.com>, 2021. #zanata
 # Andi Chandler <andi@gowling.com>, 2022. #zanata
+# Andi Chandler <andi@gowling.com>, 2023. #zanata
 msgid ""
 msgstr ""
 "Project-Id-Version: horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-01-13 13:10+0000\n"
+"POT-Creation-Date: 2023-02-02 17:51+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2022-09-24 01:10+0000\n"
+"PO-Revision-Date: 2023-02-03 04:35+0000\n"
 "Last-Translator: Andi Chandler <andi@gowling.com>\n"
 "Language-Team: English (United Kingdom)\n"
 "Language: en_GB\n"
@@ -168,6 +169,9 @@ msgstr "18.3.0"
 msgid "18.3.3"
 msgstr "18.3.3"
 
+msgid "18.3.5-11"
+msgstr "18.3.5-11"
+
 msgid "18.5.0"
 msgstr "18.5.0"
 
@@ -215,6 +219,9 @@ msgstr "22.2.0"
 
 msgid "23.0.0"
 msgstr "23.0.0"
+
+msgid "23.0.0-41"
+msgstr "23.0.0-41"
 
 msgid "8.0.1"
 msgstr "8.0.1"
@@ -625,6 +632,19 @@ msgstr ""
 "default options shown on create image modal. By default, the visibility "
 "option is public on create image modal. If ``image_visibility`` in this "
 "setting is set to ``\"private\"``, the default visibility option is private."
+
+msgid ""
+"Added a new setting ``OPENSTACK_KEYSTONE_ENDPOINT_TYPE`` that can be used to "
+"specify the endpoint type to use when talking to the identity API. By "
+"default, ``OPENSTACK_ENDPOINT_TYPE`` is still referred for the identity API, "
+"If you would like to use a different endpoint for the identity API, you can "
+"use this setting."
+msgstr ""
+"Added a new setting ``OPENSTACK_KEYSTONE_ENDPOINT_TYPE`` that can be used to "
+"specify the endpoint type to use when talking to the identity API. By "
+"default, ``OPENSTACK_ENDPOINT_TYPE`` is still referred for the identity API, "
+"If you would like to use a different endpoint for the identity API, you can "
+"use this setting."
 
 msgid ""
 "Added ability to render angular row actions with additional details that "
@@ -1883,6 +1903,13 @@ msgid ""
 msgstr ""
 "Fixed lack of pagination for the networks page under Project and Admin "
 "Dashboard."
+
+msgid ""
+"Fixes the bug where an administrator could not specify default user_data for "
+"new VMs via ``OPENSTACK_SERVER_DEFAULT_USER_DATA`` configuration setting."
+msgstr ""
+"Fixes the bug where an administrator could not specify default user_data for "
+"new VMs via ``OPENSTACK_SERVER_DEFAULT_USER_DATA`` configuration setting."
 
 msgid "Fixing ordering issues"
 msgstr "Fixing ordering issues"
