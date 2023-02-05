@@ -9,16 +9,17 @@
 # Yuko Katabami <yukokatabami@gmail.com>, 2020. #zanata
 # Akihiro Motoki <amotoki@gmail.com>, 2021. #zanata
 # Yuko Katabami <yukokatabami@gmail.com>, 2021. #zanata
+# Akihiro Motoki <amotoki@gmail.com>, 2023. #zanata
 msgid ""
 msgstr ""
 "Project-Id-Version: horizon VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2022-09-30 06:37+0000\n"
+"POT-Creation-Date: 2023-02-04 14:47+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2021-10-06 01:30+0000\n"
-"Last-Translator: Yuko Katabami <yukokatabami@gmail.com>\n"
+"PO-Revision-Date: 2023-02-04 03:15+0000\n"
+"Last-Translator: Akihiro Motoki <amotoki@gmail.com>\n"
 "Language-Team: Japanese\n"
 "Language: ja\n"
 "X-Generator: Zanata 4.3.3\n"
@@ -265,6 +266,9 @@ msgstr "インターフェースの追加"
 msgid "Add Ons, Required and Feedback"
 msgstr "アドオン、必須項目、およびフィードバック"
 
+msgid "Add Rule"
+msgstr "ルールの追加"
+
 msgid "Admin Password"
 msgstr "管理者パスワード"
 
@@ -427,6 +431,12 @@ msgstr "有効なスケジューラーヒント"
 
 msgid "Badges"
 msgstr "バッジ"
+
+msgid "Bandwidth Limit"
+msgstr "帯域制限"
+
+msgid "Bandwidth Rules"
+msgstr "帯域ルール"
 
 msgid "Bare Metal"
 msgstr "Bare Metal"
@@ -761,6 +771,18 @@ msgstr[0] "DNS レコード"
 msgid "DSCP Mark"
 msgstr "DSCP マーク"
 
+msgid "DSCP Mark - , "
+msgstr "DSCP マーク"
+
+msgid "DSCP Marking"
+msgstr "DSCP マーク"
+
+msgid "DSCP Rules"
+msgstr "DSCP ルール"
+
+msgid "DSCP mark"
+msgstr "DSCP マーク"
+
 msgid "Danger"
 msgstr "危険"
 
@@ -884,6 +906,9 @@ msgstr "ロールの削除"
 
 msgid "Delete Router"
 msgstr "ルーターの削除"
+
+msgid "Delete Rule"
+msgstr "ルールの削除"
 
 msgid "Delete Server Group"
 msgid_plural "Delete Server Groups"
@@ -1096,6 +1121,9 @@ msgstr "イメージの編集"
 
 msgid "Edit Role"
 msgstr "ロールの編集"
+
+msgid "Edit Rule"
+msgstr "ルールの編集"
 
 msgid "Edit Trunk"
 msgstr "トランクの編集"
@@ -1749,11 +1777,23 @@ msgstr "最小サイズ (バイト)"
 msgid "Mini button"
 msgstr "ミニボタン"
 
+msgid "Minimum Bandwidth"
+msgstr "最低帯域"
+
+msgid "Minimum Bandwidth Rules"
+msgstr "最低帯域ルール"
+
 msgid "Minimum Disk"
 msgstr "最小ディスク"
 
 msgid "Minimum Disk (GB)"
 msgstr "最小ディスク (GB)"
+
+msgid "Minimum Packet Rate"
+msgstr "最小パケットレート"
+
+msgid "Minimum Packet Rules"
+msgstr "最小パケットレートルール"
 
 msgid "Minimum RAM"
 msgstr "最小メモリー"
@@ -2196,6 +2236,21 @@ msgstr[0] "QoS ポリシー"
 msgid "QoS Policy %s was successfully created."
 msgstr "QoS ポリシー %s が正常に作成されました。"
 
+msgid "QoS Policy ID"
+msgstr "QoS ポリシー ID"
+
+msgid "QoS Policy Id"
+msgstr "QoS ポリシー ID"
+
+msgid "QoS Policy Name"
+msgstr "QoS ポリシー名"
+
+msgid "QoSPolicyId"
+msgstr "QoS ポリシー ID"
+
+msgid "QoSPolicyName"
+msgstr "QoS ポリシー名"
+
 msgid "Queued"
 msgstr "処理待ち"
 
@@ -2255,7 +2310,16 @@ msgstr "ロールが正常に更新されました。"
 msgid "Root Disk"
 msgstr "ルートディスク"
 
+msgid "Rule"
+msgstr "ルール"
+
 msgid "Rule ID"
+msgstr "ルール ID"
+
+msgid "Rule Type"
+msgstr "ルール種別"
+
+msgid "RuleId"
 msgstr "ルール ID"
 
 msgid "Rules"
