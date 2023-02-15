@@ -74,6 +74,7 @@ from openstack_dashboard.dashboards.project.routers.tables import \
 from openstack_dashboard.dashboards.project.routers import\
     views as r_views
 from openstack_dashboard import policy
+from openstack_dashboard.utils import futurist_utils
 from openstack_dashboard.utils import settings as setting_utils
 
 # List of known server statuses that wont connect to the console
@@ -353,12 +354,14 @@ class JSONView(View):
         self.add_resource_url('horizon:project:routers:detail', routers)
         return routers
 
-    def _get_ports(self, request, networks):
+    def _get_ports(self, request):
         try:
             neutron_ports = api.neutron.port_list(request)
         except Exception:
             neutron_ports = []
+        return neutron_ports
 
+    def _filter_ports(self, neutron_ports, networks):
         # we should filter out ports connected to non tenant networks
         # which they have no visibility to
         tenant_network_ids = [network['id'] for network in networks]
@@ -398,11 +401,17 @@ class JSONView(View):
             ports.append(fake_port)
 
     def get(self, request, *args, **kwargs):
-        networks = self._get_networks(request)
-        data = {'servers': self._get_servers(request),
+        results = futurist_utils.call_functions_parallel(
+            (self._get_networks, [request]),
+            (self._get_servers, [request]),
+            (self._get_routers, [request]),
+            (self._get_ports, [request])
+        )
+        networks, servers, routers, ports = results
+        data = {'servers': servers,
                 'networks': networks,
-                'ports': self._get_ports(request, networks),
-                'routers': self._get_routers(request)}
+                'ports': self._filter_ports(ports, networks),
+                'routers': routers}
         self._prepare_gateway_ports(data['routers'], data['ports'])
         json_string = json.dumps(data, cls=LazyTranslationEncoder,
                                  ensure_ascii=False)
