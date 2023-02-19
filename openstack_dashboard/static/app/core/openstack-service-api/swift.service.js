@@ -296,8 +296,7 @@
         service.getObjectURL(container, objectName, 'metadata')
       );
       if (ignoreError) {
-        // provide a noop error handler so the error is ignored
-        return promise.catch(angular.noop);
+        return promise;
       }
       return promise.catch(function onError() {
         toastService.add('error', gettext('Unable to get details of the object.'));
