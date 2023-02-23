@@ -47,6 +47,8 @@
       getResourceTypes: getResourceTypes
     };
 
+    var READONLY_PROPERTIES = ['os_hash_algo', 'os_hash_value'];
+
     return service;
 
     ///////////////
@@ -278,6 +280,10 @@
      * @returns {Object} The result of the API call
      */
     function editImageProps(id, updated, removed) {
+      angular.forEach(READONLY_PROPERTIES, function(key) {
+        delete updated[key];
+      });
+
       return apiService.patch(
         '/api/glance/images/' + id + '/properties/',
         {
