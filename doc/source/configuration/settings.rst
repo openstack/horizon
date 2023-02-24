@@ -2172,7 +2172,7 @@ LAUNCH_INSTANCE_DEFAULTS
 
     Added the ``default_availability_zone`` option.
 
-.. versionchanged:: 22.3.0(Zed)
+.. versionchanged:: 23.0.0(Zed)
 
     Added the ``enable_metadata``, ``enable_net_ports`` options.
 
@@ -2281,7 +2281,7 @@ launching an instance.
 enable_metadata
 ###############
 
-.. versionadded:: 22.3.0(Zed)
+.. versionadded:: 23.0.0(Zed)
 
 Default: ``True``
 
@@ -2291,7 +2291,7 @@ an instance.
 enable_net_ports
 ################
 
-.. versionadded:: 22.3.0(Zed)
+.. versionadded:: 23.0.0(Zed)
 
 Default: ``True``
 
@@ -2317,7 +2317,7 @@ is specified.
 OPENSTACK_SERVER_DEFAULT_USER_DATA
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-.. versionadded:: 22.3.0(Zed)
+.. versionadded:: 23.0.0(Zed)
 
 Default: ``""``
 

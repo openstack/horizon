@@ -1,0 +1,5 @@
+---
+fixes:
+  - Fixes the bug where an administrator could not specify default user_data
+    for new VMs via ``OPENSTACK_SERVER_DEFAULT_USER_DATA`` configuration
+    setting.
