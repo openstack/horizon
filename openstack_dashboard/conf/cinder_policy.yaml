@@ -454,7 +454,16 @@
 # since X in favor of "group:group_types:create":"rule:admin_api".
 # group:group_types_manage has been replaced by more granular policies
 # that separately govern POST, PUT, and DELETE operations.
-#"group:group_types_manage": "rule:group:group_types:create"
+# WARNING: A rule name change has been identified.
+#          This may be an artifact of new rules being
+#          included which require legacy fallback
+#          rules to ensure proper policy behavior.
+#          Alternatively, this may just be an alias.
+#          Please evaluate on a case by case basis
+#          keeping in mind the format for aliased
+#          rules is:
+#          "old_rule_name": "new_rule_name".
+# "group:group_types_manage": "rule:group:group_types:create"
 
 # Update a group type.
 # PUT  /group_types/{group_type_id}
@@ -465,7 +474,16 @@
 # since X in favor of "group:group_types:update":"rule:admin_api".
 # group:group_types_manage has been replaced by more granular policies
 # that separately govern POST, PUT, and DELETE operations.
-#"group:group_types_manage": "rule:group:group_types:update"
+# WARNING: A rule name change has been identified.
+#          This may be an artifact of new rules being
+#          included which require legacy fallback
+#          rules to ensure proper policy behavior.
+#          Alternatively, this may just be an alias.
+#          Please evaluate on a case by case basis
+#          keeping in mind the format for aliased
+#          rules is:
+#          "old_rule_name": "new_rule_name".
+# "group:group_types_manage": "rule:group:group_types:update"
 
 # Delete a group type.
 # DELETE  /group_types/{group_type_id}
@@ -476,7 +494,16 @@
 # since X in favor of "group:group_types:delete":"rule:admin_api".
 # group:group_types_manage has been replaced by more granular policies
 # that separately govern POST, PUT, and DELETE operations.
-#"group:group_types_manage": "rule:group:group_types:delete"
+# WARNING: A rule name change has been identified.
+#          This may be an artifact of new rules being
+#          included which require legacy fallback
+#          rules to ensure proper policy behavior.
+#          Alternatively, this may just be an alias.
+#          Please evaluate on a case by case basis
+#          keeping in mind the format for aliased
+#          rules is:
+#          "old_rule_name": "new_rule_name".
+# "group:group_types_manage": "rule:group:group_types:delete"
 
 # Show group type with type specs attributes.
 # GET  /group_types/{group_type_id}
@@ -491,7 +518,16 @@
 # X in favor of "group:group_types_specs:get":"rule:admin_api".
 # group:group_types_specs has been replaced by more granular policies
 # that separately govern GET, POST, PUT, and DELETE operations.
-#"group:group_types_specs": "rule:group:group_types_specs:get"
+# WARNING: A rule name change has been identified.
+#          This may be an artifact of new rules being
+#          included which require legacy fallback
+#          rules to ensure proper policy behavior.
+#          Alternatively, this may just be an alias.
+#          Please evaluate on a case by case basis
+#          keeping in mind the format for aliased
+#          rules is:
+#          "old_rule_name": "new_rule_name".
+# "group:group_types_specs": "rule:group:group_types_specs:get"
 
 # List group type specs.
 # GET  /group_types/{group_type_id}/group_specs
@@ -502,7 +538,16 @@
 # X in favor of "group:group_types_specs:get_all":"rule:admin_api".
 # group:group_types_specs has been replaced by more granular policies
 # that separately govern GET, POST, PUT, and DELETE operations.
-#"group:group_types_specs": "rule:group:group_types_specs:get_all"
+# WARNING: A rule name change has been identified.
+#          This may be an artifact of new rules being
+#          included which require legacy fallback
+#          rules to ensure proper policy behavior.
+#          Alternatively, this may just be an alias.
+#          Please evaluate on a case by case basis
+#          keeping in mind the format for aliased
+#          rules is:
+#          "old_rule_name": "new_rule_name".
+# "group:group_types_specs": "rule:group:group_types_specs:get_all"
 
 # Create a group type spec.
 # POST  /group_types/{group_type_id}/group_specs
@@ -513,7 +558,16 @@
 # X in favor of "group:group_types_specs:create":"rule:admin_api".
 # group:group_types_specs has been replaced by more granular policies
 # that separately govern GET, POST, PUT, and DELETE operations.
-#"group:group_types_specs": "rule:group:group_types_specs:create"
+# WARNING: A rule name change has been identified.
+#          This may be an artifact of new rules being
+#          included which require legacy fallback
+#          rules to ensure proper policy behavior.
+#          Alternatively, this may just be an alias.
+#          Please evaluate on a case by case basis
+#          keeping in mind the format for aliased
+#          rules is:
+#          "old_rule_name": "new_rule_name".
+# "group:group_types_specs": "rule:group:group_types_specs:create"
 
 # Update a group type spec.
 # PUT  /group_types/{group_type_id}/group_specs/{g_spec_id}
@@ -524,7 +578,16 @@
 # X in favor of "group:group_types_specs:update":"rule:admin_api".
 # group:group_types_specs has been replaced by more granular policies
 # that separately govern GET, POST, PUT, and DELETE operations.
-#"group:group_types_specs": "rule:group:group_types_specs:update"
+# WARNING: A rule name change has been identified.
+#          This may be an artifact of new rules being
+#          included which require legacy fallback
+#          rules to ensure proper policy behavior.
+#          Alternatively, this may just be an alias.
+#          Please evaluate on a case by case basis
+#          keeping in mind the format for aliased
+#          rules is:
+#          "old_rule_name": "new_rule_name".
+# "group:group_types_specs": "rule:group:group_types_specs:update"
 
 # Delete a group type spec.
 # DELETE  /group_types/{group_type_id}/group_specs/{g_spec_id}
@@ -535,7 +598,16 @@
 # X in favor of "group:group_types_specs:delete":"rule:admin_api".
 # group:group_types_specs has been replaced by more granular policies
 # that separately govern GET, POST, PUT, and DELETE operations.
-#"group:group_types_specs": "rule:group:group_types_specs:delete"
+# WARNING: A rule name change has been identified.
+#          This may be an artifact of new rules being
+#          included which require legacy fallback
+#          rules to ensure proper policy behavior.
+#          Alternatively, this may just be an alias.
+#          Please evaluate on a case by case basis
+#          keeping in mind the format for aliased
+#          rules is:
+#          "old_rule_name": "new_rule_name".
+# "group:group_types_specs": "rule:group:group_types_specs:delete"
 
 # List group snapshots.
 # GET  /group_snapshots
@@ -715,7 +787,16 @@
 # "volume_extension:quota_classes:get":"rule:admin_api".
 # volume_extension:quota_classes has been replaced by more granular
 # policies that separately govern GET and PUT operations.
-#"volume_extension:quota_classes": "rule:volume_extension:quota_classes:get"
+# WARNING: A rule name change has been identified.
+#          This may be an artifact of new rules being
+#          included which require legacy fallback
+#          rules to ensure proper policy behavior.
+#          Alternatively, this may just be an alias.
+#          Please evaluate on a case by case basis
+#          keeping in mind the format for aliased
+#          rules is:
+#          "old_rule_name": "new_rule_name".
+# "volume_extension:quota_classes": "rule:volume_extension:quota_classes:get"
 
 # Update project quota class.
 # PUT  /os-quota-class-sets/{project_id}
@@ -727,7 +808,16 @@
 # "volume_extension:quota_classes:update":"rule:admin_api".
 # volume_extension:quota_classes has been replaced by more granular
 # policies that separately govern GET and PUT operations.
-#"volume_extension:quota_classes": "rule:volume_extension:quota_classes:update"
+# WARNING: A rule name change has been identified.
+#          This may be an artifact of new rules being
+#          included which require legacy fallback
+#          rules to ensure proper policy behavior.
+#          Alternatively, this may just be an alias.
+#          Please evaluate on a case by case basis
+#          keeping in mind the format for aliased
+#          rules is:
+#          "old_rule_name": "new_rule_name".
+# "volume_extension:quota_classes": "rule:volume_extension:quota_classes:update"
 
 # Show project quota (including usage and default).
 # GET  /os-quota-sets/{project_id}
@@ -819,7 +909,16 @@
 # since X in favor of "volume_extension:type_create":"rule:admin_api".
 # volume_extension:types_manage has been replaced by more granular
 # policies that separately govern POST, PUT, and DELETE operations.
-#"volume_extension:types_manage": "rule:volume_extension:type_create"
+# WARNING: A rule name change has been identified.
+#          This may be an artifact of new rules being
+#          included which require legacy fallback
+#          rules to ensure proper policy behavior.
+#          Alternatively, this may just be an alias.
+#          Please evaluate on a case by case basis
+#          keeping in mind the format for aliased
+#          rules is:
+#          "old_rule_name": "new_rule_name".
+# "volume_extension:types_manage": "rule:volume_extension:type_create"
 
 # Update volume type.
 # PUT  /types
@@ -830,7 +929,16 @@
 # since X in favor of "volume_extension:type_update":"rule:admin_api".
 # volume_extension:types_manage has been replaced by more granular
 # policies that separately govern POST, PUT, and DELETE operations.
-#"volume_extension:types_manage": "rule:volume_extension:type_update"
+# WARNING: A rule name change has been identified.
+#          This may be an artifact of new rules being
+#          included which require legacy fallback
+#          rules to ensure proper policy behavior.
+#          Alternatively, this may just be an alias.
+#          Please evaluate on a case by case basis
+#          keeping in mind the format for aliased
+#          rules is:
+#          "old_rule_name": "new_rule_name".
+# "volume_extension:types_manage": "rule:volume_extension:type_update"
 
 # Delete volume type.
 # DELETE  /types
@@ -841,7 +949,16 @@
 # since X in favor of "volume_extension:type_delete":"rule:admin_api".
 # volume_extension:types_manage has been replaced by more granular
 # policies that separately govern POST, PUT, and DELETE operations.
-#"volume_extension:types_manage": "rule:volume_extension:type_delete"
+# WARNING: A rule name change has been identified.
+#          This may be an artifact of new rules being
+#          included which require legacy fallback
+#          rules to ensure proper policy behavior.
+#          Alternatively, this may just be an alias.
+#          Please evaluate on a case by case basis
+#          keeping in mind the format for aliased
+#          rules is:
+#          "old_rule_name": "new_rule_name".
+# "volume_extension:types_manage": "rule:volume_extension:type_delete"
 
 # Get one specific volume type.
 # GET  /types/{type_id}
@@ -1351,7 +1468,16 @@
 # volume_extension:volume_image_metadata has been replaced by more
 # granular policies that separately govern show, set, and remove
 # operations.
-#"volume_extension:volume_image_metadata": "rule:volume_extension:volume_image_metadata:show"
+# WARNING: A rule name change has been identified.
+#          This may be an artifact of new rules being
+#          included which require legacy fallback
+#          rules to ensure proper policy behavior.
+#          Alternatively, this may just be an alias.
+#          Please evaluate on a case by case basis
+#          keeping in mind the format for aliased
+#          rules is:
+#          "old_rule_name": "new_rule_name".
+# "volume_extension:volume_image_metadata": "rule:volume_extension:volume_image_metadata:show"
 
 # Set image metadata for a volume
 # POST  /volumes/{volume_id}/action (os-set_image_metadata)
@@ -1364,7 +1490,16 @@
 # volume_extension:volume_image_metadata has been replaced by more
 # granular policies that separately govern show, set, and remove
 # operations.
-#"volume_extension:volume_image_metadata": "rule:volume_extension:volume_image_metadata:set"
+# WARNING: A rule name change has been identified.
+#          This may be an artifact of new rules being
+#          included which require legacy fallback
+#          rules to ensure proper policy behavior.
+#          Alternatively, this may just be an alias.
+#          Please evaluate on a case by case basis
+#          keeping in mind the format for aliased
+#          rules is:
+#          "old_rule_name": "new_rule_name".
+# "volume_extension:volume_image_metadata": "rule:volume_extension:volume_image_metadata:set"
 
 # Remove specific image metadata from a volume
 # POST  /volumes/{volume_id}/action (os-unset_image_metadata)
@@ -1377,7 +1512,16 @@
 # volume_extension:volume_image_metadata has been replaced by more
 # granular policies that separately govern show, set, and remove
 # operations.
-#"volume_extension:volume_image_metadata": "rule:volume_extension:volume_image_metadata:remove"
+# WARNING: A rule name change has been identified.
+#          This may be an artifact of new rules being
+#          included which require legacy fallback
+#          rules to ensure proper policy behavior.
+#          Alternatively, this may just be an alias.
+#          Please evaluate on a case by case basis
+#          keeping in mind the format for aliased
+#          rules is:
+#          "old_rule_name": "new_rule_name".
+# "volume_extension:volume_image_metadata": "rule:volume_extension:volume_image_metadata:remove"
 
 # Update volume admin metadata. This permission is required to
 # complete these API calls, though the ability to make these calls is
