@@ -2055,7 +2055,7 @@
     path: /servers/{server_id}/action (suspend)
   scope_types:
   - project
-- check_str: rule:project_reader_api
+- check_str: rule:project_reader_or_admin
   deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_or_owner
@@ -2071,7 +2071,7 @@
     path: /os-tenant-networks
   scope_types:
   - project
-- check_str: rule:project_reader_api
+- check_str: rule:project_reader_or_admin
   deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_or_owner

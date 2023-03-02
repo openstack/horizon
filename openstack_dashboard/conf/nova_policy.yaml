@@ -2119,12 +2119,12 @@
 # This API is proxy calls to the Network service. This is deprecated.
 # GET  /os-tenant-networks
 # Intended scope(s): project
-#"os_compute_api:os-tenant-networks:list": "rule:project_reader_api"
+#"os_compute_api:os-tenant-networks:list": "rule:project_reader_or_admin"
 
 # DEPRECATED
 # "os_compute_api:os-tenant-networks":"rule:admin_or_owner" has been
 # deprecated since 22.0.0 in favor of "os_compute_api:os-tenant-
-# networks:list":"rule:project_reader_api".
+# networks:list":"rule:project_reader_or_admin".
 # Nova API policies are introducing new default roles with scope_type
 # capabilities. Old policies are deprecated and silently going to be
 # ignored in nova 23.0.0 release.
@@ -2144,12 +2144,12 @@
 # This API is proxy calls to the Network service. This is deprecated.
 # GET  /os-tenant-networks/{network_id}
 # Intended scope(s): project
-#"os_compute_api:os-tenant-networks:show": "rule:project_reader_api"
+#"os_compute_api:os-tenant-networks:show": "rule:project_reader_or_admin"
 
 # DEPRECATED
 # "os_compute_api:os-tenant-networks":"rule:admin_or_owner" has been
 # deprecated since 22.0.0 in favor of "os_compute_api:os-tenant-
-# networks:show":"rule:project_reader_api".
+# networks:show":"rule:project_reader_or_admin".
 # Nova API policies are introducing new default roles with scope_type
 # capabilities. Old policies are deprecated and silently going to be
 # ignored in nova 23.0.0 release.
