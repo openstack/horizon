@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: horizon VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2022-11-04 11:42+0000\n"
+"POT-Creation-Date: 2023-03-07 08:38+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -4350,6 +4350,9 @@ msgstr "屬性目標："
 
 msgid "Protected"
 msgstr "保護"
+
+msgid "Protocol"
+msgstr "協定"
 
 msgid "Protocol ID"
 msgstr "通訊協定 ID"
