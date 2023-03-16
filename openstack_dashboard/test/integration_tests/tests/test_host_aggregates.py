@@ -34,17 +34,13 @@ class TestHostAggregates(helpers.AdminTestCase):
         hostaggregates_page.create_host_aggregate(
             name=self.HOST_AGGREGATE_NAME,
             availability_zone=self.HOST_AGGREGATE_AVAILABILITY_ZONE)
-        self.assertTrue(
-            hostaggregates_page.find_message_and_dismiss(messages.SUCCESS))
-        self.assertFalse(hostaggregates_page.find_message_and_dismiss(
-            messages.ERROR))
+        self.assertEqual(
+            hostaggregates_page.find_messages_and_dismiss(), {messages.SUCCESS})
         self.assertTrue(hostaggregates_page.is_host_aggregate_present(
             self.HOST_AGGREGATE_NAME))
 
         hostaggregates_page.delete_host_aggregate(self.HOST_AGGREGATE_NAME)
-        self.assertTrue(
-            hostaggregates_page.find_message_and_dismiss(messages.SUCCESS))
-        self.assertFalse(hostaggregates_page.find_message_and_dismiss(
-            messages.ERROR))
+        self.assertEqual(
+            hostaggregates_page.find_messages_and_dismiss(), {messages.SUCCESS})
         self.assertFalse(hostaggregates_page.is_host_aggregate_present(
             self.HOST_AGGREGATE_NAME))

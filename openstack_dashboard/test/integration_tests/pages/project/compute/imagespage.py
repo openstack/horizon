@@ -215,6 +215,7 @@ class ImagesPage(basepage.BaseNavigationPage):
                 confirm_edit_images_form.protected.pick('No')
 
         confirm_edit_images_form.submit()
+        self.wait_till_element_disappears(self.wizard_getter)
 
     def delete_image_via_row_action(self, name):
         row = self._get_row_with_image_name(name)
@@ -289,6 +290,7 @@ class ImagesPage(basepage.BaseNavigationPage):
         create_volume_form.availability_zone.value = \
             self.conf.launch_instances.available_zone
         create_volume_form.submit()
+        self.wait_till_element_disappears(self.wizard_getter)
 
     def launch_instance_from_image(self, name, instance_name,
                                    instance_count=1, flavor=None):

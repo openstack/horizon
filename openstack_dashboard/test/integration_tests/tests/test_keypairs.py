@@ -27,14 +27,14 @@ class TestKeypair(helpers.TestCase):
         keypair_page = self.home_pg.\
             go_to_project_compute_keypairspage()
         keypair_page.create_keypair(self.KEYPAIR_NAME)
-        self.assertFalse(keypair_page.find_message_and_dismiss(messages.ERROR))
+        self.assertEqual(
+            keypair_page.find_messages_and_dismiss(), {messages.SUCCESS})
 
         keypair_page = self.home_pg.\
             go_to_project_compute_keypairspage()
         self.assertTrue(keypair_page.is_keypair_present(self.KEYPAIR_NAME))
 
         keypair_page.delete_keypair(self.KEYPAIR_NAME)
-        self.assertTrue(
-            keypair_page.find_message_and_dismiss(messages.SUCCESS))
-        self.assertFalse(keypair_page.find_message_and_dismiss(messages.ERROR))
+        self.assertEqual(
+            keypair_page.find_messages_and_dismiss(), {messages.SUCCESS})
         self.assertFalse(keypair_page.is_keypair_present(self.KEYPAIR_NAME))

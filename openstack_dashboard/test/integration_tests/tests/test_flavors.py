@@ -43,19 +43,15 @@ class TestFlavors(helpers.AdminTestCase):
             ephemeral_disk=0,
             swap_disk=0
         )
-        self.assertTrue(
-            self.flavors_page.find_message_and_dismiss(messages.SUCCESS))
-        self.assertFalse(
-            self.flavors_page.find_message_and_dismiss(messages.ERROR))
+        self.assertEqual(
+            self.flavors_page.find_messages_and_dismiss(), {messages.SUCCESS})
         self.assertTrue(
             self.flavors_page.is_flavor_present(self.FLAVOR_NAME))
 
     def _delete_flavor(self, flavor_name):
         self.flavors_page.delete_flavor_by_row(flavor_name)
-        self.assertTrue(
-            self.flavors_page.find_message_and_dismiss(messages.SUCCESS))
-        self.assertFalse(
-            self.flavors_page.find_message_and_dismiss(messages.ERROR))
+        self.assertEqual(
+            self.flavors_page.find_messages_and_dismiss(), {messages.SUCCESS})
         self.assertFalse(
             self.flavors_page.is_flavor_present(self.FLAVOR_NAME))
 

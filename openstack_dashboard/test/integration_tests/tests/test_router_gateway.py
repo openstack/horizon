@@ -45,26 +45,22 @@ class TestRouters(helpers.TestCase):
         routers_page = self.home_pg.go_to_project_network_routerspage()
 
         routers_page.create_router(self.ROUTER_NAME)
-        self.assertTrue(
-            routers_page.find_message_and_dismiss(messages.SUCCESS))
-        self.assertFalse(routers_page.find_message_and_dismiss(messages.ERROR))
+        self.assertEqual(
+            routers_page.find_messages_and_dismiss(), {messages.SUCCESS})
         self.assertTrue(routers_page.is_router_present(self.ROUTER_NAME))
         self.assertTrue(routers_page.is_router_active(self.ROUTER_NAME))
 
         routers_page.clear_gateway(self.ROUTER_NAME)
-        self.assertTrue(
-            routers_page.find_message_and_dismiss(messages.SUCCESS))
-        self.assertFalse(routers_page.find_message_and_dismiss(messages.ERROR))
+        self.assertEqual(
+            routers_page.find_messages_and_dismiss(), {messages.SUCCESS})
         self.assertTrue(routers_page.is_gateway_cleared(self.ROUTER_NAME))
 
         routers_page.set_gateway(self.ROUTER_NAME)
-        self.assertTrue(
-            routers_page.find_message_and_dismiss(messages.SUCCESS))
-        self.assertFalse(routers_page.find_message_and_dismiss(messages.ERROR))
+        self.assertEqual(
+            routers_page.find_messages_and_dismiss(), {messages.SUCCESS})
         self.assertTrue(routers_page.is_gateway_set(self.ROUTER_NAME))
 
         routers_page.delete_router(self.ROUTER_NAME)
-        self.assertTrue(
-            routers_page.find_message_and_dismiss(messages.SUCCESS))
-        self.assertFalse(routers_page.find_message_and_dismiss(messages.ERROR))
+        self.assertEqual(
+            routers_page.find_messages_and_dismiss(), {messages.SUCCESS})
         self.assertFalse(routers_page.is_router_present(self.ROUTER_NAME))

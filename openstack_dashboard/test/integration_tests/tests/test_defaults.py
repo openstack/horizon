@@ -34,12 +34,8 @@ class TestDefaults(helpers.AdminTestCase):
         """
         default_quota_values = self.defaults_page.compute_quota_values
         self.defaults_page.update_compute_defaults(self.add_up)
-
-        self.assertTrue(
-            self.defaults_page.find_message_and_dismiss(messages.SUCCESS))
-        self.assertFalse(
-            self.defaults_page.find_message_and_dismiss(messages.ERROR))
-
+        self.assertEqual(
+            self.defaults_page.find_messages_and_dismiss(), {messages.SUCCESS})
         self.assertGreater(len(default_quota_values), 0)
 
         for quota_name in default_quota_values:
@@ -63,12 +59,8 @@ class TestDefaults(helpers.AdminTestCase):
         self.defaults_page.go_to_volume_quotas_tab()
         default_quota_values = self.defaults_page.volume_quota_values
         self.defaults_page.update_volume_defaults(self.add_up)
-
-        self.assertTrue(
-            self.defaults_page.find_message_and_dismiss(messages.SUCCESS))
-        self.assertFalse(
-            self.defaults_page.find_message_and_dismiss(messages.ERROR))
-
+        self.assertEqual(
+            self.defaults_page.find_messages_and_dismiss(), {messages.SUCCESS})
         self.assertGreater(len(default_quota_values), 0)
 
         for quota_name in default_quota_values:

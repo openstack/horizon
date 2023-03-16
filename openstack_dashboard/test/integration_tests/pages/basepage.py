@@ -10,6 +10,7 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
+import selenium.common.exceptions as Exceptions
 from selenium.webdriver.common import by
 
 from openstack_dashboard.test.integration_tests.pages import navigation
@@ -24,6 +25,7 @@ class BasePage(pageobject.PageObject):
 
     _heading_locator = (by.By.CSS_SELECTOR, 'div.page-header > h2')
     _help_page_brand = (by.By.CSS_SELECTOR, '.navbar-brand')
+    _default_message_locator = (by.By.CSS_SELECTOR, 'div.alert')
 
     @property
     def heading(self):
@@ -59,12 +61,25 @@ class BasePage(pageobject.PageObject):
     def choose_theme(self, theme_name):
         self.topbar.user_dropdown_menu.choose_theme(theme_name)
 
-    def find_message_and_dismiss(self, message_level=messages.SUCCESS):
-        message = messages.MessageRegion(self.driver, self.conf, message_level)
-        is_message_present = message.exists()
-        if is_message_present:
+    def find_all_messages(self):
+        self.driver.implicitly_wait(self.conf.selenium.message_implicit_wait)
+        try:
+            msg_elements = self.driver.find_elements(
+                *self._default_message_locator)
+        except Exceptions.NoSuchElementException:
+            msg_elements = []
+        finally:
+            self._turn_on_implicit_wait()
+            return msg_elements
+
+    def find_messages_and_dismiss(self):
+        messages_level_present = set()
+        for message_element in self.find_all_messages():
+            message = messages.MessageRegion(
+                self.driver, self.conf, message_element)
+            messages_level_present.add(message.message_class)
             message.close()
-        return is_message_present
+        return messages_level_present
 
     def change_project(self, name):
         self.topbar.user_dropdown_project.click_on_project(name)

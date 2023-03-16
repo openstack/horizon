@@ -32,14 +32,14 @@ class TestVolumeSnapshotsBasic(helpers.TestCase):
         super().setUp()
         volumes_page = self.home_pg.go_to_project_volumes_volumespage()
         volumes_page.create_volume(self.VOLUME_NAME)
-        volumes_page.find_message_and_dismiss(messages.INFO)
+        volumes_page.find_messages_and_dismiss()
         self.assertTrue(volumes_page.is_volume_status(self.VOLUME_NAME,
                                                       'Available'))
 
         def cleanup():
             volumes_page = self.home_pg.go_to_project_volumes_volumespage()
             volumes_page.delete_volume(self.VOLUME_NAME)
-            volumes_page.find_message_and_dismiss(messages.INFO)
+            volumes_page.find_messages_and_dismiss()
             self.assertTrue(volumes_page.is_volume_deleted(self.VOLUME_NAME))
 
         self.addCleanup(cleanup)
@@ -61,8 +61,8 @@ class TestVolumeSnapshotsBasic(helpers.TestCase):
         volumes_page = self.home_pg.go_to_project_volumes_volumespage()
         volumes_snapshot_page = volumes_page.create_volume_snapshot(
             self.VOLUME_NAME, self.VOLUME_SNAPSHOT_NAME)
-        self.assertTrue(volumes_page.find_message_and_dismiss(messages.INFO))
-        self.assertFalse(volumes_page.find_message_and_dismiss(messages.ERROR))
+        self.assertEqual(
+            volumes_page.find_messages_and_dismiss(), {messages.INFO})
         self.assertTrue(volumes_snapshot_page.is_volume_snapshot_available(
             self.VOLUME_SNAPSHOT_NAME))
         actual_volume_name = volumes_snapshot_page.get_volume_name(
@@ -74,18 +74,15 @@ class TestVolumeSnapshotsBasic(helpers.TestCase):
             self.home_pg.go_to_project_volumes_snapshotspage()
         volumes_snapshot_page.edit_snapshot(self.VOLUME_SNAPSHOT_NAME,
                                             new_name, "description")
-        self.assertTrue(
-            volumes_snapshot_page.find_message_and_dismiss(messages.INFO))
-        self.assertFalse(
-            volumes_snapshot_page.find_message_and_dismiss(messages.ERROR))
+        self.assertEqual(
+            volumes_page.find_messages_and_dismiss(), {messages.INFO})
         self.assertTrue(volumes_snapshot_page.
                         is_volume_snapshot_available(new_name))
 
         volumes_snapshot_page.delete_volume_snapshot(new_name)
-        self.assertTrue(
-            volumes_snapshot_page.find_message_and_dismiss(messages.SUCCESS))
-        self.assertFalse(
-            volumes_snapshot_page.find_message_and_dismiss(messages.ERROR))
+        self.assertEqual(
+            volumes_snapshot_page.find_messages_and_dismiss(),
+            {messages.SUCCESS})
         self.assertTrue(volumes_snapshot_page.is_volume_snapshot_deleted(
             new_name))
 
@@ -120,7 +117,7 @@ class TestVolumeSnapshotsBasic(helpers.TestCase):
         for i, name in enumerate(snapshot_names):
             volumes_snapshot_page = volumes_page.create_volume_snapshot(
                 self.VOLUME_NAME, name)
-            volumes_page.find_message_and_dismiss(messages.INFO)
+            volumes_page.find_messages_and_dismiss()
             self.assertTrue(
                 volumes_snapshot_page.is_volume_snapshot_available(name))
             if i < count - 1:
@@ -138,7 +135,7 @@ class TestVolumeSnapshotsBasic(helpers.TestCase):
 
         settings_page = self.home_pg.go_to_settings_usersettingspage()
         settings_page.change_pagesize(items_per_page)
-        settings_page.find_message_and_dismiss(messages.SUCCESS)
+        settings_page.find_messages_and_dismiss()
 
         volumes_snapshot_page = self.volumes_snapshot_page
         volumes_snapshot_page.volumesnapshots_table.assert_definition(
@@ -162,11 +159,11 @@ class TestVolumeSnapshotsBasic(helpers.TestCase):
 
         settings_page = self.home_pg.go_to_settings_usersettingspage()
         settings_page.change_pagesize()
-        settings_page.find_message_and_dismiss(messages.SUCCESS)
+        settings_page.find_messages_and_dismiss()
 
         volumes_snapshot_page = self.volumes_snapshot_page
         volumes_snapshot_page.delete_volume_snapshots(snapshot_names)
-        volumes_snapshot_page.find_message_and_dismiss(messages.SUCCESS)
+        volumes_snapshot_page.find_messages_and_dismiss()
         for name in snapshot_names:
             volumes_snapshot_page.is_volume_snapshot_deleted(name)
 
@@ -202,17 +199,15 @@ class TestVolumeSnapshotsAdvanced(helpers.TestCase):
         super().setUp()
         volumes_page = self.home_pg.go_to_project_volumes_volumespage()
         volumes_page.create_volume(self.VOLUME_NAME)
-        volumes_page.find_message_and_dismiss(messages.INFO)
+        volumes_page.find_messages_and_dismiss()
         self.assertTrue(volumes_page.is_volume_status(self.VOLUME_NAME,
                                                       'Available'))
 
         def cleanup():
             volumes_page = self.home_pg.go_to_project_volumes_volumespage()
             volumes_page.delete_volume(self.VOLUME_NAME)
-            self.assertTrue(
-                volumes_page.find_message_and_dismiss(messages.INFO))
-            self.assertFalse(
-                volumes_page.find_message_and_dismiss(messages.ERROR))
+            self.assertEqual(
+                volumes_page.find_messages_and_dismiss(), {messages.INFO})
             self.assertTrue(volumes_page.is_volume_deleted(self.VOLUME_NAME))
 
         self.addCleanup(cleanup)
@@ -221,8 +216,8 @@ class TestVolumeSnapshotsAdvanced(helpers.TestCase):
         volumes_page = self.home_pg.go_to_project_volumes_volumespage()
         volumes_snapshot_page = volumes_page.create_volume_snapshot(
             self.VOLUME_NAME, self.VOLUME_SNAPSHOT_NAME)
-        self.assertTrue(volumes_page.find_message_and_dismiss(messages.INFO))
-        self.assertFalse(volumes_page.find_message_and_dismiss(messages.ERROR))
+        self.assertEqual(
+            volumes_page.find_messages_and_dismiss(), {messages.INFO})
         self.assertTrue(volumes_snapshot_page.is_volume_snapshot_available(
             self.VOLUME_SNAPSHOT_NAME))
 
@@ -236,19 +231,17 @@ class TestVolumeSnapshotsAdvanced(helpers.TestCase):
     def delete_snapshot(self):
         volumes_snapshot_page = self.volumes_snapshot_page
         volumes_snapshot_page.delete_volume_snapshot(self.VOLUME_SNAPSHOT_NAME)
-        self.assertTrue(
-            volumes_snapshot_page.find_message_and_dismiss(messages.SUCCESS))
-        self.assertFalse(
-            volumes_snapshot_page.find_message_and_dismiss(messages.ERROR))
+        self.assertEqual(
+            volumes_snapshot_page.find_messages_and_dismiss(),
+            {messages.SUCCESS})
         self.assertTrue(volumes_snapshot_page.is_volume_snapshot_deleted(
             self.VOLUME_SNAPSHOT_NAME))
 
     def delete_volume(self, new_volume):
         volumes_page = self.home_pg.go_to_project_volumes_volumespage()
         volumes_page.delete_volume(new_volume)
-        self.assertTrue(
-            volumes_page.find_message_and_dismiss(messages.INFO))
-        self.assertFalse(volumes_page.find_message_and_dismiss(messages.ERROR))
+        self.assertEqual(
+            volumes_page.find_messages_and_dismiss(), {messages.INFO})
         self.assertTrue(volumes_page.is_volume_deleted(new_volume))
 
     @pytest.mark.skipif(

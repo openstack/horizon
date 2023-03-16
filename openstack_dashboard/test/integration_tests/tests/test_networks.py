@@ -37,18 +37,14 @@ class TestNetworks(helpers.TestCase):
         networks_page = self.networks_page
 
         networks_page.create_network(self.NETWORK_NAME, self.SUBNET_NAME)
-        self.assertTrue(
-            networks_page.find_message_and_dismiss(messages.SUCCESS))
-        self.assertFalse(
-            networks_page.find_message_and_dismiss(messages.ERROR))
+        self.assertEqual(
+            networks_page.find_messages_and_dismiss(), {messages.SUCCESS})
         self.assertTrue(networks_page.is_network_present(self.NETWORK_NAME))
         self.assertTrue(networks_page.is_network_active(self.NETWORK_NAME))
 
         networks_page.delete_network(self.NETWORK_NAME)
-        self.assertTrue(
-            networks_page.find_message_and_dismiss(messages.SUCCESS))
-        self.assertFalse(
-            networks_page.find_message_and_dismiss(messages.ERROR))
+        self.assertEqual(
+            networks_page.find_messages_and_dismiss(), {messages.SUCCESS})
         self.assertFalse(networks_page.is_network_present(self.NETWORK_NAME))
 
 
@@ -81,10 +77,8 @@ class TestNetworksPagination(helpers.TestCase):
         networks_page = self.networks_page
         for network_name in networks_names:
             networks_page.create_network(network_name, self.SUBNET_NAME)
-            self.assertTrue(
-                networks_page.find_message_and_dismiss(messages.SUCCESS))
-            self.assertFalse(
-                networks_page.find_message_and_dismiss(messages.ERROR))
+            self.assertEqual(
+                networks_page.find_messages_and_dismiss(), {messages.SUCCESS})
             self.assertTrue(networks_page.is_network_present(network_name))
             self.assertTrue(networks_page.is_network_active(network_name))
         # we have to get this now, before we change page size
@@ -98,10 +92,9 @@ class TestNetworksPagination(helpers.TestCase):
             networks_page = self.networks_page
             for network_name in networks_names:
                 networks_page.delete_network(network_name)
-                self.assertTrue(
-                    networks_page.find_message_and_dismiss(messages.SUCCESS))
-                self.assertFalse(
-                    networks_page.find_message_and_dismiss(messages.ERROR))
+                self.assertEqual(
+                    networks_page.find_messages_and_dismiss(),
+                    {messages.SUCCESS})
                 self.assertFalse(networks_page.is_network_present(network_name))
 
         self.addCleanup(cleanup)
@@ -166,4 +159,4 @@ class TestNetworksPagination(helpers.TestCase):
             settings_page.change_pagesize(items_per_page)
         else:
             settings_page.change_pagesize()
-        settings_page.find_message_and_dismiss(messages.SUCCESS)
+        settings_page.find_messages_and_dismiss()

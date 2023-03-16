@@ -23,11 +23,11 @@ class TestUser(helpers.AdminTestCase):
 
         users_page.create_user(self.USER_NAME, password=password,
                                project='admin', role='admin')
-        self.assertTrue(users_page.find_message_and_dismiss(messages.SUCCESS))
-        self.assertFalse(users_page.find_message_and_dismiss(messages.ERROR))
+        self.assertEqual(
+            users_page.find_messages_and_dismiss(), {messages.SUCCESS})
         self.assertTrue(users_page.is_user_present(self.USER_NAME))
 
         users_page.delete_user(self.USER_NAME)
-        self.assertTrue(users_page.find_message_and_dismiss(messages.SUCCESS))
-        self.assertFalse(users_page.find_message_and_dismiss(messages.ERROR))
+        self.assertEqual(
+            users_page.find_messages_and_dismiss(), {messages.SUCCESS})
         self.assertFalse(users_page.is_user_present(self.USER_NAME))

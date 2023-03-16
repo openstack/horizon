@@ -332,10 +332,8 @@ class TestCase(BaseTestCase, AssertsMixin):
         self.home_pg = self.login_pg.login(self.TEST_USER_NAME,
                                            self.TEST_PASSWORD)
         self.home_pg.change_project(self.HOME_PROJECT)
-        self.assertTrue(
-            self.home_pg.find_message_and_dismiss(messages.SUCCESS))
-        self.assertFalse(
-            self.home_pg.find_message_and_dismiss(messages.ERROR))
+        self.assertEqual(
+            self.home_pg.find_messages_and_dismiss(), {messages.SUCCESS})
 
         def cleanup():
             if self.home_pg.is_logged_in:

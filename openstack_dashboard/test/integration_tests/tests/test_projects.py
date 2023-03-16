@@ -24,17 +24,13 @@ class TestCreateDeleteProject(helpers.AdminTestCase):
 
     def test_create_delete_project(self):
         self.projects_page.create_project(PROJECT_NAME)
-        self.assertTrue(
-            self.projects_page.find_message_and_dismiss(messages.SUCCESS))
-        self.assertFalse(
-            self.projects_page.find_message_and_dismiss(messages.ERROR))
+        self.assertEqual(
+            self.projects_page.find_messages_and_dismiss(), {messages.SUCCESS})
         self.assertTrue(self.projects_page.is_project_present(PROJECT_NAME))
 
         self.projects_page.delete_project(PROJECT_NAME)
-        self.assertTrue(
-            self.projects_page.find_message_and_dismiss(messages.SUCCESS))
-        self.assertFalse(
-            self.projects_page.find_message_and_dismiss(messages.ERROR))
+        self.assertEqual(
+            self.projects_page.find_messages_and_dismiss(), {messages.SUCCESS})
         self.assertFalse(self.projects_page.is_project_present(PROJECT_NAME))
 
 
@@ -44,8 +40,8 @@ class TestModifyProject(helpers.AdminTestCase):
         super().setUp()
         self.projects_page = self.home_pg.go_to_identity_projectspage()
         self.projects_page.create_project(PROJECT_NAME)
-        self.assertTrue(
-            self.projects_page.find_message_and_dismiss(messages.SUCCESS))
+        self.assertEqual(
+            self.projects_page.find_messages_and_dismiss(), {messages.SUCCESS})
 
         def cleanup():
             if not self.projects_page.is_the_current_page():
@@ -62,10 +58,8 @@ class TestModifyProject(helpers.AdminTestCase):
 
         self.projects_page.allocate_user_to_project(
             admin_name, roles2add, PROJECT_NAME)
-        self.assertTrue(
-            self.projects_page.find_message_and_dismiss(messages.SUCCESS))
-        self.assertFalse(
-            self.projects_page.find_message_and_dismiss(messages.ERROR))
+        self.assertEqual(
+            self.projects_page.find_messages_and_dismiss(), {messages.SUCCESS})
 
         user_roles = self.projects_page.get_user_roles_at_project(
             admin_name, PROJECT_NAME)

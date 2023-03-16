@@ -135,28 +135,20 @@ class TestUserSettings(helpers.TestCase):
         """
         settings_page = self.home_pg.go_to_settings_usersettingspage()
         settings_page.change_language("es")
-        self.assertTrue(
-            settings_page.find_message_and_dismiss(messages.SUCCESS))
-        self.assertFalse(
-            settings_page.find_message_and_dismiss(messages.ERROR))
+        self.assertEqual(
+            settings_page.find_messages_and_dismiss(), {messages.SUCCESS})
 
         settings_page.change_timezone("Asia/Jerusalem")
-        self.assertTrue(
-            settings_page.find_message_and_dismiss(messages.SUCCESS))
-        self.assertFalse(
-            settings_page.find_message_and_dismiss(messages.ERROR))
+        self.assertEqual(
+            settings_page.find_messages_and_dismiss(), {messages.SUCCESS})
 
         settings_page.change_pagesize("30")
-        self.assertTrue(
-            settings_page.find_message_and_dismiss(messages.SUCCESS))
-        self.assertFalse(
-            settings_page.find_message_and_dismiss(messages.ERROR))
+        self.assertEqual(
+            settings_page.find_messages_and_dismiss(), {messages.SUCCESS})
 
         settings_page.change_loglines("50")
-        self.assertTrue(
-            settings_page.find_message_and_dismiss(messages.SUCCESS))
-        self.assertFalse(
-            settings_page.find_message_and_dismiss(messages.ERROR))
+        self.assertEqual(
+            settings_page.find_messages_and_dismiss(), {messages.SUCCESS})
 
         changed_settings = {
             "language": "es",

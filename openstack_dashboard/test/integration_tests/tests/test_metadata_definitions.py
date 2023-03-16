@@ -54,8 +54,8 @@ class TestMetadataDefinitions(helpers.AdminTestCase):
             is_protected=is_protected,
             namespace_source_type=template_source_type)
         # Checks
-        self.assertTrue(page.find_message_and_dismiss(messages.SUCCESS))
-        self.assertFalse(page.find_message_and_dismiss(messages.ERROR))
+        self.assertEqual(
+            page.find_messages_and_dismiss(), {messages.SUCCESS})
         self.assertTrue(page.is_namespace_present(namespace_name))
         row = page._get_row_with_namespace_name(namespace_name)
         if checks:
@@ -79,8 +79,8 @@ class TestMetadataDefinitions(helpers.AdminTestCase):
         """
         page.delete_namespace(name=namespace_name)
         # Checks
-        self.assertTrue(page.find_message_and_dismiss(messages.SUCCESS))
-        self.assertFalse(page.find_message_and_dismiss(messages.ERROR))
+        self.assertEqual(
+            page.find_messages_and_dismiss(), {messages.SUCCESS})
         self.assertFalse(page.is_namespace_present(namespace_name))
 
     def test_namespace_create_delete(self):

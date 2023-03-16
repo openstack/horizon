@@ -28,18 +28,16 @@ class TestRouters(helpers.TestCase):
         routers_page = self.routers_page
 
         routers_page.create_router(self.ROUTER_NAME)
-        self.assertTrue(
-            routers_page.find_message_and_dismiss(messages.SUCCESS))
-        self.assertFalse(routers_page.find_message_and_dismiss(messages.ERROR))
+        self.assertEqual(
+            routers_page.find_messages_and_dismiss(), {messages.SUCCESS})
         self.assertTrue(routers_page.is_router_present(self.ROUTER_NAME))
         self.assertTrue(routers_page.is_router_active(self.ROUTER_NAME))
 
     def _delete_router(self):
         routers_page = self.routers_page
         routers_page.delete_router(self.ROUTER_NAME)
-        self.assertTrue(
-            routers_page.find_message_and_dismiss(messages.SUCCESS))
-        self.assertFalse(routers_page.find_message_and_dismiss(messages.ERROR))
+        self.assertEqual(
+            routers_page.find_messages_and_dismiss(), {messages.SUCCESS})
         self.assertFalse(routers_page.is_router_present(self.ROUTER_NAME))
 
     def test_router_create(self):
@@ -55,32 +53,28 @@ class TestRouters(helpers.TestCase):
 
     def _create_interface(self, interfaces_page):
         interfaces_page.create_interface(self.SUBNET_NAME)
-        self.assertTrue(
-            interfaces_page.find_message_and_dismiss(messages.SUCCESS))
-        self.assertFalse(
-            interfaces_page.find_message_and_dismiss(messages.ERROR))
+        self.assertEqual(
+            interfaces_page.find_messages_and_dismiss(), {messages.SUCCESS})
         interface_name = interfaces_page.interface_name
         self.assertTrue(interfaces_page.is_interface_present(interface_name))
 
     def _delete_interface(self, interfaces_page, interface_name):
         interfaces_page.delete_interface(interface_name)
-        self.assertTrue(
-            interfaces_page.find_message_and_dismiss(messages.SUCCESS))
-        self.assertFalse(
-            interfaces_page.find_message_and_dismiss(messages.ERROR))
+        self.assertEqual(
+            interfaces_page.find_messages_and_dismiss(), {messages.SUCCESS})
         self.assertFalse(interfaces_page.is_interface_present(interface_name))
 
     def _create_subnet(self):
         networks_page = self.home_pg.go_to_project_network_networkspage()
         networks_page.create_network(self.NETWORK_NAME, self.SUBNET_NAME)
-        self.assertTrue(
-            networks_page.find_message_and_dismiss(messages.SUCCESS))
+        self.assertEqual(
+            networks_page.find_messages_and_dismiss(), {messages.SUCCESS})
 
     def _delete_subnet(self):
         networks_page = self.home_pg.go_to_project_network_networkspage()
         networks_page.delete_network(self.NETWORK_NAME)
-        self.assertTrue(
-            networks_page.find_message_and_dismiss(messages.SUCCESS))
+        self.assertEqual(
+            networks_page.find_messages_and_dismiss(), {messages.SUCCESS})
 
     def test_router_add_delete_interface(self):
         """Tests the router interface creation and deletion functionalities:
@@ -191,9 +185,8 @@ class TestAdminRouters(helpers.AdminTestCase):
         routers_page = self.home_pg.go_to_project_network_routerspage()
 
         routers_page.create_router(self.ROUTER_NAME)
-        self.assertTrue(
-            routers_page.find_message_and_dismiss(messages.SUCCESS))
-        self.assertFalse(routers_page.find_message_and_dismiss(messages.ERROR))
+        self.assertEqual(
+            routers_page.find_messages_and_dismiss(), {messages.SUCCESS})
         self.assertTrue(routers_page.is_router_present(self.ROUTER_NAME))
         self.assertTrue(routers_page.is_router_active(self.ROUTER_NAME))
 
@@ -204,18 +197,14 @@ class TestAdminRouters(helpers.AdminTestCase):
 
         new_name = "edited_" + self.ROUTER_NAME
         admin_routers_page.edit_router(self.ROUTER_NAME, new_name=new_name)
-        self.assertTrue(
-            admin_routers_page.find_message_and_dismiss(messages.SUCCESS))
-        self.assertFalse(
-            admin_routers_page.find_message_and_dismiss(messages.ERROR))
+        self.assertEqual(
+            admin_routers_page.find_messages_and_dismiss(), {messages.SUCCESS})
         self.assertTrue(
             admin_routers_page.is_router_present(new_name))
         self.assertTrue(
             admin_routers_page.is_router_active(new_name))
 
         admin_routers_page.delete_router(new_name)
-        self.assertTrue(
-            admin_routers_page.find_message_and_dismiss(messages.SUCCESS))
-        self.assertFalse(
-            admin_routers_page.find_message_and_dismiss(messages.ERROR))
+        self.assertEqual(
+            admin_routers_page.find_messages_and_dismiss(), {messages.SUCCESS})
         self.assertFalse(admin_routers_page.is_router_present(new_name))

@@ -44,29 +44,23 @@ class TestVolumesBasic(helpers.TestCase):
         """
         volumes_page = self.home_pg.go_to_project_volumes_volumespage()
         volumes_page.create_volume(self.VOLUME_NAME)
-        self.assertTrue(
-            volumes_page.find_message_and_dismiss(messages.INFO))
-        self.assertFalse(
-            volumes_page.find_message_and_dismiss(messages.ERROR))
+        self.assertEqual(
+            volumes_page.find_messages_and_dismiss(), {messages.INFO})
         self.assertTrue(volumes_page.is_volume_present(self.VOLUME_NAME))
         self.assertTrue(volumes_page.is_volume_status(self.VOLUME_NAME,
                                                       'Available'))
 
         new_name = "edited_" + self.VOLUME_NAME
         volumes_page.edit_volume(self.VOLUME_NAME, new_name, "description")
-        self.assertTrue(
-            volumes_page.find_message_and_dismiss(messages.INFO))
-        self.assertFalse(
-            volumes_page.find_message_and_dismiss(messages.ERROR))
+        self.assertEqual(
+            volumes_page.find_messages_and_dismiss(), {messages.INFO})
         self.assertTrue(volumes_page.is_volume_present(new_name))
         self.assertTrue(volumes_page.is_volume_status(new_name, 'Available'))
 
         volumes_page = self.volumes_page
         volumes_page.delete_volume(new_name)
-        self.assertTrue(
-            volumes_page.find_message_and_dismiss(messages.INFO))
-        self.assertFalse(
-            volumes_page.find_message_and_dismiss(messages.ERROR))
+        self.assertEqual(
+            volumes_page.find_messages_and_dismiss(), {messages.INFO})
         self.assertTrue(volumes_page.is_volume_deleted(new_name))
         # NOTE(tsufiev): A short regression test on bug 1553314: we try to
         # re-open 'Create Volume' button after the volume was deleted. If the
@@ -107,8 +101,8 @@ class TestVolumesBasic(helpers.TestCase):
             name_column='Name')
         if garbage:
             volumes_page.delete_volumes(garbage)
-            self.assertTrue(
-                volumes_page.find_message_and_dismiss(messages.INFO))
+            self.assertEqual(
+                volumes_page.find_messages_and_dismiss(), {messages.INFO})
 
         count = 3
         items_per_page = 1
@@ -116,10 +110,8 @@ class TestVolumesBasic(helpers.TestCase):
                          range(count)]
         for volume_name in volumes_names:
             volumes_page.create_volume(volume_name)
-            self.assertTrue(
-                volumes_page.find_message_and_dismiss(messages.INFO))
-            self.assertFalse(
-                volumes_page.find_message_and_dismiss(messages.ERROR))
+            self.assertEqual(
+                volumes_page.find_messages_and_dismiss(), {messages.INFO})
             self.assertTrue(volumes_page.is_volume_present(volume_name))
             self.assertTrue(volumes_page.is_volume_status(volume_name,
                                                           'Available'))
@@ -135,7 +127,7 @@ class TestVolumesBasic(helpers.TestCase):
                                  'Names': [volumes_names[0]]}
         settings_page = self.home_pg.go_to_settings_usersettingspage()
         settings_page.change_pagesize(items_per_page)
-        settings_page.find_message_and_dismiss(messages.SUCCESS)
+        settings_page.find_messages_and_dismiss()
 
         volumes_page = self.volumes_page
         volumes_page.volumes_table.assert_definition(first_page_definition)
@@ -154,14 +146,12 @@ class TestVolumesBasic(helpers.TestCase):
 
         settings_page = self.home_pg.go_to_settings_usersettingspage()
         settings_page.change_pagesize()
-        settings_page.find_message_and_dismiss(messages.SUCCESS)
+        settings_page.find_messages_and_dismiss()
 
         volumes_page = self.volumes_page
         volumes_page.delete_volumes(volumes_names)
-        self.assertTrue(
-            volumes_page.find_message_and_dismiss(messages.INFO))
-        self.assertFalse(
-            volumes_page.find_message_and_dismiss(messages.ERROR))
+        self.assertEqual(
+            volumes_page.find_messages_and_dismiss(), {messages.INFO})
         self.assertTrue(volumes_page.are_volumes_deleted(volumes_names))
 
 
@@ -200,21 +190,20 @@ class TestVolumesAdvanced(helpers.TestCase):
         instance_name = helpers.gen_random_resource_name('instance')
         instances_page = self.home_pg.go_to_project_compute_instancespage()
         instances_page.create_instance(instance_name)
-        instances_page.find_message_and_dismiss(messages.INFO)
-        self.assertFalse(
-            instances_page.find_message_and_dismiss(messages.ERROR))
+        self.assertEqual(
+            instances_page.find_messages_and_dismiss(), {messages.INFO})
         self.assertTrue(instances_page.is_instance_active(instance_name))
 
         volumes_page = self.volumes_page
         volumes_page.create_volume(self.VOLUME_NAME)
-        volumes_page.find_message_and_dismiss(messages.INFO)
-        self.assertFalse(volumes_page.find_message_and_dismiss(messages.ERROR))
+        self.assertEqual(
+            volumes_page.find_messages_and_dismiss(), {messages.INFO})
         self.assertTrue(volumes_page.is_volume_status(self.VOLUME_NAME,
                                                       'Available'))
 
         volumes_page.attach_volume_to_instance(self.VOLUME_NAME, instance_name)
-        volumes_page.find_message_and_dismiss(messages.INFO)
-        self.assertFalse(volumes_page.find_message_and_dismiss(messages.ERROR))
+        self.assertEqual(
+            volumes_page.find_messages_and_dismiss(), {messages.INFO})
         self.assertTrue(volumes_page.is_volume_status(self.VOLUME_NAME,
                                                       'In-use'))
         self.assertTrue(
@@ -223,21 +212,20 @@ class TestVolumesAdvanced(helpers.TestCase):
 
         volumes_page.detach_volume_from_instance(self.VOLUME_NAME,
                                                  instance_name)
-        volumes_page.find_message_and_dismiss(messages.SUCCESS)
-        self.assertFalse(volumes_page.find_message_and_dismiss(messages.ERROR))
+        self.assertEqual(
+            volumes_page.find_messages_and_dismiss(), {messages.SUCCESS})
         self.assertTrue(volumes_page.is_volume_status(self.VOLUME_NAME,
                                                       'Available'))
 
         volumes_page.delete_volume(self.VOLUME_NAME)
-        volumes_page.find_message_and_dismiss(messages.SUCCESS)
-        self.assertFalse(volumes_page.find_message_and_dismiss(messages.ERROR))
+        self.assertEqual(
+            volumes_page.find_messages_and_dismiss(), {messages.INFO})
         self.assertTrue(volumes_page.is_volume_deleted(self.VOLUME_NAME))
 
         instances_page = self.home_pg.go_to_project_compute_instancespage()
         instances_page.delete_instance(instance_name)
-        instances_page.find_message_and_dismiss(messages.INFO)
-        self.assertFalse(
-            instances_page.find_message_and_dismiss(messages.ERROR))
+        self.assertEqual(
+            instances_page.find_messages_and_dismiss(), {messages.INFO})
         self.assertTrue(instances_page.is_instance_deleted(instance_name))
 
 
@@ -258,10 +246,8 @@ class TestVolumesActions(helpers.TestCase):
         super().setUp()
         volumes_page = self.volumes_page
         volumes_page.create_volume(self.VOLUME_NAME)
-        self.assertTrue(
-            volumes_page.find_message_and_dismiss(messages.INFO))
-        self.assertFalse(
-            volumes_page.find_message_and_dismiss(messages.ERROR))
+        self.assertEqual(
+            volumes_page.find_messages_and_dismiss(), {messages.INFO})
         self.assertTrue(volumes_page.is_volume_present(self.VOLUME_NAME))
         self.assertTrue(
             volumes_page.is_volume_status(self.VOLUME_NAME, 'Available'))
@@ -269,10 +255,8 @@ class TestVolumesActions(helpers.TestCase):
         def cleanup():
             volumes_page = self.volumes_page
             volumes_page.delete_volume(self.VOLUME_NAME)
-            self.assertTrue(
-                volumes_page.find_message_and_dismiss(messages.INFO))
-            self.assertFalse(
-                volumes_page.find_message_and_dismiss(messages.ERROR))
+            self.assertEqual(
+                volumes_page.find_messages_and_dismiss(), {messages.INFO})
             self.assertTrue(
                 volumes_page.is_volume_deleted(self.VOLUME_NAME))
 
@@ -291,10 +275,8 @@ class TestVolumesActions(helpers.TestCase):
         volumes_page = self.volumes_page
         orig_size = volumes_page.get_size(self.VOLUME_NAME)
         volumes_page.extend_volume(self.VOLUME_NAME, orig_size + 1)
-        self.assertTrue(
-            volumes_page.find_message_and_dismiss(messages.INFO))
-        self.assertFalse(
-            volumes_page.find_message_and_dismiss(messages.ERROR))
+        self.assertEqual(
+            volumes_page.find_messages_and_dismiss(), {messages.INFO})
         self.assertTrue(
             volumes_page.is_volume_status(self.VOLUME_NAME, 'Available'))
         new_size = volumes_page.get_size(self.VOLUME_NAME)
@@ -316,8 +298,8 @@ class TestVolumesActions(helpers.TestCase):
         for disk_format in all_formats:
             volumes_page.upload_volume_to_image(
                 self.VOLUME_NAME, self.IMAGE_NAME, disk_format)
-            self.assertFalse(
-                volumes_page.find_message_and_dismiss(messages.ERROR))
+            self.assertEqual(
+                volumes_page.find_messages_and_dismiss(), {messages.INFO})
             self.assertTrue(volumes_page.is_volume_status(
                 self.VOLUME_NAME, 'Available'))
             images_page = self.images_page
@@ -326,10 +308,8 @@ class TestVolumesActions(helpers.TestCase):
             self.assertEqual(images_page.get_image_format(self.IMAGE_NAME),
                              all_formats[disk_format])
             images_page.delete_image(self.IMAGE_NAME)
-            self.assertTrue(images_page.find_message_and_dismiss(
-                messages.SUCCESS))
-            self.assertFalse(images_page.find_message_and_dismiss(
-                messages.ERROR))
+            self.assertEqual(
+                images_page.find_messages_and_dismiss(), {messages.SUCCESS})
             self.assertFalse(images_page.is_image_present(self.IMAGE_NAME))
             volumes_page = \
                 self.home_pg.go_to_project_volumes_volumespage()
@@ -347,10 +327,8 @@ class TestVolumesActions(helpers.TestCase):
         6. Delete instance
         """
         self.volumes_page.launch_instance(self.VOLUME_NAME, self.INSTANCE_NAME)
-        self.assertTrue(
-            self.volumes_page.find_message_and_dismiss(messages.SUCCESS))
-        self.assertFalse(
-            self.volumes_page.find_message_and_dismiss(messages.ERROR))
+        self.assertEqual(
+            self.volumes_page.find_messages_and_dismiss(), {messages.SUCCESS})
         instances_page = self.home_pg.go_to_project_compute_instancespage()
         self.assertTrue(instances_page.is_instance_active(self.INSTANCE_NAME))
         self.volumes_page = self.home_pg.go_to_project_volumes_volumespage()
@@ -360,9 +338,7 @@ class TestVolumesActions(helpers.TestCase):
                       self.volumes_page.get_attach_instance(self.VOLUME_NAME))
         instances_page = self.home_pg.go_to_project_compute_instancespage()
         instances_page.delete_instance(self.INSTANCE_NAME)
-        self.assertTrue(
-            instances_page.find_message_and_dismiss(messages.INFO))
-        self.assertFalse(
-            instances_page.find_message_and_dismiss(messages.ERROR))
+        self.assertEqual(
+            instances_page.find_messages_and_dismiss(), {messages.INFO})
         self.assertTrue(instances_page.is_instance_deleted(self.INSTANCE_NAME))
         self.volumes_page = self.home_pg.go_to_project_volumes_volumespage()

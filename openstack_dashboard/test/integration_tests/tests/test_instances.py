@@ -33,16 +33,14 @@ class TestInstances(helpers.TestCase):
         instances_page = self.home_pg.go_to_project_compute_instancespage()
 
         instances_page.create_instance(self.INSTANCE_NAME)
-        self.assertTrue(instances_page.find_message_and_dismiss(messages.INFO))
-        self.assertFalse(
-            instances_page.find_message_and_dismiss(messages.ERROR))
+        self.assertEqual(
+            instances_page.find_messages_and_dismiss(), {messages.INFO})
         self.assertTrue(instances_page.is_instance_active(self.INSTANCE_NAME))
 
         instances_page = self.instances_page
         instances_page.delete_instance(self.INSTANCE_NAME)
-        self.assertTrue(instances_page.find_message_and_dismiss(messages.INFO))
-        self.assertFalse(
-            instances_page.find_message_and_dismiss(messages.ERROR))
+        self.assertEqual(
+            instances_page.find_messages_and_dismiss(), {messages.INFO})
         self.assertTrue(instances_page.is_instance_deleted(self.INSTANCE_NAME))
 
 
@@ -68,33 +66,33 @@ class TestInstancesPagination(helpers.TestCase):
             name_column='Instance Name')
         if garbage:
             instances_page.delete_instances(garbage)
-            self.assertTrue(
-                instances_page.find_message_and_dismiss(messages.INFO))
+            self.assertEqual(
+                instances_page.find_messages_and_dismiss(), {messages.INFO})
             self.assertTrue(
                 instances_page.are_instances_deleted(garbage))
 
         instances_page.create_instance(self.INSTANCE_NAME,
                                        instance_count=self.INSTANCE_COUNT)
-        self.assertTrue(
-            instances_page.find_message_and_dismiss(messages.INFO))
+        self.assertEqual(
+            instances_page.find_messages_and_dismiss(), {messages.INFO})
         self.assertTrue(
             instances_page.is_instance_active(self.instance_list[1]))
 
         settings_page = self.home_pg.go_to_settings_usersettingspage()
         settings_page.change_pagesize(self.ITEMS_PER_PAGE)
-        self.assertTrue(
-            settings_page.find_message_and_dismiss(messages.SUCCESS))
+        self.assertEqual(
+            settings_page.find_messages_and_dismiss(), {messages.SUCCESS})
 
         def cleanup():
             settings_page = self.home_pg.go_to_settings_usersettingspage()
             settings_page.change_pagesize()
-            self.assertTrue(
-                settings_page.find_message_and_dismiss(messages.SUCCESS))
+            self.assertEqual(
+                settings_page.find_messages_and_dismiss(), {messages.SUCCESS})
 
             instances_page = self.instances_page
             instances_page.delete_instances(self.instance_list)
-            self.assertTrue(
-                instances_page.find_message_and_dismiss(messages.INFO))
+            self.assertEqual(
+                instances_page.find_messages_and_dismiss(), {messages.INFO})
             self.assertTrue(
                 instances_page.are_instances_deleted(self.instance_list))
 
@@ -207,23 +205,23 @@ class TestInstancesFilter(helpers.TestCase):
             name_column='Instance Name')
         if garbage:
             instances_page.delete_instances(garbage)
-            self.assertTrue(
-                instances_page.find_message_and_dismiss(messages.INFO))
+            self.assertEqual(
+                instances_page.find_messages_and_dismiss(), {messages.INFO})
             self.assertTrue(
                 instances_page.are_instances_deleted(garbage))
 
         instances_page.create_instance(self.INSTANCE_NAME,
                                        instance_count=self.INSTANCE_COUNT)
-        self.assertTrue(
-            instances_page.find_message_and_dismiss(messages.INFO))
+        self.assertEqual(
+            instances_page.find_messages_and_dismiss(), {messages.INFO})
         self.assertTrue(
             instances_page.is_instance_active(self.instance_list[1]))
 
         def cleanup():
             instances_page = self.instances_page
             instances_page.delete_instances(self.instance_list)
-            self.assertTrue(
-                instances_page.find_message_and_dismiss(messages.INFO))
+            self.assertEqual(
+                instances_page.find_messages_and_dismiss(), {messages.INFO})
             self.assertTrue(
                 instances_page.are_instances_deleted(self.instance_list))
 
@@ -289,33 +287,33 @@ class TestAdminInstancesPagination(helpers.AdminTestCase, TestInstances):
             name_column='Instance Name')
         if garbage:
             instances_page.delete_instances(garbage)
-            self.assertTrue(
-                instances_page.find_message_and_dismiss(messages.INFO))
+            self.assertEqual(
+                instances_page.find_messages_and_dismiss(), {messages.INFO})
             self.assertTrue(
                 instances_page.are_instances_deleted(garbage))
 
         instances_page.create_instance(self.INSTANCE_NAME,
                                        instance_count=self.INSTANCE_COUNT)
-        self.assertTrue(
-            instances_page.find_message_and_dismiss(messages.INFO))
+        self.assertEqual(
+            instances_page.find_messages_and_dismiss(), {messages.INFO})
         self.assertTrue(
             instances_page.is_instance_active(self.instance_list[1]))
 
         settings_page = self.home_pg.go_to_settings_usersettingspage()
         settings_page.change_pagesize(self.ITEMS_PER_PAGE)
-        self.assertTrue(
-            settings_page.find_message_and_dismiss(messages.SUCCESS))
+        self.assertEqual(
+            settings_page.find_messages_and_dismiss(), {messages.SUCCESS})
 
         def cleanup():
             settings_page = self.home_pg.go_to_settings_usersettingspage()
             settings_page.change_pagesize()
-            self.assertTrue(
-                settings_page.find_message_and_dismiss(messages.SUCCESS))
+            self.assertEqual(
+                settings_page.find_messages_and_dismiss(), {messages.SUCCESS})
 
             instances_page = self.instances_page
             instances_page.delete_instances(self.instance_list)
-            self.assertTrue(
-                instances_page.find_message_and_dismiss(messages.INFO))
+            self.assertEqual(
+                instances_page.find_messages_and_dismiss(), {messages.INFO})
             self.assertTrue(
                 instances_page.are_instances_deleted(self.instance_list))
 

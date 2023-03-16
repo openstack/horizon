@@ -10,7 +10,6 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
-from selenium.common.exceptions import NoSuchElementException
 from selenium.webdriver.common import by
 
 from openstack_dashboard.test.integration_tests.regions import baseregion
@@ -18,28 +17,31 @@ from openstack_dashboard.test.integration_tests.regions import baseregion
 ERROR = 'alert-danger'
 INFO = 'alert-info'
 SUCCESS = 'alert-success'
+WARNING = 'alert-warning'
 
 
 class MessageRegion(baseregion.BaseRegion):
     _close_locator = (by.By.CSS_SELECTOR, 'a.close')
 
-    def _msg_locator(self, level):
-        return (by.By.CSS_SELECTOR, 'div.alert.%s' % level)
-
-    def __init__(self, driver, conf, level=SUCCESS):
-        self._default_src_locator = self._msg_locator(level)
-        # NOTE(nhelgeson): Running selenium on remote servers
-        # requires extra time to wait for message to pop up.
-        driver.implicitly_wait(conf.selenium.message_implicit_wait)
-        try:
-            super().__init__(driver, conf)
-        except NoSuchElementException:
-            self.src_elem = None
-        finally:
-            self._turn_on_implicit_wait()
+    def __init__(self, driver, conf, src_elem):
+        self.src_elem = src_elem
+        self.message_class = self.get_message_class()
 
     def exists(self):
         return self._is_element_displayed(self.src_elem)
 
     def close(self):
         self._get_element(*self._close_locator).click()
+
+    def get_message_class(self):
+        message_class = self.src_elem.get_attribute("class")
+        if SUCCESS in message_class:
+            return SUCCESS
+        elif ERROR in message_class:
+            return ERROR
+        elif INFO in message_class:
+            return INFO
+        elif WARNING in message_class:
+            return WARNING
+        else:
+            return "Unknown"

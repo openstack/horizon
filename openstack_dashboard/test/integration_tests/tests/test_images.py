@@ -43,8 +43,8 @@ class TestImagesBasicAngular(helpers.TestCase):
             images_page.create_image(self.IMAGE_NAME,
                                      image_source_type='url',
                                      **kwargs)
-        self.assertTrue(images_page.find_message_and_dismiss(messages.SUCCESS))
-        self.assertFalse(images_page.find_message_and_dismiss(messages.ERROR))
+        self.assertEqual(
+            images_page.find_messages_and_dismiss(), {messages.SUCCESS})
         self.assertTrue(images_page.is_image_present(self.IMAGE_NAME))
         self.assertTrue(images_page.is_image_active(self.IMAGE_NAME))
         return images_page
@@ -52,8 +52,8 @@ class TestImagesBasicAngular(helpers.TestCase):
     def image_delete(self, image_name):
         images_page = self.images_page
         images_page.delete_image(image_name)
-        self.assertTrue(images_page.find_message_and_dismiss(messages.SUCCESS))
-        self.assertFalse(images_page.find_message_and_dismiss(messages.ERROR))
+        self.assertEqual(
+            images_page.find_messages_and_dismiss(), {messages.SUCCESS})
         self.assertFalse(images_page.is_image_present(self.IMAGE_NAME))
 
     def test_image_create_delete_from_local_file(self):
@@ -111,8 +111,8 @@ class TestImagesBasicAngular(helpers.TestCase):
         garbage = [i for i in image_list if i not in default_image_list]
         if garbage:
             images_page.delete_images(garbage)
-            self.assertTrue(
-                images_page.find_message_and_dismiss(messages.SUCCESS))
+            self.assertEqual(
+                images_page.find_messages_and_dismiss(), {messages.SUCCESS})
 
         items_per_page = 1
         images_count = 2
@@ -121,10 +121,8 @@ class TestImagesBasicAngular(helpers.TestCase):
         for image_name in images_names:
             with helpers.gen_temporary_file() as file_name:
                 images_page.create_image(image_name, image_file=file_name)
-            self.assertTrue(
-                images_page.find_message_and_dismiss(messages.SUCCESS))
-            self.assertFalse(
-                images_page.find_message_and_dismiss(messages.ERROR))
+            self.assertEqual(
+                images_page.find_messages_and_dismiss(), {messages.SUCCESS})
             self.assertTrue(images_page.is_image_present(image_name))
 
         first_page_definition = {'Next': True, 'Prev': False,
@@ -139,7 +137,7 @@ class TestImagesBasicAngular(helpers.TestCase):
 
         settings_page = self.home_pg.go_to_settings_usersettingspage()
         settings_page.change_pagesize(items_per_page)
-        settings_page.find_message_and_dismiss(messages.SUCCESS)
+        settings_page.find_messages_and_dismiss()
 
         images_page = self.images_page
         if not images_page.is_image_present(default_image_list[0]):
@@ -160,13 +158,13 @@ class TestImagesBasicAngular(helpers.TestCase):
 
         settings_page = self.home_pg.go_to_settings_usersettingspage()
         settings_page.change_pagesize()
-        settings_page.find_message_and_dismiss(messages.SUCCESS)
+        settings_page.find_messages_and_dismiss()
 
         images_page = self.images_page
         images_page.wait_until_image_present(default_image_list[0])
         images_page.delete_images(images_names)
-        self.assertTrue(images_page.find_message_and_dismiss(messages.SUCCESS))
-        self.assertFalse(images_page.find_message_and_dismiss(messages.ERROR))
+        self.assertEqual(
+            images_page.find_messages_and_dismiss(), {messages.SUCCESS})
 
 
 class TestImagesAdminAngular(helpers.AdminTestCase, TestImagesBasicAngular):
@@ -220,8 +218,8 @@ class TestImagesAdminAngular(helpers.AdminTestCase, TestImagesBasicAngular):
         with helpers.gen_temporary_file() as file_name:
             images_page = self.image_create(local_file=file_name)
             images_page.edit_image(self.IMAGE_NAME, protected=True)
-            self.assertTrue(
-                images_page.find_message_and_dismiss(messages.SUCCESS))
+            self.assertEqual(
+                images_page.find_messages_and_dismiss(), {messages.SUCCESS})
 
             # Check that Delete action is not available in the action list.
             # The below action will generate exception since the bind fails.
@@ -235,15 +233,9 @@ class TestImagesAdminAngular(helpers.AdminTestCase, TestImagesBasicAngular):
             images_page = self.images_page
 
             images_page.edit_image(self.IMAGE_NAME, protected=False)
-            self.assertTrue(
-                images_page.find_message_and_dismiss(messages.SUCCESS))
-            self.assertFalse(
-                images_page.find_message_and_dismiss(messages.ERROR))
-
+            self.assertEqual(
+                images_page.find_messages_and_dismiss(), {messages.SUCCESS})
             self.image_delete(self.IMAGE_NAME)
-            self.assertFalse(
-                images_page.find_message_and_dismiss(messages.ERROR))
-            self.assertFalse(images_page.is_image_present(self.IMAGE_NAME))
 
     def test_edit_image_description_and_name(self):
         """tests that image description is editable
@@ -265,10 +257,8 @@ class TestImagesAdminAngular(helpers.AdminTestCase, TestImagesBasicAngular):
             images_page = self.image_create(local_file=file_name)
             images_page.edit_image(self.IMAGE_NAME,
                                    description=new_description_text)
-            self.assertTrue(
-                images_page.find_message_and_dismiss(messages.SUCCESS))
-            self.assertFalse(
-                images_page.find_message_and_dismiss(messages.ERROR))
+            self.assertEqual(
+                images_page.find_messages_and_dismiss(), {messages.SUCCESS})
 
             results = images_page.check_image_details(self.IMAGE_NAME,
                                                       {'Description':
@@ -279,20 +269,14 @@ class TestImagesAdminAngular(helpers.AdminTestCase, TestImagesBasicAngular):
             images_page = self.images_page
             images_page.edit_image(self.IMAGE_NAME,
                                    new_name=new_image_name)
-            self.assertTrue(
-                images_page.find_message_and_dismiss(messages.SUCCESS))
-            self.assertFalse(
-                images_page.find_message_and_dismiss(messages.ERROR))
+            self.assertEqual(
+                images_page.find_messages_and_dismiss(), {messages.SUCCESS})
 
             results = images_page.check_image_details(new_image_name,
                                                       {'Name':
                                                        new_image_name})
             self.assertSequenceTrue(results)
-
             self.image_delete(new_image_name)
-            self.assertFalse(
-                images_page.find_message_and_dismiss(messages.ERROR))
-            self.assertFalse(images_page.is_image_present(self.IMAGE_NAME))
 
     def test_filter_images(self):
         """This test checks filtering of images
@@ -354,10 +338,8 @@ class TestImagesAdvancedAngular(helpers.TestCase):
 
         images_page.create_volume_from_image(
             source_image, volume_name=target_volume)
-        self.assertTrue(
-            images_page.find_message_and_dismiss(messages.INFO))
-        self.assertFalse(
-            images_page.find_message_and_dismiss(messages.ERROR))
+        self.assertEqual(
+            images_page.find_messages_and_dismiss(), {messages.INFO})
 
         volumes_page = self.volumes_page()
 
@@ -365,8 +347,7 @@ class TestImagesAdvancedAngular(helpers.TestCase):
         self.assertTrue(volumes_page.is_volume_status(target_volume,
                                                       'Available'))
         volumes_page.delete_volume(target_volume)
-        volumes_page.find_message_and_dismiss(messages.SUCCESS)
-        volumes_page.find_message_and_dismiss(messages.ERROR)
+        volumes_page.find_messages_and_dismiss()
 
         volumes_page = self.volumes_page()
         self.assertTrue(volumes_page.is_volume_deleted(target_volume))
@@ -387,10 +368,8 @@ class TestImagesAdvancedAngular(helpers.TestCase):
         target_instance = "created_from_{0}".format(source_image)
 
         images_page.launch_instance_from_image(source_image, target_instance)
-        self.assertTrue(
-            images_page.find_message_and_dismiss(messages.INFO))
-        self.assertFalse(
-            images_page.find_message_and_dismiss(messages.ERROR))
+        self.assertEqual(
+            images_page.find_messages_and_dismiss(), {messages.INFO})
 
         instances_page = self.instances_page()
         self.assertTrue(instances_page.is_instance_active(target_instance))
@@ -399,8 +378,6 @@ class TestImagesAdvancedAngular(helpers.TestCase):
         self.assertEqual(source_image, actual_image_name)
 
         instances_page.delete_instance(target_instance)
-        self.assertTrue(
-            instances_page.find_message_and_dismiss(messages.INFO))
-        self.assertFalse(
-            instances_page.find_message_and_dismiss(messages.ERROR))
+        self.assertEqual(
+            instances_page.find_messages_and_dismiss(), {messages.INFO})
         self.assertTrue(instances_page.is_instance_deleted(target_instance))

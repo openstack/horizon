@@ -32,16 +32,12 @@ class TestAdminGroupTypes(helpers.AdminTestCase):
         """
         group_types_page = self.home_pg.go_to_admin_volume_grouptypespage()
         group_types_page.create_group_type(self.GROUP_TYPE_NAME)
-        self.assertTrue(
-            group_types_page.find_message_and_dismiss(messages.SUCCESS))
-        self.assertFalse(
-            group_types_page.find_message_and_dismiss(messages.ERROR))
+        self.assertEqual(
+            group_types_page.find_messages_and_dismiss(), {messages.SUCCESS})
         self.assertTrue(group_types_page.is_group_type_present(
             self.GROUP_TYPE_NAME))
         group_types_page.delete_group_type(self.GROUP_TYPE_NAME)
-        self.assertTrue(
-            group_types_page.find_message_and_dismiss(messages.SUCCESS))
-        self.assertFalse(
-            group_types_page.find_message_and_dismiss(messages.ERROR))
+        self.assertEqual(
+            group_types_page.find_messages_and_dismiss(), {messages.SUCCESS})
         self.assertTrue(group_types_page.is_group_type_deleted(
             self.GROUP_TYPE_NAME))

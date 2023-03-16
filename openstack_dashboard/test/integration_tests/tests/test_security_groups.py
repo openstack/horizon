@@ -29,45 +29,44 @@ class TestSecuritygroup(helpers.TestCase):
         page = self.securitygroup_page
         rule_page = page.create_securitygroup(self.SEC_GROUP_NAME)
         if rule_page:
-            self.assertTrue(
-                rule_page.find_message_and_dismiss(messages.SUCCESS))
-            self.assertFalse(
-                rule_page.find_message_and_dismiss(messages.ERROR))
+            self.assertEqual(
+                rule_page.find_messages_and_dismiss(), {messages.SUCCESS})
             page = self.securitygroup_page
             self.assertTrue(page.is_securitygroup_present(self.SEC_GROUP_NAME))
         else:
-            self.assertTrue(page.find_message_and_dismiss(messages.SUCCESS))
-            self.assertFalse(page.find_message_and_dismiss(messages.ERROR))
+            self.assertEqual(
+                page.find_messages_and_dismiss(), {messages.SUCCESS})
             self.assertTrue(page.is_securitygroup_present(self.SEC_GROUP_NAME))
 
     def _delete_securitygroup(self):
         page = self.securitygroup_page
         page.delete_securitygroup(self.SEC_GROUP_NAME)
-        self.assertTrue(page.find_message_and_dismiss(messages.SUCCESS))
-        self.assertFalse(page.find_message_and_dismiss(messages.ERROR))
+        self.assertEqual(
+            page.find_messages_and_dismiss(), {messages.SUCCESS})
         self.assertFalse(page.is_securitygroup_present(self.SEC_GROUP_NAME))
 
     def _add_rule(self):
         page = self.securitygroup_page
         page = page.go_to_manage_rules(self.SEC_GROUP_NAME)
         page.create_rule(self.RULE_PORT)
-        self.assertTrue(page.find_message_and_dismiss(messages.SUCCESS))
+        self.assertEqual(
+            page.find_messages_and_dismiss(), {messages.SUCCESS})
         self.assertTrue(page.is_port_present(self.RULE_PORT))
 
     def _delete_rule_by_table_action(self):
         page = self.securitygroup_page
         page = page.go_to_manage_rules(self.SEC_GROUP_NAME)
         page.delete_rules(self.RULE_PORT)
-        self.assertTrue(page.find_message_and_dismiss(messages.SUCCESS))
-        self.assertFalse(page.find_message_and_dismiss(messages.ERROR))
+        self.assertEqual(
+            page.find_messages_and_dismiss(), {messages.SUCCESS})
         self.assertFalse(page.is_port_present(self.RULE_PORT))
 
     def _delete_rule_by_row_action(self):
         page = self.securitygroup_page
         page = page.go_to_manage_rules(self.SEC_GROUP_NAME)
         page.delete_rule(self.RULE_PORT)
-        self.assertTrue(page.find_message_and_dismiss(messages.SUCCESS))
-        self.assertFalse(page.find_message_and_dismiss(messages.ERROR))
+        self.assertEqual(
+            page.find_messages_and_dismiss(), {messages.SUCCESS})
         self.assertFalse(page.is_port_present(self.RULE_PORT))
 
     def test_securitygroup_create_delete(self):

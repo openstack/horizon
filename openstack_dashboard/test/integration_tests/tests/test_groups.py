@@ -31,18 +31,14 @@ class TestGroup(helpers.AdminTestCase):
 
     def _test_create_group(self, group_name, group_desc=None):
         self.groups_page.create_group(name=group_name, description=group_desc)
-        self.assertTrue(
-            self.groups_page.find_message_and_dismiss(messages.SUCCESS))
-        self.assertFalse(
-            self.groups_page.find_message_and_dismiss(messages.ERROR))
+        self.assertEqual(
+            self.groups_page.find_messages_and_dismiss(), {messages.SUCCESS})
         self.assertTrue(self.groups_page.is_group_present(group_name))
 
     def _test_delete_group(self, group_name):
         self.groups_page.delete_group(name=group_name)
-        self.assertTrue(
-            self.groups_page.find_message_and_dismiss(messages.SUCCESS))
-        self.assertFalse(
-            self.groups_page.find_message_and_dismiss(messages.ERROR))
+        self.assertEqual(
+            self.groups_page.find_messages_and_dismiss(), {messages.SUCCESS})
         self.assertFalse(self.groups_page.is_group_present(group_name))
 
     def test_create_delete_group(self):
@@ -58,9 +54,7 @@ class TestGroup(helpers.AdminTestCase):
         new_group_name = self.group_name
         new_group_desc = self.group_description
         self.groups_page.edit_group(group_name, new_group_name, new_group_desc)
-        self.assertTrue(
-            self.groups_page.find_message_and_dismiss(messages.SUCCESS))
-        self.assertFalse(
-            self.groups_page.find_message_and_dismiss(messages.ERROR))
+        self.assertEqual(
+            self.groups_page.find_messages_and_dismiss(), {messages.SUCCESS})
         self.assertTrue(self.groups_page.is_group_present(new_group_name))
         self._test_delete_group(new_group_name)
