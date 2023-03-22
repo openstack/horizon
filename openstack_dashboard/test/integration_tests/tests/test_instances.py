@@ -22,10 +22,6 @@ class TestInstances(helpers.TestCase):
     def instances_page(self):
         return self.home_pg.go_to_project_compute_instancespage()
 
-    @property
-    def instance_table_name_column(self):
-        return 'Instance Name'
-
     def test_create_delete_instance(self):
         """tests the instance creation and deletion functionality:
 
@@ -49,6 +45,61 @@ class TestInstances(helpers.TestCase):
             instances_page.find_message_and_dismiss(messages.ERROR))
         self.assertTrue(instances_page.is_instance_deleted(self.INSTANCE_NAME))
 
+
+class TestInstancesPagination(helpers.TestCase):
+    INSTANCE_NAME = helpers.gen_random_resource_name('instance',
+                                                     timestamp=False)
+    ITEMS_PER_PAGE = 1
+    INSTANCE_COUNT = 2
+
+    @property
+    def instances_page(self):
+        return self.home_pg.go_to_project_compute_instancespage()
+
+    def setUp(self):
+        super().setUp()
+        self.instance_list = ["{0}-{1}".format(self.INSTANCE_NAME, item)
+                              for item in range(1, self.INSTANCE_COUNT + 1)]
+
+        instances_page = self.instances_page
+
+        # delete any old instances
+        garbage = instances_page.instances_table.get_column_data(
+            name_column='Instance Name')
+        if garbage:
+            instances_page.delete_instances(garbage)
+            self.assertTrue(
+                instances_page.find_message_and_dismiss(messages.INFO))
+            self.assertTrue(
+                instances_page.are_instances_deleted(garbage))
+
+        instances_page.create_instance(self.INSTANCE_NAME,
+                                       instance_count=self.INSTANCE_COUNT)
+        self.assertTrue(
+            instances_page.find_message_and_dismiss(messages.INFO))
+        self.assertTrue(
+            instances_page.is_instance_active(self.instance_list[1]))
+
+        settings_page = self.home_pg.go_to_settings_usersettingspage()
+        settings_page.change_pagesize(self.ITEMS_PER_PAGE)
+        self.assertTrue(
+            settings_page.find_message_and_dismiss(messages.SUCCESS))
+
+        def cleanup():
+            settings_page = self.home_pg.go_to_settings_usersettingspage()
+            settings_page.change_pagesize()
+            self.assertTrue(
+                settings_page.find_message_and_dismiss(messages.SUCCESS))
+
+            instances_page = self.instances_page
+            instances_page.delete_instances(self.instance_list)
+            self.assertTrue(
+                instances_page.find_message_and_dismiss(messages.INFO))
+            self.assertTrue(
+                instances_page.are_instances_deleted(self.instance_list))
+
+        self.addCleanup(cleanup)
+
     def test_instances_pagination(self):
         """This test checks instance pagination
 
@@ -66,27 +117,14 @@ class TestInstances(helpers.TestCase):
         9) Go to user settings page and restore 'Items Per Page'
         10) Delete created instances via proper page (depends on user)
         """
-        items_per_page = 1
-        instance_count = 2
-        instance_list = ["{0}-{1}".format(self.INSTANCE_NAME, item)
-                         for item in range(1, instance_count + 1)]
         first_page_definition = {'Next': True, 'Prev': False,
-                                 'Count': items_per_page,
-                                 'Names': [instance_list[1]]}
+                                 'Count': self.ITEMS_PER_PAGE,
+                                 'Names': [self.instance_list[1]]}
         second_page_definition = {'Next': False, 'Prev': True,
-                                  'Count': items_per_page,
-                                  'Names': [instance_list[0]]}
-        settings_page = self.home_pg.go_to_settings_usersettingspage()
-        settings_page.change_pagesize(items_per_page)
-        self.assertTrue(
-            settings_page.find_message_and_dismiss(messages.SUCCESS))
+                                  'Count': self.ITEMS_PER_PAGE,
+                                  'Names': [self.instance_list[0]]}
 
-        instances_page = self.home_pg.go_to_project_compute_instancespage()
-        instances_page.create_instance(self.INSTANCE_NAME,
-                                       instance_count=instance_count)
-        self.assertTrue(
-            instances_page.find_message_and_dismiss(messages.INFO))
-        self.assertTrue(instances_page.is_instance_active(instance_list[1]))
+        instances_page = self.instances_page
 
         instances_page = self.instances_page
         instances_page.instances_table.assert_definition(
@@ -99,17 +137,6 @@ class TestInstances(helpers.TestCase):
         instances_page = self.instances_page
         instances_page.instances_table.assert_definition(
             first_page_definition, sorting=True, name_column="Instance Name")
-
-        settings_page = self.home_pg.go_to_settings_usersettingspage()
-        settings_page.change_pagesize()
-        self.assertTrue(
-            settings_page.find_message_and_dismiss(messages.SUCCESS))
-
-        instances_page = self.instances_page
-        instances_page.delete_instances(instance_list)
-        self.assertTrue(
-            instances_page.find_message_and_dismiss(messages.INFO))
-        self.assertTrue(instances_page.are_instances_deleted(instance_list))
 
     def test_instances_pagination_and_filtration(self):
         """This test checks instance pagination and filtration
@@ -131,40 +158,24 @@ class TestInstances(helpers.TestCase):
         10) Delete created instances via proper page (depends on user)
 
         """
-        items_per_page = 1
-        instance_count = 2
-        instance_list = ["{0}-{1}".format(self.INSTANCE_NAME, item)
-                         for item in range(1, instance_count + 1)]
         first_page_definition = {'Next': True, 'Prev': False,
-                                 'Count': items_per_page,
-                                 'Names': [instance_list[1]]}
+                                 'Count': self.ITEMS_PER_PAGE,
+                                 'Names': [self.instance_list[1]]}
         second_page_definition = {'Next': False, 'Prev': False,
-                                  'Count': items_per_page,
-                                  'Names': [instance_list[0]]}
+                                  'Count': self.ITEMS_PER_PAGE,
+                                  'Names': [self.instance_list[0]]}
         filter_first_page_definition = {'Next': False, 'Prev': False,
-                                        'Count': items_per_page,
-                                        'Names': [instance_list[1]]}
-
-        settings_page = self.home_pg.go_to_settings_usersettingspage()
-        settings_page.change_pagesize(items_per_page)
-        self.assertTrue(
-            settings_page.find_message_and_dismiss(messages.SUCCESS))
-
-        instances_page = self.home_pg.go_to_project_compute_instancespage()
-        instances_page.create_instance(self.INSTANCE_NAME,
-                                       instance_count=instance_count)
-        self.assertTrue(
-            instances_page.find_message_and_dismiss(messages.INFO))
-        self.assertTrue(instances_page.is_instance_active(instance_list[1]))
+                                        'Count': self.ITEMS_PER_PAGE,
+                                        'Names': [self.instance_list[1]]}
 
         instances_page = self.instances_page
         instances_page.instances_table.set_filter_value('name')
-        instances_page.instances_table.filter(instance_list[1])
+        instances_page.instances_table.filter(self.instance_list[1])
         instances_page.instances_table.assert_definition(
             filter_first_page_definition, sorting=True,
             name_column="Instance Name")
 
-        instances_page.instances_table.filter(instance_list[0])
+        instances_page.instances_table.filter(self.instance_list[0])
         instances_page.instances_table.assert_definition(
             second_page_definition, sorting=True,
             name_column="Instance Name")
@@ -175,16 +186,48 @@ class TestInstances(helpers.TestCase):
             name_column="Instance Name")
         instances_page.instances_table.filter('')
 
-        settings_page = self.home_pg.go_to_settings_usersettingspage()
-        settings_page.change_pagesize()
-        self.assertTrue(
-            settings_page.find_message_and_dismiss(messages.SUCCESS))
 
+class TestInstancesFilter(helpers.TestCase):
+    INSTANCE_NAME = helpers.gen_random_resource_name('instance',
+                                                     timestamp=False)
+    INSTANCE_COUNT = 2
+
+    @property
+    def instances_page(self):
+        return self.home_pg.go_to_project_compute_instancespage()
+
+    def setUp(self):
+        super().setUp()
+        self.instance_list = ["{0}-{1}".format(self.INSTANCE_NAME, item)
+                              for item in range(1, self.INSTANCE_COUNT + 1)]
         instances_page = self.instances_page
-        instances_page.delete_instances(instance_list)
+
+        # delete any old instances
+        garbage = instances_page.instances_table.get_column_data(
+            name_column='Instance Name')
+        if garbage:
+            instances_page.delete_instances(garbage)
+            self.assertTrue(
+                instances_page.find_message_and_dismiss(messages.INFO))
+            self.assertTrue(
+                instances_page.are_instances_deleted(garbage))
+
+        instances_page.create_instance(self.INSTANCE_NAME,
+                                       instance_count=self.INSTANCE_COUNT)
         self.assertTrue(
             instances_page.find_message_and_dismiss(messages.INFO))
-        self.assertTrue(instances_page.are_instances_deleted(instance_list))
+        self.assertTrue(
+            instances_page.is_instance_active(self.instance_list[1]))
+
+        def cleanup():
+            instances_page = self.instances_page
+            instances_page.delete_instances(self.instance_list)
+            self.assertTrue(
+                instances_page.find_message_and_dismiss(messages.INFO))
+            self.assertTrue(
+                instances_page.are_instances_deleted(self.instance_list))
+
+        self.addCleanup(cleanup)
 
     def test_filter_instances(self):
         """This test checks filtering of instances by Instance Name
@@ -202,27 +245,18 @@ class TestInstances(helpers.TestCase):
         8) Set nonexistent instance name. Check that 0 rows are displayed
         9) Clear filter and delete instances via proper page (depends on user)
         """
-        instance_count = 2
-        instance_list = ["{0}-{1}".format(self.INSTANCE_NAME, item)
-                         for item in range(1, instance_count + 1)]
-
-        instances_page = self.home_pg.go_to_project_compute_instancespage()
-        instances_page.create_instance(self.INSTANCE_NAME,
-                                       instance_count=instance_count)
-        self.assertTrue(
-            instances_page.find_message_and_dismiss(messages.INFO))
-        self.assertTrue(instances_page.is_instance_active(instance_list[0]))
 
         instances_page = self.instances_page
         instances_page.instances_table.set_filter_value('name')
 
-        instances_page.instances_table.filter(instance_list[0])
-        self.assertTrue(instances_page.is_instance_present(instance_list[0]))
-        for instance in instance_list[1:]:
+        instances_page.instances_table.filter(self.instance_list[0])
+        self.assertTrue(
+            instances_page.is_instance_present(self.instance_list[0]))
+        for instance in self.instance_list[1:]:
             self.assertFalse(instances_page.is_instance_present(instance))
 
         instances_page.instances_table.filter(self.INSTANCE_NAME)
-        for instance in instance_list:
+        for instance in self.instance_list:
             self.assertTrue(instances_page.is_instance_present(instance))
 
         nonexistent_instance_name = "{0}_test".format(self.INSTANCE_NAME)
@@ -230,24 +264,62 @@ class TestInstances(helpers.TestCase):
         self.assertEqual(instances_page.instances_table.rows, [])
         instances_page.instances_table.filter('')
 
-        instances_page.delete_instances(instance_list)
-        self.assertTrue(
-            instances_page.find_message_and_dismiss(messages.INFO))
-        self.assertTrue(instances_page.are_instances_deleted(instance_list))
 
-
-class TestAdminInstances(helpers.AdminTestCase, TestInstances):
+class TestAdminInstancesPagination(helpers.AdminTestCase, TestInstances):
     INSTANCE_NAME = helpers.gen_random_resource_name('instance',
                                                      timestamp=False)
+    ITEMS_PER_PAGE = 1
+    INSTANCE_COUNT = 2
 
     @property
     def instances_page(self):
         self.home_pg.go_to_admin_overviewpage()
         return self.home_pg.go_to_admin_compute_instancespage()
 
-    @property
-    def instance_table_name_column(self):
-        return 'Name'
+    def setUp(self):
+        super().setUp()
+        self.instance_list = ["{0}-{1}".format(self.INSTANCE_NAME, item)
+                              for item in range(1, self.INSTANCE_COUNT + 1)]
+
+        # we have to use the project page, since admin has no create button
+        instances_page = self.home_pg.go_to_project_compute_instancespage()
+
+        # delete any old instances
+        garbage = instances_page.instances_table.get_column_data(
+            name_column='Instance Name')
+        if garbage:
+            instances_page.delete_instances(garbage)
+            self.assertTrue(
+                instances_page.find_message_and_dismiss(messages.INFO))
+            self.assertTrue(
+                instances_page.are_instances_deleted(garbage))
+
+        instances_page.create_instance(self.INSTANCE_NAME,
+                                       instance_count=self.INSTANCE_COUNT)
+        self.assertTrue(
+            instances_page.find_message_and_dismiss(messages.INFO))
+        self.assertTrue(
+            instances_page.is_instance_active(self.instance_list[1]))
+
+        settings_page = self.home_pg.go_to_settings_usersettingspage()
+        settings_page.change_pagesize(self.ITEMS_PER_PAGE)
+        self.assertTrue(
+            settings_page.find_message_and_dismiss(messages.SUCCESS))
+
+        def cleanup():
+            settings_page = self.home_pg.go_to_settings_usersettingspage()
+            settings_page.change_pagesize()
+            self.assertTrue(
+                settings_page.find_message_and_dismiss(messages.SUCCESS))
+
+            instances_page = self.instances_page
+            instances_page.delete_instances(self.instance_list)
+            self.assertTrue(
+                instances_page.find_message_and_dismiss(messages.INFO))
+            self.assertTrue(
+                instances_page.are_instances_deleted(self.instance_list))
+
+        self.addCleanup(cleanup)
 
     def test_instances_pagination(self):
         """This test checks instance pagination
@@ -266,27 +338,12 @@ class TestAdminInstances(helpers.AdminTestCase, TestInstances):
         9) Go to user settings page and restore 'Items Per Page'
         10) Delete created instances via proper page
         """
-        items_per_page = 1
-        instance_count = 2
-        instance_list = ["{0}-{1}".format(self.INSTANCE_NAME, item)
-                         for item in range(1, instance_count + 1)]
         first_page_definition = {'Next': True, 'Prev': False,
-                                 'Count': items_per_page,
-                                 'Names': [instance_list[1]]}
+                                 'Count': self.ITEMS_PER_PAGE,
+                                 'Names': [self.instance_list[1]]}
         second_page_definition = {'Next': False, 'Prev': True,
-                                  'Count': items_per_page,
-                                  'Names': [instance_list[0]]}
-        settings_page = self.home_pg.go_to_settings_usersettingspage()
-        settings_page.change_pagesize(items_per_page)
-        self.assertTrue(
-            settings_page.find_message_and_dismiss(messages.SUCCESS))
-
-        instances_page = self.home_pg.go_to_project_compute_instancespage()
-        instances_page.create_instance(self.INSTANCE_NAME,
-                                       instance_count=instance_count)
-        self.assertTrue(
-            instances_page.find_message_and_dismiss(messages.INFO))
-        self.assertTrue(instances_page.is_instance_active(instance_list[1]))
+                                  'Count': self.ITEMS_PER_PAGE,
+                                  'Names': [self.instance_list[0]]}
 
         instances_page = self.instances_page
         instances_page.instances_table.assert_definition(
@@ -299,17 +356,6 @@ class TestAdminInstances(helpers.AdminTestCase, TestInstances):
         instances_page = self.instances_page
         instances_page.instances_table.assert_definition(
             first_page_definition, sorting=True)
-
-        settings_page = self.home_pg.go_to_settings_usersettingspage()
-        settings_page.change_pagesize()
-        self.assertTrue(
-            settings_page.find_message_and_dismiss(messages.SUCCESS))
-
-        instances_page = self.instances_page
-        instances_page.delete_instances(instance_list)
-        self.assertTrue(
-            instances_page.find_message_and_dismiss(messages.INFO))
-        self.assertTrue(instances_page.are_instances_deleted(instance_list))
 
     def test_instances_pagination_and_filtration(self):
         """This test checks instance pagination and filtration
@@ -331,39 +377,23 @@ class TestAdminInstances(helpers.AdminTestCase, TestInstances):
         10) Delete created instances via proper page
 
         """
-        items_per_page = 1
-        instance_count = 2
-        instance_list = ["{0}-{1}".format(self.INSTANCE_NAME, item)
-                         for item in range(1, instance_count + 1)]
         first_page_definition = {'Next': True, 'Prev': False,
-                                 'Count': items_per_page,
-                                 'Names': [instance_list[1]]}
+                                 'Count': self.ITEMS_PER_PAGE,
+                                 'Names': [self.instance_list[1]]}
         second_page_definition = {'Next': False, 'Prev': False,
-                                  'Count': items_per_page,
-                                  'Names': [instance_list[0]]}
+                                  'Count': self.ITEMS_PER_PAGE,
+                                  'Names': [self.instance_list[0]]}
         filter_first_page_definition = {'Next': False, 'Prev': False,
-                                        'Count': items_per_page,
-                                        'Names': [instance_list[1]]}
-
-        settings_page = self.home_pg.go_to_settings_usersettingspage()
-        settings_page.change_pagesize(items_per_page)
-        self.assertTrue(
-            settings_page.find_message_and_dismiss(messages.SUCCESS))
-
-        instances_page = self.home_pg.go_to_project_compute_instancespage()
-        instances_page.create_instance(self.INSTANCE_NAME,
-                                       instance_count=instance_count)
-        self.assertTrue(
-            instances_page.find_message_and_dismiss(messages.INFO))
-        self.assertTrue(instances_page.is_instance_active(instance_list[1]))
+                                        'Count': self.ITEMS_PER_PAGE,
+                                        'Names': [self.instance_list[1]]}
 
         instances_page = self.instances_page
         instances_page.instances_table.set_filter_value('name')
-        instances_page.instances_table.filter(instance_list[1])
+        instances_page.instances_table.filter(self.instance_list[1])
         instances_page.instances_table.assert_definition(
             filter_first_page_definition, sorting=True)
 
-        instances_page.instances_table.filter(instance_list[0])
+        instances_page.instances_table.filter(self.instance_list[0])
         instances_page.instances_table.assert_definition(
             second_page_definition, sorting=True)
 
@@ -371,14 +401,3 @@ class TestAdminInstances(helpers.AdminTestCase, TestInstances):
         instances_page.instances_table.assert_definition(
             first_page_definition, sorting=True)
         instances_page.instances_table.filter('')
-
-        settings_page = self.home_pg.go_to_settings_usersettingspage()
-        settings_page.change_pagesize()
-        self.assertTrue(
-            settings_page.find_message_and_dismiss(messages.SUCCESS))
-
-        instances_page = self.instances_page
-        instances_page.delete_instances(instance_list)
-        self.assertTrue(
-            instances_page.find_message_and_dismiss(messages.INFO))
-        self.assertTrue(instances_page.are_instances_deleted(instance_list))
