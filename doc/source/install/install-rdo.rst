@@ -96,6 +96,12 @@ Install and configure components
 
      .. end
 
+     .. note::
+
+        In case your keystone run at 5000 port then you would mentioned
+        keystone port here as well i.e.
+        OPENSTACK_KEYSTONE_URL = "http://%s:5000/identity/v3" % OPENSTACK_HOST
+
    * Enable support for domains:
 
      .. path /etc/openstack-dashboard/local_settings
