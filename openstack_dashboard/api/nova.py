@@ -665,9 +665,12 @@ def server_metadata_delete(request, instance_id, keys):
 
 @profiler.trace
 def server_rescue(request, instance_id, password=None, image=None):
-    _nova.novaclient(request).servers.rescue(instance_id,
-                                             password=password,
-                                             image=image)
+    microversion = get_microversion(request, "rescue_instance_volume_based")
+    _nova.novaclient(request, version=microversion).servers.rescue(
+        instance_id,
+        password=password,
+        image=image
+    )
 
 
 @profiler.trace
