@@ -12,7 +12,6 @@
 #    WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
 #    License for the specific language governing permissions and limitations
 #    under the License.
-import pytest
 
 from openstack_dashboard.test.integration_tests import helpers
 from openstack_dashboard.test.integration_tests.regions import messages
@@ -38,12 +37,11 @@ class TestFloatingip(helpers.TestCase):
 class TestFloatingipAssociateDisassociate(helpers.TestCase):
     """Checks that the user is able to Associate/Disassociate floatingip."""
 
-    @pytest.mark.skip(reason="Bug 1920010 fix")
     def test_floatingip_associate_disassociate(self):
         instance_name = helpers.gen_random_resource_name('instance',
                                                          timestamp=False)
         instances_page = self.home_pg.go_to_project_compute_instancespage()
-        instances_page.create_instance(instance_name)
+        instances_page.create_instance(instance_name, network_type='internal')
         self.assertEqual(
             instances_page.find_messages_and_dismiss(), {messages.INFO})
         self.assertTrue(instances_page.is_instance_active(instance_name))
