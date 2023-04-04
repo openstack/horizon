@@ -17,10 +17,10 @@
     <div class="{{ classes.value }} {{ field|wrapper_classes }}">
       {% with add_item_link=field|add_item_url %}
       {% if add_item_link %}
-        <div class='input-group'>
+        <div class="input-group">
           {{ field|add_bootstrap_class }}
           <span class="input-group-btn">
-            <a href="{{ add_item_link }}" data-add-to-field="{{ field.auto_id }}" class='btn btn-default ajax-add ajax-modal'>
+            <a href="{{ add_item_link }}" data-add-to-field="{{ field.auto_id }}" class="btn btn-default ajax-add ajax-modal">
               <span class="fa fa-plus"></span>
             </a>
           </span>

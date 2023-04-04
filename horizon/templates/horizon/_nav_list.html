@@ -5,7 +5,7 @@
     {% for component in components %}
       {% if user|has_permissions:component %}
         <li{% if current.slug == component.slug %} class="active"{% endif %}>
-          <a href="{{ component.get_absolute_url }}" tabindex='1'>{{ component.name }}</a>
+          <a href="{{ component.get_absolute_url }}" tabindex="1">{{ component.name }}</a>
         </li>
       {% endif %}
     {% endfor %}

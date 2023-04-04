@@ -10,7 +10,7 @@
         {% for panel in filtered_panels %}
           {% if panel in accessible_panels or current == panel.slug %}
             <li>
-              <a href="{{ panel.get_absolute_url }}" {% if current == panel.slug %}class="active"{% endif %} tabindex='1'>{{ panel.name }}</a>
+              <a href="{{ panel.get_absolute_url }}" {% if current == panel.slug %}class="active"{% endif %} tabindex="1">{{ panel.name }}</a>
             </li>
           {% endif %}
         {% endfor %}

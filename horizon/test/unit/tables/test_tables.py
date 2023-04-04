@@ -713,13 +713,13 @@ class DataTableTests(test.TestCase):
         self.assertContains(resp, update_string, 4)
         self.assertContains(resp, "data-update-interval", 4)
         # Verify no table heading
-        self.assertNotContains(resp, "<h3 class='table_title'")
+        self.assertNotContains(resp, '<h3 class="table_title"')
         # Verify our XSS protection
         self.assertContains(resp, '&lt;strong&gt;evil&lt;/strong&gt;', 1)
         # Hidden Title = False shows the table title
         self.table._meta.hidden_title = False
         resp = http.HttpResponse(self.table.render())
-        self.assertContains(resp, "<span class='table-title'>", 1)
+        self.assertContains(resp, '<span class="table-title">', 1)
 
         # Filter = False hides the search box
         self.table._meta.filter = False

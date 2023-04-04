@@ -1,12 +1,12 @@
 {% load i18n %}
 <a href="#" id="flavor_details_{{ id }}" class="link-popover" rel="popover" tabindex="0" data-trigger="focus" data-content="
-<table class='table table-bordered'>
+<table class=&quot;table table-bordered&quot;>
   <tr><th>{% trans 'ID' %}</th><td>{{ flavor_id }}</td></tr>
   <tr><th>{% trans 'VCPUs' %}</th><td>{{ vcpus }}</td></tr>
   <tr><th>{% trans 'RAM' %}</th><td>{{ size_ram }}</td></tr>
   <tr><th>{% trans 'Size' %}</th><td>{{ size_disk }}</td></tr>
 </table>
-" data-original-title="{% blocktrans %}<span class='word-wrap'>Flavor Details: {{ name }}</span>">{{ name }}{% endblocktrans %}</a>
+" data-original-title="{% blocktrans %}<span class=&quot;word-wrap&quot;>Flavor Details: {{ name }}</span>">{{ name }}{% endblocktrans %}</a>
 <script type="text/javascript" charset="utf-8">
 $(function () {
   var $flavor = $("#flavor_details_{{ id }}");

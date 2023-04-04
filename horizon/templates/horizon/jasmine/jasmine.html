@@ -27,7 +27,7 @@
 
   <!-- source files -->
   {% for file in HORIZON_CONFIG.js_files %}
-    <script src='{{ STATIC_URL }}{{ file }}'></script>
+    <script src="{{ STATIC_URL }}{{ file }}"></script>
   {% endfor %}
 
   {% block source %}
@@ -36,7 +36,7 @@
   <!-- test files - mock and spec -->
   {% block spec %}
     {% for file in HORIZON_CONFIG.js_spec_files %}
-      <script src='{{ STATIC_URL }}{{ file }}'></script>
+      <script src="{{ STATIC_URL }}{{ file }}"></script>
     {% endfor %}
   {% endblock %}
 

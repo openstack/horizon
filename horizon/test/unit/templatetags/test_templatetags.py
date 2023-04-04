@@ -139,12 +139,12 @@ class TemplateTagTests(test.TestCase):
         text = "{% horizon_main_nav %}"
         expected = """
                 <div>
-                    <ul class=\"nav nav-tabs\" role=\"tablist\">
+                    <ul class="nav nav-tabs" role="tablist">
                         <li>
-                            <a href=\"/cats/\" tabindex='1'>Cats</a>
+                            <a href="/cats/" tabindex="1">Cats</a>
                         </li>
                         <li>
-                            <a href=\"/dogs/\" tabindex='1'>Dogs</a>
+                            <a href="/dogs/" tabindex="1">Dogs</a>
                         </li>
                     </ul></div>"""
 

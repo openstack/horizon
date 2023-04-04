@@ -7,8 +7,8 @@
   <head>
     {% block custom_analytics %}
     {% endblock %}
-    <meta content='IE=edge' http-equiv='X-UA-Compatible' />
-    <meta content='text/html; charset=utf-8' http-equiv='Content-Type' />
+    <meta content="IE=edge" http-equiv="X-UA-Compatible" />
+    <meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
     {% block custom_metadata %}
       {% include "horizon/_custom_meta.html" %}
@@ -26,23 +26,23 @@
     {% endblock %}
     {% block ng_route_base %} {% endblock %}
   </head>
-  <body id="{% block body_id %}{% endblock %}" ng-app='horizon.app' ng-strict-di>
+  <body id="{% block body_id %}{% endblock %}" ng-app="horizon.app" ng-strict-di>
     <noscript>
       <div class="alert alert-danger text-center javascript-disabled">
         {% trans "This application requires JavaScript to be enabled in your web browser." %}
       </div>
     </noscript>
     {% block content %}
-      <div class='topbar'>
+      <div class="topbar">
         {% include "header/_header.html" %}
       </div>
-      <div id='main_content'>
+      <div id="main_content">
         {% include "horizon/_messages.html" %}
         {% block sidebar %}
           {% include 'horizon/common/_sidebar.html' %}
         {% endblock %}
-        <div id='content_body'>
-          <div class='container-fluid'>
+        <div id="content_body">
+          <div class="container-fluid">
             <div class="row">
               <div class="col-xs-12">
                 <div class="page-breadcrumb">
