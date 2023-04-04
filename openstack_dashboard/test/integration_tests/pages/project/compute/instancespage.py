@@ -97,6 +97,7 @@ class InstancesPage(basepage.BaseNavigationPage):
             instance_count=DEFAULT_COUNT,
             flavor=DEFAULT_FLAVOR,
             boot_source=DEFAULT_BOOT_SOURCE,
+            network_type=DEFAULT_NETWORK_TYPE,
             source_name=None,
             device_size=None,
             vol_delete_on_instance_delete=DEFAULT_VOL_DELETE_ON_INSTANCE_DELETE
@@ -187,6 +188,6 @@ class InstancesPage(basepage.BaseNavigationPage):
     def get_fixed_ipv4(self, name):
         row = self._get_row_with_instance_name(name)
         ips = row.cells[self.INSTANCES_TABLE_IP_COLUMN].text
-        for ip in ips.split():
+        for ip in ips.split(','):
             if netaddr.valid_ipv4(ip):
                 return ip
