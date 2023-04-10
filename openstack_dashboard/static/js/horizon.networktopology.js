@@ -157,7 +157,7 @@ horizon.network_topology = {
       self.translate = null;
     });
     angular.element(window).on('message', function(e) {
-        var message = angular.element.parseJSON(e.originalEvent.data);
+        var message = JSON.parse(e.originalEvent.data);
         if (self.previous_message !== message.message) {
           horizon.alert(message.type, message.message);
           self.previous_message = message.message;
