@@ -15,7 +15,7 @@
 // Added so that we can break Firefox and Safari bfcache to
 // prevent loading previous page from cache.
 horizon.addInitFunction(function () {
-  $(window).bind('pageshow', function(event) {
+  $(window).on('pageshow', function(event) {
     if (event.originalEvent.persisted) {
       window.location.reload();
     }

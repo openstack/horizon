@@ -415,7 +415,7 @@ horizon.membership = {
    **/
   list_filtering: function (step_slug) {
     // remove previous lists' quicksearch events
-    $('input.' + step_slug + '_filter').unbind();
+    $('input.' + step_slug + '_filter').off();
 
     // set up quicksearch to filter on input
     $('.' + step_slug + '_filterable').each(function () {

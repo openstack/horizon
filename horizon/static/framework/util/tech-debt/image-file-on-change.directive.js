@@ -29,7 +29,7 @@
     return directive;
 
     function link($scope, element, attrs, ngModel) {
-      element.bind('change', function (event) {
+      element.on('change', function (event) {
         var files = event.target.files;
         var file = files[0];
         ngModel.$setViewValue(file);

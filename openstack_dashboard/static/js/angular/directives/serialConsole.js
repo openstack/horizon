@@ -77,7 +77,7 @@ limitations under the License.
         scope.cols = 80;
         scope.rows = 24;
         // event handler to resize console according to window resize.
-        angular.element(window).bind('resize', resizeTerminal);
+        angular.element(window).on('resize', resizeTerminal);
         function resizeTerminal() {
           var terminal = angular.element('.terminal')[0];
           // take margin for scroll-bars on window.
