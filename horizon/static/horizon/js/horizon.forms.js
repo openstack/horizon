@@ -184,12 +184,12 @@ horizon.forms = {
 
 horizon.forms.handle_submit = function (el) {
   var $form = $(el).find("form");
-  $form.submit(function () {
+  $form.on('submit', function () {
     var $this = $(this);
     // Disable multiple submissions when launching a form.
     var button = $this.find('[type="submit"]');
     if (button.hasClass('btn-primary') && !button.hasClass('always-enabled')){
-      $this.submit(function () {
+      $this.on('submit', function () {
         return false;
       });
       button.removeClass('primary').addClass('disabled');
