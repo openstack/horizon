@@ -168,11 +168,11 @@ horizon.forms = {
         endDate.hide();
       }).data('datepicker');
 
-    $("#id_start").mousedown(function(){
+    $("#id_start").on("mousedown", function() {
       endDate.hide();
     });
 
-    $("#id_end").mousedown(function(){
+    $("#id_end").on("mousedown", function() {
       startDate.hide();
     });
 
