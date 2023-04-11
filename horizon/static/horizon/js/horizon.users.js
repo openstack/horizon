@@ -15,13 +15,13 @@
 horizon.user = {
 
   init: function() {
-    $("#id_password").change(function () {
+    $("#id_password").on('change', function () {
       if ($("#id_confirm_password").val() !== "") {
         horizon.user.check_passwords_match();
       }
     });
 
-    $("#id_confirm_password").change(function () {
+    $("#id_confirm_password").on('change', function () {
       horizon.user.check_passwords_match();
     });
   },
