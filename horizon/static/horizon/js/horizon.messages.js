@@ -100,7 +100,7 @@ horizon.addInitFunction(function () {
   });
 
   // Dismiss alert messages when moving on to a new type of action.
-  $('a.ajax-modal').click(function() {
+  $('a.ajax-modal').on('click', function() {
     horizon.clearAllMessages();
   });
 

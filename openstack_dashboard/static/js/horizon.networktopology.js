@@ -142,7 +142,7 @@ horizon.network_topology = {
       self.refresh_labels();
     });
 
-    angular.element('#center_topology').click(function() {
+    angular.element('#center_topology').on('click', function() {
      this.blur(); // remove btn focus after click
      self.delete_balloon();
       // move visualization to the center and reset scale
@@ -1101,19 +1101,19 @@ horizon.network_topology = {
         })
         .addClass('leftPosition');
     }
-    _balloon.find('.delete-device').click(function() {
+    _balloon.find('.delete-device').on('click', function() {
       var _this = angular.element(this);
       var delete_modal = horizon.datatables.confirm(_this);
-      delete_modal.find('.btn.btn-danger').click(function () {
+      delete_modal.find('.btn.btn-danger').on('click', function () {
         _this.prop('disabled', true);
         d3.select('#id_' + _this.data('device-id')).classed('loading',true);
         self.delete_device(_this.data('type'),_this.data('device-id'));
       });
     });
-    _balloon.find('.delete-port').click(function() {
+    _balloon.find('.delete-port').on('click', function() {
       var _this = angular.element(this);
       var delete_modal = horizon.datatables.confirm(_this);
-      delete_modal.find('.btn.btn-danger').click(function () {
+      delete_modal.find('.btn.btn-danger').on('click', function () {
         _this.prop('disabled', true);
         self.delete_port(_this.data('router-id'),_this.data('port-id'),_this.data('network-id'));
       });
