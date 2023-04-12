@@ -382,7 +382,7 @@ horizon.flat_network_topology = {
       this._portdata.port_margin = d.port_margin;
       this._portdata.left = 0;
       this._portdata.right = 0;
-      $(this).mouseenter(function(e){
+      $(this).on('mouseenter', function(e){
         e.stopPropagation();
       });
     });
