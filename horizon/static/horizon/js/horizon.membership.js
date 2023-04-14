@@ -318,7 +318,7 @@ horizon.membership = {
       }
       else {
         $('#no_' + filter).hide();
-        $("input[id='" + filter + "']").removeAttr('disabled');
+        $("input[id='" + filter + "']").prop('disabled', false);
       }
     });
   },
@@ -446,7 +446,7 @@ horizon.membership = {
         },
         'testQuery': function (query, txt, span) {
           if ($(input).attr('id') === filter) {
-            $(input).prev().removeAttr('disabled');
+            $(input).prev().prop('disabled', false);
             return query.test($(span).text());
           } else {
             return true;
