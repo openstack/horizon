@@ -6,12 +6,12 @@
 {% comment %} Compress 3rd-party (jquery, angular, etc) and top-level Horizon JS. {% endcomment %}
 {% compress js %}
 {% for file in HORIZON_CONFIG.xstatic_lib_files %}
-    <script src='{{ STATIC_URL }}{{ file }}'></script>
+    <script src="{{ STATIC_URL }}{{ file }}"></script>
 {% endfor %}
-<script src='{{ STATIC_URL }}horizon/js/horizon.js' type='text/javascript' charset='utf-8'></script>
+<script src="{{ STATIC_URL }}horizon/js/horizon.js" type="text/javascript" charset="utf-8"></script>
 {% endcompress %}
 
-<script type='text/javascript' charset='utf-8'>
+<script type="text/javascript" charset="utf-8">
   (function (global) {
     'use strict';
 

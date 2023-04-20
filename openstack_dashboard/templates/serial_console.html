@@ -2,25 +2,25 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <meta content='IE=edge' http-equiv='X-UA-Compatible' />
-  <meta content='text/html; charset=utf-8' http-equiv='Content-Type' />
+  <meta content="IE=edge" http-equiv="X-UA-Compatible" />
+  <meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
   <title>{{page_title}}</title>
   {% load compress %}
   {% compress css %}
   <link rel="stylesheet" href="{{ STATIC_URL }}dashboard/scss/serial_console.scss" type="text/scss" media="screen" />
   {% endcompress %}
   <script src="{% url 'horizon:jsi18n' 'horizon' %}"></script>
-  <script src='{{ STATIC_URL }}horizon/lib/termjs/term.js'></script>
+  <script src="{{ STATIC_URL }}horizon/lib/termjs/term.js"></script>
   <script src="{{ STATIC_URL }}horizon/lib/jquery/jquery.js"></script>
   <script src="{{ STATIC_URL }}horizon/lib/angular/angular.js"></script>
   <script src="{{ STATIC_URL }}js/angular/directives/serialConsole.js"></script>
 </head>
-<body ng-app='serialConsoleApp'>
+<body ng-app="serialConsoleApp">
 
     {% if error_message %}
         {{ error_message }}
     {% else %}
-        <serial-console connection='"{{console_url}}"' protocols='{{protocols}}'></serial-console>
+        <serial-console connection="&quot;{{console_url}}&quot;" protocols="{{protocols}}"></serial-console>
     {% endif %}
 
 </body>

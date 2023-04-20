@@ -1,6 +1,6 @@
 {% load i18n %}
 {% block page_header %}
-  <div class='page-header'>
+  <div class="page-header">
     <h1>
     {% if 'domain_context_name' in request.session %}
       <em>{% blocktrans with context_name=request.session.domain_context_name %}{{ context_name }}:{% endblocktrans %}</em>
