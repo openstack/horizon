@@ -490,7 +490,7 @@ horizon.membership = {
       }
 
       // prevent filter inputs from submitting form on 'enter'
-      $form.find('.' + step_slug + '_membership').keydown(function(event){
+      $form.find('.' + step_slug + '_membership').on('keydown', function(event){
         if (event.keyCode === 13) {
           event.preventDefault();
           return false;
