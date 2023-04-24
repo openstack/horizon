@@ -486,7 +486,7 @@ horizon.membership = {
 
       // unfocus filter fields
       if (step_id.indexOf('update') === 0) {
-        $form.find("#" + step_id + " input").blur();
+        $form.find("#" + step_id + " input").trigger('blur');
       }
 
       // prevent filter inputs from submitting form on 'enter'
