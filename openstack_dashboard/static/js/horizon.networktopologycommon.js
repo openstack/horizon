@@ -88,7 +88,7 @@ horizon.networktopologymessager = {
 
     // listens for message events
     angular.element(window).on('message', function(e) {
-      var message = angular.element.parseJSON(e.originalEvent.data);
+      var message = JSON.parse(e.originalEvent.data);
       if (self.previous_message !== message.message) {
         horizon.toast.add(message.type, message.message);
         self.previous_message = message.message;

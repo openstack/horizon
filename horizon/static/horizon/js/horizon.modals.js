@@ -346,7 +346,7 @@ horizon.addInitFunction(horizon.modals.init = function() {
       } else if (redirect_header) {
         location.href = redirect_header;
       } else if (add_to_field_header) {
-        json_data = $.parseJSON(data);
+        json_data = JSON.parse(data);
         field_to_update = $("#" + add_to_field_header);
         field_to_update.append("<option value='" + json_data[0] + "'>" + json_data[1] + "</option>");
         field_to_update.change();
