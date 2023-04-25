@@ -105,12 +105,12 @@ horizon.flat_network_topology = {
         e.stopImmediatePropagation();
         var vnc_window = window.open($(this).attr('href'), vnc_window, 'width=760,height=560');
         self.delete_balloon();
-      })
-      .click(function(){
+      });
+      $(document).on('click', function(){
         self.delete_balloon();
       });
 
-    $('.toggle-view > .btn').click(function(){
+    $('.toggle-view > .btn').on('click', function(){
       self.draw_mode = $(this).data('value');
       $('g.network').remove();
       horizon.cookies.put('ntp_draw_mode',self.draw_mode);
@@ -621,20 +621,20 @@ horizon.flat_network_topology = {
       'left': x + 'px'
     }).show();
 
-    $balloon.find('.delete-device').click(function(){
+    $balloon.find('.delete-device').on('click', function(){
       var $this = $(this);
       var delete_modal = horizon.datatables.confirm($this);
-      delete_modal.find('.btn.btn-danger').click(function () {
+      delete_modal.find('.btn.btn-danger').on('click', function () {
         $this.prop('disabled', true);
         d3.select('#id_' + $this.data('device-id')).classed('loading',true);
         self.delete_device($this.data('type'),$this.data('device-id'));
         horizon.modals.spinner.modal('hide');
       });
     });
-    $balloon.find('.delete-port').click(function(){
+    $balloon.find('.delete-port').on('click', function(){
       var $this = $(this);
       var delete_modal = horizon.datatables.confirm($this);
-      delete_modal.find('.btn.btn-danger').click(function () {
+      delete_modal.find('.btn.btn-danger').on('click', function () {
         $this.prop('disabled', true);
         self.delete_port($this.data('router-id'),$this.data('port-id'),$this.data('network-id'));
         horizon.modals.spinner.modal('hide');

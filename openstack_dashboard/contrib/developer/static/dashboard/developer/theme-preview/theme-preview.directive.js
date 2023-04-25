@@ -43,7 +43,7 @@
     function link(scope, element) {
 
       //TODO(tqtran) Use angular, not jQuery
-      $('a[href="#"]').click(function(e) {
+      $('a[href="#"]').on('click', function(e) {
         e.preventDefault();
       });
 
@@ -51,7 +51,7 @@
       var $pre = $uibModal.find('pre');
 
       var $button = $('<div id="source-button" class="btn btn-primary btn-xs"><span class="fa fa-code"></span></div>')
-        .click(function(){
+        .on('click', function(){
           var $parent = $(this).parent();
 
           var $fragment = stripAngular($parent.clone());
