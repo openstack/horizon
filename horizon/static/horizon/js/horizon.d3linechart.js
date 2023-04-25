@@ -755,7 +755,7 @@ horizon.d3_line_chart = {
      * @param settings An object containing settings of the chart.
      */
     var delegate_event_and_refresh_charts = function(selector, event_name, settings) {
-      $('form').delegate(selector, event_name, function() {
+      $('form').on(selector, event_name, function() {
         /*
           Registering 'any event' on form element by delegating. This way it
           can be easily overridden / enhanced when some special functionality
