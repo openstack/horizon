@@ -9,7 +9,11 @@
 #    WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
 #    License for the specific language governing permissions and limitations
 #    under the License.
+
+import time
+
 import netaddr
+
 from selenium.common import exceptions
 from selenium.webdriver.common import by
 
@@ -75,8 +79,14 @@ class InstancesPage(basepage.BaseNavigationPage):
         self._page_title = "Instances"
 
     def _get_row_with_instance_name(self, name):
-        return self.instances_table.get_row(self.INSTANCES_TABLE_NAME_COLUMN,
-                                            name)
+        for attempt in range(4):
+            row = self.instances_table.get_row(
+                self.INSTANCES_TABLE_NAME_COLUMN, name)
+            if row is not None:
+                return row
+            else:
+                time.sleep(0.5)
+        return None
 
     def _get_rows_with_instances_names(self, names):
         return [
