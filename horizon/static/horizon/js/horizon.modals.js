@@ -417,7 +417,7 @@ horizon.addInitFunction(horizon.modals.init = function() {
   // Position modal so it's in-view even when scrolled down.
   $document.on('show.bs.modal', '.modal', function (evt) {
     // avoid closing the modal when escape is pressed on a select input
-    $("select", evt.target).keyup(function (e) {
+    $("select", evt.target).on('keyup', function (e) {
       if (e.keyCode === 27) {
         // remove the focus on the select, so double escape close the modal
         e.target.blur();
