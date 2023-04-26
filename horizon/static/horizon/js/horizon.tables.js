@@ -342,7 +342,7 @@ horizon.datatables.confirm = function(action) {
     el.value = $action.attr('value');
     $form
       .append(el)
-      .submit();
+      .trigger('submit');
 
     modal.modal('hide');
     horizon.modals.modal_spinner(gettext("Working"));
