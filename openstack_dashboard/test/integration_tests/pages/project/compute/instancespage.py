@@ -10,6 +10,7 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 import netaddr
+from selenium.common import exceptions
 from selenium.webdriver.common import by
 
 from openstack_dashboard.test.integration_tests.pages import basepage
@@ -63,6 +64,11 @@ class InstancesPage(basepage.BaseNavigationPage):
     SOURCE_STEP_INDEX = 1
     FLAVOR_STEP_INDEX = 2
     NETWORKS_STEP_INDEX = 3
+
+    _search_state_active = (
+        by.By.XPATH,
+        "//*[contains(@class,'normal_column')][contains(text(),'Active')]"
+    )
 
     def __init__(self, driver, conf):
         super().__init__(driver, conf)
@@ -155,6 +161,10 @@ class InstancesPage(basepage.BaseNavigationPage):
             row = self._get_row_with_instance_name(name)
             return row and row.cells[self.INSTANCES_TABLE_STATUS_COLUMN]
 
+        try:
+            self.wait_until_element_is_visible(self._search_state_active)
+        except exceptions.TimeoutException:
+            return False
         status = self.instances_table.wait_cell_status(cell_getter,
                                                        ('Active', 'Error'))
         return status == 'Active'
