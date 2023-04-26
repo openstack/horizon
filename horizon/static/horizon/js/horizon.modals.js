@@ -121,7 +121,7 @@ horizon.modals.init_wizard = function () {
     });
 
     // Temporarilly remove "disabled" attribute to get the values serialized
-    var disabled = $form.find('select[disabled="disabled"]').removeAttr("disabled");
+    var disabled = $form.find('select[disabled="disabled"]').prop("disabled", false);
 
     // Send the data for validation.
     $.ajax({
@@ -321,7 +321,7 @@ horizon.addInitFunction(horizon.modals.init = function() {
         add_to_field_header = jqXHR.getResponseHeader("X-Horizon-Add-To-Field"),
         json_data, field_to_update;
       if (redirect_header === null) {
-        $('.ajax-modal, .dropdown-toggle').removeAttr("disabled");
+        $('.ajax-modal, .dropdown-toggle').prop("disabled", false);
       }
 
       content_disposition = jqXHR.getResponseHeader("content-disposition");
@@ -361,7 +361,7 @@ horizon.addInitFunction(horizon.modals.init = function() {
       if (jqXHR.getResponseHeader('logout')) {
         location.href = jqXHR.getResponseHeader("X-Horizon-Location");
       } else {
-        $('.ajax-modal, .dropdown-toggle').removeAttr("disabled");
+        $('.ajax-modal, .dropdown-toggle').prop("disabled", false);
         $formElement.closest(".modal").modal("hide");
         horizon.toast.add("danger", gettext("There was an error submitting the form. Please try again."));
       }

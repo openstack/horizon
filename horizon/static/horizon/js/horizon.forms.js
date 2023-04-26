@@ -74,7 +74,7 @@ horizon.forms = {
       if ($option.val() == "subnetpool") {
         $ipVersion.attr("disabled", "disabled");
       } else {
-        $ipVersion.removeAttr("disabled");
+        $ipVersion.prop("disabled", false);
       }
     });
   },
@@ -198,7 +198,7 @@ horizon.forms.handle_submit = function (el) {
     // Remove disabled attribute on select fields before submit to get value
     // included in POST request.
     $this.find('select[disabled="disabled"]').each(function (i, field) {
-      $(field).removeAttr("disabled");
+      $(field).prop("disabled", false);
     });
     return true;
   });
@@ -379,7 +379,7 @@ horizon.forms.checkSpinnerValue = function($inputs) {
     var $up = $parent.find('.spinner-up');
     var $down = $parent.find('.spinner-down');
 
-    $parent.find('.themable-spinner-btn').removeAttr('disabled');
+    $parent.find('.themable-spinner-btn').prop('disabled', false);
     if (val <= min) {
 
       // Disable if we've hit the min
@@ -516,7 +516,7 @@ horizon.addInitFunction(horizon.forms.init = function () {
           //The required verification should be removed and recorded
           if ($input.attr('required') === 'required') {
             $input.data('savedRequired', 'required');
-            $input.removeAttr('required');
+            $input.prop('required', false);
           }
         } else {
           //If the input is a checkbox no need to replace html for label since it has another structure

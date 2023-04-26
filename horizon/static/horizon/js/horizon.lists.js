@@ -25,7 +25,7 @@ horizon.lists = {
       var active_features = $("#selected_"+type+" > li").map(function () {
         return $(this).attr("name");
       });
-      $("#"+type+"ListId input:checkbox").removeAttr('checked');
+      $("#"+type+"ListId input:checkbox").prop('checked', false);
       active_features.each(function (index, value) {
         $("#"+type+"ListId input:checkbox[value=" + value + "]")
           .prop('checked', true)

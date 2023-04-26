@@ -609,7 +609,7 @@ horizon.datatables.update_header_checkbox = function(table) {
     $multi_select_checkbox.prop('checked', false);
     $multi_select_checkbox.attr('disabled', true);
   } else {
-    $multi_select_checkbox.removeAttr('disabled');
+    $multi_select_checkbox.prop('disabled', false);
     var not_checked = $checkboxes.not(':checked').length;
     $multi_select_checkbox.prop('checked', not_checked == 0);
   }
