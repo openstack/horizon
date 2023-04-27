@@ -78,9 +78,9 @@ horizon.addInitFunction(horizon.instances.init = function () {
     update_launch_source_displayed_fields(this);
   });
 
-  $('.workflow #id_source_type').change();
+  $('.workflow #id_source_type').on('change', function() {});
   horizon.modals.addModalInitFunction(function (modal) {
-    $(modal).find("#id_source_type").change();
+    $(modal).find("#id_source_type").on('change', function() {});
   });
 
   /*

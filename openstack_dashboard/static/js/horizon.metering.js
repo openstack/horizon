@@ -37,7 +37,7 @@ horizon.metering = {
     }
   },
   add_change_event_to_period_dropdown: function() {
-    $("#id_period").change(function(evt) {
+    $("#id_period").on('change', function(evt) {
         if (horizon.metering.show_or_hide_date_fields()) {
           evt.stopPropagation();
         }

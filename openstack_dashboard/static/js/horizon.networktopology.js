@@ -131,12 +131,12 @@ horizon.network_topology = {
         self.delete_balloon();
       });
 
-    angular.element('#toggle_labels').change(function() {
+    angular.element('#toggle_labels').on('change', function() {
       horizon.cookies.put('show_labels', this.checked);
       self.refresh_labels();
     });
 
-    angular.element('#toggle_networks').change(function() {
+    angular.element('#toggle_networks').on('change', function() {
       horizon.cookies.put('are_networks_collapsed', this.checked);
       self.refresh_networks();
       self.refresh_labels();
