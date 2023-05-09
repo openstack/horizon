@@ -279,7 +279,7 @@ horizon.forms.init_themable_select = function ($elem) {
 
     // Set the select if necessary
     if ($select.val() !== value) {
-      $select.val(value).change();
+      $select.val(value).trigger("change");
     }
   });
 
@@ -318,7 +318,7 @@ horizon.forms.init_themable_select = function ($elem) {
       }
 
       // Add the new list to the dropdown.
-      $select.siblings('.dropdown-menu').html(list).change();
+      $select.siblings('.dropdown-menu').html(list).trigger("change");
       $select.trigger('change');
     });
 

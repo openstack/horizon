@@ -349,7 +349,7 @@ horizon.addInitFunction(horizon.modals.init = function() {
         json_data = JSON.parse(data);
         field_to_update = $("#" + add_to_field_header);
         field_to_update.append("<option value='" + json_data[0] + "'>" + json_data[1] + "</option>");
-        field_to_update.change();
+        field_to_update.trigger("change");
         field_to_update.val(json_data[0]);
       } else {
         horizon.modals.success(data, textStatus, jqXHR);
