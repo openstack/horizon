@@ -228,7 +228,7 @@ horizon.forms.add_password_fields_reveal_buttons = function (el) {
     $input.closest('div').addClass("has-feedback");
     $('<span>').addClass(
       "form-control-feedback fa fa-eye password-icon"
-    ).insertAfter($input).click(function () {
+    ).insertAfter($input).on('click', function () {
       var $icon = $(this);
 
       if ($input.attr('type') === 'password') {

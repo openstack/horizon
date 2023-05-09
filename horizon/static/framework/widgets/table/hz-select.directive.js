@@ -55,7 +55,7 @@
     ////////////////////
 
     function link(scope, element, attrs, hzTableCtrl) {
-      element.click(clickHandler);
+      element.on('click', clickHandler);
 
       // select or unselect row
       function clickHandler() {

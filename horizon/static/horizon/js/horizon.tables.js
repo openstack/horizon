@@ -334,7 +334,7 @@ horizon.datatables.confirm = function(action) {
     modal.css('z-index', child_backdrop.css('z-index')+10);
   }
 
-  modal.find('.' + confirmCssClass).click(function () {
+  modal.find('.' + confirmCssClass).on('click', function () {
     var $form = $action.closest('form');
     var el = document.createElement("input");
     el.type = 'hidden';
