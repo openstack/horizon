@@ -376,6 +376,7 @@
       var promise = apiService.get('/api/neutron/qos_policies/' + id + '/')
         .then(function onSuccess(response) {
           convertDatesHumanReadable(response.data);
+          return response;
         });
       promise = suppressError ? promise : promise.catch(function onError() {
         var msg = gettext('Unable to retrieve the policy with ID %(id)s');
@@ -398,6 +399,7 @@
           response.data.items.forEach(function(policy) {
             convertDatesHumanReadable(policy);
           });
+          return response;
         })
         .catch(function onError() {
           toastService.add('error', gettext('Unable to retrieve the qos policies.'));
@@ -812,6 +814,7 @@
       var promise = apiService.get('/api/neutron/trunks/' + id + '/')
         .then(function onSuccess(response) {
           convertDatesHumanReadable(response.data);
+          return response;
         });
       promise = suppressError ? promise : promise.catch(function onError() {
         var msg = gettext('Unable to retrieve the trunk with id: %(id)s');
@@ -834,6 +837,7 @@
           response.data.items.forEach(function(trunk) {
             convertDatesHumanReadable(trunk);
           });
+          return response;
         })
         .catch(function onError() {
           toastService.add('error', gettext('Unable to retrieve the trunks.'));
