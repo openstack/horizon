@@ -83,7 +83,7 @@
       var hzTableCtrl = ctrls[0];
       var stTableCtrl = ctrls[1];
 
-      element.click(clickHandler);
+      element.on('click', clickHandler);
 
       /*
        * watch the table state for changes
