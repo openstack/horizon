@@ -169,7 +169,7 @@ horizon.modals.init_wizard = function () {
           });
           // Focus the first invalid field.
           if (first_field) {
-            $field.focus();
+            $field.trigger('focus');
             first_field = false;
           }
         });
@@ -428,7 +428,7 @@ horizon.addInitFunction(horizon.modals.init = function() {
 
   // Focus the first usable form field in the modal for accessibility.
   horizon.modals.addModalInitFunction(function (modal) {
-    $(modal).find(":text, select, textarea").filter(":visible:first").focus();
+    $(modal).find(":text, select, textarea").filter(":visible:first").trigger("focus");
   });
 
   horizon.modals.addModalInitFunction(function(modal) {
