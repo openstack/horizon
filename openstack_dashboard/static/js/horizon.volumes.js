@@ -23,7 +23,7 @@ horizon.Volumes = {
 
     this.getSelectedType();
     this.showTypeDescription();
-    $("#id_volume_source_type").change(this._toggleTypeSelector);
+    $("#id_volume_source_type").on("change", this._toggleTypeSelector);
   },
 
   /*
