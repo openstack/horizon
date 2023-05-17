@@ -79,7 +79,7 @@
     }
 
     function copyPrivateKey() {
-      angular.element('textarea').select();
+      angular.element('textarea').trigger('select');
       document.execCommand('copy');
     }
 
