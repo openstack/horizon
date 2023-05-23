@@ -26,8 +26,8 @@
       {% endcomment %}
       {% if HORIZON_CONFIG.password_autocomplete != "on" %}
         <div class="fake_credentials" style="display: none">
-          <input type="text" name="fake_email" value="" />
-          <input type="password" name="fake_password" value="" />
+          <input type="text" name="fake_email" value="" autocomplete="new-password"/>
+          <input type="password" name="fake_password" value="" autocomplete="new-password"/>
         </div>
       {%endif%}
       {% if show_sso_opts %}
