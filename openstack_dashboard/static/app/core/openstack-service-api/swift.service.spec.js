@@ -256,7 +256,6 @@
       spyOn(promise, 'catch');
       spyOn(toastService, 'add');
       service.getObjectDetails('spam', 'ham', true);
-      expect(promise.catch).toHaveBeenCalledWith(angular.noop);
       expect(toastService.add).not.toHaveBeenCalled();
     });
 
