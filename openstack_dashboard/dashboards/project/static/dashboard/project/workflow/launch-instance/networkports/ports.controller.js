@@ -27,12 +27,18 @@
     .controller('LaunchInstanceNetworkPortController', LaunchInstanceNetworkPortController);
 
   LaunchInstanceNetworkPortController.$inject = [
+    '$scope',
     'horizon.dashboard.project.workflow.launch-instance.basePath',
     'launchInstanceModel',
     'horizon.framework.widgets.action-list.button-tooltip.row-warning.service'
   ];
 
-  function LaunchInstanceNetworkPortController(basePath, launchInstanceModel, tooltipService) {
+  function LaunchInstanceNetworkPortController(
+    $scope,
+    basePath,
+    launchInstanceModel,
+    tooltipService
+    ) {
     var ctrl = this;
 
     ctrl.portStatuses = {
@@ -54,6 +60,20 @@
       'virtio-forwarder': gettext('Virtio Forwarder')
     };
 
+    ctrl.ports = [];
+
+    var portsWatcher = $scope.$watchCollection(function() {
+      return launchInstanceModel.ports;
+    }, function (newValue, oldValue, scope) {
+      var ctrl = scope.ctrl;
+      ctrl.ports = newValue;
+      ctrl.isPortsObjGenerated = false;
+    });
+
+    $scope.$on('$destroy', function() {
+      portsWatcher();
+    });
+
     function getPortStatus(status) {
       return ctrl.portStatuses[status];
     }
@@ -62,12 +82,11 @@
       return ctrl.portAdminStates[state];
     }
 
-    var portsArr = launchInstanceModel.ports;
     ctrl.portsObj = {};
     ctrl.isPortsObjGenerated = false;
 
     function getNameOrID(id) {
-      ctrl.portsObj = ctrl.getPortsObj(portsArr);
+      ctrl.portsObj = ctrl.getPortsObj(ctrl.ports);
       var port = ctrl.portsObj[id];
       return ctrl.nameOrID(port);
     }
