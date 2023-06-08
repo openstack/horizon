@@ -279,6 +279,48 @@ def generate_test_data(service_providers=False, endpoint='localhost'):
         body=unscoped_token_dict
     )
 
+    # TOTP
+    unscoped_totp_token_dict = {
+        'token': {
+            'methods': ['password', 'totp'],
+            'expires_at': expiration,
+            'user': {
+                'id': user_dict['id'],
+                'name': user_dict['name'],
+                'domain': {
+                    'id': domain_dict['id'],
+                    'name': domain_dict['name']
+                },
+            },
+            'catalog': [keystone_service]
+        }
+    }
+    if service_providers:
+        unscoped_totp_token_dict['token']['service_providers'] = sp_list
+    test_data.unscoped_access_info_totp = access.create(
+        resp=auth_response,
+        body=unscoped_totp_token_dict
+    )
+
+    missing_methods_response_headers = {
+        'X-Subject-Token': auth_token,
+        'Openstack-Auth-Receipt': auth_token
+    }
+
+    missing_methods_response_text = """{
+        "required_auth_methods": [["totp", "password"]],
+        "receipt": {
+            "methods": ["password"],
+            "expires_at": "2023-08-15T10:31:53.000000Z"
+        }
+    }"""
+
+    test_data.missing_methods_response = TestResponse({
+        "headers": missing_methods_response_headers,
+        "status_code": 401,
+        "text": missing_methods_response_text
+    })
+
     # Service Catalog
     test_data.service_catalog = service_catalog.ServiceCatalogV3(
         [keystone_service, nova_service])

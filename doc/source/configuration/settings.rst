@@ -607,6 +607,16 @@ endpoint when looking it up in the service catalog. This overrides
 the ``OPENSTACK_ENDPOINT_TYPE`` parameter. If set to ``None``,
 ``OPENSTACK_ENDPOINT_TYPE`` is used for the identity endpoint.
 
+OPENSTACK_KEYSTONE_MFA_TOTP_ENABLED
+-----------------------------------
+
+.. versionadded:: 23.2.1(Bobcat)
+
+Default: ``False``
+
+A boolean to activate TOTP support. If activated, the plugin must
+be present in ``AUTHENTICATION_PLUGINS``.
+
 OPENSTACK_HOST
 --------------
 
@@ -1275,6 +1285,18 @@ Default:
 
 A list of authentication plugins to be used. In most cases, there is no need to
 configure this.
+
+If ``OPENSTACK_KEYSTONE_MFA_TOTP_ENABLED`` is true, then this should look
+like this:
+
+.. code-block:: python
+
+    [
+        'openstack_auth.plugin.totp.TotpPlugin',
+        'openstack_auth.plugin.password.PasswordPlugin',
+        'openstack_auth.plugin.token.TokenPlugin'
+    ]
+
 
 AUTHENTICATION_URLS
 ~~~~~~~~~~~~~~~~~~~

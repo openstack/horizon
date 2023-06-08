@@ -1441,3 +1441,98 @@ class OpenStackAuthTestsInternalURL(OpenStackAuthTests):
 
 class OpenStackAuthTestsAdminURL(OpenStackAuthTests):
     interface = 'adminURL'
+
+
+class OpenstackAuthTestsTOTP(test.TestCase):
+    interface = None
+
+    def setUp(self):
+        super().setUp()
+
+        params = {
+            'OPENSTACK_API_VERSIONS': {'identity': 3},
+            'OPENSTACK_KEYSTONE_URL': "http://localhost/identity/v3",
+            'OPENSTACK_KEYSTONE_MFA_TOTP_ENABLED': True,
+            'AUTHENTICATION_PLUGINS': [
+                'openstack_auth.plugin.totp.TotpPlugin',
+                'openstack_auth.plugin.password.PasswordPlugin',
+                'openstack_auth.plugin.token.TokenPlugin'],
+        }
+        if self.interface:
+            params['OPENSTACK_ENDPOINT_TYPE'] = self.interface
+
+        override = self.settings(**params)
+        override.enable()
+        self.addCleanup(override.disable)
+
+        self.data = data_v3.generate_test_data()
+
+    def get_form_data(self, user):
+        return {'region': "default",
+                'domain': DEFAULT_DOMAIN,
+                'password': user.password,
+                'username': user.name}
+
+    def get_form_totp_data(self):
+        return {'totp': "000000"}
+
+    def test_totp_form(self):
+        user = self.data.user
+        url = reverse('totp', args=[user.name])
+
+        response = self.client.get(url)
+        self.assertEqual(response.status_code, 200)
+        self.assertContains(response, 'totp')
+
+    @mock.patch('keystoneauth1.identity.v3.Password.get_access')
+    def test_totp_redirect(self, mock_get_access):
+        user = self.data.user
+        response = self.data.missing_methods_response
+        form_data = self.get_form_data(user)
+        url = reverse('login')
+
+        mock_get_access.side_effect = keystone_exceptions.MissingAuthMethods(
+            response)
+
+        # GET the page to set the test cookie.
+        response = self.client.get(url, form_data)
+        self.assertEqual(response.status_code, 200)
+
+        # POST to the page to acces at TOTP authentification page.
+        response = self.client.post(url, form_data)
+        self.assertEqual(response.status_code, 302)
+        self.assertEqual(response.url, "/totp/%s/" % user.name)
+
+    @mock.patch('keystoneauth1.identity.v3.Token.get_access')
+    @mock.patch('keystoneauth1.identity.v3.BaseAuth.get_access')
+    @mock.patch('keystoneauth1.identity.v3.Password.get_access')
+    @mock.patch('keystoneclient.v3.client.Client')
+    def test_totp_login(self, mock_client, mock_get_access, mock_get_access_,
+                        mock_get_access_token):
+        projects = [self.data.project_one, self.data.project_two]
+        user = self.data.user
+        response = self.data.missing_methods_response
+        form_data = self.get_form_data(user)
+        url = reverse('login')
+
+        mock_get_access.side_effect = keystone_exceptions.MissingAuthMethods(
+            response)
+
+        # Set test cookie:
+        response = self.client.get(url, form_data)
+        response = self.client.post(url, form_data)
+
+        form_data = self.get_form_totp_data()
+        url = response.url
+
+        mock_get_access_.return_value = self.data.unscoped_access_info_totp
+        mock_client.return_value.projects.list.return_value = projects
+        mock_get_access_token.return_value = self.data.unscoped_access_info_totp
+
+        # GET the page to set the test cookie.
+        response = self.client.get(url, form_data)
+        self.assertEqual(response.status_code, 200)
+
+        # POST to the page to log in.
+        response = self.client.post(url, form_data)
+        self.assertRedirects(response, settings.LOGIN_REDIRECT_URL)

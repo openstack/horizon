@@ -42,6 +42,13 @@ if utils.allow_expired_passowrd_change():
                 name='password')
     )
 
+if settings.OPENSTACK_KEYSTONE_MFA_TOTP_ENABLED:
+    urlpatterns.append(
+        re_path(r'^totp/(?P<user_name>[^/]+)/$',
+                views.TotpView.as_view(),
+                name='totp')
+    )
+
 if settings.WEBSSO_ENABLED:
     urlpatterns += [
         re_path(r"^websso/$", views.websso, name='websso'),

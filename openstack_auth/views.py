@@ -163,6 +163,11 @@ def login(request):
             form_class=form,
             extra_context=extra_context,
             redirect_authenticated_user=False)(request)
+    except exceptions.KeystoneTOTPRequired as exc:
+        res = django_http.HttpResponseRedirect(
+            reverse('totp', args=[request.POST.get('username')]))
+        request.session['receipt'] = exc.receipt
+        request.session['domain'] = request.POST.get('domain')
     except exceptions.KeystonePassExpiredException as exc:
         res = django_http.HttpResponseRedirect(
             reverse('password', args=[exc.user_id]))
@@ -484,3 +489,40 @@ class PasswordView(edit_views.FormView):
         res = django_http.HttpResponseRedirect(self.success_url)
         set_logout_reason(res, msg)
         return res
+
+
+class TotpView(edit_views.FormView):
+    """Logs a user in using a TOTP authentification"""
+    template_name = 'auth/totp.html'
+    form_class = forms.TimeBasedOneTimePassword
+    success_url = settings.LOGIN_REDIRECT_URL
+    fail_url = "/login/"
+
+    def get_initial(self):
+        return {
+            'request': self.request,
+            'username': self.kwargs['user_name'],
+            'receipt': self.request.session.get('receipt'),
+            'region': self.request.COOKIES.get('login_region'),
+            'domain': self.request.session.get('domain'),
+        }
+
+    def form_valid(self, form):
+        auth.login(self.request, form.user_cache)
+        res = django_http.HttpResponseRedirect(self.success_url)
+        request = self.request
+        if self.request.user.is_authenticated:
+            del request.session['receipt']
+            auth_user.set_session_from_user(request, request.user)
+            regions = dict(forms.get_region_choices())
+            region = request.user.endpoint
+            login_region = request.POST.get('region')
+            region_name = regions.get(login_region)
+            request.session['region_endpoint'] = region
+            request.session['region_name'] = region_name
+        return res
+
+    def form_invalid(self, form):
+        if 'KeystoneNoBackendException' in str(form.errors):
+            return django_http.HttpResponseRedirect(self.fail_url)
+        return super().form_invalid(form)

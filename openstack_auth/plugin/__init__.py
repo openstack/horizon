@@ -14,9 +14,11 @@ from openstack_auth.plugin.base import BasePlugin
 from openstack_auth.plugin.k2k import K2KAuthPlugin
 from openstack_auth.plugin.password import PasswordPlugin
 from openstack_auth.plugin.token import TokenPlugin
+from openstack_auth.plugin.totp import TotpPlugin
 
 
 __all__ = ['BasePlugin',
            'PasswordPlugin',
            'TokenPlugin',
-           'K2KAuthPlugin']
+           'K2KAuthPlugin',
+           'TotpPlugin']
