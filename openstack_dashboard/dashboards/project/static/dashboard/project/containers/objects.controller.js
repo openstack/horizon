@@ -60,7 +60,8 @@
     ctrl.containerURL = containerRoute + encodeURIComponent($routeParams.container) +
       ctrl.model.DELIMETER;
     if (angular.isDefined($routeParams.folder)) {
-      ctrl.currentURL = ctrl.containerURL + encodeURIComponent($routeParams.folder) +
+      ctrl.currentURL = ctrl.containerURL +
+        encodeURIComponent($routeParams.folder).replace(/%2F/g, '/') +
         ctrl.model.DELIMETER;
     } else {
       ctrl.currentURL = ctrl.containerURL;
