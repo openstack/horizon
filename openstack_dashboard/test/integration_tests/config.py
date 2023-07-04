@@ -75,11 +75,11 @@ ImageGroup = [
                default='angular',
                help='type/version of images panel'),
     cfg.StrOpt('http_image',
-               default='http://download.cirros-cloud.net/0.5.2/'
-                       'cirros-0.5.2-x86_64-uec.tar.gz',
+               default='http://download.cirros-cloud.net/0.6.2/'
+                       'cirros-0.6.2-x86_64-uec.tar.gz',
                help='http accessible image'),
     cfg.ListOpt('images_list',
-                default=['cirros-0.5.2-x86_64-disk'],
+                default=['cirros-0.6.2-x86_64-disk'],
                 help='default list of images')
 ]
 
@@ -148,7 +148,7 @@ InstancesGroup = [
                default='nova',
                help='Availability zone to be selected for launch instances'),
     cfg.StrOpt('image_name',
-               default='cirros-0.5.2-x86_64-disk (15.5 MB)',
+               default='cirros-0.6.2-x86_64-disk (20.4 MB)',
                help='Boot Source to be selected for launch Instances'),
     cfg.StrOpt('flavor',
                default='m1.tiny',

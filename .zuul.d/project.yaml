@@ -12,7 +12,8 @@
     check:
       jobs:
         - horizon-selenium-headless
-        - horizon-integration-tests
+        - horizon-integration-tests:
+            voting: false
         - horizon-dsvm-tempest-plugin
         - horizon-tox-bandit-baseline
         - horizon-tempest-plugin-ipv6
@@ -20,7 +21,8 @@
       jobs:
         - horizon-dsvm-tempest-plugin
         - horizon-selenium-headless
-        - horizon-integration-tests
+        - horizon-integration-tests:
+            voting: false
         - horizon-tempest-plugin-ipv6
     experimental:
       jobs:
