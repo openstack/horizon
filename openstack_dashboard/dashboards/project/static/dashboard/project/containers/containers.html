@@ -73,7 +73,7 @@
                   <div class="themable-checkbox col-lg-7 col-md-12">
                     <input type="checkbox" id="id_access" ng-model="container.is_public"
                            ng-if="container.name === cc.model.container.name"
-                           ng-click="cc.toggleAccess(container)">
+                           ng-change="cc.toggleAccess(container)">
                     <label class="hz-object-label" for="id_access" translate>Public Access</label>
                   </div>
                   <span class="hz-object-val col-lg-5 col-md-12">
