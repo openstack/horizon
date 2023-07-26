@@ -23,10 +23,15 @@
     beforeEach(module('horizon.dashboard.project.workflow.launch-instance'));
 
     describe('LaunchInstanceNetworkPortController', function() {
-      var ctrl;
+      var ctrl, scope;
       var port = {name: 'test_name', id: 'test_id'};
 
-      beforeEach(inject(function($controller) {
+      beforeEach(inject(function($controller, $rootScope) {
+        scope = $rootScope.$new();
+
+        // Track calls to $watchCollection
+        spyOn(scope, '$watchCollection').and.callThrough();
+
         var model = {
           newInstanceSpec: {
             ports: ['port-a']
@@ -35,7 +40,7 @@
         };
 
         ctrl = $controller('LaunchInstanceNetworkPortController',
-                          { launchInstanceModel: model });
+                          { $scope:scope, launchInstanceModel: model });
       }));
 
       it('has correct ports statuses', function() {
