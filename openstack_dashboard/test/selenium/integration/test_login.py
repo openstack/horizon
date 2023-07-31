@@ -1,5 +1,3 @@
-# Copyright 2012 Nebula, Inc.
-#
 #    Licensed under the Apache License, Version 2.0 (the "License"); you may
 #    not use this file except in compliance with the License. You may obtain
 #    a copy of the License at
@@ -12,12 +10,16 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
-from horizon.test import helpers as test
+
+def test_user_login(login, driver):
+    login('user')
+    user_dropdown_menu = driver.find_element_by_css_selector(
+        '.nav.navbar-nav.navbar-right')
+    assert user_dropdown_menu.is_displayed()
 
 
-class BrowserTests(test.SeleniumTestCase):
-    def test_splash(self):
-        self.selenium.get(self.live_server_url)
-        button = self.selenium.find_element_by_id("loginBtn")
-        # Ensure button has something; must be language independent.
-        self.assertGreater(len(button.text), 0)
+def test_admin_login(login, driver):
+    login('admin')
+    user_dropdown_menu = driver.find_element_by_css_selector(
+        '.nav.navbar-nav.navbar-right')
+    assert user_dropdown_menu.is_displayed()
