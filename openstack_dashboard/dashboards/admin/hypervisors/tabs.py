@@ -17,6 +17,7 @@ from horizon import tabs
 from horizon.utils import functions as utils
 
 from openstack_dashboard.api import nova
+from openstack_dashboard.api import placement
 from openstack_dashboard.dashboards.admin.hypervisors.compute \
     import tabs as cmp_tabs
 from openstack_dashboard.dashboards.admin.hypervisors import tables
@@ -40,7 +41,24 @@ class HypervisorTab(tabs.TableTab):
         return hypervisors
 
 
+class ProviderTab(tabs.TableTab):
+    table_classes = (tables.AdminProvidersTable,)
+    name = _("Resource Provider")
+    slug = "provider"
+    template_name = "horizon/common/_detail_table.html"
+
+    def get_providers_data(self):
+        providers = []
+        try:
+            providers = placement.get_providers(self.request)
+        except Exception:
+            exceptions.handle(self.request,
+                              _('Unable to retrieve providers information.'))
+
+        return providers
+
+
 class HypervisorHostTabs(tabs.TabGroup):
     slug = "hypervisor_info"
-    tabs = (HypervisorTab, cmp_tabs.ComputeHostTab)
+    tabs = (HypervisorTab, cmp_tabs.ComputeHostTab, ProviderTab)
     sticky = True
