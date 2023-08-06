@@ -1,0 +1,420 @@
+# OpenStack Infra <zanata@openstack.org>, 2015. #zanata
+# Andreas Jaeger <jaegerandi@gmail.com>, 2018. #zanata
+# Majed Alangari <mangari@stcs.com.sa>, 2018. #zanata
+msgid ""
+msgstr ""
+"Project-Id-Version: horizon VERSION\n"
+"Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
+"POT-Creation-Date: 2019-09-03 20:32+0000\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"PO-Revision-Date: 2018-11-30 11:32+0000\n"
+"Last-Translator: Andreas Jaeger <jaegerandi@gmail.com>\n"
+"Language-Team: Arabic\n"
+"Language: ar\n"
+"X-Generator: Zanata 4.3.3\n"
+"Plural-Forms: nplurals=6; plural= n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 "
+"&& n%100<=10 ? 3 : n%100>=11 ? 4 : 5;\n"
+
+#, python-format
+msgid "%s GB"
+msgstr "%s GB"
+
+#, python-format
+msgid "%s KB"
+msgstr "%s KB"
+
+#, python-format
+msgid "%s MB"
+msgstr "%s MB"
+
+#, python-format
+msgid "%s TB"
+msgstr "%s TB"
+
+#, python-format
+msgid "%s bytes"
+msgstr "%s bytes"
+
+msgid "(Modified)"
+msgstr "(اصلاح شده)"
+
+msgid "-"
+msgstr "-"
+
+msgid "0 GB"
+msgstr "0 GB"
+
+msgid "0 MB"
+msgstr "0 MB"
+
+msgid "Active"
+msgstr "فعال"
+
+msgid "Add"
+msgstr "اضافه کردن"
+
+msgid "Added"
+msgstr "اضافه شده"
+
+msgid "Additional items not allowed"
+msgstr "موارد اضافی مجاز نیست"
+
+msgid "Additional properties not allowed"
+msgstr "خواص اضافی مجاز نیست"
+
+msgid "Allocated"
+msgstr "اختصاص داده شده"
+
+msgid "An error occurred while updating."
+msgstr "هنگام به‌روزرسانی خطایی روی داد."
+
+msgid "An error occurred. Please try again later."
+msgstr "خطایی رخ داد. لطفاً بعداً دوباره امتحان کنید."
+
+msgid "Array items must be unique"
+msgstr "آیتم های آرایه باید منحصر به فرد باشند"
+
+msgid "Available"
+msgstr "موجود"
+
+msgid "Available Metadata"
+msgstr "فهرست متا‌داده‌های موجود"
+
+msgid "Back"
+msgstr "بازگشت"
+
+msgid "Cancel"
+msgstr "لغو"
+
+msgid "Click each item to get its description here."
+msgstr "برای دریافت توضیحات هر مورد، بر روی آن کلیک کنید."
+
+msgid "Click here for filters or full text search."
+msgstr "برای فیلترها یا جستجوی متن کامل، اینجا کلیک کنید."
+
+msgid "Click here to expand the row and view the errors."
+msgstr "برای گسترش ردیف و مشاهده خطاها، اینجا کلیک کنید."
+
+msgid "Click to see more details"
+msgstr "برای مشاهده جزئیات بیشتر، کلیک کنید."
+
+msgid "Click to show or hide"
+msgstr "برای نمایش یا پنهان کردن، کلیک کنید."
+
+msgid "Close"
+msgstr "بستن"
+
+#, python-format
+msgid "Confirm %s"
+msgstr "تایید %s"
+
+#. Strings between {$ and $} should be left untranslated.
+msgid ""
+"Content size: {$ (textBytes || 0) | bytes $} of {$ ::maxBytes | bytes $}"
+msgstr ""
+"اندازه محتوا: {$ (textBytes || 0) | bytes $} از {$ ::maxBytes | bytes $}"
+
+msgid "Current Usage"
+msgstr "مصرف کنونی"
+
+msgid "Custom"
+msgstr "سفارشی"
+
+msgid "Danger"
+msgstr "خطر"
+
+msgid "Danger: "
+msgstr "خطر:"
+
+msgid "Data does not match any schemas from 'anyOf'"
+msgstr "داده با هیچ یک از طرح‌های 'anyOf' مطابقت ندارد"
+
+msgid "Data does not match any schemas from 'oneOf'"
+msgstr "داده با هیچ یک از طرح‌های 'oneOf' مطابقت ندارد"
+
+msgid "Data is valid against more than one schema from 'oneOf'"
+msgstr "داده به یک یا چندین طرح از 'oneOf' مطابقت دارد"
+
+msgid "Data matches schema from 'not'"
+msgstr "داده با طرح 'not' مطابقت دارد"
+
+msgid "Delete"
+msgstr "حذف"
+
+#, python-format
+msgid "Deleted : %s."
+msgstr "حذف شده: %s."
+
+msgid "Dependency failed - key must exist"
+msgstr "خطا در وابستگی - کلید باید وجود داشته باشد"
+
+msgid "Detail Information"
+msgstr "اطلاعات تفصیلی"
+
+#, python-format
+msgid "Displaying %(count)s of %(total)s items"
+msgstr "نمایش %(count)s از %(total)s مورد"
+
+#, fuzzy, python-format
+msgid "Displaying %s item"
+msgid_plural "Displaying %s items"
+msgstr[0] "نمایش %s مورد"
+msgstr[1] "نمایش %s مورد"
+msgstr[2] "نیاز به ترجمه دارد"
+msgstr[3] "نیاز به ترجمه دارد"
+msgstr[4] "نیاز به ترجمه دارد"
+msgstr[5] "نیاز به ترجمه دارد"
+
+msgid "Duplicate keys are not allowed"
+msgstr "تکرار کلیدها مجاز نیست"
+
+msgid "Error"
+msgstr "خطا"
+
+msgid "Error: "
+msgstr "خطا: "
+
+msgid "Example"
+msgstr "مثال"
+
+msgid "Existing Metadata"
+msgstr "اطلاعات وصفی موجود"
+
+msgid "Expand to see allocated items"
+msgstr "برای مشاهده موارد اختصاص یافته، گسترش دهید"
+
+msgid "Expand to see available items"
+msgstr "برای مشاهده موارد موجود، گسترش دهید"
+
+msgid "Filter"
+msgstr "فیلتر"
+
+msgid "Finish"
+msgstr "پایان"
+
+msgid "Flavor"
+msgstr "نوع"
+
+msgid "Format validation failed"
+msgstr "اعتبارسنجی فرمت ناموفق بود"
+
+msgid "Full Text Search"
+msgstr "جستجوی متن کامل"
+
+msgid "Info"
+msgstr "اطلاعات"
+
+msgid "Integer required"
+msgstr "عدد صحیح مورد نیاز است"
+
+msgid "Invalid type, expected {$schema.type$}"
+msgstr "نوع نامعتبر، مورد انتظار {$schema.type$} است"
+
+msgid "Load {$ ::title $} from a file"
+msgstr "{$ ::title $} را از یک فایل بارگیری کنید"
+
+msgid "Loading"
+msgstr "بارگیری"
+
+msgid "Max"
+msgstr "حداکثر"
+
+msgid "Max length"
+msgstr "حداکثر طول"
+
+msgid "Min"
+msgstr "حداقل"
+
+msgid "Min length"
+msgstr "حداقل طول"
+
+msgid "Name"
+msgstr "نام"
+
+msgid "Next"
+msgstr "بعدی"
+
+msgid "No"
+msgstr "خیر"
+
+msgid "No Limit"
+msgstr "بدون محدودیت"
+
+msgid "No available items"
+msgstr "هیچ مورد موجودیت ندارد"
+
+msgid "No available metadata"
+msgstr "هیچ اطلاعات اضافی موجود نیست"
+
+msgid "No data available."
+msgstr "هیچ داده‌ای در دسترس نیست."
+
+msgid "No existing metadata"
+msgstr "هیچ اطلاعات اضافی موجود نیست"
+
+msgid "No items to display."
+msgstr "هیچ موردی برای نمایش وجود ندارد."
+
+msgid "No roles"
+msgstr "هیچ نقشی وجود ندارد"
+
+msgid "None"
+msgstr "هیچ"
+
+msgid "Notice: "
+msgstr "توجه:"
+
+msgid "Passwords do not match."
+msgstr "گذرواژه‌ها مطابقت ندارند."
+
+msgid "Pattern mismatch"
+msgstr "عدم تطابق الگو"
+
+msgid "Please Wait"
+msgstr "لطفاً صبر کنید"
+
+msgid "Please confirm your selection. "
+msgstr "لطفاً انتخاب خود را تأیید کنید."
+
+msgid "Prev"
+msgstr "قبلی"
+
+msgid "Prompt"
+msgstr "پیش‌نمایش"
+
+msgid "Re-order items using drag and drop"
+msgstr "تغییر ترتیب موارد با کشیدن و رها کردن"
+
+msgid "Remaining"
+msgstr "باقی‌مانده"
+
+msgid "Remove"
+msgstr "حذف"
+
+msgid "Required"
+msgstr "لازم"
+
+msgid "Roles"
+msgstr "نقش‌ها"
+
+msgid "Search in current results"
+msgstr "جستجو در نتایج کنونی"
+
+msgid "Select an item from Available items below"
+msgstr "یک مورد را از موارد موجود زیر انتخاب کنید"
+
+msgid "Select one"
+msgstr "یکی را انتخاب کنید"
+
+msgid "Server Name"
+msgstr "نام سرور"
+
+msgid "Shutdown"
+msgstr "خاموشی"
+
+msgid "Status"
+msgstr "وضعیت"
+
+msgid "Submit"
+msgstr "ثبت"
+
+msgid "Success"
+msgstr "موفقیت"
+
+msgid "Success: "
+msgstr "موفقیت:"
+
+msgid "Text"
+msgstr "متن"
+
+msgid ""
+"The action cannot be performed. The contents of this row have errors or are "
+"missing information."
+msgstr "عملیات قابل انجام نیست. محتوای این ردیف دارای خطاها یا اطلاعات ناقص است."
+
+msgid "The content is larger than the maximum byte size"
+msgstr "محتوا بزرگ‌تر از حداکثر اندازه در بایت است"
+
+msgid "The data in this field is invalid"
+msgstr "داده در این فیلد نامعتبر است"
+
+msgid "There was a problem communicating with the server, please try again."
+msgstr "مشکلی در ارتباط با سرور وجود دارد، لطفاً دوباره تلاش کنید."
+
+msgid "There was an error submitting the form. Please try again."
+msgstr "خطایی در ارسال فرم رخ داده است. لطفاً دوباره تلاش کنید."
+
+msgid "Toggle navigation"
+msgstr "تغییر ناوبری"
+
+#, python-format
+msgid "Unable to delete: %s."
+msgstr "امکان حذف وجود ندارد: %s."
+
+msgid "Unauthorized. Redirecting to login"
+msgstr "غیرمجاز. به صفحه ورود هدایت می‌شود"
+
+msgid "Unknown property (not in schema)"
+msgstr "خاصیت ناشناخته (در طرح نیست)"
+
+msgid "Unlimited"
+msgstr "نامحدود"
+
+msgid "Uploading image"
+msgstr "در حال بارگذاری تصویر"
+
+msgid "Warning"
+msgstr "اخطار"
+
+msgid "Warning: "
+msgstr "اخطار:"
+
+msgid "Working"
+msgstr "در حال انجام"
+
+msgid "Yes"
+msgstr "بله"
+
+msgid ""
+"You can specify resource metadata by moving items from the left column to "
+"the right column. In the left column there are metadata definitions from the "
+"Glance Metadata Catalog. Use the \"Custom\" option to add metadata with "
+"the key of your choice."
+msgstr ""
+"می‌توانید مشخصات فراداده منبع را با جابجایی موارد از ستون سمت چپ به ستون سمت راست تعیین کنید. در ستون سمت چپ، تعاریف مشخصات فراداده از کاتالوگ مشخصات فراداده Glance وجود دارد. از گزینه \"سفارشی\" برای افزودن مشخصات فراداده با کلید دلخواه خود استفاده کنید."
+
+msgid "description"
+msgstr "توضیحات"
+
+msgid "m1.small"
+msgstr "m1.small"
+
+msgid "m1.tiny"
+msgstr "m1.tiny"
+
+#, python-format
+msgid "selected \"%s\""
+msgstr "انتخاب شد \"%s\""
+
+msgid "{$schema.title$} is a required field"
+msgstr "{$schema.title$} یک فیلد ضروری است"
+
+msgid "{$viewValue$} is equal to the exclusive maximum {$schema.maximum$}"
+msgstr "{$viewValue$} برابر با حداکثر انحصاری {$schema.maximum$}"
+
+msgid "{$viewValue$} is equal to the exclusive minimum {$schema.minimum$}"
+msgstr "{$viewValue$} برابر با حداقل انحصاری {$schema.minimum$}"
+
+msgid "{$viewValue$} is greater than the allowed maximum of {$schema.maximum$}"
+msgstr "{$viewValue$} بیشتر از حداکثر مجاز {$schema.maximum$}"
+
+msgid "{$viewValue$} is less than the allowed minimum of {$schema.minimum$}"
+msgstr "{$viewValue$} کمتر از حداقل مجاز {$schema.minimum$}"
+
+msgid "{$viewValue$} is not a multiple of {$schema.multipleOf$}"
+msgstr "{$viewValue$} مضربی از {$schema.multipleOf$} نیست"
+
+msgid "{$viewValue$} is not a valid number"
+msgstr "{$viewValue$} یک عدد معتبر نیست"
