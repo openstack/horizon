@@ -425,9 +425,15 @@ class Column(html.HTMLElement):
         display_value = None
 
         if self.display_choices:
-            display_value = [display for (value, display) in
-                             self.display_choices
-                             if value.lower() == (data or '').lower()]
+            display_value = []
+            for (value, display) in self.display_choices:
+                data_lower = ''
+                try:
+                    data_lower = (data or '').lower()
+                    if value.lower() == data_lower:
+                        display_value.append(display)
+                except AttributeError:
+                    continue
 
         if display_value:
             data = display_value[0]

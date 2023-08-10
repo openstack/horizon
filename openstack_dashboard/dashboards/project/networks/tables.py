@@ -146,7 +146,7 @@ class CreateSubnet(subnet_tables.SubnetPolicyTargetMixin, tables.LinkAction):
 
 def get_subnets(network):
     template_name = 'project/networks/_network_ips.html'
-    context = {"subnets": network.subnets}
+    context = {"subnets": network.to_dict()['subnets']}
     return template.loader.render_to_string(template_name, context)
 
 
@@ -193,13 +193,13 @@ class NetworksTable(tables.DataTable):
                                  link=get_network_link)
     subnets = tables.Column(get_subnets,
                             verbose_name=_("Subnets Associated"),)
-    shared = tables.Column("shared", verbose_name=_("Shared"),
+    shared = tables.Column("is_shared", verbose_name=_("Shared"),
                            filters=(filters.yesno, filters.capfirst))
-    external = tables.Column("router:external", verbose_name=_("External"),
+    external = tables.Column("is_router_external", verbose_name=_("External"),
                              filters=(filters.yesno, filters.capfirst))
     status = tables.Column("status", verbose_name=_("Status"),
                            display_choices=STATUS_DISPLAY_CHOICES)
-    admin_state = tables.Column("admin_state",
+    admin_state = tables.Column("is_admin_state_up",
                                 verbose_name=_("Admin State"),
                                 display_choices=DISPLAY_CHOICES)
     availability_zones = tables.Column(get_availability_zones,

@@ -16,6 +16,7 @@ from unittest import mock
 
 import netaddr
 from neutronclient.common import exceptions as neutron_exc
+from openstack import exceptions as sdk_exceptions
 from oslo_utils import uuidutils
 
 from django.test.utils import override_settings
@@ -28,25 +29,26 @@ from openstack_dashboard.test.test_data import neutron_data
 
 class NeutronApiTests(test.APIMockTestCase):
 
-    @mock.patch.object(api.neutron, 'neutronclient')
+    @mock.patch.object(api.neutron, 'networkclient')
     def test_network_list(self, mock_neutronclient):
-        networks = {'networks': self.api_networks.list()}
-        subnets = {'subnets': self.api_subnets.list()}
+        networks = self.api_networks_sdk
+        subnets = self.api_subnets_sdk
 
         neutronclient = mock_neutronclient.return_value
-        neutronclient.list_networks.return_value = networks
-        neutronclient.list_subnets.return_value = subnets
+        neutronclient.networks.return_value = networks
+        neutronclient.subnets.return_value = subnets
 
         ret_val = api.neutron.network_list(self.request)
         for n in ret_val:
             self.assertIsInstance(n, api.neutron.Network)
-        neutronclient.list_networks.assert_called_once_with()
-        neutronclient.list_subnets.assert_called_once_with()
+        neutronclient.networks.assert_called_once_with()
+        neutronclient.subnets.assert_called_once_with()
 
     @override_settings(OPENSTACK_NEUTRON_NETWORK={
         'enable_auto_allocated_network': True})
     @test.create_mocks({api.neutron: ('network_list',
-                                      'subnet_list')})
+                                      'subnet_list',
+                                      'list_extensions')})
     def _test_network_list_for_tenant(
             self, include_external, filter_params, should_called,
             expected_networks, source_networks=None, **extra_kwargs):
@@ -126,6 +128,7 @@ class NeutronApiTests(test.APIMockTestCase):
                         mock.call(test.IsHttpRequest(),
                                   tenant_id=tenant_id, **params))
         self.mock_network_list.side_effect = return_values
+        self.mock_list_extensions.side_effect = {'extensions': []}
 
         extra_kwargs.update(filter_params)
         ret_val = api.neutron.network_list_for_tenant(
@@ -198,52 +201,53 @@ class NeutronApiTests(test.APIMockTestCase):
         all_networks = self.networks.list()
         tenant_networks = [n for n in all_networks
                            if n['tenant_id'] == tenant_id]
-        shared_networks = [n for n in all_networks if n['shared']]
-        external_networks = [n for n in all_networks if n['router:external']]
+        shared_networks = [n for n in all_networks if n['is_shared']]
+        external_networks = [n for n in all_networks if n['is_router_external']]
         self.assertTrue(tenant_networks)
         self.assertTrue(shared_networks)
         self.assertTrue(external_networks)
 
     def test_network_list_for_tenant(self):
-        expected_networks = [n for n in self.networks.list()
-                             if (n['tenant_id'] == '1' or n['shared'] is True)]
+        expected_networks = [n for n in self.api_networks_sdk
+                             if (n['tenant_id'] == '1' or
+                                 n['is_shared'] is True)]
         self._test_network_list_for_tenant(
             include_external=False, filter_params=None,
             should_called=['non_shared', 'shared'],
             expected_networks=expected_networks)
 
     def test_network_list_for_tenant_with_external(self):
-        expected_networks = [n for n in self.networks.list()
+        expected_networks = [n for n in self.api_networks_sdk
                              if (n['tenant_id'] == '1' or
-                                 n['shared'] is True or
-                                 n['router:external'] is True)]
+                                 n['is_shared'] is True or
+                                 n['is_router_external'] is True)]
         self._test_network_list_for_tenant(
             include_external=True, filter_params=None,
             should_called=['non_shared', 'shared', 'external'],
             expected_networks=expected_networks)
 
     def test_network_list_for_tenant_with_filters_shared_false_wo_incext(self):
-        expected_networks = [n for n in self.networks.list()
+        expected_networks = [n for n in self.api_networks_sdk
                              if (n['tenant_id'] == '1' and
-                                 n['shared'] is False)]
+                                 n['is_shared'] is False)]
         self._test_network_list_for_tenant(
             include_external=False, filter_params={'shared': False},
             should_called=['non_shared'],
             expected_networks=expected_networks)
 
     def test_network_list_for_tenant_with_filters_shared_true_w_incext(self):
-        expected_networks = [n for n in self.networks.list()
-                             if n['shared'] is True]
+        expected_networks = [n for n in self.api_networks_sdk
+                             if n['is_shared'] is True]
         self._test_network_list_for_tenant(
             include_external=True, filter_params={'shared': True},
             should_called=['shared'],
             expected_networks=expected_networks)
 
     def test_network_list_for_tenant_with_filters_ext_false_wo_incext(self):
-        expected_networks = [n for n in self.networks.list()
+        expected_networks = [n for n in self.api_networks_sdk
                              if ((n['tenant_id'] == '1' or
-                                 n['shared'] is True) and
-                                 n['router:external'] is False)]
+                                 n['is_shared'] is True) and
+                                 n['is_router_external'] is False)]
         self._test_network_list_for_tenant(
             include_external=False, filter_params={'router:external': False},
             should_called=['non_shared', 'shared'],
@@ -252,8 +256,8 @@ class NeutronApiTests(test.APIMockTestCase):
     def test_network_list_for_tenant_with_filters_ext_true_wo_incext(self):
         expected_networks = [n for n in self.networks.list()
                              if ((n['tenant_id'] == '1' or
-                                  n['shared'] is True) and
-                                 n['router:external'] is True)]
+                                  n['is_shared'] is True) and
+                                 n['is_router_external'] is True)]
         self._test_network_list_for_tenant(
             include_external=False, filter_params={'router:external': True},
             should_called=['non_shared', 'shared'],
@@ -262,8 +266,8 @@ class NeutronApiTests(test.APIMockTestCase):
     def test_network_list_for_tenant_with_filters_ext_false_w_incext(self):
         expected_networks = [n for n in self.networks.list()
                              if ((n['tenant_id'] == '1' or
-                                 n['shared'] is True) and
-                                 n['router:external'] is False)]
+                                 n['is_shared'] is True) and
+                                 n['is_router_external'] is False)]
         self._test_network_list_for_tenant(
             include_external=True, filter_params={'router:external': False},
             should_called=['non_shared', 'shared'],
@@ -271,7 +275,7 @@ class NeutronApiTests(test.APIMockTestCase):
 
     def test_network_list_for_tenant_with_filters_ext_true_w_incext(self):
         expected_networks = [n for n in self.networks.list()
-                             if n['router:external'] is True]
+                             if n['is_router_external'] is True]
         self._test_network_list_for_tenant(
             include_external=True, filter_params={'router:external': True},
             should_called=['external', 'shared', 'non_shared'],
@@ -281,8 +285,8 @@ class NeutronApiTests(test.APIMockTestCase):
         # To check 'shared' filter is specified in network_list
         # to look up external networks.
         expected_networks = [n for n in self.networks.list()
-                             if (n['shared'] is True and
-                                 n['router:external'] is True)]
+                             if (n['is_shared'] is True and
+                                 n['is_router_external'] is True)]
         self._test_network_list_for_tenant(
             include_external=True,
             filter_params={'router:external': True, 'shared': True},
@@ -293,8 +297,8 @@ class NeutronApiTests(test.APIMockTestCase):
         # To check filter parameters other than shared and
         # router:external are passed as expected.
         expected_networks = [n for n in self.networks.list()
-                             if (n['router:external'] is True and
-                                 n['shared'] is False)]
+                             if (n['is_router_external'] is True and
+                                 n['is_shared'] is False)]
         self._test_network_list_for_tenant(
             include_external=True,
             filter_params={'router:external': True, 'shared': False,
@@ -305,8 +309,8 @@ class NeutronApiTests(test.APIMockTestCase):
     def test_network_list_for_tenant_no_pre_auto_allocate_if_net_exists(self):
         expected_networks = [n for n in self.networks.list()
                              if (n['tenant_id'] == '1' or
-                                 n['shared'] is True or
-                                 n['router:external'] is True)]
+                                 n['is_shared'] is True or
+                                 n['is_router_external'] is True)]
         self._test_network_list_for_tenant(
             include_external=True, filter_params=None,
             should_called=['non_shared', 'shared', 'external'],
@@ -903,68 +907,68 @@ class NeutronApiTests(test.APIMockTestCase):
         self.assertEqual(query_result, result)
         query_func.assert_called_once_with(**query_kwargs2)
 
-    @mock.patch.object(api.neutron, 'neutronclient')
-    def test_network_get(self, mock_neutronclient):
-        network = {'network': self.api_networks.first()}
-        subnet = {'subnet': self.api_subnets.first()}
-        subnetv6 = {'subnet': self.api_subnets.list()[1]}
-        network_id = self.api_networks.first()['id']
-        subnet_id = self.api_networks.first()['subnets'][0]
-        subnetv6_id = self.api_networks.first()['subnets'][1]
+    @mock.patch.object(api.neutron, 'networkclient')
+    def test_network_get(self, mock_networkclient):
+        network = self.api_networks_sdk[0]
+        subnet = self.api_subnets_sdk[0]
+        subnetv6 = self.api_subnets_sdk[1]
+        network_id = self.api_networks_sdk[0]['id']
+        subnet_id = self.api_networks_sdk[0]['subnets'][0]
+        subnetv6_id = self.api_networks_sdk[0]['subnets'][1]
 
-        neutronclient = mock_neutronclient.return_value
-        neutronclient.show_network.return_value = network
-        neutronclient.show_subnet.side_effect = [subnet, subnetv6]
+        neutronclient = mock_networkclient.return_value
+        neutronclient.get_network.return_value = network
+        neutronclient.get_subnet.side_effect = [subnet, subnetv6]
 
         ret_val = api.neutron.network_get(self.request, network_id)
 
         self.assertIsInstance(ret_val, api.neutron.Network)
         self.assertEqual(2, len(ret_val['subnets']))
         self.assertIsInstance(ret_val['subnets'][0], api.neutron.Subnet)
-        neutronclient.show_network.assert_called_once_with(network_id)
-        neutronclient.show_subnet.assert_has_calls([
+        neutronclient.get_network.assert_called_once_with(network_id)
+        neutronclient.get_subnet.assert_has_calls([
             mock.call(subnet_id),
             mock.call(subnetv6_id),
         ])
 
-    @mock.patch.object(api.neutron, 'neutronclient')
-    def test_network_get_with_subnet_get_notfound(self, mock_neutronclient):
-        network = {'network': self.api_networks.first()}
-        network_id = self.api_networks.first()['id']
-        subnet_id = self.api_networks.first()['subnets'][0]
+    @mock.patch.object(api.neutron, 'networkclient')
+    def test_network_get_with_subnet_get_notfound(self, mock_networkclient):
+        network = self.api_networks_sdk[0]
+        network_id = self.api_networks_sdk[0]['id']
+        subnet_id = self.api_networks_sdk[0]['subnet_ids'][0]
 
-        neutronclient = mock_neutronclient.return_value
-        neutronclient.show_network.return_value = network
-        neutronclient.show_subnet.side_effect = neutron_exc.NotFound
+        neutronclient = mock_networkclient.return_value
+        neutronclient.get_network.return_value = network
+        neutronclient.get_subnet.side_effect = sdk_exceptions.ResourceNotFound
 
         ret_val = api.neutron.network_get(self.request, network_id)
         self.assertIsInstance(ret_val, api.neutron.Network)
-        self.assertEqual(2, len(ret_val['subnets']))
-        self.assertNotIsInstance(ret_val['subnets'][0], api.neutron.Subnet)
-        self.assertIsInstance(ret_val['subnets'][0], str)
-        neutronclient.show_network.assert_called_once_with(network_id)
-        neutronclient.show_subnet.assert_called_once_with(subnet_id)
+        self.assertEqual(2, len(ret_val['subnet_ids']))
+        self.assertNotIsInstance(ret_val['subnet_ids'][0], api.neutron.Subnet)
+        self.assertIsInstance(ret_val['subnet_ids'][0], str)
+        neutronclient.get_network.assert_called_once_with(network_id)
+        neutronclient.get_subnet.assert_called_once_with(subnet_id)
 
-    @mock.patch.object(api.neutron, 'neutronclient')
-    def test_network_create(self, mock_neutronclient):
-        network = {'network': self.api_networks.first()}
-        form_data = {'network': {'name': 'net1',
-                                 'tenant_id': self.request.user.project_id}}
-        neutronclient = mock_neutronclient.return_value
+    @mock.patch.object(api.neutron, 'networkclient')
+    def test_network_create(self, mock_networkclient):
+        network = self.api_networks_sdk[0]
+        form_data = {'name': 'net1',
+                     'tenant_id': self.request.user.project_id}
+        neutronclient = mock_networkclient.return_value
         neutronclient.create_network.return_value = network
 
         ret_val = api.neutron.network_create(self.request, name='net1')
 
         self.assertIsInstance(ret_val, api.neutron.Network)
-        neutronclient.create_network.assert_called_once_with(body=form_data)
+        neutronclient.create_network.assert_called_once_with(**form_data)
 
-    @mock.patch.object(api.neutron, 'neutronclient')
-    def test_network_update(self, mock_neutronclient):
-        network = {'network': self.api_networks.first()}
-        network_id = self.api_networks.first()['id']
+    @mock.patch.object(api.neutron, 'networkclient')
+    def test_network_update(self, mock_networkclient):
+        network = self.api_networks_sdk[0]
+        network_id = self.api_networks_sdk[0]['id']
 
-        neutronclient = mock_neutronclient.return_value
-        form_data = {'network': {'name': 'net1'}}
+        neutronclient = mock_networkclient.return_value
+        form_data = {'name': 'net1'}
         neutronclient.update_network.return_value = network
 
         ret_val = api.neutron.network_update(self.request, network_id,
@@ -972,13 +976,13 @@ class NeutronApiTests(test.APIMockTestCase):
 
         self.assertIsInstance(ret_val, api.neutron.Network)
         neutronclient.update_network.assert_called_once_with(network_id,
-                                                             body=form_data)
+                                                             **form_data)
 
-    @mock.patch.object(api.neutron, 'neutronclient')
-    def test_network_delete(self, mock_neutronclient):
-        network_id = self.api_networks.first()['id']
+    @mock.patch.object(api.neutron, 'networkclient')
+    def test_network_delete(self, mock_networkclient):
+        network_id = self.api_networks_sdk[0]['id']
 
-        neutronclient = mock_neutronclient.return_value
+        neutronclient = mock_networkclient.return_value
         neutronclient.delete_network.return_value = None
 
         api.neutron.network_delete(self.request, network_id)
@@ -1018,35 +1022,35 @@ class NeutronApiTests(test.APIMockTestCase):
         neutronclient.show_network_ip_availability.assert_called_once_with(
             network)
 
-    @mock.patch.object(api.neutron, 'neutronclient')
-    def test_subnet_list(self, mock_neutronclient):
-        subnets = {'subnets': self.api_subnets.list()}
+    @mock.patch.object(api.neutron, 'networkclient')
+    def test_subnet_list(self, mock_networkclient):
+        subnets = self.api_subnets_sdk
 
-        neutronclient = mock_neutronclient.return_value
-        neutronclient.list_subnets.return_value = subnets
+        neutronclient = mock_networkclient.return_value
+        neutronclient.subnets.return_value = subnets
 
         ret_val = api.neutron.subnet_list(self.request)
 
         for n in ret_val:
             self.assertIsInstance(n, api.neutron.Subnet)
-        neutronclient.list_subnets.assert_called_once_with()
+        neutronclient.subnets.assert_called_once_with()
 
-    @mock.patch.object(api.neutron, 'neutronclient')
-    def test_subnet_get(self, mock_neutronclient):
-        subnet = {'subnet': self.api_subnets.first()}
-        subnet_id = self.api_subnets.first()['id']
+    @mock.patch.object(api.neutron, 'networkclient')
+    def test_subnet_get(self, mock_networkclient):
+        subnet = self.api_subnets_sdk[0]
+        subnet_id = self.api_subnets_sdk[0]['id']
 
-        neutronclient = mock_neutronclient.return_value
-        neutronclient.show_subnet.return_value = subnet
+        neutronclient = mock_networkclient.return_value
+        neutronclient.get_subnet.return_value = subnet
 
         ret_val = api.neutron.subnet_get(self.request, subnet_id)
 
         self.assertIsInstance(ret_val, api.neutron.Subnet)
-        neutronclient.show_subnet.assert_called_once_with(subnet_id)
+        neutronclient.get_subnet.assert_called_once_with(subnet_id)
 
-    @mock.patch.object(api.neutron, 'neutronclient')
-    def test_subnet_create(self, mock_neutronclient):
-        subnet_data = self.api_subnets.first()
+    @mock.patch.object(api.neutron, 'networkclient')
+    def test_subnet_create(self, mock_networkclient):
+        subnet_data = self.api_subnets_sdk[0]
         params = {'network_id': subnet_data['network_id'],
                   'tenant_id': subnet_data['tenant_id'],
                   'name': subnet_data['name'],
@@ -1054,36 +1058,35 @@ class NeutronApiTests(test.APIMockTestCase):
                   'ip_version': subnet_data['ip_version'],
                   'gateway_ip': subnet_data['gateway_ip']}
 
-        neutronclient = mock_neutronclient.return_value
-        neutronclient.create_subnet.return_value = {'subnet': subnet_data}
+        neutronclient = mock_networkclient.return_value
+        neutronclient.create_subnet.return_value = subnet_data
 
         ret_val = api.neutron.subnet_create(self.request, **params)
 
         self.assertIsInstance(ret_val, api.neutron.Subnet)
-        neutronclient.create_subnet.assert_called_once_with(
-            body={'subnet': params})
+        neutronclient.create_subnet.assert_called_once_with(**params)
 
-    @mock.patch.object(api.neutron, 'neutronclient')
-    def test_subnet_update(self, mock_neutronclient):
-        subnet_data = self.api_subnets.first()
+    @mock.patch.object(api.neutron, 'networkclient')
+    def test_subnet_update(self, mock_networkclient):
+        subnet_data = self.api_subnets_sdk[0]
         subnet_id = subnet_data['id']
         params = {'name': subnet_data['name'],
                   'gateway_ip': subnet_data['gateway_ip']}
 
-        neutronclient = mock_neutronclient.return_value
-        neutronclient.update_subnet.return_value = {'subnet': subnet_data}
+        neutronclient = mock_networkclient.return_value
+        neutronclient.update_subnet.return_value = subnet_data
 
         ret_val = api.neutron.subnet_update(self.request, subnet_id, **params)
 
         self.assertIsInstance(ret_val, api.neutron.Subnet)
         neutronclient.update_subnet.assert_called_once_with(
-            subnet_id, body={'subnet': params})
+            subnet_id, **params)
 
-    @mock.patch.object(api.neutron, 'neutronclient')
-    def test_subnet_delete(self, mock_neutronclient):
-        subnet_id = self.api_subnets.first()['id']
+    @mock.patch.object(api.neutron, 'networkclient')
+    def test_subnet_delete(self, mock_networkclient):
+        subnet_id = self.api_subnets_sdk[0]['id']
 
-        neutronclient = mock_neutronclient.return_value
+        neutronclient = mock_networkclient.return_value
         neutronclient.delete_subnet.return_value = None
 
         api.neutron.subnet_delete(self.request, subnet_id)
@@ -2401,7 +2404,9 @@ class NeutronApiFloatingIpTests(test.APIMockTestCase):
     def setUp(self):
         super().setUp()
         neutronclient = mock.patch.object(api.neutron, 'neutronclient').start()
+        networkclient = mock.patch.object(api.neutron, 'networkclient').start()
         self.qclient = neutronclient.return_value
+        self.netclient = networkclient.return_value
 
     @override_settings(OPENSTACK_NEUTRON_NETWORK={'enable_router': True})
     def test_floating_ip_supported(self):
@@ -2413,15 +2418,15 @@ class NeutronApiFloatingIpTests(test.APIMockTestCase):
 
     def test_floating_ip_pools_list(self):
         search_opts = {'router:external': True}
-        ext_nets = [n for n in self.api_networks.list()
-                    if n['router:external']]
-        self.qclient.list_networks.return_value = {'networks': ext_nets}
+        ext_nets = [n for n in self.api_networks_sdk
+                    if n['is_router_external']]
+        self.netclient.networks.return_value = ext_nets
 
         rets = api.neutron.floating_ip_pools_list(self.request)
         for attr in ['id', 'name']:
             self.assertEqual([p[attr] for p in ext_nets],
                              [getattr(p, attr) for p in rets])
-        self.qclient.list_networks.assert_called_once_with(**search_opts)
+        self.netclient.networks.assert_called_once_with(**search_opts)
 
     def test_floating_ip_list(self):
         fips = self.api_floating_ips.list()
@@ -2510,7 +2515,7 @@ class NeutronApiFloatingIpTests(test.APIMockTestCase):
 
     def test_floating_ip_allocate(self):
         ext_nets = [n for n in self.api_networks.list()
-                    if n['router:external']]
+                    if n['is_router_external']]
         ext_net = ext_nets[0]
         fip = self.api_floating_ips.first()
         self.qclient.create_floatingip.return_value = {'floatingip': fip}
@@ -2580,8 +2585,8 @@ class NeutronApiFloatingIpTests(test.APIMockTestCase):
         # Port on the first subnet is connected to a router
         # attached to external network in neutron_data.
         subnet_id = self.subnets.first().id
-        shared_nets = [n for n in self.api_networks.list() if n['shared']]
-        shared_subnet_ids = [s for n in shared_nets for s in n['subnets']]
+        shared_nets = [n for n in self.api_networks_sdk if n['shared']]
+        shared_subnet_ids = [s for n in shared_nets for s in n['subnet_ids']]
         target_ports = []
         for p in ports:
             if p['device_owner'].startswith('network:'):
@@ -2604,16 +2609,15 @@ class NeutronApiFloatingIpTests(test.APIMockTestCase):
         novaclient.versions.get_current.return_value = ver
         novaclient.servers.list.return_value = servers
 
-        ext_nets = [n for n in self.api_networks.list()
-                    if n['router:external']]
-        list_networks_retvals = [{'networks': ext_nets},
-                                 {'networks': shared_nets}]
-        self.qclient.list_networks.side_effect = list_networks_retvals
+        ext_nets = [n for n in self.api_networks_sdk
+                    if n['is_router_external']]
+        list_networks_retvals = [ext_nets, shared_nets]
+        self.netclient.networks.side_effect = list_networks_retvals
         self.qclient.list_routers.return_value = {'routers':
                                                   self.api_routers.list()}
-        shared_subs = [s for s in self.api_subnets.list()
+        shared_subs = [s for s in self.api_subnets_sdk
                        if s['id'] in shared_subnet_ids]
-        self.qclient.list_subnets.return_value = {'subnets': shared_subs}
+        self.netclient.subnets.return_value = shared_subs
 
         rets = api.neutron.floating_ip_target_list(self.request)
 
@@ -2628,12 +2632,12 @@ class NeutronApiFloatingIpTests(test.APIMockTestCase):
         novaclient.versions.get_current.assert_called_once_with()
         novaclient.servers.list.assert_called_once_with(
             False, {'project_id': self.request.user.tenant_id})
-        self.qclient.list_networks.assert_has_calls([
+        self.netclient.networks.assert_has_calls([
             mock.call(**{'router:external': True}),
-            mock.call(shared=True),
+            mock.call(is_shared=True),
         ])
         self.qclient.list_routers.assert_called_once_with()
-        self.qclient.list_subnets.assert_called_once_with()
+        self.netclient.subnets.assert_called_once_with()
 
     @mock.patch.object(api._nova, 'novaclient')
     def _test_target_floating_ip_port_by_instance(self, server, ports,
@@ -2643,26 +2647,27 @@ class NeutronApiFloatingIpTests(test.APIMockTestCase):
         list_ports_retvals = []
         self.qclient.list_ports.side_effect = list_ports_retvals
         list_nets_retvals = []
-        self.qclient.list_networks.side_effect = list_nets_retvals
+        self.netclient.networks.side_effect = list_nets_retvals
 
         # _target_ports_by_instance()
         list_ports_retvals.append({'ports': candidates})
 
         # _get_reachable_subnets()
-        ext_nets = [n for n in self.api_networks.list()
-                    if n['router:external']]
-        list_nets_retvals.append({'networks': ext_nets})
+        ext_nets = [n for n in self.api_networks_sdk
+                    if n['is_router_external']]
+
+        list_nets_retvals.append(ext_nets)
         self.qclient.list_routers.side_effect = [{'routers':
                                                   self.api_routers.list()}]
         rinfs = [p for p in ports
                  if p['device_owner'] in api.neutron.ROUTER_INTERFACE_OWNERS]
         list_ports_retvals.append({'ports': rinfs})
-        shared_nets = [n for n in self.api_networks.list() if n['shared']]
-        list_nets_retvals.append({'networks': shared_nets})
+        shared_nets = [n for n in self.api_networks_sdk if n['is_shared']]
+        list_nets_retvals.append(shared_nets)
         shared_subnet_ids = [s for n in shared_nets for s in n['subnets']]
-        shared_subs = [s for s in self.api_subnets.list()
+        shared_subs = [s for s in self.api_subnets_sdk
                        if s['id'] in shared_subnet_ids]
-        self.qclient.list_subnets.side_effect = [{'subnets': shared_subs}]
+        self.netclient.subnets.side_effect = [shared_subs]
 
         # _get_server_name()
         novaclient = mock_novaclient.return_value
@@ -2677,12 +2682,12 @@ class NeutronApiFloatingIpTests(test.APIMockTestCase):
             mock.call(device_id=server.id),
             mock.call(device_owner=api.neutron.ROUTER_INTERFACE_OWNERS),
         ])
-        self.qclient.list_networks.assert_has_calls([
+        self.netclient.networks.assert_has_calls([
             mock.call(**{'router:external': True}),
-            mock.call(shared=True),
+            mock.call(is_shared=True),
         ])
         self.qclient.list_routers.assert_called_once_with()
-        self.qclient.list_subnets.assert_called_once_with()
+        self.netclient.subnets.assert_called_once_with()
         novaclient.versions.get_current.assert_called_once_with()
         novaclient.servers.get.assert_called_once_with(server.id)
 

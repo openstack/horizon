@@ -160,9 +160,9 @@ class UpdateView(user_views.UpdateView):
         return {'network_id': network['id'],
                 'tenant_id': network['tenant_id'],
                 'name': network['name'],
-                'admin_state': network['admin_state_up'],
-                'shared': network['shared'],
-                'external': network['router__external']}
+                'admin_state': network['is_admin_state_up'],
+                'shared': network['is_shared'],
+                'external': network['is_router_external']}
 
 
 class NetworkDetailsTabs(tabs.DetailTabsGroup):
@@ -204,5 +204,5 @@ class DetailView(tabs.TabbedTableView):
         context["actions"] = table.render_row_actions(network)
         choices = networks_tables.DISPLAY_CHOICES
         network.admin_state_label = (
-            filters.get_display_label(choices, network.admin_state))
+            filters.get_display_label(choices, network.is_admin_state_up))
         return context

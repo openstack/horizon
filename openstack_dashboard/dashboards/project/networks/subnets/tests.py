@@ -176,7 +176,7 @@ class NetworkSubnetTests(test.TestCase):
             cidr=subnet.cidr,
             ip_version=subnet.ip_version,
             gateway_ip=subnet.gateway_ip,
-            enable_dhcp=subnet.enable_dhcp,
+            enable_dhcp=subnet.is_dhcp_enabled,
             allocation_pools=subnet.allocation_pools)
 
     @test.create_mocks({api.neutron: ('network_get',
@@ -212,7 +212,7 @@ class NetworkSubnetTests(test.TestCase):
             cidr=subnet.cidr,
             ip_version=subnet.ip_version,
             gateway_ip=subnet.gateway_ip,
-            enable_dhcp=subnet.enable_dhcp,
+            enable_dhcp=subnet.is_dhcp_enabled,
             allocation_pools=subnet.allocation_pools,
             dns_nameservers=subnet.dns_nameservers,
             host_routes=subnet.host_routes)
@@ -250,7 +250,7 @@ class NetworkSubnetTests(test.TestCase):
             cidr=subnet.cidr,
             ip_version=subnet.ip_version,
             gateway_ip=None,
-            enable_dhcp=subnet.enable_dhcp,
+            enable_dhcp=subnet.is_dhcp_enabled,
             allocation_pools=subnet.allocation_pools)
 
     @test.create_mocks({api.neutron: ('network_get',)})
@@ -311,7 +311,7 @@ class NetworkSubnetTests(test.TestCase):
             cidr=subnet.cidr,
             ip_version=subnet.ip_version,
             gateway_ip=subnet.gateway_ip,
-            enable_dhcp=subnet.enable_dhcp)
+            enable_dhcp=subnet.is_dhcp_enabled)
 
     @test.create_mocks({api.neutron: ('network_get',
                                       'is_extension_supported',
@@ -640,7 +640,7 @@ class NetworkSubnetTests(test.TestCase):
             cidr=subnet.cidr,
             ip_version=subnet.ip_version,
             gateway_ip=subnet.gateway_ip,
-            enable_dhcp=subnet.enable_dhcp,
+            enable_dhcp=subnet.is_dhcp_enabled,
             allocation_pools=subnet.allocation_pools)
 
     @test.create_mocks({api.neutron: ('network_get',
@@ -676,7 +676,7 @@ class NetworkSubnetTests(test.TestCase):
             cidr=subnet.cidr,
             ip_version=subnet.ip_version,
             gateway_ip=subnet.gateway_ip,
-            enable_dhcp=subnet.enable_dhcp,
+            enable_dhcp=subnet.is_dhcp_enabled,
             allocation_pools=subnet.allocation_pools,
             ipv6_address_mode='slaac',
             ipv6_ra_mode='slaac')
@@ -711,7 +711,7 @@ class NetworkSubnetTests(test.TestCase):
             test.IsHttpRequest(),
             subnet.id,
             name=subnet.name,
-            enable_dhcp=subnet.enable_dhcp,
+            enable_dhcp=subnet.is_dhcp_enabled,
             dns_nameservers=[],
             host_routes=[])
 
@@ -748,7 +748,7 @@ class NetworkSubnetTests(test.TestCase):
             subnet.id,
             name=subnet.name,
             gateway_ip=gateway_ip,
-            enable_dhcp=subnet.enable_dhcp,
+            enable_dhcp=subnet.is_dhcp_enabled,
             dns_nameservers=[],
             host_routes=[])
 
@@ -784,7 +784,7 @@ class NetworkSubnetTests(test.TestCase):
             subnet.id,
             name=subnet.name,
             gateway_ip=None,
-            enable_dhcp=subnet.enable_dhcp,
+            enable_dhcp=subnet.is_dhcp_enabled,
             dns_nameservers=[],
             host_routes=[])
 

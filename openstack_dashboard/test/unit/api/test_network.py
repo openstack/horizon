@@ -28,6 +28,8 @@ class NetworkApiNeutronTests(test.APIMockTestCase):
         super().setUp()
         neutronclient = mock.patch.object(api.neutron, 'neutronclient').start()
         self.qclient = neutronclient.return_value
+        network_client = mock.patch.object(api.neutron, 'networkclient').start()
+        self.sdk_net_client = network_client.return_value
 
     def _get_expected_addresses(self, server, no_fip_expected=True):
         server_ports = self.ports.filter(device_id=server.id)
@@ -76,7 +78,7 @@ class NetworkApiNeutronTests(test.APIMockTestCase):
             assoc_fips = [fip for fip in self.api_floating_ips.list()
                           if fip['port_id'] in server_port_ids]
         server_network_ids = [p['network_id'] for p in server_ports]
-        server_networks = [net for net in self.api_networks.list()
+        server_networks = [net for net in self.api_networks_sdk
                            if net['id'] in server_network_ids]
 
         list_ports_retvals = [{'ports': server_ports}]
@@ -85,9 +87,8 @@ class NetworkApiNeutronTests(test.APIMockTestCase):
             self.qclient.list_floatingips.return_value = {'floatingips':
                                                           assoc_fips}
             list_ports_retvals.append({'ports': self.api_ports.list()})
-        self.qclient.list_networks.return_value = {'networks': server_networks}
-        self.qclient.list_subnets.return_value = {'subnets':
-                                                  self.api_subnets.list()}
+        self.sdk_net_client.networks.return_value = server_networks
+        self.sdk_net_client.subnets.return_value = self.api_subnets_sdk
 
         api.network.servers_update_addresses(self.request, servers)
 
@@ -131,9 +132,12 @@ class NetworkApiNeutronTests(test.APIMockTestCase):
         else:
             self.assertEqual(0, self.qclient.list_floatingips.call_count)
         self.qclient.list_ports.assert_has_calls(expected_list_ports)
-        self.qclient.list_networks.assert_called_once_with(
-            id=frozenset(server_network_ids))
-        self.qclient.list_subnets.assert_called_once_with()
+        nets_calls = []
+        for server_net_id in server_network_ids:
+            nets_calls.append(mock.call(id=server_net_id))
+        self.sdk_net_client.networks.assert_has_calls(nets_calls,
+                                                      any_order=True)
+        self.sdk_net_client.subnets.assert_called_once_with()
 
     @override_settings(OPENSTACK_NEUTRON_NETWORK={'enable_router': True})
     def test_servers_update_addresses(self):

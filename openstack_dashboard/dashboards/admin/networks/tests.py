@@ -409,7 +409,7 @@ class NetworkTests(test.BaseAdminViewTests):
 
         form_data = {'tenant_id': tenant_id,
                      'name': network.name,
-                     'admin_state': network.admin_state_up,
+                     'admin_state': network.is_admin_state_up,
                      'external': True,
                      'shared': True,
                      'network_type': 'local'}
@@ -423,7 +423,7 @@ class NetworkTests(test.BaseAdminViewTests):
         self.mock_subnetpool_list.assert_called_once_with(test.IsHttpRequest())
         params = {'name': network.name,
                   'tenant_id': tenant_id,
-                  'admin_state_up': network.admin_state_up,
+                  'admin_state_up': network.is_admin_state_up,
                   'router:external': True,
                   'shared': True,
                   'provider:network_type': 'local'}
@@ -456,7 +456,7 @@ class NetworkTests(test.BaseAdminViewTests):
 
         form_data = {'tenant_id': tenant_id,
                      'name': network.name,
-                     'admin_state': network.admin_state_up,
+                     'admin_state': network.is_admin_state_up,
                      'external': True,
                      'shared': True,
                      'network_type': 'local',
@@ -478,7 +478,7 @@ class NetworkTests(test.BaseAdminViewTests):
         self.mock_subnetpool_list.assert_called_once_with(test.IsHttpRequest())
         params = {'name': network.name,
                   'tenant_id': tenant_id,
-                  'admin_state_up': network.admin_state_up,
+                  'admin_state_up': network.is_admin_state_up,
                   'router:external': True,
                   'shared': True,
                   'provider:network_type': 'local',
@@ -505,7 +505,7 @@ class NetworkTests(test.BaseAdminViewTests):
 
         form_data = {'tenant_id': tenant_id,
                      'name': network.name,
-                     'admin_state': network.admin_state_up,
+                     'admin_state': network.is_admin_state_up,
                      'external': True,
                      'shared': True,
                      'mtu': 1450,
@@ -520,7 +520,7 @@ class NetworkTests(test.BaseAdminViewTests):
         self.mock_subnetpool_list.assert_called_once_with(test.IsHttpRequest())
         params = {'name': network.name,
                   'tenant_id': tenant_id,
-                  'admin_state_up': network.admin_state_up,
+                  'admin_state_up': network.is_admin_state_up,
                   'router:external': True,
                   'shared': True,
                   'mtu': 1450,
@@ -554,7 +554,7 @@ class NetworkTests(test.BaseAdminViewTests):
 
         form_data = {'tenant_id': tenant_id,
                      'name': network.name,
-                     'admin_state': network.admin_state_up,
+                     'admin_state': network.is_admin_state_up,
                      'external': True,
                      'shared': True,
                      'network_type': 'local',
@@ -574,7 +574,7 @@ class NetworkTests(test.BaseAdminViewTests):
         self.mock_subnetpool_list.assert_called_once_with(test.IsHttpRequest())
         params = {'name': network.name,
                   'tenant_id': tenant_id,
-                  'admin_state_up': network.admin_state_up,
+                  'admin_state_up': network.is_admin_state_up,
                   'router:external': True,
                   'shared': True,
                   'provider:network_type': 'local'}
@@ -584,7 +584,7 @@ class NetworkTests(test.BaseAdminViewTests):
                          'name': subnet.name,
                          'network_id': subnet.network_id,
                          'cidr': subnet.cidr,
-                         'enable_dhcp': subnet.enable_dhcp,
+                         'enable_dhcp': subnet.is_dhcp_enabled,
                          'gateway_ip': subnet.gateway_ip,
                          'ip_version': subnet.ip_version}
         self.mock_subnet_create.assert_called_once_with(test.IsHttpRequest(),
@@ -609,7 +609,7 @@ class NetworkTests(test.BaseAdminViewTests):
 
         form_data = {'tenant_id': tenant_id,
                      'name': network.name,
-                     'admin_state': network.admin_state_up,
+                     'admin_state': network.is_admin_state_up,
                      'external': True,
                      'shared': False,
                      'network_type': 'local'}
@@ -627,7 +627,7 @@ class NetworkTests(test.BaseAdminViewTests):
         self.mock_subnetpool_list.assert_called_once_with(test.IsHttpRequest())
         params = {'name': network.name,
                   'tenant_id': tenant_id,
-                  'admin_state_up': network.admin_state_up,
+                  'admin_state_up': network.is_admin_state_up,
                   'router:external': True,
                   'shared': False,
                   'provider:network_type': 'local'}
@@ -649,7 +649,7 @@ class NetworkTests(test.BaseAdminViewTests):
 
         form_data = {'tenant_id': tenant_id,
                      'name': network.name,
-                     'admin_state': network.admin_state_up,
+                     'admin_state': network.is_admin_state_up,
                      'external': True,
                      'shared': False,
                      'network_type': 'vlan',
@@ -682,7 +682,7 @@ class NetworkTests(test.BaseAdminViewTests):
 
         form_data = {'tenant_id': tenant_id,
                      'name': network.name,
-                     'admin_state': network.admin_state_up,
+                     'admin_state': network.is_admin_state_up,
                      'external': True,
                      'shared': False,
                      'network_type': 'gre',
@@ -718,7 +718,7 @@ class NetworkTests(test.BaseAdminViewTests):
 
         form_data = {'tenant_id': tenant_id,
                      'name': network.name,
-                     'admin_state': network.admin_state_up,
+                     'admin_state': network.is_admin_state_up,
                      'external': True,
                      'shared': False,
                      'network_type': 'vxlan',
@@ -834,7 +834,7 @@ class NetworkTests(test.BaseAdminViewTests):
         form_data = {'network_id': network.id,
                      'name': network.name,
                      'tenant_id': network.tenant_id,
-                     'admin_state': network.admin_state_up,
+                     'admin_state': network.is_admin_state_up,
                      'shared': True,
                      'external': True}
         url = reverse('horizon:admin:networks:update', args=[network.id])
@@ -844,7 +844,7 @@ class NetworkTests(test.BaseAdminViewTests):
 
         params = {'name': network.name,
                   'shared': True,
-                  'admin_state_up': network.admin_state_up,
+                  'admin_state_up': network.is_admin_state_up,
                   'router:external': True}
         self.mock_network_update.assert_called_once_with(test.IsHttpRequest(),
                                                          network.id,
@@ -859,7 +859,7 @@ class NetworkTests(test.BaseAdminViewTests):
         network = self.networks.first()
         params = {'name': network.name,
                   'shared': False,
-                  'admin_state_up': network.admin_state_up,
+                  'admin_state_up': network.is_admin_state_up,
                   'router:external': False}
         self.mock_network_update.side_effect = self.exceptions.neutron
         self.mock_network_get.return_value = network
@@ -867,7 +867,7 @@ class NetworkTests(test.BaseAdminViewTests):
         form_data = {'network_id': network.id,
                      'name': network.name,
                      'tenant_id': network.tenant_id,
-                     'admin_state': network.admin_state_up,
+                     'admin_state': network.is_admin_state_up,
                      'shared': False,
                      'external': False}
         url = reverse('horizon:admin:networks:update', args=[network.id])

@@ -43,9 +43,9 @@ from openstack_dashboard.dashboards.project.networks \
 class IndexView(tables.PagedTableMixin, tables.DataTableView):
     table_class = project_tables.NetworksTable
     page_title = _("Networks")
-    FILTERS_MAPPING = {'shared': {_("yes"): True, _("no"): False},
-                       'router:external': {_("yes"): True, _("no"): False},
-                       'admin_state_up': {_("up"): True, _("down"): False}}
+    FILTERS_MAPPING = {'is_shared': {_("yes"): True, _("no"): False},
+                       'is_router_external': {_("yes"): True, _("no"): False},
+                       'is_admin_state_up': {_("up"): True, _("down"): False}}
 
     def get_data(self):
         try:
@@ -127,8 +127,8 @@ class UpdateView(forms.ModalFormView):
         return {'network_id': network['id'],
                 'tenant_id': network['tenant_id'],
                 'name': network['name'],
-                'admin_state': network['admin_state_up'],
-                'shared': network['shared']}
+                'admin_state': network['is_admin_state_up'],
+                'shared': network['is_shared']}
 
 
 class DetailView(tabs.TabbedTableView):
@@ -169,5 +169,5 @@ class DetailView(tabs.TabbedTableView):
             filters.get_display_label(choices, network.status))
         choices = project_tables.DISPLAY_CHOICES
         network.admin_state_label = (
-            filters.get_display_label(choices, network.admin_state))
+            filters.get_display_label(choices, network.is_admin_state_up))
         return context

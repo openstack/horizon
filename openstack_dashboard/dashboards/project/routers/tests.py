@@ -60,7 +60,7 @@ class RouterMixin(object):
         self._check_mock_external_network_get(router)
 
     def _mock_external_network_list(self, count=1, alter_ids=False):
-        ext_nets = [n for n in self.networks.list() if n['router:external']]
+        ext_nets = [n for n in self.networks.list() if n['is_router_external']]
         if alter_ids:
             for ext_net in ext_nets:
                 ext_net.id += 'some extra garbage'

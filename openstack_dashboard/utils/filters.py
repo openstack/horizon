@@ -38,6 +38,10 @@ def get_display_label(choices, status):
     """
 
     for (value, label) in choices:
+        try:
+            (status or '').lower()
+        except AttributeError:
+            continue
         if value == (status or '').lower():
             display_label = label
             break

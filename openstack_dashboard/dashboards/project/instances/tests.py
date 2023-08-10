@@ -3075,7 +3075,7 @@ class ConsoleManagerTests(helpers.ResetImageAPIVersionMixin, helpers.TestCase):
     def test_interface_attach_get(self):
         server = self.servers.first()
         tenant_networks = [net for net in self.networks.list()
-                           if not net['router:external']]
+                           if not net['is_router_external']]
         net1 = tenant_networks[0]
         self.mock_network_list_for_tenant.return_value = tenant_networks
         ports = self.ports.list()

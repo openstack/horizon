@@ -78,7 +78,7 @@ class UpdateView(workflows.WorkflowView):
         initial['subnet_id'] = subnet['id']
         initial['subnet_name'] = subnet['name']
 
-        for key in ('cidr', 'ip_version', 'enable_dhcp'):
+        for key in ('cidr', 'ip_version', 'is_dhcp_enabled'):
             initial[key] = subnet[key]
 
         initial['gateway_ip'] = subnet['gateway_ip'] or ''
