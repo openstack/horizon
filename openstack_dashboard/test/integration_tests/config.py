@@ -113,13 +113,13 @@ SeleniumGroup = [
               'It is used for every find_element, find_elements call.')),
     cfg.IntOpt(
         'explicit_wait',
-        default=90,
+        default=180,
         help=('Explicit timeout is used for long lasting operations, '
               'Methods using explicit timeout are usually prefixed with '
               '"wait"')),
     cfg.IntOpt(
         'page_timeout',
-        default=60,
+        default=120,
         help='Timeout in seconds to wait for a page to become available'),
     cfg.StrOpt(
         'screenshots_directory',
