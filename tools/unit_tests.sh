@@ -29,6 +29,7 @@ function run_test {
   local target
   local settings_module
   local report_args
+  local ignore
 
   tag="not selenium and not integration and not plugin_test"
 
@@ -61,14 +62,16 @@ function run_test {
     fi
   fi
 
+  ignore="--ignore=$root/openstack_dashboard/test/selenium"
+
   if [ "$coverage" -eq 1 ]; then
-    coverage run -m pytest $target --ds=$settings_module -m "$tag"
+    coverage run -m pytest $target $ignore --ds=$settings_module -m "$tag"
   else
     report_args="--junitxml=$report_dir/${project}_test_results.xml"
     report_args+=" --html=$report_dir/${project}_test_results.html"
     report_args+=" --self-contained-html"
 
-    pytest $target --ds=$settings_module -v -m "$tag" $report_args
+    pytest $target --ds=$settings_module -v -m "$tag" $ignore $report_args
   fi
   return $?
 }
