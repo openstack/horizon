@@ -25,7 +25,7 @@ def new_volume_demo(volume_name, openstack_demo, config):
 
     volume = openstack_demo.create_volume(
         name=volume_name,
-        image=config.launch_instances.image_name,
+        image=config.image.images_list[0],
         size=1,
         wait=True,
     )
@@ -38,7 +38,7 @@ def new_volume_admin(volume_name, openstack_admin, config):
 
     volume = openstack_admin.create_volume(
         name=volume_name,
-        image=config.launch_instances.image_name,
+        image=config.image.images_list[0],
         size=1,
         wait=True,
     )
@@ -99,7 +99,7 @@ def test_create_empty_volume_demo(login, driver, volume_name,
 
 def test_create_volume_from_image_demo(login, driver, volume_name,
                                        clear_volume_demo, config):
-    image_source_name = "cirros-0.6.2-x86_64-disk (20.4 MB)"
+    image_source_name = config.launch_instances.image_name
 
     login('user')
     url = '/'.join((

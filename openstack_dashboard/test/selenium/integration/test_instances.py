@@ -12,8 +12,13 @@
 from oslo_utils import uuidutils
 import pytest
 from selenium.common import exceptions
+import test_volumes
 
 from openstack_dashboard.test.selenium import widgets
+
+# Imported fixtures
+volume_name = test_volumes.volume_name
+new_volume_demo = test_volumes.new_volume_demo
 
 
 @pytest.fixture
@@ -41,7 +46,7 @@ def new_instance_admin(instance_name, openstack_admin, config):
 
     instance = openstack_admin.create_server(
         instance_name,
-        image=config.image.images_list,
+        image=config.image.images_list[0],
         flavor=config.launch_instances.flavor,
         availability_zone=config.launch_instances.available_zone,
         network=config.network.external_network,
@@ -104,7 +109,7 @@ def delete_volume_on_instance_delete(driver, required_state):
 
 def test_create_instance_demo(login, driver, instance_name,
                               clear_instance_demo, config):
-    image = config.launch_instances.image_name
+    image = config.image.images_list[0]
     network = config.network.external_network
     flavor = config.launch_instances.flavor
 
@@ -216,7 +221,7 @@ def test_delete_instance_demo(login, driver, instance_name,
 
 def test_create_instance_admin(login, driver, instance_name,
                                clear_instance_admin, config):
-    image = config.launch_instances.image_name
+    image = config.image.images_list[0]
     network = config.network.external_network
     flavor = config.launch_instances.flavor
 
