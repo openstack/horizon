@@ -1,0 +1,8 @@
+---
+upgrade:
+  - |
+    Default cache backend has been changed from MemcachedCache backend to
+    PyMemcacheCache backend. MemcachedCache backend was deprecated in django
+    3.2 and was later removed in django 4.1. Note that the LOCATION option
+    needs to be updated in case memcached servers use IPv6, so that inet6
+    prefix is not included.
