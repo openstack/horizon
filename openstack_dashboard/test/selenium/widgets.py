@@ -19,7 +19,7 @@ def get_and_dismiss_messages(element):
     messages = element.find_elements_by_css_selector("div.messages div.alert")
     collect = []
     for message in messages:
-        text = message.find_element_by_css_selector("p").text
+        text = message.find_element_by_css_selector("p, div").text
         message.find_element_by_css_selector("a.close").click()
         collect.append(text)
     return collect
