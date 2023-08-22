@@ -133,6 +133,24 @@ class BasePlugin(object, metaclass=abc.ABCMeta):
                 raise exc
             msg = _('Invalid credentials.')
             raise exceptions.KeystoneCredentialsException(msg)
+        except (keystone_exceptions.MissingAuthMethods) as exc:
+            msg = str(exc)
+            LOG.debug(msg)
+            try:
+                for required in exc.required_auth_methods:
+                    if (len(required) == 2 and
+                            'totp' in required and
+                            'password' in required):
+                        receipt = exc.receipt
+                        msg = _('Authentication via TOTP is required.')
+                        exc = exceptions.KeystoneTOTPRequired(msg)
+                        exc.receipt = receipt
+                        raise exc
+                msg = _("An error occurred authenticating. "
+                        "Please try again later.")
+                raise exceptions.KeystoneAuthException(msg)
+            except Exception as exc:
+                raise exc
         except (keystone_exceptions.ClientException,
                 keystone_exceptions.AuthorizationFailure) as exc:
             msg = _("An error occurred authenticating. "

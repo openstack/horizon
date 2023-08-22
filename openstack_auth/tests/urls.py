@@ -22,5 +22,9 @@ urlpatterns = [
     re_path(r"", include('openstack_auth.urls')),
     re_path(r"^websso/$", views.websso, name='websso'),
     re_path(r"^$",
-            generic.TemplateView.as_view(template_name="auth/blank.html"))
+            generic.TemplateView.as_view(template_name="auth/blank.html")),
+    re_path(r'^totp/(?P<user_name>[^/]+)/$',
+            views.TotpView.as_view(),
+            name='totp')
+
 ]

@@ -46,3 +46,7 @@ class KeystoneCredentialsException(KeystoneAuthException):
 
 class KeystonePassExpiredException(KeystoneAuthException):
     """The password is expired and needs to be changed."""
+
+
+class KeystoneTOTPRequired(KeystoneAuthException):
+    """The passcode TOTP is requirede to authentificate."""

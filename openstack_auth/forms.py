@@ -155,6 +155,15 @@ class Login(django_auth_forms.AuthenticationForm):
             if utils.allow_expired_passowrd_change():
                 raise
             raise forms.ValidationError(exc)
+        except exceptions.KeystoneTOTPRequired as exc:
+            LOG.info('Login failed for user "%(username)s" using domain '
+                     '"%(domain)s", remote address %(remote_ip)s: TOTP'
+                     'required.',
+                     {'username': username, 'domain': domain,
+                      'remote_ip': utils.get_client_ip(self.request)})
+            if settings.OPENSTACK_KEYSTONE_MFA_TOTP_ENABLED:
+                raise
+            raise forms.ValidationError(exc)
         except exceptions.KeystoneAuthException as exc:
             LOG.info('Login failed for user "%(username)s" using domain '
                      '"%(domain)s", remote address %(remote_ip)s.',
@@ -243,4 +252,55 @@ class Password(forms.Form):
                       e)
             raise forms.ValidationError(
                 _("Unable to update the user password."))
+        return self.cleaned_data
+
+
+class TimeBasedOneTimePassword(forms.Form):
+    """Form used for TOTP authentification"""
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.fields = collections.OrderedDict([
+            (
+                'totp',
+                forms.CharField(label=_("Passcode"),
+                                required=True,
+                                widget=forms.TextInput(
+                                attrs={"autofocus": "autofocus"}))
+            )
+        ])
+
+    @sensitive_variables('totp')
+    def clean(self):
+        default_domain = settings.OPENSTACK_KEYSTONE_DEFAULT_DOMAIN
+        request = self.initial['request']
+        domain = self.initial['domain']
+        if domain == "" or domain is None:
+            domain = default_domain
+        username = self.initial['username']
+        receipt = self.initial['receipt']
+        region_id = self.initial['region']
+        passcode = self.cleaned_data.get('totp')
+        try:
+            region = get_region_endpoint(region_id)
+            LOG.info(region)
+        except (ValueError, IndexError, TypeError):
+            raise forms.ValidationError("Invalid region %r" % region_id)
+        try:
+            self.cleaned_data['region'] = region
+            self.user_cache = authenticate(request=request,
+                                           receipt=receipt,
+                                           username=username,
+                                           passcode=passcode,
+                                           user_domain_name=domain,
+                                           auth_url=region)
+            LOG.info('Login successful for user "%(username)s" using domain '
+                     '"%(domain)s", remote address %(remote_ip)s.',
+                     {'username': username, 'domain': domain,
+                      'remote_ip': utils.get_client_ip(request)})
+        except exceptions.KeystoneNoBackendException as exc:
+            LOG.info(exc)
+            raise forms.ValidationError('KeystoneNoBackendException')
+        except Exception as exc:
+            LOG.info(exc)
+            raise forms.ValidationError(exc)
         return self.cleaned_data
