@@ -81,15 +81,15 @@ openstackdocs_pdf_link = True
 extlinks = {
     'opendev-repo': (
         'https://opendev.org/%s',
-        '',
+        None,
     ),
     'launchpad': (
         'https://bugs.launchpad.net/%s',
-        'launchpad ',
+        'launchpad:%s',
     ),
     'storyboard': (
         'https://storyboard.openstack.org/#!/project/%s',
-        'storyboard ',
+        'storyboard:%s',
     ),
 }
 
