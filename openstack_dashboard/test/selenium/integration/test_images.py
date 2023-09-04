@@ -26,6 +26,18 @@ def image_name():
 
 
 @pytest.fixture
+def new_image_demo(image_name, temporary_file, openstack_demo):
+    image = openstack_demo.create_image(
+        image_name,
+        disk_format="qcow2",
+        filename=temporary_file,
+        wait=True,
+    )
+    yield image
+    openstack_demo.delete_image(image_name)
+
+
+@pytest.fixture
 def clear_image_demo(image_name, openstack_demo):
     yield None
     openstack_demo.delete_image(
@@ -76,3 +88,22 @@ def test_image_create_from_local_file_demo(login, driver, image_name,
     widgets.find_already_visible_element_by_xpath(
         f"//*[text()='{image_name}']//ancestor::tr/td"
         f"//*[text()='Active']", driver)
+
+
+def test_image_delete_demo(login, driver, image_name,
+                           new_image_demo, config):
+    login('user', 'demo')
+    url = '/'.join((
+        config.dashboard.dashboard_url,
+        'project',
+        'images',
+    ))
+    driver.get(url)
+    rows = driver.find_elements_by_xpath(f"//a[text()='{image_name}']")
+    assert len(rows) == 1
+    actions_column = rows[0].find_element_by_xpath(
+        ".//ancestor::tr/td[contains(@class,'actions_column')]")
+    widgets.select_from_dropdown(actions_column, "Delete Image")
+    widgets.confirm_modal(driver)
+    messages = widgets.get_and_dismiss_messages(driver)
+    assert f"Success: Deleted Image: {image_name}." in messages

@@ -140,7 +140,7 @@ def test_delete_volume_demo(login, driver, volume_name,
     )
     assert len(rows) == 1
     actions_column = rows[0].find_element_by_css_selector("td.actions_column")
-    widgets.select_from_dropdown(actions_column, " Delete Volume")
+    widgets.select_from_dropdown(actions_column, "Delete Volume")
     widgets.confirm_modal(driver)
     messages = widgets.get_and_dismiss_messages(driver)
     assert f"Info: Scheduled deletion of Volume: {volume_name}" in messages

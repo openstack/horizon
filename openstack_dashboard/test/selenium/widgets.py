@@ -32,18 +32,18 @@ def find_already_visible_element_by_xpath(element, driver):
 
 def select_from_dropdown(element, label):
     menu_button = element.find_element_by_css_selector(
-        "a[data-toggle='dropdown']"
+        ".dropdown-toggle"
     )
     menu_button.click()
     options = element.find_element_by_css_selector("ul.dropdown-menu")
     selection = options.find_element_by_xpath(
-        f"li/button[text()[contains(.,'{label}')]]"
+        f".//*[normalize-space()='{label}']"
     )
     selection.click()
 
 
 def confirm_modal(element):
     confirm = element.find_element_by_css_selector(
-        "#modal_wrapper a.btn-danger"
+        ".modal-dialog .btn-danger"
     )
     confirm.click()
