@@ -213,7 +213,8 @@ class PortAllowedAddressPair(NeutronAPIDictWrapper):
     def __init__(self, addr_pair):
         super().__init__(addr_pair)
         # Horizon references id property for table operations
-        self.id = addr_pair['ip_address']
+        mac_addr = addr_pair['mac_address'].replace(':', '-')
+        self.id = addr_pair['ip_address'] + ":" + mac_addr
 
 
 class Router(NeutronAPIDictWrapper):
