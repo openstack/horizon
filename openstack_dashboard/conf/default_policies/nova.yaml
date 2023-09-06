@@ -1004,8 +1004,16 @@
   scope_types:
   - project
 - check_str: rule:context_is_admin
-  description: Cold migrate a server to a host
+  description: Cold migrate a server without specifying a host
   name: os_compute_api:os-migrate-server:migrate
+  operations:
+  - method: POST
+    path: /servers/{server_id}/action (migrate)
+  scope_types:
+  - project
+- check_str: rule:context_is_admin
+  description: Cold migrate a server to a specified host
+  name: os_compute_api:os-migrate-server:migrate:host
   operations:
   - method: POST
     path: /servers/{server_id}/action (migrate)

@@ -344,7 +344,7 @@
     path: /auto-allocated-topology/{project_id}
   scope_types:
   - project
-- check_str: rule:admin_only
+- check_str: role:reader
   deprecated_reason: null
   deprecated_rule:
     check_str: rule:regular_user
@@ -355,6 +355,47 @@
   operations:
   - method: GET
     path: /availability_zones
+  scope_types:
+  - project
+- check_str: rule:admin_only
+  deprecated_reason: null
+  deprecated_rule:
+    check_str: rule:admin_only
+    name: create_default_security_group_rule
+  deprecated_since: null
+  description: Create a templated of the security group rule
+  name: create_default_security_group_rule
+  operations:
+  - method: POST
+    path: /default-security-group-rules
+  scope_types:
+  - project
+- check_str: role:reader
+  deprecated_reason: null
+  deprecated_rule:
+    check_str: rule:regular_user
+    name: get_default_security_group_rule
+  deprecated_since: null
+  description: Get a templated of the security group rule
+  name: get_default_security_group_rule
+  operations:
+  - method: GET
+    path: /default-security-group-rules
+  - method: GET
+    path: /default-security-group-rules/{id}
+  scope_types:
+  - project
+- check_str: rule:admin_only
+  deprecated_reason: null
+  deprecated_rule:
+    check_str: rule:admin_only
+    name: delete_default_security_group_rule
+  deprecated_since: null
+  description: Delete a templated of the security group rule
+  name: delete_default_security_group_rule
+  operations:
+  - method: DELETE
+    path: /default-security-group-rules/{id}
   scope_types:
   - project
 - check_str: rule:admin_only
@@ -584,7 +625,7 @@
     path: /floatingip_pools
   scope_types:
   - project
-- check_str: (rule:admin_only) or (role:member and project_id:%(project_id)s) or rule:ext_parent_owner
+- check_str: (rule:admin_only) or (role:member and rule:ext_parent_owner)
   deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_or_ext_parent_owner
@@ -597,7 +638,7 @@
     path: /floatingips/{floatingip_id}/port_forwardings
   scope_types:
   - project
-- check_str: (rule:admin_only) or (role:reader and project_id:%(project_id)s) or rule:ext_parent_owner
+- check_str: (rule:admin_only) or (role:reader and rule:ext_parent_owner)
   deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_or_ext_parent_owner
@@ -612,7 +653,7 @@
     path: /floatingips/{floatingip_id}/port_forwardings/{port_forwarding_id}
   scope_types:
   - project
-- check_str: (rule:admin_only) or (role:member and project_id:%(project_id)s) or rule:ext_parent_owner
+- check_str: (rule:admin_only) or (role:member and rule:ext_parent_owner)
   deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_or_ext_parent_owner
@@ -625,7 +666,7 @@
     path: /floatingips/{floatingip_id}/port_forwardings/{port_forwarding_id}
   scope_types:
   - project
-- check_str: (rule:admin_only) or (role:member and project_id:%(project_id)s) or rule:ext_parent_owner
+- check_str: (rule:admin_only) or (role:member and rule:ext_parent_owner)
   deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_or_ext_parent_owner
@@ -1339,6 +1380,38 @@
     path: /network_segment_ranges/{id}
   scope_types:
   - project
+- check_str: rule:admin_only
+  description: Get port binding information
+  name: get_port_binding
+  operations:
+  - method: GET
+    path: /ports/{port_id}/bindings/
+  scope_types:
+  - project
+- check_str: rule:admin_only
+  description: Create port binding on the host
+  name: create_port_binding
+  operations:
+  - method: POST
+    path: /ports/{port_id}/bindings/
+  scope_types:
+  - project
+- check_str: rule:admin_only
+  description: Delete port binding on the host
+  name: delete_port_binding
+  operations:
+  - method: DELETE
+    path: /ports/{port_id}/bindings/
+  scope_types:
+  - project
+- check_str: rule:admin_only
+  description: Activate port binding on the host
+  name: activate
+  operations:
+  - method: PUT
+    path: /ports/{port_id}/bindings/{host}
+  scope_types:
+  - project
 - check_str: 'field:port:device_owner=~^network:'
   description: Definition of port with network device_owner
   name: network_device
@@ -1362,8 +1435,8 @@
     path: /ports
   scope_types:
   - project
-- check_str: not rule:network_device or rule:admin_only or rule:context_is_advsvc
-    or rule:network_owner
+- check_str: not rule:network_device or rule:context_is_advsvc or (rule:admin_only)
+    or (role:member and rule:network_owner)
   deprecated_reason: null
   deprecated_rule:
     check_str: not rule:network_device or rule:context_is_advsvc or rule:admin_or_network_owner
@@ -1374,7 +1447,7 @@
   operations: *id004
   scope_types:
   - project
-- check_str: rule:context_is_advsvc or rule:network_owner or rule:admin_only
+- check_str: rule:context_is_advsvc or (rule:admin_only) or (role:member and rule:network_owner)
   deprecated_reason: null
   deprecated_rule:
     check_str: rule:context_is_advsvc or rule:admin_or_network_owner
@@ -1385,7 +1458,8 @@
   operations: *id004
   scope_types:
   - project
-- check_str: rule:context_is_advsvc or rule:network_owner or rule:admin_only or rule:shared
+- check_str: rule:context_is_advsvc or (rule:admin_only) or (role:member and rule:network_owner)
+    or rule:shared
   deprecated_reason: null
   deprecated_rule:
     check_str: rule:context_is_advsvc or rule:admin_or_network_owner or rule:shared
@@ -1396,7 +1470,7 @@
   operations: *id004
   scope_types:
   - project
-- check_str: rule:context_is_advsvc or rule:network_owner or rule:admin_only
+- check_str: rule:context_is_advsvc or (rule:admin_only) or (role:member and rule:network_owner)
   deprecated_reason: null
   deprecated_rule:
     check_str: rule:context_is_advsvc or rule:admin_or_network_owner
@@ -1407,7 +1481,8 @@
   operations: *id004
   scope_types:
   - project
-- check_str: rule:context_is_advsvc or rule:network_owner or rule:admin_only or rule:shared
+- check_str: rule:context_is_advsvc or (rule:admin_only) or (role:member and rule:network_owner)
+    or rule:shared
   deprecated_reason: null
   deprecated_rule:
     check_str: rule:context_is_advsvc or rule:admin_or_network_owner or rule:shared
@@ -1418,7 +1493,7 @@
   operations: *id004
   scope_types:
   - project
-- check_str: rule:context_is_advsvc or rule:network_owner or rule:admin_only
+- check_str: rule:context_is_advsvc or (rule:admin_only) or (role:member and rule:network_owner)
   deprecated_reason: null
   deprecated_rule:
     check_str: rule:context_is_advsvc or rule:admin_or_network_owner
@@ -1462,7 +1537,7 @@
   operations: *id004
   scope_types:
   - project
-- check_str: rule:admin_only or rule:network_owner
+- check_str: (rule:admin_only) or (role:member and rule:network_owner)
   deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_or_network_owner
@@ -1473,7 +1548,7 @@
   operations: *id004
   scope_types:
   - project
-- check_str: rule:admin_only or rule:network_owner
+- check_str: (rule:admin_only) or (role:member and rule:network_owner)
   deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_or_network_owner
@@ -1485,7 +1560,7 @@
   operations: *id004
   scope_types:
   - project
-- check_str: rule:admin_only or rule:network_owner
+- check_str: (rule:admin_only) or (role:member and rule:network_owner)
   deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_or_network_owner
@@ -1497,7 +1572,14 @@
   operations: *id004
   scope_types:
   - project
-- check_str: rule:admin_only or rule:context_is_advsvc or role:reader and project_id:%(project_id)s
+- check_str: rule:admin_only
+  description: Specify ``hints`` attribute when creating a port
+  name: create_port:hints
+  operations: *id004
+  scope_types:
+  - project
+- check_str: rule:context_is_advsvc or (rule:admin_only) or (role:reader and rule:network_owner)
+    or role:reader and project_id:%(project_id)s
   deprecated_reason: null
   deprecated_rule:
     check_str: rule:context_is_advsvc or rule:admin_owner_or_network_owner
@@ -1567,6 +1649,12 @@
   operations: *id005
   scope_types:
   - project
+- check_str: rule:admin_only
+  description: Get ``hints`` attribute of a port
+  name: get_port:hints
+  operations: *id005
+  scope_types:
+  - project
 - check_str: rule:admin_only or role:member and project_id:%(project_id)s or rule:context_is_advsvc
   deprecated_reason: null
   deprecated_rule:
@@ -1580,8 +1668,8 @@
     path: /ports/{id}
   scope_types:
   - project
-- check_str: not rule:network_device or rule:context_is_advsvc or rule:network_owner
-    or rule:admin_only
+- check_str: not rule:network_device or rule:context_is_advsvc or (rule:admin_only)
+    or (role:member and rule:network_owner)
   deprecated_reason: null
   deprecated_rule:
     check_str: not rule:network_device or rule:context_is_advsvc or rule:admin_or_network_owner
@@ -1603,7 +1691,7 @@
   operations: *id006
   scope_types:
   - project
-- check_str: rule:context_is_advsvc or rule:network_owner or rule:admin_only
+- check_str: rule:context_is_advsvc or (rule:admin_only) or (role:member and rule:network_owner)
   deprecated_reason: null
   deprecated_rule:
     check_str: rule:context_is_advsvc or rule:admin_or_network_owner
@@ -1614,7 +1702,7 @@
   operations: *id006
   scope_types:
   - project
-- check_str: rule:context_is_advsvc or rule:network_owner or rule:admin_only
+- check_str: rule:context_is_advsvc or (rule:admin_only) or (role:member and rule:network_owner)
   deprecated_reason: null
   deprecated_rule:
     check_str: rule:context_is_advsvc or rule:admin_or_network_owner
@@ -1625,7 +1713,8 @@
   operations: *id006
   scope_types:
   - project
-- check_str: rule:context_is_advsvc or rule:network_owner or rule:admin_only or rule:shared
+- check_str: rule:context_is_advsvc or (rule:admin_only) or (role:member and rule:network_owner)
+    or rule:shared
   deprecated_reason: null
   deprecated_rule:
     check_str: rule:context_is_advsvc or rule:admin_or_network_owner or rule:shared
@@ -1636,7 +1725,7 @@
   operations: *id006
   scope_types:
   - project
-- check_str: rule:context_is_advsvc or rule:network_owner or rule:admin_only
+- check_str: rule:context_is_advsvc or (rule:admin_only) or (role:member and rule:network_owner)
   deprecated_reason: null
   deprecated_rule:
     check_str: rule:context_is_advsvc or rule:admin_or_network_owner
@@ -1680,7 +1769,7 @@
   operations: *id006
   scope_types:
   - project
-- check_str: rule:admin_only or rule:network_owner
+- check_str: (rule:admin_only) or (role:member and rule:network_owner)
   deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_or_network_owner
@@ -1691,7 +1780,7 @@
   operations: *id006
   scope_types:
   - project
-- check_str: rule:admin_only or rule:network_owner
+- check_str: (rule:admin_only) or (role:member and rule:network_owner)
   deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_or_network_owner
@@ -1703,7 +1792,7 @@
   operations: *id006
   scope_types:
   - project
-- check_str: rule:admin_only or rule:network_owner
+- check_str: (rule:admin_only) or (role:member and rule:network_owner)
   deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_or_network_owner
@@ -1725,8 +1814,14 @@
   operations: *id006
   scope_types:
   - project
-- check_str: rule:admin_only or rule:context_is_advsvc or role:member and project_id:%(project_id)s
-    or rule:network_owner
+- check_str: rule:admin_only
+  description: Update ``hints`` attribute of a port
+  name: update_port:hints
+  operations: *id006
+  scope_types:
+  - project
+- check_str: rule:context_is_advsvc or role:member and project_id:%(project_id)s or
+    (rule:admin_only) or (role:member and rule:network_owner)
   deprecated_reason: null
   deprecated_rule:
     check_str: rule:context_is_advsvc or rule:admin_owner_or_network_owner
@@ -1798,7 +1893,7 @@
     path: /qos/policies/{id}
   scope_types:
   - project
-- check_str: rule:admin_only
+- check_str: role:reader
   deprecated_reason: null
   deprecated_rule:
     check_str: rule:regular_user
@@ -1813,7 +1908,7 @@
     path: /qos/rule-types/{rule_type}
   scope_types:
   - project
-- check_str: (rule:admin_only) or (role:reader and project_id:%(project_id)s)
+- check_str: (rule:admin_only) or (role:reader and rule:ext_parent_owner)
   deprecated_reason: null
   deprecated_rule:
     check_str: rule:regular_user
@@ -1867,7 +1962,7 @@
     path: /qos/policies/{policy_id}/bandwidth_limit_rules/{rule_id}
   scope_types:
   - project
-- check_str: (rule:admin_only) or (role:reader and project_id:%(project_id)s)
+- check_str: (rule:admin_only) or (role:reader and rule:ext_parent_owner)
   description: Get a QoS packet rate limit rule
   name: get_policy_packet_rate_limit_rule
   operations:
@@ -1901,7 +1996,7 @@
     path: /qos/policies/{policy_id}/packet_rate_limit_rules/{rule_id}
   scope_types:
   - project
-- check_str: (rule:admin_only) or (role:reader and project_id:%(project_id)s)
+- check_str: (rule:admin_only) or (role:reader and rule:ext_parent_owner)
   deprecated_reason: null
   deprecated_rule:
     check_str: rule:regular_user
@@ -1955,7 +2050,7 @@
     path: /qos/policies/{policy_id}/dscp_marking_rules/{rule_id}
   scope_types:
   - project
-- check_str: (rule:admin_only) or (role:reader and project_id:%(project_id)s)
+- check_str: (rule:admin_only) or (role:reader and rule:ext_parent_owner)
   deprecated_reason: null
   deprecated_rule:
     check_str: rule:regular_user
@@ -2009,7 +2104,7 @@
     path: /qos/policies/{policy_id}/minimum_bandwidth_rules/{rule_id}
   scope_types:
   - project
-- check_str: (rule:admin_only) or (role:reader and project_id:%(project_id)s)
+- check_str: (rule:admin_only) or (role:reader and rule:ext_parent_owner)
   description: Get a QoS minimum packet rate rule
   name: get_policy_minimum_packet_rate_rule
   operations:
@@ -2043,7 +2138,7 @@
     path: /qos/policies/{policy_id}/minimum_packet_rate_rules/{rule_id}
   scope_types:
   - project
-- check_str: (rule:admin_only) or (role:reader and project_id:%(project_id)s)
+- check_str: (rule:admin_only) or (role:reader and rule:ext_parent_owner)
   deprecated_reason: null
   deprecated_rule:
     check_str: rule:regular_user
@@ -2082,7 +2177,7 @@
     path: /qos/alias_bandwidth_limit_rules/{rule_id}/
   scope_types:
   - project
-- check_str: (rule:admin_only) or (role:reader and project_id:%(project_id)s)
+- check_str: (rule:admin_only) or (role:reader and rule:ext_parent_owner)
   deprecated_reason: null
   deprecated_rule:
     check_str: rule:regular_user
@@ -2121,7 +2216,7 @@
     path: /qos/alias_dscp_marking_rules/{rule_id}/
   scope_types:
   - project
-- check_str: (rule:admin_only) or (role:reader and project_id:%(project_id)s)
+- check_str: (rule:admin_only) or (role:reader and rule:ext_parent_owner)
   deprecated_reason: null
   deprecated_rule:
     check_str: rule:regular_user
@@ -2393,6 +2488,18 @@
   operations: *id007
   scope_types:
   - project
+- check_str: rule:admin_only
+  description: Specify ``enable_default_route_bfd`` attribute when creating a router
+  name: create_router:enable_default_route_bfd
+  operations: *id007
+  scope_types:
+  - project
+- check_str: rule:admin_only
+  description: Specify ``enable_default_route_ecmp`` attribute when creating a router
+  name: create_router:enable_default_route_ecmp
+  operations: *id007
+  scope_types:
+  - project
 - check_str: (rule:admin_only) or (role:reader and project_id:%(project_id)s)
   deprecated_reason: null
   deprecated_rule:
@@ -2510,6 +2617,18 @@
     information of a router
   name: update_router:external_gateway_info:external_fixed_ips
   operations: *id009
+  scope_types:
+  - project
+- check_str: rule:admin_only
+  description: Specify ``enable_default_route_bfd`` attribute when updating a router
+  name: update_router:enable_default_route_bfd
+  operations: *id007
+  scope_types:
+  - project
+- check_str: rule:admin_only
+  description: Specify ``enable_default_route_ecmp`` attribute when updating a router
+  name: update_router:enable_default_route_ecmp
+  operations: *id007
   scope_types:
   - project
 - check_str: (rule:admin_only) or (role:member and project_id:%(project_id)s)
@@ -2754,7 +2873,7 @@
     path: /service-providers
   scope_types:
   - project
-- check_str: (rule:admin_only) or (role:member and project_id:%(project_id)s) or rule:network_owner
+- check_str: (rule:admin_only) or (role:member and rule:network_owner)
   deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_or_network_owner
@@ -2815,7 +2934,7 @@
   operations: *id011
   scope_types:
   - project
-- check_str: (rule:admin_only) or (role:member and project_id:%(project_id)s) or rule:network_owner
+- check_str: (rule:admin_only) or (role:member and rule:network_owner)
   deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_or_network_owner
@@ -2850,7 +2969,7 @@
   operations: *id012
   scope_types:
   - project
-- check_str: (rule:admin_only) or (role:member and project_id:%(project_id)s) or rule:network_owner
+- check_str: (rule:admin_only) or (role:member and rule:network_owner)
   deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_or_network_owner

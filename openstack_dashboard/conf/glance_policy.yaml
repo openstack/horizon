@@ -3,8 +3,8 @@
 #"default": ""
 
 # DEPRECATED
-# "default":"role:admin" has been deprecated since Ussuri in favor of
-# "default":"".
+# "default":"rule:context_is_admin" has been deprecated since Ussuri
+# in favor of "default":"".
 # In order to allow operators to accept the default policies from code
 # by not defining them in the policy file, while still working with
 # old policy files that rely on the ``default`` rule for policies that
@@ -18,33 +18,33 @@
 # Create new image
 # POST  /v2/images
 # Intended scope(s): project
-#"add_image": "role:admin or (role:member and project_id:%(project_id)s and project_id:%(owner)s)"
+#"add_image": "rule:context_is_admin or (role:member and project_id:%(project_id)s and project_id:%(owner)s)"
 
 # DEPRECATED
 # "add_image":"rule:default" has been deprecated since W in favor of
-# "add_image":"role:admin or (role:member and
+# "add_image":"rule:context_is_admin or (role:member and
 # project_id:%(project_id)s and project_id:%(owner)s)".
 # The image API now supports roles.
 
 # Deletes the image
 # DELETE  /v2/images/{image_id}
 # Intended scope(s): project
-#"delete_image": "role:admin or (role:member and project_id:%(project_id)s)"
+#"delete_image": "rule:context_is_admin or (role:member and project_id:%(project_id)s)"
 
 # DEPRECATED
 # "delete_image":"rule:default" has been deprecated since W in favor
-# of "delete_image":"role:admin or (role:member and
+# of "delete_image":"rule:context_is_admin or (role:member and
 # project_id:%(project_id)s)".
 # The image API now supports roles.
 
 # Get specified image
 # GET  /v2/images/{image_id}
 # Intended scope(s): project
-#"get_image": "role:admin or (role:reader and (project_id:%(project_id)s or project_id:%(member_id)s or 'community':%(visibility)s or 'public':%(visibility)s or 'shared':%(visibility)s))"
+#"get_image": "rule:context_is_admin or (role:reader and (project_id:%(project_id)s or project_id:%(member_id)s or 'community':%(visibility)s or 'public':%(visibility)s or 'shared':%(visibility)s))"
 
 # DEPRECATED
 # "get_image":"rule:default" has been deprecated since W in favor of
-# "get_image":"role:admin or (role:reader and
+# "get_image":"rule:context_is_admin or (role:reader and
 # (project_id:%(project_id)s or project_id:%(member_id)s or
 # 'community':%(visibility)s or 'public':%(visibility)s or
 # 'shared':%(visibility)s))".
@@ -53,49 +53,49 @@
 # Get all available images
 # GET  /v2/images
 # Intended scope(s): project
-#"get_images": "role:admin or (role:reader and project_id:%(project_id)s)"
+#"get_images": "rule:context_is_admin or (role:reader and project_id:%(project_id)s)"
 
 # DEPRECATED
 # "get_images":"rule:default" has been deprecated since W in favor of
-# "get_images":"role:admin or (role:reader and
+# "get_images":"rule:context_is_admin or (role:reader and
 # project_id:%(project_id)s)".
 # The image API now supports roles.
 
 # Updates given image
 # PATCH  /v2/images/{image_id}
 # Intended scope(s): project
-#"modify_image": "role:admin or (role:member and project_id:%(project_id)s)"
+#"modify_image": "rule:context_is_admin or (role:member and project_id:%(project_id)s)"
 
 # DEPRECATED
 # "modify_image":"rule:default" has been deprecated since W in favor
-# of "modify_image":"role:admin or (role:member and
+# of "modify_image":"rule:context_is_admin or (role:member and
 # project_id:%(project_id)s)".
 # The image API now supports roles.
 
 # Publicize given image
 # PATCH  /v2/images/{image_id}
 # Intended scope(s): project
-#"publicize_image": "role:admin"
+#"publicize_image": "rule:context_is_admin"
 
 # Communitize given image
 # PATCH  /v2/images/{image_id}
 # Intended scope(s): project
-#"communitize_image": "role:admin or (role:member and project_id:%(project_id)s)"
+#"communitize_image": "rule:context_is_admin or (role:member and project_id:%(project_id)s)"
 
 # DEPRECATED
 # "communitize_image":"rule:default" has been deprecated since W in
-# favor of "communitize_image":"role:admin or (role:member and
-# project_id:%(project_id)s)".
+# favor of "communitize_image":"rule:context_is_admin or (role:member
+# and project_id:%(project_id)s)".
 # The image API now supports roles.
 
 # Downloads given image
 # GET  /v2/images/{image_id}/file
 # Intended scope(s): project
-#"download_image": "role:admin or (role:member and (project_id:%(project_id)s or project_id:%(member_id)s or 'community':%(visibility)s or 'public':%(visibility)s or 'shared':%(visibility)s))"
+#"download_image": "rule:context_is_admin or (role:member and (project_id:%(project_id)s or project_id:%(member_id)s or 'community':%(visibility)s or 'public':%(visibility)s or 'shared':%(visibility)s))"
 
 # DEPRECATED
 # "download_image":"rule:default" has been deprecated since W in favor
-# of "download_image":"role:admin or (role:member and
+# of "download_image":"rule:context_is_admin or (role:member and
 # (project_id:%(project_id)s or project_id:%(member_id)s or
 # 'community':%(visibility)s or 'public':%(visibility)s or
 # 'shared':%(visibility)s))".
@@ -104,131 +104,131 @@
 # Uploads data to specified image
 # PUT  /v2/images/{image_id}/file
 # Intended scope(s): project
-#"upload_image": "role:admin or (role:member and project_id:%(project_id)s)"
+#"upload_image": "rule:context_is_admin or (role:member and project_id:%(project_id)s)"
 
 # DEPRECATED
 # "upload_image":"rule:default" has been deprecated since W in favor
-# of "upload_image":"role:admin or (role:member and
+# of "upload_image":"rule:context_is_admin or (role:member and
 # project_id:%(project_id)s)".
 # The image API now supports roles.
 
 # Deletes the location of given image
 # PATCH  /v2/images/{image_id}
 # Intended scope(s): project
-#"delete_image_location": "role:admin"
+#"delete_image_location": "rule:context_is_admin"
 
 # DEPRECATED
 # "delete_image_location":"rule:default" has been deprecated since W
-# in favor of "delete_image_location":"role:admin".
+# in favor of "delete_image_location":"rule:context_is_admin".
 # The image API now supports roles.
 
 # Reads the location of the image
 # GET  /v2/images/{image_id}
 # Intended scope(s): project
-#"get_image_location": "role:admin or (role:reader and project_id:%(project_id)s)"
+#"get_image_location": "rule:context_is_admin or (role:reader and project_id:%(project_id)s)"
 
 # DEPRECATED
 # "get_image_location":"rule:default" has been deprecated since W in
-# favor of "get_image_location":"role:admin or (role:reader and
-# project_id:%(project_id)s)".
+# favor of "get_image_location":"rule:context_is_admin or (role:reader
+# and project_id:%(project_id)s)".
 # The image API now supports roles.
 
 # Sets location URI to given image
 # PATCH  /v2/images/{image_id}
 # Intended scope(s): project
-#"set_image_location": "role:admin or (role:member and project_id:%(project_id)s)"
+#"set_image_location": "rule:context_is_admin or (role:member and project_id:%(project_id)s)"
 
 # DEPRECATED
 # "set_image_location":"rule:default" has been deprecated since W in
-# favor of "set_image_location":"role:admin or (role:member and
-# project_id:%(project_id)s)".
+# favor of "set_image_location":"rule:context_is_admin or (role:member
+# and project_id:%(project_id)s)".
 # The image API now supports roles.
 
 # Create image member
 # POST  /v2/images/{image_id}/members
 # Intended scope(s): project
-#"add_member": "role:admin or (role:member and project_id:%(project_id)s)"
+#"add_member": "rule:context_is_admin or (role:member and project_id:%(project_id)s)"
 
 # DEPRECATED
 # "add_member":"rule:default" has been deprecated since W in favor of
-# "add_member":"role:admin or (role:member and
+# "add_member":"rule:context_is_admin or (role:member and
 # project_id:%(project_id)s)".
 # The image API now supports roles.
 
 # Delete image member
 # DELETE  /v2/images/{image_id}/members/{member_id}
 # Intended scope(s): project
-#"delete_member": "role:admin or (role:member and project_id:%(project_id)s)"
+#"delete_member": "rule:context_is_admin or (role:member and project_id:%(project_id)s)"
 
 # DEPRECATED
 # "delete_member":"rule:default" has been deprecated since W in favor
-# of "delete_member":"role:admin or (role:member and
+# of "delete_member":"rule:context_is_admin or (role:member and
 # project_id:%(project_id)s)".
 # The image API now supports roles.
 
 # Show image member details
 # GET  /v2/images/{image_id}/members/{member_id}
 # Intended scope(s): project
-#"get_member": "role:admin or role:reader and (project_id:%(project_id)s or project_id:%(member_id)s)"
+#"get_member": "rule:context_is_admin or role:reader and (project_id:%(project_id)s or project_id:%(member_id)s)"
 
 # DEPRECATED
 # "get_member":"rule:default" has been deprecated since W in favor of
-# "get_member":"role:admin or role:reader and
+# "get_member":"rule:context_is_admin or role:reader and
 # (project_id:%(project_id)s or project_id:%(member_id)s)".
 # The image API now supports roles.
 
 # List image members
 # GET  /v2/images/{image_id}/members
 # Intended scope(s): project
-#"get_members": "role:admin or role:reader and (project_id:%(project_id)s or project_id:%(member_id)s)"
+#"get_members": "rule:context_is_admin or role:reader and (project_id:%(project_id)s or project_id:%(member_id)s)"
 
 # DEPRECATED
 # "get_members":"rule:default" has been deprecated since W in favor of
-# "get_members":"role:admin or role:reader and
+# "get_members":"rule:context_is_admin or role:reader and
 # (project_id:%(project_id)s or project_id:%(member_id)s)".
 # The image API now supports roles.
 
 # Update image member
 # PUT  /v2/images/{image_id}/members/{member_id}
 # Intended scope(s): project
-#"modify_member": "role:admin or (role:member and project_id:%(member_id)s)"
+#"modify_member": "rule:context_is_admin or (role:member and project_id:%(member_id)s)"
 
 # DEPRECATED
 # "modify_member":"rule:default" has been deprecated since W in favor
-# of "modify_member":"role:admin or (role:member and
+# of "modify_member":"rule:context_is_admin or (role:member and
 # project_id:%(member_id)s)".
 # The image API now supports roles.
 
 # Manage image cache
 # Intended scope(s): project
-#"manage_image_cache": "role:admin"
+#"manage_image_cache": "rule:context_is_admin"
 
 # Deactivate image
 # POST  /v2/images/{image_id}/actions/deactivate
 # Intended scope(s): project
-#"deactivate": "role:admin or (role:member and project_id:%(project_id)s)"
+#"deactivate": "rule:context_is_admin or (role:member and project_id:%(project_id)s)"
 
 # DEPRECATED
 # "deactivate":"rule:default" has been deprecated since W in favor of
-# "deactivate":"role:admin or (role:member and
+# "deactivate":"rule:context_is_admin or (role:member and
 # project_id:%(project_id)s)".
 # The image API now supports roles.
 
 # Reactivate image
 # POST  /v2/images/{image_id}/actions/reactivate
 # Intended scope(s): project
-#"reactivate": "role:admin or (role:member and project_id:%(project_id)s)"
+#"reactivate": "rule:context_is_admin or (role:member and project_id:%(project_id)s)"
 
 # DEPRECATED
 # "reactivate":"rule:default" has been deprecated since W in favor of
-# "reactivate":"role:admin or (role:member and
+# "reactivate":"rule:context_is_admin or (role:member and
 # project_id:%(project_id)s)".
 # The image API now supports roles.
 
 # Copy existing image to other stores
 # POST  /v2/images/{image_id}/import
 # Intended scope(s): project
-#"copy_image": "role:admin"
+#"copy_image": "rule:context_is_admin"
 
 # Get an image task.
 #
@@ -313,33 +313,33 @@
 # POST  /v2/tasks
 # DELETE  /v2/tasks/{task_id}
 # Intended scope(s): project
-#"tasks_api_access": "role:admin"
+#"tasks_api_access": "rule:context_is_admin"
 
 #"metadef_default": ""
 
-#"metadef_admin": "role:admin"
+#"metadef_admin": "rule:context_is_admin"
 
 # Get a specific namespace.
 # GET  /v2/metadefs/namespaces/{namespace_name}
 # Intended scope(s): project
-#"get_metadef_namespace": "role:admin or (role:reader and (project_id:%(project_id)s or 'public':%(visibility)s))"
+#"get_metadef_namespace": "rule:context_is_admin or (role:reader and (project_id:%(project_id)s or 'public':%(visibility)s))"
 
 # DEPRECATED
 # "get_metadef_namespace":"rule:metadef_default" has been deprecated
-# since X in favor of "get_metadef_namespace":"role:admin or
-# (role:reader and (project_id:%(project_id)s or
+# since X in favor of "get_metadef_namespace":"rule:context_is_admin
+# or (role:reader and (project_id:%(project_id)s or
 # 'public':%(visibility)s))".
 # The metadata API now supports project scope and default roles.
 
 # List namespace.
 # GET  /v2/metadefs/namespaces
 # Intended scope(s): project
-#"get_metadef_namespaces": "role:admin or (role:reader and project_id:%(project_id)s)"
+#"get_metadef_namespaces": "rule:context_is_admin or (role:reader and project_id:%(project_id)s)"
 
 # DEPRECATED
 # "get_metadef_namespaces":"rule:metadef_default" has been deprecated
-# since X in favor of "get_metadef_namespaces":"role:admin or
-# (role:reader and project_id:%(project_id)s)".
+# since X in favor of "get_metadef_namespaces":"rule:context_is_admin
+# or (role:reader and project_id:%(project_id)s)".
 # The metadata API now supports project scope and default roles.
 
 # Modify an existing namespace.
@@ -360,22 +360,23 @@
 # Get a specific object from a namespace.
 # GET  /v2/metadefs/namespaces/{namespace_name}/objects/{object_name}
 # Intended scope(s): project
-#"get_metadef_object": "role:admin or (role:reader and (project_id:%(project_id)s or 'public':%(visibility)s))"
+#"get_metadef_object": "rule:context_is_admin or (role:reader and (project_id:%(project_id)s or 'public':%(visibility)s))"
 
 # DEPRECATED
 # "get_metadef_object":"rule:metadef_default" has been deprecated
-# since X in favor of "get_metadef_object":"role:admin or (role:reader
-# and (project_id:%(project_id)s or 'public':%(visibility)s))".
+# since X in favor of "get_metadef_object":"rule:context_is_admin or
+# (role:reader and (project_id:%(project_id)s or
+# 'public':%(visibility)s))".
 # The metadata API now supports project scope and default roles.
 
 # Get objects from a namespace.
 # GET  /v2/metadefs/namespaces/{namespace_name}/objects
 # Intended scope(s): project
-#"get_metadef_objects": "role:admin or (role:reader and (project_id:%(project_id)s or 'public':%(visibility)s))"
+#"get_metadef_objects": "rule:context_is_admin or (role:reader and (project_id:%(project_id)s or 'public':%(visibility)s))"
 
 # DEPRECATED
 # "get_metadef_objects":"rule:metadef_default" has been deprecated
-# since X in favor of "get_metadef_objects":"role:admin or
+# since X in favor of "get_metadef_objects":"rule:context_is_admin or
 # (role:reader and (project_id:%(project_id)s or
 # 'public':%(visibility)s))".
 # The metadata API now supports project scope and default roles.
@@ -398,25 +399,25 @@
 # List meta definition resource types.
 # GET  /v2/metadefs/resource_types
 # Intended scope(s): project
-#"list_metadef_resource_types": "role:admin or (role:reader and (project_id:%(project_id)s or 'public':%(visibility)s))"
+#"list_metadef_resource_types": "rule:context_is_admin or (role:reader and (project_id:%(project_id)s or 'public':%(visibility)s))"
 
 # DEPRECATED
 # "list_metadef_resource_types":"rule:metadef_default" has been
 # deprecated since X in favor of
-# "list_metadef_resource_types":"role:admin or (role:reader and
-# (project_id:%(project_id)s or 'public':%(visibility)s))".
+# "list_metadef_resource_types":"rule:context_is_admin or (role:reader
+# and (project_id:%(project_id)s or 'public':%(visibility)s))".
 # The metadata API now supports project scope and default roles.
 
 # Get meta definition resource types associations.
 # GET  /v2/metadefs/namespaces/{namespace_name}/resource_types
 # Intended scope(s): project
-#"get_metadef_resource_type": "role:admin or (role:reader and (project_id:%(project_id)s or 'public':%(visibility)s))"
+#"get_metadef_resource_type": "rule:context_is_admin or (role:reader and (project_id:%(project_id)s or 'public':%(visibility)s))"
 
 # DEPRECATED
 # "get_metadef_resource_type":"rule:metadef_default" has been
 # deprecated since X in favor of
-# "get_metadef_resource_type":"role:admin or (role:reader and
-# (project_id:%(project_id)s or 'public':%(visibility)s))".
+# "get_metadef_resource_type":"rule:context_is_admin or (role:reader
+# and (project_id:%(project_id)s or 'public':%(visibility)s))".
 # The metadata API now supports project scope and default roles.
 
 # Create meta definition resource types association.
@@ -432,11 +433,11 @@
 # Get a specific meta definition property.
 # GET  /v2/metadefs/namespaces/{namespace_name}/properties/{property_name}
 # Intended scope(s): project
-#"get_metadef_property": "role:admin or (role:reader and (project_id:%(project_id)s or 'public':%(visibility)s))"
+#"get_metadef_property": "rule:context_is_admin or (role:reader and (project_id:%(project_id)s or 'public':%(visibility)s))"
 
 # DEPRECATED
 # "get_metadef_property":"rule:metadef_default" has been deprecated
-# since X in favor of "get_metadef_property":"role:admin or
+# since X in favor of "get_metadef_property":"rule:context_is_admin or
 # (role:reader and (project_id:%(project_id)s or
 # 'public':%(visibility)s))".
 # The metadata API now supports project scope and default roles.
@@ -444,12 +445,12 @@
 # List meta definition properties.
 # GET  /v2/metadefs/namespaces/{namespace_name}/properties
 # Intended scope(s): project
-#"get_metadef_properties": "role:admin or (role:reader and (project_id:%(project_id)s or 'public':%(visibility)s))"
+#"get_metadef_properties": "rule:context_is_admin or (role:reader and (project_id:%(project_id)s or 'public':%(visibility)s))"
 
 # DEPRECATED
 # "get_metadef_properties":"rule:metadef_default" has been deprecated
-# since X in favor of "get_metadef_properties":"role:admin or
-# (role:reader and (project_id:%(project_id)s or
+# since X in favor of "get_metadef_properties":"rule:context_is_admin
+# or (role:reader and (project_id:%(project_id)s or
 # 'public':%(visibility)s))".
 # The metadata API now supports project scope and default roles.
 
@@ -471,23 +472,24 @@
 # Get tag definition.
 # GET  /v2/metadefs/namespaces/{namespace_name}/tags/{tag_name}
 # Intended scope(s): project
-#"get_metadef_tag": "role:admin or (role:reader and (project_id:%(project_id)s or 'public':%(visibility)s))"
+#"get_metadef_tag": "rule:context_is_admin or (role:reader and (project_id:%(project_id)s or 'public':%(visibility)s))"
 
 # DEPRECATED
 # "get_metadef_tag":"rule:metadef_default" has been deprecated since X
-# in favor of "get_metadef_tag":"role:admin or (role:reader and
-# (project_id:%(project_id)s or 'public':%(visibility)s))".
+# in favor of "get_metadef_tag":"rule:context_is_admin or (role:reader
+# and (project_id:%(project_id)s or 'public':%(visibility)s))".
 # The metadata API now supports project scope and default roles.
 
 # List tag definitions.
 # GET  /v2/metadefs/namespaces/{namespace_name}/tags
 # Intended scope(s): project
-#"get_metadef_tags": "role:admin or (role:reader and (project_id:%(project_id)s or 'public':%(visibility)s))"
+#"get_metadef_tags": "rule:context_is_admin or (role:reader and (project_id:%(project_id)s or 'public':%(visibility)s))"
 
 # DEPRECATED
 # "get_metadef_tags":"rule:metadef_default" has been deprecated since
-# X in favor of "get_metadef_tags":"role:admin or (role:reader and
-# (project_id:%(project_id)s or 'public':%(visibility)s))".
+# X in favor of "get_metadef_tags":"rule:context_is_admin or
+# (role:reader and (project_id:%(project_id)s or
+# 'public':%(visibility)s))".
 # The metadata API now supports project scope and default roles.
 
 # Update tag definition.
@@ -518,36 +520,36 @@
 # Queue image for caching
 # PUT  /v2/cache/{image_id}
 # Intended scope(s): project
-#"cache_image": "role:admin"
+#"cache_image": "rule:context_is_admin"
 
 # DEPRECATED
 # "cache_image":"rule:manage_image_cache" has been deprecated since X
-# in favor of "cache_image":"role:admin".
+# in favor of "cache_image":"rule:context_is_admin".
 # The image API now supports roles.
 
 # List cache status
 # GET  /v2/cache
 # Intended scope(s): project
-#"cache_list": "role:admin"
+#"cache_list": "rule:context_is_admin"
 
 # DEPRECATED
 # "cache_list":"rule:manage_image_cache" has been deprecated since X
-# in favor of "cache_list":"role:admin".
+# in favor of "cache_list":"rule:context_is_admin".
 # The image API now supports roles.
 
 # Delete image(s) from cache and/or queue
 # DELETE  /v2/cache
 # DELETE  /v2/cache/{image_id}
 # Intended scope(s): project
-#"cache_delete": "role:admin"
+#"cache_delete": "rule:context_is_admin"
 
 # DEPRECATED
 # "cache_delete":"rule:manage_image_cache" has been deprecated since X
-# in favor of "cache_delete":"role:admin".
+# in favor of "cache_delete":"rule:context_is_admin".
 # The image API now supports roles.
 
 # Expose store specific information
 # GET  /v2/info/stores/detail
 # Intended scope(s): project
-#"stores_info_detail": "role:admin"
+#"stores_info_detail": "rule:context_is_admin"
 

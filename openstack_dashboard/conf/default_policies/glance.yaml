@@ -1,7 +1,7 @@
 - check_str: ''
   deprecated_reason: null
   deprecated_rule:
-    check_str: role:admin
+    check_str: rule:context_is_admin
     name: default
   deprecated_since: null
   description: Defines the default rule used for policies that historically had an
@@ -14,7 +14,8 @@
   name: context_is_admin
   operations: []
   scope_types: null
-- check_str: role:admin or (role:member and project_id:%(project_id)s and project_id:%(owner)s)
+- check_str: rule:context_is_admin or (role:member and project_id:%(project_id)s and
+    project_id:%(owner)s)
   deprecated_reason: null
   deprecated_rule:
     check_str: rule:default
@@ -27,7 +28,7 @@
     path: /v2/images
   scope_types:
   - project
-- check_str: role:admin or (role:member and project_id:%(project_id)s)
+- check_str: rule:context_is_admin or (role:member and project_id:%(project_id)s)
   deprecated_reason: null
   deprecated_rule:
     check_str: rule:default
@@ -40,8 +41,9 @@
     path: /v2/images/{image_id}
   scope_types:
   - project
-- check_str: role:admin or (role:reader and (project_id:%(project_id)s or project_id:%(member_id)s
-    or 'community':%(visibility)s or 'public':%(visibility)s or 'shared':%(visibility)s))
+- check_str: rule:context_is_admin or (role:reader and (project_id:%(project_id)s
+    or project_id:%(member_id)s or 'community':%(visibility)s or 'public':%(visibility)s
+    or 'shared':%(visibility)s))
   deprecated_reason: null
   deprecated_rule:
     check_str: rule:default
@@ -54,7 +56,7 @@
     path: /v2/images/{image_id}
   scope_types:
   - project
-- check_str: role:admin or (role:reader and project_id:%(project_id)s)
+- check_str: rule:context_is_admin or (role:reader and project_id:%(project_id)s)
   deprecated_reason: null
   deprecated_rule:
     check_str: rule:default
@@ -67,7 +69,7 @@
     path: /v2/images
   scope_types:
   - project
-- check_str: role:admin or (role:member and project_id:%(project_id)s)
+- check_str: rule:context_is_admin or (role:member and project_id:%(project_id)s)
   deprecated_reason: null
   deprecated_rule:
     check_str: rule:default
@@ -80,7 +82,7 @@
     path: /v2/images/{image_id}
   scope_types:
   - project
-- check_str: role:admin
+- check_str: rule:context_is_admin
   description: Publicize given image
   name: publicize_image
   operations:
@@ -88,7 +90,7 @@
     path: /v2/images/{image_id}
   scope_types:
   - project
-- check_str: role:admin or (role:member and project_id:%(project_id)s)
+- check_str: rule:context_is_admin or (role:member and project_id:%(project_id)s)
   deprecated_reason: null
   deprecated_rule:
     check_str: rule:default
@@ -101,8 +103,9 @@
     path: /v2/images/{image_id}
   scope_types:
   - project
-- check_str: role:admin or (role:member and (project_id:%(project_id)s or project_id:%(member_id)s
-    or 'community':%(visibility)s or 'public':%(visibility)s or 'shared':%(visibility)s))
+- check_str: rule:context_is_admin or (role:member and (project_id:%(project_id)s
+    or project_id:%(member_id)s or 'community':%(visibility)s or 'public':%(visibility)s
+    or 'shared':%(visibility)s))
   deprecated_reason: null
   deprecated_rule:
     check_str: rule:default
@@ -115,7 +118,7 @@
     path: /v2/images/{image_id}/file
   scope_types:
   - project
-- check_str: role:admin or (role:member and project_id:%(project_id)s)
+- check_str: rule:context_is_admin or (role:member and project_id:%(project_id)s)
   deprecated_reason: null
   deprecated_rule:
     check_str: rule:default
@@ -128,7 +131,7 @@
     path: /v2/images/{image_id}/file
   scope_types:
   - project
-- check_str: role:admin
+- check_str: rule:context_is_admin
   deprecated_reason: null
   deprecated_rule:
     check_str: rule:default
@@ -141,7 +144,7 @@
     path: /v2/images/{image_id}
   scope_types:
   - project
-- check_str: role:admin or (role:reader and project_id:%(project_id)s)
+- check_str: rule:context_is_admin or (role:reader and project_id:%(project_id)s)
   deprecated_reason: null
   deprecated_rule:
     check_str: rule:default
@@ -154,7 +157,7 @@
     path: /v2/images/{image_id}
   scope_types:
   - project
-- check_str: role:admin or (role:member and project_id:%(project_id)s)
+- check_str: rule:context_is_admin or (role:member and project_id:%(project_id)s)
   deprecated_reason: null
   deprecated_rule:
     check_str: rule:default
@@ -167,7 +170,7 @@
     path: /v2/images/{image_id}
   scope_types:
   - project
-- check_str: role:admin or (role:member and project_id:%(project_id)s)
+- check_str: rule:context_is_admin or (role:member and project_id:%(project_id)s)
   deprecated_reason: null
   deprecated_rule:
     check_str: rule:default
@@ -180,7 +183,7 @@
     path: /v2/images/{image_id}/members
   scope_types:
   - project
-- check_str: role:admin or (role:member and project_id:%(project_id)s)
+- check_str: rule:context_is_admin or (role:member and project_id:%(project_id)s)
   deprecated_reason: null
   deprecated_rule:
     check_str: rule:default
@@ -193,7 +196,8 @@
     path: /v2/images/{image_id}/members/{member_id}
   scope_types:
   - project
-- check_str: role:admin or role:reader and (project_id:%(project_id)s or project_id:%(member_id)s)
+- check_str: rule:context_is_admin or role:reader and (project_id:%(project_id)s or
+    project_id:%(member_id)s)
   deprecated_reason: null
   deprecated_rule:
     check_str: rule:default
@@ -206,7 +210,8 @@
     path: /v2/images/{image_id}/members/{member_id}
   scope_types:
   - project
-- check_str: role:admin or role:reader and (project_id:%(project_id)s or project_id:%(member_id)s)
+- check_str: rule:context_is_admin or role:reader and (project_id:%(project_id)s or
+    project_id:%(member_id)s)
   deprecated_reason: null
   deprecated_rule:
     check_str: rule:default
@@ -219,7 +224,7 @@
     path: /v2/images/{image_id}/members
   scope_types:
   - project
-- check_str: role:admin or (role:member and project_id:%(member_id)s)
+- check_str: rule:context_is_admin or (role:member and project_id:%(member_id)s)
   deprecated_reason: null
   deprecated_rule:
     check_str: rule:default
@@ -232,13 +237,13 @@
     path: /v2/images/{image_id}/members/{member_id}
   scope_types:
   - project
-- check_str: role:admin
+- check_str: rule:context_is_admin
   description: Manage image cache
   name: manage_image_cache
   operations: []
   scope_types:
   - project
-- check_str: role:admin or (role:member and project_id:%(project_id)s)
+- check_str: rule:context_is_admin or (role:member and project_id:%(project_id)s)
   deprecated_reason: null
   deprecated_rule:
     check_str: rule:default
@@ -251,7 +256,7 @@
     path: /v2/images/{image_id}/actions/deactivate
   scope_types:
   - project
-- check_str: role:admin or (role:member and project_id:%(project_id)s)
+- check_str: rule:context_is_admin or (role:member and project_id:%(project_id)s)
   deprecated_reason: null
   deprecated_rule:
     check_str: rule:default
@@ -264,7 +269,7 @@
     path: /v2/images/{image_id}/actions/reactivate
   scope_types:
   - project
-- check_str: role:admin
+- check_str: rule:context_is_admin
   description: Copy existing image to other stores
   name: copy_image
   operations:
@@ -373,7 +378,7 @@
     path: /v2/tasks/{task_id}
   scope_types:
   - project
-- check_str: role:admin
+- check_str: rule:context_is_admin
   description: '
 
     This is a generic blanket policy for protecting all task APIs. It is not
@@ -400,12 +405,13 @@
   name: metadef_default
   operations: []
   scope_types: null
-- check_str: role:admin
+- check_str: rule:context_is_admin
   description: null
   name: metadef_admin
   operations: []
   scope_types: null
-- check_str: role:admin or (role:reader and (project_id:%(project_id)s or 'public':%(visibility)s))
+- check_str: rule:context_is_admin or (role:reader and (project_id:%(project_id)s
+    or 'public':%(visibility)s))
   deprecated_reason: null
   deprecated_rule:
     check_str: rule:metadef_default
@@ -418,7 +424,7 @@
     path: /v2/metadefs/namespaces/{namespace_name}
   scope_types:
   - project
-- check_str: role:admin or (role:reader and project_id:%(project_id)s)
+- check_str: rule:context_is_admin or (role:reader and project_id:%(project_id)s)
   deprecated_reason: null
   deprecated_rule:
     check_str: rule:metadef_default
@@ -455,7 +461,8 @@
     path: /v2/metadefs/namespaces/{namespace_name}
   scope_types:
   - project
-- check_str: role:admin or (role:reader and (project_id:%(project_id)s or 'public':%(visibility)s))
+- check_str: rule:context_is_admin or (role:reader and (project_id:%(project_id)s
+    or 'public':%(visibility)s))
   deprecated_reason: null
   deprecated_rule:
     check_str: rule:metadef_default
@@ -468,7 +475,8 @@
     path: /v2/metadefs/namespaces/{namespace_name}/objects/{object_name}
   scope_types:
   - project
-- check_str: role:admin or (role:reader and (project_id:%(project_id)s or 'public':%(visibility)s))
+- check_str: rule:context_is_admin or (role:reader and (project_id:%(project_id)s
+    or 'public':%(visibility)s))
   deprecated_reason: null
   deprecated_rule:
     check_str: rule:metadef_default
@@ -505,7 +513,8 @@
     path: /v2/metadefs/namespaces/{namespace_name}/objects/{object_name}
   scope_types:
   - project
-- check_str: role:admin or (role:reader and (project_id:%(project_id)s or 'public':%(visibility)s))
+- check_str: rule:context_is_admin or (role:reader and (project_id:%(project_id)s
+    or 'public':%(visibility)s))
   deprecated_reason: null
   deprecated_rule:
     check_str: rule:metadef_default
@@ -518,7 +527,8 @@
     path: /v2/metadefs/resource_types
   scope_types:
   - project
-- check_str: role:admin or (role:reader and (project_id:%(project_id)s or 'public':%(visibility)s))
+- check_str: rule:context_is_admin or (role:reader and (project_id:%(project_id)s
+    or 'public':%(visibility)s))
   deprecated_reason: null
   deprecated_rule:
     check_str: rule:metadef_default
@@ -547,7 +557,8 @@
     path: /v2/metadefs/namespaces/{namespace_name}/resource_types/{name}
   scope_types:
   - project
-- check_str: role:admin or (role:reader and (project_id:%(project_id)s or 'public':%(visibility)s))
+- check_str: rule:context_is_admin or (role:reader and (project_id:%(project_id)s
+    or 'public':%(visibility)s))
   deprecated_reason: null
   deprecated_rule:
     check_str: rule:metadef_default
@@ -560,7 +571,8 @@
     path: /v2/metadefs/namespaces/{namespace_name}/properties/{property_name}
   scope_types:
   - project
-- check_str: role:admin or (role:reader and (project_id:%(project_id)s or 'public':%(visibility)s))
+- check_str: rule:context_is_admin or (role:reader and (project_id:%(project_id)s
+    or 'public':%(visibility)s))
   deprecated_reason: null
   deprecated_rule:
     check_str: rule:metadef_default
@@ -597,7 +609,8 @@
     path: /v2/metadefs/namespaces/{namespace_name}/properties/{property_name}
   scope_types:
   - project
-- check_str: role:admin or (role:reader and (project_id:%(project_id)s or 'public':%(visibility)s))
+- check_str: rule:context_is_admin or (role:reader and (project_id:%(project_id)s
+    or 'public':%(visibility)s))
   deprecated_reason: null
   deprecated_rule:
     check_str: rule:metadef_default
@@ -610,7 +623,8 @@
     path: /v2/metadefs/namespaces/{namespace_name}/tags/{tag_name}
   scope_types:
   - project
-- check_str: role:admin or (role:reader and (project_id:%(project_id)s or 'public':%(visibility)s))
+- check_str: rule:context_is_admin or (role:reader and (project_id:%(project_id)s
+    or 'public':%(visibility)s))
   deprecated_reason: null
   deprecated_rule:
     check_str: rule:metadef_default
@@ -663,7 +677,7 @@
     path: /v2/metadefs/namespaces/{namespace_name}/tags
   scope_types:
   - project
-- check_str: role:admin
+- check_str: rule:context_is_admin
   deprecated_reason: null
   deprecated_rule:
     check_str: rule:manage_image_cache
@@ -676,7 +690,7 @@
     path: /v2/cache/{image_id}
   scope_types:
   - project
-- check_str: role:admin
+- check_str: rule:context_is_admin
   deprecated_reason: null
   deprecated_rule:
     check_str: rule:manage_image_cache
@@ -689,7 +703,7 @@
     path: /v2/cache
   scope_types:
   - project
-- check_str: role:admin
+- check_str: rule:context_is_admin
   deprecated_reason: null
   deprecated_rule:
     check_str: rule:manage_image_cache
@@ -704,7 +718,7 @@
     path: /v2/cache/{image_id}
   scope_types:
   - project
-- check_str: role:admin
+- check_str: rule:context_is_admin
   description: Expose store specific information
   name: stores_info_detail
   operations:
