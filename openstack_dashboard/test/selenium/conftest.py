@@ -64,17 +64,17 @@ class Session:
                 'div.panel-footer button.btn')
             button.click()
             self.current_user = user
-            self.current_project = self.driver.find_element_by_xpath(
-                '//*[@class="context-project"]').text
+            self.current_project = self.driver.find_element_by_class_name(
+                'context-project').text
         if self.current_project != project:
             dropdown_project = self.driver.find_element_by_xpath(
                 '//*[@class="context-project"]//ancestor::ul')
             dropdown_project.click()
             selection = dropdown_project.find_element_by_xpath(
-                f'//span[contains(text(),"{project}")]')
+                f'.//*[normalize-space()="{project}"]')
             selection.click()
-            self.current_project = self.driver.find_element_by_xpath(
-                '//*[@class="context-project"]').text
+            self.current_project = self.driver.find_element_by_class_name(
+                'context-project').text
 
 
 @pytest.fixture(scope='session')

@@ -82,12 +82,12 @@ def select_from_transfer_table(element, label):
 
     try:
         element.find_element_by_xpath(
-            f"//*[text()='{label}']//ancestor::tr/td//*"
+            f".//*[text()='{label}']//ancestor::tr/td//*"
             f"[@class='btn btn-default fa fa-arrow-up']").click()
     except exceptions.NoSuchElementException:
         try:
             element.find_element_by_xpath(
-                f"//*[text()='{label}']//ancestor::tr/td//*"
+                f".//*[text()='{label}']//ancestor::tr/td//*"
                 f"[@class='btn btn-default fa fa-arrow-down']")
         except exceptions.NoSuchElementException:
             raise
@@ -95,14 +95,14 @@ def select_from_transfer_table(element, label):
 
 def create_new_volume_during_create_instance(driver, required_state):
     create_new_volume_btn = widgets.find_already_visible_element_by_xpath(
-        f"//*[@id='vol-create'][text()='{required_state}']", driver
+        f".//*[@id='vol-create'][text()='{required_state}']", driver
     )
     create_new_volume_btn.click()
 
 
 def delete_volume_on_instance_delete(driver, required_state):
     delete_volume_btn = widgets.find_already_visible_element_by_xpath(
-        f"//label[contains(@ng-model, 'vol_delete_on_instance_delete')]"
+        f".//label[contains(@ng-model, 'vol_delete_on_instance_delete')]"
         f"[text()='{required_state}']", driver)
     delete_volume_btn.click()
 
@@ -124,7 +124,7 @@ def test_create_instance_demo(login, driver, instance_name,
     wizard = driver.find_element_by_css_selector("wizard")
     navigation = wizard.find_element_by_css_selector("div.wizard-nav")
     widgets.find_already_visible_element_by_xpath(
-        "//*[@id='name']", wizard).send_keys(instance_name)
+        ".//*[@id='name']", wizard).send_keys(instance_name)
     navigation.find_element_by_link_text("Networks").click()
     network_table = wizard.find_element_by_css_selector(
         "ng-include[ng-form=launchInstanceNetworkForm]"
@@ -145,9 +145,8 @@ def test_create_instance_demo(login, driver, instance_name,
     wizard.find_element_by_css_selector(
         "button.btn-primary.finish").click()
     widgets.find_already_visible_element_by_xpath(
-        f"//*[contains(text(),'{instance_name}')]//ancestor::tr/td"
-        f"[contains(text(),'Active')]", driver)
-    assert True
+        f"//*[text()='{instance_name}']//ancestor::tr/td"
+        f"[normalize-space()='Active']", driver)
 
 
 def test_create_instance_from_volume_demo(login, driver, instance_name,
@@ -167,7 +166,7 @@ def test_create_instance_from_volume_demo(login, driver, instance_name,
     wizard = driver.find_element_by_css_selector("wizard")
     navigation = wizard.find_element_by_css_selector("div.wizard-nav")
     widgets.find_already_visible_element_by_xpath(
-        "//*[@id='name']", wizard).send_keys(instance_name)
+        ".//*[@id='name']", wizard).send_keys(instance_name)
     navigation.find_element_by_link_text("Networks").click()
     network_table = wizard.find_element_by_css_selector(
         "ng-include[ng-form=launchInstanceNetworkForm]"
@@ -182,18 +181,17 @@ def test_create_instance_from_volume_demo(login, driver, instance_name,
     source_table = wizard.find_element_by_css_selector(
         "ng-include[ng-form=launchInstanceSourceForm]"
     )
-    select_boot_sources_type_tab = source_table.find_element_by_xpath(
-        "//*[@id='boot-source-type']")
+    select_boot_sources_type_tab = source_table.find_element_by_id(
+        "boot-source-type")
     select_boot_sources_type_tab.click()
-    select_boot_sources_type_tab.find_element_by_xpath(
-        "//option[@value='volume']").click()
+    select_boot_sources_type_tab.find_element_by_css_selector(
+        "option[value='volume']").click()
     delete_volume_on_instance_delete(source_table, "No")
     select_from_transfer_table(source_table, volume_name)
     wizard.find_element_by_css_selector("button.btn-primary.finish").click()
     widgets.find_already_visible_element_by_xpath(
-        f"//*[contains(text(),'{instance_name}')]//ancestor::tr/td\
-        [contains(text(),'Active')]", driver)
-    assert True
+        f"//*[text()='{instance_name}']//ancestor::tr/td"
+        f"[normalize-space()='Active']", driver)
 
 
 def test_delete_instance_demo(login, driver, instance_name,
@@ -236,7 +234,7 @@ def test_create_instance_admin(login, driver, instance_name,
     wizard = driver.find_element_by_css_selector("wizard")
     navigation = wizard.find_element_by_css_selector("div.wizard-nav")
     widgets.find_already_visible_element_by_xpath(
-        "//*[@id='name']", wizard).send_keys(instance_name)
+        ".//*[@id='name']", wizard).send_keys(instance_name)
     navigation.find_element_by_link_text("Networks").click()
     network_table = wizard.find_element_by_css_selector(
         "ng-include[ng-form=launchInstanceNetworkForm]"
@@ -257,9 +255,8 @@ def test_create_instance_admin(login, driver, instance_name,
     wizard.find_element_by_css_selector(
         "button.btn-primary.finish").click()
     widgets.find_already_visible_element_by_xpath(
-        f"//*[contains(text(),'{instance_name}')]//ancestor::tr/td\
-        [contains(text(),'Active')]", driver)
-    assert True
+        f"//*[text()='{instance_name}']//ancestor::tr/td"
+        f"[normalize-space()='Active']", driver)
 
 
 def test_delete_instance_admin(login, driver, instance_name,

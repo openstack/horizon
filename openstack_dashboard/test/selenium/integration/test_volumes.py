@@ -66,11 +66,11 @@ def clear_volume_admin(volume_name, openstack_admin):
 
 def select_from_dropdown_volume_tab(driver, dropdown_id, label):
     volume_dropdown = driver.find_element_by_xpath(
-        f"//*[@for='{dropdown_id}']/following-sibling::div")
+        f".//*[@for='{dropdown_id}']/following-sibling::div")
     volume_dropdown.click()
     volume_dropdown_tab = volume_dropdown.find_element_by_css_selector(
         "ul.dropdown-menu")
-    volume_dropdown_tab.find_element_by_xpath(f"//*[text()='{label}']").click()
+    volume_dropdown_tab.find_element_by_xpath(f".//*[text()='{label}']").click()
 
 
 def test_create_empty_volume_demo(login, driver, volume_name,
@@ -85,16 +85,14 @@ def test_create_empty_volume_demo(login, driver, volume_name,
     driver.get(url)
     driver.find_element_by_link_text("Create Volume").click()
     volume_form = driver.find_element_by_css_selector(".modal-dialog form")
-    volume_form.find_element_by_xpath(
-        "//*[@id='id_name']").send_keys(volume_name)
-    volume_form.find_element_by_xpath(
-        "//*[@class='btn btn-primary'][@value='Create Volume']").click()
+    volume_form.find_element_by_id("id_name").send_keys(volume_name)
+    volume_form.find_element_by_css_selector(
+        ".btn-primary[value='Create Volume']").click()
     messages = widgets.get_and_dismiss_messages(driver)
     assert f'Info: Creating volume "{volume_name}"' in messages
     widgets.find_already_visible_element_by_xpath(
-        f"//*[contains(text(),'{volume_name}')]//ancestor::tr/td"
-        f"[contains(text(),'Available')]", driver)
-    assert True
+        f"//*[text()='{volume_name}']//ancestor::tr/td"
+        f"[normalize-space()='Available']", driver)
 
 
 def test_create_volume_from_image_demo(login, driver, volume_name,
@@ -110,20 +108,18 @@ def test_create_volume_from_image_demo(login, driver, volume_name,
     driver.get(url)
     driver.find_element_by_link_text("Create Volume").click()
     volume_form = driver.find_element_by_css_selector(".modal-dialog form")
-    volume_form.find_element_by_xpath(
-        "//*[@id='id_name']").send_keys(volume_name)
+    volume_form.find_element_by_id("id_name").send_keys(volume_name)
     select_from_dropdown_volume_tab(
         volume_form, 'id_volume_source_type', 'Image')
     select_from_dropdown_volume_tab(
         volume_form, 'id_image_source', image_source_name)
-    volume_form.find_element_by_xpath(
-        "//*[@class='btn btn-primary'][@value='Create Volume']").click()
+    volume_form.find_element_by_css_selector(
+        ".btn-primary[value='Create Volume']").click()
     messages = widgets.get_and_dismiss_messages(driver)
     assert f'Info: Creating volume "{volume_name}"' in messages
     widgets.find_already_visible_element_by_xpath(
-        f"//*[contains(text(),'{volume_name}')]//ancestor::tr/td"
-        f"[contains(text(),'Available')]", driver)
-    assert True
+        f"//*[text()='{volume_name}']//ancestor::tr/td"
+        f"[normalize-space()='Available']", driver)
 
 
 def test_delete_volume_demo(login, driver, volume_name,

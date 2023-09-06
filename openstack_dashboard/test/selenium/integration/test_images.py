@@ -75,12 +75,12 @@ def test_image_create_from_local_file_demo(login, driver, image_name,
         "//button[normalize-space()='Create Image']").click()
     wizard = driver.find_element_by_css_selector("wizard")
     wizard.find_element_by_id("imageForm-name").send_keys(image_name)
-    select_element = wizard.find_element_by_xpath(
-        ".//*[@name='image_file']")
+    select_element = wizard.find_element_by_css_selector(
+        "input[name='image_file']")
     select_element.send_keys(temporary_file)
     wizard.find_element_by_id("imageForm-format").click()
-    wizard.find_element_by_xpath(
-        ".//*[@label='QCOW2 - QEMU Emulator']").click()
+    wizard.find_element_by_css_selector(
+        "[label='QCOW2 - QEMU Emulator']").click()
     wizard.find_element_by_css_selector("button.btn-primary.finish").click()
     messages = widgets.get_and_dismiss_messages(driver)
     assert(f"Success: Image {image_name} was successfully"
