@@ -18,6 +18,7 @@
 
 import collections.abc
 import copy
+import io
 import logging
 import os
 import socket
@@ -200,7 +201,8 @@ class TestCase(django_test.TestCase):
         The expected number of messages can be specified per message type.
         Usage would look like ``self.assertMessageCount(success=1)``.
         """
-        temp_req = self.client.request(**{'wsgi.input': None})
+        stream = wsgi.LimitedStream(io.BytesIO(), 2)
+        temp_req = self.client.request(**{'wsgi.input': stream})
         temp_req.COOKIES = self.client.cookies
         storage = default_storage(temp_req)
         messages = []
