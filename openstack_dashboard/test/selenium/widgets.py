@@ -10,9 +10,20 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
+from dataclasses import dataclass
+from selenium.common import exceptions
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.wait import WebDriverWait
+
+
+@dataclass
+class TableDefinition:
+    """Class for keeping track of fields on the page"""
+    next: bool
+    prev: bool
+    count: int
+    names: list
 
 
 def get_and_dismiss_messages(element):
@@ -47,3 +58,30 @@ def confirm_modal(element):
         ".modal-dialog .btn-danger"
     )
     confirm.click()
+
+
+def is_next_link_available(driver):
+    try:
+        return driver.find_element_by_link_text("Next »").is_displayed()
+    except (exceptions.NoSuchElementException,
+            exceptions.ElementNotVisibleException):
+        return False
+
+
+def is_prev_link_available(driver):
+    try:
+        return driver.find_element_by_link_text("« Prev").is_displayed()
+    except (exceptions.NoSuchElementException,
+            exceptions.ElementNotVisibleException):
+        return False
+
+
+def get_table_definition(driver, sorting=False):
+    names = driver.find_elements_by_css_selector('table tr td:nth-child(2)')
+    rows = driver.find_elements_by_css_selector("tr[data-display-key='name']")
+    if sorting:
+        names.sort()
+    actual_table = TableDefinition(next=is_next_link_available(driver),
+                                   prev=is_prev_link_available(driver),
+                                   count=len(rows), names=[names[0].text])
+    return actual_table
