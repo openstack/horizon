@@ -54,11 +54,11 @@ openstackdocs_bug_tag = 'documentation'
 extlinks = {
     'bug': (
         'https://bugs.launchpad.net/bugs/%s',
-        'bug ',
+        'bug:%s',
     ),
     'blueprint': (
         'https://blueprints.launchpad.net/horizon/+spec/%s',
-        'blueprint ',
+        'blueprint:%s',
     ),
 }
 
