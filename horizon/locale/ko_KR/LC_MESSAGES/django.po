@@ -6,16 +6,17 @@
 # Sungjin Kang <gang.sungjin@gmail.com>, 2018. #zanata
 # Ian Y. Choi <ianyrchoi@gmail.com>, 2019. #zanata
 # jihyun huh <huhji.elha@gmail.com>, 2022. #zanata
+# Ian Y. Choi <ianyrchoi@gmail.com>, 2023. #zanata
 msgid ""
 msgstr ""
 "Project-Id-Version: horizon VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2022-09-20 17:56+0000\n"
+"POT-Creation-Date: 2023-09-25 17:31+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2022-09-20 02:10+0000\n"
-"Last-Translator: jihyun huh <huhji.elha@gmail.com>\n"
+"PO-Revision-Date: 2023-09-02 01:55+0000\n"
+"Last-Translator: Ian Y. Choi <ianyrchoi@gmail.com>\n"
 "Language-Team: Korean (South Korea)\n"
 "Language: ko_KR\n"
 "X-Generator: Zanata 4.3.3\n"
@@ -85,6 +86,9 @@ msgstr "%s가 성공적으로 완료되었습니다."
 #, python-format
 msgid "%s did not complete."
 msgstr "%s가 완료되지 않았습니다."
+
+msgid "&laquo;&laquo;&nbsp;First"
+msgstr "&laquo;&laquo;&nbsp;처음"
 
 msgid "&laquo;&nbsp;Prev"
 msgstr "&laquo;&nbsp;이전"
@@ -223,6 +227,9 @@ msgstr "IP 주소 버전이 잘못되었습니다."
 msgid "Keystone Providers:"
 msgstr "Keystone 제공자:"
 
+msgid "Last&nbsp;&raquo;&raquo;"
+msgstr "마지막&nbsp;&raquo;&raquo;"
+
 msgid "Limit Summary"
 msgstr "간략한 요약"
 
@@ -341,6 +348,9 @@ msgstr "완료:"
 
 msgid "Summary"
 msgstr "요약"
+
+msgid "TOTP authentification"
+msgstr "TOTP 인증"
 
 msgid ""
 "The current user has insufficient permission to complete the requested task."

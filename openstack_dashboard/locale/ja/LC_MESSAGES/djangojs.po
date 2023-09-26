@@ -14,11 +14,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: horizon VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2023-02-04 14:47+0000\n"
+"POT-Creation-Date: 2023-09-25 17:31+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2023-02-04 03:15+0000\n"
+"PO-Revision-Date: 2023-09-24 07:57+0000\n"
 "Last-Translator: Akihiro Motoki <amotoki@gmail.com>\n"
 "Language-Team: Japanese\n"
 "Language: ja\n"
@@ -1707,11 +1707,17 @@ msgstr "手動"
 msgid "Max Burst Kbits"
 msgstr "最大バースト Kbits"
 
+msgid "Max Burst Size (in kbps)"
+msgstr "最大バーストサイズ (kb 単位)"
+
 msgid "Max Kbps"
 msgstr "最大 Kbps"
 
 msgid "Max Port"
 msgstr "上限ポート番号"
+
+msgid "Max bandwidth (in kbps)"
+msgstr "最大帯域幅 (kbps 単位)"
 
 msgid "Max. Size (bytes)"
 msgstr "最大サイズ (バイト)"
@@ -1759,6 +1765,9 @@ msgstr "最小ディスク (GB)"
 msgid "Min Kbps"
 msgstr "最小 Kbps"
 
+msgid "Min Kpps"
+msgstr "最小 Kpps"
+
 msgid "Min Port"
 msgstr "下限ポート番号"
 
@@ -1800,6 +1809,12 @@ msgstr "最小メモリー"
 
 msgid "Minimum RAM (MB)"
 msgstr "最小メモリー (MB)"
+
+msgid "Minimum bandwidth (in kbps)"
+msgstr "最小帯域幅 (kbps 単位)"
+
+msgid "Minimum packet rate (in kpps)"
+msgstr "最小パケットレート (kpps 単位)"
 
 msgid "Modals"
 msgstr "モーダル"
@@ -1869,6 +1884,14 @@ msgid ""
 msgstr ""
 "サブポートのネットワークは、起動後に利用可能になります。ただし、利用可能にな"
 "るのは、トランクのステータスが<em>稼働中 (ACTIVE)</em> になった後です。"
+
+msgid ""
+"Networks provide the communication channels for instances in the cloud. You "
+"can select ports instead of networks or a mix of both."
+msgstr ""
+"ネットワークは、クラウドのインスタンスに対して通信経路を提供します。ポートを"
+"ネットワークの代わりに選択したり、ネットワークとポートの両方を選択したりする"
+"ことができます。"
 
 msgid "New File Contents"
 msgstr "新しいファイルの内容"
@@ -2251,6 +2274,13 @@ msgstr "QoS ポリシー ID"
 msgid "QoSPolicyName"
 msgstr "QoS ポリシー名"
 
+msgid "Qos Policy  Rule  was successfully deleted."
+msgstr "QoS ポリシールールは正常に削除されました。"
+
+#, python-format
+msgid "Qos Policy Rule %s was successfully updated."
+msgstr "QoS ポリシールール %s は正常に更新されました。"
+
 msgid "Queued"
 msgstr "処理待ち"
 
@@ -2318,6 +2348,9 @@ msgstr "ルール ID"
 
 msgid "Rule Type"
 msgstr "ルール種別"
+
+msgid "Rule to edit"
+msgstr "ルールの編集"
 
 msgid "RuleId"
 msgstr "ルール ID"
@@ -2422,6 +2455,9 @@ msgstr "タイトルの選択"
 msgid "Select a container to browse."
 msgstr "参照するコンテナーを選択してください。"
 
+msgid "Select a flavor from the available flavors below."
+msgstr "以下の利用可能なフレーバーからフレーバーを 1 つ選択してください。"
+
 msgid "Select a key pair from the available key pairs below."
 msgstr "以下の利用可能なキーペアから、１つのキーペアを選択してください。"
 
@@ -2456,6 +2492,13 @@ msgstr "1 つ選択してください。"
 
 msgid "Select one or more"
 msgstr "1 つ以上選択してください。"
+
+msgid "Select one or more networks from the available networks below."
+msgstr ""
+"以下の利用可能なネットワークから 1 つ以上のネットワークを選択してください。"
+
+msgid "Select one or more ports from the available ports below."
+msgstr "以下の利用可能なポートから、 1 つ以上のポートを選択してください。"
 
 msgid "Select one or more security groups from the available groups below."
 msgstr ""
@@ -2758,6 +2801,19 @@ msgstr ""
 "と IP アドレスも定義します。"
 
 msgid ""
+"The maximum KBPS (kilobits per second) value.\n"
+"    If you specify this value, must be greater than 0 otherwise max_kbps "
+"will have no value.\n"
+"    \n"
+"        The maximum burst size (in kilobits). Default is 0."
+msgstr ""
+"最大 KBPS (キロビット/秒) の値。\n"
+"この値を指定する場合は、 0 より大きな値でなければなりません。指定しない場合"
+"は、値なし、になります。\n"
+"\n"
+"最大バーストサイズ (キロビット単位)。デフォルトは 0 です。"
+
+msgid ""
 "The maximum number of key-value pairs that can be supplied per instance is "
 "determined by the compute provider."
 msgstr ""
@@ -2765,11 +2821,22 @@ msgstr ""
 "イダーによって決定されます。"
 
 msgid ""
+"The minimum KBPS (kilobits per second) value which should be available for "
+"port."
+msgstr "ポートで利用可能となっているべき最小 KBPS (キロビット/秒) の値。"
+
+msgid ""
 "The minimum disk size required to boot the image. If unspecified, this value "
 "defaults to 0 (no minimum)."
 msgstr ""
 "イメージを起動するために必要となる最小ディスク容量。指定がなければ、この値の"
 "初期値は 0 (最小値なし) です。"
+
+msgid ""
+"The minimum kpps (kilo(1000) packets per second) value which should be "
+"available for port."
+msgstr ""
+"ポートで利用可能となっているべき最小 kpps (キロ (1000) パケット/秒) の値。"
 
 msgid ""
 "The minimum memory size required to boot the image. If unspecified, this "
@@ -2879,6 +2946,12 @@ msgstr ""
 "利用可能なブートソースがありません。\n"
 "      利用可能なブートソースがあるにも拘らず、このメッセージが表示されている"
 "場合には、管理者にお問い合わせください。"
+
+msgid "There are no rules to delete."
+msgstr "削除するルールがありません。"
+
+msgid "There are no rules to modify."
+msgstr "変更するルールがありません。"
 
 msgid ""
 "There are two ways to generate a key pair. From a Linux system,\n"
@@ -3039,6 +3112,18 @@ msgstr "タイポグラフィー"
 msgid "URL"
 msgstr "URL"
 
+msgid "Unable to add the bandwidthrule ."
+msgstr "帯域幅制限ルールを追加できません。"
+
+msgid "Unable to add the dscp_marking_rule ."
+msgstr "DSCP マークルールを追加できません。"
+
+msgid "Unable to add the minimum_bandwidth_rule ."
+msgstr "最小帯域幅ルールを追加できません。"
+
+msgid "Unable to add the minimum_packet_rate_rule."
+msgstr "最小パケットレートルールを追加できません。"
+
 msgid "Unable to allocate new floating IP address."
 msgstr "新しい Floating IP アドレスを確保できません。"
 
@@ -3162,6 +3247,9 @@ msgstr[0] "ポリシーを削除できません: %s"
 msgid "Unable to delete qos policy %(id)s"
 msgstr "QoS ポリシー %(id)s を削除できません"
 
+msgid "Unable to delete the bandwidth_limit_rule."
+msgstr "帯域幅制限ルールを削除できません。"
+
 msgid "Unable to delete the container."
 msgstr "コンテナーを削除できません。"
 
@@ -3170,6 +3258,9 @@ msgstr "ドメインを削除できません。"
 
 msgid "Unable to delete the domains."
 msgstr "ドメインを削除できません。"
+
+msgid "Unable to delete the dscp_marking_rule."
+msgstr "DSCP マークルールを削除できません。"
 
 #, python-format
 msgid "Unable to delete the flavor with id: %(id)s"
@@ -3191,6 +3282,12 @@ msgstr "ID %(id)s のイメージを削除できません。"
 #, python-format
 msgid "Unable to delete the keypair with name: %(name)s"
 msgstr "名前 %(name)s のキーペアを削除できません。"
+
+msgid "Unable to delete the minimum_bandwidth_rule ."
+msgstr "最小帯域場ルールを削除できません。"
+
+msgid "Unable to delete the minimum_packet_rate_rule ."
+msgstr "最小パケットレートルールを削除できません。"
 
 msgid "Unable to delete the object."
 msgstr "オブジェクトを削除できません。"
@@ -3535,11 +3632,23 @@ msgstr "メタデータを更新できません。"
 msgid "Unable to update project quota data."
 msgstr "プロジェクトのクォータデータを更新できません。"
 
+msgid "Unable to update the bandwidthrule."
+msgstr "帯域幅制限ルールを更新できません。"
+
+msgid "Unable to update the dscp marking rule."
+msgstr "DSCP マークルールを更新できません。"
+
 msgid "Unable to update the flavor."
 msgstr "フレーバーを更新できません。"
 
 msgid "Unable to update the image."
 msgstr "イメージを更新できません。"
+
+msgid "Unable to update the minimum bandwidth rule."
+msgstr "最小帯域幅ルールを更新できません。"
+
+msgid "Unable to update the minimum packet rate rule."
+msgstr "最小パケットレートルールを更新できません。"
 
 msgid "Unable to update the trunk."
 msgstr "トランクを更新できません。"
@@ -3691,6 +3800,16 @@ msgstr "VMDK - 仮想マシンディスク"
 
 msgid "VNIC type"
 msgstr "仮想 NIC の種別"
+
+msgid ""
+"Valid DSCP mark values are even numbers between 0 and 56,\n"
+"    except 2-6, 42, 44, and 50-54. The full list of valid DSCP marks is:\n"
+"    0, 8, 10, 12, 14, 16, 18, 20, 22, 24, 26, 28, 30, 32, 34, 36, 38, 40, "
+"46, 48, 56."
+msgstr ""
+"有効な DSCP マーク値は 0 以上 56 以下の偶数 (ただし 2-6, 42, 44, 50-54 は除"
+"く) です。 DSCP マークとして有効な値をすべて列挙すると 0, 8, 10, 12, 14, 16, "
+"18, 20, 22, 24, 26, 28, 30, 32, 34, 36, 38, 40, 46, 48, 56 となります。"
 
 msgid "View As Modal"
 msgstr "モーダルでの表示"
@@ -3944,8 +4063,17 @@ msgstr[0] "\"%s\" を選択しました。削除されたユーザーは元に�
 msgid "Your Form as JavaScript"
 msgstr "JavaScript でのフォーム"
 
+msgid "any"
+msgstr "任意"
+
+msgid "egress"
+msgstr "送信"
+
 msgid "image"
 msgstr "イメージ"
+
+msgid "ingress"
+msgstr "受信"
 
 msgid "inherit"
 msgstr "inherit"
