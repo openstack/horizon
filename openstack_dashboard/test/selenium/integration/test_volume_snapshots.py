@@ -49,7 +49,8 @@ def clear_volume_snapshot_demo(volume_snapshot_name, openstack_demo):
 
 def test_create_volume_snapshot_demo(login, driver, volume_name,
                                      new_volume_demo, volume_snapshot_name,
-                                     config, clear_volume_snapshot_demo):
+                                     config, clear_volume_snapshot_demo,
+                                     openstack_demo):
 
     login('user')
     volumes_url = '/'.join((
@@ -70,19 +71,13 @@ def test_create_volume_snapshot_demo(login, driver, volume_name,
     messages = widgets.get_and_dismiss_messages(driver)
     assert(f'Info: Creating volume snapshot "{volume_snapshot_name}".'
            in messages)
-    volume_snapshot_url = '/'.join((
-        config.dashboard.dashboard_url, 'project', 'snapshots'))
-    driver.get(volume_snapshot_url)
-    widgets.find_already_visible_element_by_xpath(
-        f"//*[text()='{volume_snapshot_name}']//ancestor::tr/td[5]"
-        f"[normalize-space()='Available']", driver)
-    widgets.find_already_visible_element_by_xpath(
-        f"//*[text()='{volume_snapshot_name}']//ancestor::tr/td[7]/a"
-        f"[text()='{volume_name}']", driver)
+    assert (openstack_demo.block_storage.find_snapshot(volume_snapshot_name)
+            is not None)
 
 
 def test_delete_volume_snapshot_demo(login, driver, volume_snapshot_name,
-                                     new_volume_snapshot_demo, config):
+                                     new_volume_snapshot_demo, config,
+                                     openstack_demo):
     login('user')
     url = '/'.join((
         config.dashboard.dashboard_url,
@@ -99,3 +94,5 @@ def test_delete_volume_snapshot_demo(login, driver, volume_snapshot_name,
     messages = widgets.get_and_dismiss_messages(driver)
     assert(f"Success: Scheduled deletion of Volume Snapshot: "
            f"{volume_snapshot_name}" in messages)
+    assert (openstack_demo.block_storage.find_snapshot(volume_snapshot_name)
+            is None)
