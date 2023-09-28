@@ -14,7 +14,7 @@ from django.core import validators
 from django.utils.translation import gettext_lazy as _
 
 
-no_slash_validator = validators.RegexValidator(r'^(?u)[^/]+$',
+no_slash_validator = validators.RegexValidator(r'(?u)^[^/]+$',
                                                _("Slash is not an allowed "
                                                  "character."),
                                                code="noslash")
