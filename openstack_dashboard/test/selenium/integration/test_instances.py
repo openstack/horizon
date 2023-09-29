@@ -9,6 +9,7 @@
 #    WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
 #    License for the specific language governing permissions and limitations
 #    under the License.
+
 from oslo_utils import uuidutils
 import pytest
 from selenium.common import exceptions
@@ -25,12 +26,13 @@ new_volume_demo = test_volumes.new_volume_demo
 
 @pytest.fixture
 def instance_name():
-    return 'xhorizon_instance_%s' % uuidutils.generate_uuid(dashed=False)
+    return 'horizon_instance_%s' % uuidutils.generate_uuid(dashed=False)
 
 
-@pytest.fixture
-def new_instance_demo(instance_name, openstack_demo, config):
+@pytest.fixture(params=[1])
+def new_instance_demo(request, instance_name, openstack_demo, config):
 
+    count = request.param
     instance = openstack_demo.create_server(
         instance_name,
         image=config.image.images_list[0],
@@ -38,14 +40,20 @@ def new_instance_demo(instance_name, openstack_demo, config):
         availability_zone=config.launch_instances.available_zone,
         network=config.network.external_network,
         wait=True,
+        max_count=count,
     )
     yield instance
-    openstack_demo.delete_server(instance_name)
+    if count > 1:
+        for instance in range(0, count):
+            openstack_demo.delete_server(f"{instance_name}-{instance+1}")
+    else:
+        openstack_demo.delete_server(instance_name)
 
 
-@pytest.fixture
-def new_instance_admin(instance_name, openstack_admin, config):
+@pytest.fixture(params=[1])
+def new_instance_admin(request, instance_name, openstack_admin, config):
 
+    count = request.param
     instance = openstack_admin.create_server(
         instance_name,
         image=config.image.images_list[0],
@@ -53,9 +61,14 @@ def new_instance_admin(instance_name, openstack_admin, config):
         availability_zone=config.launch_instances.available_zone,
         network=config.network.external_network,
         wait=True,
+        max_count=count,
     )
     yield instance
-    openstack_admin.delete_server(instance_name)
+    if count > 1:
+        for instance in range(0, count):
+            openstack_admin.delete_server(f"{instance_name}-{instance+1}")
+    else:
+        openstack_admin.delete_server(instance_name)
 
 
 @pytest.fixture
@@ -228,6 +241,58 @@ def test_delete_instance_demo(login, driver, instance_name, openstack_demo,
     assert f"Info: Scheduled deletion of Instance: {instance_name}" in messages
     assert openstack_demo.compute.find_server(instance_name) is None
 
+
+@pytest.mark.parametrize('new_instance_demo', [2], indirect=True)
+def test_instance_pagination_demo(login, driver, instance_name,
+                                  new_instance_demo, change_page_size_demo,
+                                  config):
+    """This test checks instance pagination for demo user
+
+    Steps:
+    1) Login to Horizon Dashboard as demo user
+    2) Create 2 instances
+    3) Navigate to user settings page
+    4) Change 'Items Per Page' value to 1
+    5) Go to Instances page
+    6) Check that only 'Next' link is available, only one instance is
+       available (and it has correct name) on the first page
+    7) Click 'Next' and check that on the second page only one instance is
+       available (and it has correct name), there is no 'Next' link on page
+    8) Click 'Prev' and check result (should be the same as for step6)
+    9) Go to user settings page and restore 'Items Per Page' to default
+    10) Delete created instances
+    """
+    items_per_page = 1
+    instance_count = 2
+    instance_list = ["{0}-{1}".format(instance_name, item)
+                     for item in range(1, instance_count + 1)]
+    first_page_definition = widgets.TableDefinition(next=True, prev=False,
+                                                    count=items_per_page,
+                                                    names=[instance_list[1]])
+    second_page_definition = widgets.TableDefinition(next=False, prev=True,
+                                                     count=items_per_page,
+                                                     names=[instance_list[0]])
+    url = '/'.join((
+        config.dashboard.dashboard_url,
+        'project',
+        'instances'
+    ))
+    driver.get(url)
+    actual_page1_definition = widgets.get_table_definition(driver,
+                                                           sorting=True)
+    assert first_page_definition == actual_page1_definition
+    # Turning to next page
+    driver.find_element_by_link_text("Next »").click()
+    actual_page2_definition = widgets.get_table_definition(driver,
+                                                           sorting=True)
+    assert second_page_definition == actual_page2_definition
+    # Turning back to previous page
+    driver.find_element_by_link_text("« Prev").click()
+    actual_page1_definition = widgets.get_table_definition(driver,
+                                                           sorting=True)
+    assert first_page_definition == actual_page1_definition
+
+
 # Admin tests
 
 
@@ -294,3 +359,54 @@ def test_delete_instance_admin(login, driver, instance_name, openstack_admin,
     messages = widgets.get_and_dismiss_messages(driver)
     assert f"Info: Scheduled deletion of Instance: {instance_name}" in messages
     assert openstack_admin.compute.find_server(instance_name) is None
+
+
+@pytest.mark.parametrize('new_instance_admin', [2], indirect=True)
+def test_instance_pagination_admin(login, driver, instance_name,
+                                   new_instance_admin, change_page_size_admin,
+                                   config):
+    """This test checks instance pagination for admin user
+
+    Steps:
+    1) Login to Horizon Dashboard as admin user
+    2) Create 2 instances
+    3) Navigate to user settings page
+    4) Change 'Items Per Page' value to 1
+    5) Go to Instances page
+    6) Check that only 'Next' link is available, only one instance is
+       available (and it has correct name) on the first page
+    7) Click 'Next' and check that on the second page only one instance is
+       available (and it has correct name), there is no 'Next' link on page
+    8) Click 'Prev' and check result (should be the same as for step6)
+    9) Go to user settings page and restore 'Items Per Page' to default
+    10) Delete created instances
+    """
+    items_per_page = 1
+    instance_count = 2
+    instance_list = ["{0}-{1}".format(instance_name, item)
+                     for item in range(1, instance_count + 1)]
+    first_page_definition = widgets.TableDefinition(next=True, prev=False,
+                                                    count=items_per_page,
+                                                    names=[instance_list[1]])
+    second_page_definition = widgets.TableDefinition(next=False, prev=True,
+                                                     count=items_per_page,
+                                                     names=[instance_list[0]])
+    url = '/'.join((
+        config.dashboard.dashboard_url,
+        'project',
+        'instances'
+    ))
+    driver.get(url)
+    actual_page1_definition = widgets.get_table_definition(driver,
+                                                           sorting=True)
+    assert first_page_definition == actual_page1_definition
+    # Turning to next page
+    driver.find_element_by_link_text("Next »").click()
+    actual_page2_definition = widgets.get_table_definition(driver,
+                                                           sorting=True)
+    assert second_page_definition == actual_page2_definition
+    # Turning back to previous page
+    driver.find_element_by_link_text("« Prev").click()
+    actual_page1_definition = widgets.get_table_definition(driver,
+                                                           sorting=True)
+    assert first_page_definition == actual_page1_definition

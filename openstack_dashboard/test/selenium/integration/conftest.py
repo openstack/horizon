@@ -13,6 +13,8 @@
 import openstack as openstack_sdk
 import pytest
 
+from openstack_dashboard.test.selenium import widgets
+
 
 def create_conn(username, password, project, domain, auth_url):
     if not domain:
@@ -57,3 +59,58 @@ def openstack_demo(config):
     )
     yield conn
     conn.close()
+
+
+@pytest.fixture()
+def change_page_size_admin(login, config, driver):
+    default_page_size = 20
+    new_page_size = 1
+    def change_size(page_size):
+
+        login('admin')
+        url = '/'.join((
+            config.dashboard.dashboard_url,
+            'settings',
+        ))
+        driver.get(url)
+        element = driver.find_element_by_xpath(
+            ".//input[@id='id_pagesize']")
+        element.clear()
+        element.send_keys(page_size)
+        driver.find_element_by_xpath(".//input[@value='Save']").click()
+
+    change_size(new_page_size)
+    yield
+    change_size(default_page_size)
+
+
+@pytest.fixture()
+def change_page_size_demo(login, config, driver):
+    default_page_size = 20
+    new_page_size = 1
+    def change_size(page_size):
+
+        login('user')
+        url = '/'.join((
+            config.dashboard.dashboard_url,
+            'settings',
+        ))
+        driver.get(url)
+        element = driver.find_element_by_xpath(
+            ".//input[@id='id_pagesize']")
+        element.clear()
+        element.send_keys(page_size)
+        driver.find_element_by_xpath(".//input[@value='Save']").click()
+
+    change_size(new_page_size)
+    yield
+    change_size(default_page_size)
+
+
+def pytest_assertrepr_compare(op, left, right):
+    if isinstance(left, widgets.TableDefinition) and \
+            isinstance(right, widgets.TableDefinition) and op == "==":
+        return [
+            "Comparing TableDefinition instances:",
+            "   vals: {} != {}".format(left, right),
+        ]
