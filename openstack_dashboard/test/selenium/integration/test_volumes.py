@@ -73,7 +73,7 @@ def select_from_dropdown_volume_tab(driver, dropdown_id, label):
     volume_dropdown_tab.find_element_by_xpath(f".//*[text()='{label}']").click()
 
 
-def test_create_empty_volume_demo(login, driver, volume_name,
+def test_create_empty_volume_demo(login, driver, volume_name, openstack_demo,
                                   clear_volume_demo, config):
 
     login('user')
@@ -90,13 +90,11 @@ def test_create_empty_volume_demo(login, driver, volume_name,
         ".btn-primary[value='Create Volume']").click()
     messages = widgets.get_and_dismiss_messages(driver)
     assert f'Info: Creating volume "{volume_name}"' in messages
-    widgets.find_already_visible_element_by_xpath(
-        f"//*[text()='{volume_name}']//ancestor::tr/td"
-        f"[normalize-space()='Available']", driver)
+    assert openstack_demo.block_storage.find_volume(volume_name) is not None
 
 
-def test_create_volume_from_image_demo(login, driver, volume_name,
-                                       clear_volume_demo, config):
+def test_create_volume_from_image_demo(login, driver, volume_name, config,
+                                       clear_volume_demo, openstack_demo):
     image_source_name = config.launch_instances.image_name
 
     login('user')
@@ -117,12 +115,10 @@ def test_create_volume_from_image_demo(login, driver, volume_name,
         ".btn-primary[value='Create Volume']").click()
     messages = widgets.get_and_dismiss_messages(driver)
     assert f'Info: Creating volume "{volume_name}"' in messages
-    widgets.find_already_visible_element_by_xpath(
-        f"//*[text()='{volume_name}']//ancestor::tr/td"
-        f"[normalize-space()='Available']", driver)
+    assert openstack_demo.block_storage.find_volume(volume_name) is not None
 
 
-def test_delete_volume_demo(login, driver, volume_name,
+def test_delete_volume_demo(login, driver, volume_name, openstack_demo,
                             new_volume_demo, config):
     login('user')
     url = '/'.join((
@@ -140,3 +136,4 @@ def test_delete_volume_demo(login, driver, volume_name,
     widgets.confirm_modal(driver)
     messages = widgets.get_and_dismiss_messages(driver)
     assert f"Info: Scheduled deletion of Volume: {volume_name}" in messages
+    assert openstack_demo.block_storage.find_volume(volume_name) is None

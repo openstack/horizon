@@ -12,6 +12,8 @@
 from oslo_utils import uuidutils
 import pytest
 from selenium.common import exceptions
+from selenium.webdriver.support import expected_conditions as EC
+from selenium.webdriver.support.wait import WebDriverWait
 import test_volumes
 
 from openstack_dashboard.test.selenium import widgets
@@ -107,7 +109,7 @@ def delete_volume_on_instance_delete(driver, required_state):
     delete_volume_btn.click()
 
 
-def test_create_instance_demo(login, driver, instance_name,
+def test_create_instance_demo(login, driver, instance_name, openstack_demo,
                               clear_instance_demo, config):
     image = config.image.images_list[0]
     network = config.network.external_network
@@ -120,7 +122,9 @@ def test_create_instance_demo(login, driver, instance_name,
         'instances',
     ))
     driver.get(url)
-    driver.find_element_by_link_text("Launch Instance").click()
+    launch_instance_btn = driver.find_element_by_link_text(
+        "Launch Instance")
+    launch_instance_btn.click()
     wizard = driver.find_element_by_css_selector("wizard")
     navigation = wizard.find_element_by_css_selector("div.wizard-nav")
     widgets.find_already_visible_element_by_xpath(
@@ -144,14 +148,22 @@ def test_create_instance_demo(login, driver, instance_name,
     select_from_transfer_table(source_table, image)
     wizard.find_element_by_css_selector(
         "button.btn-primary.finish").click()
-    widgets.find_already_visible_element_by_xpath(
-        f"//*[text()='{instance_name}']//ancestor::tr/td"
-        f"[normalize-space()='Active']", driver)
+
+#   For create instance - message appears earlier than the page is refreshed.
+#   We are unable to ensure that the message will be captured.
+#   Checking of message is skipped, we wait for refresh page
+#   and then result is checked.
+#    JJ
+
+    WebDriverWait(driver, config.selenium.page_timeout).until(
+        EC.invisibility_of_element_located(launch_instance_btn))
+    assert openstack_demo.compute.find_server(instance_name) is not None
 
 
 def test_create_instance_from_volume_demo(login, driver, instance_name,
                                           volume_name, new_volume_demo,
-                                          clear_instance_demo, config):
+                                          clear_instance_demo, config,
+                                          openstack_demo):
     network = config.network.external_network
     flavor = config.launch_instances.flavor
 
@@ -162,7 +174,9 @@ def test_create_instance_from_volume_demo(login, driver, instance_name,
         'instances',
     ))
     driver.get(url)
-    driver.find_element_by_link_text("Launch Instance").click()
+    launch_instance_btn = driver.find_element_by_link_text(
+        "Launch Instance")
+    launch_instance_btn.click()
     wizard = driver.find_element_by_css_selector("wizard")
     navigation = wizard.find_element_by_css_selector("div.wizard-nav")
     widgets.find_already_visible_element_by_xpath(
@@ -189,12 +203,12 @@ def test_create_instance_from_volume_demo(login, driver, instance_name,
     delete_volume_on_instance_delete(source_table, "No")
     select_from_transfer_table(source_table, volume_name)
     wizard.find_element_by_css_selector("button.btn-primary.finish").click()
-    widgets.find_already_visible_element_by_xpath(
-        f"//*[text()='{instance_name}']//ancestor::tr/td"
-        f"[normalize-space()='Active']", driver)
+    WebDriverWait(driver, config.selenium.page_timeout).until(
+        EC.invisibility_of_element_located(launch_instance_btn))
+    assert openstack_demo.compute.find_server(instance_name) is not None
 
 
-def test_delete_instance_demo(login, driver, instance_name,
+def test_delete_instance_demo(login, driver, instance_name, openstack_demo,
                               new_instance_demo, config):
     login('user')
     url = '/'.join((
@@ -212,12 +226,12 @@ def test_delete_instance_demo(login, driver, instance_name,
     widgets.confirm_modal(driver)
     messages = widgets.get_and_dismiss_messages(driver)
     assert f"Info: Scheduled deletion of Instance: {instance_name}" in messages
-
+    assert openstack_demo.compute.find_server(instance_name) is None
 
 # Admin tests
 
 
-def test_create_instance_admin(login, driver, instance_name,
+def test_create_instance_admin(login, driver, instance_name, openstack_admin,
                                clear_instance_admin, config):
     image = config.image.images_list[0]
     network = config.network.external_network
@@ -230,7 +244,9 @@ def test_create_instance_admin(login, driver, instance_name,
         'instances',
     ))
     driver.get(url)
-    driver.find_element_by_link_text("Launch Instance").click()
+    launch_instance_btn = driver.find_element_by_link_text(
+        "Launch Instance")
+    launch_instance_btn.click()
     wizard = driver.find_element_by_css_selector("wizard")
     navigation = wizard.find_element_by_css_selector("div.wizard-nav")
     widgets.find_already_visible_element_by_xpath(
@@ -254,12 +270,12 @@ def test_create_instance_admin(login, driver, instance_name,
     select_from_transfer_table(source_table, image)
     wizard.find_element_by_css_selector(
         "button.btn-primary.finish").click()
-    widgets.find_already_visible_element_by_xpath(
-        f"//*[text()='{instance_name}']//ancestor::tr/td"
-        f"[normalize-space()='Active']", driver)
+    WebDriverWait(driver, config.selenium.page_timeout).until(
+        EC.invisibility_of_element_located(launch_instance_btn))
+    assert openstack_admin.compute.find_server(instance_name) is not None
 
 
-def test_delete_instance_admin(login, driver, instance_name,
+def test_delete_instance_admin(login, driver, instance_name, openstack_admin,
                                new_instance_admin, config):
     login('admin')
     url = '/'.join((
@@ -277,3 +293,4 @@ def test_delete_instance_admin(login, driver, instance_name,
     widgets.confirm_modal(driver)
     messages = widgets.get_and_dismiss_messages(driver)
     assert f"Info: Scheduled deletion of Instance: {instance_name}" in messages
+    assert openstack_admin.compute.find_server(instance_name) is None

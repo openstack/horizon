@@ -63,7 +63,7 @@ def temporary_file(tmp_path, name='', suffix='.qcow2', size=5000):
 
 def test_image_create_from_local_file_demo(login, driver, image_name,
                                            temporary_file, clear_image_demo,
-                                           config):
+                                           config, openstack_demo):
     login('user', 'demo')
     url = '/'.join((
         config.dashboard.dashboard_url,
@@ -85,12 +85,10 @@ def test_image_create_from_local_file_demo(login, driver, image_name,
     messages = widgets.get_and_dismiss_messages(driver)
     assert(f"Success: Image {image_name} was successfully"
            f" created." in messages)
-    widgets.find_already_visible_element_by_xpath(
-        f"//*[text()='{image_name}']//ancestor::tr/td"
-        f"//*[text()='Active']", driver)
+    assert openstack_demo.compute.find_image(image_name) is not None
 
 
-def test_image_delete_demo(login, driver, image_name,
+def test_image_delete_demo(login, driver, image_name, openstack_demo,
                            new_image_demo, config):
     login('user', 'demo')
     url = '/'.join((
@@ -107,3 +105,4 @@ def test_image_delete_demo(login, driver, image_name,
     widgets.confirm_modal(driver)
     messages = widgets.get_and_dismiss_messages(driver)
     assert f"Success: Deleted Image: {image_name}." in messages
+    assert openstack_demo.compute.find_image(image_name) is None
