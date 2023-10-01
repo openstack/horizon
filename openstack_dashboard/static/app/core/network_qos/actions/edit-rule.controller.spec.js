@@ -63,10 +63,14 @@
       );
 
       rules = [
-        {name: "bandwidth_limit", val: "Bandwidth Limit - 1, 1000, 100, egress"},
-        {name: "dscp_marking", val: "DSCP Mark - 1, 12"},
-        {name: "minimum_bandwidth", val: "Minimum Bandwidth - 1, 100, egress"},
-        {name: "minimum_packet_rate", val: "Minimum Packet Rate - 1, 10000, egress"}
+        {name: "bandwidth_limit",
+         val: "1 - Bandwidth Limit - maxkbps: 1000, maxburstkbps: 100, egress"},
+        {name: "dscp_marking",
+         val: "1 - DSCP Marking - dscpmark: 12"},
+        {name: "minimum_bandwidth",
+         val: "1 - Minimum Bandwidth - minkbps: 100, egress"},
+        {name: "minimum_packet_rate",
+         val: "1 - Minimum Packet Rate - minkpps: 10000, egress"}
       ];
       directions = {
         "egress": "egress",
