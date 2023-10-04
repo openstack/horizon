@@ -209,7 +209,8 @@ class CreateProjectWorkflowTests(test.BaseAdminViewTests):
             workflow.steps,
             ['<CreateProjectInfo: createprojectinfoaction>',
              '<UpdateProjectMembers: update_members>',
-             '<UpdateProjectGroups: update_group_members>'])
+             '<UpdateProjectGroups: update_group_members>'],
+            transform=repr)
 
         self.mock_get_default_domain.assert_called_once_with(
             test.IsHttpRequest())
@@ -581,7 +582,8 @@ class UpdateProjectWorkflowTests(test.BaseAdminViewTests):
             workflow.steps,
             ['<UpdateProjectInfo: update_info>',
              '<UpdateProjectMembers: update_members>',
-             '<UpdateProjectGroups: update_group_members>'])
+             '<UpdateProjectGroups: update_group_members>'],
+            transform=repr)
 
         self.mock_tenant_get.assert_called_once_with(
             test.IsHttpRequest(), self.tenant.id, admin=True)
@@ -1009,7 +1011,8 @@ class UpdateQuotasWorkflowTests(test.BaseAdminViewTests):
         self.assertQuerysetEqual(
             workflow.steps,
             ['<UpdateComputeQuota: update_compute_quotas>',
-             '<UpdateVolumeQuota: update_volume_quotas>'])
+             '<UpdateVolumeQuota: update_volume_quotas>'],
+            transform=repr)
 
         self.mock_get_disabled_quotas.assert_called_once_with(
             test.IsHttpRequest())

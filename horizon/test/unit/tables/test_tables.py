@@ -432,7 +432,8 @@ class DataTableTests(test.TestCase):
                                   '<Column: value>',
                                   '<Column: optional>',
                                   '<Column: status>',
-                                  '<MyColumn: actions>'])
+                                  '<MyColumn: actions>'],
+                                 transform=repr)
         # Actions (these also test ordering)
         self.assertQuerysetEqual(list(self.table.base_actions.values()),
                                  ['<MyBatchAction: batch>',
@@ -440,18 +441,21 @@ class DataTableTests(test.TestCase):
                                   '<MyAction: delete>',
                                   '<MyFilterAction: filter>',
                                   '<MyLinkAction: login>',
-                                  '<MyToggleAction: toggle>'])
+                                  '<MyToggleAction: toggle>'],
+                                 transform=repr)
         self.assertQuerysetEqual(self.table.get_table_actions(),
                                  ['<MyFilterAction: filter>',
                                   '<MyAction: delete>',
                                   '<MyBatchAction: batch>',
-                                  '<MyBatchActionWithHelpText: batch_help>'])
+                                  '<MyBatchActionWithHelpText: batch_help>'],
+                                 transform=repr)
         self.assertQuerysetEqual(self.table.get_row_actions(TEST_DATA[0]),
                                  ['<MyAction: delete>',
                                   '<MyLinkAction: login>',
                                   '<MyBatchAction: batch>',
                                   '<MyToggleAction: toggle>',
-                                  '<MyBatchActionWithHelpText: batch_help>'])
+                                  '<MyBatchActionWithHelpText: batch_help>'],
+                                 transform=repr)
         # Auto-generated columns
         multi_select = self.table.columns['multi_select']
         self.assertEqual("multi_select", multi_select.auto)
@@ -472,7 +476,9 @@ class DataTableTests(test.TestCase):
         self.assertEqual(TEST_DATA, self.table.data)
         # The column "restricted" is not rendered because of policy
         expected_columns = ['<Column: name>']
-        self.assertQuerysetEqual(self.table.get_columns(), expected_columns)
+        self.assertQuerysetEqual(self.table.get_columns(),
+                                 expected_columns,
+                                 transform=repr)
 
     @override_settings(POLICY_CHECK_FUNCTION=lambda *args: True)
     def test_table_column_policy_allowed(self):
@@ -480,7 +486,8 @@ class DataTableTests(test.TestCase):
         self.assertEqual(TEST_DATA, self.table.data)
         # Policy check returns True so the column "restricted" is rendered
         expected_columns = ['<Column: name>', '<Column: restricted>']
-        self.assertQuerysetEqual(self.table.get_columns(), expected_columns)
+        self.assertQuerysetEqual(self.table.get_columns(), expected_columns,
+                                 transform=repr)
 
     def test_table_force_no_multiselect(self):
         class TempTable(MyTable):
@@ -492,7 +499,8 @@ class DataTableTests(test.TestCase):
         self.table = TempTable(self.request, TEST_DATA)
         self.assertQuerysetEqual(self.table.get_columns(),
                                  ['<Column: id>',
-                                  '<Column: actions>'])
+                                  '<Column: actions>'],
+                                 transform=repr)
 
     def test_table_force_no_actions_column(self):
         class TempTable(MyTable):
@@ -504,7 +512,8 @@ class DataTableTests(test.TestCase):
         self.table = TempTable(self.request, TEST_DATA)
         self.assertQuerysetEqual(self.table.get_columns(),
                                  ['<Column: multi_select>',
-                                  '<Column: id>'])
+                                  '<Column: id>'],
+                                 transform=repr)
 
     def test_table_natural_no_inline_editing(self):
         class TempTable(MyTable):
@@ -530,7 +539,8 @@ class DataTableTests(test.TestCase):
         self.table = TempTable(self.request, TEST_DATA)
         self.assertQuerysetEqual(self.table.get_columns(),
                                  ['<Column: multi_select>',
-                                  '<Column: id>'])
+                                  '<Column: id>'],
+                                 transform=repr)
 
     def test_table_natural_no_multiselect(self):
         class TempTable(MyTable):
@@ -540,7 +550,8 @@ class DataTableTests(test.TestCase):
         self.table = TempTable(self.request, TEST_DATA)
         self.assertQuerysetEqual(self.table.get_columns(),
                                  ['<Column: id>',
-                                  '<Column: actions>'])
+                                  '<Column: actions>'],
+                                 transform=repr)
 
     def test_table_column_inheritance(self):
         class TempTable(MyTable):
@@ -561,25 +572,30 @@ class DataTableTests(test.TestCase):
                                   '<Column: optional>',
                                   '<Column: excluded>',
                                   '<Column: extra>',
-                                  '<Column: actions>'])
+                                  '<Column: actions>'],
+                                 transform=repr)
 
     def test_table_construction(self):
         self.table = MyTable(self.request, TEST_DATA)
         # Verify we retrieve the right columns for headers
         columns = self.table.get_columns()
-        self.assertQuerysetEqual(columns, ['<MyColumn: multi_select>',
-                                           '<Column: id>',
-                                           '<Column: name>',
-                                           '<Column: value>',
-                                           '<Column: optional>',
-                                           '<Column: status>',
-                                           '<MyColumn: actions>'])
+        self.assertQuerysetEqual(columns,
+                                 ['<MyColumn: multi_select>',
+                                  '<Column: id>',
+                                  '<Column: name>',
+                                  '<Column: value>',
+                                  '<Column: optional>',
+                                  '<Column: status>',
+                                  '<MyColumn: actions>'],
+                                 transform=repr)
         # Verify we retrieve the right rows from our data
         rows = self.table.get_rows()
-        self.assertQuerysetEqual(rows, ['<MyRow: my_table__row__1>',
-                                        '<MyRow: my_table__row__2>',
-                                        '<MyRow: my_table__row__3>',
-                                        '<MyRow: my_table__row__4>'])
+        self.assertQuerysetEqual(rows,
+                                 ['<MyRow: my_table__row__1>',
+                                  '<MyRow: my_table__row__2>',
+                                  '<MyRow: my_table__row__3>',
+                                  '<MyRow: my_table__row__4>'],
+                                 transform=repr)
         # Verify each row contains the right cells
         self.assertQuerysetEqual(rows[0].get_cells(),
                                  ['<Cell: multi_select, my_table__row__1>',
@@ -588,7 +604,8 @@ class DataTableTests(test.TestCase):
                                   '<Cell: value, my_table__row__1>',
                                   '<Cell: optional, my_table__row__1>',
                                   '<Cell: status, my_table__row__1>',
-                                  '<Cell: actions, my_table__row__1>'])
+                                  '<Cell: actions, my_table__row__1>'],
+                                 transform=repr)
 
     def test_table_column(self):
         self.table = MyTable(self.request, TEST_DATA)
@@ -814,7 +831,8 @@ class DataTableTests(test.TestCase):
         req = self.factory.post('/my_url/', {action_string: '2'})
         self.table = TempTable(req, TEST_DATA)
         self.assertQuerysetEqual(self.table.get_table_actions(),
-                                 ['<NameFilterAction: filter>'])
+                                 ['<NameFilterAction: filter>'],
+                                 transform=repr)
         handled = self.table.maybe_handle()
         self.assertIsNone(handled)
         self.assertQuerysetEqual(self.table.filtered_data,
@@ -985,7 +1003,8 @@ class DataTableTests(test.TestCase):
                                  ['<MyFilterAction: filter>',
                                   '<MyAction: delete>',
                                   '<MyBatchAction: batch>',
-                                  '<MyBatchActionWithHelpText: batch_help>'])
+                                  '<MyBatchActionWithHelpText: batch_help>'],
+                                 transform=repr)
 
         # Zero objects in table
         # BatchAction not available
@@ -993,7 +1012,8 @@ class DataTableTests(test.TestCase):
         self.table = MyTable(req, None)
         self.assertQuerysetEqual(self.table.get_table_actions(),
                                  ['<MyFilterAction: filter>',
-                                  '<MyAction: delete>'])
+                                  '<MyAction: delete>'],
+                                 transform=repr)
 
         # Filtering
         action_string = "my_table__filter__q"
@@ -1209,7 +1229,8 @@ class DataTableTests(test.TestCase):
                                   '<Cell: name, my_table__row__1>',
                                   '<Cell: value, my_table__row__1>',
                                   '<Cell: status, my_table__row__1>',
-                                  ])
+                                  ],
+                                 transform=repr)
         # can_be_selected = False
         self.assertEqual("", row.get_cells()[0].data)
         # can_be_selected = True

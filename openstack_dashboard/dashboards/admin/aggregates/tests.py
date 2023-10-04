@@ -52,7 +52,8 @@ class CreateAggregateWorkflowTests(BaseAggregateWorkflowTests):
         self.assertQuerysetEqual(
             workflow.steps,
             ['<SetAggregateInfoStep: set_aggregate_info>',
-             '<AddHostsToAggregateStep: add_host_to_aggregate>'])
+             '<AddHostsToAggregateStep: add_host_to_aggregate>'],
+            transform=repr)
         self.mock_service_list.assert_called_once_with(
             test.IsHttpRequest(),
             binary='nova-compute')

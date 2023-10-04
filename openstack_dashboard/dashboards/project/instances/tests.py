@@ -2214,7 +2214,8 @@ class InstanceTests2(InstanceTestBase, InstanceTableTestMixin):
                          'Disk Partition')
         self.assertQuerysetEqual(workflow.steps,
                                  ['<SetFlavorChoice: flavor_choice>',
-                                  '<SetAdvanced: setadvancedaction>'])
+                                  '<SetAdvanced: setadvancedaction>'],
+                                 transform=repr)
         option = '<option value="%s">%s</option>'
 
         def is_original_flavor(server, flavor, nova_api_lt_2_47):

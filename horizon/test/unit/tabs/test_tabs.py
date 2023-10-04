@@ -142,10 +142,12 @@ class TabTests(test.TestCase):
         # "tab_disallowed" should NOT be in this list.
         # "tab_with_policy" should be present, since our policy check
         #  always passes
-        self.assertQuerysetEqual(tabs, ['<TabOne: tab_one>',
-                                        '<TabDelayed: tab_delayed>',
-                                        '<TabDisabled: tab_disabled>',
-                                        '<TabWithPolicy: tab_with_policy>'])
+        self.assertQuerysetEqual(tabs,
+                                 ['<TabOne: tab_one>',
+                                  '<TabDelayed: tab_delayed>',
+                                  '<TabDisabled: tab_disabled>',
+                                  '<TabWithPolicy: tab_with_policy>'],
+                                 transform=repr)
         # Test get_id
         self.assertEqual("tab_group", tg.get_id())
         # get_default_classes
@@ -169,9 +171,11 @@ class TabTests(test.TestCase):
         # "tab_disallowed" should NOT be in this list, it's not allowed
         # "tab_with_policy" should also not be present as its
         #  policy check failed
-        self.assertQuerysetEqual(tabs, ['<TabOne: tab_one>',
-                                        '<TabDelayed: tab_delayed>',
-                                        '<TabDisabled: tab_disabled>'])
+        self.assertQuerysetEqual(tabs,
+                                 ['<TabOne: tab_one>',
+                                  '<TabDelayed: tab_delayed>',
+                                  '<TabDisabled: tab_disabled>'],
+                                 transform=repr)
 
     @test.update_settings(
         HORIZON_CONFIG={'extra_tabs': {
@@ -187,9 +191,11 @@ class TabTests(test.TestCase):
         tabs = tg.get_tabs()
         # "tab_disallowed" should NOT be in this list.
         # Other tabs must be ordered in the priorities in HORIZON_CONFIG.
-        self.assertQuerysetEqual(tabs, ['<TabOne: tab_one>',
-                                        '<TabDisabled: tab_disabled>',
-                                        '<TabDelayed: tab_delayed>'])
+        self.assertQuerysetEqual(tabs,
+                                 ['<TabOne: tab_one>',
+                                  '<TabDisabled: tab_disabled>',
+                                  '<TabDelayed: tab_delayed>'],
+                                 transform=repr)
 
     def test_tab_group_active_tab(self):
         tg = Group(self.request)

@@ -202,7 +202,8 @@ class CreateDomainWorkflowTests(test.BaseAdminViewTests):
                          workflows.CreateDomain.name)
 
         self.assertQuerysetEqual(workflow.steps,
-                                 ['<CreateDomainInfo: create_domain>', ])
+                                 ['<CreateDomainInfo: create_domain>'],
+                                 transform=repr)
 
     @test.create_mocks({api.keystone: ('domain_create', )})
     def test_add_domain_post(self):
@@ -300,7 +301,8 @@ class UpdateDomainWorkflowTests(test.BaseAdminViewTests):
             workflow.steps,
             ['<UpdateDomainInfo: update_domain>',
              '<UpdateDomainUsers: update_user_members>',
-             '<UpdateDomainGroups: update_group_members>'])
+             '<UpdateDomainGroups: update_group_members>'],
+            transform=repr)
 
         self.mock_domain_get.assert_called_once_with(test.IsHttpRequest(), '1')
         self.assert_mock_multiple_calls_with_same_arguments(

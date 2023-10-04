@@ -101,6 +101,7 @@ class ServicesViewTests(test.BaseAdminViewTests):
         quotas_tab = res.context['tab_group'].get_tab(slug)
         self.assertQuerysetEqual(quotas_tab._tables[slug].data,
                                  expected_data,
+                                 transform=repr,
                                  ordered=False)
 
 

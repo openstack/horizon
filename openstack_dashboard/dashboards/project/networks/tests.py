@@ -387,7 +387,7 @@ class NetworkTests(test.TestCase, NetworkStubMixin):
         expected_objs = ['<CreateNetworkInfo: createnetworkinfoaction>',
                          '<CreateSubnetInfo: createsubnetinfoaction>',
                          '<CreateSubnetDetail: createsubnetdetailaction>']
-        self.assertQuerysetEqual(workflow.steps, expected_objs)
+        self.assertQuerysetEqual(workflow.steps, expected_objs, transform=repr)
         self._check_is_extension_supported({'network_availability_zone': 1,
                                             'subnet_allocation': 1})
         self.mock_subnetpool_list.assert_called_once_with(test.IsHttpRequest())

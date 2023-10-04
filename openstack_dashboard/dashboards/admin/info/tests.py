@@ -76,7 +76,8 @@ class SystemInfoViewTests(test.BaseAdminViewTests):
         network_agents_tab = res.context['tab_group'].get_tab('network_agents')
         self.assertQuerysetEqual(
             network_agents_tab._tables['network_agents'].data,
-            [agent.__repr__() for agent in self.agents.list()]
+            [agent.__repr__() for agent in self.agents.list()],
+            transform=repr
         )
 
     def test_cinder_index(self):
@@ -85,5 +86,6 @@ class SystemInfoViewTests(test.BaseAdminViewTests):
             get_tab('cinder_services')
         self.assertQuerysetEqual(
             cinder_services_tab._tables['cinder_services'].data,
-            [service.__repr__() for service in self.cinder_services.list()]
+            [service.__repr__() for service in self.cinder_services.list()],
+            transform=repr
         )

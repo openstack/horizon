@@ -154,7 +154,8 @@ class HorizonTests(BaseHorizonTests):
         self.assertQuerysetEqual(horizon.get_dashboards(),
                                  ['<Dashboard: cats>',
                                   '<Dashboard: dogs>',
-                                  '<Dashboard: mydash>'])
+                                  '<Dashboard: mydash>'],
+                                 transform=repr)
 
         # Removal
         self.assertEqual(3, len(base.Horizon._registry))
@@ -177,7 +178,8 @@ class HorizonTests(BaseHorizonTests):
                                  ['<Dashboard: cats>',
                                   '<Dashboard: dogs>',
                                   '<Dashboard: mydash>',
-                                  '<Dashboard: mydash2>'])
+                                  '<Dashboard: mydash2>'],
+                                 transform=repr)
 
         # Removal
         self.assertEqual(4, len(base.Horizon._registry))
@@ -203,7 +205,8 @@ class HorizonTests(BaseHorizonTests):
         self.assertEqual(base.Horizon, cats._registered_with)
         self.assertQuerysetEqual(cats.get_panels(),
                                  ['<Panel: kittens>',
-                                  '<Panel: tigers>'])
+                                  '<Panel: tigers>'],
+                                 transform=repr)
         self.assertEqual("/cats/", cats.get_absolute_url())
         self.assertEqual("Cats", cats.name)
 
@@ -211,11 +214,13 @@ class HorizonTests(BaseHorizonTests):
         # as a panel group.
         cats.register(MyPanel)
         self.assertQuerysetEqual(list(cats.get_panel_groups()['other']),
-                                 ['<Panel: myslug>'])
+                                 ['<Panel: myslug>'],
+                                 transform=repr)
         # Test that panels defined as a tuple still return a PanelGroup
         dogs = horizon.get_dashboard("dogs")
         self.assertQuerysetEqual(list(dogs.get_panel_groups().values()),
-                                 ['<PanelGroup: default>'])
+                                 ['<PanelGroup: default>'],
+                                 transform=repr)
 
         # Test registering a module with a dashboard that defines panels
         # as a tuple.
@@ -223,7 +228,8 @@ class HorizonTests(BaseHorizonTests):
         dogs.register(MyPanel)
         self.assertQuerysetEqual(dogs.get_panels(),
                                  ['<Panel: puppies>',
-                                  '<Panel: myslug>'])
+                                  '<Panel: myslug>'],
+                                 transform=repr)
         cats.unregister(MyPanel)
         dogs.unregister(MyPanel)
 
@@ -424,7 +430,8 @@ class CustomPanelTests(BaseHorizonTests):
         cats = horizon.get_dashboard("cats")
         self.assertEqual("WildCats", cats.name)
         self.assertQuerysetEqual(cats.get_panels(),
-                                 ['<Panel: kittens>'])
+                                 ['<Panel: kittens>'],
+                                 transform=repr)
         with self.assertRaises(base.NotRegistered):
             horizon.get_dashboard("dogs")
 
@@ -545,12 +552,14 @@ class RbacHorizonTests(test.TestCase):
         cats = horizon.get_dashboard("cats")
         self.assertEqual(cats._registered_with, base.Horizon)
         self.assertQuerysetEqual(cats.get_panels(),
-                                 ['<Panel: rbac_panel_no>'])
+                                 ['<Panel: rbac_panel_no>'],
+                                 transform=repr)
         self.assertFalse(cats.can_access(context))
 
         dogs = horizon.get_dashboard("dogs")
         self.assertEqual(dogs._registered_with, base.Horizon)
         self.assertQuerysetEqual(dogs.get_panels(),
-                                 ['<Panel: rbac_panel_yes>'])
+                                 ['<Panel: rbac_panel_yes>'],
+                                 transform=repr)
 
         self.assertTrue(dogs.can_access(context))

@@ -254,7 +254,8 @@ class CreateFlavorWorkflowTests(BaseFlavorWorkflowTests):
         self.assertQuerysetEqual(
             workflow.steps,
             ['<CreateFlavorInfo: createflavorinfoaction>',
-             '<CreateFlavorAccess: flavor_access>'])
+             '<CreateFlavorAccess: flavor_access>'],
+            transform=repr)
         self.mock_tenant_list.assert_called_once_with(test.IsHttpRequest())
 
     @test.create_mocks({api.keystone: ('tenant_list',),
@@ -471,7 +472,8 @@ class UpdateFlavorWorkflowTests(BaseFlavorWorkflowTests):
 
         self.assertQuerysetEqual(
             workflow.steps,
-            ['<UpdateFlavorAccess: flavor_access>'])
+            ['<UpdateFlavorAccess: flavor_access>'],
+            transform=repr)
 
         step = workflow.get_step("flavor_access")
         field_name = step.get_member_field_name('member')

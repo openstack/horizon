@@ -203,7 +203,8 @@ class WorkflowsTests(test.TestCase):
         self.assertQuerysetEqual(flow.steps,
                                  ['<StepOne: action_one>',
                                   '<StepThree: action_three>',
-                                  '<StepTwo: action_two>'])
+                                  '<StepTwo: action_two>'],
+                                 transform=repr)
         self.assertEqual(set(['project_id']), flow.depends_on)
 
     @test.update_settings(HORIZON_CONFIG={'extra_steps': {
@@ -221,8 +222,8 @@ class WorkflowsTests(test.TestCase):
                                  ['<StepOne: action_one>',
                                   '<StepThree: action_three>',
                                   '<StepTwo: action_two>',
-                                  '<StepFour: action_four>',
-                                  ])
+                                  '<StepFour: action_four>'],
+                                 transform=repr)
 
     def test_step_construction(self):
         step_one = StepOne(WorkflowForTesting(self.request))
@@ -327,14 +328,16 @@ class WorkflowsTests(test.TestCase):
         flow = WorkflowForTesting(req)
         self.assertQuerysetEqual(flow.steps,
                                  ['<StepOne: action_one>',
-                                  '<StepTwo: action_two>'])
+                                  '<StepTwo: action_two>'],
+                                 transform=repr)
 
         WorkflowForTesting.register(StepThree)
         flow = WorkflowForTesting(req)
         self.assertQuerysetEqual(flow.steps,
                                  ['<StepOne: action_one>',
                                   '<StepThree: action_three>',
-                                  '<StepTwo: action_two>'])
+                                  '<StepTwo: action_two>'],
+                                 transform=repr)
 
     def test_workflow_unregister_unexisting_workflow(self):
         with self.assertRaises(base.NotRegistered):
@@ -360,7 +363,8 @@ class WorkflowsTests(test.TestCase):
                               ("horizon.test",))
         self.assertQuerysetEqual(flow.steps,
                                  ['<StepOne: action_one>',
-                                  '<StepTwo: action_two>'])
+                                  '<StepTwo: action_two>'],
+                                 transform=repr)
 
         self.set_permissions(['test'])
         self.request.user = self.user
@@ -368,7 +372,8 @@ class WorkflowsTests(test.TestCase):
         self.assertQuerysetEqual(flow.steps,
                                  ['<StepOne: action_one>',
                                   '<AdminStep: admin_action>',
-                                  '<StepTwo: action_two>'])
+                                  '<StepTwo: action_two>'],
+                                 transform=repr)
 
     def test_has_allowed(self):
         WorkflowForTesting.register(DisabledStep)
@@ -377,7 +382,8 @@ class WorkflowsTests(test.TestCase):
         # even though DisabledStep is registered.
         self.assertQuerysetEqual(flow.steps,
                                  ['<StepOne: action_one>',
-                                  '<StepTwo: action_two>'])
+                                  '<StepTwo: action_two>'],
+                                 transform=repr)
 
     def test_step_is_hidden_on_policy(self):
         self.policy_patcher.stop()
