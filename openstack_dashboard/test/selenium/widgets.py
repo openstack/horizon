@@ -53,6 +53,16 @@ def select_from_dropdown(element, label):
     selection.click()
 
 
+def select_from_specific_dropdown_in_form(driver, dropdown_id, label):
+    dropdown = driver.find_element_by_xpath(
+        f".//*[@for='{dropdown_id}']/following-sibling::div")
+    dropdown.click()
+    dropdown_options = dropdown.find_element_by_css_selector(
+        "ul.dropdown-menu")
+    dropdown_options.find_element_by_xpath(
+        f".//*[normalize-space()='{label}']").click()
+
+
 def confirm_modal(element):
     confirm = element.find_element_by_css_selector(
         ".modal-dialog .btn-danger"

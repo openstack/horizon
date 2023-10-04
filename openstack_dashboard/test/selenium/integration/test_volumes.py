@@ -65,15 +65,6 @@ def clear_volume_admin(volume_name, openstack_admin):
     )
 
 
-def select_from_dropdown_volume_tab(driver, dropdown_id, label):
-    volume_dropdown = driver.find_element_by_xpath(
-        f".//*[@for='{dropdown_id}']/following-sibling::div")
-    volume_dropdown.click()
-    volume_dropdown_tab = volume_dropdown.find_element_by_css_selector(
-        "ul.dropdown-menu")
-    volume_dropdown_tab.find_element_by_xpath(f".//*[text()='{label}']").click()
-
-
 def test_create_empty_volume_demo(login, driver, volume_name, openstack_demo,
                                   clear_volume_demo, config):
 
@@ -108,9 +99,9 @@ def test_create_volume_from_image_demo(login, driver, volume_name, config,
     driver.find_element_by_link_text("Create Volume").click()
     volume_form = driver.find_element_by_css_selector(".modal-dialog form")
     volume_form.find_element_by_id("id_name").send_keys(volume_name)
-    select_from_dropdown_volume_tab(
+    widgets.select_from_specific_dropdown_in_form(
         volume_form, 'id_volume_source_type', 'Image')
-    select_from_dropdown_volume_tab(
+    widgets.select_from_specific_dropdown_in_form(
         volume_form, 'id_image_source', image_source_name)
     volume_form.find_element_by_css_selector(
         ".btn-primary[value='Create Volume']").click()
