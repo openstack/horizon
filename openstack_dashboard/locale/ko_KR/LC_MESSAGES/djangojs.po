@@ -18,18 +18,17 @@
 # Wonil Choi <wonil0522@gmail.com>, 2018. #zanata
 # minwook-shin <minwook0106@gmail.com>, 2018. #zanata
 # ByungYeol Woo <wby1089@gmail.com>, 2019. #zanata
-# ByungYeol Woo <wby1089@gmail.com>, 2020. #zanata
 # Ian Y. Choi <ianyrchoi@gmail.com>, 2020. #zanata
-# Sungjin Kang <gang.sungjin@gmail.com>, 2020. #zanata
+# Ian Y. Choi <ianyrchoi@gmail.com>, 2023. #zanata
 msgid ""
 msgstr ""
 "Project-Id-Version: horizon VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2022-09-30 06:37+0000\n"
+"POT-Creation-Date: 2023-09-26 12:50+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2020-05-05 11:32+0000\n"
+"PO-Revision-Date: 2023-09-27 10:43+0000\n"
 "Last-Translator: Ian Y. Choi <ianyrchoi@gmail.com>\n"
 "Language-Team: Korean (South Korea)\n"
 "Language: ko_KR\n"
@@ -38,6 +37,10 @@ msgstr ""
 
 msgid "#"
 msgstr "#"
+
+#, python-format
+msgid "%s (default)"
+msgstr "%s (디폴트)"
 
 msgid "1"
 msgstr "1"
@@ -271,6 +274,9 @@ msgstr "인터페이스 추가"
 msgid "Add Ons, Required and Feedback"
 msgstr "애드온, 필수, 피드백"
 
+msgid "Add Rule"
+msgstr "규칙 추가"
+
 msgid "Admin Password"
 msgstr "관리자 비밀번호"
 
@@ -431,6 +437,15 @@ msgstr "사용 가능한 스케줄러 힌트"
 msgid "Badges"
 msgstr "Badges"
 
+msgid "Bandwidth Limit"
+msgstr "대역폭 한계"
+
+msgid "Bandwidth Limit - , , , "
+msgstr "대역폭 한계 - , , , "
+
+msgid "Bandwidth Rules"
+msgstr "대역폭 규칙"
+
 msgid "Bare Metal"
 msgstr "Bare Metal"
 
@@ -588,6 +603,9 @@ msgstr[0] "사용자 삭제 확인"
 msgid "Confirm Password"
 msgstr "비밀번호 확인"
 
+msgid "Confirm password"
+msgstr "비밀번호 확인"
+
 msgid "Connecting"
 msgstr "연결중"
 
@@ -681,6 +699,12 @@ msgstr "키 페어 생성"
 msgid "Create New Volume"
 msgstr "새로운 볼륨 생성"
 
+msgid "Create Policy"
+msgstr "정책 생성"
+
+msgid "Create QoS Policy"
+msgstr "QoS 정책 생성"
+
 msgid "Create Role"
 msgstr "역할 생성"
 
@@ -740,18 +764,28 @@ msgstr ""
 msgid "Customization Script"
 msgstr "사용자 정의 스크립트"
 
-#, fuzzy
 msgid "DNS Domain"
 msgid_plural "DNS Domains"
 msgstr[0] "DNS 도메인"
 
-#, fuzzy
 msgid "DNS Record"
 msgid_plural "DNS Records"
 msgstr[0] "DNS 레코드"
 
 msgid "DSCP Mark"
 msgstr "DSCP Mark"
+
+msgid "DSCP Mark - , "
+msgstr "DSCP Mark - , "
+
+msgid "DSCP Marking"
+msgstr "DSCP 마킹"
+
+msgid "DSCP Rules"
+msgstr "DSCP 규칙"
+
+msgid "DSCP mark"
+msgstr "DSCP mark"
 
 msgid "Danger"
 msgstr "Danger"
@@ -876,6 +910,9 @@ msgstr "역할 삭제"
 
 msgid "Delete Router"
 msgstr "라우터 삭제"
+
+msgid "Delete Rule"
+msgstr "규칙 삭제"
 
 msgid "Delete Server Group"
 msgid_plural "Delete Server Groups"
@@ -1026,10 +1063,9 @@ msgstr "배포 차트"
 msgid "Docker"
 msgstr "Docker"
 
-#, fuzzy
 msgid "Domain"
 msgid_plural "Domains"
-msgstr[0] "도매인"
+msgstr[0] "도메인"
 
 #, python-format
 msgid "Domain %s was successfully created."
@@ -1088,6 +1124,9 @@ msgstr "이미지 편집"
 
 msgid "Edit Role"
 msgstr "역할 편집"
+
+msgid "Edit Rule"
+msgstr "규칙 편집"
 
 msgid "Edit Trunk"
 msgstr "트렁크 편집"
@@ -1177,7 +1216,6 @@ msgstr "파일 이름"
 msgid "Fingerprint"
 msgstr "Fingerprint"
 
-#, fuzzy
 msgid "Flavor"
 msgid_plural "Flavors"
 msgstr[0] "Flavor"
@@ -1191,7 +1229,6 @@ msgid ""
 msgstr ""
 "Flavor는 인스턴스의 컴퓨트, 메모리 및 스토리지 용량에 대한 크기를 관리합니다."
 
-#, fuzzy
 msgid "Floating IP"
 msgid_plural "Floating IPs"
 msgstr[0] "Floating IP"
@@ -1253,7 +1290,6 @@ msgstr "Generic 테이블 뷰:"
 msgid "Global Actions:"
 msgstr "글로벌 액션:"
 
-#, fuzzy
 msgid "Group"
 msgid_plural "Groups"
 msgstr[0] "Group"
@@ -1295,7 +1331,6 @@ msgstr "Horizontal Definition List"
 msgid "Host ID"
 msgstr "호스트 ID"
 
-#, fuzzy
 msgid "Hypervisor"
 msgid_plural "Hypervisors"
 msgstr[0] "하이퍼바이저"
@@ -1367,7 +1402,6 @@ msgstr ""
 "사용하는 인스턴스를 생성하고자 하는 경우, 다음 부트 옵션 중 하나를 선택합니"
 "다:"
 
-#, fuzzy
 msgid "Image"
 msgid_plural "Images"
 msgstr[0] "이미지"
@@ -1471,7 +1505,6 @@ msgstr ""
 "  태깅이 되어 있지 않은 네트워크로 보여질 것입니다. 부트업되는 초창기\n"
 "  시점부터 사용 가능합니다."
 
-#, fuzzy
 msgid "Instance"
 msgid_plural "Instances"
 msgstr[0] "인스턴스"
@@ -1518,7 +1551,6 @@ msgstr "커널 (Kernel)"
 msgid "Kernel ID"
 msgstr "커널 ID"
 
-#, fuzzy
 msgid "Key Pair"
 msgid_plural "Key Pairs"
 msgstr[0] "키 페어"
@@ -1627,12 +1659,10 @@ msgstr "List groups"
 msgid "Live Edit Schema Form Examples"
 msgstr "실시간 편집 스키마 양식 예제"
 
-#, fuzzy
 msgid "Load Balancer Pool"
 msgid_plural "Load Balancer Pools"
 msgstr[0] "로드 밸런서 풀"
 
-#, fuzzy
 msgid "Load Balancer Pool Member"
 msgid_plural "Load Balancer Pool Members"
 msgstr[0] "로드 밸런서 풀 구성원"
@@ -1673,11 +1703,17 @@ msgstr "수동"
 msgid "Max Burst Kbits"
 msgstr "최대 Burst Kbits"
 
+msgid "Max Burst Size (in kbps)"
+msgstr "최대 버스트 대역폭 (kbps)"
+
 msgid "Max Kbps"
 msgstr "최대 Kbps"
 
 msgid "Max Port"
 msgstr "최대 포트번호"
+
+msgid "Max bandwidth (in kbps)"
+msgstr "최대 대역폭 (kbps)"
 
 msgid "Max. Size (bytes)"
 msgstr "최대 크기 (바이트)"
@@ -1691,7 +1727,6 @@ msgstr "메시지"
 msgid "Metadata"
 msgstr "메타데이터"
 
-#, fuzzy
 msgid "Metadata Definition"
 msgid_plural "Metadata Definitions"
 msgstr[0] "메타데이터 정의"
@@ -1726,6 +1761,9 @@ msgstr "최소 디스크 (GB)"
 msgid "Min Kbps"
 msgstr "최소 Kbps"
 
+msgid "Min Kpps"
+msgstr "최소 Kpps"
+
 msgid "Min Port"
 msgstr "최소 포트번호"
 
@@ -1744,17 +1782,41 @@ msgstr "최소 크기 (바이트)"
 msgid "Mini button"
 msgstr "Mini button"
 
+msgid "Minimum Bandwidth"
+msgstr "최소 대역폭"
+
+msgid "Minimum Bandwidth - , , "
+msgstr "최소 대역폭 - , , "
+
+msgid "Minimum Bandwidth Rules"
+msgstr "최소 대역폭 규칙"
+
 msgid "Minimum Disk"
 msgstr "최소 디스크"
 
 msgid "Minimum Disk (GB)"
 msgstr "최소 디스크 (GB)"
 
+msgid "Minimum Packet Rate"
+msgstr "최소 패킷 비율"
+
+msgid "Minimum Packet Rate - , , "
+msgstr "최소 패킷 비율 - , , "
+
+msgid "Minimum Packet Rules"
+msgstr "최소 패킷 규칙"
+
 msgid "Minimum RAM"
 msgstr "최소 RAM"
 
 msgid "Minimum RAM (MB)"
 msgstr "최소 RAM (MB)"
+
+msgid "Minimum bandwidth (in kbps)"
+msgstr "최소 대역폭 (kbps)"
+
+msgid "Minimum packet rate (in kpps)"
+msgstr "최소 패킷 비율 (kpps)"
 
 msgid "Modals"
 msgstr "Modals"
@@ -1787,12 +1849,10 @@ msgstr "Navbar"
 msgid "Navs"
 msgstr "Navs"
 
-#, fuzzy
 msgid "Network"
 msgid_plural "Networks"
 msgstr[0] "네트워크"
 
-#, fuzzy
 msgid "Network Health Monitor"
 msgid_plural "Network Health Monitors"
 msgstr[0] "네트워크 상태 모니터"
@@ -1800,7 +1860,6 @@ msgstr[0] "네트워크 상태 모니터"
 msgid "Network ID"
 msgstr "Network ID"
 
-#, fuzzy
 msgid "Network Port"
 msgid_plural "Network Ports"
 msgstr[0] "네트워크 포트"
@@ -1808,12 +1867,10 @@ msgstr[0] "네트워크 포트"
 msgid "Network Ports"
 msgstr "네트워크 포트"
 
-#, fuzzy
 msgid "Network Router"
 msgid_plural "Network Routers"
 msgstr[0] "네트워크 라우터"
 
-#, fuzzy
 msgid "Network Subnet"
 msgid_plural "Network Subnets"
 msgstr[0] "네트워크 서브넷"
@@ -1832,6 +1889,13 @@ msgstr ""
 "하위 포트의 네트워크는 부팅 이후에 사용 가능합니다.\n"
 "  그러나 트렁크가 <em>ACTIVE</em> 상태가 되어야만\n"
 "  사용할 수 있습니다."
+
+msgid ""
+"Networks provide the communication channels for instances in the cloud. You "
+"can select ports instead of networks or a mix of both."
+msgstr ""
+"네트워크는 클라우드에서 인스턴스에 대한 통신 채널을 제공합니다. 네트워크 대"
+"신 포트를 선택하거나 둘 다 선택할 수 있습니다."
 
 msgid "New File Contents"
 msgstr "새로운 파일 내용"
@@ -1926,10 +1990,9 @@ msgstr "OVA"
 msgid "OVA - Open Virtual Appliance"
 msgstr "OVA - 오픈 가상 어플라이언스 (Open Virtual Appliance)"
 
-#, fuzzy
 msgid "Object"
 msgid_plural "Objects"
-msgstr[0] "Object"
+msgstr[0] "오브젝트"
 
 #, python-format
 msgid "Object %(path)s has copied."
@@ -2043,6 +2106,9 @@ msgstr "Parent Port"
 msgid "Password"
 msgstr "Password"
 
+msgid "Passwords do not match."
+msgstr "비밀번호가 일치하지 않습니다."
+
 msgid "Pending Delete"
 msgstr "Pending Delete"
 
@@ -2130,13 +2196,15 @@ msgstr "Profile"
 msgid "Progress bars"
 msgstr "Progress bars"
 
-#, fuzzy
 msgid "Project"
 msgid_plural "Projects"
 msgstr[0] "프로젝트"
 
 msgid "Project ID"
 msgstr "프로젝트 ID"
+
+msgid "Project Name"
+msgstr "프로젝트 이름"
 
 msgid ""
 "Project networks are created by users.\n"
@@ -2182,10 +2250,35 @@ msgstr "QCOW2"
 msgid "QCOW2 - QEMU Emulator"
 msgstr "QCOW2 - QEMU 에뮬레이터 (Emulator)"
 
-#, fuzzy
 msgid "QoS Policy"
 msgid_plural "QoS Policies"
 msgstr[0] "QoS 정책"
+
+#, python-format
+msgid "QoS Policy %s was successfully created."
+msgstr "QoS 정책 %s 을(를) 성공적으로 생성하였습니다."
+
+msgid "QoS Policy ID"
+msgstr "QoS 정책 ID"
+
+msgid "QoS Policy Id"
+msgstr "QoS 정책 ID"
+
+msgid "QoS Policy Name"
+msgstr "QoS 정책 이름"
+
+msgid "QoSPolicyId"
+msgstr "QoSPolicyId"
+
+msgid "QoSPolicyName"
+msgstr "QoSPolicyName"
+
+msgid "Qos Policy  Rule  was successfully deleted."
+msgstr "QoS 정책 규칙을 성공적으로 삭제하였습니다."
+
+#, python-format
+msgid "Qos Policy Rule %s was successfully updated."
+msgstr "QoS 정책 규칙 %s을(를) 성공적으로 업데이트하였습니다."
 
 msgid "Queued"
 msgstr "Queued"
@@ -2229,7 +2322,6 @@ msgstr "리버전 숫자"
 msgid "Right"
 msgstr "Right"
 
-#, fuzzy
 msgid "Role"
 msgid_plural "Roles"
 msgstr[0] "역할"
@@ -2247,8 +2339,20 @@ msgstr "역할을 성공적으로 업데이트 하였습니다."
 msgid "Root Disk"
 msgstr "Root 디스크"
 
+msgid "Rule"
+msgstr "규칙"
+
 msgid "Rule ID"
 msgstr "규칙 ID"
+
+msgid "Rule Type"
+msgstr "규칙 유형"
+
+msgid "Rule to edit"
+msgstr "편집할 규칙"
+
+msgid "RuleId"
+msgstr "RuleId"
 
 msgid "Rules"
 msgstr "규칙"
@@ -2294,7 +2398,6 @@ msgstr "섹션과 필드 세트"
 msgid "Security"
 msgstr "보안"
 
-#, fuzzy
 msgid "Security Group"
 msgid_plural "Security Groups"
 msgstr[0] "보안 그룹"
@@ -2347,6 +2450,9 @@ msgstr "Select Title"
 msgid "Select a container to browse."
 msgstr "보여줄 컨테이너를 선택합니다."
 
+msgid "Select a flavor from the available flavors below."
+msgstr "아래에서 사용 가능한 Flavor를 선택합니다."
+
 msgid "Select a key pair from the available key pairs below."
 msgstr "아래에서 사용 가능한 키 페어 중 하나를 선택합니다."
 
@@ -2382,6 +2488,12 @@ msgstr "하나 선택"
 
 msgid "Select one or more"
 msgstr "하나 이상 선택"
+
+msgid "Select one or more networks from the available networks below."
+msgstr "아래 사용 가능한 네트워크에서 하나 이상의 네트워크를 선택합니다."
+
+msgid "Select one or more ports from the available ports below."
+msgstr "아래 사용 가능한 포트에서 하나 이상의 포트를 선택합니다."
 
 msgid "Select one or more security groups from the available groups below."
 msgstr "아래 사용가능한 그룹에서 하나 이상의 보안 그룹을 선택합니다."
@@ -2421,7 +2533,6 @@ msgstr "초대장 보내기"
 msgid "Separated link"
 msgstr "Separated link"
 
-#, fuzzy
 msgid "Server Group"
 msgid_plural "Server Groups"
 msgstr[0] "서버 그룹"
@@ -2457,6 +2568,9 @@ msgstr ""
 #, python-format
 msgid "Service type is not enabled: %(desiredType)s"
 msgstr "서비스 타입을 활성화하지 못했습니다: %(desiredType)s"
+
+msgid "Set admin password"
+msgstr "관리자 비밀번호 설정"
 
 #, python-format
 msgid "Setting is not enabled: %(setting)s"
@@ -2535,6 +2649,9 @@ msgstr "상태"
 msgid "Status: %s"
 msgstr "상태: %s"
 
+msgid "Storage Policy"
+msgstr "스토리지 정책"
+
 msgid "Striped"
 msgstr "Striped"
 
@@ -2569,15 +2686,13 @@ msgstr "세부사항 뷰를 지원합니다:"
 msgid "Swap Disk"
 msgstr "스왑 디스크"
 
-#, fuzzy
 msgid "Swift Account"
 msgid_plural "Swift Accounts"
-msgstr[0] "Swift Account"
+msgstr[0] "Swift 계정"
 
-#, fuzzy
 msgid "Swift Container"
 msgid_plural "Swift Containers"
-msgstr[0] "Swift Container"
+msgstr[0] "Swift 컨테이너"
 
 msgid "Tab Array"
 msgstr "탭 배열"
@@ -2671,6 +2786,19 @@ msgstr ""
 "다."
 
 msgid ""
+"The maximum KBPS (kilobits per second) value.\n"
+"    If you specify this value, must be greater than 0 otherwise max_kbps "
+"will have no value.\n"
+"    \n"
+"        The maximum burst size (in kilobits). Default is 0."
+msgstr ""
+"최대 KBPS (초당 킬로비트) 값입니다.\n"
+"    이 값을 지정하는 경우에는, 0보다 큰 값이어야 하며 그렇지 않으며 max_kbps "
+"에는 값이 지정되지 않을 것입니다.\n"
+"    \n"
+"        최대 burst 크기 (킬로비트)로, 디폴트는 0입니다."
+
+msgid ""
 "The maximum number of key-value pairs that can be supplied per instance is "
 "determined by the compute provider."
 msgstr ""
@@ -2678,11 +2806,22 @@ msgstr ""
 "니다."
 
 msgid ""
+"The minimum KBPS (kilobits per second) value which should be available for "
+"port."
+msgstr "최소 KBPS (초당 킬로비트) 값으로 포트에 대해 사용 가능해야 합니다."
+
+msgid ""
 "The minimum disk size required to boot the image. If unspecified, this value "
 "defaults to 0 (no minimum)."
 msgstr ""
 "이미지를 부팅하기 위한 최소 디스크 크기입니다. 지정하지 않는 경우 기본값은 0"
 "입니다(최소값 없음)."
+
+msgid ""
+"The minimum kpps (kilo(1000) packets per second) value which should be "
+"available for port."
+msgstr ""
+"최소 kpps (초당 킬로(1000) 패킷 수) 값으로 포트에 대해 사용 가능해야 합니다."
 
 msgid ""
 "The minimum memory size required to boot the image. If unspecified, this "
@@ -2791,6 +2930,12 @@ msgid ""
 msgstr ""
 "허용된 부트 소스가 없습니다.\n"
 "      만약 문제가 있다고 생각된다면 관리자에게 문의해주시기 바랍니다."
+
+msgid "There are no rules to delete."
+msgstr "삭제할 규칙이 없습니다."
+
+msgid "There are no rules to modify."
+msgstr "수정할 규칙이 없습니다."
 
 msgid ""
 "There are two ways to generate a key pair. From a Linux system,\n"
@@ -2916,7 +3061,6 @@ msgstr "총합 볼륨 스토리지"
 msgid "Total Volumes"
 msgstr "총합 볼륨"
 
-#, fuzzy
 msgid "Trunk"
 msgid_plural "Trunks"
 msgstr[0] "Trunk"
@@ -2947,6 +3091,18 @@ msgstr "Typography"
 msgid "URL"
 msgstr "URL"
 
+msgid "Unable to add the bandwidthrule ."
+msgstr "bandwidthrule을 생성할 수 없습니다."
+
+msgid "Unable to add the dscp_marking_rule ."
+msgstr "dscp_marking_rule을 생성할 수 없습니다."
+
+msgid "Unable to add the minimum_bandwidth_rule ."
+msgstr "minimum_bandwidth_rule을 생성할 수 없습니다."
+
+msgid "Unable to add the minimum_packet_rate_rule."
+msgstr "minimum_packet_rate_rule을 생성할 수 없습니다."
+
 msgid "Unable to allocate new floating IP address."
 msgstr "새로운 floating IP 주소를 할당할 수 없습니다."
 
@@ -2961,6 +3117,9 @@ msgstr "Nova 서비스 기능을 확인할 수 없습니다."
 
 msgid "Unable to copy the object."
 msgstr "오브젝트를 복사 할 수 없습니다."
+
+msgid "Unable to create the QoS Policy."
+msgstr "QoS 정책을 생성할 수 없습니다."
 
 msgid "Unable to create the container."
 msgstr "컨테이너를 생성할 수 없습니다."
@@ -3067,6 +3226,9 @@ msgstr[0] "정책을 삭제할 수 없습니다: %s"
 msgid "Unable to delete qos policy %(id)s"
 msgstr "%(id)s의 qos 정책을 삭제할 수 없습니다."
 
+msgid "Unable to delete the bandwidth_limit_rule."
+msgstr "bandwidth_limit_rule을 삭제할 수 없습니다."
+
 msgid "Unable to delete the container."
 msgstr "컨테이너를 삭제할 수 없습니다."
 
@@ -3075,6 +3237,9 @@ msgstr "도메인을 삭제하지 못했습니다."
 
 msgid "Unable to delete the domains."
 msgstr "도메인을 삭제하지 못했습니다."
+
+msgid "Unable to delete the dscp_marking_rule."
+msgstr "dscp_marking_rule을 삭제할 수 없습니다."
 
 #, python-format
 msgid "Unable to delete the flavor with id: %(id)s"
@@ -3096,6 +3261,12 @@ msgstr "ID가 %(id)s인 이미지를 삭제할 수 없습니다"
 #, python-format
 msgid "Unable to delete the keypair with name: %(name)s"
 msgstr "키 페어 이름: %(name)s 를 삭제할 수 없습니다"
+
+msgid "Unable to delete the minimum_bandwidth_rule ."
+msgstr "minimum_bandwidth_rule을 삭제할 수 없습니다."
+
+msgid "Unable to delete the minimum_packet_rate_rule ."
+msgstr "minimum_packet_rate_rule을 삭제할 수 없습니다."
 
 msgid "Unable to delete the object."
 msgstr "오브젝트를 삭제 할 수 없습니다."
@@ -3440,11 +3611,23 @@ msgstr "메타데이터를 업데이트할 수 없습니다."
 msgid "Unable to update project quota data."
 msgstr "프로젝트 쿼터(quota) 데이터를 업데이트할 수 없습니다."
 
+msgid "Unable to update the bandwidthrule."
+msgstr "bandwidthrule를 업데이트할 수 없습니다."
+
+msgid "Unable to update the dscp marking rule."
+msgstr "dscp marking 규칙을 업데이트할 수 없습니다."
+
 msgid "Unable to update the flavor."
 msgstr "Flavor 업데이트를 할 수 없습니다."
 
 msgid "Unable to update the image."
 msgstr "이미지를 업데이트하지 못했습니다."
+
+msgid "Unable to update the minimum bandwidth rule."
+msgstr "최소 대역폭 규칙을 업데이트할 수 없습니다."
+
+msgid "Unable to update the minimum packet rate rule."
+msgstr "최소 패킷 비율 규칙을 업데이트할 수 없습니다."
 
 msgid "Unable to update the trunk."
 msgstr "트렁크를 업데이트할 수 없습니다."
@@ -3541,7 +3724,6 @@ msgstr ""
 "상 JSON입니다. 참고: 섹션과 필드 세트와 같은 데이터 모델이 없는 항목에는 스키"
 "마 요소가 필요하지 않습니다."
 
-#, fuzzy
 msgid "User"
 msgid_plural "Users"
 msgstr[0] "사용자"
@@ -3598,6 +3780,18 @@ msgstr "VMDK - 가상 머신 디스크 (Virtual Machine Disk)"
 msgid "VNIC type"
 msgstr "VNIC 타입"
 
+msgid ""
+"Valid DSCP mark values are even numbers between 0 and 56,\n"
+"    except 2-6, 42, 44, and 50-54. The full list of valid DSCP marks is:\n"
+"    0, 8, 10, 12, 14, 16, 18, 20, 22, 24, 26, 28, 30, 32, 34, 36, 38, 40, "
+"46, 48, 56."
+msgstr ""
+"유효한 DSCP mark 값은 2-6, 42, 44, 50-54를 제외한\n"
+"    0에서 56사이 짝수값입니다. 유효한 DSCP mark 전체 목록은 다음과 같습니"
+"다:\n"
+"    0, 8, 10, 12, 14, 16, 18, 20, 22, 24, 26, 28, 30, 32, 34, 36, 38, 40, "
+"46, 48, 56."
+
 msgid "View As Modal"
 msgstr "모달로 보기"
 
@@ -3625,12 +3819,10 @@ msgstr "가상 인스턴스는 인터페이스를 포트에 연결합니다."
 msgid "Visibility"
 msgstr "가시성"
 
-#, fuzzy
 msgid "Volume"
 msgid_plural "Volumes"
 msgstr[0] "볼륨"
 
-#, fuzzy
 msgid "Volume Backup"
 msgid_plural "Volume Backups"
 msgstr[0] "볼륨 백업"
@@ -3644,7 +3836,6 @@ msgstr "볼륨 할당량"
 msgid "Volume Size (GB)"
 msgstr "볼륨 크기 (GB)"
 
-#, fuzzy
 msgid "Volume Snapshot"
 msgid_plural "Volume Snapshots"
 msgstr[0] "볼륨 스냅샷"
@@ -3848,8 +4039,17 @@ msgstr[0] "\"%s\"를 선택했습니다. 삭제된 사용자는 복구할 수 �
 msgid "Your Form as JavaScript"
 msgstr "자바 스크립트로 양식 작성"
 
+msgid "any"
+msgstr "any"
+
+msgid "egress"
+msgstr "egress"
+
 msgid "image"
 msgstr "image"
+
+msgid "ingress"
+msgstr "ingress"
 
 msgid "inherit"
 msgstr "상속"

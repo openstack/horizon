@@ -1,0 +1,138 @@
+# Temuri Doghonadze <temuri.doghonadze@gmail.com>, 2022. #zanata
+# Temuri Doghonadze <temuri.doghonadze@gmail.com>, 2023. #zanata
+msgid ""
+msgstr ""
+"Project-Id-Version: horizon VERSION\n"
+"Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
+"POT-Creation-Date: 2023-09-26 12:50+0000\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"PO-Revision-Date: 2023-09-02 10:32+0000\n"
+"Last-Translator: Copied by Zanata <copied-by-zanata@zanata.org>\n"
+"Language-Team: Georgian (Georgia)\n"
+"Language: ka_GE\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Zanata 4.3.3\n"
+
+msgid "An error occurred authenticating. Please try again later."
+msgstr "ავთენტიკაციის შეცდომა. მოგვიანებით სცადეთ."
+
+msgid "Authenticate using"
+msgstr "ავთენტიკაციის მეთოდი"
+
+msgid "Authentication via TOTP is required."
+msgstr "აუცილებელია TOTP-ით ავთენტიკაცია."
+
+msgid "Confirm password"
+msgstr "პაროლის დადასტურება"
+
+msgid "Cookies may be turned off. Make sure cookies are enabled and try again."
+msgstr ""
+"შეიძლება, ქუქიები გამორთული გაქვთ. დარწმუნდით, რომ ქუქიები ჩართეთ და სცადეთ "
+"თავიან."
+
+msgid "Could not find service provider ID on keystone."
+msgstr "Keysone-ზე სერვისის მომწოდებლის ID ვერ ვიპოვე."
+
+msgid "Default Region"
+msgstr "ნაგულისხმევი რეგიონი"
+
+msgid "Domain"
+msgstr "დომენი"
+
+msgid "Identity provider authentication failed."
+msgstr "იდენტიფიკატორის მომწოდებლის ავთენტიკაცია ჩავარდა."
+
+msgid "Invalid credentials."
+msgstr "არასწორი ავტორიზაციის დეტალები."
+
+msgid "K2K Federation not setup for this session"
+msgstr "K2K ფედერაცა ამ სესიისთვის მორგებული არაა"
+
+msgid "New password"
+msgstr "ახალი პაროლი"
+
+msgid ""
+"No authentication backend could be determined to handle the provided "
+"credentials."
+msgstr ""
+"მითითებული შესვლის დეტალების დასამუშავებელი ავთენტიკაციის უკანაბოლოს დადგენა "
+"შეუძლებელია."
+
+msgid "Old password and new password must be different."
+msgstr "ახალი პაროლი წინასგან უნდა განსხვავდებოდეს."
+
+msgid "Original password"
+msgstr "არსებული პაროლი"
+
+msgid "Passcode"
+msgstr "საკვანძო კოდი"
+
+msgid "Password"
+msgstr "პაროლი"
+
+msgid "Password changed. Please log in to continue."
+msgstr "პაროლი შეიცვალა. გასაგრძელებლად, საჭიროა, შეხვიდეთ."
+
+msgid "Password expired."
+msgstr "პაროლი ვადაგასულია."
+
+msgid "Passwords do not match."
+msgstr "პაროლები არ ემთხვევა."
+
+#, python-format
+msgid "Please consider changing your password, it will expire in %s minutes"
+msgstr ""
+"გაითვალისწინეთ, რომ პაროლი მალე უნდა შეცვალოთ. მისი ვადა %s წუთში ამოიწურება"
+
+#, python-format
+msgid "Project switch failed for user \"%(username)s\"."
+msgstr "პროექტის გადართვა ჩავარდა მომხმარებლისთვის \"%(username)s\"."
+
+msgid "Region"
+msgstr "რაიონი"
+
+#, python-format
+msgid "Service provider authentication failed. %s"
+msgstr "სერვისის მომწოდებლის ავთენტიკაცია ჩავარდა. %s"
+
+#, python-format
+msgid "Switch to Keystone Provider \"%(keystone_provider)s\" successful."
+msgstr ""
+"Keystone-ის მომწოდებელზე \"%(keystone_provider)s\" გადართვა წარმატებულია."
+
+#, python-format
+msgid "Switch to project \"%(project_name)s\" successful."
+msgstr "გადართვა პროექტზე \"%(project_name)s\" წარმატებულია."
+
+msgid "Switch to system scope successful."
+msgstr "სისტემის დიაპაზონზე გადართვა წარმატებულია."
+
+#, python-format
+msgid "System switch failed for user \"%(username)s\"."
+msgstr "სისტემის გადართვა ჩავარდა მომხმარებლისთვის \"%(username)s\"."
+
+msgid "The authentication token issued by the Identity service has expired."
+msgstr "იდენტიფიკაციის სერვისის მიერ გაცემულ ავთენტიკაციის კოდს ვადა გაუვიდა."
+
+msgid "Unable to establish connection to keystone endpoint."
+msgstr "Keystone-ის საბოლოო წერტილთან მიერთება შეუძლებელია."
+
+msgid "Unable to retrieve authorized domains."
+msgstr "ავტორიზებული დომენების მიღება შეუძლებელია."
+
+msgid "Unable to retrieve authorized projects."
+msgstr "ავტორიზებული პროექტების მიღება შეუძლებელია."
+
+msgid "Unable to update the user password."
+msgstr "მომხმარებლის პაროლის განახლება შეუძლებელია."
+
+msgid "User Name"
+msgstr "მომხმარებლის სახელი"
+
+msgid "You are not authorized for any projects or domains."
+msgstr "პროექტებზე და დომენებზე ავტორიზაცია არ გაგაჩნიათ."
+
+msgid "Your password has expired. Please set a new password."
+msgstr "თქვენს პაროლს ვადა გაუვიდა. დააყენეთ ახალი პაროლი."

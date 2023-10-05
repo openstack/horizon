@@ -1,0 +1,431 @@
+# OpenStack Infra <zanata@openstack.org>, 2015. #zanata
+# Temuri Doghonadze <temuri.doghonadze@gmail.com>, 2022. #zanata
+# Temuri Doghonadze <temuri.doghonadze@gmail.com>, 2023. #zanata
+msgid ""
+msgstr ""
+"Project-Id-Version: horizon VERSION\n"
+"Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
+"POT-Creation-Date: 2023-09-26 12:50+0000\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"PO-Revision-Date: 2023-09-02 10:26+0000\n"
+"Last-Translator: Copied by Zanata <copied-by-zanata@zanata.org>\n"
+"Language-Team: Georgian (Georgia)\n"
+"Language: ka_GE\n"
+"X-Generator: Zanata 4.3.3\n"
+"Plural-Forms: nplurals=1; plural=0\n"
+
+#, python-format
+msgid "%(action)s: %(objs)s"
+msgstr "%(action)s: %(objs)s"
+
+#, python-format
+msgid "%(context_name)s:"
+msgstr "%(context_name)s:"
+
+#, python-format
+msgid "%(name)s: %(error)s"
+msgstr "%(name)s: %(error)s"
+
+#, python-format
+msgid "%(size)d B"
+msgid_plural "%(size)d B"
+msgstr[0] "%(size)d ბ"
+
+#, python-format
+msgid "%(usedphrase)s %(used)s (No Limit)"
+msgstr "%(usedphrase)s %(used)s (საზღვრის გარეშე)"
+
+#, python-format
+msgid "%(usedphrase)s %(used)s of %(available)s"
+msgstr "%(usedphrase)s %(used)s %(available)s-დან"
+
+#, python-format
+msgid "%s EB"
+msgstr "%s ებ"
+
+#, python-format
+msgid "%s GB"
+msgstr "%s გბ"
+
+#, python-format
+msgid "%s KB"
+msgstr "%s კბ"
+
+#, python-format
+msgid "%s MB"
+msgstr "%s მბ"
+
+#, python-format
+msgid "%s PB"
+msgstr "%s პბ"
+
+#, python-format
+msgid "%s TB"
+msgstr "%s ტბ"
+
+#, python-format
+msgid "%s YB"
+msgstr "%s იბ"
+
+#, python-format
+msgid "%s ZB"
+msgstr "%s ზბ"
+
+#, python-format
+msgid "%s completed successfully."
+msgstr "%s წარმატებით დასრულდა."
+
+#, python-format
+msgid "%s did not complete."
+msgstr "%s არ დასრულდა."
+
+msgid "&laquo;&laquo;&nbsp;First"
+msgstr "&laquo;&laquo;&nbsp;პირველი"
+
+msgid "&laquo;&nbsp;Prev"
+msgstr "&laquo;&nbsp;წინა"
+
+msgid "&laquo;&nbsp;Prev&nbsp;"
+msgstr "&laquo;&nbsp;Prev&nbsp;"
+
+msgid "(No Limit)"
+msgstr "(უსაზღვრო)"
+
+msgid "-"
+msgstr "-"
+
+msgid "0 B"
+msgstr "0 ბ"
+
+#, python-format
+msgid "A %(resource)s with the name \"%(name)s\" already exists."
+msgstr "%(resource)s სახელით \"%(name)s\" უკვე არსებობს."
+
+msgid "Actions"
+msgstr "მოქმედებები"
+
+msgid "Active Instances:"
+msgstr "აქტიური გაშვებული ასლები:"
+
+msgid "Active RAM:"
+msgstr "აქტიური RAM:"
+
+msgid "Add a row"
+msgstr "მწკრივის დამატება"
+
+msgid "All available"
+msgstr "ყველა ხელმისაწვდომი"
+
+msgid "Available"
+msgstr "ხელმისაწვდომი"
+
+msgid "Back"
+msgstr "უკან"
+
+#. Translators: test code, don't really have to translate
+msgid "Batch Item"
+msgid_plural "Batch Items"
+msgstr[0] "ჯგუფური ელემენტი"
+
+#. Translators: test code, don't really have to translate
+msgid "Batched Item"
+msgid_plural "Batched Items"
+msgstr[0] "დაჯგუფებული ელემენტი"
+
+msgid "Cancel"
+msgstr "გაუქმება"
+
+msgid "Change"
+msgstr "შეცვლა"
+
+msgid "Change Password"
+msgstr "პაროლის შეცვლა"
+
+msgid "Change password"
+msgstr "პაროლის შეცვლა"
+
+#, python-format
+msgid "Displaying %(content_items)s item"
+msgid_plural "Displaying %(content_items)s items"
+msgstr[0] "ნაჩვენებია %(content_items)s ელემენტი"
+
+#, python-format
+msgid "Displaying %(counter)s item"
+msgid_plural "Displaying %(counter)s items"
+msgstr[0] "ნაჩვენებია %(counter)s ჩანაწერი"
+
+#, python-format
+msgid "Displaying %(nav_items)s item"
+msgid_plural "Displaying %(nav_items)s items"
+msgstr[0] "ნაჩვენებია %(nav_items)s ელემენტი"
+
+#. Translators: test code, don't really have to translate
+msgid "Down Item"
+msgid_plural "Down Items"
+msgstr[0] "ელემენტის ჩამოწევა"
+
+#. Translators: test code, don't really have to translate
+msgid "Downed Item"
+msgid_plural "Downed Items"
+msgstr[0] "ჩამოწეული ელემენტი"
+
+#, python-format
+msgid "Error processing message json file '%(path)s': %(exception)s"
+msgstr "JSON ფაილის ('%(path)s') დამუშავების შეცდომა: %(exception)s"
+
+msgid "Error: "
+msgstr "შეცდომა: "
+
+msgid "Fake"
+msgstr "ცრუ"
+
+msgid "Filter"
+msgstr "ფილტრი"
+
+msgid "Horizon"
+msgstr "Horizon"
+
+msgid ""
+"If you are not sure which authentication method to use, contact your "
+"administrator."
+msgstr ""
+"თუ დარწმუნებული არ ბრძანდებით, რომელი ავთენტიკაციის მეთოდი გამოიყენოთ, თქვეს "
+"სისტემურ ადმინისტრატორს დაუკავშირდით."
+
+msgid "Incorrect format for IP address"
+msgstr "IP მისამართის არასწორი ფორმატი"
+
+msgid "Infinity"
+msgstr "უსასრულობა"
+
+msgid "Info: "
+msgstr "ინფო: "
+
+msgid "Invalid MAC Address format"
+msgstr "MAC მისამართის არასწორი ფორმატი"
+
+msgid "Invalid metadata entry. Use comma-separated key=value pairs"
+msgstr ""
+"არასწორი მეტამონაცემების ჩანაწერი. გამოიყენეთ მძიმით გამოყოფილი წყვილები "
+"გასაღები=მნიშვნელობა"
+
+#, python-format
+msgid "Invalid service catalog: %s"
+msgstr "სერვისის არასწორი კატალოგი: %s"
+
+msgid "Invalid subnet mask"
+msgstr "ქვექსელის არასწორი ნიღაბი"
+
+msgid "Invalid version for IP address"
+msgstr "IP მისამართის არასწორი ვერსია"
+
+msgid "Keystone Providers:"
+msgstr "Keystone-ის მომწოდებლები:"
+
+msgid "Last&nbsp;&raquo;&raquo;"
+msgstr "Last&nbsp;&raquo;&raquo;"
+
+msgid "Limit Summary"
+msgstr "შეჯამების შეზღუდვა"
+
+msgid "Log in"
+msgstr "შესვლა"
+
+msgid "Login"
+msgstr "შესვლა"
+
+#, python-format
+msgid ""
+"Login as different user or go back to <a href=\"%(home_url)s\">home page</a>"
+msgstr ""
+"შედით სხვა მომხმარებლით ან <a href=\"%(home_url)s\">საწყის გვერდზე</a> "
+"გადადით"
+
+msgid "Members"
+msgstr "წევრები"
+
+#, python-format
+msgid "Message json file '%(path)s' is malformed. %(exception)s"
+msgstr "შეტყობინების json ფაილი '%(path)s' გაფუჭებულია. %(exception)s"
+
+msgid "More Actions"
+msgstr "მეტი ქმედება"
+
+msgid "Navigation Item"
+msgstr "ნავიგაციის ელემენტი"
+
+msgid "Never"
+msgstr "არასდროს"
+
+msgid "Next"
+msgstr "შემდეგი"
+
+msgid "Next&nbsp;&raquo;"
+msgstr "Next&nbsp;&raquo;"
+
+msgid "No items to display."
+msgstr "საჩვენებელი ელემენტები არაა."
+
+#, python-format
+msgid "No match returned for the id \"%s\"."
+msgstr "ID \"%s\"-სთვის მნიშვნელობა არ დაბრუნებულა."
+
+msgid "No members."
+msgstr "წევრები არ არის."
+
+msgid "None available."
+msgstr "ხელმისაწვდომი არაფერია."
+
+msgid "Not a valid ICMP code"
+msgstr "არასწორი ICMP კოდი"
+
+msgid "Not a valid ICMP type"
+msgstr "არასწორი ICMP ტიპი"
+
+msgid "Not a valid IP protocol number"
+msgstr "IP ოქმის არასწორი ნომერი"
+
+msgid "Not a valid port number"
+msgstr "პორტის არასწორ ნომერი"
+
+msgid "One colon allowed in port range"
+msgstr "პორტის დიაპაზონში მხოლოდ ერთი სვეტია დაშვებული"
+
+msgid "Other"
+msgstr "სხვა"
+
+msgid "Password is not accepted"
+msgstr "პაროლი მიუღებელია"
+
+msgid "Please confirm your selection."
+msgstr "დაადასტურეთ მონიშნული."
+
+msgid "Please log in to continue."
+msgstr "სესიის გასაგრძელებლად უნდა შეხვიდეთ სისტემაში."
+
+msgid "Please select a row before taking that action."
+msgstr "ქმედების გაშვებამდე აირჩიეთ მწკრივი."
+
+msgid "Please specify a search criteria first."
+msgstr "ჯერ შეიყვანეთ ძებნის პირობა."
+
+msgid "Processing..."
+msgstr "დამუშავება..."
+
+msgid "Save"
+msgstr "შენახვა"
+
+#, python-format
+msgid "Select a %s to browse."
+msgstr "აირჩიეთ %s სანახავად."
+
+msgid "Select a period of time to query its usage:"
+msgstr "აირჩიეთ დროის პერიოდი მისი გამოყენების გამოსათხოვად:"
+
+#. Translators: test code, don't really have to translate
+msgid "Sell Puppy"
+msgid_plural "Sell Puppies"
+msgstr[0] "ლეკვის გაყიდვა"
+
+msgid "Sign In"
+msgstr "შესვლა"
+
+#. Translators: test code, don't really have to translate
+msgid "Sold Puppy"
+msgid_plural "Sold Puppies"
+msgstr[0] "გაყიდული ლეკვი"
+
+msgid "Submit"
+msgstr "გადაცემა"
+
+msgid "Success: "
+msgstr "წარმატება: "
+
+msgid "Summary"
+msgstr "ჯამი"
+
+msgid "TOTP authentification"
+msgstr "TOTP ავთენტიკაცია"
+
+msgid ""
+"The current user has insufficient permission to complete the requested task."
+msgstr ""
+"მიმდინარე მომხმარებელს მოთხოვნილი ამოცანის შესასრულებლად საკმარისი წვდომები "
+"არ გააჩნია."
+
+msgid "The date should be in YYYY-MM-DD format."
+msgstr "თარიღი წწწწ-თთ-დდ ფორმატში უნდა იყოს."
+
+msgid "The string may only contain ASCII printable characters."
+msgstr "სტრიქონი მხოლოდ გამოტანად სიმბოლოებს შეიძლება, შეიცავდეს."
+
+#, python-format
+msgid ""
+"The value of %(resource)s is %(name)s inside the template. When launching a "
+"stack from this interface, the value must start with \"http://\" or "
+"\"https://\""
+msgstr ""
+"შაბლონის შიგნით %(resource)s-ის მნიშვნელობა  %(name)s-ა. სტეკის ამ "
+"ინტერფეისიდან გაშვებისას მნიშვნელობა უნდა იწყებოდეს \"http://\" ან \"https://"
+"\"-ით."
+
+msgid "This Period's GB-Hours:"
+msgstr "ამ პერიოდის გბ-საათები:"
+
+msgid "This Period's RAM-Hours:"
+msgstr "ამ პერიოდის RAM-საათები:"
+
+msgid "This Period's VCPU-Hours:"
+msgstr "ამ პერიოდის VCPU-საათები:"
+
+msgid "This action cannot be undone."
+msgstr "ქმედების დაბრუნება შეუძლებელია."
+
+#, python-format
+msgid "Unable to %(action)s: %(objs)s"
+msgstr "%(objs)s-ზე %(action)s შეუძლებელია"
+
+msgid "Unauthorized. Please try logging in again."
+msgstr "ავტორიზაციის გარეშე. კიდევ სცადეთ."
+
+#, python-format
+msgid "Unauthorized: %s"
+msgstr "ავტორიზაციის გარეშე: %s"
+
+#. Translators: test code, don't really have to translate
+msgid "Up Item"
+msgid_plural "Up Items"
+msgstr[0] "ელემენტის ატანა"
+
+#. Translators: test code, don't really have to translate
+msgid "Upped Item"
+msgid_plural "Upped Items"
+msgstr[0] "აწეული ელემენტი"
+
+msgid "Usage Summary"
+msgstr "მოხმარების ჯამი"
+
+msgid "Warning: "
+msgstr "გაფრთხილება: "
+
+#, python-format
+msgid "You are not allowed to %(action)s: %(objs)s"
+msgstr "%(objs)s-ზე %(action)s -ის უფლება არ გაქვთ"
+
+#, python-format
+msgid "You are not authorized to access %s"
+msgstr "არ გაქვთ %s-სთან წვდომის ავტორიზაცია"
+
+msgid "You are not authorized to access this page"
+msgstr "ამ გვერდთან წვდომა არ გაგაჩნიათ"
+
+msgid "You do not have permission to access the resource:"
+msgstr "რესურსზე წვდომის უფლება არ გაგაჩნიათ:"
+
+msgid "You have selected: [[selection]]. "
+msgstr "მონიშნულია: [[selection]]. "
+
+msgid "to"
+msgstr "ვის"

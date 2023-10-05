@@ -2,15 +2,16 @@
 # Ian Y. Choi <ianyrchoi@gmail.com>, 2018. #zanata
 # Soonyeul Park <ardentpark@gmail.com>, 2018. #zanata
 # Ian Y. Choi <ianyrchoi@gmail.com>, 2019. #zanata
+# Ian Y. Choi <ianyrchoi@gmail.com>, 2023. #zanata
 msgid ""
 msgstr ""
 "Project-Id-Version: horizon VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2019-10-10 07:50+0000\n"
+"POT-Creation-Date: 2023-09-26 12:50+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2019-10-07 01:54+0000\n"
+"PO-Revision-Date: 2023-09-02 01:56+0000\n"
 "Last-Translator: Ian Y. Choi <ianyrchoi@gmail.com>\n"
 "Language-Team: Korean (South Korea)\n"
 "Language: ko_KR\n"
@@ -23,8 +24,16 @@ msgstr "인증 도중 오류가 발생했습니다. 잠시 후 다시 시도하�
 msgid "Authenticate using"
 msgstr "인증 사용"
 
+msgid "Authentication via TOTP is required."
+msgstr "TOTP를 통한 인증이 필수입니다."
+
 msgid "Confirm password"
 msgstr "비밀번호 확인"
+
+msgid "Cookies may be turned off. Make sure cookies are enabled and try again."
+msgstr ""
+"쿠키가 비활성화되었을 수 있습니다. 쿠키가 활성화되었는지 확인하고 다시 시도합"
+"니다."
 
 msgid "Could not find service provider ID on keystone."
 msgstr "keystone 에서 서비스 프로바이더 ID 를 찾지 못하였습니다."
@@ -57,6 +66,9 @@ msgstr "기존 비밀번호와 변경 비밀번호는 반드시 달라야 합니
 
 msgid "Original password"
 msgstr "기존 비밀번호"
+
+msgid "Passcode"
+msgstr "비밀번호"
 
 msgid "Password"
 msgstr "비밀번호"
@@ -92,6 +104,13 @@ msgstr "Keystone 프로바이더 \"%(keystone_provider)s\" 로 변경하였습�
 #, python-format
 msgid "Switch to project \"%(project_name)s\" successful."
 msgstr "프로젝트 \"%(project_name)s\" 로 전환에 성공하였습니다."
+
+msgid "Switch to system scope successful."
+msgstr "시스템 영역 전환에 성공했습니다."
+
+#, python-format
+msgid "System switch failed for user \"%(username)s\"."
+msgstr "사용자 \"%(username)s\" 에 대한 시스템 전환에 실패했습니다."
 
 msgid "The authentication token issued by the Identity service has expired."
 msgstr "Identity 서비스에서 발급한 인증 토큰이 만료되었습니다."

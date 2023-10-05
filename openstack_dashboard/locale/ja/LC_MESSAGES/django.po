@@ -16,11 +16,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: horizon VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2023-05-04 11:51+0000\n"
+"POT-Creation-Date: 2023-09-26 12:50+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2023-02-04 03:11+0000\n"
+"PO-Revision-Date: 2023-09-24 07:08+0000\n"
 "Last-Translator: Akihiro Motoki <amotoki@gmail.com>\n"
 "Language-Team: Japanese\n"
 "Language: ja\n"
@@ -311,6 +311,13 @@ msgstr ""
 "スを持ち、ポート毎に異なるセキュリティーグループが適用されている場合は、代わ"
 "りに「ポートのセキュリティーグループの編集」アクションを使用してください。"
 
+#, python-format
+msgid ""
+"<span class=&quot;word-wrap&quot;>Flavor Details: %(name)s</span>\">%(name)s"
+msgstr ""
+"<span class=&quot;word-wrap&quot;>フレーバーの詳細: %(name)s</span>\">"
+"%(name)s"
+
 msgid "A brief description of the security group rule you are adding"
 msgstr "追加しようとしているセキュリティーグループルールの簡単な説明"
 
@@ -491,6 +498,9 @@ msgid ""
 msgstr ""
 "利用可能なセキュリティーグループのリストからこのインスタンスに、セキュリ"
 "ティーグループを追加したり削除したりできます。"
+
+msgid "Add floating IP port forwarding rule"
+msgstr "Floating IP ポート転送ルールの追加"
 
 msgid ""
 "Add hosts to this aggregate or remove hosts from it. Hosts can be in "
@@ -1180,6 +1190,9 @@ msgstr "コンピュートクォータ"
 
 msgid "Compute Services"
 msgstr "コンピュートサービス"
+
+msgid "Configure floating IP port forwarding rules"
+msgstr "Floating IP 転送ルールの設定"
 
 msgid "Confirm"
 msgstr "確認"
@@ -2009,6 +2022,39 @@ msgstr "説明"
 msgid "Description:"
 msgstr "説明:"
 
+msgid ""
+"Description:IP floating rules define external specific traffic that is bound "
+"from a public IP to an internal address of a specific port.\n"
+"Protocol: The protocol configured for the IP forwarding rule. You can choose "
+"between TCP and UDP.\n"
+"External port: The external port of the floating IP that will be bound to "
+"the internal port in the internal address. This field allow values between 1 "
+"and 65535 and also support ranges using the following format:\n"
+"InitialPort:FinalPort where InitialPort <= FinalPort.\n"
+"Internal port: The internal port of the given internal IP address that will "
+"be bound to the port that is exposed to the internet via the public floating "
+"IP. This field allow values between 1 and 65535 and also support ranges "
+"using the following format:\n"
+"InitialPort:FinalPort where InitialPort <= FinalPort.\n"
+"Internal IP address: The internal IP address where the internal ports will "
+"be running.\n"
+"Description: Describes the reason why this rule is being created."
+msgstr ""
+"説明: Floating IP ルールは、特定の外部トラフィックを外部 IP アドレスからの内"
+"部 IP アドレスの特定のポートに紐付けるように設定します。\n"
+"プロトコル: Floating IP 転送ルールを設定するプロトコル。指定できるのは TCP "
+"か UDP です。\n"
+"外部ポート: 内部アドレスのポートに紐づけされる Floating IP のポート。この"
+"フィールドには 1 以上 65535 以下の値を指定できます。また、 InitialPort:"
+"FinalPort (ただし InitialPort <= FinalPort) の形式で範囲を指定することもでき"
+"ます。\n"
+"内部ポート: Floating IP 経由でインターネットに公開されるポートに紐付けられ"
+"る、指定された内部 IP アドレスのポート。このフィールドには 1 以上 65535 以下"
+"の値を指定できます。また、 InitialPort:FinalPort (ただし InitialPort <= "
+"FinalPort) の形式で範囲を指定することもできます。\n"
+"内部 IP アドレス: 内部ポートが実行されている内部 IP アドレス。\n"
+"説明: このルールの作成理由を記載します。"
+
 msgid "Destination"
 msgstr "宛先"
 
@@ -2399,6 +2445,9 @@ msgstr "ボリューム種別のアクセス権の編集"
 msgid "Edit Volume Type Extra Spec"
 msgstr "ボリューム種別の追加スペックの編集"
 
+msgid "Edit floating IP port forwarding rule"
+msgstr "Floating IP ポート転送ルールの編集"
+
 msgid "Edit the identity provider's details."
 msgstr "認証プロバイダーの詳細を編集します。"
 
@@ -2713,6 +2762,9 @@ msgstr "外部 IP アドレス"
 msgid "External Gateway"
 msgstr "外部ゲートウェイ"
 
+msgid "External IP address"
+msgstr "外部 IP アドレス"
+
 msgid "External Network"
 msgstr "外部ネットワーク"
 
@@ -2723,6 +2775,9 @@ msgid ""
 msgstr ""
 "ルーター \"%(router_id)s\" の外部ネットワーク \"%(ext_net_id)s\" が存在するは"
 "ずですが、見つかりませんでした。"
+
+msgid "External port"
+msgstr "外部ポート"
 
 msgid "Extra Specs"
 msgstr "追加スペック"
@@ -3022,6 +3077,25 @@ msgstr "Floating IP の詳細"
 
 msgid "Floating IP address"
 msgstr "Floating IP アドレス"
+
+#, python-format
+msgid ""
+"Floating IP port forwarding rule %s created. It might take a few minutes to "
+"apply all rules."
+msgstr ""
+"Floating IP ポート転送ルール %s が作成されました。すべてのルールが適用される"
+"まで数分かかるかもしれません。"
+
+#, python-format
+msgid ""
+"Floating IP port forwarding rule %s updated. It might take a few minutes to "
+"apply all rules."
+msgstr ""
+"Floating IP ポート転送ルール %s を更新しました。すべてのルールが適用されるに"
+"は数分かかるかもしれません。"
+
+msgid "Floating IP port forwarding rules"
+msgstr "Floating IP ポート転送ルール"
 
 msgid "Floating IPs"
 msgstr "Floating IP"
@@ -3696,8 +3770,14 @@ msgstr "インターフェースを追加しました"
 msgid "Interfaces"
 msgstr "インターフェース"
 
+msgid "Internal IP address"
+msgstr "内部 IP アドレス"
+
 msgid "Internal Interface"
 msgstr "内部インタフェース"
+
+msgid "Internal port"
+msgstr "内部ポート"
 
 msgid "Internal:"
 msgstr "内部:"
@@ -3845,6 +3925,9 @@ msgstr "注入ファイルのパス長"
 msgid "Limit"
 msgstr "上限値"
 
+msgid "List all floating IP port forwarding rules"
+msgstr "全 Floating IP 転送ルールの表示"
+
 msgid "Live Migrate"
 msgstr "ライブマイグレーション"
 
@@ -3977,6 +4060,12 @@ msgstr "ボリューム種別の管理"
 
 msgid "Manage Volumes"
 msgstr "ボリュームの管理"
+
+msgid "Manage floating IP port forwarding rules"
+msgstr "Floating IP ポート転送ルールの管理"
+
+msgid "Manage floating IP port forwarding rules : "
+msgstr "Floating IP ポート転送ルールの管理 : "
 
 msgid "Manual"
 msgstr "手動"
@@ -5633,6 +5722,9 @@ msgstr "アクションおよびオブジェクトタイプを選択してくだ
 msgid "Select an IP address"
 msgstr "IP アドレスを選択してください"
 
+msgid "Select an IP-Address"
+msgstr "IP アドレスを選択してください"
+
 msgid "Select an instance"
 msgstr "インスタンスを選択してください"
 
@@ -6140,6 +6232,10 @@ msgstr "QoS スペックの使用者を正常に更新しました。"
 msgid "Successfully recreated ec2 credentials."
 msgstr "EC2 認証情報の再作成に成功しました。"
 
+msgid "Successfully redirected"
+msgid_plural "Successfully redirected"
+msgstr[0] "正常にリダイレクトされました"
+
 msgid "Successfully rescued instance"
 msgstr "インスタンスを正常にレスキューしました"
 
@@ -6610,6 +6706,13 @@ msgstr ""
 "くなります。"
 
 msgid ""
+"This action will delete the selected floating IP port forwarding rule(s); "
+"this process cannot be undone."
+msgstr ""
+"この操作を行うと、選択した Floating IP ポート転送ルールが削除されます。この操"
+"作は取り消せません。"
+
+msgid ""
 "This action will unassign all volumes that are currently contained in this "
 "group."
 msgstr ""
@@ -6623,6 +6726,13 @@ msgstr ""
 
 msgid "This field is required."
 msgstr "このフィールドは必須です。"
+
+msgid ""
+"This floating IP has port forwarding rules configured to it. Therefore, you "
+"will need to remove all of these rules before being able to release it."
+msgstr ""
+"この Floating IP にはポート転送ルールが設定されています。そのため、 Floating "
+"IP を解放する前にすべてのポート転送ルールを削除する必要があります。"
 
 msgid ""
 "This generates a pair of keys: a key you keep private (cloud.key) and a "
@@ -6904,6 +7014,10 @@ msgid "Unable to create flavor."
 msgstr "フレーバーを作成できません。"
 
 #, python-format
+msgid "Unable to create floating IP port forwarding rule %s."
+msgstr "Floating IP ポート転送ルール %s を作成できません。"
+
+#, python-format
 msgid "Unable to create group \"%s\" from snapshot."
 msgstr "ボリュームグループ \"%s\" をスナップショットから作成できません"
 
@@ -7094,6 +7208,9 @@ msgstr "スナップショットを取得できません"
 
 msgid "Unable to fetch snapshots"
 msgstr "スナップショットを取得できません"
+
+msgid "Unable to find a floating IP."
+msgstr "Floating IP が見つかりません。"
 
 msgid "Unable to find default role."
 msgstr "デフォルトのロールが見つかりません。"
@@ -7421,6 +7538,9 @@ msgstr "Floating IP の一覧を取得できません。"
 
 msgid "Unable to retrieve floating IP pools."
 msgstr "Floating IP プールを取得できません。"
+
+msgid "Unable to retrieve floating IP port forwarding rules."
+msgstr "Floating IP ポート転送ルールを取得できません。"
 
 msgid "Unable to retrieve group"
 msgstr "ボリュームグループの一覧を取得できません。"
@@ -7954,6 +8074,10 @@ msgstr "ボリュームを更新できません。"
 
 msgid "Unable to update volumes for group"
 msgstr "ボリュームグループのボリュームを更新できません。"
+
+#, python-format
+msgid "Unable to updated floating IP port forwarding rule %s."
+msgstr "Floating IP ポート転送ルール %s を更新できませんでした。"
 
 #, python-format
 msgid "Unable to upload volume to image for volume: \"%s\""
@@ -8771,6 +8895,9 @@ msgid ""
 msgstr ""
 "フレーバーの  ID に使用できるのは、英数字、アンダースコアー、ピリオド、ハイフ"
 "ン、空白文字のみです。 'auto' を指定すると、 ID を自動生成します。"
+
+msgid "floating_ip_id"
+msgstr "Floating IP ID"
 
 msgid "front-end"
 msgstr "フロントエンド"
