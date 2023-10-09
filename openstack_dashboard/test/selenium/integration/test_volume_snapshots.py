@@ -29,6 +29,7 @@ def volume_snapshot_name():
 @pytest.fixture
 def new_volume_snapshot_demo(new_volume_demo, volume_snapshot_name,
                              openstack_demo):
+
     volume_snapshot = openstack_demo.create_volume_snapshot(
         volume_id=new_volume_demo.id,
         name=volume_snapshot_name,
@@ -52,6 +53,7 @@ def test_create_volume_snapshot_demo(login, driver, volume_name,
                                      config, clear_volume_snapshot_demo,
                                      openstack_demo):
 
+    volume_name = volume_name[0]
     login('user')
     volumes_url = '/'.join((
         config.dashboard.dashboard_url,

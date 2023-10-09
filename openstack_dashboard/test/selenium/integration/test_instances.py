@@ -179,6 +179,7 @@ def test_create_instance_from_volume_demo(login, driver, instance_name,
                                           openstack_demo):
     network = config.network.external_network
     flavor = config.launch_instances.flavor
+    volume_name = volume_name[0]
 
     login('user')
     url = '/'.join((
@@ -264,7 +265,7 @@ def test_instance_pagination_demo(login, driver, instance_name,
     """
     items_per_page = 1
     instance_count = 2
-    instance_list = ["{0}-{1}".format(instance_name, item)
+    instance_list = [f"{instance_name}-{item}"
                      for item in range(1, instance_count + 1)]
     first_page_definition = widgets.TableDefinition(next=True, prev=False,
                                                     count=items_per_page,
@@ -383,7 +384,7 @@ def test_instance_pagination_admin(login, driver, instance_name,
     """
     items_per_page = 1
     instance_count = 2
-    instance_list = ["{0}-{1}".format(instance_name, item)
+    instance_list = [f"{instance_name}-{item}"
                      for item in range(1, instance_count + 1)]
     first_page_definition = widgets.TableDefinition(next=True, prev=False,
                                                     count=items_per_page,
