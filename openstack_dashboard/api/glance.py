@@ -37,6 +37,7 @@ from horizon import messages
 from horizon.utils.memoized import memoized
 from openstack_dashboard.api import base
 from openstack_dashboard.contrib.developer.profiler import api as profiler
+from openstack_dashboard.utils import futurist_utils
 from openstack_dashboard.utils import settings as utils
 
 
@@ -685,10 +686,12 @@ def metadefs_namespace_full_list(request, resource_type, filters=None,
     namespaces, has_more_data, has_prev_data = metadefs_namespace_list(
         request, filters, *args, **kwargs
     )
-    return [
-        metadefs_namespace_get(request, x.namespace, resource_type)
-        for x in namespaces
-    ], has_more_data, has_prev_data
+
+    args = ((metadefs_namespace_get, [request, x.namespace, resource_type]) for
+            x in namespaces)
+    result = futurist_utils.call_functions_parallel(*args)
+
+    return list(result), has_more_data, has_prev_data
 
 
 @profiler.trace
