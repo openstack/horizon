@@ -16,42 +16,51 @@ import pytest
 from openstack_dashboard.test.selenium import widgets
 
 
-@pytest.fixture
-def volume_name():
-    return 'horizon_volume_%s' % uuidutils.generate_uuid(dashed=False)
+@pytest.fixture(params=[1])
+def volume_name(request):
+    count = request.param
+    vol_name_list = ['horizon_vol_%s' % uuidutils.generate_uuid(dashed=False)]
+    if count > 1:
+        vol_name_list = [f"{vol_name_list[0]}-{item}"
+                         for item in range(1, count + 1)]
+    return vol_name_list
 
 
 @pytest.fixture
 def new_volume_demo(volume_name, openstack_demo, config):
 
-    volume = openstack_demo.create_volume(
-        name=volume_name,
-        image=config.image.images_list[0],
-        size=1,
-        wait=True,
-    )
+    for vol in volume_name:
+        volume = openstack_demo.create_volume(
+            name=vol,
+            image=config.image.images_list[0],
+            size=1,
+            wait=True,
+        )
     yield volume
-    openstack_demo.delete_volume(volume_name)
+    for vol in volume_name:
+        openstack_demo.delete_volume(vol)
 
 
 @pytest.fixture
 def new_volume_admin(volume_name, openstack_admin, config):
 
-    volume = openstack_admin.create_volume(
-        name=volume_name,
-        image=config.image.images_list[0],
-        size=1,
-        wait=True,
-    )
+    for vol in volume_name:
+        volume = openstack_admin.create_volume(
+            name=vol,
+            image=config.image.images_list[0],
+            size=1,
+            wait=True,
+        )
     yield volume
-    openstack_admin.delete_volume(volume_name)
+    for vol in volume_name:
+        openstack_admin.delete_volume(vol)
 
 
 @pytest.fixture
 def clear_volume_demo(volume_name, openstack_demo):
     yield None
-    openstack_demo. delete_volume(
-        volume_name,
+    openstack_demo.delete_volume(
+        volume_name[0],
         wait=True,
     )
 
@@ -59,15 +68,15 @@ def clear_volume_demo(volume_name, openstack_demo):
 @pytest.fixture
 def clear_volume_admin(volume_name, openstack_admin):
     yield None
-    openstack_admin. delete_volume(
-        volume_name,
+    openstack_admin.delete_volume(
+        volume_name[0],
         wait=True,
     )
 
 
 def test_create_empty_volume_demo(login, driver, volume_name, openstack_demo,
                                   clear_volume_demo, config):
-
+    volume_name = volume_name[0]
     login('user')
     url = '/'.join((
         config.dashboard.dashboard_url,
@@ -88,7 +97,7 @@ def test_create_empty_volume_demo(login, driver, volume_name, openstack_demo,
 def test_create_volume_from_image_demo(login, driver, volume_name, config,
                                        clear_volume_demo, openstack_demo):
     image_source_name = config.launch_instances.image_name
-
+    volume_name = volume_name[0]
     login('user')
     url = '/'.join((
         config.dashboard.dashboard_url,
@@ -112,6 +121,7 @@ def test_create_volume_from_image_demo(login, driver, volume_name, config,
 
 def test_delete_volume_demo(login, driver, volume_name, openstack_demo,
                             new_volume_demo, config):
+    volume_name = volume_name[0]
     login('user')
     url = '/'.join((
         config.dashboard.dashboard_url,
@@ -129,3 +139,134 @@ def test_delete_volume_demo(login, driver, volume_name, openstack_demo,
     messages = widgets.get_and_dismiss_messages(driver)
     assert f"Info: Scheduled deletion of Volume: {volume_name}" in messages
     assert openstack_demo.block_storage.find_volume(volume_name) is None
+
+
+@pytest.mark.parametrize('volume_name', [3], indirect=True)
+def test_volumes_pagination_demo(login, driver, volume_name,
+                                 change_page_size_demo,
+                                 new_volume_demo, config):
+    """This test checks volumes pagination for demo
+
+            Steps:
+            1) Login to Horizon Dashboard as demo user
+            2) create 3 Volumes
+            3) Navigate to user settings page
+            4) Change 'Items Per Page' value to 1
+            5) Go to Project -> Volumes page
+            6) Check that only 'Next' link is available, only one volume is
+            available (and it has correct name) on the first page
+            7) Click 'Next' and check that both 'Prev' and 'Next' links are
+            available, only one volume is available (and it has correct name)
+            8) Click 'Next' and check that only 'Prev' link is available,
+            only one volume is visible (and it has correct name) on page 3
+            9) Click 'Prev' and check result (should be the same as for step7)
+            10) Click 'Prev' and check result (should be the same as for step6)
+            11) Go to user settings page and restore 'Items Per Page'
+            12) Delete created volumes
+            """
+    items_per_page = 1
+    first_page_definition = widgets.TableDefinition(next=True, prev=False,
+                                                    count=items_per_page,
+                                                    names=[volume_name[2]])
+    second_page_definition = widgets.TableDefinition(next=True, prev=True,
+                                                     count=items_per_page,
+                                                     names=[volume_name[1]])
+    third_page_definition = widgets.TableDefinition(next=False, prev=True,
+                                                    count=items_per_page,
+                                                    names=[volume_name[0]])
+    url = '/'.join((
+        config.dashboard.dashboard_url,
+        'project',
+        'volumes'
+    ))
+    driver.get(url)
+    actual_page1_definition = widgets.get_table_definition(driver,
+                                                           sorting=True)
+    assert first_page_definition == actual_page1_definition
+    # Turning to next page(page2)
+    driver.find_element_by_link_text("Next »").click()
+    actual_page2_definition = widgets.get_table_definition(driver,
+                                                           sorting=True)
+    assert second_page_definition == actual_page2_definition
+    # Turning to next page(page3)
+    driver.find_element_by_link_text("Next »").click()
+    actual_page3_definition = widgets.get_table_definition(driver,
+                                                           sorting=True)
+    assert third_page_definition == actual_page3_definition
+    # Turning back to previous page(page2)
+    driver.find_element_by_link_text("« Prev").click()
+    actual_page2_definition = widgets.get_table_definition(driver,
+                                                           sorting=True)
+    assert second_page_definition == actual_page2_definition
+    # Turning back to previous page(page1)
+    driver.find_element_by_link_text("« Prev").click()
+    actual_page1_definition = widgets.get_table_definition(driver,
+                                                           sorting=True)
+    assert first_page_definition == actual_page1_definition
+
+
+# Admin tests
+
+
+@pytest.mark.parametrize('volume_name', [3], indirect=True)
+def test_volumes_pagination_admin(login, driver, volume_name,
+                                  change_page_size_admin,
+                                  new_volume_admin, config):
+    """This test checks volumes pagination for demo
+
+            Steps:
+            1) Login to Horizon Dashboard as admin user
+            2) create 3 Volumes
+            3) Navigate to user settings page
+            4) Change 'Items Per Page' value to 1
+            5) Go to Project -> Volumes page
+            6) Check that only 'Next' link is available, only one volume is
+            available (and it has correct name) on the first page
+            7) Click 'Next' and check that both 'Prev' and 'Next' links are
+            available, only one volume is available (and it has correct name)
+            8) Click 'Next' and check that only 'Prev' link is available,
+            only one volume is visible (and it has correct name) on page 3
+            9) Click 'Prev' and check result (should be the same as for step7)
+            10) Click 'Prev' and check result (should be the same as for step6)
+            11) Go to user settings page and restore 'Items Per Page'
+            12) Delete created volumes
+            """
+    items_per_page = 1
+    first_page_definition = widgets.TableDefinition(next=True, prev=False,
+                                                    count=items_per_page,
+                                                    names=[volume_name[2]])
+    second_page_definition = widgets.TableDefinition(next=True, prev=True,
+                                                     count=items_per_page,
+                                                     names=[volume_name[1]])
+    third_page_definition = widgets.TableDefinition(next=False, prev=True,
+                                                    count=items_per_page,
+                                                    names=[volume_name[0]])
+    url = '/'.join((
+        config.dashboard.dashboard_url,
+        'project',
+        'volumes'
+    ))
+    driver.get(url)
+    actual_page1_definition = widgets.get_table_definition(driver,
+                                                           sorting=True)
+    assert first_page_definition == actual_page1_definition
+    # Turning to next page(page2)
+    driver.find_element_by_link_text("Next »").click()
+    actual_page2_definition = widgets.get_table_definition(driver,
+                                                           sorting=True)
+    assert second_page_definition == actual_page2_definition
+    # Turning to next page(page3)
+    driver.find_element_by_link_text("Next »").click()
+    actual_page3_definition = widgets.get_table_definition(driver,
+                                                           sorting=True)
+    assert third_page_definition == actual_page3_definition
+    # Turning back to previous page(page2)
+    driver.find_element_by_link_text("« Prev").click()
+    actual_page2_definition = widgets.get_table_definition(driver,
+                                                           sorting=True)
+    assert second_page_definition == actual_page2_definition
+    # Turning back to previous page(page1)
+    driver.find_element_by_link_text("« Prev").click()
+    actual_page1_definition = widgets.get_table_definition(driver,
+                                                           sorting=True)
+    assert first_page_definition == actual_page1_definition
