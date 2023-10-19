@@ -19,40 +19,75 @@ from openstack_dashboard.test.selenium import widgets
 # Imported fixtures
 volume_name = test_volumes.volume_name
 new_volume_demo = test_volumes.new_volume_demo
+new_volume_admin = test_volumes.new_volume_admin
 
 
-@pytest.fixture
-def volume_snapshot_name():
-    return 'horizon_volume_snapshot_%s' % uuidutils.generate_uuid(dashed=False)
+@pytest.fixture(params=[1])
+def volume_snapshot_name(request):
+    count = request.param
+    snapshot_name_list = ['horizon_volume_snapshot_%s' %
+                          uuidutils.generate_uuid(dashed=False)]
+    if count > 1:
+        snapshot_name_list = [f"{snapshot_name_list[0]}-{item}"
+                              for item in range(1, count + 1)]
+    return snapshot_name_list
 
 
 @pytest.fixture
 def new_volume_snapshot_demo(new_volume_demo, volume_snapshot_name,
                              openstack_demo):
 
-    volume_snapshot = openstack_demo.create_volume_snapshot(
-        volume_id=new_volume_demo.id,
-        name=volume_snapshot_name,
-        wait=True,
-    )
+    for snapshot in volume_snapshot_name:
+        volume_snapshot = openstack_demo.create_volume_snapshot(
+            volume_id=new_volume_demo.id,
+            name=snapshot,
+            wait=True,
+        )
     yield volume_snapshot
-    openstack_demo.delete_volume_snapshot(volume_snapshot_name)
+    for snapshot in volume_snapshot_name:
+        openstack_demo.delete_volume_snapshot(snapshot)
+
+
+@pytest.fixture
+def new_volume_snapshot_admin(new_volume_admin, volume_snapshot_name,
+                              openstack_admin):
+
+    for snapshot in volume_snapshot_name:
+        volume_snapshot = openstack_admin.create_volume_snapshot(
+            volume_id=new_volume_admin.id,
+            name=snapshot,
+            wait=True,
+        )
+    yield volume_snapshot
+    for snapshot in volume_snapshot_name:
+        openstack_admin.delete_volume_snapshot(snapshot)
 
 
 @pytest.fixture
 def clear_volume_snapshot_demo(volume_snapshot_name, openstack_demo):
     yield None
-    openstack_demo.delete_volume_snapshot(
-        name_or_id=volume_snapshot_name,
-        wait=True,
-    )
+    for snapshot in volume_snapshot_name:
+        openstack_demo.delete_volume_snapshot(
+            name_or_id=snapshot,
+            wait=True,
+        )
+
+
+@pytest.fixture
+def clear_volume_snapshot_admin(volume_snapshot_name, openstack_admin):
+    yield None
+    for snapshot in volume_snapshot_name:
+        openstack_admin.delete_volume_snapshot(
+            name_or_id=snapshot,
+            wait=True,
+        )
 
 
 def test_create_volume_snapshot_demo(login, driver, volume_name,
                                      new_volume_demo, volume_snapshot_name,
                                      config, clear_volume_snapshot_demo,
                                      openstack_demo):
-
+    volume_snapshot_name = volume_snapshot_name[0]
     volume_name = volume_name[0]
     login('user')
     volumes_url = '/'.join((
@@ -80,6 +115,7 @@ def test_create_volume_snapshot_demo(login, driver, volume_name,
 def test_delete_volume_snapshot_demo(login, driver, volume_snapshot_name,
                                      new_volume_snapshot_demo, config,
                                      openstack_demo):
+    volume_snapshot_name = volume_snapshot_name[0]
     login('user')
     url = '/'.join((
         config.dashboard.dashboard_url,
@@ -98,3 +134,136 @@ def test_delete_volume_snapshot_demo(login, driver, volume_snapshot_name,
            f"{volume_snapshot_name}" in messages)
     assert (openstack_demo.block_storage.find_snapshot(volume_snapshot_name)
             is None)
+
+
+@pytest.mark.parametrize('volume_snapshot_name', [3], indirect=True)
+def test_volume_snapshots_pagination_demo(login, driver, volume_snapshot_name,
+                                          new_volume_snapshot_demo,
+                                          change_page_size_demo, config):
+    """This test checks volumes snapshot pagination for demo
+
+    Steps:
+    1) Login to Horizon Dashboard as demo user
+    2) Create 1 Volume and 3 snapshot from that volume
+    3) Navigate to user settings page
+    4) Change 'Items Per Page' value to 1
+    5) Go to Project -> Volume -> snapshots page
+    6) Check that only 'Next' link is available, only one snapshot is
+    available (and it has correct name) on the first page
+    7) Click 'Next' and check that both 'Prev' and 'Next' links are
+    available, only one snapshot is available (and it has correct name)
+    8) Click 'Next' and check that only 'Prev' link is available,
+    only one snapshot is visible (and it has correct name) on page 3
+    9) Click 'Prev' and check result (should be the same as for step7)
+    10) Click 'Prev' and check result (should be the same as for step6)
+    11) Go to user settings page and restore 'Items Per Page'
+    12) Delete created snapshots and volumes .
+    """
+    items_per_page = 1
+    name = volume_snapshot_name
+    first_page_definition = widgets.TableDefinition(next=True, prev=False,
+                                                    count=items_per_page,
+                                                    names=[name[2]])
+    second_page_definition = widgets.TableDefinition(next=True, prev=True,
+                                                     count=items_per_page,
+                                                     names=[name[1]])
+    third_page_definition = widgets.TableDefinition(next=False, prev=True,
+                                                    count=items_per_page,
+                                                    names=[name[0]])
+    url = '/'.join((
+        config.dashboard.dashboard_url,
+        'project',
+        'snapshots'
+    ))
+    driver.get(url)
+    actual_page1_definition = widgets.get_table_definition(driver,
+                                                           sorting=True)
+    assert first_page_definition == actual_page1_definition
+    # Turning to next page(page2)
+    driver.find_element_by_link_text("Next »").click()
+    actual_page2_definition = widgets.get_table_definition(driver,
+                                                           sorting=True)
+    assert second_page_definition == actual_page2_definition
+    # Turning to next page(page3)
+    driver.find_element_by_link_text("Next »").click()
+    actual_page3_definition = widgets.get_table_definition(driver,
+                                                           sorting=True)
+    assert third_page_definition == actual_page3_definition
+    # Turning back to previous page(page2)
+    driver.find_element_by_link_text("« Prev").click()
+    actual_page2_definition = widgets.get_table_definition(driver,
+                                                           sorting=True)
+    assert second_page_definition == actual_page2_definition
+    # Turning back to previous page(page1)
+    driver.find_element_by_link_text("« Prev").click()
+    actual_page1_definition = widgets.get_table_definition(driver,
+                                                           sorting=True)
+    assert first_page_definition == actual_page1_definition
+
+
+# Admin tests
+
+
+@pytest.mark.parametrize('volume_snapshot_name', [3], indirect=True)
+def test_volume_snapshots_pagination_admin(login, driver, volume_snapshot_name,
+                                           new_volume_snapshot_admin,
+                                           change_page_size_admin, config):
+    """This test checks volumes snapshot pagination for admin
+
+    Steps:
+    1) Login to Horizon Dashboard as admin user
+    2) Create 1 Volume and 3 snapshot from that volume
+    3) Navigate to user settings page
+    4) Change 'Items Per Page' value to 1
+    5) Go to Project -> Volume -> snapshots page
+    6) Check that only 'Next' link is available, only one snapshot is
+    available (and it has correct name) on the first page
+    7) Click 'Next' and check that both 'Prev' and 'Next' links are
+    available, only one snapshot is available (and it has correct name)
+    8) Click 'Next' and check that only 'Prev' link is available,
+    only one snapshot is visible (and it has correct name) on page 3
+    9) Click 'Prev' and check result (should be the same as for step7)
+    10) Click 'Prev' and check result (should be the same as for step6)
+    11) Go to user settings page and restore 'Items Per Page'
+    12) Delete created snapshots and volumes
+    """
+    items_per_page = 1
+    name = volume_snapshot_name
+    first_page_definition = widgets.TableDefinition(next=True, prev=False,
+                                                    count=items_per_page,
+                                                    names=[name[2]])
+    second_page_definition = widgets.TableDefinition(next=True, prev=True,
+                                                     count=items_per_page,
+                                                     names=[name[1]])
+    third_page_definition = widgets.TableDefinition(next=False, prev=True,
+                                                    count=items_per_page,
+                                                    names=[name[0]])
+    url = '/'.join((
+        config.dashboard.dashboard_url,
+        'project',
+        'snapshots'
+    ))
+    driver.get(url)
+    actual_page1_definition = widgets.get_table_definition(driver,
+                                                           sorting=True)
+    assert first_page_definition == actual_page1_definition
+    # Turning to next page(page2)
+    driver.find_element_by_link_text("Next »").click()
+    actual_page2_definition = widgets.get_table_definition(driver,
+                                                           sorting=True)
+    assert second_page_definition == actual_page2_definition
+    # Turning to next page(page3)
+    driver.find_element_by_link_text("Next »").click()
+    actual_page3_definition = widgets.get_table_definition(driver,
+                                                           sorting=True)
+    assert third_page_definition == actual_page3_definition
+    # Turning back to previous page(page2)
+    driver.find_element_by_link_text("« Prev").click()
+    actual_page2_definition = widgets.get_table_definition(driver,
+                                                           sorting=True)
+    assert second_page_definition == actual_page2_definition
+    # Turning back to previous page(page1)
+    driver.find_element_by_link_text("« Prev").click()
+    actual_page1_definition = widgets.get_table_definition(driver,
+                                                           sorting=True)
+    assert first_page_definition == actual_page1_definition
