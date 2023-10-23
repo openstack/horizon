@@ -23,22 +23,27 @@ from openstack_dashboard.test.selenium import widgets
 volume_name = test_volumes.volume_name
 new_volume_demo = test_volumes.new_volume_demo
 
+default_network = "shared"
+
 
 @pytest.fixture
 def instance_name():
     return 'horizon_instance_%s' % uuidutils.generate_uuid(dashed=False)
 
 
-@pytest.fixture(params=[1])
+@pytest.fixture(params=[(1, default_network, False)])
 def new_instance_demo(request, instance_name, openstack_demo, config):
 
-    count = request.param
+    count = request.param[0]
+    network_param = request.param[1]
+    auto_ip_param = request.param[2]
     instance = openstack_demo.create_server(
         instance_name,
         image=config.image.images_list[0],
         flavor=config.launch_instances.flavor,
         availability_zone=config.launch_instances.available_zone,
-        network=config.network.external_network,
+        network=network_param,
+        auto_ip=auto_ip_param,
         wait=True,
         max_count=count,
     )
@@ -50,16 +55,19 @@ def new_instance_demo(request, instance_name, openstack_demo, config):
         openstack_demo.delete_server(instance_name)
 
 
-@pytest.fixture(params=[1])
+@pytest.fixture(params=[(1, default_network, False)])
 def new_instance_admin(request, instance_name, openstack_admin, config):
 
-    count = request.param
+    count = request.param[0]
+    network_param = request.param[1]
+    auto_ip_param = request.param[2]
     instance = openstack_admin.create_server(
         instance_name,
         image=config.image.images_list[0],
         flavor=config.launch_instances.flavor,
         availability_zone=config.launch_instances.available_zone,
-        network=config.network.external_network,
+        network=network_param,
+        auto_ip=auto_ip_param,
         wait=True,
         max_count=count,
     )
@@ -125,7 +133,7 @@ def delete_volume_on_instance_delete(driver, required_state):
 def test_create_instance_demo(login, driver, instance_name, openstack_demo,
                               clear_instance_demo, config):
     image = config.image.images_list[0]
-    network = config.network.external_network
+    network = default_network
     flavor = config.launch_instances.flavor
 
     login('user')
@@ -177,7 +185,7 @@ def test_create_instance_from_volume_demo(login, driver, instance_name,
                                           volume_name, new_volume_demo,
                                           clear_instance_demo, config,
                                           openstack_demo):
-    network = config.network.external_network
+    network = default_network
     flavor = config.launch_instances.flavor
     volume_name = volume_name[0]
 
@@ -243,7 +251,8 @@ def test_delete_instance_demo(login, driver, instance_name, openstack_demo,
     assert openstack_demo.compute.find_server(instance_name) is None
 
 
-@pytest.mark.parametrize('new_instance_demo', [2], indirect=True)
+@pytest.mark.parametrize('new_instance_demo', [(2, default_network, False)],
+                         indirect=True)
 def test_instance_pagination_demo(login, driver, instance_name,
                                   new_instance_demo, change_page_size_demo,
                                   config):
@@ -300,7 +309,7 @@ def test_instance_pagination_demo(login, driver, instance_name,
 def test_create_instance_admin(login, driver, instance_name, openstack_admin,
                                clear_instance_admin, config):
     image = config.image.images_list[0]
-    network = config.network.external_network
+    network = default_network
     flavor = config.launch_instances.flavor
 
     login('admin')
@@ -362,7 +371,8 @@ def test_delete_instance_admin(login, driver, instance_name, openstack_admin,
     assert openstack_admin.compute.find_server(instance_name) is None
 
 
-@pytest.mark.parametrize('new_instance_admin', [2], indirect=True)
+@pytest.mark.parametrize('new_instance_admin', [(2, default_network, False)],
+                         indirect=True)
 def test_instance_pagination_admin(login, driver, instance_name,
                                    new_instance_admin, change_page_size_admin,
                                    config):
