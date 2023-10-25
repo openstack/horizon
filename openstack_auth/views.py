@@ -192,6 +192,10 @@ def login(request):
         region_name = regions.get(login_region)
         request.session['region_endpoint'] = region
         request.session['region_name'] = region_name
+        # Check for a services_region cookie. Fall back to the login_region.
+        services_region = request.COOKIES.get('services_region', region_name)
+        if services_region in request.user.available_services_regions:
+            request.session['services_region'] = services_region
         expiration_time = request.user.time_until_expiration()
         threshold_days = settings.PASSWORD_EXPIRES_WARNING_THRESHOLD_DAYS
         if (expiration_time is not None and
