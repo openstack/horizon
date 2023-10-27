@@ -4,15 +4,16 @@
 # Georg Hennemann <georg.hennemann@t-systems.com>, 2020. #zanata
 # Georg Hennemann <georg.hennemann@t-systems.com>, 2021. #zanata
 # Georg Hennemann <georg.hennemann@t-systems.com>, 2022. #zanata
+# Georg Hennemann <georg.hennemann@t-systems.com>, 2023. #zanata
 msgid ""
 msgstr ""
 "Project-Id-Version: horizon VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2023-05-04 11:51+0000\n"
+"POT-Creation-Date: 2023-10-26 14:33+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2022-10-05 12:56+0000\n"
+"PO-Revision-Date: 2023-10-26 07:34+0000\n"
 "Last-Translator: Georg Hennemann <georg.hennemann@t-systems.com>\n"
 "Language-Team: Esperanto\n"
 "Language: eo\n"
@@ -300,6 +301,12 @@ msgstr ""
 "kaj aplikas malsamajn sekurecajn grupojn per pordo, anstataŭe uzu \"Redaktu "
 "Pordo Sekurecajn Grupojn\"."
 
+#, python-format
+msgid ""
+"<span class=&quot;word-wrap&quot;>Flavor Details: %(name)s</span>\">%(name)s"
+msgstr ""
+"<span class=&quot;word-wrap&quot;>Flavor Details: %(name)s</span>\">%(name)s"
+
 msgid "A brief description of the security group rule you are adding"
 msgstr "Mallonga priskribo de la regularo de sekureco grupo vi aldonas"
 
@@ -480,6 +487,9 @@ msgid ""
 msgstr ""
 "Aldonu kaj forigu securecaj grupoj je tiu apero de la listo de disponeblaj "
 "securecaj grupoj."
+
+msgid "Add floating IP port forwarding rule"
+msgstr "aldonu glita IP-pordo plusendaj reguloj"
 
 msgid ""
 "Add hosts to this aggregate or remove hosts from it. Hosts can be in "
@@ -869,6 +879,9 @@ msgstr "Sekurkopii"
 msgid "Backup Name"
 msgstr "Sekurkopio Nomo"
 
+msgid "Backup Name ="
+msgstr "Sekurkopio Nomo"
+
 msgid "Backup Size (GiB)"
 msgstr "Sekurkopio Grando (GiB)"
 
@@ -1164,6 +1177,9 @@ msgstr "Komputaj Kvotoj"
 
 msgid "Compute Services"
 msgstr "Komputaj Servoj"
+
+msgid "Configure floating IP port forwarding rules"
+msgstr "Agordi glitajn IP-pordajn plusendadan reguluojn"
 
 msgid "Confirm"
 msgstr "Konfirmu"
@@ -2052,6 +2068,40 @@ msgstr "Priskribo"
 msgid "Description:"
 msgstr "Priskripo:"
 
+msgid ""
+"Description:IP floating rules define external specific traffic that is bound "
+"from a public IP to an internal address of a specific port.\n"
+"Protocol: The protocol configured for the IP forwarding rule. You can choose "
+"between TCP and UDP.\n"
+"External port: The external port of the floating IP that will be bound to "
+"the internal port in the internal address. This field allow values between 1 "
+"and 65535 and also support ranges using the following format:\n"
+"InitialPort:FinalPort where InitialPort <= FinalPort.\n"
+"Internal port: The internal port of the given internal IP address that will "
+"be bound to the port that is exposed to the internet via the public floating "
+"IP. This field allow values between 1 and 65535 and also support ranges "
+"using the following format:\n"
+"InitialPort:FinalPort where InitialPort <= FinalPort.\n"
+"Internal IP address: The internal IP address where the internal ports will "
+"be running.\n"
+"Description: Describes the reason why this rule is being created."
+msgstr ""
+"Priskribo:IP-flosantaj reguloj difinas eksteran specifan trafikon, kiu estas "
+"ligita de publika IP al interna adreso de specifa haveno.\n"
+"Protokolo: La protokolo agordita por la IP-sendregulo. Vi povas elekti inter "
+"TCP kaj UDP.\n"
+"Ekstera haveno: La ekstera haveno de la flosanta IP kiu estos ligita al la "
+"interna haveno en la interna adreso. Ĉi tiu kampo permesas valorojn inter 1 "
+"kaj 65535 kaj ankaŭ subtenas intervalojn uzante la sekvan formaton:\n"
+"InitialPort:FinalPort kie InitialPort <= FinalPort.\n"
+"Interna haveno: La interna haveno de la donita interna IP-adreso kiu estos "
+"ligita al la haveno kiu estas elmontrita al la interreto per la publika "
+"flosanta IP. Ĉi tiu kampo permesas valorojn inter 1 kaj 65535 kaj ankaŭ "
+"subtenas intervalojn uzante la sekvan formaton:\n"
+"InitialPort:FinalPort kie InitialPort <= FinalPort.\n"
+"Interna IP-adreso: La interna IP-adreso kie la internaj pordoj funkcios.\n"
+"Priskribo: Priskribas la kialon, kial ĉi tiu regulo estas kreita."
+
 msgid "Destination"
 msgstr "Celo"
 
@@ -2449,6 +2499,9 @@ msgstr "Redaktu Volumo Tipo aliron"
 msgid "Edit Volume Type Extra Spec"
 msgstr "Redaktu Volumo Tipo Ekstra Specifo"
 
+msgid "Edit floating IP port forwarding rule"
+msgstr "modifu glita IP-pordo plusendaj reguloj"
+
 msgid "Edit the identity provider's details."
 msgstr "Redaktu la identeco provizanto detajlojn."
 
@@ -2766,6 +2819,9 @@ msgstr "Eksteraj Fiksitaj IPs"
 msgid "External Gateway"
 msgstr "Ekstera Kluzo"
 
+msgid "External IP address"
+msgstr "Ekstera IP Adreso"
+
 msgid "External Network"
 msgstr "Eksterna reto"
 
@@ -2776,6 +2832,9 @@ msgid ""
 msgstr ""
 "Ekstera reto \"%(ext_net_id)s\" ekspektita sed ne trovita por enkursigilo "
 "\"%(router_id)s\"."
+
+msgid "External port"
+msgstr "Ekstera pordo"
 
 msgid "Extra Specs"
 msgstr "Ekstra Specifojn"
@@ -3061,6 +3120,25 @@ msgstr "Glidanta IP detajloj"
 
 msgid "Floating IP address"
 msgstr "glidanta IP Adreso"
+
+#, python-format
+msgid ""
+"Floating IP port forwarding rule %s created. It might take a few minutes to "
+"apply all rules."
+msgstr ""
+"Glitaj IP-porda plusendada regulo %s kreita. Eble necesas kelkaj minutoj por "
+"apliki ĉiujn regulojn."
+
+#, python-format
+msgid ""
+"Floating IP port forwarding rule %s updated. It might take a few minutes to "
+"apply all rules."
+msgstr ""
+"Glita IP-porda plusendada regulo %s ĝisdatigita. Eble necesas kelkaj minutoj "
+"por apliki ĉiujn regulojn."
+
+msgid "Floating IP port forwarding rules"
+msgstr "Glita IP-pordo plusendaj reguloj"
 
 msgid "Floating IPs"
 msgstr "Glitantaj IP-oj"
@@ -3738,8 +3816,14 @@ msgstr "Interfaco aldonita"
 msgid "Interfaces"
 msgstr "Interfacoj"
 
+msgid "Internal IP address"
+msgstr "Interna IP adreso"
+
 msgid "Internal Interface"
 msgstr "Interna Interfaco"
+
+msgid "Internal port"
+msgstr "Interna pordo"
 
 msgid "Internal:"
 msgstr "Interna:"
@@ -3889,6 +3973,9 @@ msgstr "Longeco de Injektita dosierindiko"
 msgid "Limit"
 msgstr "Limo"
 
+msgid "List all floating IP port forwarding rules"
+msgstr "Listigu ĉiujn IP-pordan plusendadan regulojn"
+
 msgid "Live Migrate"
 msgstr "Tuja transmeto"
 
@@ -4023,6 +4110,12 @@ msgstr "Mastrumu Volumo Tipojn"
 
 msgid "Manage Volumes"
 msgstr "Mastrumu Volumojn"
+
+msgid "Manage floating IP port forwarding rules"
+msgstr "Mastrumu glitaj IP plusendajn regulojn"
+
+msgid "Manage floating IP port forwarding rules : "
+msgstr "Mastrumu glitaj IP plusendajn regulojn :"
 
 msgid "Manual"
 msgstr "Permane"
@@ -4948,6 +5041,9 @@ msgstr "Eco-Celo:"
 msgid "Protected"
 msgstr "Protektita"
 
+msgid "Protocol"
+msgstr "Protokolo"
+
 msgid "Protocol ID"
 msgstr "Protokolo ID-o"
 
@@ -5687,6 +5783,9 @@ msgstr "Elekti ago kaj objekto tipon"
 msgid "Select an IP address"
 msgstr "Elektu IP adreson"
 
+msgid "Select an IP-Address"
+msgstr "Elektu IP adreson"
+
 msgid "Select an instance"
 msgstr "Elektu aperon"
 
@@ -6196,6 +6295,11 @@ msgstr "Sukcese modikita QoS Spec konsumanto."
 msgid "Successfully recreated ec2 credentials."
 msgstr "Sukcese rekreita  ec2 legitimaĵojn."
 
+msgid "Successfully redirected"
+msgid_plural "Successfully redirected"
+msgstr[0] "Sukcese redirektita"
+msgstr[1] "Sukcese redirektita"
+
 msgid "Successfully rescued instance"
 msgstr "Sukcese savita apero"
 
@@ -6671,6 +6775,13 @@ msgstr ""
 "kaj nerestaŭrebla   "
 
 msgid ""
+"This action will delete the selected floating IP port forwarding rule(s); "
+"this process cannot be undone."
+msgstr ""
+"Ĉi tiu ago forigos la elektitan glitan IP-pordan plusendan regulojn; ĉi tiu "
+"procezo ne povas esti malfarita."
+
+msgid ""
 "This action will unassign all volumes that are currently contained in this "
 "group."
 msgstr ""
@@ -6682,6 +6793,13 @@ msgstr "Tiu aplikado bezonas JavaSkript ebligita en via retumilo."
 
 msgid "This field is required."
 msgstr "Tiu kampo nepras."
+
+msgid ""
+"This floating IP has port forwarding rules configured to it. Therefore, you "
+"will need to remove all of these rules before being able to release it."
+msgstr ""
+"Ĉi tiu glita IP havas pordo plusendadan regulojn agordita al ĝi. Tial, vi "
+"devos forigi ĉiujn ĉi tiujn regulojn antaŭ ol povi liberigi ĝin."
 
 msgid ""
 "This generates a pair of keys: a key you keep private (cloud.key) and a "
@@ -6954,6 +7072,10 @@ msgid "Unable to create flavor."
 msgstr "Neeblas krei variaĵo."
 
 #, python-format
+msgid "Unable to create floating IP port forwarding rule %s."
+msgstr "Neeblas krei glitan IP-pordan plusendadan regulon %s "
+
+#, python-format
 msgid "Unable to create group \"%s\" from snapshot."
 msgstr "Neeblas krei grupon \"%s\" de savkopio."
 
@@ -7134,6 +7256,9 @@ msgstr "Neeblas venigi la savkopion."
 
 msgid "Unable to fetch snapshots"
 msgstr "Neeblas venigi la savkopiojn."
+
+msgid "Unable to find a floating IP."
+msgstr "Neeblas trovi glitan IP."
 
 msgid "Unable to find default role."
 msgstr "Neeblas trovi defaŭltan rolon."
@@ -7455,6 +7580,9 @@ msgstr "Neeblas ricevi glidanta IP listo."
 
 msgid "Unable to retrieve floating IP pools."
 msgstr "Neeblas trovi glidanta IP komunaĵoj ."
+
+msgid "Unable to retrieve floating IP port forwarding rules."
+msgstr "Neeblas ricevi glitajn IP plusendajn regulojn."
 
 msgid "Unable to retrieve group"
 msgstr "Neeblas ricevi grupon."
@@ -7985,6 +8113,10 @@ msgid "Unable to update volumes for group"
 msgstr "Neeblas ĝisdatigi volumoj por grupo"
 
 #, python-format
+msgid "Unable to updated floating IP port forwarding rule %s."
+msgstr "Neeblas  ĝisdatigiti glitan IP-pordan plusendadan regulon %s.  "
+
+#, python-format
 msgid "Unable to upload volume to image for volume: \"%s\""
 msgstr "Neeblas alŝuti volumon al bildo por volumo: \"%s\""
 
@@ -8442,6 +8574,9 @@ msgstr "Volumaj Grupoj"
 msgid "Volume ID"
 msgstr "Volumo ID"
 
+msgid "Volume ID ="
+msgstr "Volumo ID"
+
 msgid "Volume Limits"
 msgstr "Volumo Limoj"
 
@@ -8798,6 +8933,16 @@ msgstr "ekz. Jes / Ne"
 
 msgid "e.g. Yes/No"
 msgstr "ekz. Jes/Ne"
+
+msgid ""
+"flavor id can only contain alphanumeric characters, underscores, periods, "
+"hyphens, spaces. Use 'auto' to automatically generate id"
+msgstr ""
+"speco id povas enhavi nur alfanombrajn signojn, substrekojn, punktojn, "
+"streketojn, spacojn. Uzu 'aŭto' por aŭtomate generi identigilon"
+
+msgid "floating_ip_id"
+msgstr "floating_ip_id"
 
 msgid "front-end"
 msgstr "fasada"

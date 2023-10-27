@@ -4,15 +4,16 @@
 # Georg Hennemann <georg.hennemann@t-systems.com>, 2020. #zanata
 # Georg Hennemann <georg.hennemann@t-systems.com>, 2021. #zanata
 # Georg Hennemann <georg.hennemann@t-systems.com>, 2022. #zanata
+# Georg Hennemann <georg.hennemann@t-systems.com>, 2023. #zanata
 msgid ""
 msgstr ""
 "Project-Id-Version: horizon VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2022-09-30 06:37+0000\n"
+"POT-Creation-Date: 2023-10-26 14:33+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2022-10-05 12:58+0000\n"
+"PO-Revision-Date: 2023-10-26 09:09+0000\n"
 "Last-Translator: Georg Hennemann <georg.hennemann@t-systems.com>\n"
 "Language-Team: Esperanto\n"
 "Language: eo\n"
@@ -261,6 +262,9 @@ msgstr "Aldonu Interfacon"
 msgid "Add Ons, Required and Feedback"
 msgstr "Aldonoj, Postulataj kaj Prisondo    "
 
+msgid "Add Rule"
+msgstr "Aldoni Regulon"
+
 msgid "Admin Password"
 msgstr "Admin Pasvorto"
 
@@ -424,6 +428,15 @@ msgstr "Disponeblaj Vicigilo Aludoj"
 
 msgid "Badges"
 msgstr "Insignoj"
+
+msgid "Bandwidth Limit"
+msgstr "Kapacito Limito"
+
+msgid "Bandwidth Limit - , , , "
+msgstr "Kapacito limito - , , , "
+
+msgid "Bandwidth Rules"
+msgstr "Kapacito_Reguloj"
 
 msgid "Bare Metal"
 msgstr "Fizika Komputilo"
@@ -688,6 +701,12 @@ msgstr "Kreu Ŝlosilparo"
 msgid "Create New Volume"
 msgstr "Kreu novan Volumon."
 
+msgid "Create Policy"
+msgstr "Kreu Regularo"
+
+msgid "Create QoS Policy"
+msgstr "Krei QoS Regularo"
+
 msgid "Create Role"
 msgstr "Kreu Rolon"
 
@@ -762,6 +781,18 @@ msgstr[0] "DNS Datumo"
 msgstr[1] "DNS Datumoj"
 
 msgid "DSCP Mark"
+msgstr "DSCP Marko"
+
+msgid "DSCP Mark - , "
+msgstr "DSCP Marko - , "
+
+msgid "DSCP Marking"
+msgstr "DSCP Marko"
+
+msgid "DSCP Rules"
+msgstr "DSCP Reguloj"
+
+msgid "DSCP mark"
 msgstr "DSCP Marko"
 
 msgid "Danger"
@@ -894,6 +925,9 @@ msgstr "Forigu Rolon"
 
 msgid "Delete Router"
 msgstr "Forigu Enkursigilon   "
+
+msgid "Delete Rule"
+msgstr "Forigi Regulon"
 
 msgid "Delete Server Group"
 msgid_plural "Delete Server Groups"
@@ -1120,6 +1154,9 @@ msgstr "Redaktu Bildon"
 
 msgid "Edit Role"
 msgstr "Redaktu Rolon"
+
+msgid "Edit Rule"
+msgstr "Agordi Regulo"
 
 msgid "Edit Trunk"
 msgstr "Redaktu Trunkon"
@@ -1711,11 +1748,17 @@ msgstr "Permane"
 msgid "Max Burst Kbits"
 msgstr "Max Burst Kbits"
 
+msgid "Max Burst Size (in kbps)"
+msgstr "Max ŝpruca grando (in kbps)"
+
 msgid "Max Kbps"
 msgstr "Max Kbps"
 
 msgid "Max Port"
 msgstr "Max Pordo"
+
+msgid "Max bandwidth (in kbps)"
+msgstr "Max rapideco  (en kbps)"
 
 msgid "Max. Size (bytes)"
 msgstr "Max. Grando (bajtoj)"
@@ -1766,6 +1809,9 @@ msgstr "Min Disko (GB)"
 msgid "Min Kbps"
 msgstr "Min Kbps"
 
+msgid "Min Kpps"
+msgstr "Min Kpps"
+
 msgid "Min Port"
 msgstr "Min Pordo"
 
@@ -1784,17 +1830,41 @@ msgstr "Min. Grando (bajtoj)"
 msgid "Mini button"
 msgstr "Minimuma butono"
 
+msgid "Minimum Bandwidth"
+msgstr "Minimuma Kapacito"
+
+msgid "Minimum Bandwidth - , , "
+msgstr "Minimuma Kapacito - , , "
+
+msgid "Minimum Bandwidth Rules"
+msgstr "Minimumaj_Kapacito_Reguloj"
+
 msgid "Minimum Disk"
 msgstr "Minimuma Disko"
 
 msgid "Minimum Disk (GB)"
 msgstr "Minimuma Disko (GB)"
 
+msgid "Minimum Packet Rate"
+msgstr "Minimuma Pakaja rapido (MB)"
+
+msgid "Minimum Packet Rate - , , "
+msgstr "Minimuma Pakaĵo Rapidump - , , "
+
+msgid "Minimum Packet Rules"
+msgstr "Minimumaj_Pakaĵo_Reguloj"
+
 msgid "Minimum RAM"
 msgstr "Minimuma RAM"
 
 msgid "Minimum RAM (MB)"
 msgstr "Minimuma RAM (MB)"
+
+msgid "Minimum bandwidth (in kbps)"
+msgstr "Minimuma  kapacito (in kbps)"
+
+msgid "Minimum packet rate (in kpps)"
+msgstr "Minimuma pakaĵo rapido (in kpps)"
 
 msgid "Modals"
 msgstr "Modals"
@@ -1872,6 +1942,13 @@ msgstr ""
 "Retoj de subpordoj povus iĝi disponebla post la \n"
 " momento de praŝargo. Sed ili estos disponebla post la trunko atingis\n"
 " la <em>AKTIVA</em> statuson."
+
+msgid ""
+"Networks provide the communication channels for instances in the cloud. You "
+"can select ports instead of networks or a mix of both."
+msgstr ""
+"Retoj disponigas la komunikajn kanalojn por instancoj en la nubo. Vi povas "
+"elekti pordojn anstataŭ retojn aŭ miksaĵon de ambaŭ."
 
 msgid "New File Contents"
 msgstr "Nova Dosiero Enhavo"
@@ -2237,6 +2314,32 @@ msgid_plural "QoS Policies"
 msgstr[0] "QOS Regularo"
 msgstr[1] "QOS Regularoj"
 
+#, python-format
+msgid "QoS Policy %s was successfully created."
+msgstr "QoS Regularo %s estis sukcese kreita."
+
+msgid "QoS Policy ID"
+msgstr "QOS Regularo ID"
+
+msgid "QoS Policy Id"
+msgstr "QoS Regularo Id"
+
+msgid "QoS Policy Name"
+msgstr "QOS Regularo Namo"
+
+msgid "QoSPolicyId"
+msgstr "QoSPolicyId"
+
+msgid "QoSPolicyName"
+msgstr "QoSPolicyName"
+
+msgid "Qos Policy  Rule  was successfully deleted."
+msgstr "Qos Regularo rolo estis sukcese forigita."
+
+#, python-format
+msgid "Qos Policy Rule %s was successfully updated."
+msgstr "QoS Regularo regulo  %s sukcese ĝisdatigita."
+
 msgid "Queued"
 msgstr "Envicigita"
 
@@ -2297,8 +2400,20 @@ msgstr "Rolon sukcese ĝisdatigita."
 msgid "Root Disk"
 msgstr "Radika Disko"
 
+msgid "Rule"
+msgstr "Regulo"
+
 msgid "Rule ID"
 msgstr "Regulo ID"
+
+msgid "Rule Type"
+msgstr "Regul-Tipo"
+
+msgid "Rule to edit"
+msgstr "Regulo por modifi"
+
+msgid "RuleId"
+msgstr "RuleId"
 
 msgid "Rules"
 msgstr "Reguloj"
@@ -2442,6 +2557,9 @@ msgstr "Elektu unu aŭ pli"
 
 msgid "Select one or more networks from the available networks below."
 msgstr "Elektu unu aŭ pli da retoj de la haveblaj retoj suben."
+
+msgid "Select one or more ports from the available ports below."
+msgstr "Elektu unu aŭ pli da pordoj de la haveblaj pordoj suben."
 
 msgid "Select one or more security groups from the available groups below."
 msgstr "Elektu unu aŭ pli da secureco grupojn de la haveblaj grupojn suben."
@@ -2743,6 +2861,19 @@ msgstr ""
 "al la interfacoj ŝtopita en ilin."
 
 msgid ""
+"The maximum KBPS (kilobits per second) value.\n"
+"    If you specify this value, must be greater than 0 otherwise max_kbps "
+"will have no value.\n"
+"    \n"
+"        The maximum burst size (in kilobits). Default is 0."
+msgstr ""
+"La maksimuma KBPS (kilobits per sekundo) valoro.\n"
+"    Se vi specifas tion valoron, devas esti pli granda ol  0 alikaze "
+"max_kbps havos neniun valoron.\n"
+"    \n"
+"        La maksimuma ŝpruc grando (en kilobits). Defaŭlto is 0."
+
+msgid ""
 "The maximum number of key-value pairs that can be supplied per instance is "
 "determined by the compute provider."
 msgstr ""
@@ -2750,11 +2881,25 @@ msgstr ""
 "difinita de la komputa provizanto."
 
 msgid ""
+"The minimum KBPS (kilobits per second) value which should be available for "
+"port."
+msgstr ""
+"La minimuma KBPS (kilobitoj por sekundo) valoro kiu devus esti disponebla "
+"por pordo."
+
+msgid ""
 "The minimum disk size required to boot the image. If unspecified, this value "
 "defaults to 0 (no minimum)."
 msgstr ""
 "La minimuma disko grando necesa por praŝargi la bildon. Se nespecifita, tiu "
 "valoro defaŭltas al 0 (neniu minimumo)."
+
+msgid ""
+"The minimum kpps (kilo(1000) packets per second) value which should be "
+"available for port."
+msgstr ""
+"La minimuma kpps (kilo(1000) pakoj je sekundo) valoro kiu devus esti havebla "
+"por pordo."
 
 msgid ""
 "The minimum memory size required to boot the image. If unspecified, this "
@@ -2864,6 +3009,12 @@ msgid ""
 msgstr ""
 "Ne ekzistas permesitaj praŝargo fontojn.\n"
 " Se vi pensas tiu estas eraro bonvolu kontaktu vian administratoron."
+
+msgid "There are no rules to delete."
+msgstr "Ne estas regulaoj por forigi"
+
+msgid "There are no rules to modify."
+msgstr "Ne estas reguloj por modifi."
 
 msgid ""
 "There are two ways to generate a key pair. From a Linux system,\n"
@@ -3021,6 +3172,18 @@ msgstr "Tipografio"
 msgid "URL"
 msgstr "URL"
 
+msgid "Unable to add the bandwidthrule ."
+msgstr "Neeblas aldoni la kapacitan regulon ."
+
+msgid "Unable to add the dscp_marking_rule ."
+msgstr "Neeblas aldoni dscp_markadan_regulon."
+
+msgid "Unable to add the minimum_bandwidth_rule ."
+msgstr "Neeblas aldoni la minimuman_kapacitan_regulon."
+
+msgid "Unable to add the minimum_packet_rate_rule."
+msgstr "Neeblas aldoni la minimuman_pakaĵ_rapidecan_regulon."
+
 msgid "Unable to allocate new floating IP address."
 msgstr "Neeblas asigni novan glitan IP adreson."
 
@@ -3035,6 +3198,9 @@ msgstr "Neeblas kontroli la Nova servo ebleco."
 
 msgid "Unable to copy the object."
 msgstr "Neeables kopii la objekton."
+
+msgid "Unable to create the QoS Policy."
+msgstr "Neeblas krei la_QoS_Specifon."
 
 msgid "Unable to create the container."
 msgstr "Neeblas krei entenilon."
@@ -3151,6 +3317,9 @@ msgstr[1] "Neeblas forigi regularojn: %s."
 msgid "Unable to delete qos policy %(id)s"
 msgstr "Neeblas forigi qos-regularon %(id)s"
 
+msgid "Unable to delete the bandwidth_limit_rule."
+msgstr "Neeblas forigi la kapacitan_limigan_regulon."
+
 msgid "Unable to delete the container."
 msgstr "Neeblas forigi la entenilon."
 
@@ -3159,6 +3328,9 @@ msgstr "Neeblas forigi la domajnon."
 
 msgid "Unable to delete the domains."
 msgstr "Neeblas forigi la domajnojn."
+
+msgid "Unable to delete the dscp_marking_rule."
+msgstr "Neeblas forigi la dscp_markigan_regulon."
 
 #, python-format
 msgid "Unable to delete the flavor with id: %(id)s"
@@ -3180,6 +3352,12 @@ msgstr "Neeblas forigi la bildon kun id: %(id)s"
 #, python-format
 msgid "Unable to delete the keypair with name: %(name)s"
 msgstr "Neeblas forigi la ŝlosilparon la  kun id: %(name)s"
+
+msgid "Unable to delete the minimum_bandwidth_rule ."
+msgstr "Neeblas forigi la minimuman_kapacitan_regulon."
+
+msgid "Unable to delete the minimum_packet_rate_rule ."
+msgstr "Neeblas forigi la minimuman_pakaĵ_rapido_regulon."
 
 msgid "Unable to delete the object."
 msgstr "Neeblas forigi la objekton."
@@ -3524,11 +3702,23 @@ msgstr "Neeblas ĝisdatigi metadatumon."
 msgid "Unable to update project quota data."
 msgstr "Neeblas ĝisdatigi  projekto kvota datumon."
 
+msgid "Unable to update the bandwidthrule."
+msgstr "Neeblas ĝisdatigi la kapacitan regulon."
+
+msgid "Unable to update the dscp marking rule."
+msgstr "Neeblas ĝisdatigi la dscp markan regulon."
+
 msgid "Unable to update the flavor."
 msgstr "Neeblas ĝisdatigi la variaĵon."
 
 msgid "Unable to update the image."
 msgstr "Neeblas ĝisdatigi la bildon."
+
+msgid "Unable to update the minimum bandwidth rule."
+msgstr "Neeblas ĝisdatigi la minimuman kapacitan regulon."
+
+msgid "Unable to update the minimum packet rate rule."
+msgstr "Neeblas ĝisdatigi la minimuman pakaĵ' rapidecan regulon."
 
 msgid "Unable to update the trunk."
 msgstr "Neeblas ĝisdatigi la trunkon."
@@ -3681,6 +3871,18 @@ msgstr "VMDK - Virtuala Maŝina Disko"
 
 msgid "VNIC type"
 msgstr "VNIC Tipo"
+
+msgid ""
+"Valid DSCP mark values are even numbers between 0 and 56,\n"
+"    except 2-6, 42, 44, and 50-54. The full list of valid DSCP marks is:\n"
+"    0, 8, 10, 12, 14, 16, 18, 20, 22, 24, 26, 28, 30, 32, 34, 36, 38, 40, "
+"46, 48, 56."
+msgstr ""
+"Validaj DSCP marko valoroj estas paraj nombroj inter 0 and 56,\n"
+"    krome 2-6, 42, 44, kaj 50-54. La plena listo de validaj DSCP-markoj "
+"estas:\n"
+"    0, 8, 10, 12, 14, 16, 18, 20, 22, 24, 26, 28, 30, 32, 34, 36, 38, 40, "
+"46, 48, 56."
 
 msgid "View As Modal"
 msgstr "Vidu kiel Modala"
@@ -3947,8 +4149,17 @@ msgstr[1] "Vi selektis \"%s\". Forigitaj uzantoj ne estas restaŭreblaj."
 msgid "Your Form as JavaScript"
 msgstr "Vian datumformularon kiel JavaScript  "
 
+msgid "any"
+msgstr "io ajn"
+
+msgid "egress"
+msgstr "eliro"
+
 msgid "image"
 msgstr "bildo"
+
+msgid "ingress"
+msgstr "eniro"
 
 msgid "inherit"
 msgstr "heredi"
