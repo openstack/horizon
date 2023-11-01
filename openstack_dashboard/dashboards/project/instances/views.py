@@ -171,14 +171,9 @@ class IndexView(tables.PagedTableMixin, tables.DataTableView):
         for instance in instances:
             self._populate_image_info(instance, image_dict, volume_dict)
 
-            flavor_id = instance.flavor["id"]
-            if flavor_id in flavor_dict:
-                instance.full_flavor = flavor_dict[flavor_id]
-            else:
-                # If the flavor_id is not in flavor_dict,
-                # put info in the log file.
-                LOG.info('Unable to retrieve flavor "%s" for instance "%s".',
-                         flavor_id, instance.id)
+            instance.full_flavor = instance_utils.resolve_flavor(self.request,
+                                                                 instance,
+                                                                 flavor_dict)
 
         return instances
 
