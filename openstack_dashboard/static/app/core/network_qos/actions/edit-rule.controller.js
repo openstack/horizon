@@ -39,30 +39,53 @@
     ctrl.rule_types = [];
     angular.forEach($scope.model.rules, function(k) {
       if (k.type === 'bandwidth_limit') {
-        ctrl.rule_types.push({name: 'bandwidth_limit', val: gettext('Bandwidth Limit - ' +
-          k.id + ', ' + k.max_kbps + ', ' + k.max_burst_kbps + ', ' + k.direction)});
+        ctrl.rule_types.push({
+          name: 'bandwidth_limit',
+          val: interpolate(
+            gettext('%(id)s - Bandwidth Limit - maxkbps: %(max_kbps)s, ' +
+                    'maxburstkbps: %(max_burst_kb)s, %(direction)s'),
+            {id: k.id,
+             max_kbps: k.max_kbps,
+             max_burst_kb: k.max_burst_kbps,
+             direction: k.direction},
+          true)
+        });
         ctrl.bwdid = k.id;
         ctrl.maxkbps = k.max_kbps;
         ctrl.maxburstkbps = k.max_burst_kbps || 0;
         ctrl.bwddirection = k.direction;
       }
       else if (k.type === 'dscp_marking') {
-        ctrl.rule_types.push({name: 'dscp_marking',
-          val: gettext("DSCP Mark - " + k.id + ', ' + k.dscp_mark)});
+        ctrl.rule_types.push({
+          name: 'dscp_marking',
+          val: interpolate(
+            gettext("%(id)s - DSCP Marking - dscpmark: %(dscp_mark)s"),
+            {id: k.id, dscp_mark: k.dscp_mark},
+          true)
+        });
         ctrl.dscpid = k.id;
         ctrl.dscpmark = k.dscp_mark;
       }
       else if (k.type === 'minimum_bandwidth') {
-        ctrl.rule_types.push({name: 'minimum_bandwidth',
-          val: gettext('Minimum Bandwidth - ' + k.id + ', ' + k.min_kbps + ', ' + k.direction)});
+        ctrl.rule_types.push({
+          name: 'minimum_bandwidth',
+          val: interpolate(
+              gettext('%(id)s - Minimum Bandwidth - minkbps: %(min_kbps)s, %(direction)s'),
+              {id: k.id, min_kbps: k.min_kbps, direction: k.direction},
+          true)
+        });
         ctrl.minbwdid = k.id;
         ctrl.minkbps = k.min_kbps;
         ctrl.minbwddirection = k.direction;
       }
       else if (k.type === 'minimum_packet_rate') {
-        ctrl.rule_types.push({name: 'minimum_packet_rate',
-          val: gettext('Minimum Packet Rate - ' + k.id + ', ' + k.min_kpps + ', ' +
-          k.direction)});
+        ctrl.rule_types.push({
+          name: 'minimum_packet_rate',
+          val: interpolate(
+            gettext('%(id)s - Minimum Packet Rate - minkpps: %(min_kpps)s, %(direction)s'),
+            {id: k.id, min_kpps: k.min_kpps, direction: k.direction},
+          true)
+        });
         ctrl.minpckrtid = k.id;
         ctrl.minkpps = k.min_kpps;
         ctrl.minpckrtdirection = k.direction;
