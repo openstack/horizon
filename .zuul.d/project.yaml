@@ -13,6 +13,8 @@
       jobs:
         - horizon-selenium-headless
         - horizon-integration-tests
+        - horizon-integration-pytest:
+            voting: false
         - horizon-dsvm-tempest-plugin
         - horizon-tox-bandit-baseline
         - horizon-tempest-plugin-ipv6
