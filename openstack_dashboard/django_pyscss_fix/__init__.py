@@ -19,6 +19,7 @@ import six
 import six.moves
 
 from django.conf import settings
+from scss.grammar.expression import SassExpressionScanner
 
 # Temporary workaround for a situation that django-pyscss depends on
 # a vendored version of six, django.utils.six which was dropped in Django 3.0.
@@ -47,3 +48,14 @@ try:
 except Exception as e:
     LOG.info("Error precreating path %(root)s, %(exc)s",
              {'root': scss_asset_root, 'exc': e})
+
+# Fix a syntax error in regular expression, where a flag is not at the
+# beginning of the expression.
+# This is fixed upstream at
+# https://github.com/Kronuz/pyScss/commit
+# /73559d047706ccd4593cf6aa092de71f35164723
+# We should remove it once we use that version.
+
+for index, (name, value) in enumerate(SassExpressionScanner._patterns):
+    if name == 'OPACITY':
+        SassExpressionScanner._patterns[index] = ('OPACITY', '(?i)(opacity)')
