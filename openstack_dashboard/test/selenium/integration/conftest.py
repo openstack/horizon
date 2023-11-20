@@ -114,3 +114,72 @@ def pytest_assertrepr_compare(op, left, right):
             "Comparing TableDefinition instances:",
             "   vals: {} != {}".format(left, right),
         ]
+
+
+# Create default test network (contains subnet and is connected to public
+#                              network via router)
+
+@pytest.fixture(scope='session')
+def new_default_test_network(openstack_admin):
+    network = openstack_admin.network.create_network(
+        name="default_test_network",
+        is_shared=True,
+    )
+    yield network
+    openstack_admin.network.delete_network(network)
+
+
+@pytest.fixture(scope='session')
+def new_default_test_subnet(new_default_test_network, openstack_admin):
+    subnet_name = "default_test_subnet"
+    subnet = openstack_admin.network.create_subnet(
+        name=subnet_name,
+        network_id=new_default_test_network.id,
+        ip_version=4,
+        cidr="10.10.0.0/16",
+    )
+    yield subnet
+    openstack_admin.delete_subnet(subnet)
+
+
+@pytest.fixture(scope='session')
+def new_default_test_router(openstack_admin):
+    public_network = openstack_admin.network.find_network('public')
+    public_subnet = openstack_admin.network.find_subnet('public-subnet')
+    router = openstack_admin.network.post("/routers", json={
+        "router": {
+            "name": "default_test_router",
+            "external_gateway_info": {
+                "network_id": public_network.id,
+                "enable_snat": True,
+                "external_fixed_ips": [{
+                    "subnet_id": public_subnet.id
+                }]
+            },
+            "admin_state_up": True
+        }
+    }).json()
+    yield router
+    openstack_admin.network.delete_router(router['router']['id'])
+
+
+@pytest.fixture(scope='session')
+def new_default_test_interface_for_router(new_default_test_router,
+                                          new_default_test_subnet,
+                                          openstack_admin):
+    interface = openstack_admin.network.add_interface_to_router(
+        router=new_default_test_router['router']['id'],
+        subnet_id=new_default_test_subnet.id,
+    )
+    yield interface
+    openstack_admin.network.remove_interface_from_router(
+        router=new_default_test_router['router']['id'],
+        subnet_id=new_default_test_subnet.id)
+
+
+@pytest.fixture(scope='session')
+def complete_default_test_network(new_default_test_network,
+                                  new_default_test_subnet,
+                                  new_default_test_router,
+                                  new_default_test_interface_for_router):
+    yield new_default_test_network

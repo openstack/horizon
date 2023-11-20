@@ -111,8 +111,6 @@ def test_release_floatingip(login, driver, openstack_demo, config,
         new_floating_ip.floating_ip_address) is None
 
 
-@pytest.mark.parametrize('new_instance_demo', [(1, "private", False)],
-                         indirect=True)
 def test_associate_floatingip(login, driver, openstack_demo, new_floating_ip,
                               config, instance_name, new_instance_demo):
     login('user')
@@ -142,7 +140,7 @@ def test_associate_floatingip(login, driver, openstack_demo, new_floating_ip,
            new_floating_ip.floating_ip_address).port_details['device_id'])
 
 
-@pytest.mark.parametrize('new_instance_demo', [(1, "private", True)],
+@pytest.mark.parametrize('new_instance_demo', [(1, True)],
                          indirect=True)
 def test_disassociate_floatingip(login, driver, openstack_demo, config,
                                  instance_name, new_instance_demo,

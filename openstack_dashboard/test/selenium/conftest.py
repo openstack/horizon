@@ -124,10 +124,10 @@ def record_video(request, report_dir, xdisplay):
     display, width, height = xdisplay
     command = [
         'ffmpeg',
-        '-video_size', '{}x{}'.format(width, height),
+        '-video_size', f'{width}x{height}',
         '-framerate', str(frame_rate),
         '-f', 'x11grab',
-        '-i', display,
+        '-i', f':{display}',
         filepath,
     ]
     fnull = open(os.devnull, 'w')
