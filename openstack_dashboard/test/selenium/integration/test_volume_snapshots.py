@@ -10,6 +10,8 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
+import time
+
 from oslo_utils import uuidutils
 import pytest
 import test_volumes
@@ -23,7 +25,7 @@ new_volume_admin = test_volumes.new_volume_admin
 
 
 @pytest.fixture(params=[1])
-def volume_snapshot_name(request):
+def volume_snapshot_names(request):
     count = request.param
     snapshot_name_list = ['horizon_volume_snapshot_%s' %
                           uuidutils.generate_uuid(dashed=False)]
@@ -34,60 +36,87 @@ def volume_snapshot_name(request):
 
 
 @pytest.fixture
-def new_volume_snapshot_demo(new_volume_demo, volume_snapshot_name,
+def new_volume_snapshot_demo(new_volume_demo, volume_snapshot_names,
                              openstack_demo):
 
-    for snapshot in volume_snapshot_name:
+    for volume_snapshot_name in volume_snapshot_names:
         volume_snapshot = openstack_demo.create_volume_snapshot(
             volume_id=new_volume_demo.id,
-            name=snapshot,
+            name=volume_snapshot_name,
             wait=True,
         )
     yield volume_snapshot
-    for snapshot in volume_snapshot_name:
-        openstack_demo.delete_volume_snapshot(snapshot)
+    for volume_snapshot_name in volume_snapshot_names:
+        openstack_demo.delete_volume_snapshot(
+            name_or_id=volume_snapshot_name,
+            wait=True,
+        )
 
 
 @pytest.fixture
-def new_volume_snapshot_admin(new_volume_admin, volume_snapshot_name,
+def new_volume_snapshot_admin(new_volume_admin, volume_snapshot_names,
                               openstack_admin):
 
-    for snapshot in volume_snapshot_name:
+    for volume_snapshot_name in volume_snapshot_names:
         volume_snapshot = openstack_admin.create_volume_snapshot(
             volume_id=new_volume_admin.id,
-            name=snapshot,
+            name=volume_snapshot_name,
             wait=True,
         )
     yield volume_snapshot
-    for snapshot in volume_snapshot_name:
-        openstack_admin.delete_volume_snapshot(snapshot)
-
-
-@pytest.fixture
-def clear_volume_snapshot_demo(volume_snapshot_name, openstack_demo):
-    yield None
-    for snapshot in volume_snapshot_name:
-        openstack_demo.delete_volume_snapshot(
-            name_or_id=snapshot,
-            wait=True,
-        )
-
-
-@pytest.fixture
-def clear_volume_snapshot_admin(volume_snapshot_name, openstack_admin):
-    yield None
-    for snapshot in volume_snapshot_name:
+    for volume_snapshot_name in volume_snapshot_names:
         openstack_admin.delete_volume_snapshot(
-            name_or_id=snapshot,
+            name_or_id=volume_snapshot_name,
             wait=True,
         )
+
+
+@pytest.fixture
+def clear_volume_snapshot_demo(volume_snapshot_names, openstack_demo):
+    yield None
+    wait_for_steady_state_of_volume_snapshot(openstack_demo,
+                                             volume_snapshot_names[0])
+    openstack_demo.delete_volume_snapshot(
+        name_or_id=volume_snapshot_names[0],
+        wait=True,
+    )
+
+
+@pytest.fixture
+def clear_volume_snapshot_admin(volume_snapshot_names, openstack_admin):
+    yield None
+    wait_for_steady_state_of_volume_snapshot(openstack_admin,
+                                             volume_snapshot_names[0])
+    openstack_admin.delete_volume_snapshot(
+        name_or_id=volume_snapshot_names[0],
+        wait=True,
+    )
+
+
+def wait_for_steady_state_of_volume_snapshot(openstack, volume_snapshot_name):
+    for attempt in range(10):
+        if (openstack.block_storage.find_snapshot(
+            volume_snapshot_name).status in ["available", "error",
+                                             "error_deleting"]):
+            break
+        else:
+            time.sleep(3)
+
+
+def wait_for_volume_snapshot_is_deleted(openstack, volume_snapshot_name):
+    for attempt in range(10):
+        if (openstack.block_storage.find_snapshot(
+                volume_snapshot_name) is None):
+            break
+        else:
+            time.sleep(3)
 
 
 def test_create_volume_snapshot_demo(login, driver, volume_name,
-                                     new_volume_demo, volume_snapshot_name,
+                                     new_volume_demo, volume_snapshot_names,
                                      config, clear_volume_snapshot_demo,
                                      openstack_demo):
-    volume_snapshot_name = volume_snapshot_name[0]
+    volume_snapshot_name = volume_snapshot_names[0]
     volume_name = volume_name[0]
     login('user')
     volumes_url = '/'.join((
@@ -112,10 +141,10 @@ def test_create_volume_snapshot_demo(login, driver, volume_name,
             is not None)
 
 
-def test_delete_volume_snapshot_demo(login, driver, volume_snapshot_name,
+def test_delete_volume_snapshot_demo(login, driver, volume_snapshot_names,
                                      new_volume_snapshot_demo, config,
                                      openstack_demo):
-    volume_snapshot_name = volume_snapshot_name[0]
+    volume_snapshot_name = volume_snapshot_names[0]
     login('user')
     url = '/'.join((
         config.dashboard.dashboard_url,
@@ -132,12 +161,13 @@ def test_delete_volume_snapshot_demo(login, driver, volume_snapshot_name,
     messages = widgets.get_and_dismiss_messages(driver)
     assert(f"Success: Scheduled deletion of Volume Snapshot: "
            f"{volume_snapshot_name}" in messages)
+    wait_for_volume_snapshot_is_deleted(openstack_demo, volume_snapshot_name)
     assert (openstack_demo.block_storage.find_snapshot(volume_snapshot_name)
             is None)
 
 
-@pytest.mark.parametrize('volume_snapshot_name', [3], indirect=True)
-def test_volume_snapshots_pagination_demo(login, driver, volume_snapshot_name,
+@pytest.mark.parametrize('volume_snapshot_names', [3], indirect=True)
+def test_volume_snapshots_pagination_demo(login, driver, volume_snapshot_names,
                                           new_volume_snapshot_demo,
                                           change_page_size_demo, config):
     """This test checks volumes snapshot pagination for demo
@@ -160,16 +190,18 @@ def test_volume_snapshots_pagination_demo(login, driver, volume_snapshot_name,
     12) Delete created snapshots and volumes .
     """
     items_per_page = 1
-    name = volume_snapshot_name
-    first_page_definition = widgets.TableDefinition(next=True, prev=False,
-                                                    count=items_per_page,
-                                                    names=[name[2]])
-    second_page_definition = widgets.TableDefinition(next=True, prev=True,
-                                                     count=items_per_page,
-                                                     names=[name[1]])
-    third_page_definition = widgets.TableDefinition(next=False, prev=True,
-                                                    count=items_per_page,
-                                                    names=[name[0]])
+    first_page_definition = widgets.TableDefinition(
+        next=True, prev=False,
+        count=items_per_page,
+        names=[volume_snapshot_names[2]])
+    second_page_definition = widgets.TableDefinition(
+        next=True, prev=True,
+        count=items_per_page,
+        names=[volume_snapshot_names[1]])
+    third_page_definition = widgets.TableDefinition(
+        next=False, prev=True,
+        count=items_per_page,
+        names=[volume_snapshot_names[0]])
     url = '/'.join((
         config.dashboard.dashboard_url,
         'project',
@@ -204,8 +236,8 @@ def test_volume_snapshots_pagination_demo(login, driver, volume_snapshot_name,
 # Admin tests
 
 
-@pytest.mark.parametrize('volume_snapshot_name', [3], indirect=True)
-def test_volume_snapshots_pagination_admin(login, driver, volume_snapshot_name,
+@pytest.mark.parametrize('volume_snapshot_names', [3], indirect=True)
+def test_volume_snapshots_pagination_admin(login, driver, volume_snapshot_names,
                                            new_volume_snapshot_admin,
                                            change_page_size_admin, config):
     """This test checks volumes snapshot pagination for admin
@@ -228,16 +260,18 @@ def test_volume_snapshots_pagination_admin(login, driver, volume_snapshot_name,
     12) Delete created snapshots and volumes
     """
     items_per_page = 1
-    name = volume_snapshot_name
-    first_page_definition = widgets.TableDefinition(next=True, prev=False,
-                                                    count=items_per_page,
-                                                    names=[name[2]])
-    second_page_definition = widgets.TableDefinition(next=True, prev=True,
-                                                     count=items_per_page,
-                                                     names=[name[1]])
-    third_page_definition = widgets.TableDefinition(next=False, prev=True,
-                                                    count=items_per_page,
-                                                    names=[name[0]])
+    first_page_definition = widgets.TableDefinition(
+        next=True, prev=False,
+        count=items_per_page,
+        names=[volume_snapshot_names[2]])
+    second_page_definition = widgets.TableDefinition(
+        next=True, prev=True,
+        count=items_per_page,
+        names=[volume_snapshot_names[1]])
+    third_page_definition = widgets.TableDefinition(
+        next=False, prev=True,
+        count=items_per_page,
+        names=[volume_snapshot_names[0]])
     url = '/'.join((
         config.dashboard.dashboard_url,
         'project',
