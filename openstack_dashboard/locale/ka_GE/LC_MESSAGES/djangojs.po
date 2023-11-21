@@ -1,0 +1,3375 @@
+# OpenStack Infra <zanata@openstack.org>, 2015. #zanata
+# Temuri Doghonadze <temuri.doghonadze@gmail.com>, 2022. #zanata
+# Temuri Doghonadze <temuri.doghonadze@gmail.com>, 2023. #zanata
+msgid ""
+msgstr ""
+"Project-Id-Version: horizon VERSION\n"
+"Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
+"POT-Creation-Date: 2023-11-20 22:25+0000\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"PO-Revision-Date: 2023-11-19 06:49+0000\n"
+"Last-Translator: Copied by Zanata <copied-by-zanata@zanata.org>\n"
+"Language-Team: Georgian (Georgia)\n"
+"Language: ka_GE\n"
+"X-Generator: Zanata 4.3.3\n"
+"Plural-Forms: nplurals=1; plural=0\n"
+
+msgid "#"
+msgstr "#"
+
+#, python-format
+msgid ""
+"%(id)s - Bandwidth Limit - maxkbps: %(max_kbps)s, maxburstkbps: "
+"%(max_burst_kb)s, %(direction)s"
+msgstr ""
+"%(id)s - გამტარობის ლიმიტი - maxkbps: %(max_kbps)s, maxburstkbps: "
+"%(max_burst_kb)s, %(direction)s"
+
+#, python-format
+msgid "%(id)s - DSCP Marking - dscpmark: %(dscp_mark)s"
+msgstr "%(id)s - DSCP დანიშვნა - dscpmark: %(dscp_mark)s"
+
+#, python-format
+msgid "%(id)s - Minimum Bandwidth - minkbps: %(min_kbps)s, %(direction)s"
+msgstr "%(id)s - მინიმალური გამტარობა - minkbps: %(min_kbps)s, %(direction)s"
+
+#, python-format
+msgid "%(id)s - Minimum Packet Rate - minkpps: %(min_kpps)s, %(direction)s"
+msgstr ""
+"%(id)s - მინიმალური პაკეტებს სიჩქარე - minkpps: %(min_kpps)s, %(direction)s"
+
+#, python-format
+msgid "%s (default)"
+msgstr "%s (ნაგულისხმები)"
+
+msgid "1"
+msgstr "1"
+
+msgid "10%"
+msgstr "10%"
+
+msgid "2"
+msgstr "2"
+
+msgid "3"
+msgstr "3"
+
+msgid "4"
+msgstr "4"
+
+msgid "5"
+msgstr "5"
+
+msgid "6"
+msgstr "6"
+
+msgid "7"
+msgstr "7"
+
+msgid "75%"
+msgstr "75%"
+
+msgid ""
+"<strong>Heads up!</strong>\n"
+"           This\n"
+"          <a href=\"#\" class=\"alert-link\">alert needs your attention</"
+"a>,\n"
+"           but it's not super important."
+msgstr ""
+"<strong>თავი ასწიე!</strong>\n"
+"           ამ\n"
+"          <a href=\"#\" class=\"alert-link\">გაფრთხილებას თქვენი ყურადღება "
+"სჭირდება</a>,\n"
+"           მაგრამ მთლად მნიშვნელოვანიც არაა."
+
+msgid ""
+"<strong>Oh snap!</strong>\n"
+"          <a href=\"#\" class=\"alert-link\">Change a few things up</a>\n"
+"          and try submitting again."
+msgstr ""
+"<strong>ვაი!</strong>\n"
+"          <a href=\"#\" class=\"alert-link\">შეცვალეთ რამდენიმე რამ</a>\n"
+"          და თავიდან სცადეთ."
+
+msgid ""
+"<strong>Well done!</strong>\n"
+"          You successfully read\n"
+"          <a href=\"#\" class=\"alert-link\">this important alert message</"
+"a>."
+msgstr ""
+"<strong>კარგია!</strong>\n"
+"          თქვენ წარმატებით წაიკითხეთ\n"
+"          <a href=\"#\" class=\"alert-link\">ეს მნიშვნელოვანი გაფრთხილება</"
+"a>."
+
+msgid "A Confirmation Dialog"
+msgstr "დადასტურების დიალოგი"
+
+msgid ""
+"A Public Container will allow anyone with the Public URL to gain access to "
+"your objects in the container."
+msgstr ""
+"საჯარო კონტეინერი ყველას, ვისაც საჯარო ბმული აქვს, კონტეინერში მყოფ თქვენს "
+"ობიექტებთან წვდომას მისცემს."
+
+msgid "A container with that name exists."
+msgstr "კონტეინერი ასეთი სახელით უკვე არსებობს."
+
+msgid "A description list is perfect for defining terms."
+msgstr "აღწერების სია შესანიშნავი ადგილია წესების აღწერისთვის."
+
+msgid "A description of the Volume."
+msgstr "ტომის აღწერა."
+
+msgid "A description of the image."
+msgstr "გამოსახულების აღწერა."
+
+msgid "A local file should be selected."
+msgstr "აირჩიეთ ლოკალური ფაილი."
+
+msgid ""
+"A longer block of help text that breaks onto a new line and may extend "
+"beyond one line."
+msgstr ""
+"დახმარების ტექსტის უფრო დიდი ბლოკი, რომელიც ახალ ხაზად იყოფა და შეიძლება ერთ "
+"ხაზზე გრძელი იყოს."
+
+msgid "A name is required for your instance."
+msgstr "თქვენი გაშვებული ასლისთვის სახელი აუცილებელია."
+
+msgid "A port represents a virtual switch port on a logical network switch."
+msgstr "პორტი ვირტუალური კომუტატორის პორტია ლოგიკური ქსელის კომუტატორზე."
+
+msgid ""
+"A volume description less than {$createVolumeCtrl.validationRules."
+"fieldMaxLength + 1$} characters is required."
+msgstr ""
+"ტომის აღწერა {$ctrl.validationRules.fieldMaxLength + 1$} სიმბოლოზე მოკლე "
+"უნდა იყოს."
+
+msgid ""
+"A volume name less than {$createVolumeCtrl.validationRules.fieldMaxLength + "
+"1$} characters is required."
+msgstr ""
+"ტომის სახელი {$ctrl.validationRules.fieldMaxLength + 1$} სიმბოლოზე მოკლე "
+"უნდა იყოს."
+
+msgid "AKI"
+msgstr "AKI"
+
+msgid "AKI - Amazon Kernel Image"
+msgstr "AKI - Amazon Kernel-ის გამოსახულება"
+
+msgid "AMI"
+msgstr "AMI"
+
+msgid "AMI - Amazon Machine Image"
+msgstr "AMI - Amazon Machine-ის გამოსახულება"
+
+msgid "ARI"
+msgstr "ARI"
+
+msgid "ARI - Amazon Ramdisk Image"
+msgstr "ARI - Amazon Ramdisk-ის გამოსახულება"
+
+msgid "Action"
+msgstr "ქმედება"
+
+msgid "Actions"
+msgstr "ქმედებები"
+
+msgid "Active"
+msgstr "აქტიური"
+
+msgid "Add Interface"
+msgstr "ინტერფეისის დამატება"
+
+msgid "Add Ons, Required and Feedback"
+msgstr "დამატებები, აუცილებელი და უკუკავშირი"
+
+msgid "Add Rule"
+msgstr "წესის დამატება"
+
+msgid "Admin Password"
+msgstr "ადმინისტრატორის პაროლი"
+
+msgid "Admin State"
+msgstr "ადმინისტრატორის მდგომარეობა"
+
+msgid "Affinity"
+msgstr "შესაბამისობა"
+
+msgid "Alerts"
+msgstr "შეტყობინებები"
+
+msgid "Amount of RAM in MB that is required to boot the image."
+msgstr "RAM-ის რაოდენობა მბ-ში, რომელიც დისკის ასლის ჩასატვირთადაა საჭირო."
+
+msgid "Amount of disk space in GB that is required to boot the image."
+msgstr "დისკის ადგილი გბ-ში, რომელიც დისკის ასლის ჩასატვირთადაა საჭირო."
+
+msgid ""
+"An abbreviation of the word attribute is <abbr title=\"attribute\">attr</"
+"abbr>."
+msgstr "სიტყვა ატრიბუტის შემოკლებაა <abbr title=\"attribute\">attr</abbr>."
+
+msgid "An arbitrary description for the trunk."
+msgstr "ტრანკის მისაღები აღწერა."
+
+msgid "An arbitrary name for the trunk. May not be unique."
+msgstr "ტრანკის მისაღები სახელები. შეიძლება უნიკალური არ იყოს."
+
+msgid "An external (HTTP) URL is required"
+msgstr "აუცილებელია გარე (HTTP) ბმული"
+
+msgid "An external (HTTP) URL to load the image from"
+msgstr "გარე (HTTP) ბმული დისკის ასლის ჩასატვირთად"
+
+msgid "An image description less than 256 characters is required."
+msgstr "დისკის ასლის აღწერა 256 სიმბოლოზე მოკლე უნდა იყოს."
+
+msgid ""
+"An image description less than {$ctrl.validationRules.fieldMaxLength + 1$} "
+"characters is required."
+msgstr ""
+"დისკის ასლის აღწერა {$ctrl.validationRules.fieldMaxLength + 1$} სიმბოლოზე "
+"მოკლე უნდა იყოს."
+
+msgid "An image name less than 256 characters is required."
+msgstr "დისკის ასლის სახელი 256 სიმბოლოზე მოკლე უნდა იყოს."
+
+msgid ""
+"An image name less than {$ctrl.validationRules.fieldMaxLength + 1$} "
+"characters is required."
+msgstr ""
+"დისკის ასლის სახელი {$ctrl.validationRules.fieldMaxLength + 1$} სიმბოლოზე "
+"მოკლე უნდა იყოს."
+
+msgid ""
+"An instance name is required and used to help you uniquely identify your "
+"instance in the dashboard."
+msgstr ""
+"გაშვებული ასლის სახელი აუცილებელია და გამოიყენება სამუშაო მაგიდაზე თქვენი "
+"სამუშაო ასლის უნიკალურად იდენტიფიკაციისთვის."
+
+msgid "Animated"
+msgstr "ანიმირებული"
+
+msgid "Another action"
+msgstr "სხვა ქმედება"
+
+msgid "Anti Affinity"
+msgstr "ანტი შესაბამისობა"
+
+msgid "Any Availability Zone"
+msgstr "ნებისმიერი წვდომადობის ზონა"
+
+msgid "Architecture"
+msgstr "არქიტექტურა"
+
+#, python-format
+msgid "Are you sure you want to delete container %(name)s?"
+msgstr "დარწმუნებული ბრძანდებით, რომ გნებავთ, წაშალოთ კონტეინერი %(name)s?"
+
+msgid "Array"
+msgstr "მასივი"
+
+msgid "Automatic"
+msgstr "ავტომატური"
+
+msgid "Availability Zone"
+msgstr "ხელმისაწვდომობის ზონა"
+
+msgid "Available"
+msgstr "ხელმისაწვდომი"
+
+msgid "Available Scheduler Hints"
+msgstr "ხელმისაწვდომი დამგეგმავის მინიშნებები"
+
+msgid "Badges"
+msgstr "სამკერდე ნიშნები"
+
+msgid "Bandwidth Limit"
+msgstr "გამტარობის ლიმიტი"
+
+msgid "Bandwidth Rules"
+msgstr "გამტარობის წესები"
+
+msgid "Bare Metal"
+msgstr "შიშველი მეტალი"
+
+msgid "Basic"
+msgstr "საწყისი"
+
+msgid "Basic panel"
+msgstr "მარტივი პანელი"
+
+msgid "Batch Actions:"
+msgstr "ჯგუფური ქმედებები:"
+
+msgid "Block level button"
+msgstr "ბლოკის დონის ღილაკი"
+
+msgid "Blockquotes"
+msgstr "ბლოკბრჭყალები"
+
+msgid "Bordered Table"
+msgstr "შემოსაზღვრული ცხრილი"
+
+msgid "Bottom"
+msgstr "ქვემოთ"
+
+msgid "Brand"
+msgstr "სავაჭრო მარკა"
+
+msgid "Breadcrumbs"
+msgstr "ნამცეცები"
+
+msgid "Build"
+msgstr "აგება"
+
+msgid "Button"
+msgstr "ღილაკს"
+
+msgid "Buttons"
+msgstr "ღილაკები"
+
+msgid "Cancel"
+msgstr "გაუქმება"
+
+msgid "Cannot get service catalog from keystone."
+msgstr "Keystone-დან სერვისების კატალოგის მიღება შეუძლებელია."
+
+msgid "Cannot get the extension list."
+msgstr "გაფართოებების სიის მიღება შეუძლებელია."
+
+msgid "Change Password"
+msgstr "პაროლის შეცვლა"
+
+msgid "Change user's password. We highly recommend you create a strong one."
+msgstr "მომხმარებლის პაროლის შეცვლა. გირჩევთ, ძლიერი პაროლი დააყენოთ."
+
+msgid "Charts"
+msgstr "გრაფიკები"
+
+msgid "Checkbox"
+msgstr "ჩასართავი"
+
+msgid "Checking if this name is used..."
+msgstr "შემოწმება, გამოიყენება სახელი, თუ არა..."
+
+msgid "Checksum"
+msgstr "საკონტროლო რიცხვი"
+
+msgid "Choose an image"
+msgstr "აირჩიეთ გამოსახულება"
+
+msgid "Click to see more details"
+msgstr "მეტი დეტალების სანახავად დააწკაპუნეთ"
+
+msgid "Close"
+msgstr "დახურვა"
+
+msgid "Closed"
+msgstr "დახურული"
+
+msgid "Closing"
+msgstr "დახურვა"
+
+msgid "Collecting information for deletion:"
+msgstr "წაშლის ინფორმაციის შეგროვება:"
+
+msgid "Color"
+msgstr "ფერი"
+
+msgid "Column content"
+msgstr "სვეტის შემცველობა"
+
+msgid "Column heading"
+msgstr "სვეტის სათაური"
+
+msgid "Community"
+msgstr "საზგადოება"
+
+msgid "Configuration"
+msgstr "მორგება"
+
+msgid "Configuration Drive"
+msgstr "კონფიგურაციის დისკი"
+
+msgid "Confirm Delete"
+msgstr "დაადასტურეთ წაშლა"
+
+msgid "Confirm Delete Domain"
+msgid_plural "Confirm Delete Domains"
+msgstr[0] "დომენის წაშლის დადასტურება"
+
+msgid "Confirm Delete Flavor"
+msgid_plural "Confirm Delete Flavors"
+msgstr[0] "დაადასტურეთ ტიპის წაშლა"
+
+msgid "Confirm Delete Group"
+msgid_plural "Confirm Delete Groups"
+msgstr[0] "დაადასტურეთ ჯგუფის წაშლა"
+
+msgid "Confirm Delete Image"
+msgid_plural "Confirm Delete Images"
+msgstr[0] "დისკის ასლის წაშლის დადასტურება"
+
+msgid "Confirm Delete Key Pair"
+msgid_plural "Confirm Delete Key Pairs"
+msgstr[0] "გასაღების წყვილის წაშლის დადასტურება"
+
+msgid "Confirm Delete Policy"
+msgid_plural "Confirm Delete Policies"
+msgstr[0] "პოლიტიკის წაშლის დადასტურება"
+
+msgid "Confirm Delete Role"
+msgid_plural "Confirm Delete Roles"
+msgstr[0] "დაადასტურეთ როლის წაშლა"
+
+msgid "Confirm Delete Server Group"
+msgid_plural "Confirm Delete Server Groups"
+msgstr[0] "დაადასტურეთ სერვერის ჯგუფის წაშლა"
+
+msgid "Confirm Delete Trunk"
+msgid_plural "Confirm Delete Trunks"
+msgstr[0] "დაადასტურეთ ტრანკის წაშლა"
+
+msgid "Confirm Delete User"
+msgid_plural "Confirm Delete Users"
+msgstr[0] "დაადასტურეთ მომხმარებლის წაშლა"
+
+msgid "Confirm Password"
+msgstr "პაროლის დამოწმება"
+
+msgid "Confirm password"
+msgstr "პაროლის დადასტურება"
+
+msgid "Connecting"
+msgstr "დაკავშირება"
+
+msgid "Container"
+msgstr "კონტეინერი"
+
+#, python-format
+msgid "Container %(name)s created."
+msgstr "კონტეინერი %(name)s შეიქმნა."
+
+#, python-format
+msgid "Container %(name)s deleted."
+msgstr "კონტეინერი %(name)s წაიშალა."
+
+#, python-format
+msgid "Container %(name)s is now %(access)s."
+msgstr "კონტეინერი %(name)s ახლა %(access)s."
+
+msgid "Container Access"
+msgstr "კონტეინერის წვდომა"
+
+msgid "Container Format"
+msgstr "კონტეინერის ფორმატი"
+
+msgid "Container Name"
+msgstr "კონტეინერის სახელი"
+
+msgid "Container name must not contain \"/\"."
+msgstr "კონტეინერის სახელი არ შეიძლება, \"/\"-ს შეიცავდეს."
+
+msgid "Containers"
+msgstr "კონტეინერები"
+
+msgid "Content Type"
+msgstr "შემცველობის ტიპი"
+
+msgid "Contextual alternatives"
+msgstr "კონტექსტური ალტერნატივები"
+
+msgid "Copy"
+msgstr "კოპირება"
+
+msgid "Copy Data"
+msgstr "მონაცემების კოპირება"
+
+msgid "Copy Object"
+msgstr "ობიექტის კოპირება"
+
+msgid "Copy Object: {$ ctrl.model.container $}/{$ ctrl.model.path $}"
+msgstr "ობიექტის კოპირება: {$ ctrl.model.container $}/{$ ctrl.model.path $}"
+
+msgid "Copy Private Key to Clipboard"
+msgstr "პირადი გასაღების კოპირება ბუფერში"
+
+msgid "Copying"
+msgstr "კოპირება"
+
+msgid "Could not decrypt the password"
+msgstr "პაროლის გაშიფვრის შეცდომა"
+
+msgid "Could not read the file"
+msgstr "ფაილიდან წაკითხვს შეცდომა"
+
+msgid "Count"
+msgstr "რაოდენობა"
+
+msgid "Create Container"
+msgstr "კონტეინერის შექმნა"
+
+msgid "Create Domain"
+msgstr "დომენის შექმნა"
+
+msgid "Create Folder"
+msgstr "საქაღალდის შექმნა"
+
+msgid "Create Folder In: {$ ctrl.model.container.name $}"
+msgstr "საქაღალდის შექმნა კონტეინერში: {$ ctrl.model.container.name $}"
+
+msgid "Create Group"
+msgstr "ჯგუფის შექმნა"
+
+msgid "Create Image"
+msgstr "ასლის შექმნა"
+
+msgid "Create Key Pair"
+msgstr "გასაღებების წყვილის შექმნა"
+
+msgid "Create Keypair"
+msgstr "გასაღებების წყვილის შექმნა"
+
+msgid "Create New Volume"
+msgstr "ახალი ტომის შექმნა"
+
+msgid "Create Policy"
+msgstr "პოლიტიკის შექმნა"
+
+msgid "Create QoS Policy"
+msgstr "QoS-ის პოლიტიკის შექმნა"
+
+msgid "Create Role"
+msgstr "როლის შექმნა"
+
+msgid "Create Server Group"
+msgstr "სერვერის ჯგუფის შექმნა"
+
+msgid "Create Subnet"
+msgstr "საბნეტის შექმნა"
+
+msgid "Create Trunk"
+msgstr "ტრანკის შექმნა"
+
+msgid "Create User"
+msgstr "მომხმარებლის შექმნა"
+
+msgid "Create Volume"
+msgstr "მოცულობის შექმნა"
+
+msgid ""
+"Create a new user and set related properties including the Primary Project "
+"and Role."
+msgstr ""
+"შექმენით ახალი მომხმარებელი და დააყენეთ შესაბამისი თვისებები, ძირითადი "
+"პროექტისა და როლის ჩათვლით."
+
+msgid "Created"
+msgstr "შექმნილია"
+
+msgid "Created At"
+msgstr "შექმნილია"
+
+msgid "Created at"
+msgstr "შექმნის დრო"
+
+#, python-format
+msgid "Created keypair: %s"
+msgstr "შეიქმნა გასაღებების წყვილი: %s"
+
+msgid "Creating"
+msgstr "შექმნა"
+
+#, python-format
+msgid "Creating volume %s"
+msgstr "იქმნება ტომი %s"
+
+msgid "Custom Properties"
+msgstr "მორგებული თვისებები"
+
+msgid "Customization Script"
+msgstr "მორგების სკრიპტი"
+
+msgid "DNS Domain"
+msgid_plural "DNS Domains"
+msgstr[0] "DNS დომენი"
+
+msgid "DNS Record"
+msgid_plural "DNS Records"
+msgstr[0] "DNS ჩანაწერი"
+
+msgid "DSCP Mark"
+msgstr "DSCP ნიშანი"
+
+msgid "DSCP Marking"
+msgstr "DSCP დანიშვნა"
+
+msgid "DSCP Rules"
+msgstr "DSCP წესები"
+
+msgid "DSCP mark"
+msgstr "DSCP ნიშანი"
+
+msgid "Danger"
+msgstr "საფრთხე"
+
+msgid "Danger Anchor"
+msgstr "საშიშროების Anchor"
+
+msgid "Danger Button"
+msgstr "საფრთხის ღილაკი"
+
+msgid "Data"
+msgstr "მონაცემები"
+
+msgid "Date"
+msgstr "თარიღი"
+
+msgid "Date Created"
+msgstr "შექმნის თარიღი"
+
+msgid "Datepicker"
+msgstr "თარიღისამრჩევი"
+
+msgid "Datetime"
+msgstr "თარიღი და დრო"
+
+msgid "Deactivated"
+msgstr "დეაქტივირებულია"
+
+msgid "Default"
+msgstr "ნაგულისხმები"
+
+msgid "Default Anchor"
+msgstr "ნაგულისხმევი Anchor"
+
+msgid "Default Button"
+msgstr "ნაგულისხმები ღილაკი"
+
+msgid "Default button"
+msgstr "ნაგულისხმევი ღილაკი"
+
+msgid "Default input"
+msgstr "ნაგულისხმევი შეყვანა"
+
+msgid "Default: Empty string"
+msgstr "ნაგულისხმევი: ცარიელი სტრიქონი"
+
+msgid "Default: Enabled"
+msgstr "ნაგულისხმევი: ჩართულია"
+
+msgid "Definition list"
+msgstr "აღწერის სიები"
+
+msgid "Degraded"
+msgstr "დეგრადირებული"
+
+msgid "Delete"
+msgstr "წაშლა"
+
+msgid "Delete Container"
+msgstr "კონტეინერის წაშლა"
+
+msgid "Delete Domain"
+msgid_plural "Delete Domains"
+msgstr[0] "დომენის წაშლა"
+
+msgid "Delete Domains"
+msgstr "დომენების წაშლა"
+
+msgid "Delete Files in {$ ctrl.model.container.name $}"
+msgstr "ფაილების წაშლა კონტეინერში {$ ctrl.model.container.name $}"
+
+msgid "Delete Flavor"
+msgid_plural "Delete Flavors"
+msgstr[0] "გაშვებული ასლის ტიპის წაშლა"
+
+msgid "Delete Flavors"
+msgstr "ტიპების წაშლა"
+
+msgid "Delete Group"
+msgid_plural "Delete Groups"
+msgstr[0] "ჯგუფის წაშლა"
+
+msgid "Delete Groups"
+msgstr "ჯგუფების წაშლა"
+
+msgid "Delete Image"
+msgid_plural "Delete Images"
+msgstr[0] "გამოსახულების წაშლა"
+
+msgid "Delete Images"
+msgstr "სურათების წაშლა"
+
+msgid "Delete Instance"
+msgstr "გაშვებული ასლის წაშლა"
+
+msgid "Delete Interface"
+msgstr "ინტერფეისის წაშლა"
+
+msgid "Delete Key Pair"
+msgid_plural "Delete Key Pairs"
+msgstr[0] "გასაღების წყვილის წაშლა"
+
+msgid "Delete Key Pairs"
+msgstr "გასაღების წყვილების გახსნა"
+
+msgid "Delete Network"
+msgstr "ქსელის წაშლა"
+
+msgid "Delete Policies"
+msgstr "პოლიტიკების წაშლა"
+
+msgid "Delete Policy"
+msgid_plural "Delete Policies"
+msgstr[0] "პოლიტიკის წაშლა"
+
+msgid "Delete Role"
+msgid_plural "Delete Roles"
+msgstr[0] "როლის წაშლა"
+
+msgid "Delete Roles"
+msgstr "როლების წაშლა"
+
+msgid "Delete Router"
+msgstr "რაუტერის წაშლა"
+
+msgid "Delete Rule"
+msgstr "წესის წაშლა"
+
+msgid "Delete Server Group"
+msgid_plural "Delete Server Groups"
+msgstr[0] "სერვერის ჯგუფის წაშლა"
+
+msgid "Delete Server Groups"
+msgstr "სერვერის ჯგუფების წაშლა"
+
+msgid "Delete Subnet"
+msgstr "ქვექსელის წაშლა"
+
+msgid "Delete Trunk"
+msgid_plural "Delete Trunks"
+msgstr[0] "ტრანკის წაშლა"
+
+msgid "Delete Trunks"
+msgstr "ტრანკების წაშლა"
+
+msgid "Delete User"
+msgid_plural "Delete Users"
+msgstr[0] "მომხმარებლის წაშლა"
+
+msgid "Delete Users"
+msgstr "მომხმარებლების წაშლა"
+
+msgid "Delete Volume on Instance Delete"
+msgstr "ტომის წაშლა გაშვებული ასლის წაშლისას"
+
+msgid "Deleted"
+msgstr "წაშლილი"
+
+#, python-format
+msgid "Deleted Flavor: %s."
+msgid_plural "Deleted Flavors: %s."
+msgstr[0] "წაიშალა ტიპი: %s."
+
+#, python-format
+msgid "Deleted Group: %s."
+msgid_plural "Deleted Groups: %s."
+msgstr[0] "წაიშალა ჯგუფი: %s."
+
+#, python-format
+msgid "Deleted Image: %s."
+msgid_plural "Deleted Images: %s."
+msgstr[0] "წაიშალა დისკის ასლი: %s."
+
+#, python-format
+msgid "Deleted Key Pair: %s."
+msgid_plural "Deleted Key Pairs: %s."
+msgstr[0] "წაიშალა გასაღებების წყვილი: %s."
+
+#, python-format
+msgid "Deleted Role: %s."
+msgid_plural "Deleted Roles: %s."
+msgstr[0] "წაიშალა როლი: %s."
+
+#, python-format
+msgid "Deleted Server Group: %s."
+msgid_plural "Deleted Server Groups: %s."
+msgstr[0] "წაიშალა სერვერის ჯგუფი: %s."
+
+#, python-format
+msgid "Deleted Trunk: %s."
+msgid_plural "Deleted Trunks: %s."
+msgstr[0] "წაიშალა ტრანკი: %s."
+
+#, python-format
+msgid "Deleted User: %s."
+msgid_plural "Deleted Users: %s."
+msgstr[0] "წაიშალა მომხმარებელი: %s."
+
+#, python-format
+msgid "Deleted domain: %s."
+msgid_plural "Deleted domains: %s."
+msgstr[0] "წაიშალა დომენი: %s."
+
+#, python-format
+msgid "Deleted policy: %s."
+msgid_plural "Deleted policies: %s."
+msgstr[0] "წაიშალა პოლიტიკა: %s."
+
+msgid "Deleting"
+msgstr "წაშლა"
+
+msgid "Deleting:"
+msgstr "წაშლა:"
+
+msgid "Description"
+msgstr "განმარტება"
+
+msgid "Description lists"
+msgstr "აღწერის სიები"
+
+msgid "Destination Container"
+msgstr "სამიზნე კონტეინერი"
+
+msgid "Destination Object"
+msgstr "სამიზნე ობიექტი"
+
+msgid "Details"
+msgstr "დეტალები"
+
+msgid "Details Views:"
+msgstr "დეტალის ხედები:"
+
+msgid "Device ID"
+msgstr "მოწყობილობის ID"
+
+msgid "Device Name"
+msgstr "მოწყობილობის სახელი"
+
+msgid "Device Owner"
+msgstr "მოწყობილობის მფლობელი"
+
+msgid "Dialogs"
+msgstr "დიალოგები"
+
+msgid "Direct"
+msgstr "პირდაპირი"
+
+msgid "Direct Physical"
+msgstr "პირდაპირი ფიზიკური"
+
+msgid "Direction"
+msgstr "მიმართულება"
+
+msgid "Disable User"
+msgstr "მომხმარებლის გათიშვა"
+
+msgid "Disabled"
+msgstr "გამორთული"
+
+msgid "Disabled input"
+msgstr "გათიშული შეყვანა"
+
+msgid "Disabled input here..."
+msgstr "გათიშული შეყვანა აქ..."
+
+msgid "Disk Format"
+msgstr "დიკის ფორმატი"
+
+msgid "Disk Partition"
+msgstr "დისკის დანაყოფი"
+
+msgid "Distribution Charts"
+msgstr "განაწილების გრაფიკები"
+
+msgid "Docker"
+msgstr "Docker"
+
+msgid "Domain"
+msgid_plural "Domains"
+msgstr[0] "დომენი"
+
+#, python-format
+msgid "Domain %s was successfully created."
+msgstr "დომენი %s წარმატებით შეიქმნა."
+
+msgid "Domain ID"
+msgstr "დომენის ID"
+
+msgid "Domain Id"
+msgstr "დომენის ID"
+
+msgid "Domain Name"
+msgstr "დომენის სახელი"
+
+msgid ""
+"Domains provide separation between users and infrastructure used by "
+"different organizations."
+msgstr ""
+"დომენები უზრუნველყოფენ გაყოფას მოხმმარებლებსა და სხვადასხვა ორგანიზაციების "
+"მიერ გამოყენებულ ინფრასტრუქტურას შორს."
+
+msgid "Done"
+msgstr "მზადაა"
+
+msgid "Down"
+msgstr "ქვევით"
+
+msgid "Download"
+msgstr "გადმოწერა"
+
+msgid "Dropdown"
+msgstr "ჩამოსაშლელი მენიუ"
+
+msgid "Dropdown header"
+msgstr "ჩამოსაშლელი თავსართი"
+
+msgid "Dropdown link"
+msgstr "ჩამოსაშლელი ბმული"
+
+msgid "Edit"
+msgstr "რედაქტირება"
+
+msgid "Edit File"
+msgstr "ფაილის ჩასწორება"
+
+msgid "Edit File: {$ ctrl.model.container $} : {$ ctrl.model.path $}"
+msgstr "ფაილის ჩასწორება {$ ctrl.model.container $} : {$ ctrl.model.path $}"
+
+msgid "Edit Group"
+msgstr "ჯგუფის ჩასწორება"
+
+msgid "Edit Image"
+msgstr "გამოსახულების რედაქტირება"
+
+msgid "Edit Role"
+msgstr "როლის აღდგენა"
+
+msgid "Edit Rule"
+msgstr "წესის ჩასწორება"
+
+msgid "Edit Trunk"
+msgstr "ტრანკის ჩასწორება"
+
+msgid "Edit User"
+msgstr "მომხმარებლის ჩასწორება"
+
+msgid "Edit the user's details, including the Primary Project."
+msgstr "ჩაასწორეთ მომხმარებლის დეტალები, ძირითადი პროექტის ჩათვლით."
+
+msgid "Email"
+msgstr "ელფოსტა"
+
+msgid "Emphasis classes"
+msgstr "გამოყოფის კლასები"
+
+msgid "Enable User"
+msgstr "მომხმარებლის ჩართვა"
+
+msgid "Enable/Disable subport addition, removal and trunk delete."
+msgstr "ქვეპორტის დამატების, წაშლის და ტრანკის წაშლის ჩართვა/გამორთვა."
+
+msgid "Enabled"
+msgstr "ჩართული"
+
+msgid "Encountered {$ ctrl.model.deleted.failures $} failures."
+msgstr "აღმოჩენილია {$ ctrl.model.deleted.failures $} ჩავარდნა."
+
+msgid "Encrypted"
+msgstr "დაშიფრულია"
+
+msgid "Enter an Image Description"
+msgstr "შეიყვანეთ დისკის ასლის აღწერა"
+
+msgid "Enter an Image name"
+msgstr "შეიყვანეთ დისკის ასლის სახელი"
+
+msgid "Ephemeral Disk"
+msgstr "ეფემერული დისკი"
+
+msgid "Error"
+msgstr "შეცდომა"
+
+msgid "Error Deleting"
+msgstr "წაშლის შეცდომა"
+
+msgid "Ether Type"
+msgstr "Ethernet-ის ტიპი"
+
+msgid "Example body text"
+msgstr "მაგალითი სხეულის ტექსტი"
+
+msgid "Existing Scheduler Hints"
+msgstr "არსებული დამგეგმავის მინიშნებები"
+
+#, python-format
+msgid "Extension is not enabled: %(extension)s."
+msgstr "გაფართოება ჩართული არაა: %(extension)s."
+
+msgid "External Network"
+msgstr "გარე ქსელი"
+
+msgid "File"
+msgstr "ფაილი"
+
+#, python-format
+msgid "File %(name)s uploaded."
+msgstr "ფაილი %(name)s აიტვირთა."
+
+#, python-format
+msgid "File %(path)s uploaded."
+msgstr "ფაილი %(path)s აიტვირთა."
+
+msgid "File Name"
+msgstr "ფაილის სახელი"
+
+msgid "Filename"
+msgstr "ფაილის სახელი"
+
+msgid "Fingerprint"
+msgstr "ანაბეჭდი"
+
+msgid "Flavor"
+msgid_plural "Flavors"
+msgstr[0] "ტიპი"
+
+msgid "Flavor Name"
+msgstr "გაშვებული ასლის ტიპის სახელი"
+
+msgid ""
+"Flavors manage the sizing for the compute, memory and storage capacity of "
+"the instance."
+msgstr ""
+"ტიპები გაშვებული ასლის გამოთვლითი რესურსის, მეხსიერებისა და საცავის "
+"მოცულობას მართავენ."
+
+msgid "Floating IP"
+msgid_plural "Floating IPs"
+msgstr[0] "მცურავი IP"
+
+msgid "Focused input"
+msgstr "ფოკუსის მქონე შეყვანა"
+
+msgid "Folder"
+msgstr "საქაღალდე"
+
+#, python-format
+msgid "Folder %(name)s created."
+msgstr "საქაღალდე %(name)s შეიქმნა."
+
+msgid "Folder Name"
+msgstr "საქაღალდის სახელი"
+
+msgid "Form"
+msgstr "ფორმა"
+
+msgid "Form Output"
+msgstr "გამოტანის ფორმირება"
+
+msgid "Format"
+msgstr "ფორმატი"
+
+msgid "Forms"
+msgstr "ფორმები"
+
+msgid "Generic Table View:"
+msgstr "ზოგადი ცხრილის ხედი:"
+
+msgid "Global Actions:"
+msgstr "გლობალური ქმედებები:"
+
+msgid "Group"
+msgid_plural "Groups"
+msgstr[0] "ჯგუფი"
+
+#, python-format
+msgid "Group %s was successfully created."
+msgstr "ჯგუფი \"%s\" წარმატებით შეიქმნა."
+
+msgid "Group updated successfully."
+msgstr "ჯგუფის წარმატებით განახლდა."
+
+msgid "Hash"
+msgstr "ჰეში"
+
+msgid "Heading 1"
+msgstr "სათაური 1"
+
+msgid "Heading 2"
+msgstr "სათაური 2"
+
+msgid "Heading 3"
+msgstr "სათაური 3"
+
+msgid "Heading 4"
+msgstr "სათაური 4"
+
+msgid "Heading 5"
+msgstr "სათაური 5"
+
+msgid "Heading 6"
+msgstr "სათაური 6"
+
+msgid "Home"
+msgstr "მთავარი"
+
+msgid "Horizontal Definition List"
+msgstr "ჰორიზონტალური აღწერის სიები"
+
+msgid "Host ID"
+msgstr "ჰოსტის ID"
+
+msgid "Hypervisor"
+msgid_plural "Hypervisors"
+msgstr[0] "ჰაიპერვაიზორი"
+
+msgid "ID"
+msgstr "ID"
+
+msgid "IP"
+msgstr "IP"
+
+msgid "IP Addresses"
+msgstr "IP მისამართები"
+
+msgid "ISO"
+msgstr "ISO"
+
+msgid "ISO - Optical Disk Image"
+msgstr "ISO - ოპტიკური დიკის გამოსახულება"
+
+msgid ""
+"If a network is shared, then all users in the project can access the network."
+msgstr ""
+"თუ ქსელი გაზიარებულია, მასთან წვდომა ამ პროექტის ყველა მომხმარებელს ექნება."
+
+msgid "If set to 'Yes' then the image cannot be deleted."
+msgstr "თუ დაყენებულია 'დიახზე', დისკის ასლს ვერ წაშლით."
+
+msgid "Image"
+msgid_plural "Images"
+msgstr[0] "გამოსახულება"
+
+#, python-format
+msgid "Image %s was successfully created."
+msgstr "დისკი ასლი %s წარმატებით შეიქმნა."
+
+#, python-format
+msgid "Image %s was successfully updated."
+msgstr "ასლი %s წარმატებით განახლდა."
+
+msgid "Image Description"
+msgstr "გამოსახულების აღწერა"
+
+msgid "Image Detail"
+msgstr "დისკის ასლის დეტალი"
+
+msgid "Image Details"
+msgstr "დისკის ასლის დეტალები"
+
+msgid "Image Name"
+msgstr "გამოსახულების სახელი"
+
+msgid "Image Requirements"
+msgstr "დისკის ასლის მოთხოვნები"
+
+msgid "Image Sharing"
+msgstr "სურათების გაზიარება"
+
+msgid "Image Source"
+msgstr "ასლის წყარო"
+
+msgid "Image from Other Project - Non-Public"
+msgstr "დისკის ასლი სხვა პროექტიდან - არასაჯარო"
+
+msgid "Impact on your quota"
+msgstr "გავლენა თქვენს კვოტაზე"
+
+msgid "Import Key Pair"
+msgstr "გასაღებების წყვილის შემოტანა"
+
+msgid "Import Public Key"
+msgstr "საჯარო გასაღების შემოტანა"
+
+msgid "Indicators"
+msgstr "მაჩვენებლები"
+
+msgid "Info"
+msgstr "ინფო"
+
+msgid "Info Anchor"
+msgstr "ინფორმაციის Anchor"
+
+msgid "Info Button"
+msgstr "ინფორმაციის ღილაკი"
+
+msgid "Inline"
+msgstr "ხაზში"
+
+msgid "Inline Form"
+msgstr "ხაზშივე ფორმა"
+
+msgid "Input Sizes"
+msgstr "შეყვანის ზომები"
+
+msgid "Input States"
+msgstr "შეყვანის მდგომარეობები"
+
+msgid "Input addons"
+msgstr "შეყვანის დამატებები"
+
+msgid "Input error"
+msgstr "შეყვანის შეცდომა"
+
+msgid "Input success"
+msgstr "შეყვანა წარმატებულია"
+
+msgid "Input warning"
+msgstr "შეყვანის გაფრთხილება"
+
+msgid "Instance"
+msgid_plural "Instances"
+msgstr[0] "ეგზემპლარი"
+
+msgid "Instance ID"
+msgstr "ეგზემპლარის ID"
+
+msgid "Instance Name"
+msgstr "ეგზემპლარის სახელი"
+
+msgid "Instance Snapshot"
+msgstr "გაშვებული ასლის სწრაფი ასლი"
+
+msgid "Instance count is required and must be an integer of at least 1"
+msgstr ""
+"გაშვებული ასლების რაოდენობა აუცილებელია და მთელი რიცხვი უნდა იყოს, მინიმუმ 1"
+
+msgid "Interfaces"
+msgstr "ინტერფეისები"
+
+msgid "Is Public"
+msgstr "საჯაროა"
+
+msgid "Item Actions:"
+msgstr "ელემენტის ქმედებები:"
+
+msgid "Jumbotron"
+msgstr "Jumbotron"
+
+msgid "Kernel"
+msgstr "ბირთვი"
+
+msgid "Kernel ID"
+msgstr "ბირთვის ID"
+
+msgid "Key Pair"
+msgid_plural "Key Pairs"
+msgstr[0] "გასაღების წყვილი"
+
+msgid "Key Pair Name"
+msgstr "გასაღების წყვილის სახელი"
+
+msgid "Key Type"
+msgstr "გასაღების ტიპი"
+
+#, python-format
+msgid "Key pair %(name)s was successfully created."
+msgstr "გასაღების წყვილი %(name)s წარმატებით შეიქმნა."
+
+msgid "Key pair already exists."
+msgstr "გასაღებების წყვილი უკვე არსებობს."
+
+msgid "Keypair already exists or name contains bad characters."
+msgstr ""
+"გასაღებების წყვილი უკვე არსებობს, ან სახელი არასწორ სიმბოლოებს შეიცავს."
+
+msgid "Killed"
+msgstr "მოკვტა"
+
+msgid "Large Modal"
+msgstr "დიდი მოდალი"
+
+msgid "Large button"
+msgstr "დიდი ღილაკი"
+
+msgid "Large input"
+msgstr "დიდი შეყვანა"
+
+msgid "Launch"
+msgstr "გაშვება"
+
+msgid "Launch Instance"
+msgstr "ეგზემპლარის გაშვება"
+
+msgid "Learn more"
+msgstr "გაიგეთ მეტი"
+
+msgid "Left"
+msgstr "მარცხნივ"
+
+msgid "Legend"
+msgstr "შინაარსი"
+
+msgid "Library"
+msgstr "ბიბლიოთეკა"
+
+msgid "Line Charts"
+msgstr "ხაზის გრაფიკები"
+
+msgid "Link"
+msgstr "Ბმული"
+
+msgid "List Function:"
+msgstr "ჩამოთვლის ფუნქციას:"
+
+msgid "List group item heading"
+msgstr "სიების ჯგუფის სათაური"
+
+msgid "List groups"
+msgstr "ჯგუფების სია"
+
+msgid "Live Edit Schema Form Examples"
+msgstr "სქემის ფორმის მაგალითების ცოცხალი ჩასწორება"
+
+msgid "Load Balancer Pool"
+msgid_plural "Load Balancer Pools"
+msgstr[0] "დატვირთვის მათანაბრებლის პული"
+
+msgid "Load Balancer Pool Member"
+msgid_plural "Load Balancer Pool Members"
+msgstr[0] "დატვირთვის მათანაბრებლის პულის წევრი"
+
+msgid "Load Function:"
+msgstr "ჩატვირთვის ფუნქცია:"
+
+msgid "Loading"
+msgstr "იტვირთება"
+
+msgid "Loading ports... Please Wait"
+msgstr "პორტების ჩატვირთვა... მოითმინეთ"
+
+msgid "Loading trunk... Please Wait"
+msgstr "ტრანკის ჩატვირთვა... მოითმინეთ"
+
+msgid "Location"
+msgstr "დებარეობა"
+
+msgid "Look, I'm in a large well!"
+msgstr "ნახე, მე დიდ ჭაში ვარ!"
+
+msgid "Look, I'm in a small well!"
+msgstr "უყურე, მე პატარა ჭაში ვარ!"
+
+msgid "Look, I'm in a well!"
+msgstr "უყურე, მე ჭაში ვარ!"
+
+msgid "MAC Address"
+msgstr "MAC მისამართი"
+
+msgid "MacVTap"
+msgstr "MacVTap"
+
+msgid "Manual"
+msgstr "ხელით მითითება"
+
+msgid "Max Burst Kbits"
+msgstr "მაქს. იმპულსი კბ/წმ"
+
+msgid "Max Burst Size (in kbps)"
+msgstr "მაქს. იმპულსის ზომა (კბ/წმ)"
+
+msgid "Max Kbps"
+msgstr "მაქს. კბ/წმ"
+
+msgid "Max Port"
+msgstr "მაქს. პორტი"
+
+msgid "Max bandwidth (in kbps)"
+msgstr "მაქს. გამტარობა (კბ/წმ)"
+
+msgid "Max. Size (bytes)"
+msgstr "მაქს. ზომა (ბაიტი)"
+
+msgid "Members"
+msgstr "წევრები"
+
+msgid "Messages"
+msgstr "შეტყობინებები"
+
+msgid "Metadata"
+msgstr "მეტამონაცემები"
+
+msgid "Metadata Definition"
+msgid_plural "Metadata Definitions"
+msgstr[0] "მეტამონაცემების აღწერა"
+
+msgid "Metadata was successfully updated."
+msgstr "მეტამონაცემები წარმატებით განახლდა."
+
+msgid "Middle"
+msgstr "შუა"
+
+msgid "Min Disk (GB)"
+msgstr "მინ. დისკი (გბ)"
+
+msgid "Min Kbps"
+msgstr "მინ კბ/წმ"
+
+msgid "Min Kpps"
+msgstr "მინ კპ/წმ"
+
+msgid "Min Port"
+msgstr "მინ. პორტი"
+
+msgid "Min RAM (MB)"
+msgstr "მინ. RAM (მბ)"
+
+msgid "Min. Disk"
+msgstr "მინ. დისკი"
+
+msgid "Min. RAM"
+msgstr "მინ. RAM"
+
+msgid "Min. Size (bytes)"
+msgstr "მინ. ზომა (ბაიტი)"
+
+msgid "Mini button"
+msgstr "მინი ღილაკი"
+
+msgid "Minimum Bandwidth"
+msgstr "მინიმალური გამტარობა"
+
+msgid "Minimum Bandwidth Rules"
+msgstr "მინიმალური გამტარობის წესები"
+
+msgid "Minimum Disk"
+msgstr "დისკიი მინიმუმ"
+
+msgid "Minimum Disk (GB)"
+msgstr "დიკსი მინიმუმ (გბ)"
+
+msgid "Minimum Packet Rate"
+msgstr "მინიმალური პაკეტების სიჩქარე"
+
+msgid "Minimum Packet Rules"
+msgstr "მინიმალური პაკეტის წესები"
+
+msgid "Minimum RAM"
+msgstr "მინიმალური RAM"
+
+msgid "Minimum RAM (MB)"
+msgstr "მინიმალური RAM (მბ)"
+
+msgid "Minimum bandwidth (in kbps)"
+msgstr "მინიმალური გამტარობა (კბ/წმ)"
+
+msgid "Minimum packet rate (in kpps)"
+msgstr "მინიმალური პაკეტების სიჩქარე (პკტ/წმ)"
+
+msgid "Modals"
+msgstr "მოდალები"
+
+msgid "Model"
+msgstr "მოდელი"
+
+msgid "Month"
+msgstr "თვე"
+
+msgid "Name"
+msgstr "სახელი"
+
+msgid "Name/ID"
+msgstr "სახელი/ID"
+
+msgid "Names:"
+msgstr "სახელები:"
+
+msgid "Navbar"
+msgstr "ნავპანელი"
+
+msgid "Navs"
+msgstr "ნავები"
+
+msgid "Network"
+msgid_plural "Networks"
+msgstr[0] "ქსელი"
+
+msgid "Network Health Monitor"
+msgid_plural "Network Health Monitors"
+msgstr[0] "ქსელის ჯანმრთელობის მონიტორი"
+
+msgid "Network ID"
+msgstr "ქსელის ID"
+
+msgid "Network Port"
+msgid_plural "Network Ports"
+msgstr[0] "ქსელის პორტი"
+
+msgid "Network Ports"
+msgstr "ქსელის პორტები"
+
+msgid "Network Router"
+msgid_plural "Network Routers"
+msgstr[0] "ქსელური რაუტერი"
+
+msgid "Network Subnet"
+msgid_plural "Network Subnets"
+msgstr[0] "ქსელის ქვექსელი"
+
+msgid "Network characteristics"
+msgstr "ქსელის მახასიათებლები"
+
+msgid "Networks"
+msgstr "ქსელები"
+
+msgid "New File Contents"
+msgstr "ახალი ფაილის შემცველობა"
+
+msgid "Newer"
+msgstr "უფრო ახალია"
+
+msgid "Next"
+msgstr "შემდეგი"
+
+msgid "No"
+msgstr "არა"
+
+msgid "No available items"
+msgstr "ხელმისაწვდომი ჩანაწერების გარეშე"
+
+msgid "No available scheduler hints"
+msgstr "ხელმისაწვდომი დამგეგმავის მინიშნებების გარეშე"
+
+msgid "No description available."
+msgstr "აღწერის გარეშე."
+
+msgid "No existing scheduler hints"
+msgstr "არსებული დამგეგმავის მინიშნებების გარეშე"
+
+msgid "No items to display."
+msgstr "საჩვენებელი ელემენტები არაა."
+
+msgid "None"
+msgstr "არცერთი"
+
+msgid "Normal"
+msgstr "ნორმალური"
+
+msgid "Not Set"
+msgstr "დაყენებული არაა"
+
+msgid "Not public"
+msgstr "არასაჯარო"
+
+msgid "Number"
+msgstr "რიცხვი"
+
+msgid "OK"
+msgstr "დიახ"
+
+msgid "OVA"
+msgstr "OVA"
+
+msgid "OVA - Open Virtual Appliance"
+msgstr "OVA - ღია ვირტუალური არქივი"
+
+msgid "Object"
+msgid_plural "Objects"
+msgstr[0] "ობიექტი"
+
+#, python-format
+msgid "Object %(path)s has copied."
+msgstr "ობიექტი %(path)s დაკოპირდა."
+
+msgid "Object Count"
+msgstr "ობიექტის რაოდენობა"
+
+msgid "Object Details"
+msgstr "ობიექტის დეტალები"
+
+msgid "Ok"
+msgstr "დიახ"
+
+msgid "Older"
+msgstr "უფრო ძველია"
+
+msgid "One fine body…"
+msgstr "ერთი თხელი სხეული…"
+
+msgid "One large body…"
+msgstr "ერთი დიდი სხეული…"
+
+msgid "One more separated link"
+msgstr "ერთი ან მეტი გამოყოფილი ბმული"
+
+msgid "One small body…"
+msgstr "ერთი პატარა სხეული…"
+
+msgid "One super large body…"
+msgstr "ერთი უზარმაზარი სხეული…"
+
+msgid "One tiny body…"
+msgstr "ერთი ციცქნა სხეული…"
+
+msgid "Open"
+msgstr "გახსნა"
+
+msgid "Open Console"
+msgstr "კონსოლის გახსნა"
+
+msgid "Option one is this"
+msgstr "პირველი ვარიანტი"
+
+msgid "Option two can be something else"
+msgstr "მეორე ვარიანტი რამე სხვა, შეიძლება, იყოს"
+
+msgid "Ordered"
+msgstr "შეკვეთილია"
+
+msgid "Other Input Types"
+msgstr "სხვა შეყვანის ტიპები"
+
+msgid "Other lists"
+msgstr "სხვა სიები"
+
+msgid "Overview"
+msgstr "მიმოხილვა"
+
+msgid "Owner"
+msgstr "მეპატრონე"
+
+msgid "Ownership"
+msgstr "მფლობელობა"
+
+msgid "PLOOP"
+msgstr "PLOOP"
+
+msgid "PLOOP - Virtuozzo/Parallels Loopback Disk"
+msgstr "PLOOP - Virtuozzo/Parallels-ის მარყუჟის დისკი"
+
+msgid "Pager"
+msgstr "პეიჯერი"
+
+msgid "Pagination"
+msgstr "გვერდებად დაყოფა"
+
+msgid "Panel content"
+msgstr "პანელის შემცველობა"
+
+msgid "Panel danger"
+msgstr "პანელის საფრთხე"
+
+msgid "Panel footer"
+msgstr "პანელის ქვედა კოლონტიტული"
+
+msgid "Panel heading"
+msgstr "პანელის სათაური"
+
+msgid "Panel info"
+msgstr "პანელის ინფორმაცია"
+
+msgid "Panel primary"
+msgstr "ძირითადი პანელი"
+
+msgid "Panel success"
+msgstr "პანელი წარმატებულია"
+
+msgid "Panel warning"
+msgstr "პანელის გაფრთხილება"
+
+msgid "Panels"
+msgstr "პანელები"
+
+msgid "Parent Port"
+msgstr "მშობელი პორტი"
+
+msgid "Parent port"
+msgstr "მშობელი პორტი"
+
+msgid "Password"
+msgstr "პაროლი"
+
+msgid "Passwords do not match."
+msgstr "პაროლები არ ემთხვევა."
+
+msgid "Pending Delete"
+msgstr "რიგშია წასაშლელად"
+
+msgid "Physical Network"
+msgstr "ფიზიკური ქსელი"
+
+msgid "Pills"
+msgstr "ტაბლეტები"
+
+msgid "Please Wait"
+msgstr "გთხოვთ, მოითმინოთ"
+
+msgid "Policy"
+msgstr "წესები"
+
+msgid "Policy Details"
+msgstr "პოლიტიკის დეტალები"
+
+msgid "Policy ID"
+msgstr "პოლიტიკის ID"
+
+msgid "Policy Name"
+msgstr "პოლიტიკის სახელი"
+
+msgid "Policy check failed."
+msgstr "პოლიტიკის შემოწმება ჩავარდა."
+
+msgid "Popovers"
+msgstr "მხტუნარები"
+
+msgid "Port ID"
+msgstr "პორტის ID"
+
+msgid "Ports can be created under a network by administrators."
+msgstr "პორტები ქსელის ჩანართში, ადმინისტრატორების მიერ იქმნება."
+
+msgid "Prefix"
+msgstr "პრეფიქსი"
+
+msgid "Previous"
+msgstr "წინა"
+
+msgid "Primary"
+msgstr "ძირითადი"
+
+msgid "Primary Anchor"
+msgstr "ძირითადი Anchor"
+
+msgid "Primary Button"
+msgstr "ძირითადი ღილაკი"
+
+msgid "Primary Project"
+msgstr "ძირითადი პროექტი"
+
+msgid "Primary Project ID"
+msgstr "ძირითადი პროექტის ID"
+
+msgid "Primary Project Name"
+msgstr "ძირითადი პროექტის სახელი"
+
+msgid "Private"
+msgstr "პირადი"
+
+msgid "Private Key"
+msgstr "პირადი გასაღები"
+
+msgid "Profile"
+msgstr "პროფილი"
+
+msgid "Progress bars"
+msgstr "მიმდინარეობის ზოლები"
+
+msgid "Project"
+msgid_plural "Projects"
+msgstr[0] "პროექტი"
+
+msgid "Project ID"
+msgstr "პროექტის ID"
+
+msgid "Project Name"
+msgstr "პროექტის სახელი"
+
+msgid ""
+"Project networks are created by users.\n"
+"    These networks are fully isolated and are project-specific."
+msgstr ""
+"პროექტის ქსელები მომხმარებლების მიერ იქმნება.\n"
+"   ეს ქსელები სრულიად იზოლირებულია და თითოეულ პროექტს თავისი აქვს."
+
+msgid "Properties:"
+msgstr "თვისებები:"
+
+msgid "Protected"
+msgstr "დაცული"
+
+msgid "Protocol"
+msgstr "პროტოკოლი"
+
+msgid "Provide basic properties of the trunk to be created. All optional."
+msgstr "შეიყვანეთ შესაქმნელი ტრანკის პარამეტრები. სავალდებულო არცერთი არაა."
+
+msgid "Provider Network"
+msgstr "მომწოდებლის ქსელი"
+
+msgid ""
+"Provider networks are created by administrators.\n"
+"    These networks map to an existing physical network in the data center."
+msgstr ""
+"მომწოდებლის ქსელები ადმინისტრატორის მიერ იქმნება.\n"
+"     ეს ქსელები მდც-ში არსებულ ფიზიკურ ქსელს ასახავს."
+
+msgid "Public"
+msgstr "საჯარო"
+
+msgid "Public Access"
+msgstr "საჯარო წვდომა"
+
+msgid "Public Key"
+msgstr "საჯარო გასაღები"
+
+msgid "QCOW2"
+msgstr "QCOW2"
+
+msgid "QCOW2 - QEMU Emulator"
+msgstr "QCOW2 - ემულატორი QEMU"
+
+msgid "QoS Policy"
+msgid_plural "QoS Policies"
+msgstr[0] "QoS პოლიტიკა"
+
+#, python-format
+msgid "QoS Policy %s was successfully created."
+msgstr "QoS პოლიტიკა %s წარმატებით შეიქმნა."
+
+msgid "QoS Policy ID"
+msgstr "QOS პოლიტიკის ID"
+
+msgid "QoS Policy Id"
+msgstr "QOS პოლიტიკის ID"
+
+msgid "QoS Policy Name"
+msgstr "QOS პოლიტიკის სახელი"
+
+msgid "QoSPolicyId"
+msgstr "QoSPolicyId"
+
+msgid "QoSPolicyName"
+msgstr "QoSPolicyName"
+
+msgid "Qos Policy  Rule  was successfully deleted."
+msgstr "QoS პოლიტიკის წესი  წარმატებით შეიქმნა."
+
+#, python-format
+msgid "Qos Policy Rule %s was successfully updated."
+msgstr "QoS პოლიტიკის წესი %s წარმატებით განახლდა."
+
+msgid "Queued"
+msgstr "რიგშია"
+
+msgid "RAM"
+msgstr "RAM"
+
+msgid "RAW"
+msgstr "RAW"
+
+msgid "RX/TX Factor"
+msgstr "RX/TX ფაქტორი"
+
+msgid "Radios"
+msgstr "რადიოები"
+
+msgid "Radios, Checkboxes and Select"
+msgstr "ჩასართავები და ამრჩევები"
+
+msgid "Ramdisk"
+msgstr "Ramdisk"
+
+msgid "Ramdisk ID"
+msgstr "Ramdisk-ის ID"
+
+msgid "Raw"
+msgstr "Raw"
+
+msgid "Registered Resource Types"
+msgstr "რეგისტრირებული რესურსის ტიპები"
+
+msgid "Remote"
+msgstr "დაშორებული"
+
+msgid "Resource ID(s)"
+msgstr "რესურსის ID-ები"
+
+msgid "Revision Number"
+msgstr "რევიზიის ნომერი"
+
+msgid "Right"
+msgstr "მარჯვნივ"
+
+msgid "Role"
+msgid_plural "Roles"
+msgstr[0] "როლი"
+
+#, python-format
+msgid "Role %s was successfully created."
+msgstr "როლი %s წარმატებით შეიქმნა."
+
+msgid "Role already exists."
+msgstr "როლი უკვე არსებობს."
+
+msgid "Role updated successfully."
+msgstr "როლი წარმატებით განახლდა."
+
+msgid "Root Disk"
+msgstr "Root დისკი"
+
+msgid "Rule"
+msgstr "წესი"
+
+msgid "Rule ID"
+msgstr "წესის ID"
+
+msgid "Rule Type"
+msgstr "წესის ტიპი"
+
+msgid "Rule to edit"
+msgstr "ჩასასწორებელი წესი"
+
+msgid "RuleId"
+msgstr "წესისID"
+
+msgid "Rules"
+msgstr "წესები"
+
+msgid "SSH Key"
+msgstr "SSH გასაღები"
+
+msgid "STATUS"
+msgstr "სტატუსი"
+
+msgid "Save"
+msgstr "შენახვა"
+
+msgid "Save changes"
+msgstr "ცვლილებების შენახვა"
+
+msgid "Saving"
+msgstr "Შენახვა"
+
+#, python-format
+msgid "Scheduled creation of %s instance."
+msgid_plural "Scheduled creation of %s instances."
+msgstr[0] "%s გაშვებული ასლის დაგეგმილი შექმნა."
+
+msgid "Scheduler Hints"
+msgstr "დამგეგმავის მინიშნებები"
+
+msgid "Schema"
+msgstr "სქემა"
+
+msgid "Search"
+msgstr "ძებნა"
+
+msgid "Sections and Fieldsets"
+msgstr "სექციები და ველის ნაკრებები"
+
+msgid "Security"
+msgstr "დაცვა"
+
+msgid "Security Group"
+msgid_plural "Security Groups"
+msgstr[0] "უსაფრთხოების ჯგუფი"
+
+msgid "Security Groups"
+msgstr "უსაფრთხოების ჯგუფები"
+
+msgid ""
+"Security groups are project-specific and cannot be shared across projects."
+msgstr ""
+"უსაფრთხოების ჯგუფები პროექტზეა მიბმული და პროექტებს შორის ვერ გაზიარდება."
+
+msgid "Segmentation ID"
+msgstr "სეგმენტაციის ID"
+
+msgid "Segmentation Id"
+msgstr "სეგმენტაციის ID"
+
+msgid "Segmentation Type"
+msgstr "სეგმენტაციის ტიპი"
+
+msgid "Select Boot Source"
+msgstr "აირჩიეთ ჩატვირთვის წყარო"
+
+msgid "Select Example"
+msgstr "მაგალითის ნახვა"
+
+msgid "Select Title"
+msgstr "აირჩიეთ სათაური"
+
+msgid "Select a container to browse."
+msgstr "აირჩიეთ დასათვალიერებელი კონტეინერი."
+
+msgid "Select a flavor from the available flavors below."
+msgstr "აირჩიეთ ტიპის ჯგუფი ქვემო სიიდან."
+
+msgid "Select a key pair from the available key pairs below."
+msgstr "აირჩიეთ გასაღებების წყვილი ხელმისაწვდომების სიიდან."
+
+msgid "Select a server group from the available groups below."
+msgstr "აირჩიეთ სერვერს ჯგუფი ქვემო სიიდან."
+
+msgid "Select a source from those listed below."
+msgstr "აირჩიეთ წყარო ქვემო სიიდან."
+
+msgid "Select an item from Available items below"
+msgstr "არჩიეთ ელემენტი ქვემოთ ხელმისაწვდომი სიიდან"
+
+msgid "Select from the list of available ports below."
+msgstr "აირჩიეთ ერთი ან მეტი პორტი სიიდან."
+
+msgid "Select items from Available items below"
+msgstr "არჩიეთ ელემენტი ქვემოთ ხელმისაწვდომი სიიდან"
+
+msgid "Select many"
+msgstr "აირჩიეთ ბევრი"
+
+msgid "Select one"
+msgstr "მონიშნეთ ერთი"
+
+msgid "Select one or more"
+msgstr "აირჩიეთ კიდევ ერთი"
+
+msgid "Select one or more networks from the available networks below."
+msgstr "აირჩიეთ ერთი ან მეტი ქსელი სიიდან."
+
+msgid "Select one or more ports from the available ports below."
+msgstr "აირჩიეთ ერთი ან მეტი პორტი სიიდან."
+
+msgid "Select one or more security groups from the available groups below."
+msgstr "აირჩიეთ ერთი ან მეტი უსაფრთხოების ჯგუფი ქვემო სიდან."
+
+msgid "Select the Ramdisk from the drop down menu."
+msgstr "აირჩიეთ RAMdisk ჩამოსაშლელი ენიუდან."
+
+msgid "Select the availability zone from the drop down menu."
+msgstr "აირჩიეთ წვდომადობის ზონა ჩამოსაშლელი მენიუდან."
+
+msgid "Select the format of the disk from the drop down menu."
+msgstr "აირჩიეთ დისკის ფორმატი ჩამოსაშლელი მენიუდან."
+
+msgid "Select the kernel to run from the drop down menu."
+msgstr "აირჩიეთ გასაშვები ბირთვი ჩამოსაშლელი მენიუდან."
+
+msgid "Select the security groups to launch the instance in."
+msgstr "აირჩიეთ უსაფრთხოების ჯგუფები, რომელშიც გაშვებული ასლი შეიქმნება."
+
+msgid "Select the server group to launch the instance in."
+msgstr "აირჩიეთ სერვერის ჯგუფი, რომელშიც გაშვებული ასლი შეიქმნება."
+
+msgid "Selects"
+msgstr "აირჩევს"
+
+msgid "Send invitation"
+msgstr "მოსაწვევის გაგზავნა"
+
+msgid "Separated link"
+msgstr "გამოყოფილი ბმული"
+
+msgid "Server Group"
+msgid_plural "Server Groups"
+msgstr[0] "სერვერის ჯგუფი"
+
+#, python-format
+msgid "Server Group %s was successfully created."
+msgstr "სერვერის ჯგუფი %s წარმატებით შეიქმნა."
+
+msgid "Server Group Members"
+msgstr "სერვერის ჯგუფის წევრები"
+
+msgid "Server Groups"
+msgstr "სერვერის ჯგუფები"
+
+msgid ""
+"Server groups are project-specific and cannot be shared across projects."
+msgstr ""
+"უსაფრთხოების ჯგუფები პროექტზეა მიბმული და პროექტებს შორის ვერ გაზიარდება."
+
+#, python-format
+msgid "Service type is not enabled: %(desiredType)s"
+msgstr "სერვისის ტიპი ჩართული არაა: %(desiredType)s"
+
+msgid "Set admin password"
+msgstr "ადმინისტრატორის პაროლის დაყენება"
+
+#, python-format
+msgid "Setting is not enabled: %(setting)s"
+msgstr "პარამეტრი ჩართული არაა: %(setting)s"
+
+msgid "Shared"
+msgstr "გაზიარებული"
+
+msgid "Shared With Project"
+msgstr "გაზიარებულია პროექტთან"
+
+msgid "Shared with Project"
+msgstr "გაზიარებულია პროექტთან"
+
+msgid "Size"
+msgstr "ზომა"
+
+msgid "Size (GiB)"
+msgstr "ზომა (გიბ)"
+
+msgid "Small Modal"
+msgstr "პატარა მოდალი"
+
+msgid "Small button"
+msgstr "პატარა ღილაკი"
+
+msgid "Small input"
+msgstr "ნაგულისხმევი შეყვანა"
+
+msgid "Snapshot"
+msgstr "სწრაფი ასლი"
+
+msgid "Soft Affinity"
+msgstr "რბილი შესაბამისობა"
+
+msgid "Soft Anti Affinity"
+msgstr "რბილი ანტი შესაბამისობა"
+
+msgid "Someone famous in"
+msgstr "ვინმე ცნობილი"
+
+msgid "Something else here"
+msgstr "აქ რაღაც სხვაა"
+
+msgid "Something wrong to change password."
+msgstr "პაროლის შეცვლის შეცდომა."
+
+msgid "Source"
+msgstr "წყარო"
+
+msgid "Source Code"
+msgstr "საწყისი კოდი"
+
+msgid "Source Title"
+msgstr "წყაროს სათაური"
+
+msgid "Source Type"
+msgstr "წყაროს ტიპი"
+
+msgid "Specify an image to upload to the Image Service."
+msgstr "მიუთითეთ დისკის ასლი დისკის ასლის სერვისზე ასატვირთად."
+
+msgid "Stacked"
+msgstr "ჩალაგებული"
+
+msgid "Standard Modal"
+msgstr "სტანდარტული მოდალი"
+
+msgid "Standard Table"
+msgstr "სტანდარტული ცხრილი"
+
+msgid "Status"
+msgstr "სტატუსი"
+
+#, python-format
+msgid "Status: %s"
+msgstr "სტატუსი: %s"
+
+msgid "Storage Policy"
+msgstr "საცავის პოლიტიკა"
+
+msgid "Striped"
+msgstr "ზოლიანი"
+
+msgid "Submit"
+msgstr "გადაცემა"
+
+msgid "Subnets"
+msgstr "საბნეტები"
+
+msgid "Subnets Associated"
+msgstr "ქვექსელები ასოცირებულია"
+
+msgid "Subport Count"
+msgstr "ქვეპორტის რაოდენობა"
+
+msgid "Subports"
+msgstr "ქვეპორტები"
+
+msgid "Success"
+msgstr "წარმატება"
+
+#, python-format
+msgid "Successfully imported key pair %(name)s."
+msgstr "წარმატებით შემოტანილია გასაღებების წყვილი %(name)s."
+
+msgid "Summary Template URL:"
+msgstr "შეჯამების ნიმუშის URL:"
+
+msgid "Supports Details View:"
+msgstr "აქვს დეტალების ხედის მხარდაჭერა:"
+
+msgid "Swap Disk"
+msgstr "სვაპ დისკი"
+
+msgid "Swift Account"
+msgid_plural "Swift Accounts"
+msgstr[0] "Swift ანგარიში"
+
+msgid "Swift Container"
+msgid_plural "Swift Containers"
+msgstr[0] "Swift კონტეინერი"
+
+msgid "Tab Array"
+msgstr "ჩანართების მასივი"
+
+msgid "Table Columns:"
+msgstr "ცხრილის სვეტები:"
+
+msgid "Tables"
+msgstr "ცხრილებ"
+
+msgid "Tabs"
+msgstr "დაფები"
+
+msgid "Tags"
+msgstr "ჭდეები"
+
+msgid "Tel"
+msgstr "ტელ"
+
+msgid "Tenant ID"
+msgstr "პატრონის ID"
+
+msgid "Text"
+msgstr "ტექსტი"
+
+msgid "Text Inputs"
+msgstr "ტექსტის შეყვანები"
+
+msgid "Textarea"
+msgstr "ტექსტის ადგილი"
+
+msgid "The access permission for the image."
+msgstr "ასლის წვდომის უფლებები."
+
+msgid "The admin password is incorrect."
+msgstr "ადმინისტრატორის პაროლი არასწორია."
+
+msgid "The architecture of the image."
+msgstr "ასლის CPU-ის არქიტექტურა."
+
+msgid ""
+"The flavor you select for an instance determines the amount of compute, "
+"storage and memory resources that will be carved out for the instance."
+msgstr ""
+"ტიპი, რომელსაც გაშვებული ასლისთვის აირჩევთ, განსაზღვრავს გამოთვლითი "
+"რესურსის, საცავისა და მეხსიერების რესურსების, რომელიც გაშვებული ასლისთვის "
+"იქნება გამოყოფილი."
+
+msgid "The following snippet of text is <em>rendered as italicized text</em>."
+msgstr "ტექსტის ეს ნაგლეჯი <em>კურსივით გამოჩნდება</em>."
+
+msgid ""
+"The following snippet of text is <strong>rendered as bold text</strong>."
+msgstr "ტექსტის ეს ნაგლეჯი <strong>სქლად გამოჩნდება</strong>."
+
+#, python-format
+msgid ""
+"The instance count must not exceed your quota available of "
+"%(maxInstanceCount)s instances"
+msgstr ""
+"გაშვებული ასლების რაოდენობა თქვენთვის გამოყოფილ კვოტას %(maxInstanceCount)s "
+"არ უნდა სცდებოდეს"
+
+msgid ""
+"The logical port also defines the MAC address and the IP address(es) to be "
+"assigned to the interfaces plugged into them."
+msgstr ""
+"ლოგიკური პორტი ასევე აღწერს MAC მისამართს და IP მისამართებს "
+"ინტერფეისებისთვის, რომლებსაც მათში აერთებთ."
+
+msgid "The maximum burst size (in kilobits). Default is 0."
+msgstr "მაქსიმალური იმპულსის ზომა (კილობიტებში). ნაგულისხმევი მნიშვნელობაა 0."
+
+msgid ""
+"The minimum KBPS (kilobits per second) value which should be available for "
+"port."
+msgstr ""
+"მინიმალური კბ/წმ (კილობიტი წამში) მნიშვნელობა, რომელიც პორტისთვის უნდა იყოს "
+"ხელმისაწვდომი."
+
+msgid ""
+"The minimum disk size required to boot the image. If unspecified, this value "
+"defaults to 0 (no minimum)."
+msgstr ""
+"დისკის ასლის ჩასატვირთად აუცილებელი დისკის მინიმალური ზომა. თუ მითითებული "
+"არაა, ნაგულისხმევი მნიშვნელობაა 0 (მინიმუმის გარეშე)."
+
+msgid ""
+"The minimum kpps (kilo(1000) packets per second) value which should be "
+"available for port."
+msgstr ""
+"მინიმალური პკტ/წმ (კილო (1000) პაკეტი წამში) მნიშვნელობა, რომელიც პორტისთვის "
+"უნდა იყოს ხელმისაწვდომი."
+
+msgid ""
+"The minimum memory size required to boot the image. If unspecified, this "
+"value defaults to 0 (no minimum)."
+msgstr ""
+"დისკის ასლის ჩასატვირთად აუცილებელი ოპერატიული მეხსიერების მინიმალური ზომა. "
+"თუ მითითებული არაა, ნაგულისხმევი მნიშვნელობაა 0 (მინიმუმის გარეშე)."
+
+msgid "The name of the Volume."
+msgstr "ტომის სახელი."
+
+msgid "The name of the image."
+msgstr "გამოსახულების სახელი."
+
+#, python-format
+msgid ""
+"The selected %(sourceType)s source requires a flavor with at least "
+"%(minDisk)s GB of root disk. Select a flavor with a larger root disk or use "
+"a different %(sourceType)s source."
+msgstr ""
+"არჩეულ წყაროს %(sourceType)s სჭირდება ტიპი, რომელსაც სულ ცოტა %(minDisk)s გბ "
+"ძირითადი დისკი გააჩნია. აირჩიეთ უფრო დიდი ძირითადი დისკის მქონე ტიპი ან სხვა "
+"%(sourceType)s წყარო გამოიყენეთ."
+
+#, python-format
+msgid ""
+"The selected %(sourceType)s source requires a flavor with at least "
+"%(minRam)s MB of RAM. Select a flavor with more RAM or use a different "
+"%(sourceType)s source."
+msgstr ""
+"არჩეულ წყაროს %(sourceType)s სჭირდება ტიპი, რომელსაც სულ ცოტა %(minRam)s მბ "
+"RAM გააჩნია. აირჩიეთ უფრო დიდი RAM-ის მქონე ტიპი ან სხვა %(sourceType)s "
+"წყარო გამოიყენეთ."
+
+msgid "The size of the volume, in gibibytes (GiB)."
+msgstr "ტომის ზომა, გიგიბაიტებში (გიბ)."
+
+msgid "The status indicates whether the network has an active connection."
+msgstr "სტატუსი მიუთითებს, აქვს თუ არა ქსელს აქტიური მიერთება."
+
+msgid "The status indicates whether the port has an active connection."
+msgstr "სტატუსი მიუთითებს, აქვს თუ არა პორტს აქტიური მიერთება."
+
+#, python-format
+msgid "The volume size must be at least %(minVolumeSize)s GB"
+msgstr "ტომის ზომა სულ ცოტა %(minVolumeSize)s გბ უნდა იყოს"
+
+msgid "Themable Checkbox"
+msgstr "თემატური თოლია"
+
+msgid "Themable Option 1"
+msgstr "თემატური პარამეტრი 1"
+
+msgid "Themable Option 2"
+msgstr "თემატური პარამეტრი 2"
+
+msgid "Themable Radios"
+msgstr "თემატური გადამრთველები"
+
+msgid "Themable Selects"
+msgstr "თემატური ამრჩევები"
+
+msgid "There are no Availability Zones."
+msgstr "ხელმისაწვდომობის ზონების გარეშე."
+
+msgid "There are no rules to delete."
+msgstr "წასაშლელი წესების გარეშე."
+
+msgid "There are no rules to modify."
+msgstr "ჩასასწორებელი წესების გარეშე."
+
+msgid "This container does not exist."
+msgstr "ეს კონტეინერი არ არსებობს."
+
+msgid "This field is required."
+msgstr "ეს ველი სავალდებულოა."
+
+msgid ""
+"This flavor requires more RAM than your quota allows. Please select a "
+"smaller flavor or decrease the instance count."
+msgstr ""
+"ეს ტიპი ითხოვს უფრო მეტ RAM-ს, ვიდრე ამას თქვენი კვოტა გაძლევთ. აირჩიეთ უფრო "
+"მცირე ტიპი ან შეამცირეთ გაშვებული ასლების რაოდენობა."
+
+msgid ""
+"This flavor requires more VCPUs than your quota allows. Please select a "
+"smaller flavor or decrease the instance count."
+msgstr ""
+"ეს ტიპი ითხოვს უფრო მეტ VCPU-ებს, ვიდრე ამას თქვენი კვოტა გაძლევთ. აირჩიეთ "
+"უფრო მცირე ტიპი ან შეამცირეთ გაშვებული ასლების რაოდენობა."
+
+msgid ""
+"This is a simple hero unit, a simple jumbotron-style component for calling "
+"extra attention to featured content or information."
+msgstr ""
+"ეს მარტივი hero ერთეულია, jumbotron-ისსტილის კომპონენტი, მოხსენიებული "
+"შემცველობის ან ინფორმაციისთვის დამატებითი ყურადღების მისაქცევად."
+
+msgid "This is focused..."
+msgstr "ამას ფოკუსი აქვს..."
+
+msgid "This limit is currently not set."
+msgstr "ამჟამად, ზღვარი, დაყენებული არაა."
+
+msgid "This limit is currently set to {$ model.novaLimits.maxServerMeta $}."
+msgstr "ამ ზღვრის მიმდინარე მნიშვნელობაა {$ model.novaLimits.maxServerMeta $}."
+
+msgid "This name already exists."
+msgstr "ეს სახელი უკვე არსებობს."
+
+msgid "This step allows you to add Metadata items to your instance."
+msgstr ""
+"ეს ნაბიჯი საშუალებას გაძლევთ, თქვენს გაშვებულ ასლს მეტამონაცემის ელემენტები "
+"დაამატოთ."
+
+msgid "This step allows you to add scheduler hints to your instance."
+msgstr ""
+"ეს ნაბიჯი საშუალებას გაძლევთ, თქვენს გაშვებულ ასლს დამგეგმავის მინიშნებები "
+"დაამატოთ."
+
+msgid "Time"
+msgstr "დრო"
+
+msgid "Timestamp"
+msgstr "დროის შტამპი"
+
+msgid ""
+"To view source code, hover over a section, then click the <a class=\"btn btn-"
+"primary btn-xs\"><span class=\"fa fa-code\"></span></a> button in the top "
+"right of that section."
+msgstr ""
+"კოდის სანახავად გააჩერეთ თაგუნას კურსორი სექციის თავზე, შემდეგ კი "
+"დააწკაპუნეთ ღილაკზე <a class=\"btn btn-primary btn-xs\"><span class=\"fa fa-"
+"code\"></span></a> სექციის ზედა მარჯვენა კუთხეში."
+
+msgid "Tooltips"
+msgstr "მინიშნებები"
+
+msgid "Top"
+msgstr "ზემოთ"
+
+msgid "Total Disk"
+msgstr "დისკის ჯამი"
+
+msgid "Total Instances"
+msgstr "გაშვებული ასლები სულ"
+
+msgid "Total RAM"
+msgstr "RAM ჯამი"
+
+msgid "Total VCPUs"
+msgstr "VCPU-ები სულ"
+
+msgid "Total Volume Storage"
+msgstr "ტომის საცავი სულ"
+
+msgid "Total Volumes"
+msgstr "ჯამში ტომები"
+
+msgid "Trunk"
+msgid_plural "Trunks"
+msgstr[0] "ტრანკი"
+
+#, python-format
+msgid "Trunk %s was successfully created."
+msgstr "ტრანკი %s წარმატებით შეიქმნა."
+
+#, python-format
+msgid "Trunk %s was successfully edited."
+msgstr "ტრანკი %s წარმატებით ჩასწორდა."
+
+msgid "Type"
+msgstr "ტიპი"
+
+msgid ""
+"Type your script directly into the Customization Script field. If your "
+"browser supports the HTML5 File API, you may choose to load your script from "
+"a file. The size of your script should not exceed 16 Kb."
+msgstr ""
+"აკრიფეთ თქვენი სკრიპტი პირდაპირ მორგების სკრიპტის ველში. თუ თქვენს ბრაუზერს "
+"აქვს HTML5 File API-ის მხარდაჭერა, სკრიპტი შეგიძლიათ, ფაილიდანაც ჩატვირთოთ. "
+"სკრიპტის ფაილის ზომა 16 კბ-ს არ უნდა აჭარბებდეს."
+
+msgid "Typography"
+msgstr "ტიპოგრაფია"
+
+msgid "URL"
+msgstr "URL"
+
+msgid "Unable to add the bandwidthrule ."
+msgstr "გამტარობის წესის დამატება შეუძლებელია."
+
+msgid "Unable to add the dscp_marking_rule ."
+msgstr "ვერ დავამატე dscp_marking_rule ."
+
+msgid "Unable to add the minimum_bandwidth_rule ."
+msgstr "ვერ დავამატე minimum_bandwidth_rule ."
+
+msgid "Unable to add the minimum_packet_rate_rule."
+msgstr "ვერ დავამატე minimum_packet_rate_rule."
+
+msgid "Unable to allocate new floating IP address."
+msgstr "ახალი მცურავი IP მისამართის გამოყოფა შეუძლებელია."
+
+msgid "Unable to associate floating IP address."
+msgstr "მცურავი IP მისამართის ასოცირება შეუძლებელია."
+
+msgid "Unable to change the container access."
+msgstr "კონტეინერის წვდომის შეცვლა შეუძლებელია."
+
+msgid "Unable to check the Nova service feature."
+msgstr "Nova-ის სერვისის თვისების შემოწმება შეუძლებელია."
+
+msgid "Unable to copy the object."
+msgstr "ობიექტის დაკოპირება შეუძლებელია."
+
+msgid "Unable to create the QoS Policy."
+msgstr "QoS-ის პოლიტიკების შექმნა შეუძლებელია."
+
+msgid "Unable to create the container."
+msgstr "კონტეინერის შექმნა შეუძლებელია."
+
+msgid "Unable to create the domain."
+msgstr "დომენის შექმნა შეუძლებელია."
+
+msgid "Unable to create the flavor."
+msgstr "ტიპის შექმნა შეუძლებელია."
+
+msgid "Unable to create the folder."
+msgstr "საქაღალდის შექმნა შეუძლებელია."
+
+msgid "Unable to create the group."
+msgstr "ჯგუფის შექმნა შეუძლებელია."
+
+msgid "Unable to create the image."
+msgstr "დისკის ასლის შექმნა შეუძლებელია."
+
+msgid "Unable to create the keypair."
+msgstr "გასაღების წყვილის შექმნა შეუძლებელია."
+
+msgid "Unable to create the network."
+msgstr "ქსელის შექმნა შეუძლებელია."
+
+msgid "Unable to create the project."
+msgstr "პროექტის შექმნა შეუძლებელია."
+
+msgid "Unable to create the role."
+msgstr "როლის შექმნა შეუძლებელია."
+
+msgid "Unable to create the server group."
+msgstr "სერვერის ჯგუფის შექმნა შეუძლებელია."
+
+msgid "Unable to create the server snapshot."
+msgstr "სერვერის სწრაფი ასლის შექმნა შეუძლებელია."
+
+msgid "Unable to create the server."
+msgstr "სერვერის შექმნა შეუძლებელია."
+
+msgid "Unable to create the subnet."
+msgstr "ქვექსელის შექმნა შეუძლებელია."
+
+msgid "Unable to create the trunk."
+msgstr "ტრანკის შექმნა შეუძლებელია."
+
+msgid "Unable to create the user."
+msgstr "მომხარებლის შექმნა შეუძლებელია."
+
+msgid "Unable to create the volume."
+msgstr "ტომის შექმნა შეუძლებელია."
+
+#, python-format
+msgid "Unable to delete Flavor: %s."
+msgid_plural "Unable to delete Flavors: %s."
+msgstr[0] "ტიპის წაშლის შეცდომა: %s."
+
+#, python-format
+msgid "Unable to delete Group: %s."
+msgid_plural "Unable to delete Groups: %s."
+msgstr[0] "ჯგუფის წაშლის შეცდომა: %s."
+
+#, python-format
+msgid "Unable to delete Image: %s."
+msgid_plural "Unable to delete Images: %s."
+msgstr[0] "წაშლის შეცდომა დისკის ასლისთვის: %s."
+
+#, python-format
+msgid "Unable to delete Key Pair: %s."
+msgid_plural "Unable to delete Key Pairs: %s."
+msgstr[0] "ვერ წავშალე გასაღებების წყვილი: %s."
+
+#, python-format
+msgid "Unable to delete Role: %s."
+msgid_plural "Unable to delete Roles: %s."
+msgstr[0] "ვერ წავშალე როლი: %s."
+
+#, python-format
+msgid "Unable to delete Server Group: %s."
+msgid_plural "Unable to delete Server Groups: %s."
+msgstr[0] "სერვერის ჯგუფის წაშლის შეცდომა: %s."
+
+#, python-format
+msgid "Unable to delete Trunk: %s."
+msgid_plural "Unable to delete Trunks: %s."
+msgstr[0] "ვერ წავშალე ტრანკი: %s."
+
+#, python-format
+msgid "Unable to delete User: %s."
+msgid_plural "Unable to delete Users: %s."
+msgstr[0] "ვერ წავშალე მომხმარებლები: %s."
+
+#, python-format
+msgid "Unable to delete domain: %s."
+msgid_plural "Unable to delete domains: %s."
+msgstr[0] "ვერ წავშალე დომენი: %s."
+
+#, python-format
+msgid "Unable to delete policy: %s."
+msgid_plural "Unable to delete policies: %s."
+msgstr[0] "ვერ წავშალე პოლიტიკა: %s."
+
+#, python-format
+msgid "Unable to delete qos policy %(id)s"
+msgstr "ვერ წავშალე QoS პოლიტიკა %(id)s"
+
+msgid "Unable to delete the bandwidth_limit_rule."
+msgstr "ვერ წავშალე minimum_bandwidth_rule ."
+
+msgid "Unable to delete the container."
+msgstr "კონტეინერის წაშლა შეუძლებელია."
+
+msgid "Unable to delete the domain."
+msgstr "დომენის წაშლა შეუძლებელია."
+
+msgid "Unable to delete the domains."
+msgstr "დომენების წაშლა შეუძლებელია."
+
+msgid "Unable to delete the dscp_marking_rule."
+msgstr "ვერ წავშალე dscp_marking_rule ."
+
+#, python-format
+msgid "Unable to delete the flavor with id: %(id)s"
+msgstr "ვერ წავშალე ტიპი ID-ით %(id)s"
+
+msgid "Unable to delete the folder because it is not empty."
+msgstr "საქაღალდის წაშლა შეუძლებელია, რადგან ის ცარიელი არაა."
+
+msgid "Unable to delete the group."
+msgstr "ჯგუფის წაშლა შეუძლებელია."
+
+msgid "Unable to delete the groups."
+msgstr "ჯგუფების წაშლა შეუძლებელია."
+
+#, python-format
+msgid "Unable to delete the image with id: %(id)s"
+msgstr "ვერ წავშალე დისკის ასლის ID-ით: %(id)s"
+
+#, python-format
+msgid "Unable to delete the keypair with name: %(name)s"
+msgstr "ვერ წავშალე გასაღების წყვილი სახელით: %(name)s"
+
+msgid "Unable to delete the minimum_bandwidth_rule ."
+msgstr "ვერ წავშალე minimum_bandwidth_rule ."
+
+msgid "Unable to delete the minimum_packet_rate_rule ."
+msgstr "ვერ წავშალე minimum_packet_rate_rule."
+
+msgid "Unable to delete the object."
+msgstr "ობიექტის წაშლა შეუძლებელია."
+
+msgid "Unable to delete the project."
+msgstr "პროექტის წაშლა შეუძლებელია."
+
+msgid "Unable to delete the projects."
+msgstr "პროექტების წაშლა შეუძლებელია."
+
+msgid "Unable to delete the role."
+msgstr "როლის წაშლა შეუძლებელია."
+
+msgid "Unable to delete the roles."
+msgstr "როლების წაშლა შეუძლებელია."
+
+#, python-format
+msgid "Unable to delete the server group with id %(id)s"
+msgstr "ვერ წავშალე სერვერის ჯგუფი ID-ით %(id)s"
+
+#, python-format
+msgid "Unable to delete the server with id: %(id)s"
+msgstr "ვერ წავშალე სერვერი ID-ით %(id)s"
+
+msgid "Unable to delete the user."
+msgstr "მომხმარებლის წაშლა შეუძლებელია."
+
+msgid "Unable to delete the users."
+msgstr "მომხმარებლების წაშლა შეუძლებელია."
+
+#, python-format
+msgid "Unable to delete trunk: %(id)s"
+msgstr "ვერ წავშალე ტრანკი: %(id)s"
+
+msgid "Unable to disassociate floating IP address."
+msgstr "მცურავი IP მისამართის ასოცირების მოხსნა შეუძლებელია."
+
+msgid "Unable to edit instance metadata."
+msgstr "გაშვებული ასლის მეტამონაცემის ჩასწორება შეუძლებელია."
+
+msgid "Unable to edit snapshot metadata."
+msgstr "სწრაფი ასლის მეტამონაცემების ჩასწორება შეუძლებელია."
+
+msgid "Unable to edit the aggregate extra specs."
+msgstr "აგრეგატული დამატებითი სპეციფიკაციების ჩასწორება შეუძლებელია."
+
+msgid "Unable to edit the domain."
+msgstr "დომენის ჩასწორება შეუძლებელია."
+
+msgid "Unable to edit the flavor extra specs."
+msgstr "ტიპის დამატებითი სპეციფიკაციების ჩასწორება შეუძლებელია."
+
+msgid "Unable to edit the group."
+msgstr "ჯგუფის ჩასწორება შეუძლებელია."
+
+msgid "Unable to edit the image custom properties."
+msgstr ""
+"დისკის ასლის მომხმარებლის მიერ დაყენებული თვისებების ჩასწორება შეუძლებელია."
+
+msgid "Unable to edit the project."
+msgstr "პროექტის ჩასწორება შეუძლებელია."
+
+msgid "Unable to edit the role."
+msgstr "როლის ჩასწორება შეუძლებელია."
+
+msgid "Unable to edit the user."
+msgstr "მომხმარებლის ჩასწორება შეუძლებელია."
+
+msgid "Unable to edit volume metadata."
+msgstr "ტომის მეტამონაცემების ჩასწორება შეუძლებელია."
+
+msgid "Unable to edit volume type metadata."
+msgstr "ტომის ტიპის მეტამონაცემების ჩასწორება შეუძლებელია."
+
+msgid "Unable to fetch the groups."
+msgstr "ჯგუფების გამოთხოვა შეუძლებელია."
+
+msgid "Unable to fetch the policy details."
+msgstr "პოლიტიკის დეტალების გამოთხოვა შეუძლებელია."
+
+msgid "Unable to fetch the service catalog."
+msgstr "სერვისის კატალოგის გამოთხოვა შეუძლებელია."
+
+msgid "Unable to fetch the services."
+msgstr "სერვისების გამოთხოვა შეუძლებელია."
+
+msgid "Unable to get details of the object."
+msgstr "ობიექტის დეტალების მიღება შეუძლებელია."
+
+msgid "Unable to get the Glance service version."
+msgstr "Glance-ის სერვისის ვერსიის მიღება შეუძლებელია."
+
+msgid "Unable to get the Keystone service version."
+msgstr "Keystone-ის სერვისის ვერსიის მიღება შეუძლებელია."
+
+msgid "Unable to get the Swift container listing."
+msgstr "Swift-ის კონტეინერის ჩამონათვლის მიღება შეუძლებელია."
+
+msgid "Unable to get the Swift service info."
+msgstr "Swift-ის სერვისის ვერსიის მიღება შეუძლებელია."
+
+msgid "Unable to get the container details."
+msgstr "კონტეინერის დეტალების მიღება შეუძლებელია."
+
+msgid "Unable to get the objects in container."
+msgstr "კონტეინერში არსებული ობიექტების მიღება შეუძლებელია."
+
+msgid "Unable to grant the role."
+msgstr "როლის მინიჭება შეუძლებელია."
+
+#, python-format
+msgid "Unable to hard-reboot the server with id: %(id)s"
+msgstr "ვერ გადავტვირთე აპარატურულად სერვერი ID-ით: %(id)s"
+
+msgid "Unable to import the keypair."
+msgstr "გასაღების წყვილის შემოტანა შეუძლებელია."
+
+msgid "Unable to load the server actions."
+msgstr "სერვერის ქმედებების ჩატვირთვა შეუძლებელია."
+
+msgid "Unable to load the server console info."
+msgstr "სერვერის კონსოლის ინფორმაციის ჩატვირთვა შეუძლებელია."
+
+msgid "Unable to load the server console log."
+msgstr "სერვერის კონსოლის ჟურნალის ჩატვირთვა შეუძლებელია."
+
+msgid "Unable to load the server security groups."
+msgstr "სერვერის უსაფრთხოების ჯგუფების ჩატვირთვა შეუძლებელია."
+
+msgid "Unable to load the server volumes."
+msgstr "სერვერის ტომების ჩატვირთვა შეუძლებელია."
+
+#, python-format
+msgid "Unable to pause the server with id: %(id)s"
+msgstr "ვერ შევაჩერე სერვერი ID-ით: %(id)s"
+
+#, python-format
+msgid "Unable to resume the server with id: %(id)s"
+msgstr "ვერ გავაღვიძე სერვერი ID-ით: %(id)s"
+
+msgid "Unable to retrieve floating IP pools."
+msgstr "მცურავი IP-ის პულების მიღება შეუძლებელია."
+
+msgid "Unable to retrieve floating IPs."
+msgstr "მცურავი IP-ის მიღება შეუძლებელია."
+
+msgid "Unable to retrieve instance metadata."
+msgstr "გაშვებული ასლის მეტამონაცემის მიღება შეუძლებელია."
+
+msgid "Unable to retrieve instances."
+msgstr "შეუძლებელია ეგზემპლარების ჩვენება."
+
+msgid "Unable to retrieve server groups."
+msgstr "სერვერის ჯგუფების მიღება შეუძლებელია."
+
+msgid "Unable to retrieve settings."
+msgstr "პარამეტრების მიღება შეუძლებელია."
+
+msgid "Unable to retrieve the Absolute Limits."
+msgstr "აბსოლუტური საზღვრების მიღება შეუძლებელია."
+
+msgid "Unable to retrieve the QoS Specs."
+msgstr "QoS-ის სპეციფიკაციების მიღება შეუძლებელია."
+
+msgid "Unable to retrieve the agents."
+msgstr "აგენტების მიღება შეუძლებელია."
+
+msgid "Unable to retrieve the aggregate extra specs."
+msgstr "აგრეგატული დამატებითი სპეციფიკაციების მიღება შეუძლებელია."
+
+msgid "Unable to retrieve the availability zones."
+msgstr "ტომის ხელმისაწვდომობის ზონების მიღება შეუძლებელია."
+
+msgid "Unable to retrieve the cinder services."
+msgstr "Cinder-ის სერვისების მიღება შეუძლებელია."
+
+msgid "Unable to retrieve the current user session."
+msgstr "მიმდინარე მომხმარებლის სესიის მიღება შეუძლებელია."
+
+msgid "Unable to retrieve the default domain."
+msgstr "ნაგულისხმევი დომენის მიღება შეუძლებელია."
+
+msgid "Unable to retrieve the default quotas."
+msgstr "ნაგულისხმევი კვოტების მიღება შეუძლებელია."
+
+msgid "Unable to retrieve the default volume type."
+msgstr "ნაგულისხმევი ტომის ტიპი მიღება შეუძლებელია."
+
+msgid "Unable to retrieve the domain."
+msgstr "დომენის მიღება შეუძლებელია."
+
+msgid "Unable to retrieve the domains."
+msgstr "დომენების მიღება შეუძლებელია."
+
+msgid "Unable to retrieve the editable quotas."
+msgstr "ჩასწორებადი კვოტების მიღება შეუძლებელია."
+
+msgid "Unable to retrieve the extensions."
+msgstr "გაფართოებების მღება შეუძლებელია."
+
+msgid "Unable to retrieve the flavor extra specs."
+msgstr "ტიპის დამატებითი სპეციფიკაციების მიღება შეუძლებელია."
+
+msgid "Unable to retrieve the flavor."
+msgstr "ტიპის მიღება შეუძლებელია."
+
+msgid "Unable to retrieve the flavors."
+msgstr "ტიპების მიღება შეუძლებელია."
+
+msgid "Unable to retrieve the group."
+msgstr "ჯგუფის მიღება შეუძლებელია."
+
+msgid "Unable to retrieve the image custom properties."
+msgstr ""
+"დისკის ასლის მომხმარებლის მიერ დაყენებული თვისებების მიღება შეუძლებელია."
+
+msgid "Unable to retrieve the image."
+msgstr "დისკის ასლის მიღება შეუძლებელია."
+
+msgid "Unable to retrieve the images."
+msgstr "დისკის ასლბის მღება შეუძლებელია."
+
+msgid "Unable to retrieve the keypair."
+msgstr "გასაღების წყვილის მიღება შეუძლებელია."
+
+msgid "Unable to retrieve the keypairs."
+msgstr "გასაღების წყვილების მიღება შეუძლებელია."
+
+msgid "Unable to retrieve the limits."
+msgstr "ზღვრების მიღება შეუძლებელია."
+
+msgid "Unable to retrieve the namespaces."
+msgstr "სახელის სივრცეების მიღება შეუძლებელია."
+
+msgid "Unable to retrieve the networks."
+msgstr "ქსელების მიღება შეუძლებელია."
+
+msgid "Unable to retrieve the nova services."
+msgstr "Nova-ის სერვისების მიღება შეუძლებელია."
+
+#, python-format
+msgid "Unable to retrieve the policy with ID %(id)s"
+msgstr "ვერ მივიღე პოლიტიკა ID-ით %(id)s"
+
+msgid "Unable to retrieve the ports."
+msgstr "პორტების მიღება შეუძლებელია."
+
+msgid "Unable to retrieve the project."
+msgstr "პროექტის მიღება შეუძლებელია."
+
+msgid "Unable to retrieve the projects."
+msgstr "პროექტების მიღება შეუძლებელია."
+
+msgid "Unable to retrieve the qos policies."
+msgstr "QoS-ის პოლიტიკების მიღება შეუძლებელია."
+
+msgid "Unable to retrieve the resource types."
+msgstr "რესურსის ტიპების მიღება შეუძლებელია."
+
+msgid "Unable to retrieve the role."
+msgstr "როლის მიღება შეუძლებელია."
+
+msgid "Unable to retrieve the roles."
+msgstr "როლების მიღება შეუძლებელია."
+
+msgid "Unable to retrieve the security groups."
+msgstr "უსაფრთხოების ჯგუფების მიღება შეუძლებელია."
+
+msgid "Unable to retrieve the server group."
+msgstr "სერვერის ჯგუფის მიღება შეუძლებელია."
+
+msgid "Unable to retrieve the server."
+msgstr "სერვერის მიღება შეუძლებელია."
+
+msgid "Unable to retrieve the snapshot metadata."
+msgstr "ტომის სწრაფი ასლის მეტამონაცემების მიღება შეუძლებელია."
+
+msgid "Unable to retrieve the subnets."
+msgstr "ქვექსელების მიღება შეუძლებელია."
+
+#, python-format
+msgid "Unable to retrieve the trunk with id: %(id)s"
+msgstr "ვერ მივიღე ტრანკი id-ით: %(id)s"
+
+msgid "Unable to retrieve the trunks."
+msgstr "ტრანკების მიღება შეუძლებელია."
+
+msgid "Unable to retrieve the user."
+msgstr "მომხარებლის მიღება შეუძლებელია."
+
+msgid "Unable to retrieve the users."
+msgstr "მომხმარებლების მიღება შეუძლებელია."
+
+msgid "Unable to retrieve the volume availability zones."
+msgstr "ტომის ხელმისაწვდომობის ზონების მიღების შეცდომა."
+
+msgid "Unable to retrieve the volume metadata."
+msgstr "ტომის მეტამონაცემების მიღება შეუძლებელია."
+
+msgid "Unable to retrieve the volume snapshots."
+msgstr "ტომის სწრაფი ასლების მიღება შეუძლებელია."
+
+msgid "Unable to retrieve the volume type metadata."
+msgstr "ტომის ტიპის მეტამონაცემების მიღება შეუძლებელია."
+
+msgid "Unable to retrieve the volume type."
+msgstr "ტომის ტიპის მიღება შეუძლებელია."
+
+msgid "Unable to retrieve the volume types."
+msgstr "ტომის ტიპების მიღება შეუძლებელია."
+
+msgid "Unable to retrieve the volume."
+msgstr "ტომის მიღება შეუძლებელია."
+
+msgid "Unable to retrieve the volumes."
+msgstr "ტომების მიღება შეუძლებელია."
+
+msgid "Unable to set the default quotas."
+msgstr "ნაგულსხმევი კვოტების დაყენება შეუძლებელია."
+
+#, python-format
+msgid "Unable to soft-reboot the server with id: %(id)s"
+msgstr "ვერ გადავტვირთე პროგრამულად სერვერი ID-ით: %(id)s"
+
+#, python-format
+msgid "Unable to start the server with id: %(id)s"
+msgstr "ვერ გავუშვი სერვერი ID-ით: %(id)s"
+
+#, python-format
+msgid "Unable to stop the server with id: %(id)s"
+msgstr "ვერ გავაჩერე სერვერი ID-ით %(id)s"
+
+#, python-format
+msgid "Unable to suspend the server with id: %(id)s"
+msgstr "ვერ დავაძინე სერვერი ID-ით: %(id)s"
+
+#, python-format
+msgid "Unable to unpause the server with id: %(id)s"
+msgstr "ვერ გავაუქმე შეჩერება სერვერისთვის ID-ით: %(id)s"
+
+msgid "Unable to update metadata."
+msgstr "მეტამონაცემების განახლება შეუძლებელია."
+
+msgid "Unable to update project quota data."
+msgstr "პროექტის კვოტის მონაცემების განახლება შეუძლებელია."
+
+msgid "Unable to update the bandwidthrule."
+msgstr "გამტარობის წესის განახლება შეუძლებელია."
+
+msgid "Unable to update the dscp marking rule."
+msgstr "ვერ განვაახლე dscp_marking_rule ."
+
+msgid "Unable to update the flavor."
+msgstr "ტიპის განახლება შეუძლებელია."
+
+msgid "Unable to update the image."
+msgstr "დისკის ასლის განახლება შეუძლებელია."
+
+msgid "Unable to update the minimum bandwidth rule."
+msgstr "ვერ განვაახლე minimum_bandwidth_rule ."
+
+msgid "Unable to update the minimum packet rate rule."
+msgstr "ვერ განვაახლე minimum_packet_rate_rule."
+
+msgid "Unable to update the trunk."
+msgstr "ტრანკის განახლება შეუძლებელია."
+
+msgid "Unable to upload the object."
+msgstr "ობიექტის ატვირთვა შეუძლებელია."
+
+msgid "Unknown"
+msgstr "უცნობი"
+
+msgid "Unordered"
+msgstr "მოუწესრიგებელი"
+
+msgid "Unstyled"
+msgstr "სტილის გარეშე"
+
+msgid "Up"
+msgstr "ზევით"
+
+msgid "Update Aggregate Metadata"
+msgstr "მეტამონაცემების აგრეგაცია შეუძლებელია"
+
+msgid "Update Flavor Metadata"
+msgstr "ტიპის მეტამონაცემების განახლება"
+
+msgid "Update Image"
+msgstr "ასლის განახლება"
+
+msgid "Update Image Metadata"
+msgstr "დისკის ასლის მეტამონაცემების განახლება"
+
+msgid "Update Instance Metadata"
+msgstr "გაშვებული ასლის მეტამონაცემების განახლება"
+
+msgid "Update Metadata"
+msgstr "მეტამონაცემების განახლება"
+
+msgid "Update Volume Metadata"
+msgstr "ტომის მეტამონაცემების განახლება"
+
+msgid "Update Volume Snapshot Metadata"
+msgstr "ტომის სწრაფი ასლის მეტამონაცემების განახლება"
+
+msgid "Update Volume Type Metadata"
+msgstr "ტომის ტიპის მეტამონაცემების განახლება"
+
+msgid "Updated"
+msgstr "განახლდა"
+
+msgid "Updated At"
+msgstr "განახლების დრო"
+
+msgid "Updated at"
+msgstr "განახლების დრო"
+
+msgid "Upload File"
+msgstr "ფაილის ატვირთვა"
+
+msgid "Upload File To: {$ ctrl.model.container.name $}"
+msgstr "ფაილის ატვირთვა კონტეინერში: {$ ctrl.model.container.name $}"
+
+msgid "Uploading"
+msgstr "ატვირთვა"
+
+msgid "Uploading the image from a local file or from a specified URL."
+msgstr "იტვირთება დისკის ასლი ლოკალური ფაილიდან ან მითითებული ბმულიდან."
+
+msgid "Url"
+msgstr "Url"
+
+msgid "Usage Charts"
+msgstr "გამოყენების გრაფიკები"
+
+msgid "Use image as a source"
+msgstr "ასლის წყაროდ გამოყენება"
+
+msgid "User"
+msgid_plural "Users"
+msgstr[0] "მომხმარებელი"
+
+#, python-format
+msgid "User %s was successfully created."
+msgstr "მომხმარებელი \"%s\" წარმატებით შეიქმნა."
+
+#, python-format
+msgid "User %s was successfully disabled."
+msgstr "მომხმარებელი %s წარმატებით გაითიშა."
+
+#, python-format
+msgid "User %s was successfully enabled."
+msgstr "მომხმარებელი %s წარმატებით ჩაირთო."
+
+#, python-format
+msgid "User %s was successfully updated."
+msgstr "მომხმარებელი %s წარმატებით განახლდა."
+
+msgid "User ID"
+msgstr "მომხმარებლის ID"
+
+msgid "User Name"
+msgstr "მომხმარებლის სახელი"
+
+msgid "User password has been updated successfully."
+msgstr "მომხმარებლის პაროლი წარმატებით განხლდა."
+
+msgid "VCPUS"
+msgstr "VCPU-ები"
+
+msgid "VCPUs"
+msgstr "VCPU-ები"
+
+msgid "VDI"
+msgstr "VDI"
+
+msgid "VDI - Virtual Disk Image"
+msgstr "VDI - დისკის ვირტუალური გამოსახულება"
+
+msgid "VHD"
+msgstr "VHD"
+
+msgid "VHD - Virtual Hard Disk"
+msgstr "VHD - ვირტუალური მყარი დისკი"
+
+msgid "VMDK"
+msgstr "VMDK"
+
+msgid "VMDK - Virtual Machine Disk"
+msgstr "VMDK ვირტუალური მანქანის დისკი"
+
+msgid "VNIC type"
+msgstr "VNIC-ის ტიპი"
+
+msgid "View As Modal"
+msgstr "მოდალად ნახვა"
+
+msgid "View Details"
+msgstr "დეტალური ხედი"
+
+msgid "View Form JSON"
+msgstr "ფორმის JSON-ის ნახვა"
+
+msgid "View Instance Details"
+msgstr "გაშვებული ასლის დეტალების ნახვა"
+
+msgid "View Router Details"
+msgstr "რაუტერის დეტალების ნახვა"
+
+msgid "Virtio Forwarder"
+msgstr "Virtio გადამგზავნი"
+
+msgid "Virtual Size"
+msgstr "ვირტუალური ზომა"
+
+msgid "Virtual instances attach their interfaces to ports."
+msgstr "ვირტუალური გაშვებული ასლები თავიანთ ინტერფეისებს პორტებზე აბამენ."
+
+msgid "Visibility"
+msgstr "ხილვადობა"
+
+msgid "Volume"
+msgid_plural "Volumes"
+msgstr[0] "საცავი"
+
+msgid "Volume Backup"
+msgid_plural "Volume Backups"
+msgstr[0] "ტომის მარქაფი"
+
+msgid "Volume Details"
+msgstr "ტომის დეტალები"
+
+msgid "Volume Quota"
+msgstr "ტომის კვოტა"
+
+msgid "Volume Size (GB)"
+msgstr "ტომის ზომა (გბ)"
+
+msgid "Volume Snapshot"
+msgid_plural "Volume Snapshots"
+msgstr[0] "ტომის სწრაფი ასლი"
+
+msgid "Volume Type Description:"
+msgstr "ტომის ტიპის აღწერა:"
+
+msgid "Volume and Snapshot Quota (GiB)"
+msgstr "ტომის და სწრაფი ასლის კვოტა (გიბ)"
+
+msgid "Volume size is required and must be an integer"
+msgstr "ტომის ზომა აუცილებელია და ის მთელი რიცხვი უნდა იყოს"
+
+msgid "Volume size is required and must be positive integer"
+msgstr "ტომის ზომა აუცილებელია და ის დადებითი მთელი რიცხვი უნდა იყოს"
+
+msgid "Volumes are block devices that can be attached to instances."
+msgstr ""
+"ტომები ბლოკური მოწყობილობებია, რომლებიც გაშვებულ ასლებს შეგიძლიათ, მიაბათ."
+
+msgid "Warning"
+msgstr "გაფრთხილება"
+
+msgid "Warning Anchor"
+msgstr "გაფრთხილების Anchor"
+
+msgid "Warning Button"
+msgstr "გაფრთხილების ღილაკი"
+
+msgid "Warning!"
+msgstr "გაფთხილება!"
+
+msgid "Week"
+msgstr "კვირა"
+
+msgid "Wells"
+msgstr "უელსი"
+
+msgid "X509 Certificate"
+msgstr "X509 სერტიფიკატი"
+
+msgid "XL Modal"
+msgstr "XL მოდალი"
+
+msgid "XS"
+msgstr "XS"
+
+msgid "Yes"
+msgstr "დიახ"
+
+#, python-format
+msgid "You are not allowed to delete domains: %s"
+msgstr "არ გაქვთ უფლება, წაშალოთ დომენები: %s"
+
+#, python-format
+msgid "You are not allowed to delete images: %s"
+msgstr "არ გაქვთ უფლება, წაშალოთ დისკის ასლები: %s"
+
+msgid "You can add arbitrary metadata to your image."
+msgstr "თქვენს დისკის ასლს სასურველი მეტამონაცემები შეგიძლიათ დაამატოთ."
+
+msgid ""
+"You can copy objects. You have to create destination container prior to copy."
+msgstr ""
+"შეგიძლიათ, დააკოპიროთ ობიექტები. კოპირებამდე კი სამიზნე კონტეინერი უნდა "
+"შექმნათ."
+
+#, python-format
+msgid "You have selected \"%s\". Deleted Server Group is not recoverable."
+msgid_plural ""
+"You have selected \"%s\". Deleted Server Groups are not recoverable."
+msgstr[0] "აირჩიეთ \"%s\". წაშლილი სერვერის ჯგუფები აღდგენადი არაა."
+
+#, python-format
+msgid "You have selected \"%s\". Deleted Trunk is not recoverable."
+msgid_plural "You have selected \"%s\". Deleted Trunks are not recoverable."
+msgstr[0] "აირჩიეთ \"%s\". წაშლილი ტრანკები აღდგენადი არაა."
+
+#, python-format
+msgid "You have selected \"%s\". Deleted domain is not recoverable."
+msgid_plural "You have selected \"%s\". Deleted domains are not recoverable."
+msgstr[0] "აირჩიეთ \"%s\". წაშლილი დომენები აღდგენადი არაა."
+
+#, python-format
+msgid "You have selected \"%s\". Deleted flavor is not recoverable."
+msgid_plural "You have selected \"%s\". Deleted flavors are not recoverable."
+msgstr[0] "აირჩიეთ \"%s\". წაშლილი ტიპები აღდგენადი არაა."
+
+#, python-format
+msgid "You have selected \"%s\". Deleted group is not recoverable."
+msgid_plural "You have selected \"%s\". Deleted groups are not recoverable."
+msgstr[0] "აირჩიეთ \"%s\". წაშლილი ჯგუფები აღდგენადი არაა."
+
+#, python-format
+msgid "You have selected \"%s\". Deleted image is not recoverable."
+msgid_plural "You have selected \"%s\". Deleted images are not recoverable."
+msgstr[0] "აირჩიეთ \"%s\". წაშლილი დისკის ასლები აღდგენადი არაა."
+
+#, python-format
+msgid "You have selected \"%s\". Deleted key pair is not recoverable."
+msgid_plural "You have selected \"%s\". Deleted key pairs are not recoverable."
+msgstr[0] "აირჩიეთ \"%s\". წაშლილი გასაღების წყვილი აღდგენადი არაა."
+
+#, python-format
+msgid "You have selected \"%s\". Deleted policy is not recoverable."
+msgid_plural "You have selected \"%s\". Deleted policies are not recoverable."
+msgstr[0] "აირჩიეთ \"%s\". წაშლილი პოლიტიკა აღდგენადი არაა."
+
+#, python-format
+msgid "You have selected \"%s\". Deleted role is not recoverable."
+msgid_plural "You have selected \"%s\". Deleted roles are not recoverable."
+msgstr[0] "აირჩიეთ \"%s\". წაშლილი როლები აღდგენადი არაა."
+
+#, python-format
+msgid "You have selected \"%s\". Deleted user is not recoverable."
+msgid_plural "You have selected \"%s\". Deleted users are not recoverable."
+msgstr[0] "აირჩიეთ \"%s\". წაშლილი მომხმარებლები აღდგენადი არაა."
+
+msgid "Your Form as JavaScript"
+msgstr "თქვენი ფორმა JavaScript-ის სახით"
+
+msgid "any"
+msgstr "ნებისმიერი"
+
+msgid "egress"
+msgstr "გამავალი"
+
+msgid "image"
+msgstr "ასლი"
+
+msgid "ingress"
+msgstr "შემომავალი"
+
+msgid "inherit"
+msgstr "მემკვიდრეობით"
+
+msgid "min disk is required and must be an integer not less than 0"
+msgstr "აუცილებელია მინ. დისკი და ის მთელი რიცხვი, 0-ზე მეტი უნდა იყოს"
+
+msgid "min ram is required and must be an integer not less than 0"
+msgstr "მინ. მეხსიერება აუცილებელია და ის მთელი რიცხვი, 0-ზე მეტი უნდა იყოს"
+
+#, python-format
+msgid "resource load failed: %s"
+msgstr "რესურსის ჩატვირთვის შეცდომა: %s"
+
+msgid "snapshot"
+msgstr "სწრაფი ასლი"
+
+msgid "volume"
+msgstr "საცავი"
+
+msgid "{$ address $} on subnet {$ subnet $}"
+msgstr "{$ address $} ქვექსელზე {$ subnet $}"
+
+msgid ""
+"{$ ctrl.model.counted.files $} files in\n"
+"      {$ ctrl.model.counted.folders $} folders."
+msgstr ""
+"{$ ctrl.model.counted.files $} ფაილი\n"
+"      {$ ctrl.model.counted.folders $} საქაღალდეში."

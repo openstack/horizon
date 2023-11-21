@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: horizon VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2023-10-26 14:33+0000\n"
+"POT-Creation-Date: 2023-11-20 22:25+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -432,9 +432,6 @@ msgstr "Insignoj"
 msgid "Bandwidth Limit"
 msgstr "Kapacito Limito"
 
-msgid "Bandwidth Limit - , , , "
-msgstr "Kapacito limito - , , , "
-
 msgid "Bandwidth Rules"
 msgstr "Kapacito_Reguloj"
 
@@ -782,9 +779,6 @@ msgstr[1] "DNS Datumoj"
 
 msgid "DSCP Mark"
 msgstr "DSCP Marko"
-
-msgid "DSCP Mark - , "
-msgstr "DSCP Marko - , "
 
 msgid "DSCP Marking"
 msgstr "DSCP Marko"
@@ -1833,9 +1827,6 @@ msgstr "Minimuma butono"
 msgid "Minimum Bandwidth"
 msgstr "Minimuma Kapacito"
 
-msgid "Minimum Bandwidth - , , "
-msgstr "Minimuma Kapacito - , , "
-
 msgid "Minimum Bandwidth Rules"
 msgstr "Minimumaj_Kapacito_Reguloj"
 
@@ -1847,9 +1838,6 @@ msgstr "Minimuma Disko (GB)"
 
 msgid "Minimum Packet Rate"
 msgstr "Minimuma Pakaja rapido (MB)"
-
-msgid "Minimum Packet Rate - , , "
-msgstr "Minimuma Pakaĵo Rapidump - , , "
 
 msgid "Minimum Packet Rules"
 msgstr "Minimumaj_Pakaĵo_Reguloj"
@@ -2859,19 +2847,6 @@ msgid ""
 msgstr ""
 "La logika pordo ankaŭ difinas la MAC adreson kaj la IP adreso(j)n asignota "
 "al la interfacoj ŝtopita en ilin."
-
-msgid ""
-"The maximum KBPS (kilobits per second) value.\n"
-"    If you specify this value, must be greater than 0 otherwise max_kbps "
-"will have no value.\n"
-"    \n"
-"        The maximum burst size (in kilobits). Default is 0."
-msgstr ""
-"La maksimuma KBPS (kilobits per sekundo) valoro.\n"
-"    Se vi specifas tion valoron, devas esti pli granda ol  0 alikaze "
-"max_kbps havos neniun valoron.\n"
-"    \n"
-"        La maksimuma ŝpruc grando (en kilobits). Defaŭlto is 0."
 
 msgid ""
 "The maximum number of key-value pairs that can be supplied per instance is "

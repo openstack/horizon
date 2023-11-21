@@ -24,7 +24,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: horizon VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2023-09-28 15:12+0000\n"
+"POT-Creation-Date: 2023-11-20 22:25+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -440,9 +440,6 @@ msgstr "Badges"
 msgid "Bandwidth Limit"
 msgstr "대역폭 한계"
 
-msgid "Bandwidth Limit - , , , "
-msgstr "대역폭 한계 - , , , "
-
 msgid "Bandwidth Rules"
 msgstr "대역폭 규칙"
 
@@ -774,9 +771,6 @@ msgstr[0] "DNS 레코드"
 
 msgid "DSCP Mark"
 msgstr "DSCP Mark"
-
-msgid "DSCP Mark - , "
-msgstr "DSCP Mark - , "
 
 msgid "DSCP Marking"
 msgstr "DSCP 마킹"
@@ -1785,9 +1779,6 @@ msgstr "Mini button"
 msgid "Minimum Bandwidth"
 msgstr "최소 대역폭"
 
-msgid "Minimum Bandwidth - , , "
-msgstr "최소 대역폭 - , , "
-
 msgid "Minimum Bandwidth Rules"
 msgstr "최소 대역폭 규칙"
 
@@ -1799,9 +1790,6 @@ msgstr "최소 디스크 (GB)"
 
 msgid "Minimum Packet Rate"
 msgstr "최소 패킷 비율"
-
-msgid "Minimum Packet Rate - , , "
-msgstr "최소 패킷 비율 - , , "
 
 msgid "Minimum Packet Rules"
 msgstr "최소 패킷 규칙"
@@ -2784,19 +2772,6 @@ msgid ""
 msgstr ""
 "또한 논리 포트는 연결되는 인터페이스에 할당될 MAC 주소와 IP 주소를 정의합니"
 "다."
-
-msgid ""
-"The maximum KBPS (kilobits per second) value.\n"
-"    If you specify this value, must be greater than 0 otherwise max_kbps "
-"will have no value.\n"
-"    \n"
-"        The maximum burst size (in kilobits). Default is 0."
-msgstr ""
-"최대 KBPS (초당 킬로비트) 값입니다.\n"
-"    이 값을 지정하는 경우에는, 0보다 큰 값이어야 하며 그렇지 않으며 max_kbps "
-"에는 값이 지정되지 않을 것입니다.\n"
-"    \n"
-"        최대 burst 크기 (킬로비트)로, 디폴트는 0입니다."
 
 msgid ""
 "The maximum number of key-value pairs that can be supplied per instance is "

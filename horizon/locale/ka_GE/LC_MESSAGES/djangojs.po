@@ -1,0 +1,494 @@
+# OpenStack Infra <zanata@openstack.org>, 2015. #zanata
+# Temuri Doghonadze <temuri.doghonadze@gmail.com>, 2022. #zanata
+# Temuri Doghonadze <temuri.doghonadze@gmail.com>, 2023. #zanata
+msgid ""
+msgstr ""
+"Project-Id-Version: horizon VERSION\n"
+"Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
+"POT-Creation-Date: 2023-11-20 22:25+0000\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"PO-Revision-Date: 2023-11-18 06:31+0000\n"
+"Last-Translator: Copied by Zanata <copied-by-zanata@zanata.org>\n"
+"Language-Team: Georgian (Georgia)\n"
+"Language: ka_GE\n"
+"X-Generator: Zanata 4.3.3\n"
+"Plural-Forms: nplurals=1; plural=0\n"
+
+#, python-format
+msgid "%(total)s %(type)s"
+msgstr "%(total)s %(type)s"
+
+#, python-format
+msgid "%s GB"
+msgstr "%s გბ"
+
+#, python-format
+msgid "%s KB"
+msgstr "%s კბ"
+
+#, python-format
+msgid "%s MB"
+msgstr "%s მბ"
+
+#, python-format
+msgid "%s TB"
+msgstr "%s ტბ"
+
+#, python-format
+msgid "%s bytes"
+msgstr "%s ბაიტი"
+
+msgid "(Modified)"
+msgstr "(შეიცვალა)"
+
+msgid "-"
+msgstr "-"
+
+msgid "0 GB"
+msgstr "0 გბტ"
+
+msgid "0 MB"
+msgstr "0 მბტ"
+
+msgid "Active"
+msgstr "აქტიური"
+
+msgid "Add"
+msgstr "დამატება"
+
+msgid "Added"
+msgstr "დამატებულია"
+
+msgid "Additional items not allowed"
+msgstr "დამატებითი ელემენტები დაშვებული არაა"
+
+msgid "Additional properties not allowed"
+msgstr "დამატებითი თვისებები დაშვებული არაა"
+
+msgid "Allocated"
+msgstr "გამოყოფილი"
+
+msgid "An error occurred while updating."
+msgstr "შეცდომა განახლებისას."
+
+msgid "An error occurred. Please try again later."
+msgstr "შეცდომა. გთხოვთ კიდევ სცადოთ."
+
+msgid "Array is too long ({$value.length$} items), maximum {$schema.maxItems$}"
+msgstr ""
+"მასივი მეტისმეტად გრძელია ({$value.length$} ელემენტი). მაქსიმუმია {$schema."
+"maxItems$}"
+
+msgid ""
+"Array is too short ({$value.length$} items), minimum {$schema.minItems$}"
+msgstr ""
+"მასივი მეტისმეტად მოკლეა. ({$value.length$} ელემენტი). მინიმუმია {$schema."
+"minItems$}"
+
+msgid "Array items must be unique"
+msgstr "მასივის ელემენტები უნიკალური უნდა იყოს"
+
+msgid "Available"
+msgstr "ხელმისაწვდომი"
+
+msgid "Available Metadata"
+msgstr "ხელმისაწვდომი მეტამონაცემები"
+
+msgid "Back"
+msgstr "უკან"
+
+msgid "Cancel"
+msgstr "გაუქმება"
+
+msgid "Circular $refs"
+msgstr "წრიული $refs"
+
+msgid "Click each item to get its description here."
+msgstr "დააწკაპუნეთ თითოეულ ელემენტს, რათა მისი აღწერა აქ მიიღოთ."
+
+msgid "Click here for filters or full text search."
+msgstr "დააწკაპუნეთ აქ ფილტრების ან სრული ტექსტით საძებნელად."
+
+msgid "Click here to expand the row and view the errors."
+msgstr "დააწკაპუნეთ, რომ გაშალოთ მწკრივი და შეცდომები იხილოთ."
+
+msgid "Click to see more details"
+msgstr "მეტი დეტალების სანახავად დააწკაპუნეთ"
+
+msgid "Click to show or hide"
+msgstr "დააწკაპუნეთ  საჩვენებლად ან დასამალავად"
+
+msgid "Close"
+msgstr "დახურვა"
+
+#, python-format
+msgid "Confirm %s"
+msgstr "%s-ის დადასტურება"
+
+msgid "Confirm Delete Foobars"
+msgstr "პანელების წაშლის დადასტურება"
+
+#. Strings between {$ and $} should be left untranslated.
+msgid ""
+"Content size: {$ (textBytes || 0) | bytes $} of {$ ::maxBytes | bytes $}"
+msgstr ""
+"შემცველობის ზომა: {$ (textBytes || 0) | ბაიტი $} {$ ::maxBytes | ბაიტიდან $}"
+
+msgid "Current Usage"
+msgstr "მიმდინარე დატვირთვა"
+
+msgid "Custom"
+msgstr "ხელით მითითება"
+
+msgid "Danger"
+msgstr "საფრთხე"
+
+msgid "Danger: "
+msgstr "საშიშროება: "
+
+msgid "Data does not match any schemas from 'anyOf'"
+msgstr "მონაცემები არ ემთხვევა სქემებს 'AnyOF'-დან"
+
+msgid "Data does not match any schemas from 'oneOf'"
+msgstr "მონაცემები არ ემთხვევა სქემებს 'oneOF'-დან"
+
+msgid "Data is valid against more than one schema from 'oneOf'"
+msgstr "მონაცემები სწორია 'OneOf'-დან ერთზე მეტი სქემისთვის"
+
+msgid "Data matches schema from 'not'"
+msgstr "მონაცემები ემთხვევა სქემას 'not'-დან"
+
+msgid "Decimal required"
+msgstr "აუცილებელია ათობითში"
+
+msgid "Delete"
+msgstr "წაშლა"
+
+#, python-format
+msgid "Deleted : %s."
+msgstr "წაშლილია : %s."
+
+msgid "Dependency failed - key must exist"
+msgstr "დამოკიდებულება ჩავარდა. გასაღები უნდა არსებობეს"
+
+msgid "Detail Information"
+msgstr "დეტალური ინფორმაცია"
+
+#, python-format
+msgid "Displaying %(count)s of %(total)s items"
+msgstr "ნაჩვენებია %(count)s ელემენტი %(total)s-დან"
+
+#, python-format
+msgid "Displaying %s item"
+msgid_plural "Displaying %s items"
+msgstr[0] "%s ელემენტის ჩვენება"
+
+msgid "Duplicate keys are not allowed"
+msgstr "დუბლირებული გასაღებები დაშვებული რაა"
+
+msgid "Error"
+msgstr "შეცდომა"
+
+msgid "Error: "
+msgstr "შეცდომა: "
+
+msgid "Example"
+msgstr "მაგალითი"
+
+msgid "Existing Metadata"
+msgstr "არსებული მეტამონაცემები"
+
+msgid "Expand to see allocated items"
+msgstr "გაშალეთ, რათა იხილოთ გამოყოფილი ელემენტები"
+
+msgid "Expand to see available items"
+msgstr "გაშალეთ, რათა იხილოთ ხელმისაწვდომი ელემენტები"
+
+msgid "Failed to populate extensible header."
+msgstr "გაფართოებადი თავსართის შევსება ჩავარდა."
+
+msgid "Filter"
+msgstr "ფილტრი"
+
+msgid "Finish"
+msgstr "დასრულება"
+
+msgid "Flavor"
+msgstr "ტიპი"
+
+msgid "Forbidden. Insufficient permissions of the requested operation"
+msgstr "არასაკმარისი წვდომები მოთხოვნილი ქმედების განსახორციელებლად"
+
+msgid "Format validation failed"
+msgstr "ფორმატის გადამოწმება ჩავარდა"
+
+msgid "Full Text Search"
+msgstr "სრული ტექსტით ძებნა"
+
+msgid "Info"
+msgstr "ინფო"
+
+msgid "Integer required"
+msgstr "აუცილებელია მთელი რიცხვი"
+
+msgid "Invalid type, expected {$schema.type$}"
+msgstr "ტიპი არასწორია. მოველოდი {$schema.type$}"
+
+msgid "Keyword failed: '{$title$}'"
+msgstr "საკვანძო სიტყვა ჩავარდა: '{$title$}'"
+
+msgid "Load {$ ::title $} from a file"
+msgstr "{$ ::title $}-ის ფაილიდან ჩატვირთვა"
+
+msgid "Loading"
+msgstr "იტვირთება"
+
+msgid "Max"
+msgstr "მაქს"
+
+msgid "Max length"
+msgstr "მაქს. სიგრძე"
+
+msgid "Min"
+msgstr "მინ"
+
+msgid "Min length"
+msgstr "მინ. სიგრძე"
+
+msgid "Name"
+msgstr "სახელი"
+
+msgid "Next"
+msgstr "შემდეგი"
+
+msgid "No"
+msgstr "არა"
+
+msgid "No Limit"
+msgstr "უსაზღვრო"
+
+msgid "No available items"
+msgstr "ხელმისაწვდომი ჩანაწერების გარეშე"
+
+msgid "No available metadata"
+msgstr "ხელმისაწვდომი მეტამონაცემების გარეშე"
+
+msgid "No data available."
+msgstr "მონაცებელი არაა."
+
+msgid "No enum match for: {$viewValue$}"
+msgstr "ჩამონათვალი არ ემთხვევა: {$viewValue$}"
+
+msgid "No existing metadata"
+msgstr "არსებული მეტამონაცემების გარეშე"
+
+msgid "No items to display."
+msgstr "საჩვენებელი ელემენტები არაა."
+
+msgid "No roles"
+msgstr "როლები არაა"
+
+msgid "None"
+msgstr "არცერთი"
+
+msgid "Notice: "
+msgstr "გაფრთხილება: "
+
+msgid "Passwords do not match."
+msgstr "პაროლები არ ემთხვევა."
+
+msgid "Pattern mismatch"
+msgstr "ნიმუში არ ემთხვევა"
+
+msgid "Please Wait"
+msgstr "გთხოვთ, მოითმინოთ"
+
+msgid "Please confirm your selection. "
+msgstr "დაადასტურეთ მონიშნული. "
+
+msgid "Prev"
+msgstr "წინა"
+
+msgid "Prompt"
+msgstr "პაროლის შეყვანა"
+
+msgid "Re-order items using drag and drop"
+msgstr "ელემენტების გადასალაგებლად უბრალოდ გადაათრიეთ ისინი"
+
+msgid "Remaining"
+msgstr "დარჩენილი დრო"
+
+msgid "Remove"
+msgstr "წაშლა"
+
+msgid "Required"
+msgstr "საჭიროა"
+
+msgid "Roles"
+msgstr "როლები"
+
+msgid "Search in current results"
+msgstr "ძებნა მიმდინარე შედეგებში"
+
+msgid "Select an item from Available items below"
+msgstr "არჩიეთ ელემენტი ქვემოთ ხელმისაწვდომი სიიდან"
+
+msgid "Select one"
+msgstr "მონიშნეთ ერთი"
+
+msgid "Server Name"
+msgstr "სერვერის სახელი"
+
+msgid "Shutdown"
+msgstr "გამორთვა"
+
+msgid "Status"
+msgstr "სტატუსი"
+
+msgid "Submit"
+msgstr "გადაცემა"
+
+msgid "Success"
+msgstr "წარმატება"
+
+msgid "Success: "
+msgstr "წარმატება: "
+
+msgid "Text"
+msgstr "ტექსტი"
+
+msgid ""
+"The action cannot be performed. The contents of this row have errors or are "
+"missing information."
+msgstr ""
+"ქმედების შესრულება შეუძლებელია. ამ მწკრივის შემცველობა შეცდომებს შეიცავს, ან "
+"ინფორმაცია აკლია."
+
+msgid "The content is larger than the maximum byte size"
+msgstr "შემცველობა მაქსიმალურ ბაიტების ზომაზე დიდია"
+
+msgid "The data in this field is invalid"
+msgstr "ამ ველის მონაცემები არასწორია"
+
+msgid "There was a problem communicating with the server, please try again."
+msgstr "სერვერთან დაკავშირებისას მოხდა შეცდომა, გთხოვთ კიდევ სცადოთ."
+
+msgid "There was an error submitting the form. Please try again."
+msgstr "შეცდომა ფორმის გაგზავნისას. გთხოვთ კიდევ სცადოთ."
+
+msgid "Toggle Dropdown"
+msgstr "ჩართვა/გამორთვის ჩამოშლადი სია"
+
+msgid "Toggle navigation"
+msgstr "ნავიგაციის გადართვა"
+
+msgid "Too few properties defined, minimum {$schema.minProperties$}"
+msgstr "აღწერილი თვისებები საკმარისი არაა. მინიმუმ {$schema.minProperties$}"
+
+msgid "Too many properties defined, maximum {$schema.maxProperties$}"
+msgstr ""
+"აღწერილია მეტისმეტად ბევრი თვისება. მაქსიმუმია {$schema.maxProperties$}"
+
+#, python-format
+msgid "Unable to delete: %s."
+msgstr "წაშლა შეუძლებელია: %s."
+
+msgid "Unauthorized. Redirecting to login"
+msgstr "ავტორიზაციის გარეშე. გადამისამართება შესვლის ფანჯარაზე"
+
+msgid "Unknown property (not in schema)"
+msgstr "უცნობი თვისება (სქემაში არაა)"
+
+msgid "Unlimited"
+msgstr "ულიმიტო"
+
+msgid "Uploading image"
+msgstr "ასლის ატვირთვა"
+
+msgid "Warning"
+msgstr "გაფრთხილება"
+
+msgid "Warning: "
+msgstr "გაფრთხილება: "
+
+msgid "Working"
+msgstr "ვმუშაობ"
+
+msgid "Yes"
+msgstr "დიახ"
+
+msgid ""
+"You can specify resource metadata by moving items from the left column to "
+"the right column. In the left column there are metadata definitions from the "
+"Glance Metadata Catalog. Use the \"Custom\" option to add metadata with "
+"the key of your choice."
+msgstr ""
+"რესურსის  მეტამონაცემების  მარცხენა სვეტიდან მარჯვენა სვეტში გადატანით "
+"შეგიძლიათ.  მარცხენა სვეტი მეტამონაცემების აღწერებს შეიცავს, Glance Metadata "
+"Catalog-დან. თქვენთვის სასურველი პარამეტრის დასამატებლად  დააწექით ღილაკს "
+"\"ხელით\"."
+
+msgid "description"
+msgstr "აღწერა"
+
+msgid "m1.small"
+msgstr "m1.small"
+
+msgid "m1.tiny"
+msgstr "m1.tiny"
+
+msgid "pool default"
+msgstr "პულის ნაგულისხმევი"
+
+#, python-format
+msgid "selected \"%s\""
+msgstr "მონიშნულია \"%s\""
+
+msgid "{$ 'Please provide a search criteria first.' $}"
+msgstr "{$ 'ჯერ შეიყვანეთ ძებნის პირობა.' $}"
+
+msgid "{$ column.title $}"
+msgstr "{$ column.title $}"
+
+msgid "{$ message || 'No items to display.' $}"
+msgstr "{$ message || 'საჩვენებელი ელემენტების გარეშე.' $}"
+
+msgid "{$schema.title$} is a required field"
+msgstr "{$schema.title$} აუცილებელი ველია"
+
+msgid "{$schema.title$} is formatted incorrectly"
+msgstr "{$schema.title$}-ის ფორმატი არასწორია"
+
+msgid ""
+"{$schema.title$} is too long ({$viewValue.length$} characters), maximum "
+"{$schema.maxLength$}"
+msgstr ""
+"{$schema.title$} ძალიან გრძელია ({$viewValue.length$} სიმბოლო). მაქსიმუმია "
+"{$schema.maxLength$}"
+
+msgid ""
+"{$schema.title$} is too short ({$viewValue.length$} characters), minimum "
+"{$schema.minLength$}"
+msgstr ""
+"{$schema.title$} მეტისმეტად მოკლეა ({$viewValue.length$} სიმბოლო). მინიმუმ "
+"{$schema.minLength$}"
+
+msgid "{$viewValue$} is equal to the exclusive maximum {$schema.maximum$}"
+msgstr "{$viewValue$} {$schema.maximum$}-ის ექსკლუზიურ მაქსიმუმზე მეტია"
+
+msgid "{$viewValue$} is equal to the exclusive minimum {$schema.minimum$}"
+msgstr "{$viewValue$} {$schema.minimum$}-ის ტოლია"
+
+msgid "{$viewValue$} is greater than the allowed maximum of {$schema.maximum$}"
+msgstr "{$viewValue$} {$schema.maximum$}-ზე მეტია"
+
+msgid "{$viewValue$} is less than the allowed minimum of {$schema.minimum$}"
+msgstr "{$viewValue$} ნაკლებია, ვიდრე {$schema.minimum$}-ის დაშვებული მინიმუმი"
+
+msgid "{$viewValue$} is not a multiple of {$schema.multipleOf$}"
+msgstr "{$viewValue$} {$schema.multipleOf$}-ის ნამრავლი არაა"
+
+msgid "{$viewValue$} is not a valid number"
+msgstr "{$viewValue$} სწორი რიცხვი არაა"
