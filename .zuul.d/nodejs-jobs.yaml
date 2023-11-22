@@ -13,12 +13,40 @@
       - openstack/requirements
 
 - job:
+    name: horizon-nodejs20-run-lint
+    parent: nodejs-run-lint
+    description: |
+      Run lint using Node 20 for horizon plugins.
+    vars:
+      node_version: 20
+      tox_constraints_file: "{{ ansible_user_dir }}/{{ zuul.projects['opendev.org/openstack/requirements'].src_dir }}/upper-constraints.txt"
+    nodeset: debian-bullseye
+    pre-run: playbooks/horizon-nodejs/pre.yaml
+    required-projects:
+      - openstack/horizon
+      - openstack/requirements
+
+- job:
     name: horizon-nodejs18-run-test
     parent: nodejs-run-test-browser
     description: |
       Run test using Node 18 for horizon plugins.
     vars:
       node_version: 18
+      tox_constraints_file: "{{ ansible_user_dir }}/{{ zuul.projects['opendev.org/openstack/requirements'].src_dir }}/upper-constraints.txt"
+    pre-run: playbooks/horizon-nodejs/pre.yaml
+    nodeset: debian-bullseye
+    required-projects:
+      - openstack/horizon
+      - openstack/requirements
+
+- job:
+    name: horizon-nodejs20-run-test
+    parent: nodejs-run-test-browser
+    description: |
+      Run test using Node 20 for horizon plugins.
+    vars:
+      node_version: 20
       tox_constraints_file: "{{ ansible_user_dir }}/{{ zuul.projects['opendev.org/openstack/requirements'].src_dir }}/upper-constraints.txt"
     pre-run: playbooks/horizon-nodejs/pre.yaml
     nodeset: debian-bullseye
@@ -39,7 +67,11 @@
       jobs:
         - horizon-nodejs18-run-lint
         - horizon-nodejs18-run-test
+        - horizon-nodejs20-run-lint
+        - horizon-nodejs20-run-test
     gate:
       jobs:
         - horizon-nodejs18-run-lint
         - horizon-nodejs18-run-test
+        - horizon-nodejs20-run-lint
+        - horizon-nodejs20-run-test
