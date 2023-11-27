@@ -25,7 +25,6 @@ from openstack_dashboard import api
 from openstack_dashboard.dashboards.project.networks \
     import tables as project_tables
 from openstack_dashboard import policy
-from openstack_dashboard.usage import quotas
 
 LOG = logging.getLogger(__name__)
 
@@ -52,19 +51,6 @@ class CreateSubnet(project_tables.CreateSubnet):
     url = "horizon:admin:networks:createsubnet"
 
     def allowed(self, request, datum=None):
-        usages = quotas.tenant_quota_usages(
-            request, tenant_id=datum.tenant_id, targets=('subnet', ))
-
-        # when Settings.OPENSTACK_NEUTRON_NETWORK['enable_quotas'] = False
-        # usages["subnet'] is empty
-        if usages.get('subnet', {}).get('available', 1) <= 0:
-            if 'disabled' not in self.classes:
-                self.classes = list(self.classes) + ['disabled']
-                self.verbose_name = _('Create Subnet (Quota exceeded)')
-        else:
-            self.verbose_name = _('Create Subnet')
-            self.classes = [c for c in self.classes if c != 'disabled']
-
         return True
 
 
