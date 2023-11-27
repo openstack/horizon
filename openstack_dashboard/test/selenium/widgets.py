@@ -88,10 +88,20 @@ def is_prev_link_available(driver):
 
 def get_table_definition(driver, sorting=False):
     names = driver.find_elements_by_css_selector('table tr td:nth-child(2)')
-    rows = driver.find_elements_by_css_selector("tr[data-display-key='name']")
     if sorting:
         names.sort()
     actual_table = TableDefinition(next=is_next_link_available(driver),
                                    prev=is_prev_link_available(driver),
-                                   count=len(rows), names=[names[0].text])
+                                   count=len(names), names=[names[0].text])
+    return actual_table
+
+
+def get_image_table_definition(driver, sorting=False):
+    """This function is specific to Image table definition"""
+    names = driver.find_elements_by_css_selector("td[class='rsp-p1 word-wrap']")
+    if sorting:
+        names.sort()
+    actual_table = TableDefinition(next=is_next_link_available(driver),
+                                   prev=is_prev_link_available(driver),
+                                   count=len(names), names=[names[0].text])
     return actual_table
