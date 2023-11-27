@@ -28,7 +28,7 @@ def new_project(project_name, openstack_admin):
         domain_id="default"
     )
     yield project
-    openstack_admin.delete_project(project)
+    openstack_admin.identity.delete_project(project)
 
 
 @pytest.fixture
@@ -36,6 +36,20 @@ def clear_project(project_name, openstack_admin):
     yield None
     openstack_admin.delete_project(
         openstack_admin.identity.find_project(project_name).id)
+
+
+@pytest.fixture
+def new_project_with_admin(new_project, openstack_admin, config):
+    """Provides a project with the admin user as a member."""
+
+    openstack_admin.identity.assign_project_role_to_user(
+        project=new_project,
+        user=openstack_admin.identity.find_user(
+            config.identity.admin_username).id,
+        role=openstack_admin.identity.find_role(
+            config.identity.default_keystone_role).id
+    )
+    yield new_project
 
 
 def test_create_project(login, driver, project_name, openstack_admin,
@@ -74,3 +88,70 @@ def test_delete_project(login, driver, project_name, openstack_admin,
     messages = widgets.get_and_dismiss_messages(driver)
     assert f"Success: Deleted Project: {project_name}" in messages
     assert openstack_admin.identity.find_project(project_name) is None
+
+
+def test_add_member_to_project(login, driver, project_name, openstack_admin,
+                               new_project, config):
+    admin_name = config.identity.admin_username
+    regular_role_name = config.identity.default_keystone_role
+
+    login('admin')
+    url = '/'.join((
+        config.dashboard.dashboard_url,
+        'identity',
+    ))
+    driver.get(url)
+    rows = driver.find_elements_by_css_selector(
+        f"table#tenants tr[data-display='{project_name}']")
+    assert len(rows) == 1
+    rows[0].find_element_by_css_selector(".data-table-action").click()
+    project_form = driver.find_element_by_css_selector("form .modal-content")
+    project_form.find_element_by_xpath(
+        f".//*[text()='{admin_name}']//ancestor::li"
+        f"/following-sibling::li/a[@href='#add_remove']").click()
+    project_form.find_element_by_css_selector(
+        ".btn-primary[value='Save']").click()
+    messages = widgets.get_and_dismiss_messages(driver)
+    assert f'Success: Modified project "{project_name}".' in messages
+    assert(openstack_admin.identity.validate_user_has_project_role(
+        project=new_project,
+        user=openstack_admin.identity.find_user(admin_name).id,
+        role=openstack_admin.identity.find_role(regular_role_name).id,)
+    )
+
+
+def test_add_role_to_project_member(login, driver, openstack_admin, config,
+                                    new_project_with_admin):
+    admin_name = config.identity.admin_username
+    regular_role_name = config.identity.default_keystone_role
+    admin_role_name = config.identity.default_keystone_admin_role
+
+    login('admin')
+    url = '/'.join((
+        config.dashboard.dashboard_url,
+        'identity',
+    ))
+    driver.get(url)
+    rows = driver.find_elements_by_css_selector(
+        f"table#tenants tr[data-display={new_project_with_admin.name}]")
+    assert len(rows) == 1
+    rows[0].find_element_by_css_selector(".data-table-action").click()
+    project_form = driver.find_element_by_css_selector("form .modal-content")
+    select_roles_dropdown = project_form.find_element_by_xpath(
+        f".//*[text()='{admin_name}']//ancestor::li"
+        f"/following-sibling::li[@class='dropdown role_options']")
+    widgets.select_from_dropdown(select_roles_dropdown, admin_role_name)
+    project_form.find_element_by_css_selector(
+        ".btn-primary[value='Save']").click()
+    messages = widgets.get_and_dismiss_messages(driver)
+    assert(f'Success: Modified project '
+           f'"{new_project_with_admin.name}".' in messages)
+    assert(openstack_admin.identity.validate_user_has_project_role(
+        project=new_project_with_admin,
+        user=openstack_admin.identity.find_user(admin_name).id,
+        role=openstack_admin.identity.find_role(regular_role_name).id,) and
+        openstack_admin.identity.validate_user_has_project_role(
+        project=new_project_with_admin,
+        user=openstack_admin.identity.find_user(admin_name).id,
+        role=openstack_admin.identity.find_role(admin_role_name).id,)
+    )
