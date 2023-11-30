@@ -43,6 +43,18 @@ def clear_network_demo(network_name, openstack_demo):
     )
 
 
+@pytest.fixture
+def new_subnet_demo(subnet_name, new_network_demo, openstack_demo):
+    subnet = openstack_demo.network.create_subnet(
+        name=subnet_name,
+        network_id=new_network_demo.id,
+        ip_version=4,
+        cidr="10.11.0.0/16",
+    )
+    yield subnet
+    openstack_demo.delete_subnet(subnet)
+
+
 # required_state: True/False (marked/unmarked)
 def ensure_checkbox(required_state, element):
     current_state = element.is_selected()
