@@ -10,6 +10,8 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
+import time
+
 from oslo_utils import uuidutils
 import pytest
 
@@ -38,7 +40,10 @@ def new_volume_demo(volume_name, openstack_demo, config):
         )
     yield volume
     for vol in volume_name:
-        openstack_demo.delete_volume(vol)
+        openstack_demo.delete_volume(
+            name_or_id=vol,
+            wait=True,
+        )
 
 
 @pytest.fixture
@@ -53,12 +58,16 @@ def new_volume_admin(volume_name, openstack_admin, config):
         )
     yield volume
     for vol in volume_name:
-        openstack_admin.delete_volume(vol)
+        openstack_admin.delete_volume(
+            name_or_id=vol,
+            wait=True,
+        )
 
 
 @pytest.fixture
 def clear_volume_demo(volume_name, openstack_demo):
     yield None
+    wait_for_steady_state_of_volume(openstack_demo, volume_name[0])
     openstack_demo.delete_volume(
         volume_name[0],
         wait=True,
@@ -68,10 +77,29 @@ def clear_volume_demo(volume_name, openstack_demo):
 @pytest.fixture
 def clear_volume_admin(volume_name, openstack_admin):
     yield None
+    wait_for_steady_state_of_volume(openstack_admin, volume_name[0])
     openstack_admin.delete_volume(
         volume_name[0],
         wait=True,
     )
+
+
+def wait_for_steady_state_of_volume(openstack, volume_name):
+    for attempt in range(10):
+        if (openstack.block_storage.find_volume(volume_name).status in
+            ["available", "error", "error_restoring", "error_extending",
+             "error_managing"]):
+            break
+        else:
+            time.sleep(3)
+
+
+def wait_for_volume_is_deleted(openstack, volume_name):
+    for attempt in range(10):
+        if openstack.block_storage.find_volume(volume_name) is None:
+            break
+        else:
+            time.sleep(3)
 
 
 def test_create_empty_volume_demo(login, driver, volume_name, openstack_demo,
@@ -138,7 +166,8 @@ def test_delete_volume_demo(login, driver, volume_name, openstack_demo,
     widgets.confirm_modal(driver)
     messages = widgets.get_and_dismiss_messages(driver)
     assert f"Info: Scheduled deletion of Volume: {volume_name}" in messages
-    assert openstack_demo.block_storage.find_volume(volume_name) is None
+    wait_for_volume_is_deleted(openstack_demo, volume_name)
+    assert (openstack_demo.block_storage.find_volume(volume_name) is None)
 
 
 @pytest.mark.parametrize('volume_name', [3], indirect=True)
