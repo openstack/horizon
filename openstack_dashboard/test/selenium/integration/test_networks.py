@@ -38,7 +38,24 @@ def new_network_demo(network_name, openstack_demo):
 @pytest.fixture
 def clear_network_demo(network_name, openstack_demo):
     yield None
-    openstack_demo. delete_network(
+    openstack_demo.delete_network(
+        network_name,
+    )
+
+
+@pytest.fixture
+def new_network_admin(network_name, openstack_admin):
+    network = openstack_admin.create_network(
+        name=network_name,
+    )
+    yield network
+    openstack_admin.delete_network(network_name)
+
+
+@pytest.fixture
+def clear_network_admin(network_name, openstack_admin):
+    yield None
+    openstack_admin.delete_network(
         network_name,
     )
 
@@ -121,3 +138,79 @@ def test_delete_network_demo(login, driver, network_name, openstack_demo,
     messages = widgets.get_and_dismiss_messages(driver)
     assert f"Success: Deleted Network: {network_name}" in messages
     assert openstack_demo.network.find_network(network_name) is None
+
+
+def test_create_network_without_subnet_admin(login, openstack_admin, driver,
+                                             network_name, config,
+                                             clear_network_admin):
+    login('admin')
+    url = '/'.join((
+        config.dashboard.dashboard_url,
+        'admin',
+        'networks',
+    ))
+    driver.get(url)
+    driver.find_element_by_link_text("Create Network").click()
+    network_form = driver.find_element_by_css_selector("form .modal-content")
+    network_form.find_element_by_id("id_name").send_keys(network_name)
+    checkbox_element = network_form.find_element_by_id("id_with_subnet")
+    ensure_checkbox(False, checkbox_element)
+    widgets.select_from_specific_dropdown_in_form(
+        network_form, 'id_tenant_id', 'admin')
+    network_form.find_element_by_css_selector(
+        ".btn-primary.button-final").click()
+    messages = widgets.get_and_dismiss_messages(driver)
+    assert f'Success: Created network "{network_name}".' in messages
+    assert openstack_admin.network.find_network(network_name) is not None
+
+
+def test_create_network_with_subnet_admin(login, driver, openstack_admin,
+                                          network_name, config, subnet_name,
+                                          clear_network_admin):
+    login('admin')
+    url = '/'.join((
+        config.dashboard.dashboard_url,
+        'admin',
+        'networks',
+    ))
+    driver.get(url)
+    driver.find_element_by_link_text("Create Network").click()
+    network_form = driver.find_element_by_css_selector("form .modal-content")
+    network_form.find_element_by_id("id_name").send_keys(network_name)
+    widgets.select_from_specific_dropdown_in_form(
+        network_form, 'id_tenant_id', 'admin')
+    network_form.find_element_by_css_selector(
+        ".btn-primary.button-next").click()
+    network_form.find_element_by_id("id_subnet_name").send_keys(subnet_name)
+    network_form.find_element_by_id(
+        "id_cidr").send_keys(config.network.network_cidr)
+    network_form.find_element_by_css_selector(
+        ".btn-primary.button-next").click()
+    network_form.find_element_by_css_selector(
+        ".btn-primary.button-final").click()
+    messages = widgets.get_and_dismiss_messages(driver)
+    assert f'Success: Created network "{network_name}".' in messages
+    specified_network_sdk = openstack_admin.network.find_network(network_name)
+    assert specified_network_sdk is not None
+    assert (openstack_admin.network.find_subnet(subnet_name).id in
+            specified_network_sdk.subnet_ids)
+
+
+def test_delete_network_admin(login, driver, network_name, openstack_admin,
+                              new_network_admin, config):
+    login('admin')
+    url = '/'.join((
+        config.dashboard.dashboard_url,
+        'admin',
+        'networks',
+    ))
+    driver.get(url)
+    rows = driver.find_elements_by_css_selector(
+        f"table#networks tr[data-display='{network_name}']")
+    assert len(rows) == 1
+    actions_column = rows[0].find_element_by_css_selector("td.actions_column")
+    widgets.select_from_dropdown(actions_column, "Delete Network")
+    widgets.confirm_modal(driver)
+    messages = widgets.get_and_dismiss_messages(driver)
+    assert f"Success: Deleted Network: {network_name}" in messages
+    assert openstack_admin.network.find_network(network_name) is None
