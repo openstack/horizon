@@ -170,6 +170,32 @@ def test_delete_volume_demo(login, driver, volume_name, openstack_demo,
     assert (openstack_demo.block_storage.find_volume(volume_name) is None)
 
 
+def test_edit_volume_description_demo(login, driver, volume_name, config,
+                                      openstack_demo, new_volume_demo):
+    volume_name = volume_name[0]
+    login('user')
+    url = '/'.join((
+        config.dashboard.dashboard_url,
+        'project',
+        'volumes',
+    ))
+    driver.get(url)
+    rows = driver.find_elements_by_css_selector(
+        f"table#volumes tr[data-display='{volume_name}']"
+    )
+    assert len(rows) == 1
+    rows[0].find_element_by_css_selector(".data-table-action").click()
+    volume_form = driver.find_element_by_css_selector(".modal-dialog form")
+    volume_form.find_element_by_id("id_description").clear()
+    volume_form.find_element_by_id("id_description").send_keys(
+        f"EDITED_Description for: {volume_name}")
+    volume_form.find_element_by_css_selector(".btn-primary").click()
+    messages = widgets.get_and_dismiss_messages(driver)
+    assert f'Info: Updating volume "{volume_name}"' in messages
+    assert(openstack_demo.block_storage.find_volume(
+           volume_name).description == f"EDITED_Description for: {volume_name}")
+
+
 @pytest.mark.parametrize('volume_name', [3], indirect=True)
 def test_volumes_pagination_demo(login, driver, volume_name,
                                  change_page_size_demo,
@@ -235,6 +261,100 @@ def test_volumes_pagination_demo(login, driver, volume_name,
 
 
 # Admin tests
+
+
+def test_create_empty_volume_admin(login, driver, volume_name, openstack_admin,
+                                   clear_volume_admin, config):
+    volume_name = volume_name[0]
+    login('admin')
+    url = '/'.join((
+        config.dashboard.dashboard_url,
+        'project',
+        'volumes',
+    ))
+    driver.get(url)
+    driver.find_element_by_link_text("Create Volume").click()
+    volume_form = driver.find_element_by_css_selector(".modal-dialog form")
+    volume_form.find_element_by_id("id_name").send_keys(volume_name)
+    volume_form.find_element_by_css_selector(
+        ".btn-primary[value='Create Volume']").click()
+    messages = widgets.get_and_dismiss_messages(driver)
+    assert f'Info: Creating volume "{volume_name}"' in messages
+    assert openstack_admin.block_storage.find_volume(volume_name) is not None
+
+
+def test_create_volume_from_image_admin(login, driver, volume_name, config,
+                                        clear_volume_admin, openstack_admin):
+    image_source_name = config.launch_instances.image_name
+    volume_name = volume_name[0]
+    login('admin')
+    url = '/'.join((
+        config.dashboard.dashboard_url,
+        'project',
+        'volumes',
+    ))
+    driver.get(url)
+    driver.find_element_by_link_text("Create Volume").click()
+    volume_form = driver.find_element_by_css_selector(".modal-dialog form")
+    volume_form.find_element_by_id("id_name").send_keys(volume_name)
+    widgets.select_from_specific_dropdown_in_form(
+        volume_form, 'id_volume_source_type', 'Image')
+    widgets.select_from_specific_dropdown_in_form(
+        volume_form, 'id_image_source', image_source_name)
+    volume_form.find_element_by_css_selector(
+        ".btn-primary[value='Create Volume']").click()
+    messages = widgets.get_and_dismiss_messages(driver)
+    assert f'Info: Creating volume "{volume_name}"' in messages
+    assert openstack_admin.block_storage.find_volume(volume_name) is not None
+
+
+def test_delete_volume_admin(login, driver, volume_name, openstack_admin,
+                             new_volume_admin, config):
+    volume_name = volume_name[0]
+    login('admin')
+    url = '/'.join((
+        config.dashboard.dashboard_url,
+        'project',
+        'volumes',
+    ))
+    driver.get(url)
+    rows = driver.find_elements_by_css_selector(
+        f"table#volumes tr[data-display='{volume_name}']"
+    )
+    assert len(rows) == 1
+    actions_column = rows[0].find_element_by_css_selector("td.actions_column")
+    widgets.select_from_dropdown(actions_column, "Delete Volume")
+    widgets.confirm_modal(driver)
+    messages = widgets.get_and_dismiss_messages(driver)
+    assert f"Info: Scheduled deletion of Volume: {volume_name}" in messages
+    wait_for_volume_is_deleted(openstack_admin, volume_name)
+    assert (openstack_admin.block_storage.find_volume(volume_name) is None)
+
+
+def test_edit_volume_description_admin(login, driver, volume_name, config,
+                                       openstack_admin, new_volume_admin):
+    volume_name = volume_name[0]
+    login('admin')
+    url = '/'.join((
+        config.dashboard.dashboard_url,
+        'project',
+        'volumes',
+    ))
+    driver.get(url)
+    rows = driver.find_elements_by_css_selector(
+        f"table#volumes tr[data-display='{volume_name}']"
+    )
+    assert len(rows) == 1
+    rows[0].find_element_by_css_selector(".data-table-action").click()
+    volume_form = driver.find_element_by_css_selector(".modal-dialog form")
+    volume_form.find_element_by_id("id_description").clear()
+    volume_form.find_element_by_id("id_description").send_keys(
+        f"EDITED_Description for: {volume_name}")
+    volume_form.find_element_by_css_selector(".btn-primary").click()
+    messages = widgets.get_and_dismiss_messages(driver)
+    assert f'Info: Updating volume "{volume_name}"' in messages
+    assert(openstack_admin.block_storage.find_volume(
+           volume_name).description == f"EDITED_Description for: {volume_name}")
 
 
 @pytest.mark.parametrize('volume_name', [3], indirect=True)
