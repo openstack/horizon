@@ -18,11 +18,6 @@ import test_volumes
 
 from openstack_dashboard.test.selenium import widgets
 
-# Imported fixtures
-volume_name = test_volumes.volume_name
-new_volume_demo = test_volumes.new_volume_demo
-new_volume_admin = test_volumes.new_volume_admin
-
 
 @pytest.fixture(params=[1])
 def volume_snapshot_names(request):

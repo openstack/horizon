@@ -14,13 +14,8 @@ import re
 
 from oslo_utils import uuidutils
 import pytest
-import test_instances
 
 from openstack_dashboard.test.selenium import widgets
-
-# Imported fixtures
-instance_name = test_instances.instance_name
-new_instance_demo = test_instances.new_instance_demo
 
 
 @pytest.fixture

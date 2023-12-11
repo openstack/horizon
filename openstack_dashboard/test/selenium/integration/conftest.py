@@ -11,6 +11,7 @@
 #    under the License.
 
 import openstack as openstack_sdk
+from oslo_utils import uuidutils
 import pytest
 
 from openstack_dashboard.test.selenium import widgets
@@ -183,3 +184,91 @@ def complete_default_test_network(new_default_test_network,
                                   new_default_test_router,
                                   new_default_test_interface_for_router):
     yield new_default_test_network
+
+
+# Instances fixtures
+
+@pytest.fixture
+def instance_name():
+    return 'horizon_instance_%s' % uuidutils.generate_uuid(dashed=False)
+
+
+@pytest.fixture(params=[(1, False)])
+def new_instance_demo(complete_default_test_network, request, instance_name,
+                      openstack_demo, config):
+
+    count = request.param[0]
+    auto_ip_param = request.param[1]
+    instance = openstack_demo.create_server(
+        instance_name,
+        image=config.image.images_list[0],
+        flavor=config.launch_instances.flavor,
+        availability_zone=config.launch_instances.available_zone,
+        network=complete_default_test_network.name,
+        auto_ip=auto_ip_param,
+        wait=True,
+        max_count=count,
+    )
+    yield instance
+    if count > 1:
+        for instance in range(0, count):
+            openstack_demo.delete_server(f"{instance_name}-{instance+1}")
+    else:
+        openstack_demo.delete_server(instance_name)
+
+
+@pytest.fixture
+def clear_instance_demo(instance_name, openstack_demo):
+    yield None
+    openstack_demo.delete_server(
+        instance_name,
+        wait=True,
+    )
+
+
+# Volumes fixtures
+
+@pytest.fixture(params=[1])
+def volume_name(request):
+    count = request.param
+    vol_name_list = ['horizon_vol_%s' % uuidutils.generate_uuid(dashed=False)]
+    if count > 1:
+        vol_name_list = [f"{vol_name_list[0]}-{item}"
+                         for item in range(1, count + 1)]
+    return vol_name_list
+
+
+@pytest.fixture
+def new_volume_demo(volume_name, openstack_demo, config):
+
+    for vol in volume_name:
+        volume = openstack_demo.create_volume(
+            name=vol,
+            image=config.image.images_list[0],
+            size=1,
+            wait=True,
+        )
+    yield volume
+    for vol in volume_name:
+        openstack_demo.delete_volume(
+            name_or_id=vol,
+            wait=True,
+        )
+
+
+@pytest.fixture
+def new_volume_admin(volume_name, openstack_admin, config):
+
+    for vol in volume_name:
+        volume = openstack_admin.create_volume(
+            name=vol,
+            image=config.image.images_list[0],
+            size=1,
+            wait=True,
+        )
+    yield volume
+    for vol in volume_name:
+        openstack_admin.delete_volume(
+            name_or_id=vol,
+            wait=True,
+        )

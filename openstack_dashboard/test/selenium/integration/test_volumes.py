@@ -12,56 +12,16 @@
 
 import time
 
-from oslo_utils import uuidutils
 import pytest
+from selenium.webdriver.support import expected_conditions as EC
+from selenium.webdriver.support.wait import WebDriverWait
+import test_images
 
 from openstack_dashboard.test.selenium import widgets
 
-
-@pytest.fixture(params=[1])
-def volume_name(request):
-    count = request.param
-    vol_name_list = ['horizon_vol_%s' % uuidutils.generate_uuid(dashed=False)]
-    if count > 1:
-        vol_name_list = [f"{vol_name_list[0]}-{item}"
-                         for item in range(1, count + 1)]
-    return vol_name_list
-
-
-@pytest.fixture
-def new_volume_demo(volume_name, openstack_demo, config):
-
-    for vol in volume_name:
-        volume = openstack_demo.create_volume(
-            name=vol,
-            image=config.image.images_list[0],
-            size=1,
-            wait=True,
-        )
-    yield volume
-    for vol in volume_name:
-        openstack_demo.delete_volume(
-            name_or_id=vol,
-            wait=True,
-        )
-
-
-@pytest.fixture
-def new_volume_admin(volume_name, openstack_admin, config):
-
-    for vol in volume_name:
-        volume = openstack_admin.create_volume(
-            name=vol,
-            image=config.image.images_list[0],
-            size=1,
-            wait=True,
-        )
-    yield volume
-    for vol in volume_name:
-        openstack_admin.delete_volume(
-            name_or_id=vol,
-            wait=True,
-        )
+#   Import image fixtures
+image_names = test_images.image_names
+clear_image_demo = test_images.clear_image_demo
 
 
 @pytest.fixture
@@ -87,8 +47,8 @@ def clear_volume_admin(volume_name, openstack_admin):
 def wait_for_steady_state_of_volume(openstack, volume_name):
     for attempt in range(10):
         if (openstack.block_storage.find_volume(volume_name).status in
-            ["available", "error", "error_restoring", "error_extending",
-             "error_managing"]):
+            ["available", "error", "in-use", "error_restoring",
+             "error_extending", "error_managing"]):
             break
         else:
             time.sleep(3)
@@ -194,6 +154,108 @@ def test_edit_volume_description_demo(login, driver, volume_name, config,
     assert f'Info: Updating volume "{volume_name}"' in messages
     assert(openstack_demo.block_storage.find_volume(
            volume_name).description == f"EDITED_Description for: {volume_name}")
+
+
+def test_extend_volume_demo(login, driver, openstack_demo, new_volume_demo,
+                            config):
+    login('user')
+    url = '/'.join((
+        config.dashboard.dashboard_url,
+        'project',
+        'volumes',
+    ))
+    driver.get(url)
+    rows = driver.find_elements_by_css_selector(
+        f"table#volumes tr[data-display='{new_volume_demo.name}']"
+    )
+    assert len(rows) == 1
+    assert(openstack_demo.block_storage.find_volume(
+        new_volume_demo.name).size == 1)
+    actions_column = rows[0].find_element_by_css_selector("td.actions_column")
+    widgets.select_from_dropdown(actions_column, "Extend Volume")
+    volume_form = driver.find_element_by_css_selector(".modal-dialog form")
+    volume_form.find_element_by_id("id_new_size").send_keys(2)
+    volume_form.find_element_by_css_selector(
+        ".btn-primary[value='Extend Volume']").click()
+    messages = widgets.get_and_dismiss_messages(driver)
+    assert f'Info: Extending volume: "{new_volume_demo.name}"' in messages
+    assert(openstack_demo.block_storage.find_volume(
+        new_volume_demo.name).size == 2)
+
+
+def test_volume_launch_as_instance_demo(login, driver, openstack_demo,
+                                        new_volume_demo, instance_name,
+                                        clear_instance_demo, config,
+                                        complete_default_test_network):
+    flavor = config.launch_instances.flavor
+    network = complete_default_test_network.name
+
+    login('user')
+    url = '/'.join((
+        config.dashboard.dashboard_url,
+        'project',
+        'volumes',
+    ))
+    driver.get(url)
+    rows = driver.find_elements_by_css_selector(
+        f"table#volumes tr[data-display='{new_volume_demo.name}']"
+    )
+    assert len(rows) == 1
+    actions_column = rows[0].find_element_by_css_selector("td.actions_column")
+    widgets.select_from_dropdown(actions_column, "Launch as Instance")
+    wizard = driver.find_element_by_css_selector("wizard")
+    navigation = wizard.find_element_by_css_selector("div.wizard-nav")
+    widgets.find_already_visible_element_by_xpath(
+        ".//*[@id='name']", wizard).send_keys(instance_name)
+    navigation.find_element_by_link_text("Flavor").click()
+    flavor_table = wizard.find_element_by_css_selector(
+        "ng-include[ng-form=launchInstanceFlavorForm]")
+    widgets.select_from_transfer_table(flavor_table, flavor)
+    navigation.find_element_by_link_text("Networks").click()
+    network_table = wizard.find_element_by_css_selector(
+        "ng-include[ng-form=launchInstanceNetworkForm]")
+    widgets.select_from_transfer_table(network_table, network)
+    wizard.find_element_by_css_selector(
+        "button.btn-primary.finish").click()
+#   For create instance - message appears earlier than the page is refreshed.
+#   We are unable to ensure that the message will be captured.
+#   Checking of message is skipped, we wait for refresh page
+#   and then result is checked.
+#   JJ
+    WebDriverWait(driver, config.selenium.page_timeout).until(
+        EC.invisibility_of_element_located(actions_column))
+    wait_for_steady_state_of_volume(openstack_demo, new_volume_demo.name)
+    assert(openstack_demo.block_storage.find_volume(
+        new_volume_demo.name).attachments[0]['server_id'] ==
+        openstack_demo.compute.find_server(instance_name).id)
+
+
+def test_volume_upload_to_image_demo(login, driver, openstack_demo,
+                                     new_volume_demo, image_names,
+                                     clear_image_demo, config):
+    login('user')
+    url = '/'.join((
+        config.dashboard.dashboard_url,
+        'project',
+        'volumes',
+    ))
+    driver.get(url)
+    rows = driver.find_elements_by_css_selector(
+        f"table#volumes tr[data-display='{new_volume_demo.name}']"
+    )
+    assert len(rows) == 1
+    actions_column = rows[0].find_element_by_css_selector("td.actions_column")
+    widgets.select_from_dropdown(actions_column, "Upload to Image")
+    volume_form = driver.find_element_by_css_selector(
+        ".modal-dialog form")
+    volume_form.find_element_by_id("id_image_name").send_keys(image_names[0])
+    volume_form.find_element_by_css_selector(
+        ".btn-primary[value='Upload']").click()
+    messages = widgets.get_and_dismiss_messages(driver)
+    assert(f'Info: Successfully sent the request to upload volume to image for '
+           f'volume: "{new_volume_demo.name}"' in messages)
+    wait_for_steady_state_of_volume(openstack_demo, new_volume_demo.name)
+    assert openstack_demo.compute.find_image(image_names[0]) is not None
 
 
 @pytest.mark.parametrize('volume_name', [3], indirect=True)

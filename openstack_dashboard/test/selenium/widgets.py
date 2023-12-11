@@ -105,3 +105,20 @@ def get_image_table_definition(driver, sorting=False):
                                    prev=is_prev_link_available(driver),
                                    count=len(names), names=[names[0].text])
     return actual_table
+
+
+def select_from_transfer_table(element, label):
+    #   Choose row from available Images, Flavors, Networks, etc.
+    #   In launch tab for example: m1.tiny for Flavor, cirros for image, etc.
+
+    try:
+        element.find_element_by_xpath(
+            f".//*[text()='{label}']//ancestor::tr/td//*"
+            f"[@class='btn btn-default fa fa-arrow-up']").click()
+    except exceptions.NoSuchElementException:
+        try:
+            element.find_element_by_xpath(
+                f".//*[text()='{label}']//ancestor::tr/td//*"
+                f"[@class='btn btn-default fa fa-arrow-down']")
+        except exceptions.NoSuchElementException:
+            raise
