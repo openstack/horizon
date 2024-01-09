@@ -12,6 +12,7 @@
 
 import os
 import tempfile
+import time
 
 import pytest
 
@@ -59,6 +60,21 @@ def new_image_admin(image_names, temporary_file, openstack_admin):
 
 
 @pytest.fixture
+def new_protected_image_admin(image_names, temporary_file, openstack_admin):
+    for img in image_names:
+        image = openstack_admin.create_image(
+            img,
+            disk_format="qcow2",
+            filename=temporary_file,
+            is_protected=True,
+            wait=True,
+        )
+    yield image
+    for img in image_names:
+        openstack_admin.delete_image(img)
+
+
+@pytest.fixture
 def clear_image_demo(image_names, openstack_demo):
     yield None
     for img in image_names:
@@ -88,6 +104,35 @@ def temporary_file(tmp_path):
                                      dir=tmp_path) as tmp_file:
         tmp_file.write(os.urandom(5000))
         yield tmp_file.name
+
+
+def wait_for_steady_state_of_unprotected_image(openstack, image_name):
+    for attempt in range(3):
+        image_attributes_details = openstack.image.find_image(image_name)
+        if image_attributes_details["status"] == "active" \
+                and image_attributes_details["protected"] is False:
+            break
+        else:
+            time.sleep(2)
+
+
+def wait_for_angular_readiness(driver):
+    driver.set_script_timeout(10)
+    driver.execute_async_script("""
+    var callback = arguments[arguments.length - 1];
+    var element = document.querySelector('div.btn-group[name="protected"]');
+    if (!window.angular) {
+    callback(false)
+    }
+    if (angular.getTestability) {
+    angular.getTestability(element).whenStable(function(){callback(true)});
+    } else {
+    if (!angular.element(element).injector()) {
+    callback(false)
+    }
+    var browser = angular.element(element).injector().get('$browser');
+    browser.notifyWhenNoOutstandingRequests(function(){callback(true)});
+    };""")
 
 
 def test_image_create_from_local_file_demo(login, driver, image_names,
@@ -284,3 +329,105 @@ def test_image_pagination_admin(login, driver, image_names, openstack_admin,
     actual_page1_definition = widgets.get_image_table_definition(driver,
                                                                  sorting=True)
     assert first_page_definition == actual_page1_definition
+
+
+def test_image_filtration_admin(login, driver, new_image_admin, config):
+    image_name = new_image_admin.name
+    login('admin', 'admin')
+    url = '/'.join((
+        config.dashboard.dashboard_url,
+        'project',
+        'images',
+    ))
+    driver.get(url)
+    filter_input_field = driver.find_element_by_css_selector(".search-input")
+    filter_input_field.send_keys(image_name)
+    # Fetch page definition after filtration
+    current_page_definition = widgets.get_image_table_definition(driver)
+    assert vars(current_page_definition)['names'][0] == image_name
+    assert vars(current_page_definition)['count'] == 1
+    filter_input_field.clear()
+    # Generate random non existent image name
+    random_img_name = 'horizon_img_%s' % uuidutils.generate_uuid(dashed=False)
+    filter_input_field.send_keys(random_img_name)
+    # Fetch page definition after filtration
+    current_page_definition = widgets.get_image_table_definition(driver)
+    assert current_page_definition is None
+
+
+def test_remove_protected_image_admin(login, driver, image_names,
+                                      new_protected_image_admin, config,
+                                      openstack_admin):
+    image_name = new_protected_image_admin.name
+    login('admin', 'admin')
+    url = '/'.join((
+        config.dashboard.dashboard_url,
+        'project',
+        'images',
+    ))
+    driver.get(url)
+    rows = driver.find_elements_by_xpath(f"//a[text()='{image_name}']")
+    assert len(rows) == 1
+    actions_column = rows[0].find_element_by_xpath(
+        ".//ancestor::tr/td[contains(@class,'actions_column')]")
+    menu_button = actions_column.find_element_by_css_selector(
+        ".dropdown-toggle"
+    )
+    menu_button.click()
+    options = actions_column.find_elements_by_css_selector(
+        "ul.dropdown-menu li")
+    for option in options:
+        if option.text == "Delete Image":
+            pytest.fail("Delete option should not exist")
+    actions_column.find_element_by_xpath(
+        f".//*[normalize-space()='Edit Image']").click()
+    wait_for_angular_readiness(driver)
+    image_form = driver.find_element_by_css_selector(".ng-wizard")
+    image_form.find_element_by_xpath(".//label[text()='No']").click()
+    image_form.find_element_by_xpath(
+        ".//button[@class='btn btn-primary finish']").click()
+    messages = widgets.get_and_dismiss_messages(driver)
+    assert f"Success: Image {image_name} was successfully updated." in messages
+    wait_for_steady_state_of_unprotected_image(openstack_admin, image_name)
+    rows = driver.find_elements_by_xpath(f"//a[text()='{image_name}']")
+    actions_column = rows[0].find_element_by_xpath(
+        ".//ancestor::tr/td[contains(@class,'actions_column')]")
+    widgets.select_from_dropdown(actions_column, "Delete Image")
+    widgets.confirm_modal(driver)
+    messages = widgets.get_and_dismiss_messages(driver)
+    assert f"Success: Deleted Image: {image_name}." in messages
+    assert openstack_admin.compute.find_image(image_name) is None
+
+
+def test_edit_image_description_admin(login, driver, image_names,
+                                      new_image_admin, config,
+                                      openstack_admin):
+    image_name = new_image_admin.name
+    new_description = "new_description_text"
+    login('admin', 'admin')
+    url = '/'.join((
+        config.dashboard.dashboard_url,
+        'project',
+        'images',
+    ))
+    driver.get(url)
+    rows = driver.find_elements_by_xpath(f"//a[text()='{image_name}']")
+    assert len(rows) == 1
+    actions_column = rows[0].find_element_by_xpath(
+        ".//ancestor::tr/td[contains(@class,'actions_column')]")
+    widgets.select_from_dropdown(actions_column, "Edit Image")
+    wait_for_angular_readiness(driver)
+    image_form = driver.find_element_by_css_selector(".ng-wizard")
+    desc_field = image_form.find_element_by_css_selector(
+        "#imageForm-description")
+
+    desc_field.clear()
+    desc_field.send_keys(new_description)
+    image_form.find_element_by_xpath(
+        ".//button[@class='btn btn-primary finish']").click()
+    messages = widgets.get_and_dismiss_messages(driver)
+    assert f"Success: Image {image_name} " \
+           f"was successfully updated." in messages
+    image_id = new_image_admin.id
+    assert (openstack_admin.compute.get(f"/images/{image_id}").json(
+    )['image']['metadata']['description'] == new_description)
