@@ -148,7 +148,10 @@ def record_video(request, report_dir, xdisplay):
     popen.communicate()
     thread.join()
     if not request.node.stash.get(STASH_FAILED, False):
-        os.remove(filepath)
+        try:
+            os.remove(filepath)
+        except OSError:
+            pass
 
 
 @pytest.fixture(scope='session')
