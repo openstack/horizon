@@ -1,0 +1,125 @@
+# Ilya Alekseyev <ilyaalekseyev@acm.org>, 2024. #zanata
+msgid ""
+msgstr ""
+"Project-Id-Version: horizon 23.4.0.dev90\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-01-11 12:28+0000\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"PO-Revision-Date: 2024-01-13 09:13+0000\n"
+"Last-Translator: Ilya Alekseyev <ilyaalekseyev@acm.org>\n"
+"Language-Team: Russian\n"
+"Language: ru\n"
+"X-Generator: Zanata 4.3.3\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
+"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2)\n"
+
+msgid ":ref:`genindex`"
+msgstr ":ref:`genindex`"
+
+msgid ":ref:`modindex`"
+msgstr ":ref:`modindex`"
+
+msgid ""
+"A Python class representing a sub-navigation item (e.g. \"instances\") which "
+"contains all the necessary logic (views, forms, tests, etc.) for that "
+"interface."
+msgstr ""
+"Класс Python, представляющий элемент поднавигации (например, \"инстансы\"), "
+"который содержит всю необходимую логику (представления, формы, тесты и т. "
+"д.) для этого интерфейса."
+
+msgid ""
+"A Python class representing a top-level navigation item (e.g. \"project\") "
+"which provides a consistent API for Horizon-compatible applications."
+msgstr ""
+"Класс Python, представляющий элемент навигации верхнего уровня (например, "
+"\"проект\"), который обеспечивает согласованный API для Horizon-совместимых "
+"приложений."
+
+msgid "Contributor Docs"
+msgstr "Документация для разработчиков"
+
+msgid "Dashboard"
+msgstr "Dashboard"
+
+msgid ""
+"For a more in-depth look at Horizon and its architecture, see the :ref:"
+"`contributor-intro`."
+msgstr ""
+"Для более подробного ознакомления с Horizon и его архитектурой смотрите :ref:"
+"`contributor-intro`."
+
+msgid ""
+"For those wishing to develop Horizon itself, or go in-depth with building "
+"your own :class:`~horizon.Dashboard` or :class:`~horizon.Panel` classes, the "
+"following documentation is provided."
+msgstr ""
+"Для тех, кто хочет разрабатывать сам Horizon или углубляться в создание "
+"собственных классов :class:`~horizon.Dashboard` или :class:`~horizon.Panel`, "
+"предоставляется следующая документация."
+
+msgid "Glossary"
+msgstr "Глоссарий"
+
+msgid "Horizon"
+msgstr "Horizon"
+
+msgid ""
+"Horizon is the canonical implementation of `OpenStack's Dashboard <https://"
+"github.com/openstack/horizon>`_, which provides a web based user interface "
+"to OpenStack services including Nova, Swift, Keystone, etc."
+msgstr ""
+"Horizon - это каноническая реализация `OpenStack's Dashboard <https://github."
+"com/openstack/horizon>`_, которая предоставляет пользовательский веб-"
+"интерфейс для сервисов OpenStack, включая Nova, Swift, Keystone и т.д."
+
+msgid "Horizon: The OpenStack Dashboard Project"
+msgstr "Horizon: Проект OpenStack Dashboard"
+
+msgid "How to use Horizon in your own projects."
+msgstr "Как использовать Horizon в ваших проектах."
+
+msgid "Information"
+msgstr "Информация"
+
+msgid "Introduction"
+msgstr "Введение"
+
+msgid "Panel"
+msgstr "Панель"
+
+msgid "Project"
+msgstr "Проект"
+
+msgid "Release Notes"
+msgstr "Release Notes"
+
+msgid "See https://docs.openstack.org/releasenotes/horizon/."
+msgstr "Смотрите https://docs.openstack.org/releasenotes/horizon/."
+
+msgid ""
+"The OpenStack dashboard project. Also the name of the top-level Python "
+"object which handles registration for the app."
+msgstr ""
+"Проект OpenStack Dashboard. Также имя объекта Python верхнего уровня, "
+"который обрабатывает регистрацию для приложения."
+
+msgid "To learn what you need to know to get going, see the :ref:`quickstart`."
+msgstr ""
+"Чтобы узнать, что вам нужно знать для начала работы, смотрите :ref:"
+"`quickstart`."
+
+msgid ""
+"Used in user-facing text in place of the term \"Tenant\" which is Keystone's "
+"word."
+msgstr ""
+"Используется в текстах для пользователей вместо термина “Тенант\", который "
+"является словом Keystone."
+
+msgid "User Documentation"
+msgstr "Пользовательская документация"
+
+msgid "Using Horizon"
+msgstr "Использование Horizon"

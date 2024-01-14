@@ -22,16 +22,17 @@
 # Dmitriy Rabotyagov <noonedeadpunk@ya.ru>, 2020. #zanata
 # Roman Gorshunov <roman.gorshunov@att.com>, 2021. #zanata
 # Roman Gorshunov <roman.gorshunov@att.com>, 2022. #zanata
+# Ilya Alekseyev <ilyaalekseyev@acm.org>, 2024. #zanata
 msgid ""
 msgstr ""
 "Project-Id-Version: horizon VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2023-11-20 22:25+0000\n"
+"POT-Creation-Date: 2024-01-11 12:28+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2022-09-01 05:27+0000\n"
-"Last-Translator: Roman Gorshunov <roman.gorshunov@att.com>\n"
+"PO-Revision-Date: 2024-01-13 08:53+0000\n"
+"Last-Translator: Ilya Alekseyev <ilyaalekseyev@acm.org>\n"
 "Language-Team: Russian\n"
 "Language: ru\n"
 "X-Generator: Zanata 4.3.3\n"
@@ -40,6 +41,30 @@ msgstr ""
 
 msgid "#"
 msgstr "#"
+
+#, python-format
+msgid ""
+"%(id)s - Bandwidth Limit - maxkbps: %(max_kbps)s, maxburstkbps: "
+"%(max_burst_kb)s, %(direction)s"
+msgstr ""
+"%(id)s - Ограничение Пропускной Способности - maxkbps: %(max_kbps)s, "
+"maxburstkbps: %(max_burst_kb)s, %(direction)s"
+
+#, python-format
+msgid "%(id)s - DSCP Marking - dscpmark: %(dscp_mark)s"
+msgstr "%(id)s - Маркировка DSCP - dscpmark: %(dscp_mark)s"
+
+#, python-format
+msgid "%(id)s - Minimum Bandwidth - minkbps: %(min_kbps)s, %(direction)s"
+msgstr ""
+"%(id)s - Минимальная Пропускная Способность - minkbps: %(min_kbps)s, "
+"%(direction)s"
+
+#, python-format
+msgid "%(id)s - Minimum Packet Rate - minkpps: %(min_kpps)s, %(direction)s"
+msgstr ""
+"%(id)s - Минимальная Скорость Передачи Пакетов - minkpps: %(min_kpps)s, "
+"%(direction)s"
 
 #, python-format
 msgid "%s (default)"
@@ -2942,6 +2967,18 @@ msgid ""
 msgstr ""
 "Для логического порта также определены MAC-адрес и IP-адреса, присваиваемые "
 "связанным с ним интерфейсам."
+
+msgid ""
+"The maximum KBPS (kilobits per second) value.\n"
+"    If you specify this value, must be greater than 0 otherwise max_kbps "
+"will have no value."
+msgstr ""
+"Максимальное значение KBPS (килобит в секунду).\n"
+"    Если вы хотите определить это значение, оно должно быть больше 0, иначе, "
+"max_kbps будет не определено."
+
+msgid "The maximum burst size (in kilobits). Default is 0."
+msgstr "Максимальный пиковый размер (в килобитах). По умолчанию - 0."
 
 msgid ""
 "The maximum number of key-value pairs that can be supplied per instance is "
