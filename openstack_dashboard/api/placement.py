@@ -95,16 +95,34 @@ def get_providers(request):
         p['usages'] = usages
         p['aggregates'] = resource_provider_aggregates(request, p['uuid'])
         p['traits'] = resource_provider_traits(request, p['uuid'])
+
         p['vcpus_used'] = usages.get('VCPU')
         p['vcpus_reserved'] = vcpus['reserved'] if vcpus is not None else None
+        # The actual amount of the resource that the provider can accommodate
         p['vcpus'] = vcpus['total'] if vcpus is not None else None
+        # Overall capacity
+        p['vcpus_ar'] = vcpus['allocation_ratio'] \
+            if vcpus is not None else None
+        p['vcpus_capacity'] = int(vcpus['allocation_ratio'] * vcpus['total']) \
+            if vcpus is not None else None
+
         p['pcpus_used'] = usages.get('PCPU')
         p['pcpus_reserved'] = pcpus['reserved'] if pcpus is not None else None
         p['pcpus'] = pcpus['total'] if pcpus is not None else None
+        p['pcpus_ar'] = pcpus['allocation_ratio'] \
+            if pcpus is not None else None
+        p['pcpus_capacity'] = int(pcpus['allocation_ratio'] * pcpus['total']) \
+            if pcpus is not None else None
+
         p['memory_mb_used'] = usages['MEMORY_MB']
         p['memory_mb_reserved'] = inventories['MEMORY_MB']['reserved']
         p['memory_mb'] = inventories['MEMORY_MB']['total']
+        p['memory_mb_ar'] = inventories['MEMORY_MB']['allocation_ratio']
+        p['memory_mb_capacity'] = p['memory_mb_ar'] * p['memory_mb']
+
         p['disk_gb_used'] = usages['DISK_GB']
         p['disk_gb_reserved'] = inventories['DISK_GB']['reserved']
         p['disk_gb'] = inventories['DISK_GB']['total']
+        p['disk_gb_ar'] = inventories['DISK_GB']['allocation_ratio']
+        p['disk_gb_capacity'] = p['disk_gb_ar'] * p['disk_gb']
     return providers
