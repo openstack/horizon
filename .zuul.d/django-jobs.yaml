@@ -46,11 +46,9 @@
         # Let's keep at least one job as a template even when we support
         # only one version of Django covered by the default job.
         # Just comment it out for such case.
-        - horizon-tox-python3-django42:
-            voting: false
+        - horizon-tox-python3-django42
     gate:
       jobs:
         # Default python job in openstack-python3-antelope-jobs(-horizon)
         - openstack-tox-py311
-        # Skip the following until they become voting.
-        # - horizon-tox-python3-django42
+        - horizon-tox-python3-django42
