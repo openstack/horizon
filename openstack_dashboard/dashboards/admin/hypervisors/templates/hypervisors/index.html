@@ -27,38 +27,38 @@
   {% for provider in providers %}
     <h4>{{ provider.name }}</h4>
     <div class="col-sm-4 d3_quota_bar col-lg-3 col-md-2 col-xs-4">
-      <div class="pie-chart-usage" data-used="{% widthratio provider.usages.VCPU provider.inventories.VCPU.total 100 %}"></div>
+      <div class="pie-chart-usage" data-used="{% widthratio provider.vcpus_used provider.vcpus_capacity 100 %}"></div>
       <div class="h5">{% trans "VCPU Usage" %}</div>
       {% if provider.inventories.VCPU != None %}
       <div class="h6">
-        {% blocktrans with used=provider.usages.VCPU|intcomma available=provider.inventories.VCPU.total|intcomma %}Used <span> {{ used }} </span> of <span> {{ available }} </span>{% endblocktrans %}
+        {% blocktrans with used=provider.vcpus_used|intcomma available=provider.vcpus_capacity|intcomma %}Used <span> {{ used }} </span> of <span> {{ available }} </span>{% endblocktrans %}
       </div>
       {% endif %}
     </div>
 
     <div class="col-sm-4 d3_quota_bar col-lg-3 col-md-2 col-xs-4">
-      <div class="pie-chart-usage" data-used="{% widthratio provider.usages.PCPU provider.inventories.PCPU.total 100 %}"></div>
+      <div class="pie-chart-usage" data-used="{% widthratio provider.pcpus_used provider.pcpus_capacity 100 %}"></div>
       <div class="h5">{% trans "PCPU Usage" %}</div>
       {% if provider.inventories.PCPU != None %}
       <div class="h6">
-        {% blocktrans with used=provider.usages.PCPU|intcomma available=provider.inventories.PCPU.total|intcomma %}Used <span> {{ used }} </span> of <span> {{ available }} </span>{% endblocktrans %}
+        {% blocktrans with used=provider.pcpus_used|intcomma available=provider.pcpus_capacity|intcomma %}Used <span> {{ used }} </span> of <span> {{ available }} </span>{% endblocktrans %}
       </div>
       {% endif %}
     </div>
 
     <div class="col-sm-4 d3_quota_bar col-lg-3 col-md-2 col-xs-4">
-      <div class="pie-chart-usage" data-used="{% widthratio provider.usages.MEMORY_MB provider.inventories.MEMORY_MB.total 100 %}"></div>
+      <div class="pie-chart-usage" data-used="{% widthratio provider.memory_mb_used provider.memory_mb_capacity 100 %}"></div>
       <div class="h5">{% trans "Memory Usage" %}</div>
       <div class="h6">
-         {% blocktrans with used=provider.usages.MEMORY_MB|mb_float_format available=provider.inventories.MEMORY_MB.total|mb_float_format %}Used <span> {{ used }} </span> of <span> {{ available }} </span>{% endblocktrans %}
+         {% blocktrans with used=provider.memory_mb_used|mb_float_format available=provider.memory_mb_capacity|mb_float_format %}Used <span> {{ used }} </span> of <span> {{ available }} </span>{% endblocktrans %}
       </div>
     </div>
 
     <div class="col-sm-4 d3_quota_bar col-lg-3 col-md-2 col-xs-4">
-      <div class="pie-chart-usage" data-used="{% widthratio provider.usages.DISK_GB provider.inventories.DISK_GB.total 100 %}"></div>
+      <div class="pie-chart-usage" data-used="{% widthratio provider.disk_gb_used provider.disk_gb_capacity 100 %}"></div>
        <div class="h5">{% trans "Local Disk Usage" %}</div>
        <div class="h6">
-         {% blocktrans with used=provider.usages.DISK_GB|diskgbformat available=provider.inventories.DISK_GB.total|diskgbformat %}Used <span> {{ used }} </span> of <span> {{ available }} </span>{% endblocktrans %}
+         {% blocktrans with used=provider.disk_gb_used|diskgbformat available=provider.disk_gb_capacity|diskgbformat %}Used <span> {{ used }} </span> of <span> {{ available }} </span>{% endblocktrans %}
        </div>
     </div>
   {% endfor %}
