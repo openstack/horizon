@@ -10,48 +10,11 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
-from oslo_utils import uuidutils
 import pytest
-from selenium.common import exceptions
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.wait import WebDriverWait
-import test_volumes
-
 
 from openstack_dashboard.test.selenium import widgets
-
-# Imported fixtures
-volume_name = test_volumes.volume_name
-new_volume_demo = test_volumes.new_volume_demo
-
-
-@pytest.fixture
-def instance_name():
-    return 'horizon_instance_%s' % uuidutils.generate_uuid(dashed=False)
-
-
-@pytest.fixture(params=[(1, False)])
-def new_instance_demo(complete_default_test_network, request, instance_name,
-                      openstack_demo, config):
-
-    count = request.param[0]
-    auto_ip_param = request.param[1]
-    instance = openstack_demo.create_server(
-        instance_name,
-        image=config.image.images_list[0],
-        flavor=config.launch_instances.flavor,
-        availability_zone=config.launch_instances.available_zone,
-        network=complete_default_test_network.name,
-        auto_ip=auto_ip_param,
-        wait=True,
-        max_count=count,
-    )
-    yield instance
-    if count > 1:
-        for instance in range(0, count):
-            openstack_demo.delete_server(f"{instance_name}-{instance+1}")
-    else:
-        openstack_demo.delete_server(instance_name)
 
 
 @pytest.fixture(params=[(1, False)])
@@ -79,40 +42,12 @@ def new_instance_admin(complete_default_test_network, request, instance_name,
 
 
 @pytest.fixture
-def clear_instance_demo(instance_name, openstack_demo):
-    yield None
-    openstack_demo.delete_server(
-        instance_name,
-        wait=True,
-    )
-
-
-@pytest.fixture
 def clear_instance_admin(instance_name, openstack_admin):
     yield None
     openstack_admin.delete_server(
         instance_name,
         wait=True,
     )
-
-
-def select_from_transfer_table(element, label):
-    """Choose row from available Images, Flavors, Networks, etc.
-
-    in launch tab for example: m1.tiny for Flavor, cirros for image, etc.
-    """
-
-    try:
-        element.find_element_by_xpath(
-            f".//*[text()='{label}']//ancestor::tr/td//*"
-            f"[@class='btn btn-default fa fa-arrow-up']").click()
-    except exceptions.NoSuchElementException:
-        try:
-            element.find_element_by_xpath(
-                f".//*[text()='{label}']//ancestor::tr/td//*"
-                f"[@class='btn btn-default fa fa-arrow-down']")
-        except exceptions.NoSuchElementException:
-            raise
 
 
 def create_new_volume_during_create_instance(driver, required_state):
@@ -154,19 +89,19 @@ def test_create_instance_demo(complete_default_test_network, login, driver,
     network_table = wizard.find_element_by_css_selector(
         "ng-include[ng-form=launchInstanceNetworkForm]"
     )
-    select_from_transfer_table(network_table, network)
+    widgets.select_from_transfer_table(network_table, network)
     navigation.find_element_by_link_text("Flavor").click()
     flavor_table = wizard.find_element_by_css_selector(
         "ng-include[ng-form=launchInstanceFlavorForm]"
     )
-    select_from_transfer_table(flavor_table, flavor)
+    widgets.select_from_transfer_table(flavor_table, flavor)
     navigation.find_element_by_link_text("Source").click()
     source_table = wizard.find_element_by_css_selector(
         "ng-include[ng-form=launchInstanceSourceForm]"
     )
 #   create_new_volume_during_create_instance(source_table, "No")
     delete_volume_on_instance_delete(source_table, "Yes")
-    select_from_transfer_table(source_table, image)
+    widgets.select_from_transfer_table(source_table, image)
     wizard.find_element_by_css_selector(
         "button.btn-primary.finish").click()
 
@@ -207,12 +142,12 @@ def test_create_instance_from_volume_demo(complete_default_test_network, login,
     network_table = wizard.find_element_by_css_selector(
         "ng-include[ng-form=launchInstanceNetworkForm]"
     )
-    select_from_transfer_table(network_table, network)
+    widgets.select_from_transfer_table(network_table, network)
     navigation.find_element_by_link_text("Flavor").click()
     flavor_table = wizard.find_element_by_css_selector(
         "ng-include[ng-form=launchInstanceFlavorForm]"
     )
-    select_from_transfer_table(flavor_table, flavor)
+    widgets.select_from_transfer_table(flavor_table, flavor)
     navigation.find_element_by_link_text("Source").click()
     source_table = wizard.find_element_by_css_selector(
         "ng-include[ng-form=launchInstanceSourceForm]"
@@ -223,7 +158,7 @@ def test_create_instance_from_volume_demo(complete_default_test_network, login,
     select_boot_sources_type_tab.find_element_by_css_selector(
         "option[value='volume']").click()
     delete_volume_on_instance_delete(source_table, "No")
-    select_from_transfer_table(source_table, volume_name)
+    widgets.select_from_transfer_table(source_table, volume_name)
     wizard.find_element_by_css_selector("button.btn-primary.finish").click()
     WebDriverWait(driver, config.selenium.page_timeout).until(
         EC.invisibility_of_element_located(launch_instance_btn))
@@ -331,19 +266,19 @@ def test_create_instance_admin(complete_default_test_network, login, driver,
     network_table = wizard.find_element_by_css_selector(
         "ng-include[ng-form=launchInstanceNetworkForm]"
     )
-    select_from_transfer_table(network_table, network)
+    widgets.select_from_transfer_table(network_table, network)
     navigation.find_element_by_link_text("Flavor").click()
     flavor_table = wizard.find_element_by_css_selector(
         "ng-include[ng-form=launchInstanceFlavorForm]"
     )
-    select_from_transfer_table(flavor_table, flavor)
+    widgets.select_from_transfer_table(flavor_table, flavor)
     navigation.find_element_by_link_text("Source").click()
     source_table = wizard.find_element_by_css_selector(
         "ng-include[ng-form=launchInstanceSourceForm]"
     )
 #   create_new_volume_during_create_instance(source_table, "No")
     delete_volume_on_instance_delete(source_table, "Yes")
-    select_from_transfer_table(source_table, image)
+    widgets.select_from_transfer_table(source_table, image)
     wizard.find_element_by_css_selector(
         "button.btn-primary.finish").click()
     WebDriverWait(driver, config.selenium.page_timeout).until(
