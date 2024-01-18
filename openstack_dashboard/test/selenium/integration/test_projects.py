@@ -52,6 +52,19 @@ def new_project_with_admin(new_project, openstack_admin, config):
     yield new_project
 
 
+@pytest.fixture
+def new_project_with_group(new_project, openstack_admin, config):
+    """Provides a project with the admins group as a member."""
+
+    openstack_admin.identity.assign_project_role_to_group(
+        project=new_project,
+        group=openstack_admin.identity.find_group('admins').id,
+        role=openstack_admin.identity.find_role(
+            config.identity.default_keystone_role).id
+    )
+    yield new_project
+
+
 def test_create_project(login, driver, project_name, openstack_admin,
                         config, clear_project):
 
@@ -153,5 +166,74 @@ def test_add_role_to_project_member(login, driver, openstack_admin, config,
         openstack_admin.identity.validate_user_has_project_role(
         project=new_project_with_admin,
         user=openstack_admin.identity.find_user(admin_name).id,
+        role=openstack_admin.identity.find_role(admin_role_name).id,)
+    )
+
+
+def test_add_group_to_project(login, driver, openstack_admin,
+                              new_project, config):
+    group_name = 'admins'
+    regular_role_name = config.identity.default_keystone_role
+
+    login('admin')
+    url = '/'.join((
+        config.dashboard.dashboard_url,
+        'identity',
+    ))
+    driver.get(url)
+    rows = driver.find_elements_by_css_selector(
+        f"table#tenants tr[data-display='{new_project.name}']")
+    assert len(rows) == 1
+    actions_column = rows[0].find_element_by_css_selector("td.actions_column")
+    widgets.select_from_dropdown(actions_column, "Modify Groups")
+    project_form = driver.find_element_by_css_selector("form .modal-content")
+    project_form.find_element_by_xpath(
+        f".//*[text()='{group_name}']//ancestor::li"
+        f"/following-sibling::li/a[@href='#add_remove']").click()
+    project_form.find_element_by_css_selector(
+        ".btn-primary[value='Save']").click()
+    messages = widgets.get_and_dismiss_messages(driver)
+    assert f'Success: Modified project "{new_project.name}".' in messages
+    assert(openstack_admin.identity.validate_group_has_project_role(
+        project=new_project,
+        group=openstack_admin.identity.find_group(group_name).id,
+        role=openstack_admin.identity.find_role(regular_role_name).id,)
+    )
+
+
+def test_add_role_to_project_group(login, driver, openstack_admin, config,
+                                   new_project_with_group):
+    group_name = 'admins'
+    regular_role_name = config.identity.default_keystone_role
+    admin_role_name = config.identity.default_keystone_admin_role
+
+    login('admin')
+    url = '/'.join((
+        config.dashboard.dashboard_url,
+        'identity',
+    ))
+    driver.get(url)
+    rows = driver.find_elements_by_css_selector(
+        f"table#tenants tr[data-display='{new_project_with_group.name}']")
+    assert len(rows) == 1
+    actions_column = rows[0].find_element_by_css_selector("td.actions_column")
+    widgets.select_from_dropdown(actions_column, "Modify Groups")
+    project_form = driver.find_element_by_css_selector("form .modal-content")
+    select_roles_dropdown = project_form.find_element_by_xpath(
+        f".//*[text()='{group_name}']//ancestor::li"
+        f"/following-sibling::li[@class='dropdown role_options']")
+    widgets.select_from_dropdown(select_roles_dropdown, admin_role_name)
+    project_form.find_element_by_css_selector(
+        ".btn-primary[value='Save']").click()
+    messages = widgets.get_and_dismiss_messages(driver)
+    assert(f'Success: Modified project '
+           f'"{new_project_with_group.name}".' in messages)
+    assert(openstack_admin.identity.validate_group_has_project_role(
+        project=new_project_with_group,
+        group=openstack_admin.identity.find_group(group_name).id,
+        role=openstack_admin.identity.find_role(regular_role_name).id,) and
+        openstack_admin.identity.validate_group_has_project_role(
+        project=new_project_with_group,
+        group=openstack_admin.identity.find_group(group_name).id,
         role=openstack_admin.identity.find_role(admin_role_name).id,)
     )
