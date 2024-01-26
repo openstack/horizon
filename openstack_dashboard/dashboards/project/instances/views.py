@@ -535,6 +535,8 @@ class DetailView(tabs.TabView):
             exceptions.handle(self.request, msg, ignore=True)
 
     def _update_addresses(self, instance):
+        if not settings.OPENSTACK_INSTANCE_RETRIEVE_IP_ADDRESSES:
+            return
         instance_id = instance.id
         try:
             api.network.servers_update_addresses(self.request, [instance])
