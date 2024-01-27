@@ -12,21 +12,10 @@
 
 import logging
 import os
-import sys
-
-import django
-import six
-import six.moves
 
 from django.conf import settings
 from scss.grammar.expression import SassExpressionScanner
 
-# Temporary workaround for a situation that django-pyscss depends on
-# a vendored version of six, django.utils.six which was dropped in Django 3.0.
-# TODO(amotoki): Drop the workaround once django-pyscss supports Django 3.0+.
-if django.VERSION[0] >= 3:
-    sys.modules['django.utils.six'] = six
-    sys.modules['django.utils.six.moves'] = six.moves
 
 scss_asset_root = os.path.join(settings.STATIC_ROOT, 'scss', 'assets')
 LOG = logging.getLogger(__name__)
