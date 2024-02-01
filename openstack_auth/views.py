@@ -14,7 +14,6 @@ import datetime
 import functools
 import logging
 
-import django
 from django.conf import settings
 from django.contrib import auth
 from django.contrib.auth.decorators import login_required
@@ -49,25 +48,15 @@ from openstack_auth import utils
 LOG = logging.getLogger(__name__)
 
 
-if django.VERSION >= (4, 0):
-    CSRF_REASONS = [
-        csrf.REASON_BAD_ORIGIN,
-        csrf.REASON_NO_REFERER,
-        csrf.REASON_BAD_REFERER,
-        csrf.REASON_NO_CSRF_COOKIE,
-        csrf.REASON_CSRF_TOKEN_MISSING,
-        csrf.REASON_MALFORMED_REFERER,
-        csrf.REASON_INSECURE_REFERER,
-    ]
-else:
-    CSRF_REASONS = [
-        csrf.REASON_NO_REFERER,
-        csrf.REASON_BAD_REFERER,
-        csrf.REASON_NO_CSRF_COOKIE,
-        csrf.REASON_BAD_TOKEN,
-        csrf.REASON_MALFORMED_REFERER,
-        csrf.REASON_INSECURE_REFERER
-    ]
+CSRF_REASONS = [
+    csrf.REASON_BAD_ORIGIN,
+    csrf.REASON_NO_REFERER,
+    csrf.REASON_BAD_REFERER,
+    csrf.REASON_NO_CSRF_COOKIE,
+    csrf.REASON_CSRF_TOKEN_MISSING,
+    csrf.REASON_MALFORMED_REFERER,
+    csrf.REASON_INSECURE_REFERER,
+]
 
 
 def get_csrf_reason(reason):
