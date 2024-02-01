@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: horizon VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2023-03-07 08:38+0000\n"
+"POT-Creation-Date: 2024-01-30 07:54+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -6892,12 +6892,6 @@ msgstr "VCPU Kullanımı"
 
 msgid "VCPUs"
 msgstr "VCPUlar"
-
-msgid "VCPUs (total)"
-msgstr "VCPUs (toplam)"
-
-msgid "VCPUs (used)"
-msgstr "VCPUs (kullanılan)"
 
 msgid "VDI - Virtual Disk Image"
 msgstr "VDI - Sanal Disk İmajı"
