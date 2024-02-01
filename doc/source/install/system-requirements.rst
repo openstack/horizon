@@ -2,11 +2,11 @@
 System Requirements
 ===================
 
-The Ussuri release of horizon has the following dependencies.
+The Caracal release of horizon has the following dependencies.
 
-* Python 3.6 or 3.7
+* Python 3.8 or 3.11
 
-* Django 3.2
+* Django 4.2
 
   * Django support policy is documented at :ref:`django_support`.
 

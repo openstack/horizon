@@ -107,15 +107,15 @@ when a test fails you can use::
 
   $ tox -e py37 -- --pdb
 
-py3-dj32
+py3-dj42
 -----------------------------
 
-Runs the Python unit tests against Django 3.2.
+Runs the Python unit tests against Django 4.2.
 
-py36
-----
+py311
+-----
 
-Runs the Python unit tests with a Python 3.6 environment.
+Runs the Python unit tests with a Python 3.11 environment.
 
 releasenotes
 ------------
