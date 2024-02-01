@@ -36,12 +36,6 @@ from keystoneauth1 import exceptions as keystone_exceptions
 from openstack_auth import exceptions
 from openstack_auth import forms
 from openstack_auth import plugin
-
-# This is historic and is added back in to not break older versions of
-# Horizon, fix to Horizon to remove this requirement was committed in
-# Juno
-# pylint: disable=unused-import
-from openstack_auth.forms import Login  # noqa:F401
 from openstack_auth import user as auth_user
 from openstack_auth import utils
 
