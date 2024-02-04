@@ -22,7 +22,6 @@ oslo.serialization>=4.3.0 # Apache-2.0
 oslo.upgradecheck>=1.5.0 # Apache-2.0
 oslo.utils>=4.12.0 # Apache-2.0
 osprofiler>=3.4.2 # Apache-2.0
-pymongo>=3.0.2 # Apache-2.0
 pyScss>=1.4.0 # MIT License
 python-cinderclient>=8.0.0 # Apache-2.0
 python-glanceclient>=2.8.0 # Apache-2.0
