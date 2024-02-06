@@ -23,7 +23,6 @@ from horizon import forms
 from openstack_dashboard import api
 from openstack_dashboard.dashboards.project.networks import tests
 from openstack_dashboard.test import helpers as test
-from openstack_dashboard import usage
 
 INDEX_TEMPLATE = 'horizon/common/_data_table_view.html'
 INDEX_URL = reverse('horizon:admin:networks:index')
@@ -47,18 +46,15 @@ class NetworkTests(test.BaseAdminViewTests):
     @test.create_mocks({api.neutron: ('network_list',
                                       'list_dhcp_agent_hosting_networks',
                                       'is_extension_supported'),
-                        api.keystone: ('tenant_list',),
-                        usage.quotas: ('tenant_quota_usages',)})
+                        api.keystone: ('tenant_list',)})
     def test_index(self):
         tenants = self.tenants.list()
-        quota_data = self.quota_usages.first()
 
         self.mock_network_list.return_value = self.networks.list()
         self.mock_tenant_list.return_value = [tenants, False]
         self._stub_is_extension_supported(
             {'network_availability_zone': True,
              'dhcp_agent_scheduler': True})
-        self.mock_tenant_quota_usages.return_value = quota_data
         self.mock_list_dhcp_agent_hosting_networks.return_value = \
             self.agents.list()
 
@@ -75,12 +71,6 @@ class NetworkTests(test.BaseAdminViewTests):
         self._check_is_extension_supported(
             {'network_availability_zone': 1,
              'dhcp_agent_scheduler': len(self.networks.list()) + 1})
-        self.mock_tenant_quota_usages.assert_has_calls(
-            [mock.call(test.IsHttpRequest(), tenant_id=network.tenant_id,
-                       targets=('subnet', ))
-             for network in self.networks.list()])
-        self.assertEqual(len(self.networks.list()),
-                         self.mock_tenant_quota_usages.call_count)
         self.mock_list_dhcp_agent_hosting_networks.assert_has_calls(
             [mock.call(test.IsHttpRequest(), network.id)
              for network in self.networks.list()])
@@ -109,14 +99,11 @@ class NetworkTests(test.BaseAdminViewTests):
              'dhcp_agent_scheduler': 1})
 
     @test.create_mocks({api.neutron: ('network_get',
-                                      'is_extension_supported'),
-                        usage.quotas: ('tenant_quota_usages',)})
+                                      'is_extension_supported')})
     def test_network_detail_new(self, mac_learning=False):
         network = self.networks.first()
-        quota_data = self.quota_usages.first()
 
         self.mock_network_get.return_value = network
-        self.mock_tenant_quota_usages.return_value = quota_data
         self._stub_is_extension_supported(
             {'network-ip-availability': True,
              'network_availability_zone': True,
@@ -133,12 +120,6 @@ class NetworkTests(test.BaseAdminViewTests):
                          network.status_label)
         self.assertTemplateUsed(res, 'horizon/common/_detail.html')
 
-        self.assert_mock_multiple_calls_with_same_arguments(
-            self.mock_network_get, 2,
-            mock.call(test.IsHttpRequest(), network.id))
-        self.mock_tenant_quota_usages.assert_called_once_with(
-            test.IsHttpRequest(), tenant_id=network.tenant_id,
-            targets=('subnet',))
         self._check_is_extension_supported(
             {'network-ip-availability': 1,
              'network_availability_zone': 1,
@@ -154,12 +135,10 @@ class NetworkTests(test.BaseAdminViewTests):
     @test.create_mocks({api.neutron: ('network_get',
                                       'subnet_list',
                                       'show_network_ip_availability',
-                                      'is_extension_supported'),
-                        usage.quotas: ('tenant_quota_usages',)})
+                                      'is_extension_supported')})
     def _test_network_detail_subnets_tab(self, mac_learning=False):
         network = self.networks.first()
         ip_availability = self.ip_availability.get()
-        quota_data = self.quota_usages.first()
 
         self.mock_show_network_ip_availability.return_value = ip_availability
         self.mock_network_get.return_value = network
@@ -169,7 +148,6 @@ class NetworkTests(test.BaseAdminViewTests):
              'mac-learning': mac_learning,
              'network_availability_zone': True,
              'dhcp_agent_scheduler': True})
-        self.mock_tenant_quota_usages.return_value = quota_data
 
         url = parse.unquote(reverse('horizon:admin:networks:subnets_tab',
                                     args=[network.id]))
@@ -182,7 +160,7 @@ class NetworkTests(test.BaseAdminViewTests):
         self.mock_show_network_ip_availability.assert_called_once_with(
             test.IsHttpRequest(), network.id)
         self.assert_mock_multiple_calls_with_same_arguments(
-            self.mock_network_get, 2,
+            self.mock_network_get, 1,
             mock.call(test.IsHttpRequest(), network.id))
         self.mock_subnet_list.assert_called_once_with(test.IsHttpRequest(),
                                                       network_id=network.id)
@@ -191,22 +169,15 @@ class NetworkTests(test.BaseAdminViewTests):
              'mac-learning': 1,
              'network_availability_zone': 1,
              'dhcp_agent_scheduler': 1})
-        self.assert_mock_multiple_calls_with_same_arguments(
-            self.mock_tenant_quota_usages, 3,
-            mock.call(test.IsHttpRequest(), tenant_id=network.tenant_id,
-                      targets=('subnet',)))
 
     @test.create_mocks({api.neutron: ('network_get',
                                       'port_list',
-                                      'is_extension_supported'),
-                        usage.quotas: ('tenant_quota_usages',)})
+                                      'is_extension_supported')})
     def test_network_detail_ports_tab(self, mac_learning=False):
         network = self.networks.first()
-        quota_data = self.neutron_quota_usages.first()
 
         self.mock_network_get.return_value = network
         self.mock_port_list.return_value = [self.ports.first()]
-        self.mock_tenant_quota_usages.return_value = quota_data
         self._stub_is_extension_supported(
             {'network-ip-availability': True,
              'mac-learning': mac_learning,
@@ -222,19 +193,10 @@ class NetworkTests(test.BaseAdminViewTests):
         self.assertCountEqual(ports, [self.ports.first()])
 
         self.assert_mock_multiple_calls_with_same_arguments(
-            self.mock_network_get, 2,
+            self.mock_network_get, 1,
             mock.call(test.IsHttpRequest(), network.id))
         self.mock_port_list.assert_called_once_with(test.IsHttpRequest(),
                                                     network_id=network.id)
-        self.assertEqual(3, self.mock_tenant_quota_usages.call_count)
-        self.mock_tenant_quota_usages.assert_has_calls([
-            mock.call(test.IsHttpRequest(), tenant_id=network.tenant_id,
-                      targets=('subnet',)),
-            mock.call(test.IsHttpRequest(), tenant_id=network.tenant_id,
-                      targets=('port',)),
-            mock.call(test.IsHttpRequest(), tenant_id=network.tenant_id,
-                      targets=('port',)),
-        ])
         self._check_is_extension_supported(
             {'network-ip-availability': 1,
              'mac-learning': 1,
@@ -243,11 +205,9 @@ class NetworkTests(test.BaseAdminViewTests):
 
     @test.create_mocks({api.neutron: ('network_get',
                                       'is_extension_supported',
-                                      'list_dhcp_agent_hosting_networks',),
-                        usage.quotas: ('tenant_quota_usages',)})
+                                      'list_dhcp_agent_hosting_networks',)})
     def test_network_detail_agents_tab(self, mac_learning=False):
         network = self.networks.first()
-        quota_data = self.quota_usages.first()
 
         self._stub_is_extension_supported(
             {'network-ip-availability': True,
@@ -257,7 +217,6 @@ class NetworkTests(test.BaseAdminViewTests):
         self.mock_list_dhcp_agent_hosting_networks.return_value = \
             self.agents.list()
         self.mock_network_get.return_value = network
-        self.mock_tenant_quota_usages.return_value = quota_data
 
         url = reverse('horizon:admin:networks:agents_tab', args=[network.id])
         res = self.client.get(parse.unquote(url))
@@ -277,9 +236,6 @@ class NetworkTests(test.BaseAdminViewTests):
             test.IsHttpRequest(), network.id)
         self.mock_network_get.assert_called_once_with(
             test.IsHttpRequest(), network.id)
-        self.mock_tenant_quota_usages.assert_called_once_with(
-            test.IsHttpRequest(), tenant_id=network.tenant_id,
-            targets=('subnet',))
 
     def test_network_detail_subnets_tab_network_exception(self):
         self._test_network_detail_subnets_tab_network_exception()
@@ -331,12 +287,10 @@ class NetworkTests(test.BaseAdminViewTests):
     @test.create_mocks({api.neutron: ('network_get',
                                       'subnet_list',
                                       'show_network_ip_availability',
-                                      'is_extension_supported'),
-                        usage.quotas: ('tenant_quota_usages',)})
+                                      'is_extension_supported')})
     def _test_network_detail_subnets_tab_subnet_exception(self,
                                                           mac_learning=False):
         network = self.networks.first()
-        quota_data = self.quota_usages.first()
 
         self.mock_show_network_ip_availability.return_value = \
             self.ip_availability.get()
@@ -347,7 +301,6 @@ class NetworkTests(test.BaseAdminViewTests):
              'mac-learning': mac_learning,
              'dhcp_agent_scheduler': True,
              'network_availability_zone': True})
-        self.mock_tenant_quota_usages.return_value = quota_data
 
         url = parse.unquote(reverse('horizon:admin:networks:subnets_tab',
                                     args=[network.id]))
@@ -360,14 +313,10 @@ class NetworkTests(test.BaseAdminViewTests):
         self.mock_show_network_ip_availability.assert_called_once_with(
             test.IsHttpRequest(), network.id)
         self.assert_mock_multiple_calls_with_same_arguments(
-            self.mock_network_get, 2,
+            self.mock_network_get, 1,
             mock.call(test.IsHttpRequest(), network.id))
         self.mock_subnet_list.assert_called_once_with(test.IsHttpRequest(),
                                                       network_id=network.id)
-        self.assert_mock_multiple_calls_with_same_arguments(
-            self.mock_tenant_quota_usages, 3,
-            mock.call(test.IsHttpRequest(), tenant_id=network.tenant_id,
-                      targets=('subnet',)))
         self._stub_is_extension_supported(
             {'network-ip-availability': 1,
              'mac-learning': 1,
@@ -383,13 +332,11 @@ class NetworkTests(test.BaseAdminViewTests):
     @test.create_mocks({api.neutron: ('network_get',
                                       'subnet_list',
                                       'is_extension_supported',
-                                      'show_network_ip_availability'),
-                        usage.quotas: ('tenant_quota_usages',)})
+                                      'show_network_ip_availability')})
     def _test_network_detail_subnets_tab_port_exception(self,
                                                         mac_learning=False):
         network = self.networks.first()
         ip_availability = self.ip_availability.get()
-        quota_data = self.quota_usages.first()
 
         self.mock_show_network_ip_availability.return_value = ip_availability
         self.mock_network_get.return_value = network
@@ -399,7 +346,6 @@ class NetworkTests(test.BaseAdminViewTests):
              'mac-learning': mac_learning,
              'network_availability_zone': True,
              'dhcp_agent_scheduler': True})
-        self.mock_tenant_quota_usages.return_value = quota_data
 
         url = parse.unquote(reverse('horizon:admin:networks:subnets_tab',
                                     args=[network.id]))
@@ -412,7 +358,7 @@ class NetworkTests(test.BaseAdminViewTests):
         self.mock_show_network_ip_availability.assert_called_once_with(
             test.IsHttpRequest(), network.id)
         self.assert_mock_multiple_calls_with_same_arguments(
-            self.mock_network_get, 2,
+            self.mock_network_get, 1,
             mock.call(test.IsHttpRequest(), network.id))
         self.mock_subnet_list.assert_called_once_with(test.IsHttpRequest(),
                                                       network_id=network.id)
@@ -421,10 +367,6 @@ class NetworkTests(test.BaseAdminViewTests):
              'mac-learning': 1,
              'network_availability_zone': 1,
              'dhcp_agent_scheduler': 1})
-        self.assert_mock_multiple_calls_with_same_arguments(
-            self.mock_tenant_quota_usages, 3,
-            mock.call(test.IsHttpRequest(), tenant_id=network.tenant_id,
-                      targets=('subnet',)))
 
     @test.create_mocks({api.neutron: ('is_extension_supported',),
                         api.keystone: ('tenant_list',)})

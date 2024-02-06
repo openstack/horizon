@@ -24,7 +24,6 @@ from horizon.workflows import views
 from openstack_dashboard import api
 from openstack_dashboard.dashboards.project.networks import tests
 from openstack_dashboard.test import helpers as test
-from openstack_dashboard.usage import quotas
 
 DETAIL_URL = 'horizon:admin:networks:subnets:detail'
 
@@ -393,12 +392,10 @@ class NetworkSubnetTests(test.BaseAdminViewTests):
     @test.create_mocks({api.neutron: ('network_get',
                                       'subnet_list',
                                       'is_extension_supported',
-                                      'show_network_ip_availability'),
-                        quotas: ('tenant_quota_usages',)})
+                                      'show_network_ip_availability')})
     def _test_network_detail_ip_availability_exception(self,
                                                        mac_learning=False):
         network = self.networks.first()
-        quota_data = self.neutron_quota_usages.first()
 
         self._stub_is_extension_supported(
             {'network-ip-availability': True,
@@ -409,7 +406,6 @@ class NetworkSubnetTests(test.BaseAdminViewTests):
             self.exceptions.neutron
         self.mock_network_get.return_value = network
         self.mock_subnet_list.return_value = [self.subnets.first()]
-        self.mock_tenant_quota_usages.return_value = quota_data
 
         url = parse.unquote(reverse('horizon:admin:networks:subnets_tab',
                                     args=[network.id]))
@@ -426,11 +422,7 @@ class NetworkSubnetTests(test.BaseAdminViewTests):
         self.mock_show_network_ip_availability.assert_called_once_with(
             test.IsHttpRequest(), network.id)
         self.assert_mock_multiple_calls_with_same_arguments(
-            self.mock_network_get, 2,
+            self.mock_network_get, 1,
             mock.call(test.IsHttpRequest(), network.id))
         self.mock_subnet_list.assert_called_once_with(test.IsHttpRequest(),
                                                       network_id=network.id)
-        self.assert_mock_multiple_calls_with_same_arguments(
-            self.mock_tenant_quota_usages, 3,
-            mock.call(test.IsHttpRequest(), tenant_id=network.tenant_id,
-                      targets=('subnet',)))
