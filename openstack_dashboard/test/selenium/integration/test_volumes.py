@@ -45,7 +45,7 @@ def clear_volume_admin(volume_name, openstack_admin):
 
 
 def wait_for_steady_state_of_volume(openstack, volume_name):
-    for attempt in range(10):
+    for attempt in range(120):
         if (openstack.block_storage.find_volume(volume_name).status in
             ["available", "error", "in-use", "error_restoring",
              "error_extending", "error_managing"]):
@@ -179,6 +179,7 @@ def test_extend_volume_demo(login, driver, openstack_demo, new_volume_demo,
         ".btn-primary[value='Extend Volume']").click()
     messages = widgets.get_and_dismiss_messages(driver)
     assert f'Info: Extending volume: "{new_volume_demo.name}"' in messages
+    wait_for_steady_state_of_volume(openstack_demo, new_volume_demo.name)
     assert(openstack_demo.block_storage.find_volume(
         new_volume_demo.name).size == 2)
 
@@ -320,6 +321,62 @@ def test_volumes_pagination_demo(login, driver, volume_name,
     actual_page1_definition = widgets.get_table_definition(driver,
                                                            sorting=True)
     assert first_page_definition == actual_page1_definition
+
+
+#   Not possible to detach volume from server via OpenstackSDK for
+#   security reasons. So attach and detach is combined in one test.
+def test_manage_volume_attachments(login, driver, openstack_demo,
+                                   new_volume_demo, new_instance_demo,
+                                   config):
+    login('user')
+    url = '/'.join((
+        config.dashboard.dashboard_url,
+        'project',
+        'volumes',
+    ))
+    driver.get(url)
+    rows = driver.find_elements_by_css_selector(
+        f"table#volumes tr[data-display='{new_volume_demo.name}']"
+    )
+    assert len(rows) == 1
+    actions_column = rows[0].find_element_by_css_selector("td.actions_column")
+    widgets.select_from_dropdown(actions_column, "Manage Attachments")
+    attach_to_instance_form = driver.find_element_by_css_selector(
+        ".modal-content form[id='attach_volume_form']")
+    widgets.select_from_dropdown(
+        attach_to_instance_form,
+        f"{new_instance_demo.name} ({new_instance_demo.id})")
+    attach_to_instance_form.find_element_by_css_selector(
+        ".btn-primary[value='Attach Volume']").click()
+    messages = widgets.get_and_dismiss_messages(driver)
+    assert(f"Info: Attaching volume {new_volume_demo.name} to instance "
+           f"{new_instance_demo.name} on /dev/vdb." in messages)
+    wait_for_steady_state_of_volume(openstack_demo, new_volume_demo.name)
+    assert(openstack_demo.block_storage.find_volume(
+        new_volume_demo.id).attachments[0]['server_id'] ==
+        new_instance_demo.id)
+
+    #   Wait for Edit Volume appear for required row.
+    row = widgets.find_already_visible_element_by_xpath(
+        f".//tr[@data-display='{new_volume_demo.name}']/td[@class"
+        f"='actions_column']/div/a[normalize-space()='Edit Volume']", driver)
+    actions_column = row.find_element_by_xpath(
+        ".//ancestor::tr/td[contains(@class,'actions_column')]")
+    widgets.select_from_dropdown(actions_column, "Manage Attachments")
+    rows_attachments = driver.find_elements_by_css_selector(
+        f"table#attachments tr[data-display='Volume {new_volume_demo.name} "
+        f"on instance {new_instance_demo.name}']")
+    assert len(rows_attachments) == 1
+    rows_attachments[0].find_element_by_css_selector(
+        "td.actions_column").click()
+    driver.find_element_by_xpath(
+        ".//a[normalize-space()='Detach Volume']").click()
+    messages = widgets.get_and_dismiss_messages(driver)
+    assert(f"Success: Detaching Volume: Volume {new_volume_demo.name} "
+           f"on instance {new_instance_demo.name}" in messages)
+    wait_for_steady_state_of_volume(openstack_demo, new_volume_demo.name)
+    assert(openstack_demo.block_storage.find_volume(
+        new_volume_demo.id).attachments == [])
 
 
 # Admin tests
