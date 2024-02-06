@@ -78,6 +78,31 @@ def new_interface(new_router_demo, new_network_demo, new_subnet_demo,
     yield interface
 
 
+@pytest.fixture
+def new_router_with_gateway(new_router_demo, openstack_demo, openstack_admin):
+    network_id = openstack_admin.network.find_network('public').id
+    subnet_id = openstack_admin.network.find_subnet('public-subnet').id
+    ip_address = openstack_admin.network.find_subnet(
+        'public-subnet').allocation_pools[0]['end']
+
+    openstack_demo.network.put(
+        f"/routers/{new_router_demo.id}/add_external_gateways",
+        json={
+            "router": {
+                "external_gateways": [{
+                    "enable_snat": False,
+                    "external_fixed_ips": [{
+                        "ip_address": f"{ip_address}",
+                        "subnet_id": f"{subnet_id}"
+                    }],
+                    "network_id": f"{network_id}"
+                }]
+            }
+        }
+    ).json()
+    yield new_router_demo
+
+
 def test_create_router_demo(login, driver, router_name, openstack_demo,
                             config, clear_router_demo):
     login('user')
@@ -118,51 +143,6 @@ def test_delete_router_demo(login, driver, router_name, openstack_demo,
     messages = widgets.get_and_dismiss_messages(driver)
     assert f"Success: Deleted Router: {router_name}" in messages
     assert openstack_demo.network.find_router(router_name) is None
-
-
-def test_create_router_admin(login, driver, router_name, openstack_admin,
-                             config, clear_router_admin):
-    login('admin')
-    url = '/'.join((
-        config.dashboard.dashboard_url,
-        'admin',
-        'routers',
-    ))
-    driver.get(url)
-    driver.find_element_by_link_text("Create Router").click()
-    router_form = driver.find_element_by_css_selector(".modal-dialog form")
-    router_form.find_element_by_id("id_name").send_keys(router_name)
-    widgets.select_from_specific_dropdown_in_form(
-        router_form, "id_tenant_id", "admin")
-    widgets.select_from_specific_dropdown_in_form(
-        router_form, "id_external_network", "public")
-    router_form.find_element_by_css_selector(
-        ".btn-primary[value='Create Router']").click()
-    messages = widgets.get_and_dismiss_messages(driver)
-    assert(f'Success: Router {router_name} was successfully created.'
-           in messages)
-    assert openstack_admin.network.find_router(router_name) is not None
-
-
-def test_delete_router_admin(login, driver, router_name, openstack_admin,
-                             new_router_admin, config):
-    login('admin')
-    url = '/'.join((
-        config.dashboard.dashboard_url,
-        'admin',
-        'routers',
-    ))
-    driver.get(url)
-    rows = driver.find_elements_by_css_selector(
-        f"table#routers tr[data-display='{router_name}']"
-    )
-    assert len(rows) == 1
-    actions_column = rows[0].find_element_by_css_selector("td.actions_column")
-    widgets.select_from_dropdown(actions_column, "Delete Router")
-    widgets.confirm_modal(driver)
-    messages = widgets.get_and_dismiss_messages(driver)
-    assert f"Success: Deleted Router: {router_name}" in messages
-    assert openstack_admin.network.find_router(router_name) is None
 
 
 def test_router_add_interface_demo(login, driver, router_name, openstack_demo,
@@ -233,3 +213,112 @@ def test_router_delete_interface_demo(login, driver, router_name,
     assert f"Success: Deleted Interface: {extracted_port_name}" in messages
     assert(openstack_demo.network.find_port(
         new_interface['port_id']) is None)
+
+
+def test_router_set_gateway_demo(login, driver, new_router_demo,
+                                 openstack_demo, config):
+    login('user')
+    url = '/'.join((
+        config.dashboard.dashboard_url,
+        'project',
+        'routers',
+    ))
+    driver.get(url)
+    rows = driver.find_elements_by_css_selector(
+        f"table#routers tr[data-display='{new_router_demo.name}']"
+    )
+    assert len(rows) == 1
+    router_sdk = openstack_demo.network.get(
+        f"/routers/{new_router_demo.id}"
+        f"?fields=id&fields=name&fields="
+        f"external_gateway_info").json()['router']
+    assert(router_sdk["external_gateway_info"] is None)
+    rows[0].find_element_by_css_selector(".data-table-action").click()
+    gateway_form = driver.find_element_by_css_selector(".modal-dialog form")
+    widgets.select_from_specific_dropdown_in_form(
+        gateway_form, 'id_network_id', 'public')
+    gateway_form.find_element_by_css_selector(".btn-primary").click()
+    messages = widgets.get_and_dismiss_messages(driver)
+    assert f"Success: Gateway interface is added" in messages
+    router_sdk = openstack_demo.network.get(
+        f"/routers/{new_router_demo.id}"
+        f"?fields=id&fields=name&fields="
+        f"external_gateway_info").json()['router']
+    assert(router_sdk["external_gateway_info"]["network_id"] ==
+           openstack_demo.network.find_network('public').id)
+
+
+def test_router_clear_gateway_demo(login, driver, new_router_with_gateway,
+                                   openstack_demo, config):
+    login('user')
+    url = '/'.join((
+        config.dashboard.dashboard_url,
+        'project',
+        'routers',
+    ))
+    driver.get(url)
+    rows = driver.find_elements_by_css_selector(
+        f"table#routers tr[data-display='{new_router_with_gateway.name}']"
+    )
+    assert len(rows) == 1
+    router_sdk = openstack_demo.network.get(
+        f"/routers/{new_router_with_gateway.id}"
+        f"?fields=id&fields=name&fields="
+        f"external_gateway_info").json()['router']
+    assert(router_sdk["external_gateway_info"]["network_id"] ==
+           openstack_demo.network.find_network('public').id)
+    rows[0].find_element_by_css_selector(".data-table-action").click()
+    widgets.confirm_modal(driver)
+    messages = widgets.get_and_dismiss_messages(driver)
+    assert(f"Success: Cleared Gateway: {new_router_with_gateway.name}" in
+           messages)
+    router_sdk = openstack_demo.network.get(
+        f"/routers/{new_router_with_gateway.id}"
+        f"?fields=id&fields=name&fields="
+        f"external_gateway_info").json()['router']
+    assert(router_sdk["external_gateway_info"] is None)
+
+
+def test_create_router_admin(login, driver, router_name, openstack_admin,
+                             config, clear_router_admin):
+    login('admin')
+    url = '/'.join((
+        config.dashboard.dashboard_url,
+        'admin',
+        'routers',
+    ))
+    driver.get(url)
+    driver.find_element_by_link_text("Create Router").click()
+    router_form = driver.find_element_by_css_selector(".modal-dialog form")
+    router_form.find_element_by_id("id_name").send_keys(router_name)
+    widgets.select_from_specific_dropdown_in_form(
+        router_form, "id_tenant_id", "admin")
+    widgets.select_from_specific_dropdown_in_form(
+        router_form, "id_external_network", "public")
+    router_form.find_element_by_css_selector(
+        ".btn-primary[value='Create Router']").click()
+    messages = widgets.get_and_dismiss_messages(driver)
+    assert(f'Success: Router {router_name} was successfully created.'
+           in messages)
+    assert openstack_admin.network.find_router(router_name) is not None
+
+
+def test_delete_router_admin(login, driver, router_name, openstack_admin,
+                             new_router_admin, config):
+    login('admin')
+    url = '/'.join((
+        config.dashboard.dashboard_url,
+        'admin',
+        'routers',
+    ))
+    driver.get(url)
+    rows = driver.find_elements_by_css_selector(
+        f"table#routers tr[data-display='{router_name}']"
+    )
+    assert len(rows) == 1
+    actions_column = rows[0].find_element_by_css_selector("td.actions_column")
+    widgets.select_from_dropdown(actions_column, "Delete Router")
+    widgets.confirm_modal(driver)
+    messages = widgets.get_and_dismiss_messages(driver)
+    assert f"Success: Deleted Router: {router_name}" in messages
+    assert openstack_admin.network.find_router(router_name) is None
