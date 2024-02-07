@@ -101,7 +101,7 @@ additional-builtins=_
 
 [typecheck]
 # List of module names for which member attributes should not be checked
-ignored-modules=six.moves,_MovedItems
+ignored-modules=
 
 [reports]
 # Tells whether to display a full report or only the messages
