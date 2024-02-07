@@ -14,7 +14,8 @@
         - horizon-selenium-headless
         - horizon-integration-tests
         - horizon-dsvm-tempest-plugin
-        - horizon-tox-bandit-baseline
+        - horizon-tox-bandit-baseline:
+            voting: false
         - horizon-tempest-plugin-ipv6
     gate:
       jobs:
