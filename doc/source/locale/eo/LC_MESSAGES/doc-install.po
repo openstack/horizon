@@ -3,9 +3,9 @@
 # Georg Hennemann <georg.hennemann@t-systems.com>, 2020. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 21.0.1.dev22\n"
+"Project-Id-Version: horizon 23.4.1.dev25\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-02-21 20:31+0000\n"
+"POT-Creation-Date: 2024-02-07 17:51+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -560,9 +560,6 @@ msgstr ""
 "problemoj, indiku la servilo IP-adreson al la domajna nomo, kaj provizu "
 "aliron al la uzantoj."
 
-msgid "Python 3.6 or 3.7"
-msgstr "Python 3.6 or 3.7"
-
 msgid "Python memcached module installed"
 msgstr "Python memcached modulo instalita"
 
@@ -627,9 +624,6 @@ msgstr "Statikaj Aĵoj"
 
 msgid "System Requirements"
 msgstr "Sistemaj Postuloj"
-
-msgid "The Ussuri release of horizon has the following dependencies."
-msgstr "La Ussuri eldono de horizon havas la sekvontan dependojn."
 
 msgid ""
 "The ``systemctl restart`` command starts each service if not currently "
