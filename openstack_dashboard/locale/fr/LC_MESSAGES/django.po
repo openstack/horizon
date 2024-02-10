@@ -23,16 +23,17 @@
 # Thomas Morin <tmmorin.orange@gmail.com>, 2018. #zanata
 # JF Taltavull <jftalta@gmail.com>, 2019. #zanata
 # Ian Y. Choi <ianyrchoi@gmail.com>, 2023. #zanata
+# Cyril Lopez <cylopez@redhat.com>, 2024. #zanata
 msgid ""
 msgstr ""
 "Project-Id-Version: horizon VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2024-01-30 07:54+0000\n"
+"POT-Creation-Date: 2024-02-09 19:56+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2023-01-14 11:08+0000\n"
-"Last-Translator: Ian Y. Choi <ianyrchoi@gmail.com>\n"
+"PO-Revision-Date: 2024-02-09 03:03+0000\n"
+"Last-Translator: Cyril Lopez <cylopez@redhat.com>\n"
 "Language-Team: French\n"
 "Language: fr\n"
 "X-Generator: Zanata 4.3.3\n"
@@ -788,6 +789,9 @@ msgstr "Sauvegarde en cours"
 
 msgid "Backup Name"
 msgstr "Nom de la sauvegarde"
+
+msgid "Backup Name ="
+msgstr "Nom de la sauvegarde ="
 
 msgid "Backup Size (GiB)"
 msgstr "Taille de la sauvegarde (Go)"
@@ -2672,6 +2676,9 @@ msgstr "Spécifications supplémentaires"
 msgid "FQDN"
 msgstr "FQDN"
 
+msgid "Fail reason"
+msgstr "Raison de l'échec"
+
 msgctxt "Power state of an Instance"
 msgid "Failed"
 msgstr "Échec"
@@ -2962,6 +2969,11 @@ msgstr "Interdit"
 msgctxt "Force upload volume in in-use status to image"
 msgid "Force"
 msgstr "Force"
+
+msgid "Force Delete Volume Backup"
+msgid_plural "Force Delete Volume Backups"
+msgstr[0] "Forcer la suppression de la sauvegarde du volume"
+msgstr[1] "Forcer la suppression des sauvegardes de volume"
 
 msgid "Force Host Copy"
 msgstr "Forcer la copie hôte"
@@ -3441,6 +3453,9 @@ msgstr "En attente de l'instantané"
 msgid "Image Source"
 msgstr "Source de l'image"
 
+msgid "Image Type"
+msgstr "Type d'image"
+
 msgctxt "Task status of an Instance"
 msgid "Image Uploading"
 msgstr "Chargement de l'image"
@@ -3497,6 +3512,9 @@ msgstr "Information"
 
 msgid "Ingress"
 msgstr "Entrée"
+
+msgid "Injected File Content (B)"
+msgstr "Contenu du fichier injecté (B)"
 
 msgid "Injected Files"
 msgstr "Fichiers injectés"
@@ -5134,6 +5152,9 @@ msgctxt "Task status of an Instance"
 msgid "Resizing or Migrating"
 msgstr "Redimensionnement ou Migration"
 
+msgid "Resource Provider Name"
+msgstr "Nom du fournisseur de ressources"
+
 msgid "Resource Types"
 msgstr "Types de ressource"
 
@@ -5359,6 +5380,11 @@ msgid "Scheduled deletion of Volume Snapshot"
 msgid_plural "Scheduled deletion of Volume Snapshots"
 msgstr[0] "Suppression de l'instantané de volume planifiée"
 msgstr[1] "Suppression des instantané de volume planifiée"
+
+msgid "Scheduled forced deletion of Volume Backup"
+msgid_plural "Scheduled forced deletion of Volume Backups"
+msgstr[0] "Suppression forcée programmée de la sauvegarde de volume"
+msgstr[1] "Suppression forcée programmée des sauvegardes de volume"
 
 msgid "Scheduled migration (pending confirmation) of Instance"
 msgid_plural "Scheduled migration (pending confirmation) of Instances"
@@ -5650,8 +5676,8 @@ msgstr "Partagé avec le projet"
 
 msgid "Shelve Instance"
 msgid_plural "Shelve Instances"
-msgstr[0] "Suspendre l'instance"
-msgstr[1] "Suspendre les instances"
+msgstr[0] "Mettre l'instance en retrait"
+msgstr[1] "Mettre les instances en retrait"
 
 msgctxt "Current status of an Instance"
 msgid "Shelved"
@@ -5659,8 +5685,8 @@ msgstr "Réservée"
 
 msgid "Shelved Instance"
 msgid_plural "Shelved Instances"
-msgstr[0] "Instance suspendue"
-msgstr[1] "Instances suspendues"
+msgstr[0] "Instance mise en retrait"
+msgstr[1] "Instances mises en retrait"
 
 msgctxt "Current status of an Instance"
 msgid "Shelved Offloaded"
@@ -6060,6 +6086,11 @@ msgid "Successfully updated security group: %s"
 msgstr "Groupe de sécurité mis à jour avec succès : %s"
 
 #, python-format
+msgid "Successfully updated volume backup status to \"%s\"."
+msgstr ""
+"L'état de sauvegarde du volume a été mis à jour avec succès sur \" %s \"."
+
+#, python-format
 msgid "Successfully updated volume snapshot status: \"%s\"."
 msgstr "L'état de l'instantané du volume a été mis à jour : \"%s\"."
 
@@ -6372,6 +6403,16 @@ msgstr "L'IP flottante spécifiée n'existe plus."
 
 msgid "The specified port is invalid."
 msgstr "Le port spécifié est invalide."
+
+msgid ""
+"The status of a volume backup is normally managed automatically. In some "
+"circumstances an administrator may need to explicitly update the status "
+"value. This is equivalent to the <tt>cinder backup-reset-state</tt> command."
+msgstr ""
+"L'état d'une sauvegarde de volume est normalement géré automatiquement. Dans "
+"certaines circonstances, un administrateur peut avoir besoin de mettre à "
+"jour explicitement la valeur du statut. Ceci est équivalent à la commande "
+"<tt>cinder backup-reset-state</tt>."
 
 msgid ""
 "The status of a volume is normally managed automatically.  In some "
@@ -7333,6 +7374,9 @@ msgstr "Impossible de récupérer la liste des fournisseur d'identité"
 msgid "Unable to retrieve image details."
 msgstr "Impossible de récupérer les détails de l'image."
 
+msgid "Unable to retrieve image format list."
+msgstr "Impossible de récupérer la liste des formats d'image."
+
 msgid "Unable to retrieve image list."
 msgstr "Impossible de récupérer la liste des images."
 
@@ -7548,6 +7592,14 @@ msgstr "Impossible de récupérer les utilisateurs."
 msgid "Unable to retrieve version information."
 msgstr "Impossible d'obtenir les informations de version. "
 
+msgid "Unable to retrieve volume backup details."
+msgstr "Impossible de récupérer les détails de la sauvegarde du volume."
+
+msgid "Unable to retrieve volume backup project information."
+msgstr ""
+"Impossible de récupérer les informations du projet de la sauvegarde de "
+"volume."
+
 msgid "Unable to retrieve volume backups."
 msgstr "Impossible de récupérer les sauvegardes de volume."
 
@@ -7737,6 +7789,11 @@ msgstr "N'a pas pu mettre le mot de passe de l'utilisateur à jour."
 msgid "Unable to update the user."
 msgstr "Impossible de mettre à jour l'utilisateur."
 
+#, python-format
+msgid "Unable to update volume backup status to \"%s\"."
+msgstr ""
+"Impossible de mettre à jour l'état de sauvegarde du volume sur \" %s \"."
+
 msgid "Unable to update volume group."
 msgstr "Impossible de mettre à jour le groupe de volumes."
 
@@ -7916,6 +7973,9 @@ msgstr "Actualiser l'état du Volume"
 msgid "Update Volume Type Encryption"
 msgstr "Mettre à jour le chiffrement du volume"
 
+msgid "Update Volume backup Status"
+msgstr "Mettre à jour de l'état de la sauvegarde du volume"
+
 msgid "Update a Metadata Namespace"
 msgstr "Mise à jour des métadonnées de l'espace de nom"
 
@@ -8085,6 +8145,18 @@ msgstr "Utilisation VCPU"
 msgid "VCPUs"
 msgstr "VCPUs"
 
+msgid "VCPUs allocation ratio"
+msgstr "Taux d'allocation des vCPUs"
+
+msgid "VCPUs reserved"
+msgstr "vCPUs réservés"
+
+msgid "VCPUs total"
+msgstr "Total des vCPUs"
+
+msgid "VCPUs used"
+msgstr "vCPUs utilisés"
+
 msgid "VDI - Virtual Disk Image"
 msgstr "VDI - Image disque virtuelle"
 
@@ -8177,6 +8249,9 @@ msgstr "Groupes de volumes"
 
 msgid "Volume ID"
 msgstr "ID du volume"
+
+msgid "Volume ID ="
+msgstr "Volume ID ="
 
 msgid "Volume Limits"
 msgstr "Limites des volumes"
