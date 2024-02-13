@@ -30,8 +30,8 @@ def test_login(live_server, driver, mock_openstack_auth, mock_keystoneclient):
     assert driver.title != "Login - OpenStack Dashboard"
 
 
-def test_languages(live_server, driver, mock_openstack_auth,
-                   mock_keystoneclient):
+def test_languages(live_server, driver, user):
+    driver.get(live_server.url + '/settings')
     user_settings = driver.find_element_by_id('user_settings_modal')
     language_options = user_settings.find_element_by_id('id_language')
     language_options.click()
@@ -40,4 +40,3 @@ def test_languages(live_server, driver, mock_openstack_auth,
     messages = widgets.get_and_dismiss_messages(driver)
     assert "Success: Settings saved." in messages
     assert "Error" not in messages
-# ToDo - mock API switch page language.
