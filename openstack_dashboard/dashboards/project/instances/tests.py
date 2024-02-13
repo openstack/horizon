@@ -1338,7 +1338,8 @@ class InstanceDetailTests(InstanceTestBase):
     def _get_instance_details(self, server, qs=None,
                               flavor_return=None, volumes_return=None,
                               security_groups_return=None,
-                              flavor_exception=False, nova_api_ge_2_47=False):
+                              flavor_exception=False, nova_api_ge_2_47=False,
+                              skip_servers_update_addresses=False):
 
         url = reverse('horizon:project:instances:detail', args=[server.id])
         if qs:
@@ -1369,8 +1370,11 @@ class InstanceDetailTests(InstanceTestBase):
 
         self.mock_server_get.assert_called_once_with(
             helpers.IsHttpRequest(), server.id)
-        self.mock_servers_update_addresses.assert_called_once_with(
-            helpers.IsHttpRequest(), mock.ANY)
+        if skip_servers_update_addresses:
+            self.mock_servers_update_addresses.assert_not_called()
+        else:
+            self.mock_servers_update_addresses.assert_called_once_with(
+                helpers.IsHttpRequest(), mock.ANY)
         self.mock_instance_volumes_list.assert_called_once_with(
             helpers.IsHttpRequest(), server.id)
         if nova_api_ge_2_47:
@@ -1405,6 +1409,20 @@ class InstanceDetailTests(InstanceTestBase):
             security_groups_return=security_groups)
 
         self.assertCountEqual(res.context['instance'].volumes, volumes)
+        self.mock_is_extension_supported.assert_called_once_with(
+            helpers.IsHttpRequest(), 'mac-learning')
+
+    @override_settings(OPENSTACK_INSTANCE_RETRIEVE_IP_ADDRESSES=False)
+    @helpers.create_mocks({api.neutron: ['is_extension_supported']})
+    def test_instance_details_skip_servers_update_addresses(self):
+        server = self.servers.first()
+
+        self.mock_is_extension_supported.return_value = False
+
+        self._get_instance_details(
+            server,
+            skip_servers_update_addresses=True)
+
         self.mock_is_extension_supported.assert_called_once_with(
             helpers.IsHttpRequest(), 'mac-learning')
 
