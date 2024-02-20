@@ -19,20 +19,33 @@ import requests
 
 from keystoneauth1.identity import v3 as v3_auth
 from keystoneclient.v3 import client as client_v3
+import openstack_auth
 from openstack_auth.tests import data_v3
+from openstack_auth import utils as auth_utils
 from openstack_dashboard import api
+from openstack_dashboard.test.test_data import utils as test_utils
 
 
-@pytest.fixture(autouse=True)
+@pytest.fixture(autouse=True, scope='session')
 def no_warnings():
     warnings.simplefilter("ignore")
     yield
     warnings.simplefilter("default")
 
 
-@pytest.fixture()
+@pytest.fixture(autouse=True)
+def settings_debug(settings):
+    settings.DEBUG = True
+
+
+@pytest.fixture(scope='session')
 def auth_data():
     return data_v3.generate_test_data()
+
+
+@pytest.fixture(scope='session')
+def dashboard_data():
+    return test_utils.load_test_data()
 
 
 @pytest.fixture(autouse=True)
@@ -47,6 +60,7 @@ def disable_requests(monkeypatch):
     # enable request logging
     monkeypatch.setattr(testcases, 'QuietWSGIRequestHandler',
                         testcases.WSGIRequestHandler)
+
 
 # prevent pytest-django errors due to no database
 @pytest.fixture()
@@ -88,3 +102,20 @@ def mock_keystoneclient():
         endpoint_data.api_version = (3, 10)
         keystoneclient.session.get_endpoint_data.return_value = endpoint_data
         yield
+
+
+@pytest.fixture()
+def user(monkeypatch, dashboard_data, mock_keystoneclient):
+    def get_user(request):
+        new_user = openstack_auth.user.User(
+            id=dashboard_data.user.id,
+            token=dashboard_data.token,
+            user=dashboard_data.user.name,
+            domain_id=dashboard_data.domain.id,
+            tenant_id=dashboard_data.tenant.id,
+            service_catalog=dashboard_data.service_catalog,
+            authorized_tenants=dashboard_data.tenants.list(),
+        )
+        new_user._is_system_user = False
+        return new_user
+    monkeypatch.setattr(auth_utils, 'get_user', get_user)
