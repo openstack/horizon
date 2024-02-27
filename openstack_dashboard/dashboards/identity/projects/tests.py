@@ -31,6 +31,7 @@ from openstack_dashboard.dashboards.identity.projects import workflows
 from openstack_dashboard.test import helpers as test
 from openstack_dashboard import usage
 from openstack_dashboard.usage import quotas
+from openstack_dashboard.utils import identity
 
 
 INDEX_URL = reverse('horizon:identity:projects:index')
@@ -1336,7 +1337,8 @@ class DetailProjectViewTests(test.BaseAdminViewTests):
                                        'get_project_groups_roles',
                                        'role_list',
                                        'group_list'),
-                        quotas: ('enabled_quotas',)})
+                        quotas: ('enabled_quotas',),
+                        identity: ('get_domain_id_for_operation',)})
     def test_detail_view_users_tab(self):
         project = self.tenants.first()
         domain = self.domains.first()
@@ -1354,8 +1356,9 @@ class DetailProjectViewTests(test.BaseAdminViewTests):
         self.mock_domain_get.return_value = domain
         self.mock_enabled_quotas.return_value = ('instances',)
         self.mock_role_list.return_value = self.roles.list()
+        self.mock_get_domain_id_for_operation.return_value = domain.id
 
-        def _user_list_side_effect(request, group=None):
+        def _user_list_side_effect(request, group=None, domain=None):
             if group:
                 return self._get_users_in_group(group)
             return users
@@ -1405,13 +1408,14 @@ class DetailProjectViewTests(test.BaseAdminViewTests):
                                                      domain.id)
         self.mock_enabled_quotas.assert_called_once_with(test.IsHttpRequest())
         self.mock_role_list.assert_called_once_with(test.IsHttpRequest())
-        self.mock_group_list.assert_called_once_with(test.IsHttpRequest())
+        self.mock_group_list.assert_called_once_with(test.IsHttpRequest(),
+                                                     domain="1")
         self.mock_get_project_users_roles.assert_called_once_with(
             test.IsHttpRequest(), project=project.id)
         self.mock_get_project_groups_roles.assert_called_once_with(
             test.IsHttpRequest(), project=project.id)
-        calls = [mock.call(test.IsHttpRequest()),
-                 mock.call(test.IsHttpRequest(), group="1"), ]
+        calls = [mock.call(test.IsHttpRequest(), domain="1"),
+                 mock.call(test.IsHttpRequest(), group="1", domain="1"), ]
 
         self.mock_user_list.assert_has_calls(calls)
 
@@ -1503,11 +1507,13 @@ class DetailProjectViewTests(test.BaseAdminViewTests):
 
         self.mock_tenant_get.assert_called_once_with(test.IsHttpRequest(),
                                                      self.tenant.id)
-        self.mock_domain_get.assert_called_once_with(test.IsHttpRequest(),
-                                                     domain.id)
+        calls = [mock.call(test.IsHttpRequest(), "1"),
+                 mock.call(test.IsHttpRequest(), None), ]
+        self.mock_domain_get.assert_has_calls(calls)
         self.mock_enabled_quotas.assert_called_once_with(test.IsHttpRequest())
         self.mock_role_list.assert_called_once_with(test.IsHttpRequest())
-        self.mock_group_list.assert_called_once_with(test.IsHttpRequest())
+        self.mock_group_list.assert_called_once_with(test.IsHttpRequest(),
+                                                     domain=None)
         self.mock_get_project_groups_roles.assert_called_once_with(
             test.IsHttpRequest(), project=project.id)
 
@@ -1543,8 +1549,9 @@ class DetailProjectViewTests(test.BaseAdminViewTests):
 
         self.mock_tenant_get.assert_called_once_with(test.IsHttpRequest(),
                                                      self.tenant.id)
-        self.mock_domain_get.assert_called_once_with(test.IsHttpRequest(),
-                                                     domain.id)
+        calls = [mock.call(test.IsHttpRequest(), "1"),
+                 mock.call(test.IsHttpRequest(), None), ]
+        self.mock_domain_get.assert_has_calls(calls)
         self.mock_enabled_quotas.assert_called_once_with(test.IsHttpRequest())
         self.mock_get_project_groups_roles.assert_called_once_with(
             test.IsHttpRequest(), project=project.id)
