@@ -133,10 +133,6 @@ class InstanceViewTest(test.BaseAdminViewTests):
         res = self.client.get(INDEX_URL)
         instances = res.context['table'].data
         self.assertTemplateUsed(res, INDEX_TEMPLATE)
-        # Since error messages produced for each instance are identical,
-        # there will be only one error message for all instances
-        # (messages de-duplication).
-        self.assertMessageCount(res, error=1)
         self.assertCountEqual(instances, servers)
 
         self.assertEqual(self.mock_image_list_detailed.call_count, 4)

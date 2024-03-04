@@ -316,6 +316,7 @@ class InstanceTableTests(InstanceTestBase, InstanceTableTestMixin):
         self.mock_is_feature_available.return_value = True
         self.mock_server_list_paged.return_value = [servers, False, False]
         self.mock_servers_update_addresses.return_value = None
+        self.mock_flavor_get.side_effect = self.exceptions.nova
         self.mock_flavor_list.side_effect = self.exceptions.nova
         self.mock_image_list_detailed.return_value = (self.images.list(),
                                                       False, False)

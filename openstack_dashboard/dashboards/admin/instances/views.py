@@ -33,6 +33,8 @@ from openstack_dashboard.dashboards.admin.instances \
 from openstack_dashboard.dashboards.admin.instances \
     import tables as project_tables
 from openstack_dashboard.dashboards.admin.instances import tabs
+from openstack_dashboard.dashboards.project.instances \
+    import utils as instance_utils
 from openstack_dashboard.dashboards.project.instances import views
 from openstack_dashboard.dashboards.project.instances.workflows \
     import update_instance
@@ -215,18 +217,9 @@ class AdminIndexView(tables.PagedTableMixin, tables.DataTableView):
                 else:
                     inst.image['name'] = _("-")
 
-            flavor_id = inst.flavor["id"]
-            try:
-                if flavor_id in flavor_dict:
-                    inst.full_flavor = flavor_dict[flavor_id]
-                else:
-                    # If the flavor_id is not in flavor_dict list,
-                    # gets it via nova api.
-                    inst.full_flavor = api.nova.flavor_get(
-                        self.request, flavor_id)
-            except Exception:
-                msg = _('Unable to retrieve instance size information.')
-                exceptions.handle(self.request, msg)
+            inst.full_flavor = instance_utils.resolve_flavor(self.request,
+                                                             inst, flavor_dict)
+
             tenant = tenant_dict.get(inst.tenant_id, None)
             inst.tenant_name = getattr(tenant, "name", None)
         return instances
