@@ -457,6 +457,10 @@ OPENSTACK_NEUTRON_NETWORK = {
     # list, the field will be a regular input field.
     # e.g. ['default', 'test']
     'physical_networks': [],
+
+    # Show the column with the count of dhcp agents in the admin network view.
+    # Disable this on large deployments to avoid slowing down of this view.
+    'show_agents_column': True,
 }
 
 # This settings controls whether IP addresses of servers are retrieved from

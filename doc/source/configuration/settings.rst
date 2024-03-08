@@ -1853,6 +1853,7 @@ Default:
         'segmentation_id_range': {},
         'supported_provider_types': ["*"],
         'supported_vnic_types': ["*"],
+        'show_agents_column': True,
     }
 
 A dictionary of settings which can be used to enable optional services provided
@@ -2103,6 +2104,19 @@ available to choose from.
 Example: ``['normal', 'direct']``
 
 To disable VNIC type selection, set an empty list (``[]``) or ``None``.
+
+show_agents_column
+##################
+
+.. versionadded:: 2024.1(Caracal)
+
+Default ``True``
+
+Decides whether the DHCP Agents column should be shown on the Admin Networks
+panel. Retrieving data for that column takes time, and it may be advisable to
+disable it on large deployments with a large number on networks to speed up
+displaying of that view.
+
 
 Nova
 ----

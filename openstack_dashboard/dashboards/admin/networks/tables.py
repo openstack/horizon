@@ -22,9 +22,13 @@ from horizon import exceptions
 from horizon import tables
 
 from openstack_dashboard import api
+from openstack_dashboard.dashboards.admin.networks \
+    import utils as admin_utils
 from openstack_dashboard.dashboards.project.networks \
     import tables as project_tables
 from openstack_dashboard import policy
+from openstack_dashboard.utils import settings as setting_utils
+
 
 LOG = logging.getLogger(__name__)
 
@@ -117,12 +121,9 @@ class NetworksTable(tables.DataTable):
                     "is supported")
             exceptions.handle(self.request, msg)
             del self.columns['availability_zones']
-        try:
-            if not api.neutron.is_extension_supported(request,
-                                                      'dhcp_agent_scheduler'):
-                del self.columns['num_agents']
-        except Exception:
-            msg = _("Unable to check if DHCP agent scheduler "
-                    "extension is supported")
-            exceptions.handle(self.request, msg)
+
+        show_agents_column = setting_utils.get_dict_config(
+            'OPENSTACK_NEUTRON_NETWORK', 'show_agents_column')
+        if not (show_agents_column and
+                admin_utils.is_dhcp_agent_scheduler_supported(request)):
             del self.columns['num_agents']

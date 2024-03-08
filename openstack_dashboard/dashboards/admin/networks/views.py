@@ -23,6 +23,8 @@ from horizon import tabs
 from horizon.utils import memoized
 
 from openstack_dashboard import api
+from openstack_dashboard.dashboards.admin.networks \
+    import utils as admin_utils
 from openstack_dashboard.dashboards.project.networks.tabs import OverviewTab
 from openstack_dashboard.dashboards.project.networks import views as user_views
 from openstack_dashboard.utils import filters
@@ -66,14 +68,12 @@ class IndexView(tables.PagedTableMixin, tables.DataTableView):
         data = _("Unknown")
 
         try:
-            if api.neutron.is_extension_supported(self.request,
-                                                  'dhcp_agent_scheduler'):
-                # This method is called for each network. If agent-list cannot
-                # be retrieved, we will see many pop-ups. So the error message
-                # will be popup-ed in get_data() below.
-                agents = api.neutron.list_dhcp_agent_hosting_networks(
-                    self.request, network)
-                data = len(agents)
+            # This method is called for each network. If agent-list cannot
+            # be retrieved, we will see many pop-ups. So the error message
+            # will be popup-ed in get_data() below.
+            agents = api.neutron.list_dhcp_agent_hosting_networks(
+                self.request, network)
+            data = len(agents)
         except Exception:
             msg = _('Unable to list dhcp agents hosting network.')
             exceptions.handle(self.request, msg)
@@ -83,6 +83,7 @@ class IndexView(tables.PagedTableMixin, tables.DataTableView):
         return getattr(self, "_needs_filter_first", False)
 
     def get_data(self):
+        networks = None
         try:
             marker, sort_dir = self._get_marker()
 
@@ -120,7 +121,10 @@ class IndexView(tables.PagedTableMixin, tables.DataTableView):
             networks = []
             msg = _('Network list can not be retrieved.')
             exceptions.handle(self.request, msg)
-        if networks:
+        show_agents_column = setting_utils.get_dict_config(
+            'OPENSTACK_NEUTRON_NETWORK', 'show_agents_column')
+        if (networks and show_agents_column and
+                admin_utils.is_dhcp_agent_scheduler_supported(self.request)):
             self.exception = False
             tenant_dict = self._get_tenant_list()
             for n in networks:

@@ -68,9 +68,10 @@ class NetworkTests(test.BaseAdminViewTests):
             test.IsHttpRequest(), single_page=True,
             limit=21, sort_dir='asc', sort_key='id')
         self.mock_tenant_list.assert_called_once_with(test.IsHttpRequest())
-        self._check_is_extension_supported(
-            {'network_availability_zone': 1,
-             'dhcp_agent_scheduler': len(self.networks.list()) + 1})
+        self._check_is_extension_supported({
+            'network_availability_zone': 1,
+            'dhcp_agent_scheduler': 2,
+        })
         self.mock_list_dhcp_agent_hosting_networks.assert_has_calls(
             [mock.call(test.IsHttpRequest(), network.id)
              for network in self.networks.list()])

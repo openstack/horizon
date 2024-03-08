@@ -1,0 +1,7 @@
+---
+features:
+  - |
+    Add a new setting to the OPENSTACK_NEUTRON_NETWORK configuration, named
+    show_agents_column, that controls whether the DHCP Agents column should
+    be displayed in the network views. Disabling this may speed up display
+    on large deployments.
