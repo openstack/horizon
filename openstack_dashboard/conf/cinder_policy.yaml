@@ -1138,6 +1138,10 @@
 # "personas".  See "Policy Personas and Permissions" in the "Cinder
 # Service Configuration" documentation (Xena release) for details.
 
+# Complete a volume extend operation.
+# POST  /volumes/{volume_id}/action (os-extend_volume_completion)
+#"volume_extension:volume_admin_actions:extend_volume_completion": "rule:admin_api"
+
 # Revert a volume to a snapshot.
 # POST  /volumes/{volume_id}/action (revert)
 #"volume:revert_to_snapshot": "rule:xena_system_admin_or_project_member"
