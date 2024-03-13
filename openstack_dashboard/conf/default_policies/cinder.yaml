@@ -1144,6 +1144,13 @@
   - method: POST
     path: /volumes/{volume_id}/action (os-extend)
   scope_types: null
+- check_str: rule:admin_api
+  description: Complete a volume extend operation.
+  name: volume_extension:volume_admin_actions:extend_volume_completion
+  operations:
+  - method: POST
+    path: /volumes/{volume_id}/action (os-extend_volume_completion)
+  scope_types: null
 - check_str: rule:xena_system_admin_or_project_member
   deprecated_reason: null
   deprecated_rule:

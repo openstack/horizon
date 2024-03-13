@@ -207,7 +207,7 @@
   - method: HEAD
     path: /v3/auth/system
   scope_types: null
-- check_str: role:reader and system_scope:all
+- check_str: rule:admin_required or (role:reader and system_scope:all)
   deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_required
@@ -220,7 +220,8 @@
     path: /v3/OS-OAUTH1/consumers/{consumer_id}
   scope_types:
   - system
-- check_str: role:reader and system_scope:all
+  - project
+- check_str: rule:admin_required or (role:reader and system_scope:all)
   deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_required
@@ -233,7 +234,8 @@
     path: /v3/OS-OAUTH1/consumers
   scope_types:
   - system
-- check_str: role:admin and system_scope:all
+  - project
+- check_str: rule:admin_required
   deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_required
@@ -246,7 +248,8 @@
     path: /v3/OS-OAUTH1/consumers
   scope_types:
   - system
-- check_str: role:admin and system_scope:all
+  - project
+- check_str: rule:admin_required
   deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_required
@@ -259,7 +262,8 @@
     path: /v3/OS-OAUTH1/consumers/{consumer_id}
   scope_types:
   - system
-- check_str: role:admin and system_scope:all
+  - project
+- check_str: rule:admin_required
   deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_required
@@ -272,6 +276,7 @@
     path: /v3/OS-OAUTH1/consumers/{consumer_id}
   scope_types:
   - system
+  - project
 - check_str: (role:reader and system_scope:all) or user_id:%(target.credential.user_id)s
   deprecated_reason: null
   deprecated_rule:
@@ -342,7 +347,7 @@
   scope_types:
   - system
   - project
-- check_str: (role:reader and system_scope:all) or token.domain.id:%(target.domain.id)s
+- check_str: rule:admin_required or (role:reader and system_scope:all) or token.domain.id:%(target.domain.id)s
     or token.project.domain.id:%(target.domain.id)s
   deprecated_reason: null
   deprecated_rule:
@@ -358,7 +363,8 @@
   - system
   - domain
   - project
-- check_str: role:reader and system_scope:all
+- check_str: rule:admin_required or (role:reader and system_scope:all) or (role:reader
+    and domain_id:%(target.domain.id)s)
   deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_required
@@ -371,7 +377,9 @@
     path: /v3/domains
   scope_types:
   - system
-- check_str: role:admin and system_scope:all
+  - domain
+  - project
+- check_str: rule:admin_required
   deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_required
@@ -384,7 +392,8 @@
     path: /v3/domains
   scope_types:
   - system
-- check_str: role:admin and system_scope:all
+  - project
+- check_str: rule:admin_required
   deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_required
@@ -397,7 +406,8 @@
     path: /v3/domains/{domain_id}
   scope_types:
   - system
-- check_str: role:admin and system_scope:all
+  - project
+- check_str: rule:admin_required
   deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_required
@@ -410,7 +420,8 @@
     path: /v3/domains/{domain_id}
   scope_types:
   - system
-- check_str: role:admin and system_scope:all
+  - project
+- check_str: rule:admin_required
   deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_required
@@ -423,7 +434,8 @@
     path: /v3/domains/{domain_id}/config
   scope_types:
   - system
-- check_str: role:reader and system_scope:all
+  - project
+- check_str: rule:admin_required or (role:reader and system_scope:all)
   deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_required
@@ -447,6 +459,7 @@
     path: /v3/domains/{domain_id}/config/{group}/{option}
   scope_types:
   - system
+  - project
 - check_str: ''
   description: Get security compliance domain configuration for either a domain or
     a specific option in a domain.
@@ -464,7 +477,7 @@
   - system
   - domain
   - project
-- check_str: role:admin and system_scope:all
+- check_str: rule:admin_required
   deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_required
@@ -482,7 +495,8 @@
     path: /v3/domains/{domain_id}/config/{group}/{option}
   scope_types:
   - system
-- check_str: role:admin and system_scope:all
+  - project
+- check_str: rule:admin_required
   deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_required
@@ -500,7 +514,8 @@
     path: /v3/domains/{domain_id}/config/{group}/{option}
   scope_types:
   - system
-- check_str: role:reader and system_scope:all
+  - project
+- check_str: rule:admin_required or (role:reader and system_scope:all)
   deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_required
@@ -524,6 +539,7 @@
     path: /v3/domains/config/{group}/{option}/default
   scope_types:
   - system
+  - project
 - check_str: (role:reader and system_scope:all) or user_id:%(target.credential.user_id)s
   deprecated_reason: null
   deprecated_rule:
@@ -580,7 +596,7 @@
   scope_types:
   - system
   - project
-- check_str: role:reader and system_scope:all
+- check_str: rule:admin_required or (role:reader and system_scope:all)
   deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_required
@@ -593,7 +609,8 @@
     path: /v3/endpoints/{endpoint_id}
   scope_types:
   - system
-- check_str: role:reader and system_scope:all
+  - project
+- check_str: rule:admin_required or (role:reader and system_scope:all)
   deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_required
@@ -606,7 +623,8 @@
     path: /v3/endpoints
   scope_types:
   - system
-- check_str: role:admin and system_scope:all
+  - project
+- check_str: rule:admin_required
   deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_required
@@ -619,7 +637,8 @@
     path: /v3/endpoints
   scope_types:
   - system
-- check_str: role:admin and system_scope:all
+  - project
+- check_str: rule:admin_required
   deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_required
@@ -632,7 +651,8 @@
     path: /v3/endpoints/{endpoint_id}
   scope_types:
   - system
-- check_str: role:admin and system_scope:all
+  - project
+- check_str: rule:admin_required
   deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_required
@@ -645,7 +665,8 @@
     path: /v3/endpoints/{endpoint_id}
   scope_types:
   - system
-- check_str: role:admin and system_scope:all
+  - project
+- check_str: rule:admin_required
   deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_required
@@ -658,7 +679,8 @@
     path: /v3/OS-EP-FILTER/endpoint_groups
   scope_types:
   - system
-- check_str: role:reader and system_scope:all
+  - project
+- check_str: rule:admin_required or (role:reader and system_scope:all)
   deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_required
@@ -671,7 +693,8 @@
     path: /v3/OS-EP-FILTER/endpoint_groups
   scope_types:
   - system
-- check_str: role:reader and system_scope:all
+  - project
+- check_str: rule:admin_required or (role:reader and system_scope:all)
   deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_required
@@ -686,7 +709,8 @@
     path: /v3/OS-EP-FILTER/endpoint_groups/{endpoint_group_id}
   scope_types:
   - system
-- check_str: role:admin and system_scope:all
+  - project
+- check_str: rule:admin_required
   deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_required
@@ -699,7 +723,8 @@
     path: /v3/OS-EP-FILTER/endpoint_groups/{endpoint_group_id}
   scope_types:
   - system
-- check_str: role:admin and system_scope:all
+  - project
+- check_str: rule:admin_required
   deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_required
@@ -712,7 +737,8 @@
     path: /v3/OS-EP-FILTER/endpoint_groups/{endpoint_group_id}
   scope_types:
   - system
-- check_str: role:reader and system_scope:all
+  - project
+- check_str: rule:admin_required or (role:reader and system_scope:all)
   deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_required
@@ -725,7 +751,8 @@
     path: /v3/OS-EP-FILTER/endpoint_groups/{endpoint_group_id}/projects
   scope_types:
   - system
-- check_str: role:reader and system_scope:all
+  - project
+- check_str: rule:admin_required or (role:reader and system_scope:all)
   deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_required
@@ -738,7 +765,8 @@
     path: /v3/OS-EP-FILTER/endpoint_groups/{endpoint_group_id}/endpoints
   scope_types:
   - system
-- check_str: role:reader and system_scope:all
+  - project
+- check_str: rule:admin_required or (role:reader and system_scope:all)
   deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_required
@@ -753,7 +781,8 @@
     path: /v3/OS-EP-FILTER/endpoint_groups/{endpoint_group_id}/projects/{project_id}
   scope_types:
   - system
-- check_str: role:reader and system_scope:all
+  - project
+- check_str: rule:admin_required or (role:reader and system_scope:all)
   deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_required
@@ -766,7 +795,8 @@
     path: /v3/OS-EP-FILTER/projects/{project_id}/endpoint_groups
   scope_types:
   - system
-- check_str: role:admin and system_scope:all
+  - project
+- check_str: rule:admin_required
   deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_required
@@ -779,7 +809,8 @@
     path: /v3/OS-EP-FILTER/endpoint_groups/{endpoint_group_id}/projects/{project_id}
   scope_types:
   - system
-- check_str: role:admin and system_scope:all
+  - project
+- check_str: rule:admin_required
   deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_required
@@ -792,12 +823,13 @@
     path: /v3/OS-EP-FILTER/endpoint_groups/{endpoint_group_id}/projects/{project_id}
   scope_types:
   - system
-- check_str: (role:reader and system_scope:all) or ((role:reader and domain_id:%(target.user.domain_id)s
-    and domain_id:%(target.project.domain_id)s) or (role:reader and domain_id:%(target.user.domain_id)s
-    and domain_id:%(target.domain.id)s) or (role:reader and domain_id:%(target.group.domain_id)s
-    and domain_id:%(target.project.domain_id)s) or (role:reader and domain_id:%(target.group.domain_id)s
-    and domain_id:%(target.domain.id)s)) and (domain_id:%(target.role.domain_id)s
-    or None:%(target.role.domain_id)s)
+  - project
+- check_str: (rule:admin_required) or ((role:reader and system_scope:all) or ((role:reader
+    and domain_id:%(target.user.domain_id)s and domain_id:%(target.project.domain_id)s)
+    or (role:reader and domain_id:%(target.user.domain_id)s and domain_id:%(target.domain.id)s)
+    or (role:reader and domain_id:%(target.group.domain_id)s and domain_id:%(target.project.domain_id)s)
+    or (role:reader and domain_id:%(target.group.domain_id)s and domain_id:%(target.domain.id)s))
+    and (domain_id:%(target.role.domain_id)s or None:%(target.role.domain_id)s))
   deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_required
@@ -844,11 +876,12 @@
   scope_types:
   - system
   - domain
-- check_str: (role:reader and system_scope:all) or (role:reader and domain_id:%(target.user.domain_id)s
-    and domain_id:%(target.project.domain_id)s) or (role:reader and domain_id:%(target.user.domain_id)s
-    and domain_id:%(target.domain.id)s) or (role:reader and domain_id:%(target.group.domain_id)s
-    and domain_id:%(target.project.domain_id)s) or (role:reader and domain_id:%(target.group.domain_id)s
-    and domain_id:%(target.domain.id)s)
+  - project
+- check_str: (rule:admin_required) or ((role:reader and system_scope:all) or (role:reader
+    and domain_id:%(target.user.domain_id)s and domain_id:%(target.project.domain_id)s)
+    or (role:reader and domain_id:%(target.user.domain_id)s and domain_id:%(target.domain.id)s)
+    or (role:reader and domain_id:%(target.group.domain_id)s and domain_id:%(target.project.domain_id)s)
+    or (role:reader and domain_id:%(target.group.domain_id)s and domain_id:%(target.domain.id)s))
   deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_required
@@ -883,7 +916,8 @@
   scope_types:
   - system
   - domain
-- check_str: (role:admin and system_scope:all) or ((role:admin and domain_id:%(target.user.domain_id)s
+  - project
+- check_str: (rule:admin_required) or ((role:admin and domain_id:%(target.user.domain_id)s
     and domain_id:%(target.project.domain_id)s) or (role:admin and domain_id:%(target.user.domain_id)s
     and domain_id:%(target.domain.id)s) or (role:admin and domain_id:%(target.group.domain_id)s
     and domain_id:%(target.project.domain_id)s) or (role:admin and domain_id:%(target.group.domain_id)s
@@ -919,7 +953,8 @@
   scope_types:
   - system
   - domain
-- check_str: (role:admin and system_scope:all) or ((role:admin and domain_id:%(target.user.domain_id)s
+  - project
+- check_str: (rule:admin_required) or ((role:admin and domain_id:%(target.user.domain_id)s
     and domain_id:%(target.project.domain_id)s) or (role:admin and domain_id:%(target.user.domain_id)s
     and domain_id:%(target.domain.id)s) or (role:admin and domain_id:%(target.group.domain_id)s
     and domain_id:%(target.project.domain_id)s) or (role:admin and domain_id:%(target.group.domain_id)s
@@ -957,7 +992,8 @@
   scope_types:
   - system
   - domain
-- check_str: role:reader and system_scope:all
+  - project
+- check_str: rule:admin_required or (role:reader and system_scope:all)
   deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_required
@@ -972,7 +1008,8 @@
     path: /v3/system/users/{user_id}/roles
   scope_types:
   - system
-- check_str: role:reader and system_scope:all
+  - project
+- check_str: rule:admin_required or (role:reader and system_scope:all)
   deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_required
@@ -987,7 +1024,8 @@
     path: /v3/system/users/{user_id}/roles/{role_id}
   scope_types:
   - system
-- check_str: role:admin and system_scope:all
+  - project
+- check_str: rule:admin_required
   deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_required
@@ -1001,7 +1039,8 @@
     path: /v3/system/users/{user_id}/roles/{role_id}
   scope_types:
   - system
-- check_str: role:admin and system_scope:all
+  - project
+- check_str: rule:admin_required
   deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_required
@@ -1015,7 +1054,8 @@
     path: /v3/system/users/{user_id}/roles/{role_id}
   scope_types:
   - system
-- check_str: role:reader and system_scope:all
+  - project
+- check_str: rule:admin_required or (role:reader and system_scope:all)
   deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_required
@@ -1030,7 +1070,8 @@
     path: /v3/system/groups/{group_id}/roles
   scope_types:
   - system
-- check_str: role:reader and system_scope:all
+  - project
+- check_str: rule:admin_required or (role:reader and system_scope:all)
   deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_required
@@ -1045,7 +1086,8 @@
     path: /v3/system/groups/{group_id}/roles/{role_id}
   scope_types:
   - system
-- check_str: role:admin and system_scope:all
+  - project
+- check_str: rule:admin_required
   deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_required
@@ -1059,7 +1101,8 @@
     path: /v3/system/groups/{group_id}/roles/{role_id}
   scope_types:
   - system
-- check_str: role:admin and system_scope:all
+  - project
+- check_str: rule:admin_required
   deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_required
@@ -1073,7 +1116,9 @@
     path: /v3/system/groups/{group_id}/roles/{role_id}
   scope_types:
   - system
-- check_str: (role:reader and system_scope:all) or (role:reader and domain_id:%(target.group.domain_id)s)
+  - project
+- check_str: (rule:admin_required) or (role:reader and system_scope:all) or (role:reader
+    and domain_id:%(target.group.domain_id)s)
   deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_required
@@ -1089,7 +1134,9 @@
   scope_types:
   - system
   - domain
-- check_str: (role:reader and system_scope:all) or (role:reader and domain_id:%(target.group.domain_id)s)
+  - project
+- check_str: (rule:admin_required) or (role:reader and system_scope:all) or (role:reader
+    and domain_id:%(target.group.domain_id)s)
   deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_required
@@ -1105,8 +1152,9 @@
   scope_types:
   - system
   - domain
-- check_str: (role:reader and system_scope:all) or (role:reader and domain_id:%(target.user.domain_id)s)
-    or user_id:%(user_id)s
+  - project
+- check_str: (rule:admin_required) or (role:reader and system_scope:all) or (role:reader
+    and domain_id:%(target.user.domain_id)s) or user_id:%(user_id)s
   deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_or_owner
@@ -1123,7 +1171,7 @@
   - system
   - domain
   - project
-- check_str: (role:admin and system_scope:all) or (role:admin and domain_id:%(target.group.domain_id)s)
+- check_str: rule:admin_required
   deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_required
@@ -1137,7 +1185,8 @@
   scope_types:
   - system
   - domain
-- check_str: (role:admin and system_scope:all) or (role:admin and domain_id:%(target.group.domain_id)s)
+  - project
+- check_str: rule:admin_required
   deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_required
@@ -1151,7 +1200,8 @@
   scope_types:
   - system
   - domain
-- check_str: (role:admin and system_scope:all) or (role:admin and domain_id:%(target.group.domain_id)s)
+  - project
+- check_str: rule:admin_required
   deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_required
@@ -1165,7 +1215,9 @@
   scope_types:
   - system
   - domain
-- check_str: (role:reader and system_scope:all) or (role:reader and domain_id:%(target.group.domain_id)s)
+  - project
+- check_str: (rule:admin_required) or (role:reader and system_scope:all) or (role:reader
+    and domain_id:%(target.group.domain_id)s)
   deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_required
@@ -1181,8 +1233,8 @@
   scope_types:
   - system
   - domain
-- check_str: (role:admin and system_scope:all) or (role:admin and domain_id:%(target.group.domain_id)s
-    and domain_id:%(target.user.domain_id)s)
+  - project
+- check_str: rule:admin_required
   deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_required
@@ -1196,8 +1248,9 @@
   scope_types:
   - system
   - domain
-- check_str: (role:reader and system_scope:all) or (role:reader and domain_id:%(target.group.domain_id)s
-    and domain_id:%(target.user.domain_id)s)
+  - project
+- check_str: (rule:admin_required) or (role:reader and system_scope:all) or (role:reader
+    and domain_id:%(target.group.domain_id)s and domain_id:%(target.user.domain_id)s)
   deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_required
@@ -1213,8 +1266,8 @@
   scope_types:
   - system
   - domain
-- check_str: (role:admin and system_scope:all) or (role:admin and domain_id:%(target.group.domain_id)s
-    and domain_id:%(target.user.domain_id)s)
+  - project
+- check_str: rule:admin_required
   deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_required
@@ -1228,7 +1281,8 @@
   scope_types:
   - system
   - domain
-- check_str: role:admin and system_scope:all
+  - project
+- check_str: rule:admin_required
   deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_required
@@ -1241,7 +1295,8 @@
     path: /v3/OS-FEDERATION/identity_providers/{idp_id}
   scope_types:
   - system
-- check_str: role:reader and system_scope:all
+  - project
+- check_str: rule:admin_required or (role:reader and system_scope:all)
   deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_required
@@ -1256,7 +1311,8 @@
     path: /v3/OS-FEDERATION/identity_providers
   scope_types:
   - system
-- check_str: role:reader and system_scope:all
+  - project
+- check_str: rule:admin_required or (role:reader and system_scope:all)
   deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_required
@@ -1271,7 +1327,8 @@
     path: /v3/OS-FEDERATION/identity_providers/{idp_id}
   scope_types:
   - system
-- check_str: role:admin and system_scope:all
+  - project
+- check_str: rule:admin_required
   deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_required
@@ -1284,7 +1341,8 @@
     path: /v3/OS-FEDERATION/identity_providers/{idp_id}
   scope_types:
   - system
-- check_str: role:admin and system_scope:all
+  - project
+- check_str: rule:admin_required
   deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_required
@@ -1297,7 +1355,8 @@
     path: /v3/OS-FEDERATION/identity_providers/{idp_id}
   scope_types:
   - system
-- check_str: role:reader and system_scope:all
+  - project
+- check_str: rule:admin_required or (role:reader and system_scope:all)
   deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_required
@@ -1312,7 +1371,8 @@
     path: /v3/roles/{prior_role_id}/implies/{implied_role_id}
   scope_types:
   - system
-- check_str: role:reader and system_scope:all
+  - project
+- check_str: rule:admin_required or (role:reader and system_scope:all)
   deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_required
@@ -1330,7 +1390,8 @@
     path: /v3/roles/{prior_role_id}/implies
   scope_types:
   - system
-- check_str: role:admin and system_scope:all
+  - project
+- check_str: rule:admin_required
   deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_required
@@ -1345,7 +1406,8 @@
     path: /v3/roles/{prior_role_id}/implies/{implied_role_id}
   scope_types:
   - system
-- check_str: role:admin and system_scope:all
+  - project
+- check_str: rule:admin_required
   deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_required
@@ -1361,7 +1423,8 @@
     path: /v3/roles/{prior_role_id}/implies/{implied_role_id}
   scope_types:
   - system
-- check_str: role:reader and system_scope:all
+  - project
+- check_str: rule:admin_required or (role:reader and system_scope:all)
   deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_required
@@ -1378,7 +1441,8 @@
     path: /v3/role_inferences
   scope_types:
   - system
-- check_str: role:reader and system_scope:all
+  - project
+- check_str: rule:admin_required or (role:reader and system_scope:all)
   deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_required
@@ -1393,6 +1457,7 @@
     path: /v3/roles/{prior_role_id}/implies/{implied_role_id}
   scope_types:
   - system
+  - project
 - check_str: ''
   description: Get limit enforcement model.
   name: identity:get_limit_model
@@ -1405,7 +1470,7 @@
   - system
   - domain
   - project
-- check_str: (role:reader and system_scope:all) or (domain_id:%(target.limit.domain.id)s
+- check_str: rule:admin_required or (role:reader and system_scope:all) or (domain_id:%(target.limit.domain.id)s
     or domain_id:%(target.limit.project.domain_id)s) or (project_id:%(target.limit.project_id)s
     and not None:%(target.limit.project_id)s)
   description: Show limit details.
@@ -1431,7 +1496,7 @@
   - system
   - domain
   - project
-- check_str: role:admin and system_scope:all
+- check_str: rule:admin_required
   description: Create limits.
   name: identity:create_limits
   operations:
@@ -1439,7 +1504,8 @@
     path: /v3/limits
   scope_types:
   - system
-- check_str: role:admin and system_scope:all
+  - project
+- check_str: rule:admin_required
   description: Update limit.
   name: identity:update_limit
   operations:
@@ -1447,7 +1513,8 @@
     path: /v3/limits/{limit_id}
   scope_types:
   - system
-- check_str: role:admin and system_scope:all
+  - project
+- check_str: rule:admin_required
   description: Delete limit.
   name: identity:delete_limit
   operations:
@@ -1455,7 +1522,8 @@
     path: /v3/limits/{limit_id}
   scope_types:
   - system
-- check_str: role:admin and system_scope:all
+  - project
+- check_str: rule:admin_required
   deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_required
@@ -1468,7 +1536,8 @@
     path: /v3/OS-FEDERATION/mappings/{mapping_id}
   scope_types:
   - system
-- check_str: role:reader and system_scope:all
+  - project
+- check_str: rule:admin_required or (role:reader and system_scope:all)
   deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_required
@@ -1483,7 +1552,8 @@
     path: /v3/OS-FEDERATION/mappings/{mapping_id}
   scope_types:
   - system
-- check_str: role:reader and system_scope:all
+  - project
+- check_str: rule:admin_required or (role:reader and system_scope:all)
   deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_required
@@ -1498,7 +1568,8 @@
     path: /v3/OS-FEDERATION/mappings
   scope_types:
   - system
-- check_str: role:admin and system_scope:all
+  - project
+- check_str: rule:admin_required
   deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_required
@@ -1511,7 +1582,8 @@
     path: /v3/OS-FEDERATION/mappings/{mapping_id}
   scope_types:
   - system
-- check_str: role:admin and system_scope:all
+  - project
+- check_str: rule:admin_required
   deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_required
@@ -1524,7 +1596,8 @@
     path: /v3/OS-FEDERATION/mappings/{mapping_id}
   scope_types:
   - system
-- check_str: role:reader and system_scope:all
+  - project
+- check_str: rule:admin_required or (role:reader and system_scope:all)
   deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_required
@@ -1537,7 +1610,8 @@
     path: /v3/policies/{policy_id}
   scope_types:
   - system
-- check_str: role:reader and system_scope:all
+  - project
+- check_str: rule:admin_required or (role:reader and system_scope:all)
   deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_required
@@ -1550,7 +1624,8 @@
     path: /v3/policies
   scope_types:
   - system
-- check_str: role:admin and system_scope:all
+  - project
+- check_str: rule:admin_required
   deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_required
@@ -1563,7 +1638,8 @@
     path: /v3/policies
   scope_types:
   - system
-- check_str: role:admin and system_scope:all
+  - project
+- check_str: rule:admin_required
   deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_required
@@ -1576,7 +1652,8 @@
     path: /v3/policies/{policy_id}
   scope_types:
   - system
-- check_str: role:admin and system_scope:all
+  - project
+- check_str: rule:admin_required
   deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_required
@@ -1589,7 +1666,8 @@
     path: /v3/policies/{policy_id}
   scope_types:
   - system
-- check_str: role:admin and system_scope:all
+  - project
+- check_str: rule:admin_required
   deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_required
@@ -1602,7 +1680,8 @@
     path: /v3/policies/{policy_id}/OS-ENDPOINT-POLICY/endpoints/{endpoint_id}
   scope_types:
   - system
-- check_str: role:reader and system_scope:all
+  - project
+- check_str: rule:admin_required or (role:reader and system_scope:all)
   deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_required
@@ -1617,7 +1696,8 @@
     path: /v3/policies/{policy_id}/OS-ENDPOINT-POLICY/endpoints/{endpoint_id}
   scope_types:
   - system
-- check_str: role:admin and system_scope:all
+  - project
+- check_str: rule:admin_required
   deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_required
@@ -1630,7 +1710,8 @@
     path: /v3/policies/{policy_id}/OS-ENDPOINT-POLICY/endpoints/{endpoint_id}
   scope_types:
   - system
-- check_str: role:admin and system_scope:all
+  - project
+- check_str: rule:admin_required
   deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_required
@@ -1643,7 +1724,8 @@
     path: /v3/policies/{policy_id}/OS-ENDPOINT-POLICY/services/{service_id}
   scope_types:
   - system
-- check_str: role:reader and system_scope:all
+  - project
+- check_str: rule:admin_required or (role:reader and system_scope:all)
   deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_required
@@ -1658,7 +1740,8 @@
     path: /v3/policies/{policy_id}/OS-ENDPOINT-POLICY/services/{service_id}
   scope_types:
   - system
-- check_str: role:admin and system_scope:all
+  - project
+- check_str: rule:admin_required
   deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_required
@@ -1671,7 +1754,8 @@
     path: /v3/policies/{policy_id}/OS-ENDPOINT-POLICY/services/{service_id}
   scope_types:
   - system
-- check_str: role:admin and system_scope:all
+  - project
+- check_str: rule:admin_required
   deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_required
@@ -1684,7 +1768,8 @@
     path: /v3/policies/{policy_id}/OS-ENDPOINT-POLICY/services/{service_id}/regions/{region_id}
   scope_types:
   - system
-- check_str: role:reader and system_scope:all
+  - project
+- check_str: rule:admin_required or (role:reader and system_scope:all)
   deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_required
@@ -1699,7 +1784,8 @@
     path: /v3/policies/{policy_id}/OS-ENDPOINT-POLICY/services/{service_id}/regions/{region_id}
   scope_types:
   - system
-- check_str: role:admin and system_scope:all
+  - project
+- check_str: rule:admin_required
   deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_required
@@ -1712,7 +1798,8 @@
     path: /v3/policies/{policy_id}/OS-ENDPOINT-POLICY/services/{service_id}/regions/{region_id}
   scope_types:
   - system
-- check_str: role:reader and system_scope:all
+  - project
+- check_str: rule:admin_required or (role:reader and system_scope:all)
   deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_required
@@ -1727,7 +1814,8 @@
     path: /v3/endpoints/{endpoint_id}/OS-ENDPOINT-POLICY/policy
   scope_types:
   - system
-- check_str: role:reader and system_scope:all
+  - project
+- check_str: rule:admin_required or (role:reader and system_scope:all)
   deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_required
@@ -1740,8 +1828,9 @@
     path: /v3/policies/{policy_id}/OS-ENDPOINT-POLICY/endpoints
   scope_types:
   - system
-- check_str: (role:reader and system_scope:all) or (role:reader and domain_id:%(target.project.domain_id)s)
-    or project_id:%(target.project.id)s
+  - project
+- check_str: (rule:admin_required) or (role:reader and system_scope:all) or (role:reader
+    and domain_id:%(target.project.domain_id)s) or project_id:%(target.project.id)s
   deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_required or project_id:%(target.project.id)s
@@ -1756,7 +1845,8 @@
   - system
   - domain
   - project
-- check_str: (role:reader and system_scope:all) or (role:reader and domain_id:%(target.domain_id)s)
+- check_str: (rule:admin_required) or (role:reader and system_scope:all) or (role:reader
+    and domain_id:%(target.domain_id)s)
   deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_required
@@ -1770,8 +1860,9 @@
   scope_types:
   - system
   - domain
-- check_str: (role:reader and system_scope:all) or (role:reader and domain_id:%(target.user.domain_id)s)
-    or user_id:%(target.user.id)s
+  - project
+- check_str: (rule:admin_required) or (role:reader and system_scope:all) or (role:reader
+    and domain_id:%(target.user.domain_id)s) or user_id:%(target.user.id)s
   deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_or_owner
@@ -1786,7 +1877,7 @@
   - system
   - domain
   - project
-- check_str: (role:admin and system_scope:all) or (role:admin and domain_id:%(target.project.domain_id)s)
+- check_str: rule:admin_required
   deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_required
@@ -1800,7 +1891,8 @@
   scope_types:
   - system
   - domain
-- check_str: (role:admin and system_scope:all) or (role:admin and domain_id:%(target.project.domain_id)s)
+  - project
+- check_str: rule:admin_required
   deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_required
@@ -1814,7 +1906,8 @@
   scope_types:
   - system
   - domain
-- check_str: (role:admin and system_scope:all) or (role:admin and domain_id:%(target.project.domain_id)s)
+  - project
+- check_str: rule:admin_required
   deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_required
@@ -1828,8 +1921,9 @@
   scope_types:
   - system
   - domain
-- check_str: (role:reader and system_scope:all) or (role:reader and domain_id:%(target.project.domain_id)s)
-    or project_id:%(target.project.id)s
+  - project
+- check_str: (rule:admin_required) or (role:reader and system_scope:all) or (role:reader
+    and domain_id:%(target.project.domain_id)s) or project_id:%(target.project.id)s
   deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_required or project_id:%(target.project.id)s
@@ -1846,8 +1940,8 @@
   - system
   - domain
   - project
-- check_str: (role:reader and system_scope:all) or (role:reader and domain_id:%(target.project.domain_id)s)
-    or project_id:%(target.project.id)s
+- check_str: (rule:admin_required) or (role:reader and system_scope:all) or (role:reader
+    and domain_id:%(target.project.domain_id)s) or project_id:%(target.project.id)s
   deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_required or project_id:%(target.project.id)s
@@ -1864,8 +1958,7 @@
   - system
   - domain
   - project
-- check_str: (role:admin and system_scope:all) or (role:admin and domain_id:%(target.project.domain_id)s)
-    or (role:admin and project_id:%(target.project.id)s)
+- check_str: rule:admin_required
   deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_required
@@ -1880,8 +1973,7 @@
   - system
   - domain
   - project
-- check_str: (role:admin and system_scope:all) or (role:admin and domain_id:%(target.project.domain_id)s)
-    or (role:admin and project_id:%(target.project.id)s)
+- check_str: rule:admin_required
   deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_required
@@ -1896,8 +1988,7 @@
   - system
   - domain
   - project
-- check_str: (role:admin and system_scope:all) or (role:admin and domain_id:%(target.project.domain_id)s)
-    or (role:admin and project_id:%(target.project.id)s)
+- check_str: rule:admin_required
   deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_required
@@ -1912,8 +2003,7 @@
   - system
   - domain
   - project
-- check_str: (role:admin and system_scope:all) or (role:admin and domain_id:%(target.project.domain_id)s)
-    or (role:admin and project_id:%(target.project.id)s)
+- check_str: rule:admin_required
   deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_required
@@ -1928,7 +2018,7 @@
   - system
   - domain
   - project
-- check_str: role:reader and system_scope:all
+- check_str: rule:admin_required or (role:reader and system_scope:all)
   deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_required
@@ -1941,7 +2031,8 @@
     path: /v3/OS-EP-FILTER/endpoints/{endpoint_id}/projects
   scope_types:
   - system
-- check_str: role:admin and system_scope:all
+  - project
+- check_str: rule:admin_required
   deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_required
@@ -1954,7 +2045,8 @@
     path: /v3/OS-EP-FILTER/projects/{project_id}/endpoints/{endpoint_id}
   scope_types:
   - system
-- check_str: role:reader and system_scope:all
+  - project
+- check_str: rule:admin_required or (role:reader and system_scope:all)
   deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_required
@@ -1969,7 +2061,8 @@
     path: /v3/OS-EP-FILTER/projects/{project_id}/endpoints/{endpoint_id}
   scope_types:
   - system
-- check_str: role:reader and system_scope:all
+  - project
+- check_str: rule:admin_required or (role:reader and system_scope:all)
   deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_required
@@ -1982,7 +2075,8 @@
     path: /v3/OS-EP-FILTER/projects/{project_id}/endpoints
   scope_types:
   - system
-- check_str: role:admin and system_scope:all
+  - project
+- check_str: rule:admin_required
   deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_required
@@ -1996,7 +2090,8 @@
     path: /v3/OS-EP-FILTER/projects/{project_id}/endpoints/{endpoint_id}
   scope_types:
   - system
-- check_str: role:admin and system_scope:all
+  - project
+- check_str: rule:admin_required
   deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_required
@@ -2009,7 +2104,8 @@
     path: /v3/OS-FEDERATION/identity_providers/{idp_id}/protocols/{protocol_id}
   scope_types:
   - system
-- check_str: role:admin and system_scope:all
+  - project
+- check_str: rule:admin_required
   deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_required
@@ -2022,7 +2118,8 @@
     path: /v3/OS-FEDERATION/identity_providers/{idp_id}/protocols/{protocol_id}
   scope_types:
   - system
-- check_str: role:reader and system_scope:all
+  - project
+- check_str: rule:admin_required or (role:reader and system_scope:all)
   deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_required
@@ -2035,7 +2132,8 @@
     path: /v3/OS-FEDERATION/identity_providers/{idp_id}/protocols/{protocol_id}
   scope_types:
   - system
-- check_str: role:reader and system_scope:all
+  - project
+- check_str: rule:admin_required or (role:reader and system_scope:all)
   deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_required
@@ -2048,7 +2146,8 @@
     path: /v3/OS-FEDERATION/identity_providers/{idp_id}/protocols
   scope_types:
   - system
-- check_str: role:admin and system_scope:all
+  - project
+- check_str: rule:admin_required
   deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_required
@@ -2061,6 +2160,7 @@
     path: /v3/OS-FEDERATION/identity_providers/{idp_id}/protocols/{protocol_id}
   scope_types:
   - system
+  - project
 - check_str: ''
   description: Show region details.
   name: identity:get_region
@@ -2085,7 +2185,7 @@
   - system
   - domain
   - project
-- check_str: role:admin and system_scope:all
+- check_str: rule:admin_required
   deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_required
@@ -2100,7 +2200,8 @@
     path: /v3/regions/{region_id}
   scope_types:
   - system
-- check_str: role:admin and system_scope:all
+  - project
+- check_str: rule:admin_required
   deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_required
@@ -2113,7 +2214,8 @@
     path: /v3/regions/{region_id}
   scope_types:
   - system
-- check_str: role:admin and system_scope:all
+  - project
+- check_str: rule:admin_required
   deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_required
@@ -2126,6 +2228,7 @@
     path: /v3/regions/{region_id}
   scope_types:
   - system
+  - project
 - check_str: ''
   description: Show registered limit details.
   name: identity:get_registered_limit
@@ -2150,7 +2253,7 @@
   - system
   - domain
   - project
-- check_str: role:admin and system_scope:all
+- check_str: rule:admin_required
   description: Create registered limits.
   name: identity:create_registered_limits
   operations:
@@ -2158,7 +2261,8 @@
     path: /v3/registered_limits
   scope_types:
   - system
-- check_str: role:admin and system_scope:all
+  - project
+- check_str: rule:admin_required
   description: Update registered limit.
   name: identity:update_registered_limit
   operations:
@@ -2166,7 +2270,8 @@
     path: /v3/registered_limits/{registered_limit_id}
   scope_types:
   - system
-- check_str: role:admin and system_scope:all
+  - project
+- check_str: rule:admin_required
   description: Delete registered limit.
   name: identity:delete_registered_limit
   operations:
@@ -2174,6 +2279,7 @@
     path: /v3/registered_limits/{registered_limit_id}
   scope_types:
   - system
+  - project
 - check_str: rule:service_or_admin
   description: List revocation events.
   name: identity:list_revoke_events
@@ -2182,7 +2288,8 @@
     path: /v3/OS-REVOKE/events
   scope_types:
   - system
-- check_str: role:reader and system_scope:all
+  - project
+- check_str: rule:admin_required or (role:reader and system_scope:all)
   deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_required
@@ -2197,7 +2304,8 @@
     path: /v3/roles/{role_id}
   scope_types:
   - system
-- check_str: role:reader and system_scope:all
+  - project
+- check_str: rule:admin_required or (role:reader and system_scope:all)
   deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_required
@@ -2212,7 +2320,8 @@
     path: /v3/roles
   scope_types:
   - system
-- check_str: role:admin and system_scope:all
+  - project
+- check_str: rule:admin_required
   deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_required
@@ -2225,7 +2334,8 @@
     path: /v3/roles
   scope_types:
   - system
-- check_str: role:admin and system_scope:all
+  - project
+- check_str: rule:admin_required
   deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_required
@@ -2238,7 +2348,8 @@
     path: /v3/roles/{role_id}
   scope_types:
   - system
-- check_str: role:admin and system_scope:all
+  - project
+- check_str: rule:admin_required
   deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_required
@@ -2251,7 +2362,8 @@
     path: /v3/roles/{role_id}
   scope_types:
   - system
-- check_str: role:reader and system_scope:all
+  - project
+- check_str: rule:admin_required or (role:reader and system_scope:all)
   deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_required
@@ -2266,7 +2378,8 @@
     path: /v3/roles/{role_id}
   scope_types:
   - system
-- check_str: role:reader and system_scope:all
+  - project
+- check_str: rule:admin_required or (role:reader and system_scope:all)
   deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_required
@@ -2281,7 +2394,8 @@
     path: /v3/roles?domain_id={domain_id}
   scope_types:
   - system
-- check_str: role:admin and system_scope:all
+  - project
+- check_str: rule:admin_required
   deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_required
@@ -2294,7 +2408,8 @@
     path: /v3/roles
   scope_types:
   - system
-- check_str: role:admin and system_scope:all
+  - project
+- check_str: rule:admin_required
   deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_required
@@ -2307,7 +2422,8 @@
     path: /v3/roles/{role_id}
   scope_types:
   - system
-- check_str: role:admin and system_scope:all
+  - project
+- check_str: rule:admin_required
   deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_required
@@ -2320,7 +2436,9 @@
     path: /v3/roles/{role_id}
   scope_types:
   - system
-- check_str: (role:reader and system_scope:all) or (role:reader and domain_id:%(target.domain_id)s)
+  - project
+- check_str: (rule:admin_required) or (role:reader and system_scope:all) or (role:reader
+    and domain_id:%(target.domain_id)s)
   deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_required
@@ -2336,8 +2454,9 @@
   scope_types:
   - system
   - domain
-- check_str: (role:reader and system_scope:all) or (role:reader and domain_id:%(target.project.domain_id)s)
-    or (role:admin and project_id:%(target.project.id)s)
+  - project
+- check_str: (rule:admin_required) or (role:reader and system_scope:all) or (role:reader
+    and domain_id:%(target.domain_id)s)
   deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_required
@@ -2354,7 +2473,7 @@
   - system
   - domain
   - project
-- check_str: role:reader and system_scope:all
+- check_str: rule:admin_required or (role:reader and system_scope:all)
   deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_required
@@ -2367,7 +2486,8 @@
     path: /v3/services/{service_id}
   scope_types:
   - system
-- check_str: role:reader and system_scope:all
+  - project
+- check_str: rule:admin_required or (role:reader and system_scope:all)
   deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_required
@@ -2380,7 +2500,8 @@
     path: /v3/services
   scope_types:
   - system
-- check_str: role:admin and system_scope:all
+  - project
+- check_str: rule:admin_required
   deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_required
@@ -2393,7 +2514,8 @@
     path: /v3/services
   scope_types:
   - system
-- check_str: role:admin and system_scope:all
+  - project
+- check_str: rule:admin_required
   deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_required
@@ -2406,7 +2528,8 @@
     path: /v3/services/{service_id}
   scope_types:
   - system
-- check_str: role:admin and system_scope:all
+  - project
+- check_str: rule:admin_required
   deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_required
@@ -2419,7 +2542,8 @@
     path: /v3/services/{service_id}
   scope_types:
   - system
-- check_str: role:admin and system_scope:all
+  - project
+- check_str: rule:admin_required
   deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_required
@@ -2432,7 +2556,8 @@
     path: /v3/OS-FEDERATION/service_providers/{service_provider_id}
   scope_types:
   - system
-- check_str: role:reader and system_scope:all
+  - project
+- check_str: rule:admin_required or (role:reader and system_scope:all)
   deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_required
@@ -2447,7 +2572,8 @@
     path: /v3/OS-FEDERATION/service_providers
   scope_types:
   - system
-- check_str: role:reader and system_scope:all
+  - project
+- check_str: rule:admin_required or (role:reader and system_scope:all)
   deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_required
@@ -2462,7 +2588,8 @@
     path: /v3/OS-FEDERATION/service_providers/{service_provider_id}
   scope_types:
   - system
-- check_str: role:admin and system_scope:all
+  - project
+- check_str: rule:admin_required
   deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_required
@@ -2475,7 +2602,8 @@
     path: /v3/OS-FEDERATION/service_providers/{service_provider_id}
   scope_types:
   - system
-- check_str: role:admin and system_scope:all
+  - project
+- check_str: rule:admin_required
   deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_required
@@ -2488,6 +2616,7 @@
     path: /v3/OS-FEDERATION/service_providers/{service_provider_id}
   scope_types:
   - system
+  - project
 - check_str: rule:service_or_admin
   deprecated_for_removal: true
   deprecated_reason: '
@@ -2563,7 +2692,7 @@
     path: /v3/OS-TRUST/trusts
   scope_types:
   - project
-- check_str: role:reader and system_scope:all
+- check_str: rule:admin_required or (role:reader and system_scope:all)
   deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_required
@@ -2578,7 +2707,8 @@
     path: /v3/OS-TRUST/trusts
   scope_types:
   - system
-- check_str: role:reader and system_scope:all or user_id:%(target.trust.trustor_user_id)s
+  - project
+- check_str: (rule:admin_required) or (role:reader and system_scope:all or user_id:%(target.trust.trustor_user_id)s)
   description: List trusts for trustor.
   name: identity:list_trusts_for_trustor
   operations:
@@ -2589,7 +2719,7 @@
   scope_types:
   - system
   - project
-- check_str: role:reader and system_scope:all or user_id:%(target.trust.trustee_user_id)s
+- check_str: (rule:admin_required) or (role:reader and system_scope:all or user_id:%(target.trust.trustee_user_id)s)
   description: List trusts for trustee.
   name: identity:list_trusts_for_trustee
   operations:
@@ -2600,8 +2730,8 @@
   scope_types:
   - system
   - project
-- check_str: role:reader and system_scope:all or user_id:%(target.trust.trustor_user_id)s
-    or user_id:%(target.trust.trustee_user_id)s
+- check_str: (rule:admin_required) or (role:reader and system_scope:all or user_id:%(target.trust.trustor_user_id)s
+    or user_id:%(target.trust.trustee_user_id)s)
   deprecated_reason: null
   deprecated_rule:
     check_str: user_id:%(target.trust.trustor_user_id)s or user_id:%(target.trust.trustee_user_id)s
@@ -2617,8 +2747,8 @@
   scope_types:
   - system
   - project
-- check_str: role:reader and system_scope:all or user_id:%(target.trust.trustor_user_id)s
-    or user_id:%(target.trust.trustee_user_id)s
+- check_str: (rule:admin_required) or (role:reader and system_scope:all or user_id:%(target.trust.trustor_user_id)s
+    or user_id:%(target.trust.trustee_user_id)s)
   deprecated_reason: null
   deprecated_rule:
     check_str: user_id:%(target.trust.trustor_user_id)s or user_id:%(target.trust.trustee_user_id)s
@@ -2634,7 +2764,7 @@
   scope_types:
   - system
   - project
-- check_str: role:admin and system_scope:all or user_id:%(target.trust.trustor_user_id)s
+- check_str: rule:admin_required or user_id:%(target.trust.trustor_user_id)s
   deprecated_reason: null
   deprecated_rule:
     check_str: user_id:%(target.trust.trustor_user_id)s
@@ -2648,8 +2778,8 @@
   scope_types:
   - system
   - project
-- check_str: role:reader and system_scope:all or user_id:%(target.trust.trustor_user_id)s
-    or user_id:%(target.trust.trustee_user_id)s
+- check_str: (rule:admin_required) or (role:reader and system_scope:all or user_id:%(target.trust.trustor_user_id)s
+    or user_id:%(target.trust.trustee_user_id)s)
   deprecated_reason: null
   deprecated_rule:
     check_str: user_id:%(target.trust.trustor_user_id)s or user_id:%(target.trust.trustee_user_id)s
@@ -2665,8 +2795,8 @@
   scope_types:
   - system
   - project
-- check_str: (role:reader and system_scope:all) or (role:reader and token.domain.id:%(target.user.domain_id)s)
-    or user_id:%(target.user.id)s
+- check_str: (rule:admin_required) or (role:reader and system_scope:all) or (role:reader
+    and token.domain.id:%(target.user.domain_id)s) or user_id:%(target.user.id)s
   deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_or_owner
@@ -2683,7 +2813,8 @@
   - system
   - domain
   - project
-- check_str: (role:reader and system_scope:all) or (role:reader and domain_id:%(target.domain_id)s)
+- check_str: (rule:admin_required) or (role:reader and system_scope:all) or (role:reader
+    and domain_id:%(target.domain_id)s)
   deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_required
@@ -2699,6 +2830,7 @@
   scope_types:
   - system
   - domain
+  - project
 - check_str: ''
   description: List all projects a user has access to via role assignments.
   name: identity:list_projects_for_user
@@ -2713,7 +2845,7 @@
   - method: GET
     path: /v3/auth/domains
   scope_types: null
-- check_str: (role:admin and system_scope:all) or (role:admin and token.domain.id:%(target.user.domain_id)s)
+- check_str: rule:admin_required
   deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_required
@@ -2727,7 +2859,8 @@
   scope_types:
   - system
   - domain
-- check_str: (role:admin and system_scope:all) or (role:admin and token.domain.id:%(target.user.domain_id)s)
+  - project
+- check_str: rule:admin_required
   deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_required
@@ -2741,7 +2874,8 @@
   scope_types:
   - system
   - domain
-- check_str: (role:admin and system_scope:all) or (role:admin and token.domain.id:%(target.user.domain_id)s)
+  - project
+- check_str: rule:admin_required
   deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_required
@@ -2755,3 +2889,4 @@
   scope_types:
   - system
   - domain
+  - project

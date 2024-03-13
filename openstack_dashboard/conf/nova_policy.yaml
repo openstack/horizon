@@ -1299,7 +1299,7 @@
 # Intended scope(s): project
 #"os_compute_api:os-pause-server:unpause": "rule:project_member_or_admin"
 
-# List quotas for specific quota classs
+# List quotas for specific quota classes
 # GET  /os-quota-class-sets/{quota_class}
 # Intended scope(s): project
 #"os_compute_api:os-quota-class-sets:show": "rule:context_is_admin"
@@ -1339,9 +1339,8 @@
 # This policy is for ``POST /remote-consoles`` API and below Server
 # actions APIs are deprecated:
 #
-# - ``os-getRDPConsole`` - ``os-getSerialConsole`` - ``os-
-# getSPICEConsole`` - ``os-getVNCConsole``.
-# POST  /servers/{server_id}/action (os-getRDPConsole)
+# - ``os-getSerialConsole`` - ``os-getSPICEConsole`` - ``os-
+# getVNCConsole``.
 # POST  /servers/{server_id}/action (os-getSerialConsole)
 # POST  /servers/{server_id}/action (os-getSPICEConsole)
 # POST  /servers/{server_id}/action (os-getVNCConsole)
@@ -1805,7 +1804,7 @@
 # "os_compute_api:servers:show:flavor-extra-
 # specs":"rule:project_reader_or_admin".
 # Policies for showing flavor extra specs in server APIs response is
-# seprated as new policy. This policy is deprecated only for that but
+# separated as new policy. This policy is deprecated only for that but
 # not for list extra specs and showing it in flavor API response.
 # WARNING: A rule name change has been identified.
 #          This may be an artifact of new rules being

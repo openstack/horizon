@@ -3,6 +3,11 @@
   name: context_is_admin
   operations: []
   scope_types: null
+- check_str: role:service
+  description: Default rule for the service-to-service APIs.
+  name: service_api
+  operations: []
+  scope_types: null
 - check_str: tenant_id:%(tenant_id)s
   description: Rule for resource owner access
   name: owner
@@ -586,6 +591,16 @@
     path: /floatingips/{id}
   scope_types:
   - project
+- check_str: (rule:admin_only) or (role:reader and project_id:%(project_id)s)
+  description: Get the floating IP tags
+  name: get_floatingips_tags
+  operations:
+  - method: GET
+    path: /floatingips/{id}/tags
+  - method: GET
+    path: /floatingips/{id}/tags/{tag_id}
+  scope_types:
+  - project
 - check_str: (rule:admin_only) or (role:member and project_id:%(project_id)s)
   deprecated_reason: null
   deprecated_rule:
@@ -600,6 +615,16 @@
   scope_types:
   - project
 - check_str: (rule:admin_only) or (role:member and project_id:%(project_id)s)
+  description: Update the floating IP tags
+  name: update_floatingips_tags
+  operations:
+  - method: PUT
+    path: /floatingips/{id}/tags
+  - method: PUT
+    path: /floatingips/{id}/tags/{tag_id}
+  scope_types:
+  - project
+- check_str: (rule:admin_only) or (role:member and project_id:%(project_id)s)
   deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_or_owner
@@ -610,6 +635,16 @@
   operations:
   - method: DELETE
     path: /floatingips/{id}
+  scope_types:
+  - project
+- check_str: (rule:admin_only) or (role:member and project_id:%(project_id)s)
+  description: Delete the floating IP tags
+  name: delete_floatingips_tags
+  operations:
+  - method: DELETE
+    path: /floatingips/{id}/tags
+  - method: DELETE
+    path: /floatingips/{id}/tags/{tag_id}
   scope_types:
   - project
 - check_str: (rule:admin_only) or (role:reader and project_id:%(project_id)s)
@@ -1137,8 +1172,8 @@
   operations: *id001
   scope_types:
   - project
-- check_str: (rule:admin_only) or (role:reader and project_id:%(project_id)s) or rule:shared
-    or rule:external or rule:context_is_advsvc
+- check_str: (rule:admin_only) or (role:reader and project_id:%(project_id)s) or rule:service_api
+    or rule:shared or rule:external or rule:context_is_advsvc
   deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_or_owner or rule:shared or rule:external or rule:context_is_advsvc
@@ -1195,6 +1230,17 @@
   description: Get ``provider:segmentation_id`` attribute of a network
   name: get_network:provider:segmentation_id
   operations: *id002
+  scope_types:
+  - project
+- check_str: (rule:admin_only) or (role:reader and project_id:%(project_id)s) or rule:shared
+    or rule:external or rule:context_is_advsvc
+  description: Get the network tags
+  name: get_networks_tags
+  operations:
+  - method: GET
+    path: /networks/{id}/tags
+  - method: GET
+    path: /networks/{id}/tags/{tag_id}
   scope_types:
   - project
 - check_str: (rule:admin_only) or (role:member and project_id:%(project_id)s)
@@ -1299,6 +1345,16 @@
   scope_types:
   - project
 - check_str: (rule:admin_only) or (role:member and project_id:%(project_id)s)
+  description: Update the network tags
+  name: update_networks_tags
+  operations:
+  - method: PUT
+    path: /networks/{id}/tags
+  - method: PUT
+    path: /networks/{id}/tags/{tag_id}
+  scope_types:
+  - project
+- check_str: (rule:admin_only) or (role:member and project_id:%(project_id)s)
   deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_or_owner
@@ -1309,6 +1365,16 @@
   operations:
   - method: DELETE
     path: /networks/{id}
+  scope_types:
+  - project
+- check_str: (rule:admin_only) or (role:member and project_id:%(project_id)s)
+  description: Delete the network tags
+  name: delete_networks_tags
+  operations:
+  - method: DELETE
+    path: /networks/{id}/tags
+  - method: DELETE
+    path: /networks/{id}/tags/{tag_id}
   scope_types:
   - project
 - check_str: rule:admin_only
@@ -1355,6 +1421,16 @@
   scope_types:
   - project
 - check_str: rule:admin_only
+  description: Get the network segment range tags
+  name: get_network_segment_ranges_tags
+  operations:
+  - method: GET
+    path: /network_segment_ranges/{id}/tags
+  - method: GET
+    path: /network_segment_ranges/{id}/tags/{tag_id}
+  scope_types:
+  - project
+- check_str: rule:admin_only
   deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_only
@@ -1365,6 +1441,16 @@
   operations:
   - method: PUT
     path: /network_segment_ranges/{id}
+  scope_types:
+  - project
+- check_str: rule:admin_only
+  description: Update the network segment range tags
+  name: update_network_segment_ranges_tags
+  operations:
+  - method: PUT
+    path: /network_segment_ranges/{id}/tags
+  - method: PUT
+    path: /network_segment_ranges/{id}/tags/{tag_id}
   scope_types:
   - project
 - check_str: rule:admin_only
@@ -1381,6 +1467,16 @@
   scope_types:
   - project
 - check_str: rule:admin_only
+  description: Delete the network segment range tags
+  name: delete_network_segment_ranges_tags
+  operations:
+  - method: DELETE
+    path: /network_segment_ranges/{id}/tags
+  - method: DELETE
+    path: /network_segment_ranges/{id}/tags/{tag_id}
+  scope_types:
+  - project
+- check_str: (rule:admin_only) or (rule:service_api)
   description: Get port binding information
   name: get_port_binding
   operations:
@@ -1388,7 +1484,7 @@
     path: /ports/{port_id}/bindings/
   scope_types:
   - project
-- check_str: rule:admin_only
+- check_str: rule:service_api
   description: Create port binding on the host
   name: create_port_binding
   operations:
@@ -1396,7 +1492,7 @@
     path: /ports/{port_id}/bindings/
   scope_types:
   - project
-- check_str: rule:admin_only
+- check_str: rule:service_api
   description: Delete port binding on the host
   name: delete_port_binding
   operations:
@@ -1404,7 +1500,7 @@
     path: /ports/{port_id}/bindings/
   scope_types:
   - project
-- check_str: rule:admin_only
+- check_str: rule:service_api
   description: Activate port binding on the host
   name: activate
   operations:
@@ -1422,7 +1518,7 @@
   name: admin_or_data_plane_int
   operations: []
   scope_types: null
-- check_str: (rule:admin_only) or (role:member and project_id:%(project_id)s)
+- check_str: (rule:admin_only) or (role:member and project_id:%(project_id)s) or rule:service_api
   deprecated_reason: null
   deprecated_rule:
     check_str: rule:regular_user
@@ -1435,8 +1531,8 @@
     path: /ports
   scope_types:
   - project
-- check_str: not rule:network_device or rule:context_is_advsvc or (rule:admin_only)
-    or (role:member and rule:network_owner)
+- check_str: not rule:network_device or (rule:admin_only) or (rule:service_api) or
+    role:member and rule:network_owner
   deprecated_reason: null
   deprecated_rule:
     check_str: not rule:network_device or rule:context_is_advsvc or rule:admin_or_network_owner
@@ -1447,7 +1543,7 @@
   operations: *id004
   scope_types:
   - project
-- check_str: rule:context_is_advsvc or (rule:admin_only) or (role:member and rule:network_owner)
+- check_str: (rule:admin_only) or (rule:service_api) or role:member and rule:network_owner
   deprecated_reason: null
   deprecated_rule:
     check_str: rule:context_is_advsvc or rule:admin_or_network_owner
@@ -1458,7 +1554,7 @@
   operations: *id004
   scope_types:
   - project
-- check_str: rule:context_is_advsvc or (rule:admin_only) or (role:member and rule:network_owner)
+- check_str: (rule:admin_only) or (rule:service_api) or role:member and rule:network_owner
     or rule:shared
   deprecated_reason: null
   deprecated_rule:
@@ -1470,7 +1566,7 @@
   operations: *id004
   scope_types:
   - project
-- check_str: rule:context_is_advsvc or (rule:admin_only) or (role:member and rule:network_owner)
+- check_str: (rule:admin_only) or (rule:service_api) or role:member and rule:network_owner
   deprecated_reason: null
   deprecated_rule:
     check_str: rule:context_is_advsvc or rule:admin_or_network_owner
@@ -1481,7 +1577,7 @@
   operations: *id004
   scope_types:
   - project
-- check_str: rule:context_is_advsvc or (rule:admin_only) or (role:member and rule:network_owner)
+- check_str: (rule:admin_only) or (rule:service_api) or role:member and rule:network_owner
     or rule:shared
   deprecated_reason: null
   deprecated_rule:
@@ -1493,7 +1589,7 @@
   operations: *id004
   scope_types:
   - project
-- check_str: rule:context_is_advsvc or (rule:admin_only) or (role:member and rule:network_owner)
+- check_str: (rule:admin_only) or (rule:service_api) or role:member and rule:network_owner
   deprecated_reason: null
   deprecated_rule:
     check_str: rule:context_is_advsvc or rule:admin_or_network_owner
@@ -1504,7 +1600,7 @@
   operations: *id004
   scope_types:
   - project
-- check_str: rule:admin_only
+- check_str: (rule:admin_only) or (rule:service_api)
   deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_only
@@ -1515,7 +1611,7 @@
   operations: *id004
   scope_types:
   - project
-- check_str: rule:admin_only
+- check_str: rule:service_api
   deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_only
@@ -1526,7 +1622,7 @@
   operations: *id004
   scope_types:
   - project
-- check_str: (rule:admin_only) or (role:member and project_id:%(project_id)s)
+- check_str: (rule:admin_only) or (role:member and project_id:%(project_id)s) or rule:service_api
   deprecated_reason: null
   deprecated_rule:
     check_str: rule:regular_user
@@ -1578,7 +1674,7 @@
   operations: *id004
   scope_types:
   - project
-- check_str: rule:context_is_advsvc or (rule:admin_only) or (role:reader and rule:network_owner)
+- check_str: (rule:admin_only) or (rule:service_api) or role:reader and rule:network_owner
     or role:reader and project_id:%(project_id)s
   deprecated_reason: null
   deprecated_rule:
@@ -1594,7 +1690,7 @@
     path: /ports/{id}
   scope_types:
   - project
-- check_str: rule:admin_only
+- check_str: (rule:admin_only) or (rule:service_api)
   deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_only
@@ -1605,7 +1701,7 @@
   operations: *id005
   scope_types:
   - project
-- check_str: rule:admin_only
+- check_str: (rule:admin_only) or (rule:service_api)
   deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_only
@@ -1616,7 +1712,7 @@
   operations: *id005
   scope_types:
   - project
-- check_str: rule:admin_only
+- check_str: (rule:admin_only) or (rule:service_api)
   deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_only
@@ -1627,7 +1723,7 @@
   operations: *id005
   scope_types:
   - project
-- check_str: rule:admin_only
+- check_str: (rule:admin_only) or (rule:service_api)
   deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_only
@@ -1655,7 +1751,18 @@
   operations: *id005
   scope_types:
   - project
-- check_str: rule:admin_only or role:member and project_id:%(project_id)s or rule:context_is_advsvc
+- check_str: rule:context_is_advsvc or (rule:admin_only) or (role:reader and rule:network_owner)
+    or role:reader and project_id:%(project_id)s
+  description: Get the port tags
+  name: get_ports_tags
+  operations:
+  - method: GET
+    path: /ports/{id}/tags
+  - method: GET
+    path: /ports/{id}/tags/{tag_id}
+  scope_types:
+  - project
+- check_str: (rule:admin_only) or (rule:service_api) or role:member and project_id:%(project_id)s
   deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_or_owner or rule:context_is_advsvc
@@ -1668,8 +1775,8 @@
     path: /ports/{id}
   scope_types:
   - project
-- check_str: not rule:network_device or rule:context_is_advsvc or (rule:admin_only)
-    or (role:member and rule:network_owner)
+- check_str: not rule:network_device or (rule:admin_only) or (rule:service_api) or
+    role:member and rule:network_owner
   deprecated_reason: null
   deprecated_rule:
     check_str: not rule:network_device or rule:context_is_advsvc or rule:admin_or_network_owner
@@ -1680,7 +1787,7 @@
   operations: *id006
   scope_types:
   - project
-- check_str: rule:admin_only or rule:context_is_advsvc
+- check_str: (rule:admin_only) or (rule:service_api)
   deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_only or rule:context_is_advsvc
@@ -1691,7 +1798,7 @@
   operations: *id006
   scope_types:
   - project
-- check_str: rule:context_is_advsvc or (rule:admin_only) or (role:member and rule:network_owner)
+- check_str: (rule:admin_only) or (rule:service_api) or role:member and rule:network_owner
   deprecated_reason: null
   deprecated_rule:
     check_str: rule:context_is_advsvc or rule:admin_or_network_owner
@@ -1702,7 +1809,7 @@
   operations: *id006
   scope_types:
   - project
-- check_str: rule:context_is_advsvc or (rule:admin_only) or (role:member and rule:network_owner)
+- check_str: (rule:admin_only) or (rule:service_api) or role:member and rule:network_owner
   deprecated_reason: null
   deprecated_rule:
     check_str: rule:context_is_advsvc or rule:admin_or_network_owner
@@ -1713,7 +1820,7 @@
   operations: *id006
   scope_types:
   - project
-- check_str: rule:context_is_advsvc or (rule:admin_only) or (role:member and rule:network_owner)
+- check_str: (rule:admin_only) or (rule:service_api) or role:member and rule:network_owner
     or rule:shared
   deprecated_reason: null
   deprecated_rule:
@@ -1725,7 +1832,7 @@
   operations: *id006
   scope_types:
   - project
-- check_str: rule:context_is_advsvc or (rule:admin_only) or (role:member and rule:network_owner)
+- check_str: (rule:admin_only) or (rule:service_api) or role:member and rule:network_owner
   deprecated_reason: null
   deprecated_rule:
     check_str: rule:context_is_advsvc or rule:admin_or_network_owner
@@ -1736,7 +1843,7 @@
   operations: *id006
   scope_types:
   - project
-- check_str: rule:admin_only
+- check_str: (rule:admin_only) or (rule:service_api)
   deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_only
@@ -1747,7 +1854,7 @@
   operations: *id006
   scope_types:
   - project
-- check_str: rule:admin_only
+- check_str: rule:service_api
   deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_only
@@ -1758,7 +1865,7 @@
   operations: *id006
   scope_types:
   - project
-- check_str: rule:admin_only or role:member and project_id:%(project_id)s or rule:context_is_advsvc
+- check_str: (rule:admin_only) or (rule:service_api) or role:member and project_id:%(project_id)s
   deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_or_owner or rule:context_is_advsvc
@@ -1820,8 +1927,18 @@
   operations: *id006
   scope_types:
   - project
-- check_str: rule:context_is_advsvc or role:member and project_id:%(project_id)s or
-    (rule:admin_only) or (role:member and rule:network_owner)
+- check_str: (rule:admin_only) or (role:member and project_id:%(project_id)s) or rule:context_is_advsvc
+  description: Update the port tags
+  name: update_ports_tags
+  operations:
+  - method: PUT
+    path: /ports/{id}/tags
+  - method: PUT
+    path: /ports/{id}/tags/{tag_id}
+  scope_types:
+  - project
+- check_str: (rule:admin_only) or (rule:service_api) or role:member and rule:network_owner
+    or role:member and project_id:%(project_id)s
   deprecated_reason: null
   deprecated_rule:
     check_str: rule:context_is_advsvc or rule:admin_owner_or_network_owner
@@ -1832,6 +1949,17 @@
   operations:
   - method: DELETE
     path: /ports/{id}
+  scope_types:
+  - project
+- check_str: rule:context_is_advsvc or role:member and project_id:%(project_id)s or
+    (rule:admin_only) or (role:member and rule:network_owner)
+  description: Delete the port tags
+  name: delete_ports_tags
+  operations:
+  - method: DELETE
+    path: /ports/{id}/tags
+  - method: DELETE
+    path: /ports/{id}/tags/{tag_id}
   scope_types:
   - project
 - check_str: field:policies:shared=True
@@ -2537,6 +2665,16 @@
   operations: *id008
   scope_types:
   - project
+- check_str: (rule:admin_only) or (role:reader and project_id:%(project_id)s)
+  description: Get the router tags
+  name: get_routers_tags
+  operations:
+  - method: GET
+    path: /routers/{id}/tags
+  - method: GET
+    path: /routers/{id}/tags/{tag_id}
+  scope_types:
+  - project
 - check_str: (rule:admin_only) or (role:member and project_id:%(project_id)s)
   deprecated_reason: null
   deprecated_rule:
@@ -2632,6 +2770,16 @@
   scope_types:
   - project
 - check_str: (rule:admin_only) or (role:member and project_id:%(project_id)s)
+  description: Update the router tags
+  name: update_routers_tags
+  operations:
+  - method: PUT
+    path: /routers/{id}/tags
+  - method: PUT
+    path: /routers/{id}/tags/{tag_id}
+  scope_types:
+  - project
+- check_str: (rule:admin_only) or (role:member and project_id:%(project_id)s)
   deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_or_owner
@@ -2642,6 +2790,16 @@
   operations:
   - method: DELETE
     path: /routers/{id}
+  scope_types:
+  - project
+- check_str: (rule:admin_only) or (role:member and project_id:%(project_id)s)
+  description: Delete the router tags
+  name: delete_routers_tags
+  operations:
+  - method: DELETE
+    path: /routers/{id}/tags
+  - method: DELETE
+    path: /routers/{id}/tags/{tag_id}
   scope_types:
   - project
 - check_str: (rule:admin_only) or (role:member and project_id:%(project_id)s)
@@ -2711,6 +2869,12 @@
   name: shared_security_group
   operations: []
   scope_types: null
+- check_str: field:security_group_rules:belongs_to_default_sg=True
+  description: Definition of a security group rule that belongs to the project default
+    security group
+  name: rule_default_sg
+  operations: []
+  scope_types: null
 - check_str: (rule:admin_only) or (role:member and project_id:%(project_id)s)
   deprecated_reason: null
   deprecated_rule:
@@ -2739,6 +2903,16 @@
     path: /security-groups/{id}
   scope_types:
   - project
+- check_str: (rule:admin_only) or (role:reader and project_id:%(project_id)s) or rule:shared_security_group
+  description: Get the security group tags
+  name: get_security_groups_tags
+  operations:
+  - method: GET
+    path: /security-groups/{id}/tags
+  - method: GET
+    path: /security-groups/{id}/tags/{tag_id}
+  scope_types:
+  - project
 - check_str: (rule:admin_only) or (role:member and project_id:%(project_id)s)
   deprecated_reason: null
   deprecated_rule:
@@ -2753,6 +2927,16 @@
   scope_types:
   - project
 - check_str: (rule:admin_only) or (role:member and project_id:%(project_id)s)
+  description: Update the security group tags
+  name: update_security_groups_tags
+  operations:
+  - method: PUT
+    path: /security-groups/{id}/tags
+  - method: PUT
+    path: /security-groups/{id}/tags/{tag_id}
+  scope_types:
+  - project
+- check_str: (rule:admin_only) or (role:member and project_id:%(project_id)s)
   deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_or_owner
@@ -2763,6 +2947,16 @@
   operations:
   - method: DELETE
     path: /security-groups/{id}
+  scope_types:
+  - project
+- check_str: (rule:admin_only) or (role:member and project_id:%(project_id)s)
+  description: Delete the security group tags
+  name: delete_security_groups_tags
+  operations:
+  - method: DELETE
+    path: /security-groups/{id}/tags
+  - method: DELETE
+    path: /security-groups/{id}/tags/{tag_id}
   scope_types:
   - project
 - check_str: (rule:admin_only) or (role:member and project_id:%(project_id)s)
@@ -2835,6 +3029,16 @@
   scope_types:
   - project
 - check_str: rule:admin_only
+  description: Get the segment tags
+  name: get_segments_tags
+  operations:
+  - method: GET
+    path: /segments/{id}/tags
+  - method: GET
+    path: /segments/{id}/tags/{tag_id}
+  scope_types:
+  - project
+- check_str: rule:admin_only
   deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_only
@@ -2848,6 +3052,16 @@
   scope_types:
   - project
 - check_str: rule:admin_only
+  description: Update the segment tags
+  name: update_segments_tags
+  operations:
+  - method: PUT
+    path: /segments/{id}/tags
+  - method: PUT
+    path: /segments/{id}/tags/{tag_id}
+  scope_types:
+  - project
+- check_str: rule:admin_only
   deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_only
@@ -2858,6 +3072,16 @@
   operations:
   - method: DELETE
     path: /segments/{id}
+  scope_types:
+  - project
+- check_str: rule:admin_only
+  description: Delete the segment tags
+  name: delete_segments_tags
+  operations:
+  - method: DELETE
+    path: /segments/{id}/tags
+  - method: DELETE
+    path: /segments/{id}/tags/{tag_id}
   scope_types:
   - project
 - check_str: role:reader
@@ -2908,7 +3132,8 @@
   operations: *id010
   scope_types:
   - project
-- check_str: (rule:admin_only) or (role:reader and project_id:%(project_id)s) or rule:shared
+- check_str: (rule:admin_only) or (role:member and rule:network_owner) or role:reader
+    and project_id:%(project_id)s or rule:shared
   deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_or_owner or rule:shared
@@ -2934,7 +3159,19 @@
   operations: *id011
   scope_types:
   - project
-- check_str: (rule:admin_only) or (role:member and rule:network_owner)
+- check_str: (rule:admin_only) or (role:member and rule:network_owner) or role:reader
+    and project_id:%(project_id)s or rule:shared
+  description: Get the subnet tags
+  name: get_subnets_tags
+  operations:
+  - method: GET
+    path: /subnets/{id}/tags
+  - method: GET
+    path: /subnets/{id}/tags/{tag_id}
+  scope_types:
+  - project
+- check_str: (rule:admin_only) or (role:member and rule:network_owner) or role:member
+    and project_id:%(project_id)s
   deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_or_network_owner
@@ -2969,7 +3206,19 @@
   operations: *id012
   scope_types:
   - project
-- check_str: (rule:admin_only) or (role:member and rule:network_owner)
+- check_str: (rule:admin_only) or (role:member and rule:network_owner) or role:member
+    and project_id:%(project_id)s
+  description: Update the subnet tags
+  name: update_subnets_tags
+  operations:
+  - method: PUT
+    path: /subnets/{id}/tags
+  - method: PUT
+    path: /subnets/{id}/tags/{tag_id}
+  scope_types:
+  - project
+- check_str: (rule:admin_only) or (role:member and rule:network_owner) or role:member
+    and project_id:%(project_id)s
   deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_or_network_owner
@@ -2980,6 +3229,17 @@
   operations:
   - method: DELETE
     path: /subnets/{id}
+  scope_types:
+  - project
+- check_str: (rule:admin_only) or (role:member and rule:network_owner) or role:member
+    and project_id:%(project_id)s
+  description: Delete the subnet tags
+  name: delete_subnets_tags
+  operations:
+  - method: DELETE
+    path: /subnets/{id}/tags
+  - method: DELETE
+    path: /subnets/{id}/tags/{tag_id}
   scope_types:
   - project
 - check_str: field:subnetpools:shared=True
@@ -3041,6 +3301,16 @@
     path: /subnetpools/{id}
   scope_types:
   - project
+- check_str: (rule:admin_only) or (role:reader and project_id:%(project_id)s) or rule:shared_subnetpools
+  description: Get the subnetpool tags
+  name: get_subnetpools_tags
+  operations:
+  - method: GET
+    path: /subnetpools/{id}/tags
+  - method: GET
+    path: /subnetpools/{id}/tags/{tag_id}
+  scope_types:
+  - project
 - check_str: (rule:admin_only) or (role:member and project_id:%(project_id)s)
   deprecated_reason: null
   deprecated_rule:
@@ -3068,6 +3338,16 @@
   scope_types:
   - project
 - check_str: (rule:admin_only) or (role:member and project_id:%(project_id)s)
+  description: Update the subnetpool tags
+  name: update_subnetpools_tags
+  operations:
+  - method: PUT
+    path: /subnetpools/{id}/tags
+  - method: PUT
+    path: /subnetpools/{id}/tags/{tag_id}
+  scope_types:
+  - project
+- check_str: (rule:admin_only) or (role:member and project_id:%(project_id)s)
   deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_or_owner
@@ -3078,6 +3358,16 @@
   operations:
   - method: DELETE
     path: /subnetpools/{id}
+  scope_types:
+  - project
+- check_str: (rule:admin_only) or (role:member and project_id:%(project_id)s)
+  description: Delete the subnetpool tags
+  name: delete_subnetpools_tags
+  operations:
+  - method: DELETE
+    path: /subnetpools/{id}/tags
+  - method: DELETE
+    path: /subnetpools/{id}/tags/{tag_id}
   scope_types:
   - project
 - check_str: (rule:admin_only) or (role:member and project_id:%(project_id)s)
@@ -3147,6 +3437,16 @@
     path: /trunks/{id}
   scope_types:
   - project
+- check_str: (rule:admin_only) or (role:reader and project_id:%(project_id)s)
+  description: Get the trunk tags
+  name: get_trunks_tags
+  operations:
+  - method: GET
+    path: /trunks/{id}/tags
+  - method: GET
+    path: /trunks/{id}/tags/{tag_id}
+  scope_types:
+  - project
 - check_str: (rule:admin_only) or (role:member and project_id:%(project_id)s)
   deprecated_reason: null
   deprecated_rule:
@@ -3161,6 +3461,16 @@
   scope_types:
   - project
 - check_str: (rule:admin_only) or (role:member and project_id:%(project_id)s)
+  description: Update the trunk tags
+  name: update_trunks_tags
+  operations:
+  - method: PUT
+    path: /trunks/{id}/tags
+  - method: PUT
+    path: /trunks/{id}/tags/{tag_id}
+  scope_types:
+  - project
+- check_str: (rule:admin_only) or (role:member and project_id:%(project_id)s)
   deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_or_owner
@@ -3171,6 +3481,16 @@
   operations:
   - method: DELETE
     path: /trunks/{id}
+  scope_types:
+  - project
+- check_str: (rule:admin_only) or (role:member and project_id:%(project_id)s)
+  description: Delete a trunk
+  name: delete_trunks_tags
+  operations:
+  - method: DELETE
+    path: /trunks/{id}/tags
+  - method: DELETE
+    path: /trunks/{id}/tags/{tag_id}
   scope_types:
   - project
 - check_str: (rule:admin_only) or (role:reader and project_id:%(project_id)s)

@@ -1120,7 +1120,7 @@
   scope_types:
   - project
 - check_str: rule:context_is_admin
-  description: List quotas for specific quota classs
+  description: List quotas for specific quota classes
   name: os_compute_api:os-quota-class-sets:show
   operations:
   - method: GET
@@ -1184,8 +1184,6 @@
     are deprecated:
 
 
-    - ``os-getRDPConsole``
-
     - ``os-getSerialConsole``
 
     - ``os-getSPICEConsole``
@@ -1193,8 +1191,6 @@
     - ``os-getVNCConsole``.'
   name: os_compute_api:os-remote-consoles
   operations:
-  - method: POST
-    path: /servers/{server_id}/action (os-getRDPConsole)
   - method: POST
     path: /servers/{server_id}/action (os-getSerialConsole)
   - method: POST
@@ -1606,7 +1602,7 @@
 
     Policies for showing flavor extra specs in server APIs response is
 
-    seprated as new policy. This policy is deprecated only for that but
+    separated as new policy. This policy is deprecated only for that but
 
     not for list extra specs and showing it in flavor API response.
 
