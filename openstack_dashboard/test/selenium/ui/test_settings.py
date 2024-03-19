@@ -9,6 +9,11 @@
 #    WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
 #    License for the specific language governing permissions and limitations
 #    under the License.
+
+from selenium.webdriver.common.by import By
+from selenium.webdriver.support import expected_conditions as EC
+from selenium.webdriver.support.wait import WebDriverWait
+
 from openstack_dashboard.test.selenium import widgets
 
 
@@ -40,3 +45,37 @@ def test_languages(live_server, driver, user):
     messages = widgets.get_and_dismiss_messages(driver)
     assert "Success: Settings saved." in messages
     assert "Error" not in messages
+
+
+def test_dashboard_help_redirection(live_server, driver, user, config):
+    driver.get(live_server.url + '/settings')
+    user_dropdown_menu = driver.find_element_by_css_selector(
+        '.nav.navbar-nav.navbar-right')
+    widgets.select_from_dropdown(user_dropdown_menu, "Help")
+    available_windows = driver.window_handles
+    assert len(available_windows) == 2
+    driver.switch_to.window(available_windows[-1])
+    WebDriverWait(driver, config.selenium.page_timeout).until(
+        EC.visibility_of_element_located((By.CSS_SELECTOR, '.navbar-brand')))
+    assert config.dashboard.help_url in driver.current_url
+    driver.close()
+    driver.switch_to.window(available_windows[0])
+
+
+def test_switch_to_material_theme(live_server, driver, user):
+    driver.get(live_server.url + '/settings')
+    user_dropdown_menu = driver.find_element_by_css_selector(
+        '.nav.navbar-nav.navbar-right')
+    user_dropdown_menu.click()
+    assert ((user_dropdown_menu.find_element_by_css_selector(
+        ".theme-default.dropdown-selected") and
+        driver.find_element_by_css_selector(".navbar-default")))
+    options = user_dropdown_menu.find_element_by_css_selector(
+        "ul.dropdown-menu")
+    options.find_element_by_xpath(f".//*[normalize-space()='Material']").click()
+    user_dropdown_menu = driver.find_element_by_css_selector(
+        '.nav.navbar-nav.navbar-right')
+    user_dropdown_menu.click()
+    assert (user_dropdown_menu.find_element_by_css_selector(
+        ".theme-material.dropdown-selected") and
+        driver.find_element_by_css_selector(".material-header"))
