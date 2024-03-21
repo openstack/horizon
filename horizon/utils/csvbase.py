@@ -57,7 +57,10 @@ class CsvDataMixin(object):
             self.writer.writerow([self.encode(col) for col in args])
 
     def encode(self, value):
-        return str(value)
+        data = str(value)
+        if data and data[0] in ('=', '+', '-', '@', chr(9), chr(13)):
+            return "'" + data
+        return data
 
 
 class BaseCsvResponse(CsvDataMixin, HttpResponse):
