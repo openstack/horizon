@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: horizon VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2024-01-30 07:54+0000\n"
+"POT-Creation-Date: 2024-03-20 15:32+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -5464,9 +5464,6 @@ msgstr "Impossibile richiamare la password dell'istanza."
 
 msgid "Unable to retrieve instance project information."
 msgstr "Impossibile richiamare le informazioni sul progetto dell'istanza."
-
-msgid "Unable to retrieve instance size information."
-msgstr "Impossibile richiamare le informazioni sulla dimensione dell'istanza."
 
 msgid "Unable to retrieve instances."
 msgstr "Impossibile richiamare le istanze."
