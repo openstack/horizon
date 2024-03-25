@@ -36,7 +36,7 @@ urlpatterns = [
     re_path(r'^accept_transfer/$',
             views.AcceptTransferView.as_view(),
             name='accept_transfer'),
-    re_path(r'^(?P<transfer_id>[^/]+)/auth/(?P<auth_key>[^/]+)/$',
+    re_path(r'^(?P<transfer_id>[^/]+)/show_transfer/$',
             views.ShowTransferView.as_view(),
             name='show_transfer'),
     re_path(r'^(?P<volume_id>[^/]+)/create_backup/$',
@@ -63,7 +63,4 @@ urlpatterns = [
     re_path(r'^(?P<volume_id>[^/]+)/encryption_detail/$',
             views.EncryptionDetailView.as_view(),
             name='encryption_detail'),
-    re_path(r'^(?P<transfer_id>[^/]+)/download_creds/(?P<auth_key>[^/]+)$',
-            views.DownloadTransferCreds.as_view(),
-            name='download_transfer_creds'),
 ]
