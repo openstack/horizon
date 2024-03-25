@@ -77,20 +77,16 @@ def mock_openstack_auth(settings, auth_data):
         keystone_url = settings.OPENSTACK_KEYSTONE_URL
         auth_password = mock.Mock(auth_url=keystone_url)
         mock_password.return_value = auth_password
-        auth_password.get_access.return_value = auth_data.unscoped_access_info
-        auth_token_unscoped = mock.Mock(auth_url=keystone_url)
+        auth_password.get_access.return_value = auth_data.scoped_access_info
         auth_token_scoped = mock.Mock(auth_url=keystone_url)
         mock_token.return_value = auth_token_scoped
-        auth_token_unscoped.get_access.return_value = (
-            auth_data.federated_unscoped_access_info
-        )
         auth_token_scoped.get_access.return_value = (
-            auth_data.unscoped_access_info
+            auth_data.scoped_access_info
         )
-        client_unscoped = mock.Mock()
-        mock_client.return_value = client_unscoped
+        client = mock.Mock()
+        mock_client.return_value = client
         projects = [auth_data.project_one, auth_data.project_two]
-        client_unscoped.projects.list.return_value = projects
+        client.projects.list.return_value = projects
         yield
 
 
@@ -106,16 +102,21 @@ def mock_keystoneclient():
 
 @pytest.fixture()
 def user(monkeypatch, dashboard_data, mock_keystoneclient):
+    new_user = openstack_auth.user.User(
+        id=dashboard_data.user.id,
+        token=dashboard_data.token,
+        user=dashboard_data.user.name,
+        roles=[dashboard_data.roles.admin._info],
+        domain_id=dashboard_data.domain.id,
+        tenant_id=dashboard_data.tenant.id,
+        service_catalog=dashboard_data.service_catalog,
+        services_region="RegionOne",
+        authorized_tenants=dashboard_data.tenants.list(),
+        enabled=True
+    )
+    new_user._is_system_user = False
+
     def get_user(request):
-        new_user = openstack_auth.user.User(
-            id=dashboard_data.user.id,
-            token=dashboard_data.token,
-            user=dashboard_data.user.name,
-            domain_id=dashboard_data.domain.id,
-            tenant_id=dashboard_data.tenant.id,
-            service_catalog=dashboard_data.service_catalog,
-            authorized_tenants=dashboard_data.tenants.list(),
-        )
-        new_user._is_system_user = False
         return new_user
     monkeypatch.setattr(auth_utils, 'get_user', get_user)
+    return new_user
