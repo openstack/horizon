@@ -18,7 +18,11 @@ import pytest
 
 from oslo_utils import uuidutils
 
+from openstack_dashboard.test.selenium.integration import test_instances
 from openstack_dashboard.test.selenium import widgets
+
+#   Imported fixtures
+clear_instance_admin = test_instances.clear_instance_admin
 
 
 @pytest.fixture(params=[1])
@@ -431,3 +435,112 @@ def test_edit_image_description_admin(login, driver, image_names,
     image_id = new_image_admin.id
     assert (openstack_admin.compute.get(f"/images/{image_id}").json(
     )['image']['metadata']['description'] == new_description)
+
+
+def test_update_image_metadata_admin(login, driver,
+                                     new_image_admin, config,
+                                     openstack_admin):
+    new_metadata = {
+        'metadata1': 'img_metadata%s' % uuidutils.generate_uuid(dashed=False),
+        'metadata2': 'img_metadata%s' % uuidutils.generate_uuid(dashed=False)
+    }
+    image_name = new_image_admin.name
+    login('admin', 'admin')
+    url = '/'.join((
+        config.dashboard.dashboard_url,
+        'project',
+        'images',
+    ))
+    driver.get(url)
+    rows = driver.find_elements_by_xpath(f"//a[text()='{image_name}']")
+    assert len(rows) == 1
+    actions_column = rows[0].find_element_by_xpath(
+        ".//ancestor::tr/td[contains(@class,'actions_column')]")
+    widgets.select_from_dropdown(actions_column, "Update Metadata")
+    image_form = driver.find_element_by_css_selector(".modal-content")
+    for name, value in new_metadata.items():
+        image_form.find_element_by_xpath(
+            "//input[@name='customItem']").send_keys(name)
+        image_form.find_element_by_css_selector(
+            "button.btn span[class='fa fa-plus']").click()
+        image_form.find_element_by_xpath(
+            f"//span[@title='{name}']/parent::div/input").send_keys(value)
+    image_form.find_element_by_xpath(
+        "//button[@ng-click='modal.save()']").click()
+    messages = widgets.get_and_dismiss_messages(driver)
+    assert f"Success: Metadata was successfully updated." in messages
+    image_id = new_image_admin.id
+    for name, value in new_metadata.items():
+        assert (openstack_admin.compute.get(f"/images/{image_id}").json(
+        )['image']['metadata'][name] == value)
+
+
+def test_launch_instance_from_image_admin(complete_default_test_network, login,
+                                          driver, instance_name,
+                                          clear_instance_admin, new_image_admin,
+                                          config, openstack_admin):
+    image_name = new_image_admin.name
+    network = complete_default_test_network.name
+    flavor = config.launch_instances.flavor
+    login('admin', 'admin')
+    url = '/'.join((
+        config.dashboard.dashboard_url,
+        'project',
+        'images',
+    ))
+    driver.get(url)
+    rows = driver.find_elements_by_xpath(f"//a[text()='{image_name}']")
+    assert len(rows) == 1
+    rows[0].find_element_by_xpath(
+        "//ng-transclude[normalize-space()='Launch']").click()
+    wizard = driver.find_element_by_css_selector("wizard")
+    navigation = wizard.find_element_by_css_selector("div.wizard-nav")
+    widgets.find_already_visible_element_by_xpath(
+        ".//*[@id='name']", wizard).send_keys(instance_name)
+    navigation.find_element_by_link_text("Networks").click()
+    network_table = wizard.find_element_by_css_selector(
+        "ng-include[ng-form=launchInstanceNetworkForm]"
+    )
+    widgets.select_from_transfer_table(network_table, network)
+    navigation.find_element_by_link_text("Flavor").click()
+    flavor_table = wizard.find_element_by_css_selector(
+        "ng-include[ng-form=launchInstanceFlavorForm]"
+    )
+    widgets.select_from_transfer_table(flavor_table, flavor)
+    navigation.find_element_by_link_text("Source").click()
+    source_table = wizard.find_element_by_css_selector(
+        "ng-include[ng-form=launchInstanceSourceForm]"
+    )
+    test_instances.delete_volume_on_instance_delete(source_table, "Yes")
+    wizard.find_element_by_css_selector(
+        "button.btn-primary.finish").click()
+    messages = widgets.get_and_dismiss_messages(driver)
+    assert f"Info: Scheduled creation of 1 instance." in messages
+    assert openstack_admin.compute.find_server(instance_name) is not None
+
+
+def test_create_volume_from_image_admin(login, driver, volume_name,
+                                        new_image_admin, clear_volume_admin,
+                                        config, openstack_admin):
+    volume_name = volume_name[0]
+    image_name = new_image_admin.name
+    login('admin', 'admin')
+    url = '/'.join((
+        config.dashboard.dashboard_url,
+        'project',
+        'images',
+    ))
+    driver.get(url)
+    rows = driver.find_elements_by_xpath(f"//a[text()='{image_name}']")
+    assert len(rows) == 1
+    actions_column = rows[0].find_element_by_xpath(
+        ".//ancestor::tr/td[contains(@class,'actions_column')]")
+    widgets.select_from_dropdown(actions_column, "Create Volume")
+    name_field = driver.find_element_by_xpath("//input[@name='name']")
+    name_field.clear()
+    name_field.send_keys(volume_name)
+    driver.find_element_by_xpath(
+        "//button[@class='btn btn-primary finish']").click()
+    messages = widgets.get_and_dismiss_messages(driver)
+    assert f"Info: Creating volume {volume_name}" in messages
+    assert openstack_admin.block_storage.find_volume(volume_name) is not None

@@ -34,16 +34,6 @@ def clear_volume_demo(volume_name, openstack_demo):
     )
 
 
-@pytest.fixture
-def clear_volume_admin(volume_name, openstack_admin):
-    yield None
-    wait_for_steady_state_of_volume(openstack_admin, volume_name[0])
-    openstack_admin.delete_volume(
-        volume_name[0],
-        wait=True,
-    )
-
-
 def wait_for_steady_state_of_volume(openstack, volume_name):
     for attempt in range(120):
         if (openstack.block_storage.find_volume(volume_name).status in
@@ -82,8 +72,10 @@ def test_create_empty_volume_demo(login, driver, volume_name, openstack_demo,
     assert openstack_demo.block_storage.find_volume(volume_name) is not None
 
 
-def test_create_volume_from_image_demo(login, driver, volume_name, config,
-                                       clear_volume_demo, openstack_demo):
+def test_create_volume_via_vol_source_image_demo(login, driver,
+                                                 volume_name, config,
+                                                 clear_volume_demo,
+                                                 openstack_demo):
     image_source_name = config.launch_instances.image_name
     volume_name = volume_name[0]
     login('user')
@@ -402,8 +394,9 @@ def test_create_empty_volume_admin(login, driver, volume_name, openstack_admin,
     assert openstack_admin.block_storage.find_volume(volume_name) is not None
 
 
-def test_create_volume_from_image_admin(login, driver, volume_name, config,
-                                        clear_volume_admin, openstack_admin):
+def test_create_volume_via_vol_source_image_admin(login, driver, volume_name,
+                                                  config, clear_volume_admin,
+                                                  openstack_admin):
     image_source_name = config.launch_instances.image_name
     volume_name = volume_name[0]
     login('admin')
