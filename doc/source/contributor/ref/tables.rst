@@ -102,3 +102,19 @@ easier in your UI.
 .. autoclass:: DataTableView
 
 .. autoclass:: MultiTableView
+
+Additional Features
+===================
+Compound sorting
+----------------
+
+In the Horizon dashboard, most tables that
+display lists of resources (such as instances, volumes,
+images, etc.) support sorting by clicking on the column headers.
+
+To enable compound sorting, you can hold down the Shift key while
+clicking on additional column headers. This allows you to sort
+the table by multiple columns in the order you click them.
+
+An up or down arrow indicator shows next to the column headers
+you chose to sort by.
