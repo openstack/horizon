@@ -14,6 +14,7 @@ import openstack as openstack_sdk
 from oslo_utils import uuidutils
 import pytest
 
+from openstack_dashboard.test.selenium.integration import test_volumes
 from openstack_dashboard.test.selenium import widgets
 
 
@@ -272,3 +273,14 @@ def new_volume_admin(volume_name, openstack_admin, config):
             name_or_id=vol,
             wait=True,
         )
+
+
+@pytest.fixture
+def clear_volume_admin(volume_name, openstack_admin):
+    yield None
+    test_volumes.wait_for_steady_state_of_volume(
+        openstack_admin, volume_name[0])
+    openstack_admin.delete_volume(
+        volume_name[0],
+        wait=True,
+    )
