@@ -29,7 +29,7 @@ from django.template.loader import get_template
 from django import urls
 from django.utils.encoding import force_str
 from django.utils.functional import Promise
-from django.utils import html
+from django.utils.html import format_html, format_html_join, escape, flatatt
 from django.utils.safestring import mark_safe
 from django.utils.translation import gettext_lazy as _
 
@@ -164,136 +164,64 @@ class MACAddressField(fields.Field):
 # reviewed and replaced in future. We need to move to template based rendering
 # for widgets, but that's a big task better done in Queens.
 class SelectWidget(widgets.Widget):
-    """Custom select widget.
-
-    It allows to render data-xxx attributes from choices.
-    This widget also allows user to specify additional html attributes
-    for choices.
-
-    .. attribute:: data_attrs
-
-        Specifies object properties to serialize as
-        data-xxx attribute. If passed ('id', ),
-        this will be rendered as:
-        <option data-id="123">option_value</option>
-        where 123 is the value of choice_value.id
-
-    .. attribute:: transform
-
-        A callable used to render the display value
-        from the option object.
-
-    .. attribute:: transform_html_attrs
-
-        A callable used to render additional HTML attributes
-        for the option object. It returns a dictionary
-        containing the html attributes and their values.
-        For example, to define a title attribute for the
-        choices::
-
-            helpText = { 'Apple': 'This is a fruit',
-                      'Carrot': 'This is a vegetable' }
-
-            def get_title(data):
-                text = helpText.get(data, None)
-                if text:
-                    return {'title': text}
-                else:
-                    return {}
-
-            ....
-            ....
-
-            widget=forms.ThemableSelect( attrs={'class': 'switchable',
-                                             'data-slug': 'source'},
-                                    transform_html_attrs=get_title )
-
-            self.fields[<field name>].choices =
-                ([
-                    ('apple','Apple'),
-                    ('carrot','Carrot')
-                ])
-
     """
+    A custom select widget offering enhanced rendering capabilities.
+
+    Parameters:
+        attrs (dict): Initial HTML attributes for the widget.
+        choices (iterable): An iterable of 2-tuples to use as choices for the select field.
+        data_attrs (iterable of str): Attributes to serialize as data-* attributes on options.
+        transform (callable, optional): Function to transform the display value of options.
+        transform_html_attrs (callable, optional): Function returning extra HTML attributes for options.
+    """
+
     def __init__(self, attrs=None, choices=(), data_attrs=(), transform=None,
                  transform_html_attrs=None):
+        super().__init__(attrs)
         self.choices = list(choices)
         self.data_attrs = data_attrs
         self.transform = transform
         self.transform_html_attrs = transform_html_attrs
-        super().__init__(attrs)
+    
+    def render_option(self, selected, option_value, option_label):
+        option_attrs = {
+            'value': force_str(option_value),
+            'selected': 'selected' if option_value in selected else ''
+        }
+
+        if callable(self.transform_html_attrs):
+            option_attrs.update(self.transform_html_attrs(option_label))
+        
+        if self.data_attrs and isinstance(option_label, (list, tuple, dict)):
+            for data_attr in self.data_attrs:
+                option_attrs[f'data-{data_attr}'] = force_str(getattr(option_label, data_attr, ""))
+
+        if callable(self.transform):
+            option_label = self.transform(option_label)
+            
+        option_attrs_str = flatatt(option_attrs)
+        return format_html('<option{}>{}</option>', option_attrs_str, escape(option_label))
+
+    def render_options(self, selected_choices):
+        selected_choices = set(force_str(v) for v in selected_choices)
+        options = (self.render_option(selected_choices, *choice) for choice in self.choices)
+        return format_html_join('\n', '{}', ((option,) for option in options))
 
     def render(self, name, value, attrs=None, renderer=None):
-        if value is None:
-            value = ''
-        final_attrs = self.build_attrs(attrs, name=name)
-        output = [html.format_html('<select{}>', flatatt(final_attrs))]
-        options = self.render_options([value])
-        if options:
-            output.append(options)
-        output.append('</select>')
-        return mark_safe('\n'.join(output))
+        value = value or ''
+        final_attrs = self.build_attrs(self.attrs, attrs, name=name)
+        output = [
+            format_html('<select{}>', flatatt(final_attrs)),
+            self.render_options([value]),
+            '</select>'
+        ]
+        return mark_safe(''.join(output))
 
-    def build_attrs(self, extra_attrs=None, **kwargs):
-        """Helper function for building an attribute dictionary."""
-        attrs = dict(self.attrs, **kwargs)
+    def build_attrs(self, base_attrs, extra_attrs=None, **kwargs):
+        attrs = dict(base_attrs, **kwargs)
         if extra_attrs:
             attrs.update(extra_attrs)
         return attrs
-
-    def render_option(self, selected_choices, option_value, option_label):
-        option_value = force_str(option_value)
-        other_html = (' selected="selected"'
-                      if option_value in selected_choices else '')
-
-        other_html += self.transform_option_html_attrs(option_label)
-
-        data_attr_html = self.get_data_attrs(option_label)
-        if data_attr_html:
-            other_html += ' ' + data_attr_html
-
-        option_label = self.transform_option_label(option_label)
-
-        return '<option value="%s"%s>%s</option>' % (
-            html.escape(option_value), other_html, option_label)
-
-    def render_options(self, selected_choices):
-        # Normalize to strings.
-        selected_choices = set(force_str(v) for v in selected_choices)
-        output = []
-        for option_value, option_label in self.choices:
-            if isinstance(option_label, (list, tuple)):
-                output.append(html.format_html(
-                    '<optgroup label="{}">', force_str(option_value)))
-                for option in option_label:
-                    output.append(
-                        self.render_option(selected_choices, *option))
-                output.append('</optgroup>')
-            else:
-                output.append(self.render_option(
-                    selected_choices, option_value, option_label))
-        return '\n'.join(output)
-
-    def get_data_attrs(self, option_label):
-        other_html = []
-        if not isinstance(option_label, (str, Promise)):
-            for data_attr in self.data_attrs:
-                data_value = html.conditional_escape(
-                    force_str(getattr(option_label, data_attr, "")))
-                other_html.append('data-%s="%s"' % (data_attr, data_value))
-        return ' '.join(other_html)
-
-    def transform_option_label(self, option_label):
-        if (not isinstance(option_label, (str, Promise)) and
-                callable(self.transform)):
-            option_label = self.transform(option_label)
-        return html.conditional_escape(force_str(option_label))
-
-    def transform_option_html_attrs(self, option_label):
-        if not callable(self.transform_html_attrs):
-            return ''
-        return flatatt(self.transform_html_attrs(option_label))
-
 
 class ThemableSelectWidget(SelectWidget):
     """Bootstrap base select field widget."""
