@@ -68,13 +68,16 @@ class UpdateInstanceSecurityGroups(sg_base.BaseSecurityGroups):
 
 
 class UpdateInstanceInfoAction(workflows.Action):
-    name = forms.CharField(label=_("Name"),
-                           max_length=255)
+    name = forms.CharField(label=_("Name"), max_length=255, help_text=_(
+        "Max 255 chars. Avoid special chars, leading or trailing spaces.")
+    )
     description = forms.CharField(
         label=_("Description"),
         widget=forms.Textarea(attrs={'rows': 4}),
         max_length=255,
-        required=False
+        required=False,
+        help_text=_(
+            "Max 255 chars. Avoid special chars, leading or trailing spaces.")
     )
 
     def __init__(self, request, *args, **kwargs):
