@@ -2056,11 +2056,11 @@ class VolumeViewTests(test.ResetImageAPIVersionMixin, test.TestCase):
         filename = "{}.txt".format(slugify(transfer.id))
 
         url = reverse('horizon:project:volumes:'
-                      'download_transfer_creds',
-                      kwargs={'transfer_id': transfer.id,
-                              'auth_key': transfer.auth_key})
+                      'show_transfer',
+                      kwargs={'transfer_id': transfer.id})
 
-        res = self.client.get(url)
+        form_data = {'id': transfer.id, 'auth_key': transfer.auth_key}
+        res = self.client.post(url, form_data)
 
         self.assertTrue(res.has_header('content-disposition'))
         self.assertTrue(res.has_header('content-type'))

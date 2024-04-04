@@ -598,22 +598,21 @@ class CreateTransferForm(forms.SelfHandlingForm):
         return cleaned_name
 
     def handle(self, request, data):
+        volume_id = self.initial['volume_id']
         try:
-            volume_id = self.initial['volume_id']
             transfer = cinder.transfer_create(request, volume_id, data['name'])
-
-            msg = _('Created volume transfer: "%s".') % data['name']
-            messages.success(request, msg)
-            kwargs = {
-                'transfer_id': transfer.id,
-                'auth_key': transfer.auth_key
-            }
-            request.method = 'GET'
-            return self.next_view.as_view()(request, **kwargs)
         except Exception:
             redirect = reverse("horizon:project:volumes:index")
             exceptions.handle(request, _('Unable to create volume transfer.'),
                               redirect=redirect)
+        else:
+            msg = _('Created volume transfer: "%s".') % data['name']
+            messages.success(request, msg)
+            request.method = 'GET'
+            return self.next_view.as_view()(
+                request, transfer_id=transfer.id,
+                auth_key=transfer.auth_key,
+            )
 
 
 class AcceptTransferForm(forms.SelfHandlingForm):
@@ -652,7 +651,7 @@ class ShowTransferForm(forms.SelfHandlingForm):
         required=False)
 
     def handle(self, request, data):
-        pass
+        return True
 
 
 class UpdateForm(forms.SelfHandlingForm):
