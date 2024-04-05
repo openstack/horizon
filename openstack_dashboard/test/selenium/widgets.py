@@ -87,31 +87,28 @@ def is_prev_link_available(driver):
 
 
 def get_table_definition(driver, sorting=False):
-    try:
-        names = driver.find_elements_by_css_selector('table tr td:nth-child(2)')
-        if sorting:
-            names.sort()
-        actual_table = TableDefinition(next=is_next_link_available(driver),
-                                       prev=is_prev_link_available(driver),
-                                       count=len(names), names=[names[0].text])
-        return actual_table
-    except exceptions.WebDriverException:
-        return None
+    names = driver.find_elements_by_css_selector('table tr td:nth-child(2)')
+    if sorting:
+        names = [name.text for name in names]
+        names.sort()
+    actual_table = TableDefinition(next=is_next_link_available(driver),
+                                   prev=is_prev_link_available(driver),
+                                   count=len(names), names=[names[0]])
+    return actual_table
 
 
 def get_image_table_definition(driver, sorting=False):
     """This function is specific to Image table definition"""
-    try:
-        names = driver.find_elements_by_css_selector(
-            "td[class='rsp-p1 word-wrap']")
-        if sorting:
-            names.sort()
-        actual_table = TableDefinition(next=is_next_link_available(driver),
-                                       prev=is_prev_link_available(driver),
-                                       count=len(names), names=[names[0].text])
-        return actual_table
-    except (exceptions.WebDriverException, IndexError):
-        return None
+    names = driver.find_elements_by_css_selector(
+        "td[class='rsp-p1 word-wrap']")
+    if sorting:
+        names = [name.text for name in names]
+        names.sort()
+
+    actual_table = TableDefinition(next=is_next_link_available(driver),
+                                   prev=is_prev_link_available(driver),
+                                   count=len(names), names=[names[0]])
+    return actual_table
 
 
 def select_from_transfer_table(element, label):
