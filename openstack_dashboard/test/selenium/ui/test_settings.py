@@ -62,7 +62,7 @@ def test_dashboard_help_redirection(live_server, driver, user, config):
     driver.switch_to.window(available_windows[0])
 
 
-def test_switch_to_material_theme(live_server, driver, user):
+def test_switch_to_material_theme(live_server, driver, user, config):
     driver.get(live_server.url + '/settings')
     user_dropdown_menu = driver.find_element_by_css_selector(
         '.nav.navbar-nav.navbar-right')
@@ -71,8 +71,10 @@ def test_switch_to_material_theme(live_server, driver, user):
         ".theme-default.dropdown-selected") and
         driver.find_element_by_css_selector(".navbar-default")))
     options = user_dropdown_menu.find_element_by_css_selector(
-        "ul.dropdown-menu")
+        "ul.dropdown-menu[id='editor_list']")
     options.find_element_by_xpath(f".//*[normalize-space()='Material']").click()
+    WebDriverWait(driver, config.selenium.page_timeout).until(
+        EC.visibility_of_element_located((By.CSS_SELECTOR, '.material-header')))
     user_dropdown_menu = driver.find_element_by_css_selector(
         '.nav.navbar-nav.navbar-right')
     user_dropdown_menu.click()
