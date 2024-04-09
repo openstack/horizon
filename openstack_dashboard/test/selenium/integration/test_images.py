@@ -348,15 +348,16 @@ def test_image_filtration_admin(login, driver, new_image_admin, config):
     filter_input_field.send_keys(image_name)
     # Fetch page definition after filtration
     current_page_definition = widgets.get_image_table_definition(driver)
-    assert vars(current_page_definition)['names'][0] == image_name
+    assert vars(current_page_definition)['names'][0].text == image_name
     assert vars(current_page_definition)['count'] == 1
     filter_input_field.clear()
     # Generate random non existent image name
     random_img_name = 'horizon_img_%s' % uuidutils.generate_uuid(dashed=False)
     filter_input_field.send_keys(random_img_name)
     # Fetch page definition after filtration
-    current_page_definition = widgets.get_image_table_definition(driver)
-    assert current_page_definition is None
+    no_items_present = driver.find_element_by_xpath(
+        "//td[text()='No items to display.']")
+    assert no_items_present
 
 
 def test_remove_protected_image_admin(login, driver, image_names,

@@ -14,6 +14,8 @@ import pytest
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.wait import WebDriverWait
 
+from oslo_utils import uuidutils
+
 from openstack_dashboard.test.selenium import widgets
 
 
@@ -62,6 +64,16 @@ def delete_volume_on_instance_delete(driver, required_state):
         f".//label[contains(@ng-model, 'vol_delete_on_instance_delete')]"
         f"[text()='{required_state}']", driver)
     delete_volume_btn.click()
+
+
+def apply_instance_name_filter(driver, config, name_pattern):
+    filter_field = driver.find_element_by_css_selector(
+        "input[name='instances__filter__q']")
+    filter_field.clear()
+    filter_field.send_keys(name_pattern)
+    driver.find_element_by_css_selector("#instances__action_filter").click()
+    WebDriverWait(driver, config.selenium.page_timeout).until(
+        EC.invisibility_of_element_located(filter_field))
 
 
 def test_create_instance_demo(complete_default_test_network, login, driver,
@@ -238,6 +250,121 @@ def test_instance_pagination_demo(login, driver, instance_name,
     assert first_page_definition == actual_page1_definition
 
 
+@pytest.mark.parametrize('new_instance_demo', [(2, False)],
+                         indirect=True)
+def test_instances_pagination_and_filtration_demo(login, driver, instance_name,
+                                                  new_instance_demo,
+                                                  change_page_size_demo,
+                                                  config):
+    """This test checks instance pagination and filtration
+
+        Steps:
+        1) Login to Horizon Dashboard as demo user
+        2) Create 2 instances
+        3) Go to user settings page
+        4) Change 'Items Per Page' value to 1
+        5) Go to Instances page
+        6) Check filter by Name of the first and the second instance in order
+           to have one instance in the list (and it should have correct name)
+           and no 'Next' link is available
+        7) Check filter by common part of Name of in order to have one instance
+           in the list (and it should have correct name) and 'Next' link is
+           available on the first page and is not available on the second page
+        9) Go to user settings page and restore 'Items Per Page'
+        10) Delete created instances
+
+        """
+    items_per_page = 1
+    instance_count = 2
+    instance_list = [f"{instance_name}-{item}"
+                     for item in range(1, instance_count + 1)]
+    filter_instance1_def = widgets.TableDefinition(next=False, prev=False,
+                                                   count=items_per_page,
+                                                   names=[instance_list[1]])
+    filter_instance2_def = widgets.TableDefinition(next=False, prev=False,
+                                                   count=items_per_page,
+                                                   names=[instance_list[0]])
+    common_filter_page1_def = widgets.TableDefinition(next=True, prev=False,
+                                                      count=items_per_page,
+                                                      names=[instance_list[1]])
+    common_filter_page2_def = widgets.TableDefinition(next=False, prev=True,
+                                                      count=items_per_page,
+                                                      names=[instance_list[0]])
+    url = '/'.join((
+        config.dashboard.dashboard_url,
+        'project',
+        'instances'
+    ))
+    driver.get(url)
+    driver.find_element_by_css_selector(
+        "button[class='btn btn-default dropdown-toggle']").click()
+    # set filter by instance_name
+    driver.find_element_by_css_selector(
+        "a[data-select-value='name']").click()
+    apply_instance_name_filter(driver, config, instance_list[1])
+    actual_page_definition = widgets.get_table_definition(driver,
+                                                          sorting=True)
+    assert filter_instance1_def == actual_page_definition
+    apply_instance_name_filter(driver, config, instance_list[0])
+    actual_page_definition = widgets.get_table_definition(driver,
+                                                          sorting=True)
+    assert filter_instance2_def == actual_page_definition
+    apply_instance_name_filter(driver, config, instance_name)
+    actual_page_definition = widgets.get_table_definition(driver,
+                                                          sorting=True)
+    assert common_filter_page1_def == actual_page_definition
+    # Turning to next page
+    driver.find_element_by_link_text("Next »").click()
+    actual_page_definition = widgets.get_table_definition(driver,
+                                                          sorting=True)
+    assert common_filter_page2_def == actual_page_definition
+
+
+@pytest.mark.parametrize('new_instance_demo', [(2, False)],
+                         indirect=True)
+def test_filter_instances_demo(login, driver, instance_name,
+                               new_instance_demo, config):
+    """This test checks filtering of instances by Instance Name
+
+        Steps:
+        1) Login to Horizon dashboard as regular user
+        2) Create 2 instances
+        3) Go to Instances Page
+        5) Use filter by Instance Name
+        6) Check that filtered table has one instance only (which name is equal
+           to filter value) and no other instances in the table
+        7) Set nonexistent instance name. Check that 0 rows are displayed
+        8) Delete both instances
+        """
+    instance_count = 2
+    instance_list = [f"{instance_name}-{item}"
+                     for item in range(1, instance_count + 1)]
+    login('user', 'demo')
+    url = '/'.join((
+        config.dashboard.dashboard_url,
+        'project',
+        'instances'
+    ))
+    driver.get(url)
+    driver.find_element_by_css_selector(
+        "button[class='btn btn-default dropdown-toggle']").click()
+    # set filter by instance_name
+    driver.find_element_by_css_selector(
+        "a[data-select-value='name']").click()
+    apply_instance_name_filter(driver, config, instance_list[1])
+    current_page_definition = widgets.get_table_definition(driver,
+                                                           sorting=True)
+    assert(vars(current_page_definition)['names'][0] ==
+           instance_list[1] and vars(current_page_definition)['count'] == 1)
+    # Generate random non existent image name
+    random_instance_name = 'horizon_instance_%s' % \
+                           uuidutils.generate_uuid(dashed=False)
+    apply_instance_name_filter(driver, config, random_instance_name)
+    no_items_present = driver.find_element_by_xpath(
+        "//td[text()='No items to display.']")
+    assert no_items_present
+
+
 # # Admin tests
 
 
@@ -357,3 +484,119 @@ def test_instance_pagination_admin(login, driver, instance_name,
     actual_page1_definition = widgets.get_table_definition(driver,
                                                            sorting=True)
     assert first_page_definition == actual_page1_definition
+
+
+@pytest.mark.parametrize('new_instance_admin', [(2, False)],
+                         indirect=True)
+def test_instances_pagination_and_filtration_admin(login, driver, instance_name,
+                                                   new_instance_admin,
+                                                   change_page_size_admin,
+                                                   config):
+    """This test checks instance pagination and filtration
+
+        Steps:
+        1) Login to Horizon Dashboard as admin user
+        2) Create 2 instances
+        3) Go to user settings page
+        4) Change 'Items Per Page' value to 1
+        5) Go to Instances page
+        6) Check filter by Name of the first and the second instance in order
+           to have one instance in the list (and it should have correct name)
+           and no 'Next' link is available
+        7) Check filter by common part of Name of in order to have one instance
+           in the list (and it should have correct name) and 'Next' link is
+           available on the first page and is not available on the second page
+        9) Go to user settings page and restore 'Items Per Page'
+        10) Delete created instances
+
+        """
+    items_per_page = 1
+    instance_count = 2
+    instance_list = [f"{instance_name}-{item}"
+                     for item in range(1, instance_count + 1)]
+    filter_instance1_def = widgets.TableDefinition(next=False, prev=False,
+                                                   count=items_per_page,
+                                                   names=[instance_list[1]])
+    filter_instance2_def = widgets.TableDefinition(next=False, prev=False,
+                                                   count=items_per_page,
+                                                   names=[instance_list[0]])
+    common_filter_page1_def = widgets.TableDefinition(next=True, prev=False,
+                                                      count=items_per_page,
+                                                      names=[instance_list[1]])
+    common_filter_page2_def = widgets.TableDefinition(next=False, prev=True,
+                                                      count=items_per_page,
+                                                      names=[instance_list[0]])
+
+    url = '/'.join((
+        config.dashboard.dashboard_url,
+        'project',
+        'instances'
+    ))
+    driver.get(url)
+    driver.find_element_by_css_selector(
+        "button[class='btn btn-default dropdown-toggle']").click()
+    # set filter by instance_name
+    driver.find_element_by_css_selector(
+        "a[data-select-value='name']").click()
+    apply_instance_name_filter(driver, config, instance_list[1])
+    actual_page_definition = widgets.get_table_definition(driver,
+                                                          sorting=True)
+    assert filter_instance1_def == actual_page_definition
+    apply_instance_name_filter(driver, config, instance_list[0])
+    actual_page_definition = widgets.get_table_definition(driver,
+                                                          sorting=True)
+    assert filter_instance2_def == actual_page_definition
+    apply_instance_name_filter(driver, config, instance_name)
+    actual_page_definition = widgets.get_table_definition(driver,
+                                                          sorting=True)
+    assert common_filter_page1_def == actual_page_definition
+    # Turning to next page
+    driver.find_element_by_link_text("Next »").click()
+    actual_page_definition = widgets.get_table_definition(driver,
+                                                          sorting=True)
+    assert common_filter_page2_def == actual_page_definition
+
+
+@pytest.mark.parametrize('new_instance_admin', [(2, False)],
+                         indirect=True)
+def test_filter_instances_admin(login, driver, instance_name,
+                                new_instance_admin, config):
+    """This test checks filtering of instances by Instance Name
+
+        Steps:
+        1) Login to Horizon dashboard as admin user
+        2) Create 2 instances
+        3) Go to Instances Page
+        5) Use filter by Instance Name
+        6) Check that filtered table has one instance only (which name is equal
+           to filter value) and no other instances in the table
+        7) Set nonexistent instance name. Check that 0 rows are displayed
+        8) Delete both instances
+        """
+    instance_count = 2
+    instance_list = [f"{instance_name}-{item}"
+                     for item in range(1, instance_count + 1)]
+    login('admin', 'admin')
+    url = '/'.join((
+        config.dashboard.dashboard_url,
+        'project',
+        'instances'
+    ))
+    driver.get(url)
+    driver.find_element_by_css_selector(
+        "button[class='btn btn-default dropdown-toggle']").click()
+    # set filter by instance_name
+    driver.find_element_by_css_selector(
+        "a[data-select-value='name']").click()
+    apply_instance_name_filter(driver, config, instance_list[1])
+    current_page_definition = widgets.get_table_definition(driver,
+                                                           sorting=True)
+    assert(vars(current_page_definition)['names'][0] ==
+           instance_list[1] and vars(current_page_definition)['count'] == 1)
+    # Generate random non existent image name
+    random_instance_name = 'horizon_instance_%s' % \
+                           uuidutils.generate_uuid(dashed=False)
+    apply_instance_name_filter(driver, config, random_instance_name)
+    no_items_present = driver.find_element_by_xpath(
+        "//td[text()='No items to display.']")
+    assert no_items_present
