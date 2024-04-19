@@ -8,15 +8,16 @@
 # Andi Chandler <andi@gowling.com>, 2020. #zanata
 # Andi Chandler <andi@gowling.com>, 2021. #zanata
 # Andi Chandler <andi@gowling.com>, 2022. #zanata
+# Andi Chandler <andi@gowling.com>, 2024. #zanata
 msgid ""
 msgstr ""
 "Project-Id-Version: horizon VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2023-11-20 22:25+0000\n"
+"POT-Creation-Date: 2024-04-09 17:43+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2022-09-05 10:28+0000\n"
+"PO-Revision-Date: 2024-04-18 12:37+0000\n"
 "Last-Translator: Andi Chandler <andi@gowling.com>\n"
 "Language-Team: English (United Kingdom)\n"
 "Language: en_GB\n"
@@ -25,6 +26,26 @@ msgstr ""
 
 msgid "#"
 msgstr "#"
+
+#, python-format
+msgid ""
+"%(id)s - Bandwidth Limit - maxkbps: %(max_kbps)s, maxburstkbps: "
+"%(max_burst_kb)s, %(direction)s"
+msgstr ""
+"%(id)s - Bandwidth Limit - maxkbps: %(max_kbps)s, maxburstkbps: "
+"%(max_burst_kb)s, %(direction)s"
+
+#, python-format
+msgid "%(id)s - DSCP Marking - dscpmark: %(dscp_mark)s"
+msgstr "%(id)s - DSCP Marking - dscpmark: %(dscp_mark)s"
+
+#, python-format
+msgid "%(id)s - Minimum Bandwidth - minkbps: %(min_kbps)s, %(direction)s"
+msgstr "%(id)s - Minimum Bandwidth - minkbps: %(min_kbps)s, %(direction)s"
+
+#, python-format
+msgid "%(id)s - Minimum Packet Rate - minkpps: %(min_kpps)s, %(direction)s"
+msgstr "%(id)s - Minimum Packet Rate - minkpps: %(min_kpps)s, %(direction)s"
 
 #, python-format
 msgid "%s (default)"
@@ -2846,6 +2867,18 @@ msgid ""
 msgstr ""
 "The logical port also defines the MAC address and the IP address(es) to be "
 "assigned to the interfaces plugged into them."
+
+msgid ""
+"The maximum KBPS (kilobits per second) value.\n"
+"    If you specify this value, must be greater than 0 otherwise max_kbps "
+"will have no value."
+msgstr ""
+"The maximum KBPS (kilobits per second) value.\n"
+"    If you specify this value, must be greater than 0 otherwise max_kbps "
+"will have no value."
+
+msgid "The maximum burst size (in kilobits). Default is 0."
+msgstr "The maximum burst size (in kilobits). Default is 0."
 
 msgid ""
 "The maximum number of key-value pairs that can be supplied per instance is "

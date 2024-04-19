@@ -4,15 +4,16 @@
 # Andi Chandler <andi@gowling.com>, 2021. #zanata
 # Andi Chandler <andi@gowling.com>, 2022. #zanata
 # Andi Chandler <andi@gowling.com>, 2023. #zanata
+# Andi Chandler <andi@gowling.com>, 2024. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 23.4.0.dev3\n"
+"Project-Id-Version: horizon 24.1.0.dev19\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-09-25 17:31+0000\n"
+"POT-Creation-Date: 2024-04-09 17:43+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2023-09-09 10:45+0000\n"
+"PO-Revision-Date: 2024-04-18 12:38+0000\n"
 "Last-Translator: Andi Chandler <andi@gowling.com>\n"
 "Language-Team: English (United Kingdom)\n"
 "Language: en_GB\n"
@@ -966,6 +967,17 @@ msgid "DROPDOWN_MAX_ITEMS"
 msgstr "DROPDOWN_MAX_ITEMS"
 
 msgid ""
+"Decides whether the DHCP Agents column should be shown on the Admin Networks "
+"panel. Retrieving data for that column takes time, and it may be advisable "
+"to disable it on large deployments with a large number on networks to speed "
+"up displaying of that view."
+msgstr ""
+"Decides whether the DHCP Agents column should be shown on the Admin Networks "
+"panel. Retrieving data for that column takes time, and it may be advisable "
+"to disable it on large deployments with a large number on networks to speed "
+"up displaying of that view."
+
+msgid ""
 "Default DNS servers you would like to use when a subnet is created. This is "
 "only a default. Users can still choose a different list of dns servers."
 msgstr ""
@@ -988,6 +1000,9 @@ msgstr ""
 "Developers and deployers should strive to use this method of customization "
 "as much as possible, and support for this is given preference over more "
 "exotic methods such as monkey patching and overrides files."
+
+msgid "Default ``True``"
+msgstr "Default ``True``"
 
 msgid "Default ``['*']``"
 msgstr "Default ``['*']``"
@@ -4733,6 +4748,9 @@ msgstr "physical_networks"
 
 msgid "segmentation_id_range"
 msgstr "segmentation_id_range"
+
+msgid "show_agents_column"
+msgstr "show_agents_column"
 
 msgid "supported_provider_types"
 msgstr "supported_provider_types"
