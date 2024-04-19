@@ -10,15 +10,16 @@
 # Andi Chandler <andi@gowling.com>, 2021. #zanata
 # Andi Chandler <andi@gowling.com>, 2022. #zanata
 # Andi Chandler <andi@gowling.com>, 2023. #zanata
+# Andi Chandler <andi@gowling.com>, 2024. #zanata
 msgid ""
 msgstr ""
 "Project-Id-Version: horizon VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2024-03-20 15:32+0000\n"
+"POT-Creation-Date: 2024-04-09 17:43+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2023-05-08 10:22+0000\n"
+"PO-Revision-Date: 2024-04-18 12:38+0000\n"
 "Last-Translator: Andi Chandler <andi@gowling.com>\n"
 "Language-Team: English (United Kingdom)\n"
 "Language: en_GB\n"
@@ -4828,6 +4829,21 @@ msgstr ""
 "by a recipient project. This is equivalent to the <tt>openstack volume "
 "transfer create</tt> command."
 
+msgid "PCPU Usage"
+msgstr "PCPU Usage"
+
+msgid "PCPUs allocation ratio"
+msgstr "PCPUs allocation ratio"
+
+msgid "PCPUs reserved"
+msgstr "PCPUs reserved"
+
+msgid "PCPUs total"
+msgstr "PCPUs total"
+
+msgid "PCPUs used"
+msgstr "PCPUs used"
+
 msgid "PLOOP - Virtuozzo/Parallels Loopback Disk"
 msgstr "PLOOP - Virtuozzo/Parallels Loopback Disk"
 
@@ -5145,6 +5161,18 @@ msgstr "RAM (total)"
 msgid "RAM (used)"
 msgstr "RAM (used)"
 
+msgid "RAM allocation ratio"
+msgstr "RAM allocation ratio"
+
+msgid "RAM reserved"
+msgstr "RAM reserved"
+
+msgid "RAM total"
+msgstr "RAM total"
+
+msgid "RAM used"
+msgstr "RAM used"
+
 msgid "RBAC Policies"
 msgstr "RBAC Policies"
 
@@ -5404,6 +5432,18 @@ msgstr "Resized or Migrated"
 msgctxt "Task status of an Instance"
 msgid "Resizing or Migrating"
 msgstr "Resizing or Migrating"
+
+msgid "Resource Provider"
+msgstr "Resource Provider"
+
+msgid "Resource Provider Name"
+msgstr "Resource Provider Name"
+
+msgid "Resource Providers"
+msgstr "Resource Providers"
+
+msgid "Resource Providers Summary"
+msgstr "Resource Providers Summary"
 
 msgid "Resource Types"
 msgstr "Resource Types"
@@ -6206,6 +6246,18 @@ msgstr "Stop"
 msgctxt "Current status of an Instance"
 msgid "Stopped"
 msgstr "Stopped"
+
+msgid "Storage allocation ratio"
+msgstr "Storage allocation ratio"
+
+msgid "Storage reserved"
+msgstr "Storage reserved"
+
+msgid "Storage total"
+msgstr "Storage total"
+
+msgid "Storage used"
+msgstr "Storage used"
 
 msgid "Submit"
 msgstr "Submit"
@@ -7775,6 +7827,12 @@ msgstr "Unable to retrieve project quotas."
 msgid "Unable to retrieve protocol list."
 msgstr "Unable to retrieve protocol list."
 
+msgid "Unable to retrieve providers information."
+msgstr "Unable to retrieve providers information."
+
+msgid "Unable to retrieve providers statistics."
+msgstr "Unable to retrieve providers statistics."
+
 msgid "Unable to retrieve public images."
 msgstr "Unable to retrieve public images."
 
@@ -8475,6 +8533,18 @@ msgstr "VCPU Usage"
 
 msgid "VCPUs"
 msgstr "VCPUs"
+
+msgid "VCPUs allocation ratio"
+msgstr "VCPUs allocation ratio"
+
+msgid "VCPUs reserved"
+msgstr "VCPUs reserved"
+
+msgid "VCPUs total"
+msgstr "VCPUs total"
+
+msgid "VCPUs used"
+msgstr "VCPUs used"
 
 msgid "VDI - Virtual Disk Image"
 msgstr "VDI - Virtual Disk Image"
