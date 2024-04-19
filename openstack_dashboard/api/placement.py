@@ -10,6 +10,7 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
+from django.conf import settings
 from keystoneauth1 import adapter
 from keystoneauth1 import identity
 from keystoneauth1 import session
@@ -41,7 +42,15 @@ def make_adapter(request):
         project_name=request.user.project_name,
         project_domain_name=request.user.domain_id,
     )
-    return Adapter(session.Session(auth=auth), api_version="placement 1.6")
+    verify = True
+    if settings.OPENSTACK_SSL_NO_VERIFY:
+        verify = False
+    elif settings.OPENSTACK_SSL_CACERT:
+        verify = settings.OPENSTACK_SSL_CACERT
+    return Adapter(
+        session.Session(auth=auth, verify=verify),
+        api_version="placement 1.6",
+    )
 
 
 def _get_json(request, path):
