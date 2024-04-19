@@ -31,7 +31,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: horizon VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2024-01-30 07:54+0000\n"
+"POT-Creation-Date: 2024-03-23 17:30+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -7561,9 +7561,6 @@ msgstr "인스턴스 비밀번호를 찾지 못 했습니다."
 
 msgid "Unable to retrieve instance project information."
 msgstr "인스턴스 프로젝트 정보를 찾지 못했습니다."
-
-msgid "Unable to retrieve instance size information."
-msgstr "인스턴스 크기 정보를 찾지 못했습니다."
 
 msgid "Unable to retrieve instances."
 msgstr "인스턴스를 찾지 못 했습니다."
