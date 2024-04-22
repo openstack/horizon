@@ -18,6 +18,8 @@
     <dt>{%trans "Fail reason"%}</dt>
     <dd>{{ backup.fail_reason }} <dd>
     {% endif %}
+    <dt>{% trans "Availability Zone" %}</dt>
+    <dd>{{ backup.availability_zone }}</dd>
     {% if volume %}
     <dt>{% trans "Volume" %}</dt>
     <dd>
