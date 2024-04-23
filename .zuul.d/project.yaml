@@ -12,9 +12,9 @@
     check:
       jobs:
         - horizon-selenium-headless
-        - horizon-integration-tests
-        - horizon-integration-pytest:
+        - horizon-integration-tests:
             voting: false
+        - horizon-integration-pytest
         - horizon-ui-pytest:
             voting: false
         - horizon-dsvm-tempest-plugin
