@@ -23,6 +23,7 @@ from openstack_dashboard.dashboards.identity.projects.groups \
     import tables as groups_tables
 from openstack_dashboard.dashboards.identity.projects.users \
     import tables as users_tables
+from openstack_dashboard.utils import identity
 
 
 class OverviewTab(tabs.Tab):
@@ -93,7 +94,8 @@ class UsersTab(tabs.TableTab):
         # For keystone.user_list project_id is not passed as argument because
         # it is ignored when using admin credentials
         # Get all users (to be able to find user name)
-        users = api.keystone.user_list(self.request)
+        domain_id = identity.get_domain_id_for_operation(self.request)
+        users = api.keystone.user_list(self.request, domain=domain_id)
         users = {user.id: user for user in users}
 
         # Get project_users_roles ({user_id: [role_id_1, role_id_2]})
@@ -128,7 +130,8 @@ class UsersTab(tabs.TableTab):
         # For keystone.group_list project_id is not passed as argument because
         # it is ignored when using admin credentials
         # Get all groups (to be able to find group name)
-        groups = api.keystone.group_list(self.request)
+        domain_id = identity.get_domain_id_for_operation(self.request)
+        groups = api.keystone.group_list(self.request, domain=domain_id)
         group_names = {group.id: group.name for group in groups}
 
         # Get a dictionary {group_id: [role_id_1, role_id_2]}
@@ -138,7 +141,8 @@ class UsersTab(tabs.TableTab):
 
         for group_id in project_groups_roles:
             group_users = api.keystone.user_list(self.request,
-                                                 group=group_id)
+                                                 group=group_id,
+                                                 domain=domain_id)
             group_roles_names = [
                 role.name for role in roles
                 if role.id in project_groups_roles[group_id]]
@@ -202,6 +206,7 @@ class GroupsTab(tabs.TableTab):
         project = self.tab_group.kwargs['project']
 
         try:
+            domain_id = identity.get_domain_id_for_operation(self.request)
             # Get project_groups_roles: {group_id: [role_id_1, role_id_2]}
             project_groups_roles = api.keystone.get_project_groups_roles(
                 self.request,
@@ -210,7 +215,7 @@ class GroupsTab(tabs.TableTab):
             roles = api.keystone.role_list(self.request)
             # For keystone.group_list, we do not give the project_id because it
             # is ignored when called with admin creds.
-            groups = api.keystone.group_list(self.request)
+            groups = api.keystone.group_list(self.request, domain=domain_id)
             groups = {group.id: group for group in groups}
         except Exception:
             exceptions.handle(self.request,
