@@ -1,16 +1,6 @@
 # Note: Requirements lower bounds listed here are our best effort to keep them up to
 # date but we do not test them so there is no guarantee of having them all correct.
 # if you find any incorrect lower bounds, let us know or propose a fix.
-
-# The order of packages is significant, because pip processes them in the order
-# of appearance. Changing the order has an impact on the overall integration
-# process, which may cause wedges in the gate later.
-# Order matters to the pip dependency resolver, so sorting this file
-# changes how packages are installed.  New dependencies should be
-# added in alphabetical order, however, some dependencies may need to
-# be installed in a specific order.
-#
-# PBR should always appear first
 pbr>=5.5.0 # Apache-2.0
 
 # Horizon Core Requirements
@@ -32,7 +22,7 @@ oslo.serialization>=4.3.0 # Apache-2.0
 oslo.upgradecheck>=1.5.0 # Apache-2.0
 oslo.utils>=4.12.0 # Apache-2.0
 osprofiler>=3.4.2 # Apache-2.0
-pymongo!=3.1,>=3.0.2 # Apache-2.0
+pymongo>=3.0.2 # Apache-2.0
 pyScss>=1.4.0 # MIT License
 python-cinderclient>=8.0.0 # Apache-2.0
 python-glanceclient>=2.8.0 # Apache-2.0
