@@ -1227,10 +1227,10 @@ class UsageViewTests(test.BaseAdminViewTests):
         hdr = ('"Instance Name","VCPUs","RAM (MB)","Disk (GB)",'
                '"Usage (Hours)","Age (Seconds)","State"')
         self.assertContains(res, '%s\r\n' % hdr)
-        usage_1_quoted = ('"=cmd|\' /C calc\'!A0","1","512","0","122.87",'
+        usage_1_quoted = ('"\'=cmd|\' /C calc\'!A0","1","512","0","122.87",'
                           '"442321","Active"')
         self.assertContains(res, '%s\r\n' % usage_1_quoted)
-        usage_2_quoted = ('"=cmd|\' /C calc\'!A0","1","512","0","2.61",'
+        usage_2_quoted = ('"\'=cmd|\' /C calc\'!A0","1","512","0","2.61",'
                           '"9367","Active"')
         self.assertContains(res, '%s\r\n' % usage_2_quoted)
 
