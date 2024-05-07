@@ -28,7 +28,7 @@ from openstack_dashboard.usage import quotas
 class RescopeTokenToProject(tables.LinkAction):
     name = "rescope"
     verbose_name = _("Set as Active Project")
-    url = "switch_tenants"
+    url = "switch_project_id"
 
     def allowed(self, request, project):
         # allow rescoping token to any project the user has a role on,
@@ -39,7 +39,7 @@ class RescopeTokenToProject(tables.LinkAction):
                      project.enabled), False)
 
     def get_link_url(self, project):
-        # redirects to the switch_tenants url which then will redirect
+        # redirects to the switch_project_id url which then will redirect
         # back to this page
         dash_url = reverse("horizon:identity:projects:index")
         base_url = reverse(self.url, args=[project.id])

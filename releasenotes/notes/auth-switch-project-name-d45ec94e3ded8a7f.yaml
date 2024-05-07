@@ -1,0 +1,10 @@
+---
+features:
+  - |
+    Added a new URL endpoint ``/auth/switch_name/<project-name>`` to Horizon that can
+    be used to switch to another project by name, if ``domain_id`` query parameter
+    is set that domain ID is used otherwise the domain for the current project scoped
+    token is used.
+
+    This is the same functionality as is already provided by the ``/auth/switch/<project-id>``
+    endpoint that only works with an project ID (UUID).

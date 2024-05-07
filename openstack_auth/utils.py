@@ -296,7 +296,8 @@ def clean_up_auth_url(auth_url):
 
 
 def get_token_auth_plugin(auth_url, token, project_id=None, domain_name=None,
-                          system_scope=None):
+                          system_scope=None, project_name=None,
+                          project_domain_id=None):
     if system_scope:
         return v3_auth.Token(auth_url=auth_url,
                              token=token,
@@ -306,6 +307,12 @@ def get_token_auth_plugin(auth_url, token, project_id=None, domain_name=None,
         return v3_auth.Token(auth_url=auth_url,
                              token=token,
                              domain_name=domain_name,
+                             reauthenticate=False)
+    if project_name and project_domain_id:
+        return v3_auth.Token(auth_url=auth_url,
+                             token=token,
+                             project_name=project_name,
+                             project_domain_id=project_domain_id,
                              reauthenticate=False)
     return v3_auth.Token(auth_url=auth_url,
                          token=token,
