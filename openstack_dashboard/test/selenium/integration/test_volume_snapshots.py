@@ -373,29 +373,34 @@ def test_volume_snapshots_pagination_demo(login, driver, volume_snapshot_names,
         'snapshots'
     ))
     driver.get(url)
-    actual_page1_definition = widgets.get_table_definition(driver,
-                                                           sorting=True)
-    assert first_page_definition == actual_page1_definition
+    current_table_status = widgets.get_table_status(driver, "volume_snapshots",
+                                                    volume_snapshot_names[2],
+                                                    sorting=True)
+    assert first_page_definition == current_table_status
     # Turning to next page(page2)
     driver.find_element_by_link_text("Next »").click()
-    actual_page2_definition = widgets.get_table_definition(driver,
-                                                           sorting=True)
-    assert second_page_definition == actual_page2_definition
+    current_table_status = widgets.get_table_status(driver, "volume_snapshots",
+                                                    volume_snapshot_names[1],
+                                                    sorting=True)
+    assert second_page_definition == current_table_status
     # Turning to next page(page3)
     driver.find_element_by_link_text("Next »").click()
-    actual_page3_definition = widgets.get_table_definition(driver,
-                                                           sorting=True)
-    assert third_page_definition == actual_page3_definition
+    current_table_status = widgets.get_table_status(driver, "volume_snapshots",
+                                                    volume_snapshot_names[0],
+                                                    sorting=True)
+    assert third_page_definition == current_table_status
     # Turning back to previous page(page2)
     driver.find_element_by_link_text("« Prev").click()
-    actual_page2_definition = widgets.get_table_definition(driver,
-                                                           sorting=True)
-    assert second_page_definition == actual_page2_definition
+    current_table_status = widgets.get_table_status(driver, "volume_snapshots",
+                                                    volume_snapshot_names[1],
+                                                    sorting=True)
+    assert second_page_definition == current_table_status
     # Turning back to previous page(page1)
     driver.find_element_by_link_text("« Prev").click()
-    actual_page1_definition = widgets.get_table_definition(driver,
-                                                           sorting=True)
-    assert first_page_definition == actual_page1_definition
+    current_table_status = widgets.get_table_status(driver, "volume_snapshots",
+                                                    volume_snapshot_names[2],
+                                                    sorting=True)
+    assert first_page_definition == current_table_status
 
 
 def test_create_volume_snapshot_admin(login, driver, new_volume_admin,
@@ -523,26 +528,31 @@ def test_volume_snapshots_pagination_admin(login, driver, volume_snapshot_names,
         'snapshots'
     ))
     driver.get(url)
-    actual_page1_definition = widgets.get_table_definition(driver,
-                                                           sorting=True)
-    assert first_page_definition == actual_page1_definition
+    current_table_status = widgets.get_table_status(driver, "volume_snapshots",
+                                                    volume_snapshot_names[2],
+                                                    sorting=True)
+    assert first_page_definition == current_table_status
     # Turning to next page(page2)
     driver.find_element_by_link_text("Next »").click()
-    actual_page2_definition = widgets.get_table_definition(driver,
-                                                           sorting=True)
-    assert second_page_definition == actual_page2_definition
+    current_table_status = widgets.get_table_status(driver, "volume_snapshots",
+                                                    volume_snapshot_names[1],
+                                                    sorting=True)
+    assert second_page_definition == current_table_status
     # Turning to next page(page3)
     driver.find_element_by_link_text("Next »").click()
-    actual_page3_definition = widgets.get_table_definition(driver,
-                                                           sorting=True)
-    assert third_page_definition == actual_page3_definition
+    current_table_status = widgets.get_table_status(driver, "volume_snapshots",
+                                                    volume_snapshot_names[0],
+                                                    sorting=True)
+    assert third_page_definition == current_table_status
     # Turning back to previous page(page2)
     driver.find_element_by_link_text("« Prev").click()
-    actual_page2_definition = widgets.get_table_definition(driver,
-                                                           sorting=True)
-    assert second_page_definition == actual_page2_definition
+    current_table_status = widgets.get_table_status(driver, "volume_snapshots",
+                                                    volume_snapshot_names[1],
+                                                    sorting=True)
+    assert second_page_definition == current_table_status
     # Turning back to previous page(page1)
     driver.find_element_by_link_text("« Prev").click()
-    actual_page1_definition = widgets.get_table_definition(driver,
-                                                           sorting=True)
-    assert first_page_definition == actual_page1_definition
+    current_table_status = widgets.get_table_status(driver, "volume_snapshots",
+                                                    volume_snapshot_names[2],
+                                                    sorting=True)
+    assert first_page_definition == current_table_status

@@ -10,9 +10,12 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
+import time
+
 import openstack as openstack_sdk
 from oslo_utils import uuidutils
 import pytest
+from selenium.common import exceptions
 
 from openstack_dashboard.test.selenium.integration import test_volumes
 from openstack_dashboard.test.selenium import widgets
@@ -63,50 +66,53 @@ def openstack_demo(config):
     conn.close()
 
 
+def change_page_size(driver, config, page_size):
+    url = '/'.join((
+        config.dashboard.dashboard_url,
+        'settings',
+    ))
+    driver.get(url)
+    # the text in page size field is rewritten after fully loaded page
+    # repeated check
+    for attempt in range(3):
+        element = driver.find_element_by_id("id_pagesize")
+        element.clear()
+        element.send_keys(page_size)
+        driver.find_element_by_css_selector(
+            ".btn-primary[value='Save']").click()
+        try:
+            driver.find_element_by_css_selector(
+                f"#id_pagesize[value='{page_size}']")
+            break
+        except(exceptions.NoSuchElementException):
+            time.sleep(3)
+
+
 @pytest.fixture()
 def change_page_size_admin(login, config, driver):
     default_page_size = 20
     new_page_size = 1
-    def change_size(page_size):
 
-        login('admin')
-        url = '/'.join((
-            config.dashboard.dashboard_url,
-            'settings',
-        ))
-        driver.get(url)
-        element = driver.find_element_by_xpath(
-            ".//input[@id='id_pagesize']")
-        element.clear()
-        element.send_keys(page_size)
-        driver.find_element_by_xpath(".//input[@value='Save']").click()
-
-    change_size(new_page_size)
+    login('admin')
+    change_page_size(driver, config, new_page_size)
     yield
-    change_size(default_page_size)
+    change_page_size(driver, config, default_page_size)
 
 
 @pytest.fixture()
 def change_page_size_demo(login, config, driver):
     default_page_size = 20
     new_page_size = 1
-    def change_size(page_size):
 
-        login('user')
-        url = '/'.join((
-            config.dashboard.dashboard_url,
-            'settings',
-        ))
-        driver.get(url)
-        element = driver.find_element_by_xpath(
-            ".//input[@id='id_pagesize']")
-        element.clear()
-        element.send_keys(page_size)
-        driver.find_element_by_xpath(".//input[@value='Save']").click()
-
-    change_size(new_page_size)
+    login('user')
+    url = '/'.join((
+        config.dashboard.dashboard_url,
+        'settings',
+    ))
+    driver.get(url)
+    change_page_size(driver, config, new_page_size)
     yield
-    change_size(default_page_size)
+    change_page_size(driver, config, default_page_size)
 
 
 def pytest_assertrepr_compare(op, left, right):

@@ -14,9 +14,11 @@ import os
 import tempfile
 import time
 
-import pytest
-
 from oslo_utils import uuidutils
+import pytest
+from selenium.webdriver.common.by import By
+from selenium.webdriver.support import expected_conditions as EC
+from selenium.webdriver.support.wait import WebDriverWait
 
 from openstack_dashboard.test.selenium.integration import test_instances
 from openstack_dashboard.test.selenium import widgets
@@ -143,7 +145,7 @@ def test_image_create_from_local_file_demo(login, driver, image_names,
                                            temporary_file, clear_image_demo,
                                            config, openstack_demo):
     image_name = image_names[0]
-    login('user', 'demo')
+    login('user')
     url = '/'.join((
         config.dashboard.dashboard_url,
         'project',
@@ -170,7 +172,7 @@ def test_image_create_from_local_file_demo(login, driver, image_names,
 def test_image_delete_demo(login, driver, image_names, openstack_demo,
                            new_image_demo, config):
     image_name = image_names[0]
-    login('user', 'demo')
+    login('user')
     url = '/'.join((
         config.dashboard.dashboard_url,
         'project',
@@ -203,7 +205,7 @@ def test_image_pagination_demo(login, driver, image_names, openstack_demo,
     third_page_definition = widgets.TableDefinition(next=False, prev=True,
                                                     count=items_per_page,
                                                     names=[img_list[2]])
-    login('user', 'demo')
+    login('user')
     url = '/'.join((
         config.dashboard.dashboard_url,
         'project',
@@ -242,7 +244,7 @@ def test_image_create_from_local_file_admin(login, driver, image_names,
                                             temporary_file, clear_image_admin,
                                             config, openstack_admin):
     image_name = image_names[0]
-    login('admin', 'admin')
+    login('admin')
     url = '/'.join((
         config.dashboard.dashboard_url,
         'project',
@@ -269,7 +271,7 @@ def test_image_create_from_local_file_admin(login, driver, image_names,
 def test_image_delete_admin(login, driver, image_names, openstack_admin,
                             new_image_admin, config):
     image_name = image_names[0]
-    login('admin', 'admin')
+    login('admin')
     url = '/'.join((
         config.dashboard.dashboard_url,
         'project',
@@ -303,7 +305,7 @@ def test_image_pagination_admin(login, driver, image_names, openstack_admin,
     third_page_definition = widgets.TableDefinition(next=False, prev=True,
                                                     count=items_per_page,
                                                     names=[img_list[2]])
-    login('admin', 'admin')
+    login('admin')
     url = '/'.join((
         config.dashboard.dashboard_url,
         'project',
@@ -337,7 +339,7 @@ def test_image_pagination_admin(login, driver, image_names, openstack_admin,
 
 def test_image_filtration_admin(login, driver, new_image_admin, config):
     image_name = new_image_admin.name
-    login('admin', 'admin')
+    login('admin')
     url = '/'.join((
         config.dashboard.dashboard_url,
         'project',
@@ -364,7 +366,7 @@ def test_remove_protected_image_admin(login, driver, image_names,
                                       new_protected_image_admin, config,
                                       openstack_admin):
     image_name = new_protected_image_admin.name
-    login('admin', 'admin')
+    login('admin')
     url = '/'.join((
         config.dashboard.dashboard_url,
         'project',
@@ -409,7 +411,7 @@ def test_edit_image_description_admin(login, driver, image_names,
                                       openstack_admin):
     image_name = new_image_admin.name
     new_description = "new_description_text"
-    login('admin', 'admin')
+    login('admin')
     url = '/'.join((
         config.dashboard.dashboard_url,
         'project',
@@ -446,7 +448,7 @@ def test_update_image_metadata_admin(login, driver,
         'metadata2': 'img_metadata%s' % uuidutils.generate_uuid(dashed=False)
     }
     image_name = new_image_admin.name
-    login('admin', 'admin')
+    login('admin')
     url = '/'.join((
         config.dashboard.dashboard_url,
         'project',
@@ -483,7 +485,7 @@ def test_launch_instance_from_image_admin(complete_default_test_network, login,
     image_name = new_image_admin.name
     network = complete_default_test_network.name
     flavor = config.launch_instances.flavor
-    login('admin', 'admin')
+    login('admin')
     url = '/'.join((
         config.dashboard.dashboard_url,
         'project',
@@ -525,7 +527,7 @@ def test_create_volume_from_image_admin(login, driver, volume_name,
                                         config, openstack_admin):
     volume_name = volume_name[0]
     image_name = new_image_admin.name
-    login('admin', 'admin')
+    login('admin')
     url = '/'.join((
         config.dashboard.dashboard_url,
         'project',
@@ -540,8 +542,10 @@ def test_create_volume_from_image_admin(login, driver, volume_name,
     name_field = driver.find_element_by_xpath("//input[@name='name']")
     name_field.clear()
     name_field.send_keys(volume_name)
-    driver.find_element_by_xpath(
-        "//button[@class='btn btn-primary finish']").click()
+    create_vol_btn = WebDriverWait(driver, config.selenium.page_timeout).until(
+        EC.element_to_be_clickable((By.XPATH, f"//button[@class='btn "
+                                              f"btn-primary finish']")))
+    create_vol_btn.click()
     messages = widgets.get_and_dismiss_messages(driver)
     assert f"Info: Creating volume {volume_name}" in messages
     assert openstack_admin.block_storage.find_volume(volume_name) is not None

@@ -10,7 +10,10 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
+import time
+
 import pytest
+from selenium.common import exceptions
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.wait import WebDriverWait
 
@@ -52,6 +55,26 @@ def clear_instance_admin(instance_name, openstack_admin):
     )
 
 
+def wait_for_angular_readiness_instance_source(driver):
+    driver.set_script_timeout(10)
+    driver.execute_async_script("""
+    var callback = arguments[arguments.length - 1];
+    var element = document.querySelector(\
+    'div[ng-if="model.newInstanceSpec.vol_create == true"] .btn-group');
+    if (!window.angular) {
+    callback(false)
+    }
+    if (angular.getTestability) {
+    angular.getTestability(element).whenStable(function(){callback(true)});
+    } else {
+    if (!angular.element(element).injector()) {
+    callback(false)
+    }
+    var browser = angular.element(element).injector().get('$browser');
+    browser.notifyWhenNoOutstandingRequests(function(){callback(true)});
+    };""")
+
+
 def create_new_volume_during_create_instance(driver, required_state):
     create_new_volume_btn = widgets.find_already_visible_element_by_xpath(
         f".//*[@id='vol-create'][text()='{required_state}']", driver
@@ -67,13 +90,22 @@ def delete_volume_on_instance_delete(driver, required_state):
 
 
 def apply_instance_name_filter(driver, config, name_pattern):
-    filter_field = driver.find_element_by_css_selector(
-        "input[name='instances__filter__q']")
-    filter_field.clear()
-    filter_field.send_keys(name_pattern)
-    driver.find_element_by_css_selector("#instances__action_filter").click()
-    WebDriverWait(driver, config.selenium.page_timeout).until(
-        EC.invisibility_of_element_located(filter_field))
+    # the text in filter field is rewritten after fully loaded page
+    # repeated check
+    for attempt in range(3):
+        filter_field = driver.find_element_by_css_selector(
+            "input[name='instances__filter__q']")
+        filter_field.clear()
+        filter_field.send_keys(name_pattern)
+        driver.find_element_by_id("instances__action_filter").click()
+        WebDriverWait(driver, config.selenium.page_timeout).until(
+            EC.invisibility_of_element_located(filter_field))
+        try:
+            driver.find_element_by_css_selector(
+                f".table_search input[value='{name_pattern}']")
+            break
+        except(exceptions.NoSuchElementException):
+            time.sleep(3)
 
 
 def test_create_instance_demo(complete_default_test_network, login, driver,
@@ -108,6 +140,7 @@ def test_create_instance_demo(complete_default_test_network, login, driver,
     )
     widgets.select_from_transfer_table(flavor_table, flavor)
     navigation.find_element_by_link_text("Source").click()
+    wait_for_angular_readiness_instance_source(driver)
     source_table = wizard.find_element_by_css_selector(
         "ng-include[ng-form=launchInstanceSourceForm]"
     )
@@ -161,6 +194,7 @@ def test_create_instance_from_volume_demo(complete_default_test_network, login,
     )
     widgets.select_from_transfer_table(flavor_table, flavor)
     navigation.find_element_by_link_text("Source").click()
+    wait_for_angular_readiness_instance_source(driver)
     source_table = wizard.find_element_by_css_selector(
         "ng-include[ng-form=launchInstanceSourceForm]"
     )
@@ -235,19 +269,22 @@ def test_instance_pagination_demo(login, driver, instance_name,
         'instances'
     ))
     driver.get(url)
-    actual_page1_definition = widgets.get_table_definition(driver,
-                                                           sorting=True)
-    assert first_page_definition == actual_page1_definition
+    current_table_status = widgets.get_table_status(driver, "instances",
+                                                    instance_list[1],
+                                                    sorting=True)
+    assert first_page_definition == current_table_status
     # Turning to next page
     driver.find_element_by_link_text("Next »").click()
-    actual_page2_definition = widgets.get_table_definition(driver,
-                                                           sorting=True)
-    assert second_page_definition == actual_page2_definition
+    current_table_status = widgets.get_table_status(driver, "instances",
+                                                    instance_list[0],
+                                                    sorting=True)
+    assert second_page_definition == current_table_status
     # Turning back to previous page
     driver.find_element_by_link_text("« Prev").click()
-    actual_page1_definition = widgets.get_table_definition(driver,
-                                                           sorting=True)
-    assert first_page_definition == actual_page1_definition
+    current_table_status = widgets.get_table_status(driver, "instances",
+                                                    instance_list[1],
+                                                    sorting=True)
+    assert first_page_definition == current_table_status
 
 
 @pytest.mark.parametrize('new_instance_demo', [(2, False)],
@@ -302,22 +339,26 @@ def test_instances_pagination_and_filtration_demo(login, driver, instance_name,
     driver.find_element_by_css_selector(
         "a[data-select-value='name']").click()
     apply_instance_name_filter(driver, config, instance_list[1])
-    actual_page_definition = widgets.get_table_definition(driver,
-                                                          sorting=True)
-    assert filter_instance1_def == actual_page_definition
+    current_table_status = widgets.get_table_status(driver, "instances",
+                                                    instance_list[1],
+                                                    sorting=True)
+    assert filter_instance1_def == current_table_status
     apply_instance_name_filter(driver, config, instance_list[0])
-    actual_page_definition = widgets.get_table_definition(driver,
-                                                          sorting=True)
-    assert filter_instance2_def == actual_page_definition
+    current_table_status = widgets.get_table_status(driver, "instances",
+                                                    instance_list[0],
+                                                    sorting=True)
+    assert filter_instance2_def == current_table_status
     apply_instance_name_filter(driver, config, instance_name)
-    actual_page_definition = widgets.get_table_definition(driver,
-                                                          sorting=True)
-    assert common_filter_page1_def == actual_page_definition
+    current_table_status = widgets.get_table_status(driver, "instances",
+                                                    instance_list[1],
+                                                    sorting=True)
+    assert common_filter_page1_def == current_table_status
     # Turning to next page
     driver.find_element_by_link_text("Next »").click()
-    actual_page_definition = widgets.get_table_definition(driver,
-                                                          sorting=True)
-    assert common_filter_page2_def == actual_page_definition
+    current_table_status = widgets.get_table_status(driver, "instances",
+                                                    instance_list[0],
+                                                    sorting=True)
+    assert common_filter_page2_def == current_table_status
 
 
 @pytest.mark.parametrize('new_instance_demo', [(2, False)],
@@ -339,7 +380,7 @@ def test_filter_instances_demo(login, driver, instance_name,
     instance_count = 2
     instance_list = [f"{instance_name}-{item}"
                      for item in range(1, instance_count + 1)]
-    login('user', 'demo')
+    login('user')
     url = '/'.join((
         config.dashboard.dashboard_url,
         'project',
@@ -352,10 +393,11 @@ def test_filter_instances_demo(login, driver, instance_name,
     driver.find_element_by_css_selector(
         "a[data-select-value='name']").click()
     apply_instance_name_filter(driver, config, instance_list[1])
-    current_page_definition = widgets.get_table_definition(driver,
-                                                           sorting=True)
-    assert(vars(current_page_definition)['names'][0] ==
-           instance_list[1] and vars(current_page_definition)['count'] == 1)
+    current_table_status = widgets.get_table_status(driver, "instances",
+                                                    instance_list[1],
+                                                    sorting=True)
+    assert (vars(current_table_status)['names'][0] == instance_list[1] and
+            vars(current_table_status)['count'] == 1)
     # Generate random non existent image name
     random_instance_name = 'horizon_instance_%s' % \
                            uuidutils.generate_uuid(dashed=False)
@@ -365,7 +407,7 @@ def test_filter_instances_demo(login, driver, instance_name,
     assert no_items_present
 
 
-# # Admin tests
+# Admin tests
 
 
 def test_create_instance_admin(complete_default_test_network, login, driver,
@@ -400,6 +442,7 @@ def test_create_instance_admin(complete_default_test_network, login, driver,
     )
     widgets.select_from_transfer_table(flavor_table, flavor)
     navigation.find_element_by_link_text("Source").click()
+    wait_for_angular_readiness_instance_source(driver)
     source_table = wizard.find_element_by_css_selector(
         "ng-include[ng-form=launchInstanceSourceForm]"
     )
@@ -471,19 +514,22 @@ def test_instance_pagination_admin(login, driver, instance_name,
         'instances'
     ))
     driver.get(url)
-    actual_page1_definition = widgets.get_table_definition(driver,
-                                                           sorting=True)
-    assert first_page_definition == actual_page1_definition
+    current_table_status = widgets.get_table_status(driver, "instances",
+                                                    instance_list[1],
+                                                    sorting=True)
+    assert first_page_definition == current_table_status
     # Turning to next page
     driver.find_element_by_link_text("Next »").click()
-    actual_page2_definition = widgets.get_table_definition(driver,
-                                                           sorting=True)
-    assert second_page_definition == actual_page2_definition
+    current_table_status = widgets.get_table_status(driver, "instances",
+                                                    instance_list[0],
+                                                    sorting=True)
+    assert second_page_definition == current_table_status
     # Turning back to previous page
     driver.find_element_by_link_text("« Prev").click()
-    actual_page1_definition = widgets.get_table_definition(driver,
-                                                           sorting=True)
-    assert first_page_definition == actual_page1_definition
+    current_table_status = widgets.get_table_status(driver, "instances",
+                                                    instance_list[1],
+                                                    sorting=True)
+    assert first_page_definition == current_table_status
 
 
 @pytest.mark.parametrize('new_instance_admin', [(2, False)],
@@ -539,22 +585,26 @@ def test_instances_pagination_and_filtration_admin(login, driver, instance_name,
     driver.find_element_by_css_selector(
         "a[data-select-value='name']").click()
     apply_instance_name_filter(driver, config, instance_list[1])
-    actual_page_definition = widgets.get_table_definition(driver,
-                                                          sorting=True)
-    assert filter_instance1_def == actual_page_definition
+    current_table_status = widgets.get_table_status(driver, "instances",
+                                                    instance_list[1],
+                                                    sorting=True)
+    assert filter_instance1_def == current_table_status
     apply_instance_name_filter(driver, config, instance_list[0])
-    actual_page_definition = widgets.get_table_definition(driver,
-                                                          sorting=True)
-    assert filter_instance2_def == actual_page_definition
+    current_table_status = widgets.get_table_status(driver, "instances",
+                                                    instance_list[0],
+                                                    sorting=True)
+    assert filter_instance2_def == current_table_status
     apply_instance_name_filter(driver, config, instance_name)
-    actual_page_definition = widgets.get_table_definition(driver,
-                                                          sorting=True)
-    assert common_filter_page1_def == actual_page_definition
+    current_table_status = widgets.get_table_status(driver, "instances",
+                                                    instance_list[1],
+                                                    sorting=True)
+    assert common_filter_page1_def == current_table_status
     # Turning to next page
     driver.find_element_by_link_text("Next »").click()
-    actual_page_definition = widgets.get_table_definition(driver,
-                                                          sorting=True)
-    assert common_filter_page2_def == actual_page_definition
+    current_table_status = widgets.get_table_status(driver, "instances",
+                                                    instance_list[0],
+                                                    sorting=True)
+    assert common_filter_page2_def == current_table_status
 
 
 @pytest.mark.parametrize('new_instance_admin', [(2, False)],
@@ -576,7 +626,7 @@ def test_filter_instances_admin(login, driver, instance_name,
     instance_count = 2
     instance_list = [f"{instance_name}-{item}"
                      for item in range(1, instance_count + 1)]
-    login('admin', 'admin')
+    login('admin')
     url = '/'.join((
         config.dashboard.dashboard_url,
         'project',
@@ -589,10 +639,11 @@ def test_filter_instances_admin(login, driver, instance_name,
     driver.find_element_by_css_selector(
         "a[data-select-value='name']").click()
     apply_instance_name_filter(driver, config, instance_list[1])
-    current_page_definition = widgets.get_table_definition(driver,
-                                                           sorting=True)
-    assert(vars(current_page_definition)['names'][0] ==
-           instance_list[1] and vars(current_page_definition)['count'] == 1)
+    current_table_status = widgets.get_table_status(driver, "instances",
+                                                    instance_list[1],
+                                                    sorting=True)
+    assert (vars(current_table_status)['names'][0] == instance_list[1] and
+            vars(current_table_status)['count'] == 1)
     # Generate random non existent image name
     random_instance_name = 'horizon_instance_%s' % \
                            uuidutils.generate_uuid(dashed=False)

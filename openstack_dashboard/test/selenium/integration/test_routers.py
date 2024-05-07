@@ -81,25 +81,13 @@ def new_interface(new_router_demo, new_network_demo, new_subnet_demo,
 @pytest.fixture
 def new_router_with_gateway(new_router_demo, openstack_demo, openstack_admin):
     network_id = openstack_admin.network.find_network('public').id
-    subnet_id = openstack_admin.network.find_subnet('public-subnet').id
-    ip_address = openstack_admin.network.find_subnet(
-        'public-subnet').allocation_pools[0]['end']
 
     openstack_demo.network.put(
-        f"/routers/{new_router_demo.id}/add_external_gateways",
+        f"/routers/{new_router_demo.id}",
         json={
             "router": {
-                "external_gateways": [{
-                    "enable_snat": False,
-                    "external_fixed_ips": [{
-                        "ip_address": f"{ip_address}",
-                        "subnet_id": f"{subnet_id}"
-                    }],
-                    "network_id": f"{network_id}"
-                }]
-            }
-        }
-    ).json()
+                "external_gateway_info": {
+                    "network_id": f"{network_id}"}}}).json()
     yield new_router_demo
 
 

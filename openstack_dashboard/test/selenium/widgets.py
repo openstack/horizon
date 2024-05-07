@@ -86,14 +86,24 @@ def is_prev_link_available(driver):
         return False
 
 
-def get_table_definition(driver, sorting=False):
-    names = driver.find_elements_by_css_selector('table tr td:nth-child(2)')
+def available_elements(driver, resource_type, name):
+    try:
+        driver.find_elements_by_css_selector(
+            f"table#{resource_type} tr[data-display='{name}']")
+    except (exceptions.NoSuchElementException):
+        pass
+    finally:
+        return driver.find_elements_by_css_selector('table tr td:nth-child(2)')
+
+
+def get_table_status(driver, resource_type, name, sorting=False):
+    elements = available_elements(driver, resource_type, name)
     if sorting:
-        names = [name.text for name in names]
+        names = [name.text for name in elements]
         names.sort()
     actual_table = TableDefinition(next=is_next_link_available(driver),
                                    prev=is_prev_link_available(driver),
-                                   count=len(names), names=[names[0]])
+                                   count=len(elements), names=[names[0]])
     return actual_table
 
 
