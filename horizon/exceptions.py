@@ -20,7 +20,6 @@ import logging
 import os
 import sys
 
-from debtcollector import removals
 from django.core.management import color_style
 from django.utils import encoding
 from django.utils.translation import gettext_lazy as _
@@ -190,22 +189,6 @@ RECOVERABLE += tuple(HORIZON_CONFIG['exceptions']['recoverable'])
 
 def error_color(msg):
     return color_style().ERROR_OUTPUT(msg)
-
-
-@removals.remove(message='Use exceptions.handle() instead', version='17.2.0')
-def check_message(keywords, message):
-    """Checks an exception for given keywords and raises an error if found.
-
-    It raises a new ``ActionError`` with the desired message if the
-    keywords are found. This allows selective
-    control over API error messages.
-    """
-    exc_type, exc_value, exc_traceback = sys.exc_info()
-    if set(str(exc_value).split(" ")).issuperset(set(keywords)):
-        exc_value.message = message
-        # NOTE: This function is intended to call inside an except clause.
-        # pylint: disable=misplaced-bare-raise
-        raise
 
 
 def handle_unauthorized(request, message, redirect, ignore, escalate, handled,
