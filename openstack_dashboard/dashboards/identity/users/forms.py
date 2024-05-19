@@ -162,8 +162,6 @@ class CreateUserForm(PasswordMixin, BaseUserForm, AddExtraColumnMixIn):
         try:
             LOG.info('Creating user with name "%s"', data['name'])
             desc = data["description"]
-            if "email" in data:
-                data['email'] = data['email'] or None
 
             # add extra information
             EXTRA_INFO = settings.USER_TABLE_EXTRA_INFO
@@ -176,10 +174,10 @@ class CreateUserForm(PasswordMixin, BaseUserForm, AddExtraColumnMixIn):
             new_user = \
                 api.keystone.user_create(request,
                                          name=data['name'],
-                                         email=data['email'],
+                                         email=data.get('email') or None,
                                          description=desc or None,
                                          password=data['password'],
-                                         project=data['project'] or None,
+                                         project=data.get('project') or None,
                                          enabled=data['enabled'],
                                          domain=domain.id,
                                          **kwargs)

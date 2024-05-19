@@ -81,9 +81,8 @@ class UpdateView(workflows.WorkflowView):
         for key in ('cidr', 'ip_version', 'enable_dhcp'):
             initial[key] = subnet[key]
 
-        initial['gateway_ip'] = subnet['gateway_ip'] or ''
-        initial['no_gateway'] = (subnet['gateway_ip'] is None)
-
+        initial['gateway_ip'] = subnet.get('gateway_ip', '')
+        initial['no_gateway'] = not initial['gateway_ip']
         if initial['ip_version'] == 6:
             initial['ipv6_modes'] = utils.get_ipv6_modes_menu_from_attrs(
                 subnet['ipv6_ra_mode'], subnet['ipv6_address_mode'])

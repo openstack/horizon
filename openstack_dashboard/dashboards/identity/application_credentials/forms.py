@@ -109,8 +109,8 @@ class CreateApplicationCredentialForm(forms.SelfHandlingForm):
             new_app_cred = api.keystone.application_credential_create(
                 request,
                 name=data['name'],
-                description=data['description'] or None,
-                secret=data['secret'] or None,
+                description=data.get('description') or None,
+                secret=data.get('secret') or None,
                 expires_at=expiration or None,
                 roles=roles,
                 access_rules=access_rules,
