@@ -221,7 +221,7 @@ def domain_delete(request, domain_id):
 
 @profiler.trace
 def domain_list(request):
-    manager = keystoneclient(request, admin=True).domains
+    manager = keystoneclient(request, admin=True, force_scoped=True).domains
     return manager.list()
 
 
