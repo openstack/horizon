@@ -10,6 +10,8 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
+import time
+
 import pytest
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.wait import WebDriverWait
@@ -74,6 +76,14 @@ def apply_instance_name_filter(driver, config, name_pattern):
     driver.find_element_by_css_selector("#instances__action_filter").click()
     WebDriverWait(driver, config.selenium.page_timeout).until(
         EC.invisibility_of_element_located(filter_field))
+
+
+def wait_for_instance_is_deleted(openstack, instance_name):
+    for attempt in range(10):
+        if openstack.compute.find_server(instance_name) is None:
+            break
+        else:
+            time.sleep(3)
 
 
 def test_create_instance_demo(complete_default_test_network, login, driver,
@@ -195,6 +205,7 @@ def test_delete_instance_demo(login, driver, instance_name, openstack_demo,
     widgets.confirm_modal(driver)
     messages = widgets.get_and_dismiss_messages(driver)
     assert f"Info: Scheduled deletion of Instance: {instance_name}" in messages
+    wait_for_instance_is_deleted(openstack_demo, instance_name)
     assert openstack_demo.compute.find_server(instance_name) is None
 
 
@@ -431,6 +442,7 @@ def test_delete_instance_admin(login, driver, instance_name, openstack_admin,
     widgets.confirm_modal(driver)
     messages = widgets.get_and_dismiss_messages(driver)
     assert f"Info: Scheduled deletion of Instance: {instance_name}" in messages
+    wait_for_instance_is_deleted(openstack_admin, instance_name)
     assert openstack_admin.compute.find_server(instance_name) is None
 
 
