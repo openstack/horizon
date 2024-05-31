@@ -202,6 +202,22 @@
         $provide.value('horizon.app.core.openstack-service-api.neutron', neutronApi);
 
         $provide.value('horizon.app.core.openstack-service-api.cinder', {
+          getVolumeTypes: function() {
+            var volumeTypes = [ { name: "voltype1" }, { name: "voltype2" } ];
+
+            var deferred = $q.defer();
+            deferred.resolve({ data: { items: volumeTypes } });
+
+            return deferred.promise;
+          },
+          getDefaultVolumeType: function() {
+            var defaultVolumeType = { name: "voltype1" };
+
+            var deferred = $q.defer();
+            deferred.resolve({ data: defaultVolumeType });
+
+            return deferred.promise;
+          },
           getVolumes: function() {
             var volumes = [ { id: 'vol-1' }, { id: 'vol-2' } ];
 
@@ -330,7 +346,7 @@
         it('has empty arrays for all data', function() {
           var datasets = ['availabilityZones', 'flavors', 'allowedBootSources',
             'images', 'imageSnapshots', 'keypairs', 'networks',
-            'securityGroups', 'serverGroups', 'volumes',
+            'securityGroups', 'serverGroups', 'volumes', 'volumeTypes',
             'volumeSnapshots'];
 
           datasets.forEach(function(name) {
@@ -895,7 +911,7 @@
         // This is here to ensure that as people add/change items, they
         // don't forget to implement tests for them.
         it('has the right number of properties', function() {
-          expect(Object.keys(model.newInstanceSpec).length).toBe(23);
+          expect(Object.keys(model.newInstanceSpec).length).toBe(24);
         });
 
         it('sets availability zone to null', function() {
@@ -974,6 +990,7 @@
           expect(model.newInstanceSpec.vol_create).toBe(false);
           expect(model.newInstanceSpec.vol_delete_on_instance_delete).toBe(false);
           expect(model.newInstanceSpec.vol_size).toBe(1);
+          expect(model.newInstanceSpec.vol_type).toEqual({});
         });
 
       });
@@ -995,6 +1012,7 @@
           model.newInstanceSpec.vol_create = true;
           model.newInstanceSpec.vol_delete_on_instance_delete = true;
           model.newInstanceSpec.vol_size = 10;
+          model.newInstanceSpec.vol_type = { name: 'voltype1' };
           model.newInstanceSpec.server_groups = [];
 
           metadata = {'foo': 'bar'};
@@ -1034,6 +1052,7 @@
             delete_on_termination: true,
             uuid: 'cirros',
             boot_index: '0',
+            volume_type: 'voltype1',
             volume_size: 10
           }];
 
@@ -1074,6 +1093,7 @@
             delete_on_termination: true,
             uuid: 'imAnID',
             boot_index: '0',
+            volume_type: 'voltype1',
             volume_size: 10
           }];
 

@@ -412,6 +412,7 @@ def server_create(request, name, image, flavor, key_name, user_data,
                   disk_config=None, config_drive=None, meta=None,
                   scheduler_hints=None, description=None):
     microversion = get_microversion(request, ("multiattach",
+                                              "bdm2_volume_type",
                                               "instance_description",
                                               "auto_allocated_network"))
     nova_client = _nova.novaclient(request, version=microversion)

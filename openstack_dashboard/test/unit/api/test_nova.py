@@ -782,8 +782,13 @@ class ComputeApiTests(test.APIMockTestCase):
 
         self.assertIsInstance(ret, api.nova.Server)
         self.mock_get_microversion.assert_called_once_with(
-            mock.sentinel.request, ('multiattach', 'instance_description',
-                                    'auto_allocated_network'))
+            mock.sentinel.request, (
+                'multiattach',
+                'bdm2_volume_type',
+                'instance_description',
+                'auto_allocated_network',
+            )
+        )
         self.mock_novaclient.assert_called_once_with(
             mock.sentinel.request, version=mock.sentinel.microversion)
         novaclient.servers.create.assert_called_once_with(

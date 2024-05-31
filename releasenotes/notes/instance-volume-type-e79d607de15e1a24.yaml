@@ -1,0 +1,6 @@
+---
+features:
+  - |
+    When launching instance using 'create volume from image' functionality,
+    it is now possible to specify the type of the volume to be created.
+    The default choice is the default volume type as returned by Cinder API.
