@@ -235,7 +235,7 @@
      * @returns {Object} The result of the API call
      */
     function getDefaultVolumeType() {
-      return apiService.get('/api/cinder/volumetypes/default')
+      return apiService.get('/api/cinder/volumetypes/default/')
         .catch(function onError() {
           toastService.add('error', gettext('Unable to retrieve the default volume type.'));
         });
