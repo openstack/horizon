@@ -429,7 +429,8 @@ class AttachmentColumn(tables.WrappingColumn):
             vals = {"instance": instance,
                     "dev": html.escape(attachment.get("device", ""))}
             attachments.append(link % vals)
-        return safestring.mark_safe(", ".join(attachments))
+        if attachments:
+            return safestring.mark_safe(", ".join(attachments))
 
 
 class GroupNameColumn(tables.WrappingColumn):
