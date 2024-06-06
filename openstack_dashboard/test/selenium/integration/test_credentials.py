@@ -44,8 +44,10 @@ def test_download_rc_file_admin(login, driver, config, openstack_admin,
     widgets.select_from_dropdown(openstack_file_dropdown, "OpenStack RC File")
     WebDriverWait(driver, config.selenium.page_timeout).until(
         lambda x: ((len(os.listdir(download_dir)) == 1) and
-                   ("admin-openrc.sh" in os.listdir(download_dir))))
-    with open(os.path.join(download_dir, "admin-openrc.sh")) as rc_file:
+                   (f"{config.identity.admin_username}-openrc.sh" in
+                    os.listdir(download_dir))))
+    with open(os.path.join(download_dir, f"{config.identity.admin_username}-"
+              f"openrc.sh")) as rc_file:
         content = rc_file.read()
     username = re.search(
         r'export OS_USERNAME="([^"]+)"', content).group(1)
@@ -74,8 +76,10 @@ def test_download_rc_file_demo(login, driver, config, openstack_admin,
     widgets.select_from_dropdown(openstack_file_dropdown, "OpenStack RC File")
     WebDriverWait(driver, config.selenium.page_timeout).until(
         lambda x: ((len(os.listdir(download_dir)) == 1) and
-                   ("demo-openrc.sh" in os.listdir(download_dir))))
-    with open(os.path.join(download_dir, "demo-openrc.sh")) as rc_file:
+                   (f"{config.identity.username}-openrc.sh" in
+                    os.listdir(download_dir))))
+    with open(os.path.join(download_dir, f"{config.identity.username}-"
+              f"openrc.sh")) as rc_file:
         content = rc_file.read()
     username = re.search(
         r'export OS_USERNAME="([^"]+)"', content).group(1)
