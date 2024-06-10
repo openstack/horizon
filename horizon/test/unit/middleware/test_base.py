@@ -16,8 +16,6 @@
 import datetime
 from unittest import mock
 
-import pytz
-
 from django.conf import settings
 from django.http import HttpResponseRedirect
 from django import test as django_test
@@ -95,7 +93,7 @@ class MiddlewareTests(django_test.TestCase):
 
         request = self.factory.get(url)
 
-        now = datetime.datetime.now(pytz.utc)
+        now = datetime.datetime.now(datetime.timezone.utc)
         token_expiry = now + datetime.timedelta(seconds=1800)
         request.user.token = mock.Mock(expires=token_expiry)
         session_expiry_before = now + datetime.timedelta(seconds=300)
@@ -117,7 +115,7 @@ class MiddlewareTests(django_test.TestCase):
 
         request = self.factory.get(url)
 
-        now = datetime.datetime.now(pytz.utc)
+        now = datetime.datetime.now(datetime.timezone.utc)
         token_expiry = now + datetime.timedelta(seconds=10)
         request.user.token = mock.Mock(expires=token_expiry)
 
@@ -139,7 +137,7 @@ class MiddlewareTests(django_test.TestCase):
 
         request = self.factory.get(url)
 
-        now = datetime.datetime.now(pytz.utc)
+        now = datetime.datetime.now(datetime.timezone.utc)
         token_expiry = now + datetime.timedelta(seconds=1800)
         request.user.token = mock.Mock(expires=token_expiry)
         session_expiry_before = now + datetime.timedelta(seconds=300)
