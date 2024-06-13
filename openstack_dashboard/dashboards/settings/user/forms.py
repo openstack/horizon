@@ -14,6 +14,7 @@
 
 from datetime import datetime
 import string
+import zoneinfo
 
 import babel
 import babel.dates
@@ -22,7 +23,6 @@ from django import shortcuts
 from django.utils import encoding
 from django.utils import translation
 from django.utils.translation import gettext_lazy as _
-import pytz
 
 from horizon import forms
 from horizon import messages
@@ -42,10 +42,9 @@ class UserSettingsForm(forms.SelfHandlingForm):
 
     @staticmethod
     def _sorted_zones():
-        today = datetime.today()
-        d = datetime(today.year, today.month, today.day)
-        zones = [(tz, pytz.timezone(tz).localize(d).strftime('%z'))
-                 for tz in pytz.common_timezones]
+        zones = [(tz, datetime.now(zoneinfo.ZoneInfo(tz)).strftime('%z'))
+                 for tz in zoneinfo.available_timezones()
+                 if tz not in ('localtime', 'Factory')]
         zones.sort(key=lambda zone: int(zone[1]))
         return zones
 
@@ -109,7 +108,7 @@ class UserSettingsForm(forms.SelfHandlingForm):
 
         response = functions.save_config_value(
             request, response, 'django_timezone',
-            pytz.timezone(data['timezone']).zone)
+            zoneinfo.ZoneInfo(data['timezone']).key)
 
         response = functions.save_config_value(
             request, response, 'API_RESULT_PAGE_SIZE', data['pagesize'])

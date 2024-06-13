@@ -14,12 +14,12 @@
 # limitations under the License.
 
 from datetime import datetime
+import zoneinfo
 
 from django.conf import settings
 from django.http import JsonResponse
 import django.template as django_template
 from django.views import generic
-import pytz
 
 from openstack_dashboard import api
 from openstack_dashboard.api.rest import urls
@@ -92,6 +92,6 @@ class Timezones(generic.View):
 
     @rest_utils.ajax()
     def get(self, request):
-        zones = {tz: datetime.now(pytz.timezone(tz)).strftime('%z')
-                 for tz in pytz.common_timezones}
+        zones = {tz: datetime.now(zoneinfo.ZoneInfo(tz)).strftime('%z')
+                 for tz in zoneinfo.available_timezones()}
         return JsonResponse({'timezone_dict': zones})

@@ -23,8 +23,6 @@ import datetime
 import json
 import logging
 
-import pytz
-
 from django.conf import settings
 from django.contrib.auth import REDIRECT_FIELD_NAME
 from django.contrib.auth.views import redirect_to_login
@@ -74,7 +72,7 @@ class HorizonMiddleware(object):
         if settings.SESSION_REFRESH:
             timeout = settings.SESSION_TIMEOUT
             token_life = request.user.token.expires - datetime.datetime.now(
-                pytz.utc)
+                datetime.timezone.utc)
             session_time = min(timeout, int(token_life.total_seconds()))
             request.session.set_expiry(session_time)
 

@@ -16,8 +16,6 @@
 import datetime
 import logging
 
-import pytz
-
 from django.conf import settings
 from django.utils.module_loading import import_string
 from django.utils.translation import gettext_lazy as _
@@ -210,7 +208,8 @@ class KeystoneBackend(object):
 
             request.user = user
             timeout = settings.SESSION_TIMEOUT
-            token_life = user.token.expires - datetime.datetime.now(pytz.utc)
+            token_life = (user.token.expires -
+                          datetime.datetime.now(datetime.timezone.utc))
             session_time = min(timeout, int(token_life.total_seconds()))
             request.session.set_expiry(session_time)
 
