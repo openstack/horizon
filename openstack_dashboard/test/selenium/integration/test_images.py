@@ -399,6 +399,8 @@ def test_remove_protected_image_admin(login, driver, image_names,
     rows = driver.find_elements_by_xpath(f"//a[text()='{image_name}']")
     actions_column = rows[0].find_element_by_xpath(
         ".//ancestor::tr/td[contains(@class,'actions_column')]")
+    WebDriverWait(driver, config.selenium.page_timeout).until(
+        EC.invisibility_of_element((By.CSS_SELECTOR, ".modal-backdrop")))
     widgets.select_from_dropdown(actions_column, "Delete Image")
     widgets.confirm_modal(driver)
     messages = widgets.get_and_dismiss_messages(driver)
