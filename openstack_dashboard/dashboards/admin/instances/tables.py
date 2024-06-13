@@ -16,7 +16,6 @@
 from django.template.defaultfilters import title
 from django import urls
 from django.utils.translation import gettext_lazy as _
-from django.utils.translation import ngettext_lazy
 from keystoneclient import exceptions as keystone_exceptions
 
 from horizon import tables
@@ -44,38 +43,6 @@ class AdminLogLink(project_tables.LogLink):
 
 class RescueInstance(project_tables.RescueInstance):
     url = "horizon:admin:instances:rescue"
-
-
-class MigrateInstance(policy.PolicyTargetMixin, tables.BatchAction):
-    name = "migrate"
-    classes = ("btn-migrate",)
-    policy_rules = (("compute", "os_compute_api:os-migrate-server:migrate"),)
-    help_text = _("Migrating instances may cause some unrecoverable results.")
-    action_type = "danger"
-
-    @staticmethod
-    def action_present(count):
-        return ngettext_lazy(
-            "Migrate Instance",
-            "Migrate Instances",
-            count
-        )
-
-    @staticmethod
-    def action_past(count):
-        return ngettext_lazy(
-            "Scheduled migration (pending confirmation) of Instance",
-            "Scheduled migration (pending confirmation) of Instances",
-            count
-        )
-
-    def allowed(self, request, instance):
-        return ((instance.status in project_tables.ACTIVE_STATES or
-                 instance.status == 'SHUTOFF') and
-                not project_tables.is_deleting(instance))
-
-    def action(self, request, obj_id):
-        api.nova.server_migrate(request, obj_id)
 
 
 class LiveMigrateInstance(policy.PolicyTargetMixin,
@@ -204,7 +171,7 @@ class AdminInstancesTable(tables.DataTable):
                        project_tables.TogglePause,
                        project_tables.ToggleSuspend,
                        project_tables.ToggleShelve,
-                       MigrateInstance,
+                       project_tables.MigrateInstance,
                        LiveMigrateInstance,
                        project_tables.SoftRebootInstance,
                        project_tables.RebootInstance,
