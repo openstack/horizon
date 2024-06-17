@@ -87,7 +87,14 @@
       var innerFunc = promise.catch.calls.argsFor(0)[0];
       expect(innerFunc).toBeDefined();
       spyOn(toastService, 'add');
-      innerFunc({status: 500});
+      var response = {status: 500};
+      if (angular.isDefined(config.throws) && config.throws) {
+        expect(function() {
+          innerFunc(response);
+        }).toThrow(response);
+      } else {
+        innerFunc(response);
+      }
       expect(toastService.add).toHaveBeenCalledWith(config.messageType || 'error', config.error);
     }
   }
