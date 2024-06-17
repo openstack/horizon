@@ -186,6 +186,7 @@
           } else {
             toastService.add('error', gettext('Unable to delete the container.'));
           }
+          throw response;
         });
     }
 
