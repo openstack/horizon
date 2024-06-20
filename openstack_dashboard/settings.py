@@ -287,6 +287,12 @@ if USER_MENU_LINKS is None:
             'icon_classes': ['fa-download', ],
             'url': 'horizon:project:api_access:openrc',
         })
+    if SHOW_OPENSTACK_CLOUDS_YAML:
+        USER_MENU_LINKS.append({
+            'name': _('OpenStack clouds.yaml File'),
+            'icon_classes': ['fa-download', ],
+            'url': 'horizon:project:api_access:clouds.yaml',
+        })
 
 if not WEBROOT.endswith('/'):
     WEBROOT += '/'
