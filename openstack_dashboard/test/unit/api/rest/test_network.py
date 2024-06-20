@@ -51,9 +51,9 @@ class RestNetworkApiFloatingIpTests(test.RestAPITestCase):
 
     @test.create_mocks({api.neutron: ['floating_ip_pools_list']})
     def test_floating_ip_pool_list(self):
-        pools = [api.neutron.FloatingIpPool(n)
-                 for n in self.api_networks.list()
-                 if n['router:external']]
+        pools = [api.neutron.FloatingIpPool(n.to_dict())
+                 for n in self.api_networks_sdk
+                 if n['is_router_external']]
         request = self.mock_rest_request()
         self.mock_floating_ip_pools_list.return_value = pools
 

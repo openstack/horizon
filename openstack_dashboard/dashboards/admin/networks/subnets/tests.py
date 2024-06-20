@@ -137,7 +137,7 @@ class NetworkSubnetTests(test.BaseAdminViewTests):
             cidr=subnet.cidr,
             ip_version=subnet.ip_version,
             gateway_ip=subnet.gateway_ip,
-            enable_dhcp=subnet.enable_dhcp,
+            enable_dhcp=subnet.is_dhcp_enabled,
             allocation_pools=subnet.allocation_pools,
             tenant_id=subnet.tenant_id)
 
@@ -194,7 +194,7 @@ class NetworkSubnetTests(test.BaseAdminViewTests):
             cidr=subnet.cidr,
             ip_version=subnet.ip_version,
             gateway_ip=subnet.gateway_ip,
-            enable_dhcp=subnet.enable_dhcp,
+            enable_dhcp=subnet.is_dhcp_enabled,
             tenant_id=subnet.tenant_id)
 
     @test.create_mocks({api.neutron: ('network_get',
@@ -278,7 +278,7 @@ class NetworkSubnetTests(test.BaseAdminViewTests):
         self.mock_subnet_update.assert_called_once_with(
             test.IsHttpRequest(), subnet.id,
             name=subnet.name,
-            enable_dhcp=subnet.enable_dhcp,
+            enable_dhcp=subnet.is_dhcp_enabled,
             dns_nameservers=[],
             host_routes=[])
 

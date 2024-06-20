@@ -14,6 +14,8 @@
 
 import copy
 
+from openstack.network.v2 import network as sdk_net
+from openstack.network.v2 import subnet as sdk_subnet
 from oslo_utils import uuidutils
 
 from openstack_dashboard.api import base
@@ -82,22 +84,30 @@ def data(TEST):
     TEST.api_tp_trunks = utils.TestDataContainer()
     TEST.api_tp_ports = utils.TestDataContainer()
 
+    # Data returned by SDK:
+    TEST.api_networks_sdk = list()
+    TEST.api_subnets_sdk = list()
+
     # 1st network.
-    network_dict = {'admin_state_up': True,
+    network_dict = {'is_admin_state_up': True,
                     'id': '82288d84-e0a5-42ac-95be-e6af08727e42',
                     'name': 'net1',
                     'status': 'ACTIVE',
                     'subnets': ['e8abc972-eb0c-41f1-9edd-4bc6e3bcd8c9',
                                 '41e53a49-442b-4307-9e9a-88967a6b6657'],
+                    'subnet_ids': ['e8abc972-eb0c-41f1-9edd-4bc6e3bcd8c9',
+                                   '41e53a49-442b-4307-9e9a-88967a6b6657'],
                     'tenant_id': '1',
+                    'is_router_external': False,
                     'router:external': False,
+                    'is_shared': False,
                     'shared': False}
     subnet_dict = {'allocation_pools': [{'end': '10.0.0.254',
                                          'start': '10.0.0.2'}],
                    'dns_nameservers': [],
                    'host_routes': [],
                    'cidr': '10.0.0.0/24',
-                   'enable_dhcp': True,
+                   'is_dhcp_enabled': True,
                    'gateway_ip': '10.0.0.1',
                    'id': network_dict['subnets'][0],
                    'ip_version': 4,
@@ -110,7 +120,7 @@ def data(TEST):
         'dns_nameservers': [],
         'host_routes': [],
         'cidr': 'fdb6:b88a:488e::/64',
-        'enable_dhcp': True,
+        'is_dhcp_enabled': True,
         'gateway_ip': 'fdb6:b88a:488e::1',
         'id': network_dict['subnets'][1],
         'ip_version': 6,
@@ -122,6 +132,9 @@ def data(TEST):
     }
 
     TEST.api_networks.add(network_dict)
+    TEST.api_networks_sdk.append(sdk_net.Network(**network_dict))
+    TEST.api_subnets_sdk.append(sdk_subnet.Subnet(**subnet_dict))
+    TEST.api_subnets_sdk.append(sdk_subnet.Subnet(**subnetv6_dict))
     TEST.api_subnets.add(subnet_dict)
     TEST.api_subnets.add(subnetv6_dict)
 
@@ -245,14 +258,17 @@ def data(TEST):
     TEST.ports.add(neutron.Port(port_dict))
 
     # 2nd network.
-    network_dict = {'admin_state_up': True,
+    network_dict = {'is_admin_state_up': True,
                     'id': '72c3ab6c-c80f-4341-9dc5-210fa31ac6c2',
                     'name': 'net2',
                     'status': 'ACTIVE',
                     'subnets': ['3f7c5d79-ee55-47b0-9213-8e669fb03009'],
+                    'subnet_ids': ['3f7c5d79-ee55-47b0-9213-8e669fb03009'],
                     'tenant_id': '2',
+                    'is_router_external': False,
                     'router:external': False,
-                    'shared': True}
+                    'shared': True,
+                    'is_shared': True}
     subnet_dict = {'allocation_pools': [{'end': '172.16.88.254',
                                          'start': '172.16.88.2'}],
                    'dns_nameservers': ['10.56.1.20', '10.56.1.21'],
@@ -261,7 +277,7 @@ def data(TEST):
                                    {'destination': '192.168.21.0/24',
                                     'nexthop': '172.16.88.252'}],
                    'cidr': '172.16.88.0/24',
-                   'enable_dhcp': True,
+                   'is_dhcp_enabled': True,
                    'gateway_ip': '172.16.88.1',
                    'id': '3f7c5d79-ee55-47b0-9213-8e669fb03009',
                    'ip_version': 4,
@@ -269,7 +285,9 @@ def data(TEST):
                    'network_id': network_dict['id'],
                    'tenant_id': network_dict['tenant_id']}
 
+    TEST.api_networks_sdk.append(sdk_net.Network(**network_dict))
     TEST.api_networks.add(network_dict)
+    TEST.api_subnets_sdk.append(sdk_subnet.Subnet(**subnet_dict))
     TEST.api_subnets.add(subnet_dict)
 
     network = copy.deepcopy(network_dict)
@@ -302,20 +320,23 @@ def data(TEST):
     TEST.ports.add(neutron.Port(port_dict))
 
     # External not shared network.
-    network_dict = {'admin_state_up': True,
+    network_dict = {'is_admin_state_up': True,
                     'id': '9b466b94-213a-4cda-badf-72c102a874da',
                     'name': 'ext_net',
                     'status': 'ACTIVE',
                     'subnets': ['d6bdc71c-7566-4d32-b3ff-36441ce746e8'],
+                    'subnet_ids': ['d6bdc71c-7566-4d32-b3ff-36441ce746e8'],
                     'tenant_id': '3',
+                    'is_router_external': True,
                     'router:external': True,
-                    'shared': False}
+                    'shared': False,
+                    'is_shared': False}
     subnet_dict = {'allocation_pools': [{'start': '172.24.4.226.',
                                          'end': '172.24.4.238'}],
                    'dns_nameservers': [],
                    'host_routes': [],
                    'cidr': '172.24.4.0/28',
-                   'enable_dhcp': False,
+                   'is_dhcp_enabled': False,
                    'gateway_ip': '172.24.4.225',
                    'id': 'd6bdc71c-7566-4d32-b3ff-36441ce746e8',
                    'ip_version': 4,
@@ -324,7 +345,9 @@ def data(TEST):
                    'tenant_id': network_dict['tenant_id']}
     ext_net = network_dict
 
+    TEST.api_networks_sdk.append(sdk_net.Network(**network_dict))
     TEST.api_networks.add(network_dict)
+    TEST.api_subnets_sdk.append(sdk_subnet.Subnet(**subnet_dict))
     TEST.api_subnets.add(subnet_dict)
 
     network = copy.deepcopy(network_dict)
@@ -335,20 +358,23 @@ def data(TEST):
 
     # External shared network.
 
-    network_dict = {'admin_state_up': True,
+    network_dict = {'is_admin_state_up': True,
                     'id': 'ed351877-4f7b-4672-8164-20a09e4873d3',
                     'name': 'ext_net_shared',
                     'status': 'ACTIVE',
                     'subnets': ['5c59f875-f242-4df2-96e6-7dcc09d6dfc8'],
+                    'subnet_ids': ['5c59f875-f242-4df2-96e6-7dcc09d6dfc8'],
                     'tenant_id': '4',
+                    'is_router_external': True,
                     'router:external': True,
-                    'shared': True}
+                    'shared': True,
+                    'is_shared': True}
     subnet_dict = {'allocation_pools': [{'start': '172.24.14.226.',
                                          'end': '172.24.14.238'}],
                    'dns_nameservers': [],
                    'host_routes': [],
                    'cidr': '172.24.14.0/28',
-                   'enable_dhcp': False,
+                   'is_dhcp_enabled': False,
                    'gateway_ip': '172.24.14.225',
                    'id': '5c59f875-f242-4df2-96e6-7dcc09d6dfc8',
                    'ip_version': 4,
@@ -356,7 +382,9 @@ def data(TEST):
                    'network_id': network_dict['id'],
                    'tenant_id': network_dict['tenant_id']}
 
+    TEST.api_networks_sdk.append(sdk_net.Network(**network_dict))
     TEST.api_networks.add(network_dict)
+    TEST.api_subnets_sdk.append(sdk_subnet.Subnet(**subnet_dict))
     TEST.api_subnets.add(subnet_dict)
 
     network = copy.deepcopy(network_dict)
@@ -366,20 +394,23 @@ def data(TEST):
     TEST.subnets.add(subnet)
 
     # tenant external shared network
-    network_dict = {'admin_state_up': True,
+    network_dict = {'is_admin_state_up': True,
                     'id': '650de90f-d77f-4863-ae98-39e97ad3ea7a',
                     'name': 'ext_net_shared_tenant1',
                     'status': 'ACTIVE',
                     'subnets': ['d0a5bc19-16f0-45cc-a187-0d1bb36de4c6'],
+                    'subnet_ids': ['d0a5bc19-16f0-45cc-a187-0d1bb36de4c6'],
                     'tenant_id': '1',
+                    'is_router_external': True,
                     'router:external': True,
-                    'shared': True}
+                    'shared': True,
+                    'is_shared': True}
     subnet_dict = {'allocation_pools': [{'start': '172.34.14.226.',
                                          'end': '172.34.14.238'}],
                    'dns_nameservers': [],
                    'host_routes': [],
                    'cidr': '172.34.14.0/28',
-                   'enable_dhcp': False,
+                   'is_dhcp_enabled': False,
                    'gateway_ip': '172.34.14.225',
                    'id': 'd0a5bc19-16f0-45cc-a187-0d1bb36de4c6',
                    'ip_version': 4,
@@ -387,7 +418,9 @@ def data(TEST):
                    'network_id': network_dict['id'],
                    'tenant_id': network_dict['tenant_id']}
 
+    TEST.api_networks_sdk.append(sdk_net.Network(**network_dict))
     TEST.api_networks.add(network_dict)
+    TEST.api_subnets_sdk.append(sdk_subnet.Subnet(**subnet_dict))
     TEST.api_subnets.add(subnet_dict)
 
     network = copy.deepcopy(network_dict)
@@ -397,20 +430,23 @@ def data(TEST):
     TEST.subnets.add(subnet)
 
     # tenant external non-shared network
-    network_dict = {'admin_state_up': True,
+    network_dict = {'is_admin_state_up': True,
                     'id': '19c3e662-1635-4876-be41-dbfdef0edd17',
                     'name': 'ext_net_tenant1',
                     'status': 'ACTIVE',
                     'subnets': ['5ba8895c-0b3b-482d-9e42-ce389e1e1fa6'],
+                    'subnet_ids': ['5ba8895c-0b3b-482d-9e42-ce389e1e1fa6'],
                     'tenant_id': '1',
+                    'is_router_external': True,
                     'router:external': True,
-                    'shared': False}
+                    'shared': False,
+                    'is_shared': False}
     subnet_dict = {'allocation_pools': [{'start': '172.44.14.226.',
                                          'end': '172.44.14.238'}],
                    'dns_nameservers': [],
                    'host_routes': [],
                    'cidr': '172.44.14.0/28',
-                   'enable_dhcp': False,
+                   'is_dhcp_enabled': False,
                    'gateway_ip': '172.44.14.225',
                    'id': '5ba8895c-0b3b-482d-9e42-ce389e1e1fa6',
                    'ip_version': 4,
@@ -418,7 +454,9 @@ def data(TEST):
                    'network_id': network_dict['id'],
                    'tenant_id': network_dict['tenant_id']}
 
+    TEST.api_networks_sdk.append(sdk_net.Network(**network_dict))
     TEST.api_networks.add(network_dict)
+    TEST.api_subnets_sdk.append(sdk_subnet.Subnet(**subnet_dict))
     TEST.api_subnets.add(subnet_dict)
 
     network = copy.deepcopy(network_dict)
@@ -428,20 +466,23 @@ def data(TEST):
     TEST.subnets.add(subnet)
 
     # tenant non-external shared network
-    network_dict = {'admin_state_up': True,
+    network_dict = {'is_admin_state_up': True,
                     'id': 'fd581273-2601-4057-9c22-1be38f44884e',
                     'name': 'shr_net_tenant1',
                     'status': 'ACTIVE',
                     'subnets': ['d2668892-bc32-4c89-9c63-961920a831d3'],
+                    'subnet_ids': ['d2668892-bc32-4c89-9c63-961920a831d3'],
                     'tenant_id': '1',
+                    'is_router_external': False,
                     'router:external': False,
-                    'shared': True}
+                    'shared': True,
+                    'is_shared': True}
     subnet_dict = {'allocation_pools': [{'start': '172.54.14.226.',
                                          'end': '172.54.14.238'}],
                    'dns_nameservers': [],
                    'host_routes': [],
                    'cidr': '172.54.14.0/28',
-                   'enable_dhcp': False,
+                   'is_dhcp_enabled': False,
                    'gateway_ip': '172.54.14.225',
                    'id': 'd2668892-bc32-4c89-9c63-961920a831d3',
                    'ip_version': 4,
@@ -449,7 +490,9 @@ def data(TEST):
                    'network_id': network_dict['id'],
                    'tenant_id': network_dict['tenant_id']}
 
+    TEST.api_networks_sdk.append(sdk_net.Network(**network_dict))
     TEST.api_networks.add(network_dict)
+    TEST.api_subnets_sdk.append(sdk_subnet.Subnet(**subnet_dict))
     TEST.api_subnets.add(subnet_dict)
 
     network = copy.deepcopy(network_dict)
@@ -459,20 +502,23 @@ def data(TEST):
     TEST.subnets.add(subnet)
 
     # non-tenant non-external non-shared network
-    network_dict = {'admin_state_up': True,
+    network_dict = {'is_admin_state_up': True,
                     'id': '7377e545-1527-4ce1-869e-caca192bc049',
                     'name': 'net_tenant20',
                     'status': 'ACTIVE',
                     'subnets': ['c2bbd65e-0c0f-4ab9-8723-2dd102104f3d'],
+                    'subnet_ids': ['c2bbd65e-0c0f-4ab9-8723-2dd102104f3d'],
                     'tenant_id': '20',
+                    'is_router_external': False,
                     'router:external': False,
-                    'shared': False}
+                    'shared': False,
+                    'is_shared': False}
     subnet_dict = {'allocation_pools': [{'start': '172.64.14.226.',
                                          'end': '172.64.14.238'}],
                    'dns_nameservers': [],
                    'host_routes': [],
                    'cidr': '172.54.14.0/28',
-                   'enable_dhcp': False,
+                   'is_dhcp_enabled': False,
                    'gateway_ip': '172.64.14.225',
                    'id': 'c2bbd65e-0c0f-4ab9-8723-2dd102104f3d',
                    'ip_version': 4,
@@ -480,7 +526,9 @@ def data(TEST):
                    'network_id': network_dict['id'],
                    'tenant_id': network_dict['tenant_id']}
 
+    TEST.api_networks_sdk.append(sdk_net.Network(**network_dict))
     TEST.api_networks.add(network_dict)
+    TEST.api_subnets_sdk.append(sdk_subnet.Subnet(**subnet_dict))
     TEST.api_subnets.add(subnet_dict)
 
     network = copy.deepcopy(network_dict)
@@ -490,20 +538,23 @@ def data(TEST):
     TEST.subnets.add(subnet)
 
     # 1st v6 network.
-    network_dict = {'admin_state_up': True,
+    network_dict = {'is_admin_state_up': True,
                     'id': '96688ea1-ffa5-78ec-22ca-33aaabfaf775',
                     'name': 'v6_net1',
                     'status': 'ACTIVE',
                     'subnets': ['88ddd443-4377-ab1f-87dd-4bc4a662dbb6'],
+                    'subnet_ids': ['88ddd443-4377-ab1f-87dd-4bc4a662dbb6'],
                     'tenant_id': '1',
+                    'is_router_external': False,
                     'router:external': False,
-                    'shared': False}
+                    'shared': False,
+                    'is_shared': False}
     subnet_dict = {'allocation_pools': [{'end': 'ff09::ff',
                                          'start': 'ff09::02'}],
                    'dns_nameservers': [],
                    'host_routes': [],
                    'cidr': 'ff09::/64',
-                   'enable_dhcp': True,
+                   'is_dhcp_enabled': True,
                    'gateway_ip': 'ff09::1',
                    'id': network_dict['subnets'][0],
                    'ip_version': 6,
@@ -512,7 +563,9 @@ def data(TEST):
                    'tenant_id': network_dict['tenant_id'],
                    'ipv6_modes': 'none/none'}
 
+    TEST.api_networks_sdk.append(sdk_net.Network(**network_dict))
     TEST.api_networks.add(network_dict)
+    TEST.api_subnets_sdk.append(sdk_subnet.Subnet(**subnet_dict))
     TEST.api_subnets.add(subnet_dict)
 
     network = copy.deepcopy(network_dict)
@@ -522,20 +575,23 @@ def data(TEST):
     TEST.subnets.add(subnet)
 
     # 2nd v6 network - slaac.
-    network_dict = {'admin_state_up': True,
+    network_dict = {'is_admin_state_up': True,
                     'id': 'c62e4bb3-296a-4cd1-8f6b-aaa7a0092326',
                     'name': 'v6_net2',
                     'status': 'ACTIVE',
                     'subnets': ['5d736a21-0036-4779-8f8b-eed5f98077ec'],
+                    'subnet_ids': ['5d736a21-0036-4779-8f8b-eed5f98077ec'],
                     'tenant_id': '1',
+                    'is_router_external': False,
                     'router:external': False,
-                    'shared': False}
+                    'shared': False,
+                    'is_shared': False}
     subnet_dict = {'allocation_pools': [{'end': 'ff09::ff',
                                          'start': 'ff09::02'}],
                    'dns_nameservers': [],
                    'host_routes': [],
                    'cidr': 'ff09::/64',
-                   'enable_dhcp': True,
+                   'is_dhcp_enabled': True,
                    'gateway_ip': 'ff09::1',
                    'id': network_dict['subnets'][0],
                    'ip_version': 6,
@@ -544,7 +600,9 @@ def data(TEST):
                    'tenant_id': network_dict['tenant_id'],
                    'ipv6_modes': 'slaac/slaac'}
 
+    TEST.api_networks_sdk.append(sdk_net.Network(**network_dict))
     TEST.api_networks.add(network_dict)
+    TEST.api_subnets_sdk.append(sdk_subnet.Subnet(**subnet_dict))
     TEST.api_subnets.add(subnet_dict)
 
     network = copy.deepcopy(network_dict)
@@ -1292,6 +1350,8 @@ source_nets_pagination1 = sorted([
         'subnets': [],
         'tenant_id': '1',
         'router:external': False,
+        'is_router_external': False,
+        'is_shared': False,
         'shared': False}) for i in range(0, 58)
 ] + [
     neutron.Network({
@@ -1302,6 +1362,8 @@ source_nets_pagination1 = sorted([
         'subnets': [],
         'tenant_id': '2',
         'router:external': True,
+        'is_router_external': True,
+        'is_shared': False,
         'shared': False})
 ] + [
     neutron.Network({
@@ -1312,6 +1374,8 @@ source_nets_pagination1 = sorted([
         'subnets': [],
         'tenant_id': '3',
         'router:external': False,
+        'is_router_external': False,
+        'is_shared': True,
         'shared': True})
 ], key=lambda net: net['id'])
 
@@ -1326,6 +1390,8 @@ source_nets_pagination2 = sorted([
         'subnets': [],
         'tenant_id': '2',
         'router:external': True,
+        'is_router_external': True,
+        'is_shared': False,
         'shared': False}) for i in range(0, 25)
 ] + [
     neutron.Network({
@@ -1336,6 +1402,8 @@ source_nets_pagination2 = sorted([
         'subnets': [],
         'tenant_id': '3',
         'router:external': False,
+        'is_router_external': False,
+        'is_shared': True,
         'shared': True}) for i in range(0, 25)
 ] + [
     neutron.Network({
@@ -1346,6 +1414,8 @@ source_nets_pagination2 = sorted([
         'subnets': [],
         'tenant_id': '1',
         'router:external': False,
+        'is_router_external': False,
+        'is_shared': False,
         'shared': False}) for i in range(0, 10)
 ], key=lambda net: net['id'])
 
@@ -1360,5 +1430,7 @@ source_nets_pagination3 = sorted([
         'subnets': [],
         'tenant_id': '1',
         'router:external': False,
+        'is_router_external': False,
+        'is_shared': False,
         'shared': False}) for i in range(0, 5)
 ], key=lambda net: net['id'])

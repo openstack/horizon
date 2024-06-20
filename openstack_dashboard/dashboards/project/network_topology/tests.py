@@ -60,9 +60,9 @@ class NetworkTopologyTests(test.TestCase):
         self.mock_server_list.return_value = [self.servers.list(), False]
 
         tenant_networks = [net for net in self.networks.list()
-                           if not net['router:external']]
+                           if not net['is_router_external']]
         external_networks = [net for net in self.networks.list()
-                             if net['router:external']]
+                             if net['is_router_external']]
         self.mock_network_list_for_tenant.return_value = tenant_networks
 
         # router1 : gateway port not in the port list
@@ -117,7 +117,7 @@ class NetworkTopologyTests(test.TestCase):
                 'id': net.id,
                 'url': '/project/networks/%s/detail' % net.id,
                 'name': net.name,
-                'router:external': net.router__external,
+                'router:external': net.is_router_external,
                 'status': net.status.title(),
                 'original_status': net.status,
                 'subnets': [{
@@ -130,7 +130,7 @@ class NetworkTopologyTests(test.TestCase):
             'id': net.id,
             'url': '/project/networks/%s/detail' % net.id,
             'name': net.name,
-            'router:external': net.router__external,
+            'router:external': net.is_router_external,
             'status': net.status.title(),
             'allow_delete_subnet': True,
             'original_status': net.status,

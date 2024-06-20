@@ -22,14 +22,23 @@ from collections.abc import Sequence
 import copy
 import itertools
 import logging
+import types
 
 import netaddr
 
 from django.conf import settings
 from django.utils.translation import gettext_lazy as _
+from keystoneauth1 import exceptions as ks_exceptions
+from keystoneauth1 import session
+from keystoneauth1 import token_endpoint
 from neutronclient.common import exceptions as neutron_exc
 from neutronclient.v2_0 import client as neutron_client
 from novaclient import exceptions as nova_exc
+import openstack
+from openstack import exceptions as sdk_exceptions
+import requests
+
+from openstack_auth import utils as auth_utils
 
 from horizon import exceptions
 from horizon import messages
@@ -67,6 +76,11 @@ VNIC_TYPES = [
 class NeutronAPIDictWrapper(base.APIDictWrapper):
 
     def __init__(self, apidict):
+        if 'is_admin_state_up' in apidict:
+            if apidict['is_admin_state_up']:
+                apidict['admin_state'] = 'UP'
+            else:
+                apidict['admin_state'] = 'DOWN'
         if 'admin_state_up' in apidict:
             if apidict['admin_state_up']:
                 apidict['admin_state'] = 'UP'
@@ -665,6 +679,7 @@ class FloatingIpManager(object):
     def __init__(self, request):
         self.request = request
         self.client = neutronclient(request)
+        self.net_client = networkclient(request)
 
     @profiler.trace
     def list_pools(self):
@@ -674,7 +689,7 @@ class FloatingIpManager(object):
         """
         search_opts = {'router:external': True}
         return [FloatingIpPool(pool) for pool
-                in self.client.list_networks(**search_opts).get('networks')]
+                in self.net_client.networks(**search_opts)]
 
     def _get_instance_type_from_device_owner(self, device_owner):
         for key, value in self.device_owner_map.items():
@@ -817,8 +832,8 @@ class FloatingIpManager(object):
                                 if p.device_id in gw_routers)
         # we have to include any shared subnets as well because we may not
         # have permission to see the router interface to infer connectivity
-        shared = set(s.id for n in network_list(self.request, shared=True)
-                     for s in n.subnets)
+        shared = set(s.id for n in network_list(self.request, is_shared=True)
+                     for s in n['subnets'])
         return reachable_subnets | shared
 
     @profiler.trace
@@ -940,6 +955,35 @@ def neutronclient(request):
                               endpoint_url=neutron_url,
                               insecure=insecure, ca_cert=cacert)
     return c
+
+
+@memoized
+def networkclient(request):
+    token_id, neutron_url, auth_url = get_auth_params_from_request(request)
+
+    insecure = settings.OPENSTACK_SSL_NO_VERIFY
+    cacert = settings.OPENSTACK_SSL_CACERT
+    verify = cacert if not insecure else False
+
+    token_auth = token_endpoint.Token(
+        endpoint=neutron_url,
+        token=token_id)
+    k_session = session.Session(
+        auth=token_auth,
+        original_ip=auth_utils.get_client_ip(request),
+        verify=verify,
+        # TODO(lajoskatona): cert should be None of a tuple in the form of
+        # (cert, key).
+        # In a devstack with enable_service tls-proxy:
+        # cert=('/path/to/devstack-cert.crt', '/path/to/devstack-cert.key')
+        # For this new horizon cfg option should be added.
+    )
+    c = openstack.connection.Connection(
+        session=k_session,
+        region_name=request.user.services_region,
+        app_name='horizon', app_version='1.0'
+    )
+    return c.network
 
 
 @profiler.trace
@@ -1154,23 +1198,57 @@ def _network_list_paged(request, page_data, params):
 @profiler.trace
 def network_list(request, single_page=False, **params):
     LOG.debug("network_list(): params=%s", params)
+    list_values = []
+    if 'id' in params and isinstance(params['id'], frozenset):
+        list_values = list(params['id'])
+    if 'id' in params and isinstance(params['id'], list):
+        list_values = params['id']
     if single_page is True:
         params['retrieve_all'] = False
-    result = neutronclient(request).list_networks(**params)
-    if single_page is True:
-        result = result.next()
-    networks = result.get('networks')
+
+    networks = []
+    if 'tenant_id' in params:
+        params['project_id'] = params.pop('tenant_id')
+    for value in list_values:
+        params['id'] = value
+        for net in networkclient(request).networks(**params):
+            networks.append(net)
+    if not list_values:
+        networks = networkclient(request).networks(**params)
 
     # Get subnet list to expand subnet info in network list.
     subnets = subnet_list(request)
     subnet_dict = dict((s['id'], s) for s in subnets)
+
+    if not isinstance(networks, (list, types.GeneratorType)):
+        networks = [networks]
+    nets_with_subnet = []
+    net_ids = set()
+
     # Expand subnet list from subnet_id to values.
-    for n in networks:
-        # Due to potential timing issues, we can't assume the subnet_dict data
-        # is in sync with the network data.
-        n['subnets'] = [subnet_dict[s] for s in n.get('subnets', []) if
-                        s in subnet_dict]
-    return [Network(n) for n in networks]
+    subnet_l_ready = False
+    runs = 0
+    max_runs = 3
+    while not subnet_l_ready and runs < max_runs:
+        networks, cp_nets = itertools.tee(networks, 2)
+        try:
+            for n in cp_nets:
+                # Due to potential timing issues, we can't assume the
+                # subnet_dict data is in sync with the network data.
+                net_dict = n.to_dict()
+                net_dict['subnets'] = [
+                    subnet_dict[s] for s in net_dict.get('subnet_ids', [])
+                    if s in subnet_dict
+                ]
+                if net_dict['id'] not in net_ids:
+                    nets_with_subnet.append(net_dict)
+                    net_ids.add(net_dict['id'])
+            subnet_l_ready = True
+        except (requests.exceptions.SSLError, ks_exceptions.SSLError):
+            LOG.warning('Retry due to SSLError')
+            runs += 1
+            continue
+    return [Network(n) for n in nets_with_subnet]
 
 
 def _is_auto_allocated_network_supported(request):
@@ -1381,9 +1459,9 @@ def _query_nets_for_tenant(request, include_external, tenant_id, page_data,
 
 def _configure_marker_type(marker_net, tenant_id=None):
     if marker_net:
-        if marker_net['shared'] is True:
+        if marker_net['is_shared'] is True:
             return 'shr'
-        if (marker_net['router:external'] is True and
+        if (marker_net['is_router_external'] is True and
                 marker_net['tenant_id'] != tenant_id):
             return 'ext'
         return 'proj'
@@ -1565,8 +1643,8 @@ def network_list_for_tenant(request, tenant_id, include_external=False,
 def network_get(request, network_id, expand_subnet=True, **params):
     LOG.debug("network_get(): netid=%(network_id)s, params=%(params)s",
               {'network_id': network_id, 'params': params})
-    network = neutronclient(request).show_network(network_id,
-                                                  **params).get('network')
+    network = networkclient(request).get_network(network_id,
+                                                 **params).to_dict()
     if expand_subnet:
         # NOTE(amotoki): There are some cases where a user has no permission
         # to get subnet details, but the condition is complicated. We first
@@ -1582,8 +1660,8 @@ def network_get(request, network_id, expand_subnet=True, **params):
             # call subnet_get() for each subnet instead of calling
             # subnet_list() once.
             network['subnets'] = [subnet_get(request, sid)
-                                  for sid in network['subnets']]
-        except neutron_exc.NotFound:
+                                  for sid in network['subnet_ids']]
+        except sdk_exceptions.ResourceNotFound:
             pass
     return Network(network)
 
@@ -1600,8 +1678,7 @@ def network_create(request, **kwargs):
     LOG.debug("network_create(): kwargs = %s", kwargs)
     if 'tenant_id' not in kwargs:
         kwargs['tenant_id'] = request.user.project_id
-    body = {'network': kwargs}
-    network = neutronclient(request).create_network(body=body).get('network')
+    network = networkclient(request).create_network(**kwargs).to_dict()
     return Network(network)
 
 
@@ -1609,16 +1686,15 @@ def network_create(request, **kwargs):
 def network_update(request, network_id, **kwargs):
     LOG.debug("network_update(): netid=%(network_id)s, params=%(params)s",
               {'network_id': network_id, 'params': kwargs})
-    body = {'network': kwargs}
-    network = neutronclient(request).update_network(network_id,
-                                                    body=body).get('network')
+    network = networkclient(request).update_network(network_id,
+                                                    **kwargs).to_dict()
     return Network(network)
 
 
 @profiler.trace
 def network_delete(request, network_id):
     LOG.debug("network_delete(): netid=%s", network_id)
-    neutronclient(request).delete_network(network_id)
+    networkclient(request).delete_network(network_id)
     request.session['network_deleted'] = network_id
 
 
@@ -1626,16 +1702,17 @@ def network_delete(request, network_id):
 @memoized
 def subnet_list(request, **params):
     LOG.debug("subnet_list(): params=%s", params)
-    subnets = neutronclient(request).list_subnets(**params).get('subnets')
-    return [Subnet(s) for s in subnets]
+    subnets = networkclient(request).subnets(**params)
+    ret_val = [Subnet(s.to_dict()) for s in subnets]
+    return ret_val
 
 
 @profiler.trace
 def subnet_get(request, subnet_id, **params):
     LOG.debug("subnet_get(): subnetid=%(subnet_id)s, params=%(params)s",
               {'subnet_id': subnet_id, 'params': params})
-    subnet = neutronclient(request).show_subnet(subnet_id,
-                                                **params).get('subnet')
+    subnet = networkclient(request).get_subnet(subnet_id,
+                                               **params).to_dict()
     return Subnet(subnet)
 
 
@@ -1660,11 +1737,11 @@ def subnet_create(request, network_id, **kwargs):
     """
     LOG.debug("subnet_create(): netid=%(network_id)s, kwargs=%(kwargs)s",
               {'network_id': network_id, 'kwargs': kwargs})
-    body = {'subnet': {'network_id': network_id}}
+    body = {'network_id': network_id}
     if 'tenant_id' not in kwargs:
         kwargs['tenant_id'] = request.user.project_id
-    body['subnet'].update(kwargs)
-    subnet = neutronclient(request).create_subnet(body=body).get('subnet')
+    body.update(kwargs)
+    subnet = networkclient(request).create_subnet(**body).to_dict()
     return Subnet(subnet)
 
 
@@ -1672,16 +1749,15 @@ def subnet_create(request, network_id, **kwargs):
 def subnet_update(request, subnet_id, **kwargs):
     LOG.debug("subnet_update(): subnetid=%(subnet_id)s, kwargs=%(kwargs)s",
               {'subnet_id': subnet_id, 'kwargs': kwargs})
-    body = {'subnet': kwargs}
-    subnet = neutronclient(request).update_subnet(subnet_id,
-                                                  body=body).get('subnet')
+    subnet = networkclient(request).update_subnet(subnet_id,
+                                                  **kwargs).to_dict()
     return Subnet(subnet)
 
 
 @profiler.trace
 def subnet_delete(request, subnet_id):
     LOG.debug("subnet_delete(): subnetid=%s", subnet_id)
-    neutronclient(request).delete_subnet(subnet_id)
+    networkclient(request).delete_subnet(subnet_id)
 
 
 @profiler.trace

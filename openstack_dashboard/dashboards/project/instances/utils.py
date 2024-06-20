@@ -107,7 +107,7 @@ def network_field_data(request, include_empty_option=False, with_cidr=False,
 
         _networks = []
         for n in networks:
-            if not n['subnets']:
+            if not n['subnet_ids']:
                 continue
             v = n.name_or_id
             if with_cidr:

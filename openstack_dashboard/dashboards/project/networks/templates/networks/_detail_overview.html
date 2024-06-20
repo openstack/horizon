@@ -13,9 +13,9 @@
     <dt title="{% trans 'Admin State' %}">{% trans "Admin State" %}</dt>
     <dd>{{ network.admin_state_label|default:_("Unknown") }}</dd>
     <dt title="{% trans 'Shared' %}">{% trans "Shared" %}</dt>
-    <dd>{{ network.shared|yesno|capfirst }}</dd>
+    <dd>{{ network.is_shared|yesno|capfirst }}</dd>
     <dt title="{% trans 'External Network' %}">{% trans "External Network" %}</dt>
-    <dd>{{ network.router__external|yesno|capfirst }}</dd>
+    <dd>{{ network.is_router_external|yesno|capfirst }}</dd>
     <dt title="{% trans 'MTU' %}">{% trans "MTU" %}</dt>
     <dd>{{ network.mtu|default:_("Unknown") }}</dd>
     {% if network.provider__network_type %}

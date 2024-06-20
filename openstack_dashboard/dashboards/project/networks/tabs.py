@@ -49,7 +49,7 @@ class OverviewTab(tabs.Tab):
                 filters.get_display_label(choices, network.status))
             choices = project_tables.DISPLAY_CHOICES
             network.admin_state_label = (
-                filters.get_display_label(choices, network.admin_state))
+                filters.get_display_label(choices, network.is_admin_state_up))
         except Exception:
             msg = _('Unable to retrieve details for network "%s".') \
                 % (network_id)

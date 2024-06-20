@@ -52,7 +52,7 @@ def form_data_subnet(subnet,
     data['gateway_ip'] = gateway_ip or ''
     data['no_gateway'] = no_gateway or (gateway_ip is None)
 
-    data['enable_dhcp'] = get_value(enable_dhcp, subnet.enable_dhcp)
+    data['enable_dhcp'] = get_value(enable_dhcp, subnet.is_dhcp_enabled)
     if data['ip_version'] == 6:
         data['ipv6_modes'] = subnet.ipv6_modes
 
@@ -72,7 +72,7 @@ def form_data_no_subnet():
             'ip_version': 4,
             'gateway_ip': '',
             'no_gateway': False,
-            'enable_dhcp': True,
+            'is_dhcp_enabled': True,
             'allocation_pools': '',
             'dns_nameservers': '',
             'host_routes': ''}
@@ -103,13 +103,13 @@ class NetworkStubMixin(object):
         all_networks = self.networks.list()
         self.mock_network_list.side_effect = [
             [network for network in all_networks
-             if network.get('shared') is True],
+             if network.get('is_shared') is True],
             [network for network in all_networks
              if network['tenant_id'] == self.tenant.id and
-             network.get('shared') is False],
+             network.get('is_shared') is False],
             [network for network in all_networks
-             if network.get('router:external') is True and
-             network.get('shared') is False],
+             if network.get('is_router_external') is True and
+             network.get('is_shared') is False],
         ]
 
     def _check_net_list(self):
@@ -398,7 +398,7 @@ class NetworkTests(test.TestCase, NetworkStubMixin):
     def test_network_create_post(self):
         network = self.networks.first()
         params = {'name': network.name,
-                  'admin_state_up': network.admin_state_up,
+                  'admin_state_up': network.is_admin_state_up,
                   'shared': False}
         self._stub_is_extension_supported({'network_availability_zone': False,
                                            'subnet_allocation': True})
@@ -406,7 +406,7 @@ class NetworkTests(test.TestCase, NetworkStubMixin):
         self.mock_network_create.return_value = network
 
         form_data = {'net_name': network.name,
-                     'admin_state': network.admin_state_up,
+                     'admin_state': network.is_admin_state_up,
                      'shared': False,
                      'with_subnet': False}
         form_data.update(form_data_no_subnet())
@@ -429,7 +429,7 @@ class NetworkTests(test.TestCase, NetworkStubMixin):
     def test_network_create_post_with_az(self):
         network = self.networks.first()
         params = {'name': network.name,
-                  'admin_state_up': network.admin_state_up,
+                  'admin_state_up': network.is_admin_state_up,
                   'shared': False,
                   'availability_zone_hints': ['nova']}
 
@@ -441,7 +441,7 @@ class NetworkTests(test.TestCase, NetworkStubMixin):
         self.mock_network_create.return_value = network
 
         form_data = {'net_name': network.name,
-                     'admin_state': network.admin_state_up,
+                     'admin_state': network.is_admin_state_up,
                      'shared': False,
                      'with_subnet': False,
                      'az_hints': ['nova']}
@@ -466,7 +466,7 @@ class NetworkTests(test.TestCase, NetworkStubMixin):
     def test_network_create_post_with_mtu(self):
         network = self.networks.first()
         params = {'name': network.name,
-                  'admin_state_up': network.admin_state_up,
+                  'admin_state_up': network.is_admin_state_up,
                   'shared': False,
                   'mtu': 1450}
         self._stub_is_extension_supported({'network_availability_zone': False,
@@ -475,7 +475,7 @@ class NetworkTests(test.TestCase, NetworkStubMixin):
         self.mock_network_create.return_value = network
 
         form_data = {'net_name': network.name,
-                     'admin_state': network.admin_state_up,
+                     'admin_state': network.is_admin_state_up,
                      'shared': False,
                      'with_subnet': False,
                      'mtu': 1450}
@@ -498,7 +498,7 @@ class NetworkTests(test.TestCase, NetworkStubMixin):
     def test_network_create_post_with_shared(self):
         network = self.networks.first()
         params = {'name': network.name,
-                  'admin_state_up': network.admin_state_up,
+                  'admin_state_up': network.is_admin_state_up,
                   'shared': True}
         self._stub_is_extension_supported({'network_availability_zone': False,
                                            'subnet_allocation': True})
@@ -506,7 +506,7 @@ class NetworkTests(test.TestCase, NetworkStubMixin):
         self.mock_network_create.return_value = network
 
         form_data = {'net_name': network.name,
-                     'admin_state': network.admin_state_up,
+                     'admin_state': network.is_admin_state_up,
                      'shared': True,
                      'with_subnet': False}
         form_data.update(form_data_no_subnet())
@@ -530,7 +530,7 @@ class NetworkTests(test.TestCase, NetworkStubMixin):
         network = self.networks.first()
         subnet = self.subnets.first()
         params = {'name': network.name,
-                  'admin_state_up': network.admin_state_up,
+                  'admin_state_up': network.is_admin_state_up,
                   'shared': False}
         subnet_params = {'network_id': network.id,
                          'tenant_id': network.tenant_id,
@@ -538,7 +538,7 @@ class NetworkTests(test.TestCase, NetworkStubMixin):
                          'cidr': subnet.cidr,
                          'ip_version': subnet.ip_version,
                          'gateway_ip': subnet.gateway_ip,
-                         'enable_dhcp': subnet.enable_dhcp}
+                         'enable_dhcp': subnet.is_dhcp_enabled}
         if not test_with_ipv6:
             subnet.ip_version = 4
             subnet_params['ip_version'] = subnet.ip_version
@@ -550,7 +550,7 @@ class NetworkTests(test.TestCase, NetworkStubMixin):
         self.mock_subnet_create.return_value = subnet
 
         form_data = {'net_name': network.name,
-                     'admin_state': network.admin_state_up,
+                     'admin_state': network.is_admin_state_up,
                      'shared': False,
                      'with_subnet': True}
         form_data.update(form_data_subnet(subnet, allocation_pools=[]))
@@ -579,14 +579,14 @@ class NetworkTests(test.TestCase, NetworkStubMixin):
         network = self.networks.first()
         params = {'name': network.name,
                   'shared': False,
-                  'admin_state_up': network.admin_state_up}
+                  'admin_state_up': network.is_admin_state_up}
         self._stub_is_extension_supported({'network_availability_zone': False,
                                            'subnet_allocation': True})
         self.mock_subnetpool_list.return_value = self.subnetpools.list()
         self.mock_network_create.side_effect = self.exceptions.neutron
 
         form_data = {'net_name': network.name,
-                     'admin_state': network.admin_state_up,
+                     'admin_state': network.is_admin_state_up,
                      'shared': False,
                      'with_subnet': False}
         form_data.update(form_data_no_subnet())
@@ -610,14 +610,14 @@ class NetworkTests(test.TestCase, NetworkStubMixin):
         subnet = self.subnets.first()
         params = {'name': network.name,
                   'shared': False,
-                  'admin_state_up': network.admin_state_up}
+                  'admin_state_up': network.is_admin_state_up}
         self._stub_is_extension_supported({'network_availability_zone': False,
                                            'subnet_allocation': True})
         self.mock_subnetpool_list.return_value = self.subnetpools.list()
         self.mock_network_create.side_effect = self.exceptions.neutron
 
         form_data = {'net_name': network.name,
-                     'admin_state': network.admin_state_up,
+                     'admin_state': network.is_admin_state_up,
                      'shared': False,
                      'with_subnet': True}
         form_data.update(form_data_subnet(subnet, allocation_pools=[]))
@@ -643,7 +643,7 @@ class NetworkTests(test.TestCase, NetworkStubMixin):
         subnet = self.subnets.first()
         params = {'name': network.name,
                   'shared': False,
-                  'admin_state_up': network.admin_state_up}
+                  'admin_state_up': network.is_admin_state_up}
         self._stub_is_extension_supported({'network_availability_zone': False,
                                            'subnet_allocation': True})
         self.mock_subnetpool_list.return_value = self.subnetpools.list()
@@ -652,7 +652,7 @@ class NetworkTests(test.TestCase, NetworkStubMixin):
         self.mock_network_delete.return_value = None
 
         form_data = {'net_name': network.name,
-                     'admin_state': network.admin_state_up,
+                     'admin_state': network.is_admin_state_up,
                      'shared': False,
                      'with_subnet': True}
         form_data.update(form_data_subnet(subnet, allocation_pools=[]))
@@ -675,7 +675,7 @@ class NetworkTests(test.TestCase, NetworkStubMixin):
             cidr=subnet.cidr,
             ip_version=subnet.ip_version,
             gateway_ip=subnet.gateway_ip,
-            enable_dhcp=subnet.enable_dhcp)
+            enable_dhcp=subnet.is_dhcp_enabled)
         self.mock_network_delete.assert_called_once_with(
             test.IsHttpRequest(), network.id)
 
@@ -690,7 +690,7 @@ class NetworkTests(test.TestCase, NetworkStubMixin):
         self.mock_subnetpool_list.side_effect = self.exceptions.neutron
 
         form_data = {'net_name': network.name,
-                     'admin_state': network.admin_state_up,
+                     'admin_state': network.is_admin_state_up,
                      'shared': False,
                      'with_subnet': True}
         if test_with_snpool:
@@ -726,7 +726,7 @@ class NetworkTests(test.TestCase, NetworkStubMixin):
 
         form_data = {'net_name': network.name,
                      'shared': False,
-                     'admin_state': network.admin_state_up,
+                     'admin_state': network.is_admin_state_up,
                      'with_subnet': True}
         if test_with_subnetpool:
             subnetpool = self.subnetpools.first()
@@ -763,7 +763,7 @@ class NetworkTests(test.TestCase, NetworkStubMixin):
 
         form_data = {'net_name': network.name,
                      'shared': False,
-                     'admin_state': network.admin_state_up,
+                     'admin_state': network.is_admin_state_up,
                      'with_subnet': True}
         if test_with_subnetpool:
             subnetpool = self.subnetpools.first()
@@ -804,7 +804,7 @@ class NetworkTests(test.TestCase, NetworkStubMixin):
 
         form_data = {'net_name': network.name,
                      'shared': False,
-                     'admin_state': network.admin_state_up,
+                     'admin_state': network.is_admin_state_up,
                      'with_subnet': True}
         if test_with_subnetpool:
             subnetpool = self.subnetpools.first()
@@ -840,7 +840,7 @@ class NetworkTests(test.TestCase, NetworkStubMixin):
         cidr = '30.30.30.0/24'
         gateway_ip = '30.30.30.1'
         params = {'name': network.name,
-                  'admin_state_up': network.admin_state_up,
+                  'admin_state_up': network.is_admin_state_up,
                   'shared': False}
         subnet_params = {'network_id': network.id,
                          'tenant_id': network.tenant_id,
@@ -848,7 +848,7 @@ class NetworkTests(test.TestCase, NetworkStubMixin):
                          'cidr': cidr,
                          'ip_version': subnet.ip_version,
                          'gateway_ip': gateway_ip,
-                         'enable_dhcp': subnet.enable_dhcp}
+                         'enable_dhcp': subnet.is_dhcp_enabled}
 
         self._stub_is_extension_supported({'network_availability_zone': False,
                                            'subnet_allocation': True})
@@ -857,7 +857,7 @@ class NetworkTests(test.TestCase, NetworkStubMixin):
         self.mock_subnet_create.return_value = subnet
 
         form_data = {'net_name': network.name,
-                     'admin_state': network.admin_state_up,
+                     'admin_state': network.is_admin_state_up,
                      'shared': False,
                      'with_subnet': True}
 
@@ -893,7 +893,7 @@ class NetworkTests(test.TestCase, NetworkStubMixin):
         cidr = '2001:0DB8:0:CD30:123:4567:89AB:CDEF/60'
         form_data = {'net_name': network.name,
                      'shared': False,
-                     'admin_state': network.admin_state_up,
+                     'admin_state': network.is_admin_state_up,
                      'with_subnet': True}
         if test_with_subnetpool:
             subnetpool = self.subnetpools.first()
@@ -929,7 +929,7 @@ class NetworkTests(test.TestCase, NetworkStubMixin):
         gateway_ip = '2001:0DB8:0:CD30:123:4567:89AB:CDEF'
         form_data = {'net_name': network.name,
                      'shared': False,
-                     'admin_state': network.admin_state_up,
+                     'admin_state': network.is_admin_state_up,
                      'with_subnet': True}
         if test_with_subnetpool:
             subnetpool = self.subnetpools.first()
@@ -959,7 +959,7 @@ class NetworkTests(test.TestCase, NetworkStubMixin):
         network = self.networks.first()
         subnet = self.subnets.first()
         params = {'name': network.name,
-                  'admin_state_up': network.admin_state_up,
+                  'admin_state_up': network.is_admin_state_up,
                   'shared': False}
 
         self._stub_is_extension_supported({'network_availability_zone': False,
@@ -969,7 +969,7 @@ class NetworkTests(test.TestCase, NetworkStubMixin):
         self.mock_subnet_create.return_value = subnet
 
         form_data = {'net_name': network.name,
-                     'admin_state': network.admin_state_up,
+                     'admin_state': network.is_admin_state_up,
                      'shared': False,
                      'with_subnet': True}
         subnet_params = {'network_id': network.id,
@@ -978,7 +978,7 @@ class NetworkTests(test.TestCase, NetworkStubMixin):
                          'cidr': subnet.cidr,
                          'ip_version': subnet.ip_version,
                          'gateway_ip': None,
-                         'enable_dhcp': subnet.enable_dhcp}
+                         'enable_dhcp': subnet.is_dhcp_enabled}
         form_data.update(form_data_subnet(subnet, allocation_pools=[],
                                           no_gateway=True, gateway_ip="."))
         url = reverse('horizon:project:networks:create')
@@ -1031,7 +1031,7 @@ class NetworkTests(test.TestCase, NetworkStubMixin):
         form_data = {'network_id': network.id,
                      'shared': False,
                      'name': network.name,
-                     'admin_state': network.admin_state_up,
+                     'admin_state': network.is_admin_state_up,
                      'tenant_id': network.tenant_id}
         url = reverse('horizon:project:networks:update', args=[network.id])
         res = self.client.post(url, form_data)
@@ -1040,7 +1040,8 @@ class NetworkTests(test.TestCase, NetworkStubMixin):
 
         self.mock_network_update.assert_called_once_with(
             test.IsHttpRequest(), network.id, name=network.name,
-            admin_state_up=network.admin_state_up, shared=network.shared)
+            admin_state_up=network.is_admin_state_up,
+            shared=network.is_shared)
         self.mock_network_get.assert_called_once_with(
             test.IsHttpRequest(), network.id, expand_subnet=False)
 
@@ -1054,7 +1055,7 @@ class NetworkTests(test.TestCase, NetworkStubMixin):
         form_data = {'network_id': network.id,
                      'shared': False,
                      'name': network.name,
-                     'admin_state': network.admin_state_up,
+                     'admin_state': network.is_admin_state_up,
                      'tenant_id': network.tenant_id}
         url = reverse('horizon:project:networks:update', args=[network.id])
         res = self.client.post(url, form_data)
@@ -1065,14 +1066,14 @@ class NetworkTests(test.TestCase, NetworkStubMixin):
             test.IsHttpRequest(), network.id, expand_subnet=False)
         self.mock_network_update.assert_called_once_with(
             test.IsHttpRequest(), network.id, name=network.name,
-            admin_state_up=network.admin_state_up, shared=False)
+            admin_state_up=network.is_admin_state_up, shared=False)
 
     @test.create_mocks({api.neutron: ('network_list',
                                       'network_delete',
                                       'is_extension_supported')})
     def test_delete_network_no_subnet(self):
         network = self.networks.first()
-        network.subnets = []
+        network.subnet_ids = []
         self.mock_is_extension_supported.return_value = True
         self._stub_net_list()
         self.mock_network_delete.return_value = None
@@ -1092,7 +1093,7 @@ class NetworkTests(test.TestCase, NetworkStubMixin):
                                       'is_extension_supported')})
     def test_delete_network_with_subnet(self):
         network = self.networks.first()
-        network.subnets = [subnet.id for subnet in network.subnets]
+        network.subnets = [subnet for subnet in network.subnet_ids]
 
         self.mock_is_extension_supported.return_value = True
         self._stub_net_list()
@@ -1114,7 +1115,7 @@ class NetworkTests(test.TestCase, NetworkStubMixin):
                                       'is_extension_supported')})
     def test_delete_network_exception(self):
         network = self.networks.first()
-        network.subnets = [subnet.id for subnet in network.subnets]
+        network.subnets = [subnet for subnet in network.subnet_ids]
 
         self.mock_is_extension_supported.return_value = True
         self._stub_net_list()

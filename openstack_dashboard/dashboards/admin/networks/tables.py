@@ -84,15 +84,15 @@ class NetworksTable(tables.DataTable):
                             verbose_name=_("Subnets Associated"),)
     num_agents = tables.Column("num_agents",
                                verbose_name=_("DHCP Agents"))
-    shared = tables.Column("shared", verbose_name=_("Shared"),
+    shared = tables.Column("is_shared", verbose_name=_("Shared"),
                            filters=(filters.yesno, filters.capfirst))
-    external = tables.Column("router:external",
+    external = tables.Column("is_router_external",
                              verbose_name=_("External"),
                              filters=(filters.yesno, filters.capfirst))
     status = tables.Column(
         "status", verbose_name=_("Status"),
         display_choices=project_tables.STATUS_DISPLAY_CHOICES)
-    admin_state = tables.Column("admin_state",
+    admin_state = tables.Column("is_admin_state_up",
                                 verbose_name=_("Admin State"),
                                 display_choices=DISPLAY_CHOICES)
     availability_zones = tables.Column(get_availability_zones,

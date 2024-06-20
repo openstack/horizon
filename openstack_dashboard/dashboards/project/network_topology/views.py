@@ -284,7 +284,7 @@ class JSONView(View):
                    'status': self.trans.network[network.status],
                    'allow_delete_subnet': allow_delete_subnet,
                    'original_status': network.status,
-                   'router:external': network['router:external']}
+                   'router:external': network['is_router_external']}
             self.add_resource_url('horizon:project:networks:subnets:detail',
                                   obj['subnets'])
             networks.append(obj)
@@ -315,7 +315,7 @@ class JSONView(View):
                     'subnets': subnets,
                     'status': self.trans.network[publicnet.status],
                     'original_status': publicnet.status,
-                    'router:external': publicnet['router:external']})
+                    'router:external': publicnet['is_router_external']})
 
         self.add_resource_url('horizon:project:networks:detail',
                               networks)
