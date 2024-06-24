@@ -13,8 +13,7 @@
 import collections.abc
 import functools
 import inspect
-
-import testtools
+import unittest
 
 from openstack_dashboard.test.integration_tests import config
 
@@ -35,12 +34,12 @@ def _mark_method_skipped(meth, reason):
     """Decorate to mark method as skipped.
 
     This marks method as skipped by replacing the actual method with wrapper
-    that raises the testtools.testcase.TestSkipped exception.
+    that raises the unittest.SkipTest exception.
     """
 
     @functools.wraps(meth)
     def wrapper(*args, **kwargs):
-        raise testtools.testcase.TestSkipped(reason)
+        raise unittest.SkipTest(reason)
 
     return wrapper
 
