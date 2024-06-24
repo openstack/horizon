@@ -1023,7 +1023,7 @@ USER_MENU_LINKS
 
 .. versionadded:: 13.0.0(Queens)
 
-Default:
+Default up to Caracal (2024.1):
 
 .. code-block:: python
 
@@ -1033,6 +1033,23 @@ Default:
      'url': 'horizon:project:api_access:openrc',
      'external': False,
      }
+  ]
+
+Default:
+
+.. code-block:: python
+
+  [
+    {'name': _('OpenStack RC File'),
+     'icon_classes': ['fa-download', ],
+     'url': 'horizon:project:api_access:openrc',
+     'external': False,
+     },
+    {'name': _('OpenStack clouds.yaml File'),
+     'icon_classes': ['fa-download', ],
+     'url': 'horizon:project:api_access:clouds.yaml',
+     'external': False,
+    }
   ]
 
 This setting controls the additional links on the user drop down menu.
