@@ -6,7 +6,7 @@
     vars:
       node_version: 20
       tox_constraints_file: "{{ ansible_user_dir }}/{{ zuul.projects['opendev.org/openstack/requirements'].src_dir }}/upper-constraints.txt"
-    nodeset: debian-bullseye
+    nodeset: debian-bookworm
     pre-run: playbooks/horizon-nodejs/pre.yaml
     required-projects:
       - openstack/horizon
@@ -21,7 +21,7 @@
       node_version: 20
       tox_constraints_file: "{{ ansible_user_dir }}/{{ zuul.projects['opendev.org/openstack/requirements'].src_dir }}/upper-constraints.txt"
     pre-run: playbooks/horizon-nodejs/pre.yaml
-    nodeset: debian-bullseye
+    nodeset: debian-bookworm
     required-projects:
       - openstack/horizon
       - openstack/requirements

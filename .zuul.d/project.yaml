@@ -24,7 +24,6 @@
       jobs:
         - horizon-dsvm-tempest-plugin
         - horizon-selenium-headless
-        - horizon-integration-tests
         - horizon-tempest-plugin-ipv6
     experimental:
       jobs:

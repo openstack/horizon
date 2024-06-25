@@ -1,7 +1,7 @@
 - job:
     name: horizon-integration-tests
     parent: devstack
-    nodeset: devstack-single-node-debian-bullseye
+    nodeset: devstack-single-node-debian-bookworm
     pre-run: playbooks/horizon-devstack-integration/pre.yaml
     run: playbooks/horizon-devstack-integration/run.yaml
     post-run: playbooks/horizon-devstack-integration/post.yaml
@@ -33,7 +33,7 @@
 - job:
     name: horizon-integration-pytest
     parent: devstack
-    nodeset: devstack-single-node-debian-bullseye
+    nodeset: devstack-single-node-debian-bookworm
     pre-run: playbooks/horizon-devstack-integration/pre.yaml
     run: playbooks/horizon-devstack-integration/run.yaml
     post-run: playbooks/horizon-devstack-integration/post.yaml
@@ -65,7 +65,7 @@
 - job:
     name: horizon-ui-pytest
     parent: devstack
-    nodeset: devstack-single-node-debian-bullseye
+    nodeset: devstack-single-node-debian-bookworm
     pre-run: playbooks/horizon-devstack-integration/pre.yaml
     run: playbooks/horizon-devstack-integration/run.yaml
     post-run: playbooks/horizon-devstack-integration/post.yaml
