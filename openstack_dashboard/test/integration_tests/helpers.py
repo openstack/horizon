@@ -20,6 +20,7 @@ import subprocess
 import tempfile
 import time
 import traceback
+import unittest
 
 from django.test import tag
 from oslo_utils import uuidutils
@@ -203,7 +204,7 @@ class BaseTestCase(testtools.TestCase):
     def addOnException(self, exception_handler):
 
         def wrapped_handler(exc_info):
-            if issubclass(exc_info[0], testtools.testcase.TestSkipped):
+            if issubclass(exc_info[0], unittest.SkipTest):
                 return
             return exception_handler(exc_info)
 
