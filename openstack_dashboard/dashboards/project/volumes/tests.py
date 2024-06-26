@@ -206,6 +206,14 @@ class VolumeIndexViewTests(test.ResetImageAPIVersionMixin, test.TestCase):
         result = res.context['volumes_table'].data
         self.assertCountEqual(result, expected_volumes)
 
+    def test_attachment_column(self):
+        column = volume_tables.AttachmentColumn("attachments")
+        column.table = mock.Mock()
+        column.table.request = mock.Mock()
+        volume = mock.Mock(attachments=[])
+        result = column.get_raw_data(volume)
+        self.assertIsNone(result)
+
 
 class VolumeViewTests(test.ResetImageAPIVersionMixin, test.TestCase):
     def tearDown(self):
