@@ -71,7 +71,7 @@ class NetworkApiNeutronTests(test.APIMockTestCase):
 
         servers = self.servers.list()
         server_ids = tuple([server.id for server in servers])
-        server_ports = [p for p in self.api_ports.list()
+        server_ports = [p for p in self.api_ports_sdk
                         if p['device_id'] in server_ids]
         server_port_ids = tuple([p['id'] for p in server_ports])
         if router_enabled:
@@ -81,12 +81,15 @@ class NetworkApiNeutronTests(test.APIMockTestCase):
         server_networks = [net for net in self.api_networks_sdk
                            if net['id'] in server_network_ids]
 
-        list_ports_retvals = [{'ports': server_ports}]
-        self.qclient.list_ports.side_effect = list_ports_retvals
+        list_ports_retvals = server_ports
+        port_w_router = None
         if router_enabled:
             self.qclient.list_floatingips.return_value = {'floatingips':
                                                           assoc_fips}
-            list_ports_retvals.append({'ports': self.api_ports.list()})
+            port_w_router = self.api_ports_sdk
+        self.sdk_net_client.ports.side_effect = [list_ports_retvals,
+                                                 port_w_router]
+        self.sdk_net_client.get_port.side_effect = list_ports_retvals
         self.sdk_net_client.networks.return_value = server_networks
         self.sdk_net_client.subnets.return_value = self.api_subnets_sdk
 
@@ -131,7 +134,7 @@ class NetworkApiNeutronTests(test.APIMockTestCase):
             expected_list_ports.append(mock.call(tenant_id=tenant_id))
         else:
             self.assertEqual(0, self.qclient.list_floatingips.call_count)
-        self.qclient.list_ports.assert_has_calls(expected_list_ports)
+        self.sdk_net_client.ports.assert_has_calls(expected_list_ports)
         nets_calls = []
         for server_net_id in server_network_ids:
             nets_calls.append(mock.call(id=server_net_id))

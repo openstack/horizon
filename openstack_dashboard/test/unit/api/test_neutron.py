@@ -17,6 +17,7 @@ from unittest import mock
 import netaddr
 from neutronclient.common import exceptions as neutron_exc
 from openstack import exceptions as sdk_exceptions
+from openstack.network.v2 import port as sdk_port
 from openstack.network.v2 import trunk as sdk_trunk
 from oslo_utils import uuidutils
 
@@ -1166,35 +1167,32 @@ class NeutronApiTests(test.APIMockTestCase):
 
         neutronclient.delete_subnetpool.assert_called_once_with(subnetpool_id)
 
-    @mock.patch.object(api.neutron, 'neutronclient')
-    def test_port_list(self, mock_neutronclient):
-        ports = {'ports': self.api_ports.list()}
+    @mock.patch.object(api.neutron, 'networkclient')
+    def test_port_list(self, mock_networkclient):
+        ports = self.api_ports_sdk
 
-        neutronclient = mock_neutronclient.return_value
-        neutronclient.list_ports.return_value = ports
+        network_client = mock_networkclient.return_value
+        network_client.ports.return_value = ports
 
         ret_val = api.neutron.port_list(self.request)
 
         for p in ret_val:
             self.assertIsInstance(p, api.neutron.Port)
-        neutronclient.list_ports.assert_called_once_with()
+        network_client.ports.assert_called_once_with()
 
     @mock.patch.object(api.neutron, 'is_extension_supported')
-    @mock.patch.object(api.neutron, 'neutronclient')
     @mock.patch.object(api.neutron, 'networkclient')
     def test_port_list_with_trunk_types(
-            self, mock_networkclient, mock_neutronclient,
-            mock_is_extension_supported):
-        ports = self.api_tp_ports.list()
-        trunks = self.api_tp_trunks_sdk
+            self, mock_networkclient, mock_is_extension_supported):
+        ports = self.api_tp_ports_sdk
+        trunks = self.api_tp_trunks.list()
 
         # list_extensions is decorated with memoized_with_request, so
         # neutronclient() is not called. We need to mock it separately.
         mock_is_extension_supported.return_value = True  # trunk
 
-        neutronclient = mock_neutronclient.return_value
         network_client = mock_networkclient.return_value
-        neutronclient.list_ports.return_value = {'ports': ports}
+        network_client.ports.return_value = ports
         network_client.trunks.return_value = trunks
 
         expected_parent_port_ids = set()
@@ -1223,21 +1221,21 @@ class NeutronApiTests(test.APIMockTestCase):
 
         mock_is_extension_supported.assert_called_once_with(
             test.IsHttpRequest(), 'trunk')
-        neutronclient.list_ports.assert_called_once_with()
+        network_client.ports.assert_called_once_with()
         network_client.trunks.assert_called_once_with()
 
     @mock.patch.object(api.neutron, 'is_extension_supported')
-    @mock.patch.object(api.neutron, 'neutronclient')
+    @mock.patch.object(api.neutron, 'networkclient')
     def test_port_list_with_trunk_types_without_trunk_extension(
-            self, mock_neutronclient, mock_is_extension_supported):
-        ports = self.api_tp_ports.list()
+            self, mock_networkclient, mock_is_extension_supported):
+        ports = self.api_tp_ports_sdk
 
         # list_extensions is decorated with memoized_with_request,
         # the simpliest way is to mock it directly.
         mock_is_extension_supported.return_value = False  # trunk
 
-        neutronclient = mock_neutronclient.return_value
-        neutronclient.list_ports.return_value = {'ports': ports}
+        networkclient = mock_networkclient.return_value
+        networkclient.ports.return_value = ports
 
         ret_val = api.neutron.port_list_with_trunk_types(self.request)
 
@@ -1250,24 +1248,24 @@ class NeutronApiTests(test.APIMockTestCase):
 
         mock_is_extension_supported.assert_called_once_with(
             test.IsHttpRequest(), 'trunk')
-        neutronclient.list_ports.assert_called_once_with()
+        networkclient.ports.assert_called_once_with()
 
-    @mock.patch.object(api.neutron, 'neutronclient')
-    def test_port_get(self, mock_neutronclient):
-        port = {'port': self.api_ports.first()}
-        port_id = self.api_ports.first()['id']
+    @mock.patch.object(api.neutron, 'networkclient')
+    def test_port_get(self, mock_networkclient):
+        port = self.api_ports_sdk[0]
+        port_id = self.api_ports_sdk[0]['id']
 
-        neutronclient = mock_neutronclient.return_value
-        neutronclient.show_port.return_value = port
+        network_client = mock_networkclient.return_value
+        network_client.get_port.return_value = port
 
         ret_val = api.neutron.port_get(self.request, port_id)
 
         self.assertIsInstance(ret_val, api.neutron.Port)
-        neutronclient.show_port.assert_called_once_with(port_id)
+        network_client.get_port.assert_called_once_with(port_id)
 
-    @mock.patch.object(api.neutron, 'neutronclient')
-    def test_port_create(self, mock_neutronclient):
-        port = self.api_ports.first()
+    @mock.patch.object(api.neutron, 'networkclient')
+    def test_port_create(self, mock_networkclient):
+        port = self.api_ports_sdk[0]
         params = {'network_id': port['network_id'],
                   'tenant_id': port['tenant_id'],
                   'name': port['name'],
@@ -1276,19 +1274,18 @@ class NeutronApiTests(test.APIMockTestCase):
         params['binding__vnic_type'] = port['binding:vnic_type']
         api_params['binding:vnic_type'] = port['binding:vnic_type']
 
-        neutronclient = mock_neutronclient.return_value
-        neutronclient.create_port.return_value = {'port': port}
+        network_client = mock_networkclient.return_value
+        network_client.create_port.return_value = port
 
         ret_val = api.neutron.port_create(self.request, **params)
 
         self.assertIsInstance(ret_val, api.neutron.Port)
-        self.assertEqual(api.neutron.Port(port).id, ret_val.id)
-        neutronclient.create_port.assert_called_once_with(
-            body={'port': api_params})
+        self.assertEqual(port.id, ret_val.id)
+        network_client.create_port.assert_called_once_with(**api_params)
 
-    @mock.patch.object(api.neutron, 'neutronclient')
-    def test_port_update(self, mock_neutronclient):
-        port_data = self.api_ports.first()
+    @mock.patch.object(api.neutron, 'networkclient')
+    def test_port_update(self, mock_networkclient):
+        port_data = self.api_ports_sdk[0]
         port_id = port_data['id']
         params = {'name': port_data['name'],
                   'device_id': port_data['device_id']}
@@ -1296,26 +1293,26 @@ class NeutronApiTests(test.APIMockTestCase):
         params['binding__vnic_type'] = port_data['binding:vnic_type']
         api_params['binding:vnic_type'] = port_data['binding:vnic_type']
 
-        neutronclient = mock_neutronclient.return_value
-        neutronclient.update_port.return_value = {'port': port_data}
+        network_client = mock_networkclient.return_value
+        network_client.update_port.return_value = port_data
 
         ret_val = api.neutron.port_update(self.request, port_id, **params)
 
         self.assertIsInstance(ret_val, api.neutron.Port)
-        self.assertEqual(api.neutron.Port(port_data).id, ret_val.id)
-        neutronclient.update_port.assert_called_once_with(
-            port_id, body={'port': api_params})
+        self.assertEqual(port_data.id, ret_val.id)
+        network_client.update_port.assert_called_once_with(
+            port_id, **api_params)
 
-    @mock.patch.object(api.neutron, 'neutronclient')
-    def test_port_delete(self, mock_neutronclient):
-        port_id = self.api_ports.first()['id']
+    @mock.patch.object(api.neutron, 'networkclient')
+    def test_port_delete(self, mock_networkclient):
+        port_id = self.api_ports_sdk[0]['id']
 
-        neutronclient = mock_neutronclient.return_value
-        neutronclient.delete_port.return_value = None
+        network_client = mock_networkclient.return_value
+        network_client.delete_port.return_value = None
 
         api.neutron.port_delete(self.request, port_id)
 
-        neutronclient.delete_port.assert_called_once_with(port_id)
+        network_client.delete_port.assert_called_once_with(port_id)
 
     @mock.patch.object(api.neutron, 'networkclient')
     def test_trunk_list(self, mock_networkclient):
@@ -1741,8 +1738,8 @@ class NeutronApiTests(test.APIMockTestCase):
     def test_get_router_ha_permission_without_l3_ha_extension(self):
         self._test_get_router_ha_permission_with_policy_check(False)
 
-    @mock.patch.object(api.neutron, 'neutronclient')
-    def test_list_resources_with_long_filters(self, mock_neutronclient):
+    @mock.patch.object(api.neutron, 'networkclient')
+    def test_list_resources_with_long_filters(self, mock_networkclient):
         # In this tests, port_list is called with id=[10 port ID]
         # filter. It generates about 40*10 char length URI.
         # Each port ID is converted to "id=<UUID>&" in URI and
@@ -1752,18 +1749,17 @@ class NeutronApiTests(test.APIMockTestCase):
         # As a result three API calls with 4, 4, 2 port ID
         # are expected.
 
-        ports = [{'id': uuidutils.generate_uuid(),
-                  'name': 'port%s' % i,
-                  'admin_state_up': True}
+        ports = [sdk_port.Port(**{'id': uuidutils.generate_uuid(),
+                 'name': 'port%s' % i, 'admin_state_up': True})
                  for i in range(10)]
         port_ids = tuple([port['id'] for port in ports])
 
-        neutronclient = mock_neutronclient.return_value
+        network_client = mock_networkclient.return_value
         uri_len_exc = neutron_exc.RequestURITooLong(excess=220)
         list_ports_retval = [uri_len_exc]
         for i in range(0, 10, 4):
-            list_ports_retval.append({'ports': ports[i:i + 4]})
-        neutronclient.list_ports.side_effect = list_ports_retval
+            list_ports_retval.append(ports[i:i + 4])
+        network_client.ports.side_effect = list_ports_retval
 
         ret_val = api.neutron.list_resources_with_long_filters(
             api.neutron.port_list, 'id', tuple(port_ids),
@@ -1775,7 +1771,7 @@ class NeutronApiTests(test.APIMockTestCase):
         expected_calls.append(mock.call(id=tuple(port_ids)))
         for i in range(0, 10, 4):
             expected_calls.append(mock.call(id=tuple(port_ids[i:i + 4])))
-        neutronclient.list_ports.assert_has_calls(expected_calls)
+        network_client.ports.assert_has_calls(expected_calls)
 
     @mock.patch.object(api.neutron, 'neutronclient')
     def test_qos_policies_list(self, mock_neutronclient):
@@ -2072,7 +2068,9 @@ class NeutronApiSecurityGroupTests(test.APIMockTestCase):
     def setUp(self):
         super().setUp()
         neutronclient = mock.patch.object(api.neutron, 'neutronclient').start()
+        networkclient = mock.patch.object(api.neutron, 'networkclient').start()
         self.qclient = neutronclient.return_value
+        self.netclient = networkclient.return_value
         self.sg_dict = dict([(sg['id'], sg['name']) for sg
                              in self.api_security_groups.list()])
 
@@ -2284,7 +2282,7 @@ class NeutronApiSecurityGroupTests(test.APIMockTestCase):
             sg_rule['id'])
 
     def _get_instance(self, cur_sg_ids):
-        instance_port = [p for p in self.api_ports.list()
+        instance_port = [p for p in self.api_ports_sdk
                          if p['device_owner'].startswith('compute:')][0]
         instance_id = instance_port['device_id']
         # Emulate an instance with two ports
@@ -2299,14 +2297,14 @@ class NeutronApiSecurityGroupTests(test.APIMockTestCase):
     def test_server_security_groups(self):
         cur_sg_ids = [sg['id'] for sg in self.api_security_groups.list()[:2]]
         instance_id, instance_ports = self._get_instance(cur_sg_ids)
-        self.qclient.list_ports.return_value = {'ports': instance_ports}
+        self.netclient.ports.return_value = instance_ports
         secgroups = copy.deepcopy(self.api_security_groups.list())
         self.qclient.list_security_groups.return_value = \
             {'security_groups': secgroups}
 
         api.neutron.server_security_groups(self.request, instance_id)
 
-        self.qclient.list_ports.assert_called_once_with(device_id=instance_id)
+        self.netclient.ports.assert_called_once_with(device_id=instance_id)
         self.qclient.list_security_groups.assert_called_once_with(
             id=set(cur_sg_ids))
 
@@ -2315,18 +2313,17 @@ class NeutronApiSecurityGroupTests(test.APIMockTestCase):
         new_sg_ids = [sg['id'] for sg in self.api_security_groups.list()[:2]]
         instance_id, instance_ports = self._get_instance(cur_sg_ids)
 
-        self.qclient.list_ports.return_value = {'ports': instance_ports}
-        self.qclient.update_port.side_effect = \
-            [{'port': p} for p in instance_ports]
+        self.netclient.ports.return_value = instance_ports
+        self.netclient.update_port.side_effect = \
+            [p for p in instance_ports]
 
         api.neutron.server_update_security_groups(
             self.request, instance_id, new_sg_ids)
 
-        self.qclient.list_ports.assert_called_once_with(device_id=instance_id)
-        body = {'port': {'security_groups': new_sg_ids}}
-        expected_calls = [mock.call(p['id'], body=body)
+        self.netclient.ports.assert_called_once_with(device_id=instance_id)
+        expected_calls = [mock.call(p['id'], security_groups=new_sg_ids)
                           for p in instance_ports]
-        self.qclient.update_port.assert_has_calls(expected_calls)
+        self.netclient.update_port.assert_has_calls(expected_calls)
 
 
 class NeutronApiFloatingIpPortForwardingTest(test.APIMockTestCase):
@@ -2438,7 +2435,7 @@ class NeutronApiFloatingIpTests(test.APIMockTestCase):
         filters = {'tenant_id': self.request.user.tenant_id}
 
         self.qclient.list_floatingips.return_value = {'floatingips': fips}
-        self.qclient.list_ports.return_value = {'ports': self.api_ports.list()}
+        self.netclient.ports.return_value = self.api_ports_sdk
 
         rets = api.neutron.tenant_floating_ip_list(self.request)
 
@@ -2455,17 +2452,17 @@ class NeutronApiFloatingIpTests(test.APIMockTestCase):
                 self.assertIsNone(ret.instance_id)
                 self.assertIsNone(ret.instance_type)
         self.qclient.list_floatingips.assert_called_once_with(**filters)
-        self.qclient.list_ports.assert_called_once_with(**filters)
+        self.netclient.ports.assert_called_once_with(**filters)
 
     def test_floating_ip_list_all_tenants(self):
         fips = self.api_floating_ips.list()
         self.qclient.list_floatingips.return_value = {'floatingips': fips}
-        self.qclient.list_ports.return_value = {'ports': self.api_ports.list()}
+        self.netclient.ports.return_value = self.api_ports_sdk
 
         fip_manager = api.neutron.FloatingIpManager(self.request)
         rets = fip_manager.list(all_tenants=True)
 
-        assoc_port = self.api_ports.list()[1]
+        assoc_port = self.api_ports_sdk[1]
         self.assertEqual(len(fips), len(rets))
         for ret, exp in zip(rets, fips):
             for attr in ['id', 'ip', 'pool', 'fixed_ip', 'port_id']:
@@ -2478,12 +2475,12 @@ class NeutronApiFloatingIpTests(test.APIMockTestCase):
                 self.assertIsNone(ret.instance_id)
                 self.assertIsNone(ret.instance_type)
         self.qclient.list_floatingips.assert_called_once_with()
-        self.qclient.list_ports.assert_called_once_with()
+        self.netclient.ports.assert_called_once_with()
 
     def _test_floating_ip_get_associated(self, assoc_port, exp_instance_type):
         fip = self.api_floating_ips.list()[1]
         self.qclient.show_floatingip.return_value = {'floatingip': fip}
-        self.qclient.show_port.return_value = {'port': assoc_port}
+        self.netclient.get_port.return_value = assoc_port
 
         ret = api.neutron.tenant_floating_ip_get(self.request, fip['id'])
 
@@ -2492,14 +2489,14 @@ class NeutronApiFloatingIpTests(test.APIMockTestCase):
         self.assertEqual(assoc_port['device_id'], ret.instance_id)
         self.assertEqual(exp_instance_type, ret.instance_type)
         self.qclient.show_floatingip.assert_called_once_with(fip['id'])
-        self.qclient.show_port.assert_called_once_with(assoc_port['id'])
+        self.netclient.get_port.assert_called_once_with(assoc_port['id'])
 
     def test_floating_ip_get_associated(self):
-        assoc_port = self.api_ports.list()[1]
+        assoc_port = self.api_ports_sdk[1]
         self._test_floating_ip_get_associated(assoc_port, 'compute')
 
     def test_floating_ip_get_associated_with_loadbalancer_vip(self):
-        assoc_port = copy.deepcopy(self.api_ports.list()[1])
+        assoc_port = copy.deepcopy(self.api_ports_sdk[1])
         assoc_port['device_owner'] = 'neutron:LOADBALANCER'
         assoc_port['device_id'] = uuidutils.generate_uuid()
         assoc_port['name'] = 'vip-' + uuidutils.generate_uuid()
@@ -2586,7 +2583,7 @@ class NeutronApiFloatingIpTests(test.APIMockTestCase):
     )
     @mock.patch.object(api._nova, 'novaclient')
     def test_floating_ip_target_list(self, mock_novaclient):
-        ports = self.api_ports.list()
+        ports = self.api_ports_sdk
         # Port on the first subnet is connected to a router
         # attached to external network in neutron_data.
         subnet_id = self.subnets.first().id
@@ -2607,7 +2604,7 @@ class NeutronApiFloatingIpTests(test.APIMockTestCase):
                     self._get_target_id(p, ip['ip_address']),
                     self._get_target_name(p, ip['ip_address'])))
         filters = {'tenant_id': self.request.user.tenant_id}
-        self.qclient.list_ports.return_value = {'ports': ports}
+        self.netclient.ports.return_value = ports
         servers = self.servers.list()
         novaclient = mock_novaclient.return_value
         ver = mock.Mock(min_version='2.1', version='2.45')
@@ -2633,7 +2630,7 @@ class NeutronApiFloatingIpTests(test.APIMockTestCase):
             self.assertEqual(exp[0], ret.id)
             self.assertEqual(exp[1], ret.name)
 
-        self.qclient.list_ports.assert_called_once_with(**filters)
+        self.netclient.ports.assert_called_once_with(**filters)
         novaclient.versions.get_current.assert_called_once_with()
         novaclient.servers.list.assert_called_once_with(
             False, {'project_id': self.request.user.tenant_id})
@@ -2650,12 +2647,12 @@ class NeutronApiFloatingIpTests(test.APIMockTestCase):
         # list_ports and list_networks are called multiple times,
         # we prepare a list for return values.
         list_ports_retvals = []
-        self.qclient.list_ports.side_effect = list_ports_retvals
+        self.netclient.ports.side_effect = list_ports_retvals
         list_nets_retvals = []
         self.netclient.networks.side_effect = list_nets_retvals
 
         # _target_ports_by_instance()
-        list_ports_retvals.append({'ports': candidates})
+        list_ports_retvals.append(candidates)
 
         # _get_reachable_subnets()
         ext_nets = [n for n in self.api_networks_sdk
@@ -2666,7 +2663,7 @@ class NeutronApiFloatingIpTests(test.APIMockTestCase):
                                                   self.api_routers.list()}]
         rinfs = [p for p in ports
                  if p['device_owner'] in api.neutron.ROUTER_INTERFACE_OWNERS]
-        list_ports_retvals.append({'ports': rinfs})
+        list_ports_retvals.append(rinfs)
         shared_nets = [n for n in self.api_networks_sdk if n['is_shared']]
         list_nets_retvals.append(shared_nets)
         shared_subnet_ids = [s for n in shared_nets for s in n['subnets']]
@@ -2683,7 +2680,7 @@ class NeutronApiFloatingIpTests(test.APIMockTestCase):
         ret_val = api.neutron.floating_ip_target_list_by_instance(self.request,
                                                                   server.id)
 
-        self.qclient.list_ports.assert_has_calls([
+        self.netclient.ports.assert_has_calls([
             mock.call(device_id=server.id),
             mock.call(device_owner=api.neutron.ROUTER_INTERFACE_OWNERS),
         ])
@@ -2700,7 +2697,7 @@ class NeutronApiFloatingIpTests(test.APIMockTestCase):
 
     def test_target_floating_ip_port_by_instance(self):
         server = self.servers.first()
-        ports = self.api_ports.list()
+        ports = self.api_ports_sdk
         candidates = [p for p in ports if p['device_id'] == server.id]
 
         ret = self._test_target_floating_ip_port_by_instance(server, ports,
@@ -2713,7 +2710,7 @@ class NeutronApiFloatingIpTests(test.APIMockTestCase):
 
     def test_target_floating_ip_port_by_instance_with_ipv6(self):
         server = self.servers.first()
-        ports = self.api_ports.list()
+        ports = self.api_ports_sdk
         candidates = [p for p in ports if p['device_id'] == server.id]
         # Move the IPv6 entry first
         fixed_ips = candidates[0]['fixed_ips']

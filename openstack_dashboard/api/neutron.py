@@ -1829,8 +1829,10 @@ def subnetpool_delete(request, subnetpool_id):
 @memoized
 def port_list(request, **params):
     LOG.debug("port_list(): params=%s", params)
-    ports = neutronclient(request).list_ports(**params).get('ports')
-    return [Port(p) for p in ports]
+    ports = networkclient(request).ports(**params)
+    if not isinstance(ports, (types.GeneratorType, list)):
+        ports = [ports]
+    return [Port(p.to_dict()) for p in ports]
 
 
 @profiler.trace
@@ -1853,7 +1855,7 @@ def port_list_with_trunk_types(request, **params):
     if not is_extension_supported(request, 'trunk'):
         return port_list(request, **params)
 
-    ports = neutronclient(request).list_ports(**params)['ports']
+    ports = networkclient(request).ports(**params)
     trunk_filters = {}
     if 'tenant_id' in params:
         trunk_filters['tenant_id'] = params['tenant_id']
@@ -1878,11 +1880,10 @@ def port_list_with_trunk_types(request, **params):
 
 
 @profiler.trace
-def port_get(request, port_id, **params):
-    LOG.debug("port_get(): portid=%(port_id)s, params=%(params)s",
-              {'port_id': port_id, 'params': params})
-    port = neutronclient(request).show_port(port_id, **params).get('port')
-    return Port(port)
+def port_get(request, port_id):
+    LOG.debug("port_get(): portid=%(port_id)s", {'port_id': port_id})
+    port = networkclient(request).get_port(port_id)
+    return Port(port.to_dict())
 
 
 def unescape_port_kwargs(**kwargs):
@@ -1907,18 +1908,17 @@ def port_create(request, network_id, **kwargs):
     LOG.debug("port_create(): netid=%(network_id)s, kwargs=%(kwargs)s",
               {'network_id': network_id, 'kwargs': kwargs})
     kwargs = unescape_port_kwargs(**kwargs)
-    body = {'port': {'network_id': network_id}}
     if 'tenant_id' not in kwargs:
         kwargs['tenant_id'] = request.user.project_id
-    body['port'].update(kwargs)
-    port = neutronclient(request).create_port(body=body).get('port')
+    kwargs['network_id'] = network_id
+    port = networkclient(request).create_port(**kwargs).to_dict()
     return Port(port)
 
 
 @profiler.trace
 def port_delete(request, port_id):
     LOG.debug("port_delete(): portid=%s", port_id)
-    neutronclient(request).delete_port(port_id)
+    networkclient(request).delete_port(port_id)
 
 
 @profiler.trace
@@ -1926,8 +1926,7 @@ def port_update(request, port_id, **kwargs):
     LOG.debug("port_update(): portid=%(port_id)s, kwargs=%(kwargs)s",
               {'port_id': port_id, 'kwargs': kwargs})
     kwargs = unescape_port_kwargs(**kwargs)
-    body = {'port': kwargs}
-    port = neutronclient(request).update_port(port_id, body=body).get('port')
+    port = networkclient(request).update_port(port_id, **kwargs).to_dict()
     return Port(port)
 
 

@@ -69,8 +69,8 @@ class DetailView(tabs.TabbedTableView):
 
         try:
             port = api.neutron.port_get(self.request, port_id)
-            port.admin_state_label = STATE_DICT.get(port.admin_state,
-                                                    port.admin_state)
+            port.admin_state_label = STATE_DICT.get(port.is_admin_state_up,
+                                                    port.is_admin_state_up)
             port.status_label = STATUS_DICT.get(port.status,
                                                 port.status)
             if port.get('binding__vnic_type'):
@@ -122,7 +122,7 @@ class DetailView(tabs.TabbedTableView):
 
         results = futurist_utils.call_functions_parallel(
             (get_network, [port.network_id]),
-            (get_security_groups, [tuple(port.security_groups)]))
+            (get_security_groups, [tuple(port.security_group_ids)]))
         network, port.security_groups = results
 
         port.network_name = network.get('name')
@@ -173,7 +173,7 @@ class UpdateView(workflows.WorkflowView):
                    'network_id': port['network_id'],
                    'tenant_id': port['tenant_id'],
                    'name': port['name'],
-                   'admin_state': port['admin_state_up'],
+                   'admin_state': port['is_admin_state_up'],
                    'mac_address': port['mac_address'],
                    "target_tenant_id": self.request.user.project_id}
         if port.get('binding__vnic_type'):
