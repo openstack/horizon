@@ -12,8 +12,6 @@
     check:
       jobs:
         - horizon-selenium-headless
-        - horizon-integration-tests:
-            voting: false
         - horizon-integration-pytest
         - horizon-ui-pytest:
             voting: false
@@ -24,13 +22,14 @@
       jobs:
         - horizon-dsvm-tempest-plugin
         - horizon-selenium-headless
+        - horizon-integration-pytest
         - horizon-tempest-plugin-ipv6
     experimental:
       jobs:
-        - horizon-integration-tests-xstatic-master
+        - horizon-integration-pytest-xstatic-master
         - horizon-tox-py36-xstatic-master
         - horizon-nodejs20-run-test-xstatic-master
     periodic:
       jobs:
         - horizon-nodejs20-run-test
-        - horizon-integration-tests
+        - horizon-integration-pytest

@@ -1,6 +1,6 @@
 - job:
-    name: horizon-integration-tests-xstatic-master
-    parent: horizon-integration-tests
+    name: horizon-integration-pytest-xstatic-master
+    parent: horizon-integration-pytest
     required-projects: &xstatic-projects
       - openstack/horizon
       - openstack/xstatic-angular

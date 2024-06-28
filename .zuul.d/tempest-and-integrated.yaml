@@ -1,36 +1,4 @@
 - job:
-    name: horizon-integration-tests
-    parent: devstack
-    nodeset: devstack-single-node-debian-bookworm
-    pre-run: playbooks/horizon-devstack-integration/pre.yaml
-    run: playbooks/horizon-devstack-integration/run.yaml
-    post-run: playbooks/horizon-devstack-integration/post.yaml
-    roles:
-      - zuul: openstack-infra/devstack
-    required-projects:
-      - openstack/horizon
-      - openstack/requirements
-    irrelevant-files:
-      - ^.*\.rst$
-      - ^doc/.*$
-      - ^releasenotes/.*$
-      - ^.*/locale/.*$
-      # Unit tests are not related to the integration tests
-      - ^horizon/test/unit/.*$
-      - ^openstack_auth/tests/unit/.*$
-      - ^openstack_dashboard/test/unit/.*$
-      - ^openstack_dashboard/contrib/.*/tests.py$
-      - ^openstack_dashboard/dashboards/.*/tests.py$
-      # JavaScript unit tests are not related to the integration tests
-      - ^openstack_dashboard/.*/[^/]*\.spec\.js$
-      - ^horizon/static/.*/[^/]*\.spec\.js$
-    vars:
-      devstack_services:
-        horizon: true
-      tox_envlist: integration
-      tox_constraints_file: "{{ ansible_user_dir }}/{{ zuul.projects['opendev.org/openstack/requirements'].src_dir }}/upper-constraints.txt"
-
-- job:
     name: horizon-integration-pytest
     parent: devstack
     nodeset: devstack-single-node-debian-bookworm
