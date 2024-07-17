@@ -17,6 +17,7 @@ import copy
 from openstack.network.v2 import network as sdk_net
 from openstack.network.v2 import port as sdk_port
 from openstack.network.v2 import subnet as sdk_subnet
+from openstack.network.v2 import subnet_pool as sdk_subnet_pool
 from openstack.network.v2 import trunk as sdk_trunk
 from oslo_utils import uuidutils
 
@@ -93,6 +94,7 @@ def data(TEST):
     TEST.api_trunks_sdk = list()
     TEST.api_ports_sdk = list()
     TEST.api_tp_ports_sdk = list()
+    TEST.api_subnetpools_sdk = list()
 
     # 1st network.
     network_dict = {'is_admin_state_up': True,
@@ -206,6 +208,7 @@ def data(TEST):
     TEST.api_ports.add(port_dict)
     TEST.api_ports_sdk.append(sdk_port.Port(**port_dict))
     TEST.ports.add(neutron.Port(port_dict))
+
     assoc_port = port_dict
 
     port_dict = {
@@ -927,6 +930,8 @@ def data(TEST):
                        'tenant_id': '1'}
 
     TEST.api_subnetpools.add(subnetpool_dict)
+    TEST.api_subnetpools_sdk.append(
+        (sdk_subnet_pool.SubnetPool(**subnetpool_dict)))
     subnetpool = neutron.SubnetPool(subnetpool_dict)
     TEST.subnetpools.add(subnetpool)
 
@@ -943,6 +948,8 @@ def data(TEST):
                        'tenant_id': '1'}
 
     TEST.api_subnetpools.add(subnetpool_dict)
+    TEST.api_subnetpools_sdk.append(
+        (sdk_subnet_pool.SubnetPool(**subnetpool_dict)))
     subnetpool = neutron.SubnetPool(subnetpool_dict)
     TEST.subnetpools.add(subnetpool)
 

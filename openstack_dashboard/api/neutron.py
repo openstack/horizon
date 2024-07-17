@@ -1753,20 +1753,18 @@ def subnet_delete(request, subnet_id):
 @profiler.trace
 def subnetpool_list(request, **params):
     LOG.debug("subnetpool_list(): params=%s", params)
-    subnetpools = \
-        neutronclient(request).list_subnetpools(**params).get('subnetpools')
-    return [SubnetPool(s) for s in subnetpools]
+    subnetpools = networkclient(request).subnet_pools(**params)
+    if not isinstance(subnetpools, (types.GeneratorType, list)):
+        subnetpools = [subnetpools]
+    return [SubnetPool(s.to_dict()) for s in subnetpools]
 
 
 @profiler.trace
-def subnetpool_get(request, subnetpool_id, **params):
-    LOG.debug("subnetpool_get(): subnetpoolid=%(subnetpool_id)s, "
-              "params=%(params)s", {'subnetpool_id': subnetpool_id,
-                                    'params': params})
-    subnetpool = \
-        neutronclient(request).show_subnetpool(subnetpool_id,
-                                               **params).get('subnetpool')
-    return SubnetPool(subnetpool)
+def subnetpool_get(request, subnetpool_id):
+    LOG.debug("subnetpool_get(): subnetpoolid=%(subnetpool_id)s",
+              {'subnetpool_id': subnetpool_id})
+    subnetpool = networkclient(request).get_subnet_pool(subnetpool_id)
+    return SubnetPool(subnetpool.to_dict())
 
 
 @profiler.trace
@@ -1794,17 +1792,15 @@ def subnetpool_create(request, name, prefixes, **kwargs):
     LOG.debug("subnetpool_create(): name=%(name)s, prefixes=%(prefixes)s, "
               "kwargs=%(kwargs)s", {'name': name, 'prefixes': prefixes,
                                     'kwargs': kwargs})
-    body = {'subnetpool':
-            {'name': name,
-             'prefixes': prefixes,
-             }
+    body = {'name': name,
+            'prefixes': prefixes,
             }
     if 'tenant_id' not in kwargs:
         kwargs['tenant_id'] = request.user.project_id
-    body['subnetpool'].update(kwargs)
+    body.update(kwargs)
     subnetpool = \
-        neutronclient(request).create_subnetpool(body=body).get('subnetpool')
-    return SubnetPool(subnetpool)
+        networkclient(request).create_subnet_pool(**body)
+    return SubnetPool(subnetpool.to_dict())
 
 
 @profiler.trace
@@ -1812,17 +1808,15 @@ def subnetpool_update(request, subnetpool_id, **kwargs):
     LOG.debug("subnetpool_update(): subnetpoolid=%(subnetpool_id)s, "
               "kwargs=%(kwargs)s", {'subnetpool_id': subnetpool_id,
                                     'kwargs': kwargs})
-    body = {'subnetpool': kwargs}
     subnetpool = \
-        neutronclient(request).update_subnetpool(subnetpool_id,
-                                                 body=body).get('subnetpool')
-    return SubnetPool(subnetpool)
+        networkclient(request).update_subnet_pool(subnetpool_id, **kwargs)
+    return SubnetPool(subnetpool.to_dict())
 
 
 @profiler.trace
 def subnetpool_delete(request, subnetpool_id):
     LOG.debug("subnetpool_delete(): subnetpoolid=%s", subnetpool_id)
-    return neutronclient(request).delete_subnetpool(subnetpool_id)
+    return networkclient(request).delete_subnet_pool(subnetpool_id)
 
 
 @profiler.trace

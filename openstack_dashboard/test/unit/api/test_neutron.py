@@ -18,6 +18,7 @@ import netaddr
 from neutronclient.common import exceptions as neutron_exc
 from openstack import exceptions as sdk_exceptions
 from openstack.network.v2 import port as sdk_port
+from openstack.network.v2 import subnet_pool as sdk_subnet_pool
 from openstack.network.v2 import trunk as sdk_trunk
 from oslo_utils import uuidutils
 
@@ -1095,77 +1096,76 @@ class NeutronApiTests(test.APIMockTestCase):
 
         neutronclient.delete_subnet.assert_called_once_with(subnet_id)
 
-    @mock.patch.object(api.neutron, 'neutronclient')
-    def test_subnetpool_list(self, mock_neutronclient):
-        subnetpools = {'subnetpools': self.api_subnetpools.list()}
+    @mock.patch.object(api.neutron, 'networkclient')
+    def test_subnetpool_list(self, mock_networkclient):
+        subnetpools = self.api_subnetpools_sdk
 
-        neutronclient = mock_neutronclient.return_value
-        neutronclient.list_subnetpools.return_value = subnetpools
+        network_client = mock_networkclient.return_value
+        network_client.subnet_pools.return_value = subnetpools
 
         ret_val = api.neutron.subnetpool_list(self.request)
 
         for n in ret_val:
             self.assertIsInstance(n, api.neutron.SubnetPool)
-        neutronclient.list_subnetpools.assert_called_once_with()
+        network_client.subnet_pools.assert_called_once_with()
 
-    @mock.patch.object(api.neutron, 'neutronclient')
-    def test_subnetpool_get(self, mock_neutronclient):
-        subnetpool = {'subnetpool': self.api_subnetpools.first()}
-        subnetpool_id = self.api_subnetpools.first()['id']
+    @mock.patch.object(api.neutron, 'networkclient')
+    def test_subnetpool_get(self, mock_networkclient):
+        subnetpool = self.api_subnetpools_sdk[0]
+        subnetpool_id = self.api_subnetpools_sdk[0]['id']
 
-        neutronclient = mock_neutronclient.return_value
-        neutronclient.show_subnetpool.return_value = subnetpool
+        network_client = mock_networkclient.return_value
+        network_client.get_subnet_pool.return_value = subnetpool
 
         ret_val = api.neutron.subnetpool_get(self.request, subnetpool_id)
 
         self.assertIsInstance(ret_val, api.neutron.SubnetPool)
-        neutronclient.show_subnetpool.assert_called_once_with(subnetpool_id)
+        network_client.get_subnet_pool.assert_called_once_with(subnetpool_id)
 
-    @mock.patch.object(api.neutron, 'neutronclient')
-    def test_subnetpool_create(self, mock_neutronclient):
-        subnetpool_data = self.api_subnetpools.first()
+    @mock.patch.object(api.neutron, 'networkclient')
+    def test_subnetpool_create(self, mock_networkclient):
+        subnetpool_data = self.api_subnetpools_sdk[0]
         params = {'name': subnetpool_data['name'],
                   'prefixes': subnetpool_data['prefixes'],
                   'tenant_id': subnetpool_data['tenant_id']}
 
-        neutronclient = mock_neutronclient.return_value
-        neutronclient.create_subnetpool.return_value = {'subnetpool':
-                                                        subnetpool_data}
+        network_client = mock_networkclient.return_value
+        network_client.create_subnet_pool.return_value = subnetpool_data
 
         ret_val = api.neutron.subnetpool_create(self.request, **params)
 
         self.assertIsInstance(ret_val, api.neutron.SubnetPool)
-        neutronclient.create_subnetpool.assert_called_once_with(
-            body={'subnetpool': params})
+        network_client.create_subnet_pool.assert_called_once_with(**params)
 
-    @mock.patch.object(api.neutron, 'neutronclient')
-    def test_subnetpool_update(self, mock_neutronclient):
+    @mock.patch.object(api.neutron, 'networkclient')
+    def test_subnetpool_update(self, mock_networkclient):
         subnetpool_data = self.api_subnetpools.first()
         subnetpool_id = subnetpool_data['id']
         params = {'name': subnetpool_data['name'],
                   'prefixes': subnetpool_data['prefixes']}
 
-        neutronclient = mock_neutronclient.return_value
-        neutronclient.update_subnetpool.return_value = {'subnetpool':
-                                                        subnetpool_data}
+        network_client = mock_networkclient.return_value
+        mock_ret = sdk_subnet_pool.SubnetPool(**subnetpool_data)
+        network_client.update_subnet_pool.return_value = mock_ret
 
         ret_val = api.neutron.subnetpool_update(self.request, subnetpool_id,
                                                 **params)
 
         self.assertIsInstance(ret_val, api.neutron.SubnetPool)
-        neutronclient.update_subnetpool.assert_called_once_with(
-            subnetpool_id, body={'subnetpool': params})
+        network_client.update_subnet_pool.assert_called_once_with(
+            subnetpool_id, **params)
 
-    @mock.patch.object(api.neutron, 'neutronclient')
-    def test_subnetpool_delete(self, mock_neutronclient):
+    @mock.patch.object(api.neutron, 'networkclient')
+    def test_subnetpool_delete(self, mock_networkclient):
         subnetpool_id = self.api_subnetpools.first()['id']
 
-        neutronclient = mock_neutronclient.return_value
-        neutronclient.delete_subnetpool.return_value = None
+        network_client = mock_networkclient.return_value
+        network_client.delete_subnet_pool.return_value = None
 
         api.neutron.subnetpool_delete(self.request, subnetpool_id)
 
-        neutronclient.delete_subnetpool.assert_called_once_with(subnetpool_id)
+        network_client.delete_subnet_pool.assert_called_once_with(
+            subnetpool_id)
 
     @mock.patch.object(api.neutron, 'networkclient')
     def test_port_list(self, mock_networkclient):
