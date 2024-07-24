@@ -29,6 +29,14 @@ from openstack_dashboard.usage import quotas
 
 class FloatingIpAllocate(forms.SelfHandlingForm):
     pool = forms.ThemableChoiceField(label=_("Pool"))
+    floating_ip_address = forms.IPField(
+        label=_("Floating IP Address (optional)"),
+        required=False,
+        initial="",
+        help_text=_("The IP address of the new floating IP (e.g. 202.2.3.4). "
+                    "You need to specify an explicit address which is under "
+                    "the public network CIDR (e.g. 202.2.3.0/24)."),
+        mask=False)
     description = forms.CharField(max_length=255,
                                   label=_("Description"),
                                   required=False)
@@ -64,6 +72,8 @@ class FloatingIpAllocate(forms.SelfHandlingForm):
                 return False
 
             param = {}
+            if data['floating_ip_address']:
+                param['floating_ip_address'] = data['floating_ip_address']
             if data['description']:
                 param['description'] = data['description']
             if 'dns_domain' in data and data['dns_domain']:
