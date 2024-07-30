@@ -17,7 +17,7 @@
 #    under the License.
 
 from cinderclient import exceptions as cinderclient
-from glanceclient.common import exceptions as glanceclient
+from glanceclient import exc as glanceclient
 from keystoneclient import exceptions as keystoneclient
 from neutronclient.common import exceptions as neutronclient
 from novaclient import exceptions as novaclient
@@ -29,7 +29,7 @@ UNAUTHORIZED = (
     keystoneclient.Unauthorized,
     cinderclient.Unauthorized,
     novaclient.Unauthorized,
-    glanceclient.Unauthorized,
+    glanceclient.HTTPUnauthorized,
     neutronclient.Unauthorized,
 )
 
@@ -38,7 +38,7 @@ NOT_FOUND = (
     keystoneclient.NotFound,
     cinderclient.NotFound,
     novaclient.NotFound,
-    glanceclient.NotFound,
+    glanceclient.HTTPNotFound,
     neutronclient.NotFound,
 )
 
@@ -54,7 +54,7 @@ RECOVERABLE = (
     cinderclient.Forbidden,
     novaclient.ClientException,
     novaclient.Forbidden,
-    glanceclient.ClientException,
+    glanceclient.HTTPException,
     glanceclient.CommunicationError,
     neutronclient.Forbidden,
     neutronclient.NeutronClientException,
