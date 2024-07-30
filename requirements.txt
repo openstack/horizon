@@ -6,7 +6,7 @@ pbr>=5.5.0 # Apache-2.0
 # Horizon Core Requirements
 Babel>=2.6.0 # BSD
 Django>=4.2,<4.3 # BSD
-django-compressor>=2.4.1 # MIT
+django-compressor>=4.4 # MIT
 django-debreach>=1.4.2 # BSD License (2 clause)
 django-pyscss>=2.0.3 # BSD License (2 clause)
 futurist>=1.2.0 # Apache-2.0
