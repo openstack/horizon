@@ -87,7 +87,7 @@ class UpdateInstanceInfoAction(workflows.Action):
             api.nova.server_update(request,
                                    data['instance_id'],
                                    data['name'],
-                                   description=data.get('description'))
+                                   description=data.get('description') or None)
         except Exception:
             exceptions.handle(request, ignore=True)
             return False

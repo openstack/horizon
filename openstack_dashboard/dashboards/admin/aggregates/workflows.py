@@ -180,7 +180,7 @@ class CreateAggregateWorkflow(workflows.Workflow):
                 api.nova.aggregate_create(
                     request,
                     name=context['name'],
-                    availability_zone=context['availability_zone'] or None)
+                    availability_zone=context.get('availability_zone') or None)
         except Exception:
             exceptions.handle(request, _('Unable to create host aggregate.'))
             return False
