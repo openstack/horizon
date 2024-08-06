@@ -83,7 +83,7 @@ class HypervisorViewTest(test.BaseAdminViewTests):
         self.mock_service_list.side_effect = self.exceptions.nova
 
         resp = self.client.get(reverse('horizon:admin:hypervisors:index'))
-        self.assertMessageCount(resp, error=1, warning=0)
+        self.assertMessageCount(resp, error=2, warning=0)
 
         self.mock_hypervisor_list.assert_called_once_with(
             test.IsHttpRequest())
