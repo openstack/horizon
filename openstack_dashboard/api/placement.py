@@ -100,38 +100,55 @@ def get_providers(request):
         usages = resource_provider_usages(request, p['uuid'])
         vcpus = inventories.get('VCPU')
         pcpus = inventories.get('PCPU')
+        memory = inventories.get('MEMORY_MB')
+        disk = inventories.get('DISK_GB')
         p['inventories'] = inventories
         p['usages'] = usages
         p['aggregates'] = resource_provider_aggregates(request, p['uuid'])
         p['traits'] = resource_provider_traits(request, p['uuid'])
 
         p['vcpus_used'] = usages.get('VCPU')
-        p['vcpus_reserved'] = vcpus['reserved'] if vcpus is not None else None
+        # Reserved:
         # The actual amount of the resource that the provider can accommodate
-        p['vcpus'] = vcpus['total'] if vcpus is not None else None
+        # Total:
         # Overall capacity
-        p['vcpus_ar'] = vcpus['allocation_ratio'] \
-            if vcpus is not None else None
-        p['vcpus_capacity'] = int(vcpus['allocation_ratio'] * vcpus['total']) \
-            if vcpus is not None else None
+        if vcpus is not None:
+            p.update(vcpus_reserved=vcpus['reserved'],
+                     vcpus=vcpus['total'],
+                     vcpus_ar=vcpus['allocation_ratio'],
+                     vcpus_capacity=int(p['vcpus_ar'] * p['vcpus']))
+        else:
+            p.update(vcpus_reserved=None, vcpus=None,
+                     vcpus_ar=None, vcpus_capacity=None)
 
         p['pcpus_used'] = usages.get('PCPU')
-        p['pcpus_reserved'] = pcpus['reserved'] if pcpus is not None else None
-        p['pcpus'] = pcpus['total'] if pcpus is not None else None
-        p['pcpus_ar'] = pcpus['allocation_ratio'] \
-            if pcpus is not None else None
-        p['pcpus_capacity'] = int(pcpus['allocation_ratio'] * pcpus['total']) \
-            if pcpus is not None else None
+        if pcpus is not None:
+            p.update(pcpus_reserved=pcpus['reserved'],
+                     pcpus=pcpus['total'],
+                     pcpus_ar=pcpus['allocation_ratio'],
+                     pcpus_capacity=int(p['pcpus_ar'] * p['pcpus']))
+        else:
+            p.update(pcpus_reserved=None, pcpus=None,
+                     pcpus_ar=None, pcpus_capacity=None)
 
-        p['memory_mb_used'] = usages['MEMORY_MB']
-        p['memory_mb_reserved'] = inventories['MEMORY_MB']['reserved']
-        p['memory_mb'] = inventories['MEMORY_MB']['total']
-        p['memory_mb_ar'] = inventories['MEMORY_MB']['allocation_ratio']
-        p['memory_mb_capacity'] = p['memory_mb_ar'] * p['memory_mb']
+        p['memory_mb_used'] = usages.get('MEMORY_MB')
+        if memory is not None:
+            p.update(memory_mb_reserved=memory['reserved'],
+                     memory_mb=memory['total'],
+                     memory_mb_ar=memory['allocation_ratio'],
+                     memory_mb_capacity=p['memory_mb_ar'] * p['memory_mb'])
+        else:
+            p.update(memory_mb_reserved=None, memory_mb=None,
+                     memory_mb_ar=None, memory_mb_capacity=None)
 
-        p['disk_gb_used'] = usages['DISK_GB']
-        p['disk_gb_reserved'] = inventories['DISK_GB']['reserved']
-        p['disk_gb'] = inventories['DISK_GB']['total']
-        p['disk_gb_ar'] = inventories['DISK_GB']['allocation_ratio']
-        p['disk_gb_capacity'] = p['disk_gb_ar'] * p['disk_gb']
+        p['disk_gb_used'] = usages.get('DISK_GB')
+        if disk is not None:
+            p.update(disk_gb_reserved=disk['reserved'],
+                     disk_gb=disk['total'],
+                     disk_gb_ar=disk['allocation_ratio'],
+                     disk_gb_capacity=p['disk_gb_ar'] * p['disk_gb'])
+        else:
+            p.update(disk_gb_reserved=None, disk_gb=None,
+                     disk_gb_ar=None, disk_gb_capacity=None)
+
     return providers
