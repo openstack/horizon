@@ -1,5 +1,4 @@
 <div ng-controller="horizon.app.core.images.DrawerController as drawerCtrl">
-
   <hz-resource-property-list
     resource-type-name="OS::Glance::Image"
     item="item"
@@ -7,15 +6,33 @@
       ['name', 'id'],
       ['visibility', 'protected'],
       ['disk_format', 'size'],
-      ['min_disk', 'min_ram']]">
+      ['min_disk', 'min_ram'],
+      ['checksum']]"
+  >
   </hz-resource-property-list>
 
   <div class="row" ng-if="drawerCtrl.metadataDefs">
     <div class="col-sm-12">
       <metadata-display
         available="::drawerCtrl.metadataDefs"
-        existing="item.properties || item">
+        existing="item.properties || item"
+      >
       </metadata-display>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-sm-12">
+      <dl>
+        <div ng-if="item.properties.os_hash_algo">
+          <dt translate>os_hash_algo</dt>
+          <dd>{$ item.properties.os_hash_algo $}</dd>
+        </div>
+        <div ng-if="item.properties.os_hash_value">
+          <dt translate>os_hash_value</dt>
+          <dd>{$ item.properties.os_hash_value $}</dd>
+        </div>
+      </dl>
     </div>
   </div>
 </div>
