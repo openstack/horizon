@@ -81,13 +81,13 @@ class DeleteAllowedAddressPair(tables.DeleteAction):
 
         return policy_target
 
-    def delete(self, request, ip_address):
+    def delete(self, request, obj_id):
         try:
             port_id = self.table.kwargs['port_id']
             port = api.neutron.port_get(request, port_id)
             pairs = port.get('allowed_address_pairs', [])
             pairs = [pair for pair in pairs
-                     if pair['ip_address'] != ip_address]
+                     if pair.id != obj_id]
             pairs = [pair.to_dict() for pair in pairs]
             api.neutron.port_update(request, port_id,
                                     allowed_address_pairs=pairs)
