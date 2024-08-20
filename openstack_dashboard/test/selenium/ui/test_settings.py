@@ -10,11 +10,16 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
+from unittest import mock
+
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.wait import WebDriverWait
 
+from openstack_dashboard import api
 from openstack_dashboard.test.selenium import widgets
+
+import horizon
 
 
 def test_login(live_server, driver, mock_openstack_auth, mock_keystoneclient):
@@ -81,3 +86,48 @@ def test_switch_to_material_theme(live_server, driver, user, config):
     assert (user_dropdown_menu.find_element_by_css_selector(
         ".theme-material.dropdown-selected") and
         driver.find_element_by_css_selector(".material-header"))
+
+
+def test_message_after_password_change(live_server, driver, user,
+                                       dashboard_data):
+    with mock.patch.object(
+        api.neutron, 'is_quotas_extension_supported') as mocked_i_q_e_s, \
+            mock.patch.object(
+                api.glance, 'image_list_detailed') as mocked_i_l_d, \
+            mock.patch.object(
+                api.neutron, 'is_extension_supported') as mocked_i_e_s, \
+            mock.patch.object(
+                api.nova, 'flavor_list') as mocked_f_l, \
+            mock.patch.object(
+                api.nova, 'tenant_absolute_limits') as mocked_t_a_l, \
+            mock.patch.object(
+                api.neutron, 'tenant_quota_detail_get') as mocked_t_q_d_g, \
+            mock.patch.object(
+                horizon.utils.functions, 'add_logout_reason') as mocked_a_l_r:
+        mocked_i_q_e_s.return_value = True
+        mocked_i_l_d.return_value = [dashboard_data.images.list()]
+        mocked_i_e_s.return_value = True
+        mocked_f_l.return_value = dashboard_data.flavors.list()
+        mocked_t_a_l.return_value = dashboard_data.limits['absolute']
+        mocked_t_q_d_g.return_value = {
+            "network": {
+                'reserved': 0,
+                'used': 0,
+                'limit': 10
+            }, "router": {
+                'reserved': 0,
+                'used': 0,
+                'limit': 10
+            }
+        }
+        mock_user = api.keystone.user_get(None, None)
+        mock_user.options = {}
+        driver.get(live_server.url + '/settings/password')
+        driver.find_element_by_id("id_current_password").send_keys(
+            dashboard_data.user.password)
+        driver.find_element_by_id("id_new_password").send_keys("newpass")
+        driver.find_element_by_id("id_confirm_password").send_keys("newpass")
+        driver.find_element_by_css_selector(".btn-primary").click()
+        mocked_a_l_r.assert_called_once()
+        assert (mocked_a_l_r.call_args.args[2] ==
+                'Password changed. Please log in again to continue.')
