@@ -252,12 +252,15 @@ class CreateForm(forms.SelfHandlingForm):
                                             request.user.tenant_id)
         if images:
             source_type_choices.append(("image_source", _("Image")))
-            choices = [('', _("Choose an image"))]
+            choices = []
             for image in images:
                 image.bytes = image.size
                 image.size = functions.bytes_to_gigabytes(image.bytes)
                 choices.append((image.id, image))
-            self.fields['image_source'].choices = choices
+            sorted_choices = sorted(
+                choices, key=lambda x: (x[1].name if x[1].name else ''))
+            sorted_choices.insert(0, ('', _("Choose an image")))
+            self.fields['image_source'].choices = sorted_choices
         else:
             del self.fields['image_source']
 
