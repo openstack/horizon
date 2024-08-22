@@ -115,8 +115,8 @@ def get_providers(request):
         if vcpus is not None:
             p.update(vcpus_reserved=vcpus['reserved'],
                      vcpus=vcpus['total'],
-                     vcpus_ar=vcpus['allocation_ratio'],
-                     vcpus_capacity=int(p['vcpus_ar'] * p['vcpus']))
+                     vcpus_ar=vcpus['allocation_ratio'])
+            p['vcpus_capacity'] = int(p['vcpus_ar'] * p['vcpus'])
         else:
             p.update(vcpus_reserved=None, vcpus=None,
                      vcpus_ar=None, vcpus_capacity=None)
@@ -125,8 +125,8 @@ def get_providers(request):
         if pcpus is not None:
             p.update(pcpus_reserved=pcpus['reserved'],
                      pcpus=pcpus['total'],
-                     pcpus_ar=pcpus['allocation_ratio'],
-                     pcpus_capacity=int(p['pcpus_ar'] * p['pcpus']))
+                     pcpus_ar=pcpus['allocation_ratio'])
+            p['pcpus_capacity'] = int(p['pcpus_ar'] * p['pcpus'])
         else:
             p.update(pcpus_reserved=None, pcpus=None,
                      pcpus_ar=None, pcpus_capacity=None)
@@ -135,8 +135,8 @@ def get_providers(request):
         if memory is not None:
             p.update(memory_mb_reserved=memory['reserved'],
                      memory_mb=memory['total'],
-                     memory_mb_ar=memory['allocation_ratio'],
-                     memory_mb_capacity=p['memory_mb_ar'] * p['memory_mb'])
+                     memory_mb_ar=memory['allocation_ratio'])
+            p['memory_mb_capacity'] = p['memory_mb_ar'] * p['memory_mb']
         else:
             p.update(memory_mb_reserved=None, memory_mb=None,
                      memory_mb_ar=None, memory_mb_capacity=None)
@@ -145,8 +145,8 @@ def get_providers(request):
         if disk is not None:
             p.update(disk_gb_reserved=disk['reserved'],
                      disk_gb=disk['total'],
-                     disk_gb_ar=disk['allocation_ratio'],
-                     disk_gb_capacity=p['disk_gb_ar'] * p['disk_gb'])
+                     disk_gb_ar=disk['allocation_ratio'])
+            p['disk_gb_capacity'] = p['disk_gb_ar'] * p['disk_gb']
         else:
             p.update(disk_gb_reserved=None, disk_gb=None,
                      disk_gb_ar=None, disk_gb_capacity=None)
