@@ -55,3 +55,42 @@ def test_delete_multiple_instance_rows(live_server, driver, dashboard_data,
         messages = widgets.get_and_dismiss_messages(driver)
         assert (f"Info: Scheduled deletion of Instances: {string_server_names}"
                 in messages)
+
+
+# Test for cover delete multiple rows also for Angular based table
+def test_delete_multiple_images_rows(live_server, driver, dashboard_data,
+                                     user):
+    with mock.patch.object(
+            api.glance, 'image_list_detailed') as mocked_i_l_d,\
+            mock.patch.object(
+                api.glance, 'metadefs_namespace_full_list') as mocked_m_n_f_l,\
+            mock.patch.object(
+                api.glance, 'image_delete') as mocked_i_d:
+        mocked_i_l_d.return_value = (
+            dashboard_data.images.list()[0:2], False, False)
+        mocked_m_n_f_l.return_value = []
+        mocked_i_d.return_value = None
+        driver.get(live_server.url + '/project/images/')
+        image_names = []
+        for image in dashboard_data.images.list()[0:2]:
+            image_names.append(image.name)
+        image_names.sort()
+        string_image_names = ", ".join(image_names)
+        """
+        Line below for finding image row is just an auxiliary step.
+        Image tab is loaded in more steps. When checkbox is clicked immediately
+        after the page is opened, the checkbox is automatically refreshed to
+        unclicked status in less than second because the page/content is filled
+        dynamically.And although page seems to be fully loaded there is still
+        activity in the background.
+        """
+        driver.find_element_by_xpath(f"//a[text()='{image_names[0]}']")
+
+        driver.find_element_by_css_selector(
+            ".themable-checkbox label[for='hz-table-select-all']").click()
+        driver.find_element_by_xpath(
+            "//button[normalize-space()='Delete Images']").click()
+        widgets.confirm_modal(driver)
+        messages = widgets.get_and_dismiss_messages(driver)
+        assert (f"Success: Deleted Images: {string_image_names}."
+                in messages)
