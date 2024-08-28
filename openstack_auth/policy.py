@@ -199,11 +199,21 @@ def check(actions, request, target=None):
     # the service APIs will correct us if we are too permissive.
     if target.get('project_id') is None:
         target['project_id'] = user.project_id
+    # (gmann): Keystone use some of the policy rule as
+    # 'target.project.id' so we need to set the project.id
+    # attribute also.
+    if target.get('project.id') is None:
+        target['project.id'] = user.project_id
     if target.get('tenant_id') is None:
         target['tenant_id'] = target['project_id']
     # same for user_id
     if target.get('user_id') is None:
         target['user_id'] = user.id
+    # (gmann): Keystone use some of the policy rule as
+    # 'target.user.id' so we need to set the user.id
+    # attribute also.
+    if target.get('user.id') is None:
+        target['user.id'] = user.id
 
     domain_id_keys = [
         'domain_id',

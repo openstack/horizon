@@ -236,7 +236,9 @@ class TestCase(horizon_helpers.TestCase):
             'user_domain_name': self.domain.name,
             'tenant_id': self.tenant.id,
             'service_catalog': self.service_catalog,
-            'authorized_tenants': tenants
+            'authorized_tenants': tenants,
+            'roles': [{'id': '2', 'name': 'member'},
+                      {'id': '3', 'name': 'reader'}]
         }
         base_kwargs.update(kwargs)
         self.setActiveUser(**base_kwargs)
@@ -462,6 +464,8 @@ class BaseAdminViewTests(TestCase):
     def setActiveUser(self, *args, **kwargs):
         if "roles" not in kwargs:
             kwargs['roles'] = [self.roles.admin._info]
+        else:
+            kwargs['roles'].append(self.roles.admin._info)
         super().setActiveUser(*args, **kwargs)
 
     def setSessionValues(self, **kwargs):
@@ -556,6 +560,8 @@ class SeleniumAdminTestCase(SeleniumTestCase):
     def setActiveUser(self, *args, **kwargs):
         if "roles" not in kwargs:
             kwargs['roles'] = [self.roles.admin._info]
+        else:
+            kwargs['roles'].append(self.roles.admin._info)
         super().setActiveUser(*args, **kwargs)
 
 

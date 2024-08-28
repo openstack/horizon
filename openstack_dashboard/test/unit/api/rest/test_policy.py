@@ -86,6 +86,10 @@ class AdminPolicyRestTestCase(test.BaseAdminViewTests):
         super().setUp()
         mock.patch('horizon.utils.http.is_ajax', return_value=True).start()
 
+    def _setup_user(self, **kwargs):
+        kwargs.update({'roles': [{'name': 'admin'}]})
+        super()._setup_user(**kwargs)
+
     @override_settings(POLICY_CHECK_FUNCTION='openstack_auth.policy.check')
     def test_rule_with_target(self):
         body = json.dumps(
