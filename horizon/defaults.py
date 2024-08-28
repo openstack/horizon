@@ -73,7 +73,7 @@ DEFAULT_THEME = 'default'
 
 OPERATION_LOG_ENABLED = False
 OPERATION_LOG_OPTIONS = {
-    'mask_fields': ['password', 'current_password',
+    'mask_fields': ['password', 'current_password', 'original_password',
                     'new_password', 'confirm_password'],
     'target_methods': ['POST'],
     'ignore_urls': ['/js/', '/static/', '^/api/'],

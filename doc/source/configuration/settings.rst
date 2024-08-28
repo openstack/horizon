@@ -752,7 +752,8 @@ Default:
 .. code-block:: python
 
     {
-        'mask_fields': ['password'],
+        'mask_fields': ['password', 'current_password', 'original_password',
+                        'new_password', 'confirm_password'],
         'target_methods': ['POST'],
         'ignored_urls': ['/js/', '/static/', '^/api/'],
         'format': ("[%(domain_name)s] [%(domain_id)s] [%(project_name)s]"

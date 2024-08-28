@@ -115,15 +115,17 @@ class OperationLogMiddleware(object):
 
     def _get_log_format(self, request):
         """Return operation log format."""
-        user = getattr(request, 'user', None)
-        if not user:
-            return
-        if not request.user.is_authenticated:
-            return
+        request_url = parse.unquote(request.path)
+        # Log the /auth/password/ form even when user is not logged in.
+        if '/auth/password/' not in request_url:
+            user = getattr(request, 'user', None)
+            if not user:
+                return
+            if not request.user.is_authenticated:
+                return
         method = request.method.upper()
         if not (method in self.target_methods):
             return
-        request_url = parse.unquote(request.path)
         for rule in self._ignored_urls:
             if rule.search(request_url):
                 return
