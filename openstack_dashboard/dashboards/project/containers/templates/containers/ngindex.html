@@ -20,4 +20,8 @@
 
 {% block main %}
   <ng-include src="'{{ STATIC_URL }}dashboard/project/containers/containers.html'"></ng-include>
+
+  {% if SWIFT_PANEL_FULL_LISTING is False %}
+  <div>{% blocktrans %}Listing only {{ API_RESULT_LIMIT }} containers/objects because full listing is disabled in settings.{% endblocktrans %}</div>
+  {% endif %}
 {% endblock %}

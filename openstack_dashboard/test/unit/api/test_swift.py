@@ -17,6 +17,8 @@
 #    under the License.
 from unittest import mock
 
+from django.test.utils import override_settings
+
 from horizon import exceptions
 
 from openstack_dashboard import api
@@ -25,7 +27,7 @@ from openstack_dashboard.test import helpers as test
 
 @mock.patch('swiftclient.client.Connection')
 class SwiftApiTests(test.APIMockTestCase):
-    def test_swift_get_containers(self, mock_swiftclient):
+    def _test_swift_get_containers(self, mock_swiftclient, full_listing):
         containers = self.containers.list()
         cont_data = [c._apidict for c in containers]
         swift_api = mock_swiftclient.return_value
@@ -36,7 +38,15 @@ class SwiftApiTests(test.APIMockTestCase):
         self.assertEqual(len(containers), len(conts))
         self.assertFalse(more)
         swift_api.get_account.assert_called_once_with(
-            limit=1001, marker=None, prefix=None, full_listing=True)
+            limit=1001, marker=None, prefix=None,
+            full_listing=full_listing)
+
+    def test_swift_get_containers_default(self, mock_swiftclient):
+        self._test_swift_get_containers(mock_swiftclient, full_listing=True)
+
+    @override_settings(SWIFT_PANEL_FULL_LISTING=False)
+    def test_swift_get_containers_full_list_false(self, mock_swiftclient):
+        self._test_swift_get_containers(mock_swiftclient, full_listing=False)
 
     def test_swift_get_container_with_data(self, mock_swiftclient):
         container = self.containers.first()
@@ -136,7 +146,7 @@ class SwiftApiTests(test.APIMockTestCase):
         swift_api.post_container.assert_called_once_with(container.name,
                                                          headers=headers)
 
-    def test_swift_get_objects(self, mock_swiftclient):
+    def _test_swift_get_objects(self, mock_swiftclient, full_listing):
         container = self.containers.first()
         objects = self.objects.list()
 
@@ -154,7 +164,14 @@ class SwiftApiTests(test.APIMockTestCase):
             marker=None,
             prefix=None,
             delimiter='/',
-            full_listing=True)
+            full_listing=full_listing)
+
+    def test_swift_get_objects_default(self, mock_swiftclient):
+        self._test_swift_get_objects(mock_swiftclient, full_listing=True)
+
+    @override_settings(SWIFT_PANEL_FULL_LISTING=False)
+    def test_swift_get_objects_full_list_false(self, mock_swiftclient):
+        self._test_swift_get_objects(mock_swiftclient, full_listing=False)
 
     def test_swift_get_object_with_data_non_chunked(self, mock_swiftclient):
         container = self.containers.first()

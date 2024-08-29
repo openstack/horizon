@@ -2575,6 +2575,19 @@ user friendly display name which will be rendered on the dashboard. If
 no display is specified for a storage policy, the storage
 policy name will be used verbatim.
 
+SWIFT_PANEL_FULL_LISTING
+~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. versionadded:: 2026.1(Gazpacho)
+
+Perform full listing of containers and objects in the Swift panel.
+
+Default: ``True``
+
+Note that the Swift panel does client side pagination and retrieves
+all containers and objects from the API that can have an negative
+effect on Horizon's resource consumption if this is True.
+
 Django Settings
 ===============
 

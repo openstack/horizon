@@ -164,12 +164,13 @@ def swift_object_exists(request, container_name, object_name):
 @safe_swift_exception
 def swift_get_containers(request, marker=None, prefix=None):
     limit = settings.API_RESULT_LIMIT
+    full_list = settings.SWIFT_PANEL_FULL_LISTING
     headers, containers = swift_api(request).get_account(limit=limit + 1,
                                                          marker=marker,
                                                          prefix=prefix,
-                                                         full_listing=True)
+                                                         full_listing=full_list)
     container_objs = [Container(c) for c in containers]
-    if len(container_objs) > limit:
+    if (len(container_objs) > limit):
         return (container_objs[0:-1], True)
     return (container_objs, False)
 
@@ -261,16 +262,17 @@ def swift_delete_container(request, name):
 def swift_get_objects(request, container_name, prefix=None, marker=None,
                       limit=None):
     limit = limit or settings.API_RESULT_LIMIT
+    full_listing = settings.SWIFT_PANEL_FULL_LISTING
     kwargs = dict(prefix=prefix,
                   marker=marker,
                   limit=limit + 1,
                   delimiter=FOLDER_DELIMITER,
-                  full_listing=True)
+                  full_listing=full_listing)
     headers, objects = swift_api(request).get_container(container_name,
                                                         **kwargs)
     object_objs = _objectify(objects, container_name)
 
-    if len(object_objs) > limit:
+    if (len(object_objs) > limit):
         return (object_objs[0:-1], True)
     return (object_objs, False)
 
