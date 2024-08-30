@@ -144,7 +144,7 @@ class PortsTable(tables.DataTable):
     status = tables.Column("status",
                            verbose_name=_("Status"),
                            display_choices=STATUS_DISPLAY_CHOICES)
-    admin_state = tables.Column("admin_state",
+    admin_state = tables.Column("is_admin_state_up",
                                 verbose_name=_("Admin State"),
                                 display_choices=DISPLAY_CHOICES)
     mac_state = tables.Column("mac_state", empty_value=api.neutron.OFF_STATE,

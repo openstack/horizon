@@ -60,9 +60,9 @@ class NetworkPortTests(test.TestCase):
                                       'security_group_list')})
     def _test_port_detail(self, mac_learning=False):
         # Use a port associated with security group
-        port = [p for p in self.ports.list() if p.security_groups][0]
+        port = [p for p in self.ports.list() if p.security_group_ids][0]
         sgs = [sg for sg in self.security_groups.list()
-               if sg.id in port.security_groups]
+               if sg.id in port.security_group_ids]
         network_id = self.networks.first().id
         self.mock_port_get.return_value = port
         self.mock_security_group_list.return_value = sgs
@@ -79,7 +79,7 @@ class NetworkPortTests(test.TestCase):
                                                    port.id)
         self.mock_security_group_list.assert_called_once_with(
             test.IsHttpRequest(),
-            id=tuple(sg.id for sg in port.security_groups))
+            id=tuple(port.security_group_ids))
         self._check_is_extension_supported({'mac-learning': 2,
                                             'allowed-address-pairs': 2})
         self.mock_network_get.assert_called_once_with(test.IsHttpRequest(),
@@ -168,7 +168,7 @@ class NetworkPortTests(test.TestCase):
         form_data = {'network_id': port.network_id,
                      'port_id': port.id,
                      'name': port.name,
-                     'admin_state': port.admin_state_up}
+                     'admin_state': port.is_admin_state_up}
         if binding:
             form_data['binding__vnic_type'] = port.binding__vnic_type
         if mac_learning:
@@ -196,7 +196,7 @@ class NetworkPortTests(test.TestCase):
             extension_kwargs.pop('port_security_enabled')
         self.mock_port_update.assert_called_once_with(
             test.IsHttpRequest(), port.id, name=port.name,
-            admin_state_up=port.admin_state_up,
+            admin_state_up=port.is_admin_state_up,
             **extension_kwargs)
 
     def test_port_update_post_exception(self):
@@ -229,7 +229,7 @@ class NetworkPortTests(test.TestCase):
         form_data = {'network_id': port.network_id,
                      'port_id': port.id,
                      'name': port.name,
-                     'admin_state': port.admin_state_up}
+                     'admin_state': port.is_admin_state_up}
         if binding:
             form_data['binding__vnic_type'] = port.binding__vnic_type
         if mac_learning:
@@ -265,7 +265,7 @@ class NetworkPortTests(test.TestCase):
             extension_kwargs.pop('port_security_enabled')
         self.mock_port_update.assert_called_once_with(
             test.IsHttpRequest(), port.id, name=port.name,
-            admin_state_up=port.admin_state_up,
+            admin_state_up=port.is_admin_state_up,
             **extension_kwargs)
 
     @test.create_mocks({api.neutron: ('port_get',
@@ -606,7 +606,7 @@ class NetworkPortTests(test.TestCase):
         form_data = {'network_id': port.network_id,
                      'network_name': network.name,
                      'name': port.name,
-                     'admin_state': port.admin_state_up,
+                     'admin_state': port.is_admin_state_up,
                      'device_id': port.device_id,
                      'device_owner': port.device_owner,
                      'specify_ip': 'fixed_ip',
@@ -647,7 +647,7 @@ class NetworkPortTests(test.TestCase):
             test.IsHttpRequest(),
             network_id=network.id,
             name=port.name,
-            admin_state_up=port.admin_state_up,
+            admin_state_up=port.is_admin_state_up,
             device_id=port.device_id,
             device_owner=port.device_owner,
             fixed_ips=fixed_ips,
@@ -672,7 +672,7 @@ class NetworkPortTests(test.TestCase):
         form_data = {'network_id': port.network_id,
                      'network_name': network.name,
                      'name': port.name,
-                     'admin_state': port.admin_state_up,
+                     'admin_state': port.is_admin_state_up,
                      'device_id': port.device_id,
                      'device_owner': port.device_owner,
                      'specify_ip': 'subnet_id',
@@ -706,7 +706,7 @@ class NetworkPortTests(test.TestCase):
         form_data = {'network_id': port.network_id,
                      'network_name': network.name,
                      'name': port.name,
-                     'admin_state': port.admin_state_up,
+                     'admin_state': port.is_admin_state_up,
                      'device_id': port.device_id,
                      'device_owner': port.device_owner,
                      'specify_ip': 'fixed_ip',
@@ -750,7 +750,7 @@ class NetworkPortTests(test.TestCase):
         form_data = {'network_id': port.network_id,
                      'network_name': network.name,
                      'name': port.name,
-                     'admin_state': port.admin_state_up,
+                     'admin_state': port.is_admin_state_up,
                      'mac_state': True,
                      'device_id': port.device_id,
                      'device_owner': port.device_owner,
@@ -790,7 +790,7 @@ class NetworkPortTests(test.TestCase):
             test.IsHttpRequest(),
             network_id=network.id,
             name=port.name,
-            admin_state_up=port.admin_state_up,
+            admin_state_up=port.is_admin_state_up,
             device_id=port.device_id,
             device_owner=port.device_owner,
             fixed_ips=fixed_ips,

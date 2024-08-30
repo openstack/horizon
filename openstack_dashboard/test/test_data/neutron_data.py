@@ -15,6 +15,7 @@
 import copy
 
 from openstack.network.v2 import network as sdk_net
+from openstack.network.v2 import port as sdk_port
 from openstack.network.v2 import subnet as sdk_subnet
 from openstack.network.v2 import trunk as sdk_trunk
 from oslo_utils import uuidutils
@@ -90,6 +91,8 @@ def data(TEST):
     TEST.api_subnets_sdk = list()
     TEST.api_tp_trunks_sdk = list()
     TEST.api_trunks_sdk = list()
+    TEST.api_ports_sdk = list()
+    TEST.api_tp_ports_sdk = list()
 
     # 1st network.
     network_dict = {'is_admin_state_up': True,
@@ -151,7 +154,7 @@ def data(TEST):
 
     # Ports on 1st network.
     port_dict = {
-        'admin_state_up': True,
+        'is_admin_state_up': True,
         'device_id': 'af75c8e5-a1cc-4567-8d04-44fcd6922890',
         'device_owner': 'network:dhcp',
         'fixed_ips': [{'ip_address': '10.0.0.3',
@@ -169,14 +172,15 @@ def data(TEST):
              'mac_address': 'fa:16:3e:7a:7b:18'}
         ],
         'port_security_enabled': True,
-        'security_groups': [],
+        'security_group_ids': [],
     }
 
     TEST.api_ports.add(port_dict)
+    TEST.api_ports_sdk.append(sdk_port.Port(**port_dict))
     TEST.ports.add(neutron.Port(port_dict))
 
     port_dict = {
-        'admin_state_up': True,
+        'is_admin_state_up': True,
         'device_id': '1',
         'device_owner': 'compute:nova',
         'fixed_ips': [{'ip_address': '10.0.0.4',
@@ -192,7 +196,7 @@ def data(TEST):
         'binding:vnic_type': 'normal',
         'binding:host_id': 'host',
         'port_security_enabled': True,
-        'security_groups': [
+        'security_group_ids': [
             # sec_group_1 ID below
             'faad7c80-3b62-4440-967c-13808c37131d',
             # sec_group_2 ID below
@@ -200,11 +204,12 @@ def data(TEST):
         ],
     }
     TEST.api_ports.add(port_dict)
+    TEST.api_ports_sdk.append(sdk_port.Port(**port_dict))
     TEST.ports.add(neutron.Port(port_dict))
     assoc_port = port_dict
 
     port_dict = {
-        'admin_state_up': True,
+        'is_admin_state_up': True,
         'device_id': '279989f7-54bb-41d9-ba42-0d61f12fda61',
         'device_owner': 'network:router_interface',
         'fixed_ips': [{'ip_address': '10.0.0.1',
@@ -217,12 +222,13 @@ def data(TEST):
         'tenant_id': network_dict['tenant_id'],
         'binding:vnic_type': 'normal',
         'binding:host_id': 'host',
-        'security_groups': [],
+        'security_group_ids': [],
     }
     TEST.api_ports.add(port_dict)
+    TEST.api_ports_sdk.append(sdk_port.Port(**port_dict))
     TEST.ports.add(neutron.Port(port_dict))
     port_dict = {
-        'admin_state_up': True,
+        'is_admin_state_up': True,
         'device_id': '279989f7-54bb-41d9-ba42-0d61f12fda61',
         'device_owner': 'network:router_interface',
         'fixed_ips': [{'ip_address': 'fdb6:b88a:488e::1',
@@ -235,14 +241,15 @@ def data(TEST):
         'tenant_id': network_dict['tenant_id'],
         'binding:vnic_type': 'normal',
         'binding:host_id': 'host',
-        'security_groups': [],
+        'security_group_ids': [],
     }
     TEST.api_ports.add(port_dict)
+    TEST.api_ports_sdk.append(sdk_port.Port(**port_dict))
     TEST.ports.add(neutron.Port(port_dict))
 
     # unbound port on 1st network
     port_dict = {
-        'admin_state_up': True,
+        'is_admin_state_up': True,
         'device_id': '',
         'device_owner': '',
         'fixed_ips': [{'ip_address': '10.0.0.5',
@@ -255,9 +262,10 @@ def data(TEST):
         'tenant_id': network_dict['tenant_id'],
         'binding:vnic_type': 'normal',
         'binding:host_id': '',
-        'security_groups': [],
+        'security_group_ids': [],
     }
     TEST.api_ports.add(port_dict)
+    TEST.api_ports_sdk.append(sdk_port.Port(**port_dict))
     TEST.ports.add(neutron.Port(port_dict))
 
     # 2nd network.
@@ -300,7 +308,7 @@ def data(TEST):
     TEST.subnets.add(subnet)
 
     port_dict = {
-        'admin_state_up': True,
+        'is_admin_state_up': True,
         'device_id': '2',
         'device_owner': 'compute:nova',
         'fixed_ips': [{'ip_address': '172.16.88.3',
@@ -313,13 +321,14 @@ def data(TEST):
         'tenant_id': network_dict['tenant_id'],
         'binding:vnic_type': 'normal',
         'binding:host_id': 'host',
-        'security_groups': [
+        'security_group_ids': [
             # sec_group_1 ID below
             'faad7c80-3b62-4440-967c-13808c37131d',
         ],
     }
 
     TEST.api_ports.add(port_dict)
+    TEST.api_ports_sdk.append(sdk_port.Port(**port_dict))
     TEST.ports.add(neutron.Port(port_dict))
 
     # External not shared network.
@@ -616,7 +625,7 @@ def data(TEST):
 
     # Set up router data.
     port_dict = {
-        'admin_state_up': True,
+        'is_admin_state_up': True,
         'device_id': '7180cede-bcd8-4334-b19f-f7ef2f331f53',
         'device_owner': 'network:router_gateway',
         'fixed_ips': [{'ip_address': '10.0.0.3',
@@ -629,9 +638,10 @@ def data(TEST):
         'tenant_id': '1',
         'binding:vnic_type': 'normal',
         'binding:host_id': 'host',
-        'security_groups': [],
+        'security_group_ids': [],
     }
     TEST.api_ports.add(port_dict)
+    TEST.api_ports_sdk.append(sdk_port.Port(**port_dict))
     TEST.ports.add(neutron.Port(port_dict))
 
     trunk_dict = {'status': 'UP',
@@ -1042,7 +1052,7 @@ def data(TEST):
 
     # ports on 4th network
     port_dict = {
-        'admin_state_up': True,
+        'is_admin_state_up': True,
         'device_id': '9872faaa-b2b2-eeee-9911-21332eedaa77',
         'device_owner': 'network:dhcp',
         'fixed_ips': [{'ip_address': '11.10.0.3',
@@ -1056,9 +1066,10 @@ def data(TEST):
         'tenant_id': TEST.networks.first().tenant_id,
         'binding:vnic_type': 'normal',
         'binding:host_id': 'host',
-        'security_groups': [],
+        'security_group_ids': [],
     }
     TEST.api_ports.add(port_dict)
+    TEST.api_ports_sdk.append(sdk_port.Port(**port_dict))
     TEST.ports.add(neutron.Port(port_dict))
 
     availability = {'network_ip_availability': {
@@ -1230,7 +1241,7 @@ def data(TEST):
 
     #    port parent
     parent_port_dict = {
-        'admin_state_up': True,
+        'is_admin_state_up': True,
         'device_id': tdata['parent']['device_id'],
         'device_owner': 'compute:nova',
         'fixed_ips': [{'ip_address': tdata['parent']['ip'],
@@ -1243,7 +1254,7 @@ def data(TEST):
         'tenant_id': tdata['tenant_id'],
         'binding:vnic_type': 'normal',
         'binding:host_id': 'host',
-        'security_groups': [tdata['security_group']],
+        'security_group_ids': [tdata['security_group']],
         'trunk_details': {
             'sub_ports': [{'segmentation_type': 'vlan',
                            'mac_address': tdata['child1']['mac'],
@@ -1256,11 +1267,12 @@ def data(TEST):
             'trunk_id': tdata['trunk_id']}
     }
     TEST.api_tp_ports.add(parent_port_dict)
+    TEST.api_tp_ports_sdk.append(sdk_port.Port(**parent_port_dict))
     TEST.tp_ports.add(neutron.PortTrunkParent(parent_port_dict))
 
     #    port child1
     child1_port_dict = {
-        'admin_state_up': True,
+        'is_admin_state_up': True,
         'device_id': tdata['child1']['device_id'],
         'device_owner': 'compute:nova',
         'fixed_ips': [{'ip_address': tdata['child1']['ip'],
@@ -1273,9 +1285,10 @@ def data(TEST):
         'tenant_id': tdata['tenant_id'],
         'binding:vnic_type': 'normal',
         'binding:host_id': 'host',
-        'security_groups': [tdata['security_group']]
+        'security_group_ids': [tdata['security_group']]
     }
     TEST.api_tp_ports.add(child1_port_dict)
+    TEST.api_tp_ports_sdk.append(sdk_port.Port(**child1_port_dict))
     TEST.tp_ports.add(neutron.PortTrunkSubport(
         child1_port_dict,
         {'trunk_id': tdata['trunk_id'],
@@ -1284,7 +1297,7 @@ def data(TEST):
 
     #    port plain
     port_dict = {
-        'admin_state_up': True,
+        'is_admin_state_up': True,
         'device_id': tdata['plain']['device_id'],
         'device_owner': 'compute:nova',
         'fixed_ips': [{'ip_address': tdata['plain']['ip'],
@@ -1297,16 +1310,17 @@ def data(TEST):
         'tenant_id': tdata['tenant_id'],
         'binding:vnic_type': 'normal',
         'binding:host_id': 'host',
-        'security_groups': [tdata['security_group']]
+        'security_group_ids': [tdata['security_group']]
     }
     TEST.api_tp_ports.add(port_dict)
+    TEST.api_tp_ports_sdk.append(sdk_port.Port(**port_dict))
     TEST.tp_ports.add(neutron.Port(port_dict))
 
     #  network tstalt
 
     #    port child2
     child2_port_dict = {
-        'admin_state_up': True,
+        'is_admin_state_up': True,
         'device_id': tdata['child2']['device_id'],
         'device_owner': 'compute:nova',
         'fixed_ips': [{'ip_address': tdata['child2']['ip'],
@@ -1319,9 +1333,10 @@ def data(TEST):
         'tenant_id': tdata['tenant_id'],
         'binding:vnic_type': 'normal',
         'binding:host_id': 'host',
-        'security_groups': [tdata['security_group']]
+        'security_group_ids': [tdata['security_group']]
     }
     TEST.api_tp_ports.add(child2_port_dict)
+    TEST.api_tp_ports_sdk.append(sdk_port.Port(**child2_port_dict))
     TEST.tp_ports.add(neutron.PortTrunkSubport(
         child2_port_dict,
         {'trunk_id': tdata['trunk_id'],
