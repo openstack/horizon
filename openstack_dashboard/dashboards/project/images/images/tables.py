@@ -36,6 +36,9 @@ class LaunchImage(tables.LinkAction):
     url = "horizon:project:instances:launch"
     classes = ("ajax-modal", "btn-launch")
     icon = "cloud-upload"
+    # NOTE(ganso): This policy rule below gets renamed to "compute:create"
+    #   and needs to be added to the nova override file
+    #   as "compute:create: <rule/role>".
     policy_rules = (("compute", "os_compute_api:servers:create"),)
 
     def get_link_url(self, datum):
