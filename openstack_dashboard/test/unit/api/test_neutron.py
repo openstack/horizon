@@ -17,6 +17,7 @@ from unittest import mock
 import netaddr
 from neutronclient.common import exceptions as neutron_exc
 from openstack import exceptions as sdk_exceptions
+from openstack.network.v2 import trunk as sdk_trunk
 from oslo_utils import uuidutils
 
 from django.test.utils import override_settings
@@ -1180,18 +1181,21 @@ class NeutronApiTests(test.APIMockTestCase):
 
     @mock.patch.object(api.neutron, 'is_extension_supported')
     @mock.patch.object(api.neutron, 'neutronclient')
+    @mock.patch.object(api.neutron, 'networkclient')
     def test_port_list_with_trunk_types(
-            self, mock_neutronclient, mock_is_extension_supported):
+            self, mock_networkclient, mock_neutronclient,
+            mock_is_extension_supported):
         ports = self.api_tp_ports.list()
-        trunks = self.api_tp_trunks.list()
+        trunks = self.api_tp_trunks_sdk
 
         # list_extensions is decorated with memoized_with_request, so
         # neutronclient() is not called. We need to mock it separately.
         mock_is_extension_supported.return_value = True  # trunk
 
         neutronclient = mock_neutronclient.return_value
+        network_client = mock_networkclient.return_value
         neutronclient.list_ports.return_value = {'ports': ports}
-        neutronclient.list_trunks.return_value = {'trunks': trunks}
+        network_client.trunks.return_value = trunks
 
         expected_parent_port_ids = set()
         expected_subport_ids = set()
@@ -1220,7 +1224,7 @@ class NeutronApiTests(test.APIMockTestCase):
         mock_is_extension_supported.assert_called_once_with(
             test.IsHttpRequest(), 'trunk')
         neutronclient.list_ports.assert_called_once_with()
-        neutronclient.list_trunks.assert_called_once_with()
+        network_client.trunks.assert_called_once_with()
 
     @mock.patch.object(api.neutron, 'is_extension_supported')
     @mock.patch.object(api.neutron, 'neutronclient')
@@ -1313,30 +1317,30 @@ class NeutronApiTests(test.APIMockTestCase):
 
         neutronclient.delete_port.assert_called_once_with(port_id)
 
-    @mock.patch.object(api.neutron, 'neutronclient')
-    def test_trunk_list(self, mock_neutronclient):
-        trunks = {'trunks': self.api_trunks.list()}
-        neutron_client = mock_neutronclient.return_value
-        neutron_client.list_trunks.return_value = trunks
+    @mock.patch.object(api.neutron, 'networkclient')
+    def test_trunk_list(self, mock_networkclient):
+        trunks = self.api_tp_trunks_sdk
+        network_client = mock_networkclient.return_value
+        network_client.trunks.return_value = trunks
 
         ret_val = api.neutron.trunk_list(self.request)
 
         for t in ret_val:
             self.assertIsInstance(t, api.neutron.Trunk)
-        neutron_client.list_trunks.assert_called_once_with()
+        network_client.trunks.assert_called_once_with()
 
-    @mock.patch.object(api.neutron, 'neutronclient')
-    def test_trunk_show(self, mock_neutronclient):
-        trunk = {'trunk': self.api_trunks.first()}
-        trunk_id = self.api_trunks.first()['id']
+    @mock.patch.object(api.neutron, 'networkclient')
+    def test_trunk_show(self, mock_networkclient):
+        trunk = self.api_tp_trunks_sdk[0]
+        trunk_id = self.api_tp_trunks_sdk[0]['id']
 
-        neutron_client = mock_neutronclient.return_value
-        neutron_client.show_trunk.return_value = trunk
+        network_client = mock_networkclient.return_value
+        network_client.get_trunk.return_value = trunk
 
         ret_val = api.neutron.trunk_show(self.request, trunk_id)
 
         self.assertIsInstance(ret_val, api.neutron.Trunk)
-        neutron_client.show_trunk.assert_called_once_with(trunk_id)
+        network_client.get_trunk.assert_called_once_with(trunk_id)
 
     def test_trunk_object(self):
         trunk = self.api_trunks.first().copy()
@@ -1355,71 +1359,71 @@ class NeutronApiTests(test.APIMockTestCase):
         self.assertEqual(obj.name_or_id, trunk_dict['name_or_id'])
         self.assertEqual(2, trunk_dict['subport_count'])
 
-    @mock.patch.object(api.neutron, 'neutronclient')
-    def test_trunk_create(self, mock_neutronclient):
-        trunk = {'trunk': self.api_trunks.first()}
-        params = {'name': trunk['trunk']['name'],
-                  'port_id': trunk['trunk']['port_id'],
-                  'project_id': trunk['trunk']['project_id']}
+    @mock.patch.object(api.neutron, 'networkclient')
+    def test_trunk_create(self, mock_networkclient):
+        trunk = self.api_tp_trunks_sdk[0]
+        params = {'name': trunk['name'],
+                  'port_id': trunk['port_id'],
+                  'project_id': trunk['project_id']}
 
-        neutronclient = mock_neutronclient.return_value
-        neutronclient.create_trunk.return_value = trunk
+        network_client = mock_networkclient.return_value
+        network_client.create_trunk.return_value = trunk
 
         ret_val = api.neutron.trunk_create(self.request, **params)
 
         self.assertIsInstance(ret_val, api.neutron.Trunk)
-        self.assertEqual(api.neutron.Trunk(trunk['trunk']).id, ret_val.id)
-        neutronclient.create_trunk.assert_called_once_with(
-            body={'trunk': params})
+        self.assertEqual(trunk.id, ret_val.id)
+        network_client.create_trunk.assert_called_once_with(**params)
 
-    @mock.patch.object(api.neutron, 'neutronclient')
-    def test_trunk_delete(self, mock_neutronclient):
-        trunk_id = self.api_trunks.first()['id']
+    @mock.patch.object(api.neutron, 'networkclient')
+    def test_trunk_delete(self, mock_networkclient):
+        trunk_id = self.api_tp_trunks_sdk[0]['id']
 
-        neutronclient = mock_neutronclient.return_value
-        neutronclient.delete_trunk.return_value = None
+        network_client = mock_networkclient.return_value
+        network_client.delete_trunk.return_value = None
 
         api.neutron.trunk_delete(self.request, trunk_id)
 
-        neutronclient.delete_trunk.assert_called_once_with(trunk_id)
+        network_client.delete_trunk.assert_called_once_with(trunk_id)
 
-    @mock.patch.object(api.neutron, 'neutronclient')
-    def test_trunk_update_details(self, mock_neutronclient):
-        trunk_data = self.api_trunks.first()
+    @mock.patch.object(api.neutron, 'networkclient')
+    def test_trunk_update_details(self, mock_networkclient):
+        trunk_data = self.api_tp_trunks_sdk[0]
         trunk_id = trunk_data['id']
         old_trunk = {'name': trunk_data['name'],
                      'description': trunk_data['description'],
                      'id': trunk_data['id'],
                      'port_id': trunk_data['port_id'],
-                     'admin_state_up': trunk_data['admin_state_up']}
+                     'is_admin_state_up': trunk_data['is_admin_state_up']}
         new_trunk = {'name': 'foo',
                      'description': trunk_data['description'],
                      'id': trunk_data['id'],
                      'port_id': trunk_data['port_id'],
-                     'admin_state_up': trunk_data['admin_state_up']}
+                     'is_admin_state_up': trunk_data['is_admin_state_up']}
 
-        neutronclient = mock_neutronclient.return_value
-        neutronclient.update_trunk.return_value = {'trunk': new_trunk}
+        network_client = mock_networkclient.return_value
+        network_client.update_trunk.return_value = sdk_trunk.Trunk(
+            **new_trunk)
 
         ret_val = api.neutron.trunk_update(self.request, trunk_id,
                                            old_trunk, new_trunk)
 
         self.assertIsInstance(ret_val, api.neutron.Trunk)
-        self.assertEqual(api.neutron.Trunk(trunk_data).id, ret_val.id)
+        self.assertEqual(trunk_id, ret_val.id)
         self.assertEqual(ret_val.name, new_trunk['name'])
-        neutronclient.update_trunk.assert_called_once_with(
-            trunk_id, body={'trunk': {'name': 'foo'}})
+        network_client.update_trunk.assert_called_once_with(
+            trunk_id, **{'name': 'foo'})
 
-    @mock.patch.object(api.neutron, 'neutronclient')
-    def test_trunk_update_add_subports(self, mock_neutronclient):
-        trunk_data = self.api_trunks.first()
+    @mock.patch.object(api.neutron, 'networkclient')
+    def test_trunk_update_add_subports(self, mock_networkclient):
+        trunk_data = self.api_tp_trunks_sdk[0]
         trunk_id = trunk_data['id']
         old_trunk = {'name': trunk_data['name'],
                      'description': trunk_data['description'],
                      'id': trunk_data['id'],
                      'port_id': trunk_data['port_id'],
                      'sub_ports': trunk_data['sub_ports'],
-                     'admin_state_up': trunk_data['admin_state_up']}
+                     'is_admin_state_up': trunk_data['is_admin_state_up']}
         new_trunk = {'name': trunk_data['name'],
                      'description': trunk_data['description'],
                      'id': trunk_data['id'],
@@ -1428,26 +1432,27 @@ class NeutronApiTests(test.APIMockTestCase):
                          {'port_id': 1,
                           'segmentation_id': 100,
                           'segmentation_type': 'vlan'}],
-                     'admin_state_up': trunk_data['admin_state_up']}
+                     'is_admin_state_up': trunk_data['is_admin_state_up']}
 
-        neutronclient = mock_neutronclient.return_value
-        neutronclient.trunk_add_subports.return_value = {'trunk': new_trunk}
+        network_client = mock_networkclient.return_value
+        network_client.add_trunk_subports.return_value = sdk_trunk.Trunk(
+            **new_trunk)
 
         ret_val = api.neutron.trunk_update(self.request, trunk_id,
                                            old_trunk, new_trunk)
 
         self.assertIsInstance(ret_val, api.neutron.Trunk)
-        self.assertEqual(api.neutron.Trunk(trunk_data).id, ret_val.trunk['id'])
-        self.assertEqual(ret_val.trunk['sub_ports'], new_trunk['sub_ports'])
-        neutronclient.trunk_add_subports.assert_called_once_with(
+        self.assertEqual(trunk_id, ret_val.id)
+        self.assertEqual(ret_val.sub_ports, new_trunk['sub_ports'])
+        network_client.add_trunk_subports.assert_called_once_with(
             trunk_id,
-            body={'sub_ports': [{'port_id': 1, 'segmentation_id': 100,
-                                 'segmentation_type': 'vlan'}]}
+            [{'port_id': 1, 'segmentation_id': 100,
+              'segmentation_type': 'vlan'}]
         )
 
-    @mock.patch.object(api.neutron, 'neutronclient')
-    def test_trunk_update_remove_subports(self, mock_neutronclient):
-        trunk_data = self.api_trunks.first()
+    @mock.patch.object(api.neutron, 'networkclient')
+    def test_trunk_update_remove_subports(self, mock_networkclient):
+        trunk_data = self.api_tp_trunks_sdk[0]
         trunk_id = trunk_data['id']
         old_trunk = {'name': trunk_data['name'],
                      'description': trunk_data['description'],
@@ -1457,27 +1462,27 @@ class NeutronApiTests(test.APIMockTestCase):
                          {'port_id': 1,
                           'segmentation_id': 100,
                           'segmentation_type': 'vlan'}],
-                     'admin_state_up': trunk_data['admin_state_up']}
+                     'is_admin_state_up': trunk_data['is_admin_state_up']}
         new_trunk = {'name': trunk_data['name'],
                      'description': trunk_data['description'],
                      'id': trunk_data['id'],
                      'port_id': trunk_data['port_id'],
                      'sub_ports': [],
-                     'admin_state_up': trunk_data['admin_state_up']}
+                     'is_admin_state_up': trunk_data['is_admin_state_up']}
 
-        neutronclient = mock_neutronclient.return_value
-        neutronclient.trunk_remove_subports.return_value = {'trunk': new_trunk}
+        network_client = mock_networkclient.return_value
+        network_client.delete_trunk_subports.return_value = sdk_trunk.Trunk(
+            **new_trunk)
 
         ret_val = api.neutron.trunk_update(self.request, trunk_id,
                                            old_trunk, new_trunk)
 
         self.assertIsInstance(ret_val, api.neutron.Trunk)
-        self.assertEqual(api.neutron.Trunk(trunk_data).id, ret_val.trunk['id'])
-        self.assertEqual(ret_val.trunk['sub_ports'], new_trunk['sub_ports'])
-        neutronclient.trunk_remove_subports.assert_called_once_with(
+        self.assertEqual(trunk_id, ret_val.id)
+        self.assertEqual(ret_val.sub_ports, new_trunk['sub_ports'])
+        network_client.delete_trunk_subports.assert_called_once_with(
             trunk_id,
-            body={'sub_ports': [{'port_id':
-                                 old_trunk['sub_ports'][0]['port_id']}]}
+            [{'port_id': old_trunk['sub_ports'][0]['port_id']}]
         )
 
     @mock.patch.object(api.neutron, 'neutronclient')

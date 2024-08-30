@@ -1048,15 +1048,17 @@ def list_resources_with_long_filters(list_method,
 @profiler.trace
 def trunk_show(request, trunk_id):
     LOG.debug("trunk_show(): trunk_id=%s", trunk_id)
-    trunk = neutronclient(request).show_trunk(trunk_id).get('trunk')
-    return Trunk(trunk)
+    trunk = networkclient(request).get_trunk(trunk_id)
+    return Trunk(trunk.to_dict())
 
 
 @profiler.trace
 def trunk_list(request, **params):
     LOG.debug("trunk_list(): params=%s", params)
-    trunks = neutronclient(request).list_trunks(**params).get('trunks')
-    return [Trunk(t) for t in trunks]
+    trunks = networkclient(request).trunks(**params)
+    if not isinstance(trunks, (types.GeneratorType, list)):
+        trunks = [trunks]
+    return [Trunk(t.to_dict()) for t in trunks]
 
 
 @profiler.trace
@@ -1064,30 +1066,19 @@ def trunk_create(request, **params):
     LOG.debug("trunk_create(): params=%s", params)
     if 'project_id' not in params:
         params['project_id'] = request.user.project_id
-    body = {'trunk': params}
-    trunk = neutronclient(request).create_trunk(body=body).get('trunk')
+    trunk = networkclient(request).create_trunk(**params).to_dict()
     return Trunk(trunk)
 
 
 @profiler.trace
 def trunk_delete(request, trunk_id):
     LOG.debug("trunk_delete(): trunk_id=%s", trunk_id)
-    neutronclient(request).delete_trunk(trunk_id)
-
-
-def _prepare_body_update_trunk(prop_diff):
-    """Prepare body for PUT /v2.0/trunks/TRUNK_ID."""
-    return {'trunk': prop_diff}
+    networkclient(request).delete_trunk(trunk_id)
 
 
 def _prepare_body_remove_subports(subports):
     """Prepare body for PUT /v2.0/trunks/TRUNK_ID/remove_subports."""
-    return {'sub_ports': [{'port_id': sp['port_id']} for sp in subports]}
-
-
-def _prepare_body_add_subports(subports):
-    """Prepare body for PUT /v2.0/trunks/TRUNK_ID/add_subports."""
-    return {'sub_ports': subports}
+    return [{'port_id': sp['port_id']} for sp in subports]
 
 
 @profiler.trace
@@ -1134,7 +1125,7 @@ def trunk_update(request, trunk_id, old_trunk, new_trunk):
         return frozenset(d.items())
 
     # cf. neutron_lib/api/definitions/trunk.py
-    updatable_props = ('admin_state_up', 'description', 'name')
+    updatable_props = ('is_admin_state_up', 'description', 'name')
     prop_diff = {
         k: new_trunk[k]
         for k in updatable_props
@@ -1158,25 +1149,23 @@ def trunk_update(request, trunk_id, old_trunk, new_trunk):
     if prop_diff:
         LOG.debug('trunk_update(): update properties of trunk %s: %s',
                   trunk_id, prop_diff)
-        body = _prepare_body_update_trunk(prop_diff)
-        trunk = neutronclient(request).update_trunk(
-            trunk_id, body=body).get('trunk')
+        trunk = networkclient(request).update_trunk(
+            trunk_id, **prop_diff)
 
     if dicts_delete:
         LOG.debug('trunk_update(): delete subports of trunk %s: %s',
                   trunk_id, dicts_delete)
         body = _prepare_body_remove_subports(dicts_delete)
-        trunk = neutronclient(request).trunk_remove_subports(
-            trunk_id, body=body)
+        trunk = networkclient(request).delete_trunk_subports(
+            trunk_id, body)
 
     if dicts_create:
         LOG.debug('trunk_update(): create subports of trunk %s: %s',
                   trunk_id, dicts_create)
-        body = _prepare_body_add_subports(dicts_create)
-        trunk = neutronclient(request).trunk_add_subports(
-            trunk_id, body=body)
+        trunk = networkclient(request).add_trunk_subports(
+            trunk_id, dicts_create)
 
-    return Trunk(trunk)
+    return Trunk(trunk.to_dict())
 
 
 @profiler.trace
@@ -1868,7 +1857,7 @@ def port_list_with_trunk_types(request, **params):
     trunk_filters = {}
     if 'tenant_id' in params:
         trunk_filters['tenant_id'] = params['tenant_id']
-    trunks = neutronclient(request).list_trunks(**trunk_filters)['trunks']
+    trunks = networkclient(request).trunks(**trunk_filters)
     parent_ports = set(t['port_id'] for t in trunks)
     # Create a dict map for child ports (port ID to trunk info)
     child_ports = dict((s['port_id'],

@@ -16,6 +16,7 @@ import copy
 
 from openstack.network.v2 import network as sdk_net
 from openstack.network.v2 import subnet as sdk_subnet
+from openstack.network.v2 import trunk as sdk_trunk
 from oslo_utils import uuidutils
 
 from openstack_dashboard.api import base
@@ -87,6 +88,8 @@ def data(TEST):
     # Data returned by SDK:
     TEST.api_networks_sdk = list()
     TEST.api_subnets_sdk = list()
+    TEST.api_tp_trunks_sdk = list()
+    TEST.api_trunks_sdk = list()
 
     # 1st network.
     network_dict = {'is_admin_state_up': True,
@@ -635,7 +638,7 @@ def data(TEST):
                   'sub_ports': [],
                   'name': 'trunk1',
                   'description': 'blah',
-                  'admin_state_up': True,
+                  'is_admin_state_up': True,
                   'tenant_id': '1',
                   'project_id': '1',
                   'port_id': '895d375c-1447-11e7-a52f-f7f280bbc809',
@@ -643,6 +646,7 @@ def data(TEST):
 
     TEST.api_trunks.add(trunk_dict)
     TEST.trunks.add(neutron.Trunk(trunk_dict))
+    TEST.api_trunks_sdk.append(sdk_trunk.Trunk(**trunk_dict))
 
     router_dict = {'id': '279989f7-54bb-41d9-ba42-0d61f12fda61',
                    'name': 'router1',
@@ -1215,13 +1219,14 @@ def data(TEST):
                        'segmentation_id': tdata['tag_2'],
                        'port_id': tdata['child2']['id']}],
         'name': 'trunk',
-        'admin_state_up': True,
+        'is_admin_state_up': True,
         'tenant_id': tdata['tenant_id'],
         'project_id': tdata['tenant_id'],
         'port_id': tdata['parent']['id'],
         'id': tdata['trunk_id']
     }
     TEST.api_tp_trunks.add(tp_trunk_dict)
+    TEST.api_tp_trunks_sdk.append(sdk_trunk.Trunk(**tp_trunk_dict))
 
     #    port parent
     parent_port_dict = {
