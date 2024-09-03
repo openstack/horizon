@@ -35,7 +35,12 @@ def _get_policy_conf(policy_file, policy_dirs=None):
     conf = cfg.ConfigOpts()
     # Passing [] is required. Otherwise oslo.config looks up sys.argv.
     conf([])
-    policy_opts.set_defaults(conf)
+    # TODO(gmann): Remove setting the default value of 'enforce_scope'
+    # and 'enforce_new_defaults' once Horizon is ready with the
+    # new RBAC (oslo_policy enabled them by default).
+    policy_opts.set_defaults(conf,
+                             enforce_scope=False,
+                             enforce_new_defaults=False)
     conf.set_default('policy_file', policy_file, 'oslo_policy')
     # Policy Enforcer has been updated to take in a policy directory
     # as a config option. However, the default value in is set to
