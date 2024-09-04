@@ -89,7 +89,11 @@ class IPField(fields.Field):
 
         try:
             if self.mask:
-                self.ip = netaddr.IPNetwork(value)
+                try:
+                    self.ip = netaddr.IPNetwork(value.strip())
+                except netaddr.AddrFormatError:
+                    self.ip = netaddr.IPNetwork(
+                        netaddr.cidr_abbrev_to_verbose(value.strip()))
             else:
                 self.ip = netaddr.IPAddress(value)
         except Exception:
