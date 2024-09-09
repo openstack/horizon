@@ -15,6 +15,7 @@ from unittest import mock
 import pytest
 
 from openstack_dashboard import api
+from openstack_dashboard.test.selenium import widgets
 
 
 @pytest.mark.parametrize(
@@ -149,3 +150,20 @@ def test_browse_left_panel(live_server, driver, user, dashboard_data,
         sidebar.find_element_by_link_text(link_text).click()
         assert driver.title == title
         assert driver.find_element_by_css_selector("h1").text == h1_text
+
+
+def test_browse_user_setting_tab(live_server, driver, user):
+    driver.get(live_server.url + '/project/api_access')
+    user_button = driver.find_element_by_class_name("dropdown.user-menu")
+    widgets.select_from_dropdown(user_button, "Settings")
+    assert driver.title == "User Settings - OpenStack Dashboard"
+    assert driver.find_element_by_css_selector("h1").text == "User Settings"
+
+
+def test_browse_change_password_tab(live_server, driver, user):
+    driver.get(live_server.url + '/project/api_access')
+    user_button = driver.find_element_by_class_name("dropdown.user-menu")
+    widgets.select_from_dropdown(user_button, "Settings")
+    driver.find_element_by_link_text("Change Password").click()
+    assert driver.title == "Change Password - OpenStack Dashboard"
+    assert driver.find_element_by_css_selector("h1").text == "Change Password"
