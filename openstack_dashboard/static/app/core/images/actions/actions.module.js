@@ -38,6 +38,8 @@
     'horizon.app.core.images.actions.delete-image.service',
     'horizon.app.core.images.actions.launch-instance.service',
     'horizon.app.core.images.actions.update-metadata.service',
+    'horizon.app.core.images.actions.deactivate-image.service',
+    'horizon.app.core.images.actions.reactivate-image.service',
     'horizon.app.core.images.resourceType',
     'horizon.app.core.images.basePath'
   ];
@@ -50,6 +52,8 @@
     deleteImageService,
     launchInstanceService,
     updateMetadataService,
+    deactivateImageService,
+    reactivateImageService,
     imageResourceTypeCode,
     basePath
   ) {
@@ -81,6 +85,20 @@
         service: updateMetadataService,
         template: {
           text: gettext('Update Metadata')
+        }
+      })
+      .append({
+        id: 'deactivateImageAction',
+        service: deactivateImageService,
+        template: {
+          text: gettext('Deactivate Image'),
+        }
+      })
+      .append({
+        id: 'reactivateImageAction',
+        service: reactivateImageService,
+        template: {
+          text: gettext('Reactivate Image'),
         }
       })
       .append({

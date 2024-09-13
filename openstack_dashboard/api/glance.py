@@ -185,6 +185,18 @@ def image_get(request, image_id):
 
 
 @profiler.trace
+def image_deactivate(request, image_id):
+    """Deactivates an Image"""
+    return glanceclient(request).images.deactivate(image_id)
+
+
+@profiler.trace
+def image_reactivate(request, image_id):
+    """Reactivates an Image"""
+    return glanceclient(request).images.reactivate(image_id)
+
+
+@profiler.trace
 def image_list_detailed(request, marker=None, sort_dir='desc',
                         sort_key='created_at', filters=None, paginate=False,
                         reversed_order=False, **kwargs):
