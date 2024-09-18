@@ -193,6 +193,7 @@ class Password(forms.Form):
     """Form used for changing user's password without having to log in."""
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
+        config = getattr(settings, 'HORIZON_CONFIG', {})
         self.fields = collections.OrderedDict([
             (
                 'region',
@@ -204,9 +205,17 @@ class Password(forms.Form):
                                 widget=forms.PasswordInput(render_value=False))
             ), (
                 'password',
-                forms.CharField(label=_("New password"),
-                                strip=False,
-                                widget=forms.PasswordInput(render_value=False))
+                forms.RegexField(
+                    label=_("New password"),
+                    strip=False,
+                    widget=forms.PasswordInput(render_value=False),
+                    regex=config.get(
+                        'password_validator', {}).get('regex', '.*'),
+                    error_messages={
+                        'invalid':
+                        config.get('password_validator',
+                                   {}).get('help_text',
+                                           _("Password is not accepted"))}),
             ), (
                 'confirm_password',
                 forms.CharField(label=_("Confirm password"),
@@ -221,6 +230,9 @@ class Password(forms.Form):
 
     @sensitive_variables('password', 'confirm_password', 'original_password')
     def clean(self):
+        if not self.is_valid():
+            return self.cleaned_data
+
         region_id = self.cleaned_data.get('region')
         try:
             region = get_region_endpoint(region_id)
