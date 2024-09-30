@@ -76,14 +76,13 @@ def test_delete_multiple_images_rows(live_server, driver, dashboard_data,
             image_names.append(image.name)
         image_names.sort()
         string_image_names = ", ".join(image_names)
-        """
-        Line below for finding image row is just an auxiliary step.
-        Image tab is loaded in more steps. When checkbox is clicked immediately
-        after the page is opened, the checkbox is automatically refreshed to
-        unclicked status in less than second because the page/content is filled
-        dynamically.And although page seems to be fully loaded there is still
-        activity in the background.
-        """
+
+        # Line below for finding image row is just an auxiliary step.
+        # Image tab is loaded in more steps. When checkbox is clicked
+        # immediately after the page is opened, the checkbox is automatically
+        # refreshed to unclicked status in less than second because the
+        # page/content is filled dynamically. And although page seems to
+        # be fully loaded there is still activity in the background.
         driver.find_element_by_xpath(f"//a[text()='{image_names[0]}']")
 
         driver.find_element_by_css_selector(
