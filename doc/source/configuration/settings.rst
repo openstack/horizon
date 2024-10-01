@@ -1606,7 +1606,7 @@ If horizon is behind a proxy server and the proxy is configured, the IP address
 from request is passed using header variables inside the request. The header
 name depends on a proxy or a load-balancer. This setting specifies the name of
 the header with remote IP address. The main use is for authentication log
-(success or fail) displaing the IP address of the user.
+(success or fail) displaying the IP address of the user.
 The commom value for this setting is ``HTTP_X_REAL_IP`` or
 ``HTTP_X_FORWARDED_FOR``.
 If not present, then ``REMOTE_ADDR`` header is used. (``REMOTE_ADDR`` is the
