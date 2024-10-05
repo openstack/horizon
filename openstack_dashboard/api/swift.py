@@ -198,7 +198,9 @@ def swift_get_container(request, container_name, with_data=False):
             parameters = parse.quote(container_name.encode('utf8'))
             public_url = swift_endpoint + '/' + parameters
         ts_float = float(headers.get('x-timestamp'))
-        timestamp = datetime.utcfromtimestamp(ts_float).isoformat()
+        timestamp = datetime.fromtimestamp(
+            ts_float, tz=datetime.timezone.utc).replace(
+                tzinfo=None).isoformat()
     except Exception:
         pass
     container_info = {
@@ -411,7 +413,9 @@ def swift_get_object(request, container_name, object_name, with_data=True,
     timestamp = None
     try:
         ts_float = float(headers.get('x-timestamp'))
-        timestamp = datetime.utcfromtimestamp(ts_float).isoformat()
+        timestamp = datetime.fromtimestamp(
+            ts_float, tz=datetime.timezone.utc).replace(
+                tzinfo=None).isoformat()
     except Exception:
         pass
     obj_info = {
