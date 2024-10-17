@@ -55,7 +55,7 @@ class VolumeSnapshotsViewTests(test.TestCase):
 
         self.assert_mock_multiple_calls_with_same_arguments(
             self.mock_is_service_enabled, 2,
-            mock.call(test.IsHttpRequest(), 'volumev3'))
+            mock.call(test.IsHttpRequest(), 'block-storage'))
         self.mock_volume_snapshot_list_paged.assert_called_once_with(
             test.IsHttpRequest(), marker=marker, sort_dir=sort_dir,
             paginate=True)

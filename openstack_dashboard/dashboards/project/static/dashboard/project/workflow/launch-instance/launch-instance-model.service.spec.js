@@ -239,6 +239,10 @@
               deferred.resolve();
             } else if (theType === 'volumev3' && cinderEnabled) {
               deferred.resolve();
+            } else if (theType === 'block-storage' && cinderEnabled) {
+              deferred.resolve();
+            } else if (theType === 'block-store' && cinderEnabled) {
+              deferred.resolve();
             } else {
               deferred.reject();
             }

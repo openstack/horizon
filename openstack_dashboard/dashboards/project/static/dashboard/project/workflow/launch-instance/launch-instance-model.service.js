@@ -611,8 +611,18 @@
       var volumeSnapshotDeferred = $q.defer();
       var absoluteLimitsDeferred = $q.defer();
       serviceCatalog
-        .ifTypeEnabled('volumev3')
-        .then(onVolumeServiceEnabled, resolvePromises);
+        .ifTypeEnabled('block-storage')
+        .then(onVolumeServiceEnabled, onCheckBlockStore);
+      function onCheckBlockStore() {
+        serviceCatalog
+          .ifTypeEnabled('block-store')
+          .then(onVolumeServiceEnabled, onCheckVolumeV3);
+      }
+      function onCheckVolumeV3() {
+        serviceCatalog
+          .ifTypeEnabled('volumev3')
+          .then(onVolumeServiceEnabled, resolvePromises);
+      }
       function onVolumeServiceEnabled() {
         model.volumeBootable = true;
         model.allowCreateVolumeFromImage = true;

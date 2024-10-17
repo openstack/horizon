@@ -214,8 +214,7 @@ def _find_cinder_url(request, version=None):
     version = base.Version(version)
 
     # We support only cinder v3.
-    # FIXME: 'block-storage' is also a valid service_type for cinder
-    candidates = ['volumev3', 'volume']
+    candidates = ['block-storage', 'block-store', 'volumev3', 'volume']
 
     for service_name in candidates:
         try:
@@ -1050,7 +1049,8 @@ def message_list(request, search_opts=None):
 
 def is_volume_service_enabled(request):
     return bool(
-        # FIXME: 'block-storage' is also a valid service_type for cinder
+        base.is_service_enabled(request, 'block-storage') or
+        base.is_service_enabled(request, 'block-store') or
         base.is_service_enabled(request, 'volumev3') or
         base.is_service_enabled(request, 'volume')
     )

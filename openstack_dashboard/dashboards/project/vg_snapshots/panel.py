@@ -28,7 +28,10 @@ class GroupSnapshots(horizon.Panel):
     name = _("Group Snapshots")
     slug = 'vg_snapshots'
     permissions = (
-        ('openstack.services.volume', 'openstack.services.volumev3'),
+        ('openstack.services.block-storage',
+         'openstack.services.block-store',
+         'openstack.services.volume',
+         'openstack.services.volumev3'),
     )
     policy_rules = (("volume", "group:get_all_group_snapshots"),)
 

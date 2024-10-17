@@ -19,6 +19,9 @@ class GroupTypes(horizon.Panel):
     name = _("Group Types")
     slug = 'group_types'
     permissions = (
-        ('openstack.services.volume', 'openstack.services.volumev3'),
+        ('openstack.services.block-storage',
+         'openstack.services.block-store',
+         'openstack.services.volume',
+         'openstack.services.volumev3'),
     )
     policy_rules = (("volume", "group:group_types_manage"),)
