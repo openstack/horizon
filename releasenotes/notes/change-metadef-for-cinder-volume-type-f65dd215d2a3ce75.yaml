@@ -1,0 +1,6 @@
+---
+fixes:
+  - |
+    Fix typo in metadef resource type. When Horizon retrieve possible 
+    metadata for Cinder Volume Type it will now retrieve 
+    OS::Cinder::VolumeType instead of OS:Cinder::VolumeType (note first :).

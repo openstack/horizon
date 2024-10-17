@@ -96,7 +96,7 @@
           instance: 'OS::Nova::Server',
           volume: 'OS::Cinder::Volume',
           volume_snapshot: 'OS::Cinder::Snapshot',
-          volume_type: 'OS:Cinder::VolumeType'
+          volume_type: 'OS::Cinder::VolumeType'
         }[resource]
       };
       if (propertiesTarget) {
