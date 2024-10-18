@@ -93,7 +93,8 @@ def available_elements(driver, resource_type, name):
     except (exceptions.NoSuchElementException):
         pass
     finally:
-        return driver.find_elements_by_css_selector('table tr td:nth-child(2)')
+        return driver.find_elements_by_css_selector(
+            'table tr td:nth-child(2) a')
 
 
 def get_table_status(driver, resource_type, name, sorting=False):
