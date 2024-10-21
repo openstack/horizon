@@ -206,6 +206,10 @@ def new_instance_demo(complete_default_test_network, request, instance_name,
 
     count = request.param[0]
     auto_ip_param = request.param[1]
+    if auto_ip_param:
+        ip_pool_param = config.network.external_network
+    else:
+        ip_pool_param = None
     instance = openstack_demo.create_server(
         instance_name,
         image=config.image.images_list[0],
@@ -213,6 +217,7 @@ def new_instance_demo(complete_default_test_network, request, instance_name,
         availability_zone=config.launch_instances.available_zone,
         network=complete_default_test_network.name,
         auto_ip=auto_ip_param,
+        ip_pool=ip_pool_param,
         wait=True,
         max_count=count,
     )
