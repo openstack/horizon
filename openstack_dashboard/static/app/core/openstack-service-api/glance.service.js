@@ -38,6 +38,8 @@
       getVersion: getVersion,
       getImage: getImage,
       createImage: createImage,
+      deactivateImage: deactivateImage,
+      reactivateImage: reactivateImage,
       updateImage: updateImage,
       deleteImage: deleteImage,
       getImageProps: getImageProps,
@@ -231,6 +233,20 @@
       return apiService.patch('/api/glance/images/' + image.id + '/', image)
         .catch(function onError() {
           toastService.add('error', gettext('Unable to update the image.'));
+        });
+    }
+
+    function deactivateImage(image) {
+      return apiService.post('/api/glance/images/' + image.id + '/actions/deactivate')
+        .catch(function onError() {
+          toastService.add('error', gettext('Unable to deactivate the image.'));
+        });
+    }
+
+    function reactivateImage(image) {
+      return apiService.post('/api/glance/images/' + image.id + '/actions/reactivate')
+        .catch(function onError() {
+          toastService.add('error', gettext('Unable to reactivate the image.'));
         });
     }
 

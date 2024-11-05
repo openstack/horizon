@@ -1,0 +1,23 @@
+<div ng-controller="horizon.app.core.images.steps.DeactivateController as ctrl">
+    <div class="content">
+      <h4 translate>Image Status</h4>
+      <div class="selected-source clearfix">
+        <div class="row form-group">
+          <div class="col-xs-6 col-sm-6">
+            <div class="form-group">
+              <label class="control-label required" translate>Status</label>
+              <div class="form-field">
+                <div class="btn-group" name="status">
+                  <label class="btn btn-default"
+                         ng-repeat="option in ctrl.imageStatusOptions"
+                         ng-change="ctrl.onStatusChange()"
+                         ng-model="ctrl.image.status"
+                         uib-btn-radio="option.value">{$ ::option.label $}</label>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>

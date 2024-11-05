@@ -90,6 +90,28 @@ class Image(generic.View):
 
 
 @urls.register
+class ImageDeactivate(generic.View):
+    """API for deactivating a specific image"""
+    url_regex = r'glance/images/(?P<image_id>[^/]+)/actions/deactivate'
+
+    @rest_utils.ajax()
+    def post(self, request, image_id):
+        """Deactivate specific image"""
+        return api.glance.image_deactivate(request, image_id)
+
+
+@urls.register
+class ImageReactivate(generic.View):
+    """API for reactivating a specific image"""
+    url_regex = r'glance/images/(?P<image_id>[^/]+)/actions/reactivate'
+
+    @rest_utils.ajax()
+    def post(self, request, image_id):
+        """Reactivate specific image"""
+        return api.glance.image_reactivate(request, image_id)
+
+
+@urls.register
 class ImageProperties(generic.View):
     """API for retrieving only a custom properties of single image."""
     url_regex = r'glance/images/(?P<image_id>[^/]+)/properties/'

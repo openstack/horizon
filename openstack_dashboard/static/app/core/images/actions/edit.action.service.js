@@ -23,7 +23,6 @@
 
   editService.$inject = [
     '$q',
-    'horizon.app.core.images.events',
     'horizon.app.core.images.resourceType',
     'horizon.app.core.images.actions.editWorkflow',
     'horizon.app.core.metadata.service',
@@ -42,7 +41,6 @@
    */
   function editService(
     $q,
-    events,
     imageResourceType,
     editWorkflow,
     metadataService,
@@ -136,6 +134,5 @@
     function isActive(image) {
       return $qExtensions.booleanAsPromise(image.status === 'active');
     }
-
   } // end of editService
 })(); // end of IIFE
