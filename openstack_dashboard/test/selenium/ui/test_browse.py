@@ -13,6 +13,9 @@
 from unittest import mock
 
 import pytest
+from selenium.webdriver.common.by import By
+from selenium.webdriver.support import expected_conditions as EC
+from selenium.webdriver.support.wait import WebDriverWait
 
 from openstack_dashboard import api
 from openstack_dashboard.test.selenium import widgets
@@ -105,7 +108,7 @@ from openstack_dashboard.test.selenium import widgets
 )
 def test_browse_left_panel(live_server, driver, user, dashboard_data,
                            main_panel, sec_panel, link_text, title,
-                           h1_text):
+                           h1_text, config):
     with mock.patch.object(
         api.neutron, 'is_quotas_extension_supported') as mocked_i_q_e_s, \
             mock.patch.object(
@@ -139,9 +142,10 @@ def test_browse_left_panel(live_server, driver, user, dashboard_data,
         driver.find_element_by_css_selector(
             f"a[data-target='#sidebar-accordion-{main_panel}']").click()
         if sec_panel is not None:
-            driver.find_element_by_css_selector(
-                f"a[data-target='#sidebar-accordion"
-                f"-{main_panel}-{sec_panel}']").click()
+            WebDriverWait(driver, config.selenium.implicit_wait).until(
+                EC.element_to_be_clickable(
+                    (By.CSS_SELECTOR, f"a[data-target='#sidebar-accordion"
+                                      f"-{main_panel}-{sec_panel}']"))).click()
             sidebar = driver.find_element_by_id(
                 f"sidebar-accordion-{main_panel}-{sec_panel}")
         else:
