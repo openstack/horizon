@@ -15,6 +15,7 @@ import decimal
 import math
 import re
 
+from oslo_utils import timeutils
 from oslo_utils import units
 
 from django.conf import settings
@@ -186,5 +187,4 @@ def format_value(value):
 
 
 def one_year_from_now():
-    now = datetime.datetime.utcnow()
-    return now + datetime.timedelta(days=365)
+    return timeutils.utcnow() + datetime.timedelta(days=365)
