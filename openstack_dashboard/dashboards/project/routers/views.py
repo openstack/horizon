@@ -161,7 +161,7 @@ class DetailView(tabs.TabbedTableView):
         router.status_label = filters.get_display_label(choices, router.status)
         choices = rtables.ADMIN_STATE_DISPLAY_CHOICES
         router.admin_state_label = (
-            filters.get_display_label(choices, router.admin_state))
+            filters.get_display_label(choices, router.is_admin_state_up))
         return context
 
     def get_tabs(self, request, *args, **kwargs):
@@ -222,10 +222,10 @@ class UpdateView(forms.ModalFormView):
         initial = {'router_id': router['id'],
                    'tenant_id': router['tenant_id'],
                    'name': router['name'],
-                   'admin_state': router['admin_state_up']}
-        if hasattr(router, 'distributed'):
-            initial['mode'] = ('distributed' if router.distributed
+                   'admin_state': router['is_admin_state_up']}
+        if hasattr(router, 'is_distributed'):
+            initial['mode'] = ('distributed' if router.is_distributed
                                else 'centralized')
-        if hasattr(router, 'ha'):
-            initial['ha'] = router.ha
+        if hasattr(router, 'is_ha'):
+            initial['ha'] = router.is_ha
         return initial
