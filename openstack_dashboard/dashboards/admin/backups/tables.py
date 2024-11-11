@@ -128,4 +128,4 @@ class AdminBackupsTable(project_tables.BackupsTable):
         row_actions = (AdminRestoreBackup, ForceDeleteBackup,
                        AdminDeleteBackup, UpdateVolumeBackupStatusAction,)
         columns = ('project', 'name', 'description', 'size', 'status',
-                   'volume_name', 'snapshot',)
+                   'availability_zone', 'volume_name', 'snapshot',)

@@ -181,6 +181,8 @@ class BackupsTable(tables.DataTable):
                            status=True,
                            status_choices=STATUS_CHOICES,
                            display_choices=STATUS_DISPLAY_CHOICES)
+    availability_zone = tables.Column("availability_zone",
+                                      verbose_name=_("Availability Zone"))
     volume_name = BackupVolumeNameColumn("name",
                                          verbose_name=_("Volume Name"),
                                          link="horizon:project:volumes:detail")
