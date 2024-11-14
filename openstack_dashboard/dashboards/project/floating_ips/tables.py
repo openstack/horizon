@@ -248,9 +248,7 @@ def get_instance_info(fip):
                    'fixed_ip': fip.fixed_ip})
     if fip.instance_type == 'loadbalancer':
         return _("Load Balancer VIP %s") % fip.fixed_ip
-    if fip.instance_type:
-        return fip.fixed_ip
-    return None
+    return getattr(fip, 'fixed_ip', None)
 
 
 def get_instance_link(datum):
