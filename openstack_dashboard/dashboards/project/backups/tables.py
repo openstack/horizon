@@ -189,6 +189,7 @@ class BackupsTable(tables.DataTable):
     snapshot = SnapshotColumn("snapshot",
                               verbose_name=_("Snapshot"),
                               link="horizon:project:snapshots:detail")
+    created_at = tables.Column("created_at", verbose_name=_("Created At"))
 
     def current_page(self):
         return self._meta.current_page()

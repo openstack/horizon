@@ -117,6 +117,7 @@ class AdminBackupsTable(project_tables.BackupsTable):
     snapshot = AdminSnapshotColumn("snapshot",
                                    verbose_name=_("Snapshot"),
                                    link="horizon:admin:snapshots:detail")
+    created_at = tables.Column("created_at", verbose_name=_("Created At"))
 
     class Meta(object):
         name = "volume_backups"
@@ -128,4 +129,5 @@ class AdminBackupsTable(project_tables.BackupsTable):
         row_actions = (AdminRestoreBackup, ForceDeleteBackup,
                        AdminDeleteBackup, UpdateVolumeBackupStatusAction,)
         columns = ('project', 'name', 'description', 'size', 'status',
-                   'availability_zone', 'volume_name', 'snapshot',)
+                   'availability_zone', 'volume_name', 'snapshot',
+                   'created_at')
