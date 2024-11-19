@@ -486,8 +486,8 @@ class NetworkPortTests(test.TestCase):
         self._stub_is_extension_supported({'mac-learning': False,
                                            'allowed-address-pairs': True})
 
-        pair_ip = pair['ip_address']
-        form_data = {'action': 'allowed_address_pairs__delete__%s' % pair_ip}
+        id = pair['ip_address'] + ":" + pair['mac_address'].replace(':', '-')
+        form_data = {'action': 'allowed_address_pairs__delete__%s' % id}
         url = reverse(detail_path, args=[pre_port.id])
 
         res = self.client.post(url, form_data)
