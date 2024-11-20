@@ -95,7 +95,8 @@
         method: 'delete',
         path: '/api/swift/containers/spam/metadata/',
         error: 'Unable to delete the container.',
-        testInput: [ 'spam' ]
+        testInput: [ 'spam' ],
+        throws: true
       },
       {
         func: 'setContainerAccess',
@@ -205,7 +206,10 @@
         var innerFunc = promise.catch.calls.argsFor(0)[0];
         // In the case of 409
         var message = 'Unable to delete the container because it is not empty.';
-        innerFunc({data: message, status: 409});
+        var response = {data: message, status: 409};
+        expect(function() {
+          innerFunc(response);
+        }).toThrow(response);
         expect(toastService.add).toHaveBeenCalledWith('error', message);
       }
     );
