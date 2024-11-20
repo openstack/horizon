@@ -14,6 +14,7 @@ import time
 
 import pytest
 from selenium.common import exceptions
+from selenium.webdriver.common.action_chains import ActionChains as AC
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.wait import WebDriverWait
 
@@ -342,6 +343,8 @@ def test_instances_pagination_and_filtration_demo(login, driver, instance_name,
         'instances'
     ))
     driver.get(url)
+    h1 = driver.find_element_by_css_selector("h1")
+    AC(driver).move_to_element(h1).perform()
     driver.find_element_by_css_selector(
         "button[class='btn btn-default dropdown-toggle']").click()
     # set filter by instance_name
@@ -396,6 +399,8 @@ def test_filter_instances_demo(login, driver, instance_name,
         'instances'
     ))
     driver.get(url)
+    h1 = driver.find_element_by_css_selector("h1")
+    AC(driver).move_to_element(h1).perform()
     driver.find_element_by_css_selector(
         "button[class='btn btn-default dropdown-toggle']").click()
     # set filter by instance_name
@@ -589,6 +594,8 @@ def test_instances_pagination_and_filtration_admin(login, driver, instance_name,
         'instances'
     ))
     driver.get(url)
+    h1 = driver.find_element_by_css_selector("h1")
+    AC(driver).move_to_element(h1).perform()
     driver.find_element_by_css_selector(
         "button[class='btn btn-default dropdown-toggle']").click()
     # set filter by instance_name
@@ -643,6 +650,8 @@ def test_filter_instances_admin(login, driver, instance_name,
         'instances'
     ))
     driver.get(url)
+    h1 = driver.find_element_by_css_selector("h1")
+    AC(driver).move_to_element(h1).perform()
     driver.find_element_by_css_selector(
         "button[class='btn btn-default dropdown-toggle']").click()
     # set filter by instance_name
