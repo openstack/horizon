@@ -13,7 +13,7 @@
     stroke-dashoffset: 0;
     stroke-linecap: round;
     stroke: #db652d;
-    @include animation(material-loader-dash 1.5s ease-in-out infinite, material-loader-color 6s ease-in-out infinite);
+    @include animation("material-loader-dash 1.5s ease-in-out infinite, material-loader-color 6s ease-in-out infinite");
   }
 }
 
