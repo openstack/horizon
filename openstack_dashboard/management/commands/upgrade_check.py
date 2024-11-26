@@ -219,6 +219,8 @@ def check_invalid_settings(dummy=None):
         'TIME_INPUT_FORMATS',
         'USE_ETAGS',
         'USE_I18N',
+        # TODO(tkajinam): USE_L10N was removed in django 5.0. Remove this once
+        # min version of django is bumped to >=5.0.
         'USE_L10N',
         'USE_THOUSAND_SEPARATOR',
         'USE_TZ',
