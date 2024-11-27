@@ -79,8 +79,10 @@ def new_interface(new_router_demo, new_network_demo, new_subnet_demo,
 
 
 @pytest.fixture
-def new_router_with_gateway(new_router_demo, openstack_demo, openstack_admin):
-    network_id = openstack_admin.network.find_network('public').id
+def new_router_with_gateway(new_router_demo, openstack_demo, openstack_admin,
+                            config):
+    network_id = openstack_admin.network.find_network(
+        config.network.external_network).id
 
     openstack_demo.network.put(
         f"/routers/{new_router_demo.id}",
@@ -103,7 +105,8 @@ def test_create_router_demo(login, driver, router_name, openstack_demo,
     driver.find_element_by_link_text("Create Router").click()
     router_form = driver.find_element_by_css_selector(".modal-dialog form")
     router_form.find_element_by_id("id_name").send_keys(router_name)
-    widgets.select_from_dropdown(router_form, "public")
+    widgets.select_from_dropdown(router_form,
+                                 config.network.external_network)
     router_form.find_element_by_css_selector(
         ".btn-primary[value='Create Router']").click()
     messages = widgets.get_and_dismiss_messages(driver)
@@ -224,7 +227,7 @@ def test_router_set_gateway_demo(login, driver, new_router_demo,
     rows[0].find_element_by_css_selector(".data-table-action").click()
     gateway_form = driver.find_element_by_css_selector(".modal-dialog form")
     widgets.select_from_specific_dropdown_in_form(
-        gateway_form, 'id_network_id', 'public')
+        gateway_form, 'id_network_id', config.network.external_network)
     gateway_form.find_element_by_css_selector(".btn-primary").click()
     messages = widgets.get_and_dismiss_messages(driver)
     assert f"Success: Gateway interface is added" in messages
@@ -233,7 +236,8 @@ def test_router_set_gateway_demo(login, driver, new_router_demo,
         f"?fields=id&fields=name&fields="
         f"external_gateway_info").json()['router']
     assert(router_sdk["external_gateway_info"]["network_id"] ==
-           openstack_demo.network.find_network('public').id)
+           openstack_demo.network.find_network(
+               config.network.external_network).id)
 
 
 def test_router_clear_gateway_demo(login, driver, new_router_with_gateway,
@@ -254,7 +258,8 @@ def test_router_clear_gateway_demo(login, driver, new_router_with_gateway,
         f"?fields=id&fields=name&fields="
         f"external_gateway_info").json()['router']
     assert(router_sdk["external_gateway_info"]["network_id"] ==
-           openstack_demo.network.find_network('public').id)
+           openstack_demo.network.find_network(
+               config.network.external_network).id)
     rows[0].find_element_by_css_selector(".data-table-action").click()
     widgets.confirm_modal(driver)
     messages = widgets.get_and_dismiss_messages(driver)
@@ -282,7 +287,7 @@ def test_create_router_admin(login, driver, router_name, openstack_admin,
     widgets.select_from_specific_dropdown_in_form(
         router_form, "id_tenant_id", "admin")
     widgets.select_from_specific_dropdown_in_form(
-        router_form, "id_external_network", "public")
+        router_form, "id_external_network", config.network.external_network)
     router_form.find_element_by_css_selector(
         ".btn-primary[value='Create Router']").click()
     messages = widgets.get_and_dismiss_messages(driver)

@@ -151,9 +151,11 @@ def new_default_test_subnet(new_default_test_network, openstack_admin):
 
 
 @pytest.fixture(scope='session')
-def new_default_test_router(openstack_admin):
-    public_network = openstack_admin.network.find_network('public')
-    public_subnet = openstack_admin.network.find_subnet('public-subnet')
+def new_default_test_router(openstack_admin, config):
+    public_network = openstack_admin.network.find_network(
+        config.network.external_network)
+    public_subnet = openstack_admin.network.find_subnet(
+        config.network.subnet_name)
     router = openstack_admin.network.post("/routers", json={
         "router": {
             "name": "default_test_router",

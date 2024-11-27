@@ -14,8 +14,6 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.wait import WebDriverWait
 
-from openstack_dashboard.test.selenium import widgets
-
 
 def test_dashboard_help_redirection(login, driver, config):
     login('user')
@@ -24,9 +22,8 @@ def test_dashboard_help_redirection(login, driver, config):
         'settings',
     ))
     driver.get(url)
-    user_dropdown_menu = driver.find_element_by_css_selector(
-        '.nav.navbar-nav.navbar-right')
-    widgets.select_from_dropdown(user_dropdown_menu, "Help")
+    for step in config.theme.help_sequence:
+        driver.find_element_by_xpath(step).click()
     available_windows = driver.window_handles
     assert len(available_windows) == 2
     driver.switch_to.window(available_windows[-1])

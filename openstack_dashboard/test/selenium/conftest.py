@@ -22,6 +22,7 @@ import xvfbwrapper
 
 from horizon.test import webdriver
 from openstack_dashboard.test.integration_tests import config as horizon_config
+from openstack_dashboard.test.selenium import widgets
 
 
 STASH_FAILED = pytest.StashKey[bool]()
@@ -44,6 +45,7 @@ class Session:
                 config.identity.admin_home_project,
             ),
         }
+        self.project_name_xpath = config.theme.project_name_xpath
         self.logout_url = '/'.join((
             config.dashboard.dashboard_url,
             'auth',
@@ -64,17 +66,17 @@ class Session:
                 '.btn-primary')
             button.click()
             self.current_user = user
-            self.current_project = self.driver.find_element_by_class_name(
-                'context-project').text
+            project_element = self.driver.find_element_by_xpath(
+                self.project_name_xpath)
+            self.current_project = project_element.text
         if self.current_project != project:
-            dropdown_project = self.driver.find_element_by_xpath(
-                '//*[@class="context-project"]//ancestor::ul')
-            dropdown_project.click()
-            selection = dropdown_project.find_element_by_xpath(
+            project_element.click()
+            selection = project_element.find_element_by_xpath(
                 f'.//*[normalize-space()="{project}"]')
             selection.click()
-            self.current_project = self.driver.find_element_by_class_name(
-                'context-project').text
+            widgets.get_and_dismiss_messages(self.driver)
+            self.current_project = self.driver.find_element_by_xpath(
+                self.project_name_xpath).text
 
 
 @pytest.fixture(scope='session')

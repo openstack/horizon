@@ -96,6 +96,9 @@ NetworkGroup = [
         # can be changed as per available external network.
         default='public',
         help='The external network for a router creation.'),
+    cfg.StrOpt('subnet_name',
+               default='public-subnet',
+               help='Default public network subnet name'),
 ]
 
 AvailableServiceGroup = [
@@ -189,6 +192,16 @@ PluginGroup = [
         help=('JSON string to define the page structure for the plugin')),
 ]
 
+ThemeGroup = [
+    cfg.StrOpt('project_name_xpath',
+               default='.//*[@class="context-project"]',
+               help='Default xpath for project name dropdown button'),
+    cfg.ListOpt('help_sequence',
+                default=['.//*[@class="dropdown user-menu"]',
+                         './/*[normalize-space()="Help"]'],
+                help='Default steps for redirect to help URL'),
+]
+
 
 def _get_config_files():
     conf_dir = os.path.join(
@@ -216,6 +229,7 @@ def get_config():
     cfg.CONF.register_opts(InstancesGroup, group="launch_instances")
     cfg.CONF.register_opts(PluginGroup, group="plugin")
     cfg.CONF.register_opts(VolumeGroup, group="volume")
+    cfg.CONF.register_opts(ThemeGroup, group="theme")
 
     return cfg.CONF
 
@@ -233,4 +247,5 @@ def list_opts():
         ("launch_instances", InstancesGroup),
         ("plugin", PluginGroup),
         ("volume", VolumeGroup),
+        ("theme", ThemeGroup),
     ]
