@@ -12,6 +12,8 @@
 
 from unittest import mock
 
+import pytest
+
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.wait import WebDriverWait
@@ -22,19 +24,10 @@ from openstack_dashboard.test.selenium import widgets
 import horizon
 
 
-def test_languages(live_server, driver, user):
-    driver.get(live_server.url + '/settings')
-    user_settings = driver.find_element_by_id('user_settings_modal')
-    language_options = user_settings.find_element_by_id('id_language')
-    language_options.click()
-    language_options.find_element_by_xpath("//option[@value='de']").click()
-    user_settings.find_element_by_xpath('//*[@class="btn btn-primary"]').click()
-    messages = widgets.get_and_dismiss_messages(driver)
-    assert "Success: Settings saved." in messages
-    assert "Error" not in messages
-
-
 def test_switch_to_material_theme(live_server, driver, user, config):
+    if not config.theme.test_material_theme:
+        pytest.skip("Test material theme skipped.")
+
     driver.get(live_server.url + '/settings')
     user_dropdown_menu = driver.find_element_by_css_selector(
         '.nav.navbar-nav.navbar-right')
@@ -98,3 +91,16 @@ def test_message_after_password_change(live_server, driver, user,
         mocked_a_l_r.assert_called_once()
         assert (mocked_a_l_r.call_args.args[2] ==
                 'Password changed. Please log in again to continue.')
+
+
+def test_languages(live_server, driver, user):
+    driver.get(live_server.url + '/settings')
+    user_settings = driver.find_element_by_id('user_settings_modal')
+    language_options = user_settings.find_element_by_id('id_language')
+    language_options.click()
+    language_options.find_element_by_xpath("//option[@value='de']").click()
+    user_settings.find_element_by_xpath('//*[@class="btn btn-primary"]').click()
+    messages = widgets.get_and_dismiss_messages(driver)
+    assert ("Success: Settings saved." in messages or
+            "Erfolg:Einstellungen gespeichert." in messages)
+    assert "Error" not in messages
