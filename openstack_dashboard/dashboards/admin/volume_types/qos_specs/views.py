@@ -42,6 +42,7 @@ class QosSpecMixin(object):
             qos_spec_id = context['qos_spec_id']
 
         try:
+            # pylint: disable-next=possibly-used-before-assignment
             qos_list = api.cinder.qos_spec_get(self.request, qos_spec_id)
             context['qos_spec_name'] = qos_list.name
         except Exception:

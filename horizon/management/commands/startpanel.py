@@ -69,6 +69,7 @@ class Command(TemplateCommand):
 
         target = options.pop("target", None)
         if target == "auto":
+            # pylint: disable-next=possibly-used-before-assignment
             target = os.path.join(os.path.dirname(dashboard_mod.__file__),
                                   panel_name)
             if not os.path.exists(target):

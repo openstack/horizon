@@ -121,8 +121,8 @@ class ReleaseIPsPortForwarding(ReleaseIPs):
     @staticmethod
     def action_past(count):
         return ngettext_lazy(
-            u"Successfully redirected",
-            u"Successfully redirected",
+            "Successfully redirected",
+            "Successfully redirected",
             count
         )
 

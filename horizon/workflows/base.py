@@ -54,28 +54,30 @@ class WorkflowContext(dict):
         return self.__setitem__(key, None)
 
     def set(self, key, val):
+        # pylint: disable-next=unnecessary-dunder-call
         return self.__setitem__(key, val)
 
     def unset(self, key):
+        # pylint: disable-next=unnecessary-dunder-call
         return self.__delitem__(key)
 
 
 class ActionMetaclass(forms.forms.DeclarativeFieldsMetaclass):
-    def __new__(cls, name, bases, attrs):
+    def __new__(mcs, name, bases, attrs):
         # Pop Meta for later processing
         opts = attrs.pop("Meta", None)
         # Create our new class
-        cls_ = super().__new__(cls, name, bases, attrs)
+        mcs_ = super().__new__(mcs, name, bases, attrs)
         # Process options from Meta
-        cls_.name = getattr(opts, "name", name)
-        cls_.slug = getattr(opts, "slug", slugify(name))
-        cls_.permissions = getattr(opts, "permissions", ())
-        cls_.policy_rules = getattr(opts, "policy_rules", ())
-        cls_.progress_message = getattr(opts, "progress_message",
+        mcs_.name = getattr(opts, "name", name)
+        mcs_.slug = getattr(opts, "slug", slugify(name))
+        mcs_.permissions = getattr(opts, "permissions", ())
+        mcs_.policy_rules = getattr(opts, "policy_rules", ())
+        mcs_.progress_message = getattr(opts, "progress_message",
                                         _("Processing..."))
-        cls_.help_text = getattr(opts, "help_text", "")
-        cls_.help_text_template = getattr(opts, "help_text_template", None)
-        return cls_
+        mcs_.help_text = getattr(opts, "help_text", "")
+        mcs_.help_text_template = getattr(opts, "help_text_template", None)
+        return mcs_
 
 
 class Action(forms.Form, metaclass=ActionMetaclass):
@@ -478,10 +480,10 @@ class Step(object):
 
 
 class WorkflowMetaclass(type):
-    def __new__(cls, name, bases, attrs):
-        super().__new__(cls, name, bases, attrs)
+    def __new__(mcs, name, bases, attrs):
+        super().__new__(mcs, name, bases, attrs)
         attrs["_cls_registry"] = []
-        return type.__new__(cls, name, bases, attrs)
+        return type.__new__(mcs, name, bases, attrs)
 
 
 class UpdateMembersStep(Step):

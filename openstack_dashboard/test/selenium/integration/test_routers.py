@@ -157,7 +157,7 @@ def test_router_add_interface_demo(login, driver, router_name, openstack_demo,
         ".modal-dialog form")
     widgets.select_from_dropdown(
         add_interface_form, f"{new_network_demo.name}: {new_subnet_demo.cidr} "
-                            f"({new_subnet_demo.name})")
+        f"({new_subnet_demo.name})")
     add_interface_form.find_element_by_id(
         "id_ip_address").send_keys(fixed_ip_test)
     add_interface_form.find_element_by_css_selector(".btn-primary").click()

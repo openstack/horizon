@@ -100,5 +100,5 @@ class Command(BaseCommand):
                     # Ensure to use UTF-8 encoding
                     new_po.encoding = 'utf-8'
 
-                    with open(pofile, 'w+') as f:
+                    with open(pofile, 'w+', encoding="utf-8") as f:
                         f.write(new_po.text)

@@ -52,7 +52,9 @@ def _format_default_policy(default):
 
 
 def _write_yaml_file(policies, output_file):
-    stream = open(output_file, 'w') if output_file else sys.stdout
+    # pylint: disable-next=consider-using-with
+    stream = open(output_file, 'w',
+                  encoding="utf-8") if output_file else sys.stdout
     yaml.dump(policies, stream=stream)
     if output_file:
         stream.close()

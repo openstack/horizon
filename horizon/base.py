@@ -595,6 +595,7 @@ class Dashboard(Registry, HorizonComponent):
                 panel_group = PanelGroup(self, panels=panel_set)
 
             # Put our results into their appropriate places
+            # pylint: disable-next=possibly-used-before-assignment
             panels_to_discover.extend(panel_group.panels)
             panel_groups.append((panel_group.slug, panel_group))
             if panel_group.slug == DEFAULT_PANEL_GROUP:
@@ -615,6 +616,7 @@ class Dashboard(Registry, HorizonComponent):
                 before_import_registry = copy.copy(self._registry)
                 import_module('.%s.panel' % panel, package)
             except Exception:
+                # pylint: disable-next=used-before-assignment
                 self._registry = before_import_registry
                 if module_has_submodule(mod, panel):
                     raise
@@ -866,6 +868,7 @@ class Site(Registry, HorizonComponent):
                 before_import_registry = copy.copy(self._registry)
                 import_module('%s.%s' % (package, mod_name))
             except Exception:
+                # pylint: disable-next=used-before-assignment
                 self._registry = before_import_registry
                 if module_has_submodule(mod, mod_name):
                     raise
@@ -897,6 +900,7 @@ class Site(Registry, HorizonComponent):
                     before_import_registry = copy.copy(self._registry)
                     import_module('%s.%s' % (app, mod_name))
                 except Exception:
+                    # pylint: disable-next=used-before-assignment
                     self._registry = before_import_registry
                     if module_has_submodule(mod, mod_name):
                         raise

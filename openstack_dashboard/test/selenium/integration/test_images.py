@@ -438,7 +438,7 @@ def test_edit_image_description_admin(login, driver, image_names,
         ".//button[@class='btn btn-primary finish']").click()
     messages = widgets.get_and_dismiss_messages(driver)
     assert f"Success: Image {image_name} " \
-           f"was successfully updated." in messages
+        f"was successfully updated." in messages
     image_id = new_image_admin.id
     assert (openstack_admin.compute.get(f"/images/{image_id}").json(
     )['image']['metadata']['description'] == new_description)
@@ -471,7 +471,7 @@ def test_update_image_metadata_admin(login, driver,
         image_form.find_element_by_css_selector(
             "button.btn span[class='fa fa-plus']").click()
         image_form.find_element_by_xpath(
-            f"//span[@title='{name}']/parent::div/input").send_keys(value)
+            f"//span[@title='{name}']/parent::div/input").send_keys(value)  # noqa: E231,E501
     image_form.find_element_by_xpath(
         "//button[@ng-click='modal.save()']").click()
     messages = widgets.get_and_dismiss_messages(driver)
@@ -548,7 +548,7 @@ def test_create_volume_from_image_admin(login, driver, volume_name,
     name_field.send_keys(volume_name)
     create_vol_btn = WebDriverWait(driver, config.selenium.page_timeout).until(
         EC.element_to_be_clickable((By.XPATH, f"//button[@class='btn "
-                                              f"btn-primary finish']")))
+                                    f"btn-primary finish']")))
     create_vol_btn.click()
     messages = widgets.get_and_dismiss_messages(driver)
     assert f"Info: Creating volume {volume_name}" in messages

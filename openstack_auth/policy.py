@@ -90,7 +90,7 @@ def _load_default_rules(service, enforcer):
         return
 
     try:
-        with open(policy_file) as f:
+        with open(policy_file, encoding="utf-8") as f:
             policies = yaml.safe_load(f)
     except IOError as e:
         LOG.error('Failed to open the policy file for %(service)s %(path)s: '

@@ -77,7 +77,7 @@ def ensure_checkbox(required_state, element):
     current_state = element.is_selected()
     if required_state != current_state:
         element.find_element_by_xpath(
-            f".//following-sibling::label").click()
+            f".//following-sibling::label").click()  # noqa: E231
 
 
 def test_create_network_without_subnet_demo(login, openstack_demo, driver,

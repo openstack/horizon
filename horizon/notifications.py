@@ -110,7 +110,7 @@ def _is_path(path):
 
 
 def _get_processed_messages(messages_path):
-    msgs = list()
+    msgs = list()  # pylint: disable=use-list-literal
 
     if not _is_path(messages_path):
         LOG.error('%s is not a valid messages path.', messages_path)

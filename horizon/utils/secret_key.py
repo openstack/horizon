@@ -48,7 +48,7 @@ def read_from_file(key_file='.secret_key'):
         raise FilePermissionError(
             "Insecure permissions on key file %s, should be 0600." %
             os.path.abspath(key_file))
-    with open(key_file, 'r') as f:
+    with open(key_file, 'r', encoding="utf-8") as f:
         key = f.readline()
         return key
 
@@ -76,7 +76,7 @@ def generate_or_read_from_file(key_file='.secret_key', key_length=64):
         if not os.path.exists(key_file):
             key = generate_key(key_length)
             old_umask = os.umask(0o177)  # Use '0600' file permissions
-            with open(key_file, 'w') as f:
+            with open(key_file, 'w', encoding="utf-8") as f:
                 f.write(key)
             os.umask(old_umask)
         else:

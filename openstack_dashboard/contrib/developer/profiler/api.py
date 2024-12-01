@@ -76,8 +76,7 @@ def get_trace(trace_id):
             # finishes before the dependent requests do so, to we need to
             # normalize the duration of all requests by the finishing time of
             # the one which took longest
-            if child_finished > finished:
-                finished = child_finished
+            finished = max(finished, child_finished)
         return _data, finished
 
     engine = _get_engine()

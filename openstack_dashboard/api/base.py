@@ -280,6 +280,7 @@ class QuotaSet(collections.abc.Sequence):
         return match.pop() if match else Quota(key, default)
 
     def add(self, other):
+        # pylint: disable-next=unnecessary-dunder-call
         return self.__add__(other)
 
 

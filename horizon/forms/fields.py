@@ -628,14 +628,14 @@ class ExternalUploadMeta(forms.DeclarativeFieldsMetaclass):
     """
 
     @classmethod
-    def __prepare__(cls, name, bases):
+    def __prepare__(mcs, name, bases):
         # Required in python 3 to keep the form fields order.
         # Without this method, the __new__(cls, name, bases, attrs) method
         # receives a dict as attrs instead of OrderedDict.
         # This method will be ignored by Python 2.
         return collections.OrderedDict()
 
-    def __new__(cls, name, bases, attrs):
+    def __new__(mcs, name, bases, attrs):
         def get_double_name(name):
             suffix = '__hidden'
             slen = len(suffix)
@@ -660,4 +660,4 @@ class ExternalUploadMeta(forms.DeclarativeFieldsMetaclass):
                 new_attrs[new_attr_name] = hidden_field
                 meth_name = 'clean_' + new_attr_name
                 new_attrs[meth_name] = make_clean_method(new_attr_name)
-        return super().__new__(cls, name, bases, new_attrs)
+        return super().__new__(mcs, name, bases, new_attrs)

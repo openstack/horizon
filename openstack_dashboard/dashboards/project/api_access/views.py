@@ -100,6 +100,7 @@ def download_ec2_bundle(request):
     # Create our file bundle
     template = 'project/api_access/ec2rc.sh.template'
     try:
+        # pylint: disable-next=consider-using-with
         temp_zip = tempfile.NamedTemporaryFile(delete=True)
         with closing(zipfile.ZipFile(temp_zip.name, mode='w')) as archive:
             archive.writestr('ec2rc.sh', render_to_string(template, context))

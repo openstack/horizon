@@ -120,8 +120,8 @@ def test_add_member_to_project(login, driver, project_name, openstack_admin,
     rows[0].find_element_by_css_selector(".data-table-action").click()
     project_form = driver.find_element_by_css_selector("form .modal-content")
     project_form.find_element_by_xpath(
-        f".//*[text()='{admin_name}']//ancestor::li"
-        f"/following-sibling::li/a[@href='#add_remove']").click()
+        f".//*[text()='{admin_name}']//ancestor::li"  # noqa: E231
+        f"/following-sibling::li/a[@href='#add_remove']").click()  # noqa: E231
     project_form.find_element_by_css_selector(
         ".btn-primary[value='Save']").click()
     messages = widgets.get_and_dismiss_messages(driver)
@@ -151,8 +151,8 @@ def test_add_role_to_project_member(login, driver, openstack_admin, config,
     rows[0].find_element_by_css_selector(".data-table-action").click()
     project_form = driver.find_element_by_css_selector("form .modal-content")
     select_roles_dropdown = project_form.find_element_by_xpath(
-        f".//*[text()='{admin_name}']//ancestor::li"
-        f"/following-sibling::li[@class='dropdown role_options']")
+        f".//*[text()='{admin_name}']//ancestor::li"  # noqa: E231
+        f"/following-sibling::li[@class='dropdown role_options']")  # noqa: E231
     widgets.select_from_dropdown(select_roles_dropdown, admin_role_name)
     project_form.find_element_by_css_selector(
         ".btn-primary[value='Save']").click()
@@ -188,8 +188,8 @@ def test_add_group_to_project(login, driver, openstack_admin,
     widgets.select_from_dropdown(actions_column, "Modify Groups")
     project_form = driver.find_element_by_css_selector("form .modal-content")
     project_form.find_element_by_xpath(
-        f".//*[text()='{group_name}']//ancestor::li"
-        f"/following-sibling::li/a[@href='#add_remove']").click()
+        f".//*[text()='{group_name}']//ancestor::li"  # noqa: E231
+        f"/following-sibling::li/a[@href='#add_remove']").click()  # noqa: E231
     project_form.find_element_by_css_selector(
         ".btn-primary[value='Save']").click()
     messages = widgets.get_and_dismiss_messages(driver)
@@ -220,8 +220,8 @@ def test_add_role_to_project_group(login, driver, openstack_admin, config,
     widgets.select_from_dropdown(actions_column, "Modify Groups")
     project_form = driver.find_element_by_css_selector("form .modal-content")
     select_roles_dropdown = project_form.find_element_by_xpath(
-        f".//*[text()='{group_name}']//ancestor::li"
-        f"/following-sibling::li[@class='dropdown role_options']")
+        f".//*[text()='{group_name}']//ancestor::li"  # noqa: E231
+        f"/following-sibling::li[@class='dropdown role_options']")  # noqa: E231
     widgets.select_from_dropdown(select_roles_dropdown, admin_role_name)
     project_form.find_element_by_css_selector(
         ".btn-primary[value='Save']").click()

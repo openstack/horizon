@@ -127,7 +127,7 @@ def record_video(request, report_dir, xdisplay):
         '-video_size', f'{width}x{height}',
         '-framerate', str(frame_rate),
         '-f', 'x11grab',
-        '-i', f':{display}',
+        '-i', f':{display}',  # noqa: E231
         filepath,
     ]
     fnull = open(os.devnull, 'w')

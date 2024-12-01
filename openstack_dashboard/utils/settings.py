@@ -312,6 +312,7 @@ def get_xstatic_dirs(XSTATIC_MODULES, HORIZON_CONFIG):
                 file = 'horizon/lib/' + module.NAME + '/' + file
                 HORIZON_CONFIG['xstatic_lib_files'].append(file)
         except TypeError:
+            # pylint: disable-next=broad-exception-raised
             raise Exception(
                 '%s: Nothing to include because files to include are not '
                 'defined (i.e., None) in BASE_XSTATIC_MODULES list and '

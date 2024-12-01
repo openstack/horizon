@@ -53,24 +53,24 @@ def test_vcpu_pcpu_data_display(live_server, driver, user, dashboard_data):
         driver.get(live_server.url + '/admin/hypervisors')
         assert (driver.find_element_by_xpath(
             f"//*[normalize-space()='VCPU Usage']/"
-            f"ancestor::div[contains(@class,'d3_quota_bar')]"
-            f"/div[contains(@class,'h6')]/"
+            f"ancestor::div[contains(@class,'d3_quota_bar')]"  # noqa: E231
+            f"/div[contains(@class,'h6')]/"  # noqa: E231
             f"span[1]").text == str(p['vcpus_used']))
         assert (driver.find_element_by_xpath(
             f"//*[normalize-space()='VCPU Usage']/"
-            f"ancestor::div[contains(@class,'d3_quota_bar')]"
-            f"/div[contains(@class,'h6')]/"
+            f"ancestor::div[contains(@class,'d3_quota_bar')]"  # noqa: E231
+            f"/div[contains(@class,'h6')]/"  # noqa: E231
             f"span[2]").text == str(p['vcpus_capacity']))
 
         assert (driver.find_element_by_xpath(
             f"//*[normalize-space()='PCPU Usage']/"
-            f"ancestor::div[contains(@class,'d3_quota_bar')]"
-            f"/div[contains(@class,'h6')]/"
+            f"ancestor::div[contains(@class,'d3_quota_bar')]"  # noqa: E231
+            f"/div[contains(@class,'h6')]/"  # noqa: E231
             f"span[1]").text == str(p['pcpus_used']))
         assert (driver.find_element_by_xpath(
             f"//*[normalize-space()='PCPU Usage']/"
-            f"ancestor::div[contains(@class,'d3_quota_bar')]"
-            f"/div[contains(@class,'h6')]/"
+            f"ancestor::div[contains(@class,'d3_quota_bar')]"  # noqa: E231
+            f"/div[contains(@class,'h6')]/"  # noqa: E231
             f"span[2]").text == str(p['pcpus_capacity']))
 
         driver.find_element_by_link_text("Resource Provider").click()

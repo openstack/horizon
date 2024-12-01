@@ -26,7 +26,7 @@ from django import template
 # rendering it unreadable.
 warnings.simplefilter('ignore')
 
-cmd_name = __name__.split('.')[-1]
+cmd_name = __name__.rsplit('.', maxsplit=1)[-1]
 
 CURDIR = os.path.realpath(os.path.dirname(__file__))
 PROJECT_PATH = os.path.realpath(os.path.join(CURDIR, '../..'))
@@ -301,11 +301,12 @@ location you desire, e.g.::
         # Generate the WSGI.
         if options.get('wsgi'):
             with open(
-                os.path.join(CURDIR, 'horizon.wsgi.template'), 'r'
+                os.path.join(CURDIR, 'horizon.wsgi.template'), 'r',
+                encoding="utf-8"
             ) as fp:
                 wsgi_template = template.Template(fp.read())
             if not os.path.exists(context['WSGI_FILE']) or force:
-                with open(context['WSGI_FILE'], 'w') as fp:
+                with open(context['WSGI_FILE'], 'w', encoding="utf-8") as fp:
                     fp.write(wsgi_template.render(context))
                 print('Generated "%s"' % context['WSGI_FILE'])
             else:
@@ -319,7 +320,8 @@ location you desire, e.g.::
                 context['WSGI_FILE'] = context['DEFAULT_WSGI_FILE']
 
             with open(
-                os.path.join(CURDIR, 'apache_vhost.conf.template'), 'r'
+                os.path.join(CURDIR, 'apache_vhost.conf.template'), 'r',
+                encoding="utf-8"
             ) as fp:
                 wsgi_template = template.Template(fp.read())
             sys.stdout.write(wsgi_template.render(context))

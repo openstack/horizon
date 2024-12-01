@@ -272,7 +272,9 @@ if os.path.exists(LOCAL_SETTINGS_DIR_PATH):
         for filename in sorted(filenames):
             if filename.endswith(".py"):
                 try:
-                    with open(os.path.join(dirpath, filename)) as f:
+                    with open(
+                        os.path.join(dirpath, filename), encoding="utf-8"
+                    ) as f:
                         # pylint: disable=exec-used
                         exec(f.read())
                 except Exception:

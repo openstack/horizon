@@ -42,7 +42,7 @@ def new_instance_admin(complete_default_test_network, request, instance_name,
     yield instance
     if count > 1:
         for instance in range(0, count):
-            openstack_admin.delete_server(f"{instance_name}-{instance+1}")
+            openstack_admin.delete_server(f"{instance_name}-{instance + 1}")
     else:
         openstack_admin.delete_server(instance_name)
 

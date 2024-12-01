@@ -163,9 +163,7 @@ class QuotaUsage(dict):
     def update_available(self, name):
         """Updates the "available" metric for the given quota."""
         quota = self.usages.get(name, {}).get('quota', float('inf'))
-        available = quota - self.usages[name]['used']
-        if available < 0:
-            available = 0
+        available = max(quota - self.usages[name]['used'], 0)
         self.usages[name]['available'] = available
 
 

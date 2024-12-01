@@ -18,8 +18,8 @@
 import os
 from subprocess import call
 
-import babel.messages.catalog as catalog
-import babel.messages.pofile as babel_pofile
+from babel.messages import catalog
+from babel.messages import pofile as babel_pofile
 from django.conf import settings
 from django.core.management.base import BaseCommand
 from django.utils import translation
@@ -110,7 +110,7 @@ class Command(BaseCommand):
                         continue
 
                     # Pseudo translation logic
-                    with open(potfile, 'r') as f:
+                    with open(potfile, 'r', encoding="utf-8") as f:
                         pot_cat = babel_pofile.read_po(f, ignore_obsolete=True)
 
                     new_cat = catalog.Catalog(locale=locale,

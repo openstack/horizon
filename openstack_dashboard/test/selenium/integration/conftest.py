@@ -224,7 +224,7 @@ def new_instance_demo(complete_default_test_network, request, instance_name,
     yield instance
     if count > 1:
         for instance in range(0, count):
-            openstack_demo.delete_server(f"{instance_name}-{instance+1}")
+            openstack_demo.delete_server(f"{instance_name}-{instance + 1}")
     else:
         openstack_demo.delete_server(instance_name)
 

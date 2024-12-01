@@ -12,7 +12,7 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 import json
-import json.encoder as encoder
+from json import encoder
 
 from django.utils.translation import gettext_lazy as _
 

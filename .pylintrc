@@ -15,12 +15,14 @@ disable=
  not-callable,
 # "W" Warnings for stylistic problems or minor programming issues
  arguments-differ,
+ arguments-renamed,
  attribute-defined-outside-init,
  bad-indentation,
  broad-except,
  fixme,
  # python3 way: pylint suggests to follow PEP 3102
  keyword-arg-before-vararg,  # TODO
+ missing-timeout,
  pointless-string-statement,
  protected-access,
  # We should do it carefully considering PEP3134
@@ -37,9 +39,8 @@ disable=
 # "C" Coding convention violations
  abstract-method,
  anomalous-backslash-in-string,
- bad-builtin,
- bad-continuation,
- deprecated-lambda,
+ consider-using-dict-items,
+ consider-using-f-string,
  global-statement,
  # Not a good idea to disable this globally
  # Check one by one and add pylint disabled comment if needed
@@ -52,19 +53,22 @@ disable=
  # import order is checked by flake8 (and pylint rule is incompatible with it)
  wrong-import-order,
 # "R" Refactor recommendations
+ consider-using-generator,
  duplicate-code,
  inconsistent-return-statements,  # TODO
- interface-not-implemented,
- no-self-use,
  too-many-ancestors,
  too-many-arguments,
  too-many-branches,
  too-many-function-args,
  too-many-instance-attributes,
  too-many-locals,
+ too-many-positional-arguments,
  too-many-return-statements,
  too-many-statements,
- useless-object-inheritance
+ use-a-generator,
+ use-dict-literal,
+ use-yield-from,
+ useless-object-inheritance,
 
 [Basic]
 # Variable names can be 1 to 31 characters long, with lowercase and underscores

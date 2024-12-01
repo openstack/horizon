@@ -95,16 +95,16 @@ class DeleteRule(tables.DeleteAction):
     @staticmethod
     def action_present(count):
         return ngettext_lazy(
-            u"Delete Rule",
-            u"Delete Rules",
+            "Delete Rule",
+            "Delete Rules",
             count
         )
 
     @staticmethod
     def action_past(count):
         return ngettext_lazy(
-            u"Deleted Rule",
-            u"Deleted Rules",
+            "Deleted Rule",
+            "Deleted Rules",
             count
         )
 

@@ -55,7 +55,7 @@ def select_from_dropdown(element, label):
 
 def select_from_specific_dropdown_in_form(driver, dropdown_id, label):
     dropdown = driver.find_element_by_xpath(
-        f".//*[@for='{dropdown_id}']/following-sibling::div")
+        f".//*[@for='{dropdown_id}']/following-sibling::div")  # noqa: E231
     dropdown.click()
     dropdown_options = dropdown.find_element_by_css_selector(
         "ul.dropdown-menu")
@@ -128,12 +128,12 @@ def select_from_transfer_table(element, label):
 
     try:
         element.find_element_by_xpath(
-            f".//*[text()='{label}']//ancestor::tr/td//*"
+            f".//*[text()='{label}']//ancestor::tr/td//*"  # noqa: E231
             f"[@class='btn btn-default fa fa-arrow-up']").click()
     except exceptions.NoSuchElementException:
         try:
             element.find_element_by_xpath(
-                f".//*[text()='{label}']//ancestor::tr/td//*"
+                f".//*[text()='{label}']//ancestor::tr/td//*"  # noqa: E231
                 f"[@class='btn btn-default fa fa-arrow-down']")
         except exceptions.NoSuchElementException:
             raise

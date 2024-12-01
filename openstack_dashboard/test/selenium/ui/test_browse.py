@@ -145,7 +145,7 @@ def test_browse_left_panel(live_server, driver, user, dashboard_data,
             WebDriverWait(driver, config.selenium.implicit_wait).until(
                 EC.element_to_be_clickable(
                     (By.CSS_SELECTOR, f"a[data-target='#sidebar-accordion"
-                                      f"-{main_panel}-{sec_panel}']"))).click()
+                        f"-{main_panel}-{sec_panel}']"))).click()
             sidebar = driver.find_element_by_id(
                 f"sidebar-accordion-{main_panel}-{sec_panel}")
         else:

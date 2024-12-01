@@ -114,10 +114,13 @@ class Command(BaseCommand):
         """
 
         with DirContext(self.local_settings_dir) as dircontext:
-            if not os.path.exists(self.local_settings_diff) or force:
-                with open(self.local_settings_example, 'r') as fp:
+            if not os.path.exists(self.local_settings_diff,
+                                  encoding="utf-8") or force:
+                with open(self.local_settings_example, 'r',
+                          encoding="utf-8") as fp:
                     example_lines = fp.readlines()
-                with open(self.local_settings_file, 'r') as fp:
+                with open(self.local_settings_file, 'r',
+                          encoding="utf-8") as fp:
                     local_settings_lines = fp.readlines()
                 local_settings_example_mtime = time.strftime(
                     self.time_fmt,
@@ -134,7 +137,8 @@ class Command(BaseCommand):
                     dircontext.curdir,
                     self.local_settings_diff)
                 )
-                with open(self.local_settings_diff, 'w') as fp:
+                with open(self.local_settings_diff, 'w',
+                          encoding="utf-8") as fp:
                     for line in difflib.unified_diff(
                         example_lines, local_settings_lines,
                         fromfile=self.local_settings_example,
