@@ -358,7 +358,7 @@ def test_image_filtration_admin(login, driver, new_image_admin, config):
     filter_input_field.send_keys(random_img_name)
     # Fetch page definition after filtration
     no_items_present = driver.find_element_by_xpath(
-        "//td[text()='No items to display.']")
+        "//*[normalize-space()='No items to display.']")
     assert no_items_present
 
 

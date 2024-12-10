@@ -61,7 +61,7 @@ class Session:
             pass_field = self.driver.find_element_by_id('id_password')
             pass_field.send_keys(password)
             button = self.driver.find_element_by_css_selector(
-                'div.panel-footer button.btn')
+                '.btn-primary')
             button.click()
             self.current_user = user
             self.current_project = self.driver.find_element_by_class_name(
