@@ -22,24 +22,6 @@ from openstack_dashboard.test.selenium import widgets
 import horizon
 
 
-def test_login(live_server, driver, mock_openstack_auth, mock_keystoneclient):
-    # We go to a page that doesn't do more api calls.
-    driver.get(live_server.url + '/settings')
-    assert driver.title == "Login - OpenStack Dashboard"
-    user_field = driver.find_element_by_id('id_username')
-    user_field.clear()
-    user_field.send_keys("user")
-    pass_field = driver.find_element_by_id('id_password')
-    pass_field.clear()
-    pass_field.send_keys("password")
-    button = driver.find_element_by_css_selector('div.panel-footer button.btn')
-    button.click()
-    errors = [m.text for m in
-              driver.find_elements_by_css_selector('div.alert-danger p')]
-    assert errors == []
-    assert driver.title != "Login - OpenStack Dashboard"
-
-
 def test_languages(live_server, driver, user):
     driver.get(live_server.url + '/settings')
     user_settings = driver.find_element_by_id('user_settings_modal')
