@@ -500,6 +500,44 @@ def user_update_tenant(request, user, project, admin=True):
 
 
 @profiler.trace
+def credential_create(request, user, type, blob, project=None):
+    manager = keystoneclient(request).credentials
+    return manager.create(user=user, type=type, blob=blob, project=project)
+
+
+@profiler.trace
+def credential_delete(request, credential_id):
+    manager = keystoneclient(request, admin=True).credentials
+    return manager.delete(credential_id)
+
+
+@profiler.trace
+def credential_get(request, credential_id, admin=True):
+    manager = keystoneclient(request, admin=admin).credentials
+    return manager.get(credential_id)
+
+
+@profiler.trace
+def credentials_list(request, user=None):
+    manager = keystoneclient(request).credentials
+    return manager.list(user=user)
+
+
+@profiler.trace
+def credential_update(request, credential_id, user,
+                      type=None, blob=None, project=None):
+    manager = keystoneclient(request, admin=True).credentials
+    try:
+        return manager.update(credential=credential_id,
+                              user=user,
+                              type=type,
+                              blob=blob,
+                              project=project)
+    except keystone_exceptions.Conflict:
+        raise exceptions.Conflict()
+
+
+@profiler.trace
 def group_create(request, domain_id, name, description=None):
     manager = keystoneclient(request, admin=True).groups
     try:

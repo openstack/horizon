@@ -27,6 +27,7 @@ from keystoneclient.v3 import application_credentials
 from keystoneclient.v3.contrib.federation import identity_providers
 from keystoneclient.v3.contrib.federation import mappings
 from keystoneclient.v3.contrib.federation import protocols
+from keystoneclient.v3 import credentials
 from keystoneclient.v3 import domains
 from keystoneclient.v3 import groups
 from keystoneclient.v3 import role_assignments
@@ -181,6 +182,7 @@ def data(TEST):
     TEST.idp_protocols = utils.TestDataContainer()
 
     TEST.application_credentials = utils.TestDataContainer()
+    TEST.credentials = utils.TestDataContainer()
 
     admin_role_dict = {'id': '1',
                        'name': 'admin'}
@@ -540,3 +542,21 @@ def data(TEST):
     app_cred_detail = application_credentials.ApplicationCredential(
         None, app_cred_dict)
     TEST.application_credentials.add(app_cred_create, app_cred_detail)
+
+    user_cred_dict = {
+        'id': 'cred1',
+        'user_id': '1',
+        'type': 'totp',
+        'blob': 'ONSWG4TFOQYTM43FMNZGK5BRGYFA',
+        'project_id': 'project1'
+    }
+    user_cred_create = credentials.Credential(None, user_cred_dict)
+    user_cred_dict = {
+        'id': 'cred2',
+        'user_id': '2',
+        'type': 'totp',
+        'blob': 'ONSWG4TFOQYTM43FMNZGK5BRGYFA',
+        'project_id': 'project2'
+    }
+    user_cred_detail = credentials.Credential(None, user_cred_dict)
+    TEST.credentials.add(user_cred_create, user_cred_detail)
