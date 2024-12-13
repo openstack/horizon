@@ -50,7 +50,6 @@ INSTALLED_APPS = (
     'django.contrib.humanize',
     'django.contrib.auth',
     'django.contrib.contenttypes',
-    'django_pyscss',
     'compressor',
     'horizon',
     'horizon.test',

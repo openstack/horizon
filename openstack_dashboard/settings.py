@@ -132,8 +132,9 @@ STATICFILES_FINDERS = (
 )
 
 COMPRESS_PRECOMPILERS = (
-    ('text/scss', 'horizon.utils.scss_filter.HorizonScssFilter'),
+    ('text/scss', 'horizon.utils.scss_filter.ScssFilter'),
 )
+
 
 COMPRESS_FILTERS = {
     'css': (
@@ -157,8 +158,6 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django.contrib.humanize',
-    'openstack_dashboard.django_pyscss_fix',
-    'django_pyscss',
     'debreach',
     'compressor',
     'horizon',
@@ -377,7 +376,6 @@ HORIZON_COMPRESS_OFFLINE_CONTEXT_BASE = {
 
 if DEBUG:
     logging.basicConfig(level=logging.DEBUG)
-
 
 # Here comes the Django settings deprecation section. Being at the very end
 # of settings.py allows it to catch the settings defined in local_settings.py

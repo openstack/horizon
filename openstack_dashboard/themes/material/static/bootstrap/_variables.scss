@@ -1,3 +1,5 @@
+@import "/dashboard/scss/_variables.scss";
+
 // Override the web font path ... we want to set this ourselves
 $web-font-path: $static_url + "horizon/lib/roboto_fontface/css/roboto/roboto-fontface.css";
 $roboto-font-path: $static_url + "horizon/lib/roboto_fontface/fonts";
