@@ -510,7 +510,7 @@ class SecurityGroupManager(object):
         ports = port_list(self.request, device_id=instance_id)
         sg_ids = []
         for p in ports:
-            sg_ids += p.security_groups
+            sg_ids += p.security_group_ids
         return self._list(id=set(sg_ids)) if sg_ids else []
 
     @profiler.trace
