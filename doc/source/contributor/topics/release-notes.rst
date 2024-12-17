@@ -40,7 +40,7 @@ generate release notes. Please read the docs for details. In summary, use
 
 .. code-block:: bash
 
-  $ tox -e venv -- reno new <bug-,bp-,whatever>
+  $ tox -e venv-docs -- reno new <bug-,bp-,whatever>
 
 Then edit the sample file that was created and push it with your change.
 
