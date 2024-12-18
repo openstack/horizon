@@ -1390,12 +1390,18 @@ class OpenStackAuthTests(test.TestCase):
                                  next=None):
         projects = []
         user = self.data.user
-        scoped = self.data.unscoped_access_info
 
         form_data = self.get_form_data(user)
 
-        mock_get_access.return_value = self.data.unscoped_access_info
-        mock_get_access_token.return_value = scoped
+        mock_get_access.side_effect = [
+            self.data.unscoped_access_info,
+        ]
+        mock_get_access_token.side_effect = [
+            # satisfy call to plugin.get_domain_scoped_auth
+            self.data.domain_scoped_access_info,
+            # satisfy call to switch_system_scope
+            self.data.system_scoped_access_info,
+        ]
         mock_project_list.return_value = projects
 
         url = reverse('login')
@@ -1405,6 +1411,11 @@ class OpenStackAuthTests(test.TestCase):
 
         response = self.client.post(url, form_data)
         self.assertRedirects(response, settings.LOGIN_REDIRECT_URL)
+
+        mock_project_list.assert_called_once_with(
+            IsA(session.Session),
+            IsA(v3_auth.Password),
+            self.data.unscoped_access_info)
 
         self.assertFalse(self.client.session['token'].system_scoped)
 
@@ -1421,14 +1432,13 @@ class OpenStackAuthTests(test.TestCase):
         else:
             self.assertRedirects(response, settings.LOGIN_REDIRECT_URL)
 
-        self.assertNotEqual(False, self.client.session['token'].system_scoped)
+        self.assertTrue(self.client.session['token'].system_scoped)
 
         mock_get_access.assert_called_once_with(IsA(session.Session))
         mock_get_access_token.assert_called_with(IsA(session.Session))
-        mock_project_list.assert_called_once_with(
-            IsA(session.Session),
-            IsA(v3_auth.Password),
-            self.data.unscoped_access_info)
+
+    def test_switch_system_scope_with_next(self):
+        self.test_switch_system_scope(next='/next_url')
 
 
 class OpenStackAuthTestsPublicURL(OpenStackAuthTests):

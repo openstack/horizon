@@ -255,6 +255,30 @@ def generate_test_data(service_providers=False, endpoint='localhost'):
         body=domain_token_dict
     )
 
+    system_token_dict = {
+        'token': {
+            'methods': ['password'],
+            'expires_at': expiration,
+            'system': {
+                'all': True,
+            },
+            'user': {
+                'id': user_dict['id'],
+                'name': user_dict['name'],
+                'domain': {
+                    'id': domain_dict['id'],
+                    'name': domain_dict['name']
+                }
+            },
+            'roles': [role_dict],
+            'catalog': [keystone_service, nova_service]
+        }
+    }
+    test_data.system_scoped_access_info = access.create(
+        resp=auth_response,
+        body=system_token_dict
+    )
+
     unscoped_token_dict = {
         'token': {
             'methods': ['password'],
