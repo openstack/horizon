@@ -25,9 +25,9 @@ def _get_root_path():
     return os.path.dirname(os.path.abspath(__file__))
 
 
-# ---------------------------------------------------
-# Override horizn, openstack_auth and Django settings
-# ---------------------------------------------------
+# ----------------------------------------------------
+# Override horizon, openstack_auth and Django settings
+# ----------------------------------------------------
 
 WEBROOT = '/'  # from openstack_auth
 
