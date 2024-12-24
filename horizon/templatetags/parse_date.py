@@ -39,7 +39,8 @@ class ParseDateNode(template.Node):
                 try:
                     parsed = datetime.strptime(datestring, format)
                     if not timezone.is_aware(parsed):
-                        parsed = timezone.make_aware(parsed, timezone.utc)
+                        parsed = timezone.make_aware(
+                            parsed, datetime.timezone.utc)
                     return parsed
                 except Exception:
                     pass
