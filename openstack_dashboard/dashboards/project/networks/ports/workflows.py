@@ -374,7 +374,7 @@ class UpdatePortSecurityGroupAction(sg_base.BaseSecurityGroupsAction):
     def _get_initial_security_groups(self, context):
         port_id = context.get('port_id', '')
         port = api.neutron.port_get(self.request, port_id)
-        return port.security_groups
+        return port.security_group_ids
 
     class Meta(object):
         name = _("Security Groups")
