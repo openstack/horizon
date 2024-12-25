@@ -123,7 +123,7 @@ class DetailView(tabs.TabbedTableView):
         results = futurist_utils.call_functions_parallel(
             (get_network, [port.network_id]),
             (get_security_groups, [tuple(port.security_group_ids)]))
-        network, port.security_groups = results
+        network, security_groups = results
 
         port.network_name = network.get('name')
         port.network_url = reverse(network_url, args=[port.network_id])
@@ -138,6 +138,7 @@ class DetailView(tabs.TabbedTableView):
         ]
         context["custom_breadcrumb"] = breadcrumb
         context["port"] = port
+        context["security_groups"] = security_groups
         context["url"] = reverse(
             'horizon:project:networks:ports_tab', args=[port.network_id])
         context["actions"] = table.render_row_actions(port)
