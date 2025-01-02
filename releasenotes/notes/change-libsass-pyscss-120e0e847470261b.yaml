@@ -1,0 +1,12 @@
+---
+prelude: >
+    Horizon is switching away from pyscss and django-pyscss, and now uses the
+    libsass library for partsing the scss files instead.
+upgrade:
+  - |
+    Horizon now uses the libsass library. Horizon packagers now need to include
+    python3-libsass in the dependency list.
+deprecations:
+  - |
+    Horizon no longer uses the pyscss and django-pyscss libraries. They can be
+    safely removed from the dependency lists by Horizon packagers.
