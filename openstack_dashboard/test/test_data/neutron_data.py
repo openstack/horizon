@@ -14,7 +14,10 @@
 
 import copy
 
+from openstack.network.v2 import agent as sdk_agent
 from openstack.network.v2 import network as sdk_net
+from openstack.network.v2 import network_ip_availability as \
+    sdk_ip_availability
 from openstack.network.v2 import port as sdk_port
 from openstack.network.v2 import router as sdk_router
 from openstack.network.v2 import subnet as sdk_subnet
@@ -98,6 +101,8 @@ def data(TEST):
     TEST.api_subnetpools_sdk = list()
     TEST.api_routers_sdk = list()
     TEST.api_routers_with_routes_sdk = list()
+    TEST.api_agents_sdk = list()
+    TEST.api_ip_availability_sdk = list()
 
     # 1st network.
     network_dict = {'is_admin_state_up': True,
@@ -1032,9 +1037,9 @@ def data(TEST):
     # 1st agent.
     agent_dict = {"binary": "neutron-openvswitch-agent",
                   "description": None,
-                  "admin_state_up": True,
-                  "heartbeat_timestamp": "2013-07-26 06:51:47",
-                  "alive": True,
+                  "is_admin_state_up": True,
+                  "last_heartbeat_at": "2013-07-26 06:51:47",
+                  "is_alive": True,
                   "id": "c876ff05-f440-443e-808c-1d34cda3e88a",
                   "topic": "N/A",
                   "host": "devstack001",
@@ -1043,14 +1048,15 @@ def data(TEST):
                   "created_at": "2013-07-26 05:23:28",
                   "configurations": {"devices": 2}}
     TEST.api_agents.add(agent_dict)
+    TEST.api_agents_sdk.append(sdk_agent.Agent(**agent_dict))
     TEST.agents.add(neutron.Agent(agent_dict))
 
     # 2nd agent.
     agent_dict = {"binary": "neutron-dhcp-agent",
                   "description": None,
-                  "admin_state_up": True,
-                  "heartbeat_timestamp": "2013-07-26 06:51:48",
-                  "alive": True,
+                  "is_admin_state_up": True,
+                  "last_heartbeat_at": "2013-07-26 06:51:48",
+                  "is_alive": True,
                   "id": "f0d12e3d-1973-41a2-b977-b95693f9a8aa",
                   "topic": "dhcp_agent",
                   "host": "devstack001",
@@ -1065,6 +1071,7 @@ def data(TEST):
                       "networks": 1,
                       "ports": 1}}
     TEST.api_agents.add(agent_dict)
+    TEST.api_agents_sdk.append(sdk_agent.Agent(**agent_dict))
     TEST.agents.add(neutron.Agent(agent_dict))
 
     # Service providers.
@@ -1118,6 +1125,8 @@ def data(TEST):
 
     TEST.ip_availability.add(availability)
     TEST.api_ip_availability.add(availability)
+    TEST.api_ip_availability_sdk.append(
+        sdk_ip_availability.NetworkIPAvailability(**availability))
 
     # qos policies
     policy_dict = {'id': 'a21dcd22-7189-cccc-aa32-22adafaf16a7',

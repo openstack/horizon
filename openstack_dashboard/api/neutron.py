@@ -2063,40 +2063,41 @@ def default_quota_get(request, tenant_id=None):
 
 @profiler.trace
 def agent_list(request, **params):
-    agents = neutronclient(request).list_agents(**params)
-    return [Agent(a) for a in agents['agents']]
+    agents = networkclient(request).agents(**params)
+    return [Agent(a.to_dict()) for a in agents]
 
 
 @profiler.trace
 def list_dhcp_agent_hosting_networks(request, network, **params):
-    agents = neutronclient(request).list_dhcp_agent_hosting_networks(network,
-                                                                     **params)
-    return [Agent(a) for a in agents['agents']]
+    agents = networkclient(request).network_hosting_dhcp_agents(network,
+                                                                **params)
+    return [Agent(a.to_dict()) for a in agents]
 
 
 @profiler.trace
 def list_l3_agent_hosting_router(request, router, **params):
-    agents = neutronclient(request).list_l3_agent_hosting_routers(router,
-                                                                  **params)
-    return [Agent(a) for a in agents['agents']]
+    agents = networkclient(request).routers_hosting_l3_agents(router,
+                                                              **params)
+    return [Agent(a.to_dict()) for a in agents]
 
 
 @profiler.trace
 def show_network_ip_availability(request, network_id):
-    ip_availability = neutronclient(request).show_network_ip_availability(
+    ip_availability = networkclient(request).get_network_ip_availability(
         network_id)
-    return ip_availability
+    return ip_availability.to_dict()
 
 
 @profiler.trace
 def add_network_to_dhcp_agent(request, dhcp_agent, network_id):
-    body = {'network_id': network_id}
-    return neutronclient(request).add_network_to_dhcp_agent(dhcp_agent, body)
+    return networkclient(request).add_dhcp_agent_to_network(
+        agent=dhcp_agent,
+        network=network_id)
 
 
 @profiler.trace
 def remove_network_from_dhcp_agent(request, dhcp_agent, network_id):
-    return neutronclient(request).remove_network_from_dhcp_agent(dhcp_agent,
+    return networkclient(request).remove_dhcp_agent_from_network(dhcp_agent,
                                                                  network_id)
 
 

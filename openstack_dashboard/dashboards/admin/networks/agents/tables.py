@@ -66,13 +66,13 @@ class AddDHCPAgent(tables.LinkAction):
 
 
 def get_agent_status(agent):
-    if agent.admin_state_up:
+    if agent.is_admin_state_up:
         return _('Enabled')
     return _('Disabled')
 
 
 def get_agent_state(agent):
-    if agent.alive:
+    if agent.is_alive:
         return _('Up')
     return _('Down')
 
@@ -86,7 +86,7 @@ class DHCPAgentsTable(tables.DataTable):
     host = tables.WrappingColumn('host', verbose_name=_('Host'))
     status = tables.Column(get_agent_status, verbose_name=_('Status'))
     state = tables.Column(get_agent_state, verbose_name=_('Admin State'))
-    heartbeat_timestamp = tables.Column('heartbeat_timestamp',
+    heartbeat_timestamp = tables.Column('last_heartbeat_at',
                                         verbose_name=_('Updated At'),
                                         filters=(utils_filters.parse_isotime,
                                                  filters.timesince))

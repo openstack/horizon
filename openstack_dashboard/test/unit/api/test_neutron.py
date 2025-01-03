@@ -992,27 +992,27 @@ class NeutronApiTests(test.APIMockTestCase):
 
         neutronclient.delete_network.assert_called_once_with(network_id)
 
-    @mock.patch.object(api.neutron, 'neutronclient')
-    def test_get_network_ip_availability(self, mock_neutronclient):
-        network = {'network': self.api_networks.first()}
-        mock_ip_availability = self.ip_availability.get()
-        neutronclient = mock_neutronclient.return_value
-        neutronclient.show_network_ip_availability.return_value = \
+    @mock.patch.object(api.neutron, 'networkclient')
+    def test_get_network_ip_availability(self, mock_networkclient):
+        network = self.api_networks_sdk[0]
+        mock_ip_availability = self.api_ip_availability_sdk[0]
+        networkclient = mock_networkclient.return_value
+        networkclient.get_network_ip_availability.return_value = \
             mock_ip_availability
 
         ret_val = api.neutron.show_network_ip_availability(self.request,
                                                            network)
 
         self.assertIsInstance(ret_val, dict)
-        neutronclient.show_network_ip_availability.assert_called_once_with(
+        networkclient.get_network_ip_availability.assert_called_once_with(
             network)
 
-    @mock.patch.object(api.neutron, 'neutronclient')
-    def test_subnet_network_ip_availability(self, mock_neutronclient):
-        network = {'network': self.api_networks.first()}
-        mock_ip_availability = self.ip_availability.get()
-        neutronclient = mock_neutronclient.return_value
-        neutronclient.show_network_ip_availability.return_value = \
+    @mock.patch.object(api.neutron, 'networkclient')
+    def test_subnet_network_ip_availability(self, mock_networkclient):
+        network = self.api_networks_sdk[0]
+        mock_ip_availability = self.api_ip_availability_sdk[0]
+        networkcient = mock_networkclient.return_value
+        networkcient.get_network_ip_availability.return_value = \
             mock_ip_availability
 
         ip_availability = api.neutron. \
@@ -1022,7 +1022,7 @@ class NeutronApiTests(test.APIMockTestCase):
         ret_val = availabilities.get("subnet_ip_availability", [])
 
         self.assertIsInstance(ret_val, list)
-        neutronclient.show_network_ip_availability.assert_called_once_with(
+        networkcient.get_network_ip_availability.assert_called_once_with(
             network)
 
     @mock.patch.object(api.neutron, 'networkclient')
