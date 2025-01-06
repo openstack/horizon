@@ -55,8 +55,11 @@ def make_adapter(request):
 
 def _get_json(request, path):
     adapter = make_adapter(request)
-    uri = base.url_for(request, 'placement') + path
-    response, body = adapter.get(uri)
+
+    base_uri = base.url_for(request, 'placement')
+    new_uri = base_uri.rstrip('/') + '/' + path.lstrip('/')
+
+    response, body = adapter.get(new_uri)
     return response.json()
 
 
