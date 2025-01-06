@@ -542,7 +542,7 @@ class PortForwarding(base.APIDictWrapper):
               'description', 'internal_port_id', 'external_ip_address']
 
     def __init__(self, pfw, fip):
-        pfw['floating_ip_id'] = fip
+        pfw['floatingip_id'] = fip
         port_forwarding = pfw
         if 'port_forwarding' in pfw:
             port_forwarding = pfw['port_forwarding']
@@ -586,15 +586,14 @@ class PortForwardingManager(object):
 
     def __init__(self, request):
         self.request = request
-        self.client = neutronclient(request)
+        self.net_client = networkclient(request)
 
     @profiler.trace
     def list(self, floating_ip_id, **search_opts):
-        port_forwarding_rules = self.client.list_port_forwardings(
+        port_forwarding_rules = self.net_client.port_forwardings(
             floating_ip_id, **search_opts)
-        port_forwarding_rules = port_forwarding_rules.get('port_forwardings')
         LOG.debug("Portforwarding rules listed=%s", port_forwarding_rules)
-        return [PortForwarding(port_forwarding_rule, floating_ip_id)
+        return [PortForwarding(port_forwarding_rule.to_dict(), floating_ip_id)
                 for port_forwarding_rule in port_forwarding_rules]
 
     @profiler.trace
@@ -602,19 +601,18 @@ class PortForwardingManager(object):
         portforwarding_dict = self.create_port_forwarding_dict(**params)
         portforwarding_id = params['portforwarding_id']
         LOG.debug("Updating Portforwarding rule with id %s", portforwarding_id)
-        pfw = self.client.update_port_forwarding(
+        pfw = self.net_client.update_port_forwarding(
             floating_ip_id,
             portforwarding_id,
-            {'port_forwarding': portforwarding_dict}).get('port_forwarding')
+            **portforwarding_dict).to_dict()
 
         return PortForwarding(pfw, floating_ip_id)
 
     @profiler.trace
     def create(self, floating_ip_id, **params):
         portforwarding_dict = self.create_port_forwarding_dict(**params)
-        portforwarding_rule = self.client.create_port_forwarding(
-            floating_ip_id,
-            {'port_forwarding': portforwarding_dict}).get('port_forwarding')
+        portforwarding_rule = self.net_client.create_port_forwarding(
+            floating_ip_id, **portforwarding_dict).to_dict()
         LOG.debug("Created a Portforwarding rule to floating IP %s with id %s",
                   floating_ip_id,
                   portforwarding_rule['id'])
@@ -646,15 +644,16 @@ class PortForwardingManager(object):
         return portforwarding_dict
 
     def delete(self, floating_ip_id, portforwarding_id):
-        self.client.delete_port_forwarding(floating_ip_id, portforwarding_id)
+        self.net_client.delete_port_forwarding(
+            floating_ip_id, portforwarding_id)
         LOG.debug(
             "The Portforwarding rule of floating IP %s with id %s was deleted",
             floating_ip_id, portforwarding_id)
 
     def get(self, floating_ip_id, portforwarding_id):
-        pfw = self.client.show_port_forwarding(floating_ip_id,
-                                               portforwarding_id)
-        return PortForwarding(pfw, portforwarding_id)
+        pfw = self.net_client.get_port_forwarding(floating_ip_id,
+                                                  portforwarding_id).to_dict()
+        return PortForwarding(pfw, floating_ip_id)
 
 
 class FloatingIpManager(object):
@@ -679,7 +678,6 @@ class FloatingIpManager(object):
 
     def __init__(self, request):
         self.request = request
-        self.client = neutronclient(request)
         self.net_client = networkclient(request)
 
     @profiler.trace
@@ -705,7 +703,7 @@ class FloatingIpManager(object):
             fip['instance_id'] = port.device_id
             fip['instance_type'] = self._get_instance_type_from_device_owner(
                 port.device_owner)
-        except neutronclient.common.exceptions.PortNotFoundClient:
+        except sdk_exceptions.ResourceNotFound:
             LOG.debug("Failed to get port %s details for floating IP %s",
                       fip['port_id'], fip['ip'])
             fip['instance_id'] = None
@@ -733,15 +731,17 @@ class FloatingIpManager(object):
             port_search_opts = {'tenant_id': tenant_id}
         else:
             port_search_opts = {}
-        fips = self.client.list_floatingips(**search_opts)
-        fips = fips.get('floatingips')
+        fips = list(self.net_client.ips(**search_opts))
         # Get port list to add instance_id to floating IP list
         # instance_id is stored in device_id attribute
         ports = port_list(self.request, **port_search_opts)
         port_dict = collections.OrderedDict([(p['id'], p) for p in ports])
+        fips_list = []
         for fip in fips:
+            fips_list.append(fip.to_dict())
+        for fip in fips_list:
             self._set_instance_info(fip, port_dict.get(fip['port_id']))
-        return [FloatingIp(fip) for fip in fips]
+        return [FloatingIp(fip) for fip in fips_list]
 
     @profiler.trace
     def get(self, floating_ip_id):
@@ -749,7 +749,7 @@ class FloatingIpManager(object):
 
         :returns: FloatingIp object corresponding to floating_ip_id
         """
-        fip = self.client.show_floatingip(floating_ip_id).get('floatingip')
+        fip = self.net_client.get_ip(floating_ip_id).to_dict()
         self._set_instance_info(fip)
         return FloatingIp(fip)
 
@@ -776,15 +776,15 @@ class FloatingIpManager(object):
             create_dict['dns_domain'] = params['dns_domain']
         if 'dns_name' in params:
             create_dict['dns_name'] = params['dns_name']
-        fip = self.client.create_floatingip(
-            {'floatingip': create_dict}).get('floatingip')
+        fip = self.net_client.create_ip(**create_dict).to_dict()
         self._set_instance_info(fip)
-        return FloatingIp(fip)
+        fip_class = FloatingIp(fip)
+        return fip_class
 
     @profiler.trace
     def release(self, floating_ip_id):
         """Releases a floating IP specified."""
-        self.client.delete_floatingip(floating_ip_id)
+        self.net_client.delete_ip(floating_ip_id)
 
     @profiler.trace
     def associate(self, floating_ip_id, port_id):
@@ -800,15 +800,13 @@ class FloatingIpManager(object):
         pid, ip_address = port_id.split('_', 1)
         update_dict = {'port_id': pid,
                        'fixed_ip_address': ip_address}
-        self.client.update_floatingip(floating_ip_id,
-                                      {'floatingip': update_dict})
+        self.net_client.update_ip(floating_ip_id, **update_dict)
 
     @profiler.trace
     def disassociate(self, floating_ip_id):
         """Disassociates the floating IP specified."""
         update_dict = {'port_id': None}
-        self.client.update_floatingip(floating_ip_id,
-                                      {'floatingip': update_dict})
+        self.net_client.update_ip(floating_ip_id, **update_dict)
 
     def _get_reachable_subnets(self, ports, fetch_router_ports=False):
         if not is_enabled_by_config('enable_fip_topology_check'):
@@ -2103,8 +2101,7 @@ def remove_network_from_dhcp_agent(request, dhcp_agent, network_id):
 
 @profiler.trace
 def provider_list(request):
-    providers = neutronclient(request).list_service_providers()
-    return providers['service_providers']
+    return networkclient(request).service_providers()
 
 
 def floating_ip_pools_list(request):

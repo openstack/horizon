@@ -26,8 +26,6 @@ from openstack_dashboard.test import helpers as test
 class NetworkApiNeutronTests(test.APIMockTestCase):
     def setUp(self):
         super().setUp()
-        neutronclient = mock.patch.object(api.neutron, 'neutronclient').start()
-        self.qclient = neutronclient.return_value
         network_client = mock.patch.object(api.neutron, 'networkclient').start()
         self.sdk_net_client = network_client.return_value
 
@@ -75,7 +73,7 @@ class NetworkApiNeutronTests(test.APIMockTestCase):
                         if p['device_id'] in server_ids]
         server_port_ids = tuple([p['id'] for p in server_ports])
         if router_enabled:
-            assoc_fips = [fip for fip in self.api_floating_ips.list()
+            assoc_fips = [fip for fip in self.api_floating_ips_sdk
                           if fip['port_id'] in server_port_ids]
         server_network_ids = [p['network_id'] for p in server_ports]
         server_networks = [net for net in self.api_networks_sdk
@@ -84,8 +82,7 @@ class NetworkApiNeutronTests(test.APIMockTestCase):
         list_ports_retvals = server_ports
         port_w_router = None
         if router_enabled:
-            self.qclient.list_floatingips.return_value = {'floatingips':
-                                                          assoc_fips}
+            self.sdk_net_client.ips.return_value = assoc_fips
             port_w_router = self.api_ports_sdk
         self.sdk_net_client.ports.side_effect = [list_ports_retvals,
                                                  port_w_router]
@@ -129,11 +126,11 @@ class NetworkApiNeutronTests(test.APIMockTestCase):
 
         expected_list_ports = [mock.call(device_id=server_ids)]
         if router_enabled:
-            self.qclient.list_floatingips.assert_called_once_with(
+            self.sdk_net_client.ips.assert_called_once_with(
                 tenant_id=tenant_id, port_id=server_port_ids)
             expected_list_ports.append(mock.call(tenant_id=tenant_id))
         else:
-            self.assertEqual(0, self.qclient.list_floatingips.call_count)
+            self.assertEqual(0, self.sdk_net_client.ips.call_count)
         self.sdk_net_client.ports.assert_has_calls(expected_list_ports)
         nets_calls = []
         for server_net_id in server_network_ids:
