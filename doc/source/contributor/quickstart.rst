@@ -25,7 +25,7 @@ On RPM-based distributions (e.g., Fedora/RHEL/CentOS)
 
 .. code-block:: console
 
-    $ sudo yum install gcc git-core python3-devel python3-virtualenv gettext
+    $ sudo dnf install gcc git-core python3-devel python3-virtualenv gettext
 
 .. note::
 
