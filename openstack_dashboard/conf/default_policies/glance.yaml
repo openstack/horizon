@@ -1,9 +1,13 @@
 - check_str: ''
-  deprecated_reason: null
   deprecated_rule:
     check_str: rule:context_is_admin
+    deprecated_reason: In order to allow operators to accept the default policies
+      from code by not defining them in the policy file, while still working with
+      old policy files that rely on the ``default`` rule for policies that are not
+      specified in the policy file, the ``default`` rule must now be explicitly set
+      to ``"role:admin"`` when that is the desired default for unspecified rules.
+    deprecated_since: Ussuri
     name: default
-  deprecated_since: null
   description: Defines the default rule used for policies that historically had an
     empty policy in the supplied policy.json file.
   name: default
@@ -16,11 +20,15 @@
   scope_types: null
 - check_str: rule:context_is_admin or (role:member and project_id:%(project_id)s and
     project_id:%(owner)s)
-  deprecated_reason: null
   deprecated_rule:
     check_str: rule:default
+    deprecated_reason: '
+
+      The image API now supports roles.
+
+      '
+    deprecated_since: W
     name: add_image
-  deprecated_since: null
   description: Create new image
   name: add_image
   operations:
@@ -29,11 +37,15 @@
   scope_types:
   - project
 - check_str: rule:context_is_admin or (role:member and project_id:%(project_id)s)
-  deprecated_reason: null
   deprecated_rule:
     check_str: rule:default
+    deprecated_reason: '
+
+      The image API now supports roles.
+
+      '
+    deprecated_since: W
     name: delete_image
-  deprecated_since: null
   description: Deletes the image
   name: delete_image
   operations:
@@ -44,11 +56,15 @@
 - check_str: rule:context_is_admin or (role:reader and (project_id:%(project_id)s
     or project_id:%(member_id)s or 'community':%(visibility)s or 'public':%(visibility)s
     or 'shared':%(visibility)s))
-  deprecated_reason: null
   deprecated_rule:
     check_str: rule:default
+    deprecated_reason: '
+
+      The image API now supports roles.
+
+      '
+    deprecated_since: W
     name: get_image
-  deprecated_since: null
   description: Get specified image
   name: get_image
   operations:
@@ -57,11 +73,15 @@
   scope_types:
   - project
 - check_str: rule:context_is_admin or (role:reader and project_id:%(project_id)s)
-  deprecated_reason: null
   deprecated_rule:
     check_str: rule:default
+    deprecated_reason: '
+
+      The image API now supports roles.
+
+      '
+    deprecated_since: W
     name: get_images
-  deprecated_since: null
   description: Get all available images
   name: get_images
   operations:
@@ -70,11 +90,15 @@
   scope_types:
   - project
 - check_str: rule:context_is_admin or (role:member and project_id:%(project_id)s)
-  deprecated_reason: null
   deprecated_rule:
     check_str: rule:default
+    deprecated_reason: '
+
+      The image API now supports roles.
+
+      '
+    deprecated_since: W
     name: modify_image
-  deprecated_since: null
   description: Updates given image
   name: modify_image
   operations:
@@ -91,11 +115,15 @@
   scope_types:
   - project
 - check_str: rule:context_is_admin or (role:member and project_id:%(project_id)s)
-  deprecated_reason: null
   deprecated_rule:
     check_str: rule:default
+    deprecated_reason: '
+
+      The image API now supports roles.
+
+      '
+    deprecated_since: W
     name: communitize_image
-  deprecated_since: null
   description: Communitize given image
   name: communitize_image
   operations:
@@ -106,11 +134,15 @@
 - check_str: rule:context_is_admin or (role:member and (project_id:%(project_id)s
     or project_id:%(member_id)s or 'community':%(visibility)s or 'public':%(visibility)s
     or 'shared':%(visibility)s))
-  deprecated_reason: null
   deprecated_rule:
     check_str: rule:default
+    deprecated_reason: '
+
+      The image API now supports roles.
+
+      '
+    deprecated_since: W
     name: download_image
-  deprecated_since: null
   description: Downloads given image
   name: download_image
   operations:
@@ -119,11 +151,15 @@
   scope_types:
   - project
 - check_str: rule:context_is_admin or (role:member and project_id:%(project_id)s)
-  deprecated_reason: null
   deprecated_rule:
     check_str: rule:default
+    deprecated_reason: '
+
+      The image API now supports roles.
+
+      '
+    deprecated_since: W
     name: upload_image
-  deprecated_since: null
   description: Uploads data to specified image
   name: upload_image
   operations:
@@ -132,11 +168,15 @@
   scope_types:
   - project
 - check_str: rule:context_is_admin
-  deprecated_reason: null
   deprecated_rule:
     check_str: rule:default
+    deprecated_reason: '
+
+      The image API now supports roles.
+
+      '
+    deprecated_since: W
     name: delete_image_location
-  deprecated_since: null
   description: Deletes the location of given image
   name: delete_image_location
   operations:
@@ -145,11 +185,15 @@
   scope_types:
   - project
 - check_str: rule:context_is_admin or (role:reader and project_id:%(project_id)s)
-  deprecated_reason: null
   deprecated_rule:
     check_str: rule:default
+    deprecated_reason: '
+
+      The image API now supports roles.
+
+      '
+    deprecated_since: W
     name: get_image_location
-  deprecated_since: null
   description: Reads the location of the image
   name: get_image_location
   operations:
@@ -158,11 +202,15 @@
   scope_types:
   - project
 - check_str: rule:context_is_admin or (role:member and project_id:%(project_id)s)
-  deprecated_reason: null
   deprecated_rule:
     check_str: rule:default
+    deprecated_reason: '
+
+      The image API now supports roles.
+
+      '
+    deprecated_since: W
     name: set_image_location
-  deprecated_since: null
   description: Sets location URI to given image
   name: set_image_location
   operations:
@@ -171,11 +219,15 @@
   scope_types:
   - project
 - check_str: rule:context_is_admin or (role:member and project_id:%(project_id)s)
-  deprecated_reason: null
   deprecated_rule:
     check_str: rule:default
+    deprecated_reason: '
+
+      The image API now supports roles.
+
+      '
+    deprecated_since: W
     name: add_member
-  deprecated_since: null
   description: Create image member
   name: add_member
   operations:
@@ -184,11 +236,15 @@
   scope_types:
   - project
 - check_str: rule:context_is_admin or (role:member and project_id:%(project_id)s)
-  deprecated_reason: null
   deprecated_rule:
     check_str: rule:default
+    deprecated_reason: '
+
+      The image API now supports roles.
+
+      '
+    deprecated_since: W
     name: delete_member
-  deprecated_since: null
   description: Delete image member
   name: delete_member
   operations:
@@ -198,11 +254,15 @@
   - project
 - check_str: rule:context_is_admin or role:reader and (project_id:%(project_id)s or
     project_id:%(member_id)s)
-  deprecated_reason: null
   deprecated_rule:
     check_str: rule:default
+    deprecated_reason: '
+
+      The image API now supports roles.
+
+      '
+    deprecated_since: W
     name: get_member
-  deprecated_since: null
   description: Show image member details
   name: get_member
   operations:
@@ -212,11 +272,15 @@
   - project
 - check_str: rule:context_is_admin or role:reader and (project_id:%(project_id)s or
     project_id:%(member_id)s)
-  deprecated_reason: null
   deprecated_rule:
     check_str: rule:default
+    deprecated_reason: '
+
+      The image API now supports roles.
+
+      '
+    deprecated_since: W
     name: get_members
-  deprecated_since: null
   description: List image members
   name: get_members
   operations:
@@ -225,11 +289,15 @@
   scope_types:
   - project
 - check_str: rule:context_is_admin or (role:member and project_id:%(member_id)s)
-  deprecated_reason: null
   deprecated_rule:
     check_str: rule:default
+    deprecated_reason: '
+
+      The image API now supports roles.
+
+      '
+    deprecated_since: W
     name: modify_member
-  deprecated_since: null
   description: Update image member
   name: modify_member
   operations:
@@ -244,11 +312,15 @@
   scope_types:
   - project
 - check_str: rule:context_is_admin or (role:member and project_id:%(project_id)s)
-  deprecated_reason: null
   deprecated_rule:
     check_str: rule:default
+    deprecated_reason: '
+
+      The image API now supports roles.
+
+      '
+    deprecated_since: W
     name: deactivate
-  deprecated_since: null
   description: Deactivate image
   name: deactivate
   operations:
@@ -257,11 +329,15 @@
   scope_types:
   - project
 - check_str: rule:context_is_admin or (role:member and project_id:%(project_id)s)
-  deprecated_reason: null
   deprecated_rule:
     check_str: rule:default
+    deprecated_reason: '
+
+      The image API now supports roles.
+
+      '
+    deprecated_since: W
     name: reactivate
-  deprecated_since: null
   description: Reactivate image
   name: reactivate
   operations:
@@ -278,11 +354,21 @@
   scope_types:
   - project
 - check_str: rule:default
-  deprecated_reason: null
   deprecated_rule:
     check_str: rule:default
+    deprecated_reason: '
+
+      From Xena we are enforcing policy checks in the API and policy layer where
+
+      task policies were enforcing will be removed. Since task APIs are already
+
+      deprecated and `tasks_api_access` is checked for each API at API layer,
+
+      there will be no benefit of other having other task related policies.
+
+      '
+    deprecated_since: X
     name: get_task
-  deprecated_since: null
   description: 'Get an image task.
 
 
@@ -306,11 +392,21 @@
   scope_types:
   - project
 - check_str: rule:default
-  deprecated_reason: null
   deprecated_rule:
     check_str: rule:default
+    deprecated_reason: '
+
+      From Xena we are enforcing policy checks in the API and policy layer where
+
+      task policies were enforcing will be removed. Since task APIs are already
+
+      deprecated and `tasks_api_access` is checked for each API at API layer,
+
+      there will be no benefit of other having other task related policies.
+
+      '
+    deprecated_since: X
     name: get_tasks
-  deprecated_since: null
   description: 'List tasks for all images.
 
 
@@ -334,11 +430,21 @@
   scope_types:
   - project
 - check_str: rule:default
-  deprecated_reason: null
   deprecated_rule:
     check_str: rule:default
+    deprecated_reason: '
+
+      From Xena we are enforcing policy checks in the API and policy layer where
+
+      task policies were enforcing will be removed. Since task APIs are already
+
+      deprecated and `tasks_api_access` is checked for each API at API layer,
+
+      there will be no benefit of other having other task related policies.
+
+      '
+    deprecated_since: X
     name: add_task
-  deprecated_since: null
   description: 'List tasks for all images.
 
 
@@ -412,11 +518,15 @@
   scope_types: null
 - check_str: rule:context_is_admin or (role:reader and (project_id:%(project_id)s
     or 'public':%(visibility)s))
-  deprecated_reason: null
   deprecated_rule:
     check_str: rule:metadef_default
+    deprecated_reason: '
+
+      The metadata API now supports project scope and default roles.
+
+      '
+    deprecated_since: X
     name: get_metadef_namespace
-  deprecated_since: null
   description: Get a specific namespace.
   name: get_metadef_namespace
   operations:
@@ -425,11 +535,15 @@
   scope_types:
   - project
 - check_str: rule:context_is_admin or (role:reader and project_id:%(project_id)s)
-  deprecated_reason: null
   deprecated_rule:
     check_str: rule:metadef_default
+    deprecated_reason: '
+
+      The metadata API now supports project scope and default roles.
+
+      '
+    deprecated_since: X
     name: get_metadef_namespaces
-  deprecated_since: null
   description: List namespace.
   name: get_metadef_namespaces
   operations:
@@ -463,11 +577,15 @@
   - project
 - check_str: rule:context_is_admin or (role:reader and (project_id:%(project_id)s
     or 'public':%(visibility)s))
-  deprecated_reason: null
   deprecated_rule:
     check_str: rule:metadef_default
+    deprecated_reason: '
+
+      The metadata API now supports project scope and default roles.
+
+      '
+    deprecated_since: X
     name: get_metadef_object
-  deprecated_since: null
   description: Get a specific object from a namespace.
   name: get_metadef_object
   operations:
@@ -477,11 +595,15 @@
   - project
 - check_str: rule:context_is_admin or (role:reader and (project_id:%(project_id)s
     or 'public':%(visibility)s))
-  deprecated_reason: null
   deprecated_rule:
     check_str: rule:metadef_default
+    deprecated_reason: '
+
+      The metadata API now supports project scope and default roles.
+
+      '
+    deprecated_since: X
     name: get_metadef_objects
-  deprecated_since: null
   description: Get objects from a namespace.
   name: get_metadef_objects
   operations:
@@ -515,11 +637,15 @@
   - project
 - check_str: rule:context_is_admin or (role:reader and (project_id:%(project_id)s
     or 'public':%(visibility)s))
-  deprecated_reason: null
   deprecated_rule:
     check_str: rule:metadef_default
+    deprecated_reason: '
+
+      The metadata API now supports project scope and default roles.
+
+      '
+    deprecated_since: X
     name: list_metadef_resource_types
-  deprecated_since: null
   description: List meta definition resource types.
   name: list_metadef_resource_types
   operations:
@@ -529,11 +655,15 @@
   - project
 - check_str: rule:context_is_admin or (role:reader and (project_id:%(project_id)s
     or 'public':%(visibility)s))
-  deprecated_reason: null
   deprecated_rule:
     check_str: rule:metadef_default
+    deprecated_reason: '
+
+      The metadata API now supports project scope and default roles.
+
+      '
+    deprecated_since: X
     name: get_metadef_resource_type
-  deprecated_since: null
   description: Get meta definition resource types associations.
   name: get_metadef_resource_type
   operations:
@@ -559,11 +689,15 @@
   - project
 - check_str: rule:context_is_admin or (role:reader and (project_id:%(project_id)s
     or 'public':%(visibility)s))
-  deprecated_reason: null
   deprecated_rule:
     check_str: rule:metadef_default
+    deprecated_reason: '
+
+      The metadata API now supports project scope and default roles.
+
+      '
+    deprecated_since: X
     name: get_metadef_property
-  deprecated_since: null
   description: Get a specific meta definition property.
   name: get_metadef_property
   operations:
@@ -573,11 +707,15 @@
   - project
 - check_str: rule:context_is_admin or (role:reader and (project_id:%(project_id)s
     or 'public':%(visibility)s))
-  deprecated_reason: null
   deprecated_rule:
     check_str: rule:metadef_default
+    deprecated_reason: '
+
+      The metadata API now supports project scope and default roles.
+
+      '
+    deprecated_since: X
     name: get_metadef_properties
-  deprecated_since: null
   description: List meta definition properties.
   name: get_metadef_properties
   operations:
@@ -611,11 +749,15 @@
   - project
 - check_str: rule:context_is_admin or (role:reader and (project_id:%(project_id)s
     or 'public':%(visibility)s))
-  deprecated_reason: null
   deprecated_rule:
     check_str: rule:metadef_default
+    deprecated_reason: '
+
+      The metadata API now supports project scope and default roles.
+
+      '
+    deprecated_since: X
     name: get_metadef_tag
-  deprecated_since: null
   description: Get tag definition.
   name: get_metadef_tag
   operations:
@@ -625,11 +767,15 @@
   - project
 - check_str: rule:context_is_admin or (role:reader and (project_id:%(project_id)s
     or 'public':%(visibility)s))
-  deprecated_reason: null
   deprecated_rule:
     check_str: rule:metadef_default
+    deprecated_reason: '
+
+      The metadata API now supports project scope and default roles.
+
+      '
+    deprecated_since: X
     name: get_metadef_tags
-  deprecated_since: null
   description: List tag definitions.
   name: get_metadef_tags
   operations:
@@ -678,11 +824,15 @@
   scope_types:
   - project
 - check_str: rule:context_is_admin
-  deprecated_reason: null
   deprecated_rule:
     check_str: rule:manage_image_cache
+    deprecated_reason: '
+
+      The image API now supports roles.
+
+      '
+    deprecated_since: X
     name: cache_image
-  deprecated_since: null
   description: Queue image for caching
   name: cache_image
   operations:
@@ -691,11 +841,15 @@
   scope_types:
   - project
 - check_str: rule:context_is_admin
-  deprecated_reason: null
   deprecated_rule:
     check_str: rule:manage_image_cache
+    deprecated_reason: '
+
+      The image API now supports roles.
+
+      '
+    deprecated_since: X
     name: cache_list
-  deprecated_since: null
   description: List cache status
   name: cache_list
   operations:
@@ -704,11 +858,15 @@
   scope_types:
   - project
 - check_str: rule:context_is_admin
-  deprecated_reason: null
   deprecated_rule:
     check_str: rule:manage_image_cache
+    deprecated_reason: '
+
+      The image API now supports roles.
+
+      '
+    deprecated_since: X
     name: cache_delete
-  deprecated_since: null
   description: Delete image(s) from cache and/or queue
   name: cache_delete
   operations:

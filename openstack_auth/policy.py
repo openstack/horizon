@@ -59,8 +59,11 @@ def _get_policy_file_with_full_path(service):
 def _convert_to_ruledefault(p):
     deprecated = p.get('deprecated_rule')
     if deprecated:
-        deprecated_rule = policy.DeprecatedRule(deprecated['name'],
-                                                deprecated['check_str'])
+        deprecated_rule = policy.DeprecatedRule(
+            deprecated['name'],
+            deprecated['check_str'],
+            deprecated_reason=deprecated.get('deprecated_reason'),
+            deprecated_since=deprecated.get('deprecated_since'))
     else:
         deprecated_rule = None
 

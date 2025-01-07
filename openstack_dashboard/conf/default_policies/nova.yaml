@@ -1,9 +1,17 @@
 - check_str: role:admin
-  deprecated_reason: null
   deprecated_rule:
     check_str: is_admin:True
+    deprecated_reason: '
+
+      Nova API policies are introducing new default roles with scope_type
+
+      capabilities. Old policies are deprecated and silently going to be ignored
+
+      in nova 23.0.0 release.
+
+      '
+    deprecated_since: 21.0.0
     name: rule:admin_api
-  deprecated_since: null
   description: Decides what is required for the 'is_admin:True' check to succeed.
   name: context_is_admin
   operations: []
@@ -41,41 +49,73 @@
   operations: []
   scope_types: null
 - check_str: role:member and project_id:%(project_id)s
-  deprecated_reason: null
   deprecated_rule:
     check_str: is_admin:True or project_id:%(project_id)s
+    deprecated_reason: '
+
+      Nova API policies are introducing new default roles with scope_type
+
+      capabilities. Old policies are deprecated and silently going to be ignored
+
+      in nova 23.0.0 release.
+
+      '
+    deprecated_since: 21.0.0
     name: rule:admin_or_owner
-  deprecated_since: null
   description: Default rule for Project level non admin APIs.
   name: project_member_api
   operations: []
   scope_types: null
 - check_str: role:reader and project_id:%(project_id)s
-  deprecated_reason: null
   deprecated_rule:
     check_str: is_admin:True or project_id:%(project_id)s
+    deprecated_reason: '
+
+      Nova API policies are introducing new default roles with scope_type
+
+      capabilities. Old policies are deprecated and silently going to be ignored
+
+      in nova 23.0.0 release.
+
+      '
+    deprecated_since: 21.0.0
     name: rule:admin_or_owner
-  deprecated_since: null
   description: Default rule for Project level read only APIs.
   name: project_reader_api
   operations: []
   scope_types: null
 - check_str: rule:project_member_api or rule:context_is_admin
-  deprecated_reason: null
   deprecated_rule:
     check_str: is_admin:True or project_id:%(project_id)s
+    deprecated_reason: '
+
+      Nova API policies are introducing new default roles with scope_type
+
+      capabilities. Old policies are deprecated and silently going to be ignored
+
+      in nova 23.0.0 release.
+
+      '
+    deprecated_since: 21.0.0
     name: rule:admin_or_owner
-  deprecated_since: null
   description: Default rule for Project Member or admin APIs.
   name: project_member_or_admin
   operations: []
   scope_types: null
 - check_str: rule:project_reader_api or rule:context_is_admin
-  deprecated_reason: null
   deprecated_rule:
     check_str: is_admin:True or project_id:%(project_id)s
+    deprecated_reason: '
+
+      Nova API policies are introducing new default roles with scope_type
+
+      capabilities. Old policies are deprecated and silently going to be ignored
+
+      in nova 23.0.0 release.
+
+      '
+    deprecated_since: 21.0.0
     name: rule:admin_or_owner
-  deprecated_since: null
   description: Default rule for Project reader or admin APIs.
   name: project_reader_or_admin
   operations: []
@@ -193,11 +233,19 @@
   scope_types:
   - project
 - check_str: rule:project_reader_or_admin
-  deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_or_owner
+    deprecated_reason: '
+
+      Nova API policies are introducing new default roles with scope_type
+
+      capabilities. Old policies are deprecated and silently going to be ignored
+
+      in nova 23.0.0 release.
+
+      '
+    deprecated_since: 21.0.0
     name: os_compute_api:os-attach-interfaces
-  deprecated_since: null
   description: List port interfaces attached to a server
   name: os_compute_api:os-attach-interfaces:list
   operations:
@@ -206,11 +254,19 @@
   scope_types:
   - project
 - check_str: rule:project_reader_or_admin
-  deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_or_owner
+    deprecated_reason: '
+
+      Nova API policies are introducing new default roles with scope_type
+
+      capabilities. Old policies are deprecated and silently going to be ignored
+
+      in nova 23.0.0 release.
+
+      '
+    deprecated_since: 21.0.0
     name: os_compute_api:os-attach-interfaces
-  deprecated_since: null
   description: Show details of a port interface attached to a server
   name: os_compute_api:os-attach-interfaces:show
   operations:
@@ -219,11 +275,19 @@
   scope_types:
   - project
 - check_str: rule:project_member_or_admin
-  deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_or_owner
+    deprecated_reason: '
+
+      Nova API policies are introducing new default roles with scope_type
+
+      capabilities. Old policies are deprecated and silently going to be ignored
+
+      in nova 23.0.0 release.
+
+      '
+    deprecated_since: 21.0.0
     name: os_compute_api:os-attach-interfaces
-  deprecated_since: null
   description: Attach an interface to a server
   name: os_compute_api:os-attach-interfaces:create
   operations:
@@ -232,11 +296,19 @@
   scope_types:
   - project
 - check_str: rule:project_member_or_admin
-  deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_or_owner
+    deprecated_reason: '
+
+      Nova API policies are introducing new default roles with scope_type
+
+      capabilities. Old policies are deprecated and silently going to be ignored
+
+      in nova 23.0.0 release.
+
+      '
+    deprecated_since: 21.0.0
     name: os_compute_api:os-attach-interfaces
-  deprecated_since: null
   description: Detach an interface from a server
   name: os_compute_api:os-attach-interfaces:delete
   operations:
@@ -261,11 +333,19 @@
   scope_types:
   - project
 - check_str: rule:context_is_admin
-  deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_api
+    deprecated_reason: '
+
+      Nova API policies are introducing new default roles with scope_type
+
+      capabilities. Old policies are deprecated and silently going to be ignored
+
+      in nova 23.0.0 release.
+
+      '
+    deprecated_since: 22.0.0
     name: os_compute_api:os-baremetal-nodes
-  deprecated_since: null
   description: 'List and show details of bare metal nodes.
 
 
@@ -279,11 +359,19 @@
   scope_types:
   - project
 - check_str: rule:context_is_admin
-  deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_api
+    deprecated_reason: '
+
+      Nova API policies are introducing new default roles with scope_type
+
+      capabilities. Old policies are deprecated and silently going to be ignored
+
+      in nova 23.0.0 release.
+
+      '
+    deprecated_since: 22.0.0
     name: os_compute_api:os-baremetal-nodes
-  deprecated_since: null
   description: Show action details for a server.
   name: os_compute_api:os-baremetal-nodes:show
   operations:
@@ -317,11 +405,19 @@
   scope_types:
   - project
 - check_str: rule:project_member_or_admin
-  deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_or_owner
+    deprecated_reason: '
+
+      Nova API policies are introducing new default roles with scope_type
+
+      capabilities. Old policies are deprecated and silently going to be ignored
+
+      in nova 23.0.0 release.
+
+      '
+    deprecated_since: 21.0.0
     name: os_compute_api:os-deferred-delete
-  deprecated_since: null
   description: Restore a soft deleted server
   name: os_compute_api:os-deferred-delete:restore
   operations:
@@ -330,11 +426,19 @@
   scope_types:
   - project
 - check_str: rule:project_member_or_admin
-  deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_or_owner
+    deprecated_reason: '
+
+      Nova API policies are introducing new default roles with scope_type
+
+      capabilities. Old policies are deprecated and silently going to be ignored
+
+      in nova 23.0.0 release.
+
+      '
+    deprecated_since: 21.0.0
     name: os_compute_api:os-deferred-delete
-  deprecated_since: null
   description: Force delete a server before deferred cleanup
   name: os_compute_api:os-deferred-delete:force
   operations:
@@ -432,11 +536,19 @@
   scope_types:
   - project
 - check_str: rule:context_is_admin
-  deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_or_owner
+    deprecated_reason: '
+
+      Nova API policies are introducing new default roles with scope_type
+
+      capabilities. Old policies are deprecated and silently going to be ignored
+
+      in nova 23.0.0 release.
+
+      '
+    deprecated_since: 21.0.0
     name: os_compute_api:os-flavor-access
-  deprecated_since: null
   description: 'List flavor access information
 
 
@@ -533,11 +645,19 @@
   scope_types:
   - project
 - check_str: rule:project_member_or_admin
-  deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_or_owner
+    deprecated_reason: '
+
+      Nova API policies are introducing new default roles with scope_type
+
+      capabilities. Old policies are deprecated and silently going to be ignored
+
+      in nova 23.0.0 release.
+
+      '
+    deprecated_since: 22.0.0
     name: os_compute_api:os-floating-ips
-  deprecated_since: null
   description: Associate floating IPs to server.  This API is deprecated.
   name: os_compute_api:os-floating-ips:add
   operations:
@@ -546,11 +666,19 @@
   scope_types:
   - project
 - check_str: rule:project_member_or_admin
-  deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_or_owner
+    deprecated_reason: '
+
+      Nova API policies are introducing new default roles with scope_type
+
+      capabilities. Old policies are deprecated and silently going to be ignored
+
+      in nova 23.0.0 release.
+
+      '
+    deprecated_since: 22.0.0
     name: os_compute_api:os-floating-ips
-  deprecated_since: null
   description: Disassociate floating IPs to server.  This API is deprecated.
   name: os_compute_api:os-floating-ips:remove
   operations:
@@ -559,11 +687,19 @@
   scope_types:
   - project
 - check_str: rule:project_reader_or_admin
-  deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_or_owner
+    deprecated_reason: '
+
+      Nova API policies are introducing new default roles with scope_type
+
+      capabilities. Old policies are deprecated and silently going to be ignored
+
+      in nova 23.0.0 release.
+
+      '
+    deprecated_since: 22.0.0
     name: os_compute_api:os-floating-ips
-  deprecated_since: null
   description: List floating IPs. This API is deprecated.
   name: os_compute_api:os-floating-ips:list
   operations:
@@ -572,11 +708,19 @@
   scope_types:
   - project
 - check_str: rule:project_member_or_admin
-  deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_or_owner
+    deprecated_reason: '
+
+      Nova API policies are introducing new default roles with scope_type
+
+      capabilities. Old policies are deprecated and silently going to be ignored
+
+      in nova 23.0.0 release.
+
+      '
+    deprecated_since: 22.0.0
     name: os_compute_api:os-floating-ips
-  deprecated_since: null
   description: Create floating IPs. This API is deprecated.
   name: os_compute_api:os-floating-ips:create
   operations:
@@ -585,11 +729,19 @@
   scope_types:
   - project
 - check_str: rule:project_reader_or_admin
-  deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_or_owner
+    deprecated_reason: '
+
+      Nova API policies are introducing new default roles with scope_type
+
+      capabilities. Old policies are deprecated and silently going to be ignored
+
+      in nova 23.0.0 release.
+
+      '
+    deprecated_since: 22.0.0
     name: os_compute_api:os-floating-ips
-  deprecated_since: null
   description: Show floating IPs. This API is deprecated.
   name: os_compute_api:os-floating-ips:show
   operations:
@@ -598,11 +750,19 @@
   scope_types:
   - project
 - check_str: rule:project_member_or_admin
-  deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_or_owner
+    deprecated_reason: '
+
+      Nova API policies are introducing new default roles with scope_type
+
+      capabilities. Old policies are deprecated and silently going to be ignored
+
+      in nova 23.0.0 release.
+
+      '
+    deprecated_since: 22.0.0
     name: os_compute_api:os-floating-ips
-  deprecated_since: null
   description: Delete floating IPs. This API is deprecated.
   name: os_compute_api:os-floating-ips:delete
   operations:
@@ -611,11 +771,19 @@
   scope_types:
   - project
 - check_str: rule:context_is_admin
-  deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_api
+    deprecated_reason: '
+
+      Nova API policies are introducing new default roles with scope_type
+
+      capabilities. Old policies are deprecated and silently going to be ignored
+
+      in nova 23.0.0 release.
+
+      '
+    deprecated_since: 22.0.0
     name: os_compute_api:os-hosts
-  deprecated_since: null
   description: 'List physical hosts.
 
 
@@ -627,11 +795,19 @@
   scope_types:
   - project
 - check_str: rule:context_is_admin
-  deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_api
+    deprecated_reason: '
+
+      Nova API policies are introducing new default roles with scope_type
+
+      capabilities. Old policies are deprecated and silently going to be ignored
+
+      in nova 23.0.0 release.
+
+      '
+    deprecated_since: 22.0.0
     name: os_compute_api:os-hosts
-  deprecated_since: null
   description: 'Show physical host.
 
 
@@ -643,11 +819,19 @@
   scope_types:
   - project
 - check_str: rule:context_is_admin
-  deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_api
+    deprecated_reason: '
+
+      Nova API policies are introducing new default roles with scope_type
+
+      capabilities. Old policies are deprecated and silently going to be ignored
+
+      in nova 23.0.0 release.
+
+      '
+    deprecated_since: 22.0.0
     name: os_compute_api:os-hosts
-  deprecated_since: null
   description: 'Update physical host.
 
 
@@ -659,11 +843,19 @@
   scope_types:
   - project
 - check_str: rule:context_is_admin
-  deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_api
+    deprecated_reason: '
+
+      Nova API policies are introducing new default roles with scope_type
+
+      capabilities. Old policies are deprecated and silently going to be ignored
+
+      in nova 23.0.0 release.
+
+      '
+    deprecated_since: 22.0.0
     name: os_compute_api:os-hosts
-  deprecated_since: null
   description: 'Reboot physical host.
 
 
@@ -675,11 +867,19 @@
   scope_types:
   - project
 - check_str: rule:context_is_admin
-  deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_api
+    deprecated_reason: '
+
+      Nova API policies are introducing new default roles with scope_type
+
+      capabilities. Old policies are deprecated and silently going to be ignored
+
+      in nova 23.0.0 release.
+
+      '
+    deprecated_since: 22.0.0
     name: os_compute_api:os-hosts
-  deprecated_since: null
   description: 'Shutdown physical host.
 
 
@@ -691,11 +891,19 @@
   scope_types:
   - project
 - check_str: rule:context_is_admin
-  deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_api
+    deprecated_reason: '
+
+      Nova API policies are introducing new default roles with scope_type
+
+      capabilities. Old policies are deprecated and silently going to be ignored
+
+      in nova 23.0.0 release.
+
+      '
+    deprecated_since: 22.0.0
     name: os_compute_api:os-hosts
-  deprecated_since: null
   description: 'Start physical host.
 
 
@@ -707,11 +915,19 @@
   scope_types:
   - project
 - check_str: rule:context_is_admin
-  deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_api
+    deprecated_reason: '
+
+      Nova API policies are introducing new default roles with scope_type
+
+      capabilities. Old policies are deprecated and silently going to be ignored
+
+      in nova 23.0.0 release.
+
+      '
+    deprecated_since: 21.0.0
     name: os_compute_api:os-hypervisors
-  deprecated_since: null
   description: List all hypervisors.
   name: os_compute_api:os-hypervisors:list
   operations:
@@ -720,11 +936,19 @@
   scope_types:
   - project
 - check_str: rule:context_is_admin
-  deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_api
+    deprecated_reason: '
+
+      Nova API policies are introducing new default roles with scope_type
+
+      capabilities. Old policies are deprecated and silently going to be ignored
+
+      in nova 23.0.0 release.
+
+      '
+    deprecated_since: 21.0.0
     name: os_compute_api:os-hypervisors
-  deprecated_since: null
   description: List all hypervisors with details
   name: os_compute_api:os-hypervisors:list-detail
   operations:
@@ -733,11 +957,19 @@
   scope_types:
   - project
 - check_str: rule:context_is_admin
-  deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_api
+    deprecated_reason: '
+
+      Nova API policies are introducing new default roles with scope_type
+
+      capabilities. Old policies are deprecated and silently going to be ignored
+
+      in nova 23.0.0 release.
+
+      '
+    deprecated_since: 21.0.0
     name: os_compute_api:os-hypervisors
-  deprecated_since: null
   description: Show summary statistics for all hypervisors over all compute nodes.
   name: os_compute_api:os-hypervisors:statistics
   operations:
@@ -746,11 +978,19 @@
   scope_types:
   - project
 - check_str: rule:context_is_admin
-  deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_api
+    deprecated_reason: '
+
+      Nova API policies are introducing new default roles with scope_type
+
+      capabilities. Old policies are deprecated and silently going to be ignored
+
+      in nova 23.0.0 release.
+
+      '
+    deprecated_since: 21.0.0
     name: os_compute_api:os-hypervisors
-  deprecated_since: null
   description: Show details for a hypervisor.
   name: os_compute_api:os-hypervisors:show
   operations:
@@ -759,11 +999,19 @@
   scope_types:
   - project
 - check_str: rule:context_is_admin
-  deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_api
+    deprecated_reason: '
+
+      Nova API policies are introducing new default roles with scope_type
+
+      capabilities. Old policies are deprecated and silently going to be ignored
+
+      in nova 23.0.0 release.
+
+      '
+    deprecated_since: 21.0.0
     name: os_compute_api:os-hypervisors
-  deprecated_since: null
   description: Show the uptime of a hypervisor.
   name: os_compute_api:os-hypervisors:uptime
   operations:
@@ -772,11 +1020,19 @@
   scope_types:
   - project
 - check_str: rule:context_is_admin
-  deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_api
+    deprecated_reason: '
+
+      Nova API policies are introducing new default roles with scope_type
+
+      capabilities. Old policies are deprecated and silently going to be ignored
+
+      in nova 23.0.0 release.
+
+      '
+    deprecated_since: 21.0.0
     name: os_compute_api:os-hypervisors
-  deprecated_since: null
   description: Search hypervisor by hypervisor_hostname pattern.
   name: os_compute_api:os-hypervisors:search
   operations:
@@ -785,11 +1041,19 @@
   scope_types:
   - project
 - check_str: rule:context_is_admin
-  deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_api
+    deprecated_reason: '
+
+      Nova API policies are introducing new default roles with scope_type
+
+      capabilities. Old policies are deprecated and silently going to be ignored
+
+      in nova 23.0.0 release.
+
+      '
+    deprecated_since: 21.0.0
     name: os_compute_api:os-hypervisors
-  deprecated_since: null
   description: List all servers on hypervisors that can match the provided hypervisor_hostname
     pattern.
   name: os_compute_api:os-hypervisors:servers
@@ -846,11 +1110,19 @@
   scope_types:
   - project
 - check_str: rule:project_reader_or_admin
-  deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_or_owner
+    deprecated_reason: '
+
+      Nova API policies are introducing new default roles with scope_type
+
+      capabilities. Old policies are deprecated and silently going to be ignored
+
+      in nova 23.0.0 release.
+
+      '
+    deprecated_since: 21.0.0
     name: os_compute_api:os-instance-actions
-  deprecated_since: null
   description: List actions for a server.
   name: os_compute_api:os-instance-actions:list
   operations:
@@ -859,11 +1131,19 @@
   scope_types:
   - project
 - check_str: rule:project_reader_or_admin
-  deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_or_owner
+    deprecated_reason: '
+
+      Nova API policies are introducing new default roles with scope_type
+
+      capabilities. Old policies are deprecated and silently going to be ignored
+
+      in nova 23.0.0 release.
+
+      '
+    deprecated_since: 21.0.0
     name: os_compute_api:os-instance-actions
-  deprecated_since: null
   description: Show action details for a server.
   name: os_compute_api:os-instance-actions:show
   operations:
@@ -872,11 +1152,19 @@
   scope_types:
   - project
 - check_str: rule:context_is_admin
-  deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_api
+    deprecated_reason: '
+
+      Nova API policies are introducing new default roles with scope_type
+
+      capabilities. Old policies are deprecated and silently going to be ignored
+
+      in nova 23.0.0 release.
+
+      '
+    deprecated_since: 21.0.0
     name: os_compute_api:os-instance-usage-audit-log
-  deprecated_since: null
   description: List all usage audits.
   name: os_compute_api:os-instance-usage-audit-log:list
   operations:
@@ -885,11 +1173,19 @@
   scope_types:
   - project
 - check_str: rule:context_is_admin
-  deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_api
+    deprecated_reason: '
+
+      Nova API policies are introducing new default roles with scope_type
+
+      capabilities. Old policies are deprecated and silently going to be ignored
+
+      in nova 23.0.0 release.
+
+      '
+    deprecated_since: 21.0.0
     name: os_compute_api:os-instance-usage-audit-log
-  deprecated_since: null
   description: List all usage audits occurred before a specified time for all servers
     on all compute hosts where usage auditing is configured
   name: os_compute_api:os-instance-usage-audit-log:show
@@ -955,11 +1251,19 @@
   scope_types:
   - project
 - check_str: rule:context_is_admin
-  deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_api
+    deprecated_reason: '
+
+      Nova API policies are introducing new default roles with scope_type
+
+      capabilities. Old policies are deprecated and silently going to be ignored
+
+      in nova 23.0.0 release.
+
+      '
+    deprecated_since: 21.0.0
     name: os_compute_api:os-used-limits
-  deprecated_since: null
   description: 'Show rate and absolute limits of other project.
 
 
@@ -1036,11 +1340,19 @@
   scope_types:
   - project
 - check_str: rule:project_member_or_admin
-  deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_or_owner
+    deprecated_reason: '
+
+      Nova API policies are introducing new default roles with scope_type
+
+      capabilities. Old policies are deprecated and silently going to be ignored
+
+      in nova 23.0.0 release.
+
+      '
+    deprecated_since: 22.0.0
     name: os_compute_api:os-multinic
-  deprecated_since: null
   description: 'Add a fixed IP address to a server.
 
 
@@ -1054,11 +1366,19 @@
   scope_types:
   - project
 - check_str: rule:project_member_or_admin
-  deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_or_owner
+    deprecated_reason: '
+
+      Nova API policies are introducing new default roles with scope_type
+
+      capabilities. Old policies are deprecated and silently going to be ignored
+
+      in nova 23.0.0 release.
+
+      '
+    deprecated_since: 22.0.0
     name: os_compute_api:os-multinic
-  deprecated_since: null
   description: 'Remove a fixed IP address from a server.
 
 
@@ -1072,11 +1392,19 @@
   scope_types:
   - project
 - check_str: rule:project_reader_or_admin
-  deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_or_owner
+    deprecated_reason: '
+
+      Nova API policies are introducing new default roles with scope_type
+
+      capabilities. Old policies are deprecated and silently going to be ignored
+
+      in nova 23.0.0 release.
+
+      '
+    deprecated_since: 22.0.0
     name: os_compute_api:os-networks:view
-  deprecated_since: null
   description: 'List networks for the project.
 
 
@@ -1088,11 +1416,19 @@
   scope_types:
   - project
 - check_str: rule:project_reader_or_admin
-  deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_or_owner
+    deprecated_reason: '
+
+      Nova API policies are introducing new default roles with scope_type
+
+      capabilities. Old policies are deprecated and silently going to be ignored
+
+      in nova 23.0.0 release.
+
+      '
+    deprecated_since: 22.0.0
     name: os_compute_api:os-networks:view
-  deprecated_since: null
   description: 'Show network details.
 
 
@@ -1210,11 +1546,17 @@
   scope_types:
   - project
 - check_str: rule:project_member_or_admin
-  deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_or_owner
+    deprecated_reason: '
+
+      Rescue/Unrescue API policies are made granular with new policy
+
+      for unrescue and keeping old policy for rescue.
+
+      '
+    deprecated_since: 21.0.0
     name: os_compute_api:os-rescue
-  deprecated_since: null
   description: Unrescue a server
   name: os_compute_api:os-unrescue
   operations:
@@ -1223,11 +1565,19 @@
   scope_types:
   - project
 - check_str: rule:project_reader_or_admin
-  deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_or_owner
+    deprecated_reason: '
+
+      Nova API policies are introducing new default roles with scope_type
+
+      capabilities. Old policies are deprecated and silently going to be ignored
+
+      in nova 23.0.0 release.
+
+      '
+    deprecated_since: 22.0.0
     name: os_compute_api:os-security-groups
-  deprecated_since: null
   description: List security groups. This API is deprecated.
   name: os_compute_api:os-security-groups:get
   operations:
@@ -1236,11 +1586,19 @@
   scope_types:
   - project
 - check_str: rule:project_reader_or_admin
-  deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_or_owner
+    deprecated_reason: '
+
+      Nova API policies are introducing new default roles with scope_type
+
+      capabilities. Old policies are deprecated and silently going to be ignored
+
+      in nova 23.0.0 release.
+
+      '
+    deprecated_since: 22.0.0
     name: os_compute_api:os-security-groups
-  deprecated_since: null
   description: Show security group. This API is deprecated.
   name: os_compute_api:os-security-groups:show
   operations:
@@ -1249,11 +1607,19 @@
   scope_types:
   - project
 - check_str: rule:project_member_or_admin
-  deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_or_owner
+    deprecated_reason: '
+
+      Nova API policies are introducing new default roles with scope_type
+
+      capabilities. Old policies are deprecated and silently going to be ignored
+
+      in nova 23.0.0 release.
+
+      '
+    deprecated_since: 22.0.0
     name: os_compute_api:os-security-groups
-  deprecated_since: null
   description: Create security group. This API is deprecated.
   name: os_compute_api:os-security-groups:create
   operations:
@@ -1262,11 +1628,19 @@
   scope_types:
   - project
 - check_str: rule:project_member_or_admin
-  deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_or_owner
+    deprecated_reason: '
+
+      Nova API policies are introducing new default roles with scope_type
+
+      capabilities. Old policies are deprecated and silently going to be ignored
+
+      in nova 23.0.0 release.
+
+      '
+    deprecated_since: 22.0.0
     name: os_compute_api:os-security-groups
-  deprecated_since: null
   description: Update security group. This API is deprecated.
   name: os_compute_api:os-security-groups:update
   operations:
@@ -1275,11 +1649,19 @@
   scope_types:
   - project
 - check_str: rule:project_member_or_admin
-  deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_or_owner
+    deprecated_reason: '
+
+      Nova API policies are introducing new default roles with scope_type
+
+      capabilities. Old policies are deprecated and silently going to be ignored
+
+      in nova 23.0.0 release.
+
+      '
+    deprecated_since: 22.0.0
     name: os_compute_api:os-security-groups
-  deprecated_since: null
   description: Delete security group. This API is deprecated.
   name: os_compute_api:os-security-groups:delete
   operations:
@@ -1288,11 +1670,19 @@
   scope_types:
   - project
 - check_str: rule:project_member_or_admin
-  deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_or_owner
+    deprecated_reason: '
+
+      Nova API policies are introducing new default roles with scope_type
+
+      capabilities. Old policies are deprecated and silently going to be ignored
+
+      in nova 23.0.0 release.
+
+      '
+    deprecated_since: 22.0.0
     name: os_compute_api:os-security-groups
-  deprecated_since: null
   description: Create security group Rule. This API is deprecated.
   name: os_compute_api:os-security-groups:rule:create
   operations:
@@ -1301,11 +1691,19 @@
   scope_types:
   - project
 - check_str: rule:project_member_or_admin
-  deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_or_owner
+    deprecated_reason: '
+
+      Nova API policies are introducing new default roles with scope_type
+
+      capabilities. Old policies are deprecated and silently going to be ignored
+
+      in nova 23.0.0 release.
+
+      '
+    deprecated_since: 22.0.0
     name: os_compute_api:os-security-groups
-  deprecated_since: null
   description: Delete security group Rule. This API is deprecated.
   name: os_compute_api:os-security-groups:rule:delete
   operations:
@@ -1314,11 +1712,19 @@
   scope_types:
   - project
 - check_str: rule:project_reader_or_admin
-  deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_or_owner
+    deprecated_reason: '
+
+      Nova API policies are introducing new default roles with scope_type
+
+      capabilities. Old policies are deprecated and silently going to be ignored
+
+      in nova 23.0.0 release.
+
+      '
+    deprecated_since: 22.0.0
     name: os_compute_api:os-security-groups
-  deprecated_since: null
   description: List security groups of server.
   name: os_compute_api:os-security-groups:list
   operations:
@@ -1327,11 +1733,19 @@
   scope_types:
   - project
 - check_str: rule:project_member_or_admin
-  deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_or_owner
+    deprecated_reason: '
+
+      Nova API policies are introducing new default roles with scope_type
+
+      capabilities. Old policies are deprecated and silently going to be ignored
+
+      in nova 23.0.0 release.
+
+      '
+    deprecated_since: 22.0.0
     name: os_compute_api:os-security-groups
-  deprecated_since: null
   description: Add security groups to server.
   name: os_compute_api:os-security-groups:add
   operations:
@@ -1340,11 +1754,19 @@
   scope_types:
   - project
 - check_str: rule:project_member_or_admin
-  deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_or_owner
+    deprecated_reason: '
+
+      Nova API policies are introducing new default roles with scope_type
+
+      capabilities. Old policies are deprecated and silently going to be ignored
+
+      in nova 23.0.0 release.
+
+      '
+    deprecated_since: 22.0.0
     name: os_compute_api:os-security-groups
-  deprecated_since: null
   description: Remove security groups from server.
   name: os_compute_api:os-security-groups:remove
   operations:
@@ -1457,11 +1879,19 @@
   scope_types:
   - project
 - check_str: rule:project_reader_or_admin
-  deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_or_owner
+    deprecated_reason: '
+
+      Nova API policies are introducing new default roles with scope_type
+
+      capabilities. Old policies are deprecated and silently going to be ignored
+
+      in nova 23.0.0 release.
+
+      '
+    deprecated_since: 21.0.0
     name: os_compute_api:os-server-password
-  deprecated_since: null
   description: Show the encrypted administrative password of a server
   name: os_compute_api:os-server-password:show
   operations:
@@ -1470,11 +1900,19 @@
   scope_types:
   - project
 - check_str: rule:project_member_or_admin
-  deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_or_owner
+    deprecated_reason: '
+
+      Nova API policies are introducing new default roles with scope_type
+
+      capabilities. Old policies are deprecated and silently going to be ignored
+
+      in nova 23.0.0 release.
+
+      '
+    deprecated_since: 21.0.0
     name: os_compute_api:os-server-password
-  deprecated_since: null
   description: Clear the encrypted administrative password of a server
   name: os_compute_api:os-server-password:clear
   operations:
@@ -1598,19 +2036,11 @@
   scope_types:
   - project
 - check_str: rule:project_reader_or_admin
-  deprecated_reason: '
-
-    Policies for showing flavor extra specs in server APIs response is
-
-    separated as new policy. This policy is deprecated only for that but
-
-    not for list extra specs and showing it in flavor API response.
-
-    '
   deprecated_rule:
     check_str: rule:admin_or_owner
+    deprecated_reason: null
+    deprecated_since: null
     name: os_compute_api:os-flavor-extra-specs:index
-  deprecated_since: 25.0.0
   description: Starting with microversion 2.47, the flavor and its extra specs used
     for a server is also returned in the response when showing server details, updating
     a server or rebuilding a server.
@@ -1957,11 +2387,19 @@
   scope_types:
   - project
 - check_str: rule:context_is_admin
-  deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_api
+    deprecated_reason: '
+
+      Nova API policies are introducing new default roles with scope_type
+
+      capabilities. Old policies are deprecated and silently going to be ignored
+
+      in nova 23.0.0 release.
+
+      '
+    deprecated_since: 21.0.0
     name: os_compute_api:os-services
-  deprecated_since: null
   description: List all running Compute services in a region.
   name: os_compute_api:os-services:list
   operations:
@@ -1970,11 +2408,19 @@
   scope_types:
   - project
 - check_str: rule:context_is_admin
-  deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_api
+    deprecated_reason: '
+
+      Nova API policies are introducing new default roles with scope_type
+
+      capabilities. Old policies are deprecated and silently going to be ignored
+
+      in nova 23.0.0 release.
+
+      '
+    deprecated_since: 21.0.0
     name: os_compute_api:os-services
-  deprecated_since: null
   description: Update a Compute service.
   name: os_compute_api:os-services:update
   operations:
@@ -1983,11 +2429,19 @@
   scope_types:
   - project
 - check_str: rule:context_is_admin
-  deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_api
+    deprecated_reason: '
+
+      Nova API policies are introducing new default roles with scope_type
+
+      capabilities. Old policies are deprecated and silently going to be ignored
+
+      in nova 23.0.0 release.
+
+      '
+    deprecated_since: 21.0.0
     name: os_compute_api:os-services
-  deprecated_since: null
   description: Delete a Compute service.
   name: os_compute_api:os-services:delete
   operations:
@@ -2060,11 +2514,19 @@
   scope_types:
   - project
 - check_str: rule:project_reader_or_admin
-  deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_or_owner
+    deprecated_reason: '
+
+      Nova API policies are introducing new default roles with scope_type
+
+      capabilities. Old policies are deprecated and silently going to be ignored
+
+      in nova 23.0.0 release.
+
+      '
+    deprecated_since: 22.0.0
     name: os_compute_api:os-tenant-networks
-  deprecated_since: null
   description: 'List project networks.
 
 
@@ -2076,11 +2538,19 @@
   scope_types:
   - project
 - check_str: rule:project_reader_or_admin
-  deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_or_owner
+    deprecated_reason: '
+
+      Nova API policies are introducing new default roles with scope_type
+
+      capabilities. Old policies are deprecated and silently going to be ignored
+
+      in nova 23.0.0 release.
+
+      '
+    deprecated_since: 22.0.0
     name: os_compute_api:os-tenant-networks
-  deprecated_since: null
   description: 'Show project network details.
 
 
@@ -2092,11 +2562,19 @@
   scope_types:
   - project
 - check_str: rule:project_reader_or_admin
-  deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_or_owner
+    deprecated_reason: '
+
+      Nova API policies are introducing new default roles with scope_type
+
+      capabilities. Old policies are deprecated and silently going to be ignored
+
+      in nova 23.0.0 release.
+
+      '
+    deprecated_since: 22.0.0
     name: os_compute_api:os-volumes
-  deprecated_since: null
   description: 'List volumes.
 
 
@@ -2108,11 +2586,19 @@
   scope_types:
   - project
 - check_str: rule:project_member_or_admin
-  deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_or_owner
+    deprecated_reason: '
+
+      Nova API policies are introducing new default roles with scope_type
+
+      capabilities. Old policies are deprecated and silently going to be ignored
+
+      in nova 23.0.0 release.
+
+      '
+    deprecated_since: 22.0.0
     name: os_compute_api:os-volumes
-  deprecated_since: null
   description: 'Create volume.
 
 
@@ -2124,11 +2610,19 @@
   scope_types:
   - project
 - check_str: rule:project_reader_or_admin
-  deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_or_owner
+    deprecated_reason: '
+
+      Nova API policies are introducing new default roles with scope_type
+
+      capabilities. Old policies are deprecated and silently going to be ignored
+
+      in nova 23.0.0 release.
+
+      '
+    deprecated_since: 22.0.0
     name: os_compute_api:os-volumes
-  deprecated_since: null
   description: 'List volumes detail.
 
 
@@ -2140,11 +2634,19 @@
   scope_types:
   - project
 - check_str: rule:project_reader_or_admin
-  deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_or_owner
+    deprecated_reason: '
+
+      Nova API policies are introducing new default roles with scope_type
+
+      capabilities. Old policies are deprecated and silently going to be ignored
+
+      in nova 23.0.0 release.
+
+      '
+    deprecated_since: 22.0.0
     name: os_compute_api:os-volumes
-  deprecated_since: null
   description: 'Show volume.
 
 
@@ -2156,11 +2658,19 @@
   scope_types:
   - project
 - check_str: rule:project_member_or_admin
-  deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_or_owner
+    deprecated_reason: '
+
+      Nova API policies are introducing new default roles with scope_type
+
+      capabilities. Old policies are deprecated and silently going to be ignored
+
+      in nova 23.0.0 release.
+
+      '
+    deprecated_since: 22.0.0
     name: os_compute_api:os-volumes
-  deprecated_since: null
   description: 'Delete volume.
 
 
@@ -2172,11 +2682,19 @@
   scope_types:
   - project
 - check_str: rule:project_reader_or_admin
-  deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_or_owner
+    deprecated_reason: '
+
+      Nova API policies are introducing new default roles with scope_type
+
+      capabilities. Old policies are deprecated and silently going to be ignored
+
+      in nova 23.0.0 release.
+
+      '
+    deprecated_since: 22.0.0
     name: os_compute_api:os-volumes
-  deprecated_since: null
   description: 'List snapshots.
 
 
@@ -2188,11 +2706,19 @@
   scope_types:
   - project
 - check_str: rule:project_member_or_admin
-  deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_or_owner
+    deprecated_reason: '
+
+      Nova API policies are introducing new default roles with scope_type
+
+      capabilities. Old policies are deprecated and silently going to be ignored
+
+      in nova 23.0.0 release.
+
+      '
+    deprecated_since: 22.0.0
     name: os_compute_api:os-volumes
-  deprecated_since: null
   description: 'Create snapshots.
 
 
@@ -2204,11 +2730,19 @@
   scope_types:
   - project
 - check_str: rule:project_reader_or_admin
-  deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_or_owner
+    deprecated_reason: '
+
+      Nova API policies are introducing new default roles with scope_type
+
+      capabilities. Old policies are deprecated and silently going to be ignored
+
+      in nova 23.0.0 release.
+
+      '
+    deprecated_since: 22.0.0
     name: os_compute_api:os-volumes
-  deprecated_since: null
   description: 'List snapshots details.
 
 
@@ -2220,11 +2754,19 @@
   scope_types:
   - project
 - check_str: rule:project_reader_or_admin
-  deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_or_owner
+    deprecated_reason: '
+
+      Nova API policies are introducing new default roles with scope_type
+
+      capabilities. Old policies are deprecated and silently going to be ignored
+
+      in nova 23.0.0 release.
+
+      '
+    deprecated_since: 22.0.0
     name: os_compute_api:os-volumes
-  deprecated_since: null
   description: 'Show snapshot.
 
 
@@ -2236,11 +2778,19 @@
   scope_types:
   - project
 - check_str: rule:project_member_or_admin
-  deprecated_reason: null
   deprecated_rule:
     check_str: rule:admin_or_owner
+    deprecated_reason: '
+
+      Nova API policies are introducing new default roles with scope_type
+
+      capabilities. Old policies are deprecated and silently going to be ignored
+
+      in nova 23.0.0 release.
+
+      '
+    deprecated_since: 22.0.0
     name: os_compute_api:os-volumes
-  deprecated_since: null
   description: 'Delete snapshot.
 
 
