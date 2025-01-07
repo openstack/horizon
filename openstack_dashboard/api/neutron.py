@@ -1927,11 +1927,9 @@ def port_update(request, port_id, **kwargs):
 @profiler.trace
 def router_create(request, **kwargs):
     LOG.debug("router_create():, kwargs=%s", kwargs)
-    body = {'router': {}}
     if 'tenant_id' not in kwargs:
         kwargs['tenant_id'] = request.user.project_id
-    body['router'].update(kwargs)
-    router = neutronclient(request).create_router(body=body).get('router')
+    router = networkclient(request).create_router(**kwargs)
     return Router(router)
 
 
@@ -1939,70 +1937,66 @@ def router_create(request, **kwargs):
 def router_update(request, r_id, **kwargs):
     LOG.debug("router_update(): router_id=%(r_id)s, kwargs=%(kwargs)s",
               {'r_id': r_id, 'kwargs': kwargs})
-    body = {'router': {}}
-    body['router'].update(kwargs)
-    router = neutronclient(request).update_router(r_id, body=body)
-    return Router(router['router'])
+    router = networkclient(request).update_router(r_id, **kwargs).to_dict()
+    return Router(router)
 
 
 @profiler.trace
 def router_get(request, router_id, **params):
-    router = neutronclient(request).show_router(router_id,
-                                                **params).get('router')
+    router = networkclient(request).get_router(router_id)
     return Router(router)
 
 
 @profiler.trace
 def router_list(request, **params):
-    routers = neutronclient(request).list_routers(**params).get('routers')
+    routers = networkclient(request).routers(**params)
+    if not isinstance(routers, (types.GeneratorType, list)):
+        routers = [routers]
     return [Router(r) for r in routers]
 
 
 @profiler.trace
 def router_list_on_l3_agent(request, l3_agent_id, **params):
-    routers = neutronclient(request).\
-        list_routers_on_l3_agent(l3_agent_id,
-                                 **params).get('routers')
+    routers = networkclient(request).agent_hosted_routers(l3_agent_id,
+                                                          **params)
+    if not isinstance(routers, (types.GeneratorType, list)):
+        routers = [routers]
     return [Router(r) for r in routers]
 
 
 @profiler.trace
 def router_delete(request, router_id):
-    neutronclient(request).delete_router(router_id)
+    networkclient(request).delete_router(router_id)
 
 
 @profiler.trace
 def router_add_interface(request, router_id, subnet_id=None, port_id=None):
-    body = {}
-    if subnet_id:
-        body['subnet_id'] = subnet_id
-    if port_id:
-        body['port_id'] = port_id
-    client = neutronclient(request)
-    return client.add_interface_router(router_id, body)
+    client = networkclient(request)
+    return client.add_interface_to_router(router=router_id,
+                                          port_id=port_id,
+                                          subnet_id=subnet_id)
 
 
 @profiler.trace
 def router_remove_interface(request, router_id, subnet_id=None, port_id=None):
-    body = {}
-    if subnet_id:
-        body['subnet_id'] = subnet_id
-    if port_id:
-        body['port_id'] = port_id
-    neutronclient(request).remove_interface_router(router_id, body)
+    client = networkclient(request)
+    return client.remove_interface_from_router(router=router_id,
+                                               port_id=port_id,
+                                               subnet_id=subnet_id)
 
 
 @profiler.trace
 def router_add_gateway(request, router_id, network_id, enable_snat=None):
-    body = {'network_id': network_id}
+    body = {'external_gateway_info': {'network_id': network_id}}
     if enable_snat is not None:
-        body['enable_snat'] = enable_snat
-    neutronclient(request).add_gateway_router(router_id, body)
+        body['external_gateway_info']['enable_snat'] = enable_snat
+    networkclient(request).update_router(router_id, **body)
 
 
 @profiler.trace
 def router_remove_gateway(request, router_id):
-    neutronclient(request).remove_gateway_router(router_id)
+    networkclient(request).update_router(router_id,
+                                         **{'external_gateway_info': {}})
 
 
 @profiler.trace

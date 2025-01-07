@@ -219,16 +219,16 @@ class RoutersTable(tables.DataTable):
                            verbose_name=_("Status"),
                            status=True,
                            display_choices=STATUS_DISPLAY_CHOICES)
-    distributed = tables.Column("distributed",
+    distributed = tables.Column("is_distributed",
                                 filters=(filters.yesno, filters.capfirst),
                                 verbose_name=_("Distributed"))
-    ha = tables.Column("ha",
+    ha = tables.Column("is_ha",
                        filters=(filters.yesno, filters.capfirst),
                        # Translators: High Availability mode of Neutron router
                        verbose_name=_("HA mode"))
     ext_net = tables.Column(get_external_network,
                             verbose_name=_("External Network"))
-    admin_state = tables.Column("admin_state",
+    admin_state = tables.Column("is_admin_state_up",
                                 verbose_name=_("Admin State"),
                                 display_choices=ADMIN_STATE_DISPLAY_CHOICES)
     availability_zones = tables.Column(get_availability_zones,

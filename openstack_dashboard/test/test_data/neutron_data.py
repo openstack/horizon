@@ -16,6 +16,7 @@ import copy
 
 from openstack.network.v2 import network as sdk_net
 from openstack.network.v2 import port as sdk_port
+from openstack.network.v2 import router as sdk_router
 from openstack.network.v2 import subnet as sdk_subnet
 from openstack.network.v2 import subnet_pool as sdk_subnet_pool
 from openstack.network.v2 import trunk as sdk_trunk
@@ -95,6 +96,8 @@ def data(TEST):
     TEST.api_ports_sdk = list()
     TEST.api_tp_ports_sdk = list()
     TEST.api_subnetpools_sdk = list()
+    TEST.api_routers_sdk = list()
+    TEST.api_routers_with_routes_sdk = list()
 
     # 1st network.
     network_dict = {'is_admin_state_up': True,
@@ -665,27 +668,35 @@ def data(TEST):
                    'name': 'router1',
                    'status': 'ACTIVE',
                    'admin_state_up': True,
+                   'is_admin_state_up': True,
                    'distributed': True,
+                   'is_distributed': True,
                    'external_gateway_info':
                        {'network_id': ext_net['id']},
                    'tenant_id': '1',
                    'availability_zone_hints': ['nova']}
     TEST.api_routers.add(router_dict)
+    TEST.api_routers_sdk.append(sdk_router.Router(**router_dict))
     TEST.routers.add(neutron.Router(router_dict))
     router_dict = {'id': '10e3dc42-1ce1-4d48-87cf-7fc333055d6c',
                    'name': 'router2',
                    'status': 'ACTIVE',
                    'admin_state_up': False,
+                   'is_admin_state_up': False,
                    'distributed': False,
+                   'is_distributed': False,
                    'external_gateway_info': None,
                    'tenant_id': '1'}
     TEST.api_routers.add(router_dict)
+    TEST.api_routers_sdk.append(sdk_router.Router(**router_dict))
     TEST.routers.add(neutron.Router(router_dict))
     router_dict = {'id': '7180cede-bcd8-4334-b19f-f7ef2f331f53',
                    'name': 'rulerouter',
                    'status': 'ACTIVE',
                    'admin_state_up': True,
+                   'is_admin_state_up': True,
                    'distributed': False,
+                   'is_distributed': False,
                    'external_gateway_info':
                        {'network_id': ext_net['id']},
                    'tenant_id': '1',
@@ -700,12 +711,15 @@ def data(TEST):
                                      'destination': '8.8.8.8/32',
                                      'nexthops': ['1.0.0.2', '1.0.0.1']}]}
     TEST.api_routers.add(router_dict)
+    TEST.api_routers_sdk.append(sdk_router.Router(**router_dict))
     TEST.routers_with_rules.add(neutron.Router(router_dict))
     router_dict_with_route = {'id': '725c24c9-061b-416b-b9d4-012392b32fd9',
                               'name': 'routerouter',
                               'status': 'ACTIVE',
                               'admin_state_up': True,
+                              'is_admin_state_up': True,
                               'distributed': False,
+                              'is_distributed': False,
                               'external_gateway_info':
                                   {'network_id': ext_net['id']},
                               'tenant_id': '1',
@@ -714,6 +728,8 @@ def data(TEST):
                                          {'nexthop': '10.0.0.2',
                                           'destination': '172.1.0.0/24'}]}
     TEST.api_routers_with_routes.add(router_dict_with_route)
+    TEST.api_routers_with_routes_sdk.append(
+        sdk_router.Router(**router_dict_with_route))
     TEST.routers_with_routes.add(neutron.Router(router_dict_with_route))
 
     # Floating IP.

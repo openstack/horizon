@@ -1482,85 +1482,85 @@ class NeutronApiTests(test.APIMockTestCase):
             [{'port_id': old_trunk['sub_ports'][0]['port_id']}]
         )
 
-    @mock.patch.object(api.neutron, 'neutronclient')
-    def test_router_list(self, mock_neutronclient):
-        routers = {'routers': self.api_routers.list()}
+    @mock.patch.object(api.neutron, 'networkclient')
+    def test_router_list(self, mock_networkclient):
+        routers = {'routers': self.api_routers_sdk}
 
-        neutronclient = mock_neutronclient.return_value
-        neutronclient.list_routers.return_value = routers
+        networklient = mock_networkclient.return_value
+        networklient.routers.return_value = routers
 
         ret_val = api.neutron.router_list(self.request)
 
         for n in ret_val:
             self.assertIsInstance(n, api.neutron.Router)
-        neutronclient.list_routers.assert_called_once_with()
+        networklient.routers.assert_called_once_with()
 
-    @mock.patch.object(api.neutron, 'neutronclient')
-    def test_router_get(self, mock_neutronclient):
-        router = {'router': self.api_routers.first()}
-        router_id = self.api_routers.first()['id']
+    @mock.patch.object(api.neutron, 'networkclient')
+    def test_router_get(self, mock_networkclient):
+        router = {'router': self.api_routers_sdk[0]}
+        router_id = self.api_routers_sdk[0]['id']
 
-        neutronclient = mock_neutronclient.return_value
-        neutronclient.show_router.return_value = router
+        networkclient = mock_networkclient.return_value
+        networkclient.get_router.return_value = router
 
         ret_val = api.neutron.router_get(self.request, router_id)
 
         self.assertIsInstance(ret_val, api.neutron.Router)
-        neutronclient.show_router.assert_called_once_with(router_id)
+        networkclient.get_router.assert_called_once_with(router_id)
 
-    @mock.patch.object(api.neutron, 'neutronclient')
-    def test_router_create(self, mock_neutronclient):
-        router = {'router': self.api_routers.first()}
+    @mock.patch.object(api.neutron, 'networkclient')
+    def test_router_create(self, mock_networkclient):
+        router = {'router': self.api_routers_sdk[0]}
 
-        neutronclient = mock_neutronclient.return_value
-        form_data = {'router': {'name': 'router1',
-                                'tenant_id': self.request.user.project_id}}
-        neutronclient.create_router.return_value = router
+        networkclient = mock_networkclient.return_value
+        networkclient.create_router.return_value = router
 
         ret_val = api.neutron.router_create(self.request, name='router1')
 
         self.assertIsInstance(ret_val, api.neutron.Router)
-        neutronclient.create_router.assert_called_once_with(body=form_data)
+        networkclient.create_router.assert_called_once_with(
+            name=self.api_routers_sdk[0]['name'],
+            tenant_id=self.request.user.project_id
+        )
 
-    @mock.patch.object(api.neutron, 'neutronclient')
-    def test_router_delete(self, mock_neutronclient):
-        router_id = self.api_routers.first()['id']
+    @mock.patch.object(api.neutron, 'networkclient')
+    def test_router_delete(self, mock_networkclient):
+        router_id = self.api_routers_sdk[0]['id']
 
-        neutronclient = mock_neutronclient.return_value
-        neutronclient.delete_router.return_value = None
+        networkclient = mock_networkclient.return_value
+        networkclient.delete_router.return_value = None
 
         api.neutron.router_delete(self.request, router_id)
 
-        neutronclient.delete_router.assert_called_once_with(router_id)
+        networkclient.delete_router.assert_called_once_with(router_id)
 
-    @mock.patch.object(api.neutron, 'neutronclient')
-    def test_router_add_interface(self, mock_neutronclient):
-        subnet_id = self.api_subnets.first()['id']
-        router_id = self.api_routers.first()['id']
+    @mock.patch.object(api.neutron, 'networkclient')
+    def test_router_add_interface(self, mock_networklient):
+        subnet_id = self.api_subnets_sdk[0]['id']
+        router_id = self.api_routers_sdk[0]['id']
 
-        neutronclient = mock_neutronclient.return_value
-        form_data = {'subnet_id': subnet_id}
-        neutronclient.add_interface_router.return_value = None
+        networkclient = mock_networklient.return_value
+        networkclient.add_interface_to_router.return_value = None
 
         api.neutron.router_add_interface(
             self.request, router_id, subnet_id=subnet_id)
 
-        neutronclient.add_interface_router.assert_called_once_with(router_id,
-                                                                   form_data)
+        networkclient.add_interface_to_router.assert_called_once_with(
+            router=router_id, port_id=None, subnet_id=subnet_id)
 
-    @mock.patch.object(api.neutron, 'neutronclient')
-    def test_router_remove_interface(self, mock_neutronclient):
-        router_id = self.api_routers.first()['id']
-        fake_port = self.api_ports.first()['id']
+    @mock.patch.object(api.neutron, 'networkclient')
+    def test_router_remove_interface(self, mock_networkclient):
+        router_id = self.api_routers_sdk[0]['id']
+        fake_port = self.api_ports_sdk[0]['id']
 
-        neutronclient = mock_neutronclient.return_value
-        neutronclient.remove_interface_router.return_value = None
+        networkclient = mock_networkclient.return_value
+        networkclient.remove_interface_from_router.return_value = None
 
         api.neutron.router_remove_interface(
             self.request, router_id, port_id=fake_port)
 
-        neutronclient.remove_interface_router.assert_called_once_with(
-            router_id, {'port_id': fake_port})
+        networkclient.remove_interface_from_router.assert_called_once_with(
+            router=router_id, port_id=fake_port, subnet_id=None)
 
     # Mocking neutronclient() does not work because api.neutron.list_extensions
     # is decorated with memoized_with_request, so we need to mock
@@ -1576,57 +1576,55 @@ class NeutronApiTests(test.APIMockTestCase):
 
         mock_list_extensions.assert_called_once_with()
 
-    @mock.patch.object(api.neutron, 'neutronclient')
-    def test_router_static_route_list(self, mock_neutronclient):
-        router = {'router': self.api_routers_with_routes.first()}
-        router_id = self.api_routers_with_routes.first()['id']
+    @mock.patch.object(api.neutron, 'networkclient')
+    def test_router_static_route_list(self, mock_networkclient):
+        router = self.api_routers_with_routes_sdk[0]
+        router_id = self.api_routers_with_routes_sdk[0]['id']
 
-        neutronclient = mock_neutronclient.return_value
-        neutronclient.show_router.return_value = router
+        networkclient = mock_networkclient.return_value
+        networkclient.get_router.return_value = router
 
         ret_val = api.neutron.router_static_route_list(self.request, router_id)
 
         self.assertIsInstance(ret_val[0], api.neutron.RouterStaticRoute)
-        neutronclient.show_router.assert_called_once_with(router_id)
+        networkclient.get_router.assert_called_once_with(router_id)
 
-    @mock.patch.object(api.neutron, 'neutronclient')
-    def test_router_static_route_remove(self, mock_neutronclient):
-        router = {'router': self.api_routers_with_routes.first()}
-        router_id = self.api_routers_with_routes.first()['id']
+    @mock.patch.object(api.neutron, 'networkclient')
+    def test_router_static_route_remove(self, mock_networkclient):
+        router = self.api_routers_with_routes_sdk[0]
+        router_id = self.api_routers_with_routes_sdk[0]['id']
         post_router = copy.deepcopy(router)
-        route = api.neutron.RouterStaticRoute(post_router['router']
-                                              ['routes'].pop())
+        route = api.neutron.RouterStaticRoute(
+            post_router['routes'].pop())
 
-        neutronclient = mock_neutronclient.return_value
-        neutronclient.show_router.return_value = router
-        neutronclient.update_router.return_value = post_router
+        networkclient = mock_networkclient.return_value
+        networkclient.get_router.return_value = router
+        networkclient.update_router.return_value = post_router
 
         api.neutron.router_static_route_remove(self.request,
                                                router_id, route.id)
 
-        neutronclient.show_router.assert_called_once_with(router_id)
-        body = {'router': {'routes': post_router['router']['routes']}}
-        neutronclient.update_router.assert_called_once_with(
-            router_id, body=body)
+        networkclient.get_router.assert_called_once_with(router_id)
+        networkclient.update_router.assert_called_once_with(
+            router_id, routes=post_router['routes'])
 
-    @mock.patch.object(api.neutron, 'neutronclient')
-    def test_router_static_route_add(self, mock_neutronclient):
-        router = {'router': self.api_routers_with_routes.first()}
-        router_id = self.api_routers_with_routes.first()['id']
+    @mock.patch.object(api.neutron, 'networkclient')
+    def test_router_static_route_add(self, mock_networkclient):
+        router = self.api_routers_with_routes_sdk[0]
+        router_id = self.api_routers_with_routes_sdk[0]['id']
         post_router = copy.deepcopy(router)
         route = {'nexthop': '10.0.0.5', 'destination': '40.0.1.0/24'}
-        post_router['router']['routes'].insert(0, route)
-        body = {'router': {'routes': post_router['router']['routes']}}
+        post_router['routes'].insert(0, route)
 
-        neutronclient = mock_neutronclient.return_value
-        neutronclient.show_router.return_value = router
-        neutronclient.update_router.return_value = post_router
+        networkclient = mock_networkclient.return_value
+        networkclient.get_router.return_value = router
+        networkclient.update_router.return_value = post_router
 
         api.neutron.router_static_route_add(self.request, router_id, route)
 
-        neutronclient.show_router.assert_called_once_with(router_id)
-        neutronclient.update_router.assert_called_once_with(router_id,
-                                                            body=body)
+        networkclient.get_router.assert_called_once_with(router_id)
+        networkclient.update_router.assert_called_once_with(
+            router_id, routes=post_router['routes'])
 
     # NOTE(amotoki): "dvr" permission tests check most of
     # get_feature_permission features.
@@ -2615,8 +2613,7 @@ class NeutronApiFloatingIpTests(test.APIMockTestCase):
                     if n['is_router_external']]
         list_networks_retvals = [ext_nets, shared_nets]
         self.netclient.networks.side_effect = list_networks_retvals
-        self.qclient.list_routers.return_value = {'routers':
-                                                  self.api_routers.list()}
+        self.netclient.routers.return_value = self.api_routers_sdk
         shared_subs = [s for s in self.api_subnets_sdk
                        if s['id'] in shared_subnet_ids]
         self.netclient.subnets.return_value = shared_subs
@@ -2638,7 +2635,7 @@ class NeutronApiFloatingIpTests(test.APIMockTestCase):
             mock.call(**{'router:external': True}),
             mock.call(is_shared=True),
         ])
-        self.qclient.list_routers.assert_called_once_with()
+        self.netclient.routers.assert_called_once_with()
         self.netclient.subnets.assert_called_once_with()
 
     @mock.patch.object(api._nova, 'novaclient')
@@ -2659,8 +2656,7 @@ class NeutronApiFloatingIpTests(test.APIMockTestCase):
                     if n['is_router_external']]
 
         list_nets_retvals.append(ext_nets)
-        self.qclient.list_routers.side_effect = [{'routers':
-                                                  self.api_routers.list()}]
+        self.netclient.routers.side_effect = self.api_routers_sdk
         rinfs = [p for p in ports
                  if p['device_owner'] in api.neutron.ROUTER_INTERFACE_OWNERS]
         list_ports_retvals.append(rinfs)
@@ -2688,7 +2684,7 @@ class NeutronApiFloatingIpTests(test.APIMockTestCase):
             mock.call(**{'router:external': True}),
             mock.call(is_shared=True),
         ])
-        self.qclient.list_routers.assert_called_once_with()
+        self.netclient.routers.assert_called_once_with()
         self.netclient.subnets.assert_called_once_with()
         novaclient.versions.get_current.assert_called_once_with()
         novaclient.servers.get.assert_called_once_with(server.id)
