@@ -44,9 +44,9 @@ def _format_default_policy(default):
         data['deprecated_rule'] = {
             'name': default.deprecated_rule.name,
             'check_str': default.deprecated_rule.check_str,
+            'deprecated_since': default.deprecated_rule.deprecated_since,
+            'deprecated_reason': default.deprecated_rule.deprecated_reason,
         }
-        data['deprecated_since'] = default.deprecated_since
-        data['deprecated_reason'] = default.deprecated_reason
 
     return data
 
