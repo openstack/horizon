@@ -47,12 +47,12 @@ class BaseUsage(object):
     @staticmethod
     def get_start(year, month, day):
         start = datetime.datetime(year, month, day, 0, 0, 0)
-        return timezone.make_aware(start, timezone.utc)
+        return timezone.make_aware(start, datetime.timezone.utc)
 
     @staticmethod
     def get_end(year, month, day):
         end = datetime.datetime(year, month, day, 23, 59, 59)
-        return timezone.make_aware(end, timezone.utc)
+        return timezone.make_aware(end, datetime.timezone.utc)
 
     def get_instances(self):
         instance_list = []
@@ -118,8 +118,8 @@ class BaseUsage(object):
         if start <= end and start <= self.today:
             # The API can't handle timezone aware datetime, so convert back
             # to naive UTC just for this last step.
-            start = timezone.make_naive(start, timezone.utc)
-            end = timezone.make_naive(end, timezone.utc)
+            start = timezone.make_naive(start, datetime.timezone.utc)
+            end = timezone.make_naive(end, datetime.timezone.utc)
             try:
                 self.usage_list = self.get_usage_list(start, end)
             except Exception:

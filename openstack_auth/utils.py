@@ -95,7 +95,7 @@ def is_token_valid(token, margin=None):
     expiration = expiration - datetime.timedelta(seconds=margin)
     if settings.USE_TZ and timezone.is_naive(expiration):
         # Presumes that the Keystone is using UTC.
-        expiration = timezone.make_aware(expiration, timezone.utc)
+        expiration = timezone.make_aware(expiration, datetime.timezone.utc)
     return expiration > timezone.now()
 
 
