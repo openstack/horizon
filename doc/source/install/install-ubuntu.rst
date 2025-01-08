@@ -131,15 +131,6 @@ Install and configure components
 
      .. end
 
-   * Configure ``user`` as the default role for
-     users that you create via the dashboard:
-
-     .. path /etc/openstack-dashboard/local_settings.py
-     .. code-block:: python
-
-        OPENSTACK_KEYSTONE_DEFAULT_ROLE = "user"
-
-     .. end
 
    * If you chose networking option 1, disable support for layer-3
      networking services:
