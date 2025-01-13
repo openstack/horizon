@@ -165,6 +165,15 @@ Install and configure components
      For more information, see the `list of time zones
      <https://en.wikipedia.org/wiki/List_of_tz_database_time_zones>`__.
 
+   * Optionally, configure location where the access to the dashboard (if not included):
+
+     .. path /etc/openstack-dashboard/local_settings
+     .. code-block:: python
+
+        WEBROOT = '/dashboard/'
+
+     .. end
+
 3. Add the following line to
    ``/etc/httpd/conf.d/openstack-dashboard.conf`` if not included.
 
