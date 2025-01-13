@@ -27,7 +27,7 @@ Install and configure components
 
    .. code-block:: console
 
-      # yum install openstack-dashboard
+      # dnf install openstack-dashboard
 
    .. end
 
