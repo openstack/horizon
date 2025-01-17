@@ -13,6 +13,7 @@
 #    under the License.
 
 from datetime import datetime
+import logging
 import string
 import zoneinfo
 
@@ -27,6 +28,9 @@ from django.utils.translation import gettext_lazy as _
 from horizon import forms
 from horizon import messages
 from horizon.utils import functions
+
+
+LOG = logging.getLogger(__name__)
 
 
 class UserSettingsForm(forms.SelfHandlingForm):
@@ -82,8 +86,12 @@ class UserSettingsForm(forms.SelfHandlingForm):
             elif tz == "GMT":
                 tz_name = _("GMT")
             else:
-                tz_label = babel.dates.get_timezone_location(
-                    tz, locale=babel_locale)
+                try:
+                    tz_label = babel.dates.get_timezone_location(
+                        tz, locale=babel_locale)
+                except LookupError as e:
+                    LOG.info('Failed to fetch locale for timezone: %s', e)
+
                 # Translators:  UTC offset and timezone label
                 tz_name = _("%(offset)s: %(label)s") % {"offset": utc_offset,
                                                         "label": tz_label}
