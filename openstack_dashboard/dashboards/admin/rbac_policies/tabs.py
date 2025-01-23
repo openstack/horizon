@@ -38,7 +38,7 @@ class OverviewTab(tabs.Tab):
                                                       rbac_policy_id)
 
         except Exception:
-            msg = _('Unable to retrieve details for rbac_policy "%s".') \
+            msg = _('Unable to retrieve details for RBAC Policy "%s".') \
                 % (rbac_policy_id)
             exceptions.handle(self.request, msg)
         return rbac_policy

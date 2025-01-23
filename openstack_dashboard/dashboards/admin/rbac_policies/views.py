@@ -129,7 +129,7 @@ class UpdateView(forms.ModalFormView):
             return api.neutron.rbac_policy_get(self.request, rbac_policy_id)
         except Exception:
             redirect = self.success_url
-            msg = _('Unable to retrieve rbac policy details.')
+            msg = _('Unable to retrieve RBAC Policy details.')
             exceptions.handle(self.request, msg, redirect=redirect)
 
     def get_initial(self):

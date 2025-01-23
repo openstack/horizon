@@ -30,7 +30,7 @@ class VolumesFilterAction(tables.FilterAction):
         ('encrypted', _('Encrypted ='), True),
         ('availability_zone', _('Availability Zone ='), True),
         ('status', _('Status ='), True),
-        ('size', _('Size(GiB) ='), True),
+        ('size', _('Size (GiB) ='), True),
     )
 
 
