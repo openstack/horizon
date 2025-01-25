@@ -23,21 +23,24 @@
 # Roman Gorshunov <roman.gorshunov@att.com>, 2021. #zanata
 # Roman Gorshunov <roman.gorshunov@att.com>, 2022. #zanata
 # Ilya Alekseyev <ilyaalekseyev@acm.org>, 2024. #zanata
+# Ivan Anfimov <lazekteam@gmail.com>, 2024. #zanata
+# Dmitriy Chubinidze <dcu995@gmail.com>, 2025. #zanata
+# Ivan Anfimov <lazekteam@gmail.com>, 2025. #zanata
 msgid ""
 msgstr ""
 "Project-Id-Version: horizon VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2024-01-11 12:28+0000\n"
+"POT-Creation-Date: 2025-01-25 08:07+0900\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2024-01-13 08:53+0000\n"
-"Last-Translator: Ilya Alekseyev <ilyaalekseyev@acm.org>\n"
+"PO-Revision-Date: 2025-01-22 03:01+0000\n"
+"Last-Translator: Dmitriy Chubinidze <dcu995@gmail.com>\n"
 "Language-Team: Russian\n"
 "Language: ru\n"
 "X-Generator: Zanata 4.3.3\n"
-"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
-"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2)\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
+"n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2)\n"
 
 msgid "#"
 msgstr "#"
@@ -604,6 +607,9 @@ msgstr "Конфигурация"
 msgid "Configuration Drive"
 msgstr "Конфигурационный диск"
 
+msgid "Confirm Deactivate Image"
+msgstr "Подтвердите деактивирование образа"
+
 msgid "Confirm Delete"
 msgstr "Подтвердите удаление"
 
@@ -669,6 +675,9 @@ msgstr[2] "Подтвердить удаление пользователей"
 
 msgid "Confirm Password"
 msgstr "Подтвердите пароль"
+
+msgid "Confirm Reactivate Image"
+msgstr "Подтвердите активацию образа"
 
 msgid "Confirm password"
 msgstr "Подтвердите пароль"
@@ -883,8 +892,15 @@ msgstr "Календарик"
 msgid "Datetime"
 msgstr "Дата и время"
 
+msgid "Deactivate Image"
+msgstr "Деактивировать образ"
+
 msgid "Deactivated"
 msgstr "Отключено"
+
+#, python-format
+msgid "Deactivated Image: %s."
+msgstr "Деактивированный образ: %s."
 
 msgid "Default"
 msgstr "Значение по умолчанию"
@@ -1264,7 +1280,7 @@ msgstr "Разрешить пользователя"
 
 msgid "Enable/Disable subport addition, removal and trunk delete."
 msgstr ""
-"Разрешить/запретить добавление и удаление дочерних портов, а так же удаление "
+"Разрешить/запретить добавление и удаление дочерних портов, а также удаление "
 "транка."
 
 msgid "Enabled"
@@ -1561,13 +1577,16 @@ msgid "Image Name"
 msgstr "Имя образа"
 
 msgid "Image Requirements"
-msgstr "Требования Образа"
+msgstr "Требования образа"
 
 msgid "Image Sharing"
 msgstr "Общий доступ к образу"
 
 msgid "Image Source"
 msgstr "Источник образа"
+
+msgid "Image Status"
+msgstr "Статус образа"
 
 msgid "Image from Other Project - Non-Public"
 msgstr "Образ из другого проекта - непубличный"
@@ -1820,10 +1839,10 @@ msgid "Loading"
 msgstr "Загрузка"
 
 msgid "Loading ports... Please Wait"
-msgstr "Загружаем информацию о портах... Пожалуйста подождите"
+msgstr "Загрузка портов... Пожалуйста, подождите"
 
 msgid "Loading trunk... Please Wait"
-msgstr "Загружаем информацию о транке... Пожалуйста подождите"
+msgstr "Загружаем информацию о транке... Пожалуйста, подождите"
 
 msgid "Location"
 msgstr "Расположение"
@@ -1865,7 +1884,7 @@ msgid "Max. Size (bytes)"
 msgstr "Макс. размер (байт)"
 
 msgid "Members"
-msgstr "Участники"
+msgstr "Пользователи"
 
 msgid "Messages"
 msgstr "Сообщения"
@@ -2277,16 +2296,16 @@ msgid "Pills"
 msgstr "Навигационные кнопки"
 
 msgid "Please Wait"
-msgstr "Пожалуйста подождите"
+msgstr "Пожалуйста, подождите"
 
 msgid ""
 "Please provide the initial hostname for the instance, the availability zone "
 "where it will be deployed, and the instance count.\n"
 "    Increase the Count to create multiple instances with the same settings."
 msgstr ""
-"Укажите начальное имя хоста для экземпляра, зону доступности для его "
-"развёртывания и количество разворачиваемых экземпляров.\n"
-"   Увеличьте количество для развёртывания нескольких одинаковых экземпляров."
+"Укажите начальное имя хоста для инстанса, зону доступности для его "
+"развёртывания и количество разворачиваемых инстансов.\n"
+"  Увеличьте количество для развёртывания нескольких одинаковых инстансов."
 
 msgid "Policy"
 msgstr "Политика"
@@ -2470,6 +2489,13 @@ msgstr "ИД RAM-диска"
 
 msgid "Raw"
 msgstr "Raw"
+
+msgid "Reactivate Image"
+msgstr "Активировать образ"
+
+#, python-format
+msgid "Reactivated Image: %s."
+msgstr "Активированный образ: %s."
 
 msgid "Registered Resource Types"
 msgstr "Зарегистрированные типы ресурсов"
@@ -2890,7 +2916,7 @@ msgid "Tabs"
 msgstr "Вкладки"
 
 msgid "Tags"
-msgstr "Теги"
+msgstr "Метки"
 
 msgid "Tel"
 msgstr "Тел."
@@ -3073,7 +3099,7 @@ msgstr ""
 "памяти или используйте другой источник %(sourceType)s."
 
 msgid "The size of the volume, in gibibytes (GiB)."
-msgstr "Размер диска, в гигабайтах (Гб)."
+msgstr "Размер диска, в гибибайтах (ГиБ)."
 
 msgid "The status indicates whether the network has an active connection."
 msgstr "Статус показывает, есть ли активные подключения в данной сети."
@@ -3172,8 +3198,8 @@ msgid ""
 "This flavor requires more VCPUs than your quota allows. Please select a "
 "smaller flavor or decrease the instance count."
 msgstr ""
-"Данный тип инстанса требует больше vCPU, чем позволяет ваша квота. "
-"Пожалуйста, выберите тип инстанса с меньшим количеством vCPU или уменьшите "
+"Данный тип инстанса требует больше VCPU, чем позволяет ваша квота. "
+"Пожалуйста, выберите тип инстанса с меньшим количеством VCPU или уменьшите "
 "количество инстансов."
 
 msgid ""
@@ -3245,7 +3271,7 @@ msgid "Total RAM"
 msgstr "Всего RAM"
 
 msgid "Total VCPUs"
-msgstr "Всего виртуальных ядер"
+msgstr "Всего VCPU"
 
 msgid "Total Volume Storage"
 msgstr "Общий объем дисков"
@@ -3365,6 +3391,13 @@ msgstr "Не удалось создать пользователя."
 
 msgid "Unable to create the volume."
 msgstr "Не удалось создать диск."
+
+#, python-format
+msgid "Unable to deactivate Image: %s."
+msgstr "Не удается деактивировать образ: %s."
+
+msgid "Unable to deactivate the image."
+msgstr "Не удается деактивировать образ."
 
 #, python-format
 msgid "Unable to delete Flavor: %s."
@@ -3615,6 +3648,13 @@ msgstr "Не удается загрузить диски сервера."
 #, python-format
 msgid "Unable to pause the server with id: %(id)s"
 msgstr "Не удаётся приостановить сервер с ИД: %(id)s"
+
+#, python-format
+msgid "Unable to reactivate Image: %s."
+msgstr "Не удается активировать образ: %s."
+
+msgid "Unable to reactivate the image."
+msgstr "Не удается активировать образ."
 
 #, python-format
 msgid "Unable to resume the server with id: %(id)s"
@@ -4086,7 +4126,7 @@ msgid ""
 "set your instance count to 1 or select a different source type."
 msgstr ""
 "Диск может быть подключен только к одному активному инстансу. Пожалуйста, "
-"уменьште количество инстансов до 1 или выберите другой тип источника."
+"уменьшите количество инстансов до 1 или выберите другой тип источника."
 
 msgid "Warning"
 msgstr "Предупреждение"
@@ -4158,12 +4198,20 @@ msgid "Yes"
 msgstr "Да"
 
 #, python-format
+msgid "You are not allowed to deactivate image: %s"
+msgstr "Вам не разрешено деактивировать образ: %s"
+
+#, python-format
 msgid "You are not allowed to delete domains: %s"
 msgstr "Вам не разрешено удалять домены: %s"
 
 #, python-format
 msgid "You are not allowed to delete images: %s"
 msgstr "Вам не разрешено удалять образы: %s"
+
+#, python-format
+msgid "You are not allowed to reactivate image: %s"
+msgstr "Вам не разрешено активировать образ: %s"
 
 msgid "You can add arbitrary metadata to your image."
 msgstr "Вы можете добавить произвольные метаданные в свой образ. "
@@ -4215,6 +4263,14 @@ msgstr ""
 "правую колонку. В левой колонке отображаются определения подсказок "
 "планировщика из каталога метаданных Glance. Используя опцию \"Custom\" вы "
 "можете добавлять подсказки планировщика с выбранным вами ключом."
+
+#, python-format
+msgid "You have selected \"%s\"."
+msgstr "Вы выбрали \"%s\"."
+
+#, python-format
+msgid "You have selected \"%s\". A deactivated image is not downloadable."
+msgstr "Вы выбрали \"%s\". Деактивированный образ нельзя скачать."
 
 #, python-format
 msgid "You have selected \"%s\". Deleted Server Group is not recoverable."
@@ -4314,6 +4370,12 @@ msgstr "Требуется указать размер диска в виде ц
 
 msgid "min ram is required and must be an integer not less than 0"
 msgstr "Требуется указать размер ОЗУ в виде целого числа больше нуля."
+
+msgid "os_hash_algo"
+msgstr "os_hash_algo"
+
+msgid "os_hash_value"
+msgstr "os_hash_value"
 
 #, python-format
 msgid "resource load failed: %s"

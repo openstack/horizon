@@ -4,9 +4,9 @@
 # Ian Y. Choi <ianyrchoi@gmail.com>, 2023. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 23.4.1.dev25\n"
+"Project-Id-Version: horizon 25.2.0.dev70\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-02-07 17:51+0000\n"
+"POT-Creation-Date: 2025-01-24 23:07+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -301,11 +301,6 @@ msgid ""
 "the dashboard:"
 msgstr ""
 "대시보드를 통해 생성한 사용자의 기본 도메인을 ``Default`` 로 구성하십시오:"
-
-msgid ""
-"Configure ``user`` as the default role for users that you create via the "
-"dashboard:"
-msgstr "대시보드를 통해 생성한 사용자의 기본 역할을 ``user`` 로 구성하십시오:"
 
 msgid "Configure the ``memcached`` session storage service:"
 msgstr "``memcached`` 세션 스토리지 서비스를 구성하십시오:"

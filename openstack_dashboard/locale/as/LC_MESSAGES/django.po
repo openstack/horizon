@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: horizon VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2024-03-20 15:32+0000\n"
+"POT-Creation-Date: 2025-01-25 08:07+0900\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -3317,8 +3317,8 @@ msgstr "বেকআপ পুনৰ জমা কৰিবলৈ অক্ষ�
 
 #, python-format
 msgid ""
-"Unable to retrieve IP addresses from Neutron for instance \"%(name)s"
-"\" (%(id)s)."
+"Unable to retrieve IP addresses from Neutron for instance "
+"\"%(name)s\" (%(id)s)."
 msgstr ""
 "\"%(name)s\" (%(id)s) উদাহৰণটোৰ বাবে নিউট্ৰনৰ পৰা IP ঠিকনা উদ্ধাৰ কৰিবলৈ অক্ষম."
 

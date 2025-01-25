@@ -14,7 +14,6 @@
 # Fedor Tarasenko <feodor.tarasenko@gmail.com>, 2016. #zanata
 # Filatov Sergey <filatecs@gmail.com>, 2016. #zanata
 # Ilya Alekseyev <ilyaalekseyev@acm.org>, 2016. #zanata
-# Ilya Shakhat <ishakhat@mirantis.com>, 2016. #zanata
 # Maxim Bozhenko <mbozhenko@gmail.com>, 2016. #zanata
 # Nikita Burtsev <nikita.burtsev@gmail.com>, 2016. #zanata
 # Artem <amikhalev90@gmail.com>, 2017. #zanata
@@ -23,19 +22,21 @@
 # Dmitriy Rabotyagov <noonedeadpunk@ya.ru>, 2020. #zanata
 # Roman Gorshunov <roman.gorshunov@att.com>, 2021. #zanata
 # Ilya Alekseyev <ilyaalekseyev@acm.org>, 2024. #zanata
+# Ivan Anfimov <lazekteam@gmail.com>, 2024. #zanata
+# Ivan Anfimov <lazekteam@gmail.com>, 2025. #zanata
 msgid ""
 msgstr ""
 "Project-Id-Version: horizon VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2024-01-11 12:28+0000\n"
+"POT-Creation-Date: 2025-01-25 08:07+0900\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2024-01-13 08:44+0000\n"
-"Last-Translator: Ilya Alekseyev <ilyaalekseyev@acm.org>\n"
+"PO-Revision-Date: 2025-01-22 12:33+0000\n"
+"Last-Translator: Ivan Anfimov <lazekteam@gmail.com>\n"
 "Language: ru\n"
-"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
-"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
+"n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 "Generated-By: Babel 2.0\n"
 "X-Generator: Zanata 4.3.3\n"
 "Language-Team: Russian\n"
@@ -111,10 +112,10 @@ msgid "&laquo;&laquo;&nbsp;First"
 msgstr "&laquo;&laquo;&nbsp;Первая"
 
 msgid "&laquo;&nbsp;Prev"
-msgstr "&laquo;&nbsp;Предыдущее"
+msgstr "&laquo;&nbsp;Предыдущая"
 
 msgid "&laquo;&nbsp;Prev&nbsp;"
-msgstr "&laquo;&nbsp;Пред&nbsp;"
+msgstr "&laquo;&nbsp;Предыдущая&nbsp;"
 
 msgid "(No Limit)"
 msgstr "(без ограничений)"
@@ -127,7 +128,7 @@ msgstr "0 байт"
 
 #, python-format
 msgid "A %(resource)s with the name \"%(name)s\" already exists."
-msgstr "%(resource)s с именем\"%(name)s\" уже существует."
+msgstr "%(resource)s с именем \"%(name)s\", уже существует."
 
 msgid "Actions"
 msgstr "Действия"
@@ -216,13 +217,13 @@ msgid "Error processing message json file '%(path)s': %(exception)s"
 msgstr "Ошибка обработки JSON файла сообщений  '%(path)s': %(exception)s"
 
 msgid "Error: "
-msgstr "Ошибка:"
+msgstr "Ошибка: "
 
 msgid "Fake"
-msgstr "Fake"
+msgstr "Подделка"
 
 msgid "Filter"
-msgstr "Фильтр"
+msgstr "Найти"
 
 msgid "Horizon"
 msgstr "Horizon"
@@ -241,7 +242,7 @@ msgid "Infinity"
 msgstr "Бесконечность"
 
 msgid "Info: "
-msgstr "Информация:"
+msgstr "Информация: "
 
 msgid "Invalid MAC Address format"
 msgstr "Неверный формат MAC адреса"
@@ -253,7 +254,7 @@ msgstr ""
 
 #, python-format
 msgid "Invalid service catalog: %s"
-msgstr "Неверный каталог сервисов: %s"
+msgstr "Неверный сервисный каталог: %s"
 
 msgid "Invalid subnet mask"
 msgstr "Неправильная маска подсети"
@@ -274,7 +275,7 @@ msgid "Log in"
 msgstr "Войти"
 
 msgid "Login"
-msgstr "Имя пользователя"
+msgstr "Авторизация"
 
 #, python-format
 msgid ""
@@ -284,7 +285,7 @@ msgstr ""
 "домашнюю страницу</a>           "
 
 msgid "Members"
-msgstr "Участники"
+msgstr "Пользователи"
 
 #, python-format
 msgid "Message json file '%(path)s' is malformed. %(exception)s"
@@ -303,7 +304,7 @@ msgid "Next"
 msgstr "Следующий"
 
 msgid "Next&nbsp;&raquo;"
-msgstr "Следующее&nbsp;&raquo;"
+msgstr "Следующая&nbsp;&raquo;"
 
 msgid "No items to display."
 msgstr "Нет элементов для отображения."
@@ -340,13 +341,13 @@ msgid "Password is not accepted"
 msgstr "Пароль не принят"
 
 msgid "Please confirm your selection."
-msgstr "Подтвердите свой выбор."
+msgstr "Пожалуйста, подтвердите свой выбор."
 
 msgid "Please log in to continue."
 msgstr "Войдите в систему для продолжения."
 
 msgid "Please select a row before taking that action."
-msgstr "Выберите строку перед выполнением этого действия."
+msgstr "Пожалуйста, выберите строку перед выполнением этого действия."
 
 msgid "Please specify a search criteria first."
 msgstr "Пожалуйста, сначала укажите параметры поиска."
@@ -359,7 +360,7 @@ msgstr "Сохранить"
 
 #, python-format
 msgid "Select a %s to browse."
-msgstr "Выберите %s для просмотра"
+msgstr "Выберите %s для просмотра."
 
 msgid "Select a period of time to query its usage:"
 msgstr "Выберите временной интервал для запроса использования:"
@@ -377,15 +378,15 @@ msgstr "Вход"
 #. Translators: test code, don't really have to translate
 msgid "Sold Puppy"
 msgid_plural "Sold Puppies"
-msgstr[0] "Проданый щенок"
-msgstr[1] "Проданые щенки"
-msgstr[2] "Проданые щенки"
+msgstr[0] "Проданный щенок"
+msgstr[1] "Проданные щенки"
+msgstr[2] "Проданные щенки"
 
 msgid "Submit"
 msgstr "Отправить"
 
 msgid "Success: "
-msgstr "Успешно:"
+msgstr "Успешно: "
 
 msgid "Summary"
 msgstr "Итого"
@@ -420,7 +421,7 @@ msgid "This Period's RAM-Hours:"
 msgstr "RAM-часов за период:"
 
 msgid "This Period's VCPU-Hours:"
-msgstr "vCPU-часов за период:"
+msgstr "VCPU-часов за период:"
 
 msgid "This action cannot be undone."
 msgstr "Это действие не может быть отменено."
@@ -454,7 +455,7 @@ msgid "Usage Summary"
 msgstr "Сводка использования"
 
 msgid "Warning: "
-msgstr "Внимание:"
+msgstr "Внимание: "
 
 #, python-format
 msgid "You are not allowed to %(action)s: %(objs)s"
