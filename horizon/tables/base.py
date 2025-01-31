@@ -324,7 +324,7 @@ class Column(html.HTMLElement):
             else:
                 self.verbose_name = self.transform.title()
         else:
-            self.verbose_name = str(verbose_name)
+            self.verbose_name = verbose_name
 
         self.auto = auto
         self.sortable = sortable
@@ -368,7 +368,7 @@ class Column(html.HTMLElement):
             self.classes.append('anchor')
 
     def __str__(self):
-        return self.verbose_name
+        return str(self.verbose_name)
 
     def __repr__(self):
         return '<%s: %s>' % (self.__class__.__name__, self.name)
