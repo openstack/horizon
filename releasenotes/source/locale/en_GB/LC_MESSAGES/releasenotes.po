@@ -7,15 +7,16 @@
 # Andi Chandler <andi@gowling.com>, 2022. #zanata
 # Andi Chandler <andi@gowling.com>, 2023. #zanata
 # Andi Chandler <andi@gowling.com>, 2024. #zanata
+# Andi Chandler <andi@gowling.com>, 2025. #zanata
 msgid ""
 msgstr ""
 "Project-Id-Version: horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-01-25 08:06+0900\n"
+"POT-Creation-Date: 2025-02-15 09:22+0900\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2024-04-18 12:37+0000\n"
+"PO-Revision-Date: 2025-02-07 12:05+0000\n"
 "Last-Translator: Andi Chandler <andi@gowling.com>\n"
 "Language-Team: English (United Kingdom)\n"
 "Language: en_GB\n"
@@ -206,6 +207,9 @@ msgstr "2023.2 Series Release Notes"
 msgid "2024.1 Series Release Notes"
 msgstr "2024.1 Series Release Notes"
 
+msgid "2024.2 Series Release Notes"
+msgstr "2024.2 Series Release Notes"
+
 msgid "22.0.0"
 msgstr "22.0.0"
 
@@ -229,6 +233,15 @@ msgstr "23.4.0"
 
 msgid "24.0.0"
 msgstr "24.0.0"
+
+msgid "25.0.0"
+msgstr "25.0.0"
+
+msgid "25.1.0-4"
+msgstr "25.1.0-4"
+
+msgid "25.1.0-44"
+msgstr "25.1.0-44"
 
 msgid "8.0.1"
 msgstr "8.0.1"
@@ -1873,6 +1886,15 @@ msgstr ""
 "Angularised panel [:bug: `1779879`]"
 
 msgid ""
+"Fix typo in metadef resource type. When Horizon retrieve possible  metadata "
+"for Cinder Volume Type it will now retrieve  OS::Cinder::VolumeType instead "
+"of OS:Cinder::VolumeType (note first :)."
+msgstr ""
+"Fix typo in metadef resource type. When Horizon retrieves possible metadata "
+"for Cinder Volume Type it will now retrieve  OS::Cinder::VolumeType instead "
+"of OS:Cinder::VolumeType (note first :)."
+
+msgid ""
 "Fixed a bug where non-admin users would be shown the \"Change Password\" "
 "button for users listed under the Identity panel."
 msgstr ""
@@ -2199,6 +2221,13 @@ msgstr ""
 "feature."
 
 msgid ""
+"Horizon is switching away from pyscss and django-pyscss, and now uses the "
+"libsass library for partsing the scss files instead."
+msgstr ""
+"Horizon is switching away from pyscss and django-pyscss, and now uses the "
+"libsass library for partsing the scss files instead."
+
+msgid ""
 "Horizon is updated to use the same API policy target rules with Nova, if you "
 "made any changes to Horizon's old nova policy file before, make sure to "
 "apply your specific policy changes to the new Nova policy file used by "
@@ -2246,6 +2275,13 @@ msgstr ""
 "Horizon no longer uses QUnit in testing, and it has been removed from our "
 "requirements. See `this <https://blueprints.launchpad.net/horizon/+spec/"
 "replace-qunit-tests-with-jasmine>`__ for more details."
+
+msgid ""
+"Horizon no longer uses the pyscss and django-pyscss libraries. They can be "
+"safely removed from the dependency lists by Horizon packagers."
+msgstr ""
+"Horizon no longer uses the pyscss and django-pyscss libraries. They can be "
+"safely removed from the dependency lists by Horizon packagers."
 
 msgid ""
 "Horizon now boasts dynamic loading/disabling of dashboards, panel groups and "
@@ -2298,6 +2334,13 @@ msgstr ""
 "Horizon now supports running integration tests against a working devstack "
 "system. There is a limited test suite, but this a great step forward and "
 "allows full integration testing."
+
+msgid ""
+"Horizon now uses the libsass library. Horizon packagers now need to include "
+"python3-libsass in the dependency list."
+msgstr ""
+"Horizon now uses the libsass library. Horizon packagers now need to include "
+"python3-libsass in the dependency list."
 
 msgid ""
 "Horizon provides support for these new features with the Juno release. These "
@@ -3444,6 +3487,13 @@ msgstr ""
 "Python 2.7 support has been dropped. Last release of Horizon to support "
 "Python 2.7 is OpenStack Train. The minimum version of Python now supported "
 "by Horizon is Python 3.6."
+
+msgid ""
+"Python 3.8 support has been removed. Now the minimum supported python "
+"version is 3.9."
+msgstr ""
+"Python 3.8 support has been removed. Now the minimum supported Python "
+"version is 3.9."
 
 msgid "QoS (quality of service) support."
 msgstr "QoS (quality of service) support."
