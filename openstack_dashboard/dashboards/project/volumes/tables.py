@@ -242,7 +242,7 @@ class CreateSnapshot(VolumePolicyTargetMixin, tables.LinkAction):
 
 class CreateTransfer(VolumePolicyTargetMixin, tables.LinkAction):
     name = "create_transfer"
-    verbose_name = _("Create Transfer")
+    verbose_name = _("Create Volume Transfer")
     url = "horizon:project:volumes:create_transfer"
     classes = ("ajax-modal",)
     policy_rules = (("volume", "volume:create_transfer"),)
@@ -306,7 +306,7 @@ class RetypeVolume(VolumePolicyTargetMixin, tables.LinkAction):
 
 class AcceptTransfer(tables.LinkAction):
     name = "accept_transfer"
-    verbose_name = _("Accept Transfer")
+    verbose_name = _("Accept Volume Transfer")
     url = "horizon:project:volumes:accept_transfer"
     classes = ("ajax-modal",)
     icon = "exchange"
@@ -326,7 +326,7 @@ class AcceptTransfer(tables.LinkAction):
                     verbose_name=self.verbose_name,
                     quota_exceeded=_("(Quota exceeded)"))
         else:
-            self.verbose_name = _("Accept Transfer")
+            self.verbose_name = _("Accept Volume Transfer")
             classes = [c for c in self.classes if c != "disabled"]
             self.classes = classes
         return True
@@ -342,7 +342,7 @@ class DeleteTransfer(VolumePolicyTargetMixin, tables.Action):
     # volume to the message, e.g. "Deleted volume transfer 'volume'". But
     # we are deleting the volume *transfer*, whose name is different.
     name = "delete_transfer"
-    verbose_name = _("Cancel Transfer")
+    verbose_name = _("Cancel Volume Transfer")
     policy_rules = (("volume", "volume:delete_transfer"),)
     help_text = _("This action cannot be undone.")
     action_type = "danger"
