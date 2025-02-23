@@ -92,7 +92,7 @@ class NetworksTable(tables.DataTable):
     status = tables.Column(
         "status", verbose_name=_("Status"),
         display_choices=project_tables.STATUS_DISPLAY_CHOICES)
-    admin_state = tables.Column("is_admin_state_up",
+    admin_state = tables.Column("admin_state",
                                 verbose_name=_("Admin State"),
                                 display_choices=DISPLAY_CHOICES)
     availability_zones = tables.Column(get_availability_zones,
