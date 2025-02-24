@@ -26,7 +26,11 @@ class BaseWebObject(unittest.TestCase):
     def __init__(self, driver, conf):
         self.driver = driver
         self.conf = conf
-        self.explicit_wait = self.conf.selenium.explicit_wait
+        if conf is not None and conf.get('selenium', None) is not None:
+            self.explicit_wait = self.conf.selenium.explicit_wait
+        else:
+            self.explicit_wait = 0
+        super().__init__()
 
     def _is_element_present(self, *locator):
         with self.waits_disabled():

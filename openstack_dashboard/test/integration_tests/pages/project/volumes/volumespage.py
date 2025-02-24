@@ -97,7 +97,7 @@ class VolumesPage(basepage.BaseNavigationPage):
     VOLUMES_TABLE_SIZE_COLUMN = 'Size'
     VOLUMES_TABLE_ATTACHED_COLUMN = 'Attached To'
 
-    def __init__(self, driver, conf):
+    def __init__(self, driver=None, conf=None):
         super().__init__(driver, conf)
         self._page_title = "Volumes"
 

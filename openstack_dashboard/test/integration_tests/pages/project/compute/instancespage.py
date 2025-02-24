@@ -74,7 +74,7 @@ class InstancesPage(basepage.BaseNavigationPage):
         "//*[contains(@class,'normal_column')][contains(text(),'Active')]"
     )
 
-    def __init__(self, driver, conf):
+    def __init__(self, driver=None, conf=None):
         super().__init__(driver, conf)
         self._page_title = "Instances"
 
