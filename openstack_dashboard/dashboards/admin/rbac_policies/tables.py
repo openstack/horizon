@@ -75,6 +75,10 @@ class RBACPoliciesTable(tables.DataTable):
     target_tenant = tables.Column("target_tenant_name",
                                   verbose_name=_("Target Project"))
 
+    def get_object_display(self, datum):
+        """Display name of the RBAC policy."""
+        return datum.id
+
     class Meta(object):
         name = "rbac policies"
         verbose_name = _("RBAC Policies")
