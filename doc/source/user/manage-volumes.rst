@@ -46,7 +46,7 @@ Create a volume
 
    :guilabel:`Type`: Leave this field blank.
 
-   :guilabel:`Size (GB)`: The size of the volume in gibibytes (GiB).
+   :guilabel:`Size (GiB)`: The size of the volume in gibibytes (GiB).
 
    :guilabel:`Availability Zone`: Select the Availability Zone from the list.
    By default, this value is set to the availability zone given by the cloud
