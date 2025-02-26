@@ -543,7 +543,7 @@ OPENSTACK_CLOUDS_YAML_CUSTOM_TEMPLATE
 
 Default: ``None``
 
-Example:: ``my-clouds.yaml.template``
+Example: ``my-clouds.yaml.template``
 
 A template name for a custom user's ``clouds.yaml`` file.
 ``None`` means the default template for ``clouds.yaml`` is used.
@@ -638,7 +638,7 @@ OPENRC_CUSTOM_TEMPLATE
 
 Default: ``None``
 
-Example:: ``my-openrc.sh.template``
+Example: ``my-openrc.sh.template``
 
 A template name for a custom user's ``openrc`` file.
 ``None`` means the default template for ``openrc`` is used.
@@ -794,7 +794,7 @@ OVERVIEW_DAYS_RANGE
 
 .. versionadded:: 10.0.0(Newton)
 
-Default:: ``1``
+Default: ``1``
 
 When set to an integer N (as by default), the start date in the Overview panel
 meters will be today minus N days. This setting is used to limit the amount of
@@ -809,7 +809,7 @@ POLICY_CHECK_FUNCTION
 
 .. versionadded:: 2013.2(Havana)
 
-Default:: ``openstack_auth.policy.check``
+Default: ``openstack_auth.policy.check``
 
 This value should not be changed, although removing it or setting it to
 ``None`` would be a means to bypass all policy checks.
@@ -957,7 +957,7 @@ SHOW_OPENRC_FILE
 
 .. versionadded:: 15.0.0(Stein)
 
-Default:: ``True``
+Default: ``True``
 
 Controls whether the keystone openrc file is accesible from the user
 menu and the api access panel.
@@ -971,7 +971,7 @@ SHOW_OPENSTACK_CLOUDS_YAML
 
 .. versionadded:: 15.0.0(Stein)
 
-Default:: ``True``
+Default: ``True``
 
 Controls whether clouds.yaml is accesible from the user
 menu and the api access panel.
