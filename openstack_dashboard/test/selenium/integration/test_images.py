@@ -42,7 +42,7 @@ def new_image_demo(image_names, temporary_file, openstack_demo):
     for img in image_names:
         image = openstack_demo.create_image(
             img,
-            disk_format="qcow2",
+            disk_format="raw",
             filename=temporary_file,
             wait=True,
         )
@@ -56,7 +56,7 @@ def new_image_admin(image_names, temporary_file, openstack_admin):
     for img in image_names:
         image = openstack_admin.create_image(
             img,
-            disk_format="qcow2",
+            disk_format="raw",
             filename=temporary_file,
             wait=True,
         )
@@ -70,7 +70,7 @@ def new_protected_image_admin(image_names, temporary_file, openstack_admin):
     for img in image_names:
         image = openstack_admin.create_image(
             img,
-            disk_format="qcow2",
+            disk_format="raw",
             filename=temporary_file,
             is_protected=True,
             wait=True,
