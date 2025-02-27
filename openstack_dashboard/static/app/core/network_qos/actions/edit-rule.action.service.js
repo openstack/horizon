@@ -52,17 +52,17 @@
       type: 'object',
       properties: {
         qospolicy: {
-          title: gettext('QoSPolicyId'),
+          title: gettext('QoS Policy ID'),
           type: 'string',
           readOnly: true
         },
         qospolicyname: {
-          title: gettext('QoSPolicyName'),
+          title: gettext('QoS Policy Name'),
           type: 'string',
           readOnly: true
         },
         ruleid: {
-          title: gettext('RuleId'),
+          title: gettext('Rule ID'),
           type: 'string'
         }
       },
@@ -163,7 +163,7 @@
     function onEditRule(response) {
       var qosrule = response.data;
       toast.add('success', interpolate(
-        gettext('Qos Policy Rule %s was successfully updated.'),[qosrule.id]));
+        gettext('QoS Policy Rule %s was successfully updated.'),[qosrule.id]));
 
       return actionResultService.getActionResult()
         .result;

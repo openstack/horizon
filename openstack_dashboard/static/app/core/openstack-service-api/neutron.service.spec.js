@@ -295,7 +295,7 @@
         "method": "get",
         "path": "/api/neutron/qos_policies/",
         "data": {},
-        "error": "Unable to retrieve the qos policies."
+        "error": "Unable to retrieve the QoS policies."
       },
       {
         "func": "getQoSPolicies",
@@ -309,7 +309,7 @@
         "testInput": [
           {"project_id": 1}
         ],
-        "error": "Unable to retrieve the qos policies."
+        "error": "Unable to retrieve the QoS policies."
       },
       {
         "func": "createNetworkQoSPolicy",
@@ -325,7 +325,7 @@
         "func": "deletePolicy",
         "method": "delete",
         "path": "/api/neutron/qos_policies/63/",
-        "error": "Unable to delete qos policy 63",
+        "error": "Unable to delete QoS Policy 63",
         "testInput": [
           63
         ]
@@ -335,7 +335,7 @@
         "method": "post",
         "path": "/api/neutron/qos/policies/63/dscp_marking_rules/",
         "data": {"dscp_marking_rule":{"dscp_mark":16}},
-        "error": "Unable to add the dscp_marking_rule .",
+        "error": "Unable to add the DSCP marking rule.",
         "testInput": [63,
                 {"dscp_marking_rule":{"dscp_mark": 16}}
         ]
@@ -345,7 +345,7 @@
         "method": "post",
         "path": "/api/neutron/qos/policies/63/bandwidth_limit_rules/",
         "data": {"bandwidth_limit_rule": {"max_kbps": 10000}},
-        "error": "Unable to add the bandwidthrule .",
+        "error": "Unable to add the bandwidth rule.",
         "testInput": [63,
                 {"bandwidth_limit_rule": {"max_kbps": 10000}}
         ]
@@ -355,7 +355,7 @@
         "method": "post",
         "path": "/api/neutron/qos/policies/63/minimum_bandwidth_rules/",
         "data": {"minimum_banwdiwth_rule": {"min_kbps": 1000, "direction": "egress"}},
-        "error": "Unable to add the minimum_bandwidth_rule .",
+        "error": "Unable to add the minimum bandwidth rule.",
         "testInput": [63,
                 {"minimum_banwdiwth_rule": {"min_kbps": 1000, "direction": "egress"}}
         ]
@@ -365,7 +365,7 @@
         "method": "post",
         "path": "/api/neutron/qos/policies/63/minimum_packet_rate_rules/",
         "data": {"minimum_packet_rate_rule": {"min_kpps": 1000, "direction": "ingress"}},
-        "error": "Unable to add the minimum_packet_rate_rule.",
+        "error": "Unable to add the minimum packet rate rule.",
         "testInput": [63,
                 {"minimum_packet_rate_rule": {"min_kpps": 1000, "direction": "ingress"}}
         ]
@@ -375,7 +375,7 @@
         "method": "patch",
         "path": "/api/neutron/qos/policies/63/dscp_marking_rules/1",
         "data": {"dscp_marking_rule":{"dscp_mark":16}},
-        "error": "Unable to update the dscp marking rule.",
+        "error": "Unable to update the DSCP marking rule.",
         "testInput": [63, 1,
                 {"dscp_marking_rule":{"dscp_mark": 16}}
         ]
@@ -385,7 +385,7 @@
         "method": "patch",
         "path": "/api/neutron/qos/policies/63/bandwidth_limit_rules/1",
         "data": {"bandwidth_limit_rule": {"max_kbps": "11000"}},
-        "error": "Unable to update the bandwidthrule.",
+        "error": "Unable to update the bandwidth rule.",
         "testInput": [63, 1,
                 {"bandwidth_limit_rule": {"max_kbps": "11000"}}
         ]
@@ -414,28 +414,28 @@
         "func": "deleteDSCPMarkingRule",
         "method": "delete",
         "path": "/api/neutron/qos/policies/63/dscp_marking_rules/1",
-        "error": "Unable to delete the dscp_marking_rule.",
+        "error": "Unable to delete the DSCP marking rule.",
         "testInput": [63, 1]
       },
       {
         "func": "deleteBandwidthLimitRule",
         "method": "delete",
         "path": "/api/neutron/qos/policies/63/bandwidth_limit_rules/1",
-        "error": "Unable to delete the bandwidth_limit_rule.",
+        "error": "Unable to delete the bandwidth limit rule.",
         "testInput": [63, 1]
       },
       {
         "func": "deleteMinimumBandwidthRule",
         "method": "delete",
         "path": "/api/neutron/qos/policies/63/minimum_bandwidth_rules/1",
-        "error": "Unable to delete the minimum_bandwidth_rule .",
+        "error": "Unable to delete the minimum bandwidth rule.",
         "testInput": [63, 1]
       },
       {
         "func": "deleteMinimumPacketRateRule",
         "method": "delete",
         "path": "/api/neutron/qos/policies/63/minimum_packet_rate_rules/1",
-        "error": "Unable to delete the minimum_packet_rate_rule .",
+        "error": "Unable to delete the minimum packet rate rule.",
         "testInput": [63, 1]
       }
     ];

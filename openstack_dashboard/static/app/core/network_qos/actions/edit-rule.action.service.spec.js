@@ -190,7 +190,7 @@
       expect(neutronAPI.updateDSCPMarkingRule).toHaveBeenCalledWith(
           qosPolicy.id, [dscpRule.model.ruleid], data);
       expect(toast.add).toHaveBeenCalledWith(
-        'success', 'Qos Policy Rule 2 was successfully updated.'
+        'success', 'QoS Policy Rule 2 was successfully updated.'
       );
     });
 
@@ -206,7 +206,7 @@
       expect(neutronAPI.updateBandwidthRule).toHaveBeenCalledWith(
           qosPolicy.id, [bwdLmtRule.model.ruleid], data);
       expect(toast.add).toHaveBeenCalledWith(
-        'success', 'Qos Policy Rule 2 was successfully updated.'
+        'success', 'QoS Policy Rule 2 was successfully updated.'
       );
     });
 
@@ -221,7 +221,7 @@
       expect(neutronAPI.updateMinimumBandwidthRule).toHaveBeenCalledWith(
           qosPolicy.id, [minBwdRule.model.ruleid], data);
       expect(toast.add).toHaveBeenCalledWith(
-        'success', 'Qos Policy Rule 2 was successfully updated.'
+        'success', 'QoS Policy Rule 2 was successfully updated.'
       );
     });
 
@@ -236,7 +236,7 @@
       expect(neutronAPI.updateMinimumPacketRateRule).toHaveBeenCalledWith(
           qosPolicy.id, [minPckRtRule.model.ruleid], data);
       expect(toast.add).toHaveBeenCalledWith(
-        'success', 'Qos Policy Rule 2 was successfully updated.'
+        'success', 'QoS Policy Rule 2 was successfully updated.'
       );
     });
 
