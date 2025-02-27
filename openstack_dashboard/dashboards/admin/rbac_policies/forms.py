@@ -147,11 +147,11 @@ class CreatePolicyForm(forms.SelfHandlingForm):
             return rbac_policy
         except neutron_exc.OverQuotaClient:
             redirect = reverse('horizon:admin:rbac_policies:index')
-            msg = _('rbac policy quota exceeded.')
+            msg = _('RBAC Policy quota exceeded.')
             exceptions.handle(request, msg, redirect=redirect)
         except Exception:
             redirect = reverse('horizon:admin:rbac_policies:index')
-            msg = _('Failed to create a rbac policy.')
+            msg = _('Failed to create a RBAC Policy.')
             exceptions.handle(request, msg, redirect=redirect)
             return False
 
@@ -179,9 +179,9 @@ class UpdatePolicyForm(forms.SelfHandlingForm):
             messages.success(request, msg)
             return rbac_policy
         except Exception as e:
-            LOG.info('Failed to update rbac policy %(id)s: %(exc)s',
+            LOG.info('Failed to update RBAC Policy %(id)s: %(exc)s',
                      {'id': self.initial['rbac_policy_id'], 'exc': e})
-            msg = _('Failed to update rbac policy %s') \
+            msg = _('Failed to update RBAC Policy %s') \
                 % self.initial['rbac_policy_id']
             redirect = reverse(self.failure_url)
             exceptions.handle(request, msg, redirect=redirect)

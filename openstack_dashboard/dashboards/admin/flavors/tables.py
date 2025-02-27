@@ -120,15 +120,15 @@ def get_size(flavor):
 
 
 def get_swap_size(flavor):
-    return _("%sMB") % (flavor.swap or 0)
+    return _("%s MB") % (flavor.swap or 0)
 
 
 def get_disk_size(flavor):
-    return _("%sGB") % (flavor.disk or 0)
+    return _("%s GB") % (flavor.disk or 0)
 
 
 def get_ephemeral_size(flavor):
-    return _("%sGB") % getattr(flavor, 'OS-FLV-EXT-DATA:ephemeral', 0)
+    return _("%s GB") % getattr(flavor, 'OS-FLV-EXT-DATA:ephemeral', 0)
 
 
 def get_extra_specs(flavor):

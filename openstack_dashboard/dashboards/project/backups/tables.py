@@ -135,7 +135,7 @@ class UpdateRow(tables.Row):
 
 
 def get_size(backup):
-    return _("%sGB") % backup.size
+    return _("%s GB") % backup.size
 
 
 class BackupsFilterAction(tables.FilterAction):

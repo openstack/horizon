@@ -100,7 +100,7 @@ class BackupsFilterAction(tables.FilterAction):
     filter_choices = (
         ('project', _("Project ="), True),
         ('name', _("Backup Name ="), True),
-        ('size', _("Size(GiB) ="), True),
+        ('size', _("Size (GiB) ="), True),
         ('status', _("Status ="), True),
         ('volume_id', _("Volume ID ="), True,),
     )
