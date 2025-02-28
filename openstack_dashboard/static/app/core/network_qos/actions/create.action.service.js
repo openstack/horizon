@@ -34,7 +34,8 @@
     'horizon.app.core.network_qos.resourceType',
     'horizon.framework.widgets.form.ModalFormService',
     'horizon.framework.widgets.toast.service',
-    'horizon.framework.util.actions.action-result.service'
+    'horizon.framework.util.actions.action-result.service',
+    'horizon.app.core.network_qos.basePath'
   ];
 
   function createService(
@@ -44,7 +45,8 @@
     resourceType,
     modalFormService,
     toast,
-    actionResultService
+    actionResultService,
+    basePath
   ) {
 
     var service = {
@@ -67,6 +69,7 @@
     function perform() {
       var createPolicy = workflow.init();
       createPolicy.title = gettext('Create QoS Policy');
+      createPolicy.helpUrl = basePath + 'actions/create.description.html';
       return modalFormService.open(createPolicy).then(submit);
     }
 
