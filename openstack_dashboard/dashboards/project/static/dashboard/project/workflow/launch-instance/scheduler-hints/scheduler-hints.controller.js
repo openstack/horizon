@@ -42,7 +42,9 @@
       available: gettext('Available Scheduler Hints'),
       existing: gettext('Existing Scheduler Hints'),
       noAvailable: gettext('No available scheduler hints'),
-      noExisting: gettext('No existing scheduler hints')
+      noExisting: gettext('No existing scheduler hints'),
+      filter: gettext('Filter'),
+      custom: gettext('Custom')
     };
   }
 
