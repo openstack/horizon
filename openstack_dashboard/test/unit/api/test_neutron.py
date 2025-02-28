@@ -1594,15 +1594,16 @@ class NeutronApiTests(test.APIMockTestCase):
         router = self.api_routers_with_routes_sdk[0]
         router_id = self.api_routers_with_routes_sdk[0]['id']
         post_router = copy.deepcopy(router)
-        route = api.neutron.RouterStaticRoute(
-            post_router['routes'].pop())
+        routes = post_router.routes[:]
+        route = api.neutron.RouterStaticRoute(routes.pop())
+        post_router.routes = routes
 
         networkclient = mock_networkclient.return_value
         networkclient.get_router.return_value = router
         networkclient.update_router.return_value = post_router
 
-        api.neutron.router_static_route_remove(self.request,
-                                               router_id, route.id)
+        api.neutron.router_static_route_remove(
+            self.request, router_id, route.id)
 
         networkclient.get_router.assert_called_once_with(router_id)
         networkclient.update_router.assert_called_once_with(
@@ -1613,14 +1614,17 @@ class NeutronApiTests(test.APIMockTestCase):
         router = self.api_routers_with_routes_sdk[0]
         router_id = self.api_routers_with_routes_sdk[0]['id']
         post_router = copy.deepcopy(router)
+        routes = post_router.routes[:]
         route = {'nexthop': '10.0.0.5', 'destination': '40.0.1.0/24'}
-        post_router['routes'].insert(0, route)
+        routes.insert(0, route)
+        post_router.routes = routes
 
         networkclient = mock_networkclient.return_value
         networkclient.get_router.return_value = router
         networkclient.update_router.return_value = post_router
 
-        api.neutron.router_static_route_add(self.request, router_id, route)
+        api.neutron.router_static_route_add(
+            self.request, router_id, route)
 
         networkclient.get_router.assert_called_once_with(router_id)
         networkclient.update_router.assert_called_once_with(

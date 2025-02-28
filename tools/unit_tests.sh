@@ -1,5 +1,7 @@
 # Usage: unit_tests.sh [--coverage] <root_dir> [<test-file>, ...]
 
+set -o xtrace
+
 if [ "$1" = "--coverage" ]; then
   shift
   coverage=1
