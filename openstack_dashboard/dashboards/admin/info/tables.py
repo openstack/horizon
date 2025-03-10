@@ -169,14 +169,14 @@ def get_network_agent_zone(agent):
 
 
 def get_network_agent_status(agent):
-    if agent.admin_state_up:
+    if agent.is_admin_state_up:
         return _('Enabled')
 
     return _('Disabled')
 
 
 def get_network_agent_state(agent):
-    if agent.alive:
+    if agent.is_alive:
         return _('Up')
 
     return _('Down')
@@ -206,7 +206,7 @@ class NetworkAgentsTable(tables.DataTable):
     zone = tables.Column(get_network_agent_zone, verbose_name=_('Zone'))
     status = tables.Column(get_network_agent_status, verbose_name=_('Status'))
     state = tables.Column(get_network_agent_state, verbose_name=_('State'))
-    heartbeat_timestamp = tables.Column('heartbeat_timestamp',
+    heartbeat_timestamp = tables.Column('last_heartbeat_at',
                                         verbose_name=pgettext_lazy(
                                             'Time since the last update',
                                             'Last Updated'),
