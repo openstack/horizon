@@ -46,6 +46,8 @@
     gettext
   ) {
 
+    var basePath = '/static/app/core/server_groups/';
+
     var service = {
       allowed: allowed,
       perform: perform,
@@ -64,6 +66,7 @@
     function perform() {
       var config = workflow.init();
       config.title = gettext("Create Server Group");
+      config.helpUrl = basePath + 'actions/create.description.html';
       return modalFormService.open(config).then(submit);
     }
 
