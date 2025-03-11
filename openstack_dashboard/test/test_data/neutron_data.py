@@ -15,10 +15,12 @@
 import copy
 
 from openstack.network.v2 import agent as sdk_agent
+from openstack.network.v2 import floating_ip as sdk_fip
 from openstack.network.v2 import network as sdk_net
 from openstack.network.v2 import network_ip_availability as \
     sdk_ip_availability
 from openstack.network.v2 import port as sdk_port
+from openstack.network.v2 import port_forwarding as sdk_pf
 from openstack.network.v2 import router as sdk_router
 from openstack.network.v2 import subnet as sdk_subnet
 from openstack.network.v2 import subnet_pool as sdk_subnet_pool
@@ -72,8 +74,6 @@ def data(TEST):
     TEST.api_trunks = utils.TestDataContainer()
     TEST.api_routers = utils.TestDataContainer()
     TEST.api_routers_with_routes = utils.TestDataContainer()
-    TEST.api_floating_ips = utils.TestDataContainer()
-    TEST.api_port_forwardings = utils.TestDataContainer()
     TEST.api_security_groups = utils.TestDataContainer()
     TEST.api_security_group_rules = utils.TestDataContainer()
     TEST.api_pools = utils.TestDataContainer()
@@ -103,6 +103,8 @@ def data(TEST):
     TEST.api_routers_with_routes_sdk = list()
     TEST.api_agents_sdk = list()
     TEST.api_ip_availability_sdk = list()
+    TEST.api_port_forwardings_sdk = list()
+    TEST.api_floating_ips_sdk = list()
 
     # 1st network.
     network_dict = {'is_admin_state_up': True,
@@ -747,7 +749,7 @@ def data(TEST):
                 'port_id': None,
                 'port_forwardings': [],
                 'router_id': None}
-    TEST.api_floating_ips.add(fip_dict)
+    TEST.api_floating_ips_sdk.append(sdk_fip.FloatingIP(**fip_dict))
     fip_with_instance = copy.deepcopy(fip_dict)
     fip_with_instance.update({'instance_id': None,
                               'instance_type': None})
@@ -762,7 +764,7 @@ def data(TEST):
                 'fixed_ip_address': assoc_port['fixed_ips'][0]['ip_address'],
                 'port_id': assoc_port['id'],
                 'router_id': router_dict['id']}
-    TEST.api_floating_ips.add(fip_dict)
+    TEST.api_floating_ips_sdk.append(sdk_fip.FloatingIP(**fip_dict))
     fip_with_instance = copy.deepcopy(fip_dict)
     fip_with_instance.update({'instance_id': '1',
                               'instance_type': 'compute'})
@@ -770,18 +772,23 @@ def data(TEST):
 
     # port forwardings
 
-    TEST.api_port_forwardings.add({
+    pf_dict = {
+        "name": "pf0",
         "protocol": "tcp",
         "internal_ip_address": "10.0.0.11",
         "internal_port": 25,
         "internal_port_id": "1238be08-a2a8-4b8d-addf-fb5e2250e480",
         "external_port": 2230,
-        "internal_port_range": "25:25",
-        "external_port_range": "2230:2230",
+        "internal_port_range": "25:26",
+        "external_port_range": "2230:2231",
         "description": "",
-        "id": "e0a0274e-4d19-4eab-9e12-9e77a8caf3ea"
-    })
-    TEST.api_port_forwardings.add({
+        "id": "e0a0274e-4d19-4eab-9e12-9e77a8caf3ea",
+        'floatingip_id': fip_dict['id'],
+        "location": None
+    }
+    TEST.api_port_forwardings_sdk.append(sdk_pf.PortForwarding(**pf_dict))
+    pf_dict = {
+        "name": "pf1",
         "protocol": "tcp",
         "internal_port": 80,
         "external_port": 8080,
@@ -790,22 +797,29 @@ def data(TEST):
         "internal_port_id": "2057ec54-8be2-11eb-8dcd-0242ac130003",
         "external_port_range": "8080:8090",
         "description": "using port ranges",
-        "id": "0f23a90a-8be2-11eb-8dcd-0242ac130003"
-    })
-    TEST.api_port_forwardings.add({
+        "id": "0f23a90a-8be2-11eb-8dcd-0242ac130003",
+        'floatingip_id': fip_dict['id'],
+        "location": None
+    }
+    TEST.api_port_forwardings_sdk.append(sdk_pf.PortForwarding(**pf_dict))
+    pf_dict = {
+        "name": "pf2",
         "protocol": "tcp",
         "internal_ip_address": "10.0.0.24",
         "internal_port": 25,
         "internal_port_id": "070ef0b2-0175-4299-be5c-01fea8cca522",
         "external_port": 2229,
-        "internal_port_range": "25:25",
-        "external_port_range": "2229:2229",
+        "internal_port_range": "25:27",
+        "external_port_range": "2229:2231",
         "description": "Some description",
-        "id": "1798dc82-c0ed-4b79-b12d-4c3c18f90eb2"
-    })
+        "id": "1798dc82-c0ed-4b79-b12d-4c3c18f90eb2",
+        'floatingip_id': fip_dict['id'],
+        "location": None
+    }
+    TEST.api_port_forwardings_sdk.append(sdk_pf.PortForwarding(**pf_dict))
 
     TEST.port_forwardings.add(neutron.PortForwarding(
-        TEST.api_port_forwardings.first(), fip_dict['id']
+        TEST.api_port_forwardings_sdk[0].to_dict(), fip_dict['id']
     ))
 
     # Security group.

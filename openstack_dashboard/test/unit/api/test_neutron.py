@@ -2331,36 +2331,40 @@ class NeutronApiSecurityGroupTests(test.APIMockTestCase):
 class NeutronApiFloatingIpPortForwardingTest(test.APIMockTestCase):
     def setUp(self):
         super().setUp()
-        neutronclient = mock.patch.object(api.neutron, 'neutronclient').start()
-        self.client_mock = neutronclient.return_value
+        networkclient = mock.patch.object(api.neutron, 'networkclient').start()
+        self.client_mock = networkclient.return_value
 
     def test_port_forwarding_list(self):
-        pfws = {'port_forwardings': self.api_port_forwardings.list()}
-        self.client_mock.list_port_forwardings.return_value = pfws
+        pfws = self.api_port_forwardings_sdk
+        self.client_mock.port_forwardings.return_value = pfws
+        fip_id = self.port_forwardings.get().to_dict()['floatingip_id']
         response = api.neutron.floating_ip_port_forwarding_list(
-            self.request, 'fip')
+            self.request, fip_id)
         for i in range(len(response)):
             resp_val = response[i]
-            expected_val = pfws['port_forwardings'][i]
+            expected_val = pfws[i]
             for attr in resp_val.to_dict():
                 self.assertEqual(getattr(resp_val, attr), expected_val[attr])
 
-        self.client_mock.list_port_forwardings.assert_called_once_with('fip')
+        self.client_mock.port_forwardings.assert_called_once_with(fip_id)
 
     def test_port_forwarding_get(self):
-        pfw = self.api_port_forwardings.first()
+        pfw = self.api_port_forwardings_sdk[0]
+        pfw_expected = self.port_forwardings.get().to_dict()
         pfw_id = pfw['id']
-        self.client_mock.show_port_forwarding.return_value = pfw
+        fip_id = pfw_expected['floatingip_id']
+        self.client_mock.get_port_forwarding.return_value = pfw
         response = api.neutron.floating_ip_port_forwarding_get(
-            self.request, 'fip', pfw_id)
+            self.request, fip_id, pfw_id)
         for attr in response.to_dict():
             self.assertEqual(getattr(response, attr), pfw[attr])
-        self.client_mock.show_port_forwarding.assert_called_once_with(
-            'fip', pfw_id)
+        self.client_mock.get_port_forwarding.assert_called_once_with(
+            fip_id, pfw_id)
 
     def test_port_forwarding_create(self):
-        pfw_resp_mock = {'port_forwarding': self.api_port_forwardings.first()}
+        pfw_resp_mock = self.api_port_forwardings_sdk[0]
         pfw_expected = self.port_forwardings.get().to_dict()
+        fip_id = pfw_expected['floatingip_id']
         pfw = {
             "protocol": "tcp",
             "internal_ip_address": "10.0.0.24",
@@ -2371,16 +2375,17 @@ class NeutronApiFloatingIpPortForwardingTest(test.APIMockTestCase):
         }
         self.client_mock.create_port_forwarding.return_value = pfw_resp_mock
         response = api.neutron.floating_ip_port_forwarding_create(
-            self.request, 'fip', **pfw)
+            self.request, fip_id, **pfw)
         for attr in response.to_dict():
             self.assertEqual(getattr(response, attr), pfw_expected[attr])
         self.client_mock.create_port_forwarding.assert_called_once_with(
-            'fip', {'port_forwarding': pfw})
+            fip_id, **pfw)
 
     def test_port_forwarding_update(self):
-        pfw_resp_mock = {'port_forwarding': self.api_port_forwardings.first()}
+        pfw_resp_mock = self.api_port_forwardings_sdk[0]
         pfw_expected = self.port_forwardings.get().to_dict()
-        pfw_id = pfw_resp_mock['port_forwarding']['id']
+        pfw_id = pfw_resp_mock['id']
+        fip_id = pfw_expected['floatingip_id']
         pfw = {
             "protocol": "tcp",
             "internal_port": 25,
@@ -2388,14 +2393,14 @@ class NeutronApiFloatingIpPortForwardingTest(test.APIMockTestCase):
         }
         self.client_mock.update_port_forwarding.return_value = pfw_resp_mock
         response = api.neutron.floating_ip_port_forwarding_update(
-            self.request, 'fip', portforwarding_id=pfw_id, **pfw)
+            self.request, fip_id, portforwarding_id=pfw_id, **pfw)
         for attr in response.to_dict():
             self.assertEqual(getattr(response, attr), pfw_expected[attr])
         self.client_mock.update_port_forwarding.assert_called_once_with(
-            'fip', pfw_id, {'port_forwarding': pfw})
+            fip_id, pfw_id, **pfw)
 
     def test_port_forwarding_delete(self):
-        pfw_id = self.api_port_forwardings.first()['id']
+        pfw_id = self.api_port_forwardings_sdk[0]['id']
         self.client_mock.delete_port_forwarding.return_value = None
         api.neutron.floating_ip_port_forwarding_delete(
             self.request, 'fip', pfw_id)
@@ -2407,9 +2412,7 @@ class NeutronApiFloatingIpTests(test.APIMockTestCase):
 
     def setUp(self):
         super().setUp()
-        neutronclient = mock.patch.object(api.neutron, 'neutronclient').start()
         networkclient = mock.patch.object(api.neutron, 'networkclient').start()
-        self.qclient = neutronclient.return_value
         self.netclient = networkclient.return_value
 
     @override_settings(OPENSTACK_NEUTRON_NETWORK={'enable_router': True})
@@ -2433,10 +2436,10 @@ class NeutronApiFloatingIpTests(test.APIMockTestCase):
         self.netclient.networks.assert_called_once_with(**search_opts)
 
     def test_floating_ip_list(self):
-        fips = self.api_floating_ips.list()
+        fips = self.api_floating_ips_sdk
         filters = {'tenant_id': self.request.user.tenant_id}
 
-        self.qclient.list_floatingips.return_value = {'floatingips': fips}
+        self.netclient.ips.return_value = fips
         self.netclient.ports.return_value = self.api_ports_sdk
 
         rets = api.neutron.tenant_floating_ip_list(self.request)
@@ -2445,7 +2448,8 @@ class NeutronApiFloatingIpTests(test.APIMockTestCase):
         self.assertEqual(len(fips), len(rets))
         for ret, exp in zip(rets, fips):
             for attr in ['id', 'ip', 'pool', 'fixed_ip', 'port_id']:
-                self.assertEqual(exp[attr], getattr(ret, attr))
+                check = NeutronApiFloatingIpTests._translate_fip_dict(attr)
+                self.assertEqual(exp[check], getattr(ret, attr))
             if exp['port_id']:
                 dev_id = assoc_port['device_id'] if exp['port_id'] else None
                 self.assertEqual(dev_id, ret.instance_id)
@@ -2453,12 +2457,12 @@ class NeutronApiFloatingIpTests(test.APIMockTestCase):
             else:
                 self.assertIsNone(ret.instance_id)
                 self.assertIsNone(ret.instance_type)
-        self.qclient.list_floatingips.assert_called_once_with(**filters)
+        self.netclient.ips.assert_called_once_with(**filters)
         self.netclient.ports.assert_called_once_with(**filters)
 
     def test_floating_ip_list_all_tenants(self):
-        fips = self.api_floating_ips.list()
-        self.qclient.list_floatingips.return_value = {'floatingips': fips}
+        fips = self.api_floating_ips_sdk
+        self.netclient.ips.return_value = fips
         self.netclient.ports.return_value = self.api_ports_sdk
 
         fip_manager = api.neutron.FloatingIpManager(self.request)
@@ -2468,7 +2472,8 @@ class NeutronApiFloatingIpTests(test.APIMockTestCase):
         self.assertEqual(len(fips), len(rets))
         for ret, exp in zip(rets, fips):
             for attr in ['id', 'ip', 'pool', 'fixed_ip', 'port_id']:
-                self.assertEqual(getattr(ret, attr), exp[attr])
+                check = NeutronApiFloatingIpTests._translate_fip_dict(attr)
+                self.assertEqual(getattr(ret, attr), exp[check])
             if exp['port_id']:
                 dev_id = assoc_port['device_id'] if exp['port_id'] else None
                 self.assertEqual(dev_id, ret.instance_id)
@@ -2476,21 +2481,33 @@ class NeutronApiFloatingIpTests(test.APIMockTestCase):
             else:
                 self.assertIsNone(ret.instance_id)
                 self.assertIsNone(ret.instance_type)
-        self.qclient.list_floatingips.assert_called_once_with()
+        self.netclient.ips.assert_called_once_with()
         self.netclient.ports.assert_called_once_with()
 
+    def _translate_fip_dict(attr):
+        """Helper method as with SDK some FIP attributes names changed"""
+        check = attr
+        if attr == 'pool':
+            check = 'floating_network_id'
+        if attr == 'ip':
+            check = 'floating_ip_address'
+        if attr == 'fixed_ip':
+            check = 'fixed_ip_address'
+        return check
+
     def _test_floating_ip_get_associated(self, assoc_port, exp_instance_type):
-        fip = self.api_floating_ips.list()[1]
-        self.qclient.show_floatingip.return_value = {'floatingip': fip}
+        fip = self.api_floating_ips_sdk[1]
+        self.netclient.get_ip.return_value = fip
         self.netclient.get_port.return_value = assoc_port
 
         ret = api.neutron.tenant_floating_ip_get(self.request, fip['id'])
 
         for attr in ['id', 'ip', 'pool', 'fixed_ip', 'port_id']:
-            self.assertEqual(fip[attr], getattr(ret, attr))
+            check = NeutronApiFloatingIpTests._translate_fip_dict(attr)
+            self.assertEqual(fip[check], getattr(ret, attr))
         self.assertEqual(assoc_port['device_id'], ret.instance_id)
         self.assertEqual(exp_instance_type, ret.instance_type)
-        self.qclient.show_floatingip.assert_called_once_with(fip['id'])
+        self.netclient.get_ip.assert_called_once_with(fip['id'])
         self.netclient.get_port.assert_called_once_with(assoc_port['id'])
 
     def test_floating_ip_get_associated(self):
@@ -2505,66 +2522,69 @@ class NeutronApiFloatingIpTests(test.APIMockTestCase):
         self._test_floating_ip_get_associated(assoc_port, 'loadbalancer')
 
     def test_floating_ip_get_unassociated(self):
-        fip = self.api_floating_ips.list()[0]
+        fip = self.api_floating_ips_sdk[0]
 
-        self.qclient.show_floatingip.return_value = {'floatingip': fip}
+        self.netclient.get_ip.return_value = fip
 
         ret = api.neutron.tenant_floating_ip_get(self.request, fip['id'])
 
         for attr in ['id', 'ip', 'pool', 'fixed_ip', 'port_id']:
-            self.assertEqual(fip[attr], getattr(ret, attr))
+            check = NeutronApiFloatingIpTests._translate_fip_dict(attr)
+            self.assertEqual(fip[check], getattr(ret, attr))
         self.assertIsNone(ret.instance_id)
         self.assertIsNone(ret.instance_type)
-        self.qclient.show_floatingip.assert_called_once_with(fip['id'])
+        self.netclient.get_ip.assert_called_once_with(fip['id'])
 
     def test_floating_ip_allocate(self):
         ext_nets = [n for n in self.api_networks.list()
                     if n['is_router_external']]
         ext_net = ext_nets[0]
-        fip = self.api_floating_ips.first()
-        self.qclient.create_floatingip.return_value = {'floatingip': fip}
+        fip = self.api_floating_ips_sdk[0]
+
+        self.netclient.create_ip.return_value = fip
 
         ret = api.neutron.tenant_floating_ip_allocate(self.request,
                                                       ext_net['id'])
         for attr in ['id', 'ip', 'pool', 'fixed_ip', 'port_id']:
-            self.assertEqual(fip[attr], getattr(ret, attr))
+            check = NeutronApiFloatingIpTests._translate_fip_dict(attr)
+            self.assertEqual(fip[check], getattr(ret, attr))
         self.assertIsNone(ret.instance_id)
         self.assertIsNone(ret.instance_type)
-        self.qclient.create_floatingip.assert_called_once_with(
-            {'floatingip': {'floating_network_id': ext_net['id'],
-                            'tenant_id': self.request.user.project_id}})
+        self.netclient.create_ip.assert_called_once_with(
+            floating_network_id=ext_net['id'],
+            tenant_id=self.request.user.project_id)
 
     def test_floating_ip_release(self):
-        fip = self.api_floating_ips.first()
-        self.qclient.delete_floatingip.return_value = None
+        fip = self.api_floating_ips_sdk[0]
+        self.netclient.delete_ip.return_value = None
 
         api.neutron.tenant_floating_ip_release(self.request, fip['id'])
 
-        self.qclient.delete_floatingip.assert_called_once_with(fip['id'])
+        self.netclient.delete_ip.assert_called_once_with(fip['id'])
 
     def test_floating_ip_associate(self):
-        fip = self.api_floating_ips.list()[1]
-        assoc_port = self.api_ports.list()[1]
+        fip = self.api_floating_ips_sdk[1]
+        assoc_port = self.api_ports_sdk[1]
         ip_address = assoc_port['fixed_ips'][0]['ip_address']
         target_id = '%s_%s' % (assoc_port['id'], ip_address)
         params = {'port_id': assoc_port['id'],
                   'fixed_ip_address': ip_address}
-        self.qclient.update_floatingip.return_value = None
+        self.netclient.update_ip.return_value = None
 
         api.neutron.floating_ip_associate(self.request, fip['id'], target_id)
 
-        self.qclient.update_floatingip.assert_called_once_with(
-            fip['id'], {'floatingip': params})
+        self.netclient.update_ip.assert_called_once_with(
+            fip['id'], **params)
 
     def test_floating_ip_disassociate(self):
-        fip = self.api_floating_ips.list()[1]
+        fip = self.api_floating_ips_sdk[1]
 
-        self.qclient.update_floatingip.return_value = None
+        self.netclient.update_ip.return_value = None
 
         api.neutron.floating_ip_disassociate(self.request, fip['id'])
 
-        self.qclient.update_floatingip.assert_called_once_with(
-            fip['id'], {'floatingip': {'port_id': None}})
+        self.netclient.update_ip.assert_called_once_with(
+            fip['id'], port_id=None)
 
     def _get_target_id(self, port, ip=None, index=0):
         param = {'id': port['id'],
