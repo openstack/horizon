@@ -1139,7 +1139,7 @@ class NeutronApiTests(test.APIMockTestCase):
 
     @mock.patch.object(api.neutron, 'networkclient')
     def test_subnetpool_update(self, mock_networkclient):
-        subnetpool_data = self.api_subnetpools.first()
+        subnetpool_data = self.api_subnetpools_sdk[0]
         subnetpool_id = subnetpool_data['id']
         params = {'name': subnetpool_data['name'],
                   'prefixes': subnetpool_data['prefixes']}
@@ -1157,7 +1157,7 @@ class NeutronApiTests(test.APIMockTestCase):
 
     @mock.patch.object(api.neutron, 'networkclient')
     def test_subnetpool_delete(self, mock_networkclient):
-        subnetpool_id = self.api_subnetpools.first()['id']
+        subnetpool_id = self.api_subnetpools_sdk[0]['id']
 
         network_client = mock_networkclient.return_value
         network_client.delete_subnet_pool.return_value = None
@@ -1185,7 +1185,7 @@ class NeutronApiTests(test.APIMockTestCase):
     def test_port_list_with_trunk_types(
             self, mock_networkclient, mock_is_extension_supported):
         ports = self.api_tp_ports_sdk
-        trunks = self.api_tp_trunks.list()
+        trunks = self.api_tp_trunks_sdk
 
         # list_extensions is decorated with memoized_with_request, so
         # neutronclient() is not called. We need to mock it separately.
@@ -1340,7 +1340,7 @@ class NeutronApiTests(test.APIMockTestCase):
         network_client.get_trunk.assert_called_once_with(trunk_id)
 
     def test_trunk_object(self):
-        trunk = self.api_trunks.first().copy()
+        trunk = self.api_trunks_sdk[0].copy()
         obj = api.neutron.Trunk(trunk)
         self.assertEqual(0, obj.subport_count)
         trunk_dict = obj.to_dict()
@@ -2444,7 +2444,7 @@ class NeutronApiFloatingIpTests(test.APIMockTestCase):
 
         rets = api.neutron.tenant_floating_ip_list(self.request)
 
-        assoc_port = self.api_ports.list()[1]
+        assoc_port = self.api_ports_sdk[1]
         self.assertEqual(len(fips), len(rets))
         for ret, exp in zip(rets, fips):
             for attr in ['id', 'ip', 'pool', 'fixed_ip', 'port_id']:
@@ -2536,7 +2536,7 @@ class NeutronApiFloatingIpTests(test.APIMockTestCase):
         self.netclient.get_ip.assert_called_once_with(fip['id'])
 
     def test_floating_ip_allocate(self):
-        ext_nets = [n for n in self.api_networks.list()
+        ext_nets = [n for n in self.api_networks_sdk
                     if n['is_router_external']]
         ext_net = ext_nets[0]
         fip = self.api_floating_ips_sdk[0]

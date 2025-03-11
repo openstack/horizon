@@ -66,14 +66,6 @@ def data(TEST):
     TEST.neutron_availability_zones = utils.TestDataContainer()
 
     # Data return by neutronclient.
-    TEST.api_agents = utils.TestDataContainer()
-    TEST.api_networks = utils.TestDataContainer()
-    TEST.api_subnets = utils.TestDataContainer()
-    TEST.api_subnetpools = utils.TestDataContainer()
-    TEST.api_ports = utils.TestDataContainer()
-    TEST.api_trunks = utils.TestDataContainer()
-    TEST.api_routers = utils.TestDataContainer()
-    TEST.api_routers_with_routes = utils.TestDataContainer()
     TEST.api_security_groups = utils.TestDataContainer()
     TEST.api_security_group_rules = utils.TestDataContainer()
     TEST.api_pools = utils.TestDataContainer()
@@ -81,15 +73,12 @@ def data(TEST):
     TEST.api_members = utils.TestDataContainer()
     TEST.api_monitors = utils.TestDataContainer()
     TEST.api_extensions = utils.TestDataContainer()
-    TEST.api_ip_availability = utils.TestDataContainer()
     TEST.api_rbac_policies = utils.TestDataContainer()
     TEST.api_qos_policies = utils.TestDataContainer()
     TEST.api_dscp_mark_rule = utils.TestDataContainer()
     TEST.api_bandwidth_limit_rule = utils.TestDataContainer()
     TEST.api_minimum_bandwidth_rule = utils.TestDataContainer()
     TEST.api_minimum_packet_rate_rule = utils.TestDataContainer()
-    TEST.api_tp_trunks = utils.TestDataContainer()
-    TEST.api_tp_ports = utils.TestDataContainer()
 
     # Data returned by SDK:
     TEST.api_networks_sdk = list()
@@ -149,12 +138,9 @@ def data(TEST):
         'ipv6_address_mode': 'slaac'
     }
 
-    TEST.api_networks.add(network_dict)
     TEST.api_networks_sdk.append(sdk_net.Network(**network_dict))
     TEST.api_subnets_sdk.append(sdk_subnet.Subnet(**subnet_dict))
     TEST.api_subnets_sdk.append(sdk_subnet.Subnet(**subnetv6_dict))
-    TEST.api_subnets.add(subnet_dict)
-    TEST.api_subnets.add(subnetv6_dict)
 
     network = copy.deepcopy(network_dict)
     subnet = neutron.Subnet(subnet_dict)
@@ -187,7 +173,6 @@ def data(TEST):
         'security_group_ids': [],
     }
 
-    TEST.api_ports.add(port_dict)
     TEST.api_ports_sdk.append(sdk_port.Port(**port_dict))
     TEST.ports.add(neutron.Port(port_dict))
 
@@ -215,7 +200,6 @@ def data(TEST):
             '27a5c9a1-bdbb-48ac-833a-2e4b5f54b31d'
         ],
     }
-    TEST.api_ports.add(port_dict)
     TEST.api_ports_sdk.append(sdk_port.Port(**port_dict))
     TEST.ports.add(neutron.Port(port_dict))
 
@@ -237,7 +221,6 @@ def data(TEST):
         'binding:host_id': 'host',
         'security_group_ids': [],
     }
-    TEST.api_ports.add(port_dict)
     TEST.api_ports_sdk.append(sdk_port.Port(**port_dict))
     TEST.ports.add(neutron.Port(port_dict))
     port_dict = {
@@ -256,7 +239,6 @@ def data(TEST):
         'binding:host_id': 'host',
         'security_group_ids': [],
     }
-    TEST.api_ports.add(port_dict)
     TEST.api_ports_sdk.append(sdk_port.Port(**port_dict))
     TEST.ports.add(neutron.Port(port_dict))
 
@@ -277,7 +259,6 @@ def data(TEST):
         'binding:host_id': '',
         'security_group_ids': [],
     }
-    TEST.api_ports.add(port_dict)
     TEST.api_ports_sdk.append(sdk_port.Port(**port_dict))
     TEST.ports.add(neutron.Port(port_dict))
 
@@ -310,9 +291,7 @@ def data(TEST):
                    'tenant_id': network_dict['tenant_id']}
 
     TEST.api_networks_sdk.append(sdk_net.Network(**network_dict))
-    TEST.api_networks.add(network_dict)
     TEST.api_subnets_sdk.append(sdk_subnet.Subnet(**subnet_dict))
-    TEST.api_subnets.add(subnet_dict)
 
     network = copy.deepcopy(network_dict)
     subnet = neutron.Subnet(subnet_dict)
@@ -340,7 +319,6 @@ def data(TEST):
         ],
     }
 
-    TEST.api_ports.add(port_dict)
     TEST.api_ports_sdk.append(sdk_port.Port(**port_dict))
     TEST.ports.add(neutron.Port(port_dict))
 
@@ -371,9 +349,7 @@ def data(TEST):
     ext_net = network_dict
 
     TEST.api_networks_sdk.append(sdk_net.Network(**network_dict))
-    TEST.api_networks.add(network_dict)
     TEST.api_subnets_sdk.append(sdk_subnet.Subnet(**subnet_dict))
-    TEST.api_subnets.add(subnet_dict)
 
     network = copy.deepcopy(network_dict)
     subnet = neutron.Subnet(subnet_dict)
@@ -408,9 +384,7 @@ def data(TEST):
                    'tenant_id': network_dict['tenant_id']}
 
     TEST.api_networks_sdk.append(sdk_net.Network(**network_dict))
-    TEST.api_networks.add(network_dict)
     TEST.api_subnets_sdk.append(sdk_subnet.Subnet(**subnet_dict))
-    TEST.api_subnets.add(subnet_dict)
 
     network = copy.deepcopy(network_dict)
     subnet = neutron.Subnet(subnet_dict)
@@ -444,9 +418,7 @@ def data(TEST):
                    'tenant_id': network_dict['tenant_id']}
 
     TEST.api_networks_sdk.append(sdk_net.Network(**network_dict))
-    TEST.api_networks.add(network_dict)
     TEST.api_subnets_sdk.append(sdk_subnet.Subnet(**subnet_dict))
-    TEST.api_subnets.add(subnet_dict)
 
     network = copy.deepcopy(network_dict)
     subnet = neutron.Subnet(subnet_dict)
@@ -480,9 +452,7 @@ def data(TEST):
                    'tenant_id': network_dict['tenant_id']}
 
     TEST.api_networks_sdk.append(sdk_net.Network(**network_dict))
-    TEST.api_networks.add(network_dict)
     TEST.api_subnets_sdk.append(sdk_subnet.Subnet(**subnet_dict))
-    TEST.api_subnets.add(subnet_dict)
 
     network = copy.deepcopy(network_dict)
     subnet = neutron.Subnet(subnet_dict)
@@ -516,9 +486,7 @@ def data(TEST):
                    'tenant_id': network_dict['tenant_id']}
 
     TEST.api_networks_sdk.append(sdk_net.Network(**network_dict))
-    TEST.api_networks.add(network_dict)
     TEST.api_subnets_sdk.append(sdk_subnet.Subnet(**subnet_dict))
-    TEST.api_subnets.add(subnet_dict)
 
     network = copy.deepcopy(network_dict)
     subnet = neutron.Subnet(subnet_dict)
@@ -552,9 +520,7 @@ def data(TEST):
                    'tenant_id': network_dict['tenant_id']}
 
     TEST.api_networks_sdk.append(sdk_net.Network(**network_dict))
-    TEST.api_networks.add(network_dict)
     TEST.api_subnets_sdk.append(sdk_subnet.Subnet(**subnet_dict))
-    TEST.api_subnets.add(subnet_dict)
 
     network = copy.deepcopy(network_dict)
     subnet = neutron.Subnet(subnet_dict)
@@ -589,9 +555,7 @@ def data(TEST):
                    'ipv6_modes': 'none/none'}
 
     TEST.api_networks_sdk.append(sdk_net.Network(**network_dict))
-    TEST.api_networks.add(network_dict)
     TEST.api_subnets_sdk.append(sdk_subnet.Subnet(**subnet_dict))
-    TEST.api_subnets.add(subnet_dict)
 
     network = copy.deepcopy(network_dict)
     subnet = neutron.Subnet(subnet_dict)
@@ -626,9 +590,7 @@ def data(TEST):
                    'ipv6_modes': 'slaac/slaac'}
 
     TEST.api_networks_sdk.append(sdk_net.Network(**network_dict))
-    TEST.api_networks.add(network_dict)
     TEST.api_subnets_sdk.append(sdk_subnet.Subnet(**subnet_dict))
-    TEST.api_subnets.add(subnet_dict)
 
     network = copy.deepcopy(network_dict)
     subnet = neutron.Subnet(subnet_dict)
@@ -653,7 +615,6 @@ def data(TEST):
         'binding:host_id': 'host',
         'security_group_ids': [],
     }
-    TEST.api_ports.add(port_dict)
     TEST.api_ports_sdk.append(sdk_port.Port(**port_dict))
     TEST.ports.add(neutron.Port(port_dict))
 
@@ -667,7 +628,6 @@ def data(TEST):
                   'port_id': '895d375c-1447-11e7-a52f-f7f280bbc809',
                   'id': '94fcb9e8-1447-11e7-bed6-8b8c4ac74491'}
 
-    TEST.api_trunks.add(trunk_dict)
     TEST.trunks.add(neutron.Trunk(trunk_dict))
     TEST.api_trunks_sdk.append(sdk_trunk.Trunk(**trunk_dict))
 
@@ -682,7 +642,6 @@ def data(TEST):
                        {'network_id': ext_net['id']},
                    'tenant_id': '1',
                    'availability_zone_hints': ['nova']}
-    TEST.api_routers.add(router_dict)
     TEST.api_routers_sdk.append(sdk_router.Router(**router_dict))
     TEST.routers.add(neutron.Router(router_dict))
     router_dict = {'id': '10e3dc42-1ce1-4d48-87cf-7fc333055d6c',
@@ -694,7 +653,6 @@ def data(TEST):
                    'is_distributed': False,
                    'external_gateway_info': None,
                    'tenant_id': '1'}
-    TEST.api_routers.add(router_dict)
     TEST.api_routers_sdk.append(sdk_router.Router(**router_dict))
     TEST.routers.add(neutron.Router(router_dict))
     router_dict = {'id': '7180cede-bcd8-4334-b19f-f7ef2f331f53',
@@ -717,7 +675,6 @@ def data(TEST):
                                      'source': 'any',
                                      'destination': '8.8.8.8/32',
                                      'nexthops': ['1.0.0.2', '1.0.0.1']}]}
-    TEST.api_routers.add(router_dict)
     TEST.api_routers_sdk.append(sdk_router.Router(**router_dict))
     TEST.routers_with_rules.add(neutron.Router(router_dict))
     router_dict_with_route = {'id': '725c24c9-061b-416b-b9d4-012392b32fd9',
@@ -734,7 +691,6 @@ def data(TEST):
                                           'destination': '172.0.0.0/24'},
                                          {'nexthop': '10.0.0.2',
                                           'destination': '172.1.0.0/24'}]}
-    TEST.api_routers_with_routes.add(router_dict_with_route)
     TEST.api_routers_with_routes_sdk.append(
         sdk_router.Router(**router_dict_with_route))
     TEST.routers_with_routes.add(neutron.Router(router_dict_with_route))
@@ -964,7 +920,6 @@ def data(TEST):
                        'shared': False,
                        'tenant_id': '1'}
 
-    TEST.api_subnetpools.add(subnetpool_dict)
     TEST.api_subnetpools_sdk.append(
         (sdk_subnet_pool.SubnetPool(**subnetpool_dict)))
     subnetpool = neutron.SubnetPool(subnetpool_dict)
@@ -982,7 +937,6 @@ def data(TEST):
                        'shared': False,
                        'tenant_id': '1'}
 
-    TEST.api_subnetpools.add(subnetpool_dict)
     TEST.api_subnetpools_sdk.append(
         (sdk_subnet_pool.SubnetPool(**subnetpool_dict)))
     subnetpool = neutron.SubnetPool(subnetpool_dict)
@@ -1061,7 +1015,6 @@ def data(TEST):
                   "started_at": "2013-07-26 05:23:28",
                   "created_at": "2013-07-26 05:23:28",
                   "configurations": {"devices": 2}}
-    TEST.api_agents.add(agent_dict)
     TEST.api_agents_sdk.append(sdk_agent.Agent(**agent_dict))
     TEST.agents.add(neutron.Agent(agent_dict))
 
@@ -1084,7 +1037,6 @@ def data(TEST):
                       "dhcp_driver": "neutron.agent.linux.dhcp.Dnsmasq",
                       "networks": 1,
                       "ports": 1}}
-    TEST.api_agents.add(agent_dict)
     TEST.api_agents_sdk.append(sdk_agent.Agent(**agent_dict))
     TEST.agents.add(neutron.Agent(agent_dict))
 
@@ -1112,7 +1064,6 @@ def data(TEST):
         'binding:host_id': 'host',
         'security_group_ids': [],
     }
-    TEST.api_ports.add(port_dict)
     TEST.api_ports_sdk.append(sdk_port.Port(**port_dict))
     TEST.ports.add(neutron.Port(port_dict))
 
@@ -1138,7 +1089,6 @@ def data(TEST):
     }
 
     TEST.ip_availability.add(availability)
-    TEST.api_ip_availability.add(availability)
     TEST.api_ip_availability_sdk.append(
         sdk_ip_availability.NetworkIPAvailability(**availability))
 
@@ -1282,7 +1232,6 @@ def data(TEST):
         'port_id': tdata['parent']['id'],
         'id': tdata['trunk_id']
     }
-    TEST.api_tp_trunks.add(tp_trunk_dict)
     TEST.api_tp_trunks_sdk.append(sdk_trunk.Trunk(**tp_trunk_dict))
 
     #    port parent
@@ -1312,7 +1261,6 @@ def data(TEST):
                            'port_id': tdata['child2']['id']}],
             'trunk_id': tdata['trunk_id']}
     }
-    TEST.api_tp_ports.add(parent_port_dict)
     TEST.api_tp_ports_sdk.append(sdk_port.Port(**parent_port_dict))
     TEST.tp_ports.add(neutron.PortTrunkParent(parent_port_dict))
 
@@ -1333,7 +1281,6 @@ def data(TEST):
         'binding:host_id': 'host',
         'security_group_ids': [tdata['security_group']]
     }
-    TEST.api_tp_ports.add(child1_port_dict)
     TEST.api_tp_ports_sdk.append(sdk_port.Port(**child1_port_dict))
     TEST.tp_ports.add(neutron.PortTrunkSubport(
         child1_port_dict,
@@ -1358,7 +1305,6 @@ def data(TEST):
         'binding:host_id': 'host',
         'security_group_ids': [tdata['security_group']]
     }
-    TEST.api_tp_ports.add(port_dict)
     TEST.api_tp_ports_sdk.append(sdk_port.Port(**port_dict))
     TEST.tp_ports.add(neutron.Port(port_dict))
 
@@ -1381,7 +1327,6 @@ def data(TEST):
         'binding:host_id': 'host',
         'security_group_ids': [tdata['security_group']]
     }
-    TEST.api_tp_ports.add(child2_port_dict)
     TEST.api_tp_ports_sdk.append(sdk_port.Port(**child2_port_dict))
     TEST.tp_ports.add(neutron.PortTrunkSubport(
         child2_port_dict,
