@@ -1,6 +1,3 @@
-# Copyright 2012 OpenStack Foundation
-# Copyright 2012 Nebula, Inc.
-#
 #    Licensed under the Apache License, Version 2.0 (the "License"); you may
 #    not use this file except in compliance with the License. You may obtain
 #    a copy of the License at
@@ -17,18 +14,12 @@ from django.utils.translation import gettext_lazy as _
 
 import horizon
 
-
-class Settings(horizon.Dashboard):
-    name = _("Settings")
-    slug = "settings"
-    panels = ('user', 'password', 'credentials', )
-    default_panel = 'user'
-
-    def nav(self, context):
-        dash = context['request'].horizon.get('dashboard', None)
-        if dash and dash.slug == self.slug:
-            return True
-        return False
+from openstack_dashboard.dashboards.settings import dashboard
 
 
-horizon.register(Settings)
+class CredentialsPanel(horizon.Panel):
+    name = _("User Credentials")
+    slug = 'credentials'
+
+
+dashboard.Settings.register(CredentialsPanel)

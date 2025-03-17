@@ -19,6 +19,10 @@ from horizon import exceptions
 from horizon import tabs
 
 from openstack_dashboard import api
+from openstack_dashboard.dashboards.identity.credentials.views \
+    import get_project_name
+from openstack_dashboard.dashboards.identity.users.credentials \
+    import tables as credentials_tables
 from openstack_dashboard.dashboards.identity.users.groups \
     import tables as groups_tables
 from openstack_dashboard.dashboards.identity.users.role_assignments \
@@ -151,6 +155,33 @@ class GroupsTab(tabs.TableTab):
         return user_groups
 
 
+def get_credentials(request, user):
+    user_credentials = []
+    try:
+        user_credentials = api.keystone.credentials_list(request, user=user)
+        for cred in user_credentials:
+            cred.project_name = get_project_name(request, cred.project_id)
+    except Exception:
+        exceptions.handle(
+            request, _("Unable to retrieve the credentials of this user."))
+
+    return user_credentials
+
+
+class CredentialsTab(tabs.TableTab):
+    """Credentials of the user."""
+    table_classes = (credentials_tables.CredentialsTable,)
+    name = _("Credentials")
+    slug = "credentials"
+    template_name = "horizon/common/_detail_table.html"
+    preload = False
+    policy_rules = (("identity", "identity:list_credentials"),)
+
+    def get_credentialstable_data(self):
+        user = self.tab_group.kwargs['user']
+        return get_credentials(self.request, user)
+
+
 class UserDetailTabs(tabs.DetailTabsGroup):
     slug = "user_details"
-    tabs = (OverviewTab, RoleAssignmentsTab, GroupsTab,)
+    tabs = (OverviewTab, RoleAssignmentsTab, GroupsTab, CredentialsTab,)
