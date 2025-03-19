@@ -104,19 +104,19 @@
   <hr class="header_rule">
   <dl class="dl-horizontal">
     <dt>{% trans "VNIC Type" %}</dt>
-    <dd>{{ port.binding__vnic_type }}</dd>
-    {% if port.binding__host_id %}
+    <dd>{{ port.binding_vnic_type }}</dd>
+    {% if port.binding_host_id %}
       <dt>{% trans "Host" %}</dt>
-      <dd>{{ port.binding__host_id|default:_("None") }}</dd>
+      <dd>{{ port.binding_host_id|default:_("None") }}</dd>
       <dt>{% trans "Profile" %}</dt>
-      <dd>{{ port.binding__profile|default:_("None") }}</dd>
+      <dd>{{ port.binding_profile|default:_("None") }}</dd>
       <dt>{% trans "VIF Type" %}</dt>
-      <dd>{{ port.binding__vif_type|replace_underscores }}</dd>
+      <dd>{{ port.binding_vif_type|replace_underscores }}</dd>
       <dt>{% trans "VIF Details" %}</dt>
-      {% if port.binding__vif_details.items %}
+      {% if port.binding_vif_details.items %}
         <dd>
           <ul>
-            {% for key,value in port.binding__vif_details.items %}
+            {% for key,value in port.binding_vif_details.items %}
               <li><b>{{ key }}</b> {{ value }}</li>
             {% endfor %}
           </ul>
