@@ -518,9 +518,12 @@ def credential_get(request, credential_id, admin=True):
 
 
 @profiler.trace
-def credentials_list(request, user=None):
+def credentials_list(request, user_id=None, filters=None):
     manager = keystoneclient(request).credentials
-    return manager.list(user=user)
+    kwargs = {"user_id": user_id}
+    if filters:
+        kwargs.update(filters)
+    return manager.list(**kwargs)
 
 
 @profiler.trace

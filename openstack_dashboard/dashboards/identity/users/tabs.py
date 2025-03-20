@@ -155,10 +155,11 @@ class GroupsTab(tabs.TableTab):
         return user_groups
 
 
-def get_credentials(request, user):
+def get_credentials(request, user_id):
     user_credentials = []
     try:
-        user_credentials = api.keystone.credentials_list(request, user=user)
+        user_credentials = api.keystone.credentials_list(
+            request, user_id=user_id)
         for cred in user_credentials:
             cred.project_name = get_project_name(request, cred.project_id)
     except Exception:
@@ -178,8 +179,8 @@ class CredentialsTab(tabs.TableTab):
     policy_rules = (("identity", "identity:list_credentials"),)
 
     def get_credentialstable_data(self):
-        user = self.tab_group.kwargs['user']
-        return get_credentials(self.request, user)
+        user_id = self.tab_group.kwargs['user'].id
+        return get_credentials(self.request, user_id)
 
 
 class UserDetailTabs(tabs.DetailTabsGroup):

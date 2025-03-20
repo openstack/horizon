@@ -43,14 +43,31 @@ def get_user_name(request, user_id):
     return None
 
 
+@memoized.memoized
+def get_user_names(request):
+    users = keystone.user_list(request)
+    return {u.name: u.id for u in users}
+
+
 class CredentialsView(tables.DataTableView):
     table_class = credential_tables.CredentialsTable
     page_title = _("User Credentials")
     policy_rules = (("identity", "identity:list_credentials"),)
 
     def get_data(self):
+        filters = self.get_filters()
+
+        if 'user_name' in filters:
+            users = get_user_names(self.request)
+            user_id = users.get(filters['user_name'])
+            if user_id is not None:
+                filters = {'user_id': user_id}
+            else:
+                return []
+
         try:
-            credentials = keystone.credentials_list(self.request)
+            credentials = keystone.credentials_list(
+                self.request, filters=filters)
             for cred in credentials:
                 cred.project_name = get_project_name(
                     self.request, cred.project_id)

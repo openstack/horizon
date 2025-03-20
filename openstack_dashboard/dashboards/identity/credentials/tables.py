@@ -62,6 +62,13 @@ class DeleteCredentialAction(tables.DeleteAction):
         keystone.credential_delete(request, obj_id)
 
 
+class CredentialFilterAction(tables.FilterAction):
+    filter_type = "server"
+    filter_choices = (("user_name", _("User Name ="), True),
+                      ("user_id", _("User ID ="), True),
+                      ("type", _("Type ="), True),)
+
+
 def get_user_link(datum):
     if datum.user_id is not None:
         return urls.reverse("horizon:identity:users:detail",
@@ -77,6 +84,7 @@ def get_project_link(datum, request):
 
 
 class CredentialsTable(tables.DataTable):
+    user_id = tables.WrappingColumn('user_id', verbose_name=_('User ID'))
     user_name = tables.WrappingColumn('user_name',
                                       verbose_name=_('User'),
                                       link=get_user_link)
@@ -97,7 +105,8 @@ class CredentialsTable(tables.DataTable):
     class Meta(object):
         name = "credentialstable"
         verbose_name = _("User Credentials")
-        table_actions = (CreateCredentialAction,
+        table_actions = (CredentialFilterAction,
+                         CreateCredentialAction,
                          DeleteCredentialAction)
         row_actions = (UpdateCredentialAction,
                        DeleteCredentialAction)

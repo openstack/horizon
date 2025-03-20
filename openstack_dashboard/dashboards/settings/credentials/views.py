@@ -31,8 +31,8 @@ class CredentialsView(tables.DataTableView):
     policy_rules = (("identity", "identity:list_credentials"),)
 
     def get_data(self):
-        user = self.request.user
-        return get_credentials(self.request, user)
+        user_id = self.request.user.id
+        return get_credentials(self.request, user_id)
 
 
 class UpdateView(credential_views.UpdateView):

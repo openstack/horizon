@@ -31,6 +31,7 @@ class DeleteCredentialAction(credentials_tables.DeleteCredentialAction):
 
 
 class CredentialsTable(credentials_tables.CredentialsTable):
+    user_id = tables.WrappingColumn('user_id', hidden=True)
     user_name = tables.WrappingColumn('user_name', hidden=True)
 
     class Meta(object):
