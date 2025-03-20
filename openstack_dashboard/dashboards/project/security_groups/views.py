@@ -165,6 +165,7 @@ class CreateView(forms.ModalFormView):
     form_id = "create_security_group_form"
     modal_id = "create_security_group_modal"
     template_name = 'project/security_groups/create.html'
+    cancel_url = "horizon:project:security_groups:create"
     submit_label = _("Create Security Group")
     submit_url = reverse_lazy(
         "horizon:project:security_groups:create")
