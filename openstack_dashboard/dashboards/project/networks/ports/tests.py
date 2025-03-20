@@ -56,16 +56,13 @@ class NetworkPortTests(test.TestCase):
 
     @test.create_mocks({api.neutron: ('network_get',
                                       'port_get',
-                                      'is_extension_supported',
-                                      'security_group_list')})
+                                      'security_group_list',
+                                      'is_extension_supported')})
     def _test_port_detail(self, mac_learning=False):
         # Use a port associated with security group
         port = [p for p in self.ports.list() if p.security_group_ids][0]
-        sgs = [sg for sg in self.security_groups.list()
-               if sg.id in port.security_group_ids]
         network_id = self.networks.first().id
         self.mock_port_get.return_value = port
-        self.mock_security_group_list.return_value = sgs
         self._stub_is_extension_supported({'mac-learning': mac_learning,
                                            'allowed-address-pairs': False})
         self.mock_network_get.return_value = self.networks.first()
@@ -77,9 +74,6 @@ class NetworkPortTests(test.TestCase):
 
         self.mock_port_get.assert_called_once_with(test.IsHttpRequest(),
                                                    port.id)
-        self.mock_security_group_list.assert_called_once_with(
-            test.IsHttpRequest(),
-            id=tuple(port.security_group_ids))
         self._check_is_extension_supported({'mac-learning': 2,
                                             'allowed-address-pairs': 2})
         self.mock_network_get.assert_called_once_with(test.IsHttpRequest(),
@@ -297,6 +291,7 @@ class NetworkPortTests(test.TestCase):
     @override_settings(POLICY_CHECK_FUNCTION='openstack_auth.policy.check')
     @test.create_mocks({api.neutron: ('port_get',
                                       'network_get',
+                                      'security_group_list',
                                       'is_extension_supported')})
     def test_add_allowed_address_pair_button_shown_to_network_owner(self):
         port = self.ports.first()
@@ -414,6 +409,7 @@ class NetworkPortTests(test.TestCase):
     @override_settings(POLICY_CHECK_FUNCTION='openstack_auth.policy.check')
     @test.create_mocks({api.neutron: ('port_get',
                                       'network_get',
+                                      'security_group_list',
                                       'port_update',
                                       'is_extension_supported')})
     def test_delete_address_pair_button_shown_to_network_owner(self):

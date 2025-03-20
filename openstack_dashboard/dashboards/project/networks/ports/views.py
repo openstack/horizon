@@ -28,7 +28,6 @@ from openstack_dashboard.dashboards.project.networks.ports \
     import tabs as project_tabs
 from openstack_dashboard.dashboards.project.networks.ports \
     import workflows as project_workflows
-from openstack_dashboard.utils import futurist_utils
 
 
 STATE_DICT = dict(project_tables.DISPLAY_CHOICES)
@@ -106,24 +105,7 @@ class DetailView(tabs.TabbedTableView):
 
             return network
 
-        @memoized.memoized_method
-        def get_security_groups(sg_ids):
-            # Avoid extra API calls if no security group is associated.
-            if not sg_ids:
-                return []
-            try:
-                security_groups = api.neutron.security_group_list(self.request,
-                                                                  id=sg_ids)
-            except Exception:
-                security_groups = []
-                msg = _("Unable to retrieve security groups for the port.")
-                exceptions.handle(self.request, msg)
-            return security_groups
-
-        results = futurist_utils.call_functions_parallel(
-            (get_network, [port.network_id]),
-            (get_security_groups, [tuple(port.security_group_ids)]))
-        network, security_groups = results
+        network = get_network(port.network_id)
 
         port.network_name = network.get('name')
         port.network_url = reverse(network_url, args=[port.network_id])
@@ -138,7 +120,6 @@ class DetailView(tabs.TabbedTableView):
         ]
         context["custom_breadcrumb"] = breadcrumb
         context["port"] = port
-        context["security_groups"] = security_groups
         context["url"] = reverse(
             'horizon:project:networks:ports_tab', args=[port.network_id])
         context["actions"] = table.render_row_actions(port)
