@@ -33,7 +33,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: horizon VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2025-02-15 09:23+0900\n"
+"POT-Creation-Date: 2025-03-22 08:03+0900\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -184,16 +184,8 @@ msgid "%s GB"
 msgstr "%s GB"
 
 #, python-format
-msgid "%sGB"
-msgstr "%s GB"
-
-#, python-format
 msgid "%sGiB"
 msgstr "%sGiB"
-
-#, python-format
-msgid "%sMB"
-msgstr "%s MB"
 
 msgid "(No IP address)"
 msgstr "(无 IP 地址)"
@@ -1818,6 +1810,7 @@ msgstr "删除卷组 \"%s\""
 msgid "Deprecated Settings"
 msgstr "过时的设置"
 
+#, python-brace-format
 msgid "Deprecated settings: {}."
 msgstr "过时的设置：{}。"
 
@@ -2565,9 +2558,6 @@ msgstr "检查 neutron 是否支持 \"auto_allocated_network\" 失败。"
 msgid "Failed to check if nova supports \"auto_allocated_network\"."
 msgstr "检查 nova 是否支持 \"auto_allocated_network\" 失败。"
 
-msgid "Failed to create a rbac policy."
-msgstr "创建 rbac 策略失败。"
-
 #, python-format
 msgid "Failed to create network %s"
 msgstr "创建网络 %s 失败"
@@ -2671,10 +2661,6 @@ msgstr "网络 %s 更新失败。"
 #, python-format
 msgid "Failed to update port \"%s\"."
 msgstr "更新端口 \"%s\"失败。"
-
-#, python-format
-msgid "Failed to update rbac policy %s"
-msgstr "更新 rbac 策略 %s 失败"
 
 #, python-format
 msgid "Failed to update router %s"
@@ -2822,9 +2808,6 @@ msgstr "在这里您可以为该网络增加DHCP agent。"
 
 msgid "From here you can allocate a floating IP to a specific project."
 msgstr "从这里可以为一个特定项目分配一个浮动 IP。"
-
-msgid "From here you can create a rbac policy."
-msgstr "可以从这里创建一个 rbac 策略。"
 
 msgid "From here you can create a snapshot of a volume."
 msgstr "为一个卷创建一个快照"
@@ -3786,6 +3769,7 @@ msgstr "最小磁盘（GB）"
 msgid "Minimum RAM (MB)"
 msgstr "最低内存(MB)"
 
+#, python-brace-format
 msgid "Missing required settings: {}."
 msgstr "缺少必需的设置：{}。"
 
@@ -5459,9 +5443,6 @@ msgstr "大小"
 msgid "Size (GiB)"
 msgstr "大小(GiB)"
 
-msgid "Size(GiB) ="
-msgstr "Size(GiB) ="
-
 msgid "Slash is not an allowed character."
 msgstr "斜杠是不允许的字符。"
 
@@ -6863,10 +6844,6 @@ msgid "Unable to retrieve details for network \"%s\"."
 msgstr "无法获取网络\"%s\"的详情."
 
 #, python-format
-msgid "Unable to retrieve details for rbac_policy \"%s\"."
-msgstr "无法获取 rbac_policy \"%s\" 的详情。"
-
-#, python-format
 msgid "Unable to retrieve details for router \"%s\"."
 msgstr "无法获取路由 \"%s\" 的详情"
 
@@ -7104,9 +7081,6 @@ msgstr "无法获取公共镜像。"
 
 msgid "Unable to retrieve quota information."
 msgstr "无法获取配额信息。"
-
-msgid "Unable to retrieve rbac policy details."
-msgstr "无法获取 rbac 策略详情。"
 
 msgid "Unable to retrieve role list."
 msgstr "无法获取角色列表。"
@@ -7432,6 +7406,7 @@ msgstr "未知的实例名(None)"
 msgid "Unknown resource type for detail API."
 msgstr "详情 API 未知的资源类型。"
 
+#, python-brace-format
 msgid "Unknown settings: {}."
 msgstr "未知的设置： {}。"
 
@@ -7687,6 +7662,9 @@ msgstr "<span> %(available)s </span>中的<span> %(used)s </span>已使用"
 msgid "Used IPs"
 msgstr "已使用的IP地址"
 
+msgid "User"
+msgstr "用户"
+
 #, python-format
 msgid "User \"%s\" has been updated successfully."
 msgstr "用户 \"%s\" 已被成功更新。"
@@ -7694,6 +7672,9 @@ msgstr "用户 \"%s\" 已被成功更新。"
 #, python-format
 msgid "User \"%s\" was successfully created."
 msgstr "用户 \"%s\" 成功创建。"
+
+msgid "User Credentials"
+msgstr "用户凭据"
 
 msgid "User Credentials Details"
 msgstr "用户凭据详情"
@@ -7773,6 +7754,9 @@ msgstr "VXLAN"
 
 msgid "Value"
 msgstr "值"
+
+msgid "Value:"
+msgstr "值："
 
 #, python-format
 msgid "Version: %(version_info)s"
@@ -8176,9 +8160,6 @@ msgstr "名为 \"%s\" 的键已存在。使用编辑来更新这个值，或创�
 
 msgid "no"
 msgstr "否"
-
-msgid "rbac policy quota exceeded."
-msgstr "超出 rbac 策略配额。"
 
 msgid "undefined"
 msgstr "未定义"

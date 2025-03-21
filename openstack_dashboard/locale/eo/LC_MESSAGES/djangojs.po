@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: horizon VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2025-01-25 08:07+0900\n"
+"POT-Creation-Date: 2025-03-22 08:03+0900\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -236,6 +236,7 @@ msgstr "Nomo estas postulita por via apero."
 msgid "A port represents a virtual switch port on a logical network switch."
 msgstr "Pordo reprezentas virtualan ŝaltilo pordon je logika reta  ŝaltilo."
 
+#, python-brace-format
 msgid ""
 "A volume description less than {$createVolumeCtrl.validationRules."
 "fieldMaxLength + 1$} characters is required."
@@ -243,6 +244,7 @@ msgstr ""
 "Volumo priskribon malpli granda ol {$createVolumeCtrl.validationRules."
 "fieldMaxLength + 1$} signoj estas bezonata."
 
+#, python-brace-format
 msgid ""
 "A volume name less than {$createVolumeCtrl.validationRules.fieldMaxLength + "
 "1$} characters is required."
@@ -389,6 +391,7 @@ msgstr "Ekstera (HTTP) URL de kie elŝuti la bildon."
 msgid "An image description less than 256 characters is required."
 msgstr "Bildo priskribon malpli granda ol 256 signoj estas postulata."
 
+#, python-brace-format
 msgid ""
 "An image description less than {$ctrl.validationRules.fieldMaxLength + 1$} "
 "characters is required."
@@ -399,6 +402,7 @@ msgstr ""
 msgid "An image name less than 256 characters is required."
 msgstr "Bildo nomo malpli granda ol signoj estas postulata."
 
+#, python-brace-format
 msgid ""
 "An image name less than {$ctrl.validationRules.fieldMaxLength + 1$} "
 "characters is required."
@@ -674,6 +678,7 @@ msgstr "Kopii Datumon"
 msgid "Copy Object"
 msgstr "Kopii Objekton"
 
+#, python-brace-format
 msgid "Copy Object: {$ ctrl.model.container $}/{$ ctrl.model.path $}"
 msgstr "Kopii Objekton: {$ ctrl.model.container $}/{$ ctrl.model.path $}"
 
@@ -701,6 +706,7 @@ msgstr "Kreu Domajnon"
 msgid "Create Folder"
 msgstr "Kreu Dosiero"
 
+#, python-brace-format
 msgid "Create Folder In: {$ ctrl.model.container.name $}"
 msgstr "Kreu Dosiero En: {$ ctrl.model.container.name $}"
 
@@ -878,6 +884,7 @@ msgstr[1] "Forigu Domajnojn"
 msgid "Delete Domains"
 msgstr "Forigu Domajnojn"
 
+#, python-brace-format
 msgid "Delete Files in {$ ctrl.model.container.name $}"
 msgstr "Forigu Dosieroj en {$ ctrl.model.container.name $}"
 
@@ -1158,6 +1165,7 @@ msgstr "Redakti"
 msgid "Edit File"
 msgstr "Redaktu Dosieron"
 
+#, python-brace-format
 msgid "Edit File: {$ ctrl.model.container $} : {$ ctrl.model.path $}"
 msgstr "Reduktu Dosieron : {$ ctrl.model.container $} : {$ ctrl.model.path $}"
 
@@ -1197,6 +1205,7 @@ msgstr "Ebligu/Malebligu subpordo aldono, forigon kaj trunko forigon."
 msgid "Enabled"
 msgstr "Ebligita"
 
+#, python-brace-format
 msgid "Encountered {$ ctrl.model.deleted.failures $} failures."
 msgstr "Kaptis {$ ctrl.model.deleted.failures $} failures."
 
@@ -1793,15 +1802,6 @@ msgstr[0] "Metadatumo Difino"
 msgstr[1] "Metadatumo Difinoj"
 
 msgid ""
-"Metadata is a collection of key-value pairs associated with an instance.\n"
-"    The maximum length for each metadata key and value is 255 characters."
-msgstr ""
-"Metadaumo estas aro da ŝlosilo-valoro paroj asociita kun apero.\n"
-" La maksimuma longo por ĉiuj metadatuma ŝlosilo kaj valoro estas 255 "
-"signoj.\n"
-" "
-
-msgid ""
 "Metadata is used to provide additional information about the\n"
 "    image. Sometimes this information is only used for sorting and viewing.\n"
 "    In some installations this information may affect how the instance is\n"
@@ -1832,12 +1832,6 @@ msgstr "Min Pordo"
 
 msgid "Min RAM (MB)"
 msgstr "Min RAM (MB)"
-
-msgid "Min. Disk"
-msgstr "Min. Disko"
-
-msgid "Min. RAM"
-msgstr "Min. RAM"
 
 msgid "Min. Size (bytes)"
 msgstr "Min. Grando (bajtoj)"
@@ -2025,6 +2019,7 @@ msgstr ""
 " je la patra pordo. Aliaj internaĵejoj permesus trunko kreadon iam ajn\n"
 " dum la vivo de la pordo."
 
+#, python-brace-format
 msgid ""
 "Note: Delimiters ('{$ ctrl.model.DELIMETER $}') are allowed in the\n"
 "          file name to place the new file into a folder that will be "
@@ -2036,6 +2031,7 @@ msgstr ""
 "kreita\n"
 "          kiam la dosiero estas alŝutata (al iu ajn profundo de dosierujoj)."
 
+#, python-brace-format
 msgid ""
 "Note: Delimiters ('{$ ctrl.model.DELIMETER $}') are allowed in the\n"
 "          folder name to create deep folders."
@@ -3085,6 +3081,7 @@ msgstr "Tiu estas fokusita ..."
 msgid "This limit is currently not set."
 msgstr "Tiu limo nuntempe ne estas agordita."
 
+#, python-brace-format
 msgid "This limit is currently set to {$ model.novaLimits.maxServerMeta $}."
 msgstr ""
 "Tiu limo nuntempe estas agordita al  {$ model.novaLimits.maxServerMeta $}."
@@ -3785,6 +3782,7 @@ msgstr "Ĝisdatigita  je"
 msgid "Upload File"
 msgstr "Alŝuti Dosieron"
 
+#, python-brace-format
 msgid "Upload File To: {$ ctrl.model.container.name $}"
 msgstr "Alŝutu Dosieron Al: {$ ctrl.model.container.name $}"
 
@@ -4188,9 +4186,11 @@ msgstr "savkopio"
 msgid "volume"
 msgstr "volumo"
 
+#, python-brace-format
 msgid "{$ address $} on subnet {$ subnet $}"
 msgstr "{$ address $} je subnet {$ subnet $}"
 
+#, python-brace-format
 msgid ""
 "{$ ctrl.model.counted.files $} files in\n"
 "      {$ ctrl.model.counted.folders $} folders."

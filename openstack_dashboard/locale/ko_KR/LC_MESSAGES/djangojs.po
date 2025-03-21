@@ -24,7 +24,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: horizon VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2023-11-20 22:25+0000\n"
+"POT-Creation-Date: 2025-03-22 08:03+0900\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -227,6 +227,7 @@ msgstr "인스턴스 이름이 필요합니다."
 msgid "A port represents a virtual switch port on a logical network switch."
 msgstr "포트는 논리 네트워크 스위치 상의 가상 스위치 포트를 나타냅니다."
 
+#, python-brace-format
 msgid ""
 "A volume description less than {$createVolumeCtrl.validationRules."
 "fieldMaxLength + 1$} characters is required."
@@ -234,6 +235,7 @@ msgstr ""
 "볼륨 설명이 {$createVolumeCtrl.validationRules.fieldMaxLength + 1$} 글자보다 "
 "적어야 합니다."
 
+#, python-brace-format
 msgid ""
 "A volume name less than {$createVolumeCtrl.validationRules.fieldMaxLength + "
 "1$} characters is required."
@@ -376,6 +378,7 @@ msgstr "이미지를 가져올 외부 (HTTP) URL"
 msgid "An image description less than 256 characters is required."
 msgstr "이미지에 대한 설명이 256자보다 적어야 합니다."
 
+#, python-brace-format
 msgid ""
 "An image description less than {$ctrl.validationRules.fieldMaxLength + 1$} "
 "characters is required."
@@ -386,6 +389,7 @@ msgstr ""
 msgid "An image name less than 256 characters is required."
 msgstr "이미지 이름이 256자보다 적어야 합니다."
 
+#, python-brace-format
 msgid ""
 "An image name less than {$ctrl.validationRules.fieldMaxLength + 1$} "
 "characters is required."
@@ -651,6 +655,7 @@ msgstr "데이터 복사"
 msgid "Copy Object"
 msgstr "오브젝트 복사"
 
+#, python-brace-format
 msgid "Copy Object: {$ ctrl.model.container $}/{$ ctrl.model.path $}"
 msgstr "오브젝트 복사: {$ ctrl.model.container $}/{$ ctrl.model.path $}"
 
@@ -678,6 +683,7 @@ msgstr "도메인 생성"
 msgid "Create Folder"
 msgstr "폴더 생성"
 
+#, python-brace-format
 msgid "Create Folder In: {$ ctrl.model.container.name $}"
 msgstr "{$ ctrl.model.container.name $}에서 폴더 생성"
 
@@ -848,6 +854,7 @@ msgstr[0] "도메인 삭제"
 msgid "Delete Domains"
 msgstr "도메인 삭제"
 
+#, python-brace-format
 msgid "Delete Files in {$ ctrl.model.container.name $}"
 msgstr "{$ ctrl.model.container.name $}에서 파일 삭제"
 
@@ -1107,6 +1114,7 @@ msgstr "편집"
 msgid "Edit File"
 msgstr "파일 편집"
 
+#, python-brace-format
 msgid "Edit File: {$ ctrl.model.container $} : {$ ctrl.model.path $}"
 msgstr "파일 수정: {$ ctrl.model.container $} : {$ ctrl.model.path $}"
 
@@ -1146,6 +1154,7 @@ msgstr "Subport 추가, 삭제와 trunk 삭제 활성화/비활성화"
 msgid "Enabled"
 msgstr "활성화"
 
+#, python-brace-format
 msgid "Encountered {$ ctrl.model.deleted.failures $} failures."
 msgstr "{$ ctrl.model.deleted.failures $} 개가 실패하였습니다."
 
@@ -1726,13 +1735,6 @@ msgid_plural "Metadata Definitions"
 msgstr[0] "메타데이터 정의"
 
 msgid ""
-"Metadata is a collection of key-value pairs associated with an instance.\n"
-"    The maximum length for each metadata key and value is 255 characters."
-msgstr ""
-"메타데이터는 인스턴스와 연결된 키 값 쌍 (KVP) 모음입니다.\n"
-"    각 메타데이터 키와 값의 최대 길이는 255자입니다."
-
-msgid ""
 "Metadata is used to provide additional information about the\n"
 "    image. Sometimes this information is only used for sorting and viewing.\n"
 "    In some installations this information may affect how the instance is\n"
@@ -1763,12 +1765,6 @@ msgstr "최소 포트번호"
 
 msgid "Min RAM (MB)"
 msgstr "최소 RAM (MB)"
-
-msgid "Min. Disk"
-msgstr "최소 디스크"
-
-msgid "Min. RAM"
-msgstr "최소 RAM"
 
 msgid "Min. Size (bytes)"
 msgstr "최소 크기 (바이트)"
@@ -1949,6 +1945,7 @@ msgstr ""
 "점에 주의하세요. 다른 backend는 포트 존재시 아무때나 trunk 생성이\n"
 "가능합니다."
 
+#, python-brace-format
 msgid ""
 "Note: Delimiters ('{$ ctrl.model.DELIMETER $}') are allowed in the\n"
 "          file name to place the new file into a folder that will be "
@@ -1959,6 +1956,7 @@ msgstr ""
 "          (임의의 폴더 위치로) 업로드 될 때 생성되는 폴더 안에서\n"
 "          새로운 파일로 위치시킬 수 있도록 해 줍니다."
 
+#, python-brace-format
 msgid ""
 "Note: Delimiters ('{$ ctrl.model.DELIMETER $}') are allowed in the\n"
 "          folder name to create deep folders."
@@ -2973,6 +2971,7 @@ msgstr "이걸 집중해서..."
 msgid "This limit is currently not set."
 msgstr "제한 값이 현재 설정되지 않았습니다."
 
+#, python-brace-format
 msgid "This limit is currently set to {$ model.novaLimits.maxServerMeta $}."
 msgstr ""
 "이 제한 값은 현재 {$ model.novaLimits.maxServerMeta $} 에 설정되어있습니다."
@@ -3661,6 +3660,7 @@ msgstr "Updated at"
 msgid "Upload File"
 msgstr "파일 업로드"
 
+#, python-brace-format
 msgid "Upload File To: {$ ctrl.model.container.name $}"
 msgstr "파일 업로드 경로: {$ ctrl.model.container.name $}"
 
@@ -4045,9 +4045,11 @@ msgstr "snapshot"
 msgid "volume"
 msgstr "volume"
 
+#, python-brace-format
 msgid "{$ address $} on subnet {$ subnet $}"
 msgstr "서브넷 {$ subnet $} 에서 {$ address $}"
 
+#, python-brace-format
 msgid ""
 "{$ ctrl.model.counted.files $} files in\n"
 "      {$ ctrl.model.counted.folders $} folders."

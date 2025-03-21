@@ -3,9 +3,9 @@
 # suhartono <cloudsuhartono@gmail.com>, 2020. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 25.2.0.dev70\n"
+"Project-Id-Version: horizon 25.4.0.dev4\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-01-24 23:07+0000\n"
+"POT-Creation-Date: 2025-03-21 23:03+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -1101,15 +1101,6 @@ msgstr "Default: ``{'enable_backup': False}``"
 msgid "Default: ``{}``"
 msgstr "Default: ``{}``"
 
-msgid "Default:: ``1``"
-msgstr "Default:: ``1``"
-
-msgid "Default:: ``True``"
-msgstr "Default:: ``True``"
-
-msgid "Default:: ``openstack_auth.policy.check``"
-msgstr "Default:: ``openstack_auth.policy.check``"
-
 msgid "Development Tips"
 msgstr "Development Tips"
 
@@ -1257,12 +1248,6 @@ msgstr "Contoh: ``['local', 'flat', 'gre']``"
 
 msgid "Example: ``['normal', 'direct']``"
 msgstr "Contoh: ``['normal', 'direct']``"
-
-msgid "Example:: ``my-clouds.yaml.template``"
-msgstr "Contoh:: ``my-clouds.yaml.template``"
-
-msgid "Example:: ``my-openrc.sh.template``"
-msgstr "Contoh:: ``my-openrc.sh.template``"
 
 msgid "Examples"
 msgstr "Contoh"

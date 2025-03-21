@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: horizon VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2025-02-15 09:23+0900\n"
+"POT-Creation-Date: 2025-03-22 08:03+0900\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -161,16 +161,8 @@ msgid "%s GB"
 msgstr "%s GB"
 
 #, python-format
-msgid "%sGB"
-msgstr "%sGB"
-
-#, python-format
 msgid "%sGiB"
 msgstr "%sGiB"
-
-#, python-format
-msgid "%sMB"
-msgstr "%sMB"
 
 msgid "(No IP address)"
 msgstr "（無 IP 地址）"
@@ -2396,9 +2388,6 @@ msgstr "檢查是否支援 neutron 自動配置網路時失敗。"
 msgid "Failed to check if nova supports \"auto_allocated_network\"."
 msgstr "檢查是否支援 nova 自動配置網路時失敗。"
 
-msgid "Failed to create a rbac policy."
-msgstr "建立 RBAC 政策失敗"
-
 #, python-format
 msgid "Failed to create network %s"
 msgstr "新增網路 %s 時失敗"
@@ -2502,10 +2491,6 @@ msgstr "更新網路 %s 時失敗"
 #, python-format
 msgid "Failed to update port \"%s\"."
 msgstr "更新接口 %s 時失敗"
-
-#, python-format
-msgid "Failed to update rbac policy %s"
-msgstr "更新 RBAC 政策 %s 時失敗。"
 
 #, python-format
 msgid "Failed to update router %s"
@@ -2655,9 +2640,6 @@ msgstr "您可以在此為此網路加入 DHCP 媒介。"
 
 msgid "From here you can allocate a floating IP to a specific project."
 msgstr "從這裡可以配製浮動 IP 至特定專案"
-
-msgid "From here you can create a rbac policy."
-msgstr "可以從這裡建立 RBAC 政策。"
 
 msgid "From here you can create a snapshot of a volume."
 msgstr "您可以在此新增雲硬碟的即時存檔。"
@@ -5238,9 +5220,6 @@ msgstr "容量"
 msgid "Size (GiB)"
 msgstr "容量 (GiB)"
 
-msgid "Size(GiB) ="
-msgstr "大小(GiB) ="
-
 msgid "Slash is not an allowed character."
 msgstr "斜線不是允許的字元。"
 
@@ -6563,10 +6542,6 @@ msgid "Unable to retrieve details for network \"%s\"."
 msgstr "無法獲得網路「%s」的詳細資訊。"
 
 #, python-format
-msgid "Unable to retrieve details for rbac_policy \"%s\"."
-msgstr "無法獲得RBAC 政策「%s」的詳細資訊。"
-
-#, python-format
 msgid "Unable to retrieve details for router \"%s\"."
 msgstr "無法獲得路由器「%s」的詳細資訊。"
 
@@ -6786,9 +6761,6 @@ msgstr "無法獲得公用的映像檔。"
 
 msgid "Unable to retrieve quota information."
 msgstr "無法獲得配額資訊。"
-
-msgid "Unable to retrieve rbac policy details."
-msgstr "無法 RBAC 原則詳細資料。"
 
 msgid "Unable to retrieve role list."
 msgstr "無法獲得角色列表。"
@@ -7329,6 +7301,9 @@ msgstr "已使用 <span>%(available)s</span> 個中的 <span>%(used)s</span> 個
 msgid "Used IPs"
 msgstr "已使用的 IP"
 
+msgid "User"
+msgstr "用戶"
+
 #, python-format
 msgid "User \"%s\" has been updated successfully."
 msgstr "已成功更新用戶 %s。"
@@ -7336,6 +7311,9 @@ msgstr "已成功更新用戶 %s。"
 #, python-format
 msgid "User \"%s\" was successfully created."
 msgstr "已成功新增用戶「%s」。"
+
+msgid "User Credentials"
+msgstr "用戶憑證"
 
 msgid "User Credentials Details"
 msgstr "用戶憑證詳細資訊"
@@ -7415,6 +7393,9 @@ msgstr "VXLAN"
 
 msgid "Value"
 msgstr "數值"
+
+msgid "Value:"
+msgstr "數值："
 
 #, python-format
 msgid "Version: %(version_info)s"
@@ -7792,9 +7773,6 @@ msgstr ""
 
 msgid "no"
 msgstr "否"
-
-msgid "rbac policy quota exceeded."
-msgstr "已超出 RBAC 政策配額"
 
 msgid "undefined"
 msgstr "未定義"

@@ -30,7 +30,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: horizon VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2022-09-30 06:37+0000\n"
+"POT-Creation-Date: 2025-03-22 08:03+0900\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -232,6 +232,7 @@ msgstr ""
 "Un port représente un port de commutateur virtuel sur un commutateur de "
 "réseau logique."
 
+#, python-brace-format
 msgid ""
 "A volume description less than {$createVolumeCtrl.validationRules."
 "fieldMaxLength + 1$} characters is required."
@@ -239,6 +240,7 @@ msgstr ""
 "Une description de volume de moins de {$createVolumeCtrl.validationRules."
 "fieldMaxLength + 1$} caractères est obligatoire."
 
+#, python-brace-format
 msgid ""
 "A volume name less than {$createVolumeCtrl.validationRules.fieldMaxLength + "
 "1$} characters is required."
@@ -362,6 +364,7 @@ msgstr "Une URL externe (HTTP) à partir de laquelle charger l'image"
 msgid "An image description less than 256 characters is required."
 msgstr "Une description d'image de moins de 256 caractères est obligatoire."
 
+#, python-brace-format
 msgid ""
 "An image description less than {$ctrl.validationRules.fieldMaxLength + 1$} "
 "characters is required."
@@ -372,6 +375,7 @@ msgstr ""
 msgid "An image name less than 256 characters is required."
 msgstr "Un nom d'image de moins de 256 caractères est obligatoire."
 
+#, python-brace-format
 msgid ""
 "An image name less than {$ctrl.validationRules.fieldMaxLength + 1$} "
 "characters is required."
@@ -641,6 +645,7 @@ msgstr "Copier les données"
 msgid "Copy Object"
 msgstr "Copier l'Objet"
 
+#, python-brace-format
 msgid "Copy Object: {$ ctrl.model.container $}/{$ ctrl.model.path $}"
 msgstr "Copier l'Objet: {$ ctrl.model.container $}/{$ ctrl.model.path $}"
 
@@ -668,6 +673,7 @@ msgstr "Créer un domaine"
 msgid "Create Folder"
 msgstr "Créer un dossier"
 
+#, python-brace-format
 msgid "Create Folder In: {$ ctrl.model.container.name $}"
 msgstr "Créez le dossier dans : {$ ctrl.model.container.name $}"
 
@@ -828,6 +834,7 @@ msgstr[1] "Supprimer les domaines"
 msgid "Delete Domains"
 msgstr "Supprimer les domaines"
 
+#, python-brace-format
 msgid "Delete Files in {$ ctrl.model.container.name $}"
 msgstr "Supprimer les fichiers dans {$ ctrl.model.container.name $}"
 
@@ -1106,6 +1113,7 @@ msgstr "Éditer"
 msgid "Edit File"
 msgstr "Éditer le fichier"
 
+#, python-brace-format
 msgid "Edit File: {$ ctrl.model.container $} : {$ ctrl.model.path $}"
 msgstr "Éditer le fichier : {$ ctrl.model.container $} : {$ ctrl.model.path $}"
 
@@ -1139,6 +1147,7 @@ msgstr "Activer l'utilisateur"
 msgid "Enabled"
 msgstr "Activé"
 
+#, python-brace-format
 msgid "Encountered {$ ctrl.model.deleted.failures $} failures."
 msgstr "{$ ctrl.model.deleted.failures $} erreurs rencontrées."
 
@@ -1707,15 +1716,6 @@ msgstr[0] "Définition des métadonnées"
 msgstr[1] ""
 
 msgid ""
-"Metadata is a collection of key-value pairs associated with an instance.\n"
-"    The maximum length for each metadata key and value is 255 characters."
-msgstr ""
-"Les métadonnées sont une collection de pair clé-valeur associée à un "
-"instance.\n"
-"   La longueur maximale pour chaque clé et valeur d'une métadonnée est de "
-"255 caractères."
-
-msgid ""
 "Metadata is used to provide additional information about the\n"
 "    image. Sometimes this information is only used for sorting and viewing.\n"
 "    In some installations this information may affect how the instance is\n"
@@ -1746,12 +1746,6 @@ msgstr "Port Min"
 
 msgid "Min RAM (MB)"
 msgstr "Ram Mon (Mo)"
-
-msgid "Min. Disk"
-msgstr "Disque Min"
-
-msgid "Min. RAM"
-msgstr "RAM Min"
 
 msgid "Min. Size (bytes)"
 msgstr "Taille minimale (Octets)"
@@ -1882,6 +1876,7 @@ msgstr "Non défini"
 msgid "Not public"
 msgstr "Non publique"
 
+#, python-brace-format
 msgid ""
 "Note: Delimiters ('{$ ctrl.model.DELIMETER $}') are allowed in the\n"
 "          file name to place the new file into a folder that will be "
@@ -1895,6 +1890,7 @@ msgstr ""
 "          créé lors du chargement du fichier (dans un des dossiers en "
 "profondeur)."
 
+#, python-brace-format
 msgid ""
 "Note: Delimiters ('{$ ctrl.model.DELIMETER $}') are allowed in the\n"
 "          folder name to create deep folders."
@@ -2799,6 +2795,7 @@ msgstr "Ceci est mis en évidence..."
 msgid "This limit is currently not set."
 msgstr "Cette limite n'est actuellement pas définie."
 
+#, python-brace-format
 msgid "This limit is currently set to {$ model.novaLimits.maxServerMeta $}."
 msgstr "La limite actuelle est {$ model.novaLimits.maxServerMeta $}."
 
@@ -3463,6 +3460,7 @@ msgstr "Mis à jour à"
 msgid "Upload File"
 msgstr "Charger un fichier"
 
+#, python-brace-format
 msgid "Upload File To: {$ ctrl.model.container.name $}"
 msgstr "Charger le fichier dans : {$ ctrl.model.container.name $}"
 
@@ -3880,9 +3878,11 @@ msgstr "instantané"
 msgid "volume"
 msgstr "volume"
 
+#, python-brace-format
 msgid "{$ address $} on subnet {$ subnet $}"
 msgstr "{$ address $} sur le sous-réseau {$ subnet $}"
 
+#, python-brace-format
 msgid ""
 "{$ ctrl.model.counted.files $} files in\n"
 "      {$ ctrl.model.counted.folders $} folders."

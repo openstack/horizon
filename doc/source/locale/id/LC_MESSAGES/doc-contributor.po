@@ -4,9 +4,9 @@
 # suhartono <cloudsuhartono@gmail.com>, 2021. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 25.2.0.dev70\n"
+"Project-Id-Version: horizon 25.4.0.dev4\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-01-24 23:07+0000\n"
+"POT-Creation-Date: 2025-03-21 23:03+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -9626,13 +9626,6 @@ msgstr ""
 
 msgid "There are multiple components in our JavaScript testing framework:"
 msgstr "Ada beberapa komponen dalam kerangka pengujian JavaScript kami:"
-
-msgid ""
-"There are no required kwargs. They are passed directly to the auth plugin "
-"and they are implementation specific."
-msgstr ""
-"Tidak diperlukan kwargs. Mereka diteruskan langsung ke plugin auth dan "
-"mereka implementasi spesifik."
 
 msgid ""
 "There are several common tasks for which Horizon provides pre-built shortcut "

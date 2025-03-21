@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: horizon VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2025-02-15 09:23+0900\n"
+"POT-Creation-Date: 2025-03-22 08:03+0900\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -166,16 +166,8 @@ msgid "%s GB"
 msgstr "%s GB"
 
 #, python-format
-msgid "%sGB"
-msgstr "%sGB"
-
-#, python-format
 msgid "%sGiB"
 msgstr "%sGiB"
-
-#, python-format
-msgid "%sMB"
-msgstr "%sMB"
 
 msgid "(No IP address)"
 msgstr "(No IP address)"
@@ -206,6 +198,7 @@ msgstr "<a href=\"%(instance_url)s\">%(instance_name)s</a> on %(device)s"
 msgid "<a href=\"%(volume_url)s\">%(volume_label)s</a> on %(volume_device)s"
 msgstr "<a href=\"%(volume_url)s\">%(volume_label)s</a> on %(volume_device)s"
 
+#, python-brace-format
 msgid ""
 "<b>Access Rules</b>: If you want more fine-grained access control "
 "delegation, you can create one or more access rules for this application "
@@ -1952,6 +1945,7 @@ msgstr "Menghapus grup volume \"%s\""
 msgid "Deprecated Settings"
 msgstr "Pengaturan usang"
 
+#, python-brace-format
 msgid "Deprecated settings: {}."
 msgstr "Pengaturan usang:{}."
 
@@ -2722,9 +2716,6 @@ msgstr "Gagal memeriksa apakah neutron mendukung \"auto_allocated_network\"."
 msgid "Failed to check if nova supports \"auto_allocated_network\"."
 msgstr "Gagal memeriksa apakah nova mendukung \"auto_allocated_network\"."
 
-msgid "Failed to create a rbac policy."
-msgstr "Gagal membuat kebijakan rbac."
-
 #, python-format
 msgid "Failed to create network \"%s\"."
 msgstr "Gagal membuat jaringan \"%s\"."
@@ -2853,10 +2844,6 @@ msgstr "Gagal memperbarui jaringan %s"
 #, python-format
 msgid "Failed to update port \"%s\"."
 msgstr "Gagal memperbarui port \"%s\"."
-
-#, python-format
-msgid "Failed to update rbac policy %s"
-msgstr "Gagal memperbarui kebijakan rbac %s"
 
 #, python-format
 msgid "Failed to update router %s"
@@ -3013,9 +3000,6 @@ msgstr "Dari sini Anda bisa menambahkan sebuah agen DHCP untuk jaringan."
 msgid "From here you can allocate a floating IP to a specific project."
 msgstr ""
 "Dari sini Anda dapat mengalokasikan IP mengambang untuk proyek tertentu."
-
-msgid "From here you can create a rbac policy."
-msgstr "Dari sini Anda dapat membuat kebijakan rbac."
 
 msgid "From here you can create a snapshot of a volume."
 msgstr "Dari sini Anda dapat membuat snapshot dari volume."
@@ -4039,6 +4023,7 @@ msgstr "Disk minimal (GB)"
 msgid "Minimum RAM (MB)"
 msgstr "RAM minimal (MB)"
 
+#, python-brace-format
 msgid "Missing required settings: {}."
 msgstr "Pengaturan yang diperlukan tidak ada: {}."
 
@@ -5765,9 +5750,6 @@ msgstr "Ukuran"
 msgid "Size (GiB)"
 msgstr "Size (GiB)"
 
-msgid "Size(GiB) ="
-msgstr "Size(GiB) ="
-
 msgid "Slash is not an allowed character."
 msgstr "Slash adalah karakter yang tidak diperbolehkan."
 
@@ -7250,10 +7232,6 @@ msgid "Unable to retrieve details for network \"%s\"."
 msgstr "Tidak bisa mengambil rincian untuk jaringan \"%s\"."
 
 #, python-format
-msgid "Unable to retrieve details for rbac_policy \"%s\"."
-msgstr "Tidak dapat mengambil detail untuk rbac_policy \"%s\"."
-
-#, python-format
 msgid "Unable to retrieve details for router \"%s\"."
 msgstr "Tidak dapat mengambil rincian untuk router \"%s\"."
 
@@ -7495,9 +7473,6 @@ msgstr "Tidak dapat mengambil image umum."
 
 msgid "Unable to retrieve quota information."
 msgstr "Tidak dapat mengambil informasi kuota."
-
-msgid "Unable to retrieve rbac policy details."
-msgstr "Tidak dapat mengambil detail kebijakan rbac."
 
 msgid "Unable to retrieve role list."
 msgstr "Tidak dapat mengambil daftar peran."
@@ -7837,6 +7812,7 @@ msgstr "Unknown instance (None)"
 msgid "Unknown resource type for detail API."
 msgstr "Tipe sumber daya yang tidak diketahui untuk detail API."
 
+#, python-brace-format
 msgid "Unknown settings: {}."
 msgstr "Pengaturan tidak dikenal: {}."
 
@@ -8097,6 +8073,9 @@ msgstr "Digunakan <span> %(used)s </span> dari <span> %(available)s </span>"
 msgid "Used IPs"
 msgstr "Used IPs (IP yang digunakan)"
 
+msgid "User"
+msgstr "User"
+
 #, python-format
 msgid "User \"%s\" has been updated successfully."
 msgstr "Pengguna \"%s\" telah berhasil diperbarui."
@@ -8104,6 +8083,9 @@ msgstr "Pengguna \"%s\" telah berhasil diperbarui."
 #, python-format
 msgid "User \"%s\" was successfully created."
 msgstr "pemakai \"%s\" berhasil dibuat."
+
+msgid "User Credentials"
+msgstr "User Credentials (kredensial pengguna)"
 
 msgid "User Credentials Details"
 msgstr "User Credentials Details"
@@ -8189,6 +8171,9 @@ msgstr "VXLAN"
 
 msgid "Value"
 msgstr "Nilai"
+
+msgid "Value:"
+msgstr "Value:"
 
 #, python-format
 msgid "Version: %(version_info)s"
@@ -8626,9 +8611,6 @@ msgstr ""
 
 msgid "no"
 msgstr "no (tidak)"
-
-msgid "rbac policy quota exceeded."
-msgstr "kuota kebijakan rbac terlampaui."
 
 msgid "undefined"
 msgstr "Tidak terdefinisi"

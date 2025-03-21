@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: horizon VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2022-09-30 06:37+0000\n"
+"POT-Creation-Date: 2025-03-22 08:03+0900\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -219,6 +219,7 @@ msgstr "Sebuah nama diperlukan untuk instance Anda."
 msgid "A port represents a virtual switch port on a logical network switch."
 msgstr "Sebuah port merupakan port switch virtual pada switch jaringan logis."
 
+#, python-brace-format
 msgid ""
 "A volume description less than {$createVolumeCtrl.validationRules."
 "fieldMaxLength + 1$} characters is required."
@@ -226,6 +227,7 @@ msgstr ""
 "Deskripsi volume kurang dari {$createVolumeCtrl.validationRules."
 "fieldMaxLength + 1$} karakter diperlukan"
 
+#, python-brace-format
 msgid ""
 "A volume name less than {$createVolumeCtrl.validationRules.fieldMaxLength + "
 "1$} characters is required."
@@ -369,6 +371,7 @@ msgstr "An (HTTP) URL eksternal untuk memuat image dari"
 msgid "An image description less than 256 characters is required."
 msgstr "Deskripsi image kurang dari 256 karakter diperlukan."
 
+#, python-brace-format
 msgid ""
 "An image description less than {$ctrl.validationRules.fieldMaxLength + 1$} "
 "characters is required."
@@ -379,6 +382,7 @@ msgstr ""
 msgid "An image name less than 256 characters is required."
 msgstr "Nama image kurang dari 256 karakter diperlukan."
 
+#, python-brace-format
 msgid ""
 "An image name less than {$ctrl.validationRules.fieldMaxLength + 1$} "
 "characters is required."
@@ -636,6 +640,7 @@ msgstr "Copy Data"
 msgid "Copy Object"
 msgstr "Copy Object"
 
+#, python-brace-format
 msgid "Copy Object: {$ ctrl.model.container $}/{$ ctrl.model.path $}"
 msgstr "Copy Object: {$ ctrl.model.container $}/{$ ctrl.model.path $}"
 
@@ -663,6 +668,7 @@ msgstr "Buat Domain"
 msgid "Create Folder"
 msgstr "Buat folder"
 
+#, python-brace-format
 msgid "Create Folder In: {$ ctrl.model.container.name $}"
 msgstr "Buat Folder Dalam: {$ ctrl.model.container.name $}"
 
@@ -821,6 +827,7 @@ msgstr[0] "Delete Domain"
 msgid "Delete Domains"
 msgstr "Hapus Domain"
 
+#, python-brace-format
 msgid "Delete Files in {$ ctrl.model.container.name $}"
 msgstr "Hapus File di {$ ctrl.model.container.name $}"
 
@@ -1078,6 +1085,7 @@ msgstr "Edit"
 msgid "Edit File"
 msgstr "Edit File"
 
+#, python-brace-format
 msgid "Edit File: {$ ctrl.model.container $} : {$ ctrl.model.path $}"
 msgstr "Edit File: {$ ctrl.model.container $} : {$ ctrl.model.path $}"
 
@@ -1114,6 +1122,7 @@ msgstr "Enable/Disable tambahan subport, penghilangan dan penghapusan trunk."
 msgid "Enabled"
 msgstr "Diaktifkan"
 
+#, python-brace-format
 msgid "Encountered {$ ctrl.model.deleted.failures $} failures."
 msgstr "Dijumpai kegagalan  {$ ctrl.model.deleted.failures $}."
 
@@ -1707,15 +1716,6 @@ msgid_plural "Metadata Definitions"
 msgstr[0] "Metadata Definition"
 
 msgid ""
-"Metadata is a collection of key-value pairs associated with an instance.\n"
-"    The maximum length for each metadata key and value is 255 characters."
-msgstr ""
-"Metadata adalah kumpulan pasangan key-value yang terkait dengan sebuah "
-"instance.\n"
-"     Panjang maksimum untuk setiap key metadata dan nilai adalah 255 "
-"karakter."
-
-msgid ""
 "Metadata is used to provide additional information about the\n"
 "    image. Sometimes this information is only used for sorting and viewing.\n"
 "    In some installations this information may affect how the instance is\n"
@@ -1745,12 +1745,6 @@ msgstr "Min Port"
 
 msgid "Min RAM (MB)"
 msgstr "Min RAM (MB)"
-
-msgid "Min. Disk"
-msgstr "Min. Disk"
-
-msgid "Min. RAM"
-msgstr "Min. RAM"
 
 msgid "Min. Size (bytes)"
 msgstr "Min. Size (bytes)"
@@ -1912,6 +1906,7 @@ msgstr ""
 "setiap\n"
 "   waktu selama ada port."
 
+#, python-brace-format
 msgid ""
 "Note: Delimiters ('{$ ctrl.model.DELIMETER $}') are allowed in the\n"
 "          file name to place the new file into a folder that will be "
@@ -1923,6 +1918,7 @@ msgstr ""
 "dibuat\n"
 "           ketika file diupload (untuk setiap kedalaman folder)."
 
+#, python-brace-format
 msgid ""
 "Note: Delimiters ('{$ ctrl.model.DELIMETER $}') are allowed in the\n"
 "          folder name to create deep folders."
@@ -2890,6 +2886,7 @@ msgstr "Ini difokuskan ..."
 msgid "This limit is currently not set."
 msgstr "Batas ini saat ini tidak diatur."
 
+#, python-brace-format
 msgid "This limit is currently set to {$ model.novaLimits.maxServerMeta $}."
 msgstr "This limit is currently set to {$ model.novaLimits.maxServerMeta $}."
 
@@ -3543,6 +3540,7 @@ msgstr "Updated at"
 msgid "Upload File"
 msgstr "Upload File"
 
+#, python-brace-format
 msgid "Upload File To: {$ ctrl.model.container.name $}"
 msgstr "Upload file ke: {$ ctrl.model.container.name $}"
 
@@ -3917,9 +3915,11 @@ msgstr "snapshot"
 msgid "volume"
 msgstr "volume"
 
+#, python-brace-format
 msgid "{$ address $} on subnet {$ subnet $}"
 msgstr "{$ address $} on subnet {$ subnet $}"
 
+#, python-brace-format
 msgid ""
 "{$ ctrl.model.counted.files $} files in\n"
 "      {$ ctrl.model.counted.folders $} folders."

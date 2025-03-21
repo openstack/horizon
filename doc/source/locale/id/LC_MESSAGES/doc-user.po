@@ -2,9 +2,9 @@
 # suhartono <cloudsuhartono@gmail.com>, 2019. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon\n"
+"Project-Id-Version: horizon 25.4.0.dev4\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-08-22 15:11-0500\n"
+"POT-Creation-Date: 2025-03-21 23:03+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -392,9 +392,6 @@ msgid ""
 msgstr ""
 ":guilabel:`Shared`: Berbagi jaringan dengan proyek lainnya. Pengguna non "
 "admin tidak diizinkan untuk menetapkan pilihan bersama (shared option)."
-
-msgid ":guilabel:`Size (GB)`: The size of the volume in gibibytes (GiB)."
-msgstr ":guilabel:`Size (GB)`: Ukuran volume di gibibytes (GIB)."
 
 msgid ":guilabel:`Snapshots`: View, create, edit, and delete volume snapshots."
 msgstr ":guilabel:`Snapshots`: View, create, edit, dan hapus volume snapshots."
