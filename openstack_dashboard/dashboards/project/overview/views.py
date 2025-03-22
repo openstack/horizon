@@ -34,7 +34,7 @@ from openstack_dashboard.utils import filters
 
 class ProjectUsageCsvRenderer(csvbase.BaseCsvResponse):
 
-    columns = [_("Instance Name"), _("VCPUs"), _("RAM (MB)"),
+    columns = [_("Instance Name"), _("vCPUs"), _("RAM (MB)"),
                _("Disk (GB)"), _("Usage (Hours)"),
                _("Age (Seconds)"), _("State")]
 

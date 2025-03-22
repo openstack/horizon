@@ -66,7 +66,7 @@ def get_compute_quota_name(quota):
         'injected_file_content_bytes': _('Injected File Content (B)'),
         'injected_file_path_bytes': _('Length of Injected File Path'),
         'metadata_items': _('Metadata Items'),
-        'cores': _('VCPUs'),
+        'cores': _('vCPUs'),
         'instances': _('Instances'),
         'injected_files': _('Injected Files'),
         'ram': _('RAM (MB)'),

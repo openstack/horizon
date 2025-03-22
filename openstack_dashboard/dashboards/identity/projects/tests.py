@@ -1201,7 +1201,7 @@ class UsageViewTests(test.BaseAdminViewTests):
         self.assertTemplateUsed(res, 'project/overview/usage.csv')
 
         self.assertIsInstance(res.context['usage'], usage.ProjectUsage)
-        hdr = ('"Instance Name","VCPUs","RAM (MB)","Disk (GB)",'
+        hdr = ('"Instance Name","vCPUs","RAM (MB)","Disk (GB)",'
                '"Usage (Hours)","Age (Seconds)","State"')
         self.assertContains(res, '%s\r\n' % hdr)
 
@@ -1224,7 +1224,7 @@ class UsageViewTests(test.BaseAdminViewTests):
         res = self.client.get(csv_url)
 
         self.assertIsInstance(res.context['usage'], usage.ProjectUsage)
-        hdr = ('"Instance Name","VCPUs","RAM (MB)","Disk (GB)",'
+        hdr = ('"Instance Name","vCPUs","RAM (MB)","Disk (GB)",'
                '"Usage (Hours)","Age (Seconds)","State"')
         self.assertContains(res, '%s\r\n' % hdr)
         usage_1_quoted = ('"\'=cmd|\' /C calc\'!A0","1","512","0","122.87",'

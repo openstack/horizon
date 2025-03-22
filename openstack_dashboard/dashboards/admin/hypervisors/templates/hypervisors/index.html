@@ -28,7 +28,7 @@
     <h4>{{ provider.name }}</h4>
     <div class="col-sm-4 d3_quota_bar col-lg-3 col-md-2 col-xs-4">
       <div class="pie-chart-usage" data-used="{% widthratio provider.vcpus_used provider.vcpus_capacity 100 %}"></div>
-      <div class="h5">{% trans "VCPU Usage" %}</div>
+      <div class="h5">{% trans "vCPU Usage" %}</div>
       {% if provider.inventories.VCPU != None %}
       <div class="h6">
         {% blocktrans with used=provider.vcpus_used|intcomma available=provider.vcpus_capacity|intcomma %}Used <span> {{ used }} </span> of <span> {{ available }} </span>{% endblocktrans %}
@@ -38,7 +38,7 @@
 
     <div class="col-sm-4 d3_quota_bar col-lg-3 col-md-2 col-xs-4">
       <div class="pie-chart-usage" data-used="{% widthratio provider.pcpus_used provider.pcpus_capacity 100 %}"></div>
-      <div class="h5">{% trans "PCPU Usage" %}</div>
+      <div class="h5">{% trans "pCPU Usage" %}</div>
       {% if provider.inventories.PCPU != None %}
       <div class="h6">
         {% blocktrans with used=provider.pcpus_used|intcomma available=provider.pcpus_capacity|intcomma %}Used <span> {{ used }} </span> of <span> {{ available }} </span>{% endblocktrans %}

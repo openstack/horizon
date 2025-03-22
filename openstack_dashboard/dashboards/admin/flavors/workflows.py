@@ -28,9 +28,9 @@ from openstack_dashboard import api
 
 class CreateFlavorInfoAction(workflows.Action):
     _flavor_id_regex = (r'^[a-zA-Z0-9. _-]+$')
-    _flavor_id_help_text = _("flavor id can only contain alphanumeric "
+    _flavor_id_help_text = _("Flavor id can only contain alphanumeric "
                              "characters, underscores, periods, hyphens, "
-                             "spaces. Use 'auto' to automatically generate id")
+                             "spaces. Use 'auto' to automatically generate ID.")
     name = forms.CharField(
         label=_("Name"),
         max_length=255)
@@ -40,7 +40,7 @@ class CreateFlavorInfoAction(workflows.Action):
                                  initial='auto',
                                  max_length=255,
                                  help_text=_flavor_id_help_text)
-    vcpus = forms.IntegerField(label=_("VCPUs"),
+    vcpus = forms.IntegerField(label=_("vCPUs"),
                                min_value=1,
                                max_value=2147483647)
     memory_mb = forms.IntegerField(label=_("RAM (MB)"),

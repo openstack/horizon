@@ -93,7 +93,7 @@ QUOTA_FIELDS = NOVA_QUOTA_FIELDS | CINDER_QUOTA_FIELDS | NEUTRON_QUOTA_FIELDS
 QUOTA_NAMES = {
     # nova
     "metadata_items": _('Metadata Items'),
-    "cores": _('VCPUs'),
+    "cores": _('vCPUs'),
     "instances": _('Instances'),
     "injected_files": _('Injected Files'),
     "injected_file_content_bytes": _('Injected File Content (B)'),

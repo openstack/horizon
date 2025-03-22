@@ -69,8 +69,8 @@
       <dd>{{ instance.full_flavor.id }}</dd>
       <dt>{% trans "RAM" %}</dt>
       <dd>{{ instance.full_flavor.ram|mb_float_format }}</dd>
-      <dt>{% trans "VCPUs" %}</dt>
-      <dd>{{ instance.full_flavor.vcpus }} {% trans "VCPU" %}</dd>
+      <dt>{% trans "vCPUs" %}</dt>
+      <dd>{{ instance.full_flavor.vcpus }} {% trans "vCPU" %}</dd>
       <dt>{% trans "Disk" %}</dt>
       <dd>{{ instance.full_flavor.disk }}{% trans "GB" %}</dd>
       {% if instance.full_flavor.ephemeral %}

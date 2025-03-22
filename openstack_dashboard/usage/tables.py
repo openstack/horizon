@@ -29,7 +29,7 @@ class CSVSummary(tables.LinkAction):
 
 
 class BaseUsageTable(tables.DataTable):
-    vcpus = tables.Column('vcpus', verbose_name=_("VCPUs"))
+    vcpus = tables.Column('vcpus', verbose_name=_("vCPUs"))
     disk = tables.Column('local_gb', verbose_name=_("Disk"),
                          filters=(sizeformat.diskgbformat,),
                          attrs={"data-type": "size"})
@@ -41,9 +41,9 @@ class BaseUsageTable(tables.DataTable):
 
 class GlobalUsageTable(BaseUsageTable):
     project = tables.Column('project_name', verbose_name=_("Project Name"))
-    vcpu_hours = tables.Column('vcpu_hours', verbose_name=_("VCPU Hours"),
-                               help_text=_("Total VCPU usage (Number of "
-                                           "VCPU in instance * Hours Used) "
+    vcpu_hours = tables.Column('vcpu_hours', verbose_name=_("vCPU Hours"),
+                               help_text=_("Total vCPU usage (Number of "
+                                           "vCPU in instance * Hours Used) "
                                            "for the project"),
                                filters=(lambda v: floatformat(v, 2),))
     disk_hours = tables.Column('disk_gb_hours',

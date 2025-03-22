@@ -13,7 +13,7 @@
     <dd class="small">{{ usage.summary.instances|default:'0' }}</dd>
     <dt class="small">{% trans "Active RAM:" %}</dt>
     <dd class="small">{{ usage.summary.memory_mb|mb_float_format|default:'0' }}</dd>
-    <dt class="small">{% trans "This Period's VCPU-Hours:" %}</dt>
+    <dt class="small">{% trans "This Period's vCPU-Hours:" %}</dt>
     <dd class="small">{{ usage.summary.vcpu_hours|floatformat:2|default:'0' }}</dd>
     <dt class="small">{% trans "This Period's GB-Hours:" %}</dt>
     <dd class="small">{{ usage.summary.disk_gb_hours|floatformat:2|default:'0' }}</dd>
