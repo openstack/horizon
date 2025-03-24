@@ -42,13 +42,15 @@
         func: 'getFloatingIps',
         method: 'get',
         path: '/api/network/floatingips/',
-        error: 'Unable to retrieve floating IPs.'
+        error: 'Unable to retrieve floating IPs.',
+        throws: true
       },
       {
         func: 'getFloatingIpPools',
         method: 'get',
         path: '/api/network/floatingippools/',
-        error: 'Unable to retrieve floating IP pools.'
+        error: 'Unable to retrieve floating IP pools.',
+        throws: true
       },
       {
         func: 'allocateFloatingIp',
@@ -56,7 +58,8 @@
         path: '/api/network/floatingip/',
         data: { pool_id: 'pool' },
         error: 'Unable to allocate new floating IP address.',
-        testInput: [ 'pool' ]
+        testInput: [ 'pool' ],
+        throws: true
       },
       {
         func: 'associateFloatingIp',
@@ -64,7 +67,8 @@
         path: '/api/network/floatingip/',
         data: { address_id: 'address', port_id: 'port' },
         error: 'Unable to associate floating IP address.',
-        testInput: [ 'address', 'port' ]
+        testInput: [ 'address', 'port' ],
+        throws: true
       },
       {
         func: 'disassociateFloatingIp',
@@ -72,7 +76,8 @@
         path: '/api/network/floatingip/',
         data: { address_id: 'address' },
         error: 'Unable to disassociate floating IP address.',
-        testInput: [ 'address' ]
+        testInput: [ 'address' ],
+        throws: true
       }
     ];
 
