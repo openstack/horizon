@@ -22,7 +22,7 @@ Introduction
 ============
 
 Horizon is the canonical implementation of `OpenStack's Dashboard
-<https://github.com/openstack/horizon>`_, which provides a web based user
+<https://opendev.org/openstack/horizon>`_, which provides a web based user
 interface to OpenStack services including Nova, Swift, Keystone, etc.
 
 For a more in-depth look at Horizon and its architecture, see the
