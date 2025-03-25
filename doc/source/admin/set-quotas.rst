@@ -87,7 +87,7 @@ View default project quotas
    from the drop-down list.
 
 #. On the :guilabel:`Admin` tab, open the :guilabel:`System` tab
-   and click the :guilabel:`Defaults` category.
+   and click the :guilabel:`Default Quotas` category.
 
 #. The default quota values are displayed.
 
@@ -105,7 +105,7 @@ Update project quotas
    from the drop-down list.
 
 #. On the :guilabel:`Admin` tab, open the :guilabel:`System` tab
-   and click the :guilabel:`Defaults` category.
+   and click the :guilabel:`Default Quotas` category.
 
 #. Click the :guilabel:`Update Defaults` button.
 
