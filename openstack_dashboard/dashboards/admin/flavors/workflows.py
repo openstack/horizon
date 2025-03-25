@@ -30,9 +30,26 @@ class CreateFlavorInfoAction(workflows.Action):
     _flavor_id_regex = (r'^[a-zA-Z0-9. _-]+$')
     _flavor_id_help_text = _("Flavor ID can only contain alphanumeric "
                              "characters, underscores, periods, hyphens, "
-                             "spaces. Pay attention that ID is not case "
-                             "sensitive. Use 'auto' to automatically "
-                             "generate ID.")
+                             "spaces. Use 'auto' to automatically generate ID.")
+    _disk_gb_help_text = _("The root disk is an ephemeral disk that the base "
+                           "image is copied into. When booting from a "
+                           "persistent volume it is not used. The 0 size is "
+                           "a special case which uses the native base image "
+                           "size as the size of the ephemeral root volume. "
+                           "However, in this case the scheduler cannot "
+                           "select  the compute host based on the virtual "
+                           "image size. As a result, 0 should only be used "
+                           "for volume booted instances or for testing "
+                           "purposes.")
+    _eph_gb_help_text = _("This property is optional. If unspecified, the "
+                          "value is 0 by default. Ephemeral disks offer "
+                          "machine local disk storage linked to the lifecycle "
+                          "of a VM instance. When a VM is terminated, all "
+                          "data on the ephemeral disk is lost. Ephemeral disks "
+                          "are not included in any snapshots."
+                          "spaces. Pay attention that ID is not case "
+                          "sensitive. Use 'auto' to automatically "
+                          "generate ID.")
     name = forms.CharField(
         label=_("Name"),
         max_length=255)
@@ -50,11 +67,13 @@ class CreateFlavorInfoAction(workflows.Action):
                                    max_value=2147483647)
     disk_gb = forms.IntegerField(label=_("Root Disk (GB)"),
                                  min_value=0,
-                                 max_value=2147483647)
+                                 max_value=2147483647,
+                                 help_text=_disk_gb_help_text)
     eph_gb = forms.IntegerField(label=_("Ephemeral Disk (GB)"),
                                 required=False,
                                 initial=0,
-                                min_value=0)
+                                min_value=0,
+                                help_text=_eph_gb_help_text)
     swap_mb = forms.IntegerField(label=_("Swap Disk (MB)"),
                                  required=False,
                                  initial=0,
