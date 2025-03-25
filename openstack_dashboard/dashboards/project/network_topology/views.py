@@ -233,9 +233,12 @@ class JSONView(View):
         console_type = settings.CONSOLE_TYPE
         # lowercase of the keys will be used at the end of the console URL.
         for server in servers:
+            allow_delete_server = policy.check(
+                (("compute", "os_compute_api:servers:delete"),), request)
             server_data = {'name': server.name,
                            'status': self.trans.instance[server.status],
                            'original_status': server.status,
+                           'allow_delete_server': allow_delete_server,
                            'task': getattr(server, 'OS-EXT-STS:task_state'),
                            'id': server.id}
             # Avoid doing extra calls for console if the server is in
@@ -276,6 +279,12 @@ class JSONView(View):
                 target={'network:tenant_id': getattr(network,
                                                      'tenant_id', None)}
             )
+            allow_delete_network = policy.check(
+                (("network", "delete_network"),),
+                request,
+                target={'network:tenant_id': getattr(network,
+                                                     'tenant_id', None)}
+            )
             obj = {'name': network.name_or_id,
                    'id': network.id,
                    'subnets': [{'id': subnet.id,
@@ -283,6 +292,7 @@ class JSONView(View):
                                for subnet in network.subnets],
                    'status': self.trans.network[network.status],
                    'allow_delete_subnet': allow_delete_subnet,
+                   'allow_delete_network': allow_delete_network,
                    'original_status': network.status,
                    'router:external': network['is_router_external']}
             self.add_resource_url('horizon:project:networks:subnets:detail',
