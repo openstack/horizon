@@ -209,7 +209,6 @@ class BaseFlavorWorkflowTests(test.BaseAdminViewTests):
                        "memory": flavor.ram,
                        "disk": flavor.disk,
                        "swap": flavor.swap,
-                       "rxtx_factor": flavor.rxtx_factor,
                        "ephemeral": eph,
                        "is_public": flavor.is_public}
         if id:
@@ -223,7 +222,6 @@ class BaseFlavorWorkflowTests(test.BaseAdminViewTests):
                        "memory_mb": flavor.ram,
                        "disk_gb": flavor.disk,
                        "swap_mb": flavor.swap,
-                       "rxtx_factor": flavor.rxtx_factor,
                        "eph_gb": eph}
         self._get_access_field(flavor_info, access)
         if id:

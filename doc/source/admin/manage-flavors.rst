@@ -61,12 +61,6 @@ Create flavors
     **Swap Disk (MB)**         Enter the amount of swap space (in
                                megabytes) to use. If unspecified,
                                the default is 0.
-    **RX/TX Factor**           Optional property allows servers with
-                               a different bandwidth to be created
-                               with the RX/TX Factor. The default
-                               value is 1. That is, the new bandwidth
-                               is the same as that of the attached
-                               network.
    =========================  =======================================
 
 #. In the :guilabel:`Flavor Access` tab, you can control access to
