@@ -165,7 +165,9 @@ def test_browse_left_panel(live_server, driver, user, dashboard_data,
             sec_line_xpath = config.theme.b_l_p_sec_line_xpath.format(
                 main_panel=main_panel)
             sidebar = driver.find_element_by_xpath(sec_line_xpath)
-        sidebar.find_element_by_link_text(link_text).click()
+        WebDriverWait(sidebar, config.selenium.implicit_wait).until(
+            EC.element_to_be_clickable(
+                (By.LINK_TEXT, link_text))).click()
         assert driver.title == title
         assert driver.find_element_by_css_selector("h1").text == h1_text
 
