@@ -290,11 +290,16 @@ class SecurityGroupRule(NeutronAPIDictWrapper):
             else:
                 sgr['remote_ip_prefix'] = '0.0.0.0/0'
 
+        ethertype = ''
+        if 'ethertype' in sgr:
+            ethertype = sgr['ethertype']
+        else:
+            ethertype = sgr['ether_type']
         rule = {
             'id': sgr['id'],
             'parent_group_id': sgr['security_group_id'],
             'direction': sgr['direction'],
-            'ethertype': sgr['ethertype'],
+            'ethertype': ethertype,
             'ip_protocol': sgr['protocol'],
             'from_port': sgr['port_range_min'],
             'to_port': sgr['port_range_max'],
@@ -332,9 +337,9 @@ class SecurityGroupRule(NeutronAPIDictWrapper):
         else:
             proto_port = ''
 
-        return (_('ALLOW %(ethertype)s %(proto_port)s '
+        return (_('ALLOW %(ether_type)s %(proto_port)s '
                   '%(direction)s %(remote)s') %
-                {'ethertype': self.ethertype,
+                {'ether_type': self.ethertype,
                  'proto_port': proto_port,
                  'remote': remote,
                  'direction': direction})
@@ -373,7 +378,7 @@ class SecurityGroupManager(object):
 
     def __init__(self, request):
         self.request = request
-        self.client = neutronclient(request)
+        self.net_client = networkclient(request)
 
     def _list(self, **filters):
         if (filters.get("tenant_id") and
@@ -381,20 +386,31 @@ class SecurityGroupManager(object):
                     self.request, 'security-groups-shared-filtering')):
             # NOTE(hangyang): First, we get the SGs owned by but not shared
             # to the requester(tenant_id)
-            filters["shared"] = False
-            secgroups_owned = self.client.list_security_groups(**filters)
+            filters["is_shared"] = False
+            secgroups_owned = self.net_client.security_groups(**filters)
             # NOTE(hangyang): Second, we get the SGs shared to the
             # requester. For a requester with an admin role, this second
             # API call also only returns SGs shared to the requester's tenant
             # instead of all the SGs shared to any tenant.
             filters.pop("tenant_id")
-            filters["shared"] = True
-            secgroups_rbac = self.client.list_security_groups(**filters)
-            return [SecurityGroup(sg) for sg in
-                    itertools.chain(secgroups_owned.get('security_groups'),
-                                    secgroups_rbac.get('security_groups'))]
-        secgroups = self.client.list_security_groups(**filters)
-        return [SecurityGroup(sg) for sg in secgroups.get('security_groups')]
+            filters["is_shared"] = True
+            secgroups_rbac = self.net_client.security_groups(**filters)
+
+            def _filter_sgs(all_sgs):
+                already_found = set()
+                for sg in all_sgs:
+                    if sg.id not in already_found:
+                        already_found.add(sg.id)
+                        yield sg
+
+            filtered_list = []
+            for sg in _filter_sgs(
+                    itertools.chain(secgroups_owned, secgroups_rbac)):
+                filtered_list.append(sg)
+            return [SecurityGroup(sg.to_dict()) for sg in filtered_list]
+
+        secgroups = self.net_client.security_groups(**filters)
+        return [SecurityGroup(sg.to_dict()) for sg in secgroups]
 
     @profiler.trace
     def list(self, **params):
@@ -413,10 +429,10 @@ class SecurityGroupManager(object):
         """Create a mapping dict from secgroup id to its name."""
         related_ids = set([sg_id])
         related_ids |= set(filter(None, [r['remote_group_id'] for r in rules]))
-        related_sgs = self.client.list_security_groups(id=related_ids,
-                                                       fields=['id', 'name'])
-        related_sgs = related_sgs.get('security_groups')
-        return dict((sg['id'], sg['name']) for sg in related_sgs)
+        related_sgs = self.net_client.security_groups(id=related_ids,
+                                                      fields=['id', 'name'])
+        return dict((sg.to_dict()['id'], sg.to_dict()['name'])
+                    for sg in related_sgs)
 
     @profiler.trace
     def get(self, sg_id):
@@ -424,7 +440,7 @@ class SecurityGroupManager(object):
 
         :returns: SecurityGroup object corresponding to sg_id
         """
-        secgroup = self.client.show_security_group(sg_id).get('security_group')
+        secgroup = self.net_client.get_security_group(sg_id).to_dict()
         sg_dict = self._sg_name_dict(sg_id, secgroup['security_group_rules'])
         return SecurityGroup(secgroup, sg_dict)
 
@@ -434,23 +450,22 @@ class SecurityGroupManager(object):
 
         :returns: SecurityGroup object created
         """
-        body = {'security_group': {'name': name,
-                                   'description': desc,
-                                   'tenant_id': self.request.user.project_id}}
-        secgroup = self.client.create_security_group(body)
-        return SecurityGroup(secgroup.get('security_group'))
+        body = {'name': name, 'description': desc,
+                'tenant_id': self.request.user.project_id}
+        secgroup = self.net_client.create_security_group(**body).to_dict()
+        return SecurityGroup(secgroup)
 
     @profiler.trace
     def update(self, sg_id, name, desc):
-        body = {'security_group': {'name': name,
-                                   'description': desc}}
-        secgroup = self.client.update_security_group(sg_id, body)
-        return SecurityGroup(secgroup.get('security_group'))
+        body = {'name': name, 'description': desc}
+        secgroup = self.net_client.update_security_group(
+            sg_id, **body).to_dict()
+        return SecurityGroup(secgroup)
 
     @profiler.trace
     def delete(self, sg_id):
         """Delete the specified security group."""
-        self.client.delete_security_group(sg_id)
+        self.net_client.delete_security_group(sg_id)
 
     @profiler.trace
     def rule_create(self, parent_group_id,
@@ -488,23 +503,22 @@ class SecurityGroupManager(object):
                   'remote_group_id': group_id}
         if description is not None:
             params['description'] = description
-        body = {'security_group_rule': params}
         try:
-            rule = self.client.create_security_group_rule(body)
+            rule = self.net_client.create_security_group_rule(
+                **params).to_dict()
         except neutron_exc.OverQuotaClient:
             raise exceptions.Conflict(
                 _('Security group rule quota exceeded.'))
         except neutron_exc.Conflict:
             raise exceptions.Conflict(
                 _('Security group rule already exists.'))
-        rule = rule.get('security_group_rule')
         sg_dict = self._sg_name_dict(parent_group_id, [rule])
         return SecurityGroupRule(rule, sg_dict)
 
     @profiler.trace
     def rule_delete(self, sgr_id):
         """Delete the specified security group rule."""
-        self.client.delete_security_group_rule(sgr_id)
+        self.net_client.delete_security_group_rule(sgr_id)
 
     @profiler.trace
     def list_by_instance(self, instance_id):

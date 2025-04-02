@@ -22,6 +22,8 @@ from openstack.network.v2 import network_ip_availability as \
 from openstack.network.v2 import port as sdk_port
 from openstack.network.v2 import port_forwarding as sdk_pf
 from openstack.network.v2 import router as sdk_router
+from openstack.network.v2 import security_group as sdk_sec_group
+from openstack.network.v2 import security_group_rule as sdk_sec_group_rule
 from openstack.network.v2 import subnet as sdk_subnet
 from openstack.network.v2 import subnet_pool as sdk_subnet_pool
 from openstack.network.v2 import trunk as sdk_trunk
@@ -66,8 +68,6 @@ def data(TEST):
     TEST.neutron_availability_zones = utils.TestDataContainer()
 
     # Data return by neutronclient.
-    TEST.api_security_groups = utils.TestDataContainer()
-    TEST.api_security_group_rules = utils.TestDataContainer()
     TEST.api_pools = utils.TestDataContainer()
     TEST.api_vips = utils.TestDataContainer()
     TEST.api_members = utils.TestDataContainer()
@@ -94,6 +94,8 @@ def data(TEST):
     TEST.api_ip_availability_sdk = list()
     TEST.api_port_forwardings_sdk = list()
     TEST.api_floating_ips_sdk = list()
+    TEST.api_security_groups_sdk = list()
+    TEST.api_security_group_rules_sdk = list()
 
     # 1st network.
     network_dict = {'is_admin_state_up': True,
@@ -799,12 +801,14 @@ def data(TEST):
                        'shared': False,
                        'description': 'SG without rules',
                        'id': 'f205f3bc-d402-4e40-b004-c62401e19b4b',
-                       'name': 'empty_group'}
+                       'name': 'empty_group',
+                       'security_group_rules': []}
     sec_group_shared = {'tenant_id': '1',
                         'shared': True,
                         'description': 'SG without rules',
                         'id': 'cca53e02-114e-4da3-917b-f19efa7cbc47',
-                        'name': 'shared_group'}
+                        'name': 'shared_group',
+                        'security_group_rules': []}
 
     def add_rule_to_group(secgroup, default_only=True):
         rule_egress_ipv4 = {
@@ -896,9 +900,11 @@ def data(TEST):
     sg_name_dict = dict([(sg['id'], sg['name']) for sg in groups])
     for sg in groups:
         # Neutron API.
-        TEST.api_security_groups.add(sg)
+        TEST.api_security_groups_sdk.append(
+            sdk_sec_group.SecurityGroup(**sg))
         for rule in sg.get('security_group_rules', []):
-            TEST.api_security_group_rules.add(copy.copy(rule))
+            TEST.api_security_group_rules_sdk.append(
+                sdk_sec_group_rule.SecurityGroupRule(**rule))
         # OpenStack Dashboard internaly API.
         TEST.security_groups.add(
             neutron.SecurityGroup(copy.deepcopy(sg), sg_name_dict))
