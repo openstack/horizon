@@ -45,7 +45,7 @@ def wait_for_steady_state_of_volume(openstack, volume_name):
 
 
 def wait_for_volume_is_deleted(openstack, volume_name):
-    for attempt in range(10):
+    for attempt in range(120):
         if openstack.block_storage.find_volume(volume_name) is None:
             break
         else:
