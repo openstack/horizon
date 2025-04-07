@@ -11,7 +11,7 @@ As of Newton, there are no default flavors.  The following table
 lists the default flavors for Mitaka and earlier.
 
 ============  =========  ===============  =============
- Flavor         VCPUs      Disk (in GB)     RAM (in MB)
+ Flavor         vCPUs      Disk (in GB)     RAM (in MB)
 ============  =========  ===============  =============
  m1.tiny        1          1                512
  m1.small       1          20               2048
@@ -40,7 +40,7 @@ Create flavors
     **ID**                     Unique ID (integer or UUID) for the
                                new flavor. If specifying 'auto', a
                                UUID will be automatically generated.
-    **VCPUs**                  Enter the number of virtual CPUs to
+    **vCPUs**                  Enter the number of virtual CPUs to
                                use.
     **RAM (MB)**               Enter the amount of RAM to use, in
                                megabytes.

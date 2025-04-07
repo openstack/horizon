@@ -71,7 +71,7 @@ The following table describes the Compute and Block Storage service quotas:
 | Snapshots          | Volume snapshots allowed for       | Block Storage |
 |                    | each project.                      |               |
 +--------------------+------------------------------------+---------------+
-| VCPUs              | Instance cores allowed for each    | Compute       |
+| vCPUs              | Instance cores allowed for each    | Compute       |
 |                    | project.                           |               |
 +--------------------+------------------------------------+---------------+
 | Volumes            | Volumes allowed for each           | Block Storage |

@@ -44,7 +44,7 @@
 
     // Labels used by quota charts
     ctrl.chartTotalInstancesLabel = gettext('Total Instances');
-    ctrl.chartTotalVcpusLabel = gettext('Total VCPUs');
+    ctrl.chartTotalVcpusLabel = gettext('Total vCPUs');
     ctrl.chartTotalRamLabel = gettext('Total RAM');
     ctrl.chartTotalVolumeLabel = gettext('Total Volumes');
     ctrl.chartTotalVolumeStorageLabel = gettext('Total Volume Storage');
@@ -56,7 +56,7 @@
         singleton: true
       },
       {
-        label: gettext('VCPUs'),
+        label: gettext('vCPUs'),
         name: 'vcpus',
         singleton: true
       },
@@ -112,7 +112,7 @@
       detailsTemplateUrl: basePath + 'flavor/flavor-details.html',
       columns: [
         {id: 'name', title: gettext('Name'), priority: 1},
-        {id: 'vcpus', title: gettext('VCPUS'), priority: 1,
+        {id: 'vcpus', title: gettext('vCPUs'), priority: 1,
           template: `<span class="invalid fa fa-exclamation-triangle"
             ng-show="item.errors.vcpus"
             uib-popover="{$ item.errors.vcpus $}"
@@ -419,7 +419,7 @@
       var coresRequired = instanceCount * flavor.vcpus;
       if (coresRequired > availableCores) {
         /*eslint-disable max-len */
-        messages.vcpus = gettext('This flavor requires more VCPUs than your quota allows. Please select a smaller flavor or decrease the instance count.');
+        messages.vcpus = gettext('This flavor requires more vCPUs than your quota allows. Please select a smaller flavor or decrease the instance count.');
         /*eslint-enable max-len */
       }
 

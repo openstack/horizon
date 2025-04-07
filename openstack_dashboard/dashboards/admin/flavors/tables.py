@@ -137,7 +137,7 @@ def get_extra_specs(flavor):
 
 class FlavorsTable(tables.DataTable):
     name = tables.WrappingColumn('name', verbose_name=_('Flavor Name'))
-    vcpus = tables.Column('vcpus', verbose_name=_('VCPUs'))
+    vcpus = tables.Column('vcpus', verbose_name=_('vCPUs'))
     ram = tables.Column(get_size,
                         verbose_name=_('RAM'),
                         attrs={'data-type': 'size'})

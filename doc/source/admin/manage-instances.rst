@@ -62,7 +62,7 @@ Track usage
 Use the :guilabel:`Overview` category to track usage of instances
 for each project.
 
-You can track costs per month by showing meters like number of VCPUs,
+You can track costs per month by showing meters like number of vCPUs,
 disks, RAM, and uptime of all your instances.
 
 #. Log in to the Dashboard and select the :guilabel:`admin` project from the

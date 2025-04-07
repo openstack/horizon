@@ -96,7 +96,7 @@ class CommonQuotaAction(workflows.Action):
 
 class ComputeQuotaAction(CommonQuotaAction):
     instances = forms.IntegerField(min_value=-1, label=_("Instances"))
-    cores = forms.IntegerField(min_value=-1, label=_("VCPUs"))
+    cores = forms.IntegerField(min_value=-1, label=_("vCPUs"))
     ram = forms.IntegerField(min_value=-1, label=_("RAM (MB)"))
     metadata_items = forms.IntegerField(min_value=-1,
                                         label=_("Metadata Items"))

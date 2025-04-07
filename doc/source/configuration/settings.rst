@@ -2154,12 +2154,12 @@ Default:
 
 When launching a new instance the default flavor is sorted by RAM usage in
 ascending order.
-You can customize the sort order by: id, name, ram, disk and vcpus.
+You can customize the sort order by: id, name, ram, disk and vCPUs.
 Additionally, you can insert any custom callback function. You can also
 provide a flag for reverse sort.
 See the description in local_settings.py.example for more information.
 
-This example sorts flavors by vcpus in descending order:
+This example sorts flavors by vCPUs in descending order:
 
 .. code-block:: python
 

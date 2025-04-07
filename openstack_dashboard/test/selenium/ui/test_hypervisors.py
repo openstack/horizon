@@ -52,23 +52,23 @@ def test_vcpu_pcpu_data_display(live_server, driver, user, dashboard_data):
 
         driver.get(live_server.url + '/admin/hypervisors')
         assert (driver.find_element_by_xpath(
-            f"//*[normalize-space()='VCPU Usage']/"
+            f"//*[normalize-space()='vCPU Usage']/"
             f"ancestor::div[contains(@class,'d3_quota_bar')]"  # noqa: E231
             f"/div[contains(@class,'h6')]/"  # noqa: E231
             f"span[1]").text == str(p['vcpus_used']))
         assert (driver.find_element_by_xpath(
-            f"//*[normalize-space()='VCPU Usage']/"
+            f"//*[normalize-space()='vCPU Usage']/"
             f"ancestor::div[contains(@class,'d3_quota_bar')]"  # noqa: E231
             f"/div[contains(@class,'h6')]/"  # noqa: E231
             f"span[2]").text == str(p['vcpus_capacity']))
 
         assert (driver.find_element_by_xpath(
-            f"//*[normalize-space()='PCPU Usage']/"
+            f"//*[normalize-space()='pCPU Usage']/"
             f"ancestor::div[contains(@class,'d3_quota_bar')]"  # noqa: E231
             f"/div[contains(@class,'h6')]/"  # noqa: E231
             f"span[1]").text == str(p['pcpus_used']))
         assert (driver.find_element_by_xpath(
-            f"//*[normalize-space()='PCPU Usage']/"
+            f"//*[normalize-space()='pCPU Usage']/"
             f"ancestor::div[contains(@class,'d3_quota_bar')]"  # noqa: E231
             f"/div[contains(@class,'h6')]/"  # noqa: E231
             f"span[2]").text == str(p['pcpus_capacity']))
@@ -84,14 +84,14 @@ def test_vcpu_pcpu_data_display(live_server, driver, user, dashboard_data):
         table_providers = dict(zip((x.text for x in table_header),
                                    (x.text for x in table_row_test_provider)))
 
-        want_to_check = {"VCPUs used": p['vcpus_used'],
-                         "VCPUs reserved": p['vcpus_reserved'],
-                         "VCPUs total": p['vcpus'],
-                         "VCPUs allocation ratio": p['vcpus_ar'],
-                         "PCPUs used": p['pcpus_used'],
-                         "PCPUs reserved": p['pcpus_reserved'],
-                         "PCPUs total": p['pcpus'],
-                         "PCPUs allocation ratio": p['pcpus_ar']}
+        want_to_check = {"vCPUs used": p['vcpus_used'],
+                         "vCPUs reserved": p['vcpus_reserved'],
+                         "vCPUs total": p['vcpus'],
+                         "vCPUs allocation ratio": p['vcpus_ar'],
+                         "pCPUs used": p['pcpus_used'],
+                         "pCPUs reserved": p['pcpus_reserved'],
+                         "pCPUs total": p['pcpus'],
+                         "pCPUs allocation ratio": p['pcpus_ar']}
 
         for key, value in want_to_check.items():
             assert table_providers[key] == str(value)

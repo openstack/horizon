@@ -30,7 +30,7 @@ from openstack_dashboard import usage
 
 class GlobalUsageCsvRenderer(csvbase.BaseCsvResponse):
 
-    columns = [_("Project Name"), _("VCPUs"), _("RAM (MB)"),
+    columns = [_("Project Name"), _("vCPUs"), _("RAM (MB)"),
                _("Disk (GB)"), _("Usage (Hours)")]
 
     def get_row_data(self):
