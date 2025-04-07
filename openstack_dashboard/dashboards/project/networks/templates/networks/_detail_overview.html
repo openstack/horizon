@@ -18,11 +18,11 @@
     <dd>{{ network.is_router_external|yesno|capfirst }}</dd>
     <dt title="{% trans 'MTU' %}">{% trans "MTU" %}</dt>
     <dd>{{ network.mtu|default:_("Unknown") }}</dd>
-    {% if network.provider__network_type %}
+    {% if network.provider_network_type %}
     <dt title="{% trans 'Provider Network' %}">{% trans "Provider Network" %}</dt>
-    <dd>{% trans "Network Type:" %} {{ network.provider__network_type|default:_("Unknown") }}</dd>
-    <dd>{% trans "Physical Network:" %} {{ network.provider__physical_network|default:_("-") }}</dd>
-    <dd>{% trans "Segmentation ID:" %} {{ network.provider__segmentation_id|default:_("-") }}</dd>
+    <dd>{% trans "Network Type:" %} {{ network.provider_network_type|default:_("Unknown") }}</dd>
+    <dd>{% trans "Physical Network:" %} {{ network.provider_physical_network|default:_("-") }}</dd>
+    <dd>{% trans "Segmentation ID:" %} {{ network.provider_segmentation_id|default:_("-") }}</dd>
     {% endif %}
   </dl>
 </div>
