@@ -2,9 +2,9 @@
 System Requirements
 ===================
 
-The Caracal release of horizon has the following dependencies.
+The latest version of Horizon has the following dependencies:
 
-* Python 3.8 or 3.11
+* Python 3.9, 3.10 or 3.11
 
 * Django 4.2
 
@@ -15,7 +15,7 @@ The Caracal release of horizon has the following dependencies.
 * All other services are optional.
   Horizon supports the following services as of the Stein release.
   If the keystone endpoint for a service is configured,
-  horizon detects it and enables its support automatically.
+  Horizon detects it and enables its support automatically.
 
   * `cinder <https://docs.openstack.org/cinder/latest/>`_: Block Storage
   * `glance <https://docs.openstack.org/glance/latest/>`_: Image Management
