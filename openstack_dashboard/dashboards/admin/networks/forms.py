@@ -124,9 +124,14 @@ class CreateNetwork(forms.SelfHandlingForm):
         required=False,
         help_text=_("If checked, the network will be enabled."))
     shared = forms.BooleanField(label=_("Shared"),
-                                initial=False, required=False)
+                                initial=False, required=False,
+                                help_text=_("Share the network between "
+                                            "projects"))
     external = forms.BooleanField(label=_("External Network"),
-                                  initial=False, required=False)
+                                  initial=False, required=False,
+                                  help_text=_("Network has an external routing "
+                                              "facility that is not managed by "
+                                              "Neutron"))
     with_subnet = forms.BooleanField(label=_("Create Subnet"),
                                      widget=forms.CheckboxInput(attrs={
                                          'class': 'switchable',
@@ -341,8 +346,19 @@ class UpdateNetwork(forms.SelfHandlingForm):
         label=_("Enable Admin State"),
         required=False,
         help_text=_("If checked, the network will be enabled."))
-    shared = forms.BooleanField(label=_("Shared"), required=False)
-    external = forms.BooleanField(label=_("External Network"), required=False)
+    shared = forms.BooleanField(
+        label=_("Shared"),
+        required=False,
+        help_text=_("Share the network between projects")
+    )
+    external = forms.BooleanField(
+        label=_("External Network"),
+        required=False,
+        help_text=_("Network has an external routing "
+                    "facility that is not managed by "
+                    "Neutron")
+    )
+
     failure_url = 'horizon:admin:networks:index'
 
     def handle(self, request, data):

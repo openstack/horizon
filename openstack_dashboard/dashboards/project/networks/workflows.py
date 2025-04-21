@@ -44,7 +44,9 @@ class CreateNetworkInfoAction(workflows.Action):
         required=False,
         help_text=_("If checked, the network will be enabled."))
     shared = forms.BooleanField(label=_("Shared"), initial=False,
-                                required=False)
+                                required=False,
+                                help_text=_("Share the network between "
+                                            "projects"))
     with_subnet = forms.BooleanField(label=_("Create Subnet"),
                                      widget=forms.CheckboxInput(attrs={
                                          'class': 'switchable',
