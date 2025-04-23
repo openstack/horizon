@@ -73,10 +73,11 @@
             submit: context.labels.submit
           };
           outcome = simpleModal.modal(modalParams).result
-          .then(reactivateImage(image))
+          .then(function () {
+            return reactivateImage(image);
+          })
           .then(
-            function() { return onReactivateImageSuccess(image); },
-            function() { return onReactivateImageFail(image); }
+            function() { return onReactivateImageSuccess(image); }
           );
         }
         return outcome;
@@ -94,13 +95,6 @@
       toast.add('success', interpolate(labelize().success, [image.name]));
       return actionResultService.getActionResult()
         .updated(imagesResourceType, image.id)
-        .result;
-    }
-
-    function onReactivateImageFail(image) {
-      toast.add('error', interpolate(labelize().error, [image.name]));
-      return actionResultService.getActionResult()
-        .failed(imagesResourceType, image.id)
         .result;
     }
 
