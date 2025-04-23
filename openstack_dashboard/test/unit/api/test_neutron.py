@@ -1810,8 +1810,7 @@ class NeutronApiTests(test.APIMockTestCase):
         qos_policy = self.api_qos_policies.first()
         dscp_mark_rule = self.api_dscp_mark_rule.first()
         post_data = {'dscp_marking_rule': {
-            "dscp_mark": dscp_mark_rule["dscp_mark"],
-            "tenant_id": dscp_mark_rule["tenant_id"]}
+            "dscp_mark": dscp_mark_rule["dscp_mark"]}
         }
 
         neutronclient = mock_neutronclient.return_value
@@ -1878,8 +1877,7 @@ class NeutronApiTests(test.APIMockTestCase):
         bwd_limit_rule = self.api_bandwidth_limit_rule.first()
         post_data = {
             'bandwidth_limit_rule': {
-                "max_kbps": bwd_limit_rule["max_kbps"],
-                "tenant_id": bwd_limit_rule["tenant_id"]
+                "max_kbps": bwd_limit_rule["max_kbps"]
             }
         }
 
@@ -1945,8 +1943,7 @@ class NeutronApiTests(test.APIMockTestCase):
         qos_policy = self.api_qos_policies.first()
         min_bwd_rule = self.api_minimum_bandwidth_rule.first()
         post_data = {'minimum_bandwidth_rule': {
-            "min_kbps": min_bwd_rule["min_kbps"],
-            "tenant_id": min_bwd_rule["tenant_id"]}}
+            "min_kbps": min_bwd_rule["min_kbps"]}}
 
         neutronclient = mock_neutronclient.return_value
 
@@ -2007,8 +2004,7 @@ class NeutronApiTests(test.APIMockTestCase):
         qos_policy = self.api_qos_policies.first()
         min_pckt_rt_rule = self.api_minimum_packet_rate_rule.first()
         post_data = {'minimum_packet_rate_rule': {
-            "min_kpps": min_pckt_rt_rule["min_kpps"],
-            "tenant_id": min_pckt_rt_rule["tenant_id"]}}
+            "min_kpps": min_pckt_rt_rule["min_kpps"]}}
 
         neutronclient = mock_neutronclient.return_value
 

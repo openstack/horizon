@@ -1107,8 +1107,7 @@ def data(TEST):
     # qos rule - dscp mark
     dscp_mark_rule_dict = {
         "id": "5f126d84-551a-4dcf-bb01-0e9c0df0c794",
-        "dscp_mark": 26,
-        "tenant_id": "1"
+        "dscp_mark": 26
     }
     TEST.api_dscp_mark_rule.add(dscp_mark_rule_dict)
     TEST.dscp_mark_rule.add(neutron.DSCPMarkingRule(dscp_mark_rule_dict))
@@ -1118,8 +1117,7 @@ def data(TEST):
         "id": "5f126d84-551a-4dcf-bb01-0e9c0df0c793",
         "max_kbps": 10000,
         "max_burst_kbps": 0,
-        "direction": "egress",
-        "tenant_id": "1"
+        "direction": "egress"
     }
     TEST.api_bandwidth_limit_rule.add(bandwidth_limit_rule)
     TEST.bandwidth_limit_rule.add(neutron.BandwidthLimitRule(
@@ -1129,8 +1127,7 @@ def data(TEST):
     minimum_bandwidth_rule = {
         "id": "1eddf7af-0b4c-42c5-8ae1-390b32f1de08",
         "min_kbps": 10000,
-        "direction": "egress",
-        "tenant_id": "1"
+        "direction": "egress"
     }
     TEST.api_minimum_bandwidth_rule.add(minimum_bandwidth_rule)
     TEST.minimum_bandwidth_rule.add(neutron.MinimumBandwidthRule(
@@ -1140,8 +1137,7 @@ def data(TEST):
     minimum_packet_rate_rule = {
         "id": "1eddf7af-0b4c-42c5-8ae1-390b32f1de08",
         "min_kpps": 10000,
-        "direction": "egress",
-        "tenant_id": "1"
+        "direction": "egress"
     }
     TEST.api_minimum_packet_rate_rule.add(minimum_packet_rate_rule)
     TEST.minimum_packet_rate_rule.add(neutron.MinimumPacketRateRule(
