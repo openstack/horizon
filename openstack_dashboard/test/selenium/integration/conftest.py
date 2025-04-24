@@ -17,6 +17,7 @@ from oslo_utils import uuidutils
 import pytest
 from selenium.common import exceptions
 
+from openstack_dashboard.test.selenium.integration import test_instances
 from openstack_dashboard.test.selenium.integration import test_volumes
 from openstack_dashboard.test.selenium import widgets
 
@@ -238,6 +239,22 @@ def clear_instance_demo(instance_name, openstack_demo):
         instance_name,
         wait=True,
     )
+
+
+@pytest.fixture
+def clear_instance_demo_before_volume(instance_name, openstack_demo,
+                                      new_volume_demo):
+    yield None
+    test_instances.wait_for_steady_state_of_instance(
+        openstack_demo, instance_name)
+    test_volumes.wait_for_steady_state_of_volume(
+        openstack_demo, new_volume_demo.name)
+    openstack_demo.delete_server(
+        instance_name,
+        wait=True,
+    )
+    test_volumes.wait_for_volume_is_deleted(
+        openstack_demo, new_volume_demo.name)
 
 
 # Volumes fixtures

@@ -117,6 +117,15 @@ def wait_for_instance_is_deleted(openstack, instance_name):
             time.sleep(3)
 
 
+def wait_for_steady_state_of_instance(openstack, instance_name):
+    for attempt in range(120):
+        if (openstack.compute.find_server(instance_name).status in
+                ["ACTIVE", "ERROR"]):
+            break
+        else:
+            time.sleep(3)
+
+
 def test_create_instance_demo(complete_default_test_network, login, driver,
                               instance_name, openstack_demo,
                               clear_instance_demo, config):
@@ -171,9 +180,10 @@ def test_create_instance_demo(complete_default_test_network, login, driver,
 
 
 def test_create_instance_from_volume_demo(complete_default_test_network, login,
-                                          driver, volume_name, new_volume_demo,
-                                          clear_instance_demo, config,
-                                          openstack_demo, instance_name):
+                                          driver, volume_name,
+                                          clear_instance_demo_before_volume,
+                                          config, openstack_demo,
+                                          instance_name):
     network = complete_default_test_network.name
     flavor = config.launch_instances.flavor
     volume_name = volume_name[0]
@@ -212,7 +222,7 @@ def test_create_instance_from_volume_demo(complete_default_test_network, login,
     select_boot_sources_type_tab.click()
     select_boot_sources_type_tab.find_element_by_css_selector(
         "option[value='volume']").click()
-    delete_volume_on_instance_delete(source_table, "No")
+    delete_volume_on_instance_delete(source_table, "Yes")
     widgets.select_from_transfer_table(source_table, volume_name)
     wizard.find_element_by_css_selector("button.btn-primary.finish").click()
     WebDriverWait(driver, config.selenium.page_timeout).until(
