@@ -12,3 +12,12 @@ table[ng-controller="horizon.app.core.images.table.ImagesController as table"] {
   max-height: 30em;
 }
 
+/* https://review.opendev.org/c/openstack/horizon/+/948168 */
+/* anfimovir: we need save it after update form to python or change style for */
+/* visibility element to drop-down list, for prevent problems with long phrases */
+
+[ng-controller="horizon.app.core.images.steps.CreateImageController as ctrl"] .btn-group,
+[ng-controller="horizon.app.core.images.steps.EditImageController as ctrl"] .btn-group {
+  display: flex;
+  flex-wrap: nowrap;
+}

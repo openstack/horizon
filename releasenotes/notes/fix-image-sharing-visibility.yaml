@@ -1,0 +1,5 @@
+---
+fixes:
+  - |
+    Image Sharing - Visibility, fixed issues with displaying buttons when using languages
+    with long phrases, buttons could wrap across multiple lines.
