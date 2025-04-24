@@ -2242,6 +2242,10 @@ LAUNCH_INSTANCE_DEFAULTS
 
     Added the ``enable_metadata``, ``enable_net_ports`` options.
 
+.. versionchanged:: 2025.2(Flamingo)
+
+    Added the ``vol_delete_on_instance_delete`` option.
+
 Default:
 
 .. code-block:: python
@@ -2258,6 +2262,7 @@ Default:
         "enable_metadata": True,
         "enable_net_ports": True,
         "default_availability_zone": "Any",
+        "vol_delete_on_instance_delete": False
     }
 
 A dictionary of settings which can be used to provide the default values for
@@ -2379,6 +2384,18 @@ availability zone is used as the default availability zone. If a value
 specified in this setting is not found in the availability zone list,
 the setting will be ignored and the behavior will be same as when ``Any``
 is specified.
+
+vol_delete_on_instance_delete
+#############################
+
+.. versionadded:: 2025.2(Flamingo)
+
+Default: ``False``
+
+This option controls the default behavior of the 'Delete Volume on Instance
+Delete' setting in the web interface. If set to ``True``, the default is 'Yes',
+meaning volumes will be deleted when the instance is deleted. If set to
+``False`` (default), the setting remains 'No', and volumes are preserved.
 
 OPENSTACK_SERVER_DEFAULT_USER_DATA
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

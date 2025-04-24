@@ -309,6 +309,10 @@
       if ('default_availability_zone' in defaults) {
         model.default_availability_zone = defaults.default_availability_zone;
       }
+      if ('vol_delete_on_instance_delete' in defaults) {
+        model.newInstanceSpec.vol_delete_on_instance_delete =
+          defaults.vol_delete_on_instance_delete;
+      }
     }
 
     /**
