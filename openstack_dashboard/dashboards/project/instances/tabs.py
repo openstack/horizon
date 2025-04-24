@@ -37,7 +37,15 @@ class OverviewTab(tabs.Tab):
 
     def get_context_data(self, request):
         instance = self.tab_group.kwargs['instance']
-        if instance.volumes and not instance.image:
+        try:
+            volumes = instance.volumes
+        except AttributeError:
+            volume = None
+            volumes = None
+            exceptions.handle(self.request,
+                              _('Failed to get attached volumes. Make sure'
+                                ' they are accessible from this project.'))
+        if volumes and not instance.image:
             try:
                 volume = api.cinder.volume_get(
                     self.request, volume_id=instance.volumes[0].volumeId)
