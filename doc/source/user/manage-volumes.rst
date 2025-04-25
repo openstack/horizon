@@ -161,7 +161,8 @@ Delete a volume
 ~~~~~~~~~~~~~~~
 
 When you delete an instance, the data in its attached volumes is not
-deleted.
+deleted (unless you chose delete volume on instance delete when creating an
+instance).
 
 #. Log in to the dashboard.
 
