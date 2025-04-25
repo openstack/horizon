@@ -23,13 +23,11 @@ class FlavorsTable(tables.TableRegion):
 
     CREATE_FLAVOR_FORM_FIELDS = (("name", "flavor_id", "vcpus", "memory_mb",
                                   "disk_gb", "eph_gb",
-                                  "swap_mb",
-                                  "rxtx_factor"),
+                                  "swap_mb"),
                                  {"members": menus.MembershipMenuRegion})
 
     UPDATE_FLAVOR_FORM_FIELDS = (("name", "vcpus", "memory_mb",
-                                  "disk_gb", "eph_gb", "swap_mb",
-                                  "rxtx_factor"),
+                                  "disk_gb", "eph_gb", "swap_mb"),
                                  {"members": menus.MembershipMenuRegion})
 
     @tables.bind_table_action('create')

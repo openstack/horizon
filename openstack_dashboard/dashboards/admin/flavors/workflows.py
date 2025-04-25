@@ -57,10 +57,6 @@ class CreateFlavorInfoAction(workflows.Action):
                                  required=False,
                                  initial=0,
                                  min_value=0)
-    rxtx_factor = forms.FloatField(label=_("RX/TX Factor"),
-                                   required=False,
-                                   initial=1,
-                                   min_value=1)
 
     class Meta(object):
         name = _("Flavor Information")
@@ -108,8 +104,7 @@ class CreateFlavorInfo(workflows.Step):
                    "memory_mb",
                    "disk_gb",
                    "eph_gb",
-                   "swap_mb",
-                   "rxtx_factor")
+                   "swap_mb")
 
 
 class FlavorAccessAction(workflows.MembershipAction):
@@ -208,7 +203,6 @@ class CreateFlavor(workflows.Workflow):
         ephemeral = data.get('eph_gb') or 0
         flavor_access = data['flavor_access']
         is_public = not flavor_access
-        rxtx_factor = data.get('rxtx_factor') or 1
 
         # Create the flavor
         try:
@@ -220,8 +214,7 @@ class CreateFlavor(workflows.Workflow):
                                                  ephemeral=ephemeral,
                                                  swap=swap,
                                                  flavorid=flavor_id,
-                                                 is_public=is_public,
-                                                 rxtx_factor=rxtx_factor)
+                                                 is_public=is_public)
         except Exception:
             exceptions.handle(request, _('Unable to create flavor.'))
             return False

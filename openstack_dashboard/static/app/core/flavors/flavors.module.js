@@ -124,7 +124,6 @@
         disk: {label: gettext('Root Disk'), filters: ['gb']},
         'OS-FLV-EXT-DATA:ephemeral': {label: gettext('Ephemeral Disk'), filters: ['gb']},
         swap: {label: gettext('Swap Disk'), filters: ['gb']},
-        rxtx_factor: gettext('RX/TX Factor'),
         id: gettext('ID'),
         'os-flavor-access:is_public': {label: gettext('Public'), filters: ['yesno']},
         metadata: gettext('Metadata')
