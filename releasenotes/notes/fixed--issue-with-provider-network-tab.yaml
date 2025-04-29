@@ -1,0 +1,4 @@
+fixes:
+  - |
+    [:bug:`2102267`] Fixed issue when Provider Network Tab
+    was not displayed with network details.
