@@ -86,7 +86,7 @@
   <h4>{% trans "Security Groups" %}</h4>
   <hr class="header_rule">
   <dl class="dl-horizontal">
-    {% for group in port.security_groups %}
+    {% for group in security_groups %}
       <dt class="word-wrap">{{ group.name }}</dt>
       <dd>
         <ul class="list-unstyled">
