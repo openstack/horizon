@@ -4,6 +4,8 @@
 {% block modal-body-right %}
   <h3>{% trans "Description:" %}</h3>
   <p>{% trans "Edit the user's details, including the Primary Project." %}</p>
+  <h4>{% trans "Lock Password" %}</h4>
+  <p>{% trans "Disables the ability for a user to change their password through self-service APIs." %}</p>
   <script type="text/javascript">
     if (typeof horizon.user !== 'undefined') {
       horizon.user.init();
