@@ -102,7 +102,7 @@ class CreateView(forms.ModalFormView):
     submit_label = _("Create RBAC Policy")
     submit_url = reverse_lazy("horizon:admin:rbac_policies:create")
     success_url = reverse_lazy("horizon:admin:rbac_policies:index")
-    page_title = _("Create A RBAC Policy")
+    page_title = _("Create RBAC Policy")
 
 
 class UpdateView(forms.ModalFormView):
@@ -141,4 +141,4 @@ class UpdateView(forms.ModalFormView):
 class DetailView(tabs.TabView):
     tab_group_class = rbac_policy_tabs.RBACDetailsTabs
     template_name = 'horizon/common/_detail.html'
-    page_title = "{{ rbac_policy.id }}"
+    page_title = "{{ rbac_policy_id }}"
