@@ -192,6 +192,10 @@ def get_availability_zones(router):
     return _("-")
 
 
+def get_admin_state(router):
+    return _("UP") if router.is_admin_state_up else _("DOWN")
+
+
 class RoutersFilterAction(tables.FilterAction):
     name = 'filter_project_routers'
     filter_type = 'server'
@@ -228,7 +232,7 @@ class RoutersTable(tables.DataTable):
                        verbose_name=_("HA mode"))
     ext_net = tables.Column(get_external_network,
                             verbose_name=_("External Network"))
-    admin_state = tables.Column("is_admin_state_up",
+    admin_state = tables.Column(get_admin_state,
                                 verbose_name=_("Admin State"),
                                 display_choices=ADMIN_STATE_DISPLAY_CHOICES)
     availability_zones = tables.Column(get_availability_zones,
