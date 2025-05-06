@@ -1,3 +1,5 @@
+.. _login-in-dashboard:
+
 =======================
 Log in to the dashboard
 =======================

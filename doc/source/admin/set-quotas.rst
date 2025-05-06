@@ -118,5 +118,5 @@ Update project quotas
 
    The dashboard does not show all possible project quotas.
    To view and update the quotas for a service, use its
-   command-line client. See `OpenStack Administrator Guide
-   <https://docs.openstack.org/admin-guide/cli-set-quotas.html>`_.
+   command-line client. See `Manage quotas
+   <https://docs.openstack.org/cinder/latest/cli/cli-set-quotas.html>`_.

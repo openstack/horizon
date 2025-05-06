@@ -1,3 +1,5 @@
+.. _launch-and-manage-instances:
+
 ===========================
 Launch and manage instances
 ===========================
