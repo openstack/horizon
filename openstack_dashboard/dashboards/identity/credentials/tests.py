@@ -21,9 +21,9 @@ INDEX_VIEW_TEMPLATE = 'horizon/common/_data_table_view.html'
 
 class UserCredentialsViewTests(test.TestCase):
 
-    def _get_credentials(self, user):
+    def _get_credentials(self, user_id):
         credentials = [cred for cred in self.credentials.list()
-                       if cred.user_id == user.id]
+                       if cred.user_id == user_id]
         return credentials
 
     @test.create_mocks({api.keystone: ('credentials_list',
@@ -31,7 +31,7 @@ class UserCredentialsViewTests(test.TestCase):
     def test_index(self):
         user = self.users.list()[0]
         self.mock_user_get.return_value = user
-        credentials = self._get_credentials(user)
+        credentials = self._get_credentials(user.id)
         self.mock_credentials_list.return_value = credentials
 
         res = self.client.get(INDEX_URL)
