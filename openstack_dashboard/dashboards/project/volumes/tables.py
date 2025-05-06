@@ -225,7 +225,7 @@ class CreateSnapshot(VolumePolicyTargetMixin, tables.LinkAction):
         try:
             limits = api.cinder.tenant_absolute_limits(request)
         except Exception:
-            exceptions.handle(request, _('Unable to retrieve tenant limits.'))
+            exceptions.handle(request, _('Unable to retrieve project limits.'))
             limits = {}
 
         snapshots_available = (limits.get('maxTotalSnapshots', float("inf")) -
