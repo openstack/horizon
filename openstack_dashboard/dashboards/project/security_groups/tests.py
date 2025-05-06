@@ -461,7 +461,8 @@ class SecurityGroupsViewTests(test.TestCase):
                     'rule_menu': 'http',
                     'port_or_range': 'port',
                     'cidr': rule.ip_range['cidr'],
-                    'remote': 'cidr'}
+                    'remote': 'cidr',
+                    'ip_protocol': 6}
         res = self.client.post(self.edit_url, formData)
         self.assertRedirectsNoFollow(res, self.detail_url)
 
@@ -544,7 +545,8 @@ class SecurityGroupsViewTests(test.TestCase):
                     'port_or_range': 'port',
                     'cidr': '0.0.0.0/0',
                     'security_group': sec_group.id,
-                    'remote': 'sg'}
+                    'remote': 'sg',
+                    'ip_protocol': 6}
         res = self.client.post(self.edit_url, formData)
         self.assertRedirectsNoFollow(res, self.detail_url)
 
@@ -931,7 +933,8 @@ class SecurityGroupsViewTests(test.TestCase):
                     'port_or_range': 'range',
                     'rule_menu': 'all_tcp',
                     'cidr': rule.ip_range['cidr'],
-                    'remote': 'cidr'}
+                    'remote': 'cidr',
+                    'ip_protocol': 6}
         res = self.client.post(self.edit_url, formData)
         self.assertRedirectsNoFollow(res, self.detail_url)
 

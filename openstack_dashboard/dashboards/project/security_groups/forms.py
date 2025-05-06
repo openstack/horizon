@@ -126,8 +126,9 @@ class AddRule(forms.SelfHandlingForm):
         }))
 
     ip_protocol = forms.IntegerField(
-        label=_('IP Protocol'), required=False,
-        help_text=_("Enter an integer value between 0 and 255."),
+        label=_('IP Protocol'), required=True,
+        help_text=_("Enter an integer value between -1 and 255 "
+                    "(-1 means wild card)."),
         validators=[utils_validators.validate_ip_protocol],
         widget=forms.TextInput(attrs={
             'class': 'switched',
@@ -283,10 +284,6 @@ class AddRule(forms.SelfHandlingForm):
 
         self.fields['direction'].choices = [('ingress', _('Ingress')),
                                             ('egress', _('Egress'))]
-        self.fields['ip_protocol'].help_text = _(
-            "Enter an integer value between -1 and 255 "
-            "(-1 means wild card)."
-        )
 
         self.fields['port_or_range'].choices = [
             ('port', _('Port')),
