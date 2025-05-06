@@ -48,11 +48,11 @@
     <dt>{% trans "Disk Format" %}</dt>
     <dd>{{ image.disk_format|default:_("None")|upper }}</dd>
     {% if image.min_disk %}
-      <dt>{% trans "Min Disk" %}</dt>
+      <dt>{% trans "Min. Disk (GB)" %}</dt>
       <dd>{{ image.min_disk|diskgbformat }}</dd>
     {% endif %}
     {% if image.min_ram %}
-      <dt>{% trans "Min RAM" %}</dt>
+      <dt>{% trans "Min. RAM (MB)" %}</dt>
       <dd>{{ image.min_ram|mb_float_format }}</dd>
     {% endif %}
   </dl>

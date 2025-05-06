@@ -1,12 +1,12 @@
 <div class="item">
   <dl class="col-xs-4">
-    <dt translate>Min Disk (GB)</dt>
+    <dt translate>Min. Disk (GB)</dt>
     <dd>
       {$ (item.properties ? item.min_disk : item.volume_image_metadata.min_disk) || '--' $}
     </dd>
   </dl>
   <dl class="col-xs-4">
-    <dt translate>Min RAM (MB)</dt>
+    <dt translate>Min. RAM (MB)</dt>
     <dd>
       {$ (item.properties ? item.min_ram : item.volume_image_metadata.min_ram) || '--' $}
     </dd>
