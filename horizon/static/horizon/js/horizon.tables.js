@@ -318,7 +318,7 @@ horizon.datatables.confirm = function(action) {
 
   var body;
   try {
-    body = $(template.render(params)).html();
+    body = $(template.render(params)).text();
   } catch (e) {
     body = name_string + gettext("Please confirm your selection. ") + help_text;
   }
