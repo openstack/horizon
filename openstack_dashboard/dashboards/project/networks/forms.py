@@ -38,7 +38,11 @@ class UpdateNetwork(forms.SelfHandlingForm):
         label=_("Enable Admin State"),
         required=False,
         help_text=_("If checked, the network will be enabled."))
-    shared = forms.BooleanField(label=_("Shared"), required=False)
+    shared = forms.BooleanField(
+        label=_("Shared"),
+        required=False,
+        help_text=_("Share the network between projects")
+    )
     failure_url = 'horizon:project:networks:index'
 
     def __init__(self, request, *args, **kwargs):
