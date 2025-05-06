@@ -83,12 +83,13 @@ class NetworkTopologyTests(test.TestCase):
         expect_server_urls = []
         for server in self.servers.list():
             expect_server = {
-                'id': server.id,
                 'name': server.name,
                 'status': server.status.title(),
+                'allow_delete_server': True,
                 'original_status': server.status,
                 'task': None,
-                'url': '/project/instances/%s/' % server.id
+                'id': server.id,
+                'url': '/project/instances/%s/' % server.id,
             }
             if server.status != 'BUILD' and with_console:
                 expect_server['console'] = 'auto_console'
@@ -133,6 +134,7 @@ class NetworkTopologyTests(test.TestCase):
             'router:external': net.is_router_external,
             'status': net.status.title(),
             'allow_delete_subnet': True,
+            'allow_delete_network': True,
             'original_status': net.status,
             'subnets': [{
                 'cidr': subnet.cidr,

@@ -1056,6 +1056,7 @@ horizon.network_topology = {
       htmlData.console_id = d.id;
       htmlData.ips = d.ip_addresses;
       htmlData.console = d.console;
+      htmlData.allow_delete = d.allow_delete_server;
       html = balloonTmpl.render(htmlData,{
         table1:deviceTmpl,
         table2:instanceTmpl
@@ -1067,6 +1068,7 @@ horizon.network_topology = {
       htmlData.subnet = subnets;
       if (d instanceof Network) {
         htmlData.delete_label = gettext('Delete Network');
+        htmlData.allow_delete = d.allow_delete_network;
         if (d.allow_delete_subnet){
           htmlData.allow_delete_subnet = d.allow_delete_subnet;
         }
