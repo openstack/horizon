@@ -26,7 +26,7 @@ from openstack_dashboard.usage import quotas
 class IndexView(tabs.TabbedTableView):
     tab_group_class = project_tabs.DefaultsTabs
     template_name = 'admin/defaults/index.html'
-    page_title = _("Defaults")
+    page_title = _("Default Quotas")
 
 
 class UpdateDefaultQuotasView(workflows.WorkflowView):

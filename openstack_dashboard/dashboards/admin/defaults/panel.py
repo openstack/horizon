@@ -19,7 +19,7 @@ import horizon
 
 
 class Defaults(horizon.Panel):
-    name = _("Defaults")
+    name = _("Default Quotas")
     slug = 'defaults'
     policy_rules = (("compute", "context_is_admin"),
                     ("volume", "context_is_admin"),)

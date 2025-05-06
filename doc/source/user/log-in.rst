@@ -185,7 +185,7 @@ Network tab
 System tab
 ----------
 
-* :guilabel:`Defaults`: View default quota values. Quotas are hard-coded in
+* :guilabel:`Default Quotas`: View default quota values. Quotas are hard-coded in
   OpenStack Compute and define the maximum allowable size and number of
   resources.
 
