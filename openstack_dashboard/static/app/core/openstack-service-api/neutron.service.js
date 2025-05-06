@@ -402,7 +402,7 @@
           return response;
         })
         .catch(function onError() {
-          toastService.add('error', gettext('Unable to retrieve the qos policies.'));
+          toastService.add('error', gettext('Unable to retrieve the QoS policies.'));
         });
     }
 
@@ -452,7 +452,7 @@
     function deletePolicy(policyId, suppressError) {
       var promise = apiService.delete('/api/neutron/qos_policies/' + policyId + '/');
       promise = suppressError ? promise : promise.catch(function onError() {
-        var msg = gettext('Unable to delete qos policy %(id)s');
+        var msg = gettext('Unable to delete QoS Policy %(id)s');
         toastService.add('error', interpolate(msg, { id: policyId }, true));
       });
       return promise;
@@ -501,7 +501,7 @@
       return apiService.post('/api/neutron/qos/policies/' + policyId +
              '/bandwidth_limit_rules/', ruleId)
        .catch(function onError() {
-         toastService.add('error', gettext('Unable to add the bandwidthrule .'));
+         toastService.add('error', gettext('Unable to add the bandwidth rule.'));
        });
     }
 
@@ -538,7 +538,7 @@
       return apiService.post('/api/neutron/qos/policies/' + policyId +
              '/dscp_marking_rules/', ruleId)
        .catch(function onError() {
-         toastService.add('error', gettext('Unable to add the dscp_marking_rule .'));
+         toastService.add('error', gettext('Unable to add the DSCP marking rule.'));
        });
     }
 
@@ -580,7 +580,7 @@
       return apiService.post('/api/neutron/qos/policies/' + policyId +
              '/minimum_bandwidth_rules/', ruleId)
        .catch(function onError() {
-         toastService.add('error', gettext('Unable to add the minimum_bandwidth_rule .'));
+         toastService.add('error', gettext('Unable to add the minimum bandwidth rule.'));
        });
     }
 
@@ -622,7 +622,7 @@
       return apiService.post('/api/neutron/qos/policies/' + policyId +
               '/minimum_packet_rate_rules/', ruleId)
         .catch(function onError() {
-          toastService.add('error', gettext('Unable to add the minimum_packet_rate_rule.'));
+          toastService.add('error', gettext('Unable to add the minimum packet rate rule.'));
         });
     }
 
@@ -646,7 +646,7 @@
       return apiService.patch('/api/neutron/qos/policies/' + policyId +
              '/bandwidth_limit_rules/' + ruleId , updateRuleId)
        .catch(function onError() {
-         toastService.add('error', gettext('Unable to update the bandwidthrule.'));
+         toastService.add('error', gettext('Unable to update the bandwidth rule.'));
        });
     }
 
@@ -670,7 +670,7 @@
       return apiService.patch('/api/neutron/qos/policies/' + policyId +
              '/dscp_marking_rules/' + ruleId , updateRuleId)
        .catch(function onError() {
-         toastService.add('error', gettext('Unable to update the dscp marking rule.'));
+         toastService.add('error', gettext('Unable to update the DSCP marking rule.'));
        });
     }
 
@@ -737,7 +737,7 @@
     function deleteBandwidthLimitRule(policyId, deleteRuleId) {
       return apiService.delete('/api/neutron/qos/policies/' + policyId +
              '/bandwidth_limit_rules/' + deleteRuleId).catch(function onError() {
-               toastService.add('error', gettext('Unable to delete the bandwidth_limit_rule.'));
+               toastService.add('error', gettext('Unable to delete the bandwidth limit rule.'));
              });
     }
 
@@ -755,7 +755,7 @@
     function deleteDSCPMarkingRule(policyId, deleteRuleId) {
       return apiService.delete('/api/neutron/qos/policies/' + policyId +
              '/dscp_marking_rules/' + deleteRuleId).catch(function onError() {
-               toastService.add('error', gettext('Unable to delete the dscp_marking_rule.'));
+               toastService.add('error', gettext('Unable to delete the DSCP marking rule.'));
              });
     }
 
@@ -773,7 +773,7 @@
     function deleteMinimumBandwidthRule(policyId, deleteRuleId) {
       return apiService.delete('/api/neutron/qos/policies/' + policyId +
              '/minimum_bandwidth_rules/' + deleteRuleId).catch(function onError() {
-               toastService.add('error', gettext('Unable to delete the minimum_bandwidth_rule .'));
+               toastService.add('error', gettext('Unable to delete the minimum bandwidth rule.'));
              });
     }
 
@@ -791,7 +791,7 @@
     function deleteMinimumPacketRateRule(policyId, deleteRuleId) {
       return apiService.delete('/api/neutron/qos/policies/' + policyId +
             '/minimum_packet_rate_rules/' + deleteRuleId).catch(function onError() {
-              toastService.add('error', gettext('Unable to delete the minimum_packet_rate_rule .'));
+              toastService.add('error', gettext('Unable to delete the minimum packet rate rule.'));
             });
     }
 
