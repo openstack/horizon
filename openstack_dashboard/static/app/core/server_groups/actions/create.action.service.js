@@ -27,7 +27,8 @@
     'horizon.framework.widgets.form.ModalFormService',
     'horizon.framework.widgets.toast.service',
     'horizon.framework.util.actions.action-result.service',
-    'horizon.framework.util.i18n.gettext'
+    'horizon.framework.util.i18n.gettext',
+    'horizon.app.core.server_groups.basePath'
   ];
 
   /**
@@ -43,10 +44,9 @@
     modalFormService,
     toast,
     actionResultService,
-    gettext
+    gettext,
+    basePath
   ) {
-
-    var basePath = '/static/app/core/server_groups/';
 
     var service = {
       allowed: allowed,
