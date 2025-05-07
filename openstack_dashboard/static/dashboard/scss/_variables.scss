@@ -3,9 +3,8 @@
 
 
 /* When used with Horizon via Django, this value is set automatically from
-   settings.py and is added dynamically to the namespace through
-   horizon/utils/scss_filter.py */
-$static_url: "/static/" !default;
+   settings.py. */
+$static_url: static_url() !default;
 
 
 /* Horizon Custom Variables */
