@@ -53,7 +53,7 @@
       type: "object",
       properties: {
         qospolicy: {
-          title: gettext('QoS Policy Id'),
+          title: gettext('QoS Policy ID'),
           type: 'string',
           readOnly: true
         },
