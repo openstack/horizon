@@ -10,6 +10,9 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
+import base64
+import secrets
+
 from django.utils.translation import gettext_lazy as _
 
 from horizon import exceptions
@@ -48,15 +51,30 @@ class CreateCredentialForm(forms.SelfHandlingForm):
                 project_choices.append((project.id, project.name))
         self.fields['project'].choices = project_choices
 
+        self.fields['data'].initial = 'auto'
+
     def handle(self, request, data):
         try:
             params = {
                 'user': data['user_name'],
-                'type': data["cred_type"],
-                'blob': data["data"],
+                'type': data['cred_type'],
+                'blob': data['data'],
             }
             if data["project"]:
                 params['project'] = data['project']
+
+            if data['data'] == 'auto':
+                if params['type'] == 'totp':
+                    # Generate a TOTP: a base32 encoded string for the secret
+                    # that must be at least 16 bytes
+                    # We use 20 bytes of data from secrets.token_bytes.
+                    params['blob'] = base64.b32encode(
+                        secrets.token_bytes(20)).decode('utf-8')
+                else:
+                    params['blob'] = None
+                    messages.warning(
+                        request, _("Autogeneration is available only for TOTP"))
+
             new_credential = keystone.credential_create(request, **params)
             messages.success(
                 request, _("User credential created successfully."))
