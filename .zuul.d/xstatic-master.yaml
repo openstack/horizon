@@ -25,8 +25,8 @@
       - openstack/xstatic-spin
 
 - job:
-    name: horizon-tox-py36-xstatic-master
-    parent: openstack-tox-py39
+    name: horizon-tox-py310-xstatic-master
+    parent: openstack-tox-py310
     required-projects: *xstatic-projects
 
 - job:
