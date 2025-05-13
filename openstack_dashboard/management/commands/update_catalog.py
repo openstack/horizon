@@ -1,5 +1,3 @@
-# coding: utf-8
-
 # Copyright 2016 Cisco Systems, Inc.
 # Copyright 2015 IBM Corp.
 #
