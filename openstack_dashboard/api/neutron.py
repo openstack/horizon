@@ -87,6 +87,11 @@ class NeutronAPIDictWrapper(base.APIDictWrapper):
             else:
                 apidict['admin_state'] = 'DOWN'
 
+        # https://bugs.launchpad.net/horizon/+bug/2093367
+        if 'is_port_security_enabled' in apidict:
+            if apidict['is_port_security_enabled']:
+                apidict['port_security_enabled'] = 'UP'
+
         # Django cannot handle a key name with ':', so use '__'.
         apidict.update({
             key.replace(':', '__'): value
