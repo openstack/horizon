@@ -93,7 +93,7 @@
       {
         func: 'getDefaultVolumeType',
         method: 'get',
-        path: '/api/cinder/volumetypes/default',
+        path: '/api/cinder/volumetypes/default/',
         error: 'Unable to retrieve the default volume type.',
         testInput: []
       },
