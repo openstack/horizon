@@ -1,0 +1,4 @@
+fixes:
+  - |
+    [:bug:`2103529`] tenant_id/project_id removed from API calls,
+    so Network QoS rules now can be added from Dashboard.
