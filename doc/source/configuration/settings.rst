@@ -472,6 +472,40 @@ This can be either a literal URL path (such as the default), or Python's
 dotted string notation representing a function which will evaluate what URL
 a user should be redirected to based on the attributes of that user.
 
+
+LANGUAGE
+--------
+
+Default: ``all languages with translation catalogs are enabled``
+
+If you would like to enable a specific set of languages, you can do this
+by setting LANGUAGES list below. Each entry is a tuple of language code
+and language name.
+
+.. code-block:: python
+
+    LANGUAGES = (
+      ('cs', 'Czech'),
+      ('de', 'German'),
+      ('en', 'English'),
+      ('en-au', 'Australian English'),
+      ('en-gb', 'British English'),
+      ('eo', 'Esperanto'),
+      ('es', 'Spanish'),
+      ('fr', 'French'),
+      ('id', 'Indonesian'),
+      ('it', 'Italian'),
+      ('ja', 'Japanese'),
+      ('ko', 'Korean (Korea)'),
+      ('pl', 'Polish'),
+      ('pt-br', 'Portuguese (Brazil)'),
+      ('ru', 'Russian'),
+      ('tr', 'Turkish'),
+      ('zh-hans', 'Simplified Chinese'),
+      ('zh-hant', 'Traditional Chinese'),
+    )
+
+
 MESSAGES_PATH
 -------------
 
