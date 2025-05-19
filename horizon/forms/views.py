@@ -85,7 +85,7 @@ class ModalFormMixin(ModalBackdropMixin):
 class ModalFormView(ModalFormMixin, views.HorizonFormView):
     """The main view class for all views which handle forms in Horizon.
 
-    All view which handles forms in Horiozn should inherit this class.
+    All views which handles forms in Horizon should inherit this class.
     It takes care of all details with processing
     :class:`~horizon.forms.base.SelfHandlingForm` classes, and modal concerns
     when the associated template inherits from
