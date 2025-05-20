@@ -13,9 +13,14 @@
 import os.path
 
 from compressor.filters.base import FilterBase
+from django.conf import settings
 from django.contrib.staticfiles.finders import get_finders
 
 import sass
+
+
+def static_url():
+    return settings.STATIC_URL
 
 
 def importer(path, prev):
@@ -62,6 +67,7 @@ class ScssFilter(FilterBase):
         args = {
             'importers': [(0, importer)],
             'output_style': 'compressed',
+            'custom_functions': {static_url},
         }
         if self.filename:
             args['filename'] = self.filename
