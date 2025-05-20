@@ -1,5 +1,4 @@
 ---
 upgrade:
   - |
-    Deprecated rx/tx factor has been
-    removed out of a flavor parameters.
+    Deprecated RX/TX factor has been removed out of a flavor parameters.

@@ -2,4 +2,4 @@
 fixes:
   - |
     Fix an error, when an "Admin State" status is displayed
-    as variable (true or false) instead of "UP/DOWN" [:bug: `2099694`]
+    as variable (true or false) instead of "UP/DOWN" [:bug:`2099694`]
