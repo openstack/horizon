@@ -17,6 +17,8 @@ from openstack_dashboard.dashboards.identity.credentials import views
 
 urlpatterns = [
     re_path(r'^$', views.CredentialsView.as_view(), name='index'),
+    re_path(r'^(?P<credential_id>[^/]+)/detail/$',
+            views.DetailView.as_view(), name='detail'),
     re_path(r'^(?P<credential_id>[^/]+)/update/$',
             views.UpdateView.as_view(), name='update'),
     re_path(r'^create/$', views.CreateView.as_view(), name='create'),
