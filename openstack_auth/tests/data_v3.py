@@ -14,7 +14,6 @@
 import datetime
 import uuid
 
-from django.utils import datetime_safe
 from keystoneauth1.access import access
 from keystoneauth1.access import service_catalog
 from keystoneclient.v3 import domains
@@ -175,8 +174,8 @@ def generate_test_data(service_providers=False, endpoint='localhost'):
     }
 
     # Tokens
-    tomorrow = datetime_safe.datetime.now() + datetime.timedelta(days=1)
-    expiration = datetime_safe.datetime.isoformat(tomorrow)
+    tomorrow = datetime.datetime.now() + datetime.timedelta(days=1)
+    expiration = datetime.datetime.isoformat(tomorrow)
     auth_token = uuid.uuid4().hex
 
     auth_response_headers = {
