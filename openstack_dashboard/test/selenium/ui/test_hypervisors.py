@@ -52,26 +52,26 @@ def test_vcpu_pcpu_data_display(live_server, driver, user, dashboard_data):
 
         driver.get(live_server.url + '/admin/hypervisors')
         assert (driver.find_element_by_xpath(
-            f"//*[normalize-space()='vCPU Usage']/"
-            f"ancestor::div[contains(@class,'d3_quota_bar')]"  # noqa: E231
-            f"/div[contains(@class,'h6')]/"  # noqa: E231
-            f"span[1]").text == str(p['vcpus_used']))
+            "//*[normalize-space()='vCPU Usage']/"
+            "ancestor::div[contains(@class,'d3_quota_bar')]"  # noqa: E231
+            "/div[contains(@class,'h6')]/"  # noqa: E231
+            "span[1]").text == str(p['vcpus_used']))
         assert (driver.find_element_by_xpath(
-            f"//*[normalize-space()='vCPU Usage']/"
-            f"ancestor::div[contains(@class,'d3_quota_bar')]"  # noqa: E231
-            f"/div[contains(@class,'h6')]/"  # noqa: E231
-            f"span[2]").text == str(p['vcpus_capacity']))
+            "//*[normalize-space()='vCPU Usage']/"
+            "ancestor::div[contains(@class,'d3_quota_bar')]"  # noqa: E231
+            "/div[contains(@class,'h6')]/"  # noqa: E231
+            "span[2]").text == str(p['vcpus_capacity']))
 
         assert (driver.find_element_by_xpath(
-            f"//*[normalize-space()='pCPU Usage']/"
-            f"ancestor::div[contains(@class,'d3_quota_bar')]"  # noqa: E231
-            f"/div[contains(@class,'h6')]/"  # noqa: E231
-            f"span[1]").text == str(p['pcpus_used']))
+            "//*[normalize-space()='pCPU Usage']/"
+            "ancestor::div[contains(@class,'d3_quota_bar')]"  # noqa: E231
+            "/div[contains(@class,'h6')]/"  # noqa: E231
+            "span[1]").text == str(p['pcpus_used']))
         assert (driver.find_element_by_xpath(
-            f"//*[normalize-space()='pCPU Usage']/"
-            f"ancestor::div[contains(@class,'d3_quota_bar')]"  # noqa: E231
-            f"/div[contains(@class,'h6')]/"  # noqa: E231
-            f"span[2]").text == str(p['pcpus_capacity']))
+            "//*[normalize-space()='pCPU Usage']/"
+            "ancestor::div[contains(@class,'d3_quota_bar')]"  # noqa: E231
+            "/div[contains(@class,'h6')]/"  # noqa: E231
+            "span[2]").text == str(p['pcpus_capacity']))
 
         driver.find_element_by_link_text("Resource Provider").click()
         resource_provider_tab = driver.find_element_by_id(

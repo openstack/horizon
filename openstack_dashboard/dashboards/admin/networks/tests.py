@@ -1005,7 +1005,7 @@ class NetworkTests(test.BaseAdminViewTests):
         url = reverse('horizon:admin:networks:create')
         res = self.client.get(url)
         physical_network = res.context['form'].fields['physical_network']
-        self.assertEqual(type(physical_network), forms.CharField)
+        self.assertIsInstance(physical_network, forms.CharField)
 
         self.mock_tenant_list.assert_called_once_with(test.IsHttpRequest())
         self._check_is_extension_supported(
@@ -1029,7 +1029,7 @@ class NetworkTests(test.BaseAdminViewTests):
         url = reverse('horizon:admin:networks:create')
         res = self.client.get(url)
         physical_network = res.context['form'].fields['physical_network']
-        self.assertEqual(type(physical_network), forms.ThemableChoiceField)
+        self.assertIsInstance(physical_network, forms.ThemableChoiceField)
         self.assertListEqual(list(physical_network.choices),
                              [('default', 'default'), ('test', 'test')])
 

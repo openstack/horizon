@@ -1156,7 +1156,7 @@ class NetworkViewTests(test.TestCase, NetworkStubMixin):
         networks = res.context['networks_table'].data
 
         button = find_button_fn(res)
-        self.assertFalse('disabled' in button.classes,
+        self.assertNotIn('disabled', button.classes,
                          "The create button should not be disabled")
 
         self._check_net_list()

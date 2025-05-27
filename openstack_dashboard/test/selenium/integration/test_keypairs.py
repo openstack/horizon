@@ -58,8 +58,8 @@ def test_create_keypair_demo(login, driver, openstack_demo, clear_keypair_demo,
     type_options.find_element_by_css_selector('option[label="SSH Key"]').click()
     keypair_form.find_element_by_css_selector(".btn-primary").click()
     messages = widgets.get_and_dismiss_messages(driver)
-    assert(f'Success: Key pair {keypair_name} was successfully created.'
-           in messages)
+    assert (f'Success: Key pair {keypair_name} was successfully created.'
+            in messages)
     assert openstack_demo.compute.find_keypair(keypair_name) is not None
 
 

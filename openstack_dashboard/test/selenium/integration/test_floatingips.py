@@ -20,8 +20,8 @@ from openstack_dashboard.test.selenium import widgets
 
 @pytest.fixture
 def floatingip_description():
-    return('horizon_floatingip_description_%s'
-           % uuidutils.generate_uuid(dashed=False))
+    return ('horizon_floatingip_description_%s'
+            % uuidutils.generate_uuid(dashed=False))
 
 
 @pytest.fixture
@@ -100,8 +100,8 @@ def test_release_floatingip(login, driver, openstack_demo, config,
     widgets.select_from_dropdown(actions_column, "Release Floating IP")
     widgets.confirm_modal(driver)
     messages = widgets.get_and_dismiss_messages(driver)
-    assert(f"Success: Released Floating IP: "
-           f"{new_floating_ip.floating_ip_address}" in messages)
+    assert (f"Success: Released Floating IP: "
+            f"{new_floating_ip.floating_ip_address}" in messages)
     assert openstack_demo.network.find_ip(
         new_floating_ip.floating_ip_address) is None
 
@@ -129,10 +129,11 @@ def test_associate_floatingip(login, driver, openstack_demo, new_floating_ip,
         f"{instance_name}: {new_instance_demo.private_v4}")
     associateip_form.find_element_by_css_selector(".btn-primary").click()
     messages = widgets.get_and_dismiss_messages(driver)
-    assert(f"Success: IP address {new_floating_ip.floating_ip_address}"
-           f" associated." in messages)
-    assert(new_instance_demo.id == openstack_demo.network.find_ip(
-           new_floating_ip.floating_ip_address).port_details['device_id'])
+    assert (f"Success: IP address {new_floating_ip.floating_ip_address}"
+            f" associated." in messages)
+    assert (new_instance_demo.id == openstack_demo.network.find_ip(
+        new_floating_ip.floating_ip_address).port_details['device_id'])
+
 
 @pytest.mark.parametrize('new_instance_demo', [(1, True)],
                          indirect=True)
@@ -156,8 +157,8 @@ def test_disassociate_floatingip(login, driver, openstack_demo, config,
     rows[0].find_element_by_css_selector(".data-table-action").click()
     widgets.confirm_modal(driver)
     messages = widgets.get_and_dismiss_messages(driver)
-    assert(f"Success: Successfully disassociated Floating IP: "
-           f"{instance_auto_ip}" in messages)
+    assert (f"Success: Successfully disassociated Floating IP: "
+            f"{instance_auto_ip}" in messages)
     instance_sdk = openstack_demo.compute.find_server(new_instance_demo.id)
     assert (len(instance_sdk.addresses['default_test_network']) == 1)
     assert (instance_sdk.addresses['default_test_network']

@@ -21,6 +21,7 @@ class TestLogin(helpers.BaseTestCase):
     * logs in as a regular user
     * checks that the user home page loads without error
     """
+
     def test_login(self):
         login_pg = loginpage.LoginPage(self.driver, self.CONFIG)
         login_pg.go_to_login_page()

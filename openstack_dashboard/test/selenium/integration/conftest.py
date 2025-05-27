@@ -85,7 +85,7 @@ def change_page_size(driver, config, page_size):
             driver.find_element_by_css_selector(
                 f"#id_pagesize[value='{page_size}']")
             break
-        except(exceptions.NoSuchElementException):
+        except exceptions.NoSuchElementException:
             time.sleep(3)
 
 

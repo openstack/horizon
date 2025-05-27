@@ -51,7 +51,7 @@ def test_create_user_credential_totp(login, driver, openstack_admin, config,
     ))
     driver.get(url)
     credentials_sdk_before = list(openstack_admin.identity.credentials())
-    assert(len(credentials_sdk_before) == 0)
+    assert (len(credentials_sdk_before) == 0)
     driver.find_element_by_link_text("Create User Credential").click()
     user_credential_form = driver.find_element_by_css_selector(
         ".modal-dialog form")
@@ -59,10 +59,10 @@ def test_create_user_credential_totp(login, driver, openstack_admin, config,
         user_credential_form, 'id_cred_type', 'TOTP')
     user_credential_form.find_element_by_css_selector(".btn-primary").click()
     messages = widgets.get_and_dismiss_messages(driver)
-    assert f'Success: User credential created successfully.' in messages
+    assert 'Success: User credential created successfully.' in messages
     credentials_sdk_after = list(openstack_admin.identity.credentials())
-    assert(len(credentials_sdk_after) == 1 and
-           credentials_sdk_after[0]['type'] == 'totp')
+    assert (len(credentials_sdk_after) == 1 and
+            credentials_sdk_after[0]['type'] == 'totp')
 
 
 def test_create_user_credential_ec2(login, driver, openstack_admin, config,
@@ -75,7 +75,7 @@ def test_create_user_credential_ec2(login, driver, openstack_admin, config,
     ))
     driver.get(url)
     credentials_sdk_before = list(openstack_admin.identity.credentials())
-    assert(len(credentials_sdk_before) == 0)
+    assert (len(credentials_sdk_before) == 0)
     driver.find_element_by_link_text("Create User Credential").click()
     user_credential_form = driver.find_element_by_css_selector(
         ".modal-dialog form")
@@ -88,14 +88,14 @@ def test_create_user_credential_ec2(login, driver, openstack_admin, config,
         user_credential_form, 'id_project', 'admin')
     user_credential_form.find_element_by_css_selector(".btn-primary").click()
     messages = widgets.get_and_dismiss_messages(driver)
-    assert f'Success: User credential created successfully.' in messages
+    assert 'Success: User credential created successfully.' in messages
     credentials_sdk_after = list(openstack_admin.identity.credentials())
-    assert(len(credentials_sdk_after) == 1 and
-           credentials_sdk_after[0]['type'] == 'ec2' and
-           (credentials_sdk_after[0]['blob'] ==
-            '{"access": "acs", "secret": "scrt"}') and
-           (credentials_sdk_after[0]['project_id'] ==
-            openstack_admin.identity.find_project('admin').id))
+    assert (len(credentials_sdk_after) == 1 and
+            credentials_sdk_after[0]['type'] == 'ec2' and
+            (credentials_sdk_after[0]['blob'] ==
+             '{"access": "acs", "secret": "scrt"}') and
+            (credentials_sdk_after[0]['project_id'] ==
+             openstack_admin.identity.find_project('admin').id))
 
 
 def test_delete_user_credential(login, driver, openstack_admin, config,
@@ -114,10 +114,10 @@ def test_delete_user_credential(login, driver, openstack_admin, config,
     widgets.select_from_dropdown(actions_column, "Delete User Credential")
     widgets.confirm_modal(driver)
     messages = widgets.get_and_dismiss_messages(driver)
-    assert(f"Success: Deleted User Credential: {user_credential_blob}" in
-           messages)
+    assert (f"Success: Deleted User Credential: {user_credential_blob}" in
+            messages)
     credentials_sdk_after = list(openstack_admin.identity.credentials())
-    assert(len(credentials_sdk_after) == 0)
+    assert (len(credentials_sdk_after) == 0)
 
 
 def test_edit_user_credential(login, driver, openstack_admin, config,
@@ -140,10 +140,10 @@ def test_edit_user_credential(login, driver, openstack_admin, config,
         f"EDITED_{user_credential_blob}")
     user_credential_form.find_element_by_css_selector(".btn-primary").click()
     messages = widgets.get_and_dismiss_messages(driver)
-    assert(f"Success: User credential updated successfully." in messages)
+    assert ("Success: User credential updated successfully." in messages)
     credentials_sdk = list(openstack_admin.identity.credentials())
-    assert(len(credentials_sdk) == 1 and
-           credentials_sdk[0]['blob'] == f'EDITED_{user_credential_blob}')
+    assert (len(credentials_sdk) == 1 and
+            credentials_sdk[0]['blob'] == f'EDITED_{user_credential_blob}')
 
 
 def test_user_credential_filtration(login, driver, openstack_admin,
@@ -163,12 +163,12 @@ def test_user_credential_filtration(login, driver, openstack_admin,
     try:
         driver.find_element_by_xpath(
             "//td[text()='No items to display.']")
-    except(exceptions.NoSuchElementException):
+    except exceptions.NoSuchElementException:
         assert False, "Message 'No items to display' not found"
     filter_input_field = driver.find_element_by_css_selector(".form-control")
     filter_input_field.clear()
     filter_input_field.send_keys('admin')
     driver.find_element_by_id("credentialstable__action_filter").click()
     rows = driver.find_elements_by_css_selector(
-        f"table#credentialstable tr[data-display]")
+        "table#credentialstable tr[data-display]")
     assert len(rows) == 1

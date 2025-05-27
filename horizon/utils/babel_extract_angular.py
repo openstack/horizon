@@ -167,4 +167,4 @@ def extract_angular(fileobj, keywords, comment_tags, options):
         parser.feed(encodeutils.safe_decode(line))
 
     for string in parser.strings:
-        yield(string)
+        yield string

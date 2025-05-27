@@ -61,9 +61,10 @@ def test_delete_multiple_instance_rows(live_server, driver, dashboard_data,
 def test_delete_multiple_images_rows(live_server, driver, dashboard_data,
                                      user):
     with mock.patch.object(
-            api.glance, 'image_list_detailed') as mocked_i_l_d,\
+            api.glance, 'image_list_detailed') as mocked_i_l_d, \
             mock.patch.object(
-                api.glance, 'metadefs_namespace_full_list') as mocked_m_n_f_l,\
+                api.glance,
+                'metadefs_namespace_full_list') as mocked_m_n_f_l, \
             mock.patch.object(
                 api.glance, 'image_delete') as mocked_i_d:
         mocked_i_l_d.return_value = (

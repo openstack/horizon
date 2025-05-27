@@ -56,10 +56,10 @@ def test_download_rc_file_admin(login, driver, config, openstack_admin,
     project_id = re.search(
         r'export OS_PROJECT_ID=(.+)', content).group(1)
 
-    assert(config.identity.admin_username == username and
-           config.identity.admin_home_project == project_name and
-           openstack_admin.identity.find_project(
-               config.identity.admin_home_project).id == project_id)
+    assert (config.identity.admin_username == username and
+            config.identity.admin_home_project == project_name and
+            openstack_admin.identity.find_project(
+                config.identity.admin_home_project).id == project_id)
 
 
 def test_download_rc_file_demo(login, driver, config, openstack_admin,
@@ -88,7 +88,7 @@ def test_download_rc_file_demo(login, driver, config, openstack_admin,
     project_id = re.search(
         r'export OS_PROJECT_ID=(.+)', content).group(1)
 
-    assert(config.identity.username == username and
-           config.identity.home_project == project_name and
-           openstack_admin.identity.find_project(
-               config.identity.home_project).id == project_id)
+    assert (config.identity.username == username and
+            config.identity.home_project == project_name and
+            openstack_admin.identity.find_project(
+                config.identity.home_project).id == project_id)

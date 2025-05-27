@@ -126,7 +126,7 @@ def test_add_member_to_project(login, driver, project_name, openstack_admin,
         ".btn-primary[value='Save']").click()
     messages = widgets.get_and_dismiss_messages(driver)
     assert f'Success: Modified project "{project_name}".' in messages
-    assert(openstack_admin.identity.validate_user_has_project_role(
+    assert (openstack_admin.identity.validate_user_has_project_role(
         project=new_project,
         user=openstack_admin.identity.find_user(admin_name).id,
         role=openstack_admin.identity.find_role(regular_role_name).id,)
@@ -157,9 +157,9 @@ def test_add_role_to_project_member(login, driver, openstack_admin, config,
     project_form.find_element_by_css_selector(
         ".btn-primary[value='Save']").click()
     messages = widgets.get_and_dismiss_messages(driver)
-    assert(f'Success: Modified project '
-           f'"{new_project_with_admin.name}".' in messages)
-    assert(openstack_admin.identity.validate_user_has_project_role(
+    assert (f'Success: Modified project '
+            f'"{new_project_with_admin.name}".' in messages)
+    assert (openstack_admin.identity.validate_user_has_project_role(
         project=new_project_with_admin,
         user=openstack_admin.identity.find_user(admin_name).id,
         role=openstack_admin.identity.find_role(regular_role_name).id,) and
@@ -194,7 +194,7 @@ def test_add_group_to_project(login, driver, openstack_admin,
         ".btn-primary[value='Save']").click()
     messages = widgets.get_and_dismiss_messages(driver)
     assert f'Success: Modified project "{new_project.name}".' in messages
-    assert(openstack_admin.identity.validate_group_has_project_role(
+    assert (openstack_admin.identity.validate_group_has_project_role(
         project=new_project,
         group=openstack_admin.identity.find_group(group_name).id,
         role=openstack_admin.identity.find_role(regular_role_name).id,)
@@ -226,9 +226,9 @@ def test_add_role_to_project_group(login, driver, openstack_admin, config,
     project_form.find_element_by_css_selector(
         ".btn-primary[value='Save']").click()
     messages = widgets.get_and_dismiss_messages(driver)
-    assert(f'Success: Modified project '
-           f'"{new_project_with_group.name}".' in messages)
-    assert(openstack_admin.identity.validate_group_has_project_role(
+    assert (f'Success: Modified project '
+            f'"{new_project_with_group.name}".' in messages)
+    assert (openstack_admin.identity.validate_group_has_project_role(
         project=new_project_with_group,
         group=openstack_admin.identity.find_group(group_name).id,
         role=openstack_admin.identity.find_role(regular_role_name).id,) and

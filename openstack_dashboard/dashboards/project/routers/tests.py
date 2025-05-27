@@ -1221,7 +1221,7 @@ class RouterViewTests(RouterMixin, test.TestCase):
         self.assertCountEqual(routers, self.routers.list())
 
         create_action = self.getAndAssertTableAction(res, 'routers', 'create')
-        self.assertFalse('disabled' in create_action.classes,
+        self.assertNotIn('disabled', create_action.classes,
                          'Create button should not be disabled')
         self.assertEqual('Create Router',
                          create_action.verbose_name)

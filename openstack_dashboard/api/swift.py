@@ -169,7 +169,7 @@ def swift_get_containers(request, marker=None, prefix=None):
                                                          prefix=prefix,
                                                          full_listing=True)
     container_objs = [Container(c) for c in containers]
-    if(len(container_objs) > limit):
+    if len(container_objs) > limit:
         return (container_objs[0:-1], True)
     return (container_objs, False)
 
@@ -270,7 +270,7 @@ def swift_get_objects(request, container_name, prefix=None, marker=None,
                                                         **kwargs)
     object_objs = _objectify(objects, container_name)
 
-    if(len(object_objs) > limit):
+    if len(object_objs) > limit:
         return (object_objs[0:-1], True)
     return (object_objs, False)
 

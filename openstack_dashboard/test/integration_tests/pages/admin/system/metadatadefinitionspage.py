@@ -104,7 +104,7 @@ class MetadatadefinitionsPage(basepage.BaseNavigationPage):
         return bool(self._get_row_with_namespace_name(name))
 
     def is_public_set_correct(self, name, exp_value, row=None):
-        if type(exp_value) != bool:
+        if not isinstance(exp_value, bool):
             raise ValueError('Expected value "exp_value" is not boolean')
         if not row:
             row = self._get_row_with_namespace_name(name)
@@ -112,7 +112,7 @@ class MetadatadefinitionsPage(basepage.BaseNavigationPage):
         return self._is_text_visible(cell, self.boolean_mapping[exp_value])
 
     def is_protected_set_correct(self, name, exp_value, row=None):
-        if type(exp_value) != bool:
+        if not isinstance(exp_value, bool):
             raise ValueError('Expected value "exp_value" is not boolean')
         if not row:
             row = self._get_row_with_namespace_name(name)

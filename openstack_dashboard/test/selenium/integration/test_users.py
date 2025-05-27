@@ -102,4 +102,4 @@ def test_change_user_password(login, driver, user_name, new_user, config):
         "id_confirm_password").send_keys(new_password)
     password_form.find_element_by_css_selector(".btn-primary").click()
     messages = widgets.get_and_dismiss_messages(driver)
-    assert f"Success: User password has been updated successfully." in messages
+    assert "Success: User password has been updated successfully." in messages

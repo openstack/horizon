@@ -91,7 +91,7 @@ class Service(base.APIDictWrapper):
         self.region = region
 
     def __str__(self):
-        if(self.type == "identity"):
+        if self.type == "identity":
             return _("%(type)s (%(backend)s backend)") \
                 % {"type": self.type, "backend": keystone_backend_name()}
         return self.type

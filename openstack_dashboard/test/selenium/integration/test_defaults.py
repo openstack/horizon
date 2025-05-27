@@ -65,10 +65,10 @@ def test_update_compute_defaults(login, driver, openstack_admin, config,
     defaults_form.find_element_by_id("id_cores").send_keys(number_of_cores)
     defaults_form.find_element_by_css_selector(".btn-primary").click()
     messages = widgets.get_and_dismiss_messages(driver)
-    assert f'Success: Default quotas updated.' in messages
+    assert 'Success: Default quotas updated.' in messages
     new_quotas = openstack_admin.compute.get(
         "/os-quota-class-sets/default").json()
-    assert(
+    assert (
         new_quotas["quota_class_set"]["instances"] == number_of_instances and
         new_quotas["quota_class_set"]["cores"] == number_of_cores)
 
@@ -94,8 +94,8 @@ def test_update_volume_defaults(login, driver, openstack_admin, config,
         number_of_snapshots)
     defaults_form.find_element_by_css_selector(".btn-primary").click()
     messages = widgets.get_and_dismiss_messages(driver)
-    assert f'Success: Default quotas updated.' in messages
+    assert 'Success: Default quotas updated.' in messages
     new_quotas = openstack_admin.block_storage.get(
         "/os-quota-class-sets/default").json()
-    assert(new_quotas["quota_class_set"]["volumes"] == number_of_volumes and
-           new_quotas["quota_class_set"]["snapshots"] == number_of_snapshots)
+    assert (new_quotas["quota_class_set"]["volumes"] == number_of_volumes and
+            new_quotas["quota_class_set"]["snapshots"] == number_of_snapshots)

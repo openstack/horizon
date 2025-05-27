@@ -167,7 +167,7 @@ class HorizonMiddleware(object):
         """
         if http_utils.is_ajax(request) and hasattr(request, 'horizon'):
             queued_msgs = request.horizon['async_messages']
-            if type(response) == http.HttpResponseRedirect:
+            if isinstance(response, http.HttpResponseRedirect):
                 # Drop our messages back into the session as per usual so they
                 # don't disappear during the redirect. Not that we explicitly
                 # use django's messages methods here.

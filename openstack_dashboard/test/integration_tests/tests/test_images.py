@@ -322,6 +322,7 @@ class TestImagesAdvancedAngular(helpers.TestCase):
         return InstancesPage(self.driver, self.CONFIG)
 
     """Login as demo user"""
+
     def test_create_volume_from_image(self):
         """This test case checks create volume from image functionality:
 

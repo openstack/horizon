@@ -19,8 +19,8 @@ from openstack_dashboard.test.selenium import widgets
 
 @pytest.fixture
 def metadata_namespace_name():
-    return('horizon_metadata_namespace_%s' %
-           uuidutils.generate_uuid(dashed=False))
+    return ('horizon_metadata_namespace_%s' %
+            uuidutils.generate_uuid(dashed=False))
 
 
 @pytest.fixture
@@ -78,8 +78,8 @@ def test_create_metadata_namespace(login, driver, metadata_namespace_name,
     namespace_form.find_element_by_id("id_direct_input").send_keys(namespace)
     namespace_form.find_element_by_css_selector(".btn-primary").click()
     messages = widgets.get_and_dismiss_messages(driver)
-    assert(f"Success: Namespace {metadata_namespace_name} "
-           f"has been created." in messages)
+    assert (f"Success: Namespace {metadata_namespace_name} "
+            f"has been created." in messages)
     try:
         openstack_admin.image.get_metadef_namespace(metadata_namespace_name)
         assert True
@@ -105,8 +105,8 @@ def test_delete_metadata_namespace(login, driver, new_metadata_namespace,
     widgets.select_from_dropdown(actions_column, "Delete Namespace")
     widgets.confirm_modal(driver)
     messages = widgets.get_and_dismiss_messages(driver)
-    assert(f"Success: Deleted Namespace: "
-           f"{new_metadata_namespace.namespace}" in messages)
+    assert (f"Success: Deleted Namespace: "
+            f"{new_metadata_namespace.namespace}" in messages)
     try:
         openstack_admin.image.get_metadef_namespace(
             new_metadata_namespace.namespace)

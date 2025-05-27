@@ -67,10 +67,10 @@ def test_create_sec_group_demo(login, driver, config, sec_group_name,
     sec_group_form.find_element_by_id("id_name").send_keys(sec_group_name)
     sec_group_form.find_element_by_css_selector(".btn-primary").click()
     messages = widgets.get_and_dismiss_messages(driver)
-    assert(f'Success: Successfully created security group: {sec_group_name}'
-           in messages)
-    assert(openstack_demo.network.find_security_group(sec_group_name)
-           is not None)
+    assert (f'Success: Successfully created security group: {sec_group_name}'
+            in messages)
+    assert (openstack_demo.network.find_security_group(sec_group_name)
+            is not None)
 
 
 def test_delete_sec_group_demo(login, driver, sec_group_name, openstack_demo,
@@ -109,13 +109,13 @@ def test_add_rule_sec_group_demo(login, driver, sec_group_name, openstack_demo,
     rule_form.find_element_by_id("id_port").send_keys(rule_port)
     rule_form.find_element_by_css_selector(".btn-primary").click()
     messages = widgets.get_and_dismiss_messages(driver)
-    assert(f"Success: Successfully added rule: ALLOW IPv4 {rule_port}"
-           f"/tcp from 0.0.0.0/0" in messages)
+    assert (f"Success: Successfully added rule: ALLOW IPv4 {rule_port}"
+            f"/tcp from 0.0.0.0/0" in messages)
     sec_group_rules_sdk = openstack_demo.network.find_security_group(
         sec_group_name).security_group_rules
     rule_port_found = False
     for rule_sdk in sec_group_rules_sdk:
-        if(rule_sdk['port_range_min'] == rule_port and
+        if (rule_sdk['port_range_min'] == rule_port and
                 rule_sdk['port_range_max'] == rule_port):
             rule_port_found = True
     assert rule_port_found
@@ -139,8 +139,8 @@ def test_delete_rule_sec_group_demo(login, driver, sec_group_name,
     rows[0].find_element_by_css_selector("td.actions_column").click()
     widgets.confirm_modal(driver)
     messages = widgets.get_and_dismiss_messages(driver)
-    assert(f"Success: Deleted Rule: ALLOW IPv4 {rule_port}/tcp from 0.0.0.0/0"
-           in messages)
+    assert (f"Success: Deleted Rule: ALLOW IPv4 {rule_port}/tcp from 0.0.0.0/0"
+            in messages)
     sec_group_rules_sdk = openstack_demo.network.find_security_group(
         sec_group_name).security_group_rules
     rule_port_found = False
@@ -148,4 +148,4 @@ def test_delete_rule_sec_group_demo(login, driver, sec_group_name,
         if (rule_sdk['port_range_min'] == rule_port and
                 rule_sdk['port_range_max'] == rule_port):
             rule_port_found = True
-    assert not(rule_port_found)
+    assert not (rule_port_found)

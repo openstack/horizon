@@ -105,7 +105,7 @@ def apply_instance_name_filter(driver, config, name_pattern):
             driver.find_element_by_css_selector(
                 f".table_search input[value='{name_pattern}']")
             break
-        except(exceptions.NoSuchElementException):
+        except (exceptions.NoSuchElementException):
             time.sleep(3)
 
 

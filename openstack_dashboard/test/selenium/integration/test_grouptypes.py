@@ -52,10 +52,10 @@ def test_create_grouptype(login, driver, grouptype_name, openstack_admin,
     grouptype_form.find_element_by_id("id_name").send_keys(grouptype_name)
     grouptype_form.find_element_by_css_selector(".btn-primary").click()
     messages = widgets.get_and_dismiss_messages(driver)
-    assert(f'Success: Successfully created group type: {grouptype_name}'
-           in messages)
-    assert(openstack_admin.block_storage.find_group_type(grouptype_name)
-           is not None)
+    assert (f'Success: Successfully created group type: {grouptype_name}'
+            in messages)
+    assert (openstack_admin.block_storage.find_group_type(grouptype_name)
+            is not None)
 
 
 def test_delete_grouptype(login, driver, grouptype_name, openstack_admin,

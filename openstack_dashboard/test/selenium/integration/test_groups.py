@@ -52,8 +52,8 @@ def test_create_group(login, driver, group_name, openstack_admin, config,
     group_form.find_element_by_id("id_name").send_keys(group_name)
     group_form.find_element_by_css_selector(".btn-primary").click()
     messages = widgets.get_and_dismiss_messages(driver)
-    assert(f'Success: Group "{group_name}" was successfully created.'
-           in messages)
+    assert (f'Success: Group "{group_name}" was successfully created.'
+            in messages)
     assert openstack_admin.identity.find_group(group_name) is not None
 
 
@@ -99,9 +99,9 @@ def test_edit_group_name_and_description(login, driver, group_name,
         f"EDITED_Description for: {group_name}")
     group_form.find_element_by_css_selector(".btn-primary").click()
     messages = widgets.get_and_dismiss_messages(driver)
-    assert f"Success: Group has been updated successfully." in messages
-    assert(openstack_admin.identity.find_group(
-           f"EDITED_{group_name}") is not None)
-    assert(openstack_admin.identity.find_group(
-           f"EDITED_{group_name}").description ==
-           f"EDITED_Description for: {group_name}")
+    assert "Success: Group has been updated successfully." in messages
+    assert (openstack_admin.identity.find_group(
+        f"EDITED_{group_name}") is not None)
+    assert (openstack_admin.identity.find_group(
+        f"EDITED_{group_name}").description ==
+        f"EDITED_Description for: {group_name}")

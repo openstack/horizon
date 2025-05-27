@@ -46,7 +46,7 @@ class Networks(generic.View):
         result = api.neutron.network_list_for_tenant(
             request, tenant_id,
             include_pre_auto_allocate=True)
-        return{'items': [n.to_dict() for n in result]}
+        return {'items': [n.to_dict() for n in result]}
 
     @rest_utils.ajax(data_required=True)
     def post(self, request):
@@ -92,7 +92,7 @@ class Subnets(generic.View):
 
         """
         result = api.neutron.subnet_list(request, **request.GET.dict())
-        return{'items': [n.to_dict() for n in result]}
+        return {'items': [n.to_dict() for n in result]}
 
     @rest_utils.ajax(data_required=True)
     def post(self, request):

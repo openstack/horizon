@@ -144,8 +144,8 @@ def test_edit_volume_description_demo(login, driver, volume_name, config,
     volume_form.find_element_by_css_selector(".btn-primary").click()
     messages = widgets.get_and_dismiss_messages(driver)
     assert f'Info: Updating volume "{volume_name}"' in messages
-    assert(openstack_demo.block_storage.find_volume(
-           volume_name).description == f"EDITED_Description for: {volume_name}")
+    assert (openstack_demo.block_storage.find_volume(
+        volume_name).description == f"EDITED_Description for: {volume_name}")
 
 
 def test_extend_volume_demo(login, driver, openstack_demo, new_volume_demo,
@@ -161,7 +161,7 @@ def test_extend_volume_demo(login, driver, openstack_demo, new_volume_demo,
         f"table#volumes tr[data-display='{new_volume_demo.name}']"
     )
     assert len(rows) == 1
-    assert(openstack_demo.block_storage.find_volume(
+    assert (openstack_demo.block_storage.find_volume(
         new_volume_demo.name).size == 1)
     actions_column = rows[0].find_element_by_css_selector("td.actions_column")
     widgets.select_from_dropdown(actions_column, "Extend Volume")
@@ -172,7 +172,7 @@ def test_extend_volume_demo(login, driver, openstack_demo, new_volume_demo,
     messages = widgets.get_and_dismiss_messages(driver)
     assert f'Info: Extending volume: "{new_volume_demo.name}"' in messages
     wait_for_steady_state_of_volume(openstack_demo, new_volume_demo.name)
-    assert(openstack_demo.block_storage.find_volume(
+    assert (openstack_demo.block_storage.find_volume(
         new_volume_demo.name).size == 2)
 
 
@@ -218,7 +218,7 @@ def test_volume_launch_as_instance_demo(login, driver, openstack_demo,
     WebDriverWait(driver, config.selenium.page_timeout).until(
         EC.invisibility_of_element_located(actions_column))
     wait_for_steady_state_of_volume(openstack_demo, new_volume_demo.name)
-    assert(openstack_demo.block_storage.find_volume(
+    assert (openstack_demo.block_storage.find_volume(
         new_volume_demo.name).attachments[0]['server_id'] ==
         openstack_demo.compute.find_server(instance_name).id)
 
@@ -245,8 +245,8 @@ def test_volume_upload_to_image_demo(login, driver, openstack_demo,
     volume_form.find_element_by_css_selector(
         ".btn-primary[value='Upload']").click()
     messages = widgets.get_and_dismiss_messages(driver)
-    assert(f'Info: Successfully sent the request to upload volume to image for '
-           f'volume: "{new_volume_demo.name}"' in messages)
+    assert ('Info: Successfully sent the request to upload volume to image for '
+            f'volume: "{new_volume_demo.name}"' in messages)
     wait_for_steady_state_of_volume(openstack_demo, new_volume_demo.name)
     assert openstack_demo.compute.find_image(image_names[0]) is not None
 
@@ -346,10 +346,10 @@ def test_manage_volume_attachments(login, driver, openstack_demo,
     attach_to_instance_form.find_element_by_css_selector(
         ".btn-primary[value='Attach Volume']").click()
     messages = widgets.get_and_dismiss_messages(driver)
-    assert(f"Info: Attaching volume {new_volume_demo.name} to instance "
-           f"{new_instance_demo.name} on /dev/vdb." in messages)
+    assert (f"Info: Attaching volume {new_volume_demo.name} to instance "
+            f"{new_instance_demo.name} on /dev/vdb." in messages)
     wait_for_steady_state_of_volume(openstack_demo, new_volume_demo.name)
-    assert(openstack_demo.block_storage.find_volume(
+    assert (openstack_demo.block_storage.find_volume(
         new_volume_demo.id).attachments[0]['server_id'] ==
         new_instance_demo.id)
 
@@ -369,10 +369,10 @@ def test_manage_volume_attachments(login, driver, openstack_demo,
     driver.find_element_by_xpath(
         ".//a[normalize-space()='Detach Volume']").click()
     messages = widgets.get_and_dismiss_messages(driver)
-    assert(f"Success: Detaching Volume: Volume {new_volume_demo.name} "
-           f"on instance {new_instance_demo.name}" in messages)
+    assert (f"Success: Detaching Volume: Volume {new_volume_demo.name} "
+            f"on instance {new_instance_demo.name}" in messages)
     wait_for_steady_state_of_volume(openstack_demo, new_volume_demo.name)
-    assert(openstack_demo.block_storage.find_volume(
+    assert (openstack_demo.block_storage.find_volume(
         new_volume_demo.id).attachments == [])
 
 
@@ -470,8 +470,8 @@ def test_edit_volume_description_admin(login, driver, volume_name, config,
     volume_form.find_element_by_css_selector(".btn-primary").click()
     messages = widgets.get_and_dismiss_messages(driver)
     assert f'Info: Updating volume "{volume_name}"' in messages
-    assert(openstack_admin.block_storage.find_volume(
-           volume_name).description == f"EDITED_Description for: {volume_name}")
+    assert (openstack_admin.block_storage.find_volume(
+        volume_name).description == f"EDITED_Description for: {volume_name}")
 
 
 @pytest.mark.parametrize('volume_name', [3], indirect=True)
