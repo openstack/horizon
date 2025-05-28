@@ -597,6 +597,12 @@ def server_rebuild(request, instance_id, image_id, password=None,
 
 
 @profiler.trace
+def server_change_password(request, instance_id, password=None):
+    nc = _nova.get_novaclient_with_instance_desc(request)
+    return nc.servers.change_password(instance_id, password)
+
+
+@profiler.trace
 def server_update(request, instance_id, name, description=None):
     nc = _nova.get_novaclient_with_instance_desc(request)
     return nc.servers.update(instance_id, name=name.strip(),

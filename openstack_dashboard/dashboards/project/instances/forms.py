@@ -170,6 +170,51 @@ class DecryptPasswordInstanceForm(forms.SelfHandlingForm):
         return True
 
 
+class ChangePasswordInstanceForm(forms.SelfHandlingForm):
+    instance_id = forms.CharField(widget=forms.HiddenInput())
+    password = forms.RegexField(
+        label=_("New Password"),
+        required=True,
+        widget=forms.PasswordInput(render_value=False),
+        regex=validators.password_validator(),
+        error_messages={'invalid': validators.password_validator_msg()})
+    confirm_password = forms.CharField(
+        label=_("Confirm Password"),
+        required=True,
+        widget=forms.PasswordInput(render_value=False))
+
+    def __init__(self, request, *args, **kwargs):
+        super().__init__(request,
+                         *args,
+                         **kwargs)
+        instance_id = kwargs.get('initial', {}).get('instance_id')
+        self.fields['instance_id'].initial = instance_id
+
+    @sensitive_variables('data', 'password')
+    def handle(self, request, data):
+        try:
+            instance = data.get('instance_id')
+            password = data.get('password') or None
+            api.nova.server_change_password(request, instance, password)
+            messages.success(request, _(
+                'Successfully changed password for instance %s.') % instance)
+        except Exception:
+            redirect = reverse('horizon:project:instances:index')
+            exceptions.handle(request,
+                              _("Unable to change instance password."),
+                              redirect=redirect)
+        return True
+
+    def clean(self):
+        '''Check to make sure password fields match.'''
+        cleaned_data = super().clean()
+        if 'password' in cleaned_data:
+            if cleaned_data['password'] != cleaned_data.get(
+                    'confirm_password', None):
+                raise forms.ValidationError(_('Passwords do not match.'))
+        return cleaned_data
+
+
 class AttachVolume(forms.SelfHandlingForm):
     volume = forms.ChoiceField(label=_("Volume ID"),
                                widget=forms.ThemableSelectWidget(),

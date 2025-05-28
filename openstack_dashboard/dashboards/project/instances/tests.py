@@ -1906,6 +1906,77 @@ class InstanceTests(InstanceTestBase):
         self.mock_get_password.assert_called_once_with(
             helpers.IsHttpRequest(), server.id)
 
+    @django.test.utils.override_settings(
+        OPENSTACK_ENABLE_INSTANCE_PASSWORD_CHANGE=False)
+    def test_instances_index_change_password_action_disabled(self):
+        self._test_instances_index_change_password_action()
+
+    @django.test.utils.override_settings(
+        OPENSTACK_ENABLE_INSTANCE_PASSWORD_CHANGE=True)
+    def test_instances_index_change_password_action_enabled(self):
+        self._test_instances_index_change_password_action()
+
+    @helpers.create_mocks({
+        api.nova: ('flavor_list',
+                   'server_list_paged',
+                   'tenant_absolute_limits',
+                   'is_feature_available',),
+        api.glance: ('image_list_detailed',),
+        api.neutron: ('floating_ip_simple_associate_supported',
+                      'floating_ip_supported',),
+        api.network: ('servers_update_addresses',),
+        api.cinder: ('volume_list',),
+    })
+    def _test_instances_index_change_password_action(self):
+        servers = self.servers.list()
+
+        self.mock_is_feature_available.return_value = True
+        self.mock_flavor_list.return_value = self.flavors.list()
+        self.mock_image_list_detailed.return_value = (self.images.list(),
+                                                      False, False)
+        self.mock_server_list_paged.return_value = [servers, False, False]
+        self.mock_servers_update_addresses.return_value = None
+        self.mock_tenant_absolute_limits.return_value = self.limits['absolute']
+        self.mock_floating_ip_supported.return_value = True
+        self.mock_floating_ip_simple_associate_supported.return_value = True
+
+        url = reverse('horizon:project:instances:index')
+        res = self.client.get(url)
+        for server in servers:
+            _action_id = ''.join(["instances__row_",
+                                  server.id,
+                                  "__action_changepassword"])
+            if settings.OPENSTACK_ENABLE_INSTANCE_PASSWORD_CHANGE and \
+                    (server.status in tables.ACTIVE_STATES or
+                     server.status == 'SHUTOFF') and \
+                    not tables.is_deleting(server):
+                self.assertContains(res, _action_id)
+            else:
+                self.assertNotContains(res, _action_id)
+
+        self.assert_mock_multiple_calls_with_same_arguments(
+            self.mock_is_feature_available, 10,
+            mock.call(helpers.IsHttpRequest(), 'locked_attribute'))
+        self.mock_flavor_list.assert_called_once_with(helpers.IsHttpRequest())
+        self._assert_mock_image_list_detailed_calls()
+
+        search_opts = {'marker': None, 'paginate': True}
+        self.mock_server_list_paged.assert_called_once_with(
+            helpers.IsHttpRequest(),
+            sort_dir='desc',
+            search_opts=search_opts)
+        self.mock_servers_update_addresses.assert_called_once_with(
+            helpers.IsHttpRequest(), servers)
+        self.assert_mock_multiple_calls_with_same_arguments(
+            self.mock_tenant_absolute_limits, 2,
+            mock.call(helpers.IsHttpRequest(), reserved=True))
+        self.assert_mock_multiple_calls_with_same_arguments(
+            self.mock_floating_ip_supported, 10,
+            mock.call(helpers.IsHttpRequest()))
+        self.assert_mock_multiple_calls_with_same_arguments(
+            self.mock_floating_ip_simple_associate_supported, 5,
+            mock.call(helpers.IsHttpRequest()))
+
     instance_update_get_stubs = {
         api.nova: ('server_get', 'is_feature_available'),
         api.neutron: ('security_group_list',
@@ -1995,6 +2066,71 @@ class InstanceTests(InstanceTestBase):
         self.mock_is_feature_available.assert_called_once_with(
             helpers.IsHttpRequest(), "instance_description"
         )
+
+    def test_change_password_instance_get(self):
+        server = self.servers.first()
+
+        url = reverse('horizon:project:instances:changepassword',
+                      args=[server.id])
+        res = self.client.get(url)
+
+        self.assertTemplateUsed(res, 'project/instances/changepassword.html')
+        self.assertContains(res, 'New Password')
+        self.assertContains(res, 'Confirm Password')
+
+    def _instance_change_password_post(self, server_id,
+                                       password=None, confirm_password=None):
+        form_data = {'instance_id': server_id}
+        if password is not None:
+            form_data.update(password=password)
+        if confirm_password is not None:
+            form_data.update(confirm_password=confirm_password)
+        url = reverse('horizon:project:instances:changepassword',
+                      args=[server_id])
+        return self.client.post(url, form_data)
+
+    @helpers.create_mocks({api.nova: ('server_change_password',)})
+    def test_change_password_instance_post(self):
+        server = self.servers.first()
+        password = 'testpass'
+
+        self.mock_server_change_password.return_value = None
+
+        res = self._instance_change_password_post(server.id,
+                                                  password=password,
+                                                  confirm_password=password)
+        self.assertNoFormErrors(res)
+        self.assertRedirectsNoFollow(res, INDEX_URL)
+
+        self.mock_server_change_password.assert_called_once_with(
+            helpers.IsHttpRequest(), server.id, password)
+
+    def test_change_password_instance_post_password_do_not_match(self):
+        server = self.servers.first()
+        pass1 = 'somepass'
+        pass2 = 'notsomepass'
+
+        res = self._instance_change_password_post(server.id,
+                                                  password=pass1,
+                                                  confirm_password=pass2)
+
+        self.assertEqual(res.context['form'].errors['__all__'],
+                         ["Passwords do not match."])
+
+    @helpers.create_mocks({api.nova: ('server_change_password',)})
+    def test_change_password_instance_post_api_exception(self):
+        server = self.servers.first()
+        password = 'testpass'
+
+        self.mock_server_change_password.side_effect = self.exceptions.nova
+
+        res = self._instance_change_password_post(server.id,
+                                                  password=password,
+                                                  confirm_password=password)
+        self.assertRedirectsNoFollow(res, INDEX_URL)
+
+        self.mock_server_change_password.assert_called_once_with(
+            helpers.IsHttpRequest(), server.id, password)
 
     @helpers.create_mocks(instance_update_post_stubs)
     def test_instance_update_post_with_desc(self):

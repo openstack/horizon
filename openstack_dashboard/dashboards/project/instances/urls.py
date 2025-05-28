@@ -41,6 +41,8 @@ urlpatterns = [
     re_path(INSTANCES % 'resize', views.ResizeView.as_view(), name='resize'),
     re_path(INSTANCES_KEYPAIR % 'decryptpassword',
             views.DecryptPasswordView.as_view(), name='decryptpassword'),
+    re_path(INSTANCES % 'changepassword',
+            views.ChangePasswordView.as_view(), name='changepassword'),
     re_path(INSTANCES % 'disassociate',
             views.DisassociateView.as_view(), name='disassociate'),
     re_path(INSTANCES % 'attach_interface',
