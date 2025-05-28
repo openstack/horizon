@@ -15,6 +15,7 @@
       - ^doc/.*$
       - ^releasenotes/.*$
       - ^.*/locale/.*$
+      - ^plugin-registry\.csv$
       # Unit tests are not related to the integration tests
       - ^horizon/test/unit/.*$
       - ^openstack_auth/tests/unit/.*$
@@ -47,6 +48,7 @@
       - ^doc/.*$
       - ^releasenotes/.*$
       - ^.*/locale/.*$
+      - ^plugin-registry\.csv$
       # Unit tests are not related to the integration tests
       - ^horizon/test/unit/.*$
       - ^openstack_auth/tests/unit/.*$
@@ -73,6 +75,7 @@
       - ^doc/.*$
       - ^releasenotes/.*$
       - ^.*/locale/.*$
+      - ^plugin-registry\.csv$
       # Test codes are not related to tempest tests
       # as tempest is defined in a separete repository
       - ^horizon/test/.*$
