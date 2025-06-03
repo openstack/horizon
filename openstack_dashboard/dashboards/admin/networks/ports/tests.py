@@ -657,6 +657,7 @@ class NetworkPortTests(test.BaseAdminViewTests):
     @override_settings(POLICY_CHECK_FUNCTION='openstack_auth.policy.check')
     @test.create_mocks({api.neutron: ('port_get',
                                       'network_get',
+                                      'security_group_list',
                                       'is_extension_supported')})
     def test_add_allowed_address_pair_button_shown(self):
         port = self.ports.first()
@@ -680,6 +681,7 @@ class NetworkPortTests(test.BaseAdminViewTests):
     @override_settings(POLICY_CHECK_FUNCTION='openstack_auth.policy.check')
     @test.create_mocks({api.neutron: ('port_get',
                                       'network_get',
+                                      'security_group_list',
                                       'port_update',
                                       'is_extension_supported')})
     def test_delete_address_pair_button_shown(self):
