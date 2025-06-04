@@ -44,8 +44,6 @@
         var authType = element.find('#id_auth_type');
         var userInput = element.find("#id_username").parents('.form-group');
         var passwordInput = element.find("#id_password").parents('.form-group');
-        var domainInput = element.find('#id_domain').parents('.form-group');
-        var regionInput = element.find('#id_region').parents('.form-group');
 
         /**
          * `helpText` exists outside of element,
@@ -67,14 +65,10 @@
               case 'credentials':
                 userInput.show();
                 passwordInput.show();
-                domainInput.show();
-                regionInput.show();
                 break;
               default:
                 userInput.hide();
                 passwordInput.hide();
-                domainInput.hide();
-                regionInput.hide();
             }
           }); // end of timeout
         } // end of onChange
