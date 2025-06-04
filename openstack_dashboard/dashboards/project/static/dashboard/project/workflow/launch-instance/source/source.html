@@ -93,6 +93,22 @@
     </div>
   </div>
 
+  <div class="row">
+    <div class="col-xs-6">
+      <div ng-if="model.newInstanceSpec.vol_create == true">
+        <div class="form-group">
+          <label for="volume-type" class="control-label">
+            <translate>Volume Type</translate>
+          </label>
+          <select class="form-control"
+                  ng-model="model.newInstanceSpec.vol_type"
+                  ng-options="volumeType as volumeType.name for volumeType in model.volumeTypes track by volumeType.name">
+          </select>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <div hz-if-settings="[&quot;OPENSTACK_HYPERVISOR_FEATURES.can_set_mount_point&quot;]"
     ng-if="model.newInstanceSpec.vol_create === true">
         <label translate>Device Name</label>
