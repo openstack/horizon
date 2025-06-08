@@ -107,12 +107,12 @@ Update project quotas
 #. On the :guilabel:`Admin` tab, open the :guilabel:`System` tab
    and click the :guilabel:`Default Quotas` category.
 
-#. Click the :guilabel:`Update Defaults` button.
+#. Click the :guilabel:`Update Default Quotas` button.
 
 #. In the :guilabel:`Update Default Quotas` window,
    you can edit the default quota values.
 
-#. Click the :guilabel:`Update Defaults` button.
+#. Click the :guilabel:`Update Default Quotas` button.
 
 .. note::
 

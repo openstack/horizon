@@ -35,7 +35,7 @@ class QuotaFilterAction(tables.FilterAction):
 
 class UpdateDefaultQuotas(tables.LinkAction):
     name = "update_defaults"
-    verbose_name = _("Update Defaults")
+    verbose_name = _("Update Default Quotas")
     url = "horizon:admin:defaults:update_defaults"
     classes = ("ajax-modal",)
     icon = "pencil"
