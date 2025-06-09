@@ -2,6 +2,10 @@
 Horizon (OpenStack Dashboard)
 =============================
 
+.. image:: https://governance.openstack.org/tc/badges/horizon.svg
+
+.. Change things from this point on
+
 Horizon is a Django-based project aimed at providing a complete OpenStack
 Dashboard along with an extensible framework for building new dashboards
 from reusable components. The ``openstack_dashboard`` module is a reference
@@ -13,9 +17,6 @@ web-based interactions with the various OpenStack projects.
 * Blueprints and feature specifications: https://blueprints.launchpad.net/horizon
 * Issue tracking: https://bugs.launchpad.net/horizon
 * Release notes: https://docs.openstack.org/releasenotes/horizon/
-
-.. image:: https://governance.openstack.org/tc/badges/horizon.svg
-    :target: https://governance.openstack.org/tc/reference/tags/
 
 Using Horizon
 =============
