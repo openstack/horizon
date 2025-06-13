@@ -70,6 +70,11 @@ VNIC_TYPES = [
     ('macvtap', _('MacVTap')),
     ('baremetal', _('Bare Metal')),
     ('virtio-forwarder', _('Virtio Forwarder')),
+    ('smart-nic', _('Smart NIC')),
+    ('vdpa', _('vHost vDPA')),
+    ('accelerator-direct', _('Accelerator Direct')),
+    ('accelerator-direct-physical', _('Accelerator Direct Physical')),
+    ('remote-managed', _('Remote Managed')),
 ]
 
 
