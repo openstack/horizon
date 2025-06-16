@@ -2070,7 +2070,7 @@ class NeutronApiSecurityGroupTests(test.APIMockTestCase):
         self.qclient = neutronclient.return_value
         self.netclient = networkclient.return_value
         self.sg_dict = dict([(sg['id'], sg['name']) for sg
-                             in self.api_security_groups.list()])
+                             in self.api_security_groups_sdk])
 
     def _cmp_sg_rule(self, exprule, retrule):
         self.assertEqual(exprule['id'], retrule.id)
@@ -2099,7 +2099,7 @@ class NeutronApiSecurityGroupTests(test.APIMockTestCase):
         self.assertEqual(exp_sg['name'], ret_sg.name)
         # When a SG has no rules, neutron API does not contain
         # 'security_group_rules' field, so .get() method needs to be used.
-        exp_rules = exp_sg.get('security_group_rules', [])
+        exp_rules = exp_sg['security_group_rules']
         self.assertEqual(len(exp_rules), len(ret_sg.rules))
         for (exprule, retrule) in zip(exp_rules, ret_sg.rules):
             self._cmp_sg_rule(exprule, retrule)
@@ -2107,33 +2107,32 @@ class NeutronApiSecurityGroupTests(test.APIMockTestCase):
     @mock.patch.object(api.neutron, 'is_extension_supported')
     def _test_security_group_list(self, mock_is_extension_supported,
                                   is_ext_supported=True, **params):
-        sgs = self.api_security_groups.list()
+        sgs = self.api_security_groups_sdk
         mock_is_extension_supported.return_value = is_ext_supported
         if is_ext_supported:
             # First call to get the tenant owned SGs
             q_params_1 = {'tenant_id': self.request.user.tenant_id,
-                          'shared': False}
+                          'is_shared': False}
             # if tenant_id is specified, the passed tenant_id should be sent.
             q_params_1.update(params)
             # Second call to get shared SGs
             q_params_2 = q_params_1.copy()
             q_params_2.pop('tenant_id')
-            q_params_2['shared'] = True
+            q_params_2['is_shared'] = True
             # use deepcopy to ensure self.api_security_groups is not modified.
-            self.qclient.list_security_groups.side_effect = [
-                {'security_groups': copy.deepcopy(sgs[:4])},
-                {'security_groups': copy.deepcopy(sgs[-1:])},
+            self.netclient.security_groups.side_effect = [
+                copy.deepcopy(sgs[:4]),
+                copy.deepcopy(sgs[-1:]),
             ]
             rets = api.neutron.security_group_list(self.request, **params)
-            self.qclient.list_security_groups.assert_has_calls(
+            self.netclient.security_groups.assert_has_calls(
                 [mock.call(**q_params_1), mock.call(**q_params_2)])
         else:
             q_params = {'tenant_id': self.request.user.tenant_id}
             # if tenant_id is specified, the passed tenant_id should be sent.
             q_params.update(params)
             # use deepcopy to ensure self.api_security_groups is not modified.
-            self.qclient.list_security_groups.return_value = {
-                'security_groups': copy.deepcopy(sgs)}
+            self.netclient.security_groups.return_value = copy.deepcopy(sgs)
             rets = api.neutron.security_group_list(self.request, **params)
 
         mock_is_extension_supported.assert_called_once_with(
@@ -2156,68 +2155,65 @@ class NeutronApiSecurityGroupTests(test.APIMockTestCase):
         self._test_security_group_list(tenant_id='tenant1', name='sg1')
 
     def test_security_group_get(self):
-        secgroup = self.api_security_groups.first()
+        secgroup = self.api_security_groups_sdk[0]
+        secgroup_dict = secgroup.to_dict()
         sg_ids = set([secgroup['id']] +
                      [rule['remote_group_id'] for rule
-                      in secgroup['security_group_rules']
+                      in secgroup_dict['security_group_rules']
                       if rule['remote_group_id']])
-        related_sgs = [sg for sg in self.api_security_groups.list()
-                       if sg['id'] in sg_ids]
+        related_sgs = [sg for sg in self.api_security_groups_sdk
+                       if sg.to_dict()['id'] in sg_ids]
         # use deepcopy to ensure self.api_security_groups is not modified.
-        self.qclient.show_security_group.return_value = \
-            {'security_group': copy.deepcopy(secgroup)}
-        self.qclient.list_security_groups.return_value = \
-            {'security_groups': related_sgs}
+        self.netclient.get_security_group.return_value = \
+            copy.deepcopy(secgroup)
+        self.netclient.security_groups.return_value = related_sgs
 
         ret = api.neutron.security_group_get(self.request, secgroup['id'])
 
         self._cmp_sg(secgroup, ret)
-        self.qclient.show_security_group.assert_called_once_with(
+        self.netclient.get_security_group.assert_called_once_with(
             secgroup['id'])
-        self.qclient.list_security_groups.assert_called_once_with(
+        self.netclient.security_groups.assert_called_once_with(
             id=sg_ids, fields=['id', 'name'])
 
     def test_security_group_create(self):
-        secgroup = self.api_security_groups.list()[1]
-        body = {'security_group':
-                {'name': secgroup['name'],
-                 'description': secgroup['description'],
-                 'tenant_id': self.request.user.project_id}}
-        self.qclient.create_security_group.return_value = \
-            {'security_group': copy.deepcopy(secgroup)}
+        secgroup = self.api_security_groups_sdk[1]
+        body = {'name': secgroup['name'],
+                'description': secgroup['description'],
+                'tenant_id': self.request.user.project_id}
+        self.netclient.create_security_group.return_value = \
+            copy.deepcopy(secgroup)
 
         ret = api.neutron.security_group_create(self.request, secgroup['name'],
                                                 secgroup['description'])
 
         self._cmp_sg(secgroup, ret)
-        self.qclient.create_security_group.assert_called_once_with(body)
+        self.netclient.create_security_group.assert_called_once_with(**body)
 
     def test_security_group_update(self):
-        secgroup = self.api_security_groups.list()[1]
+        secgroup = self.api_security_groups_sdk[1]
         secgroup = copy.deepcopy(secgroup)
         secgroup['name'] = 'newname'
         secgroup['description'] = 'new description'
-        body = {'security_group':
-                {'name': secgroup['name'],
-                 'description': secgroup['description']}}
-        self.qclient.update_security_group.return_value = {'security_group':
-                                                           secgroup}
+        body = {'name': secgroup['name'],
+                'description': secgroup['description']}
+        self.netclient.update_security_group.return_value = secgroup
 
         ret = api.neutron.security_group_update(self.request,
                                                 secgroup['id'],
                                                 secgroup['name'],
                                                 secgroup['description'])
         self._cmp_sg(secgroup, ret)
-        self.qclient.update_security_group.assert_called_once_with(
-            secgroup['id'], body)
+        self.netclient.update_security_group.assert_called_once_with(
+            secgroup['id'], **body)
 
     def test_security_group_delete(self):
-        secgroup = self.api_security_groups.first()
-        self.qclient.delete_security_group.return_value = None
+        secgroup = self.api_security_groups_sdk[0]
+        self.netclient.delete_security_group.return_value = None
 
         api.neutron.security_group_delete(self.request, secgroup['id'])
 
-        self.qclient.delete_security_group.assert_called_once_with(
+        self.netclient.delete_security_group.assert_called_once_with(
             secgroup['id'])
 
     def test_security_group_rule_create(self):
@@ -2232,13 +2228,13 @@ class NeutronApiSecurityGroupTests(test.APIMockTestCase):
     def _test_security_group_rule_create(self, with_desc=False,
                                          custom_ip_proto=False):
         if custom_ip_proto:
-            sg_rule = [r for r in self.api_security_group_rules.list()
+            sg_rule = [r for r in self.api_security_group_rules_sdk
                        if r['protocol'] == '99'][0]
         else:
-            sg_rule = [r for r in self.api_security_group_rules.list()
+            sg_rule = [r for r in self.api_security_group_rules_sdk
                        if r['protocol'] == 'tcp' and r['remote_ip_prefix']][0]
         sg_id = sg_rule['security_group_id']
-        secgroup = [sg for sg in self.api_security_groups.list()
+        secgroup = [sg for sg in self.api_security_groups_sdk
                     if sg['id'] == sg_id][0]
 
         post_rule = copy.deepcopy(sg_rule)
@@ -2246,11 +2242,11 @@ class NeutronApiSecurityGroupTests(test.APIMockTestCase):
         del post_rule['tenant_id']
         if not with_desc:
             del post_rule['description']
-        post_body = {'security_group_rule': post_rule}
-        self.qclient.create_security_group_rule.return_value = \
-            {'security_group_rule': copy.deepcopy(sg_rule)}
-        self.qclient.list_security_groups.return_value = \
-            {'security_groups': [copy.deepcopy(secgroup)]}
+        post_body = post_rule
+        self.netclient.create_security_group_rule.return_value = \
+            copy.deepcopy(sg_rule)
+        self.netclient.security_groups.return_value = \
+            [copy.deepcopy(secgroup)]
 
         if with_desc:
             description = sg_rule['description']
@@ -2265,18 +2261,24 @@ class NeutronApiSecurityGroupTests(test.APIMockTestCase):
             description)
 
         self._cmp_sg_rule(sg_rule, ret)
-        self.qclient.create_security_group_rule.assert_called_once_with(
-            post_body)
-        self.qclient.list_security_groups.assert_called_once_with(
+        call_name, call_args, call_kwargs = \
+            self.netclient.create_security_group_rule.mock_calls[0]
+        post_body_dict = post_body.to_dict()
+        for param, value in call_kwargs.items():
+            if param == 'ethertype':
+                self.assertEqual(post_body_dict['ether_type'], value)
+            else:
+                self.assertEqual(post_body_dict[param], value)
+        self.netclient.security_groups.assert_called_once_with(
             id=set([sg_id]), fields=['id', 'name'])
 
     def test_security_group_rule_delete(self):
-        sg_rule = self.api_security_group_rules.first()
-        self.qclient.delete_security_group_rule.return_value = None
+        sg_rule = self.api_security_group_rules_sdk[0]
+        self.netclient.delete_security_group_rule.return_value = None
 
         api.neutron.security_group_rule_delete(self.request, sg_rule['id'])
 
-        self.qclient.delete_security_group_rule.assert_called_once_with(
+        self.netclient.delete_security_group_rule.assert_called_once_with(
             sg_rule['id'])
 
     def _get_instance(self, cur_sg_ids):
@@ -2293,22 +2295,21 @@ class NeutronApiSecurityGroupTests(test.APIMockTestCase):
         return (instance_id, instance_ports)
 
     def test_server_security_groups(self):
-        cur_sg_ids = [sg['id'] for sg in self.api_security_groups.list()[:2]]
+        cur_sg_ids = [sg['id'] for sg in self.api_security_groups_sdk[:2]]
         instance_id, instance_ports = self._get_instance(cur_sg_ids)
         self.netclient.ports.return_value = instance_ports
-        secgroups = copy.deepcopy(self.api_security_groups.list())
-        self.qclient.list_security_groups.return_value = \
-            {'security_groups': secgroups}
+        secgroups = copy.deepcopy(self.api_security_groups_sdk)
+        self.netclient.security_groups.return_value = secgroups
 
         api.neutron.server_security_groups(self.request, instance_id)
 
         self.netclient.ports.assert_called_once_with(device_id=instance_id)
-        self.qclient.list_security_groups.assert_called_once_with(
+        self.netclient.security_groups.assert_called_once_with(
             id=set(cur_sg_ids))
 
     def test_server_update_security_groups(self):
-        cur_sg_ids = [self.api_security_groups.first()['id']]
-        new_sg_ids = [sg['id'] for sg in self.api_security_groups.list()[:2]]
+        cur_sg_ids = [self.api_security_groups_sdk[0]['id']]
+        new_sg_ids = [sg['id'] for sg in self.api_security_groups_sdk[:2]]
         instance_id, instance_ports = self._get_instance(cur_sg_ids)
 
         self.netclient.ports.return_value = instance_ports
