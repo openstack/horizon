@@ -242,6 +242,20 @@ ThemeGroup = [
                help='Default xpath for second dropdown of browse panel'),
 ]
 
+OIDCGroup = [
+    cfg.StrOpt('keycloak_test_user1_username',
+               default='kctestuser1',
+               help='Username to use for keycloak test user 1'),
+    cfg.StrOpt('keycloak_test_user1_password',
+               default='nomoresecrets1',
+               help='Password to use for keycloak test user 1.',
+               secret=True),
+    cfg.StrOpt('keycloak_test_user_home_project',
+               default='SSOproject',
+               help='Project to keep all objects belonging to a '
+               'regular keycloak user.'),
+]
+
 
 def _get_config_files():
     conf_dir = os.path.join(
@@ -270,6 +284,7 @@ def get_config():
     cfg.CONF.register_opts(PluginGroup, group="plugin")
     cfg.CONF.register_opts(VolumeGroup, group="volume")
     cfg.CONF.register_opts(ThemeGroup, group="theme")
+    cfg.CONF.register_opts(OIDCGroup, group="OIDC")
 
     return cfg.CONF
 
@@ -288,4 +303,5 @@ def list_opts():
         ("plugin", PluginGroup),
         ("volume", VolumeGroup),
         ("theme", ThemeGroup),
+        ("OIDC", OIDCGroup),
     ]

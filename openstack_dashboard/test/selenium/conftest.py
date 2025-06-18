@@ -18,6 +18,7 @@ from threading import Thread
 import time
 
 import pytest
+from selenium.webdriver.support.ui import Select
 import xvfbwrapper
 
 from horizon.test import webdriver
@@ -43,6 +44,13 @@ class Session:
                 config.identity.admin_username,
                 config.identity.admin_password,
                 config.identity.admin_home_project,
+            ),
+        }
+        self.oidc_credentials = {
+            'user': (
+                config.OIDC.keycloak_test_user1_username,
+                config.OIDC.keycloak_test_user1_password,
+                config.OIDC.keycloak_test_user_home_project,
             ),
         }
         self.project_name_xpath = config.theme.project_name_xpath
@@ -77,6 +85,26 @@ class Session:
             widgets.get_and_dismiss_messages(self.driver)
             self.current_project = self.driver.find_element_by_xpath(
                 self.project_name_xpath).text
+
+    def login_oidc(self, user, project=None):
+        # Keycloak/OIDC login
+        username, password, home_project = self.oidc_credentials[user]
+        if project is None:
+            project = home_project
+        self.driver.get(self.logout_url)
+        select_auth = self.driver.find_element_by_id('id_auth_type')
+        select_auth.click()
+        select_opt = Select(select_auth)
+        select_opt.select_by_visible_text('OpenID Connect')
+        button = self.driver.find_element_by_css_selector(
+            '.btn-primary')
+        button.click()
+        keycloak_user_field = self.driver.find_element_by_id('username')
+        keycloak_user_field.send_keys(username)
+        keycloak_pass_field = self.driver.find_element_by_id('password')
+        keycloak_pass_field.send_keys(password)
+        kc_login_button = self.driver.find_element_by_id('kc-login')
+        kc_login_button.click()
 
 
 @pytest.fixture(scope='session')
