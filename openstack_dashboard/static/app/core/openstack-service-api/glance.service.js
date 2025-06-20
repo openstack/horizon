@@ -140,6 +140,11 @@
      * @returns {Object} The result of the API call
      */
     function createImage(image, onProgress) {
+      //delete the architecture property if it's empty
+      if (image.architecture === '') {
+        delete image.architecture;
+      }
+
       var localFile;
       var method = image.source_type === 'file-legacy' ? 'post' : 'put';
       if (image.source_type === 'file-direct' && 'data' in image) {
