@@ -111,6 +111,9 @@ t_b_p_s = conf.theme.browse_left_panel_sec
         (t_b_p_m[38], t_b_p_s[38], "Application Credentials",
             "Application Credentials - OpenStack Dashboard",
             "Application Credentials"),
+        (t_b_p_m[39], t_b_p_s[39], "User Credentials",
+            "User Credentials - OpenStack Dashboard",
+            "User Credentials"),
     ]
 )
 def test_browse_left_panel(live_server, driver, user, dashboard_data,
