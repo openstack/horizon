@@ -79,7 +79,6 @@ def data(TEST):
     TEST.api_vips = utils.TestDataContainer()
     TEST.api_members = utils.TestDataContainer()
     TEST.api_monitors = utils.TestDataContainer()
-    TEST.api_rbac_policies = utils.TestDataContainer()
 
     # Data returned by SDK:
     TEST.api_networks_sdk = list()
@@ -1171,7 +1170,6 @@ def data(TEST):
                         "target_tenant": "2",
                         "action": "access_as_external",
                         "tenant_id": "1"}
-    TEST.api_rbac_policies.add(rbac_policy_dict)
     TEST.rbac_policies.add(neutron.RBACPolicy(rbac_policy_dict))
     rbac_policy_dict1 = {"project_id": "1",
                          "object_type": "qos_policy",
@@ -1180,7 +1178,6 @@ def data(TEST):
                          "target_tenant": "2",
                          "action": "access_as_shared",
                          "tenant_id": "1"}
-    TEST.api_rbac_policies.add(rbac_policy_dict1)
     TEST.rbac_policies.add(neutron.RBACPolicy(rbac_policy_dict1))
 
     # TRUNKPORT
