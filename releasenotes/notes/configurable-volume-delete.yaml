@@ -1,0 +1,8 @@
+---
+features:
+  - |
+    Added support for configuring the default value of the
+    "Delete Volume on Instance Delete" option during instance creation.
+    This setting can now be predefined in the Horizon local_settings.py
+    file, allowing administrators to control the default behavior for volume
+    deletion when an instance is deleted.
