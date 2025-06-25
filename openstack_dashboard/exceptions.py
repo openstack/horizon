@@ -19,8 +19,8 @@
 from cinderclient import exceptions as cinderclient
 from glanceclient import exc as glanceclient
 from keystoneclient import exceptions as keystoneclient
-from neutronclient.common import exceptions as neutronclient
 from novaclient import exceptions as novaclient
+from openstack import exceptions as sdk_exceptions
 from requests import exceptions as requests
 from swiftclient import client as swiftclient
 
@@ -30,7 +30,7 @@ UNAUTHORIZED = (
     cinderclient.Unauthorized,
     novaclient.Unauthorized,
     glanceclient.HTTPUnauthorized,
-    neutronclient.Unauthorized,
+    sdk_exceptions.HttpException,
 )
 
 
@@ -39,7 +39,7 @@ NOT_FOUND = (
     cinderclient.NotFound,
     novaclient.NotFound,
     glanceclient.HTTPNotFound,
-    neutronclient.NotFound,
+    sdk_exceptions.NotFoundException,
 )
 
 
@@ -56,8 +56,8 @@ RECOVERABLE = (
     novaclient.Forbidden,
     glanceclient.HTTPException,
     glanceclient.CommunicationError,
-    neutronclient.Forbidden,
-    neutronclient.NeutronClientException,
+    sdk_exceptions.ForbiddenException,
+    sdk_exceptions.SDKException,
     swiftclient.ClientException,
     requests.RequestException,
 )

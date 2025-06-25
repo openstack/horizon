@@ -25,7 +25,7 @@ import logging
 from django.urls import reverse_lazy
 from django.utils.translation import gettext_lazy as _
 
-from neutronclient.common import exceptions as neutron_exc
+from openstack import exceptions as sdk_exceptions
 
 from horizon import exceptions
 from horizon import forms
@@ -74,7 +74,7 @@ class AllocateView(forms.ModalFormView):
     def get_initial(self):
         try:
             pools = api.neutron.floating_ip_pools_list(self.request)
-        except neutron_exc.ConnectionFailed:
+        except sdk_exceptions.SDKException:
             pools = []
             exceptions.handle(self.request)
         except Exception:
@@ -96,7 +96,7 @@ class IndexView(tables.DataTableView):
             search_opts = self.get_filters()
             floating_ips = api.neutron.tenant_floating_ip_list(self.request,
                                                                **search_opts)
-        except neutron_exc.ConnectionFailed:
+        except sdk_exceptions.SDKException:
             floating_ips = []
             exceptions.handle(self.request)
         except Exception:
@@ -107,7 +107,7 @@ class IndexView(tables.DataTableView):
         try:
             floating_ip_pools = \
                 api.neutron.floating_ip_pools_list(self.request)
-        except neutron_exc.ConnectionFailed:
+        except sdk_exceptions.SDKException:
             floating_ip_pools = []
             exceptions.handle(self.request)
         except Exception:

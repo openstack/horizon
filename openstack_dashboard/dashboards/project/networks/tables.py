@@ -19,7 +19,7 @@ from django.urls import reverse
 from django.utils.translation import gettext_lazy as _
 from django.utils.translation import ngettext_lazy
 from django.utils.translation import pgettext_lazy
-from neutronclient.common import exceptions as neutron_exceptions
+from openstack import exceptions as sdk_exceptions
 
 from horizon import exceptions
 from horizon import tables
@@ -63,7 +63,7 @@ class DeleteNetwork(policy.PolicyTargetMixin, tables.DeleteAction):
         # normal_log_message
         'Failed to delete network %(id)s: %(exc)s',
         # target_exception
-        neutron_exceptions.Conflict,
+        sdk_exceptions.ConflictException,
         # target_log_message
         'Unable to delete network %(id)s with 409 Conflict: %(exc)s',
         # target_user_message
