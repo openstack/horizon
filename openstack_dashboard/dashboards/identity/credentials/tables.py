@@ -84,6 +84,8 @@ def get_project_link(datum, request):
 
 
 class CredentialsTable(tables.DataTable):
+    id = tables.WrappingColumn('id', verbose_name=_('ID'), truncate=3,
+                               link="horizon:identity:credentials:detail")
     user_id = tables.WrappingColumn('user_id', verbose_name=_('User ID'))
     user_name = tables.WrappingColumn('user_name',
                                       verbose_name=_('User'),

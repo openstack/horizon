@@ -10,6 +10,10 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
+import base64
+import io
+import qrcode
+
 from django.urls import reverse
 from django.urls import reverse_lazy
 from django.utils.translation import gettext_lazy as _
@@ -18,6 +22,7 @@ from horizon import exceptions
 from horizon import forms
 from horizon import tables
 from horizon.utils import memoized
+from horizon import views
 
 from openstack_dashboard.api import keystone
 from openstack_dashboard.dashboards.identity.credentials \
@@ -122,3 +127,59 @@ class CreateView(forms.ModalFormView):
     submit_url = reverse_lazy("horizon:identity:credentials:create")
     success_url = reverse_lazy('horizon:identity:credentials:index')
     page_title = _("Create User Credential")
+
+
+class DetailView(views.HorizonTemplateView):
+    template_name = 'identity/credentials/detail.html'
+    page_title = "{{ credential.id }}"
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        credential = self.get_data()
+
+        try:
+            credential.project_name = get_project_name(
+                self.request, credential.project_id)
+            credential.user_name = get_user_name(
+                self.request, credential.user_id)
+        except Exception:
+            credential.project_name = None
+            credential.user_name = None
+            exceptions.handle(
+                self.request, _('Unable to retrieve project or user details.'))
+
+        if credential.type == "totp":
+            # Generating a qr code from TOTP credential blob
+            secret = credential.blob
+            account_name = credential.user_name
+            uri = 'otpauth://totp/{name}?secret={secret}&issuer={iss}'.format(
+                name=account_name,
+                secret=secret,
+                iss='Keystone')
+            img = qrcode.make(uri)
+
+            # Writing the qr code into BytesIO object
+            data = io.BytesIO()
+            img.save(data, format="png")
+            data.seek(0)
+
+            uri = base64.b64encode(data.read())
+            context["qrcode_uri"] = uri.decode('ascii')
+
+        table = credential_tables.CredentialsTable(self.request)
+        context["credential"] = credential
+        context["url"] = reverse("horizon:identity:credentials:index")
+        context["actions"] = table.render_row_actions(credential)
+
+        return context
+
+    @memoized.memoized_method
+    def get_data(self):
+        try:
+            return keystone.credential_get(
+                self.request, self.kwargs['credential_id'])
+        except Exception:
+            redirect = reverse("horizon:identity:credentials:index")
+            exceptions.handle(
+                self.request, _('Unable to retrieve user credential details.'),
+                redirect=redirect)
