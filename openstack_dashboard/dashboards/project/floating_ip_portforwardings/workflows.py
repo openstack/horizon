@@ -199,7 +199,7 @@ class FloatingIpPortForwardingRuleCreationWorkflow(workflows.Workflow):
     def format_status_message(self, message):
         if "%s" in message:
             return message % self.context.get('ip_address',
-                                              _('unknown IP address'))
+                                              _('Unknown IP address'))
         return message
 
     def handle_using_api_method(self, request, data, api_method,
