@@ -1,0 +1,6 @@
+---
+fixes:
+  - |
+    All current vNIC types for Neutron Ports are now supported, including
+    previously missing types such as `smart-nic`, `vdpa`, `accelerator-direct`,
+    `accelerator-direct-physical` and `remote-managed`.
