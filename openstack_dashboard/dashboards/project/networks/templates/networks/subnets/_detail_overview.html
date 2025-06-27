@@ -25,8 +25,7 @@
     <dt title="{% trans 'IP Allocation Pools' %}">{% trans "IP Allocation Pools" %}</dt>
     <dd>
       {% for pool in subnet.allocation_pools %}
-        {% trans "Start" %}  {{ pool.start }}
-        {% trans " - End" %} {{ pool.end   }}<br>
+        {% trans "Start" %} {{ pool.start }} - {% trans "End" %} {{ pool.end }}<br>
       {% endfor %}
     </dd>
     <dt title="{% trans 'Gateway IP' %}">{% trans "Gateway IP" %}</dt>
@@ -46,8 +45,7 @@
     <dt title="{% trans 'Additional Routes' %}">{% trans "Additional Routes" %}</dt>
     <dd>
       {% for route in subnet.host_routes %}
-        {% trans "Destination" %} {{ route.destination }}
-        {% trans " : Next hop" %} {{ route.nexthop }}<br>
+        {% trans "Destination" %} {{ route.destination }} : {% trans "Next Hop" %} {{ route.nexthop }}<br>
         {% empty %}
         {% trans "None" %}
       {% endfor %}

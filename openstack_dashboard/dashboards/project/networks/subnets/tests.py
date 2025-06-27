@@ -559,7 +559,7 @@ class NetworkSubnetTests(test.TestCase):
                                                            host_routes)
         self.assertContains(res,
                             'Host Routes format error: '
-                            'Destination CIDR and nexthop must be specified '
+                            'Destination CIDR and Next Hop must be specified '
                             '(value=%s)' % host_routes)
 
     def test_subnet_create_post_invalid_routes_dest_only_with_pool(self):
@@ -573,7 +573,7 @@ class NetworkSubnetTests(test.TestCase):
                                                            host_routes)
         self.assertContains(res,
                             'Host Routes format error: '
-                            'Destination CIDR and nexthop must be specified '
+                            'Destination CIDR and Next Hop must be specified '
                             '(value=%s)' % host_routes)
 
     def test_subnet_create_post_invalid_routes_three_entries_with_pool(self):
@@ -911,7 +911,7 @@ class NetworkSubnetTests(test.TestCase):
         res = self._test_subnet_update_post_invalid(host_routes)
         self.assertContains(res,
                             'Host Routes format error: '
-                            'Destination CIDR and nexthop must be specified '
+                            'Destination CIDR and Next Hop must be specified '
                             '(value=%s)' % host_routes)
 
     @test.create_mocks({api.neutron: ('subnet_get',
@@ -922,7 +922,7 @@ class NetworkSubnetTests(test.TestCase):
         res = self._test_subnet_update_post_invalid(host_routes)
         self.assertContains(res,
                             'Host Routes format error: '
-                            'Destination CIDR and nexthop must be specified '
+                            'Destination CIDR and Next Hop must be specified '
                             '(value=%s)' % host_routes)
 
     @test.create_mocks({api.neutron: ('subnet_get',
