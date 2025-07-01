@@ -61,7 +61,7 @@
         },
         $validators: {
           rolesExists: function (name) {
-            return (roles.indexOf(name) === -1);
+            return (roles.indexOf(name.toLowerCase()) === -1);
           }
         }
       }
@@ -118,7 +118,7 @@
     }
 
     function getName(item) {
-      return item.name;
+      return item.name.toLowerCase();
     }
 
   }
