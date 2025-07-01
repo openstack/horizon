@@ -2511,13 +2511,6 @@ class NeutronApiFloatingIpTests(test.APIMockTestCase):
         assoc_port = self.api_ports_sdk[1]
         self._test_floating_ip_get_associated(assoc_port, 'compute')
 
-    def test_floating_ip_get_associated_with_loadbalancer_vip(self):
-        assoc_port = copy.deepcopy(self.api_ports_sdk[1])
-        assoc_port['device_owner'] = 'neutron:LOADBALANCER'
-        assoc_port['device_id'] = uuidutils.generate_uuid()
-        assoc_port['name'] = 'vip-' + uuidutils.generate_uuid()
-        self._test_floating_ip_get_associated(assoc_port, 'loadbalancer')
-
     def test_floating_ip_get_unassociated(self):
         fip = self.api_floating_ips_sdk[0]
 

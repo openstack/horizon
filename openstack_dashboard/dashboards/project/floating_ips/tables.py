@@ -246,8 +246,6 @@ def get_instance_info(fip):
         return (_("%(instance_name)s %(fixed_ip)s")
                 % {'instance_name': getattr(fip, "instance_name", ''),
                    'fixed_ip': fip.fixed_ip})
-    if fip.instance_type == 'loadbalancer':
-        return _("Load Balancer VIP %s") % fip.fixed_ip
     return getattr(fip, 'fixed_ip', None)
 
 

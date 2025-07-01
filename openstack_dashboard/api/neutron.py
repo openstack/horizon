@@ -697,7 +697,6 @@ class FloatingIpManager(object):
 
     device_owner_map = {
         'compute:': 'compute',
-        'neutron:LOADBALANCER': 'loadbalancer',
     }
 
     def __init__(self, request):
