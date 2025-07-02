@@ -152,7 +152,9 @@ class NeutronPortsTestCase(test.RestAPITestCase):
         response = neutron.Ports().get(request)
         self.assertStatusCode(response, 200)
         mock_port_list_with_trunk_types.assert_called_once_with(
-            request, network_id=network_id)
+            request,
+            project_id=request.user.project_id,
+            network_id=network_id)
 
 
 class NeutronTrunkTestCase(test.RestAPITestCase):
