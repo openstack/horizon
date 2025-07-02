@@ -15,12 +15,19 @@
 import copy
 
 from openstack.network.v2 import agent as sdk_agent
+from openstack.network.v2 import extension
 from openstack.network.v2 import floating_ip as sdk_fip
 from openstack.network.v2 import network as sdk_net
 from openstack.network.v2 import network_ip_availability as \
     sdk_ip_availability
 from openstack.network.v2 import port as sdk_port
 from openstack.network.v2 import port_forwarding as sdk_pf
+from openstack.network.v2 import qos_bandwidth_limit_rule
+from openstack.network.v2 import qos_dscp_marking_rule
+from openstack.network.v2 import qos_minimum_bandwidth_rule
+from openstack.network.v2 import qos_minimum_packet_rate_rule
+from openstack.network.v2 import qos_policy
+
 from openstack.network.v2 import router as sdk_router
 from openstack.network.v2 import security_group as sdk_sec_group
 from openstack.network.v2 import security_group_rule as sdk_sec_group_rule
@@ -72,13 +79,7 @@ def data(TEST):
     TEST.api_vips = utils.TestDataContainer()
     TEST.api_members = utils.TestDataContainer()
     TEST.api_monitors = utils.TestDataContainer()
-    TEST.api_extensions = utils.TestDataContainer()
     TEST.api_rbac_policies = utils.TestDataContainer()
-    TEST.api_qos_policies = utils.TestDataContainer()
-    TEST.api_dscp_mark_rule = utils.TestDataContainer()
-    TEST.api_bandwidth_limit_rule = utils.TestDataContainer()
-    TEST.api_minimum_bandwidth_rule = utils.TestDataContainer()
-    TEST.api_minimum_packet_rate_rule = utils.TestDataContainer()
 
     # Data returned by SDK:
     TEST.api_networks_sdk = list()
@@ -96,6 +97,12 @@ def data(TEST):
     TEST.api_floating_ips_sdk = list()
     TEST.api_security_groups_sdk = list()
     TEST.api_security_group_rules_sdk = list()
+    TEST.api_qos_policies_sdk = list()
+    TEST.api_dscp_mark_rule_sdk = list()
+    TEST.api_bandwidth_limit_rule_sdk = list()
+    TEST.api_minimum_bandwidth_rule_sdk = list()
+    TEST.api_minimum_packet_rate_rule_sdk = list()
+    TEST.api_extensions_sdk = list()
 
     # 1st network.
     network_dict = {'is_admin_state_up': True,
@@ -1000,13 +1007,13 @@ def data(TEST):
                    "alias": "security-groups-shared-filtering",
                    "description": "Support filtering security groups on "
                                   "the shared field"}
-    TEST.api_extensions.add(extension_1)
-    TEST.api_extensions.add(extension_2)
-    TEST.api_extensions.add(extension_3)
-    TEST.api_extensions.add(extension_4)
-    TEST.api_extensions.add(extension_5)
-    TEST.api_extensions.add(extension_6)
-    TEST.api_extensions.add(extension_7)
+    TEST.api_extensions_sdk.append(extension.Extension(**extension_1))
+    TEST.api_extensions_sdk.append(extension.Extension(**extension_2))
+    TEST.api_extensions_sdk.append(extension.Extension(**extension_3))
+    TEST.api_extensions_sdk.append(extension.Extension(**extension_4))
+    TEST.api_extensions_sdk.append(extension.Extension(**extension_5))
+    TEST.api_extensions_sdk.append(extension.Extension(**extension_6))
+    TEST.api_extensions_sdk.append(extension.Extension(**extension_7))
 
     # 1st agent.
     agent_dict = {"binary": "neutron-openvswitch-agent",
@@ -1102,12 +1109,12 @@ def data(TEST):
     policy_dict = {'id': 'a21dcd22-7189-cccc-aa32-22adafaf16a7',
                    'name': 'policy 1',
                    'tenant_id': '1'}
-    TEST.api_qos_policies.add(policy_dict)
+    TEST.api_qos_policies_sdk.append(qos_policy.QoSPolicy(**policy_dict))
     TEST.qos_policies.add(neutron.QoSPolicy(policy_dict))
     policy_dict1 = {'id': 'a21dcd22-7189-ssss-aa32-22adafaf16a7',
                     'name': 'policy 2',
                     'tenant_id': '1'}
-    TEST.api_qos_policies.add(policy_dict1)
+    TEST.api_qos_policies_sdk.append(qos_policy.QoSPolicy(**policy_dict1))
     TEST.qos_policies.add(neutron.QoSPolicy(policy_dict1))
 
     # qos rule - dscp mark
@@ -1115,7 +1122,8 @@ def data(TEST):
         "id": "5f126d84-551a-4dcf-bb01-0e9c0df0c794",
         "dscp_mark": 26
     }
-    TEST.api_dscp_mark_rule.add(dscp_mark_rule_dict)
+    TEST.api_dscp_mark_rule_sdk.append(
+        qos_dscp_marking_rule.QoSDSCPMarkingRule(**dscp_mark_rule_dict))
     TEST.dscp_mark_rule.add(neutron.DSCPMarkingRule(dscp_mark_rule_dict))
 
     # qos rule - bandwidth limit
@@ -1125,7 +1133,9 @@ def data(TEST):
         "max_burst_kbps": 0,
         "direction": "egress"
     }
-    TEST.api_bandwidth_limit_rule.add(bandwidth_limit_rule)
+    TEST.api_bandwidth_limit_rule_sdk.append(
+        qos_bandwidth_limit_rule.QoSBandwidthLimitRule(
+            **bandwidth_limit_rule))
     TEST.bandwidth_limit_rule.add(neutron.BandwidthLimitRule(
         bandwidth_limit_rule))
 
@@ -1135,7 +1145,9 @@ def data(TEST):
         "min_kbps": 10000,
         "direction": "egress"
     }
-    TEST.api_minimum_bandwidth_rule.add(minimum_bandwidth_rule)
+    TEST.api_minimum_bandwidth_rule_sdk.append(
+        qos_minimum_bandwidth_rule.QoSMinimumBandwidthRule(
+            **minimum_bandwidth_rule))
     TEST.minimum_bandwidth_rule.add(neutron.MinimumBandwidthRule(
         minimum_bandwidth_rule))
 
@@ -1145,7 +1157,9 @@ def data(TEST):
         "min_kpps": 10000,
         "direction": "egress"
     }
-    TEST.api_minimum_packet_rate_rule.add(minimum_packet_rate_rule)
+    TEST.api_minimum_packet_rate_rule_sdk.append(
+        qos_minimum_packet_rate_rule.QoSMinimumPacketRateRule(
+            **minimum_packet_rate_rule))
     TEST.minimum_packet_rate_rule.add(neutron.MinimumPacketRateRule(
         minimum_packet_rate_rule))
 

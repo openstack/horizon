@@ -2355,14 +2355,12 @@ def list_extensions(request):
 
     :param request: django request object
     """
-    neutron_api = neutronclient(request)
+    neutron_api = networkclient(request)
     try:
-        extensions_list = neutron_api.list_extensions()
+        extensions_list = neutron_api.extensions()
     except exceptions.ServiceCatalogException:
         return {}
-    if 'extensions' in extensions_list:
-        return tuple(extensions_list['extensions'])
-    return ()
+    return tuple(extensions_list)
 
 
 @profiler.trace
@@ -2534,30 +2532,27 @@ def policy_create(request, **kwargs):
     :param shared: boolean (true or false)
     :return: QoSPolicy object
     """
-    body = {'policy': kwargs}
-    policy = neutronclient(request).create_qos_policy(body=body).get('policy')
-    return QoSPolicy(policy)
+    policy = networkclient(request).create_qos_policy(**kwargs)
+    return QoSPolicy(policy.to_dict())
 
 
 def policy_list(request, **kwargs):
     """List of QoS Policies."""
-    policies = neutronclient(request).list_qos_policies(
-        **kwargs).get('policies')
-    return [QoSPolicy(p) for p in policies]
+    policies = networkclient(request).qos_policies(**kwargs)
+    return [QoSPolicy(p.to_dict()) for p in policies]
 
 
 @profiler.trace
 def policy_get(request, policy_id, **kwargs):
     """Get QoS policy for a given policy id."""
-    policy = neutronclient(request).show_qos_policy(
-        policy_id, **kwargs).get('policy')
-    return QoSPolicy(policy)
+    policy = networkclient(request).get_qos_policy(policy_id)
+    return QoSPolicy(policy.to_dict())
 
 
 @profiler.trace
 def policy_delete(request, policy_id):
     """Delete QoS policy for a given policy id."""
-    neutronclient(request).delete_qos_policy(policy_id)
+    networkclient(request).delete_qos_policy(policy_id)
 
 
 class DSCPMarkingRule(NeutronAPIDictWrapper):
@@ -2573,28 +2568,25 @@ def dscp_marking_rule_create(request, policy_id, **kwargs):
     :param dscp_mark: integer
     :return: A dscp_mark_rule object.
     """
-    body = {'dscp_marking_rule': kwargs}
-    rule = 'dscp_marking_rule'
-    dscp_marking_rule = neutronclient(request)\
-        .create_dscp_marking_rule(policy_id, body).get(rule)
-    return DSCPMarkingRule(dscp_marking_rule)
+    dscp_marking_rule = networkclient(request).create_qos_dscp_marking_rule(
+        policy_id, **kwargs)
+    return DSCPMarkingRule(dscp_marking_rule.to_dict())
 
 
 @profiler.trace
 def dscp_marking_rule_update(request, policy_id, rule_id, **kwargs):
     """Update a DSCP Marking Limit Rule."""
 
-    body = {'dscp_marking_rule': kwargs}
-    ruleType = 'dscp_marking_rule'
-    dscpmarking_update = neutronclient(request)\
-        .update_dscp_marking_rule(rule_id, policy_id, body).get(ruleType)
-    return DSCPMarkingRule(dscpmarking_update)
+    dscpmarking_update = networkclient(request).update_qos_dscp_marking_rule(
+        rule_id, policy_id, **kwargs)
+    return DSCPMarkingRule(dscpmarking_update.to_dict())
 
 
 def dscp_marking_rule_delete(request, policy_id, rule_id):
     """Deletes a DSCP Marking Rule."""
 
-    neutronclient(request).delete_dscp_marking_rule(rule_id, policy_id)
+    networkclient(request).delete_qos_dscp_marking_rule(
+        rule_id, policy_id)
 
 
 class MinimumBandwidthRule(NeutronAPIDictWrapper):
@@ -2611,11 +2603,10 @@ def minimum_bandwidth_rule_create(request, policy_id, **kwargs):
     :param direction: string (egress or ingress)
     :return: A minimum_bandwidth_rule object.
     """
-    body = {'minimum_bandwidth_rule': kwargs}
-    rule = 'minimum_bandwidth_rule'
-    minimum_bandwidth_rule = neutronclient(request)\
-        .create_minimum_bandwidth_rule(policy_id, body).get(rule)
-    return MinimumBandwidthRule(minimum_bandwidth_rule)
+    minimum_bandwidth_rule = networkclient(
+        request).create_qos_minimum_bandwidth_rule(
+            policy_id, **kwargs)
+    return MinimumBandwidthRule(minimum_bandwidth_rule.to_dict())
 
 
 @profiler.trace
@@ -2628,18 +2619,16 @@ def minimum_bandwidth_rule_update(request, policy_id, rule_id, **kwargs):
     :param direction: string (egress or ingress)
     :return: A minimum_bandwidth_rule object.
     """
-    body = {'minimum_bandwidth_rule': kwargs}
-    ruleType = 'minimum_bandwidth_rule'
-    minbandwidth_update = neutronclient(request)\
-        .update_minimum_bandwidth_rule(rule_id, policy_id, body)\
-        .get(ruleType)
-    return MinimumBandwidthRule(minbandwidth_update)
+    minbandwidth_update = networkclient(
+        request).update_qos_minimum_bandwidth_rule(
+            rule_id, policy_id, **kwargs)
+    return MinimumBandwidthRule(minbandwidth_update.to_dict())
 
 
 def minimum_bandwidth_rule_delete(request, policy_id, rule_id):
     """Deletes a Minimum Bandwidth Rule."""
-
-    neutronclient(request).delete_minimum_bandwidth_rule(rule_id, policy_id)
+    networkclient(request).delete_qos_minimum_bandwidth_rule(
+        rule_id, policy_id)
 
 
 class BandwidthLimitRule(NeutronAPIDictWrapper):
@@ -2657,11 +2646,9 @@ def bandwidth_limit_rule_create(request, policy_id, **kwargs):
     :param direction: string (egress or ingress)
     :return: A bandwidth_limit_rule object.
     """
-    body = {'bandwidth_limit_rule': kwargs}
-    rule = 'bandwidth_limit_rule'
-    bandwidth_limit_rule = neutronclient(request)\
-        .create_bandwidth_limit_rule(policy_id, body).get(rule)
-    return BandwidthLimitRule(bandwidth_limit_rule)
+    bandwidth_limit_rule = networkclient(
+        request).create_qos_bandwidth_limit_rule(policy_id, **kwargs)
+    return BandwidthLimitRule(bandwidth_limit_rule.to_dict())
 
 
 @profiler.trace
@@ -2675,18 +2662,15 @@ def bandwidth_limit_rule_update(request, policy_id, rule_id, **kwargs):
     :param direction: string (egress or ingress)
     :return: A bandwidth_limit_rule object.
     """
-    body = {'bandwidth_limit_rule': kwargs}
-    ruleType = 'bandwidth_limit_rule'
-    bandwidthlimit_update = neutronclient(request)\
-        .update_bandwidth_limit_rule(rule_id, policy_id, body)\
-        .get(ruleType)
-    return BandwidthLimitRule(bandwidthlimit_update)
+    bandwidthlimit_update = networkclient(
+        request).update_qos_bandwidth_limit_rule(rule_id, policy_id, **kwargs)
+    return BandwidthLimitRule(bandwidthlimit_update.to_dict())
 
 
 @profiler.trace
 def bandwidth_limit_rule_delete(request, policy_id, rule_id):
     """Deletes a Bandwidth Limit Rule."""
-    neutronclient(request).delete_bandwidth_limit_rule(rule_id, policy_id)
+    networkclient(request).delete_qos_bandwidth_limit_rule(rule_id, policy_id)
 
 
 class MinimumPacketRateRule(NeutronAPIDictWrapper):
@@ -2703,11 +2687,10 @@ def minimum_packet_rate_rule_create(request, policy_id, **kwargs):
     :param direction: string (egress or ingress)
     :return: A minimum_packet_rate_rule object.
     """
-    body = {'minimum_packet_rate_rule': kwargs}
-    rule = 'minimum_packet_rate_rule'
-    minimum_packet_rate_rule = neutronclient(request)\
-        .create_minimum_packet_rate_rule(policy_id, body).get(rule)
-    return MinimumPacketRateRule(minimum_packet_rate_rule)
+    minimum_packet_rate_rule = networkclient(
+        request).create_qos_minimum_packet_rate_rule(
+            policy_id, **kwargs)
+    return MinimumPacketRateRule(minimum_packet_rate_rule.to_dict())
 
 
 @profiler.trace
@@ -2720,17 +2703,16 @@ def minimum_packet_rate_rule_update(request, policy_id, rule_id, **kwargs):
     :param direction: string (egress or ingress)
     :return: A minimum_packet_rate_rule object.
     """
-    body = {'minimum_packet_rate_rule': kwargs}
-    ruleType = 'minimum_packet_rate_rule'
-    minpacketrate_update = neutronclient(request)\
-        .update_minimum_packet_rate_rule(rule_id, policy_id, body)\
-        .get(ruleType)
+    minpacketrate_update = networkclient(
+        request).update_qos_minimum_packet_rate_rule(
+            rule_id, policy_id, **kwargs)
     return MinimumPacketRateRule(minpacketrate_update)
 
 
 def minimum_packet_rate_rule_delete(request, policy_id, rule_id):
     """Deletes a Minimum Packet Rate Rule."""
-    neutronclient(request).delete_minimum_packet_rate_rule(rule_id, policy_id)
+    networkclient(request).delete_qos_minimum_packet_rate_rule(
+        rule_id, policy_id)
 
 
 @profiler.trace

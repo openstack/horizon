@@ -36,7 +36,7 @@ def test_delete_multiple_instance_rows(live_server, driver, dashboard_data,
         mocked_i_l_d.return_value = [dashboard_data.images.list()]
         mocked_f_l.return_value = dashboard_data.flavors.list()
         mocked_l_e.return_value = {
-            'extensions': dashboard_data.api_extensions.list()}
+            'extensions': dashboard_data.api_extensions_sdk}
         mocked_t_a_l.return_value = dashboard_data.limits['absolute']
         novaclient = mock_novaclient.return_value
         novaclient.versions.get_current.return_value = "2.0"
