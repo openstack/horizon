@@ -2717,18 +2717,24 @@ def minimum_packet_rate_rule_delete(request, policy_id, rule_id):
 
 @profiler.trace
 def list_availability_zones(request, resource=None, state=None):
-    az_list = neutronclient(request).list_availability_zones().get(
-        'availability_zones')
+    az_list = networkclient(request).availability_zones()
     if resource:
-        az_list = [az for az in az_list if az['resource'] == resource]
+        az_list = [az.to_dict() for az in az_list
+                   if az['resource'] == resource]
     if state:
-        az_list = [az for az in az_list if az['state'] == state]
+        az_list = [az.to_dict() for az in az_list
+                   if az['state'] == state]
 
     return sorted(az_list, key=lambda zone: zone['name'])
 
 
 class RBACPolicy(NeutronAPIDictWrapper):
     """Wrapper for neutron RBAC Policy."""
+
+    def __init__(self, apidict):
+        if 'target_project_id' in apidict:
+            apidict['target_tenant'] = apidict['target_project_id']
+        super().__init__(apidict=apidict)
 
 
 def rbac_policy_create(request, **kwargs):
@@ -2742,17 +2748,14 @@ def rbac_policy_create(request, **kwargs):
     :param action: access_as_shared or access_as_external
     :return: RBACPolicy object
     """
-    body = {'rbac_policy': kwargs}
-    rbac_policy = neutronclient(request).create_rbac_policy(
-        body=body).get('rbac_policy')
-    return RBACPolicy(rbac_policy)
+    rbac_policy = networkclient(request).create_rbac_policy(**kwargs)
+    return RBACPolicy(rbac_policy.to_dict())
 
 
 def rbac_policy_list(request, **kwargs):
     """List of RBAC Policies."""
-    policies = neutronclient(request).list_rbac_policies(
-        **kwargs).get('rbac_policies')
-    return [RBACPolicy(p) for p in policies]
+    policies = networkclient(request).rbac_policies(**kwargs)
+    return [RBACPolicy(p.to_dict()) for p in policies]
 
 
 def rbac_policy_update(request, policy_id, **kwargs):
@@ -2763,21 +2766,19 @@ def rbac_policy_update(request, policy_id, **kwargs):
     :param target_tenant: target tenant of the policy
     :return: RBACPolicy object
     """
-    body = {'rbac_policy': kwargs}
-    rbac_policy = neutronclient(request).update_rbac_policy(
-        policy_id, body=body).get('rbac_policy')
-    return RBACPolicy(rbac_policy)
+    rbac_policy = networkclient(request).update_rbac_policy(
+        policy_id, **kwargs)
+    return RBACPolicy(rbac_policy.to_dict())
 
 
 @profiler.trace
-def rbac_policy_get(request, policy_id, **kwargs):
+def rbac_policy_get(request, policy_id):
     """Get RBAC policy for a given policy id."""
-    policy = neutronclient(request).show_rbac_policy(
-        policy_id, **kwargs).get('rbac_policy')
-    return RBACPolicy(policy)
+    policy = networkclient(request).get_rbac_policy(policy_id)
+    return RBACPolicy(policy.to_dict())
 
 
 @profiler.trace
 def rbac_policy_delete(request, policy_id):
     """Delete RBAC policy for a given policy id."""
-    neutronclient(request).delete_rbac_policy(policy_id)
+    networkclient(request).delete_rbac_policy(policy_id)
