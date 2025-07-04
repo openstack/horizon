@@ -100,7 +100,7 @@ class ServiceAPITests(test.APIMockTestCase):
         # 'Service' class below requires 'id', so populate it here.
         identity_data['id'] = 1
         service = api.keystone.Service(identity_data, "RegionOne")
-        self.assertEqual(u"identity (native backend)", str(service))
+        self.assertEqual("identity (native backend)", str(service))
         self.assertEqual("RegionOne", service.region)
         self.assertEqual("http://int.keystone.example.com/identity/v3",
                          service.url)
@@ -117,7 +117,7 @@ class ServiceAPITests(test.APIMockTestCase):
         # 'Service' class below requires 'id', so populate it here.
         identity_data['id'] = 1
         service = api.keystone.Service(identity_data, "RegionOne")
-        self.assertEqual(u"identity (native backend)", str(service))
+        self.assertEqual("identity (native backend)", str(service))
         self.assertEqual("RegionOne", service.region)
         self.assertEqual("http://int.keystone.example.com/identity/v3",
                          service.url)
@@ -132,7 +132,7 @@ class ServiceAPITests(test.APIMockTestCase):
         # 'Service' class below requires 'id', so populate it here.
         identity_data['id'] = 1
         service = api.keystone.Service(identity_data, "RegionOne")
-        self.assertEqual(u"identity (native backend)", str(service))
+        self.assertEqual("identity (native backend)", str(service))
         self.assertEqual("RegionOne", service.region)
         self.assertEqual("http://public.keystone.example.com/identity/v3",
                          service.url)
@@ -147,7 +147,7 @@ class ServiceAPITests(test.APIMockTestCase):
         # 'Service' class below requires 'id', so populate it here.
         compute_data['id'] = 1
         service = api.keystone.Service(compute_data, 'RegionTwo')
-        self.assertEqual(u"compute", str(service))
+        self.assertEqual("compute", str(service))
         self.assertEqual("RegionTwo", service.region)
         self.assertEqual("http://int.nova2.example.com:8774/v2",
                          service.url)
@@ -162,7 +162,7 @@ class ServiceAPITests(test.APIMockTestCase):
         # 'Service' class below requires 'id', so populate it here.
         compute_data['id'] = 1
         service = api.keystone.Service(compute_data, 'RegionTwo')
-        self.assertEqual(u"compute", str(service))
+        self.assertEqual("compute", str(service))
         self.assertEqual("RegionTwo", service.region)
         self.assertEqual("http://public.nova2.example.com:8774/v2",
                          service.url)
