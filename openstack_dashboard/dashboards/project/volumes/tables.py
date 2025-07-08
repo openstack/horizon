@@ -467,12 +467,17 @@ class VolumesTableBase(tables.DataTable):
         ("in-use", True),
         ("available", True),
         ("creating", None),
+        ("downloading", None),
+        ("uploading", None),
+        ("retyping", None),
         ("error", False),
         ("error_extending", False),
         ("error_managing", False),
         ("error_restoring", False),
+        ("error_backing-up", False),
         ("maintenance", False),
     )
+    # https://opendev.org/openstack/cinder/src/branch/master/api-ref/source/v3/volumes-v3-volumes.inc
     STATUS_DISPLAY_CHOICES = (
         ("available", pgettext_lazy("Current status of a Volume",
                                     "Available")),
@@ -504,6 +509,14 @@ class VolumesTableBase(tables.DataTable):
                                    "Reserved")),
         ("awaiting-transfer", pgettext_lazy("Current status of a Volume",
                                             "Awaiting Transfer")),
+        ("error_backing-up", pgettext_lazy("Current status of a Volume",
+                                           "Error Backing Up")),
+        ("downloading", pgettext_lazy("Current status of a Volume",
+                                      "Downloading")),
+        ("uploading", pgettext_lazy("Current status of a Volume",
+                                    "Uploading")),
+        ("retyping", pgettext_lazy("Current status of a Volume",
+                                   "Retyping")),
     )
     name = tables.Column("name",
                          verbose_name=_("Name"),
