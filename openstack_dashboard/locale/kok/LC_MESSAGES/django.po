@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: horizon VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2025-01-25 08:07+0900\n"
+"POT-Creation-Date: 2025-07-08 23:51+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -62,14 +62,6 @@ msgstr "%s (सद्याचो)"
 #, python-format
 msgid "%s GB"
 msgstr "%s GB"
-
-#, python-format
-msgid "%sGB"
-msgstr "%sGB"
-
-#, python-format
-msgid "%sMB"
-msgstr "%sMB"
 
 msgid "(Quota exceeded)"
 msgstr "(कोटा वाडला)"
@@ -3808,9 +3800,15 @@ msgstr "स्नॅपशॉट स्त्रोत म्हण वापर
 msgid "Used <span> %(used)s </span> of <span> %(available)s </span>"
 msgstr "वापरिल्ले <span> %(used)s </span> ची <span> %(available)s </span>"
 
+msgid "User"
+msgstr "वापरपी"
+
 #, python-format
 msgid "User \"%s\" was successfully created."
 msgstr "\"%s\" वापरपी यशस्विपणान तयार जाला."
+
+msgid "User Credentials"
+msgstr "वापरपी क्रेडेन्शियल्स"
 
 msgid "User Credentials Details"
 msgstr "वापरपी क्रेडेन्शियल्स तपशील"
@@ -3851,6 +3849,9 @@ msgstr "VXLAN"
 
 msgid "Value"
 msgstr "मोल"
+
+msgid "Value:"
+msgstr "मोल:"
 
 msgid "View Credentials"
 msgstr "क्रेडेन्शियल्स पळयात"

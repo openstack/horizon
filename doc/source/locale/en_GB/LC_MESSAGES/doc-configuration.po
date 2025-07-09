@@ -8,9 +8,9 @@
 # Andi Chandler <andi@gowling.com>, 2025. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 25.2.0.dev74\n"
+"Project-Id-Version: horizon 25.3.1.dev27\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-02-15 00:23+0000\n"
+"POT-Creation-Date: 2025-07-08 23:51+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -1183,15 +1183,6 @@ msgstr "Default: ``{'enable_backup': False}``"
 msgid "Default: ``{}``"
 msgstr "Default: ``{}``"
 
-msgid "Default:: ``1``"
-msgstr "Default:: ``1``"
-
-msgid "Default:: ``True``"
-msgstr "Default:: ``True``"
-
-msgid "Default:: ``openstack_auth.policy.check``"
-msgstr "Default:: ``openstack_auth.policy.check``"
-
 msgid "Development Tips"
 msgstr "Development Tips"
 
@@ -1337,12 +1328,6 @@ msgstr "Example: ``['local', 'flat', 'gre']``"
 
 msgid "Example: ``['normal', 'direct']``"
 msgstr "Example: ``['normal', 'direct']``"
-
-msgid "Example:: ``my-clouds.yaml.template``"
-msgstr "Example:: ``my-clouds.yaml.template``"
-
-msgid "Example:: ``my-openrc.sh.template``"
-msgstr "Example:: ``my-openrc.sh.template``"
 
 msgid "Examples"
 msgstr "Examples"

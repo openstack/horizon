@@ -24,7 +24,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: horizon VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2022-09-30 06:37+0000\n"
+"POT-Creation-Date: 2025-07-08 23:51+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -207,6 +207,7 @@ msgstr "您的实例名字是必须的。"
 msgid "A port represents a virtual switch port on a logical network switch."
 msgstr "端口代表着逻辑上的网络交换机里的虚拟交换机端口。"
 
+#, python-brace-format
 msgid ""
 "A volume description less than {$createVolumeCtrl.validationRules."
 "fieldMaxLength + 1$} characters is required."
@@ -214,6 +215,7 @@ msgstr ""
 "卷描述需要少于 {$createVolumeCtrl.validationRules.fieldMaxLength + 1$} 个字"
 "符。"
 
+#, python-brace-format
 msgid ""
 "A volume name less than {$createVolumeCtrl.validationRules.fieldMaxLength + "
 "1$} characters is required."
@@ -349,6 +351,7 @@ msgstr "使用外部(HTTP)URL加载镜像"
 msgid "An image description less than 256 characters is required."
 msgstr "镜像描述需要少于 256 个字符。"
 
+#, python-brace-format
 msgid ""
 "An image description less than {$ctrl.validationRules.fieldMaxLength + 1$} "
 "characters is required."
@@ -357,6 +360,7 @@ msgstr "镜像描述需要少于 {$ctrl.validationRules.fieldMaxLength + 1$} 个
 msgid "An image name less than 256 characters is required."
 msgstr "镜像名需要少于 256 个字符。"
 
+#, python-brace-format
 msgid ""
 "An image name less than {$ctrl.validationRules.fieldMaxLength + 1$} "
 "characters is required."
@@ -608,6 +612,7 @@ msgstr "复制数据"
 msgid "Copy Object"
 msgstr "复制对象"
 
+#, python-brace-format
 msgid "Copy Object: {$ ctrl.model.container $}/{$ ctrl.model.path $}"
 msgstr "复制对象: {$ ctrl.model.container $}/{$ ctrl.model.path $}"
 
@@ -635,6 +640,7 @@ msgstr "创建域"
 msgid "Create Folder"
 msgstr "创建目录"
 
+#, python-brace-format
 msgid "Create Folder In: {$ ctrl.model.container.name $}"
 msgstr "在 {$ ctrl.model.container.name $} 中创建目录"
 
@@ -792,6 +798,7 @@ msgstr[0] "删除域"
 msgid "Delete Domains"
 msgstr "删除域"
 
+#, python-brace-format
 msgid "Delete Files in {$ ctrl.model.container.name $}"
 msgstr "在 {$ ctrl.model.container.name $} 中删除文件"
 
@@ -1048,6 +1055,7 @@ msgstr "编辑"
 msgid "Edit File"
 msgstr "编辑文件"
 
+#, python-brace-format
 msgid "Edit File: {$ ctrl.model.container $} : {$ ctrl.model.path $}"
 msgstr "编辑文件: {$ ctrl.model.container $} : {$ ctrl.model.path $}"
 
@@ -1084,6 +1092,7 @@ msgstr "启用/禁用子端口添加、删除和中继删除功能。"
 msgid "Enabled"
 msgstr "激活"
 
+#, python-brace-format
 msgid "Encountered {$ ctrl.model.deleted.failures $} failures."
 msgstr "出现 {$ ctrl.model.deleted.failures $} 错误。"
 
@@ -1659,13 +1668,6 @@ msgid_plural "Metadata Definitions"
 msgstr[0] "元数据定义"
 
 msgid ""
-"Metadata is a collection of key-value pairs associated with an instance.\n"
-"    The maximum length for each metadata key and value is 255 characters."
-msgstr ""
-"元数据是与实例相关联的键值对的集合。\n"
-"    每个元数据键值对的最大长度为 255 个字符。"
-
-msgid ""
 "Metadata is used to provide additional information about the\n"
 "    image. Sometimes this information is only used for sorting and viewing.\n"
 "    In some installations this information may affect how the instance is\n"
@@ -1693,12 +1695,6 @@ msgstr "最小端口"
 
 msgid "Min RAM (MB)"
 msgstr "最小内存 (MB)"
-
-msgid "Min. Disk"
-msgstr "最小磁盘大小"
-
-msgid "Min. RAM"
-msgstr "最小内存"
 
 msgid "Min. Size (bytes)"
 msgstr "容量最小值 (字节)"
@@ -1861,6 +1857,7 @@ msgstr ""
 "创建中继。其它的后端可以在端口存在的任何阶段\n"
 "创建中继。"
 
+#, python-brace-format
 msgid ""
 "Note: Delimiters ('{$ ctrl.model.DELIMETER $}') are allowed in the\n"
 "          file name to place the new file into a folder that will be "
@@ -1871,6 +1868,7 @@ msgstr ""
 "来指定所放置的目录（深度不限），\n"
 "文件上传后会自动创建相关目录。"
 
+#, python-brace-format
 msgid ""
 "Note: Delimiters ('{$ ctrl.model.DELIMETER $}') are allowed in the\n"
 "          folder name to create deep folders."
@@ -2557,9 +2555,6 @@ msgstr "标签"
 msgid "Tel"
 msgstr "电话"
 
-msgid "Tenant ID"
-msgstr "租户 ID"
-
 msgid "Text"
 msgstr "文本"
 
@@ -2794,6 +2789,7 @@ msgstr "这个被选中..."
 msgid "This limit is currently not set."
 msgstr "当前没有限制。"
 
+#, python-brace-format
 msgid "This limit is currently set to {$ model.novaLimits.maxServerMeta $}."
 msgstr "当前限制为 {$ model.novaLimits.maxServerMeta $} 。"
 
@@ -3434,6 +3430,7 @@ msgstr "更新于"
 msgid "Upload File"
 msgstr "上传文件"
 
+#, python-brace-format
 msgid "Upload File To: {$ ctrl.model.container.name $}"
 msgstr "上传文件到 {$ ctrl.model.container.name $}"
 
@@ -3792,9 +3789,11 @@ msgstr "快照"
 msgid "volume"
 msgstr "卷"
 
+#, python-brace-format
 msgid "{$ address $} on subnet {$ subnet $}"
 msgstr "{$ address $} 在子网 {$ subnet $} 中"
 
+#, python-brace-format
 msgid ""
 "{$ ctrl.model.counted.files $} files in\n"
 "      {$ ctrl.model.counted.folders $} folders."

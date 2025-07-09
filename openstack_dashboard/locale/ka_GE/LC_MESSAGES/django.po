@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: horizon VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2024-03-20 15:32+0000\n"
+"POT-Creation-Date: 2025-07-08 23:51+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -99,16 +99,8 @@ msgid "%s GB"
 msgstr "%s გბ"
 
 #, python-format
-msgid "%sGB"
-msgstr "%s გბ"
-
-#, python-format
 msgid "%sGiB"
 msgstr "%sგიბ"
-
-#, python-format
-msgid "%sMB"
-msgstr "%sმბ"
 
 msgid "(No IP address)"
 msgstr "(IP მისამართის გარეშე)"
@@ -1426,6 +1418,7 @@ msgstr "ვშლის ტომების ჯგუფს \"%s\""
 msgid "Deprecated Settings"
 msgstr "მოძველებული პარამეტრები"
 
+#, python-brace-format
 msgid "Deprecated settings: {}."
 msgstr "მოძველებული პარამეტრები: {}."
 
@@ -2065,9 +2058,6 @@ msgstr ""
 msgid "Failed to check if shared field is supported."
 msgstr "ჩავარდა შემოწმება, მხარდაჭერილია თუ არა გაზიარებული ველი."
 
-msgid "Failed to create a rbac policy."
-msgstr "RBAC პოლიტიკის შექმნა ჩავარდა."
-
 #, python-format
 msgid "Failed to create network \"%s\"."
 msgstr "ჩავარდა შექმნა ქსელისთვის \"%s\"."
@@ -2159,10 +2149,6 @@ msgstr "ჩავარდა განახლება ქსელისთ�
 #, python-format
 msgid "Failed to update port \"%s\"."
 msgstr "ჩავარდა განახლება პორტისთვის \"%s\"."
-
-#, python-format
-msgid "Failed to update rbac policy %s"
-msgstr "RBAC პოლიტიკის %s განახლება ჩავარდა"
 
 #, python-format
 msgid "Failed to update router %s"
@@ -2296,9 +2282,6 @@ msgstr "პორტიდან"
 
 msgid "From here you can allocate a floating IP to a specific project."
 msgstr "აქედან შეგიძლიათ მითითებული პროექტისთვის მცურავი IP გამოჰყოთ."
-
-msgid "From here you can create a rbac policy."
-msgstr "აქედან RBAC პოლიტიკის შექმნა შეგიძლიათ."
 
 msgid "From here you can create a snapshot of a volume."
 msgstr "აქედან ტომის სწრაფი ასლის შექმნა შეგიძლიათ."
@@ -3095,6 +3078,7 @@ msgstr "დიკსი მინიმუმ (გბ)"
 msgid "Minimum RAM (MB)"
 msgstr "მინიმალური RAM (მბ)"
 
+#, python-brace-format
 msgid "Missing required settings: {}."
 msgstr "აკლია აუცილებელი პარამეტრები: {}."
 
@@ -4586,9 +4570,6 @@ msgstr "ზომა"
 msgid "Size (GiB)"
 msgstr "ზომა (გიბ)"
 
-msgid "Size(GiB) ="
-msgstr "ზომა(გიბ) ="
-
 msgid "Slash is not an allowed character."
 msgstr "/ დაშვებული სიმბოლო არაა."
 
@@ -5486,10 +5467,6 @@ msgstr ""
 "შეცდომა დეტალების მიღებისას რესურსისთვის %(resource)s \"%(resource_id)s\"."
 
 #, python-format
-msgid "Unable to retrieve details for rbac_policy \"%s\"."
-msgstr "შეცდომა დეტალების მიღებისას rbac_policy-სთვის \"%s\"."
-
-#, python-format
 msgid "Unable to retrieve details for router \"%s\"."
 msgstr "ვერ მივიღე დეტალები რაუტერისთვის \"%s\"."
 
@@ -5704,9 +5681,6 @@ msgstr "საჯარო ასლების მიღება შეუძ
 
 msgid "Unable to retrieve quota information."
 msgstr "კვოტის ინფორმაციის მიღება შეუძლებელია."
-
-msgid "Unable to retrieve rbac policy details."
-msgstr "RBAC პოლიტიკის დეტალების მიღება შეუძლებელია."
 
 msgid "Unable to retrieve role list."
 msgstr "როლების სიის მიღება შეუძლებელია."
@@ -5990,6 +5964,7 @@ msgstr "უცნობი ეგზემპლარი (ცარიელი
 msgid "Unknown resource type for detail API."
 msgstr "უცნობი რესურსის ტიპი დეტალის API-სთვის."
 
+#, python-brace-format
 msgid "Unknown settings: {}."
 msgstr "უცნობი პარამეტრები: {}."
 
@@ -6213,6 +6188,9 @@ msgstr "გამოიყენება <span> %(used)s </span> / <span> %(ava
 
 msgid "Used IPs"
 msgstr "გამოყენებული IP-ები"
+
+msgid "User"
+msgstr "მომხმარებელი"
 
 #, python-format
 msgid "User \"%s\" has been updated successfully."
@@ -6548,9 +6526,6 @@ msgstr ""
 
 msgid "no"
 msgstr "არა"
-
-msgid "rbac policy quota exceeded."
-msgstr "გადაცილებულია RBAC პოლიტიკის კვოტა."
 
 msgid "system scope"
 msgstr "სისტემის დიაპაზონი"

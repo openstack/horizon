@@ -2,9 +2,9 @@
 # Andreas Jaeger <jaegerandi@gmail.com>, 2019. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 25.2.0.dev70\n"
+"Project-Id-Version: horizon 25.3.1.dev27\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-01-24 23:07+0000\n"
+"POT-Creation-Date: 2025-07-08 23:51+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -415,9 +415,6 @@ msgid ""
 msgstr ""
 ":guilabel:`Shared`: Teilen Sie das Netzwerk mit anderen Projekten. Nicht-"
 "administrative Benutzer dürfen die gemeinsame Option nicht festlegen."
-
-msgid ":guilabel:`Size (GB)`: The size of the volume in gibibytes (GiB)."
-msgstr ":guilabel:`Größe (GB)`: Die Größe des Datenträgers in Gibibytes (GiB)."
 
 msgid ":guilabel:`Snapshots`: View, create, edit, and delete volume snapshots."
 msgstr ""

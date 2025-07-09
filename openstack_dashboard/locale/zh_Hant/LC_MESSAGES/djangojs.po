@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: horizon VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2025-01-25 08:07+0900\n"
+"POT-Creation-Date: 2025-07-08 23:51+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -200,6 +200,7 @@ msgstr "為您的雲實例命名。"
 msgid "A port represents a virtual switch port on a logical network switch."
 msgstr "埠代表邏輯網路交換器上的虛擬交換器埠。"
 
+#, python-brace-format
 msgid ""
 "A volume description less than {$createVolumeCtrl.validationRules."
 "fieldMaxLength + 1$} characters is required."
@@ -207,6 +208,7 @@ msgstr ""
 "雲硬碟描述需要少於 {$createVolumeCtrl.validationRules.fieldMaxLength + 1$} 個"
 "字元。"
 
+#, python-brace-format
 msgid ""
 "A volume name less than {$createVolumeCtrl.validationRules.fieldMaxLength + "
 "1$} characters is required."
@@ -321,6 +323,7 @@ msgstr "使用外部 (HTTP) URL 下載映像檔"
 msgid "An image description less than 256 characters is required."
 msgstr "映像檔描述需要少於 256 個字元。"
 
+#, python-brace-format
 msgid ""
 "An image description less than {$ctrl.validationRules.fieldMaxLength + 1$} "
 "characters is required."
@@ -330,6 +333,7 @@ msgstr ""
 msgid "An image name less than 256 characters is required."
 msgstr "映像檔名需要少於 256 個字元。"
 
+#, python-brace-format
 msgid ""
 "An image name less than {$ctrl.validationRules.fieldMaxLength + 1$} "
 "characters is required."
@@ -581,6 +585,7 @@ msgstr "複製資料"
 msgid "Copy Object"
 msgstr "複製物件"
 
+#, python-brace-format
 msgid "Copy Object: {$ ctrl.model.container $}/{$ ctrl.model.path $}"
 msgstr "複製物件：{$ ctrl.model.container $}/{$ ctrl.model.path $}"
 
@@ -608,6 +613,7 @@ msgstr "新增地域"
 msgid "Create Folder"
 msgstr "新增資料夾"
 
+#, python-brace-format
 msgid "Create Folder In: {$ ctrl.model.container.name $}"
 msgstr "建立資料夾位置：{$ ctrl.model.container.name $}"
 
@@ -765,6 +771,7 @@ msgstr[0] "刪除地域"
 msgid "Delete Domains"
 msgstr "刪除地域"
 
+#, python-brace-format
 msgid "Delete Files in {$ ctrl.model.container.name $}"
 msgstr "在 {$ ctrl.model.container.name $} 中刪除文件"
 
@@ -1021,6 +1028,7 @@ msgstr "編輯"
 msgid "Edit File"
 msgstr "編輯資料"
 
+#, python-brace-format
 msgid "Edit File: {$ ctrl.model.container $} : {$ ctrl.model.path $}"
 msgstr "編輯資料： {$ ctrl.model.container $} : {$ ctrl.model.path $}"
 
@@ -1057,6 +1065,7 @@ msgstr "啟用/停用新增、刪除子端口和刪除中繼。"
 msgid "Enabled"
 msgstr "已啟用"
 
+#, python-brace-format
 msgid "Encountered {$ ctrl.model.deleted.failures $} failures."
 msgstr "出現 {$ ctrl.model.deleted.failures $} 錯誤。"
 
@@ -1602,13 +1611,6 @@ msgid_plural "Metadata Definitions"
 msgstr[0] "詮釋資料定義"
 
 msgid ""
-"Metadata is a collection of key-value pairs associated with an instance.\n"
-"    The maximum length for each metadata key and value is 255 characters."
-msgstr ""
-"Metadata 是與實例相關聯的鍵值對的集合。\n"
-"    每個 metadata 鍵值對的最大長度為 255 個字符。"
-
-msgid ""
 "Metadata is used to provide additional information about the\n"
 "    image. Sometimes this information is only used for sorting and viewing.\n"
 "    In some installations this information may affect how the instance is\n"
@@ -1636,12 +1638,6 @@ msgstr "最小端口"
 
 msgid "Min RAM (MB)"
 msgstr "最小隨機存取記憶體（MB）"
-
-msgid "Min. Disk"
-msgstr "最小硬碟"
-
-msgid "Min. RAM"
-msgstr "最小隨機存取記憶體"
 
 msgid "Min. Size (bytes)"
 msgstr "最小容量 (bytes)"
@@ -1775,6 +1771,7 @@ msgstr ""
 "請注意有些 Neutron 後端（特別是基於 Open vSwitch 的後端）只允許在雲實例在母端"
 "口建立前建立中繼。 其他後端也許可以在端口的任何週期時建立中繼。"
 
+#, python-brace-format
 msgid ""
 "Note: Delimiters ('{$ ctrl.model.DELIMETER $}') are allowed in the\n"
 "          file name to place the new file into a folder that will be "
@@ -1785,6 +1782,7 @@ msgstr ""
 "          以將新檔案放置在上傳檔案（至任何深度的資料夾）\n"
 "          時將建立的資料夾中。"
 
+#, python-brace-format
 msgid ""
 "Note: Delimiters ('{$ ctrl.model.DELIMETER $}') are allowed in the\n"
 "          folder name to create deep folders."
@@ -2454,9 +2452,6 @@ msgstr "標籤"
 msgid "Tel"
 msgstr "電話"
 
-msgid "Tenant ID"
-msgstr "租戶 ID"
-
 msgid "Text"
 msgstr "文字"
 
@@ -2669,6 +2664,7 @@ msgstr "這是聚焦的..."
 msgid "This limit is currently not set."
 msgstr "此限制目前未設定。"
 
+#, python-brace-format
 msgid "This limit is currently set to {$ model.novaLimits.maxServerMeta $}."
 msgstr "此限制目前設為 {$ model.novaLimits.maxServerMeta $}。"
 
@@ -3314,6 +3310,7 @@ msgstr "更新時間"
 msgid "Upload File"
 msgstr "上傳檔案"
 
+#, python-brace-format
 msgid "Upload File To: {$ ctrl.model.container.name $}"
 msgstr "將檔案上傳至：{$ ctrl.model.container.name $}"
 
@@ -3672,9 +3669,11 @@ msgstr "即時存檔"
 msgid "volume"
 msgstr "雲硬碟"
 
+#, python-brace-format
 msgid "{$ address $} on subnet {$ subnet $}"
 msgstr "{$ address $} 位於子網域 {$ subnet $}"
 
+#, python-brace-format
 msgid ""
 "{$ ctrl.model.counted.files $} files in\n"
 "      {$ ctrl.model.counted.folders $} folders."

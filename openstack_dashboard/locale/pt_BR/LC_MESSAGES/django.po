@@ -17,7 +17,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: horizon VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2025-01-25 08:07+0900\n"
+"POT-Creation-Date: 2025-07-08 23:51+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -171,16 +171,8 @@ msgid "%s GB"
 msgstr "%s GB"
 
 #, python-format
-msgid "%sGB"
-msgstr "%sGB"
-
-#, python-format
 msgid "%sGiB"
 msgstr "%sGiB"
-
-#, python-format
-msgid "%sMB"
-msgstr "%sMB"
 
 msgid "(No IP address)"
 msgstr "(Sem endereço de IP)"
@@ -5505,9 +5497,6 @@ msgstr "Tamanho"
 msgid "Size (GiB)"
 msgstr "Tamanho (GiB)"
 
-msgid "Size(GiB) ="
-msgstr "Tamanho (GiB) ="
-
 msgid "Slash is not an allowed character."
 msgstr "Barra não é um caracter permitido."
 
@@ -7747,9 +7736,15 @@ msgstr "Utilizado <span> %(used)s </span> de <span> %(available)s </span>"
 msgid "Used IPs"
 msgstr "IPs Utilizados"
 
+msgid "User"
+msgstr "Usuário"
+
 #, python-format
 msgid "User \"%s\" was successfully created."
 msgstr "Usuário \"%s\" criado com sucesso."
+
+msgid "User Credentials"
+msgstr "Credenciais de Usuário"
 
 msgid "User Credentials Details"
 msgstr "Detalhes de Credenciais de Usuário"
@@ -7830,6 +7825,9 @@ msgstr "VXLAN"
 
 msgid "Value"
 msgstr "Valor"
+
+msgid "Value:"
+msgstr "Valor:"
 
 #, python-format
 msgid "Version: %(version_info)s"

@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: horizon VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2022-09-03 19:04+0000\n"
+"POT-Creation-Date: 2025-07-08 23:51+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -829,12 +829,6 @@ msgstr "Porta min"
 msgid "Min RAM (MB)"
 msgstr "RAM min (MB)"
 
-msgid "Min. Disk"
-msgstr "Disco min."
-
-msgid "Min. RAM"
-msgstr "RAM min."
-
 msgid "Mini button"
 msgstr "Pulsante mini"
 
@@ -910,6 +904,7 @@ msgstr "Nessun elemento disponibile"
 msgid "Normal"
 msgstr "Normale"
 
+#, python-brace-format
 msgid ""
 "Note: Delimiters ('{$ ctrl.model.DELIMETER $}') are allowed in the\n"
 "          file name to place the new file into a folder that will be "
@@ -921,6 +916,7 @@ msgstr ""
 "          per inserire il nuovo file in una cartella che verrà creata\n"
 "          quando il file viene caricato (a qualsiasi profondità di cartelle)."
 
+#, python-brace-format
 msgid ""
 "Note: Delimiters ('{$ ctrl.model.DELIMETER $}') are allowed in the\n"
 "          folder name to create deep folders."
@@ -1404,6 +1400,7 @@ msgstr "Questo è focalizzato..."
 msgid "This limit is currently not set."
 msgstr "Questo limite non è attualmente impostato."
 
+#, python-brace-format
 msgid "This limit is currently set to {$ model.novaLimits.maxServerMeta $}."
 msgstr ""
 "Questo limite è attualmente impostato su {$ model.novaLimits.maxServerMeta "

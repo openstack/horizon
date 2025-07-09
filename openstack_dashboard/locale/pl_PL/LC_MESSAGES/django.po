@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: horizon VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2025-01-25 08:07+0900\n"
+"POT-Creation-Date: 2025-07-08 23:51+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -73,14 +73,6 @@ msgstr "%s (bieżący)"
 #, python-format
 msgid "%s GB"
 msgstr "%s GB"
-
-#, python-format
-msgid "%sGB"
-msgstr "%sGB"
-
-#, python-format
-msgid "%sMB"
-msgstr "%sMB"
 
 msgid "(Quota exceeded)"
 msgstr "(Przekroczono limity)"
@@ -5558,9 +5550,15 @@ msgstr "Wykorzystano <span> %(used)s </span> z <span> %(available)s </span>"
 msgid "Used IPs"
 msgstr "Wykorzystane adresy IP"
 
+msgid "User"
+msgstr "Użytkownik"
+
 #, python-format
 msgid "User \"%s\" was successfully created."
 msgstr "Użytkownik \"%s\" został utworzony."
+
+msgid "User Credentials"
+msgstr "Poświadczenia użytkownika"
 
 msgid "User Credentials Details"
 msgstr "Szczegóły poświadczeń użytkownika"
@@ -5625,6 +5623,9 @@ msgstr "VXLAN"
 
 msgid "Value"
 msgstr "Wartość"
+
+msgid "Value:"
+msgstr "Wartość:"
 
 #, python-format
 msgid "Version: %(version_info)s"

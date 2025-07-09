@@ -20,7 +20,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: horizon VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2025-02-15 09:23+0900\n"
+"POT-Creation-Date: 2025-07-08 23:51+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -178,16 +178,8 @@ msgid "%s GB"
 msgstr "%s GB"
 
 #, python-format
-msgid "%sGB"
-msgstr "%sGB"
-
-#, python-format
 msgid "%sGiB"
 msgstr "%s GiB"
-
-#, python-format
-msgid "%sMB"
-msgstr "%s MB"
 
 msgid "(No IP address)"
 msgstr "(Keine IP-Adresse)"
@@ -2029,6 +2021,7 @@ msgstr "Lösche Datenträgergruppe \"%s\""
 msgid "Deprecated Settings"
 msgstr "Überholte Einstellungen"
 
+#, python-brace-format
 msgid "Deprecated settings: {}."
 msgstr "Überholte Einstellungen: {}."
 
@@ -2827,9 +2820,6 @@ msgid "Failed to check if nova supports \"auto_allocated_network\"."
 msgstr ""
 "Fehler bei der Prüfung, ob Nova \"auto_alloocated_network\" unterstützt."
 
-msgid "Failed to create a rbac policy."
-msgstr "Fehler bei der Erstellung der RBAC Richtlinie."
-
 #, python-format
 msgid "Failed to create network \"%s\"."
 msgstr "Das Netzwerk \"%s\" konnte nicht erstellt werden."
@@ -2962,10 +2952,6 @@ msgstr "Das Netzwerk %s konnte nicht aktualisiert werden."
 #, python-format
 msgid "Failed to update port \"%s\"."
 msgstr "Port %s konnte nicht aktualisiert werden."
-
-#, python-format
-msgid "Failed to update rbac policy %s"
-msgstr "Fehler beim Atualisieren der rbac Richtlinie %s"
 
 #, python-format
 msgid "Failed to update router %s"
@@ -3123,9 +3109,6 @@ msgstr "Hier können Sie DHCP Agenten für das Netzwerk hinzufügen."
 
 msgid "From here you can allocate a floating IP to a specific project."
 msgstr "Hier können Sie eine Floating IP einem bestimmten Projekt zuweisen."
-
-msgid "From here you can create a rbac policy."
-msgstr "Hier können Sie RBAC Richtlinien erstellen."
 
 msgid "From here you can create a snapshot of a volume."
 msgstr "Hier kann eine Schattenkopie eines Datenträger erstellt werden."
@@ -4163,6 +4146,7 @@ msgstr "Minimum Festplatte (GB)"
 msgid "Minimum RAM (MB)"
 msgstr "Minimum RAM (MB)"
 
+#, python-brace-format
 msgid "Missing required settings: {}."
 msgstr "Fehlende erforderliche Einstellungen: {}."
 
@@ -5912,9 +5896,6 @@ msgstr "Größe"
 msgid "Size (GiB)"
 msgstr "Größe (GiB)"
 
-msgid "Size(GiB) ="
-msgstr "Größe (GiB) ="
-
 msgid "Slash is not an allowed character."
 msgstr "Der Schrägstrich (Slash) ist kein erlaubtes Zeichen."
 
@@ -7457,10 +7438,6 @@ msgid "Unable to retrieve details for network \"%s\"."
 msgstr "Details zu Netzwerk \"%s\" können nicht abgerufen werden."
 
 #, python-format
-msgid "Unable to retrieve details for rbac_policy \"%s\"."
-msgstr "Details zu rbac Richtlinie \"%s\" können nicht angerufen werden."
-
-#, python-format
 msgid "Unable to retrieve details for router \"%s\"."
 msgstr "Details zum Router \"%s\" können nicht abgerufen werden."
 
@@ -7716,9 +7693,6 @@ msgstr "Öffentliche Abbilder können nicht abgerufen werden."
 
 msgid "Unable to retrieve quota information."
 msgstr "Kontingent Informationen können nicht abgerufen werden."
-
-msgid "Unable to retrieve rbac policy details."
-msgstr "RBAC Richtliniendetails können nicht abgerufen werden."
 
 msgid "Unable to retrieve role list."
 msgstr "Rollenliste kann nicht abgerufen werden."
@@ -8076,6 +8050,7 @@ msgstr "Unbekannte Instanz (Keine)"
 msgid "Unknown resource type for detail API."
 msgstr "Unbekannter Ressourcentyp für Details-API"
 
+#, python-brace-format
 msgid "Unknown settings: {}."
 msgstr "Unbekannte Einstellungen: {}."
 
@@ -8344,6 +8319,9 @@ msgstr "<span> %(used)s </span> von <span> %(available)s </span> benutzt"
 msgid "Used IPs"
 msgstr "Verwendete IPs"
 
+msgid "User"
+msgstr "Benutzer"
+
 #, python-format
 msgid "User \"%s\" has been updated successfully."
 msgstr "Benutzer \"%s\" wurde erfolgreich aktualisiert."
@@ -8351,6 +8329,9 @@ msgstr "Benutzer \"%s\" wurde erfolgreich aktualisiert."
 #, python-format
 msgid "User \"%s\" was successfully created."
 msgstr "Der Benutzer \"%s\" wurde erfolgreich erstellt."
+
+msgid "User Credentials"
+msgstr "Benutzeranmeldedaten"
 
 msgid "User Credentials Details"
 msgstr "Benutzeranmeldedatendetails"
@@ -8437,6 +8418,9 @@ msgstr "VXLAN"
 
 msgid "Value"
 msgstr "Wert"
+
+msgid "Value:"
+msgstr "Wert:"
 
 #, python-format
 msgid "Version: %(version_info)s"
@@ -8887,9 +8871,6 @@ msgstr ""
 
 msgid "no"
 msgstr "nein"
-
-msgid "rbac policy quota exceeded."
-msgstr "rbac Richtlinienkontingent überschritten."
 
 msgid "undefined"
 msgstr "undefiniert"

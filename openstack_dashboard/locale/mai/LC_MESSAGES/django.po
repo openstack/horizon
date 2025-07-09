@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: horizon VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2025-01-25 08:07+0900\n"
+"POT-Creation-Date: 2025-07-08 23:51+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -62,14 +62,6 @@ msgstr "%s (वर्तमान)"
 #, python-format
 msgid "%s GB"
 msgstr "%s GB"
-
-#, python-format
-msgid "%sGB"
-msgstr "%sGB"
-
-#, python-format
-msgid "%sMB"
-msgstr "%sMB"
 
 msgid "(Quota exceeded)"
 msgstr "(कोटा पूरा भ' गेल)"
@@ -3824,9 +3816,15 @@ msgstr "स्रोत क रूपेँ स्नैपशाट क उप�
 msgid "Used <span> %(used)s </span> of <span> %(available)s </span>"
 msgstr "<span> %(available)s </span> क <span> %(used)s </span> मोजुद."
 
+msgid "User"
+msgstr "प्रयोक्ता"
+
 #, python-format
 msgid "User \"%s\" was successfully created."
 msgstr "प्रयोक्ता \"%s\" सफलतापूर्वक बनाएल गेल छल."
+
+msgid "User Credentials"
+msgstr "प्रयोक्ता क्रेडेंशियल"
 
 msgid "User Credentials Details"
 msgstr "प्रयोक्ता क्रेडेंशियल क विवरण"
@@ -3867,6 +3865,9 @@ msgstr "VXLAN"
 
 msgid "Value"
 msgstr "मान"
+
+msgid "Value:"
+msgstr "मूल्य:"
 
 msgid "View Credentials"
 msgstr "क्रेडेंशियल देखू"

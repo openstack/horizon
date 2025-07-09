@@ -14,7 +14,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: horizon VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2023-11-20 22:25+0000\n"
+"POT-Creation-Date: 2025-07-08 23:51+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -219,6 +219,7 @@ msgstr ""
 "ポートとは、論理ネットワークスイッチ上にある仮想スイッチポートのことを表しま"
 "す。"
 
+#, python-brace-format
 msgid ""
 "A volume description less than {$createVolumeCtrl.validationRules."
 "fieldMaxLength + 1$} characters is required."
@@ -226,6 +227,7 @@ msgstr ""
 "ボリュームの説明は、{$createVolumeCtrl.validationRules.fieldMaxLength + 1$} "
 "文字未満でなければなりません。"
 
+#, python-brace-format
 msgid ""
 "A volume name less than {$createVolumeCtrl.validationRules.fieldMaxLength + "
 "1$} characters is required."
@@ -371,6 +373,7 @@ msgstr "イメージを読み込む外部 (HTTP) URL。"
 msgid "An image description less than 256 characters is required."
 msgstr "イメージの説明は、256 文字未満にする必要があります。"
 
+#, python-brace-format
 msgid ""
 "An image description less than {$ctrl.validationRules.fieldMaxLength + 1$} "
 "characters is required."
@@ -381,6 +384,7 @@ msgstr ""
 msgid "An image name less than 256 characters is required."
 msgstr "イメージ名は、256 文字未満にする必要があります。"
 
+#, python-brace-format
 msgid ""
 "An image name less than {$ctrl.validationRules.fieldMaxLength + 1$} "
 "characters is required."
@@ -648,6 +652,7 @@ msgstr "データのコピー"
 msgid "Copy Object"
 msgstr "オブジェクトのコピー"
 
+#, python-brace-format
 msgid "Copy Object: {$ ctrl.model.container $}/{$ ctrl.model.path $}"
 msgstr "オブジェクトのコピー: {$ ctrl.model.container $}/{$ ctrl.model.path $}"
 
@@ -675,6 +680,7 @@ msgstr "ドメインの作成"
 msgid "Create Folder"
 msgstr "フォルダーの作成"
 
+#, python-brace-format
 msgid "Create Folder In: {$ ctrl.model.container.name $}"
 msgstr "{$ ctrl.model.container.name $} へのフォルダーの作成"
 
@@ -847,6 +853,7 @@ msgstr[0] "ドメインの削除"
 msgid "Delete Domains"
 msgstr "ドメインの削除"
 
+#, python-brace-format
 msgid "Delete Files in {$ ctrl.model.container.name $}"
 msgstr "{$ ctrl.model.container.name $} 内のファイルの削除"
 
@@ -1107,6 +1114,7 @@ msgstr "編集"
 msgid "Edit File"
 msgstr "ファイルの編集"
 
+#, python-brace-format
 msgid "Edit File: {$ ctrl.model.container $} : {$ ctrl.model.path $}"
 msgstr "ファイルの編集: {$ ctrl.model.container $} : {$ ctrl.model.path $}"
 
@@ -1146,6 +1154,7 @@ msgstr "サブポートの追加、削除やトランクの削除ができるか
 msgid "Enabled"
 msgstr "有効"
 
+#, python-brace-format
 msgid "Encountered {$ ctrl.model.deleted.failures $} failures."
 msgstr "{$ ctrl.model.deleted.failures $} 個のエラーが発生しました。"
 
@@ -1733,13 +1742,6 @@ msgid_plural "Metadata Definitions"
 msgstr[0] "メタデータ定義"
 
 msgid ""
-"Metadata is a collection of key-value pairs associated with an instance.\n"
-"    The maximum length for each metadata key and value is 255 characters."
-msgstr ""
-"メタデータはインスタンスに関連付けられたキーと値のペアのコレクションです。\n"
-"各メタデータのキーと値の最大長は 255 文字です。"
-
-msgid ""
 "Metadata is used to provide additional information about the\n"
 "    image. Sometimes this information is only used for sorting and viewing.\n"
 "    In some installations this information may affect how the instance is\n"
@@ -1770,12 +1772,6 @@ msgstr "下限ポート番号"
 
 msgid "Min RAM (MB)"
 msgstr "最小メモリー (MB)"
-
-msgid "Min. Disk"
-msgstr "最小ディスク"
-
-msgid "Min. RAM"
-msgstr "最小メモリー"
 
 msgid "Min. Size (bytes)"
 msgstr "最小サイズ (バイト)"
@@ -1954,6 +1950,7 @@ msgstr ""
 "があります。他のバックエンドでは、ポートの存在期間はいつでもトランクを作成で"
 "きる場合もあります。"
 
+#, python-brace-format
 msgid ""
 "Note: Delimiters ('{$ ctrl.model.DELIMETER $}') are allowed in the\n"
 "          file name to place the new file into a folder that will be "
@@ -1965,6 +1962,7 @@ msgstr ""
 "る \n"
 "フォルダーに配置することができます。"
 
+#, python-brace-format
 msgid ""
 "Note: Delimiters ('{$ ctrl.model.DELIMETER $}') are allowed in the\n"
 "          folder name to create deep folders."
@@ -2720,9 +2718,6 @@ msgstr "タグ"
 msgid "Tel"
 msgstr "電話"
 
-msgid "Tenant ID"
-msgstr "テナント ID"
-
 msgid "Text"
 msgstr "テキスト"
 
@@ -3000,6 +2995,7 @@ msgstr "フォーカスが当たっています。"
 msgid "This limit is currently not set."
 msgstr "この上限は、現在設定されていません。"
 
+#, python-brace-format
 msgid "This limit is currently set to {$ model.novaLimits.maxServerMeta $}."
 msgstr ""
 "この上限は、現在 {$ model.novaLimits.maxServerMeta $} に指定されています。"
@@ -3691,6 +3687,7 @@ msgstr "最終更新"
 msgid "Upload File"
 msgstr "ファイルのアップロード"
 
+#, python-brace-format
 msgid "Upload File To: {$ ctrl.model.container.name $}"
 msgstr "{$ ctrl.model.container.name $} へのファイルのアップロード"
 
@@ -4078,9 +4075,11 @@ msgstr "スナップショット"
 msgid "volume"
 msgstr "ボリューム"
 
+#, python-brace-format
 msgid "{$ address $} on subnet {$ subnet $}"
 msgstr "{$ address $} (サブネット {$ subnet $})"
 
+#, python-brace-format
 msgid ""
 "{$ ctrl.model.counted.files $} files in\n"
 "      {$ ctrl.model.counted.folders $} folders."

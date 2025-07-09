@@ -30,11 +30,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: horizon VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2025-02-15 09:23+0900\n"
+"POT-Creation-Date: 2025-07-08 23:51+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2025-01-27 12:20+0000\n"
+"PO-Revision-Date: 2025-03-22 11:53+0000\n"
 "Last-Translator: Dmitriy Chubinidze <dcu995@gmail.com>\n"
 "Language-Team: Russian\n"
 "Language: ru\n"
@@ -128,9 +128,9 @@ msgid ""
 "instance, and creates a new volume to persist instance data. You can choose "
 "to delete the volume on deletion of the instance."
 msgstr ""
-"<b>Снимок тома</b>: для загрузки инстанса используется снимок тома, при этом "
-"создаётся новый том для хранения данных инстанса. Можно указать, что том "
-"должен быть удален при удалении инстанаса."
+"<b>Снимок диска</b>: для загрузки инстанса используется снимок диска, при "
+"этом создаётся новый диск для хранения данных инстанса. Можно указать, что "
+"диск должен быть удален при удалении инстанса."
 
 msgid ""
 "<b>Volume</b>: This option uses a volume that already exists. It does not "
@@ -138,9 +138,9 @@ msgid ""
 "instance. <em>Note: when selecting Volume, you can only launch one instance."
 "</em>"
 msgstr ""
-"<b>Том</b>: Используется уже существующий том. Новый том не создаётся. Можно "
-"выбрать удаление тома при завершении работы инстанса. <em>Примечание: опция "
-"Том позволяет запустить только один инстанс.</em>"
+"<b>Диск</b>: Используется уже существующий диск. Новый диск не создаётся. "
+"Можно выбрать удаление диска при удалении инстанса. <em>Примечание: опция "
+"Диск позволяет запустить только один инстанс.</em>"
 
 msgid "<small>This line of text is meant to be treated as fine print.</small>"
 msgstr ""
@@ -202,13 +202,16 @@ msgid ""
 "  one container defined in your account prior to uploading data."
 msgstr ""
 "Контейнер - это способ хранения и организации ваших данных.\n"
-"  Контейнеры аналогичны папкам в Windows или каталогам в UNIX®.\n"
+"  Контейнеры аналогичны папкам в Windows® или каталогам в UNIX®.\n"
 "  Основное отличие между контейнером и другими типами файловых\n"
 "  систем заключается в том, что контейнеры не могут быть вложенными\n"
-"  друг в друга. С другой стороны, вы можете создать неограниченное\n"
-"  количество контейнеров для своей учётной записи. Данные сохраняются\n"
-"  внутри контейнера, поэтому необходимо создать хотя бы один контейнер\n"
-"  перед тем, как загружать данные."
+"  друг в друга. С другой стороны, вы можете создать "
+"неограниченное                                                  \n"
+"  количество контейнеров для своей учётной записи. Данные должны храниться "
+"в \n"
+"  контейнере, поэтому перед загрузкой данных в вашей учетной записи должен "
+"быть\n"
+"  определен по крайней мере один контейнер."
 
 msgid "A container with that name exists."
 msgstr "Контейнер с таким именем уже существует."
@@ -217,7 +220,7 @@ msgid "A description list is perfect for defining terms."
 msgstr "Список описаний идеально подходит для определения терминов"
 
 msgid "A description of the Volume."
-msgstr "Описание тома."
+msgstr "Описание диска."
 
 msgid "A description of the image."
 msgstr "Описание образа."
@@ -266,22 +269,24 @@ msgstr "Требуется указать имя инстанса."
 
 msgid "A port represents a virtual switch port on a logical network switch."
 msgstr ""
-"Порт представляет собой порт виртуального коммутатора на коммутаторе "
-"логической сети."
+"Порт представляет собой порт виртуального коммутатора на логическом сетевом "
+"коммутаторе."
 
+#, python-brace-format
 msgid ""
 "A volume description less than {$createVolumeCtrl.validationRules."
 "fieldMaxLength + 1$} characters is required."
 msgstr ""
-"Описание образа диска (тома) должно быть короче {$createVolumeCtrl."
-"validationRules.fieldMaxLength + 1$} знаков."
+"Описание диска должно быть короче {$createVolumeCtrl.validationRules."
+"fieldMaxLength + 1$} символов."
 
+#, python-brace-format
 msgid ""
 "A volume name less than {$createVolumeCtrl.validationRules.fieldMaxLength + "
 "1$} characters is required."
 msgstr ""
-"Имя образа диска (тома) должно быть короче {$createVolumeCtrl."
-"validationRules.fieldMaxLength + 1$} знаков."
+"Имя диска должно быть короче {$createVolumeCtrl.validationRules."
+"fieldMaxLength + 1$} символов."
 
 msgid "AKI"
 msgstr "AKI"
@@ -340,10 +345,11 @@ msgid ""
 "Administrators set up the pool of floating IPs that are available to attach "
 "to instances."
 msgstr ""
-"Администраторы задают пул Назначаемых IP адресов, доступных для подключения."
+"Администраторы задают пул плавающих IP адресов, доступных для подключения к "
+"инстансам."
 
 msgid "Affinity"
-msgstr "Аффинность"
+msgstr "Affinity"
 
 msgid "Alerts"
 msgstr "Классы сообщений"
@@ -424,8 +430,9 @@ msgid "An external (HTTP) URL to load the image from"
 msgstr "Внешняя (HTTP) ссылка для скачивания образа."
 
 msgid "An image description less than 256 characters is required."
-msgstr "Описание образа должно быть меньше чем из 256 символов."
+msgstr "Описание образа должно быть короче 256 символов."
 
+#, python-brace-format
 msgid ""
 "An image description less than {$ctrl.validationRules.fieldMaxLength + 1$} "
 "characters is required."
@@ -434,8 +441,9 @@ msgstr ""
 "fieldMaxLength + 1$} символов."
 
 msgid "An image name less than 256 characters is required."
-msgstr "Имя образа должно быть меньше чем из 256 символов."
+msgstr "Имя образа должно быть короче 256 символов."
 
+#, python-brace-format
 msgid ""
 "An image name less than {$ctrl.validationRules.fieldMaxLength + 1$} "
 "characters is required."
@@ -448,7 +456,7 @@ msgid ""
 "instance in the dashboard."
 msgstr ""
 "Обязательно указание имя инстанса, которое используется для идентификации "
-"его на дашборде."
+"его в панели управления."
 
 msgid "Animated"
 msgstr "Анимированный"
@@ -457,7 +465,7 @@ msgid "Another action"
 msgstr "Другое действие"
 
 msgid "Anti Affinity"
-msgstr "Анти-аффинность"
+msgstr "Anti Affinity"
 
 msgid "Any Availability Zone"
 msgstr "Любая зона доступности"
@@ -467,10 +475,28 @@ msgstr "Архитектура"
 
 #, python-format
 msgid "Are you sure you want to delete container %(name)s?"
-msgstr "Удалить контейнер %(name)s?"
+msgstr "Вы уверены, что хотите удалить контейнер %(name)s?"
 
 msgid "Array"
 msgstr "Массив"
+
+msgid ""
+"Attempts to restrict instances belonging to the server group to separate "
+"hosts. Where it is not possible to schedule all instances to separate hosts, "
+"they will be scheduled on as many separate hosts as possible."
+msgstr ""
+"Попытки ограничить инстансы, принадлежащие группе серверов, отдельными "
+"хостами. Если невозможно распределить все экземпляры на отдельных узлах, они "
+"будут распределены на максимально возможном количестве отдельных узлов."
+
+msgid ""
+"Attempts to restrict instances belonging to the server group to the same "
+"host. Where it is not possible to schedule all instances on one host, they "
+"will be scheduled together on as few hosts as possible."
+msgstr ""
+"Попытки ограничить инстансы, принадлежащие группе серверов, одним и тем же "
+"узлом. Если невозможно распределить все инстансы на одном узле, они будут "
+"распределены вместе на как можно меньшем количестве узлов."
 
 msgid "Automatic"
 msgstr "Автоматически"
@@ -599,7 +625,7 @@ msgid "Column heading"
 msgstr "Заголовок столбца"
 
 msgid "Community"
-msgstr "Объединение"
+msgstr "Общедоступная"
 
 msgid "Configuration"
 msgstr "Конфигурация"
@@ -698,7 +724,7 @@ msgstr "Контейнер %(name)s удален."
 
 #, python-format
 msgid "Container %(name)s is now %(access)s."
-msgstr "Теперь имя контейнера %(name)s - %(access)s."
+msgstr "Контейнер %(name)s теперь %(access)s."
 
 msgid "Container Access"
 msgstr "Доступ к контейнеру"
@@ -710,7 +736,7 @@ msgid "Container Name"
 msgstr "Имя контейнера"
 
 msgid "Container name must not contain \"/\"."
-msgstr "Имя контейнера не может содержать \"/\""
+msgstr "Имя контейнера не может содержать \"/\"."
 
 msgid "Containers"
 msgstr "Контейнеры"
@@ -730,6 +756,7 @@ msgstr "Копирование данных"
 msgid "Copy Object"
 msgstr "Копировать объект"
 
+#, python-brace-format
 msgid "Copy Object: {$ ctrl.model.container $}/{$ ctrl.model.path $}"
 msgstr "Скопировать объект: {$ ctrl.model.container $}/{$ ctrl.model.path $}"
 
@@ -757,6 +784,7 @@ msgstr "Создать домен"
 msgid "Create Folder"
 msgstr "Создать папку"
 
+#, python-brace-format
 msgid "Create Folder In: {$ ctrl.model.container.name $}"
 msgstr "Создать папку в: {$ ctrl.model.container.name $}"
 
@@ -824,7 +852,7 @@ msgstr "Создание "
 
 #, python-format
 msgid "Creating volume %s"
-msgstr "Создаю диск %s"
+msgstr "Создание диска %s"
 
 msgid "Custom Properties"
 msgstr "Настраиваемые свойства"
@@ -900,7 +928,7 @@ msgstr "Отключено"
 
 #, python-format
 msgid "Deactivated Image: %s."
-msgstr "Деактивированный образ: %s."
+msgstr "Образ деактивирован: %s."
 
 msgid "Default"
 msgstr "Значение по умолчанию"
@@ -918,10 +946,10 @@ msgid "Default input"
 msgstr "Ввод по умолчанию"
 
 msgid "Default: Empty string"
-msgstr "По умолчанию - пустая строка"
+msgstr "По умолчанию: пустая строка"
 
 msgid "Default: Enabled"
-msgstr "По умолчанию - разрешено"
+msgstr "По умолчанию: разрешено"
 
 msgid "Definition list"
 msgstr "Список определений"
@@ -944,6 +972,7 @@ msgstr[2] "Удалить домены"
 msgid "Delete Domains"
 msgstr "Удалить домены"
 
+#, python-brace-format
 msgid "Delete Files in {$ ctrl.model.container.name $}"
 msgstr "Удалить файлы в {$ ctrl.model.container.name $}"
 
@@ -1111,9 +1140,9 @@ msgstr[2] "Удалены пользователи: %s."
 #, python-format
 msgid "Deleted domain: %s."
 msgid_plural "Deleted domains: %s."
-msgstr[0] "Удален домен: %s."
-msgstr[1] "Удалены домены: %s."
-msgstr[2] "Удалены пользователи: %s."
+msgstr[0] "Удаленный домен: %s."
+msgstr[1] "Удаленные домены: %s."
+msgstr[2] "Удаленные домены: %s."
 
 #, python-format
 msgid "Deleted policy: %s."
@@ -1159,7 +1188,7 @@ msgid "Dialogs"
 msgstr "Диалоги"
 
 msgid "Direct"
-msgstr "Непосредственно"
+msgstr "Direct"
 
 msgid "Direct Physical"
 msgstr "Direct Physical"
@@ -1224,7 +1253,7 @@ msgid "Down"
 msgstr "Выключен"
 
 msgid "Download"
-msgstr "Загрузить"
+msgstr "Скачать"
 
 msgid "Dropdown"
 msgstr "Выпадающий список"
@@ -1244,9 +1273,10 @@ msgstr "Редактирование"
 msgid "Edit File"
 msgstr "Редактирование файла"
 
+#, python-brace-format
 msgid "Edit File: {$ ctrl.model.container $} : {$ ctrl.model.path $}"
 msgstr ""
-"Редактирование Файла: {$ ctrl.model.container $} : {$ ctrl.model.path $}"
+"Редактирование файла: {$ ctrl.model.container $} : {$ ctrl.model.path $}"
 
 msgid "Edit Group"
 msgstr "Редактировать группу"
@@ -1286,6 +1316,7 @@ msgstr ""
 msgid "Enabled"
 msgstr "Включено"
 
+#, python-brace-format
 msgid "Encountered {$ ctrl.model.deleted.failures $} failures."
 msgstr "Обнаружено {$ ctrl.model.deleted.failures $} ошибок."
 
@@ -1336,7 +1367,7 @@ msgstr "Файл"
 
 #, python-format
 msgid "File %(name)s uploaded."
-msgstr "Передан файл %(name)s."
+msgstr "Загружен файл %(name)s."
 
 #, python-format
 msgid "File %(path)s uploaded."
@@ -1358,7 +1389,7 @@ msgstr[1] "Типы инстанса"
 msgstr[2] "Типы инстанса"
 
 msgid "Flavor Name"
-msgstr "Название разновидности"
+msgstr "Название типа инстанса"
 
 msgid ""
 "Flavors manage the sizing for the compute, memory and storage capacity of "
@@ -1428,7 +1459,7 @@ msgstr ""
 "  файл."
 
 msgid "Generic Table View:"
-msgstr "Представление Универсальной Таблицы:"
+msgstr "Общий вид таблицы:"
 
 msgid "Global Actions:"
 msgstr "Глобальные действия:"
@@ -1444,7 +1475,7 @@ msgid "Group %s was successfully created."
 msgstr "Группа %s успешно создана."
 
 msgid "Group updated successfully."
-msgstr "Группа успешно обновлена"
+msgstr "Группа успешно обновлена."
 
 msgid "Hash"
 msgstr "Хэш"
@@ -1468,7 +1499,7 @@ msgid "Heading 6"
 msgstr "Заголовок 6"
 
 msgid "Home"
-msgstr "Домой"
+msgstr "На главную"
 
 msgid "Horizontal Definition List"
 msgstr "Горизонтальный список определений"
@@ -1568,10 +1599,10 @@ msgid "Image Description"
 msgstr "Описание образа"
 
 msgid "Image Detail"
-msgstr "Детали Образа"
+msgstr "Детали образа"
 
 msgid "Image Details"
-msgstr "Подробности образа"
+msgstr "Детали образа"
 
 msgid "Image Name"
 msgstr "Имя образа"
@@ -1704,7 +1735,7 @@ msgid "Kernel"
 msgstr "Ядро"
 
 msgid "Kernel ID"
-msgstr "ИД ядра"
+msgstr "ID ядра"
 
 msgid "Key Pair"
 msgid_plural "Key Pairs"
@@ -1866,19 +1897,19 @@ msgid "Manual"
 msgstr "Вручную"
 
 msgid "Max Burst Kbits"
-msgstr "Макс. пик. (кбит/с)"
+msgstr "Макс Burst (кбит/с)"
 
 msgid "Max Burst Size (in kbps)"
-msgstr "Максимальная пиковая пропускная способность (в кбит/с)"
+msgstr "Макс размер Burst трафика (в кбит/с)"
 
 msgid "Max Kbps"
-msgstr "Макс. (кбит/с)"
+msgstr "Макс (кбит/с)"
 
 msgid "Max Port"
-msgstr "По порт"
+msgstr "До порта"
 
 msgid "Max bandwidth (in kbps)"
-msgstr "Максимальная пропускная способность (в кбит/с)"
+msgstr "Макс пропускная способность (в кбит/с)"
 
 msgid "Max. Size (bytes)"
 msgstr "Макс. размер (байт)"
@@ -1900,9 +1931,9 @@ msgstr[2] "Определения метаданных"
 
 msgid ""
 "Metadata is a collection of key-value pairs associated with an instance.\n"
-"    The maximum length for each metadata key and value is 255 characters."
+"    The maximum length for each metadata key is 255 characters."
 msgstr ""
-"Метаданные это набор пар ключ-значение ассоциированных с инстансом.\n"
+"Метаданные это набор пар ключ-значение, связанных с инстансом.\n"
 "   Максимальная длина ключа и значения метаданных - 255 символов."
 
 msgid ""
@@ -1926,22 +1957,22 @@ msgid "Min Disk (GB)"
 msgstr "Мин. размер диска (ГБ)"
 
 msgid "Min Kbps"
-msgstr "Мин. (кбит/с)"
+msgstr "Мин (кбит/с)"
 
 msgid "Min Kpps"
-msgstr "Мин. кпак./сек"
+msgstr "Мин кпак/сек"
 
 msgid "Min Port"
 msgstr "От порта"
 
 msgid "Min RAM (MB)"
-msgstr "Мин. размер ОЗУ (МБ)"
+msgstr "Мин. размер RAM (МБ)"
 
-msgid "Min. Disk"
-msgstr "Минимальный размер диска"
+msgid "Min. Disk (GB)"
+msgstr "Минимальный диск (ГБ)"
 
-msgid "Min. RAM"
-msgstr "Минимальный объем памяти"
+msgid "Min. RAM (MB)"
+msgstr "Минимальный объем RAM (ГБ)"
 
 msgid "Min. Size (bytes)"
 msgstr "Мин. размер (байт)"
@@ -1977,10 +2008,10 @@ msgid "Minimum bandwidth (in kbps)"
 msgstr "Минимальная пропускная способность (в кбит/с)."
 
 msgid "Minimum packet rate (in kpps)"
-msgstr "Минимальная частота пакетов (в кпак./сек)."
+msgstr "Минимальная частота пакетов (в кпак/сек)."
 
 msgid "Modals"
-msgstr "Всплывающие диалоги"
+msgstr "Модальное окно"
 
 msgid "Model"
 msgstr "Модель"
@@ -2069,7 +2100,7 @@ msgstr ""
 "и (или) сети в любом сочетании."
 
 msgid "New File Contents"
-msgstr "Содержимое Нового Файла"
+msgstr "Содержимое нового файла"
 
 msgid "Newer"
 msgstr "Вперед"
@@ -2090,7 +2121,7 @@ msgid "No description available."
 msgstr "Описание недоступно."
 
 msgid "No existing scheduler hints"
-msgstr "Подсказок планировщика не существует"
+msgstr "Нет существующих подсказок планировщика "
 
 msgid "No items to display."
 msgstr "Нет элементов для отображения."
@@ -2136,6 +2167,7 @@ msgstr ""
 "  родительский порт транка. Другие backend'ы могут разрешать\n"
 "  создавать транки в любое время, пока порт существует."
 
+#, python-brace-format
 msgid ""
 "Note: Delimiters ('{$ ctrl.model.DELIMETER $}') are allowed in the\n"
 "          file name to place the new file into a folder that will be "
@@ -2146,6 +2178,7 @@ msgstr ""
 "          файла позволяют размещать файлы в папке, которая будет создана r\n"
 "         после передачи файла на любом уровне структуры папок."
 
+#, python-brace-format
 msgid ""
 "Note: Delimiters ('{$ ctrl.model.DELIMETER $}') are allowed in the\n"
 "          folder name to create deep folders."
@@ -2239,7 +2272,7 @@ msgid "PLOOP"
 msgstr "PLOOP"
 
 msgid "PLOOP - Virtuozzo/Parallels Loopback Disk"
-msgstr "PLOOP - Virtuozzo/Parallels петлевой диск"
+msgstr "PLOOP - Диск Virtuozzo/Parallels (OpenVZ)"
 
 msgid "Pager"
 msgstr "Постраничная навигация"
@@ -2266,7 +2299,7 @@ msgid "Panel primary"
 msgstr "Основная панель"
 
 msgid "Panel success"
-msgstr "Успешная панель"
+msgstr "Панель успешно"
 
 msgid "Panel warning"
 msgstr "Панель ожидания"
@@ -2429,7 +2462,7 @@ msgid "QCOW2"
 msgstr "QCOW2"
 
 msgid "QCOW2 - QEMU Emulator"
-msgstr "QCOW2 - образ QEMU"
+msgstr ".qcow2 - образ диска QEMU"
 
 msgid "QoS Policy"
 msgid_plural "QoS Policies"
@@ -2442,13 +2475,13 @@ msgid "QoS Policy %s was successfully created."
 msgstr "QoS политика %s успешно создана."
 
 msgid "QoS Policy ID"
-msgstr "ИД стратегии QoS"
+msgstr "ID политики QoS"
 
 msgid "QoS Policy Id"
-msgstr "ИД стратегии QoS"
+msgstr "Id политики QoS"
 
 msgid "QoS Policy Name"
-msgstr "Имя стратегии QoS."
+msgstr "Имя политики QoS"
 
 msgid "QoSPolicyId"
 msgstr "ИД политики QoS"
@@ -2467,13 +2500,13 @@ msgid "Queued"
 msgstr "Запланировано"
 
 msgid "RAM"
-msgstr "ОЗУ"
+msgstr "Память"
 
 msgid "RAW"
 msgstr "RAW"
 
 msgid "RX/TX Factor"
-msgstr "RX/TX Фактор"
+msgstr "RX/TX соотношение"
 
 msgid "Radios"
 msgstr "Переключатель"
@@ -2485,7 +2518,7 @@ msgid "Ramdisk"
 msgstr "Диск в памяти"
 
 msgid "Ramdisk ID"
-msgstr "ИД RAM-диска"
+msgstr "ID оперативной памяти"
 
 msgid "Raw"
 msgstr "Raw"
@@ -2495,16 +2528,24 @@ msgstr "Активировать образ"
 
 #, python-format
 msgid "Reactivated Image: %s."
-msgstr "Активированный образ: %s."
+msgstr "Образ активирован: %s."
 
 msgid "Registered Resource Types"
 msgstr "Зарегистрированные типы ресурсов"
 
 msgid "Remote"
-msgstr "Удаленный адрес"
+msgstr "Для адресов"
 
 msgid "Resource ID(s)"
 msgstr "ID ресурса(ов)"
+
+msgid "Restricts instances belonging to the server group to separate hosts."
+msgstr ""
+"Ограничивает инстансы, принадлежащие группе серверов, отдельными узлами."
+
+msgid "Restricts instances belonging to the server group to the same host."
+msgstr ""
+"Ограничивает инстансы, принадлежащие группе серверов, одним и тем же узлом."
 
 msgid "Revision Number"
 msgstr "Номер ревизии"
@@ -2544,7 +2585,7 @@ msgid "Rule to edit"
 msgstr "Правило для изменения"
 
 msgid "RuleId"
-msgstr "ИД правила"
+msgstr "ID правила"
 
 msgid "Rules"
 msgstr "Правила"
@@ -2635,8 +2676,8 @@ msgid ""
 "Select <em>exactly one port</em> as the parent port of the trunk to\n"
 "    be created. Mandatory."
 msgstr ""
-"Выберите один единственный порт, который станет родительским\n"
-"  портом в создаваемом транке. Это обязательный параметр."
+"Выберите <em>ровно один порт</em> в качестве родительского порта \n"
+"   создаваемого транка. Обязательно."
 
 msgid "Select Boot Source"
 msgstr "Выберите источник загрузки"
@@ -2684,7 +2725,7 @@ msgid "Select many"
 msgstr "Выберите несколько"
 
 msgid "Select one"
-msgstr "Выберите одно"
+msgstr "Выберите один вариант"
 
 msgid "Select one or more"
 msgstr "Выберите одну или несколько"
@@ -2711,7 +2752,7 @@ msgid "Select the kernel to run from the drop down menu."
 msgstr "Выберите запускаемое ядро в выпадающем меню."
 
 msgid "Select the security groups to launch the instance in."
-msgstr "Выберите группы защиты, в которых будет запущен экземпляр."
+msgstr "Выберите группы безопасности, в которых будет запущен инстанс."
 
 msgid "Select the server group to launch the instance in."
 msgstr "Выберите группу серверов для запуска инстанса в ней."
@@ -2775,7 +2816,7 @@ msgid "Service type is not enabled: %(desiredType)s"
 msgstr "Тип службы не включен: %(desiredType)s"
 
 msgid "Set admin password"
-msgstr "Пароль администратора"
+msgstr "Задать пароль администратора"
 
 #, python-format
 msgid "Setting is not enabled: %(setting)s"
@@ -2785,10 +2826,10 @@ msgid "Shared"
 msgstr "Общая"
 
 msgid "Shared With Project"
-msgstr "Общие С Проектом"
+msgstr "Общие c проектом"
 
 msgid "Shared with Project"
-msgstr "Общие с Проектом"
+msgstr "Общие с проектом"
 
 msgid "Size"
 msgstr "Размер"
@@ -2809,10 +2850,10 @@ msgid "Snapshot"
 msgstr "Снимок"
 
 msgid "Soft Affinity"
-msgstr "Не жёсткая аффинность"
+msgstr "Soft Affinity"
 
 msgid "Soft Anti Affinity"
-msgstr "Не жёсткая анти-аффинность"
+msgstr "Soft Anti Affinity"
 
 msgid "Someone famous in"
 msgstr "Кто-то известный в"
@@ -2855,7 +2896,7 @@ msgid "Status: %s"
 msgstr "Статус: %s"
 
 msgid "Storage Policy"
-msgstr "Политика Хранения"
+msgstr "Политика хранения"
 
 msgid "Striped"
 msgstr "Полосатый"
@@ -2889,7 +2930,7 @@ msgid "Supports Details View:"
 msgstr "Поддержка просмотра информации:"
 
 msgid "Swap Disk"
-msgstr "Диск подкачки"
+msgstr "Диск swap"
 
 msgid "Swift Account"
 msgid_plural "Swift Accounts"
@@ -2919,10 +2960,7 @@ msgid "Tags"
 msgstr "Метки"
 
 msgid "Tel"
-msgstr "Тел."
-
-msgid "Tenant ID"
-msgstr "ID арендатора"
+msgstr "Телефон"
 
 msgid "Text"
 msgstr "Текст"
@@ -2959,8 +2997,8 @@ msgid ""
 "The flavor you select for an instance determines the amount of compute, "
 "storage and memory resources that will be carved out for the instance."
 msgstr ""
-"Тип инстанса определяет количество вычислительных, дисковых и ОЗУ ресурсов, "
-"которые будут выделены для создаваемого инстанса."
+"Тип инстанса определяет количество вычислительных, дисковых и ресурсов "
+"памяти, которые будут выделены для создаваемого инстанса."
 
 msgid ""
 "The flavor you select must have enough resources allocated to support the "
@@ -3042,7 +3080,7 @@ msgstr ""
 "Если не установлено, используется значение по умолчанию - 0 (нет минимума)"
 
 msgid "The name of the Volume."
-msgstr "Имя Диска"
+msgstr "Имя диска."
 
 msgid "The name of the image."
 msgstr "Имя образа."
@@ -3083,10 +3121,10 @@ msgid ""
 "%(minDisk)s GB of root disk. Select a flavor with a larger root disk or use "
 "a different %(sourceType)s source."
 msgstr ""
-"Для выбранного источника \"%(sourceType)s\" требуется тип инстанса с "
+"Для выбранного \"%(sourceType)s\" источника требуется тип инстанса с "
 "корневым диском размером не менее %(minDisk)s ГБ. Выберите  тип инстанса с "
-"большим размером корневого диска или используйте другой источник "
-"%(sourceType)s."
+"большим размером корневого диска или используйте другой %(sourceType)s "
+"источник ."
 
 #, python-format
 msgid ""
@@ -3094,9 +3132,9 @@ msgid ""
 "%(minRam)s MB of RAM. Select a flavor with more RAM or use a different "
 "%(sourceType)s source."
 msgstr ""
-"Для выбранного источника \"%(sourceType)s\" требуется тип инстанса с объемом "
+"Для выбранного \"%(sourceType)s\" источника требуется тип инстанса с объемом "
 "памяти не менее %(minRam)s МБ. Выберите  тип инстанса с большим объемом "
-"памяти или используйте другой источник %(sourceType)s."
+"памяти или используйте другой %(sourceType)s источник."
 
 msgid "The size of the volume, in gibibytes (GiB)."
 msgstr "Размер диска, в гибибайтах (ГиБ)."
@@ -3123,10 +3161,10 @@ msgid "Themable Checkbox"
 msgstr "Тематический флаг"
 
 msgid "Themable Option 1"
-msgstr "Тематическая Опция 1"
+msgstr "Тематический вариант 1"
 
 msgid "Themable Option 2"
-msgstr "Тематическая Опция 2"
+msgstr "Тематический вариант 2"
 
 msgid "Themable Radios"
 msgstr "Тематический переключатель"
@@ -3190,16 +3228,16 @@ msgid ""
 "This flavor requires more RAM than your quota allows. Please select a "
 "smaller flavor or decrease the instance count."
 msgstr ""
-"Данный тип инстанса требует больше RAM, чем позволяет ваша квота. "
-"Пожалуйста, выберите тип инстанса с меньшим количеством RAM или уменьшите "
+"Данный тип инстанса требует больше памяти, чем позволяет ваша квота. "
+"Пожалуйста, выберите тип инстанса с меньшим количеством памяти или уменьшите "
 "количество инстансов."
 
 msgid ""
 "This flavor requires more VCPUs than your quota allows. Please select a "
 "smaller flavor or decrease the instance count."
 msgstr ""
-"Данный тип инстанса требует больше VCPU, чем позволяет ваша квота. "
-"Пожалуйста, выберите тип инстанса с меньшим количеством VCPU или уменьшите "
+"Данный тип инстанса требует больше vCPU, чем позволяет ваша квота. "
+"Пожалуйста, выберите тип инстанса с меньшим количеством vCPU или уменьшите "
 "количество инстансов."
 
 msgid ""
@@ -3213,11 +3251,13 @@ msgid "This is focused..."
 msgstr "Этот элемент активен..."
 
 msgid "This limit is currently not set."
-msgstr "Это предел пока не задан."
+msgstr "Это ограничение пока не задано."
 
+#, python-brace-format
 msgid "This limit is currently set to {$ model.novaLimits.maxServerMeta $}."
 msgstr ""
-"В данной системе этот предел равен {$ model.novaLimits.maxServerMeta $}."
+"В данной момент данное ограничение равно {$ model.novaLimits.maxServerMeta "
+"$}."
 
 msgid "This name already exists."
 msgstr "Это имя уже используется."
@@ -3235,7 +3275,7 @@ msgstr ""
 "<a href=\"http://schemaform.io/\">http://schemaform.io/</a>."
 
 msgid "This step allows you to add Metadata items to your instance."
-msgstr "На этом шаге в экземпляр можно добавить метаданные."
+msgstr "На этом шаге в инстанс можно добавить элементы метаданных."
 
 msgid "This step allows you to add scheduler hints to your instance."
 msgstr "Этот шаг позволяет добавить подсказки планировщика к вашему инстансу."
@@ -3244,7 +3284,7 @@ msgid "Time"
 msgstr "Время"
 
 msgid "Timestamp"
-msgstr "Системное время"
+msgstr "Временная метка"
 
 msgid ""
 "To view source code, hover over a section, then click the <a class=\"btn btn-"
@@ -3256,13 +3296,13 @@ msgstr ""
 "правом верхнем углу секции."
 
 msgid "Tooltips"
-msgstr "Всплывающие подсказки"
+msgstr "Подсказки"
 
 msgid "Top"
 msgstr "Сверху"
 
 msgid "Total Disk"
-msgstr "Объем диска"
+msgstr "Всего диска"
 
 msgid "Total Instances"
 msgstr "Всего инстансов"
@@ -3324,16 +3364,16 @@ msgid "Unable to add the minimum_packet_rate_rule."
 msgstr "Не удалось добавить правило минимальной частоты пакетов."
 
 msgid "Unable to allocate new floating IP address."
-msgstr "Не удаётся выделить новый плавающий IP-адрес."
+msgstr "Не удалось выделить новый плавающий IP адрес."
 
 msgid "Unable to associate floating IP address."
-msgstr "Не удаётся связать плавающий IP-адрес."
+msgstr "Не удалось связать плавающий IP-адрес."
 
 msgid "Unable to change the container access."
 msgstr "Не удаётся изменить права доступа к контейнеру."
 
 msgid "Unable to check the Nova service feature."
-msgstr "Не удалось получить характеристику сервисв Nova."
+msgstr "Не удалось получить характеристику службы Nova."
 
 msgid "Unable to copy the object."
 msgstr "Не удается скопировать объект."
@@ -3348,7 +3388,7 @@ msgid "Unable to create the domain."
 msgstr "Не удалось создать домен."
 
 msgid "Unable to create the flavor."
-msgstr "Не удаётся создать разновидность."
+msgstr "Не удалось создать тип инстанса."
 
 msgid "Unable to create the folder."
 msgstr "Не удаётся создать папку."
@@ -3372,7 +3412,7 @@ msgid "Unable to create the role."
 msgstr "Не удалось создать роль."
 
 msgid "Unable to create the server group."
-msgstr "Не удается создать группу серверов"
+msgstr "Не удалось создать группу серверов."
 
 msgid "Unable to create the server snapshot."
 msgstr "Не удалось создать снимок сервера."
@@ -3397,7 +3437,7 @@ msgid "Unable to deactivate Image: %s."
 msgstr "Не удается деактивировать образ: %s."
 
 msgid "Unable to deactivate the image."
-msgstr "Не удается деактивировать образ."
+msgstr "Не удалось деактивировать образ."
 
 #, python-format
 msgid "Unable to delete Flavor: %s."
@@ -3490,7 +3530,7 @@ msgstr "Не удалось удалить правило метки DSCP."
 
 #, python-format
 msgid "Unable to delete the flavor with id: %(id)s"
-msgstr "Не удаётся удалить разновидность с ИД: %(id)s"
+msgstr "Не удалось удалить тип инстанса с id: %(id)s"
 
 msgid "Unable to delete the folder because it is not empty."
 msgstr "Не удаётся удалить папку, так как она непустая."
@@ -3503,11 +3543,11 @@ msgstr "Не удалось удалить группы."
 
 #, python-format
 msgid "Unable to delete the image with id: %(id)s"
-msgstr "Не удаётся удалить образ с ИД: %(id)s"
+msgstr "Не удалось удалить образ с id: %(id)s"
 
 #, python-format
 msgid "Unable to delete the keypair with name: %(name)s"
-msgstr "Не удалось удалить пару ключей с именем %(name)s"
+msgstr "Не удалось удалить пару ключей с именем: %(name)s"
 
 msgid "Unable to delete the minimum_bandwidth_rule ."
 msgstr "Не удалось удалить правило минимальной пропускной способности."
@@ -3532,11 +3572,11 @@ msgstr "Не удалось удалить роли."
 
 #, python-format
 msgid "Unable to delete the server group with id %(id)s"
-msgstr "Не удается удалить группу серверов: %(id)s"
+msgstr "Не удалось удалить группу серверов с id %(id)s"
 
 #, python-format
 msgid "Unable to delete the server with id: %(id)s"
-msgstr "Не удаётся удалить сервер с ИД: %(id)s"
+msgstr "Не удалось удалить сервер с id: %(id)s"
 
 msgid "Unable to delete the user."
 msgstr "Не удалось удалить пользователя."
@@ -3546,13 +3586,13 @@ msgstr "Не удалось удалить пользователей."
 
 #, python-format
 msgid "Unable to delete trunk: %(id)s"
-msgstr "Не удаётся удалить транк: %(id)s"
+msgstr "Не удалось удалить транк: %(id)s"
 
 msgid "Unable to disassociate floating IP address."
-msgstr "Не удаётся освободить плавающий IP-адрес."
+msgstr "Не удалось отвязать плавающий IP-адрес."
 
 msgid "Unable to edit instance metadata."
-msgstr "Не удаётся изменить метаданные экземпляра."
+msgstr "Не удалось изменить метаданные инстанса."
 
 msgid "Unable to edit snapshot metadata."
 msgstr "Не удалось изменить метаданные снимка."
@@ -3570,7 +3610,7 @@ msgid "Unable to edit the group."
 msgstr "Не удалось изменить группу."
 
 msgid "Unable to edit the image custom properties."
-msgstr "Невозможно редактировать расширенные свойства образа."
+msgstr "Невозможно редактировать изменяемые свойства образа."
 
 msgid "Unable to edit the project."
 msgstr "Не удалось изменить проект."
@@ -3594,16 +3634,16 @@ msgid "Unable to fetch the policy details."
 msgstr "Не удалось получить детали политики."
 
 msgid "Unable to fetch the service catalog."
-msgstr "Не удалось получить каталог служб."
+msgstr "Не получить извлечь каталог служб."
 
 msgid "Unable to fetch the services."
-msgstr "Не удалось получить сервисы."
+msgstr "Не удалось получить службы."
 
 msgid "Unable to get details of the object."
 msgstr "Не удаётся получить сведения об объекте."
 
 msgid "Unable to get the Glance service version."
-msgstr "Не удалось получить версию сервисов Glance."
+msgstr "Не удалось получить версию службы Glance."
 
 msgid "Unable to get the Keystone service version."
 msgstr "Не удалось получить версию службы Keystone."
@@ -3625,7 +3665,7 @@ msgstr "Не удалось предоставить роль."
 
 #, python-format
 msgid "Unable to hard-reboot the server with id: %(id)s"
-msgstr "Не удаётся аппаратно перезапустить сервер с ИД: %(id)s"
+msgstr "Не удалось жестко перезагрузить сервер с id: %(id)s"
 
 msgid "Unable to import the keypair."
 msgstr "Не удалось импортировать пару ключей."
@@ -3647,7 +3687,7 @@ msgstr "Не удается загрузить диски сервера."
 
 #, python-format
 msgid "Unable to pause the server with id: %(id)s"
-msgstr "Не удаётся приостановить сервер с ИД: %(id)s"
+msgstr "Не удалось приостановить сервер с id: %(id)s"
 
 #, python-format
 msgid "Unable to reactivate Image: %s."
@@ -3658,67 +3698,67 @@ msgstr "Не удается активировать образ."
 
 #, python-format
 msgid "Unable to resume the server with id: %(id)s"
-msgstr "Не удаётся возобновить сервер с ИД: %(id)s"
+msgstr "Не удалось возобновить сервер с id: %(id)s"
 
 msgid "Unable to retrieve floating IP pools."
-msgstr "Не удаётся получить пулы плавающих IP-адресов."
+msgstr "Не удалось найти пулы плавающих IP."
 
 msgid "Unable to retrieve floating IPs."
-msgstr "Не удаётся получить нефиксированные IP-адреса."
+msgstr "Не удалось найти плавающие IP."
 
 msgid "Unable to retrieve instance metadata."
-msgstr "Не удаётся получить метаданные экземпляра."
+msgstr "Не удалось получить метаданные инстанса."
 
 msgid "Unable to retrieve instances."
-msgstr "Не удаётся получить экземпляры."
+msgstr "Не удалось найти инстансы."
 
 msgid "Unable to retrieve server groups."
-msgstr "Не удается получить группы серверов."
+msgstr "Не удалось найти группы серверов."
 
 msgid "Unable to retrieve settings."
 msgstr "Не удалось получить настройки."
 
 msgid "Unable to retrieve the Absolute Limits."
-msgstr "Не удалось получить Абсолютные Лимиты."
+msgstr "Не удалось найти абсолютные ограничения."
 
 msgid "Unable to retrieve the QoS Specs."
-msgstr "Не удалось получить характеристики QoS."
+msgstr "Не удалось найти характеристики QoS."
 
 msgid "Unable to retrieve the agents."
-msgstr "Не удалось получить агентов."
+msgstr "Не удалось найти агентов."
 
 msgid "Unable to retrieve the aggregate extra specs."
 msgstr "Невозможно получить расширенные параметры для агрегатора."
 
 msgid "Unable to retrieve the availability zones."
-msgstr "Не удалось получить зоны доступности."
+msgstr "Не удалось найти зоны доступности."
 
 msgid "Unable to retrieve the cinder services."
-msgstr "Не удалось получить сервисы cinder."
+msgstr "Не удалось получить службы cinder."
 
 msgid "Unable to retrieve the current user session."
 msgstr "Не удалось получить текущую сессию пользователя."
 
 msgid "Unable to retrieve the default domain."
-msgstr "Не удалось получить домен по умолчанию."
+msgstr "Не удалось найти домен по умолчанию."
 
 msgid "Unable to retrieve the default quotas."
-msgstr "Не удается получить квоты по умолчанию."
+msgstr "Не удается найти квоты по умолчанию."
 
 msgid "Unable to retrieve the default volume type."
 msgstr "Не удалось получить тип диска по умолчанию."
 
 msgid "Unable to retrieve the domain."
-msgstr "Не удалось получить домен."
+msgstr "Не удалось найти домен."
 
 msgid "Unable to retrieve the domains."
-msgstr "Не удалось получить домены."
+msgstr "Не удалось найти домены."
 
 msgid "Unable to retrieve the editable quotas."
 msgstr "Не удается получить дополнительные квоты."
 
 msgid "Unable to retrieve the extensions."
-msgstr "Не удалось получить расширения."
+msgstr "Не удалось найти расширения."
 
 msgid "Unable to retrieve the flavor extra specs."
 msgstr "Невозможно получить расширенные параметры для типа инстанса."
@@ -3730,96 +3770,96 @@ msgid "Unable to retrieve the flavors."
 msgstr "Невозможно получить типы инстансов."
 
 msgid "Unable to retrieve the group."
-msgstr "Не удалось получить группу."
+msgstr "Не удалось найти группу."
 
 msgid "Unable to retrieve the image custom properties."
-msgstr "Не удалось получить расширенные свойства образа."
+msgstr "Не удалось получить изменяемые свойства образа."
 
 msgid "Unable to retrieve the image."
-msgstr "Не удалось получить образ."
+msgstr "Не удалось найти образ."
 
 msgid "Unable to retrieve the images."
-msgstr "Не удалось получить образы."
+msgstr "Не удалось найти образы."
 
 msgid "Unable to retrieve the keypair."
 msgstr "Не удалось импортировать пару ключей."
 
 msgid "Unable to retrieve the keypairs."
-msgstr "Не удалось получить пары ключей."
+msgstr "Не удалось найти пары ключей."
 
 msgid "Unable to retrieve the limits."
-msgstr "Не удалось получить лимиты."
+msgstr "Не удалось найти ограничения."
 
 msgid "Unable to retrieve the namespaces."
 msgstr "Не удалось получить пространства имён."
 
 msgid "Unable to retrieve the networks."
-msgstr "Не удалось получить сети."
+msgstr "Не удалось найти сети."
 
 msgid "Unable to retrieve the nova services."
-msgstr "Не удалось получить сервисы nova."
+msgstr "Не удалось найти сервисы nova."
 
 #, python-format
 msgid "Unable to retrieve the policy with ID %(id)s"
-msgstr "Не удалось получить политику с ID %(id)s"
+msgstr "Не удалось найти политику с id %(id)s"
 
 msgid "Unable to retrieve the ports."
-msgstr "Не удалось получить порты."
+msgstr "Не удалось найти порты."
 
 msgid "Unable to retrieve the project."
-msgstr "Не удалось получить проекты."
+msgstr "Не удалось найти проект."
 
 msgid "Unable to retrieve the projects."
-msgstr "Не удалось получить проекты."
+msgstr "Не удалось найти проекты."
 
 msgid "Unable to retrieve the qos policies."
-msgstr "Не удалось получить политики QoS."
+msgstr "Не удалось найти политики QoS."
 
 msgid "Unable to retrieve the resource types."
-msgstr "Не удаётся получить типы ресурсов."
+msgstr "Не удалось получить типы ресурсов."
 
 msgid "Unable to retrieve the role."
-msgstr "Не удалось получить роль"
+msgstr "Не удалось получить роль."
 
 msgid "Unable to retrieve the roles."
-msgstr "Не удалось получить роли пользователя."
+msgstr "Не удалось получить роли."
 
 msgid "Unable to retrieve the security groups."
 msgstr "Не удалось получить группы безопасности."
 
 msgid "Unable to retrieve the server group."
-msgstr "Не удается получить группу серверов."
+msgstr "Не удается найти группу серверов."
 
 msgid "Unable to retrieve the server."
-msgstr "Не удалось получить сервер."
+msgstr "Не удалось найти сервер."
 
 msgid "Unable to retrieve the snapshot metadata."
 msgstr "Не удалось получить метаданные снимка."
 
 msgid "Unable to retrieve the subnets."
-msgstr "Не удалось получить подсети."
+msgstr "Не удалось найти подсети."
 
 #, python-format
 msgid "Unable to retrieve the trunk with id: %(id)s"
-msgstr "Ну удалось получить детали транка с ID %(id)s"
+msgstr "Ну удалось получить детали транка с id %(id)s"
 
 msgid "Unable to retrieve the trunks."
 msgstr "Не удалось получить транки."
 
 msgid "Unable to retrieve the user."
-msgstr "Не удалось получить пользователя."
+msgstr "Не удалось найти пользователя."
 
 msgid "Unable to retrieve the users."
 msgstr "Не удалось получить список пользователей."
 
 msgid "Unable to retrieve the volume availability zones."
-msgstr "Не удалось получить зоны доступности томов."
+msgstr "Не удалось найти зоны доступности дисков."
 
 msgid "Unable to retrieve the volume metadata."
 msgstr "Не удалось получить метаданные диска."
 
 msgid "Unable to retrieve the volume snapshots."
-msgstr "Не удалось получить снимки диска."
+msgstr "Не удалось найти снимки диска."
 
 msgid "Unable to retrieve the volume type metadata."
 msgstr "Не удалось получить метаданные типа диска."
@@ -3841,23 +3881,23 @@ msgstr "Не удается установить квоты по умолчан�
 
 #, python-format
 msgid "Unable to soft-reboot the server with id: %(id)s"
-msgstr "Не удаётся программно перезапустить сервер с ИД: %(id)s"
+msgstr "Не удалось перезапустить сервер с id: %(id)s"
 
 #, python-format
 msgid "Unable to start the server with id: %(id)s"
-msgstr "Не удаётся запустить сервер с ИД: %(id)s"
+msgstr "Не удалось запустить сервер с id: %(id)s"
 
 #, python-format
 msgid "Unable to stop the server with id: %(id)s"
-msgstr "Не удаётся остановить сервер с ИД: %(id)s"
+msgstr "Не удаётся остановить сервер с ID: %(id)s"
 
 #, python-format
 msgid "Unable to suspend the server with id: %(id)s"
-msgstr "Не удаётся приостановить сервер с ИД: %(id)s"
+msgstr "Не удалось приостановить сервер с id: %(id)s"
 
 #, python-format
 msgid "Unable to unpause the server with id: %(id)s"
-msgstr "Не удаётся возобновить сервер с ИД: %(id)s"
+msgstr "Не удалось возобновить сервер с id: %(id)s"
 
 msgid "Unable to update metadata."
 msgstr "Не удалось обновить метаданные."
@@ -3872,7 +3912,7 @@ msgid "Unable to update the dscp marking rule."
 msgstr "Не удалось обновить правило метки DSCP."
 
 msgid "Unable to update the flavor."
-msgstr "Не удаётся обновить разновидность."
+msgstr "Не удалось обновить тип инстанса."
 
 msgid "Unable to update the image."
 msgstr "Не удалось обновить образ."
@@ -3940,11 +3980,12 @@ msgstr "Обновлено"
 msgid "Upload File"
 msgstr "Загрузить файл"
 
+#, python-brace-format
 msgid "Upload File To: {$ ctrl.model.container.name $}"
-msgstr "Загрузить Файл: {$ ctrl.model.container.name $}"
+msgstr "Загрузить файл в: {$ ctrl.model.container.name $}"
 
 msgid "Uploading"
-msgstr "Передача данных"
+msgstr "Загрузка"
 
 msgid "Uploading the image from a local file or from a specified URL."
 msgstr "Загрузка образа из локального файла или по указанному URL."
@@ -4021,22 +4062,22 @@ msgid "VDI"
 msgstr "VDI"
 
 msgid "VDI - Virtual Disk Image"
-msgstr "VDI - Образ виртуального диска"
+msgstr "vdi - образ виртуального диска VirtualBox (Oracle)"
 
 msgid "VHD"
 msgstr "VHD"
 
 msgid "VHD - Virtual Hard Disk"
-msgstr "VHD - Виртуальный жесткий диск"
+msgstr ".vhd - образ виртуального жесткого диска (Microsoft Hyper-V)"
 
 msgid "VMDK"
 msgstr "VMDK"
 
 msgid "VMDK - Virtual Machine Disk"
-msgstr "VMDK - Диск виртуальной машины"
+msgstr ".vhdx - расширение формата .vhd (Microsoft Hyper-V)"
 
 msgid "VNIC type"
-msgstr "Тип VNIC"
+msgstr "Тип vNIC"
 
 msgid ""
 "Valid DSCP mark values are even numbers between 0 and 56,\n"
@@ -4060,7 +4101,7 @@ msgid "View Form JSON"
 msgstr "Просмотр в JSON"
 
 msgid "View Instance Details"
-msgstr "Посмотреть информацию об инстансе."
+msgstr "Посмотреть детали инстанса."
 
 msgid "View Router Details"
 msgstr "Посмотреть информацию о маршрутизаторе"
@@ -4072,7 +4113,7 @@ msgid "Virtual Size"
 msgstr "Виртуальный размер"
 
 msgid "Virtual instances attach their interfaces to ports."
-msgstr "Виртуальные экземпляры связывают свои интерфейсы с портами."
+msgstr "Виртуальные инстансы связывают свои интерфейсы с портами."
 
 msgid "Visibility"
 msgstr "Видимость"
@@ -4090,10 +4131,10 @@ msgstr[1] "Резервные копии тома"
 msgstr[2] "Резервные копии тома"
 
 msgid "Volume Details"
-msgstr "Сведения о томе"
+msgstr "Детали диска"
 
 msgid "Volume Quota"
-msgstr "Квота тома"
+msgstr "Квота диска"
 
 msgid "Volume Size (GB)"
 msgstr "Размер диска (ГБ)"
@@ -4105,21 +4146,20 @@ msgstr[1] "Снимки диска"
 msgstr[2] "Снимки диска"
 
 msgid "Volume Type Description:"
-msgstr "Описание типа тома:"
+msgstr "Описание типа диска:"
 
 msgid "Volume and Snapshot Quota (GiB)"
-msgstr "Квота томов и моментальных копий (ГиБ)"
+msgstr "Квота дисков и снимков (ГиБ)"
 
 msgid "Volume size is required and must be an integer"
-msgstr "Требуется указать размер диска в виде целого числа."
+msgstr "Требуется указать размер диска в виде целого числа"
 
 msgid "Volume size is required and must be positive integer"
-msgstr "Размер диска (тома) должен быть целым положительным числом."
+msgstr "Размер диска должен быть целым положительным числом"
 
 msgid "Volumes are block devices that can be attached to instances."
 msgstr ""
-"Тома (образы дисков) - это блочные устройства, которые могут быть подключены "
-"к инстансам."
+"Диски - это блочные устройства, которые могут быть подключены к инстансам."
 
 msgid ""
 "Volumes can only be attached to 1 active instance at a time. Please either "
@@ -4167,9 +4207,9 @@ msgid ""
 "b> to <b>Down</b>\n"
 "    if you are not ready for other users to access the network."
 msgstr ""
-"Когда <b>Состояние</b> сети выставлено в <b>Включено</b>,\n"
-"    то сеть доступна для использования. Вы можете выставить <b>Состояние</b> "
-"в <b>Выключено</b>\n"
+"Когда <b>Административное состояние</b> сети выставлено в <b>Включена</b>,\n"
+"    то сеть доступна для использования. Вы можете выставить "
+"<b>Административное состояние</b> в <b>Выключена</b>\n"
 "    если вы не хотите, чтобы другие пользователи имели к ней доступ."
 
 msgid ""
@@ -4179,10 +4219,10 @@ msgid ""
 "to <b>Down</b>\n"
 "    if you are not ready for other users to use the port."
 msgstr ""
-"Если <b>Адм. состояние</b> порта - <b>Включен</b> и для него не задан "
-"<b>Владелец устройства</b>,\n"
-"    то порт доступен для использования. Если <b>Адм. состояние</b> задано "
-"как <b>Выключен</b>,\n"
+"Если <b>Административное состояние</b> порта - <b>Включен</b> и для него не "
+"задан <b>Владелец устройства</b>,\n"
+"    то порт доступен для использования. Если <b>Административное состояние</"
+"b> задано как <b>Выключен</b>,\n"
 "    то другим пользователям не разрешено использовать порт."
 
 msgid "X509 Certificate"
@@ -4230,8 +4270,8 @@ msgstr ""
 msgid ""
 "You can copy objects. You have to create destination container prior to copy."
 msgstr ""
-"Вы можете копировать объекты, но сначала должны создать конечный контейнер "
-"назначения."
+"Вы можете копировать объекты. Перед копированием необходимо создать целевой "
+"контейнер."
 
 msgid ""
 "You can customize your instance after it has launched using the options "
@@ -4351,7 +4391,7 @@ msgid "Your Form as JavaScript"
 msgstr "Ваша форма в JavaScript"
 
 msgid "any"
-msgstr "Любой"
+msgstr "любой"
 
 msgid "egress"
 msgstr "Исходящий трафик"
@@ -4366,10 +4406,13 @@ msgid "inherit"
 msgstr "унаследовать"
 
 msgid "min disk is required and must be an integer not less than 0"
-msgstr "Требуется указать размер диска в виде целого числа больше нуля."
+msgstr ""
+"требуется указать минимальный размер диска в виде целого числа не меньше нуля"
 
 msgid "min ram is required and must be an integer not less than 0"
-msgstr "Требуется указать размер ОЗУ в виде целого числа больше нуля."
+msgstr ""
+"требуется указать минимальный размер оперативной памяти в виде целого числа "
+"не меньше нуля"
 
 msgid "os_hash_algo"
 msgstr "os_hash_algo"
@@ -4382,14 +4425,16 @@ msgid "resource load failed: %s"
 msgstr "загрузка ресурса не удалась: %s"
 
 msgid "snapshot"
-msgstr "моментальная копия"
+msgstr "снимок"
 
 msgid "volume"
 msgstr "диск"
 
+#, python-brace-format
 msgid "{$ address $} on subnet {$ subnet $}"
 msgstr "{$ address $} в подсети {$ subnet $}"
 
+#, python-brace-format
 msgid ""
 "{$ ctrl.model.counted.files $} files in\n"
 "      {$ ctrl.model.counted.folders $} folders."

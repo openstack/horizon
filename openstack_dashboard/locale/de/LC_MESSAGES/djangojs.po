@@ -16,7 +16,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: horizon VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2025-01-25 08:07+0900\n"
+"POT-Creation-Date: 2025-07-08 23:51+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -229,6 +229,7 @@ msgstr ""
 "Ein Port stellt einen virtuellen Switch-Port in einem logischen Netzswitch "
 "dar."
 
+#, python-brace-format
 msgid ""
 "A volume description less than {$createVolumeCtrl.validationRules."
 "fieldMaxLength + 1$} characters is required."
@@ -236,6 +237,7 @@ msgstr ""
 "Es ist eine Datenträgerbeschreibung mit weniger als {$createVolumeCtrl."
 "validationRules.fieldMaxLength + 1$} Zeichen erforderlich."
 
+#, python-brace-format
 msgid ""
 "A volume name less than {$createVolumeCtrl.validationRules.fieldMaxLength + "
 "1$} characters is required."
@@ -385,6 +387,7 @@ msgstr "Eine externe Adresse (HTTP URL) von der das Abbild geladen wird"
 msgid "An image description less than 256 characters is required."
 msgstr "Eine Abbildbeschreibung mit weniger als 256 Zeichen ist erforderlich."
 
+#, python-brace-format
 msgid ""
 "An image description less than {$ctrl.validationRules.fieldMaxLength + 1$} "
 "characters is required."
@@ -395,6 +398,7 @@ msgstr ""
 msgid "An image name less than 256 characters is required."
 msgstr "Ein Abbildname mit weniger als 256 Zeichen ist erforderlich."
 
+#, python-brace-format
 msgid ""
 "An image name less than {$ctrl.validationRules.fieldMaxLength + 1$} "
 "characters is required."
@@ -667,6 +671,7 @@ msgstr "Daten kopieren"
 msgid "Copy Object"
 msgstr "Objekt kopieren"
 
+#, python-brace-format
 msgid "Copy Object: {$ ctrl.model.container $}/{$ ctrl.model.path $}"
 msgstr "Kopiere Objekt: {$ ctrl.model.container $}/{$ ctrl.model.path $}"
 
@@ -694,6 +699,7 @@ msgstr "Domäne erstellen"
 msgid "Create Folder"
 msgstr "Ordner erstellen"
 
+#, python-brace-format
 msgid "Create Folder In: {$ ctrl.model.container.name $}"
 msgstr "Ordner erstellen in: {$ ctrl.model.container.name $}"
 
@@ -856,6 +862,7 @@ msgstr[1] "Lösche Domänen"
 msgid "Delete Domains"
 msgstr "Domänen löschen"
 
+#, python-brace-format
 msgid "Delete Files in {$ ctrl.model.container.name $}"
 msgstr "Lösche Dateien in {$ ctrl.model.container.name $}"
 
@@ -1133,6 +1140,7 @@ msgstr "Bearbeiten"
 msgid "Edit File"
 msgstr "Datei bearbeiten"
 
+#, python-brace-format
 msgid "Edit File: {$ ctrl.model.container $} : {$ ctrl.model.path $}"
 msgstr "Datei bearbeiten: {$ ctrl.model.container $} : {$ ctrl.model.path $}"
 
@@ -1170,6 +1178,7 @@ msgstr ""
 msgid "Enabled"
 msgstr "Aktiviert"
 
+#, python-brace-format
 msgid "Encountered {$ ctrl.model.deleted.failures $} failures."
 msgstr "Aufgetretene Fehler: {$ ctrl.model.deleted.failures $}"
 
@@ -1767,13 +1776,6 @@ msgstr[0] "Metadatendefinition"
 msgstr[1] "Metadatendefinitionen"
 
 msgid ""
-"Metadata is a collection of key-value pairs associated with an instance.\n"
-"    The maximum length for each metadata key and value is 255 characters."
-msgstr ""
-"Metadaten sind mit einer Instanz verbundene Schlüssel-Wert Paare.\n"
-" Die maximale Länge für einen einzelnen Schlüssel oder Wert ist 255 Zeichen."
-
-msgid ""
 "Metadata is used to provide additional information about the\n"
 "    image. Sometimes this information is only used for sorting and viewing.\n"
 "    In some installations this information may affect how the instance is\n"
@@ -1802,12 +1804,6 @@ msgstr "Min Port"
 
 msgid "Min RAM (MB)"
 msgstr "Min RAM (MB)"
-
-msgid "Min. Disk"
-msgstr "Min. Festplatte"
-
-msgid "Min. RAM"
-msgstr "Min. RAM"
 
 msgid "Min. Size (bytes)"
 msgstr "Min. Größe (MB)"
@@ -1965,6 +1961,7 @@ msgstr ""
 "dem Elternport gestartet wird.  Andere Backends können die Trunkerstellung "
 "auch zu beliebigen Zeiten während der Lebensdauer eines Ports erlauben."
 
+#, python-brace-format
 msgid ""
 "Note: Delimiters ('{$ ctrl.model.DELIMETER $}') are allowed in the\n"
 "          file name to place the new file into a folder that will be "
@@ -1976,6 +1973,7 @@ msgstr ""
 "          der erstellt wird, wenn die Datei hochgeladen ist (bei jeder "
 "Ordnertiefe)."
 
+#, python-brace-format
 msgid ""
 "Note: Delimiters ('{$ ctrl.model.DELIMETER $}') are allowed in the\n"
 "          folder name to create deep folders."
@@ -2699,9 +2697,6 @@ msgstr "Schlagwörter"
 msgid "Tel"
 msgstr "Tel"
 
-msgid "Tenant ID"
-msgstr "Mandanten-ID"
-
 msgid "Text"
 msgstr "Text"
 
@@ -2959,6 +2954,7 @@ msgstr "Momentan ausgewählt ist..."
 msgid "This limit is currently not set."
 msgstr "Moment ist kein Grenzwert festgelegt."
 
+#, python-brace-format
 msgid "This limit is currently set to {$ model.novaLimits.maxServerMeta $}."
 msgstr ""
 "Dieser Grenzwert ist momentan auf {$ model.novaLimits.maxServerMeta $} "
@@ -3628,6 +3624,7 @@ msgstr "Aktualisiert am"
 msgid "Upload File"
 msgstr "Datei hochladen"
 
+#, python-brace-format
 msgid "Upload File To: {$ ctrl.model.container.name $}"
 msgstr "Datei hochladen nach: {$ ctrl.model.container.name $}"
 
@@ -4063,9 +4060,11 @@ msgstr "Schattenkopie"
 msgid "volume"
 msgstr "Datenträger"
 
+#, python-brace-format
 msgid "{$ address $} on subnet {$ subnet $}"
 msgstr "{$ address $} in Subnetz {$ subnet $}"
 
+#, python-brace-format
 msgid ""
 "{$ ctrl.model.counted.files $} files in\n"
 "      {$ ctrl.model.counted.folders $} folders."
