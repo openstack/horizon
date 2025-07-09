@@ -22,13 +22,9 @@ from openstack_dashboard.dashboards.project.api_access import views
 
 urlpatterns = [
     re_path(r'^$', views.IndexView.as_view(), name='index'),
-    re_path(r'^ec2/$', views.download_ec2_bundle, name='ec2'),
     re_path(r'^clouds.yaml/$',
             views.download_clouds_yaml_file, name='clouds.yaml'),
     re_path(r'^openrc/$', views.download_rc_file, name='openrc'),
     re_path(r'^view_credentials/$', views.CredentialsView.as_view(),
             name='view_credentials'),
-    re_path(r'^recreate_ec2_credentials/$',
-            views.RecreateCredentialsView.as_view(),
-            name='recreate_credentials'),
 ]

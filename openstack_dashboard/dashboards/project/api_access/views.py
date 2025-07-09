@@ -12,16 +12,12 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
-from contextlib import closing
 import logging
-import tempfile
-import zipfile
 
 from django.conf import settings
 from django import http
 from django import shortcuts
 from django.template.loader import render_to_string
-from django.urls import reverse_lazy
 from django.utils.translation import gettext_lazy as _
 
 from horizon import exceptions
@@ -32,41 +28,9 @@ from horizon import views
 
 from openstack_dashboard import api
 from openstack_dashboard.dashboards.project.api_access \
-    import forms as api_access_forms
-from openstack_dashboard.dashboards.project.api_access \
     import tables as api_access_tables
 
 LOG = logging.getLogger(__name__)
-
-
-def _get_ec2_credentials(request):
-    tenant_id = request.user.tenant_id
-    all_keys = api.keystone.list_ec2_credentials(request,
-                                                 request.user.id)
-
-    key = next((x for x in all_keys if x.tenant_id == tenant_id), None)
-    if not key:
-        key = api.keystone.create_ec2_credentials(request,
-                                                  request.user.id,
-                                                  tenant_id)
-    try:
-        s3_endpoint = api.base.url_for(request,
-                                       's3',
-                                       endpoint_type='publicURL')
-    except exceptions.ServiceCatalogException:
-        s3_endpoint = None
-
-    try:
-        ec2_endpoint = api.base.url_for(request,
-                                        'ec2',
-                                        endpoint_type='publicURL')
-    except exceptions.ServiceCatalogException:
-        ec2_endpoint = None
-
-    return {'ec2_access_key': key.access,
-            'ec2_secret_key': key.secret,
-            'ec2_endpoint': ec2_endpoint,
-            's3_endpoint': s3_endpoint}
 
 
 def _get_openrc_credentials(request):
@@ -83,40 +47,6 @@ def _get_openrc_credentials(request):
         'auth_type': request.session.get('auth_type'),
         'region': getattr(request.user, 'services_region') or "",
     }
-
-
-# TODO(stephenfin): Migrate to CBV
-def download_ec2_bundle(request):
-    tenant_name = request.user.tenant_name
-
-    # Gather or create our EC2 credentials
-    try:
-        context = _get_ec2_credentials(request)
-    except Exception:
-        exceptions.handle(request,
-                          _('Unable to fetch EC2 credentials.'),
-                          redirect=request.build_absolute_uri())
-
-    # Create our file bundle
-    template = 'project/api_access/ec2rc.sh.template'
-    try:
-        # pylint: disable-next=consider-using-with
-        temp_zip = tempfile.NamedTemporaryFile(delete=True)
-        with closing(zipfile.ZipFile(temp_zip.name, mode='w')) as archive:
-            archive.writestr('ec2rc.sh', render_to_string(template, context))
-    except Exception:
-        exceptions.handle(request,
-                          _('Error writing zipfile: %(exc)s'),
-                          redirect=request.build_absolute_uri())
-
-    # Send it back
-    response = http.HttpResponse(content_type='application/zip')
-    response.write(temp_zip.read())
-    response['Content-Disposition'] = ('attachment; '
-                                       'filename="%s-x509.zip"'
-                                       % tenant_name)
-    response['Content-Length'] = temp_zip.tell()
-    return response
 
 
 # TODO(stephenfin): Migrate to CBV
@@ -186,25 +116,7 @@ class CredentialsView(forms.ModalFormMixin, views.HorizonTemplateView):
         except Exception:
             exceptions.handle(self.request,
                               _('Unable to get openrc credentials'))
-        if api.base.is_service_enabled(self.request, 'ec2'):
-            try:
-                context['ec2_creds'] = _get_ec2_credentials(self.request)
-            except Exception:
-                exceptions.handle(self.request,
-                                  _('Unable to get EC2 credentials'))
         return context
-
-
-class RecreateCredentialsView(forms.ModalFormView):
-    form_class = api_access_forms.RecreateCredentials
-    form_id = "recreate_credentials"
-    page_title = _("Recreate EC2 Credentials")
-    template_name = \
-        'project/api_access/recreate_credentials.html'
-    submit_label = _("Recreate EC2 Credentials")
-    submit_url = reverse_lazy(
-        "horizon:project:api_access:recreate_credentials")
-    success_url = reverse_lazy('horizon:project:api_access:index')
 
 
 class IndexView(tables.DataTableView):

@@ -17,29 +17,15 @@ from django.template.defaultfilters import title
 from django.utils.translation import gettext_lazy as _
 
 from horizon import tables
-from openstack_dashboard import api
-from openstack_dashboard.dashboards.project.api_access import forms
-from openstack_dashboard import policy
 
 
 def pretty_service_names(name):
     name = name.replace('-', ' ')
-    if name in ['ec2', 's3']:
+    if name in ('s3',):
         name = name.upper()
     else:
         name = title(name)
     return name
-
-
-class DownloadEC2(tables.LinkAction):
-    name = "download_ec2"
-    verbose_name = _("EC2 Credentials")
-    verbose_name_plural = _("EC2 Credentials")
-    icon = "download"
-    url = "horizon:project:api_access:ec2"
-
-    def allowed(self, request, datum=None):
-        return api.base.is_service_enabled(request, 'ec2')
 
 
 class DownloadCloudsYaml(tables.LinkAction):
@@ -72,29 +58,6 @@ class ViewCredentials(tables.LinkAction):
     url = "horizon:project:api_access:view_credentials"
 
 
-class RecreateCredentials(tables.LinkAction):
-    name = "recreate_credentials"
-    verbose_name = _("Recreate EC2 Credentials")
-    classes = ("ajax-modal",)
-    icon = "refresh"
-    url = "horizon:project:api_access:recreate_credentials"
-    policy_rules = (("compute", "os_compute_api:certificates:create"))
-    action_type = "danger"
-
-    def allowed(self, request, datum=None):
-        try:
-            target = {"target.credential.user_id": request.user.id}
-            if (api.base.is_service_enabled(request, 'ec2') and
-                forms.get_ec2_credentials(request) and
-                policy.check((("identity", "identity:ec2_create_credential"),
-                              ("identity", "identity:ec2_delete_credential")),
-                             request, target=target)):
-                return True
-        except Exception:
-            pass
-        return False
-
-
 class EndpointsTable(tables.DataTable):
     api_name = tables.Column('type',
                              verbose_name=_("Service"),
@@ -106,8 +69,7 @@ class EndpointsTable(tables.DataTable):
         name = "endpoints"
         verbose_name = _("API Endpoints")
         multi_select = False
-        table_actions = (ViewCredentials, RecreateCredentials)
+        table_actions = (ViewCredentials,)
         table_actions_menu = (DownloadCloudsYaml,
-                              DownloadOpenRC,
-                              DownloadEC2)
+                              DownloadOpenRC)
         table_actions_menu_label = _('Download OpenStack RC File')
