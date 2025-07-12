@@ -3,13 +3,13 @@
 # Ivan Anfimov <lazekteam@gmail.com>, 2025. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 25.3.1.dev27\n"
+"Project-Id-Version: horizon 25.3.1.dev28\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-07-08 23:51+0000\n"
+"POT-Creation-Date: 2025-07-10 14:55+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2025-03-22 11:26+0000\n"
+"PO-Revision-Date: 2025-07-10 02:15+0000\n"
 "Last-Translator: Ivan Anfimov <lazekteam@gmail.com>\n"
 "Language-Team: Russian\n"
 "Language: ru\n"
@@ -26,21 +26,17 @@ msgstr "**Панель управления — Создать образ**"
 msgid "**Direction**: ``Ingress``"
 msgstr "**Направление**: ``Входящий трафик``"
 
-#, fuzzy
 msgid "**Figure: Admin tab**"
-msgstr "**Рисунок: вкладка «Администратор»**"
+msgstr "**Рисунок: вкладка \"Администратор\"**"
 
-#, fuzzy
 msgid "**Figure: Project tab**"
-msgstr "**Рисунок: вкладка «Проект»**"
+msgstr "**Рисунок: вкладка \"Проект\"**"
 
-#, fuzzy
 msgid "**Figure:Identity tab**"
-msgstr "**Рисунок: Вкладка «Идентификация»**"
+msgstr "**Рисунок: Вкладка \"Идентификация\"**"
 
-#, fuzzy
 msgid "**Figure:Settings tab**"
-msgstr "**Рисунок: Вкладка «Настройки»**"
+msgstr "**Рисунок: Вкладка \"Настройки\"**"
 
 msgid "**Remote**: ``CIDR``"
 msgstr "**Удаленный адрес**: ``CIDR``"
@@ -789,9 +785,8 @@ msgid ""
 msgstr ""
 "Нажмите кнопку меню и выберите :guilabel:`Изменить` из выпадающего списка."
 
-#, fuzzy
 msgid "Compute tab"
-msgstr "Вкладка «Вычислительные ресурсы»"
+msgstr "Вкладка \"Вычислительные ресурсы\""
 
 msgid "Configure access and security for instances"
 msgstr "Настройте доступ и безопасность для инстансов"
@@ -1356,9 +1351,8 @@ msgstr "Управление инстансом"
 msgid "Manage an object"
 msgstr "Управление объектом"
 
-#, fuzzy
 msgid "Network tab"
-msgstr "Вкладка «Сеть»"
+msgstr "Вкладка \"Сеть\""
 
 msgid ""
 "Networking in OpenStack is complex. This section provides the basic "
@@ -1392,9 +1386,8 @@ msgstr ""
 "Теперь вы можете авторизоваться в инстансе, смонтировать, отформатировать и "
 "использовать диск."
 
-#, fuzzy
 msgid "Object Store tab"
-msgstr "Вкладка «Объектное хранилище»"
+msgstr "Вкладка \"Объектное хранилище\""
 
 msgid ""
 "On the :guilabel:`Log In` page, enter your user name and password, and "
@@ -1529,21 +1522,17 @@ msgstr ""
 "образы виртуальных машин, резервные копии, архивы или медиафайлы. В панели "
 "управления OpenStack вы можете управлять только контейнерами и объектами."
 
-#, fuzzy
 msgid "OpenStack dashboard — Admin tab"
-msgstr "Панель управления OpenStack — вкладка «Администратор»"
+msgstr "Панель управления OpenStack — вкладка \"Администратор\""
 
-#, fuzzy
 msgid "OpenStack dashboard — Identity tab"
-msgstr "Панель управления OpenStack — вкладка «Идентификация»"
+msgstr "Панель управления OpenStack — вкладка \"Идентификация\""
 
-#, fuzzy
 msgid "OpenStack dashboard — Project tab"
-msgstr "Панель управления OpenStack — вкладка «Проект»"
+msgstr "Панель управления OpenStack — вкладка \"Проект\""
 
-#, fuzzy
 msgid "OpenStack dashboard — Settings tab"
-msgstr "Панель управления OpenStack — вкладка «Настройки»"
+msgstr "Панель управления OpenStack — вкладка \"Настройки\""
 
 msgid "Opera"
 msgstr "Opera"
@@ -1555,9 +1544,8 @@ msgstr ""
 "При желании в диалоговом окне :guilabel:`Добавить интерфейс` задайте :"
 "guilabel:`IP адрес` для интерфейса маршрутизатора для выбранной подсети."
 
-#, fuzzy
 msgid "Overview tab"
-msgstr "Вкладка «Обзор»"
+msgstr "Вкладка \"Обзор\""
 
 msgid "Poor"
 msgstr "Слабо"
@@ -1719,9 +1707,8 @@ msgstr "Статус"
 msgid "Supported Browsers"
 msgstr "Поддерживаемые браузеры"
 
-#, fuzzy
 msgid "System tab"
-msgstr "Вкладка «Система»"
+msgstr "Вкладка \"Система\""
 
 msgid "The :guilabel:`Create An Image` dialog box appears."
 msgstr "Появится диалоговое окно :guilabel:`Создать образ`."
@@ -2135,9 +2122,8 @@ msgstr ""
 msgid "Volume"
 msgstr "Диск"
 
-#, fuzzy
 msgid "Volume tab"
-msgstr "Вкладка «Диски»"
+msgstr "Вкладка \"Диски\""
 
 msgid ""
 "Volume: If you choose this option, a new field for :guilabel:`Use volume as "
