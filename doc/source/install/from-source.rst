@@ -2,7 +2,7 @@
 Manual installation
 ===================
 
-This page covers the basic installation of horizon in a production
+This page covers the basic installation of Horizon in a production
 environment. If you are looking for a developer environment, see
 :ref:`quickstart`.
 
@@ -25,7 +25,7 @@ Installation
      $ git clone https://opendev.org/openstack/horizon -b stable/<release> --depth=1
      $ cd horizon
 
-#. Install the horizon python module into your system
+#. Install the Horizon python module into your system
 
    .. code-block:: console
 
@@ -35,7 +35,7 @@ Configuration
 =============
 
 This section contains a small summary of the critical settings required to run
-horizon. For more details, please refer to :ref:`install-settings`.
+Horizon. For more details, please refer to :ref:`install-settings`.
 
 Settings
 --------
@@ -83,20 +83,20 @@ Compress your static files by adding ``COMPRESS_OFFLINE = True`` to your
 Logging
 -------
 
-Horizons uses Django's logging configuration mechanism, which can be customized
+Horizon uses Django's logging configuration mechanism, which can be customized
 by altering the ``LOGGING`` dictionary in ``local_settings.py``. By default,
-Horizon's logging example sets the log level to ``INFO``.
+Horizon logging example sets the log level to ``INFO``.
 
 Horizon also uses a number of 3rd-party clients which log separately. The
-log level for these can still be controlled through Horizon's ``LOGGING``
-config, however behaviors may vary beyond Horizon's control.
+log level for these can still be controlled through Horizon ``LOGGING``
+config, however behaviors may vary beyond Horizon control.
 
 For more information regarding configuring logging in Horizon, please
 read the `Django logging directive`_ and the `Python logging directive`_
 documentation. Horizon is built on Python and Django.
 
 .. _Django logging directive: https://docs.djangoproject.com/en/dev/topics/logging
-.. _Python logging directive: https://docs.python.org/2/library/logging.html
+.. _Python logging directive: https://docs.python.org/3/library/logging.html
 
 Session Storage
 ---------------
@@ -105,7 +105,7 @@ Horizon uses `Django's sessions framework`_ for handling session data. There
 are numerous session backends available, which are selected through the
 ``SESSION_ENGINE`` setting in your ``local_settings.py`` file.
 
-.. _Django's sessions framework: https://docs.djangoproject.com/en/dev/topics/http/sessions/
+.. _Django's sessions framework: https://docs.djangoproject.com/en/dev/topics/http/sessions
 
 Memcached
 ~~~~~~~~~
@@ -221,5 +221,5 @@ Deployment
 Next Steps
 ==========
 
-* :ref:`install-settings` lists the available settings for horizon.
-* :ref:`install-customizing` describes how to customize horizon.
+* :ref:`install-settings` lists the available settings for Horizon.
+* :ref:`install-customizing` describes how to customize Horizon.
