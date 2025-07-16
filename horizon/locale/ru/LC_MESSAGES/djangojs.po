@@ -32,8 +32,8 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2025-02-28 06:43+0000\n"
-"Last-Translator: Ivan Anfimov <lazekteam@gmail.com>\n"
+"PO-Revision-Date: 2025-05-26 09:53+0000\n"
+"Last-Translator: Dmitriy Chubinidze <dcu995@gmail.com>\n"
 "Language: ru\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
 "n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
@@ -99,19 +99,19 @@ msgid "An error occurred while updating."
 msgstr "Во время обновления произошла ошибка."
 
 msgid "An error occurred. Please try again later."
-msgstr "Произошла ошибка. Повторите попытку."
+msgstr "Произошла ошибка. Пожалуйста, попробуйте позже."
 
 #, python-brace-format
 msgid "Array is too long ({$value.length$} items), maximum {$schema.maxItems$}"
 msgstr ""
-"Слишком много элементов в массиве (сейчас {$value.length$}), максимум "
-"{$schema.maxItems$}"
+"Массив слишком длинный ({$value.length$} элементов), максимум {$schema."
+"maxItems$}"
 
 #, python-brace-format
 msgid ""
 "Array is too short ({$value.length$} items), minimum {$schema.minItems$}"
 msgstr ""
-"Недостаточно элементов в массиве (сейчас {$value.length$}), минимум {$schema."
+"Массив слишком короткий ({$value.length$} элементов), минимум {$schema."
 "minItems$}"
 
 msgid "Array items must be unique"
@@ -177,13 +177,13 @@ msgid "Danger: "
 msgstr "Опасность: "
 
 msgid "Data does not match any schemas from 'anyOf'"
-msgstr "Данные не совпадают ни с одной из схем из 'anyOf'"
+msgstr "Данные не соответствуют ни одной схеме из 'anyOf'"
 
 msgid "Data does not match any schemas from 'oneOf'"
-msgstr "Данные не совпадают ни с одной из схем из 'oneOf'"
+msgstr "Данные не соответствуют ни одной схеме из 'oneOf'"
 
 msgid "Data is valid against more than one schema from 'oneOf'"
-msgstr "Данные валидны относительно более чем одной схемы из 'oneOf'"
+msgstr "Данные действительны для более чем одной схемы из 'oneOf'"
 
 msgid "Data matches schema from 'not'"
 msgstr "Данные совпадают со схемой из 'not'"
@@ -246,7 +246,7 @@ msgid "Finish"
 msgstr "Закончить"
 
 msgid "Flavor"
-msgstr "Тип инстанса"
+msgstr "Шаблон конфигурации"
 
 msgid "Forbidden. Insufficient permissions of the requested operation"
 msgstr "Запрещено. Недостаточно привилегий для запрошенной операции"
@@ -265,7 +265,7 @@ msgstr "Требуется целое число"
 
 #, python-brace-format
 msgid "Invalid type, expected {$schema.type$}"
-msgstr "Неправильный тип, ожидается {$schema.type$}"
+msgstr "Недопустимый тип, ожидалось {$schema.type$}"
 
 #, python-brace-format
 msgid "Keyword failed: '{$title$}'"
@@ -313,7 +313,7 @@ msgstr "Нет данных."
 
 #, python-brace-format
 msgid "No enum match for: {$viewValue$}"
-msgstr "Нет совпадающего перечисления для: {$viewValue$}"
+msgstr "Нет соответствия перечисления для: {$viewValue$}"
 
 msgid "No existing metadata"
 msgstr "Нет метаданных"
@@ -401,10 +401,10 @@ msgstr ""
 "недостаточную информацию.  "
 
 msgid "The content is larger than the maximum byte size"
-msgstr "Содержимое больше чем максимальный объем в байтах"
+msgstr "Содержимое превышает максимальный размер в байтах"
 
 msgid "The data in this field is invalid"
-msgstr "Данные в этом поле неверны"
+msgstr "Данные в этом поле недопустимы"
 
 msgid "There was a problem communicating with the server, please try again."
 msgstr "Обнаружена проблема при соединении с сервером. Повторите попытку."
@@ -428,7 +428,7 @@ msgstr "Определено слишком много свойств, макс�
 
 #, python-format
 msgid "Unable to delete: %s."
-msgstr "Невозможно удалить: %s."
+msgstr "Не удалось удалить: %s."
 
 msgid "Unauthorized. Redirecting to login"
 msgstr "Не авторизован. Перенаправление на страницу входа"

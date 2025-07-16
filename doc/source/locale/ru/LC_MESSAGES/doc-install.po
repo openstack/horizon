@@ -1,0 +1,972 @@
+# Dmitriy Chubinidze <dcu995@gmail.com>, 2025. #zanata
+# Ivan Anfimov <lazekteam@gmail.com>, 2025. #zanata
+msgid ""
+msgstr ""
+"Project-Id-Version: horizon 25.4.0.dev4\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-03-21 23:03+0000\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"PO-Revision-Date: 2025-07-15 07:46+0000\n"
+"Last-Translator: Ivan Anfimov <lazekteam@gmail.com>\n"
+"Language-Team: Russian\n"
+"Language: ru\n"
+"X-Generator: Zanata 4.3.3\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
+"n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2)\n"
+
+msgid ":launchpad:`bgpvpn`"
+msgstr ":launchpad:`bgpvpn`"
+
+msgid ":launchpad:`blazar`"
+msgstr ":launchpad:`blazar`"
+
+msgid ":launchpad:`designate-dashboard`"
+msgstr ":launchpad:`designate-dashboard`"
+
+msgid ":launchpad:`magnum-ui`"
+msgstr ":launchpad:`magnum-ui`"
+
+msgid ":launchpad:`manila-ui`"
+msgstr ":launchpad:`manila-ui`"
+
+msgid ":launchpad:`masakari`"
+msgstr ":launchpad:`masakari`"
+
+msgid ":launchpad:`mistral`"
+msgstr ":launchpad:`mistral`"
+
+msgid ":launchpad:`monasca`"
+msgstr ":launchpad:`monasca`"
+
+msgid ":launchpad:`murano`"
+msgstr ":launchpad:`murano`"
+
+msgid ":launchpad:`neutron-vpnaas-dashboard`"
+msgstr ":launchpad:`neutron-vpnaas-dashboard`"
+
+msgid ":launchpad:`senlin-dashboard`"
+msgstr ":launchpad:`senlin-dashboard`"
+
+msgid ":launchpad:`solum`"
+msgstr ":launchpad:`solum`"
+
+msgid ":launchpad:`tacker`"
+msgstr ":launchpad:`tacker`"
+
+msgid ":launchpad:`trove-dashboard`"
+msgstr ":launchpad:`trove-dashboard`"
+
+msgid ":launchpad:`watcher-dashboard`"
+msgstr ":launchpad:`watcher-dashboard`"
+
+msgid ":launchpad:`zaqar-ui`"
+msgstr ":launchpad:`zaqar-ui`"
+
+msgid ":launchpad:`zun-ui`"
+msgstr ":launchpad:`zun-ui`"
+
+msgid ":opendev-repo:`openstack/adjutant-ui`"
+msgstr ":opendev-repo:`openstack/adjutant-ui`"
+
+msgid ":opendev-repo:`openstack/blazar-dashboard`"
+msgstr ":opendev-repo:`openstack/blazar-dashboard`"
+
+msgid ":opendev-repo:`openstack/cloudkitty-dashboard`"
+msgstr ":opendev-repo:`openstack/cloudkitty-dashboard`"
+
+msgid ":opendev-repo:`openstack/designate-dashboard`"
+msgstr ":opendev-repo:`openstack/designate-dashboard`"
+
+msgid ":opendev-repo:`openstack/freezer-web-ui`"
+msgstr ":opendev-repo:`openstack/freezer-web-ui`"
+
+msgid ":opendev-repo:`openstack/heat-dashboard`"
+msgstr ":opendev-repo:`openstack/heat-dashboard`"
+
+msgid ":opendev-repo:`openstack/ironic-ui`"
+msgstr ":opendev-repo:`openstack/ironic-ui`"
+
+msgid ":opendev-repo:`openstack/magnum-ui`"
+msgstr ":opendev-repo:`openstack/magnum-ui`"
+
+msgid ":opendev-repo:`openstack/manila-ui`"
+msgstr ":opendev-repo:`openstack/manila-ui`"
+
+msgid ":opendev-repo:`openstack/masakari-dashboard`"
+msgstr ":opendev-repo:`openstack/masakari-dashboard`"
+
+msgid ":opendev-repo:`openstack/mistral-dashboard`"
+msgstr ":opendev-repo:`openstack/mistral-dashboard`"
+
+msgid ":opendev-repo:`openstack/monasca-ui`"
+msgstr ":opendev-repo:`openstack/monasca-ui`"
+
+msgid ":opendev-repo:`openstack/murano-dashboard`"
+msgstr ":opendev-repo:`openstack/murano-dashboard`"
+
+msgid ":opendev-repo:`openstack/networking-bgpvpn`"
+msgstr ":opendev-repo:`openstack/networking-bgpvpn`"
+
+msgid ":opendev-repo:`openstack/neutron-vpnaas-dashboard`"
+msgstr ":opendev-repo:`openstack/neutron-vpnaas-dashboard`"
+
+msgid ":opendev-repo:`openstack/octavia-dashboard`"
+msgstr ":opendev-repo:`openstack/octavia-dashboard`"
+
+msgid ":opendev-repo:`openstack/sahara-dashboard`"
+msgstr ":opendev-repo:`openstack/sahara-dashboard`"
+
+msgid ":opendev-repo:`openstack/senlin-dashboard`"
+msgstr ":opendev-repo:`openstack/senlin-dashboard`"
+
+msgid ":opendev-repo:`openstack/solum-dashboard`"
+msgstr ":opendev-repo:`openstack/solum-dashboard`"
+
+msgid ":opendev-repo:`openstack/tacker-horizon`"
+msgstr ":opendev-repo:`openstack/tacker-horizon`"
+
+msgid ":opendev-repo:`openstack/trove-dashboard`"
+msgstr ":opendev-repo:`openstack/trove-dashboard`"
+
+msgid ":opendev-repo:`openstack/vitrage-dashboard`"
+msgstr ":opendev-repo:`openstack/vitrage-dashboard`"
+
+msgid ":opendev-repo:`openstack/watcher-dashboard`"
+msgstr ":opendev-repo:`openstack/watcher-dashboard`"
+
+msgid ":opendev-repo:`openstack/zaqar-ui`"
+msgstr ":opendev-repo:`openstack/zaqar-ui`"
+
+msgid ":opendev-repo:`openstack/zun-ui`"
+msgstr ":opendev-repo:`openstack/zun-ui`"
+
+msgid ":ref:`install-customizing` describes how to customize horizon."
+msgstr ":ref:`install-customizing` описывает, как настроить Horizon."
+
+msgid ":ref:`install-settings` lists the available settings for horizon."
+msgstr ":ref:`install-settings` перечисляет доступные настройки для Horizon."
+
+msgid ":storyboard:`openstack/adjutant-ui`"
+msgstr ":storyboard:`openstack/adjutant-ui`"
+
+msgid ":storyboard:`openstack/cloudkitty-dashboard`"
+msgstr ":storyboard:`openstack/cloudkitty-dashboard`"
+
+msgid ":storyboard:`openstack/freezer-web-ui`"
+msgstr ":storyboard:`openstack/freezer-web-ui`"
+
+msgid ":storyboard:`openstack/heat-dashboard`"
+msgstr ":storyboard:`openstack/heat-dashboard`"
+
+msgid ":storyboard:`openstack/ironic-ui`"
+msgstr ":storyboard:`openstack/ironic-ui`"
+
+msgid ":storyboard:`openstack/octavia-dashboard`"
+msgstr ":storyboard:`openstack/octavia-dashboard`"
+
+msgid ":storyboard:`openstack/sahara-dashboard`"
+msgstr ":storyboard:`openstack/sahara-dashboard`"
+
+msgid ":storyboard:`openstack/vitrage-dashboard`"
+msgstr ":storyboard:`openstack/vitrage-dashboard`"
+
+msgid ""
+"ALLOWED_HOSTS can also be ['*'] to accept all hosts. This may be useful for "
+"development work, but is potentially insecure and should not be used in "
+"production. See https://docs.djangoproject.com/en/dev/ref/settings/#allowed-"
+"hosts for further information."
+msgstr ""
+"ALLOWED_HOSTS также может быть ['*'] для принятия всех хостов. Это может "
+"быть полезно для разработки, но потенциально небезопасно и не должно "
+"использоваться в производстве. Для получения дополнительной информации см. "
+"https://docs.djangoproject.com/en/dev/ref/settings/#allowed-hosts."
+
+msgid "Access the dashboard using a web browser at ``http://controller/``."
+msgstr ""
+"Доступ к панели управления осуществляется с помощью браузера по адресу "
+"``http://controller/``."
+
+msgid ""
+"Access the dashboard using a web browser at ``http://controller/dashboard``."
+msgstr ""
+"Доступ к панели управления осуществляется с помощью браузера по адресу "
+"``http://controller/dashboard``."
+
+msgid ""
+"Access the dashboard using a web browser at ``http://controller/horizon/``."
+msgstr ""
+"Доступ к панели управления осуществляется с помощью браузера по адресу "
+"``http://controller/horizon/``."
+
+msgid ""
+"Access the dashboard using a web browser at ``http://controller/horizon``."
+msgstr ""
+"Доступ к панели управления осуществляется с помощью браузера по адресу "
+"``http://controller/horizon``."
+
+msgid ""
+"Add the following line to ``/etc/apache2/conf-available/openstack-dashboard."
+"conf`` if not included."
+msgstr ""
+"Добавьте следующую строку в ``/etc/apache2/conf-available/openstack-"
+"dashboard.conf``, если она не включена."
+
+msgid ""
+"Add the following line to ``/etc/httpd/conf.d/openstack-dashboard.conf`` if "
+"not included."
+msgstr ""
+"Добавьте следующую строку в ``/etc/httpd/conf.d/openstack-dashboard.conf``, "
+"если она не включена."
+
+msgid ""
+"After you install and configure the dashboard, you can complete the "
+"following tasks:"
+msgstr ""
+"После установки и настройки панели управления вы сможете выполнить следующие "
+"задачи:"
+
+msgid ""
+"All other services are optional. Horizon supports the following services as "
+"of the Stein release. If the keystone endpoint for a service is configured, "
+"horizon detects it and enables its support automatically."
+msgstr ""
+"Все остальные службы являются необязательными. Horizon поддерживает "
+"следующие службы с момента выпуска Stein. Если для службы настроен endpoint "
+"keystone, Horizon обнаруживает ее и автоматически включает ее поддержку."
+
+msgid "Allow your hosts to access the dashboard:"
+msgstr "Разрешите вашим хостам доступ к панели управления:"
+
+msgid ""
+"An accessible `keystone <https://docs.openstack.org/keystone/latest/>`_ "
+"endpoint"
+msgstr ""
+"Доступный endpoint `keystone <https://docs.openstack.org/keystone/latest/>`_"
+
+msgid ""
+"Authenticate using ``admin`` or ``demo`` user and ``default`` domain "
+"credentials."
+msgstr ""
+"Выполните аутентификацию, используя учетные данные пользователя ``admin`` "
+"или ``demo`` и домена ``default``."
+
+msgid "Bug Tracker"
+msgstr "Отслеживание ошибок"
+
+msgid ""
+"By default the apache configuration will launch a number of apache processes "
+"equal to the number of CPUs + 1 of the machine on which you launch the "
+"``make_web_conf`` command. If the target machine is not the same or if you "
+"want to specify the number of processes, add the ``--processes`` option"
+msgstr ""
+"По умолчанию конфигурация apache запустит количество процессов apache, "
+"равное количеству процессоров машины +1, на которой вы запускаете команду "
+"``make_web_conf``. Если целевая машина не та же самая или если вы хотите "
+"указать количество процессов, добавьте опцию ``--processes``"
+
+msgid "Cached Database"
+msgstr "Кэшированная база данных"
+
+msgid "Clone Horizon"
+msgstr "Склонируйте Horizon"
+
+msgid "Comment out any other session storage configuration."
+msgstr "Закомментируйте любую другую конфигурацию хранилища сеансов."
+
+msgid ""
+"Compile translation message catalogs for internationalization. This step is "
+"not required if you do not need to support languages other than US English. "
+"GNU ``gettext`` tool is required to compile message catalogs."
+msgstr ""
+"Скомпилируйте каталоги сообщений перевода для интернационализации. Этот шаг "
+"не требуется, если вам не нужна поддержка языков, отличных от американского "
+"английского. Для компиляции каталогов сообщений требуется инструмент GNU "
+"``gettext``."
+
+msgid ""
+"Compress your static files by adding ``COMPRESS_OFFLINE = True`` to your "
+"``local_settings.py``, then run the following commands"
+msgstr ""
+"Сожмите статические файлы, добавив ``COMPRESS_OFFLINE = True`` в "
+"``local_settings.py``, затем выполните следующие команды"
+
+msgid "Configuration"
+msgstr "Конфигурация"
+
+msgid "Configure API versions:"
+msgstr "Настройте версии API:"
+
+msgid ""
+"Configure ``Default`` as the default domain for users that you create via "
+"the dashboard:"
+msgstr ""
+"Настройте ``Default`` в качестве домена по умолчанию для пользователей, "
+"которых вы создаете через панель управления:"
+
+msgid "Configure the ``memcached`` session storage service:"
+msgstr "Настройте службу хранения сеансов ``memcached``:"
+
+msgid ""
+"Configure the dashboard to use OpenStack services on the ``controller`` node:"
+msgstr ""
+"Настройте панель управления для использования служб OpenStack на управляющем "
+"узле:"
+
+msgid "Configure the web server:"
+msgstr "Настройте веб-сервер:"
+
+msgid ""
+"Create ``openstack_dashboard/local/local_settings.py``. It is usually a good "
+"idea to copy ``openstack_dashboard/local/local_settings.py.example`` and "
+"edit it. As a minimum, the follow settings will need to be modified:"
+msgstr ""
+"Создайте ``openstack_dashboard/local/local_settings.py``. Обычно хорошей "
+"идеей является копирование ``openstack_dashboard/local/local_settings.py."
+"example`` и его редактирование. Как минимум, необходимо будет изменить "
+"следующие настройки:"
+
+msgid ""
+"Currently, Horizon plugins are responsible for their own compatibility. "
+"Check the individual repos for information on support."
+msgstr ""
+"В настоящее время плагины Horizon отвечают за свою собственную "
+"совместимость. Проверьте отдельные репозитории для получения информации о "
+"поддержке."
+
+msgid ""
+"Customize your dashboard. For details, see :doc:`/admin/customize-configure`."
+msgstr ""
+"Настройте свою панель управления. Подробности см. в :doc:`/admin/customize-"
+"configure`."
+
+msgid "Database"
+msgstr "База данных"
+
+msgid ""
+"Database-backed sessions are scalable (using an appropriate database "
+"strategy), persistent, and can be made high-concurrency and highly-available."
+msgstr ""
+"Сеансы, поддерживаемые базой данных, масштабируемы (с использованием "
+"соответствующей стратегии базы данных), постоянны и могут быть сделаны "
+"параллельными и высокодоступными."
+
+msgid ""
+"Default configuration files vary by distribution. You might need to add "
+"these sections and options rather than modifying existing sections and "
+"options. Also, an ellipsis (``...``) in the configuration snippets indicates "
+"potential default configuration options that you should retain."
+msgstr ""
+"Файлы конфигурации по умолчанию различаются в зависимости от дистрибутива. "
+"Возможно, вам придется добавить эти разделы и параметры, а не изменять "
+"существующие. Кроме того, многоточие (``...``) в фрагментах конфигурации "
+"указывает на потенциальные параметры конфигурации по умолчанию, которые "
+"следует сохранить."
+
+msgid "Deployment"
+msgstr "Развертывание"
+
+msgid "Django 4.2"
+msgstr "Django 4.2"
+
+msgid "Django support policy is documented at :ref:`django_support`."
+msgstr ""
+"Политика поддержки Django задокументирована по адресу :ref:`django_support`."
+
+msgid ""
+"Do not edit the ``ALLOWED_HOSTS`` parameter under the Ubuntu configuration "
+"section."
+msgstr ""
+"Не редактируйте параметр ``ALLOWED_HOSTS`` в разделе конфигурации Ubuntu."
+
+msgid ""
+"Edit the ``/etc/openstack-dashboard/local_settings.py`` file and complete "
+"the following actions:"
+msgstr ""
+"Отредактируйте файл ``/etc/openstack-dashboard/local_settings.py`` и "
+"выполните следующие действия:"
+
+msgid ""
+"Edit the ``/etc/openstack-dashboard/local_settings`` file and complete the "
+"following actions:"
+msgstr ""
+"Отредактируйте файл ``/etc/openstack-dashboard/local_settings`` и выполните "
+"следующие действия:"
+
+msgid ""
+"Edit the ``/srv/www/openstack-dashboard/openstack_dashboard/local/"
+"local_settings.py`` file and complete the following actions:"
+msgstr ""
+"Отредактируйте файл ``/srv/www/openstack-dashboard/openstack_dashboard/local/"
+"local_settings.py`` и выполните следующие действия:"
+
+msgid "Enable support for domains:"
+msgstr "Включите поддержку доменов:"
+
+msgid "Enable the Identity API version 3:"
+msgstr "Включите Identity API версии 3:"
+
+msgid "Enable the above configuration and restart the web server"
+msgstr "Включите указанную выше конфигурацию и перезапустите веб-сервер"
+
+msgid ""
+"External caching using an application such as memcached offers persistence "
+"and shared storage, and can be very useful for small-scale deployment and/or "
+"development. However, for distributed and high-availability scenarios "
+"memcached has inherent problems which are beyond the scope of this "
+"documentation."
+msgstr ""
+"Внешнее кэширование с использованием приложения, такого как memcached, "
+"обеспечивает постоянство и общее хранилище и может быть очень полезным для "
+"мелкомасштабного развертывания и/или разработки. Однако для распределенных и "
+"высокодоступных установок memcached имеет присущие проблемы, которые выходят "
+"за рамки этой документации."
+
+msgid "Finalize installation"
+msgstr "Завершите установку"
+
+msgid ""
+"For details about browsers that support noVNC, see `README <https://github."
+"com/novnc/noVNC/blob/master/README.md>`__."
+msgstr ""
+"Подробную информацию о браузерах, поддерживающих noVNC, см. в файле `README "
+"<https://github.com/novnc/noVNC/blob/master/README.md>`__."
+
+msgid ""
+"For more information regarding configuring logging in Horizon, please read "
+"the `Django logging directive`_ and the `Python logging directive`_ "
+"documentation. Horizon is built on Python and Django."
+msgstr ""
+"Для получения дополнительной информации о настройке ведения лога в Horizon, "
+"пожалуйста, прочтите документацию `Django logging directive`_ и `Python "
+"logging directive`_. Horizon построен на Python и Django."
+
+msgid "For the system dependencies, see :doc:`system-requirements`."
+msgstr "Информацию о системных зависимостях см. в :doc:`system-requirements`."
+
+msgid ""
+"Horizon also supports many other OpenStack services via plugins. For more "
+"information, see the :ref:`install-plugin-registry`."
+msgstr ""
+"Horizon также поддерживает множество других служб OpenStack через плагины. "
+"Для получения дополнительной информации см. :ref:`install-plugin-registry`."
+
+msgid ""
+"Horizon also uses a number of 3rd-party clients which log separately. The "
+"log level for these can still be controlled through Horizon's ``LOGGING`` "
+"config, however behaviors may vary beyond Horizon's control."
+msgstr ""
+"Horizon также использует ряд сторонних клиентов, которые ведут лог отдельно. "
+"Уровень логирования для них по-прежнему можно контролировать с помощью "
+"конфигурации ``LOGGING`` Horizon, однако поведение может отличаться вне "
+"контроля Horizon."
+
+msgid "Horizon plugins"
+msgstr "Плагины Horizon"
+
+msgid ""
+"Horizon uses `Django's sessions framework`_ for handling session data. There "
+"are numerous session backends available, which are selected through the "
+"``SESSION_ENGINE`` setting in your ``local_settings.py`` file."
+msgstr ""
+"Horizon использует `Django's sessions framework`_ для обработки данных "
+"сеанса. Доступно множество бэкэндов сеансов, которые выбираются с помощью "
+"настройки ``SESSION_ENGINE`` в файле ``local_settings.py``."
+
+msgid ""
+"Horizons uses Django's logging configuration mechanism, which can be "
+"customized by altering the ``LOGGING`` dictionary in ``local_settings.py``. "
+"By default, Horizon's logging example sets the log level to ``INFO``."
+msgstr ""
+"Horizon использует механизм конфигурации журналирования Django, который "
+"можно настроить, изменив ``LOGGING`` в ``local_settings.py``. По умолчанию, "
+"пример логирования Horizon устанавливает его уровень на ``INFO``."
+
+msgid ""
+"If you chose networking option 1, disable support for layer-3 networking "
+"services:"
+msgstr ""
+"Если вы выбрали вариант сети 1, отключите поддержку сетевых служб уровня L3:"
+
+msgid ""
+"If you use the development version, replace \"stable/<release>\" with "
+"\"master\"."
+msgstr ""
+"Если вы используете версию для разработки, замените \"stable/<release>\" на "
+"\"master\"."
+
+msgid ""
+"In case your keystone run at 5000 port then you would mentioned keystone "
+"port here as well i.e. OPENSTACK_KEYSTONE_URL = \"http://%s:5000/identity/"
+"v3\" % OPENSTACK_HOST"
+msgstr ""
+"Если ваш keystone работает на порту 5000, то вам следует также указать здесь "
+"порт keystone, например OPENSTACK_KEYSTONE_URL = \"http://%s:5000/identity/"
+"v3\" % OPENSTACK_HOST"
+
+msgid ""
+"In the Dashboard configuration section, allow your hosts to access Dashboard:"
+msgstr ""
+"В разделе \"Dashboard configuration\" разрешите вашим хостам доступ к панели "
+"мониторинга:"
+
+msgid ""
+"In the commands below, substitute \"<release>\" for your version of choice, "
+"such as \"queens\" or \"rocky\"."
+msgstr ""
+"В командах ниже замените \"<release>\" на предпочитаемую вами версию, "
+"например \"queens\" или \"rocky\"."
+
+msgid "Install and configure components"
+msgstr "Установка и настройка компонентов"
+
+msgid "Install and configure for Debian"
+msgstr "Установка и настройка для Debian"
+
+msgid "Install and configure for Red Hat Enterprise Linux and CentOS"
+msgstr "Установка и настройка для Red Hat Enterprise Linux и CentOS"
+
+msgid "Install and configure for Ubuntu"
+msgstr "Установка и настройка для Ubuntu"
+
+msgid "Install and configure for openSUSE and SUSE Linux Enterprise"
+msgstr "Установка и настройка для openSUSE и SUSE Linux Enterprise"
+
+msgid "Install the horizon python module into your system"
+msgstr "Установите python модуль horizon в вашу систему"
+
+msgid "Install the packages:"
+msgstr "Установите пакеты:"
+
+msgid "Installation"
+msgstr "Установка"
+
+msgid "Installation Guide"
+msgstr "Руководство по установке"
+
+msgid "Installing from Packages"
+msgstr "Установка из пакетов"
+
+msgid "Installing from Source"
+msgstr "Установка из исходников"
+
+msgid "Logging"
+msgstr "Логирование"
+
+msgid "Manual installation"
+msgstr "Ручная установка"
+
+msgid "Memcached"
+msgstr "Memcached"
+
+msgid "Memcached service running and accessible"
+msgstr "Сервис memcached запущен и доступен"
+
+msgid "Next Steps"
+msgstr "Следующие шаги"
+
+msgid "Next steps"
+msgstr "Следующие шаги"
+
+msgid ""
+"Optionally, configure location where the access to the dashboard (if not "
+"included):"
+msgstr ""
+"При желании можно настроить локацию для доступа к панели управления (если не "
+"указано иное):"
+
+msgid "Optionally, configure the time zone:"
+msgstr "При желании можно настроить часовой пояс:"
+
+msgid "Plugin"
+msgstr "Плагин"
+
+msgid "Plugin Registry"
+msgstr "Реестр плагинов"
+
+msgid ""
+"Provide users with a public IP address, a username, and a password so they "
+"can access the dashboard through a web browser. In case of any SSL "
+"certificate connection problems, point the server IP address to a domain "
+"name, and give users access."
+msgstr ""
+"Предоставьте пользователям публичный IP-адрес, имя пользователя и пароль, "
+"чтобы они могли получить доступ к панели управления через веб-браузер. В "
+"случае возникновения проблем с подключением SSL-сертификата укажите IP-адрес "
+"сервера на доменное имя и предоставьте пользователям доступ."
+
+msgid "Python 3.8 or 3.11"
+msgstr "Python 3.8 или 3.11"
+
+msgid "Python memcached module installed"
+msgstr "Python модуль memcached установлен"
+
+msgid "Reload the web server configuration:"
+msgstr "Перезагрузите веб-сервер:"
+
+msgid ""
+"Replace ``TIME_ZONE`` with an appropriate time zone identifier. For more "
+"information, see the `list of time zones <https://en.wikipedia.org/wiki/"
+"List_of_tz_database_time_zones>`__."
+msgstr ""
+"Замените ``TIME_ZONE`` на соответствующий идентификатор часового пояса. Для "
+"получения дополнительной информации см. `список часовых поясов <https://en."
+"wikipedia.org/wiki/List_of_tz_database_time_zones>`__."
+
+msgid "Repository"
+msgstr "Репозиторий"
+
+msgid "Requirements:"
+msgstr "Требования:"
+
+msgid "Respond to prompts for web server configuration."
+msgstr "Ответьте на запросы по настройке веб-сервера."
+
+msgid "Restart the web server and session storage service:"
+msgstr "Перезапустите веб-сервер и службу хранения сеансов:"
+
+msgid "Same as above but if you want SSL support"
+msgstr "То же, что и выше, но если вам нужна поддержка SSL"
+
+msgid "Session Storage"
+msgstr "Хранение сеансов"
+
+msgid "Set to ``False``"
+msgstr "Установите на ``False``"
+
+msgid ""
+"Set to the IP of your Keystone endpoint. You may also need to alter "
+"``OPENSTACK_KEYSTONE_URL``"
+msgstr ""
+"Установите IP вашего Keystone endpoint. Вам также может потребоваться "
+"изменить ``OPENSTACK_KEYSTONE_URL``"
+
+msgid "Set to your domain name(s)"
+msgstr "Впишите свое доменное имя или несколько доменных имен"
+
+msgid ""
+"Set up a web server with WSGI support. For example, install Apache web "
+"server on Ubuntu"
+msgstr ""
+"Настройте веб-сервер с поддержкой WSGI. Например, установите веб-сервер "
+"Apache на Ubuntu"
+
+msgid "Set up session storage. For details, see :doc:`/admin/sessions`."
+msgstr "Настройте хранилище сессий. Подробности см. в :doc:`/admin/sessions`."
+
+msgid "Settings"
+msgstr "Настройки"
+
+msgid "Static Assets"
+msgstr "Статические объекты"
+
+msgid "System Requirements"
+msgstr "Системные требования"
+
+msgid "The Caracal release of horizon has the following dependencies."
+msgstr "Horizon в релизе Caracal имеет следующие зависимости."
+
+msgid ""
+"The ``systemctl restart`` command starts each service if not currently "
+"running."
+msgstr ""
+"Команда ``systemctl restart`` запускает каждую службу, если она в данный "
+"момент не запущена."
+
+msgid ""
+"The automatic configuration process generates a self-signed SSL certificate. "
+"Consider obtaining an official certificate for production environments."
+msgstr ""
+"Процесс автоматической настройки генерирует самоподписанный SSL-сертификат. "
+"Рассмотрите возможность получения официального сертификата для сред "
+"эксплуатации."
+
+msgid ""
+"The downside to this approach is that database-backed sessions are one of "
+"the slower session storages, and incur a high overhead under heavy usage. "
+"Proper configuration of your database deployment can also be a substantial "
+"undertaking and is far beyond the scope of this documentation."
+msgstr ""
+"Недостатком этого подхода является то, что сеансы, поддерживаемые базой "
+"данных, являются одними из самых медленных хранилищ сеансов и требуют "
+"больших накладных расходов при интенсивном использовании. Правильная "
+"настройка развертывания вашей базы данных также может быть существенной "
+"задачей и выходит далеко за рамки этой документации."
+
+msgid ""
+"The following steps in the \"Configuration\" section are optional, but "
+"highly recommended in production."
+msgstr ""
+"Следующие шаги в разделе \"Конфигурация\" являются необязательными, но "
+"настоятельно рекомендуются к выполнению в среде эксплуатации."
+
+msgid ""
+"The only core service required by the dashboard is the Identity service. You "
+"can use the dashboard in combination with other services, such as Image "
+"service, Compute, and Networking. You can also use the dashboard in "
+"environments with stand-alone services such as Object Storage."
+msgstr ""
+"Единственная основная служба, требуемая панелью управления — это служба "
+"идентификации. Вы можете использовать панель управления в сочетании с "
+"другими службами, такими как служба изображений, вычислительной службой и "
+"сетевой службой. Вы также можете использовать панель управления в средах с "
+"автономными службами, такими как хранилище объектов."
+
+msgid ""
+"Then configure the web server to host OpenStack dashboard via WSGI. For "
+"apache2 web server, you may need to create ``/etc/apache2/sites-available/"
+"horizon.conf``. The template in DevStack is a good example of the file. :"
+"opendev-repo:`openstack/devstack/src/branch/master/files/apache-horizon."
+"template`. Or you can automatically generate an apache configuration file. "
+"If you previously generated an ``openstack_dashboard/horizon_wsgi.py`` file "
+"it will use that, otherwise will default to using ``openstack_dashboard/wsgi."
+"py``"
+msgstr ""
+"Затем настройте веб-сервер для размещения панели управления OpenStack через "
+"WSGI. Для веб-сервера apache2 вам может потребоваться создать ``/etc/apache2/"
+"sites-available/horizon.conf``. Шаблон в DevStack является хорошим примером "
+"файла. :opendev-repo:`openstack/devstack/src/branch/master/files/apache-"
+"horizon.template`. Или вы можете автоматически сгенерировать файл "
+"конфигурации apache. Если вы ранее сгенерировали файл ``openstack_dashboard/"
+"horizon_wsgi.py``, он будет использовать его, в противном случае по "
+"умолчанию будет использоваться ``openstack_dashboard/wsgi.py``"
+
+msgid ""
+"There are a number of horizon plugins for various useful features. You can "
+"get dashboard supports for them by installing corresponding horizon plugins."
+msgstr ""
+"Существует ряд плагинов Horizon для различных полезных функций. Вы можете "
+"получить поддержку панели мониторинга для них, установив соответствующие "
+"плагины Horizon."
+
+msgid ""
+"There are two modes of installation. One using ``/horizon`` as the URL, "
+"keeping your default vhost and only adding an Alias directive: this is the "
+"default. The other mode will remove the default Apache vhost and install the "
+"dashboard on the webroot. It was the only available option before the "
+"Liberty release. If you prefer to set the Apache configuration manually,  "
+"install the ``openstack-dashboard`` package instead of ``openstack-dashboard-"
+"apache``."
+msgstr ""
+"Существует два режима установки. Один из них использует ``/horizon`` в "
+"качестве URL-адреса, сохраняя ваш vhost по умолчанию и добавляя только "
+"директиву Alias: это режим по умолчанию. Другой режим удалит vhost Apache по "
+"умолчанию и установит панель управления в webroot. Это был единственный "
+"доступный вариант до версии Liberty. Если вы предпочитаете вручную настроить "
+"конфигурацию Apache, установите пакет ``openstack-dashboard`` вместо "
+"``openstack-dashboard-apache``."
+
+msgid ""
+"This is a list of horizon plugins which are part of the official OpenStack "
+"releases."
+msgstr ""
+"Это список плагинов Horizon, которые являются частью официальных релизов "
+"OpenStack."
+
+msgid ""
+"This page covers the basic installation of horizon in a production "
+"environment. If you are looking for a developer environment, see :ref:"
+"`quickstart`."
+msgstr ""
+"На этой странице описывается базовая установка horizon в среде эксплуатации. "
+"Если вы ищете среду разработчика, см. :ref:`quickstart`."
+
+msgid ""
+"This section assumes proper installation, configuration, and operation of "
+"the Identity service using the Apache HTTP server and Memcached service."
+msgstr ""
+"В этом разделе предполагается правильная установка, настройка и эксплуатация "
+"службы идентификации с использованием HTTP-сервера Apache и службы Memcached."
+
+msgid ""
+"This section contains a small summary of the critical settings required to "
+"run horizon. For more details, please refer to :ref:`install-settings`."
+msgstr ""
+"В этом разделе содержится небольшой обзор критических настроек, необходимых "
+"для запуска horizon. Для получения более подробной информации см. :ref:"
+"`install-settings`."
+
+msgid ""
+"This section describes how to install and configure the dashboard on the "
+"controller node."
+msgstr ""
+"В этом разделе описывается, как установить и настроить панель управления на "
+"управляющем узле."
+
+msgid ""
+"To mitigate the performance issues of database queries, you can also "
+"consider using Django's ``cached_db`` session backend which utilizes both "
+"your database and caching infrastructure to perform write-through caching "
+"and efficient retrieval. You can enable this hybrid setting by configuring "
+"both your database and cache as discussed above and then using"
+msgstr ""
+"Чтобы смягчить проблемы производительности запросов к базе данных, вы также "
+"можете рассмотреть возможность использования  ``cached_db`` Django, который "
+"использует как вашу базу данных, так и инфраструктуру кэширования для "
+"выполнения кэширования write-through и эффективного извлечения. Вы можете "
+"включить эту гибридную настройку, настроив и базу данных, и кэш, как "
+"обсуждалось выше, а затем используя"
+
+msgid ""
+"To use the VNC client with the dashboard, the browser must support HTML5 "
+"Canvas and HTML5 WebSockets."
+msgstr ""
+"Для использования VNC-клиента с панелью управления браузер должен "
+"поддерживать HTML5 Canvas и HTML5 WebSockets."
+
+msgid "Translations"
+msgstr "Переводы"
+
+msgid "Verify operation for Debian"
+msgstr "Проверка работы для Debian"
+
+msgid "Verify operation for Red Hat Enterprise Linux and CentOS"
+msgstr "Проверка работы для Red Hat Enterprise Linux и CentOS"
+
+msgid "Verify operation for Ubuntu"
+msgstr "Проверка работы для Ubuntu"
+
+msgid "Verify operation for openSUSE and SUSE Linux Enterprise"
+msgstr "Проверка работы для openSUSE и SUSE Linux Enterprise"
+
+msgid "Verify operation of the dashboard."
+msgstr "Проверьте работу панели управления."
+
+msgid ""
+"You can either use the provided ``openstack_dashboard/wsgi.py`` or generate "
+"a ``openstack_dashboard/horizon_wsgi.py`` file with the following command "
+"(which detects if you use a virtual environment or not to automatically "
+"build an adapted WSGI file)"
+msgstr ""
+"Вы можете использовать предоставленный ``openstack_dashboard/wsgi.py`` или "
+"сгенерировать файл ``openstack_dashboard/horizon_wsgi.py`` с помощью "
+"следующей команды (которая определяет, используете ли вы виртуальную среду "
+"или нет, чтобы автоматически создать адаптированный файл WSGI)"
+
+msgid "Your OpenStack environment now includes the dashboard."
+msgstr "Ваша среда OpenStack теперь включает в себя панель управления."
+
+msgid "``ALLOWED_HOSTS``"
+msgstr "``ALLOWED_HOSTS``"
+
+msgid ""
+"``ALLOWED_HOSTS`` can also be ``['*']`` to accept all hosts. This may be "
+"useful for development work, but is potentially insecure and should not be "
+"used in production. See `Django documentation <https://docs.djangoproject."
+"com/en/dev/ref/settings/#allowed-hosts>`_ for further information."
+msgstr ""
+"``ALLOWED_HOSTS`` также может быть ``['*']`` для принятия всех хостов. Это "
+"может быть полезно для разработки, но потенциально небезопасно и не должно "
+"использоваться в производстве. См. `Django documentation <https://docs."
+"djangoproject.com/en/dev/ref/settings/#allowed-hosts>`_ для получения "
+"дополнительной информации."
+
+msgid ""
+"``ALLOWED_HOSTS`` can also be ``['*']`` to accept all hosts. This may be "
+"useful for development work, but is potentially insecure and should not be "
+"used in production. See the `Django documentation <https://docs."
+"djangoproject.com/en/dev/ref/settings/#allowed-hosts>`_ for further "
+"information."
+msgstr ""
+"``ALLOWED_HOSTS`` также может быть ``['*']`` для принятия всех хостов. Это "
+"может быть полезно для разработки, но потенциально небезопасно и не должно "
+"использоваться в эксплуатации. Дополнительную информацию см. в `документации "
+"Django <https://docs.djangoproject.com/en/dev/ref/settings/#allowed-hosts>`_."
+
+msgid "``DEBUG``"
+msgstr "``DEBUG``"
+
+msgid "``OPENSTACK_HOST``"
+msgstr "``OPENSTACK_HOST``"
+
+msgid "`cinder <https://docs.openstack.org/cinder/latest/>`_: Block Storage"
+msgstr "`cinder <https://docs.openstack.org/cinder/latest/>`_: Block Storage"
+
+msgid "`glance <https://docs.openstack.org/glance/latest/>`_: Image Management"
+msgstr ""
+"`glance <https://docs.openstack.org/glance/latest/>`_: Image Management"
+
+msgid "`neutron <https://docs.openstack.org/neutron/latest/>`_: Networking"
+msgstr "`neutron <https://docs.openstack.org/neutron/latest/>`_: Networking"
+
+msgid "`nova <https://docs.openstack.org/nova/latest/>`_: Compute"
+msgstr "`nova <https://docs.openstack.org/nova/latest/>`_: Compute"
+
+msgid "`swift <https://docs.openstack.org/swift/latest/>`_: Object Storage"
+msgstr "`swift <https://docs.openstack.org/swift/latest/>`_: Object Storage"
+
+msgid "adjutant-ui"
+msgstr "adjutant-ui"
+
+msgid "blazar-dashboard"
+msgstr "blazar-dashboard"
+
+msgid "cloudkitty-dashboard"
+msgstr "cloudkitty-dashboard"
+
+msgid "designate-dashboard"
+msgstr "designate-dashboard"
+
+msgid "freezer-web-ui"
+msgstr "freezer-web-ui"
+
+msgid "heat-dashboard"
+msgstr "heat-dashboard"
+
+msgid "ironic-ui"
+msgstr "ironic-ui"
+
+msgid "magnum-ui"
+msgstr "magnum-ui"
+
+msgid "manila-ui"
+msgstr "manila-ui"
+
+msgid "masakari-dashboard"
+msgstr "masakari-dashboard"
+
+msgid "mistral-dashboard"
+msgstr "mistral-dashboard"
+
+msgid "monasca-ui"
+msgstr "monasca-ui"
+
+msgid "murano-dashboard"
+msgstr "murano-dashboard"
+
+msgid "networking-bgpvpn"
+msgstr "networking-bgpvpn"
+
+msgid "neutron-vpnaas-dashboard"
+msgstr "neutron-vpnaas-dashboard"
+
+msgid "octavia-dashboard"
+msgstr "octavia-dashboard"
+
+msgid "sahara-dashboard"
+msgstr "sahara-dashboard"
+
+msgid "senlin-dashboard"
+msgstr "senlin-dashboard"
+
+msgid "solum-dashboard"
+msgstr "solum-dashboard"
+
+msgid "tacker-horizon"
+msgstr "tacker-horizon"
+
+msgid "trove-dashboard"
+msgstr "trove-dashboard"
+
+msgid "vitrage-dashboard"
+msgstr "vitrage-dashboard"
+
+msgid "watcher-dashboard"
+msgstr "watcher-dashboard"
+
+msgid "zaqar-ui"
+msgstr "zaqar-ui"
+
+msgid "zun-ui"
+msgstr "zun-ui"
