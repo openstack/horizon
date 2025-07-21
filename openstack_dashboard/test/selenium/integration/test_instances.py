@@ -56,8 +56,8 @@ def clear_instance_admin(instance_name, openstack_admin):
     )
 
 
-def wait_for_angular_readiness_instance_source(driver):
-    driver.set_script_timeout(10)
+def wait_for_angular_readiness_instance_source(driver, config):
+    driver.set_script_timeout(config.selenium.page_timeout)
     driver.execute_async_script("""
     var callback = arguments[arguments.length - 1];
     var element = document.querySelector(\
@@ -158,7 +158,7 @@ def test_create_instance_demo(complete_default_test_network, login, driver,
     )
     widgets.select_from_transfer_table(flavor_table, flavor)
     navigation.find_element_by_link_text("Source").click()
-    wait_for_angular_readiness_instance_source(driver)
+    wait_for_angular_readiness_instance_source(driver, config)
     source_table = wizard.find_element_by_css_selector(
         "ng-include[ng-form=launchInstanceSourceForm]"
     )
@@ -213,7 +213,7 @@ def test_create_instance_from_volume_demo(complete_default_test_network, login,
     )
     widgets.select_from_transfer_table(flavor_table, flavor)
     navigation.find_element_by_link_text("Source").click()
-    wait_for_angular_readiness_instance_source(driver)
+    wait_for_angular_readiness_instance_source(driver, config)
     source_table = wizard.find_element_by_css_selector(
         "ng-include[ng-form=launchInstanceSourceForm]"
     )
@@ -466,7 +466,7 @@ def test_create_instance_admin(complete_default_test_network, login, driver,
     )
     widgets.select_from_transfer_table(flavor_table, flavor)
     navigation.find_element_by_link_text("Source").click()
-    wait_for_angular_readiness_instance_source(driver)
+    wait_for_angular_readiness_instance_source(driver, config)
     source_table = wizard.find_element_by_css_selector(
         "ng-include[ng-form=launchInstanceSourceForm]"
     )

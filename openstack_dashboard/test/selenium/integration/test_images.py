@@ -122,8 +122,8 @@ def wait_for_steady_state_of_unprotected_image(openstack, image_name):
             time.sleep(2)
 
 
-def wait_for_angular_readiness(driver):
-    driver.set_script_timeout(10)
+def wait_for_angular_readiness(driver, config):
+    driver.set_script_timeout(config.selenium.page_timeout)
     driver.execute_async_script("""
     var callback = arguments[arguments.length - 1];
     var element = document.querySelector('div.btn-group[name="protected"]');
@@ -388,7 +388,7 @@ def test_remove_protected_image_admin(login, driver, image_names,
             pytest.fail("Delete option should not exist")
     actions_column.find_element_by_xpath(
         ".//*[normalize-space()='Edit Image']").click()
-    wait_for_angular_readiness(driver)
+    wait_for_angular_readiness(driver, config)
     image_form = driver.find_element_by_css_selector(".ng-wizard")
     image_form.find_element_by_xpath(".//label[text()='No']").click()
     image_form.find_element_by_xpath(
@@ -427,7 +427,7 @@ def test_edit_image_description_admin(login, driver, image_names,
     actions_column = rows[0].find_element_by_xpath(
         ".//ancestor::tr/td[contains(@class,'actions_column')]")
     widgets.select_from_dropdown(actions_column, "Edit Image")
-    wait_for_angular_readiness(driver)
+    wait_for_angular_readiness(driver, config)
     image_form = driver.find_element_by_css_selector(".ng-wizard")
     desc_field = image_form.find_element_by_css_selector(
         "#imageForm-description")
