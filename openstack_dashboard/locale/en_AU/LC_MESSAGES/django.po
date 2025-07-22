@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: horizon VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2025-03-22 08:03+0900\n"
+"POT-Creation-Date: 2025-07-21 16:55+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -203,10 +203,6 @@ msgstr ""
 msgid "AKI - Amazon Kernel Image"
 msgstr "AKI - Amazon Kernel Image"
 
-#, python-format
-msgid "ALLOW %(ethertype)s %(proto_port)s %(direction)s %(remote)s"
-msgstr "ALLOW %(ethertype)s %(proto_port)s %(direction)s %(remote)s"
-
 msgid "AMI - Amazon Machine Image"
 msgstr "AMI - Amazon Machine Image"
 
@@ -218,9 +214,6 @@ msgstr "API Endpoints"
 
 msgid "ARI - Amazon Ramdisk Image"
 msgstr "ARI - Amazon Ramdisk Image"
-
-msgid "Accept Transfer"
-msgstr "Accept Transfer"
 
 msgid "Accept Volume Transfer"
 msgstr "Accept Volume Transfer"
@@ -705,9 +698,6 @@ msgstr "CPU architecture of the image."
 msgid "Cancel"
 msgstr "Cancel"
 
-msgid "Cancel Transfer"
-msgstr "Cancel Transfer"
-
 #, python-format
 msgid "Cannot find instance %s."
 msgstr "Cannot find instance %s."
@@ -1003,9 +993,6 @@ msgstr "Create Subnet"
 msgid "Create Subnet (Quota exceeded)"
 msgstr "Create Subnet (Quota exceeded)"
 
-msgid "Create Transfer"
-msgstr "Create Transfer"
-
 msgid "Create User"
 msgstr "Create User"
 
@@ -1230,6 +1217,9 @@ msgstr "DNS Name"
 msgid "DNS Name Servers"
 msgstr "DNS Name Servers"
 
+msgid "DOWN"
+msgstr "DOWN"
+
 msgctxt "Admin state of a Network"
 msgid "DOWN"
 msgstr "DOWN"
@@ -1253,11 +1243,11 @@ msgctxt "Default style theme"
 msgid "Default"
 msgstr "Default"
 
+msgid "Default Quotas"
+msgstr "Default Quotas"
+
 msgid "Default quotas updated."
 msgstr "Default quotas updated."
-
-msgid "Defaults"
-msgstr "Defaults"
 
 msgid "Delete"
 msgid_plural "Delete"
@@ -2076,9 +2066,6 @@ msgstr "Enter a value for ICMP type in the range (-1: 255)"
 
 msgid "Enter an integer value between -1 and 255 (-1 means wild card)."
 msgstr "Enter an integer value between -1 and 255 (-1 means wild card)."
-
-msgid "Enter an integer value between 0 and 255."
-msgstr "Enter an integer value between 0 and 255."
 
 msgid "Enter an integer value between 1 and 65535."
 msgstr "Enter an integer value between 1 and 65535."
@@ -3106,10 +3093,6 @@ msgstr "Live Migrate Instance"
 msgid "Live migrate an instance to a specific host."
 msgstr "Live migrate an instance to a specific host."
 
-#, python-format
-msgid "Load Balancer VIP %s"
-msgstr "Load Balancer VIP %s"
-
 msgid "Local"
 msgstr "Local"
 
@@ -3331,12 +3314,6 @@ msgstr "Migrating instances may cause some unrecoverable results."
 
 msgid "Migration Policy"
 msgstr "Migration Policy"
-
-msgid "Min Disk"
-msgstr "Min Disk"
-
-msgid "Min RAM"
-msgstr "Min RAM"
 
 msgid "Min. Size (MB) ="
 msgstr "Min. Size (MB) ="
@@ -3759,9 +3736,6 @@ msgstr "Number of Instances"
 msgid "Number of Snapshots"
 msgstr "Number of Snapshots"
 
-msgid "Number of VCPUs"
-msgstr "Number of VCPUs"
-
 msgid "Number of Volumes"
 msgstr "Number of Volumes"
 
@@ -4088,9 +4062,6 @@ msgstr "Public:"
 msgid "QCOW2 - QEMU Emulator"
 msgstr "QCOW2 - QEMU Emulator"
 
-msgid "QOS Policy ID"
-msgstr "QOS Policy ID"
-
 #, python-format
 msgid "QoS Spec name \"%s\" already exists."
 msgstr "QoS Spec name \"%s\" already exists."
@@ -4151,12 +4122,6 @@ msgstr "RAM (total)"
 
 msgid "RAM (used)"
 msgstr "RAM (used)"
-
-msgid "RX/TX Factor"
-msgstr "RX/TX Factor"
-
-msgid "RX/TX factor"
-msgstr "RX/TX factor"
 
 msgid "Ramdisk"
 msgstr "Ramdisk"
@@ -5673,14 +5638,6 @@ msgstr "Total Size of Volumes and Snapshots (GiB)"
 msgid "Total Size of Volumes and Snapshots (GiB) of Type %(type)s"
 msgstr "Total Size of Volumes and Snapshots (GiB) of Type %(type)s"
 
-msgid "Total VCPU Usage (Hours):"
-msgstr "Total VCPU Usage (Hours):"
-
-msgid ""
-"Total VCPU usage (Number of VCPU in instance * Hours Used) for the project"
-msgstr ""
-"Total VCPU usage (Number of VCPU in instance * Hours Used) for the project"
-
 msgid "Total Volume Storage"
 msgstr "Total Volume Storage"
 
@@ -5706,8 +5663,14 @@ msgstr "Trunks"
 msgid "Type"
 msgstr "Type"
 
+msgid "Type ="
+msgstr "Type ="
+
 msgid "Type of backend device identifier provided"
 msgstr "Type of backend device identifier provided"
+
+msgid "UP"
+msgstr "UP"
 
 msgctxt "Admin state of a Network"
 msgid "UP"
@@ -6333,9 +6296,6 @@ msgstr "Unable to retrieve subnet details"
 msgid "Unable to retrieve subnet details."
 msgstr "Unable to retrieve subnet details."
 
-msgid "Unable to retrieve tenant limits."
-msgstr "Unable to retrieve tenant limits."
-
 msgid "Unable to retrieve the aggregate to be updated"
 msgstr "Unable to retrieve the aggregate to be updated"
 
@@ -6635,9 +6595,6 @@ msgstr "Update Associations"
 msgid "Update Default Quotas"
 msgstr "Update Default Quotas"
 
-msgid "Update Defaults"
-msgstr "Update Defaults"
-
 msgid "Update Encrypted Volume Type"
 msgstr "Update Encrypted Volume Type"
 
@@ -6823,18 +6780,6 @@ msgstr "User-defined unique id to identify the mapping."
 
 msgid "Users"
 msgstr "Users"
-
-msgid "VCPU"
-msgstr "VCPU"
-
-msgid "VCPU Hours"
-msgstr "VCPU Hours"
-
-msgid "VCPU Usage"
-msgstr "VCPU Usage"
-
-msgid "VCPUs"
-msgstr "VCPUs"
 
 msgid "VDI - Virtual Disk Image"
 msgstr "VDI - Virtual Disk Image"
@@ -7212,9 +7157,6 @@ msgstr "no"
 
 msgid "undefined"
 msgstr "undefined"
-
-msgid "unknown IP address"
-msgstr "unknown IP address"
 
 msgid "up"
 msgstr "up"

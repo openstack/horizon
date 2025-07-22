@@ -21,7 +21,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: horizon VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2025-03-22 08:03+0900\n"
+"POT-Creation-Date: 2025-07-21 16:55+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -61,17 +61,6 @@ msgstr "7"
 
 msgid "75%"
 msgstr "75%"
-
-msgid ""
-"<b>Image (with Create New Volume checked)</b>: This options uses an image to "
-"boot the instance, and creates a new volume to persist instance data. You "
-"can specify volume size and whether to delete the volume on deletion of the "
-"instance."
-msgstr ""
-"<b>Imagem (com Criar Novo Volume marcado)</b>: Esta opção utiliza uma imagem "
-"para dar boot na instância, e cria um novo volume para persistir dados da "
-"instância. Você pode especificar o tamanho do volume e se é para deletar o "
-"volume na exclusão da instância."
 
 msgid "<b>Image</b>: This option uses an image to boot the instance."
 msgstr ""
@@ -1758,17 +1747,11 @@ msgstr "Metadados atualizados com sucesso."
 msgid "Middle"
 msgstr "Centro"
 
-msgid "Min Disk (GB)"
-msgstr "Mín. Disco (GB)"
-
 msgid "Min Kbps"
 msgstr "Min Kbps"
 
 msgid "Min Port"
 msgstr "Mín. Porta"
-
-msgid "Min RAM (MB)"
-msgstr "Mín. RAM (MB)"
 
 msgid "Min. Size (bytes)"
 msgstr "Tamanho Min. (bytes)"
@@ -2246,9 +2229,6 @@ msgstr "RAM"
 msgid "RAW"
 msgstr "RAW"
 
-msgid "RX/TX Factor"
-msgstr "Fator RX/TX "
-
 msgid "Radios"
 msgstr "Opções"
 
@@ -2433,17 +2413,11 @@ msgid "Select one or more security groups from the available groups below."
 msgstr ""
 "Selecione um ou mais grupos de segurança dos grupos disponíveis abaixo."
 
-msgid "Select the Ramdisk from the drop down menu."
-msgstr "Selecione o Ramdisk a partir do menu suspenso."
-
 msgid "Select the availability zone from the drop down menu."
 msgstr "Selecione a zona de disponibilidade a partir do menu suspenso."
 
 msgid "Select the format of the disk from the drop down menu."
 msgstr "Selecione o formato do disco a partir do menu suspenso."
-
-msgid "Select the kernel to run from the drop down menu."
-msgstr "Selecione o kernel a executar a partir do menu suspenso."
 
 msgid "Select the security groups to launch the instance in."
 msgstr "Selecione os grupos de segurança nos quais ativar a instância."
@@ -2564,9 +2538,6 @@ msgstr "Título de Origem"
 msgid "Source Type"
 msgstr "Tipo de Origem"
 
-msgid "Specify an image to upload to the Image Service."
-msgstr "Especifique uma imagem para carregar para o serviço de Imagem."
-
 msgid "Stacked"
 msgstr "Empilhado"
 
@@ -2647,9 +2618,6 @@ msgstr "Tags"
 msgid "Tel"
 msgstr "Tel"
 
-msgid "Tenant ID"
-msgstr "ID do Tenant"
-
 msgid "Text"
 msgstr "Texto"
 
@@ -2664,9 +2632,6 @@ msgstr "A permissão de acesso para a imagem."
 
 msgid "The admin password is incorrect."
 msgstr "A senha do administrador está incorreta."
-
-msgid "The architecture of the image."
-msgstr "A arquitetura da imagem."
 
 msgid ""
 "The current Horizon settings indicate no valid\n"
@@ -2733,20 +2698,6 @@ msgid ""
 msgstr ""
 "O número máximo de pares de valores de chave que podem ser fornecidos por "
 "instância é determinado pelo provedor de cálculo. "
-
-msgid ""
-"The minimum disk size required to boot the image. If unspecified, this value "
-"defaults to 0 (no minimum)."
-msgstr ""
-"O tamanho mínimo de disco requerido para dar boot na imagem. Se não "
-"especificado, este valor tem um padrão de 0 (sem mínimo)."
-
-msgid ""
-"The minimum memory size required to boot the image. If unspecified, this "
-"value defaults to 0 (no minimum)."
-msgstr ""
-"A memória mínima requerida para dar boot na imagem. Se não especificado, "
-"este valor tem um padrão de 0 (sem mínimo)."
 
 msgid "The name of the Volume."
 msgstr "O nome do Volume."
@@ -2895,13 +2846,6 @@ msgstr ""
 "flavor menor ou diminua a quantidade de instâncias."
 
 msgid ""
-"This flavor requires more VCPUs than your quota allows. Please select a "
-"smaller flavor or decrease the instance count."
-msgstr ""
-"Esse flavor requer mais vCPUs do que sua cota permite. Pot favor, selecione "
-"um flavor menor ou diminua a quantidade de instâncias."
-
-msgid ""
 "This is a simple hero unit, a simple jumbotron-style component for calling "
 "extra attention to featured content or information."
 msgstr ""
@@ -2971,9 +2915,6 @@ msgstr "Instâncias totais"
 
 msgid "Total RAM"
 msgstr "RAM Total"
-
-msgid "Total VCPUs"
-msgstr "VCPUs totais"
 
 msgid "Total Volume Storage"
 msgstr "Volume Total de Armazenamento"
@@ -3406,9 +3347,6 @@ msgstr "Não foi possível obter o projeto"
 msgid "Unable to retrieve the projects."
 msgstr "Não foi possível obter o projeto"
 
-msgid "Unable to retrieve the qos policies."
-msgstr "Impossível recuperar as políticas de QoS"
-
 msgid "Unable to retrieve the resource types."
 msgstr "Não foi possível recuperar os tipos de recursos."
 
@@ -3632,12 +3570,6 @@ msgstr "Nome do Usuário"
 
 msgid "User password has been updated successfully."
 msgstr "A senha do usuário foi atualizada com sucesso."
-
-msgid "VCPUS"
-msgstr "VCPUS"
-
-msgid "VCPUs"
-msgstr "VPCUs"
 
 msgid "VDI"
 msgstr "VDI"

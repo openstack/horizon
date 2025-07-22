@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: horizon VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2025-03-22 08:03+0900\n"
+"POT-Creation-Date: 2025-07-21 16:55+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -332,10 +332,6 @@ msgstr ""
 msgid "AKI - Amazon Kernel Image"
 msgstr "AKI - Amazon Kernel Image"
 
-#, python-format
-msgid "ALLOW %(ethertype)s %(proto_port)s %(direction)s %(remote)s"
-msgstr "ALLOW %(ethertype)s %(proto_port)s %(direction)s %(remote)s"
-
 msgid "AMI - Amazon Machine Image"
 msgstr "AMI - Amazon Machine Image"
 
@@ -347,9 +343,6 @@ msgstr "API Endpoints (titk akhir API)"
 
 msgid "ARI - Amazon Ramdisk Image"
 msgstr "ARI - Amazon Ramdisk Image"
-
-msgid "Accept Transfer"
-msgstr "Accept Transfer"
 
 msgid "Accept Volume Transfer"
 msgstr "Accept Volume Transfer"
@@ -953,9 +946,6 @@ msgstr "Arsitektur CPU image."
 msgid "Cancel"
 msgstr "Cancel (batal)"
 
-msgid "Cancel Transfer"
-msgstr "Membatalkan transfer"
-
 #, python-format
 msgid "Cannot find instance %s."
 msgstr "Tidak dapat menemukan instance %s."
@@ -1204,9 +1194,6 @@ msgctxt "Action log of an instance"
 msgid "Create"
 msgstr "Create (membuat)"
 
-msgid "Create A RBAC Policy"
-msgstr "Buat Kebijakan RBAC"
-
 msgid "Create An Image"
 msgstr "Membuat image"
 
@@ -1310,9 +1297,6 @@ msgstr "Membuat Subnet"
 
 msgid "Create Subnet (Quota exceeded)"
 msgstr "Buat subnet (quota terlampaui)"
-
-msgid "Create Transfer"
-msgstr "Membuat transfer"
 
 msgid "Create User"
 msgstr "Membuat user"
@@ -1593,6 +1577,9 @@ msgstr "DNS Name"
 msgid "DNS Name Servers"
 msgstr "DNS Name Servers (nameserver DNS)"
 
+msgid "DOWN"
+msgstr "DOWN (turun)"
+
 msgctxt "Admin state of a Network"
 msgid "DOWN"
 msgstr "DOWN (turun)"
@@ -1616,11 +1603,11 @@ msgctxt "Default style theme"
 msgid "Default"
 msgstr "Baku"
 
+msgid "Default Quotas"
+msgstr "Default Quotas"
+
 msgid "Default quotas updated."
 msgstr "Kuota default diperbarui."
-
-msgid "Defaults"
-msgstr "Defaults (bawaan)"
 
 msgid "Delete"
 msgid_plural "Delete"
@@ -2476,9 +2463,6 @@ msgstr "Masukkan nilai untuk tipe ICMP dalam kisaran (-1: 255)"
 
 msgid "Enter an integer value between -1 and 255 (-1 means wild card)."
 msgstr "Masukkan nilai integer antara -1 dan 255 (-1 berarti wild card)."
-
-msgid "Enter an integer value between 0 and 255."
-msgstr "Masukkan nilai integer antara 0 dan 255."
 
 msgid "Enter an integer value between 1 and 65535."
 msgstr "Masukkan nilai integer antara 1 dan 65535."
@@ -3764,10 +3748,6 @@ msgstr "Live Migrate Instance (migrasi instance secara live)"
 msgid "Live migrate an instance to a specific host."
 msgstr "Live migrate suatu instance ke suatu host spesifik."
 
-#, python-format
-msgid "Load Balancer VIP %s"
-msgstr "Load Balancer VIP %s"
-
 msgid "Local"
 msgstr "Lokal"
 
@@ -4007,12 +3987,6 @@ msgstr ""
 
 msgid "Migration Policy"
 msgstr "Migration Policy"
-
-msgid "Min Disk"
-msgstr "Min Disk"
-
-msgid "Min RAM"
-msgstr "Min RAM"
 
 msgid "Min. Size (MB) ="
 msgstr "Min. Size (MB) ="
@@ -4479,9 +4453,6 @@ msgstr "Number of Instances"
 msgid "Number of Snapshots"
 msgstr "Number of Snapshots"
 
-msgid "Number of VCPUs"
-msgstr "Jumlah VCPU"
-
 msgid "Number of Volumes"
 msgstr "Number of Volumes"
 
@@ -4841,9 +4812,6 @@ msgstr "Public (public):"
 msgid "QCOW2 - QEMU Emulator"
 msgstr "QCOW2 - QEMU Emulator"
 
-msgid "QOS Policy ID"
-msgstr "QOS Policy ID"
-
 msgid "QoS Policy"
 msgstr "Kebijakan QoS"
 
@@ -4923,12 +4891,6 @@ msgstr "Detail Kebijakan RBAC"
 
 msgid "RBAC Policy was successfully created."
 msgstr "Kebijakan RBAC berhasil dibuat."
-
-msgid "RX/TX Factor"
-msgstr "RX/TX Factor (faktor RX/TX)"
-
-msgid "RX/TX factor"
-msgstr "RX/TX factor (faktor RX/TX)"
 
 msgid "Ramdisk"
 msgstr "Ramdisk"
@@ -6139,9 +6101,6 @@ msgstr "Target Host"
 msgid "Target Project"
 msgstr "Proyek Target"
 
-msgid "Target Tenant"
-msgstr "Tenant target"
-
 msgid "Task"
 msgstr "Tugas"
 
@@ -6638,15 +6597,6 @@ msgstr "Total Size of Volumes and Snapshots (GiB)"
 msgid "Total Size of Volumes and Snapshots (GiB) of Type %(type)s"
 msgstr "Total Ukuran Volume dan Snapshots (GIB) Tipe %(type)s"
 
-msgid "Total VCPU Usage (Hours):"
-msgstr "Total VCPU Usage (Hours):"
-
-msgid ""
-"Total VCPU usage (Number of VCPU in instance * Hours Used) for the project"
-msgstr ""
-"Total penggunaan VCPU (Jumlah VCPU dalam instance * Jam Digunakan) untuk  "
-"proyek"
-
 msgid "Total Volume Storage"
 msgstr "Total Volume Storage"
 
@@ -6672,8 +6622,14 @@ msgstr "Trunks"
 msgid "Type"
 msgstr "Tipe"
 
+msgid "Type ="
+msgstr "Type =    (tipe=)"
+
 msgid "Type of backend device identifier provided"
 msgstr "Tipe identifier perangkat backend yang tersedia"
+
+msgid "UP"
+msgstr "UP (naik)"
 
 msgctxt "Admin state of a Network"
 msgid "UP"
@@ -7527,9 +7483,6 @@ msgstr "Tidak dapat mengambil rincian subnet"
 msgid "Unable to retrieve subnet details."
 msgstr "Tidak dapat mengambil rincian subnet."
 
-msgid "Unable to retrieve tenant limits."
-msgstr "Tidak dapat mengambil batas penyewa (tenant)."
-
 msgid "Unable to retrieve the aggregate to be updated"
 msgstr "Tidak dapat mengambil daftar kelompok yang akan di perbaharui."
 
@@ -7906,9 +7859,6 @@ msgstr "Update Associations (asosiasi pembaruan)"
 msgid "Update Default Quotas"
 msgstr "Update Default Quotas"
 
-msgid "Update Defaults"
-msgstr "Update Defaults "
-
 msgid "Update Encrypted Volume Type"
 msgstr "Update Encrypted Volume Type"
 
@@ -8129,18 +8079,6 @@ msgstr " ID unik user-defined untuk mengidentifikasi pemetaan."
 
 msgid "Users"
 msgstr "Users"
-
-msgid "VCPU"
-msgstr "VCPUs"
-
-msgid "VCPU Hours"
-msgstr "VCPU Hours"
-
-msgid "VCPU Usage"
-msgstr "Penggunaan VCPU"
-
-msgid "VCPUs"
-msgstr "VCPUs"
 
 msgid "VDI - Virtual Disk Image"
 msgstr "VDI - Virtual Disk Image"
@@ -8614,9 +8552,6 @@ msgstr "no (tidak)"
 
 msgid "undefined"
 msgstr "Tidak terdefinisi"
-
-msgid "unknown IP address"
-msgstr "alamat IP yang tidak diketahui"
 
 msgid "up"
 msgstr "up (naik)"

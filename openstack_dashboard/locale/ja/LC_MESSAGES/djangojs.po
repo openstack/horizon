@@ -14,7 +14,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: horizon VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2025-03-22 08:03+0900\n"
+"POT-Creation-Date: 2025-07-21 16:55+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -58,17 +58,6 @@ msgstr "7"
 
 msgid "75%"
 msgstr "75%"
-
-msgid ""
-"<b>Image (with Create New Volume checked)</b>: This options uses an image to "
-"boot the instance, and creates a new volume to persist instance data. You "
-"can specify volume size and whether to delete the volume on deletion of the "
-"instance."
-msgstr ""
-"<b>イメージ (「新規ボリュームの作成」を「はい」にした場合)</b>: イメージを使"
-"用してインスタンスを起動し、その際に新しいボリュームが作成されてそのボリュー"
-"ムにインスタンスのデータが保持されます。ボリュームサイズと、インスタンスの削"
-"除時にそのボリュームを削除するかどうかを指定できます。"
 
 msgid "<b>Image</b>: This option uses an image to boot the instance."
 msgstr "<b>イメージ</b>: イメージを使ってインスタンスを起動します。"
@@ -1758,9 +1747,6 @@ msgstr "メタデータが正常に更新されました。"
 msgid "Middle"
 msgstr "中央"
 
-msgid "Min Disk (GB)"
-msgstr "最小ディスク (GB)"
-
 msgid "Min Kbps"
 msgstr "最小 Kbps"
 
@@ -1769,9 +1755,6 @@ msgstr "最小 Kpps"
 
 msgid "Min Port"
 msgstr "下限ポート番号"
-
-msgid "Min RAM (MB)"
-msgstr "最小メモリー (MB)"
 
 msgid "Min. Size (bytes)"
 msgstr "最小サイズ (バイト)"
@@ -2257,24 +2240,11 @@ msgstr "QoS ポリシー %s が正常に作成されました。"
 msgid "QoS Policy ID"
 msgstr "QoS ポリシー ID"
 
-msgid "QoS Policy Id"
-msgstr "QoS ポリシー ID"
-
 msgid "QoS Policy Name"
-msgstr "QoS ポリシー名"
-
-msgid "QoSPolicyId"
-msgstr "QoS ポリシー ID"
-
-msgid "QoSPolicyName"
 msgstr "QoS ポリシー名"
 
 msgid "Qos Policy  Rule  was successfully deleted."
 msgstr "QoS ポリシールールは正常に削除されました。"
-
-#, python-format
-msgid "Qos Policy Rule %s was successfully updated."
-msgstr "QoS ポリシールール %s は正常に更新されました。"
 
 msgid "Queued"
 msgstr "処理待ち"
@@ -2284,9 +2254,6 @@ msgstr "メモリー"
 
 msgid "RAW"
 msgstr "RAW"
-
-msgid "RX/TX Factor"
-msgstr "RX/TX 係数"
 
 msgid "Radios"
 msgstr "ラジオボタン"
@@ -2346,9 +2313,6 @@ msgstr "ルール種別"
 
 msgid "Rule to edit"
 msgstr "ルールの編集"
-
-msgid "RuleId"
-msgstr "ルール ID"
 
 msgid "Rules"
 msgstr "ルール"
@@ -2500,17 +2464,11 @@ msgstr ""
 "以下の利用可能なグループから、１つ以上のセキュリティーグループを選択してくだ"
 "さい。"
 
-msgid "Select the Ramdisk from the drop down menu."
-msgstr "RAM ディスクをドロップダウンメニューから選択してください。"
-
 msgid "Select the availability zone from the drop down menu."
 msgstr "アベイラビリティーゾーンをドロップダウンメニューから選択してください。"
 
 msgid "Select the format of the disk from the drop down menu."
 msgstr "ディスク形式をドロップダウンメニューから選択してください。"
-
-msgid "Select the kernel to run from the drop down menu."
-msgstr "実行するカーネルをドロップダウンメニューから選択してください。"
 
 msgid "Select the security groups to launch the instance in."
 msgstr "インスタンスを起動するセキュリティーグループを選択します。"
@@ -2636,9 +2594,6 @@ msgstr "ソースのタイトル"
 msgid "Source Type"
 msgstr "ソース指定方法"
 
-msgid "Specify an image to upload to the Image Service."
-msgstr "イメージサービスにアップロードするイメージを指定します。"
-
 msgid "Stacked"
 msgstr "積み上げ"
 
@@ -2718,9 +2673,6 @@ msgstr "タグ"
 msgid "Tel"
 msgstr "電話"
 
-msgid "Tenant ID"
-msgstr "テナント ID"
-
 msgid "Text"
 msgstr "テキスト"
 
@@ -2735,9 +2687,6 @@ msgstr "イメージのアクセス許可。"
 
 msgid "The admin password is incorrect."
 msgstr "管理者パスワードが正しくありません。"
-
-msgid "The architecture of the image."
-msgstr "このイメージのアーキテクチャー。"
 
 msgid ""
 "The current Horizon settings indicate no valid\n"
@@ -2808,24 +2757,10 @@ msgid ""
 msgstr "ポートで利用可能となっているべき最小 KBPS (キロビット/秒) の値。"
 
 msgid ""
-"The minimum disk size required to boot the image. If unspecified, this value "
-"defaults to 0 (no minimum)."
-msgstr ""
-"イメージを起動するために必要となる最小ディスク容量。指定がなければ、この値の"
-"初期値は 0 (最小値なし) です。"
-
-msgid ""
 "The minimum kpps (kilo(1000) packets per second) value which should be "
 "available for port."
 msgstr ""
 "ポートで利用可能となっているべき最小 kpps (キロ (1000) パケット/秒) の値。"
-
-msgid ""
-"The minimum memory size required to boot the image. If unspecified, this "
-"value defaults to 0 (no minimum)."
-msgstr ""
-"イメージを起動するために必要となる最小メモリー容量。指定がなければ、この値の"
-"初期値は 0 (最小値なし) です。"
 
 msgid "The name of the Volume."
 msgstr "ボリュームの名前。"
@@ -2978,13 +2913,6 @@ msgstr ""
 "より小さいフレーバーを選択するか、インスタンスの数を減らしてください。"
 
 msgid ""
-"This flavor requires more VCPUs than your quota allows. Please select a "
-"smaller flavor or decrease the instance count."
-msgstr ""
-"このフレーバーには、クォータで許容されているよりも多くの仮想 CPU が必要です。"
-"より小さいフレーバーを選択するか、インスタンスの数を減らしてください。"
-
-msgid ""
 "This is a simple hero unit, a simple jumbotron-style component for calling "
 "extra attention to featured content or information."
 msgstr ""
@@ -3055,9 +2983,6 @@ msgstr "合計インスタンス"
 msgid "Total RAM"
 msgstr "合計メモリー"
 
-msgid "Total VCPUs"
-msgstr "合計仮想 CPU"
-
 msgid "Total Volume Storage"
 msgstr "全ボリューム容量"
 
@@ -3094,18 +3019,6 @@ msgstr "タイポグラフィー"
 
 msgid "URL"
 msgstr "URL"
-
-msgid "Unable to add the bandwidthrule ."
-msgstr "帯域幅制限ルールを追加できません。"
-
-msgid "Unable to add the dscp_marking_rule ."
-msgstr "DSCP マークルールを追加できません。"
-
-msgid "Unable to add the minimum_bandwidth_rule ."
-msgstr "最小帯域幅ルールを追加できません。"
-
-msgid "Unable to add the minimum_packet_rate_rule."
-msgstr "最小パケットレートルールを追加できません。"
 
 msgid "Unable to allocate new floating IP address."
 msgstr "新しい Floating IP アドレスを確保できません。"
@@ -3226,13 +3139,6 @@ msgid "Unable to delete policy: %s."
 msgid_plural "Unable to delete policies: %s."
 msgstr[0] "ポリシーを削除できません: %s"
 
-#, python-format
-msgid "Unable to delete qos policy %(id)s"
-msgstr "QoS ポリシー %(id)s を削除できません"
-
-msgid "Unable to delete the bandwidth_limit_rule."
-msgstr "帯域幅制限ルールを削除できません。"
-
 msgid "Unable to delete the container."
 msgstr "コンテナーを削除できません。"
 
@@ -3241,9 +3147,6 @@ msgstr "ドメインを削除できません。"
 
 msgid "Unable to delete the domains."
 msgstr "ドメインを削除できません。"
-
-msgid "Unable to delete the dscp_marking_rule."
-msgstr "DSCP マークルールを削除できません。"
 
 #, python-format
 msgid "Unable to delete the flavor with id: %(id)s"
@@ -3265,12 +3168,6 @@ msgstr "ID %(id)s のイメージを削除できません。"
 #, python-format
 msgid "Unable to delete the keypair with name: %(name)s"
 msgstr "名前 %(name)s のキーペアを削除できません。"
-
-msgid "Unable to delete the minimum_bandwidth_rule ."
-msgstr "最小帯域場ルールを削除できません。"
-
-msgid "Unable to delete the minimum_packet_rate_rule ."
-msgstr "最小パケットレートルールを削除できません。"
 
 msgid "Unable to delete the object."
 msgstr "オブジェクトを削除できません。"
@@ -3522,9 +3419,6 @@ msgstr "プロジェクトを取得できません。"
 msgid "Unable to retrieve the projects."
 msgstr "プロジェクト一覧を取得できません。"
 
-msgid "Unable to retrieve the qos policies."
-msgstr "QoS ポリシーの一覧を取得できません。"
-
 msgid "Unable to retrieve the resource types."
 msgstr "リソース種別の一覧を取得できません。"
 
@@ -3614,12 +3508,6 @@ msgstr "メタデータを更新できません。"
 
 msgid "Unable to update project quota data."
 msgstr "プロジェクトのクォータデータを更新できません。"
-
-msgid "Unable to update the bandwidthrule."
-msgstr "帯域幅制限ルールを更新できません。"
-
-msgid "Unable to update the dscp marking rule."
-msgstr "DSCP マークルールを更新できません。"
 
 msgid "Unable to update the flavor."
 msgstr "フレーバーを更新できません。"
@@ -3757,12 +3645,6 @@ msgstr "ユーザー名"
 
 msgid "User password has been updated successfully."
 msgstr "ユーザーのパスワードが正常に更新されました。"
-
-msgid "VCPUS"
-msgstr "仮想 CPU"
-
-msgid "VCPUs"
-msgstr "仮想 CPU"
 
 msgid "VDI"
 msgstr "VDI"
@@ -4061,12 +3943,6 @@ msgstr "受信"
 
 msgid "inherit"
 msgstr "inherit"
-
-msgid "min disk is required and must be an integer not less than 0"
-msgstr "最小ディスクは必須で、0 または正の整数でなければなりません。"
-
-msgid "min ram is required and must be an integer not less than 0"
-msgstr "最小メモリーは必須で、0 または正の整数でなければなりません。"
 
 #, python-format
 msgid "resource load failed: %s"

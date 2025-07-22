@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: horizon VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2025-03-22 08:03+0900\n"
+"POT-Creation-Date: 2025-07-21 16:55+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -820,14 +820,8 @@ msgstr[1] ""
 msgid "Middle"
 msgstr "Centro"
 
-msgid "Min Disk (GB)"
-msgstr "Disco min (GB)"
-
 msgid "Min Port"
 msgstr "Porta min"
-
-msgid "Min RAM (MB)"
-msgstr "RAM min (MB)"
 
 msgid "Mini button"
 msgstr "Pulsante mini"
@@ -1380,14 +1374,6 @@ msgstr ""
 "numero di istanze."
 
 msgid ""
-"This flavor requires more VCPUs than your quota allows. Please select a "
-"smaller flavor or decrease the instance count."
-msgstr ""
-"Questo flavor richiede una quantità di VCPU maggiore della quantità "
-"consentita dalla quota. Selezionare un flavor più piccolo o ridurre il "
-"numero di istanze."
-
-msgid ""
 "This is a simple hero unit, a simple jumbotron-style component for calling "
 "extra attention to featured content or information."
 msgstr ""
@@ -1430,9 +1416,6 @@ msgstr "Istanze totali"
 
 msgid "Total RAM"
 msgstr "RAM totale"
-
-msgid "Total VCPUs"
-msgstr "VCPU totali"
 
 msgid "Type"
 msgstr "Tipo"
@@ -1789,12 +1772,6 @@ msgstr "Identificativo Utente"
 
 msgid "User Name"
 msgstr "Nome Utente"
-
-msgid "VCPUS"
-msgstr "VCPU"
-
-msgid "VCPUs"
-msgstr "VCPU"
 
 msgid "VDI"
 msgstr "VDI"

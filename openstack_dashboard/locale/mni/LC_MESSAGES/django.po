@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: horizon VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2025-03-22 08:03+0900\n"
+"POT-Creation-Date: 2025-07-21 16:55+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -74,10 +74,6 @@ msgstr "অপলোদ তৌনবা লোকেল ইমেজ অমা�
 
 msgid "AKI - Amazon Kernel Image"
 msgstr "AKI - আমাজোন কর্নেল ইমেজ"
-
-#, python-format
-msgid "ALLOW %(ethertype)s %(proto_port)s %(direction)s %(remote)s"
-msgstr "%(ethertype)s %(proto_port)s %(direction)s %(remote)s য়াহল্লু"
 
 msgid "AMI - Amazon Machine Image"
 msgstr "AMI - আমাজোন মেছিন ইমেজ"
@@ -704,11 +700,11 @@ msgstr "DNS নেম সর্ভরশীং"
 msgid "Decrypt Password"
 msgstr "দিক্রিপ্ত পাসৱার্দ"
 
+msgid "Default Quotas"
+msgstr "দিফোল্ট ক্যুওতাশীং"
+
 msgid "Default quotas updated."
 msgstr "দিফোল্ট ক্যুওতাশীং অপদেত তৌরে।"
-
-msgid "Defaults"
-msgstr "দিফোল্টশীং"
 
 #, python-format
 msgid "Delete the created network \"%s\" due to subnet creation failure."
@@ -1659,10 +1655,6 @@ msgstr "লাইভ মাইগ্রেত ইন্সতেন্স"
 msgid "Live migrate an instance to a specific host."
 msgstr "অকক্নবা হোষ্ট অমদা ইন্সতেন্স অমা লাইভ মাইগ্রেত তৌ।"
 
-#, python-format
-msgid "Load Balancer VIP %s"
-msgstr "লোদ বেলান্সর VIP %s"
-
 msgid "Local"
 msgstr "লোকেল"
 
@@ -1748,12 +1740,6 @@ msgstr "মাইগ্রেত তৌরি"
 
 msgid "Migration Policy"
 msgstr "মাইগ্রেসনগী পোলিসি"
-
-msgid "Min Disk"
-msgstr "মিনিমম দিস্ক"
-
-msgid "Min RAM"
-msgstr "মিনিমম RAM"
 
 msgid "Minimum Disk (GB)"
 msgstr "মিনিমম দিস্ক (GB)"
@@ -2008,9 +1994,6 @@ msgstr "ইন্সতেন্সশীংগী মশীং"
 
 msgid "Number of Snapshots"
 msgstr "স্নেপশোতকী মশীং"
-
-msgid "Number of VCPUs"
-msgstr "VCPUশীংগী মশীং"
 
 msgid "Number of Volumes"
 msgstr "ভোল্যুমশীংগী মশীং"
@@ -3327,9 +3310,6 @@ msgstr "সবনেতকী অকুপ্পা মরোলশীং রি
 msgid "Unable to retrieve subnet details."
 msgstr "সবনেতকী অকুপ্পা মরোলশীং রিত্রিভ তৌবা ঙমদে"
 
-msgid "Unable to retrieve tenant limits."
-msgstr "তেনেন্ত লিমিতশীং রিত্রিভ তৌবা ঙমদ্রে।"
-
 msgid "Unable to retrieve the aggregate to be updated"
 msgstr "অপদেত তৌনবা এগ্রিগেত অদু রিত্রিভ তৌবা ঙমদে"
 
@@ -3494,9 +3474,6 @@ msgstr "অপদেত তৌ"
 msgid "Update Default Quotas"
 msgstr "দিফোল্ট ক্যুওতাশীং অপদেত তৌ"
 
-msgid "Update Defaults"
-msgstr "দিফোল্টশীং অপদেত তৌ"
-
 msgid "Update Group"
 msgstr "গ্রুপ অপদেত তৌ"
 
@@ -3619,18 +3596,6 @@ msgstr "য়ুজর মমীং \"%s\" অসি হান্ননা শী�
 
 msgid "Users"
 msgstr "য়ুজরশীং"
-
-msgid "VCPU"
-msgstr "VCPU"
-
-msgid "VCPU Hours"
-msgstr "VCPU পুংশীং"
-
-msgid "VCPU Usage"
-msgstr "VCPU য়ুসেজ"
-
-msgid "VCPUs"
-msgstr "VCPUশীং"
 
 msgid "VLAN"
 msgstr "VLAN"
@@ -3820,6 +3785,3 @@ msgstr "ফ্রন্ত-এন্দ"
 
 msgid "undefined"
 msgstr "শেংনা তাক্তে"
-
-msgid "unknown IP address"
-msgstr "শকখংদবা IP এদ্রেস"

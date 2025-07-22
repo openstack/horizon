@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: horizon VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2025-03-22 08:03+0900\n"
+"POT-Creation-Date: 2025-07-21 16:55+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -74,10 +74,6 @@ msgstr "আপলোড করতে এক স্থানীয় ইমেজ."
 
 msgid "AKI - Amazon Kernel Image"
 msgstr "AKI - আমাজন কার্নেল ইমেজ"
-
-#, python-format
-msgid "ALLOW %(ethertype)s %(proto_port)s %(direction)s %(remote)s"
-msgstr "অনুমতি দিন %(ethertype)s %(proto_port)s %(direction)s %(remote)s"
 
 msgid "AMI - Amazon Machine Image"
 msgstr "AMI - আমাজন মেশিন ইমেজ"
@@ -706,11 +702,11 @@ msgstr "DNS নাম সার্ভার"
 msgid "Decrypt Password"
 msgstr "ডিক্রিপ্ট পাসওয়ার্ড"
 
+msgid "Default Quotas"
+msgstr "স্থিতক কোটা"
+
 msgid "Default quotas updated."
 msgstr "স্থিতক কোটা আপডেট করা."
-
-msgid "Defaults"
-msgstr "স্থিতক"
 
 #, python-format
 msgid "Delete the created network \"%s\" due to subnet creation failure."
@@ -1651,10 +1647,6 @@ msgstr "লাইভ মাইগ্রেট উদাহরণ"
 msgid "Live migrate an instance to a specific host."
 msgstr "একটি নির্দিষ্ট হোস্টে লাইভ মাইগ্রেট একটি উদাহরণ."
 
-#, python-format
-msgid "Load Balancer VIP %s"
-msgstr "লোড ব্যালেন্সার VIP %s"
-
 msgid "Local"
 msgstr "স্থানীয়"
 
@@ -1740,12 +1732,6 @@ msgstr "মাইগ্রেটিং"
 
 msgid "Migration Policy"
 msgstr "পরিযায়ী নীতি"
-
-msgid "Min Disk"
-msgstr "ন্যূনতম ডিস্ক"
-
-msgid "Min RAM"
-msgstr "ন্যূনতম RAM"
 
 msgid "Minimum Disk (GB)"
 msgstr "ন্যূনতম ডিস্ক (GB)"
@@ -1999,9 +1985,6 @@ msgstr "উদাহরণের সংখ্যা"
 
 msgid "Number of Snapshots"
 msgstr "স্ন্যাপশটের সংখ্যা"
-
-msgid "Number of VCPUs"
-msgstr "VCPU এর সংখ্যা"
 
 msgid "Number of Volumes"
 msgstr "ভলিয়্যুমের সংখ্যা"
@@ -3311,9 +3294,6 @@ msgstr "সাবনেট বিশদ পুনরুদ্ধার করত
 msgid "Unable to retrieve subnet details."
 msgstr "সাবনেট বিশদ পুনরুদ্ধার করতে অসমর্থ."
 
-msgid "Unable to retrieve tenant limits."
-msgstr "টেনান্ট সীমা পুনরুদ্ধার করতে অসমর্থ."
-
 msgid "Unable to retrieve the aggregate to be updated"
 msgstr "আপডেট করতে হবে এমন সমূহ পুনরুদ্ধার করতে অসমর্থ"
 
@@ -3478,9 +3458,6 @@ msgstr "আপডেট"
 msgid "Update Default Quotas"
 msgstr "স্থিতক কোটা আপডেট করুন"
 
-msgid "Update Defaults"
-msgstr "স্থিতক আপডেট করুন"
-
 msgid "Update Group"
 msgstr "শ্রেণি আপডেট করুন"
 
@@ -3603,18 +3580,6 @@ msgstr "\"%s\" ব্যবহর্তা নাম ইতিমধ্যেই
 
 msgid "Users"
 msgstr "ব্যবহর্তারা"
-
-msgid "VCPU"
-msgstr "VCPU"
-
-msgid "VCPU Hours"
-msgstr "VCPU ঘন্টা"
-
-msgid "VCPU Usage"
-msgstr "VCPU প্রয়োগ"
-
-msgid "VCPUs"
-msgstr "VCPUs"
 
 msgid "VLAN"
 msgstr "VLAN"
@@ -3800,6 +3765,3 @@ msgstr "ফ্রন্ট-এন্ড"
 
 msgid "undefined"
 msgstr "অনির্ধারিত"
-
-msgid "unknown IP address"
-msgstr "অজানা IP ঠিকানা"

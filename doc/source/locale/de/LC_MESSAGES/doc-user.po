@@ -2,9 +2,9 @@
 # Andreas Jaeger <jaegerandi@gmail.com>, 2019. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 25.4.0.dev4\n"
+"Project-Id-Version: horizon 25.4.1.dev54\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-03-21 23:03+0000\n"
+"POT-Creation-Date: 2025-07-21 16:55+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -144,15 +144,6 @@ msgstr ""
 msgid ":guilabel:`DNS Name Servers`: Specify a name for the DNS server."
 msgstr ""
 ":guilabel:`DNS Name Servers`: Geben Sie einen Namen für den DNS-Server an."
-
-msgid ""
-":guilabel:`Defaults`: View default quota values. Quotas are hard-coded in "
-"OpenStack Compute and define the maximum allowable size and number of "
-"resources."
-msgstr ""
-":guilabel:`Defaults`: Zeigen Sie die Standard-Quotenwerte an. Quoten werden "
-"in OpenStack Compute fest programmiert und definieren die maximal zulässige "
-"Größe und Anzahl der Ressourcen."
 
 msgid ""
 ":guilabel:`Description`: Optionally, provide a brief description for the "
@@ -986,24 +977,12 @@ msgstr ""
 "Gehen Sie zur Registerkarte :guilabel:`Ports` und klicken Sie auf :guilabel:"
 "`Create Port`."
 
-msgid "Good"
-msgstr "Gut"
-
 msgid ""
 "Good: Moderately tested, should look nice and work fine, maybe a few visual "
 "hiccups"
 msgstr ""
 "Gut: Mäßig getestet, sollte gut aussehen und gut funktionieren, vielleicht "
 "ein paar optische Probleme."
-
-msgid ""
-"Horizon is primarily tested and supported on the latest version of Firefox "
-"and the latest version of Chrome. Issues related to IE, Safari and Opera "
-"will also be considered."
-msgstr ""
-"Horizon wird hauptsächlich mit der neuesten Version von Firefox und der "
-"neuesten Version von Chrome getestet und unterstützt. Fragen im Zusammenhang "
-"mit IE, Safari und Oper werden ebenfalls berücksichtigt."
 
 msgid ""
 "However, in addition to the fixed IP address, a floating IP address can also "
@@ -1019,12 +998,6 @@ msgstr ""
 "der beteiligten Instanzen. Dieses Verfahren beschreibt die Reservierung "
 "einer freien IP-Adresse aus einem bestehenden Adresspool und die Zuordnung "
 "dieser Adresse zu einer bestimmten Instanz."
-
-msgid "IE 10 and below"
-msgstr "IE 10 und niedriger"
-
-msgid "IE 11"
-msgstr "IE 11"
 
 msgid ""
 "If a certificate warning appears when you try to access the URL for the "
@@ -1399,9 +1372,6 @@ msgstr "Melden Sie sich im Dashboard an."
 msgid "Log in to the dashboard."
 msgstr "Melden Sie sich im Dashboard an."
 
-msgid "MS Edge"
-msgstr "MS Edge"
-
 msgid "Manage an instance"
 msgstr "Verwalten einer Instanz"
 
@@ -1431,9 +1401,6 @@ msgstr ""
 
 msgid "No: Not supported"
 msgstr "Nein: Nicht unterstützt"
-
-msgid "Not supported."
-msgstr "Wird nicht unterstützt."
 
 msgid "Notes"
 msgstr "Notizen"
@@ -1964,9 +1931,6 @@ msgstr ""
 "Die sichtbaren Registerkarten und Funktionen im Dashboard hängen von den "
 "Zugriffsrechten oder Rollen des Benutzers ab, mit dem Sie angemeldet sind."
 
-msgid "There're some bugs but most"
-msgstr "Es gibt einige Bugs, aber es ist meinstens in Ordnung"
-
 msgid "There're some bugs but most of features work"
 msgstr "Es gibt einige Fehler, aber die meisten Funktionen funktionieren."
 
@@ -2292,12 +2256,6 @@ msgstr ""
 "setzen Sie ``cpu_mode=\"none\"`` neben `virt_type=qemu`` in ``/etc/nova/nova-"
 "compute.conf``, um den folgenden Fehler zu beheben:"
 
-msgid ""
-"When you delete an instance, the data in its attached volumes is not deleted."
-msgstr ""
-"Wenn Sie eine Instanz löschen, werden die Daten in den angehängten "
-"Datenträger nicht gelöscht."
-
 msgid "When you launch an instance from a volume, note the following steps:"
 msgstr ""
 "Wenn Sie eine Instanz von einem Datenträger aus starten, beachten Sie die "
@@ -2420,6 +2378,3 @@ msgid ""
 "object."
 msgstr ""
 "``<name>``` ist der Name des Containers, in den Sie das Objekt hochladen."
-
-msgid "of features work"
-msgstr "von Features funktionieren"

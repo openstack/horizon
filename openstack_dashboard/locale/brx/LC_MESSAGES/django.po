@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: horizon VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2025-03-22 08:03+0900\n"
+"POT-Creation-Date: 2025-07-21 16:55+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -80,10 +80,6 @@ msgstr "आपल'ड खालामनो मोनसे जायगान�
 
 msgid "AKI - Amazon Kernel Image"
 msgstr "AKI - एमेजन कार्नल मुसुखा"
-
-#, python-format
-msgid "ALLOW %(ethertype)s %(proto_port)s %(direction)s %(remote)s"
-msgstr "ALLOW %(ethertype)s %(proto_port)s %(direction)s %(remote)s"
 
 msgid "AMI - Amazon Machine Image"
 msgstr "AMI - एमेजन मेसिन मुसुखा"
@@ -749,11 +745,11 @@ msgstr "DNS मुं सार्भार"
 msgid "Decrypt Password"
 msgstr "पासवार्डखौ डिक्राइप्ट खालाम"
 
+msgid "Default Quotas"
+msgstr "डिफल्ट क'टा"
+
 msgid "Default quotas updated."
 msgstr "डिफल्ट क'टाखौ आपडेट खालामबाय।"
-
-msgid "Defaults"
-msgstr "डिफल्ट"
 
 #, python-format
 msgid "Delete the created network \"%s\" due to subnet creation failure."
@@ -1729,10 +1725,6 @@ msgstr "लाइभ माइग्रेट बिदिन्थि"
 msgid "Live migrate an instance to a specific host."
 msgstr "बिदिन्थिखौ जरखा हस्टआव लाइभ माइग्रेट खालाम"
 
-#, python-format
-msgid "Load Balancer VIP %s"
-msgstr "ल'ड बेसेन्सार VIP %s"
-
 msgid "Local"
 msgstr "जायगानि"
 
@@ -1818,12 +1810,6 @@ msgstr "जायगा सोलायगासिनो दं"
 
 msgid "Migration Policy"
 msgstr "जायगा सोलायहोनाय पलिसि"
-
-msgid "Min Disk"
-msgstr "खमसिन डिस्क"
-
-msgid "Min RAM"
-msgstr "खमसिन रेम"
 
 msgid "Minimum Disk (GB)"
 msgstr "खमसिन डिस्क (GB)"
@@ -2081,9 +2067,6 @@ msgstr "बिदिन्थिनि अनजिमा"
 
 msgid "Number of Snapshots"
 msgstr "स्नेपसटनि अनजिमा"
-
-msgid "Number of VCPUs"
-msgstr "VCPU नि अनजिमा"
 
 msgid "Number of Volumes"
 msgstr "भलिउमनि अनजिमा"
@@ -3543,9 +3526,6 @@ msgstr "साबनेट गुवारैखौ मोनफिननो ह
 msgid "Unable to retrieve subnet details."
 msgstr "साबनेट गुवारैखौ मोनफिननो हायाखै"
 
-msgid "Unable to retrieve tenant limits."
-msgstr "टेनेन्ट सिमाखौ मोनफिननो हायाखै।"
-
 msgid "Unable to retrieve the aggregate to be updated"
 msgstr "आपडेट खालामनो गोनां एग्रिगेटखौ मोनफिननो हायाखै"
 
@@ -3718,9 +3698,6 @@ msgstr "आपडेट खालाम"
 msgid "Update Default Quotas"
 msgstr "आपडेट डिफल्ट क'टा"
 
-msgid "Update Defaults"
-msgstr "आपडेट डिफल्ट"
-
 msgid "Update Group"
 msgstr "हानजाखौ आपडेट खालाम"
 
@@ -3847,18 +3824,6 @@ msgstr "बाहायग्रा मुं \"%s\" खौ सिगाङा�
 
 msgid "Users"
 msgstr "बाहायग्राफोर"
-
-msgid "VCPU"
-msgstr "VCPU"
-
-msgid "VCPU Hours"
-msgstr "VCPU घन्टा"
-
-msgid "VCPU Usage"
-msgstr "VCPU बाहायथि"
-
-msgid "VCPUs"
-msgstr "VCPUs"
 
 msgid "VLAN"
 msgstr "VLAN"
@@ -4047,6 +4012,3 @@ msgstr "फ्रन्ट-एन्ड"
 
 msgid "undefined"
 msgstr "थि खालामै"
-
-msgid "unknown IP address"
-msgstr "मोनथिमोनै IP थं"

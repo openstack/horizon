@@ -2,9 +2,9 @@
 # Andi Chandler <andi@gowling.com>, 2019. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 25.4.0.dev4\n"
+"Project-Id-Version: horizon 25.4.1.dev54\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-03-21 23:03+0000\n"
+"POT-Creation-Date: 2025-07-21 16:55+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -136,15 +136,6 @@ msgstr ":guilabel:`Create Subnet`: Select this check box to create a subnet"
 
 msgid ":guilabel:`DNS Name Servers`: Specify a name for the DNS server."
 msgstr ":guilabel:`DNS Name Servers`: Specify a name for the DNS server."
-
-msgid ""
-":guilabel:`Defaults`: View default quota values. Quotas are hard-coded in "
-"OpenStack Compute and define the maximum allowable size and number of "
-"resources."
-msgstr ""
-":guilabel:`Defaults`: View default quota values. Quotas are hard-coded in "
-"OpenStack Compute and define the maximum allowable size and number of "
-"resources."
 
 msgid ""
 ":guilabel:`Description`: Optionally, provide a brief description for the "
@@ -919,24 +910,12 @@ msgstr ""
 msgid "Go to the :guilabel:`Ports` tab and click :guilabel:`Create Port`."
 msgstr "Go to the :guilabel:`Ports` tab and click :guilabel:`Create Port`."
 
-msgid "Good"
-msgstr "Good"
-
 msgid ""
 "Good: Moderately tested, should look nice and work fine, maybe a few visual "
 "hiccups"
 msgstr ""
 "Good: Moderately tested, should look nice and work fine, maybe a few visual "
 "hiccups"
-
-msgid ""
-"Horizon is primarily tested and supported on the latest version of Firefox "
-"and the latest version of Chrome. Issues related to IE, Safari and Opera "
-"will also be considered."
-msgstr ""
-"Horizon is primarily tested and supported on the latest version of Firefox "
-"and the latest version of Chrome. Issues related to IE, Safari and Opera "
-"will also be considered."
 
 msgid ""
 "However, in addition to the fixed IP address, a floating IP address can also "
@@ -952,12 +931,6 @@ msgstr ""
 "the instances involved. This procedure details the reservation of a floating "
 "IP address from an existing pool of addresses and the association of that "
 "address with a specific instance."
-
-msgid "IE 10 and below"
-msgstr "IE 10 and below"
-
-msgid "IE 11"
-msgstr "IE 11"
 
 msgid ""
 "If a certificate warning appears when you try to access the URL for the "
@@ -1318,9 +1291,6 @@ msgstr "Log in to the dashboard"
 msgid "Log in to the dashboard."
 msgstr "Log in to the dashboard."
 
-msgid "MS Edge"
-msgstr "MS Edge"
-
 msgid "Manage an instance"
 msgstr "Manage an instance"
 
@@ -1350,9 +1320,6 @@ msgstr ""
 
 msgid "No: Not supported"
 msgstr "No: Not supported"
-
-msgid "Not supported."
-msgstr "Not supported."
 
 msgid "Notes"
 msgstr "Notes"
@@ -1838,9 +1805,6 @@ msgstr ""
 "The visible tabs and functions in the dashboard depend on the access "
 "permissions, or roles, of the user you are logged in as."
 
-msgid "There're some bugs but most"
-msgstr "There're some bugs but most"
-
 msgid "There're some bugs but most of features work"
 msgstr "There're some bugs but most of features work"
 
@@ -2149,11 +2113,6 @@ msgstr ""
 "``cpu_mode=\"none\"`` alongside ``virt_type=qemu`` in ``/etc/nova/nova-"
 "compute.conf`` to solve the following error:"
 
-msgid ""
-"When you delete an instance, the data in its attached volumes is not deleted."
-msgstr ""
-"When you delete an instance, the data in its attached volumes is not deleted."
-
 msgid "When you launch an instance from a volume, note the following steps:"
 msgstr "When you launch an instance from a volume, note the following steps:"
 
@@ -2270,6 +2229,3 @@ msgid ""
 msgstr ""
 "``<name>`` is the name of the container to which you are uploading the "
 "object."
-
-msgid "of features work"
-msgstr "of features work"

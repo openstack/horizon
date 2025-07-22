@@ -3,9 +3,9 @@
 # Ian Y. Choi <ianyrchoi@gmail.com>, 2020. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon\n"
+"Project-Id-Version: horizon 25.4.1.dev54\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-05-06 10:27+0000\n"
+"POT-Creation-Date: 2025-07-21 16:55+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -64,15 +64,6 @@ msgstr "용어집"
 
 msgid "Horizon"
 msgstr "호라이즌"
-
-msgid ""
-"Horizon is the canonical implementation of `OpenStack's Dashboard <https://"
-"github.com/openstack/horizon>`_, which provides a web based user interface "
-"to OpenStack services including Nova, Swift, Keystone, etc."
-msgstr ""
-"호라이즌은 canonical에서 구현한 `오픈스택의 대시보드  <https://github.com/"
-"openstack/horizon>`이고 _, 호라이즌은 노바, 스위프트, 키스톤  등의 오픈스택 "
-"서비스를 포함하는 웹 기반 사용자 인터페이스를 제공합니다."
 
 msgid "Horizon: The OpenStack Dashboard Project"
 msgstr "호라이즌: 오픈스택 대시보드 프로젝트"

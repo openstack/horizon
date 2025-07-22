@@ -28,7 +28,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: horizon VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2025-03-22 08:03+0900\n"
+"POT-Creation-Date: 2025-07-21 16:55+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -269,10 +269,6 @@ msgstr ""
 msgid "AKI - Amazon Kernel Image"
 msgstr "AKI - Amazon Kernel Image"
 
-#, python-format
-msgid "ALLOW %(ethertype)s %(proto_port)s %(direction)s %(remote)s"
-msgstr "AUTORISER %(ethertype)s %(proto_port)s %(direction)s %(remote)s"
-
 msgid "AMI - Amazon Machine Image"
 msgstr "AMI - Amazon Machine Image"
 
@@ -284,9 +280,6 @@ msgstr "Points d'accès API"
 
 msgid "ARI - Amazon Ramdisk Image"
 msgstr "ARI - Amazon Ramdisk Image"
-
-msgid "Accept Transfer"
-msgstr "Accepter le transfert"
 
 msgid "Accept Volume Transfer"
 msgstr "Accepter le transfert de volume"
@@ -882,9 +875,6 @@ msgstr "Architecture de l'unité centrale de l'image."
 msgid "Cancel"
 msgstr "Annuler"
 
-msgid "Cancel Transfer"
-msgstr "Annuler le transfert"
-
 #, python-format
 msgid "Cannot find instance %s."
 msgstr "Impossible de trouver l'instance %s."
@@ -1133,9 +1123,6 @@ msgctxt "Action log of an instance"
 msgid "Create"
 msgstr "Créer"
 
-msgid "Create A RBAC Policy"
-msgstr "Créer une stratégie RBAC"
-
 msgid "Create An Image"
 msgstr "Créer une image"
 
@@ -1234,9 +1221,6 @@ msgstr "Créer un sous-réseau"
 
 msgid "Create Subnet (Quota exceeded)"
 msgstr "Créer un sous-réseau (Quota dépassé)"
-
-msgid "Create Transfer"
-msgstr "Créer un transfert"
 
 msgid "Create User"
 msgstr "Créer un Utilisateur"
@@ -1518,6 +1502,9 @@ msgstr "nom du DNS"
 msgid "DNS Name Servers"
 msgstr "Serveurs DNS"
 
+msgid "DOWN"
+msgstr "Inactif"
+
 msgctxt "Admin state of a Network"
 msgid "DOWN"
 msgstr "Inactif"
@@ -1541,11 +1528,11 @@ msgctxt "Default style theme"
 msgid "Default"
 msgstr "Défaut"
 
+msgid "Default Quotas"
+msgstr "Quotas par défaut"
+
 msgid "Default quotas updated."
 msgstr "Les quotas par défaut ont été mis à jour."
-
-msgid "Defaults"
-msgstr "Valeurs par défaut"
 
 msgid "Delete"
 msgid_plural "Delete"
@@ -2476,9 +2463,6 @@ msgstr ""
 msgid "Enter an integer value between -1 and 255 (-1 means wild card)."
 msgstr ""
 "Entrer un entier compris entre -1 et 255. (ou -1 comme caractère générique)."
-
-msgid "Enter an integer value between 0 and 255."
-msgstr "Entrer un entier compris entre 0 et 255."
 
 msgid "Enter an integer value between 1 and 65535."
 msgstr "Entrer un entier entre 1 et 65535."
@@ -3739,10 +3723,6 @@ msgstr "Migration dynamique d'instance"
 msgid "Live migrate an instance to a specific host."
 msgstr "Migrer directement une instance à un hôte spécifique."
 
-#, python-format
-msgid "Load Balancer VIP %s"
-msgstr "VIP du répartiteur de charge %s"
-
 msgid "Local"
 msgstr "Local"
 
@@ -3974,12 +3954,6 @@ msgstr ""
 
 msgid "Migration Policy"
 msgstr "Stratégie de migration"
-
-msgid "Min Disk"
-msgstr "Disque Min"
-
-msgid "Min RAM"
-msgstr "RAM Min"
 
 msgid "Min. Size (MB) ="
 msgstr "Taille minimale (Mo) ="
@@ -4446,9 +4420,6 @@ msgstr "Nombre d'instances"
 msgid "Number of Snapshots"
 msgstr "Nombre d'instantanés"
 
-msgid "Number of VCPUs"
-msgstr "Nombre de VCPUs"
-
 msgid "Number of Volumes"
 msgstr "Nombre de volumes"
 
@@ -4805,9 +4776,6 @@ msgstr "Public :"
 msgid "QCOW2 - QEMU Emulator"
 msgstr "QCOW2 - Emulateur QEMU"
 
-msgid "QOS Policy ID"
-msgstr "ID Police QOS"
-
 msgid "QoS Policy"
 msgstr "Stratégie de QOS"
 
@@ -4890,12 +4858,6 @@ msgstr "Détails de la stratégie RBAC"
 
 msgid "RBAC Policy was successfully created."
 msgstr "La stratégie RBAC a été créée avec succès."
-
-msgid "RX/TX Factor"
-msgstr "Facteur RX/TX "
-
-msgid "RX/TX factor"
-msgstr "Facteur RX/TX"
 
 msgid "Ramdisk"
 msgstr "Ramdisk"
@@ -6126,9 +6088,6 @@ msgstr "Hôte cible"
 msgid "Target Project"
 msgstr "Projet cible"
 
-msgid "Target Tenant"
-msgstr "Tenant cible"
-
 msgid "Task"
 msgstr "Tâche"
 
@@ -6625,15 +6584,6 @@ msgstr "Taille totale des volumes et des instantanés (Go)"
 msgid "Total Size of Volumes and Snapshots (GiB) of Type %(type)s"
 msgstr "Taille totale des volumes et des instantanés (Go) du type %(type)s"
 
-msgid "Total VCPU Usage (Hours):"
-msgstr "Total (en heures) de l’utilisation des VCPU :"
-
-msgid ""
-"Total VCPU usage (Number of VCPU in instance * Hours Used) for the project"
-msgstr ""
-"Utilisation totale des vCPU pour le projet (nombre de vCPU * heures "
-"consommées)"
-
 msgid "Total Volume Storage"
 msgstr "Stockage Volume Total"
 
@@ -6660,8 +6610,14 @@ msgstr "Joncteurs"
 msgid "Type"
 msgstr "Type"
 
+msgid "Type ="
+msgstr "Type ="
+
 msgid "Type of backend device identifier provided"
 msgstr "Type d'identifiant du backend fourni"
+
+msgid "UP"
+msgstr "Actif"
 
 msgctxt "Admin state of a Network"
 msgid "UP"
@@ -7513,9 +7469,6 @@ msgstr "Impossible de récupérer les détails du sous-réseau"
 msgid "Unable to retrieve subnet details."
 msgstr "Impossible de récupérer les détails du sous-réseau."
 
-msgid "Unable to retrieve tenant limits."
-msgstr "Incapable de récupérer les limites du tenant."
-
 msgid "Unable to retrieve the aggregate to be updated"
 msgstr "impossible de récupérer l'agrégat à mettre à jour"
 
@@ -7897,9 +7850,6 @@ msgstr "Mise à jour des associations"
 msgid "Update Default Quotas"
 msgstr "Mettre à jour les quotas par défaut"
 
-msgid "Update Defaults"
-msgstr "Mettre à jour les valeurs par défaut"
-
 msgid "Update Encrypted Volume Type"
 msgstr "Mise à jour du volume chiffré"
 
@@ -8110,30 +8060,6 @@ msgstr "ID unique défini par l'utilisateur pour identifier le mappage."
 
 msgid "Users"
 msgstr "Utilisateurs"
-
-msgid "VCPU"
-msgstr "VCPU"
-
-msgid "VCPU Hours"
-msgstr "VCPU Heures"
-
-msgid "VCPU Usage"
-msgstr "Utilisation VCPU"
-
-msgid "VCPUs"
-msgstr "VCPUs"
-
-msgid "VCPUs allocation ratio"
-msgstr "Taux d'allocation des vCPUs"
-
-msgid "VCPUs reserved"
-msgstr "vCPUs réservés"
-
-msgid "VCPUs total"
-msgstr "Total des vCPUs"
-
-msgid "VCPUs used"
-msgstr "vCPUs utilisés"
 
 msgid "VDI - Virtual Disk Image"
 msgstr "VDI - Image disque virtuelle"
@@ -8612,9 +8538,6 @@ msgstr "non"
 
 msgid "undefined"
 msgstr "Indéfini"
-
-msgid "unknown IP address"
-msgstr "Adresse IP inconnue"
 
 msgid "up"
 msgstr "actif"

@@ -33,7 +33,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: horizon VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2025-03-22 08:03+0900\n"
+"POT-Creation-Date: 2025-07-21 16:55+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -271,10 +271,6 @@ msgstr "不能创建%(req)iGiB的卷，因为您的可用配置只有%(avail)iGi
 msgid "AKI - Amazon Kernel Image"
 msgstr "AKI - Amazon Kernel 镜像"
 
-#, python-format
-msgid "ALLOW %(ethertype)s %(proto_port)s %(direction)s %(remote)s"
-msgstr "允许 %(ethertype)s %(proto_port)s %(direction)s %(remote)s"
-
 msgid "AMI - Amazon Machine Image"
 msgstr "AMI - Amazon  Machine 镜像"
 
@@ -286,9 +282,6 @@ msgstr "API端点"
 
 msgid "ARI - Amazon Ramdisk Image"
 msgstr "ARI - Amazon Ramdisk 镜像"
-
-msgid "Accept Transfer"
-msgstr "接受转让"
 
 msgid "Accept Volume Transfer"
 msgstr "接受卷转让"
@@ -857,9 +850,6 @@ msgstr "镜像的CPU架构"
 msgid "Cancel"
 msgstr "取消"
 
-msgid "Cancel Transfer"
-msgstr "取消转让"
-
 #, python-format
 msgid "Cannot find instance %s."
 msgstr "无法找到实例 %s。"
@@ -1091,9 +1081,6 @@ msgctxt "Action log of an instance"
 msgid "Create"
 msgstr "已创建"
 
-msgid "Create A RBAC Policy"
-msgstr "创建一个 RBAC 策略"
-
 msgid "Create An Image"
 msgstr "创建镜像"
 
@@ -1196,9 +1183,6 @@ msgstr "创建子网"
 
 msgid "Create Subnet (Quota exceeded)"
 msgstr "创建子网 (配额用尽)"
-
-msgid "Create Transfer"
-msgstr "创建转让"
 
 msgid "Create User"
 msgstr "创建用户"
@@ -1460,6 +1444,9 @@ msgstr "DNS 名称"
 msgid "DNS Name Servers"
 msgstr "DNS服务器"
 
+msgid "DOWN"
+msgstr "DOWN"
+
 msgctxt "Admin state of a Network"
 msgid "DOWN"
 msgstr "DOWN"
@@ -1483,11 +1470,11 @@ msgctxt "Default style theme"
 msgid "Default"
 msgstr "默认"
 
+msgid "Default Quotas"
+msgstr "默认配额"
+
 msgid "Default quotas updated."
 msgstr "默认配额已更新."
-
-msgid "Defaults"
-msgstr "默认值"
 
 msgid "Delete"
 msgid_plural "Delete"
@@ -2329,9 +2316,6 @@ msgstr "请输入ICMP类型值范围 (-1: 255)"
 
 msgid "Enter an integer value between -1 and 255 (-1 means wild card)."
 msgstr "请输入一个介于-1和255之间的整数（-1表示使用通配符）。"
-
-msgid "Enter an integer value between 0 and 255."
-msgstr "输入一个介于0到255之间的整数"
 
 msgid "Enter an integer value between 1 and 65535."
 msgstr "输入大于1小于65535的整数"
@@ -3524,10 +3508,6 @@ msgstr "实例热迁移"
 msgid "Live migrate an instance to a specific host."
 msgstr "热迁移一个实例到指定主机"
 
-#, python-format
-msgid "Load Balancer VIP %s"
-msgstr "负载均衡 VIP %s"
-
 msgid "Local"
 msgstr "Local"
 
@@ -3753,12 +3733,6 @@ msgstr "迁移实例可能会引起一些不可恢复的结果。"
 
 msgid "Migration Policy"
 msgstr "迁移策略"
-
-msgid "Min Disk"
-msgstr "最小磁盘"
-
-msgid "Min RAM"
-msgstr "最小内存"
 
 msgid "Min. Size (MB) ="
 msgstr "容量最小值 (MB) ="
@@ -4219,9 +4193,6 @@ msgstr "实例数量"
 msgid "Number of Snapshots"
 msgstr "快照数量"
 
-msgid "Number of VCPUs"
-msgstr "VCPU数量"
-
 msgid "Number of Volumes"
 msgstr "卷数量"
 
@@ -4567,9 +4538,6 @@ msgstr "公共域"
 msgid "QCOW2 - QEMU Emulator"
 msgstr "QCOW2 - QEMU 模拟器"
 
-msgid "QOS Policy ID"
-msgstr "QOS 策略 ID"
-
 msgid "QoS Policy"
 msgstr "QoS 策略"
 
@@ -4641,12 +4609,6 @@ msgstr "RBAC 策略详情"
 
 msgid "RBAC Policy was successfully created."
 msgstr "RBAC 策略被成功创建。"
-
-msgid "RX/TX Factor"
-msgstr "RX/TX 因子"
-
-msgid "RX/TX factor"
-msgstr "RX/TX 因子"
 
 msgid "Ramdisk"
 msgstr "内存盘"
@@ -5818,9 +5780,6 @@ msgstr "目标主机"
 msgid "Target Project"
 msgstr "目标项目"
 
-msgid "Target Tenant"
-msgstr "目标租户"
-
 msgid "Task"
 msgstr "任务"
 
@@ -6272,13 +6231,6 @@ msgstr "卷及快照总大小 (GiB)"
 msgid "Total Size of Volumes and Snapshots (GiB) of Type %(type)s"
 msgstr "%(type)s 类型的卷和快照总大小 (GiB)"
 
-msgid "Total VCPU Usage (Hours):"
-msgstr "VCPU总用量(小时):"
-
-msgid ""
-"Total VCPU usage (Number of VCPU in instance * Hours Used) for the project"
-msgstr "项目总VCPU用量 (实例的VCPU数*小时)"
-
 msgid "Total Volume Storage"
 msgstr "总计卷存储"
 
@@ -6304,8 +6256,14 @@ msgstr "中继"
 msgid "Type"
 msgstr "类型"
 
+msgid "Type ="
+msgstr "类型 ="
+
 msgid "Type of backend device identifier provided"
 msgstr "提供的后端设备标识类型"
+
+msgid "UP"
+msgstr "UP"
 
 msgctxt "Admin state of a Network"
 msgid "UP"
@@ -7131,9 +7089,6 @@ msgstr "无法获取子网详情"
 msgid "Unable to retrieve subnet details."
 msgstr "无法获取子网详情"
 
-msgid "Unable to retrieve tenant limits."
-msgstr "无法获取租户范围"
-
 msgid "Unable to retrieve the aggregate to be updated"
 msgstr "无法获取要更新的主机聚合"
 
@@ -7500,9 +7455,6 @@ msgstr "更新关联"
 msgid "Update Default Quotas"
 msgstr "更新默认配额"
 
-msgid "Update Defaults"
-msgstr "更新默认值"
-
 msgid "Update Encrypted Volume Type"
 msgstr "更新加密的卷类型"
 
@@ -7712,18 +7664,6 @@ msgstr "用户定义的唯一标识来识别映射。"
 
 msgid "Users"
 msgstr "用户"
-
-msgid "VCPU"
-msgstr "VCPU"
-
-msgid "VCPU Hours"
-msgstr "VCPU小时数"
-
-msgid "VCPU Usage"
-msgstr "VCPU使用量"
-
-msgid "VCPUs"
-msgstr "VCPU数量"
 
 msgid "VDI - Virtual Disk Image"
 msgstr "VDI - VirtualBox 虚拟磁盘镜像"
@@ -8163,9 +8103,6 @@ msgstr "否"
 
 msgid "undefined"
 msgstr "未定义"
-
-msgid "unknown IP address"
-msgstr "未知的IP地址"
 
 msgid "up"
 msgstr "启动"

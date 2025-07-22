@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: horizon VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2025-03-22 08:03+0900\n"
+"POT-Creation-Date: 2025-07-21 16:55+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -80,10 +80,6 @@ msgstr "ஒரு உள்ளூர் படிமத்தை பதிவே
 
 msgid "AKI - Amazon Kernel Image"
 msgstr "AKI - அமேசான் கெர்னல் இமேஜ்"
-
-#, python-format
-msgid "ALLOW %(ethertype)s %(proto_port)s %(direction)s %(remote)s"
-msgstr "அனுமதி %(ethertype)s %(proto_port)s %(direction)s %(remote)s"
 
 msgid "AMI - Amazon Machine Image"
 msgstr "AMI - அமேசான் மெஷின் இமேஜ்"
@@ -752,11 +748,11 @@ msgstr "DNS பெயர் சேவையகங்கள்"
 msgid "Decrypt Password"
 msgstr " கடவுச்சொல்லின் குறியாக்கத்தை நீக்கு"
 
+msgid "Default Quotas"
+msgstr "முன்னிருப்பு ஒதுக்கீட்டளவுகள்"
+
 msgid "Default quotas updated."
 msgstr "முன்னிருப்பு ஒதுக்கீட்டளவுகள் புதுப்பிக்கப்பட்டன."
-
-msgid "Defaults"
-msgstr "முன்னிருப்புகள்"
 
 #, python-format
 msgid "Delete the created network \"%s\" due to subnet creation failure."
@@ -1748,10 +1744,6 @@ msgstr "நிகழ்வின் இயங்கு இடம்பெயர�
 msgid "Live migrate an instance to a specific host."
 msgstr "ஒரு நிகழ்வை குறிப்பிட்ட புரவலனுக்கு இயங்கு இடம்பெயர்வு"
 
-#, python-format
-msgid "Load Balancer VIP %s"
-msgstr "சுமை சமனாக்கி VIP %s "
-
 msgid "Local"
 msgstr "உள்ளூர்"
 
@@ -1837,12 +1829,6 @@ msgstr "இடம் பெயர்கிறது"
 
 msgid "Migration Policy"
 msgstr "இடம்பெயர்வு கொள்கை"
-
-msgid "Min Disk"
-msgstr "கு.ப. வட்டு"
-
-msgid "Min RAM"
-msgstr "குறைந்தபட்ச RAM"
 
 msgid "Minimum Disk (GB)"
 msgstr "குறைந்தபட்ச RAM (GB)"
@@ -2102,9 +2088,6 @@ msgstr "நிகழ்வுகளின் எண்ணிக்கை"
 
 msgid "Number of Snapshots"
 msgstr "ஸ்னாப்ஷாட்களின் எண்ணிக்கை"
-
-msgid "Number of VCPUs"
-msgstr "VCPU-களின் எண்ணிக்கை"
 
 msgid "Number of Volumes"
 msgstr "தொகுதிகளின் எண்ணிக்கை"
@@ -3579,9 +3562,6 @@ msgstr "உபவலை விவரங்களை மீட்க முடி
 msgid "Unable to retrieve subnet details."
 msgstr "உபவலை விவரங்களை மீட்க முடியவில்லை."
 
-msgid "Unable to retrieve tenant limits."
-msgstr "குடியிருப்போர் வரம்புகளை மீட்க முடியவில்லை."
-
 msgid "Unable to retrieve the aggregate to be updated"
 msgstr "புதுப்பிக்க வேண்டிய திரளை மீட்க முடியவில்லை"
 
@@ -3754,9 +3734,6 @@ msgstr "புதுப்பிக்கவும்"
 msgid "Update Default Quotas"
 msgstr "முன்னிருப்பு ஒதுக்கீட்டளவுகளை புதுப்பிக்கவும்"
 
-msgid "Update Defaults"
-msgstr "முன்னிருப்புகளை புதுப்பிக்கவும்"
-
 msgid "Update Group"
 msgstr "குழுவை புதுப்பிக்கலும்"
 
@@ -3885,18 +3862,6 @@ msgstr "பயனர் பெயர் \"%s\" ஏற்கனவே பயன�
 
 msgid "Users"
 msgstr "பயனர்கள்"
-
-msgid "VCPU"
-msgstr "VCPU"
-
-msgid "VCPU Hours"
-msgstr "VCPU நேரங்கள்"
-
-msgid "VCPU Usage"
-msgstr "VCPU பயன்பாடு"
-
-msgid "VCPUs"
-msgstr "VCPU-கள்"
 
 msgid "VLAN"
 msgstr "VLAN"
@@ -4088,6 +4053,3 @@ msgstr "முன்-முனை"
 
 msgid "undefined"
 msgstr "வரையறுக்கப்படாத"
-
-msgid "unknown IP address"
-msgstr "அறியப்படாத ஐபி முகவரி"

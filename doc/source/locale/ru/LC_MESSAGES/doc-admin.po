@@ -3,13 +3,13 @@
 # Ivan Anfimov <lazekteam@gmail.com>, 2025. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 25.4.0.dev4\n"
+"Project-Id-Version: horizon 25.4.1.dev54\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-03-21 23:03+0000\n"
+"POT-Creation-Date: 2025-07-21 16:55+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2025-07-15 07:45+0000\n"
+"PO-Revision-Date: 2025-07-18 07:33+0000\n"
 "Last-Translator: Ivan Anfimov <lazekteam@gmail.com>\n"
 "Language-Team: Russian\n"
 "Language: ru\n"
@@ -62,9 +62,6 @@ msgstr "**Описание квот**:"
 msgid "**RAM (MB)**"
 msgstr "**Оперативная память (МБ)**"
 
-msgid "**RX/TX Factor**"
-msgstr "**RX/TX фактор**"
-
 msgid "**Random-number generator**"
 msgstr "**Генератор случайных чисел**"
 
@@ -74,11 +71,11 @@ msgstr "**Корневой диск (ГБ)**"
 msgid "**Swap Disk (MB)**"
 msgstr "**Swap диск (МБ)**"
 
-msgid "**VCPUs**"
-msgstr "**VCPU**"
-
 msgid "**Watchdog behavior**"
 msgstr "**Параметры watchdog**"
+
+msgid "**vCPUs**"
+msgstr "**vCPU**"
 
 msgid "1"
 msgstr "1"
@@ -455,8 +452,8 @@ msgstr "Нажмите кнопку :guilabel:`Создать пользоват
 msgid "Click the :guilabel:`Edit` button."
 msgstr "Нажмите кнопку :guilabel:`Изменить`."
 
-msgid "Click the :guilabel:`Update Defaults` button."
-msgstr "Нажмите кнопку :guilabel:`Обновить значения по умолчанию`."
+msgid "Click the :guilabel:`Update Default Quotas` button."
+msgstr "Нажмите кнопку :guilabel:`Обновить квоты по умолчанию`."
 
 msgid "Click the :guilabel:`Update Role` button to confirm your changes."
 msgstr "Нажмите кнопку :guilabel:`Обновить роль`, чтобы подтвердить изменения."
@@ -1160,10 +1157,10 @@ msgstr ""
 
 msgid ""
 "On the :guilabel:`Admin` tab, open the :guilabel:`System` tab and click the :"
-"guilabel:`Defaults` category."
+"guilabel:`Default Quotas` category."
 msgstr ""
 "На вкладке :guilabel:`Администратор` откройте вкладку :guilabel:`Система` и "
-"выберите категорию :guilabel:`Параметры по умолчанию`."
+"выберите категорию :guilabel:`Квоты по умолчанию`."
 
 msgid ""
 "On the :guilabel:`Admin` tab, open the :guilabel:`System` tab and click the :"
@@ -1234,16 +1231,6 @@ msgstr ""
 "для новых пользователей с помощью панели управления OpenStack. Проекты "
 "владеют определенными ресурсами в вашем окружении OpenStack. Вы можете "
 "связать пользователей с ролями, проектами или и с теми, и с другими."
-
-msgid ""
-"Optional property allows servers with a different bandwidth to be created "
-"with the RX/TX Factor. The default value is 1. That is, the new bandwidth is "
-"the same as that of the attached network."
-msgstr ""
-"Опциональное свойство позволяет создавать серверы с другой пропускной "
-"способностью с помощью коэффициента RX/TX. Значение по умолчанию — 1. То "
-"есть пропускная способность совпадает с пропускной способностью подключенной "
-"сети."
 
 msgid "Parameter options"
 msgstr "Параметры опций"
@@ -1330,12 +1317,10 @@ msgstr ""
 "Выберите месяц и нажмите :guilabel:`Запросить', чтобы запросить "
 "использование инстансов за этот месяц."
 
-#, fuzzy
 msgid ""
 "Select an instance to create a snapshot from it. From the Actions drop-down "
 "list, select :guilabel:`Create Snapshot`."
 msgstr ""
-"Выберите инстанс, чтобы создать из него  снимок. Из выпадающего списка "
 "Выберите инстанс, чтобы создать из него снимок. Из выпадающего списка в "
 "колонке \"Действия\" выберите :guilabel:`Создать снимок`."
 
@@ -1911,9 +1896,6 @@ msgstr ""
 "При использовании этого выбора для aes-xts размер базового ключа составит "
 "всего 128 бит*"
 
-msgid "VCPUs"
-msgstr "VCPU"
-
 msgid "View and manage quotas"
 msgstr "Просмотр и управление квотами"
 
@@ -2016,12 +1998,11 @@ msgstr ""
 "`Название квоты` или :guilabel:`Лимит`."
 
 msgid ""
-"You can track costs per month by showing meters like number of VCPUs, disks, "
+"You can track costs per month by showing meters like number of vCPUs, disks, "
 "RAM, and uptime of all your instances."
 msgstr ""
-"Вы можете отслеживать расходы в месяц, показывая такие показатели, как "
-"количество VCPU, дисков, оперативной памяти и время работы всех ваших "
-"инстансов."
+"Вы можете отслеживать расходы за месяц, отображая такие показатели, как "
+"количество vCPU, дисков, оперативной памяти и uptime всех ваших инстансов."
 
 msgid ""
 "You can use applications such as ``Memcached`` or ``Redis`` for external "
@@ -2149,3 +2130,6 @@ msgstr "quota:vif_outbound_burst"
 
 msgid "quota:vif_outbound_peak"
 msgstr "quota:vif_outbound_peak"
+
+msgid "vCPUs"
+msgstr "vCPU"

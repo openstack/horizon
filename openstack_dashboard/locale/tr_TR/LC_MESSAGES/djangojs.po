@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: horizon VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2025-03-22 08:03+0900\n"
+"POT-Creation-Date: 2025-07-21 16:55+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -50,17 +50,6 @@ msgstr "7"
 
 msgid "75%"
 msgstr "75%"
-
-msgid ""
-"<b>Image (with Create New Volume checked)</b>: This options uses an image to "
-"boot the instance, and creates a new volume to persist instance data. You "
-"can specify volume size and whether to delete the volume on deletion of the "
-"instance."
-msgstr ""
-"<b>İmaj (Yeni Birim Oluştur işaretliyken)</b>: Bu seçenek sunucuyu ön "
-"yüklemek için bir imaj kullanır, ve sunucu verisini saklamak için yeni bir "
-"birim oluşturur. Birim boyutunu ve sunucu silinirken birimin silinip "
-"silinmeyeceğini belirtebilirsiniz."
 
 msgid "<b>Image</b>: This option uses an image to boot the instance."
 msgstr "<b>İmaj</b>: Bu seçenek sunucunun ön yükleneceği bir imaj kullanır."
@@ -1364,17 +1353,11 @@ msgstr "Metaveri başarıyla güncellendi."
 msgid "Middle"
 msgstr "Orta"
 
-msgid "Min Disk (GB)"
-msgstr "Minimum Disk (GB)"
-
 msgid "Min Kbps"
 msgstr "Min Kbps"
 
 msgid "Min Port"
 msgstr "Minimum Port"
-
-msgid "Min RAM (MB)"
-msgstr "Minimum RAM (MB)"
 
 msgid "Min. Size (bytes)"
 msgstr "Min. Boyut (bytes)"
@@ -1788,9 +1771,6 @@ msgstr "RAM"
 msgid "RAW"
 msgstr "RAW"
 
-msgid "RX/TX Factor"
-msgstr "RX/TX Etmeni"
-
 msgid "Radios"
 msgstr "Radios"
 
@@ -1943,17 +1923,11 @@ msgstr "Bir veya daha fazla seçin"
 msgid "Select one or more security groups from the available groups below."
 msgstr "Aşağıdaki güvenlik gruplarından bir veya daha fazlasını seçin."
 
-msgid "Select the Ramdisk from the drop down menu."
-msgstr "Aşağı açılır menüden Ramdisk'i seçin."
-
 msgid "Select the availability zone from the drop down menu."
 msgstr "Aşağı açılır menüden kullanılırlık bölgesini seçin."
 
 msgid "Select the format of the disk from the drop down menu."
 msgstr "Aşağı açılır menüden disk formatını seçin."
-
-msgid "Select the kernel to run from the drop down menu."
-msgstr "Aşağı açılır menüden çalıştırılacak çekirdeği seçin."
 
 msgid "Select the security groups to launch the instance in."
 msgstr "Sanal makinenin çalıştırılacağı güvenlik gruplarını seçin."
@@ -2054,9 +2028,6 @@ msgstr "Kaynak Metin"
 msgid "Source Type"
 msgstr "Kaynak Türü"
 
-msgid "Specify an image to upload to the Image Service."
-msgstr "İmaj Servisine yüklenecek bir imaj belirtin."
-
 msgid "Stacked"
 msgstr "Yığınlanmış"
 
@@ -2134,9 +2105,6 @@ msgstr "Etiketler"
 msgid "Tel"
 msgstr "Tel"
 
-msgid "Tenant ID"
-msgstr "Kiracı ID"
-
 msgid "Text"
 msgstr "Text"
 
@@ -2148,9 +2116,6 @@ msgstr "Textarea"
 
 msgid "The access permission for the image."
 msgstr "İmaj için erişim izinleri."
-
-msgid "The architecture of the image."
-msgstr "İmaj mimarisi."
 
 msgid ""
 "The current Horizon settings indicate no valid\n"
@@ -2209,20 +2174,6 @@ msgid ""
 msgstr ""
 "Sunucu başına verilebilecek anahtar-değer çiftlerinin azami sayısı hesaplama "
 "sağlayıcı tarafından belirlenir."
-
-msgid ""
-"The minimum disk size required to boot the image. If unspecified, this value "
-"defaults to 0 (no minimum)."
-msgstr ""
-"İmajı ön yüklemek için gerekli asgari disk boyutu. Belirtilmezse, bu değer 0 "
-"olarak tanımlıdır (asgari değer yok)."
-
-msgid ""
-"The minimum memory size required to boot the image. If unspecified, this "
-"value defaults to 0 (no minimum)."
-msgstr ""
-"İmajı ön yüklemek için gerekli asgari hafıza boyutu. Belirtilmezse, bu "
-"değerin öntanımlı değeri 0'dır (asgari değer yok)."
 
 msgid "The name of the Volume."
 msgstr "Mantıksal Sürücü Adı."
@@ -2319,13 +2270,6 @@ msgstr ""
 "Lütfen daha küçük bir şablon seçin veya sunucu sayısını azaltın."
 
 msgid ""
-"This flavor requires more VCPUs than your quota allows. Please select a "
-"smaller flavor or decrease the instance count."
-msgstr ""
-"Bu şablon kotanızın izin verdiğinden daha fazla VCPU'ya ihtiyaç duyuyor. "
-"Lütfen daha küçük bir şablon seçin veya sunucu sayısını azaltın."
-
-msgid ""
 "This is a simple hero unit, a simple jumbotron-style component for calling "
 "extra attention to featured content or information."
 msgstr ""
@@ -2392,9 +2336,6 @@ msgstr "Toplam Sanal Makine"
 
 msgid "Total RAM"
 msgstr "Toplam RAM"
-
-msgid "Total VCPUs"
-msgstr "Toplam VCPU"
 
 msgid "Total Volume Storage"
 msgstr "Toplam Mantıksal Sürücü Depolama"
@@ -2751,9 +2692,6 @@ msgstr "Proje alınamadı."
 msgid "Unable to retrieve the projects."
 msgstr "Projeler alınamadı."
 
-msgid "Unable to retrieve the qos policies."
-msgstr "QoS ilkeleri alınamadı."
-
 msgid "Unable to retrieve the resource types."
 msgstr "Kaynak tipleri alınamıyor."
 
@@ -2948,12 +2886,6 @@ msgstr "Kullanıcı ID"
 
 msgid "User Name"
 msgstr "Kullanıcı Adı"
-
-msgid "VCPUS"
-msgstr "VCPU'LAR"
-
-msgid "VCPUs"
-msgstr "VCPUlar"
 
 msgid "VDI"
 msgstr "VDI"

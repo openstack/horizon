@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: horizon VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2025-03-22 08:03+0900\n"
+"POT-Creation-Date: 2025-07-21 16:55+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -80,10 +80,6 @@ msgstr "আপলোড কৰিবলৈ এটা স্থানীয় ছ�
 
 msgid "AKI - Amazon Kernel Image"
 msgstr "AKI - আমাজন কাৰ্ণেল ছবি"
-
-#, python-format
-msgid "ALLOW %(ethertype)s %(proto_port)s %(direction)s %(remote)s"
-msgstr "%(ethertype)s %(proto_port)s %(direction)s %(remote)s অনুমতি দিয়ক"
 
 msgid "AMI - Amazon Machine Image"
 msgstr "AMI - আমাজন যন্ত্ৰ ছবি"
@@ -750,11 +746,11 @@ msgstr "DNS নাম ছাৰ্ভাৰবোৰ"
 msgid "Decrypt Password"
 msgstr "পাছৱৰ্ড ডিক্ৰিপ্ট কৰক"
 
+msgid "Default Quotas"
+msgstr "ডিফল্ট কোটাবোৰ"
+
 msgid "Default quotas updated."
 msgstr "ডিফল্ট কোটাবোৰ আপডেট কৰা হল."
-
-msgid "Defaults"
-msgstr "ডিফল্টবোৰ"
 
 #, python-format
 msgid "Delete the created network \"%s\" due to subnet creation failure."
@@ -1735,10 +1731,6 @@ msgstr "জীৱন্ত প্ৰব্ৰজনৰ উদাহৰণ"
 msgid "Live migrate an instance to a specific host."
 msgstr "এটা নিৰ্দিষ্ট হষ্টলৈ উদাহৰণ এটা জীৱন্ত প্ৰব্ৰজন কৰক."
 
-#, python-format
-msgid "Load Balancer VIP %s"
-msgstr "লোড সাম্যকৰ্তা VIP %s"
-
 msgid "Local"
 msgstr "স্থানীয়"
 
@@ -1824,12 +1816,6 @@ msgstr "প্ৰব্ৰজন কৰিছে"
 
 msgid "Migration Policy"
 msgstr "প্ৰব্ৰজনৰ নীতি"
-
-msgid "Min Disk"
-msgstr "নূন্যতম ডিস্ক"
-
-msgid "Min RAM"
-msgstr "নূন্যতম RAM"
 
 msgid "Minimum Disk (GB)"
 msgstr "নূন্যতম ডিস্ক (GB)"
@@ -2088,9 +2074,6 @@ msgstr "উদাহৰণবোৰৰ সংখ্যা"
 
 msgid "Number of Snapshots"
 msgstr "স্নেপশ্বটবোৰৰ সংখ্যা"
-
-msgid "Number of VCPUs"
-msgstr "VCPU বোৰৰ সংখ্যা"
 
 msgid "Number of Volumes"
 msgstr "আয়তনবোৰৰ সংখ্যা"
@@ -3550,9 +3533,6 @@ msgstr "উপনেটৰ পূংখানুপূংখ বিৱৰণ উ
 msgid "Unable to retrieve subnet details."
 msgstr "উপনেটৰ পূংখানুপূংখ বিৱৰণ উদ্ধাৰ কৰিবলৈ অক্ষম."
 
-msgid "Unable to retrieve tenant limits."
-msgstr "পট্টাধাৰী সীমাবোৰ উদ্ধাৰ কৰিবলৈ অক্ষম."
-
 msgid "Unable to retrieve the aggregate to be updated"
 msgstr "আপডেট কৰিবলগীয়া গড় উদ্ধাৰ কৰিবলৈ অক্ষম"
 
@@ -3725,9 +3705,6 @@ msgstr "আপডেট"
 msgid "Update Default Quotas"
 msgstr "ডিফল্ট কোটাবোৰ আপডেট কৰক"
 
-msgid "Update Defaults"
-msgstr "ডিফল্টবোৰ আপডেট কৰক"
-
 msgid "Update Group"
 msgstr "গোট আপডেট কৰক"
 
@@ -3854,18 +3831,6 @@ msgstr "\"%s\" ব্যৱহাৰকৰ্তাৰ নাম ইতিমধ
 
 msgid "Users"
 msgstr "ব্যৱহাৰকৰ্তাবোৰ"
-
-msgid "VCPU"
-msgstr "VCPU"
-
-msgid "VCPU Hours"
-msgstr "VCPU ঘন্টাবোৰ"
-
-msgid "VCPU Usage"
-msgstr "VCPU ব্যৱহাৰ"
-
-msgid "VCPUs"
-msgstr "VCPUবোৰ"
 
 msgid "VLAN"
 msgstr "VLAN"
@@ -4056,6 +4021,3 @@ msgstr "সন্মুখফাল"
 
 msgid "undefined"
 msgstr "অনিৰ্ধাৰিত "
-
-msgid "unknown IP address"
-msgstr "অজ্ঞাত IP ঠিকনা"

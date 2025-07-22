@@ -16,7 +16,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: horizon VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2025-03-22 08:03+0900\n"
+"POT-Creation-Date: 2025-07-21 16:55+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -290,13 +290,6 @@ msgstr ""
 "スを持ち、ポート毎に異なるセキュリティーグループが適用されている場合は、代わ"
 "りに「ポートのセキュリティーグループの編集」アクションを使用してください。"
 
-#, python-format
-msgid ""
-"<span class=&quot;word-wrap&quot;>Flavor Details: %(name)s</span>\">%(name)s"
-msgstr ""
-"<span class=&quot;word-wrap&quot;>フレーバーの詳細: %(name)s</"
-"span>\">%(name)s"
-
 msgid "A brief description of the security group rule you are adding"
 msgstr "追加しようとしているセキュリティーグループルールの簡単な説明"
 
@@ -346,10 +339,6 @@ msgstr ""
 msgid "AKI - Amazon Kernel Image"
 msgstr "AKI - Amazon カーネルイメージ"
 
-#, python-format
-msgid "ALLOW %(ethertype)s %(proto_port)s %(direction)s %(remote)s"
-msgstr "%(ethertype)s %(proto_port)s %(direction)s %(remote)s を許可します。"
-
 msgid "AMI - Amazon Machine Image"
 msgstr "AMI - Amazon マシンイメージ"
 
@@ -361,9 +350,6 @@ msgstr "API エンドポイント"
 
 msgid "ARI - Amazon Ramdisk Image"
 msgstr "ARI - Amazon RAM ディスクイメージ"
-
-msgid "Accept Transfer"
-msgstr "譲渡の受理"
 
 msgid "Accept Volume Transfer"
 msgstr "ボリュームの譲渡の受理"
@@ -985,9 +971,6 @@ msgstr "このイメージの CPU アーキテクチャー。"
 msgid "Cancel"
 msgstr "取り消し"
 
-msgid "Cancel Transfer"
-msgstr "譲渡のキャンセル"
-
 #, python-format
 msgid "Cannot find instance %s."
 msgstr "インスタンス %s が見つかりません。"
@@ -1246,9 +1229,6 @@ msgctxt "Action log of an instance"
 msgid "Create"
 msgstr "作成"
 
-msgid "Create A RBAC Policy"
-msgstr "RBAC ポリシーの作成"
-
 msgid "Create An Image"
 msgstr "イメージの作成"
 
@@ -1351,9 +1331,6 @@ msgstr "サブネットの作成"
 
 msgid "Create Subnet (Quota exceeded)"
 msgstr "サブネットの作成 (クォータを超過しました)"
-
-msgid "Create Transfer"
-msgstr "譲渡の作成"
 
 msgid "Create User"
 msgstr "ユーザーの作成"
@@ -1639,6 +1616,9 @@ msgstr "DNS 名"
 msgid "DNS Name Servers"
 msgstr "DNS サーバー"
 
+msgid "DOWN"
+msgstr "DOWN"
+
 msgctxt "Admin state of a Network"
 msgid "DOWN"
 msgstr "DOWN"
@@ -1662,11 +1642,11 @@ msgctxt "Default style theme"
 msgid "Default"
 msgstr "デフォルト"
 
+msgid "Default Quotas"
+msgstr "標準のクォータ"
+
 msgid "Default quotas updated."
 msgstr "標準のクォータを更新しました。"
-
-msgid "Defaults"
-msgstr "デフォルト値"
 
 msgid "Delete"
 msgid_plural "Delete"
@@ -2561,9 +2541,6 @@ msgid "Enter an integer value between -1 and 255 (-1 means wild card)."
 msgstr ""
 "-1 以上 255 以下の整数値を入力してください (-1 はワイルドカードを意味しま"
 "す)。"
-
-msgid "Enter an integer value between 0 and 255."
-msgstr "0 から 255 までの整数値を入力してください。"
 
 msgid "Enter an integer value between 1 and 65535."
 msgstr "1 から 65535 までの整数値を入力してください。"
@@ -3907,10 +3884,6 @@ msgstr "インスタンスのライブマイグレーション"
 msgid "Live migrate an instance to a specific host."
 msgstr "インスタンスを特定のホストにライブマイグレーションします。"
 
-#, python-format
-msgid "Load Balancer VIP %s"
-msgstr "ロードバランサー 仮想 IP %s"
-
 msgid "Local"
 msgstr "ローカル"
 
@@ -4165,12 +4138,6 @@ msgstr ""
 
 msgid "Migration Policy"
 msgstr "移行ポリシー"
-
-msgid "Min Disk"
-msgstr "最小ディスク"
-
-msgid "Min RAM"
-msgstr "最小メモリー"
 
 msgid "Min. Size (MB) ="
 msgstr "最小サイズ (MB) = "
@@ -4636,9 +4603,6 @@ msgstr "インスタンス数"
 msgid "Number of Snapshots"
 msgstr "スナップショット数"
 
-msgid "Number of VCPUs"
-msgstr "仮想 CPU 数"
-
 msgid "Number of Volumes"
 msgstr "ボリューム数"
 
@@ -4996,9 +4960,6 @@ msgstr "公開:"
 msgid "QCOW2 - QEMU Emulator"
 msgstr "QCOW2 - QEMU エミュレーター"
 
-msgid "QOS Policy ID"
-msgstr "QoS ポリシー ID"
-
 msgid "QoS Policy"
 msgstr "QoS ポリシー"
 
@@ -5078,12 +5039,6 @@ msgstr "RBAC ポリシーの詳細"
 
 msgid "RBAC Policy was successfully created."
 msgstr "RBAC ポリシーが正常に作成されました。"
-
-msgid "RX/TX Factor"
-msgstr "RX/TX 係数"
-
-msgid "RX/TX factor"
-msgstr "RX/TX 係数"
 
 msgid "Ramdisk"
 msgstr "RAM ディスク"
@@ -6313,9 +6268,6 @@ msgstr "移動先ホスト"
 msgid "Target Project"
 msgstr "ターゲットプロジェクト"
 
-msgid "Target Tenant"
-msgstr "ターゲットテナント"
-
 msgid "Task"
 msgstr "タスク"
 
@@ -6843,14 +6795,6 @@ msgstr "ボリュームとスナップショットの合計サイズ (GiB)"
 msgid "Total Size of Volumes and Snapshots (GiB) of Type %(type)s"
 msgstr "ボリュームとスナップショットの合計サイズ (GiB) (種別 %(type)s)"
 
-msgid "Total VCPU Usage (Hours):"
-msgstr "合計仮想 CPU 使用量 (時間):"
-
-msgid ""
-"Total VCPU usage (Number of VCPU in instance * Hours Used) for the project"
-msgstr ""
-"このプロジェクトの全仮想 CPU 使用量 (インスタンス内の仮想 CPU 数 * 使用時間)"
-
 msgid "Total Volume Storage"
 msgstr "全ボリューム容量"
 
@@ -6876,8 +6820,14 @@ msgstr "トランク"
 msgid "Type"
 msgstr "種別"
 
+msgid "Type ="
+msgstr "種別 ="
+
 msgid "Type of backend device identifier provided"
 msgstr "指定するバックエンドデバイスの識別子の種別"
+
+msgid "UP"
+msgstr "UP"
 
 msgctxt "Admin state of a Network"
 msgid "UP"
@@ -7753,9 +7703,6 @@ msgstr "サブネットの詳細を取得できません。"
 msgid "Unable to retrieve subnet details."
 msgstr "サブネットの詳細を取得できません。"
 
-msgid "Unable to retrieve tenant limits."
-msgstr "プロジェクトのリソース上限を取得できません。"
-
 msgid "Unable to retrieve the aggregate to be updated"
 msgstr "更新対象のアグリゲートを取得できません。"
 
@@ -8156,9 +8103,6 @@ msgstr "関連付けの更新"
 msgid "Update Default Quotas"
 msgstr "標準のクォータの更新"
 
-msgid "Update Defaults"
-msgstr "デフォルト値の変更"
-
 msgid "Update Encrypted Volume Type"
 msgstr "ボリューム種別の暗号化設定の更新"
 
@@ -8382,18 +8326,6 @@ msgstr "マッピングを識別するためのユーザー定義の一意な ID
 
 msgid "Users"
 msgstr "ユーザー"
-
-msgid "VCPU"
-msgstr "仮想 CPU"
-
-msgid "VCPU Hours"
-msgstr "仮想 CPU 時間"
-
-msgid "VCPU Usage"
-msgstr "仮想 CPU 使用量"
-
-msgid "VCPUs"
-msgstr "仮想 CPU"
 
 msgid "VDI - Virtual Disk Image"
 msgstr "VDI - 仮想ディスクイメージ"
@@ -8851,13 +8783,6 @@ msgstr "例: Yes / No"
 msgid "e.g. Yes/No"
 msgstr "例: Yes/No"
 
-msgid ""
-"flavor id can only contain alphanumeric characters, underscores, periods, "
-"hyphens, spaces. Use 'auto' to automatically generate id"
-msgstr ""
-"フレーバーの  ID に使用できるのは、英数字、アンダースコアー、ピリオド、ハイフ"
-"ン、空白文字のみです。 'auto' を指定すると、 ID を自動生成します。"
-
 msgid "floating_ip_id"
 msgstr "Floating IP ID"
 
@@ -8880,9 +8805,6 @@ msgstr "システムスコープ"
 
 msgid "undefined"
 msgstr "未定義"
-
-msgid "unknown IP address"
-msgstr "不明な IP アドレス"
 
 msgid "up"
 msgstr "up"

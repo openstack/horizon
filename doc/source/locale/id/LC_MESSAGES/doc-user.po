@@ -2,9 +2,9 @@
 # suhartono <cloudsuhartono@gmail.com>, 2019. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 25.4.0.dev4\n"
+"Project-Id-Version: horizon 25.4.1.dev54\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-03-21 23:03+0000\n"
+"POT-Creation-Date: 2025-07-21 16:55+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -135,14 +135,6 @@ msgstr ":guilabel:`Create Subnet`: Pilih check box ini untuk membuat subnet"
 
 msgid ":guilabel:`DNS Name Servers`: Specify a name for the DNS server."
 msgstr ":guilabel:`DNS Name Servers`: Tentukan nama untuk server DNS."
-
-msgid ""
-":guilabel:`Defaults`: View default quota values. Quotas are hard-coded in "
-"OpenStack Compute and define the maximum allowable size and number of "
-"resources."
-msgstr ""
-":guilabel:`Defaults`: Melihat nilai kuota default. Kuota adalah hard-coded "
-"di OpenStack Compute dan menentukan ukuran maksimum dan jumlah sumber daya."
 
 msgid ""
 ":guilabel:`Description`: Optionally, provide a brief description for the "
@@ -924,24 +916,12 @@ msgstr ""
 msgid "Go to the :guilabel:`Ports` tab and click :guilabel:`Create Port`."
 msgstr "Pergi ke tab :guilabel:`Ports` dan klik :guilabel:`Create Port`."
 
-msgid "Good"
-msgstr "Good"
-
 msgid ""
 "Good: Moderately tested, should look nice and work fine, maybe a few visual "
 "hiccups"
 msgstr ""
 "Good: Cukup diuji, harus terlihat bagus dan berfungsi dengan baik, mungkin "
 "beberapa cegukan visual (visual hiccups)."
-
-msgid ""
-"Horizon is primarily tested and supported on the latest version of Firefox "
-"and the latest version of Chrome. Issues related to IE, Safari and Opera "
-"will also be considered."
-msgstr ""
-"Horizon terutama diuji dan didukung pada versi terbaru Firefox dan versi "
-"terbaru Chrome. Masalah yang terkait dengan IE, Safari dan Opera juga akan "
-"dipertimbangkan."
 
 msgid ""
 "However, in addition to the fixed IP address, a floating IP address can also "
@@ -957,12 +937,6 @@ msgstr ""
 "Instance yang terlibat. Prosedur ini merinci reservasi alamat IP mengambang "
 "dari pool alamat yang ada dan alamat yang berasosiasi dengan instance "
 "spesifik."
-
-msgid "IE 10 and below"
-msgstr "IE 10 dan di bawahnya"
-
-msgid "IE 11"
-msgstr "IE 11"
 
 msgid ""
 "If a certificate warning appears when you try to access the URL for the "
@@ -1323,9 +1297,6 @@ msgstr "Log in ke dasbor."
 msgid "Log in to the dashboard."
 msgstr "Log in ke dasbor."
 
-msgid "MS Edge"
-msgstr "MS Edge"
-
 msgid "Manage an instance"
 msgstr "Mengelola sebuah instance"
 
@@ -1355,9 +1326,6 @@ msgstr ""
 
 msgid "No: Not supported"
 msgstr "No: Tidak didukung"
-
-msgid "Not supported."
-msgstr "Tidak didukung."
 
 msgid "Notes"
 msgstr "Catatan"
@@ -1843,9 +1811,6 @@ msgstr ""
 "Tab dan fungsi terlihat di dashboard tergantung pada hak akses, atau peran, "
 "pengguna dimana Anda login sebagai apa."
 
-msgid "There're some bugs but most"
-msgstr "Ada beberapa bug tetapi kebanyakan"
-
 msgid "There're some bugs but most of features work"
 msgstr "Ada beberapa bug tetapi sebagian besar fitur berfungsi"
 
@@ -2159,12 +2124,6 @@ msgstr ""
 "atur ``cpu_mode = \"none\" `` di samping ``virt_type = qemu`` di ``/etc/nova/"
 "nova-compute.conf`` untuk mengatasi kesalahan berikut:"
 
-msgid ""
-"When you delete an instance, the data in its attached volumes is not deleted."
-msgstr ""
-"Ketika Anda menghapus sebuah instance, data dalam volume yang melekat tidak "
-"dihapus."
-
 msgid "When you launch an instance from a volume, note the following steps:"
 msgstr ""
 "Ketika Anda memulai sebuah instance dari volume, perhatikan langkah berikut:"
@@ -2282,6 +2241,3 @@ msgid ""
 "``<name>`` is the name of the container to which you are uploading the "
 "object."
 msgstr "``<name>`` adalah nama dari wadah (container) yang Anda upload objek."
-
-msgid "of features work"
-msgstr "fitur berfungsi"

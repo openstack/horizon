@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: horizon VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2025-03-22 08:03+0900\n"
+"POT-Creation-Date: 2025-07-21 16:55+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -231,10 +231,6 @@ msgstr "您只擁有 %(avail)iGiB 配額可用，所以您不能新增 %(req)iGi
 msgid "AKI - Amazon Kernel Image"
 msgstr "AKI - Amazon 核心映像檔"
 
-#, python-format
-msgid "ALLOW %(ethertype)s %(proto_port)s %(direction)s %(remote)s"
-msgstr "允許 %(ethertype)s %(proto_port)s %(direction)s %(remote)s"
-
 msgid "AMI - Amazon Machine Image"
 msgstr "AMI - Amazon 機器映像檔"
 
@@ -246,9 +242,6 @@ msgstr "API 端點"
 
 msgid "ARI - Amazon Ramdisk Image"
 msgstr "ARI - Amazon Ramdisk 映像檔"
-
-msgid "Accept Transfer"
-msgstr "允許轉移"
 
 msgid "Accept Volume Transfer"
 msgstr "允許雲硬碟轉移"
@@ -761,9 +754,6 @@ msgstr "映像檔的處理器架構。"
 msgid "Cancel"
 msgstr "取消"
 
-msgid "Cancel Transfer"
-msgstr "取消轉移"
-
 #, python-format
 msgid "Cannot find instance %s."
 msgstr "找不到雲實例 %s。"
@@ -984,9 +974,6 @@ msgctxt "Action log of an instance"
 msgid "Create"
 msgstr "新增"
 
-msgid "Create A RBAC Policy"
-msgstr "建立 RBAC 政策"
-
 msgid "Create An Image"
 msgstr "新增映像檔"
 
@@ -1086,9 +1073,6 @@ msgstr "新增子網路"
 
 msgid "Create Subnet (Quota exceeded)"
 msgstr "新增子網路（超過配額）"
-
-msgid "Create Transfer"
-msgstr "新增轉移"
 
 msgid "Create User"
 msgstr "新增用戶"
@@ -1330,6 +1314,9 @@ msgstr "DNS 名稱"
 msgid "DNS Name Servers"
 msgstr "DNS 名稱伺服器"
 
+msgid "DOWN"
+msgstr "離線"
+
 msgctxt "Admin state of a Network"
 msgid "DOWN"
 msgstr "離線"
@@ -1353,11 +1340,11 @@ msgctxt "Default style theme"
 msgid "Default"
 msgstr "預設"
 
+msgid "Default Quotas"
+msgstr "預設配額"
+
 msgid "Default quotas updated."
 msgstr "已更新預設配額。"
-
-msgid "Defaults"
-msgstr "預設值"
 
 msgid "Delete"
 msgid_plural "Delete"
@@ -2176,9 +2163,6 @@ msgstr "為 ICMP 類型輸入數值（範圍：-1 到 255）"
 
 msgid "Enter an integer value between -1 and 255 (-1 means wild card)."
 msgstr "輸入 -1 到 255 之間的整數（-1 代表萬用字元）。"
-
-msgid "Enter an integer value between 0 and 255."
-msgstr "輸入 0 到 255 之間的整數。"
 
 msgid "Enter an integer value between 1 and 65535."
 msgstr "輸入 1 到 65535 之間的整數。"
@@ -3333,10 +3317,6 @@ msgstr "即時轉移雲實例"
 msgid "Live migrate an instance to a specific host."
 msgstr "即時轉移雲實例到指定的主機。"
 
-#, python-format
-msgid "Load Balancer VIP %s"
-msgstr "負載平衡器虛擬 IP %s"
-
 msgid "Local"
 msgstr "本地"
 
@@ -3563,12 +3543,6 @@ msgstr "轉移雲實例可能導致不可恢復的結果。"
 
 msgid "Migration Policy"
 msgstr "轉移政策"
-
-msgid "Min Disk"
-msgstr "最小硬碟"
-
-msgid "Min RAM"
-msgstr "最小隨機存取記憶體"
 
 msgid "Min. Size (MB) ="
 msgstr "最小容量（MB）＝"
@@ -4013,9 +3987,6 @@ msgstr "雲實例數量"
 msgid "Number of Snapshots"
 msgstr "即時存檔數量"
 
-msgid "Number of VCPUs"
-msgstr "虛擬處理器數量"
-
 msgid "Number of Volumes"
 msgstr "雲硬碟數量"
 
@@ -4356,9 +4327,6 @@ msgstr "公開："
 msgid "QCOW2 - QEMU Emulator"
 msgstr "QCOW2 - QEMU 模擬器"
 
-msgid "QOS Policy ID"
-msgstr "QOS 原則 ID"
-
 msgid "QoS Policy"
 msgstr "QoS 政策"
 
@@ -4435,12 +4403,6 @@ msgstr "RBAC 政策詳細內容"
 
 msgid "RBAC Policy was successfully created."
 msgstr "已成功新增 RBAC 政策"
-
-msgid "RX/TX Factor"
-msgstr "RX/TX 因數"
-
-msgid "RX/TX factor"
-msgstr "RX/TX 因數"
 
 msgid "Ramdisk"
 msgstr "Ramdisk"
@@ -5590,9 +5552,6 @@ msgstr "目標主機"
 msgid "Target Project"
 msgstr "目標專案"
 
-msgid "Target Tenant"
-msgstr "目標租用人"
-
 msgid "Task"
 msgstr "任務"
 
@@ -6034,13 +5993,6 @@ msgstr "雲硬碟與即時存檔的總容量（GiB）"
 msgid "Total Size of Volumes and Snapshots (GiB) of Type %(type)s"
 msgstr "%(type)s 類型之雲硬碟及即時存檔容量總計 (GiB)"
 
-msgid "Total VCPU Usage (Hours):"
-msgstr "虛擬處理器用量（小時）："
-
-msgid ""
-"Total VCPU usage (Number of VCPU in instance * Hours Used) for the project"
-msgstr "專案的虛擬處理器使用量（雲實例的虛擬處理器數量 * 使用小時）總合"
-
 msgid "Total Volume Storage"
 msgstr "總共的磁區儲存空間"
 
@@ -6066,8 +6018,14 @@ msgstr "中繼"
 msgid "Type"
 msgstr "類型"
 
+msgid "Type ="
+msgstr "類型 ="
+
 msgid "Type of backend device identifier provided"
 msgstr "提供的後端裝置認證者的類型"
+
+msgid "UP"
+msgstr "上線"
 
 msgctxt "Admin state of a Network"
 msgid "UP"
@@ -6811,9 +6769,6 @@ msgstr "無法獲得子網路詳細資訊"
 msgid "Unable to retrieve subnet details."
 msgstr "無法獲得子網路詳細資訊。"
 
-msgid "Unable to retrieve tenant limits."
-msgstr "無法獲得租用人限制。"
-
 msgid "Unable to retrieve the aggregate to be updated"
 msgstr "無法獲得聚合來更新"
 
@@ -7155,9 +7110,6 @@ msgstr "更新聯結"
 msgid "Update Default Quotas"
 msgstr "更新預設配額"
 
-msgid "Update Defaults"
-msgstr "更新預設值"
-
 msgid "Update Encrypted Volume Type"
 msgstr "更新已加密的雲硬碟類型"
 
@@ -7351,18 +7303,6 @@ msgstr "用來識別對映的使用者定義的唯一 ID。"
 
 msgid "Users"
 msgstr "用戶"
-
-msgid "VCPU"
-msgstr "虛擬處理器"
-
-msgid "VCPU Hours"
-msgstr "虛擬處理器時數"
-
-msgid "VCPU Usage"
-msgstr "虛擬處理器使用量"
-
-msgid "VCPUs"
-msgstr "虛擬處理器數"
 
 msgid "VDI - Virtual Disk Image"
 msgstr "VDI - 虛擬桌面基礎結構"
@@ -7776,9 +7716,6 @@ msgstr "否"
 
 msgid "undefined"
 msgstr "未定義"
-
-msgid "unknown IP address"
-msgstr "未知的 IP 位址"
 
 msgid "up"
 msgstr "上線"

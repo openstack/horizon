@@ -6,9 +6,9 @@
 # Andi Chandler <andi@gowling.com>, 2025. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 25.2.0.dev74\n"
+"Project-Id-Version: horizon 25.4.1.dev54\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-02-15 00:23+0000\n"
+"POT-Creation-Date: 2025-07-21 16:55+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -186,9 +186,6 @@ msgstr ""
 "production. See https://docs.djangoproject.com/en/dev/ref/settings/#allowed-"
 "hosts for further information."
 
-msgid "Access the dashboard using a web browser at ``http://controller/``."
-msgstr "Access the dashboard using a web browser at ``http://controller/``."
-
 msgid ""
 "Access the dashboard using a web browser at ``http://controller/dashboard``."
 msgstr ""
@@ -224,15 +221,6 @@ msgid ""
 msgstr ""
 "After you install and configure the dashboard, you can complete the "
 "following tasks:"
-
-msgid ""
-"All other services are optional. Horizon supports the following services as "
-"of the Stein release. If the keystone endpoint for a service is configured, "
-"horizon detects it and enables its support automatically."
-msgstr ""
-"All other services are optional. Horizon supports the following services as "
-"of the Stein release. If the Keystone endpoint for a service is configured, "
-"Horizon detects it and enables its support automatically."
 
 msgid "Allow your hosts to access the dashboard:"
 msgstr "Allow your hosts to access the dashboard:"
@@ -311,9 +299,6 @@ msgid ""
 msgstr ""
 "Configure the dashboard to use OpenStack services on the ``controller`` node:"
 
-msgid "Configure the web server:"
-msgstr "Configure the web server:"
-
 msgid ""
 "Create ``openstack_dashboard/local/local_settings.py``. It is usually a good "
 "idea to copy ``openstack_dashboard/local/local_settings.py.example`` and "
@@ -385,13 +370,6 @@ msgid ""
 msgstr ""
 "Edit the ``/etc/openstack-dashboard/local_settings`` file and complete the "
 "following actions:"
-
-msgid ""
-"Edit the ``/srv/www/openstack-dashboard/openstack_dashboard/local/"
-"local_settings.py`` file and complete the following actions:"
-msgstr ""
-"Edit the ``/srv/www/openstack-dashboard/openstack_dashboard/local/"
-"local_settings.py`` file and complete the following actions:"
 
 msgid "Enable support for domains:"
 msgstr "Enable support for domains:"
@@ -521,9 +499,6 @@ msgstr "Install and configure for Red Hat Enterprise Linux and CentOS"
 msgid "Install and configure for Ubuntu"
 msgstr "Install and configure for Ubuntu"
 
-msgid "Install and configure for openSUSE and SUSE Linux Enterprise"
-msgstr "Install and configure for openSUSE and SUSE Linux Enterprise"
-
 msgid "Install the horizon python module into your system"
 msgstr "Install the Horizon python module into your system"
 
@@ -586,9 +561,6 @@ msgstr ""
 "can access the dashboard through a web browser. In case of any SSL "
 "certificate connection problems, point the server IP address to a domain "
 "name, and give users access."
-
-msgid "Python 3.8 or 3.11"
-msgstr "Python 3.8 or 3.11"
 
 msgid "Python memcached module installed"
 msgstr "Python memcached module installed"
@@ -654,9 +626,6 @@ msgstr "Static Assets"
 
 msgid "System Requirements"
 msgstr "System Requirements"
-
-msgid "The Caracal release of horizon has the following dependencies."
-msgstr "The Caracal release of Horizon has the following dependencies."
 
 msgid ""
 "The ``systemctl restart`` command starts each service if not currently "
@@ -813,9 +782,6 @@ msgstr "Verify operation for Red Hat Enterprise Linux and CentOS"
 msgid "Verify operation for Ubuntu"
 msgstr "Verify operation for Ubuntu"
 
-msgid "Verify operation for openSUSE and SUSE Linux Enterprise"
-msgstr "Verify operation for openSUSE and SUSE Linux Enterprise"
-
 msgid "Verify operation of the dashboard."
 msgstr "Verify operation of the dashboard."
 
@@ -835,17 +801,6 @@ msgstr "Your OpenStack environment now includes the dashboard."
 
 msgid "``ALLOWED_HOSTS``"
 msgstr "``ALLOWED_HOSTS``"
-
-msgid ""
-"``ALLOWED_HOSTS`` can also be ``['*']`` to accept all hosts. This may be "
-"useful for development work, but is potentially insecure and should not be "
-"used in production. See `Django documentation <https://docs.djangoproject."
-"com/en/dev/ref/settings/#allowed-hosts>`_ for further information."
-msgstr ""
-"``ALLOWED_HOSTS`` can also be ``['*']`` to accept all hosts. This may be "
-"useful for development work, but is potentially insecure and should not be "
-"used in production. See `Django documentation <https://docs.djangoproject."
-"com/en/dev/ref/settings/#allowed-hosts>`_ for further information."
 
 msgid ""
 "``ALLOWED_HOSTS`` can also be ``['*']`` to accept all hosts. This may be "

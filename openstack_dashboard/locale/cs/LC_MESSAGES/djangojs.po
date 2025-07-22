@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: horizon VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2025-03-22 08:03+0900\n"
+"POT-Creation-Date: 2025-07-21 16:55+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -48,16 +48,6 @@ msgstr "7"
 
 msgid "75%"
 msgstr "75%"
-
-msgid ""
-"<b>Image (with Create New Volume checked)</b>: This options uses an image to "
-"boot the instance, and creates a new volume to persist instance data. You "
-"can specify volume size and whether to delete the volume on deletion of the "
-"instance."
-msgstr ""
-"<b>Obraz (se zaškrtnutou volbou Vytvořit nový svazek)</b>: Použije obraz k "
-"zavedení instance a vytvoří nový svazek pro uchování jejích dat. Můžete "
-"zadat velikost svazku a zda svazek smazat při mazání instance."
 
 msgid "<b>Image</b>: This option uses an image to boot the instance."
 msgstr "<b>Obraz</b>: Tato volba používá obraz k zavedení instance."
@@ -1102,14 +1092,8 @@ msgstr "Metadata byla úspěšně aktualizována."
 msgid "Middle"
 msgstr "Uprostřed"
 
-msgid "Min Disk (GB)"
-msgstr "Min Kapacita (GB)"
-
 msgid "Min Port"
 msgstr "Nejnižší port"
-
-msgid "Min RAM (MB)"
-msgstr "Min RAM (MB)"
 
 msgid "Min. Size (bytes)"
 msgstr "Min. velikost (bajtů)"
@@ -1550,14 +1534,8 @@ msgid "Select one or more security groups from the available groups below."
 msgstr ""
 "Vyberte jednu nebo více bezpečnostních skupin ze seznamu dostupných níže."
 
-msgid "Select the Ramdisk from the drop down menu."
-msgstr "Vyberte Ramdisk dostupnosti ze seznamu."
-
 msgid "Select the availability zone from the drop down menu."
 msgstr "Vyberte zónu dostupnosti ze seznamu."
-
-msgid "Select the kernel to run from the drop down menu."
-msgstr "Vyberte kernel ze seznamu."
 
 msgid "Select the security groups to launch the instance in."
 msgstr "Vyberte bezpečnostní skupiny pro spuštění instance."
@@ -1652,9 +1630,6 @@ msgstr "Název zdroje"
 msgid "Source Type"
 msgstr "Typ zdroje"
 
-msgid "Specify an image to upload to the Image Service."
-msgstr "Zadejte obraz pro nahrání do Služby obrazů."
-
 msgid "Stacked"
 msgstr "Skládaný"
 
@@ -1718,9 +1693,6 @@ msgstr "Text"
 msgid "Textarea"
 msgstr "Textová oblast"
 
-msgid "The architecture of the image."
-msgstr "Architektura obrazu."
-
 msgid ""
 "The current Horizon settings indicate no valid\n"
 "                       image creation methods are available. Providing\n"
@@ -1780,20 +1752,6 @@ msgid ""
 msgstr ""
 "Maximální počet klíč-hodnota, které mohou být dodány na instanci je určeno "
 "compute poskytovatelem."
-
-msgid ""
-"The minimum disk size required to boot the image. If unspecified, this value "
-"defaults to 0 (no minimum)."
-msgstr ""
-"Minimální velikost disku pro zavedení obrazu. Pokud není zadána, je výchozí "
-"hodnota 0 (žádné minimum)."
-
-msgid ""
-"The minimum memory size required to boot the image. If unspecified, this "
-"value defaults to 0 (no minimum)."
-msgstr ""
-"Minimální velikost paměti pro zavedení obrazu. Pokud není zadána, je výchozí "
-"hodnota 0 (žádné minimum)."
 
 msgid "The name of the Volume."
 msgstr "Jméno svazku."
@@ -1866,13 +1824,6 @@ msgstr ""
 "typ, nebo snižte počet instancí."
 
 msgid ""
-"This flavor requires more VCPUs than your quota allows. Please select a "
-"smaller flavor or decrease the instance count."
-msgstr ""
-"Tento typ vyžaduje více VCPU než vaše kvóta umožňuje. Prosím vyberte menší "
-"typ, nebo snižte počet instancí."
-
-msgid ""
 "This is a simple hero unit, a simple jumbotron-style component for calling "
 "extra attention to featured content or information."
 msgstr ""
@@ -1927,9 +1878,6 @@ msgstr "Celkem instancí"
 
 msgid "Total RAM"
 msgstr "Celkem RAM"
-
-msgid "Total VCPUs"
-msgstr "Celkem VCPU"
 
 msgid "Type"
 msgstr "Typ"
@@ -2412,12 +2360,6 @@ msgstr "ID uživatele"
 
 msgid "User Name"
 msgstr "Uživatelské jméno"
-
-msgid "VCPUS"
-msgstr "VCPUS"
-
-msgid "VCPUs"
-msgstr "VCPU"
 
 msgid "VDI"
 msgstr "VDI"

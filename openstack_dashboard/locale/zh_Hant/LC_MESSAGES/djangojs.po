@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: horizon VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2025-03-22 08:03+0900\n"
+"POT-Creation-Date: 2025-07-21 16:55+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -52,16 +52,6 @@ msgstr "7"
 
 msgid "75%"
 msgstr "75%"
-
-msgid ""
-"<b>Image (with Create New Volume checked)</b>: This options uses an image to "
-"boot the instance, and creates a new volume to persist instance data. You "
-"can specify volume size and whether to delete the volume on deletion of the "
-"instance."
-msgstr ""
-"<b>映像檔（與「建立新磁區」一併勾選）</b>：這個選項利用映像檔來啟動實例，並且"
-"建立一個新磁區來持續保存實例資料。您可以指定磁區大小以及在刪除實例時是否一併"
-"刪除磁區。"
 
 msgid "<b>Image</b>: This option uses an image to boot the instance."
 msgstr "<b>映像檔</b>：這個選項用映像檔來開機雲實例。"
@@ -1627,17 +1617,11 @@ msgstr "已順利 metadata 。"
 msgid "Middle"
 msgstr "中間"
 
-msgid "Min Disk (GB)"
-msgstr "最小硬碟（GB）"
-
 msgid "Min Kbps"
 msgstr "最小 Kbps"
 
 msgid "Min Port"
 msgstr "最小端口"
-
-msgid "Min RAM (MB)"
-msgstr "最小隨機存取記憶體（MB）"
 
 msgid "Min. Size (bytes)"
 msgstr "最小容量 (bytes)"
@@ -2071,9 +2055,6 @@ msgstr "隨機存取記憶體"
 msgid "RAW"
 msgstr "RAW"
 
-msgid "RX/TX Factor"
-msgstr "RX/TX 因數"
-
 msgid "Radios"
 msgstr "圓鈕"
 
@@ -2247,17 +2228,11 @@ msgstr "選擇一個或多個"
 msgid "Select one or more security groups from the available groups below."
 msgstr "從下列可用群組中選擇一個或多個安全性群組。"
 
-msgid "Select the Ramdisk from the drop down menu."
-msgstr "從下拉選單中選擇 Ramdisk。"
-
 msgid "Select the availability zone from the drop down menu."
 msgstr "從下拉選單中選擇可用區域。"
 
 msgid "Select the format of the disk from the drop down menu."
 msgstr "從下拉選單中選擇磁碟的格式。"
-
-msgid "Select the kernel to run from the drop down menu."
-msgstr "從下拉選單中選擇運行的核心。"
 
 msgid "Select the security groups to launch the instance in."
 msgstr "選取要在其中啟動雲實例的安全群組。"
@@ -2371,9 +2346,6 @@ msgstr "來源標題"
 msgid "Source Type"
 msgstr "來源類型"
 
-msgid "Specify an image to upload to the Image Service."
-msgstr "指定映像檔以上傳到「映像檔服務」。"
-
 msgid "Stacked"
 msgstr "已堆疊"
 
@@ -2452,9 +2424,6 @@ msgstr "標籤"
 msgid "Tel"
 msgstr "電話"
 
-msgid "Tenant ID"
-msgstr "租戶 ID"
-
 msgid "Text"
 msgstr "文字"
 
@@ -2469,9 +2438,6 @@ msgstr "映像檔的訪問權限"
 
 msgid "The admin password is incorrect."
 msgstr "管理員密碼不正確。"
-
-msgid "The architecture of the image."
-msgstr "映像檔的架構。"
 
 msgid ""
 "The current Horizon settings indicate no valid\n"
@@ -2522,18 +2488,6 @@ msgid ""
 "The maximum number of key-value pairs that can be supplied per instance is "
 "determined by the compute provider."
 msgstr "每個雲實例可提供的最大鍵/值組數由計算機提供者決定。"
-
-msgid ""
-"The minimum disk size required to boot the image. If unspecified, this value "
-"defaults to 0 (no minimum)."
-msgstr ""
-"啟動這個映像檔所需的磁碟容量下限。如果未指定，則此值預設為 0（無下限）。"
-
-msgid ""
-"The minimum memory size required to boot the image. If unspecified, this "
-"value defaults to 0 (no minimum)."
-msgstr ""
-"啟動這個映像檔所需的記憶體容量下限。如果未指定，則此值預設為 0（無下限）。"
 
 msgid "The name of the Volume."
 msgstr "雲硬碟的名稱"
@@ -2648,13 +2602,6 @@ msgstr ""
 "樣板或減少雲實例的計數。"
 
 msgid ""
-"This flavor requires more VCPUs than your quota allows. Please select a "
-"smaller flavor or decrease the instance count."
-msgstr ""
-"這個虛擬硬體樣板的虛擬處理器需求多於您允許的配額。請選擇小一點的虛擬硬體樣板"
-"或減少雲實例的計數。"
-
-msgid ""
 "This is a simple hero unit, a simple jumbotron-style component for calling "
 "extra attention to featured content or information."
 msgstr ""
@@ -2720,9 +2667,6 @@ msgstr "雲實例總合"
 
 msgid "Total RAM"
 msgstr "隨機存取記憶體總合"
-
-msgid "Total VCPUs"
-msgstr "虛擬處理器總合"
 
 msgid "Total Volume Storage"
 msgstr "總共的雲硬碟儲存空間"
@@ -2875,10 +2819,6 @@ msgstr[0] "無法刪除地域：%s。"
 msgid "Unable to delete policy: %s."
 msgid_plural "Unable to delete policies: %s."
 msgstr[0] "無法刪除政策：%s。"
-
-#, python-format
-msgid "Unable to delete qos policy %(id)s"
-msgstr "無法刪除 QoS 原則。%(id)s"
 
 msgid "Unable to delete the container."
 msgstr "無法刪除容器。"
@@ -3157,9 +3097,6 @@ msgstr "無法獲得專案。"
 msgid "Unable to retrieve the projects."
 msgstr "無法獲得專案。"
 
-msgid "Unable to retrieve the qos policies."
-msgstr "無法擷取 QoS 原則。"
-
 msgid "Unable to retrieve the resource types."
 msgstr "無法獲得資源類型。"
 
@@ -3379,12 +3316,6 @@ msgstr "用戶名稱"
 
 msgid "User password has been updated successfully."
 msgstr "已成功更新用戶密碼。"
-
-msgid "VCPUS"
-msgstr "虛擬處理器"
-
-msgid "VCPUs"
-msgstr "虛擬處理器數"
 
 msgid "VDI"
 msgstr "VDI"
@@ -3655,12 +3586,6 @@ msgstr "映像檔"
 
 msgid "inherit"
 msgstr "繼承"
-
-msgid "min disk is required and must be an integer not less than 0"
-msgstr "最小雲硬碟是必須並且需要不小於 0"
-
-msgid "min ram is required and must be an integer not less than 0"
-msgstr "最小記憶體是必須並且需要不小於 0"
 
 #, python-format
 msgid "resource load failed: %s"

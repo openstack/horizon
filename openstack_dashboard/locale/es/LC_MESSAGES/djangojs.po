@@ -14,11 +14,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: horizon VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2025-03-22 08:03+0900\n"
+"POT-Creation-Date: 2025-07-21 16:55+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2021-06-08 07:02+0000\n"
+"PO-Revision-Date: 2021-06-03 07:15+0000\n"
 "Last-Translator: Alberto Molina Coballes <alberto@tinaja.es>\n"
 "Language-Team: Spanish\n"
 "Language: es\n"
@@ -58,17 +58,6 @@ msgstr "7"
 
 msgid "75%"
 msgstr "75%"
-
-msgid ""
-"<b>Image (with Create New Volume checked)</b>: This options uses an image to "
-"boot the instance, and creates a new volume to persist instance data. You "
-"can specify volume size and whether to delete the volume on deletion of the "
-"instance."
-msgstr ""
-"<b>Imagen (con creación de nuevo volumen)</b>: Esta opción utiliza una "
-"imagen para arrancar la instancia y crea un nuevo volumen para almacenar de "
-"forma permanente los datos. Puede especificar el tamaño del volumen y si se "
-"eliminará el volumen al eliminar la instancia."
 
 msgid "<b>Image</b>: This option uses an image to boot the instance."
 msgstr "<b>Imagen</b>:Esta opción usa una imagen para arrancar la instancia."
@@ -1744,17 +1733,11 @@ msgstr "Metadatos actualizados correctamente."
 msgid "Middle"
 msgstr "Medio"
 
-msgid "Min Disk (GB)"
-msgstr "Disco mín. (GB)"
-
 msgid "Min Kbps"
 msgstr "Min Kbps"
 
 msgid "Min Port"
 msgstr "Puerto mínimo"
-
-msgid "Min RAM (MB)"
-msgstr "Memoria RAM mín. (MB)"
 
 msgid "Min. Size (bytes)"
 msgstr "Tamaño min. (bytes)"
@@ -2230,9 +2213,6 @@ msgstr "RAM"
 msgid "RAW"
 msgstr "RAW"
 
-msgid "RX/TX Factor"
-msgstr "Factor RX/TX"
-
 msgid "Radios"
 msgstr "Radios"
 
@@ -2425,17 +2405,11 @@ msgstr ""
 "Seleccionar uno o más grupos de seguridad de los grupos disponibles a "
 "continuación."
 
-msgid "Select the Ramdisk from the drop down menu."
-msgstr "Seleccione el Disco RAM en el menú desplegable."
-
 msgid "Select the availability zone from the drop down menu."
 msgstr "Seleccione la zona de disponibilidad del menú desplegable."
 
 msgid "Select the format of the disk from the drop down menu."
 msgstr "Seleccione el formato del disco en el menú desplegable."
-
-msgid "Select the kernel to run from the drop down menu."
-msgstr "Seleccione el Kernel a iniciar en el menú desplegable."
 
 msgid "Select the security groups to launch the instance in."
 msgstr "Seleccionar el grupo de seguridad a utilizar al lanzar la instancia."
@@ -2561,9 +2535,6 @@ msgstr "Título de origen"
 msgid "Source Type"
 msgstr "Tipo de origen"
 
-msgid "Specify an image to upload to the Image Service."
-msgstr "Especifique una imagen para subir al Servicio de imágenes."
-
 msgid "Stacked"
 msgstr "Puesto en pila"
 
@@ -2639,9 +2610,6 @@ msgstr "Etiquetas"
 msgid "Tel"
 msgstr "Tel."
 
-msgid "Tenant ID"
-msgstr "ID de proyecto"
-
 msgid "Text"
 msgstr "Texto"
 
@@ -2656,9 +2624,6 @@ msgstr "El permiso de acceso para la imagen."
 
 msgid "The admin password is incorrect."
 msgstr "La contraseña de admin es incorrecta."
-
-msgid "The architecture of the image."
-msgstr "La arquitectura de la imagen."
 
 msgid ""
 "The current Horizon settings indicate no valid\n"
@@ -2722,20 +2687,6 @@ msgid ""
 msgstr ""
 "El número máximo de pares clave-valor que se puede proporcionar por "
 "instancia viene determinado por el proveedor de computación."
-
-msgid ""
-"The minimum disk size required to boot the image. If unspecified, this value "
-"defaults to 0 (no minimum)."
-msgstr ""
-"El tamaño mínimo de disco necesario para arrancar la imagen. Si no se "
-"especifica este valor se presupone 0 (no hay un valor mínimo)."
-
-msgid ""
-"The minimum memory size required to boot the image. If unspecified, this "
-"value defaults to 0 (no minimum)."
-msgstr ""
-"El tamaño mínimo de disco necesario para arrancar la imagen. Si no se "
-"especifica este valor se presupone 0 (no hay un valor mínimo)."
 
 msgid "The name of the Volume."
 msgstr "Nombre del volumen."
@@ -2866,13 +2817,6 @@ msgstr ""
 "Este sabor necesita más RAM de la que su quota permite. Por favor, escoja un "
 "sabor más pequeño o reduzca el número de instancias."
 
-msgid ""
-"This flavor requires more VCPUs than your quota allows. Please select a "
-"smaller flavor or decrease the instance count."
-msgstr ""
-"Este sabor necesita más CPU's virtuales que las que su quota permite. Por "
-"favor, escoja un sabor más pequeño o reduzca el número de instancias."
-
 msgid "This is focused..."
 msgstr "Este tiene el foco..."
 
@@ -2924,9 +2868,6 @@ msgstr "Total de Instancias"
 
 msgid "Total RAM"
 msgstr "Total RAM"
-
-msgid "Total VCPUs"
-msgstr "Total de VCPUs"
 
 msgid "Total Volume Storage"
 msgstr "Total de almacenamiento de volúmenes"
@@ -3090,10 +3031,6 @@ msgid "Unable to delete policy: %s."
 msgid_plural "Unable to delete policies: %s."
 msgstr[0] "No se ha podido borrar política: %s."
 msgstr[1] "No se ha podido borrar políticas: %s."
-
-#, python-format
-msgid "Unable to delete qos policy %(id)s"
-msgstr "No se ha podido borrar la política qos %(id)s"
 
 msgid "Unable to delete the container."
 msgstr "No se ha podido suprimir el contenedor."
@@ -3377,9 +3314,6 @@ msgstr "No ha sido posible obtener el proyecto."
 msgid "Unable to retrieve the projects."
 msgstr "No ha sido posible obtener los proyectos."
 
-msgid "Unable to retrieve the qos policies."
-msgstr "No se han podido recuperar las políticas de qos."
-
 msgid "Unable to retrieve the resource types."
 msgstr "No se han podido recuperar los tipos de recurso."
 
@@ -3591,12 +3525,6 @@ msgstr "Usuario"
 
 msgid "User password has been updated successfully."
 msgstr "Se ha actualizado correctamente la contraseña."
-
-msgid "VCPUS"
-msgstr "VCPUS"
-
-msgid "VCPUs"
-msgstr "VCPUs"
 
 msgid "VDI"
 msgstr "VDI"
@@ -3897,15 +3825,6 @@ msgstr "imagen"
 
 msgid "inherit"
 msgstr "Heredar"
-
-msgid "min disk is required and must be an integer not less than 0"
-msgstr ""
-"Es obligatorio establecer Disco Mínimo y debe ser un entero mayor o igual "
-"que 0"
-
-msgid "min ram is required and must be an integer not less than 0"
-msgstr ""
-"Debe establecerse la RAM mínima y debe ser un entero mayor o igual que 0"
 
 #, python-format
 msgid "resource load failed: %s"

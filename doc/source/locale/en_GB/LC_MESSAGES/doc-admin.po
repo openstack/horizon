@@ -3,9 +3,9 @@
 # Andi Chandler <andi@gowling.com>, 2022. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 22.1.0.dev22\n"
+"Project-Id-Version: horizon 25.4.1.dev54\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-05-19 10:45+0000\n"
+"POT-Creation-Date: 2025-07-21 16:55+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -61,9 +61,6 @@ msgstr "**Quota Descriptions**"
 msgid "**RAM (MB)**"
 msgstr "**RAM (MB)**"
 
-msgid "**RX/TX Factor**"
-msgstr "**RX/TX Factor**"
-
 msgid "**Random-number generator**"
 msgstr "**Random-number generator**"
 
@@ -72,9 +69,6 @@ msgstr "**Root Disk (GB)**"
 
 msgid "**Swap Disk (MB)**"
 msgstr "**Swap Disk (MB)**"
-
-msgid "**VCPUs**"
-msgstr "**VCPUs**"
 
 msgid "**Watchdog behavior**"
 msgstr "**Watchdog behaviour**"
@@ -447,9 +441,6 @@ msgstr "Click the :guilabel:`Create User` push button."
 
 msgid "Click the :guilabel:`Edit` button."
 msgstr "Click the :guilabel:`Edit` button."
-
-msgid "Click the :guilabel:`Update Defaults` button."
-msgstr "Click the :guilabel:`Update Defaults` button."
 
 msgid "Click the :guilabel:`Update Role` button to confirm your changes."
 msgstr "Click the :guilabel:`Update Role` button to confirm your changes."
@@ -1139,13 +1130,6 @@ msgstr ""
 
 msgid ""
 "On the :guilabel:`Admin` tab, open the :guilabel:`System` tab and click the :"
-"guilabel:`Defaults` category."
-msgstr ""
-"On the :guilabel:`Admin` tab, open the :guilabel:`System` tab and click the :"
-"guilabel:`Defaults` category."
-
-msgid ""
-"On the :guilabel:`Admin` tab, open the :guilabel:`System` tab and click the :"
 "guilabel:`System Information` category."
 msgstr ""
 "On the :guilabel:`Admin` tab, open the :guilabel:`System` tab and click the :"
@@ -1210,15 +1194,6 @@ msgstr ""
 "OpenStack administrators can create projects, and create accounts for new "
 "users using the OpenStack Dashboard. Projects own specific resources in your "
 "OpenStack environment. You can associate users with roles, projects, or both."
-
-msgid ""
-"Optional property allows servers with a different bandwidth to be created "
-"with the RX/TX Factor. The default value is 1. That is, the new bandwidth is "
-"the same as that of the attached network."
-msgstr ""
-"Optional property allows servers with a different bandwidth to be created "
-"with the RX/TX Factor. The default value is 1. That is, the new bandwidth is "
-"the same as that of the attached network."
 
 msgid "Parameter options"
 msgstr "Parameter options"
@@ -1867,9 +1842,6 @@ msgstr ""
 "Using this selection for aes-xts, the underlying key size would only be 128-"
 "bits*"
 
-msgid "VCPUs"
-msgstr "VCPUs"
-
 msgid "View and manage quotas"
 msgstr "View and manage quotas"
 
@@ -1969,13 +1941,6 @@ msgid ""
 msgstr ""
 "You can sort the table by clicking on either the :guilabel:`Quota Name` or :"
 "guilabel:`Limit` column headers."
-
-msgid ""
-"You can track costs per month by showing meters like number of VCPUs, disks, "
-"RAM, and uptime of all your instances."
-msgstr ""
-"You can track costs per month by showing meters like number of VCPUs, disks, "
-"RAM, and uptime of all your instances."
 
 msgid ""
 "You can use applications such as ``Memcached`` or ``Redis`` for external "

@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: horizon VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2025-03-22 08:03+0900\n"
+"POT-Creation-Date: 2025-07-21 16:55+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -75,10 +75,6 @@ msgstr "ایک مقامی امیج اپ لوڈ کریں."
 
 msgid "AKI - Amazon Kernel Image"
 msgstr "AKI - ਐਮੇਜੌਨ ਕਰਨਲ ਇਮੇਜ"
-
-#, python-format
-msgid "ALLOW %(ethertype)s %(proto_port)s %(direction)s %(remote)s"
-msgstr "ALLOW %(ethertype)s %(proto_port)s %(direction)s %(remote)s"
 
 msgid "AMI - Amazon Machine Image"
 msgstr "AMI - ਐਮੇਜੌਨ ਮਸ਼ੀਨ ਇਮੇਜ"
@@ -708,11 +704,11 @@ msgstr "DNS نام سرورز"
 msgid "Decrypt Password"
 msgstr "پاس ڈكرپٹ کریں"
 
+msgid "Default Quotas"
+msgstr "ڈیفالٹ کوٹہ"
+
 msgid "Default quotas updated."
 msgstr " ڈیفالٹ کوٹہ اپ ڈیٹ."
-
-msgid "Defaults"
-msgstr "ڈیفالٹس"
 
 #, python-format
 msgid "Delete the created network \"%s\" due to subnet creation failure."
@@ -1670,10 +1666,6 @@ msgstr "لائیو فرار انسٹس"
 msgid "Live migrate an instance to a specific host."
 msgstr "مخصوص میزبانی کے لئے انسٹس بے گھر کر سکتے ہیں."
 
-#, python-format
-msgid "Load Balancer VIP %s"
-msgstr "بیلنسر  VIP %s لوڈ كریں"
-
 msgid "Local"
 msgstr "ਸਥਾਨਕ"
 
@@ -1762,12 +1754,6 @@ msgstr "ہجرت"
 
 msgid "Migration Policy"
 msgstr "ہجرت پالیسی"
-
-msgid "Min Disk"
-msgstr "كم سے كم ڈسك"
-
-msgid "Min RAM"
-msgstr "كم سے كم RAM"
 
 msgid "Minimum Disk (GB)"
 msgstr "کم از کم ڈسک (GB)"
@@ -2021,9 +2007,6 @@ msgstr "انسٹانس كی تعداد"
 
 msgid "Number of Snapshots"
 msgstr "اسنیپ شاٹس كی تعداد"
-
-msgid "Number of VCPUs"
-msgstr "VCPU-ਆਂ ਦੀ ਗਿਣਤੀ"
 
 msgid "Number of Volumes"
 msgstr "ولیومز كی تعداد"
@@ -2886,6 +2869,9 @@ msgstr "پروجیکٹ کے لئے کل ڈسک استعمال (GB * استعما
 msgid "Type"
 msgstr "قسم"
 
+msgid "UP"
+msgstr "ਉੱਤੇ"
+
 msgctxt "Admin state of a Network"
 msgid "UP"
 msgstr "ਉੱਤੇ"
@@ -3362,9 +3348,6 @@ msgstr "ذیلی نیٹ تفصیلات حاصل کرنے میں ناقابل"
 msgid "Unable to retrieve subnet details."
 msgstr "ذیلی نیٹ تفصیلات حاصل کرنے میں ناقابل"
 
-msgid "Unable to retrieve tenant limits."
-msgstr "ٹیننٹ کی حدود کو دوبارہ حاصل کرنے میں ناقابل."
-
 msgid "Unable to retrieve the aggregate to be updated"
 msgstr "طرف ہونے والے مجموعی کو نکالنے میں غیر فعال."
 
@@ -3530,9 +3513,6 @@ msgstr "ਅਪਡੇਟ ਕਰੋ"
 msgid "Update Default Quotas"
 msgstr " ڈیفالٹ کوٹہ کو اپ ڈیٹ کریں"
 
-msgid "Update Defaults"
-msgstr "ڈیفالٹس اپ ڈیٹ کریں"
-
 msgid "Update Group"
 msgstr "گروپ كو اپ ڈیٹ كریں"
 
@@ -3655,18 +3635,6 @@ msgstr "اسم رکنیت \"%s\"  پہلے سے استعمال کیا جا رہ�
 
 msgid "Users"
 msgstr "صارفین"
-
-msgid "VCPU"
-msgstr "VCPU"
-
-msgid "VCPU Hours"
-msgstr "VCPU گھنٹے"
-
-msgid "VCPU Usage"
-msgstr "VCPU استعمال"
-
-msgid "VCPUs"
-msgstr "VCPUs"
 
 msgid "VDI - Virtual Disk Image"
 msgstr "VDI - ਵਰਚੂਅਲ ਡਿਸਕ ਇਮੇਜ"
@@ -3865,6 +3833,3 @@ msgstr "فرنٹ - اینڈ"
 
 msgid "undefined"
 msgstr "غیروضاحتی"
-
-msgid "unknown IP address"
-msgstr "نامعلوم IP ایڈریس"

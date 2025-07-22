@@ -2,9 +2,9 @@
 # suhartono <cloudsuhartono@gmail.com>, 2019. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 21.0.1.dev22\n"
+"Project-Id-Version: horizon 25.4.1.dev54\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-02-21 20:31+0000\n"
+"POT-Creation-Date: 2025-07-21 16:55+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -60,9 +60,6 @@ msgstr "**Quota Descriptions**"
 msgid "**RAM (MB)**"
 msgstr "**RAM (MB)**"
 
-msgid "**RX/TX Factor**"
-msgstr "**RX/TX Factor**"
-
 msgid "**Random-number generator**"
 msgstr "**Random-number generator**"
 
@@ -71,9 +68,6 @@ msgstr "**Root Disk (GB)**"
 
 msgid "**Swap Disk (MB)**"
 msgstr "**Swap Disk (MB)**"
-
-msgid "**VCPUs**"
-msgstr "**VCPUs**"
 
 msgid "**Watchdog behavior**"
 msgstr "**Watchdog behavior**"
@@ -454,9 +448,6 @@ msgstr "Click tombol tekan :guilabel:`Create User` "
 
 msgid "Click the :guilabel:`Edit` button."
 msgstr "Klik tombol :guilabel:`Edit`."
-
-msgid "Click the :guilabel:`Update Defaults` button."
-msgstr "Klik tombol :guilabel:`Update Defaults`."
 
 msgid "Click the :guilabel:`Update Role` button to confirm your changes."
 msgstr ""
@@ -1144,13 +1135,6 @@ msgstr ""
 
 msgid ""
 "On the :guilabel:`Admin` tab, open the :guilabel:`System` tab and click the :"
-"guilabel:`Defaults` category."
-msgstr ""
-"Pada tab :guilabel:`Admin`, buka tab :guilabel:`System` dan klik kategori :"
-"guilabel:`Defaults`."
-
-msgid ""
-"On the :guilabel:`Admin` tab, open the :guilabel:`System` tab and click the :"
 "guilabel:`System Information` category."
 msgstr ""
 "Pada tab :guilabel:`Admin`, buka tab :guilabel:`System` dan klik kategori :"
@@ -1217,15 +1201,6 @@ msgstr ""
 "pengguna baru menggunakan Dasbor OpenStack. Proyek memiliki sumber daya "
 "khusus di lingkungan OpenStack Anda. Anda dapat mengaitkan pengguna dengan "
 "peran, proyek, atau keduanya."
-
-msgid ""
-"Optional property allows servers with a different bandwidth to be created "
-"with the RX/TX Factor. The default value is 1. That is, the new bandwidth is "
-"the same as that of the attached network."
-msgstr ""
-"Properti opsional memungkinkan server dengan bandwidth yang berbeda untuk "
-"dibuat dengan RX/TX Factor. Nilai default adalah 1. Artinya, bandwidth baru "
-"sama dengan jaringan terikat."
 
 msgid "Parameter options"
 msgstr "Opsi parameter"
@@ -1873,9 +1848,6 @@ msgstr ""
 "Menggunakan pilihan ini untuk aes-xts, ukuran kunci yang mendasari hanya "
 "akan menjadi 128-bit *"
 
-msgid "VCPUs"
-msgstr "VCPUs"
-
 msgid "View and manage quotas"
 msgstr "Lihat dan kelola kuota"
 
@@ -1976,13 +1948,6 @@ msgid ""
 msgstr ""
 "Anda dapat mengurutkan tabel dengan mengklik pada header kolom :guilabel: "
 "`Nama Kuota` atau :guilabel:` Judul` ."
-
-msgid ""
-"You can track costs per month by showing meters like number of VCPUs, disks, "
-"RAM, and uptime of all your instances."
-msgstr ""
-"Anda dapat melacak biaya per bulan dengan menunjukkan meter seperti jumlah "
-"VCPU, disk, RAM, dan waktu aktif dari semua instance Anda."
 
 msgid ""
 "You can use applications such as ``Memcached`` or ``Redis`` for external "

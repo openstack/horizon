@@ -3,9 +3,9 @@
 # Corinne Verheyde <cverheyd@gmail.com>, 2019. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 21.0.1.dev22\n"
+"Project-Id-Version: horizon 25.4.1.dev54\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-02-21 20:31+0000\n"
+"POT-Creation-Date: 2025-07-21 16:55+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -61,9 +61,6 @@ msgstr "**Descriptions du quota**"
 msgid "**RAM (MB)**"
 msgstr "**RAM (MB)**"
 
-msgid "**RX/TX Factor**"
-msgstr "**Facteur RX/TX **"
-
 msgid "**Random-number generator**"
 msgstr "**Générateur de nombres aléatoires**"
 
@@ -72,9 +69,6 @@ msgstr "**Disque racine Go**"
 
 msgid "**Swap Disk (MB)**"
 msgstr "**Disque de Swap Mo**"
-
-msgid "**VCPUs**"
-msgstr "**VCPUs**"
 
 msgid "**Watchdog behavior**"
 msgstr "**Comportement du Watchdog**"
@@ -457,9 +451,6 @@ msgstr "Cliquez sur le bouton :guilabel:`Créer un utilisateur`."
 
 msgid "Click the :guilabel:`Edit` button."
 msgstr "Cliquez sur le bouton :guilabel:`Éditer`."
-
-msgid "Click the :guilabel:`Update Defaults` button."
-msgstr "Cliquer sur le bouton :guilabel:`Update Defaults`."
 
 msgid "Click the :guilabel:`Update Role` button to confirm your changes."
 msgstr ""
@@ -1137,13 +1128,6 @@ msgid ""
 msgstr ""
 "Dans l'onglet :guilabel:`Admin`, ouvrir l'onglet :guilabel:`Compute`et "
 "cliquer sur la catégorie :guilabel:`Instances`."
-
-msgid ""
-"On the :guilabel:`Admin` tab, open the :guilabel:`System` tab and click the :"
-"guilabel:`Defaults` category."
-msgstr ""
-"Dans l'onglet :guilabel:`Admin`, ouvrir l'onglet :guilabel:`System`et "
-"cliquer sur la catégorie :guilabel:`Defaults`."
 
 msgid ""
 "On the :guilabel:`Admin` tab, open the :guilabel:`System` tab and click the :"
@@ -1845,9 +1829,6 @@ msgstr ""
 "En utilisant cette sélection pour aes-xts, la taille de la clef sous-jacente "
 "serait de seulement 128-bits*"
 
-msgid "VCPUs"
-msgstr "VCPUs"
-
 msgid "View and manage quotas"
 msgstr "Voir et gérer les quotas"
 
@@ -1954,13 +1935,6 @@ msgid ""
 msgstr ""
 "Vous pouvez classer la table en cliquant soit sur le titre de colonne :"
 "guilabel:`Quota Name` soit sur le titre de colonne :guilabel:`Limit."
-
-msgid ""
-"You can track costs per month by showing meters like number of VCPUs, disks, "
-"RAM, and uptime of all your instances."
-msgstr ""
-"Vous pouvez suivre les coûts par mois en regardant des métriques comme le "
-"nombre de VCPUs, disques, RAM, et uptime de toutes vos instances."
 
 msgid ""
 "You can use applications such as ``Memcached`` or ``Redis`` for external "

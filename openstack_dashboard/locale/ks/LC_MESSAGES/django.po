@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: horizon VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2025-03-22 08:03+0900\n"
+"POT-Creation-Date: 2025-07-21 16:55+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -74,10 +74,6 @@ msgstr "لوکل شکل اَپلوڈ کرنہ خبببآطرہ"
 
 msgid "AKI - Amazon Kernel Image"
 msgstr "AKI - امیزان کئرنل شکل"
-
-#, python-format
-msgid "ALLOW %(ethertype)s %(proto_port)s %(direction)s %(remote)s"
-msgstr "ALLOW %(ethertype)s %(proto_port)s %(direction)s %(remote)s"
 
 msgid "AMI - Amazon Machine Image"
 msgstr "AMI - امیزان مئشین شکل"
@@ -701,11 +697,11 @@ msgstr "DNS سَرور نٲو"
 msgid "Decrypt Password"
 msgstr "ڈیکریپٹ پآسوئرڈ"
 
+msgid "Default Quotas"
+msgstr "ڈیفالٹ کئوٹا "
+
 msgid "Default quotas updated."
 msgstr "  ڈیفالٹ  کئوٹا اَپڈیٹ"
-
-msgid "Defaults"
-msgstr "ڈیفالٹ"
 
 #, python-format
 msgid "Delete the created network \"%s\" due to subnet creation failure."
@@ -1655,10 +1651,6 @@ msgstr "لآئو مئگریٹ اِنسٹئنس"
 msgid "Live migrate an instance to a specific host."
 msgstr "لٲئو مئگریٹ أکھ اِنسٹئنس یُس وَضاحت پئزہ کئرون ہوسٹ خٲطرہ"
 
-#, python-format
-msgid "Load Balancer VIP %s"
-msgstr "لوڈ بیلنسر  VIP %s"
-
 msgid "Local"
 msgstr "لوکل"
 
@@ -1744,12 +1736,6 @@ msgstr "مئگریِنگ"
 
 msgid "Migration Policy"
 msgstr "مئگریشن پآلیسی"
-
-msgid "Min Disk"
-msgstr "کم از کم ڈِسک"
-
-msgid "Min RAM"
-msgstr "کم از کمRAM"
 
 msgid "Minimum Disk (GB)"
 msgstr "کم از کم ڈِسک (GB)"
@@ -2003,9 +1989,6 @@ msgstr "تعداد اِنسٹئنس ہُند۱"
 
 msgid "Number of Snapshots"
 msgstr "تعداد سِنیپ شآٹس  ہُند"
-
-msgid "Number of VCPUs"
-msgstr "تعداد  VCPU"
 
 msgid "Number of Volumes"
 msgstr "والیوم ہُند تعداد"
@@ -3313,9 +3296,6 @@ msgstr "نا قابِل سب نیٹ تٔفصیل واپس اَنہٕ خآطرہ�
 msgid "Unable to retrieve subnet details."
 msgstr "نا قابِل سب نیٹ تٔفصیل واپس اَنہٕ خآطرہ۔ "
 
-msgid "Unable to retrieve tenant limits."
-msgstr "ناکامیاب والیوم  تَفصیل والیوم واپس  اَنہٕ خآطرہ"
-
 msgid "Unable to retrieve the aggregate to be updated"
 msgstr "نا قابِل ایگریگیٹ یُس اَپڈیٹ کئرون عئوس سُہٕ واپس عئنس منز"
 
@@ -3481,9 +3461,6 @@ msgstr "اَپڈیٹ"
 msgid "Update Default Quotas"
 msgstr "اَپڈیٹ  ڈیفالٹ  کئوٹا"
 
-msgid "Update Defaults"
-msgstr "اَپڈیٹ  ڈیفالٹ"
-
 msgid "Update Group"
 msgstr "اپڈیٹ کئریو گروپ"
 
@@ -3606,18 +3583,6 @@ msgstr "یوزر \"%s\" چُھ گوڈے موجود"
 
 msgid "Users"
 msgstr "یوزر "
-
-msgid "VCPU"
-msgstr "VCPU"
-
-msgid "VCPU Hours"
-msgstr "گھنٹہٕ VCPU"
-
-msgid "VCPU Usage"
-msgstr "VCPUاِستعمال"
-
-msgid "VCPUs"
-msgstr "VCPUs"
 
 msgid "VLAN"
 msgstr "VLAN"
@@ -3804,6 +3769,3 @@ msgstr "بئتھُم -عند"
 
 msgid "undefined"
 msgstr "وَضاحت کئریتھ نہٖ"
-
-msgid "unknown IP address"
-msgstr "نا معلوم IPنیب"

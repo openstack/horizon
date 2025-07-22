@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: horizon VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2025-03-22 08:03+0900\n"
+"POT-Creation-Date: 2025-07-21 16:55+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -152,10 +152,6 @@ msgstr ""
 msgid "AKI - Amazon Kernel Image"
 msgstr "AKI - obraz kernelu Amazon"
 
-#, python-format
-msgid "ALLOW %(ethertype)s %(proto_port)s %(direction)s %(remote)s"
-msgstr "POVOLIT %(ethertype)s %(proto_port)s %(direction)s %(remote)s"
-
 msgid "AMI - Amazon Machine Image"
 msgstr "AMI - obraz stroje Amazon"
 
@@ -167,9 +163,6 @@ msgstr "API Endpointy"
 
 msgid "ARI - Amazon Ramdisk Image"
 msgstr "ARI - obraz ramdisku Amazon"
-
-msgid "Accept Transfer"
-msgstr "Přijmout převod"
 
 msgid "Accept Volume Transfer"
 msgstr "Přijmout převod svazku"
@@ -628,9 +621,6 @@ msgstr "CPU architektura obrazu."
 msgid "Cancel"
 msgstr "Zrušit"
 
-msgid "Cancel Transfer"
-msgstr "Zrušit přenos"
-
 #, python-format
 msgid "Cannot find instance %s."
 msgstr "Nelze nalézt instanci %s."
@@ -912,9 +902,6 @@ msgstr "Vytvořit podsíť"
 msgid "Create Subnet (Quota exceeded)"
 msgstr "Vytvořit podsíť (kvóta překročena)"
 
-msgid "Create Transfer"
-msgstr "Vytvořit přenos"
-
 msgid "Create User"
 msgstr "Vytvořit uživatele"
 
@@ -1140,6 +1127,9 @@ msgstr "Název DNS"
 msgid "DNS Name Servers"
 msgstr "DNS servery"
 
+msgid "DOWN"
+msgstr "ZAVŘEN"
+
 msgctxt "Admin state of a Network"
 msgid "DOWN"
 msgstr "ZAVŘEN"
@@ -1163,11 +1153,11 @@ msgctxt "Default style theme"
 msgid "Default"
 msgstr "Výchozí"
 
+msgid "Default Quotas"
+msgstr "Výchozí kvóty"
+
 msgid "Default quotas updated."
 msgstr "Výchozí kvóty aktualizovány."
-
-msgid "Defaults"
-msgstr "Výchozí"
 
 msgid "Delete"
 msgid_plural "Delete"
@@ -2033,9 +2023,6 @@ msgstr "Zadejte hodnotu pro kód ICMP v rozsahu (-1: 255)"
 
 msgid "Enter a value for ICMP type in the range (-1: 255)"
 msgstr "Zadejte hodnotu pro typ ICMP v rozsahu (-1: 255)"
-
-msgid "Enter an integer value between 0 and 255."
-msgstr "Zadejte celé číslo v rozsahu od 1 do 255."
 
 msgid "Enter an integer value between 1 and 65535."
 msgstr "Zadejte celé číslo v rozsahu od 1 do 65535."
@@ -3001,10 +2988,6 @@ msgstr "Přesunout instanci za běhu"
 msgid "Live migrate an instance to a specific host."
 msgstr "Živá migrace na konkrétního hostitele."
 
-#, python-format
-msgid "Load Balancer VIP %s"
-msgstr "Load Balancer VIP %s"
-
 msgid "Local"
 msgstr "Lokální"
 
@@ -3220,12 +3203,6 @@ msgstr "Migrace instancí může mít neopravitelné následky."
 
 msgid "Migration Policy"
 msgstr "Politika migrace"
-
-msgid "Min Disk"
-msgstr "Minimální disk"
-
-msgid "Min RAM"
-msgstr "Min RAM"
 
 msgid "Min. Size (MB) ="
 msgstr "Min. velikost (MB) ="
@@ -3623,9 +3600,6 @@ msgstr "Počet instancí"
 msgid "Number of Snapshots"
 msgstr "Počet snapshotů"
 
-msgid "Number of VCPUs"
-msgstr "Počet VCPU"
-
 msgid "Number of Volumes"
 msgstr "Počet svazků"
 
@@ -3917,9 +3891,6 @@ msgstr "Veřejná:"
 msgid "QCOW2 - QEMU Emulator"
 msgstr "QCOW2 - emulátor QEMU"
 
-msgid "QOS Policy ID"
-msgstr "ID politky QOS"
-
 #, python-format
 msgid "QoS Spec name \"%s\" already exists."
 msgstr "Specifikace QoS s názvem \"%s\" již existuje."
@@ -3961,12 +3932,6 @@ msgstr "RAM (celkem)"
 
 msgid "RAM (used)"
 msgstr "RAM (použitá)"
-
-msgid "RX/TX Factor"
-msgstr "RX/TX Faktor"
-
-msgid "RX/TX factor"
-msgstr "RX/TX faktor"
 
 msgid "Ramdisk"
 msgstr "Ramdisk"
@@ -5349,15 +5314,6 @@ msgstr "Celková velikost svazků a snapshotů (GiB)"
 msgid "Total Size of Volumes and Snapshots (GiB) of Type %(type)s"
 msgstr "Celková velikost svazků a snapshotů (GiB) typu %(type)s"
 
-msgid "Total VCPU Usage (Hours):"
-msgstr "Celkové využití VCPU (v hodinách):"
-
-msgid ""
-"Total VCPU usage (Number of VCPU in instance * Hours Used) for the project"
-msgstr ""
-"Celkové využití VCPU (Počet VCPU v instanci * Počet hodin provozu) pro "
-"projekt"
-
 msgid "Total disk usage (GB * Hours Used) for the project"
 msgstr "Celkové využití disku (GB * Počet hodin provozu) pro projekt"
 
@@ -5373,8 +5329,14 @@ msgstr "Název přenosu"
 msgid "Type"
 msgstr "Typ"
 
+msgid "Type ="
+msgstr "Typ ="
+
 msgid "Type of backend device identifier provided"
 msgstr "Typ poskytnutého identifikátoru podpůrného zařízení"
+
+msgid "UP"
+msgstr "OTEVŘEN"
 
 msgctxt "Admin state of a Network"
 msgid "UP"
@@ -5988,9 +5950,6 @@ msgstr "Nelze získat podrobnosti podsítě"
 msgid "Unable to retrieve subnet details."
 msgstr "Nelze získat podrobnosti podsítě."
 
-msgid "Unable to retrieve tenant limits."
-msgstr "Nelze získat limit pro tenant."
-
 msgid "Unable to retrieve the aggregate to be updated"
 msgstr "Nelze získat seznam agregátů k aktualizaci"
 
@@ -6278,9 +6237,6 @@ msgstr "Aktualizovat přidružení"
 msgid "Update Default Quotas"
 msgstr "Aktualizovat výchozí kvóty"
 
-msgid "Update Defaults"
-msgstr "Aktualizovat výchozí"
-
 msgid "Update Encrypted Volume Type"
 msgstr "Aktualizovat šifrovaný typ svazku."
 
@@ -6464,18 +6420,6 @@ msgstr "Uživatelem definované jedinečné id pro identifikování mapování."
 
 msgid "Users"
 msgstr "Uživatelé"
-
-msgid "VCPU"
-msgstr "VCPU"
-
-msgid "VCPU Hours"
-msgstr "VCPU hodiny"
-
-msgid "VCPU Usage"
-msgstr "Využití VCPU"
-
-msgid "VCPUs"
-msgstr "VCPU"
 
 msgid "VDI - Virtual Disk Image"
 msgstr "VDI - obraz virtuálního disku"
@@ -6825,9 +6769,6 @@ msgstr "ne"
 
 msgid "undefined"
 msgstr "nedefinováno"
-
-msgid "unknown IP address"
-msgstr "neznámá IP adresa"
 
 msgid "yes"
 msgstr "ano"

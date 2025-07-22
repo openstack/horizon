@@ -16,7 +16,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: horizon VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2025-03-22 08:03+0900\n"
+"POT-Creation-Date: 2025-07-21 16:55+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -60,17 +60,6 @@ msgstr "7"
 
 msgid "75%"
 msgstr "75%"
-
-msgid ""
-"<b>Image (with Create New Volume checked)</b>: This options uses an image to "
-"boot the instance, and creates a new volume to persist instance data. You "
-"can specify volume size and whether to delete the volume on deletion of the "
-"instance."
-msgstr ""
-"<b>Abbild (und Erstelle Neuen Datenträger ausgewählt)</b>: diese Option "
-"verwendet ein Abbild zum Booten der Instanz und erstellt einen neuen "
-"Datenträger zum Erhalt der Instanzdaten. Sie können die Datenträgergröße "
-"angeben und ob der Datenträger beim Löschen der Instanz entfernt werden soll."
 
 msgid "<b>Image</b>: This option uses an image to boot the instance."
 msgstr ""
@@ -1793,17 +1782,11 @@ msgstr "Metadaten wurden erfolgreich aktualisiert."
 msgid "Middle"
 msgstr "Mitte"
 
-msgid "Min Disk (GB)"
-msgstr "Min Disk (GB)"
-
 msgid "Min Kbps"
 msgstr "Min Kbps"
 
 msgid "Min Port"
 msgstr "Min Port"
-
-msgid "Min RAM (MB)"
-msgstr "Min RAM (MB)"
 
 msgid "Min. Size (bytes)"
 msgstr "Min. Größe (MB)"
@@ -2275,9 +2258,6 @@ msgstr "RAM"
 msgid "RAW"
 msgstr "RAW"
 
-msgid "RX/TX Factor"
-msgstr "RX/TX Faktor"
-
 msgid "Radios"
 msgstr "Optionsfelder"
 
@@ -2473,17 +2453,11 @@ msgstr ""
 "Wählen Sie eine oder mehrere Sicherheitsgruppen aus den verfügbaren unten "
 "stehenden Gruppen aus."
 
-msgid "Select the Ramdisk from the drop down menu."
-msgstr "Wählen Sie die Ramdisk aus dem Drop-Down Menü"
-
 msgid "Select the availability zone from the drop down menu."
 msgstr "Wählen Sie die Verfügbarkeitszone aus dem Drop-Down Menü."
 
 msgid "Select the format of the disk from the drop down menu."
 msgstr "Wählen Sie das Format der Festplatte aus dem Drop-Down Menü."
-
-msgid "Select the kernel to run from the drop down menu."
-msgstr "Wählen Sie den zu startenden Kernel aus dem Drop-Down Menü"
 
 msgid "Select the security groups to launch the instance in."
 msgstr ""
@@ -2613,9 +2587,6 @@ msgstr "Quellenbezeichnung"
 msgid "Source Type"
 msgstr "Quellentyp"
 
-msgid "Specify an image to upload to the Image Service."
-msgstr "Wählen Sie ein Abbild zum Hochladen an den Abbilddienst aus."
-
 msgid "Stacked"
 msgstr "Gestapelt"
 
@@ -2697,9 +2668,6 @@ msgstr "Schlagwörter"
 msgid "Tel"
 msgstr "Tel"
 
-msgid "Tenant ID"
-msgstr "Mandanten-ID"
-
 msgid "Text"
 msgstr "Text"
 
@@ -2714,9 +2682,6 @@ msgstr "Zugriffsberechtigungen für das Abbild."
 
 msgid "The admin password is incorrect."
 msgstr "Das Administratorpasswort ist nicht richtig"
-
-msgid "The architecture of the image."
-msgstr "Die Architektur des Abbildes."
 
 msgid ""
 "The current Horizon settings indicate no valid\n"
@@ -2777,20 +2742,6 @@ msgid ""
 msgstr ""
 "Die maximal zulässige Anzahl von Schlüssel/Werte-Paaren, die pro Instanz "
 "bereitgestellt werden können, legt der Compute-Provider fest."
-
-msgid ""
-"The minimum disk size required to boot the image. If unspecified, this value "
-"defaults to 0 (no minimum)."
-msgstr ""
-"Die minimale Größe der Festplatte, um das Abbild zu starten. Falls nicht "
-"angegeben, wird der Wert 0 (kein Minimum) verwendet."
-
-msgid ""
-"The minimum memory size required to boot the image. If unspecified, this "
-"value defaults to 0 (no minimum)."
-msgstr ""
-"Die minimale Größe des Speichers, um das Abbild zu starten. Falls nicht "
-"angegeben, wird der Wert 0 (kein Minimum) verwendet."
 
 msgid "The name of the Volume."
 msgstr "Name des Datenträgers."
@@ -2937,13 +2888,6 @@ msgstr ""
 "Sie eine kleinere Variante oder verringern Sie die Anzahl der Instanzen."
 
 msgid ""
-"This flavor requires more VCPUs than your quota allows. Please select a "
-"smaller flavor or decrease the instance count."
-msgstr ""
-"Diese Variante benötigt mehr VCPU als Ihr Kontingent erlaubt. Bitte wählen "
-"Sie eine kleinere Variante oder verringern Sie die Anzahl der Instanzen."
-
-msgid ""
 "This is a simple hero unit, a simple jumbotron-style component for calling "
 "extra attention to featured content or information."
 msgstr ""
@@ -3015,9 +2959,6 @@ msgstr "Instanzen gesamt"
 
 msgid "Total RAM"
 msgstr "RAM gesamt"
-
-msgid "Total VCPUs"
-msgstr "Gesamte Aktive VCPUs"
 
 msgid "Total Volume Storage"
 msgstr "Gesamter Datenträger-Speicher"
@@ -3181,10 +3122,6 @@ msgid "Unable to delete policy: %s."
 msgid_plural "Unable to delete policies: %s."
 msgstr[0] "Konnte Richtlinie nicht löschen: %s."
 msgstr[1] "Konnte Richtlinien nicht löschen: %s."
-
-#, python-format
-msgid "Unable to delete qos policy %(id)s"
-msgstr "QOS Richtlinie %(id)s kann nicht gelöscht werden"
 
 msgid "Unable to delete the container."
 msgstr "Der Container konnte nicht gelöscht werden."
@@ -3468,9 +3405,6 @@ msgstr "Das Projekt kann nicht abgerufen werden."
 msgid "Unable to retrieve the projects."
 msgstr "Die Projekte können nicht abgerufen werden."
 
-msgid "Unable to retrieve the qos policies."
-msgstr "QoS-Richtlinien können nicht abgerufen werden."
-
 msgid "Unable to retrieve the resource types."
 msgstr "Die Ressourcentypen können nicht abgerufen werden."
 
@@ -3696,12 +3630,6 @@ msgstr "Benutzername"
 
 msgid "User password has been updated successfully."
 msgstr "Das Passwort wurde erfolgreich aktualisiert."
-
-msgid "VCPUS"
-msgstr "VCPUS"
-
-msgid "VCPUs"
-msgstr "VCPUs"
 
 msgid "VDI"
 msgstr "VDI"
@@ -4042,16 +3970,6 @@ msgstr "Abbild"
 
 msgid "inherit"
 msgstr "vererben"
-
-msgid "min disk is required and must be an integer not less than 0"
-msgstr ""
-"Die Angabe von Min Disk ist erforderlich und muss eine Ganzzahl nicht "
-"kleiner als 0 sein"
-
-msgid "min ram is required and must be an integer not less than 0"
-msgstr ""
-"Die Angabe von Min RAM ist erforderlich und muss eine Ganzzahl nicht kleiner "
-"als 0 sein"
 
 #, python-format
 msgid "resource load failed: %s"

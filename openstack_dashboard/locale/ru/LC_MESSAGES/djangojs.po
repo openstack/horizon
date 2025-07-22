@@ -30,12 +30,12 @@ msgid ""
 msgstr ""
 "Project-Id-Version: horizon VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2025-03-22 08:03+0900\n"
+"POT-Creation-Date: 2025-07-21 16:55+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2025-07-12 09:17+0000\n"
-"Last-Translator: Dmitriy Chubinidze <dcu995@gmail.com>\n"
+"PO-Revision-Date: 2025-07-18 07:19+0000\n"
+"Last-Translator: Ivan Anfimov <lazekteam@gmail.com>\n"
 "Language-Team: Russian\n"
 "Language: ru\n"
 "X-Generator: Zanata 4.3.3\n"
@@ -103,13 +103,13 @@ msgstr "75%"
 msgid ""
 "<b>Image (with Create New Volume checked)</b>: This options uses an image to "
 "boot the instance, and creates a new volume to persist instance data. You "
-"can specify volume size and whether to delete the volume on deletion of the "
-"instance."
+"can specify volume type and size, and whether to delete the volume on "
+"deletion of the instance."
 msgstr ""
-"<b>Образ (с опцией Создать новый диск)</b>: В данном случае образ "
+"<b>Образ (с опцией \"Создать новый диск\")</b>: В данном случае образ "
 "используется для загрузки инстанса, при этом создается новый диск для "
-"хранения данных инстанса. Можно указать размер диска и установить, будет ли "
-"диск удаляться при удалении инстанса."
+"хранения данных инстанса. Можно указать размер диска и задать, будет ли диск "
+"удаляться при удалении инстанса."
 
 msgid "<b>Image</b>: This option uses an image to boot the instance."
 msgstr ""
@@ -1626,6 +1626,9 @@ msgstr "Источник образа"
 msgid "Image Status"
 msgstr "Статус образа"
 
+msgid "Image Visibility"
+msgstr "Видимость образа"
+
 msgid "Image from Other Project - Non-Public"
 msgstr "Образ из другого проекта - непубличный"
 
@@ -1900,6 +1903,9 @@ msgstr "MAC адрес"
 msgid "MacVTap"
 msgstr "MacVTap"
 
+msgid "Make the QoS policy accessible by other projects."
+msgstr "Сделать QoS политику доступной для других проектов."
+
 msgid "Manual"
 msgstr "Вручную"
 
@@ -1960,9 +1966,6 @@ msgstr "Метаданные были успешно обновлены"
 msgid "Middle"
 msgstr "Посередине"
 
-msgid "Min Disk (GB)"
-msgstr "Мин. размер диска (ГБ)"
-
 msgid "Min Kbps"
 msgstr "Мин (кбит/с)"
 
@@ -1971,9 +1974,6 @@ msgstr "Мин кпак/сек"
 
 msgid "Min Port"
 msgstr "От порта"
-
-msgid "Min RAM (MB)"
-msgstr "Мин. размер RAM (МБ)"
 
 msgid "Min. Disk (GB)"
 msgstr "Минимальный диск (ГБ)"
@@ -2086,6 +2086,26 @@ msgstr[2] "Подсети"
 
 msgid "Network characteristics"
 msgstr "Характеристики сети"
+
+msgid ""
+"Network devices such as switches and routers can mark traffic so that it is "
+"handled with a higher priority to fulfill the QoS conditions agreed under "
+"the SLA.\n"
+"In other cases, certain network traffic such as Voice over IP (VoIP) and "
+"video streaming needs to be transmitted with minimal bandwidth constraints.\n"
+"On a system without network QoS management, all traffic will be transmitted "
+"in a “best-effort” manner making it impossible to guarantee service delivery "
+"to customers."
+msgstr ""
+"Сетевые устройства, такие как коммутаторы и маршрутизаторы, могут "
+"маркировать трафик, чтобы он обрабатывался с более высоким приоритетом для "
+"выполнения условий QoS, согласованных в рамках SLA.\n"
+"В других случаях определенный сетевой трафик, такой как Voice over IP (VoIP) "
+"и потоковое видео, необходимо передавать с минимальными ограничениями "
+"пропускной способности.\n"
+"В системе без управления QoS в сети весь трафик будет передаваться по "
+"принципу \"best-effort\", что сделает невозможным гарантировать "
+"предоставление услуг клиентам."
 
 msgid "Networks"
 msgstr "Сети"
@@ -2439,6 +2459,9 @@ msgstr "Свойства:"
 msgid "Protected"
 msgstr "Защищенный"
 
+msgid "Protected Image"
+msgstr "Защищенный образ"
+
 msgid "Protocol"
 msgstr "Протокол"
 
@@ -2484,24 +2507,26 @@ msgstr "QoS политика %s успешно создана."
 msgid "QoS Policy ID"
 msgstr "ID политики QoS"
 
-msgid "QoS Policy Id"
-msgstr "Id политики QoS"
-
 msgid "QoS Policy Name"
 msgstr "Имя политики QoS"
 
-msgid "QoSPolicyId"
-msgstr "ИД политики QoS"
+#, python-format
+msgid "QoS Policy Rule %s was successfully updated."
+msgstr "Правило QoS политики %s было успешно обновлено."
 
-msgid "QoSPolicyName"
-msgstr "Имя политики QoS"
+msgid ""
+"QoS is defined as the ability to guarantee certain network requirements like "
+"bandwidth, latency, jitter,\n"
+"and reliability in order to satisfy a Service Level Agreement (SLA) between "
+"an application provider and end users."
+msgstr ""
+"QoS определяется как способность гарантировать определенные сетевые "
+"требования, такие как пропускная способность, задержка, джиттер\n"
+"и надежность, с целью выполнения соглашения об уровне обслуживания (SLA) "
+"между провайдером и конечными пользователями."
 
 msgid "Qos Policy  Rule  was successfully deleted."
 msgstr "Правило политики QoS было успешно удалено."
-
-#, python-format
-msgid "Qos Policy Rule %s was successfully updated."
-msgstr "Правило политики %s QoS было успешно обновлено."
 
 msgid "Queued"
 msgstr "Запланировано"
@@ -2511,9 +2536,6 @@ msgstr "Память"
 
 msgid "RAW"
 msgstr "RAW"
-
-msgid "RX/TX Factor"
-msgstr "RX/TX соотношение"
 
 msgid "Radios"
 msgstr "Переключатель"
@@ -2590,9 +2612,6 @@ msgstr "Тип правила"
 
 msgid "Rule to edit"
 msgstr "Правило для изменения"
-
-msgid "RuleId"
-msgstr "ID правила"
 
 msgid "Rules"
 msgstr "Правила"
@@ -2747,17 +2766,11 @@ msgstr "Выберите один или несколько портов из д
 msgid "Select one or more security groups from the available groups below."
 msgstr "Выберите одну или более групп безопасности из доступных."
 
-msgid "Select the Ramdisk from the drop down menu."
-msgstr "Выберите \"RAM-диск\" в выпадающем меню."
-
 msgid "Select the availability zone from the drop down menu."
 msgstr "Выберите доступные зоны из выпадающего меню."
 
 msgid "Select the format of the disk from the drop down menu."
 msgstr "Выберите формат диска в выпадающем меню."
-
-msgid "Select the kernel to run from the drop down menu."
-msgstr "Выберите запускаемое ядро в выпадающем меню."
 
 msgid "Select the security groups to launch the instance in."
 msgstr "Выберите группы безопасности, в которых будет запущен инстанс."
@@ -2884,9 +2897,6 @@ msgstr "Заголовок источника"
 msgid "Source Type"
 msgstr "Тип источника"
 
-msgid "Specify an image to upload to the Image Service."
-msgstr "Выберите образ для загрузки в сервис управления образами."
-
 msgid "Stacked"
 msgstr "Стекированный"
 
@@ -2970,9 +2980,6 @@ msgstr "Метки"
 msgid "Tel"
 msgstr "Телефон"
 
-msgid "Tenant ID"
-msgstr "ID арендатора"
-
 msgid "Text"
 msgstr "Текст"
 
@@ -2982,14 +2989,18 @@ msgstr "Текстовые поля"
 msgid "Textarea"
 msgstr "Поле ввода"
 
+msgid ""
+"The CPU architecture that must be supported by the hypervisor. For example, "
+"x86_64, arm, or ppc64."
+msgstr ""
+"Архитектура CPU, которая должна поддерживаться гипервизором. Например, "
+"x86_64, arm или ppc64."
+
 msgid "The access permission for the image."
 msgstr "Правило доступа к этому образу."
 
 msgid "The admin password is incorrect."
 msgstr "Неверный пароль администратора."
-
-msgid "The architecture of the image."
-msgstr "Архитектура образа."
 
 msgid ""
 "The current Horizon settings indicate no valid\n"
@@ -3072,11 +3083,17 @@ msgstr ""
 "для порта."
 
 msgid ""
-"The minimum disk size required to boot the image. If unspecified, this value "
-"defaults to 0 (no minimum)."
+"The minimum disk (GB) is required and must be an integer not less than 0."
 msgstr ""
-"Минимальный размер диска необходимый для загрузки этого образа. Если не "
-"установлено, используется значение по умолчанию - 0 (нет минимума)"
+"Требуется минимальный объем диска (ГБ), который должен быть целым числом не "
+"менее 0."
+
+msgid ""
+"The minimum disk (GB) size required to boot the image. If unspecified, this "
+"value defaults to 0 (no minimum)."
+msgstr ""
+"Минимальный размер диска (ГБ), необходимый для загрузки образа. Если не "
+"указано, по умолчанию используется значение 0 (без минимального размера)."
 
 msgid ""
 "The minimum kpps (kilo(1000) packets per second) value which should be "
@@ -3086,11 +3103,31 @@ msgstr ""
 "которое должно быть доступно для порта."
 
 msgid ""
-"The minimum memory size required to boot the image. If unspecified, this "
-"value defaults to 0 (no minimum)."
+"The minimum memory (MB) is required and must be an integer not less than 0."
 msgstr ""
-"Минимальный размер оперативной памяти необходимый для загрузки этого образа. "
-"Если не установлено, используется значение по умолчанию - 0 (нет минимума)"
+"Требуется минимальный объем памяти (МБ), который должен быть целым числом не "
+"менее 0."
+
+msgid ""
+"The minimum memory (MB) size required to boot the image. If unspecified, "
+"this value defaults to 0 (no minimum)."
+msgstr ""
+"Минимальный объем памяти (МБ), необходимый для загрузки образа. Если не "
+"указано, по умолчанию используется значение 0 (без минимального объема)."
+
+msgid ""
+"The name of image stored in the Image service that should be used as the "
+"kernel when booting an AMI-style image."
+msgstr ""
+"Имя образа, хранящегося в службе образов, которое следует использовать в "
+"качестве ядра при загрузке образа типа AMI."
+
+msgid ""
+"The name of image stored in the Image service that should be used as the "
+"ramdisk when booting an AMI-style image."
+msgstr ""
+"Имя образа, хранящегося в службе образов, который должен использоваться в "
+"качестве RAM-диска при загрузке образа типа AMI."
 
 msgid "The name of the Volume."
 msgstr "Имя диска."
@@ -3246,12 +3283,12 @@ msgstr ""
 "количество инстансов."
 
 msgid ""
-"This flavor requires more VCPUs than your quota allows. Please select a "
+"This flavor requires more vCPUs than your quota allows. Please select a "
 "smaller flavor or decrease the instance count."
 msgstr ""
 "Данный шаблон конфигурации требует больше vCPU, чем позволяет ваша квота. "
-"Пожалуйста, выберите меньший шаблон конфигурации или уменьшите количество "
-"инстансов."
+"Пожалуйста, выберите шаблон конфигурации с меньшим количеством vCPU или "
+"уменьшите  количество инстансов."
 
 msgid ""
 "This is a simple hero unit, a simple jumbotron-style component for calling "
@@ -3323,14 +3360,14 @@ msgstr "Всего инстансов"
 msgid "Total RAM"
 msgstr "Всего RAM"
 
-msgid "Total VCPUs"
-msgstr "Всего VCPU"
-
 msgid "Total Volume Storage"
 msgstr "Общий объем дисков"
 
 msgid "Total Volumes"
 msgstr "Всего дисков"
+
+msgid "Total vCPUs"
+msgstr "Всего vCPU"
 
 msgid "Trunk"
 msgid_plural "Trunks"
@@ -3364,17 +3401,17 @@ msgstr "Типография"
 msgid "URL"
 msgstr "URL"
 
-msgid "Unable to add the bandwidthrule ."
-msgstr "Не удалось добавить правило пропускной способности ."
+msgid "Unable to add the DSCP marking rule."
+msgstr "Не удалось добавить правило маркировки DSCP."
 
-msgid "Unable to add the dscp_marking_rule ."
-msgstr "Не удалось добавить правило метки DSCP ."
+msgid "Unable to add the bandwidth rule."
+msgstr "Не удалось добавить правило пропускной способности."
 
-msgid "Unable to add the minimum_bandwidth_rule ."
-msgstr "Не удалось добавить правило минимальной пропускной способности ."
+msgid "Unable to add the minimum bandwidth rule."
+msgstr "Не удалось добавить правило минимальной пропускной способности."
 
-msgid "Unable to add the minimum_packet_rate_rule."
-msgstr "Не удалось добавить правило минимальной частоты пакетов."
+msgid "Unable to add the minimum packet rate rule."
+msgstr "Не удалось добавить правило минимальной скорости пакетов."
 
 msgid "Unable to allocate new floating IP address."
 msgstr "Не удалось выделить новый плавающий IP адрес."
@@ -3481,6 +3518,10 @@ msgstr[1] "Не удалось удалить ключевые пары: %s."
 msgstr[2] "Не удалось удалить ключевые пары: %s."
 
 #, python-format
+msgid "Unable to delete QoS Policy %(id)s"
+msgstr "Не удалось удалить политику QoS %(id)s"
+
+#, python-format
 msgid "Unable to delete Role: %s."
 msgid_plural "Unable to delete Roles: %s."
 msgstr[0] "Не удалось удалить роль: %s."
@@ -3522,12 +3563,11 @@ msgstr[0] "Не удалось удалить политику: %s."
 msgstr[1] "Не удалось удалить политики: %s."
 msgstr[2] "Не удалось удалить политики: %s."
 
-#, python-format
-msgid "Unable to delete qos policy %(id)s"
-msgstr "Не удалось удалить политику QoS %(id)s"
+msgid "Unable to delete the DSCP marking rule."
+msgstr "Не удалось удалить правило маркировки DSCP."
 
-msgid "Unable to delete the bandwidth_limit_rule."
-msgstr "Не удалось удалить правило пропускной способности."
+msgid "Unable to delete the bandwidth limit rule."
+msgstr "Не удалось удалить правило ограничения пропускной способности."
 
 msgid "Unable to delete the container."
 msgstr "Не удалось удалить контейнер."
@@ -3537,9 +3577,6 @@ msgstr "Не удалось удалить домен."
 
 msgid "Unable to delete the domains."
 msgstr "Не удалось удалить домены."
-
-msgid "Unable to delete the dscp_marking_rule."
-msgstr "Не удалось удалить правило метки DSCP."
 
 #, python-format
 msgid "Unable to delete the flavor with id: %(id)s"
@@ -3562,11 +3599,11 @@ msgstr "Не удалось удалить образ с id: %(id)s"
 msgid "Unable to delete the keypair with name: %(name)s"
 msgstr "Не удалось удалить пару ключей с именем: %(name)s"
 
-msgid "Unable to delete the minimum_bandwidth_rule ."
+msgid "Unable to delete the minimum bandwidth rule."
 msgstr "Не удалось удалить правило минимальной пропускной способности."
 
-msgid "Unable to delete the minimum_packet_rate_rule ."
-msgstr "Не удалось удалить правило минимальной частоты пакетов."
+msgid "Unable to delete the minimum packet rate rule."
+msgstr "Не удалось удалить правило минимальной скорости пакетов."
 
 msgid "Unable to delete the object."
 msgstr "Не удалось удалить объект."
@@ -3737,6 +3774,9 @@ msgstr "Не удалось получить абсолютные огранич
 msgid "Unable to retrieve the QoS Specs."
 msgstr "Не удалось получить характеристики QoS."
 
+msgid "Unable to retrieve the QoS policies."
+msgstr "Не удалось получить QoS политики."
+
 msgid "Unable to retrieve the agents."
 msgstr "Не удалось получить агентов."
 
@@ -3824,9 +3864,6 @@ msgstr "Не удалось получить проект."
 
 msgid "Unable to retrieve the projects."
 msgstr "Не удалось получить проекты."
-
-msgid "Unable to retrieve the qos policies."
-msgstr "Не удалось получить политики QoS."
 
 msgid "Unable to retrieve the resource types."
 msgstr "Не удалось получить типы ресурсов."
@@ -3918,11 +3955,11 @@ msgstr "Не удалось обновить метаданные."
 msgid "Unable to update project quota data."
 msgstr "Не удается обновить данные по квотам проекта."
 
-msgid "Unable to update the bandwidthrule."
-msgstr "Не удалось обновить правило пропускной способности."
+msgid "Unable to update the DSCP marking rule."
+msgstr "Не удалось обновить правило маркировки DSCP."
 
-msgid "Unable to update the dscp marking rule."
-msgstr "Не удалось обновить правило метки DSCP."
+msgid "Unable to update the bandwidth rule."
+msgstr "Не удалось обновить правило пропускной способности."
 
 msgid "Unable to update the flavor."
 msgstr "Не удалось обновить шаблон конфигурации."
@@ -4065,12 +4102,6 @@ msgstr "Имя пользователя"
 msgid "User password has been updated successfully."
 msgstr "Пароль пользователя успешно обновлён."
 
-msgid "VCPUS"
-msgstr "VCPU"
-
-msgid "VCPUs"
-msgstr "VCPU"
-
 msgid "VDI"
 msgstr "VDI"
 
@@ -4157,6 +4188,9 @@ msgid_plural "Volume Snapshots"
 msgstr[0] "Снимок диска"
 msgstr[1] "Снимки диска"
 msgstr[2] "Снимки диска"
+
+msgid "Volume Type"
+msgstr "Тип диска"
 
 msgid "Volume Type Description:"
 msgstr "Описание типа диска:"
@@ -4419,15 +4453,6 @@ msgstr "Входящий трафик"
 msgid "inherit"
 msgstr "унаследовать"
 
-msgid "min disk is required and must be an integer not less than 0"
-msgstr ""
-"требуется указать минимальный размер диска в виде целого числа не меньше нуля"
-
-msgid "min ram is required and must be an integer not less than 0"
-msgstr ""
-"требуется указать минимальный размер оперативной памяти в виде целого числа "
-"не меньше нуля"
-
 msgid "os_hash_algo"
 msgstr "os_hash_algo"
 
@@ -4440,6 +4465,9 @@ msgstr "загрузка ресурса не удалась: %s"
 
 msgid "snapshot"
 msgstr "снимок"
+
+msgid "vCPUs"
+msgstr "vCPU"
 
 msgid "volume"
 msgstr "диск"

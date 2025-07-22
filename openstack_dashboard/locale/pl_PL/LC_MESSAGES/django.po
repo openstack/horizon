@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: horizon VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2025-03-22 08:03+0900\n"
+"POT-Creation-Date: 2025-07-21 16:55+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -100,10 +100,6 @@ msgstr ""
 msgid "AKI - Amazon Kernel Image"
 msgstr "AKI - Amazon Kernel Image"
 
-#, python-format
-msgid "ALLOW %(ethertype)s %(proto_port)s %(direction)s %(remote)s"
-msgstr "POZWÓL %(ethertype)s %(proto_port)s %(direction)s %(remote)s"
-
 msgid "AMI - Amazon Machine Image"
 msgstr "AMI - Amazon Machine Image"
 
@@ -115,9 +111,6 @@ msgstr "Adres API"
 
 msgid "ARI - Amazon Ramdisk Image"
 msgstr "ARI - Amazon Ramdisk Image"
-
-msgid "Accept Transfer"
-msgstr "Przyjmij przeniesienie"
 
 msgid "Accept Volume Transfer"
 msgstr "Przyjmij przeniesienie wolumenu"
@@ -532,9 +525,6 @@ msgstr "Należy podać CIDR."
 msgid "Cancel"
 msgstr "Anuluj"
 
-msgid "Cancel Transfer"
-msgstr "Anuluj przeniesienie"
-
 #, python-format
 msgid "Cannot find instance %s."
 msgstr "Nie można odnaleźć instancji %s."
@@ -790,9 +780,6 @@ msgstr "Utwórz podsieć"
 msgid "Create Subnet (Quota exceeded)"
 msgstr "Utwórz podsieć (przekroczono limit)"
 
-msgid "Create Transfer"
-msgstr "Utwórz przeniesienie"
-
 msgid "Create User"
 msgstr "Utwórz użytkownika"
 
@@ -968,6 +955,9 @@ msgstr ""
 msgid "DNS Name Servers"
 msgstr "Serwery DNS"
 
+msgid "DOWN"
+msgstr "DOWN"
+
 msgctxt "Admin state of a Network"
 msgid "DOWN"
 msgstr "DOWN"
@@ -987,11 +977,11 @@ msgctxt "Default style theme"
 msgid "Default"
 msgstr "Domyślnie"
 
+msgid "Default Quotas"
+msgstr "Domyślne limity"
+
 msgid "Default quotas updated."
 msgstr "Zaktualizowano domyślne limity."
-
-msgid "Defaults"
-msgstr "Wartości domyślne"
 
 msgid "Delete DHCP Agent"
 msgid_plural "Delete DHCP Agents"
@@ -2564,10 +2554,6 @@ msgstr "Migruj na żywo instancję"
 msgid "Live migrate an instance to a specific host."
 msgstr "Migracja na żywo instancji na podany host."
 
-#, python-format
-msgid "Load Balancer VIP %s"
-msgstr "VIP load balancera %s"
-
 msgid "Local"
 msgstr "Lokalna"
 
@@ -2744,12 +2730,6 @@ msgstr "Migrowanie instancji może spowodować nieprzywracalne skutki."
 
 msgid "Migration Policy"
 msgstr "Polityka migracji"
-
-msgid "Min Disk"
-msgstr "Min. dysku"
-
-msgid "Min RAM"
-msgstr "Min. RAM"
 
 msgid "Min. Size (MB) ="
 msgstr "Min. rozmiar (MB) ="
@@ -3106,9 +3086,6 @@ msgstr "Liczba instancji"
 msgid "Number of Snapshots"
 msgstr "Ilość migawek"
 
-msgid "Number of VCPUs"
-msgstr "Liczba VCPU"
-
 msgid "Number of Volumes"
 msgstr "Liczba wolumenów"
 
@@ -3401,12 +3378,6 @@ msgstr "RAM (łącznie)"
 
 msgid "RAM (used)"
 msgstr "RAM (używane)"
-
-msgid "RX/TX Factor"
-msgstr "Współczynnik RX/TX"
-
-msgid "RX/TX factor"
-msgstr "Współczynnik RX/TX"
 
 msgid "Ramdisk"
 msgstr "Ramdysk"
@@ -4603,15 +4574,6 @@ msgstr "Całkowity rozmiar wolumenów i migawek (GiB)"
 msgid "Total Size of Volumes and Snapshots (GiB) of Type %(type)s"
 msgstr "Całkowity rozmiar wolumenów i migawek (GiB) typu %(type)s"
 
-msgid "Total VCPU Usage (Hours):"
-msgstr "Łączne wykorzystanie VCPU (godziny):"
-
-msgid ""
-"Total VCPU usage (Number of VCPU in instance * Hours Used) for the project"
-msgstr ""
-"Łączne wykorzystanie VCPU (Ilość VCPU jako instancje * godziny "
-"wykorzystania) dla projektu"
-
 msgid "Total disk usage (GB * Hours Used) for the project"
 msgstr "Łączne wykorzystanie dysku (GB * godziny wykorzystania) dla projektu"
 
@@ -4629,6 +4591,9 @@ msgstr "Typ"
 
 msgid "Type of backend device identifier provided"
 msgstr "Typ identyfikatora urządzenia podanego backendu"
+
+msgid "UP"
+msgstr "UP"
 
 msgctxt "Admin state of a Network"
 msgid "UP"
@@ -5181,9 +5146,6 @@ msgstr "Nie można pobrać szczegółów podsieci"
 msgid "Unable to retrieve subnet details."
 msgstr "Nie można pobrać szczegółów podsieci."
 
-msgid "Unable to retrieve tenant limits."
-msgstr "Nie można pobrać limitów projektu."
-
 msgid "Unable to retrieve the aggregate to be updated"
 msgstr "Nie można pobrać agregatu do aktualizacji"
 
@@ -5440,9 +5402,6 @@ msgstr "Aktualizacja powiązań"
 msgid "Update Default Quotas"
 msgstr "Aktualizacja domyślnych limitów"
 
-msgid "Update Defaults"
-msgstr "Zaktualizuj wartości domyślne"
-
 msgid "Update Group"
 msgstr "Aktualizuj grupę"
 
@@ -5584,18 +5543,6 @@ msgstr "Zaktualizowano hasło użytkownika."
 
 msgid "Users"
 msgstr "Użytkownicy"
-
-msgid "VCPU"
-msgstr "VCPU"
-
-msgid "VCPU Hours"
-msgstr "Godziny VCPU"
-
-msgid "VCPU Usage"
-msgstr "Wykorzystanie VCPU"
-
-msgid "VCPUs"
-msgstr "VCPU"
 
 msgid "VDI - Virtual Disk Image"
 msgstr "VDI - Virtual Disk Image"
@@ -5881,9 +5828,6 @@ msgstr "nie"
 
 msgid "undefined"
 msgstr "niezdefiniowane"
-
-msgid "unknown IP address"
-msgstr "nieznany adres IP"
 
 msgid "up"
 msgstr "w górę"

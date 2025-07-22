@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: horizon VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2025-03-22 08:03+0900\n"
+"POT-Creation-Date: 2025-07-21 16:55+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -82,10 +82,6 @@ msgstr "ಅಪ್‌ಲೋಡ್ ಮಾಡಬೇಕಿರುವ ಒಂದು ಸ
 
 msgid "AKI - Amazon Kernel Image"
 msgstr "AKI - ಅಮೆಜಾನ್ ಕರ್ನಲ್ ಇಮೇಜ್"
-
-#, python-format
-msgid "ALLOW %(ethertype)s %(proto_port)s %(direction)s %(remote)s"
-msgstr "%(ethertype)s %(proto_port)s %(direction)s %(remote)s ಅನ್ನು ಅನುಮತಿಸು"
 
 msgid "AMI - Amazon Machine Image"
 msgstr "AKI - ಅಮೆಜಾನ್ ಮೆಶೀನ್ ಇಮೇಜ್"
@@ -753,11 +749,11 @@ msgstr "DNS ನೇಮ್‌ ಸರ್ವರ್‌ಗಳು"
 msgid "Decrypt Password"
 msgstr "ಗುಪ್ತಪದವನ್ನು ಡಿಕ್ರಿಪ್ಟ್ ಮಾಡಿ"
 
+msgid "Default Quotas"
+msgstr "ಪೂರ್ವನಿಯೋಜಿತ ಕೋಟಾಗಳು"
+
 msgid "Default quotas updated."
 msgstr "ಪೂರ್ವನಿಯೋಜಿತ ಕೋಟಾಗಳನ್ನು ಅಪ್‌ಡೇಟ್ ಮಾಡಲಾಗಿದೆ."
-
-msgid "Defaults"
-msgstr "ಪೂರ್ವನಿಯೋಜಿತಗಳು"
 
 msgid "Delete Volume"
 msgid_plural "Delete Volumes"
@@ -1762,10 +1758,6 @@ msgstr "ಲೈವ್‌ ವರ್ಗಾವಣೆ ಇನ್‌ಸ್ಟೆನ್�
 msgid "Live migrate an instance to a specific host."
 msgstr "ಒಂದು ಇನ್‌ಸ್ಟೆನ್ಸ್‌ ಅನ್ನು ನಿರ್ದಿಷ್ಟ ಆತಿಥೇಯಕ್ಕೆ ಲೈವ್‌ ವರ್ಗಾವಣೆ ಮಾಡಲಾಗಿಲ್ಲ."
 
-#, python-format
-msgid "Load Balancer VIP %s"
-msgstr "ಹೊರೆ ಸಮತೋಲಕ VIP %s"
-
 msgid "Local"
 msgstr "ಸ್ಥಳೀಯ"
 
@@ -1854,12 +1846,6 @@ msgstr "ವರ್ಗಾಯಿಸಲಾಗುತ್ತಿದೆ"
 
 msgid "Migration Policy"
 msgstr "ವರ್ಗಾವಣೆ ಪಾಲಿಸಿ"
-
-msgid "Min Disk"
-msgstr "ಕನಿಷ್ಟ ಡಿಸ್ಕ್"
-
-msgid "Min RAM"
-msgstr "ಕನಿಷ್ಟ RAM"
 
 msgid "Minimum Disk (GB)"
 msgstr "ಕನಿಷ್ಠ ಡಿಸ್ಕ್ (GB)"
@@ -2117,9 +2103,6 @@ msgstr "ಇನ್‌ಸ್ಟನ್ಸ್‌ಗಳ ಸಂಖ್ಯೆ"
 
 msgid "Number of Snapshots"
 msgstr "ಸ್ನ್ಯಾಪ್‌ಶಾಟ್‌ಗಳ ಸಂಖ್ಯೆ"
-
-msgid "Number of VCPUs"
-msgstr "VCPUಗಳ ಸಂಖ್ಯೆ"
 
 msgid "Number of Volumes"
 msgstr "ಪರಿಮಾಣಗಳ ಸಂಖ್ಯೆ"
@@ -3596,9 +3579,6 @@ msgstr "ಸಬ್‌ನೆಟ್‌ ವಿವರಗಳನ್ನು ಹಿಂಪ�
 msgid "Unable to retrieve subnet details."
 msgstr "ಸಬ್‌ನೆಟ್‌ ವಿವರಗಳನ್ನು ಹಿಂಪಡೆಯಲು ಸಾಧ್ಯವಾಗಿಲ್ಲ"
 
-msgid "Unable to retrieve tenant limits."
-msgstr "ಟೆನೆಂಟ್ ಮಿತಿಗಳನ್ನು ಹಿಂಪಡೆಯಲು ಸಾಧ್ಯವಾಗಿಲ್ಲ."
-
 msgid "Unable to retrieve the aggregate to be updated"
 msgstr "ಅಪ್‌ಡೇಟ್‌ ಮಾಡಬೇಕಿರುವ ಒಟ್ಟುಗೂಡಿಕೆಯನ್ನು ಹಿಂಪಡೆಯಲು ಸಾಧ್ಯವಾಗಿಲ್ಲ"
 
@@ -3772,9 +3752,6 @@ msgstr "ಅಪ್‌ಡೇಟ್ ಮಾಡು"
 msgid "Update Default Quotas"
 msgstr "ಪೂರ್ವನಿಯೋಜಿತ ಕೋಟಾಗಳನ್ನು ಅಪ್‌ಡೇಟ್ ಮಾಡು"
 
-msgid "Update Defaults"
-msgstr "ಪೂರ್ವನಿಯೋಜಿತಗಳನ್ನು ಅಪ್‌ಡೇಟ್‌ಮಾಡು"
-
 msgid "Update Group"
 msgstr "ಗುಂಪನ್ನು ಅಪ್‌ಡೇಟ್ ಮಾಡಿ"
 
@@ -3902,18 +3879,6 @@ msgstr "\"%s\" ಬಳಕೆದಾರ ಹೆಸರನ್ನು ಈಗಾಗಲೇ
 
 msgid "Users"
 msgstr "ಬಳಕೆದಾದರರು"
-
-msgid "VCPU"
-msgstr "VCPU"
-
-msgid "VCPU Hours"
-msgstr "VCPU ಗಂಟೆಗಳು"
-
-msgid "VCPU Usage"
-msgstr "VCPU ಬಳಕೆ"
-
-msgid "VCPUs"
-msgstr "VCPUಗಳು"
 
 msgid "VLAN"
 msgstr "VLAN"
@@ -4105,6 +4070,3 @@ msgstr "ಮುನ್ನೆಲೆ"
 
 msgid "undefined"
 msgstr "ವಿವರಿಸದೆ ಇರುವ"
-
-msgid "unknown IP address"
-msgstr "ಗೊತ್ತಿರದ IP ವಿಳಾಸ"

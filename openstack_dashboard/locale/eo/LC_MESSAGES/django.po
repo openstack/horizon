@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: horizon VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2025-03-22 08:03+0900\n"
+"POT-Creation-Date: 2025-07-21 16:55+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -282,12 +282,6 @@ msgstr ""
 "kaj aplikas malsamajn sekurecajn grupojn per pordo, anstataŭe uzu \"Redaktu "
 "Pordo Sekurecajn Grupojn\"."
 
-#, python-format
-msgid ""
-"<span class=&quot;word-wrap&quot;>Flavor Details: %(name)s</span>\">%(name)s"
-msgstr ""
-"<span class=&quot;word-wrap&quot;>Flavor Details: %(name)s</span>\">%(name)s"
-
 msgid "A brief description of the security group rule you are adding"
 msgstr "Mallonga priskribo de la regularo de sekureco grupo vi aldonas"
 
@@ -336,10 +330,6 @@ msgstr ""
 msgid "AKI - Amazon Kernel Image"
 msgstr "AKI - Amazon Kerna Imago"
 
-#, python-format
-msgid "ALLOW %(ethertype)s %(proto_port)s %(direction)s %(remote)s"
-msgstr "PERMESU %(ethertype)s %(proto_port)s %(direction)s %(remote)s"
-
 msgid "AMI - Amazon Machine Image"
 msgstr "AMI - Amazon Maŝina Imago"
 
@@ -351,9 +341,6 @@ msgstr "API Finpuntoj"
 
 msgid "ARI - Amazon Ramdisk Image"
 msgstr "ARI - Amazon Ramdiska Imago"
-
-msgid "Accept Transfer"
-msgstr "Akceptu Transigon"
 
 msgid "Accept Volume Transfer"
 msgstr "Akceptu Volumo Transigon"
@@ -970,9 +957,6 @@ msgstr "CPU arkitekturo de la bildo."
 msgid "Cancel"
 msgstr "Malfaru"
 
-msgid "Cancel Transfer"
-msgstr "Malfari Transigon"
-
 #, python-format
 msgid "Cannot find instance %s."
 msgstr "Neeblas trovi apero %s."
@@ -1235,9 +1219,6 @@ msgctxt "Action log of an instance"
 msgid "Create"
 msgstr "Kreu"
 
-msgid "Create A RBAC Policy"
-msgstr "Kreu RBAC Regularo"
-
 msgid "Create An Image"
 msgstr "Kreu Bildigon"
 
@@ -1340,9 +1321,6 @@ msgstr "Kreu Subreton"
 
 msgid "Create Subnet (Quota exceeded)"
 msgstr "Kreu Sunreton (Kvota transpasita)"
-
-msgid "Create Transfer"
-msgstr "Krei Transigon"
 
 msgid "Create User"
 msgstr "Kreu Uzantojn"
@@ -1646,11 +1624,11 @@ msgctxt "Default style theme"
 msgid "Default"
 msgstr "Defaŭlto"
 
+msgid "Default Quotas"
+msgstr "Defaŭltaj Kvotoj"
+
 msgid "Default quotas updated."
 msgstr "Defaŭlt kvotoj ĝisdatigita."
-
-msgid "Defaults"
-msgstr "Defaŭltojn"
 
 msgid "Delete"
 msgid_plural "Delete"
@@ -2619,9 +2597,6 @@ msgstr "Enigu valoron por ICMP tipo en la intervalo (-1:255)"
 
 msgid "Enter an integer value between -1 and 255 (-1 means wild card)."
 msgstr "Enigu entjero valoro inter -1 kaj 255 (-1 signifas ŝtopaĵo )."
-
-msgid "Enter an integer value between 0 and 255."
-msgstr "Enigu entjeran valoron inter 0 kaj 255."
 
 msgid "Enter an integer value between 1 and 65535."
 msgstr "Enigu entjero valoro inter 1 kaj 65535."
@@ -3957,10 +3932,6 @@ msgstr "Tujtuje Transmeti Aperon"
 msgid "Live migrate an instance to a specific host."
 msgstr "Tuja transmeto  de apero al specifa gastiganto."
 
-#, python-format
-msgid "Load Balancer VIP %s"
-msgstr "Ŝarĝodistribuilo  VIP %s "
-
 msgid "Local"
 msgstr "Lokala"
 
@@ -4215,12 +4186,6 @@ msgstr "Transmeti aperojn povus kaŭzi iajn nekorekteblajn rezultojn."
 
 msgid "Migration Policy"
 msgstr "Migrado Reĝimo"
-
-msgid "Min Disk"
-msgstr "Min Disko"
-
-msgid "Min RAM"
-msgstr "Min RAM"
 
 msgid "Min. Size (MB) ="
 msgstr "Min. Grando (MB) ="
@@ -4685,9 +4650,6 @@ msgstr "Kvanto de Aperoj"
 msgid "Number of Snapshots"
 msgstr "Kvanto de Savkopioj"
 
-msgid "Number of VCPUs"
-msgstr "Kvanto de VCPUs"
-
 msgid "Number of Volumes"
 msgstr "Kvanto de Volumoj"
 
@@ -4800,21 +4762,6 @@ msgstr ""
 "volumo transigon estas kreita en donacinta projekto, ĝi  povas esti "
 "\"akceptita\" de ricevinta projketo. Tiu estas ekvilalenta al <tt>openstack "
 "volume transfer create</tt> komando."
-
-msgid "PCPU Usage"
-msgstr "PCPU Uzado"
-
-msgid "PCPUs allocation ratio"
-msgstr "PCPUs atribua proporcio"
-
-msgid "PCPUs reserved"
-msgstr "PCPUs reservitaj"
-
-msgid "PCPUs total"
-msgstr "PCPUs entute"
-
-msgid "PCPUs used"
-msgstr "PCPUs uzitaj"
 
 msgid "PLOOP - Virtuozzo/Parallels Loopback Disk"
 msgstr "PLOOP - Virtuozzo/Parallels Inverscicla Disko"
@@ -5063,9 +5010,6 @@ msgstr "Publika:"
 msgid "QCOW2 - QEMU Emulator"
 msgstr "QCOW2 - QEMU Imitilo"
 
-msgid "QOS Policy ID"
-msgstr "QOS Regularo ID"
-
 msgid "QoS Policy"
 msgstr "QOS Regularo"
 
@@ -5158,12 +5102,6 @@ msgstr "RBAC Regularo Detajloj"
 
 msgid "RBAC Policy was successfully created."
 msgstr "RBAC Regularo estis sukcese kreita."
-
-msgid "RX/TX Factor"
-msgstr "RX/TX Faktoro"
-
-msgid "RX/TX factor"
-msgstr "RX/TX faktoro"
 
 msgid "Ramdisk"
 msgstr "RAM-disko"
@@ -6432,9 +6370,6 @@ msgstr "Celo Gastiganto"
 msgid "Target Project"
 msgstr "Celo Projekto"
 
-msgid "Target Tenant"
-msgstr "Celgastiganto"
-
 msgid "Task"
 msgstr "Tasko"
 
@@ -6954,14 +6889,6 @@ msgstr "Totala Grando de Volumoj kaj Savkopioj (GiB)"
 #, python-format
 msgid "Total Size of Volumes and Snapshots (GiB) of Type %(type)s"
 msgstr "Totala Grando de Volumoj kaj Savkopioj (GiB) de Tipo %(type)s"
-
-msgid "Total VCPU Usage (Hours):"
-msgstr "Totala VCPU Uzado (Horoj):"
-
-msgid ""
-"Total VCPU usage (Number of VCPU in instance * Hours Used) for the project"
-msgstr ""
-"Tuta VCPU Uzado (Nombro da VCPU en aperoj * Horoj Uzota) por la projekto"
 
 msgid "Total Volume Storage"
 msgstr "Totala Volumo Memorilo"
@@ -7852,9 +7779,6 @@ msgstr "Neeblas ricevi subretaj detajlojn"
 msgid "Unable to retrieve subnet details."
 msgstr "Neeblas ricevi subretaj detajlojn."
 
-msgid "Unable to retrieve tenant limits."
-msgstr "Neeblas ricevi tenanto limitojn."
-
 msgid "Unable to retrieve the aggregate to be updated"
 msgstr "Neebla trovi agregato ĝisdatiĝinda."
 
@@ -8260,9 +8184,6 @@ msgstr "Ĝisdatigu   asociigojn  "
 msgid "Update Default Quotas"
 msgstr "Ĝisdatigu Defaŭlt Kvotojn"
 
-msgid "Update Defaults"
-msgstr "Ĝisdatigu Defaŭltojn"
-
 msgid "Update Encrypted Volume Type"
 msgstr "Ĝisdatigu ĉifraditan Volumo Tipon"
 
@@ -8483,30 +8404,6 @@ msgstr "Uzanto-difinita unuopa id-on por identigi la mapigon."
 
 msgid "Users"
 msgstr "Uzantoj"
-
-msgid "VCPU"
-msgstr "VCPU"
-
-msgid "VCPU Hours"
-msgstr "VCPU Horoj"
-
-msgid "VCPU Usage"
-msgstr "VCPU Uzado"
-
-msgid "VCPUs"
-msgstr "VCPUs"
-
-msgid "VCPUs allocation ratio"
-msgstr "VCPUs atribua proporcio"
-
-msgid "VCPUs reserved"
-msgstr "VCPUs reservitaj"
-
-msgid "VCPUs total"
-msgstr "VCPUs entute"
-
-msgid "VCPUs used"
-msgstr "VCPUs uzitaj"
 
 msgid "VDI - Virtual Disk Image"
 msgstr "VDI - Virtuala Disko imago"
@@ -8961,13 +8858,6 @@ msgstr "ekz. Jes / Ne"
 msgid "e.g. Yes/No"
 msgstr "ekz. Jes/Ne"
 
-msgid ""
-"flavor id can only contain alphanumeric characters, underscores, periods, "
-"hyphens, spaces. Use 'auto' to automatically generate id"
-msgstr ""
-"speco id povas enhavi nur alfanombrajn signojn, substrekojn, punktojn, "
-"streketojn, spacojn. Uzu 'aŭto' por aŭtomate generi identigilon"
-
 msgid "floating_ip_id"
 msgstr "floating_ip_id"
 
@@ -8990,9 +8880,6 @@ msgstr "sistema amplekso"
 
 msgid "undefined"
 msgstr "nedifinita"
-
-msgid "unknown IP address"
-msgstr "nekonata IP adreso"
 
 msgid "up"
 msgstr "supren"

@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: horizon VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2025-03-22 08:03+0900\n"
+"POT-Creation-Date: 2025-07-21 16:55+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -74,10 +74,6 @@ msgstr "अपलोड गर्नका लागि स्थानीय �
 
 msgid "AKI - Amazon Kernel Image"
 msgstr "AKI - अमेज़न कर्नेल छवि"
-
-#, python-format
-msgid "ALLOW %(ethertype)s %(proto_port)s %(direction)s %(remote)s"
-msgstr "ALLOW %(ethertype)s %(proto_port)s %(direction)s %(remote)s"
 
 msgid "AMI - Amazon Machine Image"
 msgstr "AMI - अमाजोन यन्त्र चित्र"
@@ -700,11 +696,11 @@ msgstr "DNS"
 msgid "Decrypt Password"
 msgstr "डिक्रिप्ट पासवर्ड"
 
+msgid "Default Quotas"
+msgstr "पूर्वनिर्धारित कोटा"
+
 msgid "Default quotas updated."
 msgstr "डिफल्ट आरक्षणहरू अपडेट भए।"
-
-msgid "Defaults"
-msgstr "डिफल्टहरू"
 
 #, python-format
 msgid "Delete the created network \"%s\" due to subnet creation failure."
@@ -1648,10 +1644,6 @@ msgstr "लाइभ माइग्रेट इन्सटेन्स"
 msgid "Live migrate an instance to a specific host."
 msgstr "निश्तित होस्टमा एउटा इन्सटेन्सको लाइभ माइग्रेट"
 
-#, python-format
-msgid "Load Balancer VIP %s"
-msgstr "बेलेन्सर  VIP %s लोड गर्नुहोस्"
-
 msgid "Local"
 msgstr "लोकल"
 
@@ -1737,12 +1729,6 @@ msgstr "माइग्रेट गर्दै"
 
 msgid "Migration Policy"
 msgstr "माइग्रेसन सर्त"
-
-msgid "Min Disk"
-msgstr "कम डिस्क"
-
-msgid "Min RAM"
-msgstr "कम RAM"
 
 msgid "Minimum Disk (GB)"
 msgstr "न्युनतम् डिस्क(GB)"
@@ -1996,9 +1982,6 @@ msgstr "इन्सटेन्सहरूको सङ्ख्या"
 
 msgid "Number of Snapshots"
 msgstr "स्नेपसुटका सङ्ख्याहरू"
-
-msgid "Number of VCPUs"
-msgstr "VCPUs को संख्या"
 
 msgid "Number of Volumes"
 msgstr "भोल्युमहरूको सङ्ख्या"
@@ -3306,9 +3289,6 @@ msgstr "सबनेट विवरण प्राप्त गर्न अ�
 msgid "Unable to retrieve subnet details."
 msgstr "सबनेट विवरणहरू प्राप्त गर्न असमर्थ"
 
-msgid "Unable to retrieve tenant limits."
-msgstr "टिनेन्ट सिमा प्राप्त गर्न असमर्थ।"
-
 msgid "Unable to retrieve the aggregate to be updated"
 msgstr "अपलोड गर्न पर्ने  मोठ प्राप्त गर्न असमर्थ"
 
@@ -3473,9 +3453,6 @@ msgstr "अपडेट गर्नुहोस्"
 msgid "Update Default Quotas"
 msgstr "डिफल्ट आरक्षण अपडेट गर्नुहोस्।"
 
-msgid "Update Defaults"
-msgstr "डिफल्ट अपडेट गर्नुहोस्"
-
 msgid "Update Group"
 msgstr "समूह अपडेट गर्नुहोस"
 
@@ -3598,18 +3575,6 @@ msgstr "उपभोक्ता नाम \"%s\"पहिलेबाट नै
 
 msgid "Users"
 msgstr "प्रयोगकर्ताहरु"
-
-msgid "VCPU"
-msgstr "VCPU"
-
-msgid "VCPU Hours"
-msgstr "VCPU  घन्टा"
-
-msgid "VCPU Usage"
-msgstr "VCPU उपयोग"
-
-msgid "VCPUs"
-msgstr "VCPUs"
 
 msgid "VLAN"
 msgstr "VLAN"
@@ -3800,6 +3765,3 @@ msgstr "फ्रन्ट-एन्ड"
 
 msgid "undefined"
 msgstr "अपरिभाषित"
-
-msgid "unknown IP address"
-msgstr "अन्जान IP ठेकाना"
