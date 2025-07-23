@@ -12,11 +12,11 @@ assumes that role inherits those rights and privileges.
    project, but it is completely up to the individual service
    to define what that role means. This is referred to as the
    service's policy. To get details about what the privileges
-   for each role are, refer to the ``policy.json`` file
+   for each role are, refer to the ``policy.yaml`` file
    available for each service in the
-   ``/etc/SERVICE/policy.json`` file. For example, the
+   ``/etc/SERVICE/policy.yaml`` file. For example, the
    policy defined for OpenStack Identity service is defined
-   in the ``/etc/keystone/policy.json`` file.
+   in the ``/etc/keystone/policy.yaml`` file.
 
 Create a role
 ~~~~~~~~~~~~~

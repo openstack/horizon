@@ -138,7 +138,7 @@ Policy checks on actions
 The :attr:`~horizon.tables.Action.policy_rules` attribute, when set, will
 validate access to the action using the policy rules specified.  The attribute
 is a list of scope/rule pairs.  Where the scope is the service type defining
-the rule and the rule is a rule from the corresponding service policy.json
+the rule and the rule is a rule from the corresponding service policy.yaml
 file.  The format of :attr:`horizon.tables.Action.policy_rules` looks like::
 
     (("identity", "identity:get_user"),)
