@@ -19,7 +19,6 @@ from django.conf import settings
 from django.utils import datetime_safe
 
 from keystoneclient import access
-from keystoneclient.v2_0 import ec2
 from keystoneclient.v2_0 import roles
 from keystoneclient.v2_0 import tenants
 from keystoneclient.v2_0 import users
@@ -145,21 +144,7 @@ SERVICE_CATALOG = [
          {"region": "RegionOne",
           "interface": "public",
           "url": "http://public.neutron.example.com:9696/"}
-     ]},
-    {"type": "ec2",
-     "name": "EC2 Service",
-     "endpoints_links": [],
-     "endpoints": [
-         {"region": "RegionOne",
-          "interface": "admin",
-          "url": "http://admin.nova.example.com:8773/services/Admin"},
-         {"region": "RegionOne",
-          "interface": "public",
-          "url": "http://public.nova.example.com:8773/services/Cloud"},
-         {"region": "RegionOne",
-          "interface": "internal",
-          "url": "http://int.nova.example.com:8773/services/Cloud"}
-     ]},
+     ]}
 ]
 
 
@@ -175,7 +160,6 @@ def data(TEST):
     TEST.tenants = utils.TestDataContainer()
     TEST.role_assignments = utils.TestDataContainer()
     TEST.roles = utils.TestDataContainer()
-    TEST.ec2 = utils.TestDataContainer()
 
     TEST.identity_providers = utils.TestDataContainer()
     TEST.idp_mappings = utils.TestDataContainer()
@@ -438,11 +422,6 @@ def data(TEST):
     TEST.token = scoped_token  # your "current" token.
     TEST.tokens.scoped_token = scoped_token
     TEST.tokens.unscoped_token = unscoped_token
-
-    access_secret = ec2.EC2(ec2.CredentialsManager, {"access": "access",
-                                                     "secret": "secret",
-                                                     "tenant_id": tenant.id})
-    TEST.ec2.add(access_secret)
 
     idp_dict_1 = {'id': 'idp_1',
                   'description': 'identity provider 1',

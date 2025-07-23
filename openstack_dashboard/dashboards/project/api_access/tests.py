@@ -19,34 +19,16 @@ from django.template import loader
 from django.test.utils import override_settings
 from django.urls import reverse
 
-from openstack_dashboard import api
 from openstack_dashboard.test import helpers as test
 
 
 INDEX_URL = reverse('horizon:project:api_access:index')
 API_URL = "horizon:project:api_access"
-EC2_URL = reverse(API_URL + ":ec2")
 OPENRC_URL = reverse(API_URL + ":openrc")
 CREDS_URL = reverse(API_URL + ":view_credentials")
-RECREATE_CREDS_URL = reverse(API_URL + ":recreate_credentials")
 
 
 class APIAccessTests(test.TestCase):
-    @test.create_mocks({api.keystone: ('create_ec2_credentials',
-                                       'list_ec2_credentials')})
-    def test_ec2_download_view(self):
-        creds = self.ec2.first()
-        self.mock_list_ec2_credentials.return_value = []
-        self.mock_create_ec2_credentials.return_value = creds
-
-        res = self.client.get(EC2_URL)
-        self.assertEqual(res.status_code, 200)
-        self.assertEqual(res['content-type'], 'application/zip')
-
-        self.mock_list_ec2_credentials.assert_called_once_with(
-            test.IsHttpRequest(), self.user.id)
-        self.mock_create_ec2_credentials.assert_called_once_with(
-            test.IsHttpRequest(), self.user.id, self.tenant.id)
 
     @override_settings(OPENSTACK_API_VERSIONS={"identity": 3})
     def test_openrc_credentials(self):
@@ -61,59 +43,6 @@ class APIAccessTests(test.TestCase):
         self.assertIn(name.encode('utf-8'), res.content)
         self.assertIn(p_id.encode('utf-8'), res.content)
         self.assertIn(domain.encode('utf-8'), res.content)
-
-    @test.create_mocks({api.keystone: ('list_ec2_credentials',)})
-    def test_credential_api(self):
-        certs = self.ec2.list()
-        self.mock_list_ec2_credentials.return_value = certs
-
-        res = self.client.get(CREDS_URL)
-
-        self.assertEqual(res.status_code, 200)
-        credentials = 'project/api_access/credentials.html'
-        self.assertTemplateUsed(res, credentials)
-        self.assertEqual(self.user.id, res.context['openrc_creds']['user'].id)
-        self.assertEqual(certs[0].access,
-                         res.context['ec2_creds']['ec2_access_key'])
-        self.mock_list_ec2_credentials.assert_called_once_with(
-            test.IsHttpRequest(), self.user.id)
-
-    @test.create_mocks({api.keystone: ('create_ec2_credentials',
-                                       'list_ec2_credentials',
-                                       'delete_user_ec2_credentials')})
-    def _test_recreate_user_credentials(self, exists_credentials=True):
-        old_creds = self.ec2.list() if exists_credentials else []
-        new_creds = self.ec2.first()
-        self.mock_list_ec2_credentials.return_value = old_creds
-        if exists_credentials:
-            self.mock_delete_user_ec2_credentials.return_value = []
-        self.mock_create_ec2_credentials.return_value = new_creds
-
-        res_get = self.client.get(RECREATE_CREDS_URL)
-        self.assertEqual(res_get.status_code, 200)
-        credentials = \
-            'project/api_access/recreate_credentials.html'
-        self.assertTemplateUsed(res_get, credentials)
-
-        res_post = self.client.post(RECREATE_CREDS_URL)
-        self.assertNoFormErrors(res_post)
-        self.assertRedirectsNoFollow(res_post, INDEX_URL)
-
-        self.mock_list_ec2_credentials.assert_called_once_with(
-            test.IsHttpRequest(), self.user.id)
-        if exists_credentials:
-            self.mock_delete_user_ec2_credentials.assert_called_once_with(
-                test.IsHttpRequest(), self.user.id, old_creds[0].access)
-        else:
-            self.mock_delete_user_ec2_credentials.assert_not_called()
-        self.mock_create_ec2_credentials.assert_called_once_with(
-            test.IsHttpRequest(), self.user.id, self.tenant.id)
-
-    def test_recreate_user_credentials(self):
-        self._test_recreate_user_credentials()
-
-    def test_recreate_user_credentials_with_no_existing_creds(self):
-        self._test_recreate_user_credentials(exists_credentials=False)
 
 
 class ASCIITenantNameRCTests(test.TestCase):
