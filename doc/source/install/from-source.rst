@@ -172,7 +172,7 @@ Deployment
 
    .. code-block:: console
 
-     $ sudo apt install apache2 libapache2-mod-wsgi
+     $ sudo apt install apache2 libapache2-mod-wsgi-py3
 
    You can either use the provided ``openstack_dashboard/wsgi.py`` or
    generate a ``openstack_dashboard/horizon_wsgi.py`` file with the following
@@ -216,7 +216,7 @@ Deployment
    .. code-block:: console
 
      $ sudo a2ensite horizon
-     $ sudo service apache2 restart
+     $ sudo systemctl restart apache2
 
 Next Steps
 ==========

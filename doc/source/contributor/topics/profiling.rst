@@ -22,7 +22,7 @@ be able to use "Profile" menu, the following steps need to be completed:
    `Installing MongoDB
    <https://docs.mongodb.com/manual/tutorial/install-mongodb-on-ubuntu/#install-mongodb-community-edition>`__.
    Then, change the ``bindIp`` key in ``/etc/mongod.conf`` to ``0.0.0.0`` and
-   invoke ``sudo service mongod restart``.
+   invoke ``sudo systemctl restart mongod``.
 #. Collect and compress static assets with
    ``python manage.py collectstatic -c`` and ``python manage.py compress``.
 #. Restart the web server.
