@@ -12,8 +12,8 @@
 
 from oslo_utils import uuidutils
 import pytest
-import test_networks
 
+from openstack_dashboard.test.selenium.integration import test_networks
 from openstack_dashboard.test.selenium import widgets
 
 # Imported fixtures

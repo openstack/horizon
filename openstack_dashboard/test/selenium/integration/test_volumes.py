@@ -15,8 +15,8 @@ import time
 import pytest
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.wait import WebDriverWait
-import test_images
 
+from openstack_dashboard.test.selenium.integration import test_images
 from openstack_dashboard.test.selenium import widgets
 
 #   Import image fixtures

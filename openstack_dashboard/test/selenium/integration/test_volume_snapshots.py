@@ -14,8 +14,8 @@ import time
 
 from oslo_utils import uuidutils
 import pytest
-import test_volumes
 
+from openstack_dashboard.test.selenium.integration import test_volumes
 from openstack_dashboard.test.selenium import widgets
 
 
