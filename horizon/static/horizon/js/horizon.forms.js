@@ -86,9 +86,9 @@ horizon.forms = {
       var $ipVersion = $form.find("select#id_ip_version");
       var $prefixLength = $form.find("select#id_prefixlen");
       var subnetpoolIpVersion = parseInt($option.data("ip_version"), 10) || 4;
-      var minPrefixLen = parseInt($option.data("min_prefixlen"), 10) || 1;
-      var maxPrefixLen = parseInt($option.data("max_prefixlen"), 10);
-      var defaultPrefixLen = parseInt($option.data("default_prefixlen"), 10) ||
+      var minPrefixLen = parseInt($option.data("minimum_prefix_length"), 10) || 1;
+      var maxPrefixLen = parseInt($option.data("maximum_prefix_length"), 10);
+      var defaultPrefixLen = parseInt($option.data("default_prefix_length"), 10) ||
                              -1;
       var optionsAsString = "";
 
