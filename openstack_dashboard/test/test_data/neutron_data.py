@@ -909,12 +909,12 @@ def data(TEST):
     # Subnetpools
 
     # 1st subnetpool
-    subnetpool_dict = {'default_prefixlen': 24,
+    subnetpool_dict = {'default_prefix_length': 24,
                        'default_quota': None,
                        'id': '419eb314-e244-4088-aed7-851af9d9500d',
                        'ip_version': 4,
-                       'max_prefixlen': 32,
-                       'min_prefixlen': 12,
+                       'maximum_prefix_length': 32,
+                       'minimum_prefix_length': 12,
                        'name': 'mysubnetpool1',
                        'prefixes': ['172.16.0.0/12'],
                        'shared': False,
@@ -926,12 +926,12 @@ def data(TEST):
     TEST.subnetpools.add(subnetpool)
 
     # 2nd subnetpool (v6)
-    subnetpool_dict = {'default_prefixlen': 64,
+    subnetpool_dict = {'default_prefix_length': 64,
                        'default_quota': None,
                        'id': 'dcdad289-46f3-4298-bec6-41d91c942efa',
                        'ip_version': 6,
-                       'max_prefixlen': 64,
-                       'min_prefixlen': 60,
+                       'maximum_prefix_length': 64,
+                       'minimum_prefix_length': 60,
                        'name': 'mysubnetpool2',
                        'prefixes': ['2001:db8:42::/48'],
                        'shared': False,

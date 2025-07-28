@@ -129,9 +129,9 @@ class CreateSubnetInfoAction(workflows.Action):
             'data-source-subnetpool': _('Address pool')},
             data_attrs=('name', 'prefixes',
                         'ip_version',
-                        'min_prefixlen',
-                        'max_prefixlen',
-                        'default_prefixlen'),
+                        'minimum_prefix_length',
+                        'maximum_prefix_length',
+                        'default_prefix_length'),
             transform=lambda x: "%s (%s)" % (x.name, ", ".join(x.prefixes))
                                 if 'prefixes' in x else "%s" % (x.name)),
         required=False)

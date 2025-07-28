@@ -1777,17 +1777,17 @@ def subnetpool_create(request, name, prefixes, **kwargs):
     ip_version is auto-detected in back-end.
 
     Parameters:
-    request           -- Request context
-    name              -- Name for subnetpool
-    prefixes          -- List of prefixes for pool
+    request               -- Request context
+    name                  -- Name for subnetpool
+    prefixes              -- List of prefixes for pool
 
     Keyword Arguments (optional):
-    min_prefixlen     -- Minimum prefix length for allocations from pool
-    max_prefixlen     -- Maximum prefix length for allocations from pool
-    default_prefixlen -- Default prefix length for allocations from pool
-    default_quota     -- Default quota for allocations from pool
-    shared            -- Subnetpool should be shared (Admin-only)
-    tenant_id         -- Owner of subnetpool
+    minimum_prefix_length -- Minimum prefix length for allocations from pool
+    maximum_prefix_length -- Maximum prefix length for allocations from pool
+    default_prefix_length -- Default prefix length for allocations from pool
+    default_quota         -- Default quota for allocations from pool
+    shared                -- Subnetpool should be shared (Admin-only)
+    tenant_id             -- Owner of subnetpool
 
     Returns:
     SubnetPool object
