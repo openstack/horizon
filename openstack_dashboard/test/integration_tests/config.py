@@ -194,7 +194,7 @@ PluginGroup = [
 
 ThemeGroup = [
     cfg.StrOpt('project_name_xpath',
-               default='.//*[@class="context-project"]',
+               default='.//*[@class="context-project"]//ancestor::ul',
                help='Default xpath for project name dropdown button'),
     cfg.ListOpt('help_sequence',
                 default=['.//*[@class="dropdown user-menu"]',

@@ -78,6 +78,8 @@ class Session:
                 self.project_name_xpath)
             self.current_project = project_element.text
         if self.current_project != project:
+            project_element = self.driver.find_element_by_xpath(
+                self.project_name_xpath)
             project_element.click()
             selection = project_element.find_element_by_xpath(
                 f'.//*[normalize-space()="{project}"]')
