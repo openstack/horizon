@@ -57,7 +57,7 @@ def test_create_keypair_demo(login, driver, openstack_demo, clear_keypair_demo,
     type_options.click()
     type_options.find_element_by_css_selector('option[label="SSH Key"]').click()
     keypair_form.find_element_by_css_selector(".btn-primary").click()
-    messages = widgets.get_and_dismiss_messages(driver)
+    messages = widgets.get_and_dismiss_messages(driver, config)
     assert (f'Success: Key pair {keypair_name} was successfully created.'
             in messages)
     assert openstack_demo.compute.find_keypair(keypair_name) is not None
@@ -78,6 +78,6 @@ def test_delete_keypair_demo(login, driver, openstack_demo, config,
     rows[0].find_element_by_xpath(
         ".//ancestor::tr/td[contains(@class,'actions_column')]").click()
     widgets.confirm_modal(driver)
-    messages = widgets.get_and_dismiss_messages(driver)
+    messages = widgets.get_and_dismiss_messages(driver, config)
     assert f"Success: Deleted Key Pair: {new_keypair_demo.name}." in messages
     assert openstack_demo.compute.find_keypair(new_keypair_demo.name) is None

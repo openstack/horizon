@@ -94,14 +94,14 @@ def test_message_after_password_change(live_server, driver, user,
                 'Password changed. Please log in again to continue.')
 
 
-def test_languages(live_server, driver, user):
+def test_languages(live_server, driver, user, config):
     driver.get(live_server.url + '/settings')
     user_settings = driver.find_element_by_id('user_settings_modal')
     language_options = user_settings.find_element_by_id('id_language')
     language_options.click()
     language_options.find_element_by_xpath("//option[@value='de']").click()
     user_settings.find_element_by_xpath('//*[@class="btn btn-primary"]').click()
-    messages = widgets.get_and_dismiss_messages(driver)
+    messages = widgets.get_and_dismiss_messages(driver, config)
     assert ("Success: Settings saved." in messages or
             "Erfolg:Einstellungen gespeichert." in messages)
     assert "Error" not in messages

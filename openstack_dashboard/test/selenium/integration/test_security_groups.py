@@ -66,7 +66,7 @@ def test_create_sec_group_demo(login, driver, config, sec_group_name,
     sec_group_form = driver.find_element_by_css_selector(".modal-dialog form")
     sec_group_form.find_element_by_id("id_name").send_keys(sec_group_name)
     sec_group_form.find_element_by_css_selector(".btn-primary").click()
-    messages = widgets.get_and_dismiss_messages(driver)
+    messages = widgets.get_and_dismiss_messages(driver, config)
     assert (f'Success: Successfully created security group: {sec_group_name}'
             in messages)
     assert (openstack_demo.network.find_security_group(sec_group_name)
@@ -88,7 +88,7 @@ def test_delete_sec_group_demo(login, driver, sec_group_name, openstack_demo,
     actions_column = rows[0].find_element_by_css_selector("td.actions_column")
     widgets.select_from_dropdown(actions_column, "Delete Security Group")
     widgets.confirm_modal(driver)
-    messages = widgets.get_and_dismiss_messages(driver)
+    messages = widgets.get_and_dismiss_messages(driver, config)
     assert f"Success: Deleted Security Group: {sec_group_name}" in messages
     assert openstack_demo.network.find_security_group(sec_group_name) is None
 
@@ -108,7 +108,7 @@ def test_add_rule_sec_group_demo(login, driver, sec_group_name, openstack_demo,
     rule_form = driver.find_element_by_css_selector(".modal-dialog form")
     rule_form.find_element_by_id("id_port").send_keys(rule_port)
     rule_form.find_element_by_css_selector(".btn-primary").click()
-    messages = widgets.get_and_dismiss_messages(driver)
+    messages = widgets.get_and_dismiss_messages(driver, config)
     assert (f"Success: Successfully added rule: ALLOW IPv4 {rule_port}"
             f"/tcp from 0.0.0.0/0" in messages)
     sec_group_rules_sdk = openstack_demo.network.find_security_group(
@@ -138,7 +138,7 @@ def test_delete_rule_sec_group_demo(login, driver, sec_group_name,
     assert len(rows) == 1
     rows[0].find_element_by_css_selector("td.actions_column").click()
     widgets.confirm_modal(driver)
-    messages = widgets.get_and_dismiss_messages(driver)
+    messages = widgets.get_and_dismiss_messages(driver, config)
     assert (f"Success: Deleted Rule: ALLOW IPv4 {rule_port}/tcp from 0.0.0.0/0"
             in messages)
     sec_group_rules_sdk = openstack_demo.network.find_security_group(

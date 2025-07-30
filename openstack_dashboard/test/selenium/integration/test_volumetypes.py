@@ -107,7 +107,7 @@ def test_create_volume_type(login, driver, volume_type_name, openstack_admin,
     volume_type_form = driver.find_element_by_css_selector(".modal-dialog form")
     volume_type_form.find_element_by_id("id_name").send_keys(volume_type_name)
     volume_type_form.find_element_by_css_selector(".btn-primary").click()
-    messages = widgets.get_and_dismiss_messages(driver)
+    messages = widgets.get_and_dismiss_messages(driver, config)
     assert (f'Success: Successfully created volume '
             f'type: {volume_type_name}' in messages)
     assert openstack_admin.block_storage.find_type(volume_type_name) is not None
@@ -128,7 +128,7 @@ def test_delete_volume_type(login, driver, volume_type_name, openstack_admin,
     actions_column = rows[0].find_element_by_css_selector("td.actions_column")
     widgets.select_from_dropdown(actions_column, "Delete Volume Type")
     widgets.confirm_modal(driver)
-    messages = widgets.get_and_dismiss_messages(driver)
+    messages = widgets.get_and_dismiss_messages(driver, config)
     assert f"Success: Deleted Volume Type: {volume_type_name}" in messages
     assert openstack_admin.block_storage.find_type(volume_type_name) is None
 
@@ -150,7 +150,7 @@ def test_volume_type_create_encryption(login, driver, openstack_admin, config,
     volume_type_form.find_element_by_id("id_provider").send_keys("plain")
     volume_type_form.find_element_by_css_selector(
         ".btn-primary[value='Create Volume Type Encryption']").click()
-    messages = widgets.get_and_dismiss_messages(driver)
+    messages = widgets.get_and_dismiss_messages(driver, config)
     assert (f"Success: Successfully created encryption for "
             f"volume type: {new_volume_type.name}" in messages)
     assert (openstack_admin.block_storage.get_type_encryption(
@@ -176,7 +176,7 @@ def test_volume_type_delete_encryption(login, driver, openstack_admin, config,
     actions_column = rows[0].find_element_by_css_selector("td.actions_column")
     widgets.select_from_dropdown(actions_column, "Delete Encryption")
     widgets.confirm_modal(driver)
-    messages = widgets.get_and_dismiss_messages(driver)
+    messages = widgets.get_and_dismiss_messages(driver, config)
     assert (f"Success: Deleted Encryption: "
             f"{new_volume_type_with_encryption.name}" in messages)
     assert (openstack_admin.block_storage.get_type_encryption(
@@ -196,7 +196,7 @@ def test_create_qos_spec(login, driver, qos_spec_name, openstack_admin,
     volume_qos_form = driver.find_element_by_css_selector(".modal-dialog form")
     volume_qos_form.find_element_by_id("id_name").send_keys(qos_spec_name)
     volume_qos_form.find_element_by_css_selector(".btn-primary").click()
-    messages = widgets.get_and_dismiss_messages(driver)
+    messages = widgets.get_and_dismiss_messages(driver, config)
     assert (f'Success: Successfully created QoS '
             f'Spec: {qos_spec_name}' in messages)
     qos_specs = openstack_admin.block_storage.get(
@@ -220,7 +220,7 @@ def test_delete_qos_spec(login, driver, qos_spec_name, openstack_admin,
     actions_column = rows[0].find_element_by_css_selector("td.actions_column")
     widgets.select_from_dropdown(actions_column, "Delete QoS Spec")
     widgets.confirm_modal(driver)
-    messages = widgets.get_and_dismiss_messages(driver)
+    messages = widgets.get_and_dismiss_messages(driver, config)
     assert f"Success: Deleted QoS Spec: {qos_spec_name}" in messages
     qos_specs = openstack_admin.block_storage.get(
         "/qos-specs").json()['qos_specs']
@@ -248,7 +248,7 @@ def test_edit_qos_spec_consumer(login, driver, openstack_admin, config,
     volume_qos_form = driver.find_element_by_css_selector(".modal-dialog form")
     widgets.select_from_dropdown(volume_qos_form, 'front-end')
     volume_qos_form.find_element_by_css_selector(".btn-primary").click()
-    messages = widgets.get_and_dismiss_messages(driver)
+    messages = widgets.get_and_dismiss_messages(driver, config)
     assert "Success: Successfully modified QoS Spec consumer." in messages
     assert (openstack_admin.block_storage.get(
         f"/qos-specs/{new_qos_spec['id']}").json()['qos_specs']['consumer'] ==
@@ -274,7 +274,7 @@ def test_qos_spec_create_extra_specs(login, driver, openstack_admin, config,
     extra_specs_form.find_element_by_id("id_key").send_keys('minIOPS')
     extra_specs_form.find_element_by_id("id_value").send_keys(20)
     extra_specs_form.find_element_by_css_selector(".btn-primary").click()
-    messages = widgets.get_and_dismiss_messages(driver)
+    messages = widgets.get_and_dismiss_messages(driver, config)
     assert 'Success: Created spec "minIOPS".' in messages
     assert (openstack_admin.block_storage.get(
         f"/qos-specs/{new_qos_spec['id']}").json()['qos_specs']['specs'] ==
@@ -307,7 +307,7 @@ def test_qos_spec_delete_extra_specs(login, driver, openstack_admin, config,
     widgets.select_from_dropdown(actions_column, "Delete Spec")
     driver.find_element_by_css_selector(
         ".modal-dialog .modal-footer .btn-danger").click()
-    messages = widgets.get_and_dismiss_messages(driver)
+    messages = widgets.get_and_dismiss_messages(driver, config)
     assert "Success: Deleted Spec: maxIOPS" in messages
     assert (openstack_admin.block_storage.get(
         f"/qos-specs/{new_qos_spec_with_extra_specs['id']}").json()

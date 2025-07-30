@@ -67,7 +67,7 @@ def test_create_empty_volume_demo(login, driver, volume_name, openstack_demo,
     volume_form.find_element_by_id("id_name").send_keys(volume_name)
     volume_form.find_element_by_css_selector(
         ".btn-primary[value='Create Volume']").click()
-    messages = widgets.get_and_dismiss_messages(driver)
+    messages = widgets.get_and_dismiss_messages(driver, config)
     assert f'Info: Creating volume "{volume_name}"' in messages
     assert openstack_demo.block_storage.find_volume(volume_name) is not None
 
@@ -94,7 +94,7 @@ def test_create_volume_via_vol_source_image_demo(login, driver,
         volume_form, 'id_image_source', image_source_name)
     volume_form.find_element_by_css_selector(
         ".btn-primary[value='Create Volume']").click()
-    messages = widgets.get_and_dismiss_messages(driver)
+    messages = widgets.get_and_dismiss_messages(driver, config)
     assert f'Info: Creating volume "{volume_name}"' in messages
     assert openstack_demo.block_storage.find_volume(volume_name) is not None
 
@@ -116,7 +116,7 @@ def test_delete_volume_demo(login, driver, volume_name, openstack_demo,
     actions_column = rows[0].find_element_by_css_selector("td.actions_column")
     widgets.select_from_dropdown(actions_column, "Delete Volume")
     widgets.confirm_modal(driver)
-    messages = widgets.get_and_dismiss_messages(driver)
+    messages = widgets.get_and_dismiss_messages(driver, config)
     assert f"Info: Scheduled deletion of Volume: {volume_name}" in messages
     wait_for_volume_is_deleted(openstack_demo, volume_name)
     assert (openstack_demo.block_storage.find_volume(volume_name) is None)
@@ -142,7 +142,7 @@ def test_edit_volume_description_demo(login, driver, volume_name, config,
     volume_form.find_element_by_id("id_description").send_keys(
         f"EDITED_Description for: {volume_name}")
     volume_form.find_element_by_css_selector(".btn-primary").click()
-    messages = widgets.get_and_dismiss_messages(driver)
+    messages = widgets.get_and_dismiss_messages(driver, config)
     assert f'Info: Updating volume "{volume_name}"' in messages
     assert (openstack_demo.block_storage.find_volume(
         volume_name).description == f"EDITED_Description for: {volume_name}")
@@ -169,7 +169,7 @@ def test_extend_volume_demo(login, driver, openstack_demo, new_volume_demo,
     volume_form.find_element_by_id("id_new_size").send_keys(2)
     volume_form.find_element_by_css_selector(
         ".btn-primary[value='Extend Volume']").click()
-    messages = widgets.get_and_dismiss_messages(driver)
+    messages = widgets.get_and_dismiss_messages(driver, config)
     assert f'Info: Extending volume: "{new_volume_demo.name}"' in messages
     wait_for_steady_state_of_volume(openstack_demo, new_volume_demo.name)
     assert (openstack_demo.block_storage.find_volume(
@@ -244,7 +244,7 @@ def test_volume_upload_to_image_demo(login, driver, openstack_demo,
     volume_form.find_element_by_id("id_image_name").send_keys(image_names[0])
     volume_form.find_element_by_css_selector(
         ".btn-primary[value='Upload']").click()
-    messages = widgets.get_and_dismiss_messages(driver)
+    messages = widgets.get_and_dismiss_messages(driver, config)
     assert ('Info: Successfully sent the request to upload volume to image for '
             f'volume: "{new_volume_demo.name}"' in messages)
     wait_for_steady_state_of_volume(openstack_demo, new_volume_demo.name)
@@ -345,7 +345,7 @@ def test_manage_volume_attachments(login, driver, openstack_demo,
         f"{new_instance_demo.name} ({new_instance_demo.id})")
     attach_to_instance_form.find_element_by_css_selector(
         ".btn-primary[value='Attach Volume']").click()
-    messages = widgets.get_and_dismiss_messages(driver)
+    messages = widgets.get_and_dismiss_messages(driver, config)
     assert (f"Info: Attaching volume {new_volume_demo.name} to instance "
             f"{new_instance_demo.name} on /dev/vdb." in messages)
     wait_for_steady_state_of_volume(openstack_demo, new_volume_demo.name)
@@ -368,7 +368,7 @@ def test_manage_volume_attachments(login, driver, openstack_demo,
         "td.actions_column").click()
     driver.find_element_by_xpath(
         ".//a[normalize-space()='Detach Volume']").click()
-    messages = widgets.get_and_dismiss_messages(driver)
+    messages = widgets.get_and_dismiss_messages(driver, config)
     assert (f"Success: Detaching Volume: Volume {new_volume_demo.name} "
             f"on instance {new_instance_demo.name}" in messages)
     wait_for_steady_state_of_volume(openstack_demo, new_volume_demo.name)
@@ -394,7 +394,7 @@ def test_create_empty_volume_admin(login, driver, volume_name, openstack_admin,
     volume_form.find_element_by_id("id_name").send_keys(volume_name)
     volume_form.find_element_by_css_selector(
         ".btn-primary[value='Create Volume']").click()
-    messages = widgets.get_and_dismiss_messages(driver)
+    messages = widgets.get_and_dismiss_messages(driver, config)
     assert f'Info: Creating volume "{volume_name}"' in messages
     assert openstack_admin.block_storage.find_volume(volume_name) is not None
 
@@ -420,7 +420,7 @@ def test_create_volume_via_vol_source_image_admin(login, driver, volume_name,
         volume_form, 'id_image_source', image_source_name)
     volume_form.find_element_by_css_selector(
         ".btn-primary[value='Create Volume']").click()
-    messages = widgets.get_and_dismiss_messages(driver)
+    messages = widgets.get_and_dismiss_messages(driver, config)
     assert f'Info: Creating volume "{volume_name}"' in messages
     assert openstack_admin.block_storage.find_volume(volume_name) is not None
 
@@ -442,7 +442,7 @@ def test_delete_volume_admin(login, driver, volume_name, openstack_admin,
     actions_column = rows[0].find_element_by_css_selector("td.actions_column")
     widgets.select_from_dropdown(actions_column, "Delete Volume")
     widgets.confirm_modal(driver)
-    messages = widgets.get_and_dismiss_messages(driver)
+    messages = widgets.get_and_dismiss_messages(driver, config)
     assert f"Info: Scheduled deletion of Volume: {volume_name}" in messages
     wait_for_volume_is_deleted(openstack_admin, volume_name)
     assert (openstack_admin.block_storage.find_volume(volume_name) is None)
@@ -468,7 +468,7 @@ def test_edit_volume_description_admin(login, driver, volume_name, config,
     volume_form.find_element_by_id("id_description").send_keys(
         f"EDITED_Description for: {volume_name}")
     volume_form.find_element_by_css_selector(".btn-primary").click()
-    messages = widgets.get_and_dismiss_messages(driver)
+    messages = widgets.get_and_dismiss_messages(driver, config)
     assert f'Info: Updating volume "{volume_name}"' in messages
     assert (openstack_admin.block_storage.find_volume(
         volume_name).description == f"EDITED_Description for: {volume_name}")

@@ -51,7 +51,7 @@ def test_create_grouptype(login, driver, grouptype_name, openstack_admin,
     grouptype_form = driver.find_element_by_css_selector(".modal-content form")
     grouptype_form.find_element_by_id("id_name").send_keys(grouptype_name)
     grouptype_form.find_element_by_css_selector(".btn-primary").click()
-    messages = widgets.get_and_dismiss_messages(driver)
+    messages = widgets.get_and_dismiss_messages(driver, config)
     assert (f'Success: Successfully created group type: {grouptype_name}'
             in messages)
     assert (openstack_admin.block_storage.find_group_type(grouptype_name)
@@ -73,6 +73,6 @@ def test_delete_grouptype(login, driver, grouptype_name, openstack_admin,
     actions_column = rows[0].find_element_by_css_selector("td.actions_column")
     widgets.select_from_dropdown(actions_column, "Delete Group Type")
     widgets.confirm_modal(driver)
-    messages = widgets.get_and_dismiss_messages(driver)
+    messages = widgets.get_and_dismiss_messages(driver, config)
     assert f"Success: Deleted Group Type: {grouptype_name}" in messages
     assert openstack_admin.block_storage.find_group_type(grouptype_name) is None

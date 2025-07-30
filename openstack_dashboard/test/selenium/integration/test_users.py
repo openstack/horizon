@@ -57,7 +57,7 @@ def test_create_user(login, driver, user_name, openstack_admin,
     user_form.find_element_by_id(
         "id_confirm_password").send_keys(default_password)
     user_form.find_element_by_css_selector(".btn-primary").click()
-    messages = widgets.get_and_dismiss_messages(driver)
+    messages = widgets.get_and_dismiss_messages(driver, config)
     assert f'Success: User "{user_name}" was successfully created.' in messages
     assert openstack_admin.identity.find_user(user_name) is not None
 
@@ -77,7 +77,7 @@ def test_delete_user(login, driver, user_name, openstack_admin,
     actions_column = rows[0].find_element_by_css_selector("td.actions_column")
     widgets.select_from_dropdown(actions_column, "Delete User")
     widgets.confirm_modal(driver)
-    messages = widgets.get_and_dismiss_messages(driver)
+    messages = widgets.get_and_dismiss_messages(driver, config)
     assert f"Success: Deleted User: {user_name}" in messages
     assert openstack_admin.identity.find_user(user_name) is None
 
@@ -101,5 +101,5 @@ def test_change_user_password(login, driver, user_name, new_user, config):
     password_form.find_element_by_id(
         "id_confirm_password").send_keys(new_password)
     password_form.find_element_by_css_selector(".btn-primary").click()
-    messages = widgets.get_and_dismiss_messages(driver)
+    messages = widgets.get_and_dismiss_messages(driver, config)
     assert "Success: User password has been updated successfully." in messages

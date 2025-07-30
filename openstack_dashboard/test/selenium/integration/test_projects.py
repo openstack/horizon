@@ -79,7 +79,7 @@ def test_create_project(login, driver, project_name, openstack_admin,
     project_form.find_element_by_id("id_name").send_keys(project_name)
     project_form.find_element_by_css_selector(
         ".btn-primary[value='Create Project']").click()
-    messages = widgets.get_and_dismiss_messages(driver)
+    messages = widgets.get_and_dismiss_messages(driver, config)
     assert f'Success: Created new project "{project_name}".' in messages
     assert openstack_admin.identity.find_project(project_name) is not None
 
@@ -98,7 +98,7 @@ def test_delete_project(login, driver, project_name, openstack_admin,
     actions_column = rows[0].find_element_by_css_selector("td.actions_column")
     widgets.select_from_dropdown(actions_column, "Delete Project")
     widgets.confirm_modal(driver)
-    messages = widgets.get_and_dismiss_messages(driver)
+    messages = widgets.get_and_dismiss_messages(driver, config)
     assert f"Success: Deleted Project: {project_name}" in messages
     assert openstack_admin.identity.find_project(project_name) is None
 
@@ -124,7 +124,7 @@ def test_add_member_to_project(login, driver, project_name, openstack_admin,
         f"/following-sibling::li/a[@href='#add_remove']").click()  # noqa: E231
     project_form.find_element_by_css_selector(
         ".btn-primary[value='Save']").click()
-    messages = widgets.get_and_dismiss_messages(driver)
+    messages = widgets.get_and_dismiss_messages(driver, config)
     assert f'Success: Modified project "{project_name}".' in messages
     assert (openstack_admin.identity.validate_user_has_project_role(
         project=new_project,
@@ -156,7 +156,7 @@ def test_add_role_to_project_member(login, driver, openstack_admin, config,
     widgets.select_from_dropdown(select_roles_dropdown, admin_role_name)
     project_form.find_element_by_css_selector(
         ".btn-primary[value='Save']").click()
-    messages = widgets.get_and_dismiss_messages(driver)
+    messages = widgets.get_and_dismiss_messages(driver, config)
     assert (f'Success: Modified project '
             f'"{new_project_with_admin.name}".' in messages)
     assert (openstack_admin.identity.validate_user_has_project_role(
@@ -192,7 +192,7 @@ def test_add_group_to_project(login, driver, openstack_admin,
         f"/following-sibling::li/a[@href='#add_remove']").click()  # noqa: E231
     project_form.find_element_by_css_selector(
         ".btn-primary[value='Save']").click()
-    messages = widgets.get_and_dismiss_messages(driver)
+    messages = widgets.get_and_dismiss_messages(driver, config)
     assert f'Success: Modified project "{new_project.name}".' in messages
     assert (openstack_admin.identity.validate_group_has_project_role(
         project=new_project,
@@ -225,7 +225,7 @@ def test_add_role_to_project_group(login, driver, openstack_admin, config,
     widgets.select_from_dropdown(select_roles_dropdown, admin_role_name)
     project_form.find_element_by_css_selector(
         ".btn-primary[value='Save']").click()
-    messages = widgets.get_and_dismiss_messages(driver)
+    messages = widgets.get_and_dismiss_messages(driver, config)
     assert (f'Success: Modified project '
             f'"{new_project_with_group.name}".' in messages)
     assert (openstack_admin.identity.validate_group_has_project_role(

@@ -17,7 +17,7 @@ from openstack_dashboard.test.selenium import widgets
 
 
 def test_delete_multiple_instance_rows(live_server, driver, dashboard_data,
-                                       user):
+                                       config, user):
     with mock.patch.object(
         api.glance, 'image_list_detailed') as mocked_i_l_d, \
             mock.patch.object(
@@ -52,14 +52,14 @@ def test_delete_multiple_instance_rows(live_server, driver, dashboard_data,
             server_names.append(str(server)[1:-1].split("Server: ")[1])
         string_server_names = ", ".join(server_names)
         widgets.confirm_modal(driver)
-        messages = widgets.get_and_dismiss_messages(driver)
+        messages = widgets.get_and_dismiss_messages(driver, config)
         assert (f"Info: Scheduled deletion of Instances: {string_server_names}"
                 in messages)
 
 
 # Test for cover delete multiple rows also for Angular based table
 def test_delete_multiple_images_rows(live_server, driver, dashboard_data,
-                                     user):
+                                     config, user):
     with mock.patch.object(
             api.glance, 'image_list_detailed') as mocked_i_l_d, \
             mock.patch.object(
@@ -91,6 +91,6 @@ def test_delete_multiple_images_rows(live_server, driver, dashboard_data,
         driver.find_element_by_xpath(
             "//button[normalize-space()='Delete Images']").click()
         widgets.confirm_modal(driver)
-        messages = widgets.get_and_dismiss_messages(driver)
+        messages = widgets.get_and_dismiss_messages(driver, config)
         assert (f"Success: Deleted Images: {string_image_names}."
                 in messages)

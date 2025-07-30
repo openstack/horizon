@@ -108,9 +108,9 @@ AvailableServiceGroup = [
 ]
 
 SeleniumGroup = [
-    cfg.FloatOpt(
-        'message_implicit_wait',
-        default=0.1,
+    cfg.IntOpt(
+        'message_wait',
+        default=60,
         help='Timeout in seconds to wait for message confirmation modal'),
     cfg.IntOpt(
         'implicit_wait',

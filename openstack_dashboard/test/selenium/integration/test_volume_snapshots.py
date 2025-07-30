@@ -163,7 +163,7 @@ def test_create_volume_snapshot_demo(login, driver, volume_name,
     create_snap_form.find_element_by_id("id_name").send_keys(
         volume_snapshot_name)
     create_snap_form.find_element_by_css_selector(".btn-primary").click()
-    messages = widgets.get_and_dismiss_messages(driver)
+    messages = widgets.get_and_dismiss_messages(driver, config)
     assert (f'Info: Creating volume snapshot "{volume_snapshot_name}".'
             in messages)
     assert (openstack_demo.block_storage.find_snapshot(volume_snapshot_name)
@@ -187,7 +187,7 @@ def test_delete_volume_snapshot_demo(login, driver, volume_snapshot_names,
     actions_column = rows[0].find_element_by_css_selector("td.actions_column")
     widgets.select_from_dropdown(actions_column, "Delete Volume Snapshot")
     widgets.confirm_modal(driver)
-    messages = widgets.get_and_dismiss_messages(driver)
+    messages = widgets.get_and_dismiss_messages(driver, config)
     assert (f"Success: Scheduled deletion of Volume Snapshot: "
             f"{volume_snapshot_name}" in messages)
     wait_for_volume_snapshot_is_deleted(openstack_demo, volume_snapshot_name)
@@ -216,7 +216,7 @@ def test_edit_volume_snapshot_description_demo(login, driver, openstack_demo,
     snapshot_form.find_element_by_id("id_description").send_keys(
         f"EDITED_Description for: {new_volume_snapshot_demo.name}")
     snapshot_form.find_element_by_css_selector(".btn-primary").click()
-    messages = widgets.get_and_dismiss_messages(driver)
+    messages = widgets.get_and_dismiss_messages(driver, config)
     assert (f'Info: Updating volume snapshot '
             f'"{new_volume_snapshot_demo.name}"' in messages)
     assert (openstack_demo.block_storage.find_snapshot(
@@ -246,7 +246,7 @@ def test_create_volume_from_volume_snapshot_demo(login, driver, openstack_demo,
     volume_form.find_element_by_id("id_name").send_keys(
         volume_from_snapshot_name)
     volume_form.find_element_by_css_selector(".btn-primary").click()
-    messages = widgets.get_and_dismiss_messages(driver)
+    messages = widgets.get_and_dismiss_messages(driver, config)
     assert (f'Info: Creating volume "{volume_from_snapshot_name}"' in messages)
     assert (openstack_demo.block_storage.find_volume(
         volume_from_snapshot_name) is not None)
@@ -269,7 +269,7 @@ def test_delete_volume_from_volume_snapshot_demo(login, driver, openstack_demo,
     actions_column = rows[0].find_element_by_css_selector("td.actions_column")
     widgets.select_from_dropdown(actions_column, "Delete Volume")
     widgets.confirm_modal(driver)
-    messages = widgets.get_and_dismiss_messages(driver)
+    messages = widgets.get_and_dismiss_messages(driver, config)
     assert (f"Info: Scheduled deletion of Volume: "
             f"{new_volume_from_snapshot_demo.name}" in messages)
     test_volumes.wait_for_volume_is_deleted(
@@ -302,7 +302,7 @@ def test_delete_snapshot_before_volume_demo(login, driver, openstack_demo,
     widgets.select_from_dropdown(actions_column_snapshot,
                                  "Delete Volume Snapshot")
     widgets.confirm_modal(driver)
-    messages = widgets.get_and_dismiss_messages(driver)
+    messages = widgets.get_and_dismiss_messages(driver, config)
     assert (f"Success: Scheduled deletion of Volume Snapshot: "
             f"{volume_snapshot_name}" in messages)
     wait_for_volume_snapshot_is_deleted(openstack_demo, volume_snapshot_name)
@@ -322,7 +322,7 @@ def test_delete_snapshot_before_volume_demo(login, driver, openstack_demo,
         "td.actions_column")
     widgets.select_from_dropdown(actions_column_volume, "Delete Volume")
     widgets.confirm_modal(driver)
-    messages = widgets.get_and_dismiss_messages(driver)
+    messages = widgets.get_and_dismiss_messages(driver, config)
     assert (f"Info: Scheduled deletion of Volume: "
             f"{new_volume_from_snapshot_demo.name}" in messages)
     test_volumes.wait_for_volume_is_deleted(
@@ -425,7 +425,7 @@ def test_create_volume_snapshot_admin(login, driver, new_volume_admin,
     snapshot_form.find_element_by_id("id_name").send_keys(
         volume_snapshot_name)
     snapshot_form.find_element_by_css_selector(".btn-primary").click()
-    messages = widgets.get_and_dismiss_messages(driver)
+    messages = widgets.get_and_dismiss_messages(driver, config)
     assert (f'Info: Creating volume snapshot "{volume_snapshot_name}".'
             in messages)
     assert (openstack_admin.block_storage.find_snapshot(volume_snapshot_name)
@@ -448,7 +448,7 @@ def test_delete_volume_snapshot_admin(login, driver, openstack_admin,
     actions_column = rows[0].find_element_by_css_selector("td.actions_column")
     widgets.select_from_dropdown(actions_column, "Delete Volume Snapshot")
     widgets.confirm_modal(driver)
-    messages = widgets.get_and_dismiss_messages(driver)
+    messages = widgets.get_and_dismiss_messages(driver, config)
     assert (f"Success: Scheduled deletion of Volume Snapshot: "
             f"{new_volume_snapshot_admin.name}" in messages)
     wait_for_volume_snapshot_is_deleted(openstack_admin,
@@ -478,7 +478,7 @@ def test_edit_volume_snapshot_description_admin(login, driver, openstack_admin,
     snapshot_form.find_element_by_id("id_description").send_keys(
         f"EDITED_Description for: {new_volume_snapshot_admin.name}")
     snapshot_form.find_element_by_css_selector(".btn-primary").click()
-    messages = widgets.get_and_dismiss_messages(driver)
+    messages = widgets.get_and_dismiss_messages(driver, config)
     assert (f'Info: Updating volume snapshot '
             f'"{new_volume_snapshot_admin.name}"' in messages)
     assert (openstack_admin.block_storage.find_snapshot(

@@ -58,7 +58,7 @@ def test_create_user_credential_totp(login, driver, openstack_admin, config,
     widgets.select_from_specific_dropdown_in_form(
         user_credential_form, 'id_cred_type', 'TOTP')
     user_credential_form.find_element_by_css_selector(".btn-primary").click()
-    messages = widgets.get_and_dismiss_messages(driver)
+    messages = widgets.get_and_dismiss_messages(driver, config)
     assert 'Success: User credential created successfully.' in messages
     credentials_sdk_after = list(openstack_admin.identity.credentials())
     assert (len(credentials_sdk_after) == 1 and
@@ -87,7 +87,7 @@ def test_create_user_credential_ec2(login, driver, openstack_admin, config,
     widgets.select_from_specific_dropdown_in_form(
         user_credential_form, 'id_project', 'admin')
     user_credential_form.find_element_by_css_selector(".btn-primary").click()
-    messages = widgets.get_and_dismiss_messages(driver)
+    messages = widgets.get_and_dismiss_messages(driver, config)
     assert 'Success: User credential created successfully.' in messages
     credentials_sdk_after = list(openstack_admin.identity.credentials())
     assert (len(credentials_sdk_after) == 1 and
@@ -113,7 +113,7 @@ def test_delete_user_credential(login, driver, openstack_admin, config,
     actions_column = rows[0].find_element_by_css_selector("td.actions_column")
     widgets.select_from_dropdown(actions_column, "Delete User Credential")
     widgets.confirm_modal(driver)
-    messages = widgets.get_and_dismiss_messages(driver)
+    messages = widgets.get_and_dismiss_messages(driver, config)
     assert (f"Success: Deleted User Credential: {user_credential_blob}" in
             messages)
     credentials_sdk_after = list(openstack_admin.identity.credentials())
@@ -139,7 +139,7 @@ def test_edit_user_credential(login, driver, openstack_admin, config,
     user_credential_form.find_element_by_id("id_data").send_keys(
         f"EDITED_{user_credential_blob}")
     user_credential_form.find_element_by_css_selector(".btn-primary").click()
-    messages = widgets.get_and_dismiss_messages(driver)
+    messages = widgets.get_and_dismiss_messages(driver, config)
     assert ("Success: User credential updated successfully." in messages)
     credentials_sdk = list(openstack_admin.identity.credentials())
     assert (len(credentials_sdk) == 1 and
