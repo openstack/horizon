@@ -188,8 +188,8 @@ def record_video(request, report_dir, xdisplay):
 
 @pytest.fixture(scope='session')
 def xdisplay():
-    IS_SELENIUM_HEADLESS = os.environ.get('SELENIUM_HEADLESS', False)
-    if IS_SELENIUM_HEADLESS:
+    IS_SELENIUM_HEADLESS = os.environ.get('SELENIUM_HEADLESS', "True")
+    if IS_SELENIUM_HEADLESS.lower() == "true":
         width, height = 1920, 1080
         vdisplay = xvfbwrapper.Xvfb(width=width, height=height)
         args = []
