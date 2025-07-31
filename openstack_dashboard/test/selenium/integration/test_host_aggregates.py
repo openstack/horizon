@@ -65,7 +65,7 @@ def test_create_host_aggregate(login, driver, openstack_admin, config,
         host_aggregate_name)
     host_aggregate_form.find_element_by_css_selector(
         ".btn-primary[value='Create Host Aggregate']").click()
-    messages = widgets.get_and_dismiss_messages(driver)
+    messages = widgets.get_and_dismiss_messages(driver, config)
     assert (f'Success: Created new host aggregate "{host_aggregate_name}".'
             in messages)
     is_host_aggregate_created_sdk = False
@@ -93,7 +93,7 @@ def test_delete_host_aggregate(login, driver, openstack_admin, config,
     actions_column = rows[0].find_element_by_css_selector("td.actions_column")
     widgets.select_from_dropdown(actions_column, "Delete Host Aggregate")
     widgets.confirm_modal(driver)
-    messages = widgets.get_and_dismiss_messages(driver)
+    messages = widgets.get_and_dismiss_messages(driver, config)
     assert (f"Success: Deleted Host Aggregate: "
             f"{new_host_aggregate['aggregate']['name']}" in messages)
     is_host_aggregate_deleted_sdk = True

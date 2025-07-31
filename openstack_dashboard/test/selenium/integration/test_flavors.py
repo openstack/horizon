@@ -60,7 +60,7 @@ def test_create_flavor(login, driver, flavor_name, openstack_admin,
     flavors_form.find_element_by_id("id_disk_gb").send_keys(flavor_disk)
     flavors_form.find_element_by_css_selector(
         ".btn-primary[value='Create Flavor']").click()
-    messages = widgets.get_and_dismiss_messages(driver)
+    messages = widgets.get_and_dismiss_messages(driver, config)
     assert f'Success: Created new flavor "{flavor_name}".' in messages
     flavor_sdk = openstack_admin.compute.find_flavor(flavor_name)
     assert flavor_sdk is not None
@@ -84,6 +84,6 @@ def test_delete_flavor(login, driver, flavor_name, new_flavor, config,
     actions_column = rows[0].find_element_by_css_selector("td.actions_column")
     widgets.select_from_dropdown(actions_column, "Delete Flavor")
     widgets.confirm_modal(driver)
-    messages = widgets.get_and_dismiss_messages(driver)
+    messages = widgets.get_and_dismiss_messages(driver, config)
     assert f"Success: Deleted Flavor: {flavor_name}" in messages
     assert openstack_admin.compute.find_flavor(flavor_name) is None

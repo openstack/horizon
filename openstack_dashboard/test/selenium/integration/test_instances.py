@@ -246,7 +246,7 @@ def test_delete_instance_demo(login, driver, instance_name, openstack_demo,
     actions_column = rows[0].find_element_by_css_selector("td.actions_column")
     widgets.select_from_dropdown(actions_column, "Delete Instance")
     widgets.confirm_modal(driver)
-    messages = widgets.get_and_dismiss_messages(driver)
+    messages = widgets.get_and_dismiss_messages(driver, config)
     assert f"Info: Scheduled deletion of Instance: {instance_name}" in messages
     wait_for_instance_is_deleted(openstack_demo, instance_name)
     assert openstack_demo.compute.find_server(instance_name) is None
@@ -496,7 +496,7 @@ def test_delete_instance_admin(login, driver, instance_name, openstack_admin,
     actions_column = rows[0].find_element_by_css_selector("td.actions_column")
     widgets.select_from_dropdown(actions_column, "Delete Instance")
     widgets.confirm_modal(driver)
-    messages = widgets.get_and_dismiss_messages(driver)
+    messages = widgets.get_and_dismiss_messages(driver, config)
     assert f"Info: Scheduled deletion of Instance: {instance_name}" in messages
     wait_for_instance_is_deleted(openstack_admin, instance_name)
     assert openstack_admin.compute.find_server(instance_name) is None

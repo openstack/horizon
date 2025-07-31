@@ -97,7 +97,7 @@ def test_create_network_without_subnet_demo(login, openstack_demo, driver,
     ensure_checkbox(False, checkbox_element)
     network_form.find_element_by_css_selector(
         ".btn-primary.button-final").click()
-    messages = widgets.get_and_dismiss_messages(driver)
+    messages = widgets.get_and_dismiss_messages(driver, config)
     assert f'Success: Created network "{network_name}".' in messages
     assert openstack_demo.network.find_network(network_name) is not None
 
@@ -124,7 +124,7 @@ def test_create_network_with_subnet_demo(login, driver, openstack_demo,
         ".btn-primary.button-next").click()
     network_form.find_element_by_css_selector(
         ".btn-primary.button-final").click()
-    messages = widgets.get_and_dismiss_messages(driver)
+    messages = widgets.get_and_dismiss_messages(driver, config)
     assert f'Success: Created network "{network_name}".' in messages
     specified_network_sdk = openstack_demo.network.find_network(network_name)
     assert specified_network_sdk is not None
@@ -147,7 +147,7 @@ def test_delete_network_demo(login, driver, network_name, openstack_demo,
     actions_column = rows[0].find_element_by_css_selector("td.actions_column")
     widgets.select_from_dropdown(actions_column, "Delete Network")
     widgets.confirm_modal(driver)
-    messages = widgets.get_and_dismiss_messages(driver)
+    messages = widgets.get_and_dismiss_messages(driver, config)
     assert f"Success: Deleted Network: {network_name}" in messages
     assert openstack_demo.network.find_network(network_name) is None
 
@@ -171,7 +171,7 @@ def test_create_network_without_subnet_admin(login, openstack_admin, driver,
         network_form, 'id_tenant_id', 'admin')
     network_form.find_element_by_css_selector(
         ".btn-primary.button-final").click()
-    messages = widgets.get_and_dismiss_messages(driver)
+    messages = widgets.get_and_dismiss_messages(driver, config)
     assert f'Success: Created network "{network_name}".' in messages
     assert openstack_admin.network.find_network(network_name) is not None
 
@@ -200,7 +200,7 @@ def test_create_network_with_subnet_admin(login, driver, openstack_admin,
         ".btn-primary.button-next").click()
     network_form.find_element_by_css_selector(
         ".btn-primary.button-final").click()
-    messages = widgets.get_and_dismiss_messages(driver)
+    messages = widgets.get_and_dismiss_messages(driver, config)
     assert f'Success: Created network "{network_name}".' in messages
     specified_network_sdk = openstack_admin.network.find_network(network_name)
     assert specified_network_sdk is not None
@@ -223,6 +223,6 @@ def test_delete_network_admin(login, driver, network_name, openstack_admin,
     actions_column = rows[0].find_element_by_css_selector("td.actions_column")
     widgets.select_from_dropdown(actions_column, "Delete Network")
     widgets.confirm_modal(driver)
-    messages = widgets.get_and_dismiss_messages(driver)
+    messages = widgets.get_and_dismiss_messages(driver, config)
     assert f"Success: Deleted Network: {network_name}" in messages
     assert openstack_admin.network.find_network(network_name) is None

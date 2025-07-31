@@ -77,7 +77,7 @@ def test_create_metadata_namespace(login, driver, metadata_namespace_name,
     widgets.select_from_dropdown(namespace_form, "Direct Input")
     namespace_form.find_element_by_id("id_direct_input").send_keys(namespace)
     namespace_form.find_element_by_css_selector(".btn-primary").click()
-    messages = widgets.get_and_dismiss_messages(driver)
+    messages = widgets.get_and_dismiss_messages(driver, config)
     assert (f"Success: Namespace {metadata_namespace_name} "
             f"has been created." in messages)
     try:
@@ -104,7 +104,7 @@ def test_delete_metadata_namespace(login, driver, new_metadata_namespace,
     actions_column = rows[0].find_element_by_css_selector("td.actions_column")
     widgets.select_from_dropdown(actions_column, "Delete Namespace")
     widgets.confirm_modal(driver)
-    messages = widgets.get_and_dismiss_messages(driver)
+    messages = widgets.get_and_dismiss_messages(driver, config)
     assert (f"Success: Deleted Namespace: "
             f"{new_metadata_namespace.namespace}" in messages)
     try:

@@ -51,7 +51,7 @@ def test_create_group(login, driver, group_name, openstack_admin, config,
     group_form = driver.find_element_by_css_selector(".modal-dialog form")
     group_form.find_element_by_id("id_name").send_keys(group_name)
     group_form.find_element_by_css_selector(".btn-primary").click()
-    messages = widgets.get_and_dismiss_messages(driver)
+    messages = widgets.get_and_dismiss_messages(driver, config)
     assert (f'Success: Group "{group_name}" was successfully created.'
             in messages)
     assert openstack_admin.identity.find_group(group_name) is not None
@@ -72,7 +72,7 @@ def test_delete_group(login, driver, group_name, openstack_admin, config,
     actions_column = rows[0].find_element_by_css_selector("td.actions_column")
     widgets.select_from_dropdown(actions_column, "Delete Group")
     widgets.confirm_modal(driver)
-    messages = widgets.get_and_dismiss_messages(driver)
+    messages = widgets.get_and_dismiss_messages(driver, config)
     assert f"Success: Deleted Group: {group_name}" in messages
     assert openstack_admin.identity.find_group(group_name) is None
 
@@ -98,7 +98,7 @@ def test_edit_group_name_and_description(login, driver, group_name,
     group_form.find_element_by_id("id_description").send_keys(
         f"EDITED_Description for: {group_name}")
     group_form.find_element_by_css_selector(".btn-primary").click()
-    messages = widgets.get_and_dismiss_messages(driver)
+    messages = widgets.get_and_dismiss_messages(driver, config)
     assert "Success: Group has been updated successfully." in messages
     assert (openstack_admin.identity.find_group(
         f"EDITED_{group_name}") is not None)

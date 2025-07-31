@@ -34,6 +34,7 @@ class Session:
         self.current_user = None
         self.current_project = None
         self.driver = driver
+        self.config = config
         self.credentials = {
             'user': (
                 config.identity.username,
@@ -84,7 +85,7 @@ class Session:
             selection = project_element.find_element_by_xpath(
                 f'.//*[normalize-space()="{project}"]')
             selection.click()
-            widgets.get_and_dismiss_messages(self.driver)
+            widgets.get_and_dismiss_messages(self.driver, self.config)
             self.current_project = self.driver.find_element_by_xpath(
                 self.project_name_xpath).text
 
