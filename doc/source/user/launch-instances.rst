@@ -192,12 +192,8 @@ When you launch an instance from a volume, note the following steps:
   does not boot. Instead, it is replaced by the image on the volume that
   you choose in the next steps.
 
-  To boot a Xen image from a volume, the image you launch in must be
-  the same type, fully virtualized or paravirtualized, as the one on
-  the volume.
-
 * Select the volume or volume snapshot from which to boot. Enter a
-  device name. Enter ``vda`` for KVM images or ``xvda`` for Xen images.
+  device name (``vda`` for KVM images).
 
 .. note::
 
