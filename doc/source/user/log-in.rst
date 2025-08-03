@@ -112,7 +112,7 @@ Network tab
 * :guilabel:`Routers`: Create and manage routers.
 
 * :guilabel:`Security Groups`: View, create, edit, and delete security
-  groups and security group rules..
+  groups and security group rules.
 
 * :guilabel:`Floating IPs`: Allocate an IP address to or release it
   from a project.
