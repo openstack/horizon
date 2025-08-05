@@ -130,7 +130,8 @@ Create a snapshot from a volume
 
 #. Confirm your changes.
 
-   The dashboard shows the new volume snapshot in Volume Snapshots tab.
+   The dashboard shows the new volume snapshot in
+   :guilabel:`Volume Snapshots` tab.
 
 Edit a volume
 ~~~~~~~~~~~~~
