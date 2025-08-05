@@ -530,7 +530,7 @@ class CreateProject(workflows.Workflow):
             group_msg = _(", add project groups")
             exceptions.handle(request,
                               _('Failed to add %(users_to_add)s project '
-                                'members%(group_msg)s and set project quotas.')
+                                'members %(group_msg)s and set project quotas.')
                               % {'users_to_add': users_to_add,
                                  'group_msg': group_msg})
 
@@ -801,8 +801,8 @@ class UpdateProject(workflows.Workflow):
         except Exception:
             group_msg = _(", update project groups")
             exceptions.handle(request,
-                              _('Failed to modify %(users_to_modify)s'
-                                ' project members%(group_msg)s and '
+                              _('Failed to modify %(users_to_modify)s '
+                                'project members %(group_msg)s and '
                                 'update project quotas.')
                               % {'users_to_modify': users_to_modify,
                                  'group_msg': group_msg})
