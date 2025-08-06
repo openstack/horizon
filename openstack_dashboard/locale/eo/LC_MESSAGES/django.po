@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: horizon VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2025-07-21 16:55+0000\n"
+"POT-Creation-Date: 2025-07-31 11:36+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -2334,18 +2334,6 @@ msgstr "Elŝuti openrc dosieron"
 msgid "Download transfer credentials"
 msgstr "Elŝuti transigo legitimaĵojn"
 
-msgid "EC2 Access Key"
-msgstr "EC2 Aliro Klavo"
-
-msgid "EC2 Credentials"
-msgstr "EC2 legitimaĵojn"
-
-msgid "EC2 Secret Key"
-msgstr "EC2 Sekreto Klavo"
-
-msgid "EC2 URL"
-msgstr "EC2 URL"
-
 msgid ""
 "Each QoS Specs entity will have a \"Consumer\" value which indicates where "
 "the administrator would like the QoS policy to be enforced. This value can "
@@ -2691,10 +2679,6 @@ msgstr "Eraro ĝisdatigi risurco tipojnpor nomspaco %s."
 
 msgid "Error when adding or removing hosts."
 msgstr "Eraro kiam aldoni au forigi Gastigojn."
-
-#, python-format
-msgid "Error writing zipfile: %(exc)s"
-msgstr "Eraro skribi zipdosiero: %(exc)s"
 
 msgid "Errors occurred in deleting group."
 msgstr "Eraroj okazis forigante grupo."
@@ -5173,9 +5157,6 @@ msgstr "Rekonstruanta"
 msgid "Rebuilding instance %s."
 msgstr "Rekonstrui apero %s."
 
-msgid "Recreate EC2 Credentials"
-msgstr "Rekrei EC2 legitimaĵojn"
-
 #, python-format
 msgid "Regenerate and download Key Pair &quot;%(keypair_name)s&quot;"
 msgstr "Regeneru kaj elŝutu ŝlosilparon &quot;%(keypair_name)s&quot;"
@@ -5521,9 +5502,6 @@ msgstr "Funkcianta"
 
 msgid "Running Instance Migration Type"
 msgstr "Funkcianta apero transmeta tipo    "
-
-msgid "S3 URL"
-msgstr "S3 URL"
 
 msgid "SLAAC: Address discovered from OpenStack Router"
 msgstr "SLAAC: Adreso malkovrita de OpenStack Enkursigilo"
@@ -6250,9 +6228,6 @@ msgstr "Sukcese importita publikan ŝlosilon : %s"
 
 msgid "Successfully modified QoS Spec consumer."
 msgstr "Sukcese modikita QoS Spec konsumanto."
-
-msgid "Successfully recreated ec2 credentials."
-msgstr "Sukcese rekreita  ec2 legitimaĵojn."
 
 msgid "Successfully redirected"
 msgid_plural "Successfully redirected"
@@ -7196,9 +7171,6 @@ msgstr "Neeblas redakti volumo tipo ekstra specifon."
 msgid "Unable to extend volume."
 msgstr "Neeblas etendi volumon."
 
-msgid "Unable to fetch EC2 credentials."
-msgstr "Neeblas venigi EC2 legitimaĵojn."
-
 msgid "Unable to fetch snapshot"
 msgstr "Neeblas venigi la savkopion."
 
@@ -7210,9 +7182,6 @@ msgstr "Neeblas trovi glitan IP."
 
 msgid "Unable to find default role."
 msgstr "Neeblas trovi defaŭltan rolon."
-
-msgid "Unable to get EC2 credentials"
-msgstr "Neeblas ricevi EC2 legitimaĵojn"
 
 #, python-format
 msgid "Unable to get MKS console for instance \"%s\"."
@@ -7338,12 +7307,6 @@ msgstr "Neebla sintakse analizi IP adreso %s."
 
 msgid "Unable to rebuild instance."
 msgstr "Neeblas rekonstrui aperon."
-
-msgid "Unable to recreate ec2 credentials. Failed to create ec2 credentials."
-msgstr "Neeblas rekrei ec2 legitimaĵojn. Malsukcesis krei ec2 legitimaĵojn."
-
-msgid "Unable to recreate ec2 credentials. Failed to delete ec2 credentials."
-msgstr "Neeblas rekrei ec2 legitimaĵojn. Malsukcesis forigi ec2 legitimaĵojn,"
 
 msgid "Unable to register identity provider."
 msgstr "Neeblas registri identeco provizanto."

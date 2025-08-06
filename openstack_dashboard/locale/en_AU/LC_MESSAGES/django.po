@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: horizon VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2025-07-21 16:55+0000\n"
+"POT-Creation-Date: 2025-07-31 11:36+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -1839,18 +1839,6 @@ msgstr "Download OpenStack RC File"
 msgid "Download transfer credentials"
 msgstr "Download transfer credentials"
 
-msgid "EC2 Access Key"
-msgstr "EC2 Access Key"
-
-msgid "EC2 Credentials"
-msgstr "EC2 Credentials"
-
-msgid "EC2 Secret Key"
-msgstr "EC2 Secret Key"
-
-msgid "EC2 URL"
-msgstr "EC2 URL"
-
 msgid ""
 "Each QoS Specs entity will have a \"Consumer\" value which indicates where "
 "the administrator would like the QoS policy to be enforced. This value can "
@@ -2152,10 +2140,6 @@ msgstr "Error updating resource types for namespace %s."
 
 msgid "Error when adding or removing hosts."
 msgstr "Error when adding or removing hosts."
-
-#, python-format
-msgid "Error writing zipfile: %(exc)s"
-msgstr "Error writing zipfile: %(exc)s"
 
 msgid "Ether Type"
 msgstr "Ether Type"
@@ -4193,9 +4177,6 @@ msgstr "Rebuilding"
 msgid "Rebuilding instance %s."
 msgstr "Rebuilding instance %s."
 
-msgid "Recreate EC2 Credentials"
-msgstr "Recreate EC2 Credentials"
-
 #, python-format
 msgid "Regenerate and download Key Pair &quot;%(keypair_name)s&quot;"
 msgstr "Regenerate and download Key Pair &quot;%(keypair_name)s&quot;"
@@ -4492,9 +4473,6 @@ msgstr "Running"
 
 msgid "Running Instance Migration Type"
 msgstr "Running Instance Migration Type"
-
-msgid "S3 URL"
-msgstr "S3 URL"
 
 msgid "SLAAC: Address discovered from OpenStack Router"
 msgstr "SLAAC: Address discovered from OpenStack Router"
@@ -5134,9 +5112,6 @@ msgstr "Successfully imported public key: %s"
 
 msgid "Successfully modified QoS Spec consumer."
 msgstr "Successfully modified QoS Spec consumer."
-
-msgid "Successfully recreated ec2 credentials."
-msgstr "Successfully recreated ec2 credentials."
 
 #, python-format
 msgid ""
@@ -5858,14 +5833,8 @@ msgstr "Unable to edit volume type extra spec."
 msgid "Unable to extend volume."
 msgstr "Unable to extend volume."
 
-msgid "Unable to fetch EC2 credentials."
-msgstr "Unable to fetch EC2 credentials."
-
 msgid "Unable to find default role."
 msgstr "Unable to find default role."
-
-msgid "Unable to get EC2 credentials"
-msgstr "Unable to get EC2 credentials"
 
 #, python-format
 msgid "Unable to get RDP console for instance \"%s\"."
@@ -5964,12 +5933,6 @@ msgstr "Unable to parse IP address %s."
 
 msgid "Unable to rebuild instance."
 msgstr "Unable to rebuild instance."
-
-msgid "Unable to recreate ec2 credentials. Failed to create ec2 credentials."
-msgstr "Unable to recreate ec2 credentials. Failed to create ec2 credentials."
-
-msgid "Unable to recreate ec2 credentials. Failed to delete ec2 credentials."
-msgstr "Unable to recreate ec2 credentials. Failed to delete ec2 credentials."
 
 msgid "Unable to register identity provider."
 msgstr "Unable to register identity provider."

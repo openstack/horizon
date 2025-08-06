@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: horizon VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2025-07-21 16:55+0000\n"
+"POT-Creation-Date: 2025-07-31 11:36+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -938,15 +938,6 @@ msgstr "सकयल"
 msgid "Download CSV Summary"
 msgstr "CSV सार डावनलोड करात"
 
-msgid "EC2 Access Key"
-msgstr "EC2 प्रवेश की"
-
-msgid "EC2 Secret Key"
-msgstr "EC2 गुप्त की"
-
-msgid "EC2 URL"
-msgstr "EC2 URL"
-
 msgid "Edit"
 msgstr "संपादन"
 
@@ -1105,10 +1096,6 @@ msgstr "QoS Spec जोडणी सुदारतना एरर"
 
 msgid "Error when adding or removing hosts."
 msgstr "येजमान जोडतना वो काडून उडयतना एरर."
-
-#, python-format
-msgid "Error writing zipfile: %(exc)s"
-msgstr " झिपफायल बरयतना एरर: %(exc)s"
 
 msgid "Ether Type"
 msgstr "इथर प्रकार"
@@ -2477,9 +2464,6 @@ msgctxt "Power state of an Instance"
 msgid "Running"
 msgstr "चलता"
 
-msgid "S3 URL"
-msgstr "S3 URL"
-
 msgid "SSH key pairs can be generated with the ssh-keygen command:"
 msgstr "SSH की जोडी ssh-keygen कमांडान तयार करपाक मेळटा:"
 
@@ -3168,14 +3152,8 @@ msgstr "आकार प्रकार अदिक Spec संपादित 
 msgid "Unable to extend volume."
 msgstr "आकार वाडोवपाक शकना."
 
-msgid "Unable to fetch EC2 credentials."
-msgstr "EC2 क्रेडेन्शियल्स मेळोवपाक जाले ना."
-
 msgid "Unable to find default role."
 msgstr "मुळावी भूमीका सोदपाक अपेस"
-
-msgid "Unable to get EC2 credentials"
-msgstr "EC2 क्रेडेन्शियल्स मेळोवपाक जाले ना"
 
 #, python-format
 msgid "Unable to get RDP console for instance \"%s\"."

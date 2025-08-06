@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: horizon VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2025-07-21 16:55+0000\n"
+"POT-Creation-Date: 2025-07-31 11:36+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -1924,18 +1924,6 @@ msgstr "下載 openrc 檔案"
 msgid "Download transfer credentials"
 msgstr "下載轉移憑證"
 
-msgid "EC2 Access Key"
-msgstr "EC2 存取鑰"
-
-msgid "EC2 Credentials"
-msgstr "EC2 認證"
-
-msgid "EC2 Secret Key"
-msgstr "EC2 密鑰"
-
-msgid "EC2 URL"
-msgstr "EC2 網址"
-
 msgid ""
 "Each QoS Specs entity will have a \"Consumer\" value which indicates where "
 "the administrator would like the QoS policy to be enforced. This value can "
@@ -2249,10 +2237,6 @@ msgstr "更新命名空間 %s 的資源類型時出錯。"
 
 msgid "Error when adding or removing hosts."
 msgstr "加入或移除主機時出錯。"
-
-#, python-format
-msgid "Error writing zipfile: %(exc)s"
-msgstr "寫入 Zip 檔錯誤：%(exc)s"
 
 msgid "Ether Type"
 msgstr "網路協定類型"
@@ -4474,9 +4458,6 @@ msgstr "正在重建"
 msgid "Rebuilding instance %s."
 msgstr "正在重建雲實例 %s。"
 
-msgid "Recreate EC2 Credentials"
-msgstr "重建 EC2 格式的憑證"
-
 #, python-format
 msgid "Regenerate and download Key Pair &quot;%(keypair_name)s&quot;"
 msgstr "重新產生並下載密鑰對「%(keypair_name)s」"
@@ -4781,9 +4762,6 @@ msgstr "正在執行"
 
 msgid "Running Instance Migration Type"
 msgstr "執行中雲實例轉移的類型"
-
-msgid "S3 URL"
-msgstr "S3 網址"
 
 msgid "SLAAC: Address discovered from OpenStack Router"
 msgstr "SLAAC：從 OpenStack 路由器探索位址"
@@ -5448,9 +5426,6 @@ msgstr "已成功匯入公鑰：%s"
 
 msgid "Successfully modified QoS Spec consumer."
 msgstr "已成功更改 QoS 規格規範用戶。"
-
-msgid "Successfully recreated ec2 credentials."
-msgstr "已順利建立 EC2 格式的憑證。"
 
 msgid "Successfully rescued instance"
 msgstr "成功已救援雲實例"
@@ -6238,9 +6213,6 @@ msgstr "無法編輯雲硬碟類型額外的規格。"
 msgid "Unable to extend volume."
 msgstr "無法擴充雲硬碟。"
 
-msgid "Unable to fetch EC2 credentials."
-msgstr "無法獲得 EC2 格式的憑證"
-
 msgid "Unable to fetch snapshot"
 msgstr "無法獲得快照"
 
@@ -6249,9 +6221,6 @@ msgstr "無法獲得快照"
 
 msgid "Unable to find default role."
 msgstr "找不到預設的角色。"
-
-msgid "Unable to get EC2 credentials"
-msgstr "無法獲得 EC2 格式的憑證"
 
 #, python-format
 msgid "Unable to get MKS console for instance \"%s\"."
@@ -6374,12 +6343,6 @@ msgstr "無法分析 IP 位址 %s。"
 
 msgid "Unable to rebuild instance."
 msgstr "無法重建雲實例。"
-
-msgid "Unable to recreate ec2 credentials. Failed to create ec2 credentials."
-msgstr "無法重建 EC2 格式的憑證。無法建立 EC2 格式的憑證。"
-
-msgid "Unable to recreate ec2 credentials. Failed to delete ec2 credentials."
-msgstr "無法重建 EC2 格式的憑證。無法刪除 EC2 格式的憑證。"
 
 msgid "Unable to register identity provider."
 msgstr "無法註冊身分提供者。"

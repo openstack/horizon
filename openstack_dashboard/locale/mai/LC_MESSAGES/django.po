@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: horizon VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2025-07-21 16:55+0000\n"
+"POT-Creation-Date: 2025-07-31 11:36+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -944,15 +944,6 @@ msgstr "नीच्चाँ"
 msgid "Download CSV Summary"
 msgstr "सीएसवी सारांश डाउनलोड करू"
 
-msgid "EC2 Access Key"
-msgstr "EC2 पहुँच कुँजी"
-
-msgid "EC2 Secret Key"
-msgstr "EC2 गुप्त कुँजी"
-
-msgid "EC2 URL"
-msgstr "EC2 URL"
-
 msgid "Edit"
 msgstr "संपादन"
 
@@ -1111,10 +1102,6 @@ msgstr "QoS विनिर्देश क संबद्धता अपड�
 
 msgid "Error when adding or removing hosts."
 msgstr "मेजबान जोड़बा अथवा हटाएब मे त्रुटि."
-
-#, python-format
-msgid "Error writing zipfile: %(exc)s"
-msgstr "zipfile लिखब मे त्रुटि: %(exc)s"
 
 msgid "Ether Type"
 msgstr "ईथर प्रकार"
@@ -2490,9 +2477,6 @@ msgctxt "Power state of an Instance"
 msgid "Running"
 msgstr "चल रहल अछि"
 
-msgid "S3 URL"
-msgstr "S3 URL"
-
 msgid "SSH key pairs can be generated with the ssh-keygen command:"
 msgstr "SSH कुँजी जोड़ल ssh-keygen कमांड क सँग उत्पन्न कएल जाए सकैत अछि:"
 
@@ -3180,14 +3164,8 @@ msgstr "वाल्यूम प्रकार बाइली स्पेक
 msgid "Unable to extend volume."
 msgstr "वाल्यूम क विस्तार करबामे असमर्थ."
 
-msgid "Unable to fetch EC2 credentials."
-msgstr "EC2 पहचान लाबै मे असमर्थ."
-
 msgid "Unable to find default role."
 msgstr "पूर्वनिर्धारित भूमिका ताकब मे असमर्थ."
-
-msgid "Unable to get EC2 credentials"
-msgstr "EC2 क्रेडेंशियल प्राप्त करबामे असमर्थ"
 
 #, python-format
 msgid "Unable to get RDP console for instance \"%s\"."

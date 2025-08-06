@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: horizon VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2025-07-21 16:55+0000\n"
+"POT-Creation-Date: 2025-07-31 11:36+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -1533,15 +1533,6 @@ msgstr "Położono"
 msgid "Download CSV Summary"
 msgstr "Pobierz podsumowanie w formacie CSV"
 
-msgid "EC2 Access Key"
-msgstr "Klucz dostępu EC2"
-
-msgid "EC2 Secret Key"
-msgstr "Tajny klucz EC2"
-
-msgid "EC2 URL"
-msgstr "Adres URL EC2"
-
 msgid "Edit"
 msgstr "Edytuj"
 
@@ -1799,10 +1790,6 @@ msgstr "Nie można aktualizować typów zasobów dla przestrzeni nazw %s."
 
 msgid "Error when adding or removing hosts."
 msgstr "Błąd w trakcie dodawania lub usuwania hosta."
-
-#, python-format
-msgid "Error writing zipfile: %(exc)s"
-msgstr "Błąd podczas zapisu pliku zip: %(exc)s"
 
 msgid "Ether Type"
 msgstr "Typ medium"
@@ -3678,9 +3665,6 @@ msgstr "Pracuje"
 msgid "Running Instance Migration Type"
 msgstr "Typ migracji pracującej instancji"
 
-msgid "S3 URL"
-msgstr "Adres URL S3"
-
 msgid "SLAAC: Address discovered from OpenStack Router"
 msgstr "SLAAC: Adres jest wykrywany z routera OpenStack"
 
@@ -4765,14 +4749,8 @@ msgstr "Nie można edytować dodatkowej specyfikacji wolumenu."
 msgid "Unable to extend volume."
 msgstr "Nie można rozszerzyć wolumenu."
 
-msgid "Unable to fetch EC2 credentials."
-msgstr "Nie można pobrać danych uwierzytelniających EC2."
-
 msgid "Unable to find default role."
 msgstr "Nie znaleziono domyślnej roli."
-
-msgid "Unable to get EC2 credentials"
-msgstr "Nie można pobrać poświadczeń EC2"
 
 #, python-format
 msgid "Unable to get RDP console for instance \"%s\"."

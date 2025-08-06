@@ -31,7 +31,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: horizon VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2025-07-21 16:55+0000\n"
+"POT-Creation-Date: 2025-07-31 11:36+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -2264,18 +2264,6 @@ msgstr "openrc 파일 내려받기"
 msgid "Download transfer credentials"
 msgstr "이전 credential 다운로드"
 
-msgid "EC2 Access Key"
-msgstr "EC2 접근 키"
-
-msgid "EC2 Credentials"
-msgstr "EC2 인증서"
-
-msgid "EC2 Secret Key"
-msgstr "EC2 보안 키"
-
-msgid "EC2 URL"
-msgstr "EC2 URL"
-
 msgid ""
 "Each QoS Specs entity will have a \"Consumer\" value which indicates where "
 "the administrator would like the QoS policy to be enforced. This value can "
@@ -2614,10 +2602,6 @@ msgstr "%s의 네임스페이스 리소스 유형 업데이트 중 오류가 발
 
 msgid "Error when adding or removing hosts."
 msgstr "호스트를 추가하거나 삭제할 때 에러가 발생하였습니다."
-
-#, python-format
-msgid "Error writing zipfile: %(exc)s"
-msgstr "zip파일 쓰는 중 오류: %(exc)s"
 
 msgid "Errors occurred in deleting group."
 msgstr "그룹 삭제 중 오류가 발생했습니다."
@@ -5059,9 +5043,6 @@ msgstr "Rebuilding"
 msgid "Rebuilding instance %s."
 msgstr "인스턴스 %s 다시 빌드 중."
 
-msgid "Recreate EC2 Credentials"
-msgstr "EC2 Credential 새로 만들기"
-
 #, python-format
 msgid "Regenerate and download Key Pair &quot;%(keypair_name)s&quot;"
 msgstr "키페어 &quot;%(keypair_name)s&quot; 를 생성하고 다운받습니다."
@@ -5387,9 +5368,6 @@ msgstr "Running"
 
 msgid "Running Instance Migration Type"
 msgstr "인스턴스 마이그레이션 타입 작동중"
-
-msgid "S3 URL"
-msgstr "S3 URL"
 
 msgid "SLAAC: Address discovered from OpenStack Router"
 msgstr "SLAAC: OpenStack 라우터로부터 찾은 주소"
@@ -6083,9 +6061,6 @@ msgstr "공개 Key를 성공적으로 가져왔습니다:%s"
 
 msgid "Successfully modified QoS Spec consumer."
 msgstr "QoS 스펙 사용자를 수정했습니다."
-
-msgid "Successfully recreated ec2 credentials."
-msgstr "EC2 credential를 다시 만들었습니다."
 
 msgid "Successfully redirected"
 msgid_plural "Successfully redirected"
@@ -7021,9 +6996,6 @@ msgstr "볼륨 타입 추가 사양을 편집할 수 없습니다."
 msgid "Unable to extend volume."
 msgstr "볼륨을 확장할 수 없습니다."
 
-msgid "Unable to fetch EC2 credentials."
-msgstr "EC2 인증서를 가져올 수 없습니다."
-
 msgid "Unable to fetch snapshot"
 msgstr "스냅샷을 가져올 수 없습니다."
 
@@ -7035,9 +7007,6 @@ msgstr "플로팅 IP를 찾을 수 없습니다."
 
 msgid "Unable to find default role."
 msgstr "기본 역할을 찾을 수 없습니다."
-
-msgid "Unable to get EC2 credentials"
-msgstr "EC2 인정서를 가져올 수 없습니다"
 
 #, python-format
 msgid "Unable to get MKS console for instance \"%s\"."
@@ -7163,14 +7132,6 @@ msgstr "%s IP 주소 구문을 분석할 수 없습니다."
 
 msgid "Unable to rebuild instance."
 msgstr "인스턴스를 다시 빌드 할 수 없습니다."
-
-msgid "Unable to recreate ec2 credentials. Failed to create ec2 credentials."
-msgstr ""
-"EC2 credential를 다시 만들 수 없습니다. EC2 credential 생성에 실패했습니다."
-
-msgid "Unable to recreate ec2 credentials. Failed to delete ec2 credentials."
-msgstr ""
-"EC2 credential를 다시 만들 수 없습니다. EC2 credential 삭제에 실패했습니다."
 
 msgid "Unable to register identity provider."
 msgstr "Identity 공급자를 등록할 수 없습니다."

@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: horizon VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2025-07-21 16:55+0000\n"
+"POT-Creation-Date: 2025-07-31 11:36+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -942,15 +942,6 @@ msgstr "गाहाय"
 msgid "Download CSV Summary"
 msgstr "CSV सारबाहागोखौ डाउनल'ड खालाम"
 
-msgid "EC2 Access Key"
-msgstr "EC2 हाबनाय साबि"
-
-msgid "EC2 Secret Key"
-msgstr "EC2 गुमुर साबि"
-
-msgid "EC2 URL"
-msgstr "EC2 URL"
-
 msgid "Edit"
 msgstr "सुजु"
 
@@ -1109,10 +1100,6 @@ msgstr "QoS Spec गौथुमखौ आपडेट खालामनाय�
 
 msgid "Error when adding or removing hosts."
 msgstr "हस्ट दाजाबदेरनाय एबा बोखारनाय समाव जानाय गोरोन्थि।"
-
-#, python-format
-msgid "Error writing zipfile: %(exc)s"
-msgstr "जिपफाइलखौ लिरनायाव जानाय गोरोन्थि: %(exc)s"
 
 msgid "Ether Type"
 msgstr "इथार रोखोम"
@@ -2489,9 +2476,6 @@ msgctxt "Power state of an Instance"
 msgid "Running"
 msgstr "सालायगासिनो दं"
 
-msgid "S3 URL"
-msgstr "S3 URL"
-
 msgid "SSH key pairs can be generated with the ssh-keygen command:"
 msgstr "SSH साबि जराखौ ssh-keygen बिथोनजों दिहुननो हायो:"
 
@@ -3183,14 +3167,8 @@ msgstr "भलिउम रोखोम बांद्राय spec खौ स
 msgid "Unable to extend volume."
 msgstr "भलिउमखौ फेहेरनो हायाखै।"
 
-msgid "Unable to fetch EC2 credentials."
-msgstr "EC2 फोथायथावखौ लाबोनो हायाखै।"
-
 msgid "Unable to find default role."
 msgstr "डिफल्ट बिफावखौ नागिरना दिहुननो हायाखै।"
-
-msgid "Unable to get EC2 credentials"
-msgstr "EC2 फोथायथावखौ मोननो हायाखै"
 
 #, python-format
 msgid "Unable to get RDP console for instance \"%s\"."

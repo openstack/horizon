@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: horizon VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2025-07-21 16:55+0000\n"
+"POT-Creation-Date: 2025-07-31 11:36+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -1820,15 +1820,6 @@ msgstr "Stáhnout souhrn v CSV"
 msgid "Download transfer credentials"
 msgstr "Stáhnout transferové přihlašovací údaje"
 
-msgid "EC2 Access Key"
-msgstr "Přístupový klíč EC2"
-
-msgid "EC2 Secret Key"
-msgstr "Tajný klíč EC2"
-
-msgid "EC2 URL"
-msgstr "URL EC2"
-
 msgid ""
 "Each QoS Specs entity will have a \"Consumer\" value which indicates where "
 "the administrator would like the QoS policy to be enforced. This value can "
@@ -2109,10 +2100,6 @@ msgstr "Chyba při aktualizaci typu prostředku jmenného prostoru %s."
 
 msgid "Error when adding or removing hosts."
 msgstr "Chyba při přidávání nebo odstraňování hostitelů."
-
-#, python-format
-msgid "Error writing zipfile: %(exc)s"
-msgstr "Chyba při zapisování zip souboru: %(exc)s"
 
 msgid "Ether Type"
 msgstr "Typ ethernetu"
@@ -4003,9 +3990,6 @@ msgstr "Znovu sestavování"
 msgid "Rebuilding instance %s."
 msgstr "Znovu sestavování instance %s."
 
-msgid "Recreate EC2 Credentials"
-msgstr "Znovuvytvořit přihlašovací údaje EC2"
-
 msgid "Region"
 msgstr "Region"
 
@@ -4294,9 +4278,6 @@ msgstr "Běží"
 
 msgid "Running Instance Migration Type"
 msgstr "Spuštěn typ migrace instance"
-
-msgid "S3 URL"
-msgstr "URL S3"
 
 msgid "SLAAC: Address discovered from OpenStack Router"
 msgstr "SLAAC: Adresa zjištěna z routeru OpenStack"
@@ -4892,9 +4873,6 @@ msgstr "Úspěšně importován veřejný klíč: %s"
 
 msgid "Successfully modified QoS Spec consumer."
 msgstr "Spotřebitel specifikace QoS úspěšně změněn."
-
-msgid "Successfully recreated ec2 credentials."
-msgstr "Přihlašovací údaje ec2 úspěšně obnoveny."
 
 #, python-format
 msgid ""
@@ -5521,14 +5499,8 @@ msgstr "Nelze upravit dodatečnou specifikaci typu svazku."
 msgid "Unable to extend volume."
 msgstr "Nelze rozšířit svazek."
 
-msgid "Unable to fetch EC2 credentials."
-msgstr "Nelze získat přihlašovací údaje EC2."
-
 msgid "Unable to find default role."
 msgstr "Nelze najít výchozí roli."
-
-msgid "Unable to get EC2 credentials"
-msgstr "Nelze získat přihlašovací údaje pro EC2."
 
 #, python-format
 msgid "Unable to get RDP console for instance \"%s\"."
@@ -5627,16 +5599,6 @@ msgstr "Nelze zpracovat IP adresu %s."
 
 msgid "Unable to rebuild instance."
 msgstr "Instanci nelze znovu sestavit."
-
-msgid "Unable to recreate ec2 credentials. Failed to create ec2 credentials."
-msgstr ""
-"Nelze obnovit přihlašovací údaje ec2. Nepodařilo se vytvořit přihlašovací "
-"údaje ec2."
-
-msgid "Unable to recreate ec2 credentials. Failed to delete ec2 credentials."
-msgstr ""
-"Nelze obnovit přihlašovací údaje ec2. Nepodařilo se smazat přihlašovací "
-"údaje ec2."
 
 msgid "Unable to register identity provider."
 msgstr "Nelze registrovat poskytovatele identit."

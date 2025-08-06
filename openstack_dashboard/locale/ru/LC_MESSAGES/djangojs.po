@@ -30,11 +30,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: horizon VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2025-07-21 16:55+0000\n"
+"POT-Creation-Date: 2025-07-31 11:35+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2025-07-18 07:19+0000\n"
+"PO-Revision-Date: 2025-08-06 12:05+0000\n"
 "Last-Translator: Ivan Anfimov <lazekteam@gmail.com>\n"
 "Language-Team: Russian\n"
 "Language: ru\n"
@@ -50,23 +50,23 @@ msgid ""
 "%(id)s - Bandwidth Limit - maxkbps: %(max_kbps)s, maxburstkbps: "
 "%(max_burst_kb)s, %(direction)s"
 msgstr ""
-"%(id)s - Ограничение пропускной способности - maxkbps: %(max_kbps)s, "
+"%(id)s - ограничение пропускной способности - maxkbps: %(max_kbps)s, "
 "maxburstkbps: %(max_burst_kb)s, %(direction)s"
 
 #, python-format
 msgid "%(id)s - DSCP Marking - dscpmark: %(dscp_mark)s"
-msgstr "%(id)s - Маркировка DSCP - dscpmark: %(dscp_mark)s"
+msgstr "%(id)s - маркировка DSCP - dscpmark: %(dscp_mark)s"
 
 #, python-format
 msgid "%(id)s - Minimum Bandwidth - minkbps: %(min_kbps)s, %(direction)s"
 msgstr ""
-"%(id)s - Минимальная пропускная способность - minkbps: %(min_kbps)s, "
+"%(id)s - минимальная пропускная способность - minkbps: %(min_kbps)s, "
 "%(direction)s"
 
 #, python-format
 msgid "%(id)s - Minimum Packet Rate - minkpps: %(min_kpps)s, %(direction)s"
 msgstr ""
-"%(id)s - Минимальная скорость передачи пакетов - minkpps: %(min_kpps)s, "
+"%(id)s - минимальная скорость передачи пакетов - minkpps: %(min_kpps)s, "
 "%(direction)s"
 
 #, python-format
@@ -112,16 +112,14 @@ msgstr ""
 "удаляться при удалении инстанса."
 
 msgid "<b>Image</b>: This option uses an image to boot the instance."
-msgstr ""
-"<b>Образ</b>: Данная опция использует образ в качестве источника для "
-"загрузки."
+msgstr "<b>Образ</b>: данная опция использует образ для загрузки инстанса."
 
 msgid ""
 "<b>Instance Snapshot</b>: This option uses an instance snapshot to boot the "
 "instance."
 msgstr ""
-"<b>Снимок инстанса</b>: Данная опция использует снимок инстанса для его "
-"загрузки."
+"<b>Снимок инстанса</b>: данная опция использует снимок инстанса для загрузки "
+"инстанса."
 
 msgid ""
 "<b>Volume Snapshot</b>: This option uses a volume snapshot to boot the "
@@ -339,7 +337,7 @@ msgstr ""
 "Нестандартный шаблон конфигурации может быть создан для пользователя или "
 "проекта, где он доступен для всех пользователей, добавленных в этот проект. "
 "Если вам требуется нестандартный шаблон конфигурации, свяжитесь с вашим "
-"администратором. "
+"администратором."
 
 msgid ""
 "Administrators set up the pool of floating IPs that are available to attach "
@@ -352,7 +350,7 @@ msgid "Affinity"
 msgstr "Affinity"
 
 msgid "Alerts"
-msgstr "Классы сообщений"
+msgstr "Оповещения"
 
 msgid ""
 "Also note that segmentation details may be mandatory\n"
@@ -366,13 +364,11 @@ msgstr ""
 
 msgid "Amount of RAM in MB that is required to boot the image."
 msgstr ""
-"Минимально необходимый размер оперативной памяти (в Мб) который требуется "
-"для загрузки этого образа."
+"Объем оперативной памяти (в МБ), которая необходима для загрузки образа."
 
 msgid "Amount of disk space in GB that is required to boot the image."
 msgstr ""
-"Минимально необходимый размер диска (в Гб) который требуется для загрузки "
-"этого образа."
+"Объем дискового пространства (в ГБ), которое необходимо для загрузки образа."
 
 msgid ""
 "An <b>External</b> network is set up by an administrator.\n"
@@ -383,16 +379,16 @@ msgid ""
 "the two networks."
 msgstr ""
 "<b>Внешняя</b> сеть создаётся и настраивается администратором.\n"
-"    Если вы хотите, чтобы инстанс мог общаться с внешним миром,\n"
-"    подключите маршрутизатор между вашей <b>Проектной</b> и <b>Внешней</b> "
-"сетями.\n"
+"    Если вы хотите, чтобы инстанс мог общаться с за пределами дата-центра,\n"
+"    подключите маршрутизатор между вашей <b>Проектной</b> сетью и "
+"<b>Внешней</b> сетью.\n"
 "    Вы можете использовать раздел <b>Сетевая топология</b> чтобы подключить "
-"маршрутизатор к двум сетям."
+"маршрутизатор к обеим сетям."
 
 msgid ""
 "An abbreviation of the word attribute is <abbr title=\"attribute\">attr</"
 "abbr>."
-msgstr "Аббревиатура словосочетания  <abbr title=\"attribute\">attr</abbr>."
+msgstr "Сокращение слова \"атрибут\" — <abbr title=\"attribute\">attr</abbr>."
 
 msgid ""
 "An advanced option available when launching an instance is disk "
@@ -427,7 +423,7 @@ msgid "An external (HTTP) URL is required"
 msgstr "Требуется внешняя (HTTP) ссылка"
 
 msgid "An external (HTTP) URL to load the image from"
-msgstr "Внешняя (HTTP) ссылка для скачивания образа."
+msgstr "Внешний (HTTP) URL для загрузки образа"
 
 msgid "An image description less than 256 characters is required."
 msgstr "Описание образа должно быть короче 256 символов."
@@ -562,10 +558,10 @@ msgid "Cancel"
 msgstr "Отмена"
 
 msgid "Cannot get service catalog from keystone."
-msgstr "Не удалось получить каталог служб из Keystone."
+msgstr "Не удается получить каталог служб от keystone."
 
 msgid "Cannot get the extension list."
-msgstr "Невозможно получить список расширений."
+msgstr "Не удается получить список расширений."
 
 msgid "Change Password"
 msgstr "Изменить пароль"
@@ -601,7 +597,7 @@ msgid "Choose an image"
 msgstr "Выберите образ"
 
 msgid "Click to see more details"
-msgstr "Нажмите для подробностей"
+msgstr "Нажмите для просмотра подробностей"
 
 msgid "Close"
 msgstr "Закрыть"
@@ -831,24 +827,24 @@ msgid ""
 "Create a new user and set related properties including the Primary Project "
 "and Role."
 msgstr ""
-"Создайте нового пользователя и задайте соответствующие свойства, в том числе "
-"основной проект и роль"
+"Создайте нового пользователя и установите соответствующие свойства, в том "
+"числе основной проект и роль."
 
 msgid "Created"
 msgstr "Создан"
 
 msgid "Created At"
-msgstr "Создано"
+msgstr "Создано в"
 
 msgid "Created at"
-msgstr "Создано"
+msgstr "Создано в"
 
 #, python-format
 msgid "Created keypair: %s"
-msgstr "Созданная пара ключей: %s"
+msgstr "Создана ключевая пара: %s"
 
 msgid "Creating"
-msgstr "Создание "
+msgstr "Создание"
 
 #, python-format
 msgid "Creating volume %s"
@@ -1089,21 +1085,21 @@ msgid "Deleted Flavor: %s."
 msgid_plural "Deleted Flavors: %s."
 msgstr[0] "Удален шаблон конфигурации: %s."
 msgstr[1] "Удалены шаблоны конфигураций: %s."
-msgstr[2] "Удален шаблон конфигурации: %s."
+msgstr[2] "Удалены шаблоны конфигураций: %s."
 
 #, python-format
 msgid "Deleted Group: %s."
 msgid_plural "Deleted Groups: %s."
-msgstr[0] "Удаленная группа: %s."
-msgstr[1] "Удаленные группы: %s."
-msgstr[2] "Удаленные группы: %s."
+msgstr[0] "Группа удалена: %s."
+msgstr[1] "Группы удалены: %s."
+msgstr[2] "Группы удалены: %s."
 
 #, python-format
 msgid "Deleted Image: %s."
 msgid_plural "Deleted Images: %s."
-msgstr[0] "Удалено образов: %s."
-msgstr[1] "Удалено образов: %s."
-msgstr[2] "Удалено образов: %s."
+msgstr[0] "Образ удален: %s."
+msgstr[1] "Образы удалены: %s."
+msgstr[2] "Образы удалены: %s."
 
 #, python-format
 msgid "Deleted Key Pair: %s."
@@ -1129,9 +1125,9 @@ msgstr[2] "Группы серверов удалены: %s."
 #, python-format
 msgid "Deleted Trunk: %s."
 msgid_plural "Deleted Trunks: %s."
-msgstr[0] "Удаленный транк: %s."
-msgstr[1] "Удаленный транки: %s."
-msgstr[2] "Удаленный транки: %s."
+msgstr[0] "Транк удален: %s."
+msgstr[1] "Транки удалены: %s."
+msgstr[2] "Транки удалены: %s."
 
 #, python-format
 msgid "Deleted User: %s."
@@ -1143,16 +1139,16 @@ msgstr[2] "Удалены пользователи: %s."
 #, python-format
 msgid "Deleted domain: %s."
 msgid_plural "Deleted domains: %s."
-msgstr[0] "Удаленный домен: %s."
-msgstr[1] "Удаленные домены: %s."
-msgstr[2] "Удаленные домены: %s."
+msgstr[0] "Домен удален: %s."
+msgstr[1] "Домены удалены: %s."
+msgstr[2] "Домены удалены: %s."
 
 #, python-format
 msgid "Deleted policy: %s."
 msgid_plural "Deleted policies: %s."
-msgstr[0] "Удаленная политика: %s."
-msgstr[1] "Удаленные политики: %s."
-msgstr[2] "Удаленные политики: %s."
+msgstr[0] "Политика удалена: %s."
+msgstr[1] "Политики удалены: %s."
+msgstr[2] "Политики удалены: %s."
 
 msgid "Deleting"
 msgstr "Удаление"
@@ -1176,7 +1172,7 @@ msgid "Details"
 msgstr "Подробности"
 
 msgid "Details Views:"
-msgstr "Подробнее:"
+msgstr "Просмотр подробностей:"
 
 msgid "Device ID"
 msgstr "ID устройства"
@@ -1200,7 +1196,7 @@ msgid "Direction"
 msgstr "Направление"
 
 msgid "Disable User"
-msgstr "Запретить пользователя"
+msgstr "Отключить пользователя"
 
 msgid "Disabled"
 msgstr "Запрещено"
@@ -1215,7 +1211,7 @@ msgid "Disk Format"
 msgstr "Формат диска"
 
 msgid "Disk Partition"
-msgstr "Разбиение диска"
+msgstr "Разбивка диска"
 
 msgid "Distribution Charts"
 msgstr "Диаграммы распределения"
@@ -1231,7 +1227,7 @@ msgstr[2] "Домены"
 
 #, python-format
 msgid "Domain %s was successfully created."
-msgstr "Домен %s создан успешно."
+msgstr "Домен %s был успешно создан."
 
 msgid "Domain ID"
 msgstr "ID домена"
@@ -1246,7 +1242,7 @@ msgid ""
 "Domains provide separation between users and infrastructure used by "
 "different organizations."
 msgstr ""
-"Домен обеспечивает разделение между пользователями и инфраструктурой, "
+"Домены обеспечивают разделение между пользователями и инфраструктурой, "
 "используемой разными организациями."
 
 msgid "Done"
@@ -1271,50 +1267,47 @@ msgid "Dropup"
 msgstr "Выпадающий"
 
 msgid "Edit"
-msgstr "Редактирование"
+msgstr "Изменить"
 
 msgid "Edit File"
-msgstr "Редактирование файла"
+msgstr "Изменить файл"
 
 #, python-brace-format
 msgid "Edit File: {$ ctrl.model.container $} : {$ ctrl.model.path $}"
-msgstr ""
-"Редактирование файла: {$ ctrl.model.container $} : {$ ctrl.model.path $}"
+msgstr "Изменить файл: {$ ctrl.model.container $} : {$ ctrl.model.path $}"
 
 msgid "Edit Group"
-msgstr "Редактировать группу"
+msgstr "Изменить группу"
 
 msgid "Edit Image"
-msgstr "Редактировать образ"
+msgstr "Изменить образ"
 
 msgid "Edit Role"
-msgstr "Редактировать роль"
+msgstr "Изменить роль"
 
 msgid "Edit Rule"
-msgstr "Редактировать правило"
+msgstr "Изменить правило"
 
 msgid "Edit Trunk"
-msgstr "Редактировать транк"
+msgstr "Изменить транк"
 
 msgid "Edit User"
-msgstr "Редактировать пользователя"
+msgstr "Изменить пользователя"
 
 msgid "Edit the user's details, including the Primary Project."
 msgstr "Изменение данных пользователя, включая его основной проект."
 
 msgid "Email"
-msgstr "E-mail"
+msgstr "Электронная почта"
 
 msgid "Emphasis classes"
 msgstr "Выразительные классы"
 
 msgid "Enable User"
-msgstr "Разрешить пользователя"
+msgstr "Включить пользователя"
 
 msgid "Enable/Disable subport addition, removal and trunk delete."
-msgstr ""
-"Разрешить/запретить добавление и удаление дочерних портов, а также удаление "
-"транка."
+msgstr "Включить/выключить добавление, удаление субпорта и удаление транка."
 
 msgid "Enabled"
 msgstr "Включен"
@@ -1360,7 +1353,7 @@ msgstr "Существующие подсказки планировщика"
 
 #, python-format
 msgid "Extension is not enabled: %(extension)s."
-msgstr "Расширение не включено: %(extension)s"
+msgstr "Расширение не включено: %(extension)s."
 
 msgid "External Network"
 msgstr "Внешняя сеть"
@@ -1392,10 +1385,10 @@ msgid "Flavor"
 msgid_plural "Flavors"
 msgstr[0] "Шаблон конфигурации"
 msgstr[1] "Шаблоны конфигураций"
-msgstr[2] "Шаблон конфигурации"
+msgstr[2] "Шаблоны конфигураций"
 
 msgid "Flavor Name"
-msgstr "Название шаблона конфигурации"
+msgstr "Имя шаблона конфигурации"
 
 msgid ""
 "Flavors manage the sizing for the compute, memory and storage capacity of "
@@ -1457,10 +1450,10 @@ msgid ""
 "authorized_keys</samp>\n"
 "  file."
 msgstr ""
-"Для Windows систем используется PuTTYGen для создания частных/публичных "
+"Для Windows систем используется PuTTYGen для создания открытых/приватных "
 "ключей.\n"
 "  Используйте PuTTY Key Generator для создания ключей, затем скопируйте\n"
-"  публичный ключ из подсвеченного красным окошка в ваш <samp>.ssh/"
+"  открытый ключ из выделенного красным прямоугольника в ваш <samp>.ssh/"
 "authorized_keys</samp>\n"
 "  файл."
 
@@ -1478,7 +1471,7 @@ msgstr[2] "Группы"
 
 #, python-format
 msgid "Group %s was successfully created."
-msgstr "Группа %s успешно создана."
+msgstr "Группа %s была успешно создана."
 
 msgid "Group updated successfully."
 msgstr "Группа успешно обновлена."
@@ -1537,8 +1530,8 @@ msgstr "ISO - образ оптического диска"
 msgid ""
 "If a network is shared, then all users in the project can access the network."
 msgstr ""
-"Если предоставлен совместный доступ к сети, все пользователи проекта имеют к "
-"ней доступ."
+"Если сеть является общей, то все пользователи проекта могут получить к ней "
+"доступ."
 
 msgid ""
 "If a security group is not associated with an instance before it is "
@@ -1596,11 +1589,11 @@ msgstr[2] "Образы"
 
 #, python-format
 msgid "Image %s was successfully created."
-msgstr "Образ %s успешно создан."
+msgstr "Образ %s был успешно создан."
 
 #, python-format
 msgid "Image %s was successfully updated."
-msgstr "Образ %s успешно обновлен"
+msgstr "Образ %s был успешно обновлен."
 
 msgid "Image Description"
 msgstr "Описание образа"
@@ -1609,7 +1602,7 @@ msgid "Image Detail"
 msgstr "Детали образа"
 
 msgid "Image Details"
-msgstr "Детали образа"
+msgstr "Подробности образа"
 
 msgid "Image Name"
 msgstr "Имя образа"
@@ -1739,7 +1732,7 @@ msgid "Item Actions:"
 msgstr "Действия над элементами:"
 
 msgid "Jumbotron"
-msgstr "Да будет свет!"
+msgstr "Выделенный блок"
 
 msgid "Kernel"
 msgstr "Ядро"
@@ -1784,7 +1777,7 @@ msgid ""
 msgstr ""
 "При помощи ключевой пары вы входите на инстанс, после того, как он будет "
 "запущен.\n"
-"  Выберите имя ключевой пары, которое вы запомните и вставьте ваш публичный "
+"  Выберите имя ключевой пары, которое вы запомните и вставьте ваш открытый "
 "SSH ключ в\n"
 "  соответствующее поле."
 
@@ -1798,7 +1791,7 @@ msgstr ""
 "запущен.\n"
 "  Выберите имя ключевой пары, которое вы запомните.\n"
 "  Имя может состоять только из букв, цифр, пробелов, знаков дефиса и нижнего "
-"подчеркивания. "
+"подчеркивания."
 
 msgid "Key Type"
 msgstr "Тип ключа"
@@ -1853,13 +1846,13 @@ msgid "List Function:"
 msgstr "Функция List:"
 
 msgid "List group item heading"
-msgstr "Заголовок группы списков"
+msgstr "Заголовок элемента группы списка"
 
 msgid "List groups"
-msgstr "Группы списков"
+msgstr "Список групп"
 
 msgid "Live Edit Schema Form Examples"
-msgstr "Редактирование примеров форм \"вживую\""
+msgstr "Примеры формы схемы с живым редактированием"
 
 msgid "Load Balancer Pool"
 msgid_plural "Load Balancer Pools"
@@ -1883,7 +1876,7 @@ msgid "Loading ports... Please Wait"
 msgstr "Загрузка портов... Пожалуйста, подождите"
 
 msgid "Loading trunk... Please Wait"
-msgstr "Загружаем информацию о транке... Пожалуйста, подождите"
+msgstr "Загрузка транка... Пожалуйста, подождите"
 
 msgid "Location"
 msgstr "Расположение"
@@ -1961,7 +1954,7 @@ msgstr ""
 "  эта информация может влиять на запуск и поведение инстансов."
 
 msgid "Metadata was successfully updated."
-msgstr "Метаданные были успешно обновлены"
+msgstr "Метаданные были успешно обновлены."
 
 msgid "Middle"
 msgstr "Посередине"
@@ -2006,16 +1999,16 @@ msgid "Minimum Packet Rules"
 msgstr "Правила минимальной частоты пакетов"
 
 msgid "Minimum RAM"
-msgstr "Минимальный размер памяти"
+msgstr "Минимальный объем оперативной памяти"
 
 msgid "Minimum RAM (MB)"
-msgstr "Минимальный размер памяти (Мб)"
+msgstr "Минимальный объем оперативной памяти (МБ)"
 
 msgid "Minimum bandwidth (in kbps)"
-msgstr "Минимальная пропускная способность (в кбит/с)."
+msgstr "Минимальная пропускная способность (в кбит/с)"
 
 msgid "Minimum packet rate (in kpps)"
-msgstr "Минимальная частота пакетов (в кпак/сек)."
+msgstr "Минимальная частота пакетов (в тыс. пакетов в секунду)"
 
 msgid "Modals"
 msgstr "Модальное окно"
@@ -2130,7 +2123,7 @@ msgid "New File Contents"
 msgstr "Содержимое нового файла"
 
 msgid "Newer"
-msgstr "Вперед"
+msgstr "Новее"
 
 msgid "Next"
 msgstr "Следующая"
@@ -2148,7 +2141,7 @@ msgid "No description available."
 msgstr "Описание недоступно."
 
 msgid "No existing scheduler hints"
-msgstr "Нет существующих подсказок планировщика "
+msgstr "Нет существующих подсказок планировщика"
 
 msgid "No items to display."
 msgstr "Нет элементов для отображения."
@@ -2239,7 +2232,7 @@ msgid "Object Count"
 msgstr "Количество объектов"
 
 msgid "Object Details"
-msgstr "Сведения об объекте"
+msgstr "Подробности объекта"
 
 msgid "Ok"
 msgstr "Ок"
@@ -2248,7 +2241,7 @@ msgid "Older"
 msgstr "Назад"
 
 msgid "One fine body…"
-msgstr "Содержимое диалога..."
+msgstr "Содержимое диалога…"
 
 msgid "One large body…"
 msgstr "Одно большое содержимое…"
@@ -2257,13 +2250,13 @@ msgid "One more separated link"
 msgstr "Ещё одна отдельная ссылка"
 
 msgid "One small body…"
-msgstr "Одно маленькое содержимое..."
+msgstr "Одно маленькое содержимое…"
 
 msgid "One super large body…"
 msgstr "Одно супер большое содержимое…"
 
 msgid "One tiny body…"
-msgstr "Одно очень маленькое содержимое..."
+msgstr "Одно очень маленькое содержимое…"
 
 msgid "Open"
 msgstr "Открыто"
@@ -2293,13 +2286,13 @@ msgid "Owner"
 msgstr "Владелец"
 
 msgid "Ownership"
-msgstr "Владелец"
+msgstr "Владение"
 
 msgid "PLOOP"
 msgstr "PLOOP"
 
 msgid "PLOOP - Virtuozzo/Parallels Loopback Disk"
-msgstr "PLOOP - Диск Virtuozzo/Parallels (OpenVZ)"
+msgstr "PLOOP - диск Virtuozzo/Parallels"
 
 msgid "Pager"
 msgstr "Постраничная навигация"
@@ -2371,7 +2364,7 @@ msgid "Policy"
 msgstr "Политика"
 
 msgid "Policy Details"
-msgstr "Информация о политике"
+msgstr "Подробности политики"
 
 msgid "Policy ID"
 msgstr "ID политики"
@@ -2441,7 +2434,7 @@ msgstr[1] "Проекты"
 msgstr[2] "Проекты"
 
 msgid "Project ID"
-msgstr " ID проекта"
+msgstr "ID проекта"
 
 msgid "Project Name"
 msgstr "Имя проекта"
@@ -2451,7 +2444,7 @@ msgid ""
 "    These networks are fully isolated and are project-specific."
 msgstr ""
 "Проектные сети создаются пользователями.\n"
-"    Эти сети полностью изолированы и принадлежат проекту."
+"    Эти сети полностью изолированы и привязаны к конкретному проекту."
 
 msgid "Properties:"
 msgstr "Свойства:"
@@ -2492,7 +2485,7 @@ msgid "QCOW2"
 msgstr "QCOW2"
 
 msgid "QCOW2 - QEMU Emulator"
-msgstr ".qcow2 - образ диска QEMU"
+msgstr "QCOW2 - образ диска QEMU"
 
 msgid "QoS Policy"
 msgid_plural "QoS Policies"
@@ -2502,7 +2495,7 @@ msgstr[2] "Политики QoS"
 
 #, python-format
 msgid "QoS Policy %s was successfully created."
-msgstr "QoS политика %s успешно создана."
+msgstr "QoS политика %s была успешно создана."
 
 msgid "QoS Policy ID"
 msgstr "ID политики QoS"
@@ -2544,10 +2537,10 @@ msgid "Radios, Checkboxes and Select"
 msgstr "Радиокнопки, флажки и выбор из вариантов"
 
 msgid "Ramdisk"
-msgstr "RAM-диск"
+msgstr "Ramdisk"
 
 msgid "Ramdisk ID"
-msgstr "ID RAM-диска"
+msgstr "Ramdisk ID"
 
 msgid "Raw"
 msgstr "Raw"
@@ -2566,7 +2559,7 @@ msgid "Remote"
 msgstr "Для адресов"
 
 msgid "Resource ID(s)"
-msgstr "ID ресурса(ов)"
+msgstr "ID ресурса"
 
 msgid "Restricts instances belonging to the server group to separate hosts."
 msgstr ""
@@ -2683,17 +2676,17 @@ msgid ""
 "Groups</b> view, then find the security group and click <b>Manage Rules</b>."
 msgstr ""
 "Группы безопасности задают набор правил, определяющих поведение сетевого "
-"трафика по направлению из/в инстанс. Пользователи могут добавлять "
-"дополнительные правила в существующие группы, что бы в дальнейшем определить "
-"политики доступа к инстансу. Для создания  дополнительных правил, зайдите в "
-"раздел <b>Сеть | Группы безопасности</b>, найдите нужную группу и нажмите "
-"<b>Управление правилами</b>."
+"трафика по направлению из инстанса или в инстанс. Пользователи могут "
+"добавлять дополнительные правила в существующие группы, что бы в дальнейшем "
+"определить политики доступа к инстансу. Для создания  дополнительных правил, "
+"зайдите в раздел <b>Сеть | Группы безопасности</b>, найдите нужную группу и "
+"нажмите <b>Управление правилами</b>."
 
 msgid "Segmentation ID"
-msgstr "ID сегмента"
+msgstr "ID сегментации"
 
 msgid "Segmentation Id"
-msgstr "ID сегмента"
+msgstr "Id сегментации"
 
 msgid "Segmentation Type"
 msgstr "Тип сегментации"
@@ -2722,10 +2715,10 @@ msgstr ""
 "Выберите шаблон конфигурации из списка доступных шаблонов конфигураций ниже."
 
 msgid "Select a key pair from the available key pairs below."
-msgstr "Выберите одну из доступных пар ключей."
+msgstr "Выберите ключевую пару из списка доступных ключевых пар ниже."
 
 msgid "Select a server group from the available groups below."
-msgstr "Выберите группу серверов из списка доступных групп ниже."
+msgstr "Выберите группу сервера из списка доступных групп ниже."
 
 msgid "Select a source from those listed below."
 msgstr "Выберите источник из списка ниже."
@@ -2804,7 +2797,7 @@ msgstr[2] "Группы серверов"
 
 #, python-format
 msgid "Server Group %s was successfully created."
-msgstr "Группа серверов %s успешно создана"
+msgstr "Группа серверов %s была успешно создана."
 
 msgid "Server Group Members"
 msgstr "Участники группы серверов"
@@ -2945,7 +2938,7 @@ msgid "Summary Template URL:"
 msgstr "Описание шаблона URL:"
 
 msgid "Supports Details View:"
-msgstr "Поддержка просмотра информации:"
+msgstr "Поддержки просмотра подробностей:"
 
 msgid "Swap Disk"
 msgstr "Swap диск"
@@ -3047,7 +3040,7 @@ msgid ""
 "%(maxInstanceCount)s instances"
 msgstr ""
 "Количество инстансов не должно превышать доступную квоту в "
-"%(maxInstanceCount)s инстансов."
+"%(maxInstanceCount)s инстансов"
 
 msgid ""
 "The logical port also defines the MAC address and the IP address(es) to be "
@@ -3127,7 +3120,7 @@ msgid ""
 "ramdisk when booting an AMI-style image."
 msgstr ""
 "Имя образа, хранящегося в службе образов, который должен использоваться в "
-"качестве RAM-диска при загрузке образа типа AMI."
+"качестве ramdisk при загрузке образа типа AMI."
 
 msgid "The name of the Volume."
 msgstr "Имя диска."
@@ -3243,8 +3236,9 @@ msgid ""
 "There are two ways to generate a key pair. From a Linux system,\n"
 "  generate the key pair with the <samp>ssh-keygen</samp> command:"
 msgstr ""
-"Есть два способа создания ключевых пар. Для Linux систем,\n"
-"  создайте связку ключей командой <samp>ssh-keygen</samp> :"
+"Есть два способа сгенерировать ключевую пару. Для Linux систем,\n"
+"  сгенерировать ключевую пару можно с помощью команды <samp>ssh-keygen</"
+"samp>:"
 
 msgid ""
 "This JavaScript object contains your new form and can be used with "
@@ -3265,8 +3259,8 @@ msgid ""
 "This command generates a pair of keys: a private key (cloud.key)\n"
 "  and a public key (cloud.key.pub)."
 msgstr ""
-"Данная команда создаёт связку ключей: приватный ключ (cloud.key)\n"
-"  и публичный ключ (cloud.key.pub)."
+"Данная команда генерирует ключевую пару: закрытый ключ (cloud.key)\n"
+"  и открытый ключ (cloud.key.pub)."
 
 msgid "This container does not exist."
 msgstr "Этот контейнер не существует."
@@ -3377,11 +3371,11 @@ msgstr[2] "Транки"
 
 #, python-format
 msgid "Trunk %s was successfully created."
-msgstr "Транк %s успешно создан."
+msgstr "Транк %s был успешно создан."
 
 #, python-format
 msgid "Trunk %s was successfully edited."
-msgstr "Транк %s успешно изменён."
+msgstr "Транк %s был успешно изменен."
 
 msgid "Type"
 msgstr "Тип"
@@ -3450,13 +3444,13 @@ msgid "Unable to create the image."
 msgstr "Не удалось создать образ."
 
 msgid "Unable to create the keypair."
-msgstr "Не удалось создать пару ключей."
+msgstr "Не удалось создать ключевую пару."
 
 msgid "Unable to create the network."
 msgstr "Не удалось создать сеть."
 
 msgid "Unable to create the project."
-msgstr "Не удалось создать проект"
+msgstr "Не удалось создать проект."
 
 msgid "Unable to create the role."
 msgstr "Не удалось создать роль."
@@ -3597,7 +3591,7 @@ msgstr "Не удалось удалить образ с id: %(id)s"
 
 #, python-format
 msgid "Unable to delete the keypair with name: %(name)s"
-msgstr "Не удалось удалить пару ключей с именем: %(name)s"
+msgstr "Не удалось удалить ключевую пару с именем: %(name)s"
 
 msgid "Unable to delete the minimum bandwidth rule."
 msgstr "Не удалось удалить правило минимальной пропускной способности."
@@ -3681,7 +3675,7 @@ msgid "Unable to fetch the groups."
 msgstr "Не удалось получить группы."
 
 msgid "Unable to fetch the policy details."
-msgstr "Не удалось получить детали политики."
+msgstr "Не удалось получить подробности политики."
 
 msgid "Unable to fetch the service catalog."
 msgstr "Не удалось получить каталог служб."
@@ -3705,7 +3699,7 @@ msgid "Unable to get the Swift service info."
 msgstr "Не удалось получить информацию службы Swift."
 
 msgid "Unable to get the container details."
-msgstr "Не удалось получить сведения о контейнере."
+msgstr "Не удалось получить подробности о контейнере."
 
 msgid "Unable to get the objects in container."
 msgstr "Не удалось получить объекты в контейнере."
@@ -3718,7 +3712,7 @@ msgid "Unable to hard-reboot the server with id: %(id)s"
 msgstr "Не удалось жестко перезагрузить сервер с id: %(id)s"
 
 msgid "Unable to import the keypair."
-msgstr "Не удалось импортировать пару ключей."
+msgstr "Не удалось импортировать ключевую пару."
 
 msgid "Unable to load the server actions."
 msgstr "Не удалось загрузить действия сервера."
@@ -3826,7 +3820,7 @@ msgid "Unable to retrieve the group."
 msgstr "Не удалось получить группу."
 
 msgid "Unable to retrieve the image custom properties."
-msgstr "Не удалось получить изменяемые свойства образа."
+msgstr "Не удалось получить пользовательские свойства образа."
 
 msgid "Unable to retrieve the image."
 msgstr "Не удалось получить образ."
@@ -3835,10 +3829,10 @@ msgid "Unable to retrieve the images."
 msgstr "Не удалось получить образы."
 
 msgid "Unable to retrieve the keypair."
-msgstr "Не удалось импортировать пару ключей."
+msgstr "Не удалось получить ключевую пару."
 
 msgid "Unable to retrieve the keypairs."
-msgstr "Не удалось получить пары ключей."
+msgstr "Не удалось получить ключевые пары."
 
 msgid "Unable to retrieve the limits."
 msgstr "Не удалось получить ограничения."
@@ -3891,7 +3885,7 @@ msgstr "Не удалось получить подсети."
 
 #, python-format
 msgid "Unable to retrieve the trunk with id: %(id)s"
-msgstr "Ну удалось получить детали транка с id: %(id)s"
+msgstr "Ну удалось получить транк с id: %(id)s"
 
 msgid "Unable to retrieve the trunks."
 msgstr "Не удалось получить транки."
@@ -3900,7 +3894,7 @@ msgid "Unable to retrieve the user."
 msgstr "Не удалось получить пользователя."
 
 msgid "Unable to retrieve the users."
-msgstr "Не удалось получить список пользователей."
+msgstr "Не удалось получить пользователей."
 
 msgid "Unable to retrieve the volume availability zones."
 msgstr "Не удалось получить зоны доступности диска."
@@ -3909,7 +3903,7 @@ msgid "Unable to retrieve the volume metadata."
 msgstr "Не удалось получить метаданные диска."
 
 msgid "Unable to retrieve the volume snapshots."
-msgstr "Не удалось найти снимки диска."
+msgstr "Не удалось получить снимки диска."
 
 msgid "Unable to retrieve the volume type metadata."
 msgstr "Не удалось получить метаданные типа диска."
@@ -3939,7 +3933,7 @@ msgstr "Не удалось запустить сервер с id: %(id)s"
 
 #, python-format
 msgid "Unable to stop the server with id: %(id)s"
-msgstr "Не удаётся остановить сервер с ID: %(id)s"
+msgstr "Не удалось остановить сервер с id: %(id)s"
 
 #, python-format
 msgid "Unable to suspend the server with id: %(id)s"
@@ -3986,7 +3980,7 @@ msgid "Unordered"
 msgstr "Несортированный"
 
 msgid "Unstyled"
-msgstr "Нестилизованный "
+msgstr "Без стиля"
 
 msgid "Up"
 msgstr "Включен"
@@ -4022,10 +4016,10 @@ msgid "Updated"
 msgstr "Обновлено"
 
 msgid "Updated At"
-msgstr "Обновлено"
+msgstr "Обновлено в"
 
 msgid "Updated at"
-msgstr "Обновлено"
+msgstr "Обновлено в"
 
 msgid "Upload File"
 msgstr "Загрузить файл"
@@ -4079,19 +4073,19 @@ msgstr[2] "Пользователи"
 
 #, python-format
 msgid "User %s was successfully created."
-msgstr "Пользователь %s успешно создан."
+msgstr "Пользователь %s был успешно создан."
 
 #, python-format
 msgid "User %s was successfully disabled."
-msgstr "Пользователь %s был успешно заблокирован."
+msgstr "Пользователь %s был успешно отключен."
 
 #, python-format
 msgid "User %s was successfully enabled."
-msgstr "Пользователь %s был успешно разблокирован."
+msgstr "Пользователь %s был успешно включен."
 
 #, python-format
 msgid "User %s was successfully updated."
-msgstr "Пользователь %s успешно обновлен."
+msgstr "Пользователь %s был успешно обновлен."
 
 msgid "User ID"
 msgstr "ID пользователя"
@@ -4100,28 +4094,28 @@ msgid "User Name"
 msgstr "Имя пользователя"
 
 msgid "User password has been updated successfully."
-msgstr "Пароль пользователя успешно обновлён."
+msgstr "Пароль пользователя был успешно обновлен."
 
 msgid "VDI"
 msgstr "VDI"
 
 msgid "VDI - Virtual Disk Image"
-msgstr "vdi - образ виртуального диска VirtualBox (Oracle)"
+msgstr "VDI - образ виртуального диска VirtualBox"
 
 msgid "VHD"
 msgstr "VHD"
 
 msgid "VHD - Virtual Hard Disk"
-msgstr ".vhd - образ виртуального жесткого диска (Microsoft Hyper-V)"
+msgstr "VHD - образ виртуального жесткого диска"
 
 msgid "VMDK"
 msgstr "VMDK"
 
 msgid "VMDK - Virtual Machine Disk"
-msgstr ".vhdx - расширение формата .vhd (Microsoft Hyper-V)"
+msgstr "VMDK - образ виртуального диска"
 
 msgid "VNIC type"
-msgstr "Тип vNIC"
+msgstr "Тип VNIC"
 
 msgid ""
 "Valid DSCP mark values are even numbers between 0 and 56,\n"
@@ -4136,16 +4130,16 @@ msgstr ""
 "46, 48, 56."
 
 msgid "View As Modal"
-msgstr "Просмотр в модальном виде"
+msgstr "Просмотр в модальном окне"
 
 msgid "View Details"
-msgstr "Показать сведения"
+msgstr "Просмотреть подробности"
 
 msgid "View Form JSON"
-msgstr "Просмотр в JSON"
+msgstr "Просмотр JSON формы"
 
 msgid "View Instance Details"
-msgstr "Посмотреть детали инстанса."
+msgstr "Посмотреть детали инстанса"
 
 msgid "View Router Details"
 msgstr "Посмотреть информацию о маршрутизаторе"
@@ -4175,7 +4169,7 @@ msgstr[1] "Резервные копии диска"
 msgstr[2] "Резервные копии диска"
 
 msgid "Volume Details"
-msgstr "Детали диска"
+msgstr "Подробности диска"
 
 msgid "Volume Quota"
 msgstr "Квота диска"
@@ -4301,7 +4295,7 @@ msgid "You are not allowed to reactivate image: %s"
 msgstr "Вам не разрешено активировать образ: %s"
 
 msgid "You can add arbitrary metadata to your image."
-msgstr "Вы можете добавить произвольные метаданные в свой образ. "
+msgstr "Вы можете добавить произвольные метаданные в свой образ."
 
 msgid ""
 "You can add arbitrary metadata to your instance so that you can more easily "
@@ -4365,18 +4359,18 @@ msgid "You have selected \"%s\". Deleted Server Group is not recoverable."
 msgid_plural ""
 "You have selected \"%s\". Deleted Server Groups are not recoverable."
 msgstr[0] ""
-"Вы выбрали \"%s\". Восстановить удаленную группу серверов невозможно."
+"Вы выбрали \"%s\". Удаленная группа серверов не подлежит восстановлению."
 msgstr[1] ""
-"Вы выбрали \"%s\". Восстановить удаленные группы серверов невозможно."
+"Вы выбрали \"%s\". Удаленные группы серверов не подлежат восстановлению."
 msgstr[2] ""
-"Вы выбрали \"%s\". Восстановить удаленные группы серверов невозможно."
+"Вы выбрали \"%s\". Удаленные группы серверов не подлежат восстановлению."
 
 #, python-format
 msgid "You have selected \"%s\". Deleted Trunk is not recoverable."
 msgid_plural "You have selected \"%s\". Deleted Trunks are not recoverable."
-msgstr[0] "Вы выбрали \"%s\". Удалённый транк не восстановим."
-msgstr[1] "Вы выбрали \"%s\". Удалённые транки не восстановимы."
-msgstr[2] "Вы выбрали \"%s\". Удалённые транки не восстановимы."
+msgstr[0] "Вы выбрали \"%s\". Удаленный транк не подлежит восстановлению."
+msgstr[1] "Вы выбрали \"%s\". Удаленные транки не подлежат восстановлению."
+msgstr[2] "Вы выбрали \"%s\". Удаленные транки не подлежат восстановлению."
 
 #, python-format
 msgid "You have selected \"%s\". Deleted domain is not recoverable."
@@ -4388,9 +4382,12 @@ msgstr[2] "Вы выбрали \"%s\". Удаленные домены не по
 #, python-format
 msgid "You have selected \"%s\". Deleted flavor is not recoverable."
 msgid_plural "You have selected \"%s\". Deleted flavors are not recoverable."
-msgstr[0] "Вы выбрали \"%s\". Удаление шаблона конфигурации необратимо."
-msgstr[1] "Вы выбрали \"%s\". Удаление шаблонов конфигураций необратимо."
-msgstr[2] "Вы выбрали \"%s\". Удаление шаблонов конфигураций необратимо."
+msgstr[0] ""
+"Вы выбрали \"%s\". Удаленный шаблон конфигурации не подлежит восстановлению."
+msgstr[1] ""
+"Вы выбрали \"%s\". Удаленные шаблоны конфигураций не подлежат восстановлению."
+msgstr[2] ""
+"Вы выбрали \"%s\". Удаленные шаблоны конфигураций не подлежат восстановлению."
 
 #, python-format
 msgid "You have selected \"%s\". Deleted group is not recoverable."
@@ -4402,53 +4399,58 @@ msgstr[2] "Вы выбрали \"%s\". Удаленные группы не по
 #, python-format
 msgid "You have selected \"%s\". Deleted image is not recoverable."
 msgid_plural "You have selected \"%s\". Deleted images are not recoverable."
-msgstr[0] "Выбрано образов: \"%s\". Восстановить удаленные образы невозможно."
-msgstr[1] "Выбрано образов: \"%s\". Восстановить удаленные образы невозможно."
-msgstr[2] "Выбрано образов: \"%s\". Восстановить удаленные образы невозможно."
+msgstr[0] "Вы выбрали \"%s\". Удаленный образ не подлежит восстановлению."
+msgstr[1] "Вы выбрали \"%s\". Удаленные образы не подлежат восстановлению."
+msgstr[2] "Вы выбрали \"%s\". Удаленные образы не подлежат восстановлению."
 
 #, python-format
 msgid "You have selected \"%s\". Deleted key pair is not recoverable."
 msgid_plural "You have selected \"%s\". Deleted key pairs are not recoverable."
 msgstr[0] ""
-"Вы выбрали \"%s\". Восстановление удаленной ключевой пары невозможно"
-msgstr[1] "Вы выбрали \"%s\". Восстановление удаленных ключевых пар невозможно"
-msgstr[2] "Вы выбрали \"%s\". Восстановление удаленных ключевых пар невозможно"
+"Вы выбрали \"%s\". Удаленная ключевая пара не подлежит восстановлению."
+msgstr[1] ""
+"Вы выбрали \"%s\". Удаленные ключевые пары не подлежит восстановлению."
+msgstr[2] ""
+"Вы выбрали \"%s\". Удаленные ключевые пары не подлежит восстановлению."
 
 #, python-format
 msgid "You have selected \"%s\". Deleted policy is not recoverable."
 msgid_plural "You have selected \"%s\". Deleted policies are not recoverable."
-msgstr[0] "Вы выбрали \"%s\". Удалённая политика не восстановима."
-msgstr[1] "Вы выбрали \"%s\". Удалённые политики не восстановимы."
-msgstr[2] "Вы выбрали \"%s\". Удалённые политики не восстановимы."
+msgstr[0] "Вы выбрали \"%s\". Удаленная политика не подлежит восстановлению."
+msgstr[1] "Вы выбрали \"%s\". Удаленные политики не подлежат восстановлению."
+msgstr[2] "Вы выбрали \"%s\". Удаленные политики не подлежат восстановлению."
 
 #, python-format
 msgid "You have selected \"%s\". Deleted role is not recoverable."
 msgid_plural "You have selected \"%s\". Deleted roles are not recoverable."
-msgstr[0] "Вы выбрали \"%s\". Удаленная роль не восстановима."
-msgstr[1] "Вы выбрали \"%s\". Удаленные роли не восстановимы."
-msgstr[2] "Вы выбрали \"%s\". Удаленные роли не восстановимы."
+msgstr[0] "Вы выбрали \"%s\". Удаленная роль не подлежит восстановлению."
+msgstr[1] "Вы выбрали \"%s\". Удаленные роли не подлежат восстановлению."
+msgstr[2] "Вы выбрали \"%s\". Удаленные роли не подлежат восстановлению."
 
 #, python-format
 msgid "You have selected \"%s\". Deleted user is not recoverable."
 msgid_plural "You have selected \"%s\". Deleted users are not recoverable."
-msgstr[0] "Вы выбрали \"%s\". Удаление пользователя не обратимо."
-msgstr[1] "Вы выбрали \"%s\". Удаление пользователей не обратимо."
-msgstr[2] "Вы выбрали \"%s\". Удаление пользователей не обратимо."
+msgstr[0] ""
+"Вы выбрали \"%s\". Удаленный пользователь не подлежит восстановлению."
+msgstr[1] ""
+"Вы выбрали \"%s\". Удаленные пользователи не подлежат восстановлению."
+msgstr[2] ""
+"Вы выбрали \"%s\". Удаленные пользователи не подлежат восстановлению."
 
 msgid "Your Form as JavaScript"
-msgstr "Ваша форма в JavaScript"
+msgstr "Ваша форма на JavaScript"
 
 msgid "any"
 msgstr "любой"
 
 msgid "egress"
-msgstr "Исходящий трафик"
+msgstr "исходящий трафик"
 
 msgid "image"
 msgstr "образ"
 
 msgid "ingress"
-msgstr "Входящий трафик"
+msgstr "входящий трафик"
 
 msgid "inherit"
 msgstr "унаследовать"

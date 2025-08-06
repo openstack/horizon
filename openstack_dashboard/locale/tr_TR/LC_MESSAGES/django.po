@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: horizon VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2025-07-21 16:55+0000\n"
+"POT-Creation-Date: 2025-07-31 11:36+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -1856,18 +1856,6 @@ msgstr "OpenStack RC Dosyasını İndir"
 msgid "Download transfer credentials"
 msgstr "Aktarım kimlik bilgilerini indir"
 
-msgid "EC2 Access Key"
-msgstr "EC2 Erişim Anahtarı"
-
-msgid "EC2 Credentials"
-msgstr "EC2 Kimlik Bilgileri"
-
-msgid "EC2 Secret Key"
-msgstr "EC2 Gizli Anahtarı"
-
-msgid "EC2 URL"
-msgstr "EC2 Adresi"
-
 msgid ""
 "Each QoS Specs entity will have a \"Consumer\" value which indicates where "
 "the administrator would like the QoS policy to be enforced. This value can "
@@ -2170,10 +2158,6 @@ msgstr "İsim uzayı %s için kaynak türlerinin güncellenmesinde hata."
 
 msgid "Error when adding or removing hosts."
 msgstr "İstemci ekleme ya da çıkarmada hata."
-
-#, python-format
-msgid "Error writing zipfile: %(exc)s"
-msgstr "%(exc)s zipfile yazdırılamadı"
 
 msgid "Ether Type"
 msgstr "Ether Türü"
@@ -4219,9 +4203,6 @@ msgstr "Yeniden İnşa Ediliyor"
 msgid "Rebuilding instance %s."
 msgstr "Sanal makine %s tekrar inşa ediliyor."
 
-msgid "Recreate EC2 Credentials"
-msgstr "EC2 Kimlik Bilgilerini Yeniden Oluştur"
-
 #, python-format
 msgid "Regenerate and download Key Pair &quot;%(keypair_name)s&quot;"
 msgstr "&quot;%(keypair_name)s&quot; anahtar Çiftini yeniden üret ve indir"
@@ -4523,9 +4504,6 @@ msgstr "Çalışıyor"
 
 msgid "Running Instance Migration Type"
 msgstr "Çalışan Sunucu Göç Türü"
-
-msgid "S3 URL"
-msgstr "S3 Adresi"
 
 msgid "SLAAC: Address discovered from OpenStack Router"
 msgstr "SLAAC: OpenStack Yönlendiricisinden alınan adres"
@@ -5171,9 +5149,6 @@ msgstr "%s açık anahtar başarıyla getirildi"
 
 msgid "Successfully modified QoS Spec consumer."
 msgstr "QoS Özelliği tüketicisi başarıyla değiştirildi."
-
-msgid "Successfully recreated ec2 credentials."
-msgstr "Ec2 kimlik bilgileri başarıyla yeniden oluşturuldu."
 
 #, python-format
 msgid ""
@@ -5898,14 +5873,8 @@ msgstr "Mantıksal sürücü türü ek özellikleri düzenlenemedi."
 msgid "Unable to extend volume."
 msgstr "Mantıksal sürücü büyütülemiyor."
 
-msgid "Unable to fetch EC2 credentials."
-msgstr "EC2 Kimlikleri getirilemedi."
-
 msgid "Unable to find default role."
 msgstr "Varsayılan rol bulunamadı."
-
-msgid "Unable to get EC2 credentials"
-msgstr "EC2 Kimlikleri getirilemedi."
 
 #, python-format
 msgid "Unable to get RDP console for instance \"%s\"."
@@ -6005,15 +5974,6 @@ msgstr "IP adres ayrıştırılamıyor %s."
 
 msgid "Unable to rebuild instance."
 msgstr "Sanal makine yeniden inşa edilemedi."
-
-msgid "Unable to recreate ec2 credentials. Failed to create ec2 credentials."
-msgstr ""
-"Ec2 kimlik bilgileri yeniden oluşturulamıyor. Ec2 kimlik bilgileri "
-"oluşturulamadı."
-
-msgid "Unable to recreate ec2 credentials. Failed to delete ec2 credentials."
-msgstr ""
-"Ec2 kimlik bilgileri tekrar oluşturulamıyor. Ec2 kimlik bilgileri silinemedi."
 
 msgid "Unable to register identity provider."
 msgstr "Kimlik sağlayıcı kaydedilemiyor."

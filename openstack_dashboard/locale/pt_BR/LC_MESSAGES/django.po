@@ -17,7 +17,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: horizon VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2025-07-21 16:55+0000\n"
+"POT-Creation-Date: 2025-07-31 11:36+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -2102,18 +2102,6 @@ msgstr "Baixar arquivo openrc"
 msgid "Download transfer credentials"
 msgstr "Baixar credenciais de transferência"
 
-msgid "EC2 Access Key"
-msgstr "Chave de Acesso EC2"
-
-msgid "EC2 Credentials"
-msgstr "Credenciais EC2"
-
-msgid "EC2 Secret Key"
-msgstr "Chave Secreta EC2"
-
-msgid "EC2 URL"
-msgstr "URL EC2"
-
 msgid ""
 "Each QoS Specs entity will have a \"Consumer\" value which indicates where "
 "the administrator would like the QoS policy to be enforced. This value can "
@@ -2459,10 +2447,6 @@ msgstr "Erro ao atualizar tipos de recursos para o namespace %s."
 
 msgid "Error when adding or removing hosts."
 msgstr "Erro ao adicionar ou remover hosts."
-
-#, python-format
-msgid "Error writing zipfile: %(exc)s"
-msgstr "Erro escrevendo arquivo zip: %(exc)s"
 
 msgid "Errors occurred in deleting group."
 msgstr "Ocorreram erros na exclusão de grupo."
@@ -4733,9 +4717,6 @@ msgstr "Refazendo"
 msgid "Rebuilding instance %s."
 msgstr "Reconstruindo Instância %s."
 
-msgid "Recreate EC2 Credentials"
-msgstr "Recriar Credenciais do EC2"
-
 #, python-format
 msgid "Regenerate and download Key Pair &quot;%(keypair_name)s&quot;"
 msgstr "Regenere e baixe o par de chaves &quot;%(keypair_name)s&quot;"
@@ -5055,9 +5036,6 @@ msgstr "Executando"
 
 msgid "Running Instance Migration Type"
 msgstr "Executando Migração de Tipo de Instância"
-
-msgid "S3 URL"
-msgstr "URL S3"
 
 msgid "SLAAC: Address discovered from OpenStack Router"
 msgstr "SLAAC: Endereço descoberto a partir de um Roteador do OpenStack "
@@ -5750,9 +5728,6 @@ msgstr "Importada com sucesso chave pública: %s"
 
 msgid "Successfully modified QoS Spec consumer."
 msgstr "Consumidor da Especificação de QoS modificado com sucesso."
-
-msgid "Successfully recreated ec2 credentials."
-msgstr "Credenciais do ec2 recriadas com sucesso."
 
 msgid "Successfully rescued instance"
 msgstr "Instância resgatada com sucesso"
@@ -6648,14 +6623,8 @@ msgstr "Não é possível editar um tipo de volume com especificações extra."
 msgid "Unable to extend volume."
 msgstr "Incapaz de estender o volume."
 
-msgid "Unable to fetch EC2 credentials."
-msgstr "Não foi possível obter credenciais EC2."
-
 msgid "Unable to find default role."
 msgstr "Não é possível encontrar o papel padrão."
-
-msgid "Unable to get EC2 credentials"
-msgstr "Não foi possível obter credenciais EC2"
 
 #, python-format
 msgid "Unable to get MKS console for instance \"%s\"."
@@ -6783,15 +6752,6 @@ msgstr "Não é possível interpretar o endereço IP %s"
 
 msgid "Unable to rebuild instance."
 msgstr "Não é possível reconstruir instância."
-
-msgid "Unable to recreate ec2 credentials. Failed to create ec2 credentials."
-msgstr ""
-"Não é possível recriar credenciais do ec2. Falha ao criar credenciais do ec2."
-
-msgid "Unable to recreate ec2 credentials. Failed to delete ec2 credentials."
-msgstr ""
-"Não é possível recriar credenciais do ec2. Falha ao excluir credenciais do "
-"ec2."
 
 msgid "Unable to register identity provider."
 msgstr "Não é possível registrar o provedor de identidade."

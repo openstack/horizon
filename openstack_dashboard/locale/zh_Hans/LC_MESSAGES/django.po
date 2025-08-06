@@ -33,7 +33,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: horizon VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2025-07-21 16:55+0000\n"
+"POT-Creation-Date: 2025-07-31 11:36+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -2067,18 +2067,6 @@ msgstr "下载 openrc 文件"
 msgid "Download transfer credentials"
 msgstr "下载转让凭证"
 
-msgid "EC2 Access Key"
-msgstr "EC2访问码"
-
-msgid "EC2 Credentials"
-msgstr "EC2 证书"
-
-msgid "EC2 Secret Key"
-msgstr "EC2密钥"
-
-msgid "EC2 URL"
-msgstr "EC2 URL"
-
 msgid ""
 "Each QoS Specs entity will have a \"Consumer\" value which indicates where "
 "the administrator would like the QoS policy to be enforced. This value can "
@@ -2410,10 +2398,6 @@ msgstr "更新命名空间%s的资源类型出错。"
 
 msgid "Error when adding or removing hosts."
 msgstr "增加或删除主机时出错"
-
-#, python-format
-msgid "Error writing zipfile: %(exc)s"
-msgstr "zip文件写入出错：%(exc)s"
 
 msgid "Errors occurred in deleting group."
 msgstr "删除组时出错。"
@@ -4680,9 +4664,6 @@ msgstr "正在重建"
 msgid "Rebuilding instance %s."
 msgstr "重建实例  %s。"
 
-msgid "Recreate EC2 Credentials"
-msgstr "重新创建EC2凭据"
-
 #, python-format
 msgid "Regenerate and download Key Pair &quot;%(keypair_name)s&quot;"
 msgstr "重新生成并下载密钥对 &quot;%(keypair_name)s&quot;"
@@ -4998,9 +4979,6 @@ msgstr "运行中"
 
 msgid "Running Instance Migration Type"
 msgstr "运行实例迁移类型"
-
-msgid "S3 URL"
-msgstr "S3 URL"
 
 msgid "SLAAC: Address discovered from OpenStack Router"
 msgstr "SLAAC: 地址从OpenStack路由器中发现"
@@ -5676,9 +5654,6 @@ msgstr "成功导入公钥：%s"
 
 msgid "Successfully modified QoS Spec consumer."
 msgstr "成功更改QoS规格消费者。"
-
-msgid "Successfully recreated ec2 credentials."
-msgstr "重新创建EC2凭据成功。"
 
 msgid "Successfully rescued instance"
 msgstr "云主机成功进入救援模式"
@@ -6535,9 +6510,6 @@ msgstr "无法编辑卷类型扩展规格。"
 msgid "Unable to extend volume."
 msgstr "无法扩展卷"
 
-msgid "Unable to fetch EC2 credentials."
-msgstr "无法获得 EC2 凭据。"
-
 msgid "Unable to fetch snapshot"
 msgstr "无法获取快照"
 
@@ -6546,9 +6518,6 @@ msgstr "无法获取快照"
 
 msgid "Unable to find default role."
 msgstr "无法获取默认角色"
-
-msgid "Unable to get EC2 credentials"
-msgstr "无法获取EC2凭据"
 
 #, python-format
 msgid "Unable to get MKS console for instance \"%s\"."
@@ -6674,12 +6643,6 @@ msgstr "无法解析IP地址 %s."
 
 msgid "Unable to rebuild instance."
 msgstr "无法重建实例。"
-
-msgid "Unable to recreate ec2 credentials. Failed to create ec2 credentials."
-msgstr "无法重新创建EC2凭据，创建EC2凭据失败。"
-
-msgid "Unable to recreate ec2 credentials. Failed to delete ec2 credentials."
-msgstr "无法重新创建EC2凭据，删除EC2凭据失败。"
 
 msgid "Unable to register identity provider."
 msgstr "无法注册身份提供者（identity provider）"
