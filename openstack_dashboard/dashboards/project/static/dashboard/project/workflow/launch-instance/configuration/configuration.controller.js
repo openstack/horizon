@@ -14,7 +14,8 @@
 (function () {
   'use strict';
 
-  var MAX_SCRIPT_SIZE = 16 * 1024;
+  /* 64kB, adjusted for Base64 encoding. */
+  var MAX_SCRIPT_SIZE = 64 * 1024 * 0.75;
 
   angular
     .module('horizon.dashboard.project.workflow.launch-instance')
