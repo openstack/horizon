@@ -43,7 +43,6 @@ left "Extensible" and "Manageable" behind. And while the other key values took
 shape of their own accord, it was time to re-architect for an extensible,
 modular future.
 
-
 The Current Architecture & How It Meets Our Values
 ==================================================
 
@@ -115,4 +114,3 @@ on the best possible experience.
 
    * :ref:`quickstart` A short guide to getting started with using Horizon.
    * :ref:`faq` Common questions and answers.
-   * :ref:`glossary` Common terms and their definitions.
