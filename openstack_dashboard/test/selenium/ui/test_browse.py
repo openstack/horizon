@@ -34,7 +34,7 @@ t_b_p_s = conf.theme.browse_left_panel_sec
         (t_b_p_m[0], t_b_p_s[0], "API Access",
             "API Access - OpenStack Dashboard", "API Access"),
         (t_b_p_m[1], t_b_p_s[1], "Overview",
-            "Instance Overview - OpenStack Dashboard", "Overview"),
+            "Overview - OpenStack Dashboard", "Overview"),
         (t_b_p_m[2], t_b_p_s[2], "Instances",
             "Instances - OpenStack Dashboard", "Instances"),
         (t_b_p_m[3], t_b_p_s[3], "Images",
