@@ -54,7 +54,7 @@ The following table describes the Compute and Block Storage service quotas:
 | Injected File      | Content bytes allowed for each     | Compute       |
 | Content Bytes      | injected file.                     |               |
 +--------------------+------------------------------------+---------------+
-| Keypairs           | Number of keypairs.                | Compute       |
+| Key pairs          | Number of key pairs.               | Compute       |
 +--------------------+------------------------------------+---------------+
 | Metadata Items     | Metadata items allowed for each    | Compute       |
 |                    | instance.                          |               |

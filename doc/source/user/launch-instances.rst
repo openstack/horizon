@@ -213,8 +213,7 @@ When you launch an instance from a volume, note the following steps:
 Connect to your instance by using SSH
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-To use SSH to connect to your instance, use the downloaded keypair
-file.
+To connect to your instance via SSH, use the downloaded key pair file.
 
 .. note::
 
