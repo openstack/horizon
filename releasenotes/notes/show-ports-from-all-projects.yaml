@@ -1,0 +1,5 @@
+---
+fixes:
+  - |
+    [:bug:`1996108`] Fixed bug, where all ports on a shared network were shown
+    during instance launch regardless of their project ownership.

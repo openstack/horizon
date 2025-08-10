@@ -1,0 +1,6 @@
+---
+upgrade:
+  - |
+    The customization script limit now matches the Nova API
+    (64 kB Base64-encoded). This means the actual usable size
+    in Horizon is 48 KB.
