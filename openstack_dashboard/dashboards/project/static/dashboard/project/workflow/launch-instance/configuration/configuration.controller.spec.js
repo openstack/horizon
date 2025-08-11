@@ -38,7 +38,7 @@
       });
 
       it('sets the user data max script size', function() {
-        expect(ctrl.MAX_SCRIPT_SIZE).toBe(16 * 1024);
+        expect(ctrl.MAX_SCRIPT_SIZE).toBe(64 * 1024 * 0.75);
       });
 
     });
