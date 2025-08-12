@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: horizon VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2025-07-31 11:36+0000\n"
+"POT-Creation-Date: 2025-08-11 19:58+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -1097,14 +1097,6 @@ msgid "Extra Specs"
 msgstr "অহেনবা স্পেকশীং"
 
 #, python-format
-msgid ""
-"Failed to add %(users_to_add)s project members%(group_msg)s and set project "
-"quotas."
-msgstr ""
-"%(users_to_add)s প্রোজেক্ত মেম্বর%(group_msg)s অমসুং প্রোজেক্ত ক্যুওতাশীং সেত তৌবা "
-"মায় পাক্ত্রে।"
-
-#, python-format
 msgid "Failed to add %s project groups and update project quotas."
 msgstr "প্রোজেক্ত গ্রুপ %s হাপচিনবা অমসুং প্রোজেক্ত ক্যুওতাশীং অপদেত তৌবা মায় পাক্ত্রে।"
 
@@ -1143,14 +1135,6 @@ msgstr "ইন্সতেন্সশীং হাংহনবা ঙমদ্�
 #, python-format
 msgid "Failed to live migrate instance to host \"%s\"."
 msgstr "ইন্সতেন্স অদু হোষ্ট \"%s\"দা  লাইভ মাইগ্রেত তৌবা ঙমদ্রে।"
-
-#, python-format
-msgid ""
-"Failed to modify %(users_to_modify)s project members%(group_msg)s and update "
-"project quotas."
-msgstr ""
-"%(users_to_modify)s প্রোজেক্ত মেম্বর %(group_msg)s শেমদোক-শেমজিন তৌবা অমসুং "
-"প্রোজেক্ত ক্যুওতাশীং অপদেত তৌবা মায় পাক্ত্রে।"
 
 #, python-format
 msgid "Failed to modify %s domain groups."
@@ -1526,9 +1510,6 @@ msgstr "ইন্সতেন্স ID"
 
 msgid "Instance Name"
 msgstr "ইন্সতেন্স মমীং"
-
-msgid "Instance Overview"
-msgstr "ইন্সতেন্স ওভরভ্যু"
 
 msgid "Instance Password is not set or is not yet available"
 msgstr "ইন্সতেন্স পাসৱার্দ সেত তৌদে নত্ত্রগা হৌজিক ফাউবা ফংদ্রি"

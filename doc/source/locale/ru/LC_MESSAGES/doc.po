@@ -2,9 +2,9 @@
 # Dmitriy Chubinidze <dcu995@gmail.com>, 2025. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 25.4.1.dev54\n"
+"Project-Id-Version: horizon 25.4.1.dev86\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-07-21 16:55+0000\n"
+"POT-Creation-Date: 2025-08-11 19:58+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -22,28 +22,8 @@ msgstr ":ref:`genindex`"
 msgid ":ref:`modindex`"
 msgstr ":ref:`modindex`"
 
-msgid ""
-"A Python class representing a sub-navigation item (e.g. \"instances\") which "
-"contains all the necessary logic (views, forms, tests, etc.) for that "
-"interface."
-msgstr ""
-"Класс Python, представляющий элемент поднавигации (например, \"инстансы\"), "
-"который содержит всю необходимую логику (представления, формы, тесты и т. "
-"д.) для этого интерфейса."
-
-msgid ""
-"A Python class representing a top-level navigation item (e.g. \"project\") "
-"which provides a consistent API for Horizon-compatible applications."
-msgstr ""
-"Класс Python, представляющий элемент навигации верхнего уровня (например, "
-"\"проект\"), который обеспечивает согласованный API для Horizon-совместимых "
-"приложений."
-
 msgid "Contributor Docs"
 msgstr "Документация для разработчиков"
-
-msgid "Dashboard"
-msgstr "Панель управления"
 
 msgid ""
 "For a more in-depth look at Horizon and its architecture, see the :ref:"
@@ -60,12 +40,6 @@ msgstr ""
 "Для тех, кто хочет разрабатывать Horizon самостоятельно или углубляться в "
 "создание собственных классов :class:`~horizon.Dashboard` или :class:"
 "`~horizon.Panel`, предоставляется следующая документация."
-
-msgid "Glossary"
-msgstr "Глоссарий"
-
-msgid "Horizon"
-msgstr "Horizon"
 
 msgid ""
 "Horizon is the canonical implementation of `OpenStack's Dashboard <https://"
@@ -88,35 +62,15 @@ msgstr "Информация"
 msgid "Introduction"
 msgstr "Введение"
 
-msgid "Panel"
-msgstr "Панель"
-
-msgid "Project"
-msgstr "Проект"
-
 msgid "Release Notes"
 msgstr "Список изменений"
 
 msgid "See https://docs.openstack.org/releasenotes/horizon/."
 msgstr "См. https://docs.openstack.org/releasenotes/horizon/."
 
-msgid ""
-"The OpenStack dashboard project. Also the name of the top-level Python "
-"object which handles registration for the app."
-msgstr ""
-"Проект панели управления OpenStack. Также имя объекта Python верхнего "
-"уровня, который обрабатывает регистрацию для приложения."
-
 msgid "To learn what you need to know to get going, see the :ref:`quickstart`."
 msgstr ""
 "Чтобы понять, что вам нужно знать для начала работы, см. :ref:`quickstart`."
-
-msgid ""
-"Used in user-facing text in place of the term \"Tenant\" which is Keystone's "
-"word."
-msgstr ""
-"Используется в текстах для пользователей вместо термина “Тенант\", который "
-"является термином службы Keystone."
 
 msgid "User Documentation"
 msgstr "Документация для пользователей"

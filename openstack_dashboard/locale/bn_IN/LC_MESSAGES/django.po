@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: horizon VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2025-07-31 11:36+0000\n"
+"POT-Creation-Date: 2025-08-11 19:58+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -1097,14 +1097,6 @@ msgid "Extra Specs"
 msgstr "অতিরিক্ত স্পেক"
 
 #, python-format
-msgid ""
-"Failed to add %(users_to_add)s project members%(group_msg)s and set project "
-"quotas."
-msgstr ""
-"%(group_msg)s প্রোজেক্ট সদস্য এবং প্রোজেক্ট কোটা সেট %(users_to_add)s যোগ করতে "
-"ব্যর্থ."
-
-#, python-format
 msgid "Failed to add %s project groups and update project quotas."
 msgstr "%s প্রোজেক্ট শ্রেণি এবং প্রোজেক্ট কোটা আপডেট যোগ করতে ব্যর্থ."
 
@@ -1143,14 +1135,6 @@ msgstr "উদাহরণ অপসরণ করতে ব্যর্থ: %s"
 #, python-format
 msgid "Failed to live migrate instance to host \"%s\"."
 msgstr "\"%s\" হোস্টে লাইভ মাইগ্রেট উদাহরণ করতে ব্যর্থ."
-
-#, python-format
-msgid ""
-"Failed to modify %(users_to_modify)s project members%(group_msg)s and update "
-"project quotas."
-msgstr ""
-"%(group_msg)s প্রোজেক্ট সদস্য এবং প্রোজেক্ট কোটা আপডেট %(users_to_modify)s সংশোধন "
-"করতে ব্যর্থ."
 
 #, python-format
 msgid "Failed to modify %s domain groups."
@@ -1520,9 +1504,6 @@ msgstr "উদাহরণ ID"
 
 msgid "Instance Name"
 msgstr "উদাহরণের নাম"
-
-msgid "Instance Overview"
-msgstr "উদাহরণ একনজর"
 
 msgid "Instance Password is not set or is not yet available"
 msgstr "উদাহরণ পাসওয়ার্ড সেট নেই বা এখনও লভ্য নয়"

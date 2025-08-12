@@ -2,9 +2,9 @@
 # Georg Hennemann <georg.hennemann@t-systems.com>, 2020. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 25.4.1.dev54\n"
+"Project-Id-Version: horizon 25.4.1.dev86\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-07-21 16:55+0000\n"
+"POT-Creation-Date: 2025-08-11 19:58+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -21,26 +21,8 @@ msgstr ":ref:`genindex`"
 msgid ":ref:`modindex`"
 msgstr ":ref:`modindex`"
 
-msgid ""
-"A Python class representing a sub-navigation item (e.g. \"instances\") which "
-"contains all the necessary logic (views, forms, tests, etc.) for that "
-"interface."
-msgstr ""
-"Python-klaso reprezentanta sub-navigan eron (ekz. \"aperojn\"), kiu enhavas "
-"ĉiujn necesajn logikojn (vidojn, formojn, provojn ktp) por tiu interfaco."
-
-msgid ""
-"A Python class representing a top-level navigation item (e.g. \"project\") "
-"which provides a consistent API for Horizon-compatible applications."
-msgstr ""
-"Python-klaso reprezentanta supro-nivelan navigadan elementon (ekz. "
-"\"projekto\") kiu provizas koheran API por Horizon-kongruaj aplikoj."
-
 msgid "Contributor Docs"
 msgstr "Kontribuanto Dokumentoj"
-
-msgid "Dashboard"
-msgstr "Stirpanelo"
 
 msgid ""
 "For a more in-depth look at Horizon and its architecture, see the :ref:"
@@ -58,12 +40,6 @@ msgstr ""
 "konstrui vian propran :class: ~horizon.Dashboard` aŭ :class:` ~horizon."
 "Panel` klasoj, la sekva dokumentado estas provizita."
 
-msgid "Glossary"
-msgstr "Glosaro"
-
-msgid "Horizon"
-msgstr "Horizon"
-
 msgid "Horizon: The OpenStack Dashboard Project"
 msgstr "Horizon: La OpenStack Stirpanela Projekto"
 
@@ -76,34 +52,14 @@ msgstr "Informo"
 msgid "Introduction"
 msgstr "Enkonduko"
 
-msgid "Panel"
-msgstr "Panelo"
-
-msgid "Project"
-msgstr "Projekto"
-
 msgid "Release Notes"
 msgstr "Eldonaj Notoj"
 
 msgid "See https://docs.openstack.org/releasenotes/horizon/."
 msgstr "Vidu https://docs.openstack.org/releasenotes/horizon/."
 
-msgid ""
-"The OpenStack dashboard project. Also the name of the top-level Python "
-"object which handles registration for the app."
-msgstr ""
-"La OpenStack panelo projekto. Ankaŭ la nomo de la supro-nivela Python "
-"objekto kiu traktas registriĝon por la programo."
-
 msgid "To learn what you need to know to get going, see the :ref:`quickstart`."
 msgstr "Por lerni kion vi bezonas scii por ekiri, vidu la: ref: `quickstart '."
-
-msgid ""
-"Used in user-facing text in place of the term \"Tenant\" which is Keystone's "
-"word."
-msgstr ""
-"Uzata en teksto por uzantoj anstataŭ la termino \"Tenanto\", kiu estas la "
-"vorto de Keystone."
 
 msgid "User Documentation"
 msgstr "Uzanto Dokumentado"

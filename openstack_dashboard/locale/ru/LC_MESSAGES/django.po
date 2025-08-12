@@ -46,12 +46,12 @@ msgid ""
 msgstr ""
 "Project-Id-Version: horizon VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2025-07-31 11:36+0000\n"
+"POT-Creation-Date: 2025-08-11 19:58+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2025-08-06 12:06+0000\n"
-"Last-Translator: Ivan Anfimov <lazekteam@gmail.com>\n"
+"PO-Revision-Date: 2025-08-11 11:29+0000\n"
+"Last-Translator: Dmitriy Chubinidze <dcu995@gmail.com>\n"
 "Language: ru\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
 "n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
@@ -3025,11 +3025,11 @@ msgstr "Не удалось"
 
 #, python-format
 msgid ""
-"Failed to add %(users_to_add)s project members%(group_msg)s and set project "
+"Failed to add %(users_to_add)s project members %(group_msg)s and set project "
 "quotas."
 msgstr ""
-"Ошибка при добавлении пользователей %(users_to_add)s проекта %(group_msg)s и "
-"установке квот проекта."
+"Не удалось добавить %(users_to_add)s участников проекта %(group_msg)s и "
+"установить квоты проекта."
 
 #, python-format
 msgid "Failed to add %s project groups and update project quotas."
@@ -3159,11 +3159,11 @@ msgstr "Не удалось мигрировать диск."
 
 #, python-format
 msgid ""
-"Failed to modify %(users_to_modify)s project members%(group_msg)s and update "
-"project quotas."
+"Failed to modify %(users_to_modify)s project members %(group_msg)s and "
+"update project quotas."
 msgstr ""
-"Ошибка при изменении пользователей %(users_to_modify)s проекта %(group_msg)s "
-"и обновлении квот проекта."
+"Не удалось изменить %(users_to_modify)s участников проекта %(group_msg)s и "
+"обновить квоты проекта."
 
 #, python-format
 msgid "Failed to modify %s domain groups."
@@ -3983,9 +3983,6 @@ msgstr "Имя инстанса"
 
 msgid "Instance Name ="
 msgstr "Имя инстанса ="
-
-msgid "Instance Overview"
-msgstr "Обзор инстанса"
 
 msgid "Instance Password is not set or is not yet available"
 msgstr "Пароль инстанса не установлен или еще недоступен"
@@ -9268,13 +9265,13 @@ msgstr ""
 "шлюз\", но IP-адрес шлюза может измениться."
 
 msgid "You may update the editable properties of the RBAC policy here."
-msgstr "Здесь вы можете обновить редактируемые свойства политики RBAC."
+msgstr "Здесь вы можете обновить изменяемые свойства политики RBAC."
 
 msgid "You may update the editable properties of your network here."
-msgstr "Здесь вы можете обновить редактируемые свойства сети."
+msgstr "Здесь вы можете обновить изменяемые свойства сети."
 
 msgid "You may update the editable properties of your router here."
-msgstr "Здесь вы можете обновить редактируемые свойства маршрутизатора."
+msgstr "Здесь вы можете обновить изменяемые свойства маршрутизатора."
 
 msgid ""
 "You must specify the source of the traffic to be allowed via this rule. You "

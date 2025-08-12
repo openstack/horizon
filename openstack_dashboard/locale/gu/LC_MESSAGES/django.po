@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: horizon VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2025-07-31 11:36+0000\n"
+"POT-Creation-Date: 2025-08-11 19:58+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -1141,14 +1141,6 @@ msgid "Failed"
 msgstr "નિષ્ફળ થયેલ"
 
 #, python-format
-msgid ""
-"Failed to add %(users_to_add)s project members%(group_msg)s and set project "
-"quotas."
-msgstr ""
-"%(users_to_add)s પ્રોજેક્ટ સભ્ય ઉમેરવા નિષ્ફળ%(group_msg)s અને પ્રોજેક્ટ ક્વોટા સુયોજિત "
-"કરો."
-
-#, python-format
 msgid "Failed to add %s project groups and update project quotas."
 msgstr "%s પ્રોજેક્ટ જૂથો ઉમેરવામાં અને પ્રોજેક્ટ ક્વોટા અદ્યતન કરવામાં નિષ્ફળ"
 
@@ -1187,14 +1179,6 @@ msgstr "ઉદાહરણો બહાર કાઢવા નિષ્ફળ: %
 #, python-format
 msgid "Failed to live migrate instance to host \"%s\"."
 msgstr " \"% s \" યજમાન માટે જીવંત સ્થળાંતર ઉદાહરણ નિષ્ફળ."
-
-#, python-format
-msgid ""
-"Failed to modify %(users_to_modify)s project members%(group_msg)s and update "
-"project quotas."
-msgstr ""
-"પ્રોજેક્ટ સભ્યોમા %(users_to_modify)s ફેરફાર કરવામા %(group_msg)s અને પ્રોજેક્ટ ક્વોટા "
-"અદ્યતન કરવામાં નિષ્ફળ"
 
 #, python-format
 msgid "Failed to modify %s domain groups."
@@ -1593,9 +1577,6 @@ msgstr "ઇન્સ્ટન્સ ID"
 
 msgid "Instance Name"
 msgstr "ઇન્સ્ટન્સ નામ"
-
-msgid "Instance Overview"
-msgstr "ઉદાહરણના અવલોકન"
 
 msgid "Instance Password is not set or is not yet available"
 msgstr "ઉદાહરણ પાસવર્ડ સુયોજિત નથી અથવા હજુ સુધી ઉપલબ્ધ નથી"

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: horizon VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2025-07-31 11:36+0000\n"
+"POT-Creation-Date: 2025-08-11 19:58+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -2234,14 +2234,6 @@ msgid "Failed"
 msgstr "Başarısız"
 
 #, python-format
-msgid ""
-"Failed to add %(users_to_add)s project members%(group_msg)s and set project "
-"quotas."
-msgstr ""
-"%(users_to_add)s proje üyeleri eklenemedi %(group_msg)s ve proje kotaları "
-"düzenlenemedi. "
-
-#, python-format
 msgid "Failed to add %s project groups and update project quotas."
 msgstr "%s proje groupları eklenemedi ve proje kotaları güncellenemedi."
 
@@ -2314,14 +2306,6 @@ msgstr "Sanal makine(ler) göçü başarısız: %s"
 
 msgid "Failed to migrate volume."
 msgstr "Mantıksal sürücü göç ettirilemedi."
-
-#, python-format
-msgid ""
-"Failed to modify %(users_to_modify)s project members%(group_msg)s and update "
-"project quotas."
-msgstr ""
-"%(users_to_modify)s proje üyeleri düzenlenemedi %(group_msg)s ve proje "
-"kotaları güncellenemedi. "
 
 #, python-format
 msgid "Failed to modify %s domain groups."
@@ -2943,9 +2927,6 @@ msgstr "Sanal Makine ID'si ="
 
 msgid "Instance Name"
 msgstr "Sanal Makine Adı"
-
-msgid "Instance Overview"
-msgstr "Sunucu Genel Görünümü"
 
 msgid "Instance Password is not set or is not yet available"
 msgstr "Sunucu Parolası ayarlanmamış veya henüz kullanılabilir değil"

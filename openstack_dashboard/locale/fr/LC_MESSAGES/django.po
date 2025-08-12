@@ -28,7 +28,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: horizon VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2025-07-31 11:36+0000\n"
+"POT-Creation-Date: 2025-08-11 19:58+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -2645,14 +2645,6 @@ msgid "Failed"
 msgstr "Échec"
 
 #, python-format
-msgid ""
-"Failed to add %(users_to_add)s project members%(group_msg)s and set project "
-"quotas."
-msgstr ""
-"Échec de l'ajout des membres %(users_to_add)s %(group_msg)s et de la "
-"définition des quotas du projet."
-
-#, python-format
 msgid "Failed to add %s project groups and update project quotas."
 msgstr ""
 "Échec de l'ajout des groupes %s et de la mise à jour des quotas du projet."
@@ -2749,14 +2741,6 @@ msgstr "Échec de la migration des instances : %s"
 
 msgid "Failed to migrate volume."
 msgstr "Échec de la migration du volume."
-
-#, python-format
-msgid ""
-"Failed to modify %(users_to_modify)s project members%(group_msg)s and update "
-"project quotas."
-msgstr ""
-"Échec de la modification des membres %(users_to_modify)s  %(group_msg)s et "
-"de la mise à jour des quotas du projet."
 
 #, python-format
 msgid "Failed to modify %s domain groups."
@@ -3496,9 +3480,6 @@ msgstr "Nom de l'instance"
 
 msgid "Instance Name ="
 msgstr "Nom de l'Instance ="
-
-msgid "Instance Overview"
-msgstr "Aperçu de l'instance"
 
 msgid "Instance Password is not set or is not yet available"
 msgstr ""

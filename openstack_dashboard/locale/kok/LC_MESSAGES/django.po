@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: horizon VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2025-07-31 11:36+0000\n"
+"POT-Creation-Date: 2025-08-11 19:58+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -1138,14 +1138,6 @@ msgid "Failed"
 msgstr "असफळ"
 
 #, python-format
-msgid ""
-"Failed to add %(users_to_add)s project members%(group_msg)s and set project "
-"quotas."
-msgstr ""
-"%(users_to_add)s प्रकल्प सदस्य%(group_msg)s जोडपाक आणि प्रकल्प कोटा थारावपाक जाले "
-"ना."
-
-#, python-format
 msgid "Failed to add %s project groups and update project quotas."
 msgstr "%s प्रकल्प गट जोडपाक आनी प्रकल्प कोटा सुदारपाक असफळ."
 
@@ -1184,14 +1176,6 @@ msgstr "इन्स्टन्सेस काडून उडोवपाक 
 #, python-format
 msgid "Failed to live migrate instance to host \"%s\"."
 msgstr "\"%s\" येजमानांत इन्स्टन्स प्रत्यक्ष स्थलांतरित करपाक जाले ना."
-
-#, python-format
-msgid ""
-"Failed to modify %(users_to_modify)s project members%(group_msg)s and update "
-"project quotas."
-msgstr ""
-"%(users_to_modify)s प्रकल्प सदस्य%(group_msg)s सुदारपाक आणि प्रकल्प कोटा सुदारपाक "
-"अपयश."
 
 #, python-format
 msgid "Failed to modify %s domain groups."
@@ -1587,9 +1571,6 @@ msgstr "इंस्टंस ID"
 
 msgid "Instance Name"
 msgstr "इंस्टंसाचे नाव"
-
-msgid "Instance Overview"
-msgstr "इंस्टंस अवलोकन"
 
 msgid "Instance Password is not set or is not yet available"
 msgstr "इंस्टंस पासवर्ड थारायल्लो ना वो तो आजून उपलब्ध ना."

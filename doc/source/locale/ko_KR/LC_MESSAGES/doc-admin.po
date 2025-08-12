@@ -6,9 +6,9 @@
 # jihyun huh <huhji.elha@gmail.com>, 2022. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 25.4.1.dev54\n"
+"Project-Id-Version: horizon 25.4.1.dev86\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-07-21 16:55+0000\n"
+"POT-Creation-Date: 2025-08-11 19:58+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -940,9 +940,6 @@ msgstr "각 프로젝트에 인스턴스가 허용됩니다."
 msgid "Key Size (bits)"
 msgstr "키 크기 (비트)"
 
-msgid "Keypairs"
-msgstr "Keypairs"
-
 msgid "Leave this field empty."
 msgstr "필드를 비우세요."
 
@@ -1063,9 +1060,6 @@ msgid ""
 "Note: On the command line, type 'cryptsetup benchmark' for additional options"
 msgstr ""
 "참고: 명령줄에서 추가 옵션을 보려면'cryptsetup benchmark' 를 입력하십시오."
-
-msgid "Number of keypairs."
-msgstr "keypairs 개수"
 
 msgid ""
 "On Ubuntu, restart the ``nova-api`` service to ensure that the API server "

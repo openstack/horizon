@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: horizon VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2025-07-31 11:36+0000\n"
+"POT-Creation-Date: 2025-08-11 19:58+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -1144,14 +1144,6 @@ msgid "Failed"
 msgstr "अपयशी"
 
 #, python-format
-msgid ""
-"Failed to add %(users_to_add)s project members%(group_msg)s and set project "
-"quotas."
-msgstr ""
-"समाविष्ट करण्यास अपयशी %(users_to_add)s प्रकल्प सदस्य%(group_msg)s व प्रकल्प वाटा "
-"रचना करा."
-
-#, python-format
 msgid "Failed to add %s project groups and update project quotas."
 msgstr "प्रकल्प गट समाविष्ट करण्यास %s व प्रकल्प वाटा सुधारित करण्यास अपयशी."
 
@@ -1190,14 +1182,6 @@ msgstr "घटक रिक्त करण्यात अपयशी: %s"
 #, python-format
 msgid "Failed to live migrate instance to host \"%s\"."
 msgstr "घटक होस्टवर थेट स्थलांतरित करण्यास अपयशी \"%s\"."
-
-#, python-format
-msgid ""
-"Failed to modify %(users_to_modify)s project members%(group_msg)s and update "
-"project quotas."
-msgstr ""
-"सुधारणा करण्यात अपयशी %(users_to_modify)s प्रकल्प सदस्य%(group_msg)s व सुधारित "
-"प्रकल्प वाटे."
 
 #, python-format
 msgid "Failed to modify %s domain groups."
@@ -1597,9 +1581,6 @@ msgstr "घटना ओळख क्रमांक"
 
 msgid "Instance Name"
 msgstr "घटना नाव"
-
-msgid "Instance Overview"
-msgstr "घटक आढावा"
 
 msgid "Instance Password is not set or is not yet available"
 msgstr "घटक पासवर्डची रचना केलेली नाही किंवा अजून उपलब्ध नाही"

@@ -3,13 +3,13 @@
 # Ivan Anfimov <lazekteam@gmail.com>, 2025. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 25.4.1.dev68\n"
+"Project-Id-Version: horizon 25.4.1.dev86\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-07-31 11:36+0000\n"
+"POT-Creation-Date: 2025-08-11 19:58+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2025-08-06 12:04+0000\n"
+"PO-Revision-Date: 2025-08-08 01:03+0000\n"
 "Last-Translator: Ivan Anfimov <lazekteam@gmail.com>\n"
 "Language-Team: Russian\n"
 "Language: ru\n"
@@ -976,7 +976,7 @@ msgstr "Инстансы, разрешенные для каждого прое�
 msgid "Key Size (bits)"
 msgstr "Размер ключа (биты)"
 
-msgid "Keypairs"
+msgid "Key pairs"
 msgstr "Ключевые пары"
 
 msgid "Leave this field empty."
@@ -1103,7 +1103,7 @@ msgstr ""
 "Примечание: в командной строке введите 'cryptsetup benchmark' для получения "
 "дополнительных опций"
 
-msgid "Number of keypairs."
+msgid "Number of key pairs."
 msgstr "Количество ключевых пар."
 
 msgid ""

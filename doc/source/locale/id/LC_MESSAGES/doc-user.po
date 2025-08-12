@@ -2,9 +2,9 @@
 # suhartono <cloudsuhartono@gmail.com>, 2019. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 25.4.1.dev54\n"
+"Project-Id-Version: horizon 25.4.1.dev86\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-07-21 16:55+0000\n"
+"POT-Creation-Date: 2025-08-11 19:58+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -367,13 +367,6 @@ msgstr ""
 
 msgid ":guilabel:`Security Groups` tab"
 msgstr "Tab :guilabel:`Security Groups`"
-
-msgid ""
-":guilabel:`Security Groups`: View, create, edit, and delete security groups "
-"and security group rules.."
-msgstr ""
-":guilabel:`Security Groups`: Melihat, membuat, mengedit, dan menghapus "
-"kelompok keamanan dan aturan kelompok keamanan.."
 
 msgid ":guilabel:`Services`: View a list of the services."
 msgstr ":guilabel:`Services`: Melihat daftar layanan."
@@ -1743,10 +1736,6 @@ msgstr ""
 msgid "The dashboard shows the network on the :guilabel:`Networks` tab."
 msgstr "Dashboard menunjukkan jaringan pada tab :guilabel:`Networks`."
 
-msgid "The dashboard shows the new volume snapshot in Volume Snapshots tab."
-msgstr ""
-"Dashboard menunjukkan snapshot volume yang baru di tab Volume Snapshots."
-
 msgid "The dashboard shows the volume on the :guilabel:`Volumes` tab."
 msgstr "Dashboard menunjukkan volume pada tab :guilabel:`Volumes`."
 
@@ -1989,12 +1978,6 @@ msgstr ""
 "sebuah image apapun pada volume. Apapun image yang Anda pilih tidak bisa "
 "boot. Sebaliknya, itu diganti dengan image pada volume yang Anda pilih dalam "
 "langkah selanjutnya."
-
-msgid ""
-"To use SSH to connect to your instance, use the downloaded keypair file."
-msgstr ""
-"Untuk menggunakan SSH untuk koneksi ke instance Anda, gunakan file keypair "
-"yang di-download"
 
 msgid ""
 "To use the Virtual Network Computing (VNC) client for the dashboard, your "

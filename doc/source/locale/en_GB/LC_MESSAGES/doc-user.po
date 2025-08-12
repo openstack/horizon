@@ -2,9 +2,9 @@
 # Andi Chandler <andi@gowling.com>, 2019. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 25.4.1.dev54\n"
+"Project-Id-Version: horizon 25.4.1.dev86\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-07-21 16:55+0000\n"
+"POT-Creation-Date: 2025-08-11 19:58+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -363,13 +363,6 @@ msgstr ""
 
 msgid ":guilabel:`Security Groups` tab"
 msgstr ":guilabel:`Security Groups` tab"
-
-msgid ""
-":guilabel:`Security Groups`: View, create, edit, and delete security groups "
-"and security group rules.."
-msgstr ""
-":guilabel:`Security Groups`: View, create, edit, and delete security groups "
-"and security group rules.."
 
 msgid ":guilabel:`Services`: View a list of the services."
 msgstr ":guilabel:`Services`: View a list of the services."
@@ -1738,9 +1731,6 @@ msgstr ""
 msgid "The dashboard shows the network on the :guilabel:`Networks` tab."
 msgstr "The dashboard shows the network on the :guilabel:`Networks` tab."
 
-msgid "The dashboard shows the new volume snapshot in Volume Snapshots tab."
-msgstr "The dashboard shows the new volume snapshot in Volume Snapshots tab."
-
 msgid "The dashboard shows the volume on the :guilabel:`Volumes` tab."
 msgstr "The dashboard shows the volume on the :guilabel:`Volumes` tab."
 
@@ -1979,11 +1969,6 @@ msgstr ""
 "arbitrary image on the volume. The arbitrary image that you select does not "
 "boot. Instead, it is replaced by the image on the volume that you choose in "
 "the next steps."
-
-msgid ""
-"To use SSH to connect to your instance, use the downloaded keypair file."
-msgstr ""
-"To use SSH to connect to your instance, use the downloaded keypair file."
 
 msgid ""
 "To use the Virtual Network Computing (VNC) client for the dashboard, your "

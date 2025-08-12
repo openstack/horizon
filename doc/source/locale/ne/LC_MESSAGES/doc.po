@@ -1,9 +1,9 @@
 # Surit Aryal <aryalsurit@gmail.com>, 2019. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 25.4.1.dev54\n"
+"Project-Id-Version: horizon 25.4.1.dev86\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-07-21 16:55+0000\n"
+"POT-Creation-Date: 2025-08-11 19:58+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -20,26 +20,8 @@ msgstr ":ref:`genindex`"
 msgid ":ref:`modindex`"
 msgstr ":ref:`modindex`"
 
-msgid ""
-"A Python class representing a sub-navigation item (e.g. \"instances\") which "
-"contains all the necessary logic (views, forms, tests, etc.) for that "
-"interface."
-msgstr ""
-"एउटा Python classले उप-नेभिगेसन आईटम प्रतिनिधित्व गर्दछ (उदाहरण \"उदाहरण\") जसले "
-"त्यस इन्टरफेसको लागि सबै आवश्यक तर्क (दृश्य, फारम, परीक्षण, आदि) समावेश गर्दछ।"
-
-msgid ""
-"A Python class representing a top-level navigation item (e.g. \"project\") "
-"which provides a consistent API for Horizon-compatible applications."
-msgstr ""
-"Python classले शीर्ष-स्तर नेभिगेसन आईटम प्रतिनिधित्व गर्दछ (उदाहरण \"प्रोजेक्ट\") जसले "
-"Horizon - उपयुक्त अनुप्रयोगहरूको लागि एक सुसंगत एपीआई प्रदान गर्दछ।"
-
 msgid "Contributor Docs"
 msgstr "योगदानकर्ता कागजात"
-
-msgid "Dashboard"
-msgstr "ड्यासबोर्ड"
 
 msgid ""
 "For a more in-depth look at Horizon and its architecture, see the :ref:"
@@ -57,12 +39,6 @@ msgstr ""
 "जान :class:`~horizon.Dashboard` वा :class:`~horizon.Panel` classes, निम्न "
 "कागजातहरू प्रदान गरिएको छ।"
 
-msgid "Glossary"
-msgstr "शब्दावली"
-
-msgid "Horizon"
-msgstr "Horizon"
-
 msgid "Horizon: The OpenStack Dashboard Project"
 msgstr "Horizon:  OpenStack ड्यासबोर्ड परियोजना"
 
@@ -75,34 +51,14 @@ msgstr "जानकारी"
 msgid "Introduction"
 msgstr "परिचय"
 
-msgid "Panel"
-msgstr "प्यानल"
-
-msgid "Project"
-msgstr "प्रोजेक्ट"
-
 msgid "Release Notes"
 msgstr "रिलिज टिप्पणीहरू"
 
 msgid "See https://docs.openstack.org/releasenotes/horizon/."
 msgstr "Https://docs.openstack.org/releasenotes/horizon/ हेर्नुहोस्।"
 
-msgid ""
-"The OpenStack dashboard project. Also the name of the top-level Python "
-"object which handles registration for the app."
-msgstr ""
-"OpenStack ड्यासबोर्ड परियोजना। साथै शीर्ष-स्तरको Python object को नाम जुन "
-"अनुप्रयोगको लागि दर्ता गर्दछ।"
-
 msgid "To learn what you need to know to get going, see the :ref:`quickstart`."
 msgstr " तपाईंलाई के जान्नु आवश्यक छ जान्नको लागि, हेर्नुहोस् :ref:`quickstart।"
-
-msgid ""
-"Used in user-facing text in place of the term \"Tenant\" which is Keystone's "
-"word."
-msgstr ""
-"\"टेनेन्ट\" शब्दको ठाउँमा प्रयोगकर्ताको अनुहारको पाठमा प्रयोग गरियो जुन Keystoneको शब्द "
-"हो।"
 
 msgid "Using Horizon"
 msgstr "Horizon प्रयोग गर्दै"
