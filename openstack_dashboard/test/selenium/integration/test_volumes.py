@@ -215,7 +215,7 @@ def test_volume_launch_as_instance_demo(login, driver, openstack_demo,
 #   Checking of message is skipped, we wait for refresh page
 #   and then result is checked.
 #   JJ
-    WebDriverWait(driver, config.selenium.page_timeout).until(
+    WebDriverWait(driver, config.selenium.explicit_wait).until(
         EC.invisibility_of_element_located(actions_column))
     wait_for_steady_state_of_volume(openstack_demo, new_volume_demo.name)
     assert (openstack_demo.block_storage.find_volume(
