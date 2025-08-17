@@ -1,0 +1,7 @@
+---
+fixes:
+  - |
+    [:bug:`2120790`] Fixed a bug where the *Admin state* of **Routers**,
+    **Networks**, and **Ports** in the overview detail views was displayed
+    as raw boolean values (`True` / `False`) instead of (`UP` / `DOWN`).
+

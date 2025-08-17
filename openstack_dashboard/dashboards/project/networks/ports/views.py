@@ -68,8 +68,8 @@ class DetailView(tabs.TabbedTableView):
 
         try:
             port = api.neutron.port_get(self.request, port_id)
-            port.admin_state_label = STATE_DICT.get(port.is_admin_state_up,
-                                                    port.is_admin_state_up)
+            port.admin_state_label = STATE_DICT.get(port.admin_state,
+                                                    port.admin_state)
             port.status_label = STATUS_DICT.get(port.status,
                                                 port.status)
             if port.get('binding__vnic_type'):
