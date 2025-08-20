@@ -172,4 +172,19 @@
         <dd><em>{% trans "No volumes attached." %}</em></dd>
     {% endfor %}
     </dl>
+  {% if flavor_extra_specs %}
+    <hr/>
+    <h4 style="margin-top:10px">{% trans "Flavor extra specs" %}</h4>
+    <div class="row">
+      <div class="col-sm-12">
+        <dl class="dl-horizontal">
+          {% for k,v in flavor_extra_specs.items %}
+            <dt style="word-break:break-all;">{{ k }}</dt>
+            <dd style="word-break:break-all;"><code>{{ v }}</code></dd>
+          {% endfor %}
+        </dl>
+      </div>
+    </div>
+  {% endif %}
+
 </div>

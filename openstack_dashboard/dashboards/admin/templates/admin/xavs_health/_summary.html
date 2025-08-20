@@ -1,0 +1,47 @@
+{% load i18n %}
+<div class="row">
+  <div class="col-sm-2">
+    <div class="well text-center" style="padding:10px;">
+      <div class="h4" style="margin:0;">{{ summary.services_total|default:"0" }}</div>
+      <div class="text-muted">{% trans "Services" %}</div>
+    </div>
+  </div>
+  <div class="col-sm-2">
+    <div class="well text-center" style="padding:10px;">
+      <span class="label label-success" style="font-size:14px;">{{ summary.services_up|default:"0" }}</span>
+      <div class="text-muted" style="margin-top:3px;">{% trans "Up" %}</div>
+    </div>
+  </div>
+  <div class="col-sm-2">
+    <div class="well text-center" style="padding:10px;">
+      <span class="label label-warning" style="font-size:14px;">{{ summary.services_warn|default:"0" }}</span>
+      <div class="text-muted" style="margin-top:3px;">{% trans "Warn" %}</div>
+    </div>
+  </div>
+  <div class="col-sm-2">
+    <div class="well text-center" style="padding:10px;">
+      <span class="label label-danger" style="font-size:14px;">{{ summary.services_down|default:"0" }}</span>
+      <div class="text-muted" style="margin-top:3px;">{% trans "Down" %}</div>
+    </div>
+  </div>
+  <div class="col-sm-2">
+    <div class="well text-center" style="padding:10px;">
+      {% if summary.rabbitmq_up %}
+        <span class="label label-success" style="font-size:14px;">{% trans "UP" %}</span>
+      {% else %}
+        <span class="label label-danger" style="font-size:14px;">{% trans "DOWN" %}</span>
+      {% endif %}
+      <div class="text-muted" style="margin-top:3px;">RabbitMQ</div>
+    </div>
+  </div>
+  <div class="col-sm-2">
+    <div class="well text-center" style="padding:10px;">
+      {% if summary.mariadb_ready %}
+        <span class="label label-success" style="font-size:14px;">{% trans "READY" %}</span>
+      {% else %}
+        <span class="label label-danger" style="font-size:14px;">{% trans "NOT READY" %}</span>
+      {% endif %}
+      <div class="text-muted" style="margin-top:3px;">MariaDB ({{ summary.mariadb_size|default:"?" }})</div>
+    </div>
+  </div>
+</div>

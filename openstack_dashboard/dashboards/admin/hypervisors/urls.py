@@ -13,11 +13,9 @@
 #    under the License.
 
 from django.conf.urls import include
-from django.urls import re_path
-
-from openstack_dashboard.dashboards.admin.hypervisors.compute \
-    import urls as compute_urls
-from openstack_dashboard.dashboards.admin.hypervisors import views
+from django.urls import re_path, path
+from . import views
+from openstack_dashboard.dashboards.admin.hypervisors.compute import urls as compute_urls
 
 
 urlpatterns = [
@@ -26,4 +24,9 @@ urlpatterns = [
             name='detail'),
     re_path(r'^$', views.AdminIndexView.as_view(), name='index'),
     re_path(r'', include((compute_urls, 'compute'))),
+    path(
+        "open_host_app/<path:host>/",
+        views.OpenHostAppView.as_view(),
+        name="open_host_app",
+    ),
 ]

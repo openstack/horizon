@@ -1,0 +1,10 @@
+{% extends "horizon/common/_modal_form.html" %}
+{% load i18n %}
+{% block modal-header %}{% trans "Adjust vCPU / RAM" %}{% endblock %}
+{% block modal-body %}
+  {% include "horizon/common/_form_fields.html" %}
+{% endblock %}
+{% block modal-footer %}
+  <a href="#" class="btn btn-secondary cancel">{% trans "Cancel" %}</a>
+  <button type="submit" class="btn btn-primary">{% trans "Adjust" %}</button>
+{% endblock %}

@@ -19,6 +19,7 @@
 
 from django.utils.translation import gettext_lazy as _
 
+from django.contrib import messages
 from horizon import exceptions
 from horizon import forms
 from horizon import workflows
@@ -43,9 +44,13 @@ class CreateFlavorInfoAction(workflows.Action):
     vcpus = forms.IntegerField(label=_("VCPUs"),
                                min_value=1,
                                max_value=2147483647)
-    memory_mb = forms.IntegerField(label=_("RAM (MB)"),
-                                   min_value=1,
-                                   max_value=2147483647)
+    # Accept RAM in GB from the user; convert to MB before calling Nova
+    memory_gb = forms.DecimalField(
+        label=_("RAM (GB)"),
+        min_value=0.01,
+        max_digits=6,
+        decimal_places=2,
+    )
     disk_gb = forms.IntegerField(label=_("Root Disk (GB)"),
                                  min_value=0,
                                  max_value=2147483647)
@@ -61,6 +66,39 @@ class CreateFlavorInfoAction(workflows.Action):
                                    required=False,
                                    initial=1,
                                    min_value=1)
+    
+##############xloud code    
+    add_metadata = forms.BooleanField(
+        label=_("Enable Hot Add"),
+        required=False,
+        widget=forms.CheckboxInput(attrs={
+            'class': 'switchable',
+            'data-slug': 'add_metadata',
+            'data-hide-on-checked': 'false'
+        }))
+    minimum_cpu = forms.IntegerField(
+        label=_("Minimum CPU"),
+        required=False,
+        min_value=1,
+        widget=forms.NumberInput(attrs={
+            'class': 'switched',
+            'data-switch-on': 'add_metadata',
+            'data-required-when-shown': 'true'
+        }))
+    # minimum memory: accept GB (decimal)
+    minimum_memory = forms.DecimalField(
+        label=_("Minimum Memory (GB)"),
+        required=False,
+        min_value=0.01,
+        max_digits=6,
+        decimal_places=2,
+        widget=forms.NumberInput(attrs={
+            'class': 'switched',
+            'data-switch-on': 'add_metadata',
+            'data-required-when-shown': 'true',
+            'step': '0.01'
+        }))
+##############
 
     class Meta(object):
         name = _("Flavor Information")
@@ -97,6 +135,28 @@ class CreateFlavorInfoAction(workflows.Action):
                     error_msg = _('The ID "%s" is already used by '
                                   'another flavor.') % flavor_id
                     self._errors['flavor_id'] = self.error_class([error_msg])
+    #############xloud code
+        vcpus = cleaned_data.get('vcpus')
+        min_cpu = cleaned_data.get('minimum_cpu')
+        if min_cpu is not None and vcpus is not None and min_cpu > vcpus:
+            error_msg = _('Minimum CPU cannot exceed VCPUs.')
+            field = 'minimum_cpu'
+            self._errors[field] = self.error_class([error_msg])
+            messages.error(self.request, error_msg)
+        # convert memory_gb -> MB for comparison
+        memory_gb = cleaned_data.get('memory_gb')
+        memory_mb = None
+        if memory_gb is not None:
+            memory_mb = int(float(memory_gb) * 1024)
+        # convert minimum_memory (GB) -> MB
+        min_mem_gb = cleaned_data.get('minimum_memory')
+        min_mem = None
+        if min_mem_gb is not None:
+            min_mem = int(float(min_mem_gb) * 1024)
+        if min_mem is not None and memory_mb is not None and min_mem > memory_mb:
+            self._errors['minimum_memory'] = self.error_class(
+                [_('Minimum Memory cannot exceed RAM.')])
+            messages.error(self.request, _('Minimum Memory cannot exceed RAM.'))
         return cleaned_data
 
 
@@ -105,12 +165,15 @@ class CreateFlavorInfo(workflows.Step):
     contributes = ("flavor_id",
                    "name",
                    "vcpus",
-                   "memory_mb",
+                   "memory_gb",
                    "disk_gb",
                    "eph_gb",
                    "swap_mb",
-                   "rxtx_factor")
-
+                   "rxtx_factor",
+                   "add_metadata",
+                   "minimum_cpu",
+                   "minimum_memory")
+#################################
 
 class FlavorAccessAction(workflows.MembershipAction):
     def __init__(self, request, *args, **kwargs):
@@ -203,25 +266,43 @@ class CreateFlavor(workflows.Workflow):
         return message % self.context['name']
 
     def handle(self, request, data):
+        # Get submitted name and convert memory_gb -> MB for nova
+        name = data.get('name')
+        ram_gb = data.get('memory_gb', 0) or 0
+        ram_mb = int(float(ram_gb) * 1024)
+        vcpus = data.get('vcpus')
+        disk = data.get('disk_gb')
         flavor_id = data.get('flavor_id') or 'auto'
         swap = data.get('swap_mb') or 0
         ephemeral = data.get('eph_gb') or 0
         flavor_access = data['flavor_access']
         is_public = not flavor_access
         rxtx_factor = data.get('rxtx_factor') or 1
-
+############xloud code
+        metadata = None
+        if data.get('add_metadata'):
+            min_mem_val = data.get('minimum_memory')
+            min_mem_mb = None
+            if min_mem_val is not None:
+                min_mem_mb = int(float(min_mem_val) * 1024)
+            metadata = {
+                'minimum_cpu': data.get('minimum_cpu'),
+                'minimum_memory': min_mem_mb
+            }
+##############
         # Create the flavor
         try:
             self.object = api.nova.flavor_create(request,
-                                                 name=data['name'],
-                                                 memory=data['memory_mb'],
-                                                 vcpu=data['vcpus'],
-                                                 disk=data['disk_gb'],
-                                                 ephemeral=ephemeral,
-                                                 swap=swap,
-                                                 flavorid=flavor_id,
-                                                 is_public=is_public,
-                                                 rxtx_factor=rxtx_factor)
+                                                 name=name,
+                                                 memory=ram_mb,
+                                                 vcpu=vcpus,
+                                                 disk=disk,
+                                                  ephemeral=ephemeral,
+                                                  swap=swap,
+                                                  flavorid=flavor_id,
+                                                  is_public=is_public,
+                                                  rxtx_factor=rxtx_factor,
+                                                  metadata=metadata)
         except Exception:
             exceptions.handle(request, _('Unable to create flavor.'))
             return False

@@ -58,6 +58,10 @@ from openstack_dashboard.dashboards.project.networks.ports \
 from openstack_dashboard.utils import futurist_utils
 from openstack_dashboard.views import get_url_with_pagination
 
+from openstack_dashboard.dashboards.project.instances import forms as instance_forms
+from horizon import forms as h_forms
+from . import forms as instance_forms
+
 LOG = logging.getLogger(__name__)
 
 
@@ -746,3 +750,29 @@ class RescueView(forms.ModalFormView):
 
     def get_initial(self):
         return {'instance_id': self.kwargs["instance_id"]}
+
+
+
+#########xloud code
+
+class AdjustVcpuRamView(h_forms.ModalFormView):
+    form_class = instance_forms.AdjustVcpuRamForm
+    template_name = 'project/instances/adjust.html'
+    submit_label = _("Adjust")
+    submit_url = 'horizon:project:instances:adjust'
+    success_url = 'horizon:project:instances:index'
+    page_title = _("Adjust vCPU / RAM")
+
+    def get_initial(self):
+        return {'instance_id': self.kwargs['instance_id']}
+
+    def get_context_data(self, **kwargs):
+        ctx = super().get_context_data(**kwargs)
+        ctx['instance_id'] = self.kwargs['instance_id']
+        # IMPORTANT: ensure the form action targets the route with instance_id
+        ctx['submit_url'] = reverse(self.submit_url,
+                                    kwargs={'instance_id': self.kwargs['instance_id']})
+        return ctx
+
+    def get_success_url(self):
+        return reverse(self.success_url)

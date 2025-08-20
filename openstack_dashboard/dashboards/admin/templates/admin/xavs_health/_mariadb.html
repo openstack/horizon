@@ -1,0 +1,134 @@
+{% load i18n %}
+
+<div class="row">
+  <div class="col-sm-6">
+    <table class="table table-condensed">
+      <tbody>
+        <tr>
+          <th style="width:220px;">{% trans "Cluster status" %}</th>
+          <td>
+            {% if mariadb.cluster_status %}
+              {% if mariadb.cluster_status|lower == "primary" %}
+                <span class="label label-success">{{ mariadb.cluster_status }}</span>
+              {% else %}
+                <span class="label label-warning">{{ mariadb.cluster_status }}</span>
+              {% endif %}
+            {% else %}
+              <span class="label label-default">{% trans "Unknown" %}</span>
+            {% endif %}
+          </td>
+        </tr>
+        <tr>
+          <th>{% trans "Local state" %}</th>
+          <td>
+            {% with s=mariadb.local_state_comment|default:"Unknown" %}
+              {% if s|lower == "synced" %}
+                <span class="label label-success">{{ s }}</span>
+              {% elif s|lower == "donor/desynced" or s|lower == "donor" %}
+                <span class="label label-info">{{ s }}</span>
+              {% elif s|lower == "joining" or s|lower == "joiner" %}
+                <span class="label label-warning">{{ s }}</span>
+              {% else %}
+                <span class="label label-default">{{ s }}</span>
+              {% endif %}
+            {% endwith %}
+          </td>
+        </tr>
+        <tr>
+          <th>{% trans "WSREP ready" %}</th>
+          <td>
+            {% if mariadb.ready %}
+              <span class="label label-success">{% trans "Yes" %}</span>
+            {% else %}
+              <span class="label label-danger">{% trans "No" %}</span>
+            {% endif %}
+            <span style="margin-left:8px;color:#777;">({{ mariadb.wsrep_ready|default:"Unknown" }})</span>
+          </td>
+        </tr>
+        <tr>
+          <th>{% trans "Connected" %}</th>
+          <td>
+            {% if mariadb.connected %}
+              <span class="label label-success">{% trans "Yes" %}</span>
+            {% else %}
+              <span class="label label-danger">{% trans "No" %}</span>
+            {% endif %}
+          </td>
+        </tr>
+        <tr>
+          <th>{% trans "Cluster size" %}</th>
+          <td>{{ mariadb.wsrep_cluster_size|default:"?" }}</td>
+        </tr>
+        <tr>
+          <th>{% trans "Flow control paused" %}</th>
+          <td>
+            {% if mariadb.flow_control_paused is not None %}
+              {{ mariadb.flow_control_paused|floatformat:3 }}
+            {% else %}
+              -
+            {% endif %}
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="col-sm-6">
+    <table class="table table-condensed">
+      <tbody>
+        <tr>
+          <th style="width:220px;">{% trans "Provider version" %}</th>
+          <td>{{ mariadb.provider_version|default:"-" }}</td>
+        </tr>
+        <tr>
+          <th>{% trans "Cluster name" %}</th>
+          <td>{{ mariadb.cluster_name|default:"-" }}</td>
+        </tr>
+        <tr>
+          <th>{% trans "Cluster UUID" %}</th>
+          <td><code>{{ mariadb.cluster_uuid|default:"-" }}</code></td>
+        </tr>
+        <tr>
+          <th>{% trans "Node name" %}</th>
+          <td>{{ mariadb.node_name|default:"-" }}{% if mariadb.local_index is not None %} <span class="text-muted">(#{{ mariadb.local_index }})</span>{% endif %}</td>
+        </tr>
+        <tr>
+          <th>{% trans "Uptime (s)" %}</th>
+          <td>{{ mariadb.uptime|default:"-" }}</td>
+        </tr>
+        <tr>
+          <th>{% trans "Threads connected" %}</th>
+          <td>{{ mariadb.threads_connected|default:"-" }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<h5 style="margin-top:10px;">{% trans "Cluster nodes" %}</h5>
+<table class="table table-striped table-condensed">
+  <thead>
+    <tr>
+      <th>{% trans "Address" %}</th>
+      <th style="width:140px;">{% trans "Reachable (TCP)" %}</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% if mariadb.nodes and mariadb.nodes|length > 0 %}
+      {% for n in mariadb.nodes %}
+        <tr>
+          <td><code>{{ n.node|default:"-" }}</code></td>
+          <td>
+            {% if n.reachable %}
+              <span class="label label-success">{% trans "YES" %}</span>
+            {% else %}
+              <span class="label label-danger">{% trans "NO" %}</span>
+            {% endif %}
+          </td>
+        </tr>
+      {% endfor %}
+    {% else %}
+      <tr><td colspan="2"><em>{% trans "No peer information available." %}</em></td></tr>
+    {% endif %}
+  </tbody>
+</table>

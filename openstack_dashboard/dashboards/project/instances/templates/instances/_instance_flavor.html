@@ -1,18 +1,51 @@
 {% load i18n %}
-<a href="#" id="flavor_details_{{ id }}" class="link-popover" rel="popover" tabindex="0" data-trigger="focus" data-content="
+{% load size_filters %}
+<style>
+.flavor-min-nowrap { white-space: nowrap !important; color: #000 !important; display: inline-block; }
+</style>
+
+<a href="#" id="flavor_details_{{ id }}" class="link-popover" rel="popover" tabindex="0"
+   data-trigger="focus" data-content="
 <table class=&quot;table table-bordered&quot;>
   <tr><th>{% trans 'ID' %}</th><td>{{ flavor_id }}</td></tr>
   <tr><th>{% trans 'VCPUs' %}</th><td>{{ vcpus }}</td></tr>
-  <tr><th>{% trans 'RAM' %}</th><td>{{ size_ram }}</td></tr>
+  <tr><th>{% trans 'RAM (GB)' %}</th><td>{{ size_ram|mb_to_gb }}</td></tr>
   <tr><th>{% trans 'Size' %}</th><td>{{ size_disk }}</td></tr>
+
+  {% if extra_specs_items %}
+    <tr><th colspan=&quot;2&quot;>{% trans 'Hot Add Enabled' %}</th></tr>
+    {% for k, v in extra_specs_items %}
+      <tr>
+        <th>
+          <code {% if k == 'minimum_cpu' or k == 'minimum_memory' %}class=&quot;flavor-min-nowrap&quot;{% endif %}>
+            {% if k == 'minimum_cpu' %}Min&nbsp;CPU{% elif k == 'minimum_memory' %}Min&nbsp;Memory{% else %}{{ k }}{% endif %}
+          </code>
+        </th>
+        <td>
+          <code {% if k == 'minimum_cpu' or k == 'minimum_memory' %}class=&quot;flavor-min-nowrap&quot;{% endif %}>
+            {% if k == 'minimum_memory' %}
+              {% if v %}
+                {{ v|floatformat:0|mb_to_gb }}
+              {% else %}
+                -
+              {% endif %}
+            {% else %}
+              {{ v }}
+            {% endif %}
+          </code>
+        </td>
+      </tr>
+    {% endfor %}
+  {% endif %}
 </table>
-" data-original-title="{% blocktrans %}<span class=&quot;word-wrap&quot;>Flavor Details: {{ name }}</span>">{{ name }}{% endblocktrans %}</a>
-<script type="text/javascript" charset="utf-8">
+" data-original-title="{% blocktrans %}<span class=&quot;word-wrap&quot;>Flavor Details: {{ name }}</span>{% endblocktrans %}">{{ name }}</a>
+
+<script type="text/javascript">
 $(function () {
   var $flavor = $("#flavor_details_{{ id }}");
-  // NOTE(tsufiev): check this in case this template is used in network topology -> delete instance
-  if ( $flavor.popover ) {
-    $flavor.popover({html:true, sanitize: false, trigger: "hover"});
+  if ($flavor.popover) {
+    $flavor.popover({html: true, sanitize: false, trigger: "hover"});
   }
 });
 </script>
+

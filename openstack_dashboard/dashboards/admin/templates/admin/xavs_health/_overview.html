@@ -1,0 +1,19 @@
+{% load i18n %}
+<div class="row">
+  <div class="col-sm-6">
+    <div class="panel panel-info">
+      <div class="panel-heading"><strong>{% trans "MariaDB Cluster" %}</strong></div>
+      <div class="panel-body">
+        {% include "admin/xavs_health/_mariadb.html" with mariadb=mariadb only %}
+      </div>
+    </div>
+  </div>
+  <div class="col-sm-6">
+    <div class="panel panel-info">
+      <div class="panel-heading"><strong>{% trans "RabbitMQ Cluster" %}</strong></div>
+      <div class="panel-body">
+        {% include "admin/xavs_health/_rabbitmq.html" with rabbitmq=rabbitmq only %}
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,9 @@
+{% load i18n %}
+<div class="alert alert-warning" role="alert" style="margin-top:10px;">
+  <strong>{% trans "Warnings/Errors:" %}</strong>
+  <ul style="margin:8px 0 0 18px;">
+    {% for e in errors %}
+      <li><code>{{ e }}</code></li>
+    {% endfor %}
+  </ul>
+</div>

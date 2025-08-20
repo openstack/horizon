@@ -21,7 +21,6 @@ from horizon.utils import filters as utils_filters
 from openstack_dashboard import api
 from openstack_dashboard import policy
 
-
 class EvacuateHost(tables.LinkAction):
     name = "evacuate"
     verbose_name = _("Evacuate Host")
@@ -142,5 +141,5 @@ class ComputeHostTable(tables.DataTable):
             EvacuateHost,
             DisableService,
             EnableService,
-            MigrateMaintenanceHost
+            MigrateMaintenanceHost,
         )

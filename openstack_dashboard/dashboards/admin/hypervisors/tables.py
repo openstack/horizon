@@ -12,10 +12,115 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
-from django.utils.translation import gettext_lazy as _
 
 from horizon import tables
 from horizon.templatetags import sizeformat
+from django.utils.translation import gettext_lazy as _
+from functools import lru_cache
+import ipaddress
+import socket
+from django.conf import settings
+from openstack_dashboard import api
+from django.urls import reverse
+from urllib.parse import quote
+
+
+
+################ xloud code ################
+def _looks_like_ip(s: str) -> bool:
+    try:
+        ipaddress.ip_address(s)
+        return True
+    except Exception:
+        return False
+
+@lru_cache(maxsize=512)
+def _dns_resolve(host: str) -> str | None:
+    try:
+        return socket.gethostbyname(host)
+    except Exception:
+        return None
+
+def _nova_resolve_ip(request, host_or_name: str) -> str | None:
+    """Ask Nova for host_ip of the hypervisor matching this name."""
+    try:
+        hypers = api.nova.hypervisor_search(request, host_or_name) or []
+        for h in hypers:
+            ip = getattr(h, "host_ip", None)
+            if ip:
+                return ip
+        # sometimes hypervisor_hostname is already an IP
+        if hypers:
+            hh = getattr(hypers[0], "hypervisor_hostname", None)
+            if hh and _looks_like_ip(hh):
+                return hh
+    except Exception:
+        pass
+    return None
+
+class OpenLocalAppModal(tables.LinkAction):  # keep the name your table references
+    name = "open_local_app_popup"
+    verbose_name = _("Host Management")
+    classes = ("btn", "btn-default")
+    icon = "link"
+
+    def _resolve_ip(self, request, datum) -> str | None:
+        # 1) exact field from the row
+        ip = getattr(datum, "host_ip", None)
+        if ip and _looks_like_ip(ip):
+            return ip
+
+        # 2) try nova by the hypervisor name/host
+        host_name = (getattr(datum, "hypervisor_hostname", None)
+                     or getattr(datum, "host", None)
+                     or "")
+        if host_name:
+            ip = _nova_resolve_ip(request, host_name)
+            if ip:
+                return ip
+
+        # 3) DNS fallback if the "host" looks like a name
+        if host_name and not _looks_like_ip(host_name):
+            ip = _dns_resolve(host_name)
+            if ip:
+                return ip
+
+        # 4) last resort: if the hypervisor_hostname is itself an IP
+        if host_name and _looks_like_ip(host_name):
+            return host_name
+        return None
+
+    def get_link_url(self, datum):
+        request = self.table.request
+
+        ip = self._resolve_ip(request, datum)
+        if not ip:
+            # No IP → don’t emit a broken link
+            return None
+
+        scheme = getattr(settings, "OPEN_LOCAL_APP_SCHEME", "https")
+        port   = getattr(settings, "OPEN_LOCAL_APP_PORT", 10000)
+        path   = getattr(settings, "OPEN_LOCAL_APP_PATH", "/")
+        if not path.startswith("/"):
+            path = "/" + path
+
+        # IPv6 needs brackets
+        host_for_url = f"[{ip}]" if (":" in ip and ip.count(":") > 1) else ip
+        return f"{scheme}://{host_for_url}:{port}{path}"
+
+    def get_default_attrs(self):
+        # open in popup (falls back to new tab if blocked)
+        attrs = super().get_default_attrs()
+        attrs["onclick"] = (
+            "window.open(this.href,'hostapp',"
+            "'noopener,noreferrer,width=1200,height=800,menubar=0,toolbar=0');"
+            "return false;"
+        )
+        attrs["target"] = "_blank"
+        attrs["rel"] = "noopener noreferrer"
+        return attrs
+        
+    #######################################
 
 
 class AdminHypervisorsTable(tables.DataTable):
@@ -50,6 +155,9 @@ class AdminHypervisorsTable(tables.DataTable):
     class Meta(object):
         name = "hypervisors"
         verbose_name = _("Hypervisors")
+        row_actions = (
+            OpenLocalAppModal,
+        )
 
 
 class AdminHypervisorInstancesTable(tables.DataTable):

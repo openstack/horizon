@@ -197,3 +197,19 @@ def get_novaclient_with_instance_desc(request):
 def server_get(request, instance_id):
     return Server(get_novaclient_with_instance_desc(request).servers.get(
         instance_id), request)
+
+#############xloud code
+def xloud_adjust(request, server_id, current_vcpus=None, current_memory_mb=None, persist=True):
+    """POST to Nova os-xloud-adjust extension."""
+    payload = {}
+    if current_vcpus is not None:
+        payload['current_vcpus'] = int(current_vcpus)
+    if current_memory_mb is not None:
+        payload['current_memory_mb'] = int(current_memory_mb)
+    payload['persist'] = bool(persist)
+
+    # Use novaclient's low-level API client
+    nova = novaclient(request)  # already defined in this module
+    # Path matches your API: /v2.1/<project-id>/os-xloud-adjust/<server_id>
+    # novaclient prefixes the tenant+base; we pass only the resource part
+    return nova.client.api.client.post(f'/os-xloud-adjust/{server_id}', body=payload)

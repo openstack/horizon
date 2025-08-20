@@ -1,0 +1,21 @@
+{% load i18n %}
+<p class="help-block">
+  {% blocktrans %}Grafana is opened below. If embedding is blocked by the application's
+  security headers, use the button to open it in a new tab.{% endblocktrans %}
+</p>
+
+<div style="border:1px solid #ddd; border-radius:6px; height:70vh;">
+  <iframe
+      src="{{ target_url }}"
+      style="width:100%; height:100%; border:0;"
+      loading="lazy"
+      referrerpolicy="no-referrer"
+      sandbox="allow-forms allow-scripts allow-same-origin allow-popups allow-popups-to-escape-sandbox">
+  </iframe>
+</div>
+
+<div class="btn-toolbar" style="margin-top:12px;">
+  <a class="btn btn-primary" href="{{ target_url }}" target="_blank" rel="noopener noreferrer">
+    {% trans "Open Grafana in new tab" %}
+  </a>
+</div>

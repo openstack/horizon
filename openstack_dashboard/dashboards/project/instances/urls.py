@@ -17,6 +17,8 @@
 #    under the License.
 
 from django.urls import re_path
+from . import views
+
 
 from openstack_dashboard.dashboards.project.instances import views
 
@@ -56,4 +58,6 @@ urlpatterns = [
     re_path(r'^(?P<instance_id>[^/]+)/ports/(?P<port_id>[^/]+)/update$',
             views.UpdatePortView.as_view(), name='update_port'),
     re_path(INSTANCES % 'rescue', views.RescueView.as_view(), name='rescue'),
+    re_path(r'^(?P<instance_id>[^/]+)/adjust/$',  # note the trailing slash
+            views.AdjustVcpuRamView.as_view(), name='adjust'),
 ]

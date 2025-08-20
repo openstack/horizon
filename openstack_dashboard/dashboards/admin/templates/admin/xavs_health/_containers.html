@@ -1,0 +1,33 @@
+{% load i18n %}
+<table class="table table-striped table-condensed">
+  <thead>
+    <tr>
+      <th>{% trans "Container" %}</th>
+      <th>{% trans "Role" %}</th>
+      <th style="width:120px;">{% trans "Status" %}</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% if rows %}
+      {% for r in rows %}
+        {% with s=r.status|default:"unknown" %}
+        <tr>
+          <td>{{ r.name|default:"-" }}</td>
+          <td>{{ r.role|default:"-" }}</td>
+          <td>
+            {% if s|lower == "running" or s|lower == "up" %}
+              <span class="label label-success">{% trans "RUNNING" %}</span>
+            {% elif s|lower == "exited" or s|lower == "down" %}
+              <span class="label label-danger">{% trans "DOWN" %}</span>
+            {% else %}
+              <span class="label label-default">{{ s }}</span>
+            {% endif %}
+          </td>
+        </tr>
+        {% endwith %}
+      {% endfor %}
+    {% else %}
+      <tr><td colspan="3"><em>{% trans "No container data." %}</em></td></tr>
+    {% endif %}
+  </tbody>
+</table>

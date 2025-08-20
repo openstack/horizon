@@ -20,6 +20,7 @@ from django.http import HttpResponse
 from django import shortcuts
 from django import template
 from django.template.defaultfilters import title
+from django.template import defaultfilters as filters
 from django import urls
 from django.utils.http import urlencode
 from django.utils.safestring import mark_safe
@@ -34,7 +35,55 @@ from horizon import exceptions
 from horizon import messages
 from horizon import tables
 from horizon.templatetags import sizeformat
-from horizon.utils import filters
+from django.utils.dateparse import parse_datetime
+from django.utils.timesince import timesince as django_timesince
+from django.utils import timezone
+
+# Local replacements for Horizon template filters used by the table columns.
+def parse_isotime(value):
+    if value is None:
+        return value
+    try:
+        dt = value
+        if isinstance(value, str):
+            dt = parse_datetime(value)
+        if dt is None:
+            return value
+        if timezone.is_naive(dt):
+            dt = timezone.make_aware(dt, timezone.get_default_timezone())
+        return dt
+    except Exception:
+        return value
+
+def timesince_sortable(value):
+    try:
+        now = timezone.now()
+        if isinstance(value, str):
+            value = parse_isotime(value)
+        if hasattr(value, 'strftime'):
+            return django_timesince(value, now)
+    except Exception:
+        pass
+    return value
+
+# helper used by column filters to turn "verify_resize" -> "verify resize"
+def replace_underscores(value):
+    if value is None:
+        return value
+    try:
+        return str(value).replace('_', ' ')
+    except Exception:
+        return value
+
+def get_size(flavor):
+    # Format RAM (stored in MB) to human GB units for UI
+    return sizeformat.mb_float_format(getattr(flavor, 'ram', 0) or 0)
+
+# and ensure column uses readable label
+class FlavorsTable(tables.DataTable):
+    ...
+    ram = tables.Column(get_size, verbose_name=_('RAM (GB)'), attrs={'data-type': 'size'})
+    ...
 
 from openstack_dashboard import api
 from openstack_dashboard.dashboards.project.floating_ips import workflows
@@ -47,6 +96,25 @@ from openstack_dashboard.dashboards.project.instances.workflows \
     import update_instance
 from openstack_dashboard import policy
 from openstack_dashboard.views import get_url_with_pagination
+
+import json
+import logging
+
+from django.urls import reverse
+from django.utils.html import conditional_escape, format_html
+from django.utils.translation import gettext_lazy as _
+
+from horizon import tables
+from horizon.utils import memoized
+from openstack_dashboard.dashboards.project.instances import utils as instance_utils
+
+import json
+from django.utils.html import conditional_escape, format_html, format_html_join
+from django.utils.safestring import mark_safe
+from django.utils.translation import gettext_lazy as _
+
+
+
 
 LOG = logging.getLogger(__name__)
 
@@ -81,6 +149,270 @@ def is_deleting(instance):
     if not task_state:
         return False
     return task_state.lower() == "deleting"
+
+
+
+##########################################################################################################
+######xloud code
+
+def _extract_specs_from_flavor_obj(flv):
+    # Try common locations for extra specs on the flavor object
+    if getattr(flv, "extra_specs", None):
+        return dict(flv.extra_specs)
+    if hasattr(flv, "get_keys"):
+        try:
+            ks = flv.get_keys()
+            if ks:
+                return dict(ks)
+        except Exception:
+            pass
+    # Sometimes exposed as OS-FLV-WITH-EXT-SPECS:extra_specs
+    for attr in list(getattr(flv, "__dict__", {}).keys()):
+        if attr.lower().endswith("extra_specs"):
+            try:
+                val = getattr(flv, attr)
+                if isinstance(val, dict) and val:
+                    return dict(val)
+            except Exception:
+                pass
+    return {}
+
+
+
+class AdjustVcpuRamAction(tables.LinkAction):
+    name = "adjust"
+    verbose_name = _("Live vCPU/RAM")
+    url = "horizon:project:instances:adjust"
+    classes = ("ajax-modal",)
+    icon = "resize-vertical"
+    policy_rules = (("compute", "os_compute_api:xloud:adjust"),)
+
+    def get_link_url(self, datum):
+        # include instance id in the link
+        return reverse(self.url, kwargs={"instance_id": datum.id})
+
+    def allowed(self, request, instance):
+        """
+        Show the action only if the instance's flavor has BOTH:
+          - minimum_cpu
+          - minimum_memory
+        with non-empty values (case-insensitive key match).
+        """
+        try:
+            specs = self._get_extra_specs(request, instance) or {}
+            specs_norm = {
+                str(k).strip().lower(): str(v).strip()
+                for k, v in specs.items()
+                if v is not None
+            }
+
+            required = ("minimum_cpu", "minimum_memory")
+            ok = all(k in specs_norm and specs_norm[k] for k in required)
+
+            LOG.debug(
+                "Live vCPU/RAM allowed? %s | inst=%s flavor=%s | extra_specs=%s",
+                ok,
+                getattr(instance, "id", "?"),
+                self._resolve_flavor_id(instance) or "?",
+                specs,
+            )
+            return ok
+        except Exception as exc:
+            LOG.debug(
+                "Live vCPU/RAM allowed() error for instance %s: %s",
+                getattr(instance, "id", "?"),
+                exc,
+                exc_info=True,
+            )
+            return False
+
+    # ---------- helpers ----------
+
+
+    def _format_extras_for_popover(specs: dict) -> str:
+    # Return an HTML fragment for extra_specs to append into the existing popover.
+        if not specs:
+            return ""
+    # Up to 8 lines inline, rest hidden behind tooltip hint
+        items = sorted(((str(k), str(v)) for k, v in specs.items()), key=lambda kv: kv[0].lower())
+        head = items[:8]
+        tail = items[8:]
+
+        head_html = format_html_join(
+            "",  # no separator, each line is its own block
+            '<div style="white-space:nowrap"><code>{}</code>=<code>{}</code></div>',
+            ((conditional_escape(k), conditional_escape(v)) for k, v in head),
+        )
+
+        if tail:
+            tooltip = json.dumps(dict(items), ensure_ascii=False, sort_keys=True, indent=2)
+            more_html = format_html(
+                '<div><span title="{}">+{} more</span></div>',
+                conditional_escape(tooltip),
+                len(tail),
+            )
+        else:
+            more_html = ""
+
+        return mark_safe(
+            '<hr style="margin:4px 0">'
+            f'<div><strong>{conditional_escape(_("extra_specs"))}</strong></div>'
+            f'{head_html}{more_html}'
+        )
+
+
+
+
+
+
+
+
+    def _resolve_flavor_id(self, instance):
+        """Best-effort flavor id resolution from the table row."""
+        inst_flv = getattr(instance, "flavor", None)
+        if isinstance(inst_flv, dict):
+            return inst_flv.get("id")
+
+        flv = getattr(instance, "full_flavor", None)
+        if flv:
+            return getattr(flv, "id", None)
+        return None
+
+    @memoized.memoized_method
+    def _get_extra_specs(self, request, instance):
+        """
+        Return a dict of extra_specs for the instance flavor using multiple fallbacks:
+          1) instance.full_flavor.extra_specs (or extended attributes)
+          2) resolve flavor id from instance
+          3) resolve via instance_utils.resolve_flavor from flavor_list
+        Then try:
+          a) api.nova.flavor_get_extras(request, fid, raw=True)
+          b) api.nova.flavor_get() + (extra_specs | get_keys() | extended attrs)
+        A per-request cache avoids repeat lookups.
+        """
+        # per-request cache
+        cache = getattr(request, "_xloud_flavor_specs_cache", None)
+        if cache is None:
+            cache = {}
+            setattr(request, "_xloud_flavor_specs_cache", cache)
+
+        # 1) if the row already has a resolved flavor, try to extract specs
+        flv = getattr(instance, "full_flavor", None)
+        if flv:
+            specs = self._extract_specs_from_flavor_obj(flv)
+            if specs:
+                return specs
+
+        # 2) flavor id straight from the row
+        fid = self._resolve_flavor_id(instance)
+
+        # 3) last resort: resolve via helper
+        if not fid:
+            try:
+                flavors = api.nova.flavor_list(request)
+                fmap = {str(f.id): f for f in flavors}
+                flv = instance_utils.resolve_flavor(request, instance, fmap)
+                fid = getattr(flv, "id", None)
+            except Exception:
+                fid = None
+
+        if not fid:
+            return {}
+
+        if fid in cache:
+            return cache[fid]
+
+        # a) preferred extra specs endpoint
+        try:
+            extras = api.nova.flavor_get_extras(request, fid, raw=True) or {}
+            LOG.debug("flavor_get_extras(%s) -> %s", fid, extras)
+            if extras:
+                cache[fid] = extras
+                return extras
+        except Exception as e:
+            LOG.debug("flavor_get_extras failed for flavor %s: %s", fid, e)
+
+        # b) fallback: flavor_get then inspect attributes
+        try:
+            flv = api.nova.flavor_get(request, fid)
+            extras = self._extract_specs_from_flavor_obj(flv)
+            LOG.debug("flavor_get(%s) extras via object -> %s", fid, extras)
+            cache[fid] = extras or {}
+            return cache[fid]
+        except Exception as e:
+            LOG.debug("flavor_get failed for flavor %s: %s", fid, e)
+            cache[fid] = {}
+            return {}
+
+    def _extract_specs_from_flavor_obj(self, flavor):
+        """
+        Extract extra specs from common places on a flavor object:
+          - flavor.extra_specs
+          - flavor.get_keys() (older clients)
+          - flavor.<'OS-FLV-WITH-EXT-SPECS:extra_specs'> (extended attribute)
+        """
+        if getattr(flavor, "extra_specs", None):
+            return dict(flavor.extra_specs)
+
+        if hasattr(flavor, "get_keys"):
+            try:
+                keys = flavor.get_keys()
+                if keys:
+                    return dict(keys)
+            except Exception:
+                pass
+
+        for attr in list(getattr(flavor, "__dict__", {}).keys()):
+            if attr.lower().endswith("extra_specs"):
+                try:
+                    val = getattr(flavor, attr)
+                    if isinstance(val, dict) and val:
+                        return dict(val)
+                except Exception:
+                    pass
+
+        return {}
+
+
+# ---------- OPTIONAL: a debug column to show extra specs in the table ----------
+class ExtraSpecsColumn(tables.Column):
+    """Debug column: shows flavor extra_specs (keys + tooltip with JSON)."""
+
+    def __init__(self, *args, **kwargs):
+        kwargs.setdefault("empty_value", "-")
+        # Column requires a transform; pass a no-op that returns the row datum.
+        super().__init__(lambda datum: datum, **kwargs)
+
+    def get_raw_data(self, datum):
+        # Reuse the action’s resolver so logic stays in one place
+        action = AdjustVcpuRamAction()
+        try:
+            specs = action._get_extra_specs(self.table.request, datum) or {}
+        except Exception as e:
+            LOG.debug("ExtraSpecsColumn failed to resolve specs: %s", e, exc_info=True)
+            specs = {}
+
+        if not specs:
+            return "-"
+
+        # Compact inline: k1=v1, k2=v2 (trim for table width)
+        parts = [f"{k}={specs[k]}" for k in sorted(specs)]
+        inline = ", ".join(parts)
+        inline_short = (inline[:120] + "…") if len(inline) > 120 else inline
+
+        tooltip = json.dumps(specs, ensure_ascii=False, sort_keys=True)
+        return format_html(
+            '<span title="{}">{}</span>',
+            conditional_escape(tooltip),
+            conditional_escape(inline_short),
+        )
+
+
+
+
+
+##########################################################################################################
+
 
 
 class DeleteInstance(policy.PolicyTargetMixin, tables.DeleteAction):
@@ -1021,7 +1353,7 @@ def get_ips(instance):
     }
     return template.loader.render_to_string(template_name, context)
 
-
+############################################################################
 def get_flavor(instance):
     if hasattr(instance, "full_flavor"):
         template_name = 'project/instances/_instance_flavor.html'
@@ -1030,17 +1362,32 @@ def get_flavor(instance):
             size_disk = sizeformat.diskgbformat(instance.full_flavor.disk)
         else:
             size_disk = _("%s GB") % "0"
+
+        # NEW: pull extra_specs if the flavor object already carries them
+        specs = _extract_specs_from_flavor_obj(instance.full_flavor)
+        # prepare a compact list of up to 8 k=v pairs, plus tooltip for “+N more”
+        items = sorted(((str(k), str(v)) for k, v in (specs or {}).items()),
+                       key=lambda kv: kv[0].lower())
+        head = items[:8]
+        tail = items[8:]
+        extras_tooltip = json.dumps(specs, ensure_ascii=False, sort_keys=True, indent=2) if tail else None
+
         context = {
             "name": instance.full_flavor.name,
             "id": instance.id,
             "size_disk": size_disk,
             "size_ram": size_ram,
             "vcpus": instance.full_flavor.vcpus,
-            "flavor_id": getattr(instance.full_flavor, 'id', None)
+            "flavor_id": getattr(instance.full_flavor, 'id', None),
+
+            # NEW: data for the template to render
+            "extra_specs_items": head,                 # list of (key, value)
+            "extra_specs_more_count": len(tail),       # how many were hidden
+            "extra_specs_tooltip": extras_tooltip,     # pretty JSON for title=…
         }
         return template.loader.render_to_string(template_name, context)
     return _("Not available")
-
+####################################################################################
 
 def get_keyname(instance):
     if hasattr(instance, "key_name"):
@@ -1244,6 +1591,7 @@ class InstancesTable(tables.DataTable):
         ("shelved", True),
         ("shelved_offloaded", True),
     )
+    
     name = tables.WrappingColumn("name",
                                  link=get_server_detail_link,
                                  verbose_name=_("Instance Name"))
@@ -1255,13 +1603,17 @@ class InstancesTable(tables.DataTable):
     flavor = tables.Column(get_flavor,
                            sortable=False,
                            verbose_name=_("Flavor"))
+######
+   # extra_specs = ExtraSpecsColumn(verbose_name=_("Flavor Specs"))
+######
+
     keypair = tables.Column(get_keyname, verbose_name=_("Key Pair"))
     status = tables.Column("status",
-                           filters=(title, filters.replace_underscores),
-                           verbose_name=_("Status"),
-                           status=True,
-                           status_choices=STATUS_CHOICES,
-                           display_choices=STATUS_DISPLAY_CHOICES)
+                           filters=(replace_underscores, title),
+                            verbose_name=_("Status"),
+                            status=True,
+                            status_choices=STATUS_CHOICES,
+                            display_choices=STATUS_DISPLAY_CHOICES)
     locked = tables.Column(render_locked,
                            verbose_name="",
                            sortable=False)
@@ -1274,13 +1626,12 @@ class InstancesTable(tables.DataTable):
                          status_choices=TASK_STATUS_CHOICES,
                          display_choices=TASK_DISPLAY_CHOICES)
     state = tables.Column(get_power_state,
-                          filters=(title, filters.replace_underscores),
+                          filters=(replace_underscores, title),
                           verbose_name=_("Power State"),
                           display_choices=POWER_DISPLAY_CHOICES)
     created = tables.Column("created",
                             verbose_name=_("Age"),
-                            filters=(filters.parse_isotime,
-                                     filters.timesince_sortable),
+                            filters=(parse_isotime, timesince_sortable),
                             attrs={'data-type': 'timesince'})
 
     class Meta(object):
@@ -1299,7 +1650,8 @@ class InstancesTable(tables.DataTable):
                        UpdateMetadata, DecryptInstancePassword,
                        EditInstanceSecurityGroups,
                        EditPortSecurityGroups,
-                       ConsoleLink, LogLink,
+                       ConsoleLink, AdjustVcpuRamAction,
+                       LogLink,
                        RescueInstance, UnRescueInstance,
                        TogglePause, ToggleSuspend, ToggleShelve,
                        ResizeLink, LockInstance, UnlockInstance,

@@ -116,7 +116,13 @@ class FlavorFilterAction(tables.FilterAction):
 
 
 def get_size(flavor):
-    return sizeformat.mb_float_format(flavor.ram)
+    # Convert RAM from MB (nova) to GB for UI display
+    ram_mb = getattr(flavor, 'ram', 0) or 0
+    ram_gb = float(ram_mb) / 1024.0
+    # show integer GB when whole number, otherwise one decimal place
+    if ram_gb.is_integer():
+        return _("%dGB") % int(ram_gb)
+    return _("%.1fGB") % ram_gb
 
 
 def get_swap_size(flavor):
@@ -139,7 +145,7 @@ class FlavorsTable(tables.DataTable):
     name = tables.WrappingColumn('name', verbose_name=_('Flavor Name'))
     vcpus = tables.Column('vcpus', verbose_name=_('VCPUs'))
     ram = tables.Column(get_size,
-                        verbose_name=_('RAM'),
+                        verbose_name=_('RAM (GB)'),
                         attrs={'data-type': 'size'})
     disk = tables.Column(get_disk_size,
                          verbose_name=_('Root Disk'),

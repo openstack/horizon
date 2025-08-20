@@ -202,7 +202,7 @@ class FlavorsViewTests(test.BaseAdminViewTests):
 
 class BaseFlavorWorkflowTests(test.BaseAdminViewTests):
 
-    def _flavor_create_params(self, flavor, id=None):
+    def _flavor_create_params(self, flavor, id=None, metadata=None):
         eph = getattr(flavor, 'OS-FLV-EXT-DATA:ephemeral')
         flavor_info = {"name": flavor.name,
                        "vcpu": flavor.vcpus,
@@ -211,12 +211,14 @@ class BaseFlavorWorkflowTests(test.BaseAdminViewTests):
                        "swap": flavor.swap,
                        "rxtx_factor": flavor.rxtx_factor,
                        "ephemeral": eph,
-                       "is_public": flavor.is_public}
+                       "is_public": flavor.is_public,
+                       "metadata": metadata}
         if id:
             flavor_info["flavorid"] = id
         return flavor_info
 
-    def _get_workflow_data(self, flavor, id=None, access=None):
+    def _get_workflow_data(self, flavor, id=None, access=None,
+                           minimum_cpu=None, minimum_memory=None):
         eph = getattr(flavor, 'OS-FLV-EXT-DATA:ephemeral')
         flavor_info = {"name": flavor.name,
                        "vcpus": flavor.vcpus,
@@ -226,6 +228,12 @@ class BaseFlavorWorkflowTests(test.BaseAdminViewTests):
                        "rxtx_factor": flavor.rxtx_factor,
                        "eph_gb": eph}
         self._get_access_field(flavor_info, access)
+        if minimum_cpu is not None or minimum_memory is not None:
+            flavor_info['add_metadata'] = True
+            if minimum_cpu is not None:
+                flavor_info['minimum_cpu'] = minimum_cpu
+            if minimum_memory is not None:
+                flavor_info['minimum_memory'] = minimum_memory
         if id:
             flavor_info['flavor_id'] = id
         return flavor_info
@@ -284,6 +292,85 @@ class CreateFlavorWorkflowTests(BaseFlavorWorkflowTests):
         self.mock_flavor_create.assert_called_once_with(test.IsHttpRequest(),
                                                         **params)
 
+    @test.create_mocks({api.keystone: ('tenant_list',),
+                        api.nova: ('flavor_list', 'flavor_create')})
+    def test_create_flavor_with_invalid_min_cpu(self):
+        flavor = self.flavors.first()
+        projects = self.tenants.list()
+
+        self.mock_tenant_list.return_value = [projects, False]
+        self.mock_flavor_list.return_value = []
+
+        min_cpu_val = flavor.vcpus + 1
+        workflow_data = self._get_workflow_data(
+            flavor, minimum_cpu=min_cpu_val, minimum_memory=flavor.ram)
+
+        url = reverse(constants.FLAVORS_CREATE_URL)
+        res = self.client.post(url, workflow_data)
+
+        error_msg = 'Minimum CPU cannot exceed VCPUs.'
+        self.assertFormErrors(res)
+        self.assertContains(res, error_msg)
+        self.mock_tenant_list.assert_called_once_with(test.IsHttpRequest())
+        self.mock_flavor_list.assert_called_once_with(test.IsHttpRequest(),
+                                                      None)
+        self.mock_flavor_create.assert_not_called()
+
+    @test.create_mocks({api.keystone: ('tenant_list',),
+                        api.nova: ('flavor_list', 'flavor_create')})
+    def test_create_flavor_with_invalid_min_memory(self):
+        flavor = self.flavors.first()
+        projects = self.tenants.list()
+
+        self.mock_tenant_list.return_value = [projects, False]
+        self.mock_flavor_list.return_value = []
+
+        min_mem_val = flavor.ram + 1
+        workflow_data = self._get_workflow_data(
+            flavor, minimum_cpu=flavor.vcpus, minimum_memory=min_mem_val)
+
+        url = reverse(constants.FLAVORS_CREATE_URL)
+        res = self.client.post(url, workflow_data)
+
+        error_msg = 'Minimum Memory cannot exceed RAM.'
+        self.assertFormErrors(res)
+        self.assertContains(res, error_msg)
+        self.mock_tenant_list.assert_called_once_with(test.IsHttpRequest())
+        self.mock_flavor_list.assert_called_once_with(test.IsHttpRequest(),
+                                                      None)
+        self.mock_flavor_create.assert_not_called()
+
+    @test.create_mocks({api.keystone: ('tenant_list',),
+                        api.nova: ('flavor_list',
+                                   'flavor_create',)})
+    def test_create_flavor_with_metadata(self):
+        flavor = self.flavors.first()
+        projects = self.tenants.list()
+
+        self.mock_tenant_list.return_value = [projects, False]
+        self.mock_flavor_list.return_value = []
+        self.mock_flavor_create.return_value = flavor
+
+        min_cpu_val = 2
+        min_mem_val = 2048
+        workflow_data = self._get_workflow_data(
+            flavor, minimum_cpu=min_cpu_val, minimum_memory=min_mem_val)
+
+        url = reverse(constants.FLAVORS_CREATE_URL)
+        res = self.client.post(url, workflow_data)
+
+        self.assertNoFormErrors(res)
+        self.assertRedirectsNoFollow(res, reverse(constants.FLAVORS_INDEX_URL))
+
+        self.mock_tenant_list.assert_called_once_with(test.IsHttpRequest())
+        self.mock_flavor_list.assert_called_once_with(test.IsHttpRequest(),
+                                                      None)
+        params = self._flavor_create_params(
+            flavor, id='auto',
+            metadata={'minimum_cpu': min_cpu_val,
+                      'minimum_memory': min_mem_val})
+        self.mock_flavor_create.assert_called_once_with(test.IsHttpRequest(),
+                                                        **params)
     @test.create_mocks({api.keystone: ('tenant_list',),
                         api.nova: ('flavor_list',
                                    'flavor_create',

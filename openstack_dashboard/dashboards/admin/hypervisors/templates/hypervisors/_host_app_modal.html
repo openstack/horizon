@@ -1,0 +1,43 @@
+{% load i18n %}
+<div class="modal-header">
+  <h3 class="modal-title">{% trans "Host App" %}</h3>
+</div>
+
+<div class="modal-body">
+  <p class="help-block">
+    {% blocktrans %}You’re opening the local app on host: {{ host_display }}.{% endblocktrans %}
+  </p>
+
+  <div id="iframe-wrap" style="border:1px solid #ddd; border-radius:6px; height:70vh;">
+    <iframe id="host-app-frame"
+            src="{{ target_url }}"
+            style="width:100%; height:100%; border:0;"
+            loading="lazy"
+            referrerpolicy="no-referrer"
+            sandbox="allow-forms allow-scripts allow-same-origin allow-popups allow-popups-to-escape-sandbox">
+
+    </iframe>
+  </div>
+
+  <div id="embed-warning" class="alert alert-warning" style="display:none; margin-top:12px;">
+    {% blocktrans %}The application refused to be embedded (X-Frame-Options / CSP). Click “Open in new tab” below.{% endblocktrans %}
+  </div>
+</div>
+
+<div class="modal-footer">
+  <a class="btn btn-primary" href="{{ target_url }}" target="_blank" rel="noopener">
+    {% trans "Open in new tab" %}
+  </a>
+  <button class="btn btn-default" data-dismiss="modal">{% trans "Close" %}</button>
+</div>
+
+<script>
+  // If X-Frame-Options/CSP blocks, 'load' never fires; show a hint after 2.5s.
+  (function () {
+    var frame = document.getElementById('host-app-frame');
+    var warned = false;
+    function warn(){ if(!warned){ document.getElementById('embed-warning').style.display='block'; warned=true; } }
+    frame.addEventListener('load', function(){ /* loaded OK */ });
+    setTimeout(function(){ if(!warned) warn(); }, 2500);
+  })();
+</script>

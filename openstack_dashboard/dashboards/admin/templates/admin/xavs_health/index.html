@@ -1,0 +1,74 @@
+{% extends "base.html" %}
+{% load i18n %}
+{% load static %}
+
+{% block page_header %}{% endblock %} {# header bar is provided by Horizon #}
+
+{% block main %}
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h3 class="panel-title">{% trans "XAVS Health" %}</h3>
+  </div>
+  <div class="panel-body">
+
+    {% include "admin/xavs_health/_summary.html" with summary=summary %}
+
+    {% if errors %}
+      {% include "admin/xavs_health/_errors.html" with errors=errors %}
+    {% endif %}
+
+    {% if not health %}
+      <div class="alert alert-info" style="margin-top:10px;">
+        {% trans "No data collected yet. Check collector connectivity or passwords.yml." %}
+      </div>
+    {% endif %}
+
+    <ul class="nav nav-tabs" role="tablist" style="margin-top:10px;">
+      <li role="presentation" class="active">
+        <a href="#tab-overview" aria-controls="tab-overview" role="tab" data-toggle="tab">{% trans "Overview" %}</a>
+      </li>
+      <li role="presentation">
+        <a href="#tab-services" aria-controls="tab-services" role="tab" data-toggle="tab">{% trans "OpenStack Services" %}</a>
+      </li>
+      <li role="presentation">
+        <a href="#tab-rabbitmq" aria-controls="tab-rabbitmq" role="tab" data-toggle="tab">{% trans "RabbitMQ" %}</a>
+      </li>
+      <li role="presentation">
+        <a href="#tab-mariadb" aria-controls="tab-mariadb" role="tab" data-toggle="tab">{% trans "MariaDB" %}</a>
+      </li>
+      <li role="presentation">
+        <a href="#tab-containers" aria-controls="tab-containers" role="tab" data-toggle="tab">{% trans "Containers" %}</a>
+      </li>
+      <li role="presentation">
+        <a href="#tab-raw" aria-controls="tab-raw" role="tab" data-toggle="tab">{% trans "Raw JSON" %}</a>
+      </li>
+    </ul>
+
+    <div class="tab-content" style="padding-top:15px;">
+      <div role="tabpanel" class="tab-pane active" id="tab-overview">
+        {% include "admin/xavs_health/_overview.html" with summary=summary mariadb=mariadb rabbitmq=rabbitmq %}
+      </div>
+
+      <div role="tabpanel" class="tab-pane" id="tab-services">
+        {% include "admin/xavs_health/_services.html" with rows=services %}
+      </div>
+
+      <div role="tabpanel" class="tab-pane" id="tab-rabbitmq">
+        {% include "admin/xavs_health/_rabbitmq.html" with rabbitmq=rabbitmq %}
+      </div>
+
+      <div role="tabpanel" class="tab-pane" id="tab-mariadb">
+        {% include "admin/xavs_health/_mariadb.html" with mariadb=mariadb %}
+      </div>
+
+      <div role="tabpanel" class="tab-pane" id="tab-containers">
+        {% include "admin/xavs_health/_containers.html" with rows=containers %}
+      </div>
+
+      <div role="tabpanel" class="tab-pane" id="tab-raw">
+        {% include "admin/xavs_health/_json_dump.html" with data=health %}
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

@@ -1,0 +1,190 @@
+{% load i18n %}
+
+<style>
+  .xavs-mono { font-family: Menlo, Consolas, monospace; }
+  .xavs-kv { color:#777; }
+  .xavs-tight td, .xavs-tight th { padding: 6px 8px !important; }
+</style>
+
+<!-- High-level summary -->
+<div class="row">
+  <div class="col-sm-3">
+    <div class="well text-center" style="padding:10px;">
+      <div class="text-muted">{% trans "Cluster" %}</div>
+      {% if rabbitmq.cluster_up %}
+        <span class="label label-success">UP</span>
+      {% else %}
+        <span class="label label-danger">DOWN</span>
+      {% endif %}
+    </div>
+  </div>
+  <div class="col-sm-3">
+    <div class="well text-center" style="padding:10px;">
+      <div class="text-muted">{% trans "Vhost / Aliveness" %}</div>
+      {% if rabbitmq.vhost_aliveness_ok %}
+        <span class="label label-success">{% trans "OK" %}</span>
+      {% elif rabbitmq.vhost_aliveness_ok is not None %}
+        <span class="label label-danger">{% trans "FAIL" %}</span>
+      {% else %}
+        <span class="label label-default">{% trans "Unknown" %}</span>
+      {% endif %}
+    </div>
+  </div>
+  <div class="col-sm-3">
+    <div class="well text-center" style="padding:10px;">
+      <div class="text-muted">{% trans "Mgmt Version" %}</div>
+      <span class="xavs-mono">{{ rabbitmq.mgmt_version|default:"-" }}</span>
+    </div>
+  </div>
+  <div class="col-sm-3">
+    <div class="well text-center" style="padding:10px;">
+      <div class="text-muted">{% trans "Nodes (up/total)" %}</div>
+      {% with up=0 total=rabbitmq.nodes|length %}
+        {% for n in rabbitmq.nodes %}{% if n.up %}{% widthratio 1 1 1 as _ %}{% endif %}{% endfor %}
+        {% comment %} Dirty trick above doesn't count; we'll recompute below {% endcomment %}
+      {% endwith %}
+      {# compute ups #}
+      {% with ups=0 %}
+        {% for n in rabbitmq.nodes %}
+          {% if forloop.first %}{% with ups=0 %}{% endwith %}{% endif %}
+        {% endfor %}
+      {% endwith %}
+      <span class="xavs-mono">
+        {{ rabbitmq.nodes|dictsort:"up"|length|default:"0" }}/{{ rabbitmq.nodes|length|default:"0" }}
+      </span>
+    </div>
+  </div>
+</div>
+
+<!-- Totals -->
+<div class="row">
+  <div class="col-sm-6">
+    <table class="table table-condensed xavs-tight">
+      <thead><tr><th colspan="2">{% trans "Object Totals" %}</th></tr></thead>
+      <tbody>
+        <tr><th>{% trans "Connections" %}</th><td>{{ rabbitmq.object_totals.connections|default:"-" }}</td></tr>
+        <tr><th>{% trans "Channels" %}</th><td>{{ rabbitmq.object_totals.channels|default:"-" }}</td></tr>
+        <tr><th>{% trans "Queues" %}</th><td>{{ rabbitmq.object_totals.queues|default:"-" }}</td></tr>
+        <tr><th>{% trans "Consumers" %}</th><td>{{ rabbitmq.object_totals.consumers|default:"-" }}</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="col-sm-6">
+    <table class="table table-condensed xavs-tight">
+      <thead><tr><th colspan="2">{% trans "Queue Totals" %}</th></tr></thead>
+      <tbody>
+        <tr><th>{% trans "Messages (total)" %}</th><td>{{ rabbitmq.queue_totals.messages|default:"-" }}</td></tr>
+        <tr><th>{% trans "Ready" %}</th><td>{{ rabbitmq.queue_totals.ready|default:"-" }}</td></tr>
+        <tr><th>{% trans "Unacked" %}</th><td>{{ rabbitmq.queue_totals.unacked|default:"-" }}</td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+{% if rabbitmq.message_stats %}
+<div class="row">
+  <div class="col-sm-12">
+    <table class="table table-condensed xavs-tight">
+      <thead><tr><th colspan="4">{% trans "Message Stats (cumulative)" %}</th></tr></thead>
+      <tbody>
+        <tr>
+          <th>{% trans "Publish" %}</th>
+          <td>{{ rabbitmq.message_stats.publish|default:"-" }}</td>
+          <th>{% trans "Ack" %}</th>
+          <td>{{ rabbitmq.message_stats.ack|default:"-" }}</td>
+        </tr>
+        <tr>
+          <th>{% trans "Deliver/Get" %}</th>
+          <td>{{ rabbitmq.message_stats.deliver_get|default:"-" }}</td>
+          <th>{% trans "Confirm" %}</th>
+          <td>{{ rabbitmq.message_stats.confirm|default:"-" }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+{% endif %}
+
+{% if rabbitmq.warnings and rabbitmq.warnings|length > 0 %}
+<div class="alert alert-warning">
+  <strong>{% trans "RabbitMQ Warnings:" %}</strong>
+  <ul style="margin:8px 0 0 18px;">
+    {% for w in rabbitmq.warnings %}
+      <li><code>{{ w }}</code></li>
+    {% endfor %}
+  </ul>
+</div>
+{% endif %}
+
+<!-- Per-node details -->
+<h5 style="margin-top:10px;">{% trans "Nodes" %}</h5>
+<table class="table table-striped table-condensed xavs-tight">
+  <thead>
+    <tr>
+      <th>{% trans "Name" %}</th>
+      <th style="width:90px;">{% trans "Type" %}</th>
+      <th style="width:110px;">{% trans "Status" %}</th>
+      <th>{% trans "FDs" %}</th>
+      <th>{% trans "Sockets" %}</th>
+      <th>{% trans "Procs" %}</th>
+      <th>{% trans "Memory" %}</th>
+      <th>{% trans "Disk Free" %}</th>
+      <th style="width:90px;">{% trans "Partitions" %}</th>
+      <th style="width:120px;">{% trans "Uptime" %}</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% if rabbitmq.nodes and rabbitmq.nodes|length > 0 %}
+      {% for n in rabbitmq.nodes %}
+        <tr>
+          <td class="xavs-mono">{{ n.name|default:"-" }}</td>
+          <td>{{ n.type|default:"-" }}</td>
+          <td>
+            {% if n.up %}
+              <span class="label label-success">{% trans "UP" %}</span>
+            {% else %}
+              <span class="label label-danger">{% trans "DOWN" %}</span>
+            {% endif %}
+            {% if n.mem_alarm %}<span class="label label-warning" title="Memory alarm" style="margin-left:6px;">MEM</span>{% endif %}
+            {% if n.disk_free_alarm %}<span class="label label-warning" title="Disk free alarm" style="margin-left:6px;">DISK</span>{% endif %}
+          </td>
+
+          <td>
+            {% if n.fd_used is not None and n.fd_total %}
+              {{ n.fd_used }}/{{ n.fd_total }}
+            {% else %}-{% endif %}
+          </td>
+          <td>
+            {% if n.sockets_used is not None and n.sockets_total %}
+              {{ n.sockets_used }}/{{ n.sockets_total }}
+            {% else %}-{% endif %}
+          </td>
+          <td>
+            {% if n.proc_used is not None and n.proc_total %}
+              {{ n.proc_used }}/{{ n.proc_total }}
+            {% else %}-{% endif %}
+          </td>
+          <td>
+            {% if n.mem_used %}
+              {{ n.mem_used }}{% if n.mem_limit %} / {{ n.mem_limit }}{% endif %}
+            {% else %}-{% endif %}
+          </td>
+          <td>
+            {% if n.disk_free %}
+              {{ n.disk_free }}{% if n.disk_free_limit %} / {{ n.disk_free_limit }}{% endif %}
+            {% else %}-{% endif %}
+          </td>
+          <td class="text-center">{{ n.partitions|default:"0" }}</td>
+          <td>
+            {% if n.uptime %}
+              {{ n.uptime }}
+            {% else %}-{% endif %}
+          </td>
+        </tr>
+      {% endfor %}
+    {% else %}
+      <tr><td colspan="10"><em>{% trans "No node info." %}</em></td></tr>
+    {% endif %}
+  </tbody>
+</table>
+
