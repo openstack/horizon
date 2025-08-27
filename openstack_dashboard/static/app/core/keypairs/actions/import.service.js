@@ -79,7 +79,7 @@
                 },
                 $validators: {
                   keypairExists: function (name) {
-                    return (keypairs.indexOf(name) === -1);
+                    return (keypairs.indexOf(name.toLowerCase()) === -1);
                   }
                 },
                 required: true
@@ -147,7 +147,7 @@
     }
 
     function getName(item) {
-      return item.keypair.name;
+      return item.keypair.name.toLowerCase();
     }
   }
 })();
