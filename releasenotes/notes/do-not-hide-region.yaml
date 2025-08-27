@@ -1,0 +1,7 @@
+---
+upgrade:
+  - |
+    Region and domain selection fields are now always visible on the login
+    screen, even when using SAML or OIDC authentication methods. This
+    change supports setups where multiple regions or domains are used
+    alongside these authentication methods.

@@ -1,0 +1,5 @@
+---
+fixes:
+  - |
+    [:bug:`2116927`] Fixed issue with the subnet creation UI displaying
+    incorrect minimum and maximum prefix lengths beyond the allowed range.
