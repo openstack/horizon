@@ -17,7 +17,6 @@
         - horizon-dsvm-tempest-plugin
         - horizon-tox-bandit-baseline
         - horizon-tempest-plugin-ipv6
-        - horizon-dsvm-tempest-plugin-ubuntu-jammy
     gate:
       jobs:
         - horizon-dsvm-tempest-plugin
@@ -25,7 +24,6 @@
         - horizon-integration-pytest
         - horizon-ui-pytest
         - horizon-tempest-plugin-ipv6
-        - horizon-dsvm-tempest-plugin-ubuntu-jammy
     experimental:
       jobs:
         - horizon-integration-pytest-xstatic-master
