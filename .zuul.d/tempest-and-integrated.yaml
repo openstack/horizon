@@ -91,14 +91,6 @@
       tempest_test_regex: test_dashboard_basic_ops
       tox_envlist: all
 
-# TODO(gmann): As per the 2025.1 testing runtime, we need to run at least
-# one job on jammy. This job can be removed in the next cycle(2025.2)
-- job:
-    name: horizon-dsvm-tempest-plugin-ubuntu-jammy
-    description: This is integrated compute job testing on Ubuntu jammy(22.04)
-    parent: horizon-dsvm-tempest-plugin
-    nodeset: openstack-single-node-jammy
-
 - job:
     name: horizon-tempest-plugin-ipv6
     parent: devstack-tempest-ipv6
