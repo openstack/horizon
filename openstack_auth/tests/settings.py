@@ -50,9 +50,7 @@ USE_TZ = True
 
 OPENSTACK_KEYSTONE_DEFAULT_DOMAIN = 'domain'
 
-# NOTE(saschpe): The openstack_auth.user.Token object isn't
-# JSON-serializable ATM
-SESSION_SERIALIZER = 'django.contrib.sessions.serializers.PickleSerializer'
+SESSION_SERIALIZER = 'openstack_auth.serializers.HorizonSerializer'
 
 TEST_DIR = os.path.dirname(os.path.abspath(__file__))
 POLICY_FILES_PATH = os.path.join(TEST_DIR, "conf")

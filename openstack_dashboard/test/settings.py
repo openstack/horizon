@@ -204,8 +204,7 @@ POLICY_FILES = {
 # when we would like to test the policy check feature itself.
 POLICY_CHECK_FUNCTION = None
 
-# The openstack_auth.user.Token object isn't JSON-serializable ATM
-SESSION_SERIALIZER = 'django.contrib.sessions.serializers.PickleSerializer'
+SESSION_SERIALIZER = 'openstack_auth.serializers.HorizonSerializer'
 
 REST_API_SETTING_1 = 'foo'
 REST_API_SETTING_2 = 'bar'
