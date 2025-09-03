@@ -99,7 +99,7 @@ class ServicesViewTests(test.BaseAdminViewTests):
 
     def _check_quotas_data(self, res, slug, expected_data):
         quotas_tab = res.context['tab_group'].get_tab(slug)
-        self.assertQuerysetEqual(quotas_tab._tables[slug].data,
+        self.assertQuerySetEqual(quotas_tab._tables[slug].data,
                                  expected_data,
                                  transform=repr,
                                  ordered=False)

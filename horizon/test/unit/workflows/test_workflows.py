@@ -200,7 +200,7 @@ class WorkflowsTests(test.TestCase):
     def test_workflow_construction(self):
         WorkflowForTesting.register(StepThree)
         flow = WorkflowForTesting(self.request)
-        self.assertQuerysetEqual(flow.steps,
+        self.assertQuerySetEqual(flow.steps,
                                  ['<StepOne: action_one>',
                                   '<StepThree: action_three>',
                                   '<StepTwo: action_two>'],
@@ -218,7 +218,7 @@ class WorkflowsTests(test.TestCase):
         flow = WorkflowWithConfig(self.request)
         # NOTE: StepThree must be placed between StepOne and
         # StepTwo in honor of before/after of StepThree.
-        self.assertQuerysetEqual(flow.steps,
+        self.assertQuerySetEqual(flow.steps,
                                  ['<StepOne: action_one>',
                                   '<StepThree: action_three>',
                                   '<StepTwo: action_two>',
@@ -326,14 +326,14 @@ class WorkflowsTests(test.TestCase):
     def test_workflow_registration(self):
         req = self.factory.get("/foo")
         flow = WorkflowForTesting(req)
-        self.assertQuerysetEqual(flow.steps,
+        self.assertQuerySetEqual(flow.steps,
                                  ['<StepOne: action_one>',
                                   '<StepTwo: action_two>'],
                                  transform=repr)
 
         WorkflowForTesting.register(StepThree)
         flow = WorkflowForTesting(req)
-        self.assertQuerysetEqual(flow.steps,
+        self.assertQuerySetEqual(flow.steps,
                                  ['<StepOne: action_one>',
                                   '<StepThree: action_three>',
                                   '<StepTwo: action_two>'],
@@ -354,14 +354,14 @@ class WorkflowsTests(test.TestCase):
         self.assertContains(output, ActionThree.name)
 
     def test_has_permissions(self):
-        self.assertQuerysetEqual(WorkflowForTesting._cls_registry, [])
+        self.assertQuerySetEqual(WorkflowForTesting._cls_registry, [])
         WorkflowForTesting.register(AdminStep)
         flow = WorkflowForTesting(self.request)
         step = AdminStep(flow)
 
         self.assertCountEqual(step.permissions,
                               ("horizon.test",))
-        self.assertQuerysetEqual(flow.steps,
+        self.assertQuerySetEqual(flow.steps,
                                  ['<StepOne: action_one>',
                                   '<StepTwo: action_two>'],
                                  transform=repr)
@@ -369,7 +369,7 @@ class WorkflowsTests(test.TestCase):
         self.set_permissions(['test'])
         self.request.user = self.user
         flow = WorkflowForTesting(self.request)
-        self.assertQuerysetEqual(flow.steps,
+        self.assertQuerySetEqual(flow.steps,
                                  ['<StepOne: action_one>',
                                   '<AdminStep: admin_action>',
                                   '<StepTwo: action_two>'],
@@ -380,7 +380,7 @@ class WorkflowsTests(test.TestCase):
         flow = WorkflowForTesting(self.request)
         # Check DisabledStep is not included
         # even though DisabledStep is registered.
-        self.assertQuerysetEqual(flow.steps,
+        self.assertQuerySetEqual(flow.steps,
                                  ['<StepOne: action_one>',
                                   '<StepTwo: action_two>'],
                                  transform=repr)
