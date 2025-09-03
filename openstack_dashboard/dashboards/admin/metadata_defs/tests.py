@@ -258,7 +258,7 @@ class MetadataDefinitionsCreateViewTest(test.BaseAdminViewTests):
 
         err_msg = ('There was a problem loading the namespace: '
                    'Expecting value: line 1 column 1 (char 0).')
-        self.assertFormError(res, "form", None, [err_msg])
+        self.assertFormError(res.context["form"], None, [err_msg])
 
     def test_admin_metadata_defs_create_namespace_empty_json_post_raw(self):
         form_data = {
@@ -269,8 +269,9 @@ class MetadataDefinitionsCreateViewTest(test.BaseAdminViewTests):
         res = self.client.post(reverse(constants.METADATA_CREATE_URL),
                                form_data)
 
-        self.assertFormError(res, "form", None, ['No input was provided for '
-                                                 'the namespace content.'])
+        self.assertFormError(
+            res.context["form"], None,
+            ['No input was provided for the namespace content.'])
 
     def test_admin_metadata_defs_create_namespace_empty_json_post_file(self):
         form_data = {
@@ -281,8 +282,9 @@ class MetadataDefinitionsCreateViewTest(test.BaseAdminViewTests):
         res = self.client.post(reverse(constants.METADATA_CREATE_URL),
                                form_data)
 
-        self.assertFormError(res, "form", None, ['No input was provided for '
-                                                 'the namespace content.'])
+        self.assertFormError(
+            res.context["form"], None,
+            ['No input was provided for the namespace content.'])
 
 
 class MetadataDefinitionsUpdateViewTest(test.BaseAdminViewTests):

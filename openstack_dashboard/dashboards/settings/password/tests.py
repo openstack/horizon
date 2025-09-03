@@ -82,7 +82,8 @@ class ChangePasswordTests(test.TestCase):
                     'confirm_password': 'doesnotmatch'}
         res = self.client.post(INDEX_URL, formData)
 
-        self.assertFormError(res, "form", None, ['Passwords do not match.'])
+        self.assertFormError(res.context["form"], None,
+                             ['Passwords do not match.'])
 
     @test.create_mocks({
         api.keystone: ['user_get']})

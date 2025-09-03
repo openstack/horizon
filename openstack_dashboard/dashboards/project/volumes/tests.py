@@ -653,7 +653,7 @@ class VolumeViewTests(test.ResetImageAPIVersionMixin, test.TestCase):
                                          "snapshot_id=" + str(snapshot.id)]),
                                formData, follow=True)
         self.assertEqual(res.redirect_chain, [])
-        self.assertFormError(res, 'form', None,
+        self.assertFormError(res.context['form'], None,
                              "The volume size cannot be less than the "
                              "snapshot size (40GiB)")
         self.assertEqual(3, self.mock_volume_type_list.call_count)
@@ -830,7 +830,7 @@ class VolumeViewTests(test.ResetImageAPIVersionMixin, test.TestCase):
         msg = ("The volume size cannot be less than the "
                "image size (20.0\xa0GB)")
 
-        self.assertFormError(res, 'form', None, msg)
+        self.assertFormError(res.context['form'], None, msg)
 
         self.assertEqual(3, self.mock_volume_type_list.call_count)
         self.assertEqual(2, self.mock_volume_type_default.call_count)
@@ -874,7 +874,7 @@ class VolumeViewTests(test.ResetImageAPIVersionMixin, test.TestCase):
                                          "image_id=" + str(image.id)]),
                                formData, follow=True)
         self.assertEqual(res.redirect_chain, [])
-        self.assertFormError(res, 'form', None,
+        self.assertFormError(res.context['form'], None,
                              "The volume size cannot be less than the "
                              "image minimum disk size (30GiB)")
         self.assertEqual(3, self.mock_volume_type_list.call_count)
@@ -1913,7 +1913,7 @@ class VolumeViewTests(test.ResetImageAPIVersionMixin, test.TestCase):
         url = reverse('horizon:project:volumes:extend',
                       args=[volume.id])
         res = self.client.post(url, formData)
-        self.assertFormError(res, "form", "new_size",
+        self.assertFormError(res.context["form"], "new_size",
                              "Volume cannot be extended to 1000GiB as "
                              "the maximum size it can be extended to is "
                              "120GiB.")
