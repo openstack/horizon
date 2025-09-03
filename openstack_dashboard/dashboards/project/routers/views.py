@@ -114,6 +114,10 @@ class DetailView(tabs.TabbedTableView):
             router_id = self.kwargs['router_id']
             router = api.neutron.router_get(self.request, router_id)
             router.set_id_as_name_if_empty(length=0)
+            router.admin_state_label = (
+                # Translators: Admin state status for router.
+                _("UP") if router.is_admin_state_up else _("DOWN")
+            )
         except Exception:
             msg = _('Unable to retrieve details for router "%s".') \
                 % router_id
@@ -160,8 +164,6 @@ class DetailView(tabs.TabbedTableView):
         choices = rtables.STATUS_DISPLAY_CHOICES
         router.status_label = filters.get_display_label(choices, router.status)
         choices = rtables.ADMIN_STATE_DISPLAY_CHOICES
-        router.admin_state_label = (
-            filters.get_display_label(choices, router.is_admin_state_up))
         return context
 
     def get_tabs(self, request, *args, **kwargs):
