@@ -13,10 +13,9 @@
 #    under the License.
 
 import copy
-from datetime import timedelta
+import datetime
 
 from django.conf import settings
-from django.utils import datetime_safe
 
 from keystoneclient import access
 from keystoneclient.v2_0 import roles
@@ -380,7 +379,7 @@ def data(TEST):
     TEST.tenants.add(tenant, disabled_tenant, tenant_unicode)
     TEST.tenant = tenant  # Your "current" tenant
 
-    tomorrow = datetime_safe.datetime.now() + timedelta(days=1)
+    tomorrow = datetime.datetime.now() + datetime.timedelta(days=1)
     expiration = tomorrow.isoformat()
 
     scoped_token_dict = {
