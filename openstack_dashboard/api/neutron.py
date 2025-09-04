@@ -1873,6 +1873,8 @@ def port_list_with_trunk_types(request, **params):
     trunk_filters = {}
     if 'tenant_id' in params:
         trunk_filters['tenant_id'] = params['tenant_id']
+    elif 'project_id' in params:
+        trunk_filters['project_id'] = params['project_id']
     trunks = networkclient(request).trunks(**trunk_filters)
     parent_ports = set(t['port_id'] for t in trunks)
     # Create a dict map for child ports (port ID to trunk info)
