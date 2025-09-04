@@ -14,7 +14,7 @@
 
 import logging
 
-from neutronclient.common import exceptions as neutron_exceptions
+from openstack import exceptions as sdk_exceptions
 
 from django.urls import reverse
 from django.urls import reverse_lazy
@@ -79,7 +79,7 @@ class DeleteSubnet(SubnetPolicyTargetMixin, tables.DeleteAction):
         # normal_log_message
         'Failed to delete subnet %(id)s: %(exc)s',
         # target_exception
-        neutron_exceptions.Conflict,
+        sdk_exceptions.ConflictException,
         # target_log_message
         'Unable to delete subnet %(id)s with 409 Conflict: %(exc)s',
         # target_user_message

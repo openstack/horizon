@@ -17,7 +17,7 @@ import logging
 
 from django.utils.translation import gettext_lazy as _
 
-from neutronclient.common import exceptions as neutron_exc
+from openstack import exceptions as sdk_exceptions
 
 from horizon import exceptions
 from horizon import tables
@@ -59,7 +59,7 @@ class IndexView(tables.DataTableView):
                 "Manage floating IP port forwarding rules : " + str(
                     floating_ip.ip))
             return self.get_floating_ip_rules(floating_ip)
-        except neutron_exc.ConnectionFailed:
+        except sdk_exceptions.SDKException:
             exceptions.handle(self.request)
         except Exception:
             exceptions.handle(
@@ -92,7 +92,7 @@ class AllRulesView(IndexView):
     def get_data(self):
         try:
             return self.get_all_floating_ip_rules()
-        except neutron_exc.ConnectionFailed:
+        except sdk_exceptions.SDKException:
             exceptions.handle(self.request)
         except Exception:
             exceptions.handle(

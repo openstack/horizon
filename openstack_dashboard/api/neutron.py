@@ -31,8 +31,6 @@ from django.utils.translation import gettext_lazy as _
 from keystoneauth1 import exceptions as ks_exceptions
 from keystoneauth1 import session
 from keystoneauth1 import token_endpoint
-from neutronclient.common import exceptions as neutron_exc
-from neutronclient.v2_0 import client as neutron_client
 from novaclient import exceptions as nova_exc
 import openstack
 from openstack import exceptions as sdk_exceptions
@@ -511,12 +509,9 @@ class SecurityGroupManager(object):
         try:
             rule = self.net_client.create_security_group_rule(
                 **params).to_dict()
-        except neutron_exc.OverQuotaClient:
+        except sdk_exceptions.ConflictException:
             raise exceptions.Conflict(
                 _('Security group rule quota exceeded.'))
-        except neutron_exc.Conflict:
-            raise exceptions.Conflict(
-                _('Security group rule already exists.'))
         sg_dict = self._sg_name_dict(parent_group_id, [rule])
         return SecurityGroupRule(rule, sg_dict)
 
@@ -968,18 +963,6 @@ def get_auth_params_from_request(request):
 
 
 @memoized
-def neutronclient(request):
-    token_id, neutron_url, auth_url = get_auth_params_from_request(request)
-    insecure = settings.OPENSTACK_SSL_NO_VERIFY
-    cacert = settings.OPENSTACK_SSL_CACERT
-    c = neutron_client.Client(token=token_id,
-                              auth_url=auth_url,
-                              endpoint_url=neutron_url,
-                              insecure=insecure, ca_cert=cacert)
-    return c
-
-
-@memoized
 def networkclient(request):
     token_id, neutron_url, auth_url = get_auth_params_from_request(request)
 
@@ -1034,36 +1017,52 @@ def list_resources_with_long_filters(list_method,
     try:
         params[filter_attr] = filter_values
         return list_method(**params)
-    except neutron_exc.RequestURITooLong as uri_len_exc:
-        # The URI is too long because of too many filter values.
-        # Use the excess attribute of the exception to know how many
-        # filter values can be inserted into a single request.
+    except sdk_exceptions.HttpException as uri_len_exc:
+        # Note: neutronclient.RequestURITooLong was rised
+        # in case of http414
+        if uri_len_exc.status_code != 414:
+            pass
+        else:
+            # The URI is too long because of too many filter values.
+            # Use the excess attribute of the exception to know how many
+            # filter values can be inserted into a single request.
 
-        # We consider only the filter condition from (filter_attr,
-        # filter_values) and do not consider other filter conditions
-        # which may be specified in **params.
+            # We consider only the filter condition from (filter_attr,
+            # filter_values) and do not consider other filter conditions
+            # which may be specified in **params.
 
-        if isinstance(filter_values, str):
-            filter_values = [filter_values]
-        elif not isinstance(filter_values, Sequence):
-            filter_values = list(filter_values)
+            if isinstance(filter_values, str):
+                filter_values = [filter_values]
+            elif not isinstance(filter_values, Sequence):
+                filter_values = list(filter_values)
 
-        # Length of each query filter is:
-        # <key>=<value>& (e.g., id=<uuid>)
-        # The length will be key_len + value_maxlen + 2
-        all_filter_len = sum(len(filter_attr) + len(val) + 2
-                             for val in filter_values)
-        allowed_filter_len = all_filter_len - uri_len_exc.excess
+            # Length of each query filter is:
+            # <key>=<value>& (e.g., id=<uuid>)
+            # The length will be key_len + value_maxlen + 2
+            all_filter_len = sum(len(filter_attr) + len(val) + 2
+                                 for val in filter_values)
+            # Note(lajoskatona): with python-neutronclient excess
+            # was an arg of RequestURITooLong exception, see:
+            # https://opendev.org/openstack/python-neutronclient/src/commit/
+            # 5f7d102f0e8111d6e90d958ab22682d07876a073/neutronclient/
+            # client.py#L177
+            excess = _get_excess(all_filter_len)
+            allowed_filter_len = all_filter_len - excess
 
-        val_maxlen = max(len(val) for val in filter_values)
-        filter_maxlen = len(filter_attr) + val_maxlen + 2
-        chunk_size = allowed_filter_len // filter_maxlen
+            val_maxlen = max(len(val) for val in filter_values)
+            filter_maxlen = len(filter_attr) + val_maxlen + 2
+            chunk_size = allowed_filter_len // filter_maxlen
 
-        resources = []
-        for i in range(0, len(filter_values), chunk_size):
-            params[filter_attr] = filter_values[i:i + chunk_size]
-            resources.extend(list_method(**params))
-        return resources
+            resources = []
+            for i in range(0, len(filter_values), chunk_size):
+                params[filter_attr] = filter_values[i:i + chunk_size]
+                resources.extend(list_method(**params))
+            return resources
+
+
+def _get_excess(filter_len):
+    MAX_URI_LEN = 8192
+    return filter_len - MAX_URI_LEN
 
 
 @profiler.trace
@@ -2059,27 +2058,28 @@ def router_static_route_add(request, router_id, newroute):
 
 @profiler.trace
 def tenant_quota_get(request, tenant_id):
-    return base.QuotaSet(neutronclient(request).show_quota(tenant_id)['quota'])
+    return base.QuotaSet(
+        networkclient(request).get_quota(tenant_id).to_dict().pop('location'))
 
 
 @profiler.trace
 def tenant_quota_update(request, tenant_id, **kwargs):
-    quotas = {'quota': kwargs}
-    return neutronclient(request).update_quota(tenant_id, quotas)
+    return networkclient(request).update_quota(tenant_id, **kwargs).to_dict()
 
 
 @profiler.trace
 def tenant_quota_detail_get(request, tenant_id=None):
     tenant_id = tenant_id or request.user.tenant_id
-    response = neutronclient(request).get('/quotas/%s/details' % tenant_id)
-    return response['quota']
+    rsp = networkclient(request).get('/quotas/%s/details' % tenant_id)
+    return rsp.json()['quota']
 
 
 @profiler.trace
 def default_quota_get(request, tenant_id=None):
     tenant_id = tenant_id or request.user.tenant_id
-    response = neutronclient(request).show_quota_default(tenant_id)
-    return base.QuotaSet(response['quota'])
+    response = networkclient(request).get_quota_default(tenant_id).to_dict()
+    response.pop('location')
+    return base.QuotaSet(response)
 
 
 @profiler.trace
@@ -2273,7 +2273,7 @@ def servers_update_addresses(request, servers, all_tenants=False):
         networks = list_resources_with_long_filters(
             network_list, 'id', frozenset([port.network_id for port in ports]),
             request=request)
-    except neutron_exc.NotFound as e:
+    except sdk_exceptions.NotFoundException as e:
         LOG.error('Neutron resource does not exist. %s', e)
         return
     except Exception as e:
