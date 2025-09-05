@@ -23,8 +23,8 @@ def test_delete_multiple_instance_rows(live_server, driver, dashboard_data,
             mock.patch.object(
                 api.nova, 'flavor_list') as mocked_f_l, \
             mock.patch(
-                'openstack.network.v2._proxy.Proxy.'
-                'extensions') as mocked_l_e, \
+                'neutronclient.v2_0.client.Client'
+                '.list_extensions') as mocked_l_e, \
             mock.patch.object(
                 api.nova, 'tenant_absolute_limits') as mocked_t_a_l, \
             mock.patch.object(

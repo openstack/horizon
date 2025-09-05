@@ -22,7 +22,7 @@ Views for managing instances.
 from django.urls import reverse
 from django.urls import reverse_lazy
 from django.utils.translation import gettext_lazy as _
-from openstack import exceptions as sdk_exceptions
+from neutronclient.common import exceptions as neutron_exc
 
 from horizon import exceptions
 from horizon import forms
@@ -183,7 +183,7 @@ class IndexView(tables.DataTableView):
     def get_data(self):
         try:
             security_groups = api.neutron.security_group_list(self.request)
-        except sdk_exceptions.SDKException:
+        except neutron_exc.ConnectionFailed:
             security_groups = []
             exceptions.handle(self.request)
         except Exception:

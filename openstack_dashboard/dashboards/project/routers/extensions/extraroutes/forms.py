@@ -17,7 +17,7 @@ import logging
 
 from django.urls import reverse
 from django.utils.translation import gettext_lazy as _
-from openstack import exceptions as sdk_exceptions
+from neutronclient.common import exceptions as neutron_exc
 
 from horizon import exceptions
 from horizon import forms
@@ -49,7 +49,7 @@ class AddRouterRoute(forms.SelfHandlingForm):
             msg = _('Static route added')
             messages.success(request, msg)
             return True
-        except sdk_exceptions.BadRequestException as e:
+        except neutron_exc.BadRequest as e:
             LOG.info('Invalid format for routes %(route)s: %(exc)s',
                      {'route': route, 'exc': e})
             msg = _('Invalid format for routes: %s') % e
