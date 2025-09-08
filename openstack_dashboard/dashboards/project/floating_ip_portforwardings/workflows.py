@@ -16,7 +16,7 @@ from django.core.exceptions import ValidationError
 from django.urls import reverse
 from django.utils.translation import gettext_lazy as _
 
-from openstack import exceptions as sdk_exceptions
+from neutronclient.common import exceptions as neutron_exc
 
 from horizon import exceptions
 from horizon import forms
@@ -228,7 +228,7 @@ class FloatingIpPortForwardingRuleCreationWorkflow(workflows.Workflow):
             param.update(**api_params)
             api_method(request, floating_ip_id, **param)
 
-        except sdk_exceptions.BadRequestException as ex:
+        except neutron_exc.Conflict as ex:
             msg = _('The requested instance port is already'
                     ' associated with another floating IP.')
             LOG.exception(msg, ex)

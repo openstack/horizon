@@ -15,7 +15,7 @@
 from django.urls import reverse
 from django.utils.translation import gettext_lazy as _
 
-from openstack import exceptions as sdk_exceptions
+from neutronclient.common import exceptions as neutron_exc
 
 from horizon import exceptions
 from horizon import forms
@@ -88,7 +88,7 @@ class AssociateIPAction(workflows.Action):
         redirect = reverse('horizon:project:floating_ips:index')
         try:
             ips = api.neutron.tenant_floating_ip_list(self.request)
-        except sdk_exceptions.SDKException:
+        except neutron_exc.ConnectionFailed:
             exceptions.handle(self.request, redirect=redirect)
         except Exception:
             exceptions.handle(self.request,
@@ -170,7 +170,7 @@ class IPAssociationWorkflow(workflows.Workflow):
             api.neutron.floating_ip_associate(request,
                                               data['ip_id'],
                                               data['port_id'])
-        except sdk_exceptions.ConflictException:
+        except neutron_exc.Conflict:
             msg = _('The requested instance port is already'
                     ' associated with another floating IP.')
             exceptions.handle(request, msg)
