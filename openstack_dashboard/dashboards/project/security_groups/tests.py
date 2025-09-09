@@ -1042,7 +1042,7 @@ class SecurityGroupsViewTests(test.TestCase):
                     'etherype': 'IPv4',
                     'remote': 'cidr'}
         res = self.client.post(self.edit_url, formData)
-        self.assertFormError(res, 'form', 'cidr',
+        self.assertFormError(res.context['form'], 'cidr',
                              'Invalid version for IP address')
         self.assert_mock_multiple_calls_with_same_arguments(
             self.mock_security_group_list, 2,

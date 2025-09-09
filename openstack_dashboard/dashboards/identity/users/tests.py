@@ -263,7 +263,8 @@ class UsersViewTests(test.BaseAdminViewTests):
 
         res = self.client.post(USER_CREATE_URL, formData)
 
-        self.assertFormError(res, "form", None, ['Passwords do not match.'])
+        self.assertFormError(res.context["form"], None,
+                             ['Passwords do not match.'])
 
         self.assert_mock_multiple_calls_with_same_arguments(
             self.mock_get_default_domain, 2,
@@ -310,7 +311,7 @@ class UsersViewTests(test.BaseAdminViewTests):
         res = self.client.post(USER_CREATE_URL, formData)
 
         self.assertFormError(
-            res, "form", 'password',
+            res.context["form"], 'password',
             ['Password must be between 8 and 18 characters.'])
 
         self.assert_mock_multiple_calls_with_same_arguments(
@@ -358,7 +359,7 @@ class UsersViewTests(test.BaseAdminViewTests):
         res = self.client.post(USER_CREATE_URL, formData)
 
         self.assertFormError(
-            res, "form", 'password',
+            res.context["form"], 'password',
             ['Password must be between 8 and 18 characters.'])
 
         self.assert_mock_multiple_calls_with_same_arguments(
@@ -697,7 +698,7 @@ class UsersViewTests(test.BaseAdminViewTests):
 
         res = self.client.post(USER_CHANGE_PASSWORD_URL, formData)
 
-        self.assertFormError(res, "form", None,
+        self.assertFormError(res.context["form"], None,
                              ['The admin password is incorrect.'])
         self.mock_user_get.assert_called_with(test.IsHttpRequest(), '1',
                                               admin=False)
@@ -720,7 +721,7 @@ class UsersViewTests(test.BaseAdminViewTests):
         res = self.client.post(USER_CHANGE_PASSWORD_URL, formData)
 
         self.assertFormError(
-            res, "form", 'password',
+            res.context["form"], 'password',
             ['Password must be between 8 and 18 characters.'])
 
         self.mock_user_get.assert_called_once_with(test.IsHttpRequest(), '1',
@@ -741,7 +742,7 @@ class UsersViewTests(test.BaseAdminViewTests):
         res = self.client.post(USER_CHANGE_PASSWORD_URL, formData)
 
         self.assertFormError(
-            res, "form", 'password',
+            res.context["form"], 'password',
             ['Password must be between 8 and 18 characters.'])
 
         self.mock_user_get.assert_called_once_with(test.IsHttpRequest(), '1',
