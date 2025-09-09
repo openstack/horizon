@@ -425,7 +425,7 @@ class DataTableTests(test.TestCase):
         # but should not contain the excluded column.
         # Additionally, auto-generated columns should use the custom
         # column class specified on the table.
-        self.assertQuerysetEqual(self.table.get_columns(),
+        self.assertQuerySetEqual(self.table.get_columns(),
                                  ['<MyColumn: multi_select>',
                                   '<Column: id>',
                                   '<Column: name>',
@@ -435,7 +435,7 @@ class DataTableTests(test.TestCase):
                                   '<MyColumn: actions>'],
                                  transform=repr)
         # Actions (these also test ordering)
-        self.assertQuerysetEqual(list(self.table.base_actions.values()),
+        self.assertQuerySetEqual(list(self.table.base_actions.values()),
                                  ['<MyBatchAction: batch>',
                                   '<MyBatchActionWithHelpText: batch_help>',
                                   '<MyAction: delete>',
@@ -443,13 +443,13 @@ class DataTableTests(test.TestCase):
                                   '<MyLinkAction: login>',
                                   '<MyToggleAction: toggle>'],
                                  transform=repr)
-        self.assertQuerysetEqual(self.table.get_table_actions(),
+        self.assertQuerySetEqual(self.table.get_table_actions(),
                                  ['<MyFilterAction: filter>',
                                   '<MyAction: delete>',
                                   '<MyBatchAction: batch>',
                                   '<MyBatchActionWithHelpText: batch_help>'],
                                  transform=repr)
-        self.assertQuerysetEqual(self.table.get_row_actions(TEST_DATA[0]),
+        self.assertQuerySetEqual(self.table.get_row_actions(TEST_DATA[0]),
                                  ['<MyAction: delete>',
                                   '<MyLinkAction: login>',
                                   '<MyBatchAction: batch>',
@@ -476,7 +476,7 @@ class DataTableTests(test.TestCase):
         self.assertEqual(TEST_DATA, self.table.data)
         # The column "restricted" is not rendered because of policy
         expected_columns = ['<Column: name>']
-        self.assertQuerysetEqual(self.table.get_columns(),
+        self.assertQuerySetEqual(self.table.get_columns(),
                                  expected_columns,
                                  transform=repr)
 
@@ -486,7 +486,7 @@ class DataTableTests(test.TestCase):
         self.assertEqual(TEST_DATA, self.table.data)
         # Policy check returns True so the column "restricted" is rendered
         expected_columns = ['<Column: name>', '<Column: restricted>']
-        self.assertQuerysetEqual(self.table.get_columns(), expected_columns,
+        self.assertQuerySetEqual(self.table.get_columns(), expected_columns,
                                  transform=repr)
 
     def test_table_force_no_multiselect(self):
@@ -497,7 +497,7 @@ class DataTableTests(test.TestCase):
                 row_actions = (MyAction, MyLinkAction,)
                 multi_select = False
         self.table = TempTable(self.request, TEST_DATA)
-        self.assertQuerysetEqual(self.table.get_columns(),
+        self.assertQuerySetEqual(self.table.get_columns(),
                                  ['<Column: id>',
                                   '<Column: actions>'],
                                  transform=repr)
@@ -510,7 +510,7 @@ class DataTableTests(test.TestCase):
                 row_actions = (MyAction, MyLinkAction,)
                 actions_column = False
         self.table = TempTable(self.request, TEST_DATA)
-        self.assertQuerysetEqual(self.table.get_columns(),
+        self.assertQuerySetEqual(self.table.get_columns(),
                                  ['<Column: multi_select>',
                                   '<Column: id>'],
                                  transform=repr)
@@ -537,7 +537,7 @@ class DataTableTests(test.TestCase):
                 columns = ('id',)
                 table_actions = (MyFilterAction, MyAction, MyBatchAction)
         self.table = TempTable(self.request, TEST_DATA)
-        self.assertQuerysetEqual(self.table.get_columns(),
+        self.assertQuerySetEqual(self.table.get_columns(),
                                  ['<Column: multi_select>',
                                   '<Column: id>'],
                                  transform=repr)
@@ -548,7 +548,7 @@ class DataTableTests(test.TestCase):
                 columns = ('id',)
                 row_actions = (MyAction, MyLinkAction,)
         self.table = TempTable(self.request, TEST_DATA)
-        self.assertQuerysetEqual(self.table.get_columns(),
+        self.assertQuerySetEqual(self.table.get_columns(),
                                  ['<Column: id>',
                                   '<Column: actions>'],
                                  transform=repr)
@@ -563,7 +563,7 @@ class DataTableTests(test.TestCase):
                 row_actions = (MyAction, MyLinkAction,)
 
         self.table = TempTable(self.request, TEST_DATA)
-        self.assertQuerysetEqual(self.table.get_columns(),
+        self.assertQuerySetEqual(self.table.get_columns(),
                                  ['<Column: multi_select>',
                                   '<Column: id>',
                                   '<Column: name>',
@@ -579,7 +579,7 @@ class DataTableTests(test.TestCase):
         self.table = MyTable(self.request, TEST_DATA)
         # Verify we retrieve the right columns for headers
         columns = self.table.get_columns()
-        self.assertQuerysetEqual(columns,
+        self.assertQuerySetEqual(columns,
                                  ['<MyColumn: multi_select>',
                                   '<Column: id>',
                                   '<Column: name>',
@@ -590,14 +590,14 @@ class DataTableTests(test.TestCase):
                                  transform=repr)
         # Verify we retrieve the right rows from our data
         rows = self.table.get_rows()
-        self.assertQuerysetEqual(rows,
+        self.assertQuerySetEqual(rows,
                                  ['<MyRow: my_table__row__1>',
                                   '<MyRow: my_table__row__2>',
                                   '<MyRow: my_table__row__3>',
                                   '<MyRow: my_table__row__4>'],
                                  transform=repr)
         # Verify each row contains the right cells
-        self.assertQuerysetEqual(rows[0].get_cells(),
+        self.assertQuerySetEqual(rows[0].get_cells(),
                                  ['<Cell: multi_select, my_table__row__1>',
                                   '<Cell: id, my_table__row__1>',
                                   '<Cell: name, my_table__row__1>',
@@ -830,12 +830,12 @@ class DataTableTests(test.TestCase):
         action_string = "my_table__filter__q"
         req = self.factory.post('/my_url/', {action_string: '2'})
         self.table = TempTable(req, TEST_DATA)
-        self.assertQuerysetEqual(self.table.get_table_actions(),
+        self.assertQuerySetEqual(self.table.get_table_actions(),
                                  ['<NameFilterAction: filter>'],
                                  transform=repr)
         handled = self.table.maybe_handle()
         self.assertIsNone(handled)
-        self.assertQuerysetEqual(self.table.filtered_data,
+        self.assertQuerySetEqual(self.table.filtered_data,
                                  ['FakeObject: object_2'],
                                  transform=str)
 
@@ -844,7 +844,7 @@ class DataTableTests(test.TestCase):
         self.table = TempTable(req, TEST_DATA)
         handled = self.table.maybe_handle()
         self.assertIsNone(handled)
-        self.assertQuerysetEqual(self.table.filtered_data,
+        self.assertQuerySetEqual(self.table.filtered_data,
                                  ['FakeObject: object_1',
                                   'FakeObject: object_2',
                                   'FakeObject: object_3',
@@ -856,7 +856,7 @@ class DataTableTests(test.TestCase):
         self.table = TempTable(req, TEST_DATA)
         handled = self.table.maybe_handle()
         self.assertIsNone(handled)
-        self.assertQuerysetEqual(self.table.filtered_data, [])
+        self.assertQuerySetEqual(self.table.filtered_data, [])
 
     def test_inline_edit_mod_textarea(self):
         class TempTable(MyTable):
@@ -999,7 +999,7 @@ class DataTableTests(test.TestCase):
         # BatchAction is available
         req = self.factory.get('/my_url/')
         self.table = MyTable(req, TEST_DATA_2)
-        self.assertQuerysetEqual(self.table.get_table_actions(),
+        self.assertQuerySetEqual(self.table.get_table_actions(),
                                  ['<MyFilterAction: filter>',
                                   '<MyAction: delete>',
                                   '<MyBatchAction: batch>',
@@ -1010,7 +1010,7 @@ class DataTableTests(test.TestCase):
         # BatchAction not available
         req = self.factory.get('/my_url/')
         self.table = MyTable(req, None)
-        self.assertQuerysetEqual(self.table.get_table_actions(),
+        self.assertQuerySetEqual(self.table.get_table_actions(),
                                  ['<MyFilterAction: filter>',
                                   '<MyAction: delete>'],
                                  transform=repr)
@@ -1021,7 +1021,7 @@ class DataTableTests(test.TestCase):
         self.table = MyTable(req, TEST_DATA)
         handled = self.table.maybe_handle()
         self.assertIsNone(handled)
-        self.assertQuerysetEqual(self.table.filtered_data,
+        self.assertQuerySetEqual(self.table.filtered_data,
                                  ['FakeObject: object_2'],
                                  transform=str)
 
@@ -1030,7 +1030,7 @@ class DataTableTests(test.TestCase):
         self.table = MyTable(req, TEST_DATA)
         handled = self.table.maybe_handle()
         self.assertIsNone(handled)
-        self.assertQuerysetEqual(self.table.filtered_data,
+        self.assertQuerySetEqual(self.table.filtered_data,
                                  ['FakeObject: object_1',
                                   'FakeObject: object_2',
                                   'FakeObject: object_3',
@@ -1079,7 +1079,7 @@ class DataTableTests(test.TestCase):
         self.table = MyServerFilterTable(req, TEST_DATA)
         handled = self.table.maybe_handle()
         self.assertIsNone(handled)
-        self.assertQuerysetEqual(self.table.filtered_data,
+        self.assertQuerySetEqual(self.table.filtered_data,
                                  ['FakeObject: object_2'],
                                  transform=str)
 
@@ -1090,7 +1090,7 @@ class DataTableTests(test.TestCase):
         self.table = MyServerFilterTable(req, TEST_DATA)
         handled = self.table.maybe_handle()
         self.assertIsNone(handled)
-        self.assertQuerysetEqual(self.table.filtered_data,
+        self.assertQuerySetEqual(self.table.filtered_data,
                                  ['FakeObject: object_1',
                                   'FakeObject: object_2',
                                   'FakeObject: object_3',
@@ -1223,7 +1223,7 @@ class DataTableTests(test.TestCase):
         self.assertEqual("green blue sortable anchor normal_column",
                          value_col.get_final_attrs().get('class', ""))
 
-        self.assertQuerysetEqual(row.get_cells(),
+        self.assertQuerySetEqual(row.get_cells(),
                                  ['<Cell: multi_select, my_table__row__1>',
                                   '<Cell: id, my_table__row__1>',
                                   '<Cell: name, my_table__row__1>',
@@ -1384,7 +1384,7 @@ class DataTableViewTests(test.TestCase):
         data = view.get_data()
         context = view.get_context_data()
         self.assertEqual(context['table'].__class__, MyServerFilterTable)
-        self.assertQuerysetEqual(data,
+        self.assertQuerySetEqual(data,
                                  ['FakeObject: object_1',
                                   'FakeObject: object_2',
                                   'FakeObject: object_3',

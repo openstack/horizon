@@ -142,7 +142,7 @@ class TabTests(test.TestCase):
         # "tab_disallowed" should NOT be in this list.
         # "tab_with_policy" should be present, since our policy check
         #  always passes
-        self.assertQuerysetEqual(tabs,
+        self.assertQuerySetEqual(tabs,
                                  ['<TabOne: tab_one>',
                                   '<TabDelayed: tab_delayed>',
                                   '<TabDisabled: tab_disabled>',
@@ -171,7 +171,7 @@ class TabTests(test.TestCase):
         # "tab_disallowed" should NOT be in this list, it's not allowed
         # "tab_with_policy" should also not be present as its
         #  policy check failed
-        self.assertQuerysetEqual(tabs,
+        self.assertQuerySetEqual(tabs,
                                  ['<TabOne: tab_one>',
                                   '<TabDelayed: tab_delayed>',
                                   '<TabDisabled: tab_disabled>'],
@@ -191,7 +191,7 @@ class TabTests(test.TestCase):
         tabs = tg.get_tabs()
         # "tab_disallowed" should NOT be in this list.
         # Other tabs must be ordered in the priorities in HORIZON_CONFIG.
-        self.assertQuerysetEqual(tabs,
+        self.assertQuerySetEqual(tabs,
                                  ['<TabOne: tab_one>',
                                   '<TabDisabled: tab_disabled>',
                                   '<TabDelayed: tab_delayed>'],
@@ -322,7 +322,7 @@ class TabTests(test.TestCase):
         # Okay, load the data.
         tab.load_table_data()
         self.assertTrue(tab._table_data_loaded)
-        self.assertQuerysetEqual(table.data,
+        self.assertQuerySetEqual(table.data,
                                  ['FakeObject: object_1',
                                   'FakeObject: object_2',
                                   'FakeObject: object_3',

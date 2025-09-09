@@ -74,7 +74,7 @@ class SystemInfoViewTests(test.BaseAdminViewTests):
     def test_neutron_index(self):
         res = self._test_base_index()
         network_agents_tab = res.context['tab_group'].get_tab('network_agents')
-        self.assertQuerysetEqual(
+        self.assertQuerySetEqual(
             network_agents_tab._tables['network_agents'].data,
             [agent.__repr__() for agent in self.agents.list()],
             transform=repr
@@ -84,7 +84,7 @@ class SystemInfoViewTests(test.BaseAdminViewTests):
         res = self._test_base_index()
         cinder_services_tab = res.context['tab_group'].\
             get_tab('cinder_services')
-        self.assertQuerysetEqual(
+        self.assertQuerySetEqual(
             cinder_services_tab._tables['cinder_services'].data,
             [service.__repr__() for service in self.cinder_services.list()],
             transform=repr

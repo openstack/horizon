@@ -201,7 +201,7 @@ class CreateDomainWorkflowTests(test.BaseAdminViewTests):
         self.assertEqual(res.context['workflow'].name,
                          workflows.CreateDomain.name)
 
-        self.assertQuerysetEqual(workflow.steps,
+        self.assertQuerySetEqual(workflow.steps,
                                  ['<CreateDomainInfo: create_domain>'],
                                  transform=repr)
 
@@ -297,7 +297,7 @@ class UpdateDomainWorkflowTests(test.BaseAdminViewTests):
         self.assertEqual(step.action.initial['name'], domain.name)
         self.assertEqual(step.action.initial['description'],
                          domain.description)
-        self.assertQuerysetEqual(
+        self.assertQuerySetEqual(
             workflow.steps,
             ['<UpdateDomainInfo: update_domain>',
              '<UpdateDomainUsers: update_user_members>',

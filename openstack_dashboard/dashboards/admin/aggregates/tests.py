@@ -49,7 +49,7 @@ class CreateAggregateWorkflowTests(BaseAggregateWorkflowTests):
 
         self.assertTemplateUsed(res, constants.AGGREGATES_CREATE_VIEW_TEMPLATE)
         self.assertEqual(workflow.name, workflows.CreateAggregateWorkflow.name)
-        self.assertQuerysetEqual(
+        self.assertQuerySetEqual(
             workflow.steps,
             ['<SetAggregateInfoStep: set_aggregate_info>',
              '<AddHostsToAggregateStep: add_host_to_aggregate>'],

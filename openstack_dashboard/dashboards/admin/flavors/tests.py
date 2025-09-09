@@ -249,7 +249,7 @@ class CreateFlavorWorkflowTests(BaseFlavorWorkflowTests):
         workflow = res.context['workflow']
         expected_name = workflows.CreateFlavor.name
         self.assertEqual(res.context['workflow'].name, expected_name)
-        self.assertQuerysetEqual(
+        self.assertQuerySetEqual(
             workflow.steps,
             ['<CreateFlavorInfo: createflavorinfoaction>',
              '<CreateFlavorAccess: flavor_access>'],
@@ -491,7 +491,7 @@ class UpdateFlavorWorkflowTests(BaseFlavorWorkflowTests):
         expected_name = workflows.UpdateFlavor.name
         self.assertEqual(res.context['workflow'].name, expected_name)
 
-        self.assertQuerysetEqual(
+        self.assertQuerySetEqual(
             workflow.steps,
             ['<UpdateFlavorAccess: flavor_access>'],
             transform=repr)

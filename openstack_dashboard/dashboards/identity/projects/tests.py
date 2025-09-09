@@ -206,7 +206,7 @@ class CreateProjectWorkflowTests(test.BaseAdminViewTests):
         self.assertEqual(res.context['workflow'].name,
                          workflows.CreateProject.name)
 
-        self.assertQuerysetEqual(
+        self.assertQuerySetEqual(
             workflow.steps,
             ['<CreateProjectInfo: createprojectinfoaction>',
              '<UpdateProjectMembers: update_members>',
@@ -579,7 +579,7 @@ class UpdateProjectWorkflowTests(test.BaseAdminViewTests):
         self.assertEqual(step.action.initial['name'], project.name)
         self.assertEqual(step.action.initial['description'],
                          project.description)
-        self.assertQuerysetEqual(
+        self.assertQuerySetEqual(
             workflow.steps,
             ['<UpdateProjectInfo: update_info>',
              '<UpdateProjectMembers: update_members>',
@@ -1009,7 +1009,7 @@ class UpdateQuotasWorkflowTests(test.BaseAdminViewTests):
         self.assertEqual(step.action.initial['ram'], quota.get('ram').limit)
         self.assertEqual(step.action.initial['injected_files'],
                          quota.get('injected_files').limit)
-        self.assertQuerysetEqual(
+        self.assertQuerySetEqual(
             workflow.steps,
             ['<UpdateComputeQuota: update_compute_quotas>',
              '<UpdateVolumeQuota: update_volume_quotas>'],

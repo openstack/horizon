@@ -2231,7 +2231,7 @@ class InstanceTests2(InstanceTestBase, InstanceTableTestMixin):
         step = workflow.get_step("setadvancedaction")
         self.assertEqual(step.action.fields['disk_config'].label,
                          'Disk Partition')
-        self.assertQuerysetEqual(workflow.steps,
+        self.assertQuerySetEqual(workflow.steps,
                                  ['<SetFlavorChoice: flavor_choice>',
                                   '<SetAdvanced: setadvancedaction>'],
                                  transform=repr)
