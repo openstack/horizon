@@ -1,0 +1,6 @@
+---
+features:
+  - |
+    Horizon now supports Nova live migration with microversion 2.30.
+    The ``server_live_migrate`` API call will request the appropriate
+    microversion when available.
