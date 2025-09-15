@@ -10,6 +10,8 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
+from django.utils.translation import gettext_lazy as _
+
 # NOTE: The following are from Django settings.
 # LOGIN_URL
 # LOGIN_REDIRECT_URL
@@ -119,7 +121,9 @@ WEBSSO_INITIAL_CHOICE = 'credentials'
 #     ("acme_oidc", "ACME - OpenID Connect"),
 #     ("acme_saml2", "ACME - SAML2"),
 # )
-WEBSSO_CHOICES = ()
+WEBSSO_CHOICES = (
+    ("credentials", _("Keystone Credentials")),
+)
 
 # A dictionary of specific identity provider and federation protocol
 # combinations. From the selected authentication mechanism, the value
