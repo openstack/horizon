@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: horizon VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2025-08-11 19:58+0000\n"
+"POT-Creation-Date: 2025-09-17 19:09+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -2151,6 +2151,9 @@ msgstr "為 ICMP 類型輸入數值（範圍：-1 到 255）"
 
 msgid "Enter an integer value between -1 and 255 (-1 means wild card)."
 msgstr "輸入 -1 到 255 之間的整數（-1 代表萬用字元）。"
+
+msgid "Enter an integer value between 0 and 255."
+msgstr "輸入 0 到 255 之間的整數。"
 
 msgid "Enter an integer value between 1 and 65535."
 msgstr "輸入 1 到 65535 之間的整數。"
@@ -5984,6 +5987,7 @@ msgstr "類型 ="
 msgid "Type of backend device identifier provided"
 msgstr "提供的後端裝置認證者的類型"
 
+#. Translators: Admin state status for router.
 msgid "UP"
 msgstr "上線"
 

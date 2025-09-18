@@ -16,7 +16,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: horizon VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2025-08-11 19:58+0000\n"
+"POT-Creation-Date: 2025-09-17 19:09+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -2529,6 +2529,9 @@ msgid "Enter an integer value between -1 and 255 (-1 means wild card)."
 msgstr ""
 "-1 以上 255 以下の整数値を入力してください (-1 はワイルドカードを意味しま"
 "す)。"
+
+msgid "Enter an integer value between 0 and 255."
+msgstr "0 から 255 までの整数値を入力してください。"
 
 msgid "Enter an integer value between 1 and 65535."
 msgstr "1 から 65535 までの整数値を入力してください。"
@@ -6782,6 +6785,7 @@ msgstr "種別 ="
 msgid "Type of backend device identifier provided"
 msgstr "指定するバックエンドデバイスの識別子の種別"
 
+#. Translators: Admin state status for router.
 msgid "UP"
 msgstr "UP"
 
