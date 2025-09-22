@@ -1696,7 +1696,17 @@ WEBSSO_CHOICES
 
 .. versionadded:: 2015.1(Kilo)
 
-Default: ``()``
+.. versionchanged:: 2026.1(Gazpacho)
+
+   The default value has been updated to include the credentials mechanism.
+
+Default:
+
+.. code-block:: python
+
+    (
+        ("credentials", _("Keystone Credentials")),
+    )
 
 This is the list of authentication mechanisms available to the user. It
 includes Keystone federation protocols such as OpenID Connect and SAML, and
