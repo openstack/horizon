@@ -731,7 +731,7 @@ class NetworkTests(test.TestCase, NetworkStubMixin):
         if test_with_subnetpool:
             subnetpool = self.subnetpools.first()
             form_data['subnetpool'] = subnetpool.id
-            form_data['prefixlen'] = subnetpool.default_prefixlen
+            form_data['prefixlen'] = subnetpool.default_prefix_length
         form_data.update(form_data_subnet(subnet, cidr='10.0.0.0',
                                           allocation_pools=[]))
         url = reverse('horizon:project:networks:create')
@@ -768,7 +768,7 @@ class NetworkTests(test.TestCase, NetworkStubMixin):
         if test_with_subnetpool:
             subnetpool = self.subnetpools.first()
             form_data['subnetpool'] = subnetpool.id
-            form_data['prefixlen'] = subnetpool.default_prefixlen
+            form_data['prefixlen'] = subnetpool.default_prefix_length
 
         form_data.update(form_data_subnet(subnet, cidr='30.30.30.0/24',
                                           allocation_pools=[]))
@@ -809,7 +809,7 @@ class NetworkTests(test.TestCase, NetworkStubMixin):
         if test_with_subnetpool:
             subnetpool = self.subnetpools.first()
             form_data['subnetpool'] = subnetpool.id
-            form_data['prefixlen'] = subnetpool.default_prefixlen
+            form_data['prefixlen'] = subnetpool.default_prefix_length
 
         form_data.update(form_data_subnet(subnet_v6, cidr='fc00::/7',
                                           allocation_pools=[]))
@@ -898,7 +898,7 @@ class NetworkTests(test.TestCase, NetworkStubMixin):
         if test_with_subnetpool:
             subnetpool = self.subnetpools.first()
             form_data['subnetpool'] = subnetpool.id
-            form_data['prefixlen'] = subnetpool.default_prefixlen
+            form_data['prefixlen'] = subnetpool.default_prefix_length
         form_data.update(form_data_subnet(subnet, cidr=cidr,
                                           allocation_pools=[]))
         url = reverse('horizon:project:networks:create')
@@ -934,7 +934,7 @@ class NetworkTests(test.TestCase, NetworkStubMixin):
         if test_with_subnetpool:
             subnetpool = self.subnetpools.first()
             form_data['subnetpool'] = subnetpool.id
-            form_data['prefixlen'] = subnetpool.default_prefixlen
+            form_data['prefixlen'] = subnetpool.default_prefix_length
         form_data.update(form_data_subnet(subnet, gateway_ip=gateway_ip,
                                           allocation_pools=[]))
         url = reverse('horizon:project:networks:create')
