@@ -1696,15 +1696,7 @@ WEBSSO_CHOICES
 
 .. versionadded:: 2015.1(Kilo)
 
-Default:
-
-.. code-block:: python
-
-    (
-        ("credentials", _("Keystone Credentials")),
-        ("oidc", _("OpenID Connect")),
-        ("saml2", _("Security Assertion Markup Language"))
-    )
+Default: ``()``
 
 This is the list of authentication mechanisms available to the user. It
 includes Keystone federation protocols such as OpenID Connect and SAML, and
@@ -1713,6 +1705,16 @@ combinations (as defined in `WEBSSO_IDP_MAPPING`_). The list of choices is
 completely configurable, so as long as the id remains intact. Do not remove
 the credentials mechanism unless you are sure. Once removed, even admins will
 have no way to log into the system via the dashboard.
+
+For example:
+
+.. code-block:: python
+
+    WEBSSO_CHOICES = (
+        ("credentials", _("Keystone Credentials")),
+        ("oidc", _("OpenID Connect")),
+        ("saml2", _("Security Assertion Markup Language"))
+    )
 
 WEBSSO_ENABLED
 ~~~~~~~~~~~~~~
@@ -1743,7 +1745,7 @@ Example:
 
 .. code-block:: python
 
-    WEBSSO_CHOICES =  (
+    WEBSSO_CHOICES = (
         ("credentials", _("Keystone Credentials")),
         ("oidc", _("OpenID Connect")),
         ("saml2", _("Security Assertion Markup Language")),
