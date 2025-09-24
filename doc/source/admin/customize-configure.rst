@@ -337,13 +337,7 @@ Use a domain that fits your current setup.
       WSGIDaemonProcess horizon user=www-data group=www-data processes=3 threads=10
       Alias /static /usr/share/openstack-dashboard/openstack_dashboard/static/
       <Location />
-        <ifVersion >=2.4>
-          Require all granted
-        </ifVersion>
-        <ifVersion <2.4>
-          Order allow,deny
-          Allow from all
-        </ifVersion>
+        Require all granted
       </Location>
 
    **Example After**
@@ -385,15 +379,7 @@ Use a domain that fits your current setup.
         <Location />
           Options None
           AllowOverride None
-          # For Apache http server 2.4 and later:
-          <ifVersion >=2.4>
-            Require all granted
-          </ifVersion>
-          # For Apache http server 2.2 and earlier:
-          <ifVersion <2.4>
-            Order allow,deny
-            Allow from all
-          </ifVersion>
+          Require all granted
         </Location>
       </VirtualHost>
 
