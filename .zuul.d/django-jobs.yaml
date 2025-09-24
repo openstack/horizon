@@ -32,6 +32,13 @@
     vars:
       django_version: '>=4.2,<4.3'
 
+- job:
+    name: horizon-tox-python3-django52
+    parent: horizon-tox-python3-django
+    voting: false
+    vars:
+      django_version: '>=5.2,<5.3'
+
 - project-template:
     name: horizon-non-primary-django-jobs
     description: |
@@ -47,6 +54,7 @@
         # only one version of Django covered by the default job.
         # Just comment it out for such case.
         - horizon-tox-python3-django42
+        - horizon-tox-python3-django52
     gate:
       jobs:
         # Default python job in openstack-python3-antelope-jobs(-horizon)
