@@ -14,6 +14,7 @@ monasca-ui,:opendev-repo:`openstack/monasca-ui`,:launchpad:`monasca`
 murano-dashboard,:opendev-repo:`openstack/murano-dashboard`,:launchpad:`murano`
 networking-bgpvpn,:opendev-repo:`openstack/networking-bgpvpn`,:launchpad:`bgpvpn`
 neutron-vpnaas-dashboard,:opendev-repo:`openstack/neutron-vpnaas-dashboard`,:launchpad:`neutron-vpnaas-dashboard`
+neutron-fwaas-dashboard,:opendev-repo:`openstack/neutron-fwaas-dashboard`,:launchpad:`neutron-fwaas-dashboard`
 octavia-dashboard,:opendev-repo:`openstack/octavia-dashboard`,:storyboard:`openstack/octavia-dashboard`
 sahara-dashboard,:opendev-repo:`openstack/sahara-dashboard`,:storyboard:`openstack/sahara-dashboard`
 senlin-dashboard,:opendev-repo:`openstack/senlin-dashboard`,:launchpad:`senlin-dashboard`
