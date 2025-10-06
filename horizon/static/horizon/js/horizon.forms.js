@@ -354,13 +354,20 @@ horizon.forms.init_themable_select = function ($elem) {
 };
 
 horizon.forms.init_new_selects = function () {
-  $(document).on('DOMNodeInserted', function(e) {
-    var $target = $(e.target);
-    var newInputs = $target.find('.themable-select').not('.select-initialized');
-    for (var ii = 0; ii < newInputs.length; ii++) {
-      horizon.forms.init_themable_select($(newInputs[ii]));
+  var observer = new MutationObserver(function (mutations) {
+    for (var mutation in mutations) {
+      if (mutation.type !== 'childList') {
+        continue;
+      }
+      for (var node in mutation.addedNodes) {
+        var newInputs = $(node).find('.themable-select').not('.select-initialized');
+        for (var input in newInputs) {
+          horizon.forms.init_themable_select($(input));
+        }
+      }
     }
   });
+  observer.observe(document, { childList: true, subtree: true });
 };
 
 horizon.forms.getSpinnerValue = function(val, defaultVal) {
@@ -446,13 +453,20 @@ horizon.forms.init_themable_spinner = function ($elem) {
 };
 
 horizon.forms.init_new_spinners = function () {
-  $(document).on('DOMNodeInserted', function(e) {
-    var $target = $(e.target);
-    var newInputs = $target.find('.themable-spinner').not('.spinner-initialized');
-    for (var ii = 0; ii < newInputs.length; ii++) {
-      horizon.forms.init_themable_spinner($(newInputs[ii]));
+  var observer = new MutationObserver(function (mutations) {
+    for (var mutation in mutations) {
+      if (mutation.type !== 'childList') {
+        continue;
+      }
+      for (var node in mutation.addedNodes) {
+        var newSpinners = $(node).find('.themable-spinner').not('.spinner-initialized');
+        for (var spinner in newSpinners) {
+          horizon.forms.init_themable_spinner($(spinner));
+        }
+      }
     }
   });
+  observer.observe(document, { childList: true, subtree: true });
 };
 
 horizon.addInitFunction(horizon.forms.init = function () {
