@@ -142,14 +142,18 @@ class VolumesView(tables.PagedTableMixin, VolumeTableMixIn,
     table_class = volume_tables.VolumesTable
     page_title = _("Volumes")
 
+    FILTERS_MAPPING = {'bootable': {_('yes'): 'true', _('no'): 'false'},
+                       'encrypted': {_('yes'): True, _('no'): False}}
+
     def get_data(self):
         volumes = []
         attached_instance_ids = []
         instances = []
         volume_ids_with_snapshots = []
+        filters = self.get_filters(filters_map=self.FILTERS_MAPPING)
 
         def _task_get_volumes():
-            volumes.extend(self._get_volumes())
+            volumes.extend(self._get_volumes(search_opts=filters))
             attached_instance_ids.extend(
                 self._get_attached_instance_ids(volumes))
 
