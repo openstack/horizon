@@ -538,12 +538,17 @@ class VolumesTableBase(tables.DataTable):
 
 
 class VolumesFilterAction(tables.FilterAction):
-
-    def filter(self, table, volumes, filter_string):
-        """Naive case-insensitive search."""
-        q = filter_string.lower()
-        return [volume for volume in volumes
-                if q in volume.name.lower()]
+    name = 'volumes_filter'
+    filter_type = 'server'
+    filter_choices = (
+        ('name', _('Volume Name ='), True),
+        ('size', _('Size (GiB) ='), True),
+        ('status', _('Status ='), True),
+        ('group_id', _('Group ID ='), True),
+        ('availability_zone', _('Availability Zone ='), True),
+        ('bootable', _('Bootable ='), True),
+        ('encrypted', _('Encrypted ='), True),
+    )
 
 
 class UpdateMetadata(tables.LinkAction):
