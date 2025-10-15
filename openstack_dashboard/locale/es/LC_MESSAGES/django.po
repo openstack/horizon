@@ -15,7 +15,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: horizon VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2025-08-11 19:58+0000\n"
+"POT-Creation-Date: 2025-09-24 18:22+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -2572,6 +2572,9 @@ msgstr "Introduzca un valor para el tipo ICMP en el rango (-1:255)"
 
 msgid "Enter an integer value between -1 and 255 (-1 means wild card)."
 msgstr "Introduzca un número entero entre -1 y 255 (-1 es un comodín)."
+
+msgid "Enter an integer value between 0 and 255."
+msgstr "Introduzca un valor entero entre 0 y 255."
 
 msgid "Enter an integer value between 1 and 65535."
 msgstr "Introduzca un número entero entre 1 y 65535."
@@ -6829,6 +6832,7 @@ msgstr "Tipo"
 msgid "Type of backend device identifier provided"
 msgstr "Tipo de indentificador dispositivo posterior previsto. "
 
+#. Translators: Admin state status for router.
 msgid "UP"
 msgstr "ARRIBA"
 

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: horizon VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2025-08-11 19:58+0000\n"
+"POT-Creation-Date: 2025-09-24 18:22+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -2072,6 +2072,9 @@ msgstr "ICMP tipi için (-1: 255) aralığında bir değer girin. "
 
 msgid "Enter an integer value between -1 and 255 (-1 means wild card)."
 msgstr "-1 ve 255 arasında bir tam sayı değer girin (-1 hepsi demektir)."
+
+msgid "Enter an integer value between 0 and 255."
+msgstr "0 ve 255 arasında bir tam sayı girin."
 
 msgid "Enter an integer value between 1 and 65535."
 msgstr "1 ile 65535 arası bir tam sayı girin."
@@ -5659,6 +5662,7 @@ msgstr "Tür ="
 msgid "Type of backend device identifier provided"
 msgstr "Sağlanan arka uç aygıt tanımlayıcı türü"
 
+#. Translators: Admin state status for router.
 msgid "UP"
 msgstr "AÇIK"
 

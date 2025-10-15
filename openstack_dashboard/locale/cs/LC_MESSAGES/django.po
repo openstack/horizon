@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: horizon VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2025-08-11 19:58+0000\n"
+"POT-Creation-Date: 2025-09-24 18:22+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -2014,6 +2014,9 @@ msgstr "Zadejte hodnotu pro kód ICMP v rozsahu (-1: 255)"
 
 msgid "Enter a value for ICMP type in the range (-1: 255)"
 msgstr "Zadejte hodnotu pro typ ICMP v rozsahu (-1: 255)"
+
+msgid "Enter an integer value between 0 and 255."
+msgstr "Zadejte celé číslo v rozsahu od 1 do 255."
 
 msgid "Enter an integer value between 1 and 65535."
 msgstr "Zadejte celé číslo v rozsahu od 1 do 65535."
@@ -5294,6 +5297,7 @@ msgstr "Typ ="
 msgid "Type of backend device identifier provided"
 msgstr "Typ poskytnutého identifikátoru podpůrného zařízení"
 
+#. Translators: Admin state status for router.
 msgid "UP"
 msgstr "OTEVŘEN"
 
