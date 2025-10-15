@@ -248,7 +248,8 @@ ThemeGroup = [
                help='Default xpath for second dropdown of browse panel'),
 ]
 
-OIDCGroup = [
+
+IdPsOIDCGroup = [
     cfg.StrOpt('keycloak_test_user1_username',
                default='kctestuser1',
                help='Username to use for keycloak test user 1'),
@@ -256,10 +257,47 @@ OIDCGroup = [
                default='nomoresecrets1',
                help='Password to use for keycloak test user 1.',
                secret=True),
+    cfg.StrOpt('keycloak_test_user2_username',
+               default='kctestuser2',
+               help='Username to use for keycloak test user 2'),
+    cfg.StrOpt('keycloak_test_user2_password',
+               default='nomoresecrets2',
+               help='Password to use for keycloak test user 2.',
+               secret=True),
+    cfg.StrOpt('keycloak_test_user3_username',
+               default='kctestuser3',
+               help='Username to use for keycloak test user 3'),
+    cfg.StrOpt('keycloak_test_user3_password',
+               default='nomoresecrets3',
+               help='Password to use for keycloak test user 3.',
+               secret=True),
+    cfg.StrOpt('keycloak_test_user4_username',
+               default='kctestuser4',
+               help='Username to use for keycloak test user 4'),
+    cfg.StrOpt('keycloak_test_user4_password',
+               default='nomoresecrets4',
+               help='Password to use for keycloak test user 4.',
+               secret=True),
     cfg.StrOpt('keycloak_test_user_home_project',
                default='SSOproject',
                help='Project to keep all objects belonging to a '
                'regular keycloak user.'),
+    cfg.StrOpt('keycloak_test_user_home_project2',
+               default='SSOproject2',
+               help='Project to keep all objects belonging to a '
+               'regular keycloak user.'),
+    cfg.StrOpt('identity_provider1',
+               default='kcIDP1',
+               help='Name of IdP for OIDC connect'),
+    cfg.StrOpt('identity_provider2',
+               default='kcIDP2',
+               help='Name of IdP for OIDC connect'),
+    cfg.StrOpt('web_sso_choice_value1',
+               default='OIDC1',
+               help='Value of the web_sso_choice Horizon locator'),
+    cfg.StrOpt('web_sso_choice_value2',
+               default='OIDC2',
+               help='Value of the web_sso_choice Horizon locator'),
 ]
 
 
@@ -290,7 +328,7 @@ def get_config():
     cfg.CONF.register_opts(PluginGroup, group="plugin")
     cfg.CONF.register_opts(VolumeGroup, group="volume")
     cfg.CONF.register_opts(ThemeGroup, group="theme")
-    cfg.CONF.register_opts(OIDCGroup, group="OIDC")
+    cfg.CONF.register_opts(IdPsOIDCGroup, group="IdPsOIDC")
 
     return cfg.CONF
 
@@ -309,5 +347,5 @@ def list_opts():
         ("plugin", PluginGroup),
         ("volume", VolumeGroup),
         ("theme", ThemeGroup),
-        ("OIDC", OIDCGroup),
+        ("IdPsOIDC", IdPsOIDCGroup),
     ]
