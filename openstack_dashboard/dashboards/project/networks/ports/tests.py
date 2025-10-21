@@ -624,7 +624,7 @@ class NetworkPortTests(test.TestCase):
         self.assertRedirectsNoFollow(res, redir_url)
 
         self.assert_mock_multiple_calls_with_same_arguments(
-            self.mock_network_get, 2,
+            self.mock_network_get, 3,
             mock.call(test.IsHttpRequest(), network.id))
         self._check_is_extension_supported({'binding': 1,
                                             'mac-learning': 1,
@@ -769,7 +769,7 @@ class NetworkPortTests(test.TestCase):
         self.assertRedirectsNoFollow(res, redir_url)
 
         self.assert_mock_multiple_calls_with_same_arguments(
-            self.mock_network_get, 2,
+            self.mock_network_get, 3,
             mock.call(test.IsHttpRequest(), network.id))
         self._check_is_extension_supported({'binding': 1,
                                             'mac-learning': 1,

@@ -216,7 +216,7 @@ class NetworkPortTests(test.BaseAdminViewTests):
         self.assertRedirectsNoFollow(res, redir_url)
 
         self.assert_mock_multiple_calls_with_same_arguments(
-            self.mock_network_get, 2,
+            self.mock_network_get, 3,
             mock.call(test.IsHttpRequest(), network.id))
         self.mock_security_group_list.assert_called_once_with(
             test.IsHttpRequest(), tenant_id='1')
@@ -284,7 +284,7 @@ class NetworkPortTests(test.BaseAdminViewTests):
         self.assertRedirectsNoFollow(res, redir_url)
 
         self.assert_mock_multiple_calls_with_same_arguments(
-            self.mock_network_get, 2,
+            self.mock_network_get, 3,
             mock.call(test.IsHttpRequest(), network.id))
         self._check_is_extension_supported(
             {'mac-learning': 1,
@@ -363,7 +363,7 @@ class NetworkPortTests(test.BaseAdminViewTests):
         self.assertRedirectsNoFollow(res, redir_url)
 
         self.assert_mock_multiple_calls_with_same_arguments(
-            self.mock_network_get, 2,
+            self.mock_network_get, 3,
             mock.call(test.IsHttpRequest(), network.id))
         self._check_is_extension_supported(
             {'mac-learning': 1,
