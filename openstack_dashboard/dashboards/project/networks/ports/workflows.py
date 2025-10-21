@@ -24,6 +24,7 @@ from horizon import workflows
 
 from openstack_dashboard import api
 from openstack_dashboard.dashboards.project.networks.ports import sg_base
+from openstack_dashboard import policy
 from openstack_dashboard.utils import filters
 from openstack_dashboard.utils import settings as setting_utils
 
@@ -248,6 +249,25 @@ class CreatePort(workflows.Workflow):
     def handle(self, request, context):
         try:
             params = self._construct_parameters(context)
+            network_id = context['network_id']
+            try:
+                network = api.neutron.network_get(self.request, network_id)
+            except Exception:
+                network = None
+            if (
+                not policy.check(
+                    (("network", "create_port:port_security_enabled"),),
+                    request,
+                    {
+                        'network_id': context['network_id'],
+                        'tenant_id': context['target_tenant_id'],
+                        'network:tenant_id': getattr(
+                            network, 'tenant_id', None
+                        ),
+                    }
+                ) and params.get('port_security_enabled', True)
+            ):
+                params.pop('port_security_enabled')
             port = api.neutron.port_create(request, **params)
             self.context['port_id'] = port.id
             return True
