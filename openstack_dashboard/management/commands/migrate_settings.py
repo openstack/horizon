@@ -114,8 +114,7 @@ class Command(BaseCommand):
         """
 
         with DirContext(self.local_settings_dir) as dircontext:
-            if not os.path.exists(self.local_settings_diff,
-                                  encoding="utf-8") or force:
+            if not os.path.exists(self.local_settings_diff) or force:
                 with open(self.local_settings_example, 'r',
                           encoding="utf-8") as fp:
                     example_lines = fp.readlines()
