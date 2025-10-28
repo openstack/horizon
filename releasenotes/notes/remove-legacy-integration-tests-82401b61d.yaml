@@ -1,8 +1,0 @@
----
-features:
-  - >
-    Removed all legacy integration test code and dependencies from the Horizon
-    codebase. This includes the complete removal of the old Selenium-based
-    integration test framework, page objects, test cases, and related utilities.
-    This change helps simplify the project structure by removing unused testing
-    infrastructure.
