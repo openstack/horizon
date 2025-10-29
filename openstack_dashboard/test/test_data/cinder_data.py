@@ -129,7 +129,6 @@ def data(TEST):
          'name': 'my_volume2',
          'status': 'in-use',
          'size': 10,
-         'name': 'my_volume2',
          'display_description': '',
          'created_at': '2013-04-01 10:30:00',
          'volume_type': 'vol_type_2',
