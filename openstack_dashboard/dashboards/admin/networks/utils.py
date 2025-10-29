@@ -10,6 +10,8 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
+from django.utils.translation import gettext_lazy as _
+
 from horizon import exceptions
 
 from openstack_dashboard import api
