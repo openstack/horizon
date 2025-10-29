@@ -11,6 +11,7 @@
 #    under the License.
 
 import re
+import time
 
 from oslo_utils import uuidutils
 import pytest
@@ -53,6 +54,18 @@ def clear_floatingip_using_ip(openstack_demo, new_instance_demo):
     yield None
     openstack_demo.network.delete_ip(
         openstack_demo.network.find_ip(new_instance_demo.public_v4))
+
+
+def wait_for_instance_has_specific_number_of_address(openstack_demo,
+                                                     new_instance_demo,
+                                                     number_of_address):
+    for attempt in range(5):
+        if (len(openstack_demo.compute.find_server(
+                new_instance_demo.id).addresses
+                ['default_test_network']) == number_of_address):
+            break
+        else:
+            time.sleep(3)
 
 
 def test_allocate_floatingip(login, driver, config, openstack_demo,
@@ -131,6 +144,8 @@ def test_associate_floatingip(login, driver, openstack_demo, new_floating_ip,
     messages = widgets.get_and_dismiss_messages(driver, config)
     assert (f"Success: IP address {new_floating_ip.floating_ip_address}"
             f" associated." in messages)
+    wait_for_instance_has_specific_number_of_address(
+        openstack_demo, new_instance_demo, 2)
     assert (new_instance_demo.id == openstack_demo.network.find_ip(
         new_floating_ip.floating_ip_address).port_details['device_id'])
 
@@ -159,6 +174,8 @@ def test_disassociate_floatingip(login, driver, openstack_demo, config,
     messages = widgets.get_and_dismiss_messages(driver, config)
     assert (f"Success: Successfully disassociated Floating IP: "
             f"{instance_auto_ip}" in messages)
+    wait_for_instance_has_specific_number_of_address(
+        openstack_demo, new_instance_demo, 1)
     instance_sdk = openstack_demo.compute.find_server(new_instance_demo.id)
     assert (len(instance_sdk.addresses['default_test_network']) == 1)
     assert (instance_sdk.addresses['default_test_network']
