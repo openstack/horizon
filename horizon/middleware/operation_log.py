@@ -124,7 +124,7 @@ class OperationLogMiddleware(object):
             if not request.user.is_authenticated:
                 return
         method = request.method.upper()
-        if not (method in self.target_methods):
+        if method not in self.target_methods:
             return
         for rule in self._ignored_urls:
             if rule.search(request_url):
