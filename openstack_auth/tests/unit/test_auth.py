@@ -1467,6 +1467,10 @@ class OpenstackAuthTestsTOTP(test.TestCase):
 
         self.data = data_v3.generate_test_data()
 
+        session = self.client.session
+        session['receipt'] = 'fake-receipt'
+        session.save()
+
     def get_form_data(self, user):
         return {'region': "default",
                 'domain': DEFAULT_DOMAIN,

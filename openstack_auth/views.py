@@ -500,7 +500,7 @@ class TotpView(edit_views.FormView):
     template_name = 'auth/totp.html'
     form_class = forms.TimeBasedOneTimePassword
     success_url = settings.LOGIN_REDIRECT_URL
-    fail_url = "/login/"
+    fail_url = settings.LOGIN_URL
 
     def get_initial(self):
         return {
@@ -510,6 +510,14 @@ class TotpView(edit_views.FormView):
             'region': self.request.COOKIES.get('login_region'),
             'domain': self.request.session.get('domain'),
         }
+
+    def get(self, request, *args, **kwargs):
+        if request.user.is_authenticated:
+            return django_http.HttpResponseRedirect(self.success_url)
+        receipt = request.session.get('receipt')
+        if not receipt:
+            return django_http.HttpResponseRedirect(self.fail_url)
+        return super().get(request, *args, **kwargs)
 
     def form_valid(self, form):
         auth.login(self.request, form.user_cache)
