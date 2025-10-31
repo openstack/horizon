@@ -25,6 +25,7 @@ from django.core import validators
 from django.forms import ValidationError
 from django.forms.widgets import HiddenInput
 from django.template import defaultfilters
+from django.template.loader import get_template
 from django.utils.translation import gettext_lazy as _
 
 from horizon import exceptions
@@ -37,6 +38,13 @@ from openstack_dashboard import policy
 
 IMAGE_BACKEND_SETTINGS = settings.OPENSTACK_IMAGE_BACKEND
 IMAGE_FORMAT_CHOICES = IMAGE_BACKEND_SETTINGS['image_formats']
+IMAGE_RO_PROPERTIES = {
+    'direct_url',
+    'os_hash_algo',
+    'os_hash_value',
+    'stores',
+    'os_hidden',
+}
 
 
 class ImageURLField(forms.URLField):
@@ -355,3 +363,144 @@ class UpdateImageForm(forms.SelfHandlingForm):
             return image
         except Exception:
             exceptions.handle(request, error_updating % image_id)
+
+
+class MetaPlainWidget(forms.widgets.Widget):
+    template = 'project/images/images/meta_plain_widget.html'
+
+    def __init__(self, info, breadcrumb, initial, readonly=False):
+        self.info = info
+        self.breadcrumb = breadcrumb
+        self.initial = initial
+        self.disabled = initial is None
+        self.readonly = readonly
+        super().__init__()
+
+    def get_context_data(self, name, value, attrs):
+        attrs = self.build_attrs(attrs)
+        id = attrs.pop('id', 'id_%s' % name)
+        context = {
+            'name': name,
+            'value': value,
+            'id': id,
+            'info': self.info,
+            'breadcrumb': self.breadcrumb,
+            'initial': self.initial,
+            'disabled': self.disabled,
+            'readonly': self.readonly,
+        }
+        return context
+
+    def render(self, name, value, attrs=None, renderer=None):
+        template = get_template(self.template)
+        return template.render(self.get_context_data(name, value, attrs))
+
+
+class MetaNumberWidget(MetaPlainWidget):
+    template = 'project/images/images/meta_number_widget.html'
+
+
+class MetaDropdownWidget(MetaPlainWidget):
+    template = 'project/images/images/meta_dropdown_widget.html'
+
+
+class MetaBooleanWidget(MetaPlainWidget):
+    template = 'project/images/images/meta_boolean_widget.html'
+
+
+class ImageMetadataForm(forms.SelfHandlingForm):
+    image_id = forms.CharField(widget=forms.HiddenInput())
+
+    def __init__(self, request, namespaces, initial, *args, **kwargs):
+        super().__init__(request, *args, initial=initial, **kwargs)
+        for namespace in namespaces:
+            for name, info in namespace.get('properties', {}).items():
+                field = self.get_field(
+                    info,
+                    " \u203A ".join((
+                        namespace['namespace'],
+                        info['title'],
+                    )),
+                    initial.get(name),
+                )
+                self.fields[name] = field
+            for obj in namespace.get('objects', []):
+                for name, info in obj.get('properties', {}).items():
+                    field = self.get_field(
+                        info,
+                        " \u203A ".join((
+                            namespace['namespace'],
+                            obj['name'],
+                            info['title'],
+                        )),
+                        initial.get(name),
+                    )
+                    self.fields[name] = field
+        # Add any custom fields that were there initially.
+        for name, value in initial.items():
+            if name in self.fields:
+                continue
+            field = self.get_field(
+                {'type': 'string'},
+                "custom",
+                initial.get(name),
+            )
+            self.fields[name] = field
+        # Add any custom fields that were added by user
+        for name, values in request.POST.items():
+            if name in self.fields:
+                continue
+            if name == 'csrfmiddlewaretoken':
+                continue
+            field = self.get_field(
+                {'type': 'string'},
+                "custom",
+                None,
+            )
+            self.fields[name] = field
+        # Enabled the fields that the user submitted
+        if request.POST:
+            for name, field in self.fields.items():
+                field.disabled = name not in request.POST
+                field.widget.disabled = field.disabled
+
+    def get_field(self, info, breadcrumb, initial):
+        """Creates the correct kind of field for the given property."""
+
+        property_type = info.get('type', 'string')
+        field = forms.CharField
+        if property_type == 'boolean' or isinstance(initial, bool):
+            widget = MetaBooleanWidget(info, breadcrumb, initial)
+        elif property_type == 'integer' or isinstance(initial, int):
+            widget = MetaNumberWidget(info, breadcrumb, initial)
+        elif info.get('enum'):
+            # XXX Possibly need to also change the field type.
+            widget = MetaDropdownWidget(info, breadcrumb, initial)
+        else:
+            widget = MetaPlainWidget(info, breadcrumb, initial)
+        return field(widget=widget, required=False)
+
+    def clean(self):
+        data = {}
+        # Only include data from enabled fields.
+        for name, field in self.fields.items():
+            if field.disabled:
+                continue
+            if name in IMAGE_RO_PROPERTIES:
+                continue
+            # XXX We probably need to filter out the known image attributes.
+            data[name] = self.cleaned_data[name]
+        return data
+
+    def handle(self, request, data):
+        image_id = data.pop('image_id')
+        remove_props = []
+        for name, value in self.initial.items():
+            if name in data:
+                continue
+            if name in IMAGE_RO_PROPERTIES:
+                continue
+            remove_props.append(name)
+        api.glance.image_update_properties(
+            request, image_id, remove_props, **data)
+        return True

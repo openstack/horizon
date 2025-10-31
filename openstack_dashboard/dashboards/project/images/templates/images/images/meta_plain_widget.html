@@ -1,0 +1,31 @@
+<li
+  class="list-group-item dark-stripe{% if disabled %} metadata-used{% endif %}"
+  data-name="{{ name }}"
+>
+  <div class="metadata-tree-item">
+    <div class="input-group input-group-sm">
+      <span class="input-group-addon" title="{{ name }}">{{ name }}</span>
+      {% block formfield %}
+      <input
+        class="form-control"
+        name="{{ name }}"
+        type="text"
+        value="{{ value|default_if_none:'' }}"
+        id="{{ id }}"
+        {% if disabled %}
+        disabled="disabled"
+        {% endif %}
+        {% if readonly %}
+        readonly="readonly"
+        {% endif %}
+      >
+      {% endblock %}
+      <div class="input-group-btn">
+        <a class="btn btn-default">
+          <span class="fa fa-minus"></span>
+        </a>
+      </div>
+    </div>
+    <div class="label label-info">{{ breadcrumb }}</div>
+  </div>
+</li>

@@ -1,0 +1,19 @@
+{% extends "project/images/images/meta_plain_widget.html" %}
+
+{% block formfield %}
+  <input
+    class="form-control"
+    name="{{ name }}"
+    type="checkbox"
+    id="{{ id }}"
+    {% if value %}
+    checked="checked"
+    {% endif %}
+    {% if disabled %}
+    disabled="disabled"
+    {% endif %}
+    {% if readonly %}
+    readonly="readonly"
+    {% endif %}
+  >
+{% endblock %}

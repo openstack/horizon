@@ -17,6 +17,7 @@ env:
 
   # Adds all of the Jasmine testing global variables for version 1.3 and 2.0.
   jasmine: true
+  es6: true
 
 
 # Below we adjust rules specific to horizon's usage of openstack's linting

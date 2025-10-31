@@ -1,0 +1,23 @@
+{% extends "project/images/images/meta_plain_widget.html" %}
+
+{% block formfield %}
+  <input
+    class="form-control"
+    name="{{ name }}"
+    type="number"
+    value="{{ value|default_if_none:'' }}"
+    id="{{ id }}"
+    {% if info.minimum is not None %}
+    min="{{ info.minimum }}"
+    {% endif %}
+    {% if info.maximum is not None %}
+    max="{{ info.maximum }}"
+    {% endif %}
+    {% if disabled %}
+    disabled="disabled"
+    {% endif %}
+    {% if readonly %}
+    readonly="readonly"
+    {% endif %}
+  >
+{% endblock %}
