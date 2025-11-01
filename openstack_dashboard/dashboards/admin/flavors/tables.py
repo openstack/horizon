@@ -105,14 +105,13 @@ class ModifyAccess(tables.LinkAction):
 
 
 class FlavorFilterAction(tables.FilterAction):
-    def filter(self, table, flavors, filter_string):
-        """Really naive case-insensitive search."""
-        q = filter_string.lower()
-
-        def comp(flavor):
-            return q in flavor.name.lower()
-
-        return filter(comp, flavors)
+    name = 'flavors_filter'
+    filter_type = 'server'
+    filter_choices = (
+        ('is_public', _('Is Public ='), True),
+        ('min_disk', _('Minimum Root Disk (GB) ='), True),
+        ('min_ram', _('Minimum RAM (MB) ='), True),
+    )
 
 
 def get_size(flavor):
