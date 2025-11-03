@@ -33,6 +33,7 @@ class Session:
     def __init__(self, driver, config):
         self.current_user = None
         self.current_project = None
+        self.current_region = None
         self.driver = driver
         self.config = config
         self.credentials = {
@@ -61,20 +62,31 @@ class Session:
             'logout',
         ))
 
-    def login(self, user, project=None):
+    def login(self, user, project=None, region=None):
+        if user is None:
+            self.driver.get(self.logout_url)
+            self.current_user = None
+            self.current_project = None
+            self.current_region = None
+            return
         if project is None:
             project = self.credentials[user][2]
-        if self.current_user != user:
+        if self.current_user != user or self.current_region != region:
             username, password, home_project = self.credentials[user]
             self.driver.get(self.logout_url)
             user_field = self.driver.find_element_by_id('id_username')
             user_field.send_keys(username)
             pass_field = self.driver.find_element_by_id('id_password')
             pass_field.send_keys(password)
+            if region is not None:
+                region_select = self.driver.find_element_by_id('id_region')
+                select_opt = Select(region_select)
+                select_opt.select_by_visible_text(region)
             button = self.driver.find_element_by_css_selector(
                 '.btn-primary')
             button.click()
             self.current_user = user
+            self.current_region = region
             project_element = self.driver.find_element_by_xpath(
                 self.project_name_xpath)
             self.current_project = project_element.text
