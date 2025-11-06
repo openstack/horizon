@@ -216,12 +216,13 @@ class GroupSnapshotNameColumn(tables.WrappingColumn):
 
 
 class VolumeSnapshotsFilterAction(tables.FilterAction):
-
-    def filter(self, table, snapshots, filter_string):
-        """Naive case-insensitive search."""
-        query = filter_string.lower()
-        return [snapshot for snapshot in snapshots
-                if query in snapshot.name.lower()]
+    name = 'snapshots_filter'
+    filter_type = 'server'
+    filter_choices = (
+        ('name', _('Snapshot Name ='), True),
+        ('status', _('Status ='), True),
+        ('volume_id', _('Volume ID ='), True),
+    )
 
 
 class VolumeDetailsSnapshotsTable(volume_tables.VolumesTableBase):
