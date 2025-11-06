@@ -1,0 +1,61 @@
+{# Include the original data table template #}
+{% include "horizon/common/_data_table.html" %}
+
+{# Add custom CSS for key pair chevron functionality #}
+<style>
+/* 5 columns total (Chevron, Name, Type, Fingerprint, Actions) */
+
+/* Force first TWO columns (Chevron, Name) to shrink to content using 1% trick */
+table#keypairs th:nth-child(1),
+table#keypairs td:nth-child(1),
+table#keypairs th:nth-child(2),
+table#keypairs td:nth-child(2) {
+  width: 1%;
+  white-space: nowrap;
+}
+
+/* Type column - moderate space */
+table#keypairs th:nth-child(3),
+table#keypairs td:nth-child(3) {
+  width: 15%;
+}
+
+/* Fingerprint column - flexible space */
+table#keypairs th:nth-child(4),
+table#keypairs td:nth-child(4) {
+  width: 40%;
+}
+
+/* Actions column - remaining space */
+table#keypairs th:nth-child(5),
+table#keypairs td:nth-child(5) {
+  width: auto;
+}
+
+/* Chevron rotation for key pair expandable rows
+   Uses Bootstrap's automatic .collapsed class management */
+a.chevron-toggle {
+  color: inherit;
+}
+
+a.chevron-toggle>span {
+  transition: transform 0.3s ease;
+}
+
+/* Rotate chevron 90 degrees when row is expanded (not collapsed) */
+a.chevron-toggle:not(.collapsed)>span {
+  transform: rotate(90deg);
+}
+
+/* Remove padding from detail row cells to eliminate gap when collapsed */
+.table>tbody>tr.keypair-detail-row>td {
+  padding: 0;
+  overflow: hidden;
+  margin-top: -1px; /* Get rid of the double horizontal line when collapsed */
+}
+
+/* Add margin inner content when expanded */
+.table>tbody>tr.keypair-detail-row>td div.keypair-details {
+  margin: 8px;
+}
+</style>

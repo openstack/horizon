@@ -1,0 +1,10 @@
+{% load i18n %}
+<a role="button"
+   class="chevron-toggle collapsed"
+   data-toggle="collapse"
+   data-target="#{{ chevron_id }}"
+   aria-expanded="false"
+   aria-controls="{{ chevron_id }}"
+   aria-label="{% trans 'Toggle key pair details' %}">
+  <span class="fa fa-chevron-right"></span>
+</a>

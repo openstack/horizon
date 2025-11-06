@@ -14,6 +14,7 @@
 
 from urllib import parse
 
+from django.template.loader import render_to_string
 from django import urls
 from django.utils.text import format_lazy
 from django.utils.translation import gettext_lazy as _
@@ -117,8 +118,54 @@ class KeypairsFilterAction(tables.FilterAction):
                 if query in keypair.name.lower()]
 
 
+def get_chevron_id(table, datum):
+    """Generate a unique chevron ID for expandable key pair rows.
+
+    This function ensures consistent ID generation between the chevron toggle
+    column and the expandable detail row. The ID is based on the table name
+    and the unique object identifier for the datum.
+
+    Args:
+        table: The DataTable instance (provides table.name and get_object_id())
+        datum: The key pair object (passed to get_object_id())
+
+    Returns:
+        str: Unique chevron ID "{table_name}_chevron_{object_id}"
+
+    Example:
+        For a keypair named "test1" in the "keypairs" table:
+        Returns "keypairs_chevron_test1"
+    """
+    object_id = table.get_object_id(datum)
+    return "%s_chevron_%s" % (table.name, object_id)
+
+
+class ExpandableKeyPairRow(tables.Row):
+    """Custom row class for expandable key pair rows."""
+
+    def render(self):
+        chevron_id = get_chevron_id(self.table, self.datum)
+        return render_to_string("key_pairs/expandable_row.html",
+                                {"row": self, "chevron_id": chevron_id})
+
+
+class ExpandableKeyPairColumn(tables.Column):
+    """Column that renders a chevron toggle for expandable rows."""
+
+    def get_data(self, datum):
+        chevron_id = get_chevron_id(self.table, datum)
+        return render_to_string(
+            "key_pairs/_chevron_column.html",
+            {"chevron_id": chevron_id}
+        )
+
+
 class KeyPairsTable(tables.DataTable):
     detail_link = "horizon:project:key_pairs:detail"
+    chevron = ExpandableKeyPairColumn("chevron",
+                                      verbose_name="",
+                                      sortable=False,
+                                      classes=['chevron_column'])
     name = tables.Column("name", verbose_name=_("Key Pair Name"),
                          link=detail_link)
     key_type = tables.Column("type", verbose_name=_("Key Pair Type"))
@@ -130,6 +177,8 @@ class KeyPairsTable(tables.DataTable):
     class Meta(object):
         name = "keypairs"
         verbose_name = _("Key Pairs")
+        row_class = ExpandableKeyPairRow
+        template = 'key_pairs/_keypairs_table.html'
         table_actions = (CreateLinkNG, ImportKeyPair, DeleteKeyPairs,
                          KeypairsFilterAction,)
         row_actions = (DeleteKeyPairs,)
