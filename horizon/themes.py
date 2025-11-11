@@ -74,6 +74,7 @@ def offline_context():
     for theme in get_themes():
         base_context = settings.HORIZON_COMPRESS_OFFLINE_CONTEXT_BASE.copy()
         base_context['THEME'] = theme[0]
+        _local.theme = theme[0]
         base_context['THEME_DIR'] = get_theme_dir()
         yield base_context
 

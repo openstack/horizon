@@ -18,12 +18,28 @@ from django.contrib.staticfiles.finders import get_finders
 
 import sass
 
+from horizon import themes
+
 
 def static_url():
     return settings.STATIC_URL
 
 
+def theme_dir():
+    return themes.get_theme_dir()
+
+
+def theme():
+    try:
+        theme = themes._local.theme
+    except AttributeError:
+        theme = themes.get_default_theme()
+    return theme
+
+
 def importer(path, prev):
+    path = path.replace('{{ THEME_DIR }}', theme_dir())
+    path = path.replace('{{ THEME }}', theme())
     if path.startswith('/'):
         # An absolute path was used, don't try relative paths.
         candidates = [path[1:]]
@@ -67,7 +83,7 @@ class ScssFilter(FilterBase):
         args = {
             'importers': [(0, importer)],
             'output_style': 'compressed',
-            'custom_functions': {static_url},
+            'custom_functions': {static_url, theme_dir, theme},
         }
         if self.filename:
             args['filename'] = self.filename

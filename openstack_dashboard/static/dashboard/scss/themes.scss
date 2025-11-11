@@ -7,9 +7,5 @@
 // Angular
 @import "/app/app";
 
-{% for file in HORIZON_CONFIG.scss_files %}
-@import '/{{ file }}';
-{% endfor %}
-
 // Custom Styles
 @import "/{{ THEME_DIR }}/{{ THEME }}/styles";

@@ -1,3 +1,5 @@
+@import "{{ THEME_DIR }}/{{ THEME }}/variables";
+
 .hz-container-accordion {
   .accordion-toggle {
     display: inline-block;
