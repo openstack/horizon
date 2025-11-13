@@ -38,8 +38,9 @@ class FlavorsViewTests(test.BaseAdminViewTests):
         self.assertCountEqual(res.context['table'].data, self.flavors.list())
 
         self.mock_flavor_list_paged.assert_called_once_with(
-            test.IsHttpRequest(), None, marker=None, paginate=True,
-            sort_dir='asc', sort_key='name', reversed_order=False)
+            test.IsHttpRequest(), is_public=None, min_disk=None, min_ram=None,
+            marker=None, paginate=True, sort_dir='asc', sort_key='name',
+            reversed_order=False)
         self.assert_mock_multiple_calls_with_same_arguments(
             self.mock_get_keys, 4, mock.call())
 
@@ -76,15 +77,18 @@ class FlavorsViewTests(test.BaseAdminViewTests):
                               self.flavors.list()[2:4])
 
         self.mock_flavor_list_paged.assert_has_calls([
-            mock.call(test.IsHttpRequest(), None,
+            mock.call(test.IsHttpRequest(), is_public=None,
+                      min_disk=None, min_ram=None,
                       marker=None, paginate=True,
                       sort_dir='asc', sort_key='name',
                       reversed_order=False),
-            mock.call(test.IsHttpRequest(), None,
+            mock.call(test.IsHttpRequest(), is_public=None,
+                      min_disk=None, min_ram=None,
                       marker=None, paginate=True,
                       sort_dir='asc', sort_key='name',
                       reversed_order=False),
-            mock.call(test.IsHttpRequest(), None,
+            mock.call(test.IsHttpRequest(), is_public=None,
+                      min_disk=None, min_ram=None,
                       marker=flavors_list[2].id, paginate=True,
                       sort_dir='asc', sort_key='name',
                       reversed_order=False),
@@ -137,19 +141,23 @@ class FlavorsViewTests(test.BaseAdminViewTests):
                               self.flavors.list()[:2])
 
         self.mock_flavor_list_paged.assert_has_calls([
-            mock.call(test.IsHttpRequest(), None,
+            mock.call(test.IsHttpRequest(), is_public=None,
+                      min_disk=None, min_ram=None,
                       marker=None, paginate=True,
                       sort_dir='asc', sort_key='name',
                       reversed_order=False),
-            mock.call(test.IsHttpRequest(), None,
+            mock.call(test.IsHttpRequest(), is_public=None,
+                      min_disk=None, min_ram=None,
                       marker=None, paginate=True,
                       sort_dir='asc', sort_key='name',
                       reversed_order=False),
-            mock.call(test.IsHttpRequest(), None,
+            mock.call(test.IsHttpRequest(), is_public=None,
+                      min_disk=None, min_ram=None,
                       marker=flavors_list[2].id, paginate=True,
                       sort_dir='asc', sort_key='name',
                       reversed_order=False),
-            mock.call(test.IsHttpRequest(), None,
+            mock.call(test.IsHttpRequest(), is_public=None,
+                      min_disk=None, min_ram=None,
                       marker=flavors_list[2].id, paginate=True,
                       sort_dir='asc', sort_key='name',
                       reversed_order=True),
@@ -185,11 +193,13 @@ class FlavorsViewTests(test.BaseAdminViewTests):
         self.assertContains(res, form_action, count=1)
 
         self.mock_flavor_list_paged.assert_has_calls([
-            mock.call(test.IsHttpRequest(), None,
+            mock.call(test.IsHttpRequest(), is_public=None,
+                      min_disk=None, min_ram=None,
                       marker=None, paginate=True,
                       sort_dir='asc', sort_key='name',
                       reversed_order=False),
-            mock.call(test.IsHttpRequest(), None,
+            mock.call(test.IsHttpRequest(), is_public=None,
+                      min_disk=None, min_ram=None,
                       marker=flavors_list[page_size - 1].id,
                       paginate=True,
                       sort_dir='asc', sort_key='name',

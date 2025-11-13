@@ -38,6 +38,8 @@ class IndexView(tables.DataTableView):
     table_class = project_tables.FlavorsTable
     page_title = _("Flavors")
 
+    FILTERS_MAPPING = {'is_public': {_('yes'): True, _('no'): False}}
+
     def has_prev_data(self, table):
         return self._prev
 
@@ -46,6 +48,11 @@ class IndexView(tables.DataTableView):
 
     def get_data(self):
         request = self.request
+        filters = self.get_filters(filters_map=self.FILTERS_MAPPING)
+        is_public = filters.get("is_public")
+        min_disk = filters.get("min_disk")
+        min_ram = filters.get("min_ram")
+
         prev_marker = request.GET.get(
             project_tables.FlavorsTable._meta.prev_pagination_param, None)
 
@@ -60,11 +67,14 @@ class IndexView(tables.DataTableView):
             # Removing the pagination params and adding "is_public=None"
             # will return all flavors.
             flavors, self._more, self._prev = api.nova.flavor_list_paged(
-                request, None,
+                request,
+                is_public=is_public,
                 marker=marker,
                 paginate=True,
                 sort_dir='asc',
                 sort_key='name',
+                min_disk=min_disk,
+                min_ram=min_ram,
                 reversed_order=reversed_order)
         except Exception:
             self._prev = self._more = False

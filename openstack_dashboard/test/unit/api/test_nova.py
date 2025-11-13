@@ -491,7 +491,7 @@ class ComputeApiTests(test.APIMockTestCase):
         api_flavors = api.nova.flavor_list(self.request)
 
         self.assertEqual(len(flavors), len(api_flavors))
-        novaclient.flavors.list.assert_called_once_with(is_public=True)
+        novaclient.flavors.list.assert_called_once_with(is_public=None)
 
     @mock.patch.object(api._nova, 'novaclient')
     def test_flavor_get_no_extras(self, mock_novaclient):
@@ -514,7 +514,7 @@ class ComputeApiTests(test.APIMockTestCase):
         novaclient.flavors.list.return_value = flavors
 
         api_flavors, has_more, has_prev = api.nova.flavor_list_paged(
-            self.request, True, False, None, paginate=paginate,
+            self.request, None, None, None, paginate=paginate,
             reversed_order=reversed_order)
 
         for flavor in api_flavors:
@@ -523,11 +523,11 @@ class ComputeApiTests(test.APIMockTestCase):
         self.assertFalse(has_prev)
         if paginate:
             novaclient.flavors.list.assert_called_once_with(
-                is_public=True, marker=None, limit=page_size + 1,
-                sort_key='name', sort_dir=order)
+                is_public=None, min_disk=None, min_ram=None, marker=None,
+                limit=page_size + 1, sort_key='name', sort_dir=order)
         else:
             novaclient.flavors.list.assert_called_once_with(
-                is_public=True)
+                is_public=None)
 
     @override_settings(API_RESULT_PAGE_SIZE=1)
     @mock.patch.object(api._nova, 'novaclient')
@@ -541,7 +541,9 @@ class ComputeApiTests(test.APIMockTestCase):
         api_flavors, has_more, has_prev = api.nova\
                                              .flavor_list_paged(
                                                  self.request,
-                                                 True,
+                                                 None,
+                                                 None,
+                                                 None,
                                                  False,
                                                  marker,
                                                  paginate=True)
@@ -552,8 +554,8 @@ class ComputeApiTests(test.APIMockTestCase):
         self.assertTrue(has_more)
         self.assertTrue(has_prev)
         novaclient.flavors.list.assert_called_once_with(
-            is_public=True, marker=marker, limit=page_size + 1,
-            sort_key='name', sort_dir='desc')
+            is_public=None, min_disk=None, min_ram=None, marker=marker,
+            limit=page_size + 1, sort_key='name', sort_dir='desc')
 
     def test_flavor_list_paged_default_order(self):
         self._test_flavor_list_paged()
