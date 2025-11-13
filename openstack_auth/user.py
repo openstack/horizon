@@ -81,7 +81,11 @@ class Token(object):
     Added for maintaining backward compatibility with horizon that expects
     Token object in the user object.
     """
-    def __init__(self, auth_ref, unscoped_token=None):
+    def __init__(self, auth_ref=None, unscoped_token=None):
+        if auth_ref is not None:
+            self.from_auth_ref(auth_ref, unscoped_token)
+
+    def from_auth_ref(self, auth_ref, unscoped_token=None):
         # User-related attributes
         user = {'id': auth_ref.user_id, 'name': auth_ref.username}
         data = getattr(auth_ref, '_data', {})

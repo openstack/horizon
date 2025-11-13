@@ -180,10 +180,7 @@ SESSION_COOKIE_HTTPONLY = True
 SESSION_EXPIRE_AT_BROWSER_CLOSE = True
 SESSION_COOKIE_SECURE = False
 
-# when doing upgrades, it may be wise to stick to PickleSerializer
-# NOTE(berendt): Check during the K-cycle if this variable can be removed.
-#                https://bugs.launchpad.net/horizon/+bug/1349463
-SESSION_SERIALIZER = 'django.contrib.sessions.serializers.PickleSerializer'
+SESSION_SERIALIZER = 'openstack_auth.serializers.HorizonSerializer'
 
 CSRF_FAILURE_VIEW = 'openstack_dashboard.views.csrf_failure'
 
