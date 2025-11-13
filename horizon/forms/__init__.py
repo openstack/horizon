@@ -13,6 +13,7 @@
 #    under the License.
 
 # Importing non-modules that are not used explicitly
+# ruff: noqa: F405
 
 # FIXME(gabriel): Legacy imports for API compatibility.
 from django.core.exceptions import ValidationError
