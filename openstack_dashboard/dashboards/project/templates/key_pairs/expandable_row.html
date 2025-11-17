@@ -1,0 +1,26 @@
+{% load i18n %}
+
+{% include "horizon/common/_data_table_row.html" %}
+{# Detail row - shows key pair information #}
+<tr class="keypair-detail-row">
+  <td colspan="{{ row.cells|length }}">
+    <div id="{{ chevron_id }}" class="collapse">
+      <div class="keypair-details">
+        <dl class="dl-horizontal">
+          <dt>{% trans "Key Pair Name" %}</dt>
+          <dd>{{ row.datum.name }}</dd>
+
+          <dt>{% trans "Key Pair Type" %}</dt>
+          <dd>{{ row.datum.type|default:"ssh" }}</dd>
+
+          <dt>{% trans "Fingerprint" %}</dt>
+          <dd>{{ row.datum.fingerprint }}</dd>
+
+          <dt>{% trans "Public Key" %}</dt>
+          <dd><pre style="word-break: break-all; white-space: pre-wrap; max-width: 100%; overflow-wrap: break-word;">{{ row.datum.public_key|default:"N/A" }}</pre></dd>
+        </dl>
+      </div>
+    </div>
+  </td>
+</tr>
+<tr></tr>
