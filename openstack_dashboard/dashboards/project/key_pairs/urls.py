@@ -35,6 +35,8 @@ if setting_utils.get_dict_config('ANGULAR_FEATURES', 'key_pairs_panel'):
 else:
     urlpatterns = [
         re_path(r'^$', legacy_views.IndexView.as_view(), name='index'),
+        re_path(r'^create/$', legacy_views.CreateView.as_view(),
+                name='create'),
         re_path(r'^import/$', legacy_views.ImportView.as_view(), name='import'),
         re_path(r'^(?P<keypair_name>[^/]+)/$',
                 legacy_views.DetailView.as_view(),
