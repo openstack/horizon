@@ -38,13 +38,14 @@ class SnapshotsView(tables.PagedTableMixin, tables.DataTableView):
         snapshots = []
         volumes = {}
         needs_gs = False
+        filters = self.get_filters()
         if cinder.is_volume_service_enabled(self.request):
             try:
                 marker, sort_dir = self._get_marker()
                 snapshots, self._has_more_data, self._has_prev_data = \
                     cinder.volume_snapshot_list_paged(
                         self.request, paginate=True, marker=marker,
-                        sort_dir=sort_dir)
+                        sort_dir=sort_dir, search_opts=filters)
             except Exception:
                 exceptions.handle(self.request,
                                   _("Unable to retrieve volume snapshots."))
