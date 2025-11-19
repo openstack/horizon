@@ -58,7 +58,7 @@ class VolumeSnapshotsViewTests(test.TestCase):
             mock.call(test.IsHttpRequest(), 'block-storage'))
         self.mock_volume_snapshot_list_paged.assert_called_once_with(
             test.IsHttpRequest(), marker=marker, sort_dir=sort_dir,
-            paginate=True)
+            paginate=True, search_opts={})
         self.mock_volume_list.assert_called_once_with(test.IsHttpRequest())
 
         if with_groups:
@@ -239,7 +239,8 @@ class VolumeSnapshotsViewTests(test.TestCase):
         self.assertMessageCount(success=1)
 
         self.mock_volume_snapshot_list_paged.assert_called_once_with(
-            test.IsHttpRequest(), paginate=True, marker=None, sort_dir='desc')
+            test.IsHttpRequest(), paginate=True, marker=None,
+            sort_dir='desc', search_opts={})
         self.mock_volume_list.assert_called_once_with(test.IsHttpRequest())
         self.mock_volume_snapshot_delete.assert_called_once_with(
             test.IsHttpRequest(), snapshot.id)
