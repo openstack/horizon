@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-09-09 10:58+0000\n"
+"POT-Creation-Date: 2025-11-17 17:42+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -229,9 +229,6 @@ msgstr "23.1.0"
 
 msgid "23.3.0"
 msgstr "23.3.0"
-
-msgid "23.4.0"
-msgstr "23.4.0"
 
 msgid "24.0.0"
 msgstr "24.0.0"
