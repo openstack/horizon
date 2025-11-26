@@ -1,5 +1,3 @@
-# -*- coding: utf-8 -*-
-
 # ----------------------------------------------------------------------
 # NOTE: The default values of the settings are defined in
 # openstack_dashboard/defaults.py. Previously most available settings
