@@ -102,7 +102,7 @@ volumes.
 |                    |                       |for additional options      |
 +--------------------+-----------------------+----------------------------+
 |     Key Size (bits)| 256 (Recommended for  |Using this selection for    |
-|                    | aes-xts-plain64 and   |aes-xts, the underlying key |
+|                    | aes-xts-plain64 and   |AES-XTS, the underlying key |
 |                    | aes-cbc-essiv)        |size would only be 128-bits*|
 +--------------------+-----------------------+----------------------------+
 
