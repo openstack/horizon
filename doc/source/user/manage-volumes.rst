@@ -1,3 +1,5 @@
+.. _create-and-manage-volumes:
+
 =========================
 Create and manage volumes
 =========================
