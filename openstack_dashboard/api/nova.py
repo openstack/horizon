@@ -174,7 +174,7 @@ class FlavorExtraSpec(object):
 
 class QuotaSet(base.QuotaSet):
 
-    # We don't support nova-network, so we exclude nova-network relatd
+    # We don't support nova-network, so we exclude nova-network related
     # quota fields from the response.
     ignore_quotas = {
         "floating_ips",
