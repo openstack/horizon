@@ -4,9 +4,9 @@
 # Ian Y. Choi <ianyrchoi@gmail.com>, 2023. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 25.6.0.dev14\n"
+"Project-Id-Version: horizon 25.6.0.dev56\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-10-08 09:34+0000\n"
+"POT-Creation-Date: 2025-12-01 20:51+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -148,12 +148,6 @@ msgstr ":opendev-repo:`openstack/zaqar-ui`"
 
 msgid ":opendev-repo:`openstack/zun-ui`"
 msgstr ":opendev-repo:`openstack/zun-ui`"
-
-msgid ":ref:`install-customizing` describes how to customize horizon."
-msgstr ":ref:`install-customizing` 어떻게 horizon을 커스터마이즈하는지 기술"
-
-msgid ":ref:`install-settings` lists the available settings for horizon."
-msgstr ":ref:`install-settings` horizon을 위한 가능한 설정 목록"
 
 msgid ":storyboard:`openstack/adjutant-ui`"
 msgstr ":storyboard:`openstack/adjutant-ui`"
@@ -416,15 +410,6 @@ msgstr ""
 "Horizon은 또한 플러그인을 통해 많은 다른 OpenStack 서비스를 지원합니다. 보다 "
 "자세한 정보는 :ref:`install-plugin-registry` 을 참조하십시오."
 
-msgid ""
-"Horizon also uses a number of 3rd-party clients which log separately. The "
-"log level for these can still be controlled through Horizon's ``LOGGING`` "
-"config, however behaviors may vary beyond Horizon's control."
-msgstr ""
-"Horizon은 또한 별도로 기록하는 다수의 서드파티 클라이언트를 사용합니다. 이러"
-"한 로그 레벨은 여전히 Horizon의 ``LOGGING`` 구성에서 제어되지만, 동작은 "
-"Horizon의 제어를 벗어날 수도 있습니다."
-
 msgid "Horizon plugins"
 msgstr "Horizon 플러그인"
 
@@ -436,15 +421,6 @@ msgstr ""
 "Horizon은 세션 데이터를 처리하기 위해 `Django's sessions framework`_ 를 사용"
 "합니다. ``local_settings.py`` 파일의 ``SESSION_ENGINE`` 설정을 통해 선택된 사"
 "용 가능한 많은 세션 백엔드들이 있습니다."
-
-msgid ""
-"Horizons uses Django's logging configuration mechanism, which can be "
-"customized by altering the ``LOGGING`` dictionary in ``local_settings.py``. "
-"By default, Horizon's logging example sets the log level to ``INFO``."
-msgstr ""
-"Horizon은 Django의 ``local_settings.py`` 의 ``LOGGING`` 사전을 변경하여 커스"
-"터마이즈 될 수 있는 로깅 구성 매커니즘을 사용합니다. 기본적으로, Horizon의 로"
-"깅 예시는 ``INFO`` 로그 레벨로 설정합니다."
 
 msgid ""
 "If you chose networking option 1, disable support for layer-3 networking "
@@ -492,9 +468,6 @@ msgstr "Red Hat Enterprise Linux와 CentOS를 위한 설치와 구성"
 
 msgid "Install and configure for Ubuntu"
 msgstr "Ubuntu를 위한 설치와 구성"
-
-msgid "Install the horizon python module into your system"
-msgstr "horizon python 모듈을 시스템에 설치"
 
 msgid "Install the packages:"
 msgstr "패키지 설치:"
@@ -702,26 +675,11 @@ msgid ""
 msgstr "공식 OpenStack 릴리스 파트에 해당하는 horizon 플러그인 목록입니다."
 
 msgid ""
-"This page covers the basic installation of horizon in a production "
-"environment. If you are looking for a developer environment, see :ref:"
-"`quickstart`."
-msgstr ""
-"이 페이지는 제품 환경에서의 horizon 기본 설치를 다루고 있습니다. 개발 환경을 "
-"찾는 경우, :ref:`quickstart`를 참조하십시오."
-
-msgid ""
 "This section assumes proper installation, configuration, and operation of "
 "the Identity service using the Apache HTTP server and Memcached service."
 msgstr ""
 "이 섹션은 Apache HTTP 서버와 Memcached 서비스를 사용하여 Identity 서비스를 올"
 "바르게 설치, 구성 및 운영한다고 가정합니다."
-
-msgid ""
-"This section contains a small summary of the critical settings required to "
-"run horizon. For more details, please refer to :ref:`install-settings`."
-msgstr ""
-"이 섹션은 horizon을 실행하는 데 필요한 중요 설정들에 대한 간단한 요약을 포함"
-"하고 있습니다. 더 자세한 사항은, :ref:`install-settings` 를 참조하십시오."
 
 msgid ""
 "This section describes how to install and configure the dashboard on the "
