@@ -51,7 +51,11 @@ a.chevron-toggle:not(.collapsed)>span {
 .table>tbody>tr.keypair-detail-row>td {
   padding: 0;
   overflow: hidden;
-  margin-top: -1px; /* Get rid of the double horizontal line when collapsed */
+  border-top: none; /* Get rid of the double horizontal line when collapsed */
+}
+
+.table>tbody>tr.keypair-detail-row>td:has(div.in) {
+  border-top: 1px solid #ddd; /* Add a border between a row and its collapsable details */
 }
 
 /* Add margin inner content when expanded */
