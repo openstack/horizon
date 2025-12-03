@@ -325,6 +325,14 @@ SWIFT_FILE_TRANSFER_CHUNK_SIZE = 512 * 1024
 # name to be rendered.
 SWIFT_STORAGE_POLICY_DISPLAY_NAMES = {}
 
+# Perform full listing of containers and objects in the Swift
+# panel. Defaults to True.
+#
+# Note that the Swift panel does client side pagination and retrieves
+# all containers and objects from the API that can have an negative
+# effect on Horizon's resource consumption if this is True.
+SWIFT_PANEL_FULL_LISTING = True
+
 # NOTE: The default value of USER_MENU_LINKS will be set after loading
 # local_settings if it is not configured.
 USER_MENU_LINKS = None

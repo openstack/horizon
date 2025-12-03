@@ -17,9 +17,16 @@
 #    under the License.
 
 
+from django.conf import settings
 from django.views import generic
 
 
 class NgIndexView(generic.TemplateView):
     """View for managing Swift containers."""
     template_name = 'project/containers/ngindex.html'
+
+    def get_context_data(self, *args, **kwargs):
+        context = super().get_context_data(*args, **kwargs)
+        context['API_RESULT_LIMIT'] = settings.API_RESULT_LIMIT
+        context['SWIFT_PANEL_FULL_LISTING'] = settings.SWIFT_PANEL_FULL_LISTING
+        return context

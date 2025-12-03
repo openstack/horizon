@@ -1,0 +1,8 @@
+---
+features:
+  - |
+    Added new configuration option ``SWIFT_PANEL_FULL_LISTING`` that
+    defaults to ``True``. This configuration option can be set to
+    ``False`` to prevent Horizon from doing full listing of containers
+    and objects in the Swift panel that can cause high resource
+    consumption in Horizon.
