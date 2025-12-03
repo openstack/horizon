@@ -1,0 +1,8 @@
+---
+features:
+  - |
+    Don't send enable_port_security when disallowed by policy. When a user
+    creates a network port, if they don't have the rights to change port
+    security, they will be unable to submit the form. The solution is to not
+    send any value for port security when the user doesn't have the rights
+    to change it.
