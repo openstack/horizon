@@ -46,11 +46,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: horizon VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2025-11-27 19:15+0000\n"
+"POT-Creation-Date: 2025-12-03 16:21+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2025-11-30 07:32+0000\n"
+"PO-Revision-Date: 2025-12-03 08:42+0000\n"
 "Last-Translator: Dmitriy Chubinidze <dcu995@gmail.com>\n"
 "Language: ru\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
@@ -4200,6 +4200,14 @@ msgstr "Ограничение"
 
 msgid "List all floating IP port forwarding rules"
 msgstr "Список всех правил проброса порта плавающего IP"
+
+#, python-format
+msgid ""
+"Listing only %(API_RESULT_LIMIT)s containers/objects because full listing is "
+"disabled in settings."
+msgstr ""
+"Будут выведены только %(API_RESULT_LIMIT)s контейнеров/объектов, так как "
+"полный вывод отключен в настройках."
 
 msgid "Live Migrate"
 msgstr "Живая миграция"
@@ -8729,7 +8737,7 @@ msgstr "Обновить значение \"дополнительного па�
 
 #, python-format
 msgid "Update the \"group type spec\" value for \"%(key)s\""
-msgstr "Обновить значение параметра типа группы для \"%(key)s\""
+msgstr "Обновить значение \"параметра типа группы\" для \"%(key)s\""
 
 #, python-format
 msgid "Update the spec value for \"%(key)s\""
