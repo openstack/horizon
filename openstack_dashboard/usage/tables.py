@@ -25,7 +25,8 @@ class CSVSummary(tables.LinkAction):
     icon = "download"
 
     def get_link_url(self, usage=None):
-        return self.table.kwargs['usage'].csv_link()
+        usage = self.table.kwargs.get('usage')
+        return usage.csv_link() if usage else ""
 
 
 class BaseUsageTable(tables.DataTable):
