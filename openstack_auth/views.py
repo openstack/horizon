@@ -229,7 +229,7 @@ def websso(request):
         if settings.WEBSSO_DEFAULT_REDIRECT:
             res = django_http.HttpResponseRedirect(settings.LOGIN_ERROR)
         else:
-            msg = 'Login failed: %s' % exc
+            msg = _('Login failed: %s') % exc
             res = django_http.HttpResponseRedirect(settings.LOGIN_URL)
             set_logout_reason(res, msg)
         return res
@@ -395,8 +395,8 @@ def switch_keystone_provider(request, keystone_provider=None,
         # Switch to identity provider using token auth
         unscoped_auth_ref = current_plugin.get_access_info(unscoped_auth)
     except exceptions.KeystoneAuthException as exc:
-        msg = 'Switching to Keystone Provider %s has failed. %s' \
-              % (keystone_provider, exc)
+        msg = _('Switching to Keystone Provider %s has failed. %s') \
+            % (keystone_provider, exc)
         messages.error(request, msg)
 
     if unscoped_auth_ref:
@@ -405,7 +405,7 @@ def switch_keystone_provider(request, keystone_provider=None,
                 request, auth_url=unscoped_auth.auth_url,
                 token=unscoped_auth_ref.auth_token)
         except exceptions.KeystoneAuthException as exc:
-            msg = 'Keystone provider switch failed: %s' % exc
+            msg = _('Keystone provider switch failed: %s') % exc
             res = django_http.HttpResponseRedirect(settings.LOGIN_URL)
             set_logout_reason(res, msg)
             return res
