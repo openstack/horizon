@@ -1,0 +1,6 @@
+---
+fixes:
+  - |
+    [`bug 2134391 <https://bugs.launchpad.net/horizon/+bug/2134391>`__]
+    Slowness of all operations involving listing Neutron ports and the
+    floating IP addresses for the admin token.
