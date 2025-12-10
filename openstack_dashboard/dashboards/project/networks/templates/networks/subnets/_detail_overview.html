@@ -32,7 +32,7 @@
     <dt title="{% trans 'Gateway IP' %}">{% trans "Gateway IP" %}</dt>
     <dd>{{ subnet.gateway_ip|default:_("-") }}</dd>
     <dt title="{% trans 'DHCP Enabled' %}">{% trans "DHCP Enabled" %}</dt>
-    <dd>{{ subnet.enable_dhcp|yesno|capfirst }}</dd>
+    <dd>{{ subnet.is_dhcp_enabled|yesno|capfirst }}</dd>
     {% if subnet.ip_version == 6 %}
       <dt title="{% trans 'IPv6 Address Configuration Mode' %}">{% trans "IPv6 Address Configuration Mode" %}</dt>
       {% if subnet.ipv6_modes_desc %}
