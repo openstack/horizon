@@ -1,0 +1,6 @@
+---
+features:
+  - |
+    ``Security Groups`` panel now exposes an ``Edit Rule`` action.
+    Security group rules can be modified directly without manually deleting
+    and recreating them.

@@ -464,8 +464,9 @@ class AddRule(forms.SelfHandlingForm):
         return cleaned_data
 
     def handle(self, request, data):
+        sg_id = filters.get_int_or_uuid(data['id'])
         redirect = reverse("horizon:project:security_groups:detail",
-                           args=[data['id']])
+                           args=[sg_id])
         params = {}
         if 'description' in data:
             params['description'] = data['description']
@@ -488,4 +489,110 @@ class AddRule(forms.SelfHandlingForm):
         except Exception:
             exceptions.handle(request,
                               _('Unable to add rule to security group.'),
+                              redirect=redirect)
+
+
+class UpdateRule(AddRule):
+    rule_id = forms.CharField(widget=forms.HiddenInput())
+
+    def __init__(self, *args, **kwargs):
+        self.current_rule = kwargs.pop('current_rule', None)
+        super().__init__(*args, **kwargs)
+        self.description_supported = 'description' in self.fields
+
+    def _normalize_ip_protocol(self, value):
+        if value is None:
+            return None
+        if isinstance(value, str):
+            return value.lower()
+        return str(value)
+
+    def _normalize_cidr(self, value):
+        return value or None
+
+    def _rules_match(self, data):
+        if not self.current_rule:
+            return False
+        current_cidr = self._normalize_cidr(
+            self.current_rule.ip_range.get('cidr'))
+        current_group = getattr(self.current_rule, 'remote_group_id', None)
+        current_desc = (self.current_rule.description
+                        if self.description_supported else None)
+        return (
+            (data.get('direction') or 'ingress') ==
+            (self.current_rule.direction or 'ingress') and
+            (data.get('ethertype') or 'IPv4') ==
+            (self.current_rule.ethertype or 'IPv4') and
+            self._normalize_ip_protocol(data.get('ip_protocol')) ==
+            self._normalize_ip_protocol(self.current_rule.ip_protocol) and
+            data.get('from_port') == self.current_rule.from_port and
+            data.get('to_port') == self.current_rule.to_port and
+            self._normalize_cidr(data.get('cidr')) == current_cidr and
+            (data.get('security_group') or None) == current_group and
+            (data.get('description') if self.description_supported else None) ==
+            current_desc
+        )
+
+    def _restore_original_rule(self, request):
+        if not self.current_rule:
+            return
+        params = {}
+        if self.description_supported:
+            params['description'] = self.current_rule.description
+        try:
+            api.neutron.security_group_rule_create(
+                request,
+                filters.get_int_or_uuid(self.current_rule.parent_group_id),
+                self.current_rule.direction,
+                self.current_rule.ethertype,
+                self.current_rule.ip_protocol,
+                self.current_rule.from_port,
+                self.current_rule.to_port,
+                self.current_rule.ip_range.get('cidr'),
+                getattr(self.current_rule, 'remote_group_id', None),
+                **params)
+        except Exception:
+            pass
+
+    def handle(self, request, data):
+        sg_id = filters.get_int_or_uuid(data['id'])
+        redirect = reverse("horizon:project:security_groups:detail",
+                           args=[sg_id])
+        if self._rules_match(data):
+            messages.success(request,
+                             _('Successfully updated rule: %s') %
+                             self.current_rule)
+            return self.current_rule
+        params = {}
+        if self.description_supported:
+            params['description'] = data.get('description', '')
+
+        rule_id = filters.get_int_or_uuid(data['rule_id'])
+        try:
+            api.neutron.security_group_rule_delete(request, rule_id)
+        except Exception:
+            exceptions.handle(request,
+                              _('Unable to update rule.'),
+                              redirect=redirect)
+            return False
+
+        try:
+            rule = api.neutron.security_group_rule_create(
+                request,
+                sg_id,
+                data['direction'],
+                data['ethertype'],
+                data['ip_protocol'],
+                data['from_port'],
+                data['to_port'],
+                data.get('cidr'),
+                data.get('security_group'),
+                **params)
+            messages.success(request,
+                             _('Successfully updated rule: %s') % rule)
+            return rule
+        except Exception:
+            self._restore_original_rule(request)
+            exceptions.handle(request,
+                              _('Unable to update rule.'),
                               redirect=redirect)

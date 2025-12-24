@@ -160,6 +160,146 @@ class AddRuleView(forms.ModalFormView):
         return kwargs
 
 
+class UpdateRuleView(forms.ModalFormView):
+    form_class = project_forms.UpdateRule
+    form_id = "update_security_group_rule_form"
+    modal_id = "update_security_group_rule_modal"
+    template_name = 'project/security_groups/update_rule.html'
+    submit_label = _("Save")
+    submit_url = "horizon:project:security_groups:update_rule"
+    url = "horizon:project:security_groups:detail"
+    page_title = _("Edit Rule")
+
+    def get_success_url(self):
+        sg_id = self.kwargs['security_group_id']
+        return reverse(self.url, args=[sg_id])
+
+    @memoized.memoized_method
+    def get_security_group(self):
+        sg_id = filters.get_int_or_uuid(self.kwargs['security_group_id'])
+        try:
+            return api.neutron.security_group_get(self.request, sg_id)
+        except Exception:
+            redirect = reverse('horizon:project:security_groups:index')
+            exceptions.handle(self.request,
+                              _('Unable to retrieve security group.'),
+                              redirect=redirect)
+
+    @memoized.memoized_method
+    def get_rule(self):
+        security_group = self.get_security_group()
+        if security_group is None:
+            return None
+        rule_id = filters.get_int_or_uuid(self.kwargs['rule_id'])
+        for rule in security_group.rules:
+            if filters.get_int_or_uuid(rule.id) == rule_id:
+                return rule
+        redirect = reverse(self.url, args=[self.kwargs['security_group_id']])
+        exceptions.handle(self.request,
+                          _('Unable to retrieve security group rule.'),
+                          redirect=redirect)
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context["security_group"] = self.get_security_group()
+        context["rule"] = self.get_rule()
+        sg_args = (self.kwargs['security_group_id'],)
+        context['cancel_url'] = reverse(self.url, args=sg_args)
+        context['security_group_id'] = self.kwargs['security_group_id']
+        submit_args = (self.kwargs['security_group_id'],
+                       self.kwargs['rule_id'])
+        context['submit_url'] = reverse(self.submit_url, args=submit_args)
+        return context
+
+    def _get_rule_menu_initial(self, rule):
+        proto = rule.ip_protocol
+        if proto is None:
+            return 'custom'
+        if isinstance(proto, str):
+            proto_value = proto.lower()
+        else:
+            proto_value = str(proto)
+        if proto_value in ('tcp', '6'):
+            return 'tcp'
+        if proto_value in ('udp', '17'):
+            return 'udp'
+        if proto_value in ('icmp', 'ipv6-icmp', '1', '58'):
+            return 'icmp'
+        return 'custom'
+
+    def _get_remote_initial(self, rule):
+        remote = 'cidr'
+        cidr = rule.ip_range.get('cidr')
+        security_group = None
+        if getattr(rule, 'remote_group_id', None):
+            remote = 'sg'
+            security_group = rule.remote_group_id
+        return remote, cidr, security_group
+
+    def _get_port_initials(self, rule):
+        from_port = rule.from_port
+        to_port = rule.to_port
+        port = None
+        port_or_range = 'all'
+        if from_port is None and to_port is None:
+            port_or_range = 'all'
+        elif from_port == to_port:
+            port_or_range = 'port'
+            port = from_port
+        else:
+            port_or_range = 'range'
+        return port_or_range, port, from_port, to_port
+
+    def get_initial(self):
+        rule = self.get_rule()
+        initial = {'id': self.kwargs['security_group_id'],
+                   'rule_id': self.kwargs['rule_id']}
+        if not rule:
+            return initial
+        remote, cidr, security_group = self._get_remote_initial(rule)
+        port_or_range, port, from_port, to_port = self._get_port_initials(rule)
+        initial.update({
+            'direction': rule.direction or 'ingress',
+            'ethertype': rule.ethertype or 'IPv4',
+            'ip_protocol': rule.ip_protocol,
+            'rule_menu': self._get_rule_menu_initial(rule),
+            'port_or_range': port_or_range,
+            'port': port,
+            'from_port': from_port,
+            'to_port': to_port,
+            'icmp_type': rule.from_port,
+            'icmp_code': rule.to_port,
+            'remote': remote,
+            'cidr': cidr,
+            'security_group': security_group,
+            'description': rule.description,
+        })
+        return initial
+
+    def get_form_kwargs(self):
+        kwargs = super().get_form_kwargs()
+
+        try:
+            groups = api.neutron.security_group_list(self.request)
+        except Exception:
+            groups = []
+            exceptions.handle(self.request,
+                              _("Unable to retrieve security groups."))
+
+        security_groups = []
+        current_id = filters.get_int_or_uuid(
+            self.kwargs['security_group_id'])
+        for group in groups:
+            if group.id == current_id:
+                security_groups.append((group.id,
+                                        _("%s (current)") % group.name))
+            else:
+                security_groups.append((group.id, group.name))
+        kwargs['sg_list'] = security_groups
+        kwargs['current_rule'] = self.get_rule()
+        return kwargs
+
+
 class CreateView(forms.ModalFormView):
     form_class = project_forms.CreateGroup
     form_id = "create_security_group_form"
