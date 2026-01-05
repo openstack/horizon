@@ -38,13 +38,15 @@ class SnapshotsView(tables.PagedTableMixin, tables.DataTableView):
 
     def get_data(self):
         needs_gs = False
+        filters = self.get_filters()
+        filters.update({'all_tenants': True})
         if cinder.is_volume_service_enabled(self.request):
             try:
                 marker, sort_dir = self._get_marker()
                 snapshots, self._has_more_data, self._has_prev_data = \
                     cinder.volume_snapshot_list_paged(
                         self.request, paginate=True, marker=marker,
-                        sort_dir=sort_dir, search_opts={'all_tenants': True})
+                        sort_dir=sort_dir, search_opts=filters)
                 volumes = cinder.volume_list(
                     self.request,
                     search_opts={'all_tenants': True})
