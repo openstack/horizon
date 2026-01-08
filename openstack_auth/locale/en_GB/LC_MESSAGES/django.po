@@ -5,15 +5,16 @@
 # Andi Chandler <andi@gowling.com>, 2022. #zanata
 # Andi Chandler <andi@gowling.com>, 2023. #zanata
 # Andi Chandler <andi@gowling.com>, 2025. #zanata
+# Andi Chandler <andi@gowling.com>, 2026. #zanata
 msgid ""
 msgstr ""
 "Project-Id-Version: horizon VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2025-02-15 09:23+0900\n"
+"POT-Creation-Date: 2025-12-18 20:55+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2025-02-07 12:08+0000\n"
+"PO-Revision-Date: 2026-01-07 11:08+0000\n"
 "Last-Translator: Andi Chandler <andi@gowling.com>\n"
 "Language-Team: English (United Kingdom)\n"
 "Language: en_GB\n"
@@ -53,6 +54,17 @@ msgstr "Invalid credentials."
 
 msgid "K2K Federation not setup for this session"
 msgstr "K2K Federation not setup for this session"
+
+msgid "Keystone Credentials"
+msgstr "Keystone Credentials"
+
+#, python-format
+msgid "Keystone provider switch failed: %s"
+msgstr "Keystone provider switch failed: %s"
+
+#, python-format
+msgid "Login failed: %s"
+msgstr "Login failed: %s"
 
 msgid "New password"
 msgstr "New password"
@@ -113,6 +125,10 @@ msgstr "Switch to project \"%(project_name)s\" successful."
 
 msgid "Switch to system scope successful."
 msgstr "Switch to system scope successful."
+
+#, python-format
+msgid "Switching to Keystone Provider %s has failed. %s"
+msgstr "Switching to Keystone Provider %s has failed. %s"
 
 #, python-format
 msgid "System switch failed for user \"%(username)s\"."

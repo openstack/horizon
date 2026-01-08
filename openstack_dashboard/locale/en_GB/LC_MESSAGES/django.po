@@ -12,15 +12,16 @@
 # Andi Chandler <andi@gowling.com>, 2023. #zanata
 # Andi Chandler <andi@gowling.com>, 2024. #zanata
 # Andi Chandler <andi@gowling.com>, 2025. #zanata
+# Andi Chandler <andi@gowling.com>, 2026. #zanata
 msgid ""
 msgstr ""
 "Project-Id-Version: horizon VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2025-09-17 19:09+0000\n"
+"POT-Creation-Date: 2025-12-18 20:55+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2025-02-07 12:03+0000\n"
+"PO-Revision-Date: 2026-01-07 11:19+0000\n"
 "Last-Translator: Andi Chandler <andi@gowling.com>\n"
 "Language-Team: English (United Kingdom)\n"
 "Language: en_GB\n"
@@ -183,6 +184,10 @@ msgstr "%s (current)"
 #, python-format
 msgid "%s GB"
 msgstr "%s GB"
+
+#, python-format
+msgid "%s MB"
+msgstr "%s MB"
 
 #, python-format
 msgid "%sGiB"
@@ -350,6 +355,10 @@ msgstr ""
 msgid "AKI - Amazon Kernel Image"
 msgstr "AKI - Amazon Kernel Image"
 
+#, python-format
+msgid "ALLOW %(ether_type)s %(proto_port)s %(direction)s %(remote)s"
+msgstr "ALLOW %(ether_type)s %(proto_port)s %(direction)s %(remote)s"
+
 msgid "AMI - Amazon Machine Image"
 msgstr "AMI - Amazon Machine Image"
 
@@ -361,6 +370,12 @@ msgstr "API Endpoints"
 
 msgid "ARI - Amazon Ramdisk Image"
 msgstr "ARI - Amazon Ramdisk Image"
+
+msgid "Accelerator Direct"
+msgstr "Accelerator Direct"
+
+msgid "Accelerator Direct Physical"
+msgstr "Accelerator Direct Physical"
 
 msgid "Accept Volume Transfer"
 msgstr "Accept Volume Transfer"
@@ -782,6 +797,9 @@ msgstr "Authentication URL"
 msgid "Authorization Key"
 msgstr "Authorisation Key"
 
+msgid "Autogeneration is available only for TOTP"
+msgstr "Autogeneration is available only for TOTP"
+
 msgid "Automatic"
 msgstr "Automatic"
 
@@ -972,6 +990,9 @@ msgstr "CPU architecture of the image."
 
 msgid "Cancel"
 msgstr "Cancel"
+
+msgid "Cancel Volume Transfer"
+msgstr "Cancel Volume Transfer"
 
 #, python-format
 msgid "Cannot find instance %s."
@@ -1243,6 +1264,9 @@ msgstr "Create Application Credential"
 msgid "Create Backup"
 msgstr "Create Backup"
 
+msgid "Create Credential"
+msgstr "Create Credential"
+
 msgid "Create Domain"
 msgstr "Create Domain"
 
@@ -1340,6 +1364,9 @@ msgstr "Create Subnet (Quota exceeded)"
 msgid "Create User"
 msgstr "Create User"
 
+msgid "Create User Credential"
+msgstr "Create User Credential"
+
 msgid "Create Volume"
 msgstr "Create Volume"
 
@@ -1414,6 +1441,9 @@ msgstr ""
 msgid "Create a new application credential."
 msgstr "Create a new application credential."
 
+msgid "Create a new credential."
+msgstr "Create a new credential."
+
 msgid ""
 "Create a new network. In addition, a subnet associated with the network can "
 "be created in the following steps of this wizard."
@@ -1430,6 +1460,9 @@ msgid ""
 msgstr ""
 "Create a new user and set related properties including the Primary Project "
 "and Role."
+
+msgid "Create a new user credential."
+msgstr "Create a new user credential."
 
 msgid "Create a project to organize users."
 msgstr "Create a project to organise users."
@@ -1553,6 +1586,9 @@ msgstr "Creating volume backup \"%s\""
 msgid "Creating volume snapshot \"%s\"."
 msgstr "Creating volume snapshot \"%s\"."
 
+msgid "Credentials"
+msgstr "Credentials"
+
 msgid "Current Host"
 msgstr "Current Host"
 
@@ -1631,6 +1667,9 @@ msgstr "DOWN"
 msgctxt "Admin state of a Router"
 msgid "DOWN"
 msgstr "DOWN"
+
+msgid "Data"
+msgstr "Data"
 
 msgctxt "Current status of an Image"
 msgid "Deactivated"
@@ -1803,6 +1842,11 @@ msgid "Delete User"
 msgid_plural "Delete Users"
 msgstr[0] "Delete User"
 msgstr[1] "Delete Users"
+
+msgid "Delete User Credential"
+msgid_plural "Delete User Credentials"
+msgstr[0] "Delete User Credential"
+msgstr[1] "Delete User Credentials"
 
 msgid "Delete Volume"
 msgid_plural "Delete Volumes"
@@ -1985,6 +2029,11 @@ msgid_plural "Deleted Users"
 msgstr[0] "Deleted User"
 msgstr[1] "Deleted Users"
 
+msgid "Deleted User Credential"
+msgid_plural "Deleted User Credentials"
+msgstr[0] "Deleted User Credential"
+msgstr[1] "Deleted User Credentials"
+
 msgid "Deleted Volume Type"
 msgid_plural "Deleted Volume Types"
 msgstr[0] "Deleted Volume Type"
@@ -2000,6 +2049,9 @@ msgstr "Deleted images are not recoverable."
 
 msgid "Deleted instances are not recoverable."
 msgstr "Deleted instances are not recoverable."
+
+msgid "Deleted user credentials are not recoverable."
+msgstr "Deleted user credentials are not recoverable."
 
 msgid "Deleted volume backups are not recoverable."
 msgstr "Deleted volume backups are not recoverable."
@@ -2215,6 +2267,13 @@ msgstr[1] "Disabled Users"
 msgid "Disabled compute service for host: %s."
 msgstr "Disabled compute service for host: %s."
 
+msgid ""
+"Disables the ability for a user to change their password through self-"
+"service APIs."
+msgstr ""
+"Disables the ability for a user to change their password through self-"
+"service APIs."
+
 msgid "Disassociate"
 msgstr "Disassociate"
 
@@ -2354,6 +2413,13 @@ msgstr "Download openrc file"
 msgid "Download transfer credentials"
 msgstr "Download transfer credentials"
 
+msgctxt "Current status of a Volume"
+msgid "Downloading"
+msgstr "Downloading"
+
+msgid "EC2"
+msgstr "EC2"
+
 msgid ""
 "Each QoS Specs entity will have a \"Consumer\" value which indicates where "
 "the administrator would like the QoS policy to be enforced. This value can "
@@ -2455,6 +2521,9 @@ msgstr "Edit Spec"
 msgid "Edit Subnet"
 msgstr "Edit Subnet"
 
+msgid "Edit User Credential"
+msgstr "Edit User Credential"
+
 msgid "Edit Volume"
 msgstr "Edit Volume"
 
@@ -2469,6 +2538,9 @@ msgstr "Edit Volume Type Extra Spec"
 
 msgid "Edit floating IP port forwarding rule"
 msgstr "Edit floating IP port forwarding rule"
+
+msgid "Edit the credential's details."
+msgstr "Edit the credentials' details."
 
 msgid "Edit the identity provider's details."
 msgstr "Edit the identity provider's details."
@@ -2658,6 +2730,10 @@ msgctxt "status of a network port"
 msgid "Error"
 msgstr "Error"
 
+msgctxt "Current status of a Volume"
+msgid "Error Backing Up"
+msgstr "Error Backing Up"
+
 #, python-format
 msgid "Error Downloading RC File: %s"
 msgstr "Error Downloading RC File: %s"
@@ -2725,6 +2801,9 @@ msgstr ""
 
 msgid "Event Id"
 msgstr "Event Id"
+
+msgid "Example for LVM:"
+msgstr "Example for LVM:"
 
 msgid ""
 "Example: For <tt>mod_shib</tt> this would be <tt>Shib-Identity-Provider</"
@@ -2813,6 +2892,14 @@ msgid "Failed"
 msgstr "Failed"
 
 #, python-format
+msgid ""
+"Failed to add %(users_to_add)s project members %(group_msg)s and set project "
+"quotas."
+msgstr ""
+"Failed to add %(users_to_add)s project members %(group_msg)s and set project "
+"quotas."
+
+#, python-format
 msgid "Failed to add %s project groups and update project quotas."
 msgstr "Failed to add %s project groups and update project quotas."
 
@@ -2845,6 +2932,9 @@ msgstr "Failed to check if Nova supports \"auto_allocated_network\"."
 
 msgid "Failed to check if shared field is supported."
 msgstr "Failed to check if the shared field is supported."
+
+msgid "Failed to create a RBAC Policy."
+msgstr "Failed to create an RBAC Policy."
 
 #, python-format
 msgid "Failed to create network \"%s\"."
@@ -2896,6 +2986,13 @@ msgstr "Failed to evacuate instances: %s"
 msgid "Failed to get attached volume."
 msgstr "Failed to get attached volume."
 
+msgid ""
+"Failed to get attached volumes. Make sure they are accessible from this "
+"project."
+msgstr ""
+"Failed to get attached volumes. Make sure they are accessible from this "
+"project."
+
 msgid "Failed to get availability zone list."
 msgstr "Failed to get availability zone list."
 
@@ -2928,6 +3025,14 @@ msgid "Failed to migrate volume."
 msgstr "Failed to migrate volume."
 
 #, python-format
+msgid ""
+"Failed to modify %(users_to_modify)s project members %(group_msg)s and "
+"update project quotas."
+msgstr ""
+"Failed to modify %(users_to_modify)s project members %(group_msg)s and "
+"update project quotas."
+
+#, python-format
 msgid "Failed to modify %s domain groups."
 msgstr "Failed to modify %s domain groups."
 
@@ -2957,6 +3062,10 @@ msgstr "Failed to remove project %(project)s from volume type access."
 
 msgid "Failed to set gateway."
 msgstr "Failed to set gateway."
+
+#, python-format
+msgid "Failed to update RBAC Policy %s"
+msgstr "Failed to update RBAC Policy %s"
 
 #, python-format
 msgid "Failed to update network %s"
@@ -3022,6 +3131,13 @@ msgstr "Flavour ID"
 
 msgid "Flavor ID ="
 msgstr "Flavour ID ="
+
+msgid ""
+"Flavor ID can only contain alphanumeric characters, underscores, periods, "
+"hyphens, spaces. Use 'auto' to automatically generate ID."
+msgstr ""
+"Flavour ID can only contain alphanumeric characters, underscores, periods, "
+"hyphens, and spaces. Use 'auto' to automatically generate an ID."
 
 msgid "Flavor Information"
 msgstr "Flavour Information"
@@ -3144,6 +3260,9 @@ msgstr "From here you can add a DHCP agent for the network."
 
 msgid "From here you can allocate a floating IP to a specific project."
 msgstr "From here you can allocate a floating IP to a specific project."
+
+msgid "From here you can create a RBAC Policy."
+msgstr "From here, you can create an RBAC Policy."
 
 msgid "From here you can create a snapshot of a volume."
 msgstr "From here you can create a snapshot of a volume."
@@ -3544,6 +3663,21 @@ msgstr ""
 "If console is not responding to keyboard input: click the grey status bar "
 "below."
 
+#, python-brace-format
+msgid ""
+"If the credential type is EC2, credential data has to be <tt>{\"access\": "
+"&lt;access&gt;, \"secret\": &lt;secret&gt;}</tt>."
+msgstr ""
+"If the credential type is EC2, credential data has to be <tt>{\"access\": "
+"&lt;access&gt;, \"secret\": &lt;secret&gt;}</tt>."
+
+msgid ""
+"If the credential type is TOTP, you can use <tt>auto</tt> for credential "
+"data to autogenerate it."
+msgstr ""
+"If the credential type is TOTP, you can use <tt>auto</tt> for credential "
+"data to autogenerate it."
+
 msgid ""
 "If you don't specify an IP address here, the gateway's IP address of the "
 "selected subnet will be used as the IP address of the newly created "
@@ -3778,6 +3912,9 @@ msgstr ""
 "Invalid time period. You are requesting data from the future which may not "
 "exist."
 
+msgid "Is Public ="
+msgstr "Is Public ="
+
 msgid "It specifies the VNIC type bound to the networking port."
 msgstr "It specifies the VNIC type bound to the networking port."
 
@@ -3848,6 +3985,9 @@ msgstr ""
 msgid "Key-Value Pairs"
 msgstr "Key-Value Pairs"
 
+msgid "Key:"
+msgstr "Key:"
+
 msgid "Key: burstIOPS and Value: 5000 (number value bigger than minIOPS)"
 msgstr "Key: burstIOPS and Value: 5000 (number value bigger than minIOPS)"
 
@@ -3907,6 +4047,14 @@ msgstr "Limit"
 msgid "List all floating IP port forwarding rules"
 msgstr "List all floating IP port forwarding rules"
 
+#, python-format
+msgid ""
+"Listing only %(API_RESULT_LIMIT)s containers/objects because full listing is "
+"disabled in settings."
+msgstr ""
+"Listing only %(API_RESULT_LIMIT)s containers/objects because full listing is "
+"disabled in settings."
+
 msgid "Live Migrate"
 msgstr "Live Migrate"
 
@@ -3936,6 +4084,9 @@ msgid "Lock Instance"
 msgid_plural "Lock Instances"
 msgstr[0] "Lock Instance"
 msgstr[1] "Lock Instances"
+
+msgid "Lock Password"
+msgstr "Lock Password"
 
 msgid "Lock password"
 msgstr "Lock password"
@@ -4174,6 +4325,12 @@ msgstr "Migrating instances may cause some unrecoverable results."
 msgid "Migration Policy"
 msgstr "Migration Policy"
 
+msgid "Min. Disk (GB)"
+msgstr "Min. Disk (GB)"
+
+msgid "Min. RAM (MB)"
+msgstr "Min. RAM (MB)"
+
 msgid "Min. Size (MB) ="
 msgstr "Min. Size (MB) ="
 
@@ -4182,6 +4339,12 @@ msgstr "Minimum Disk (GB)"
 
 msgid "Minimum RAM (MB)"
 msgstr "Minimum RAM (MB)"
+
+msgid "Minimum RAM (MB) ="
+msgstr "Minimum RAM (MB) ="
+
+msgid "Minimum Root Disk (GB) ="
+msgstr "Minimum Root Disk (GB) ="
 
 #, python-brace-format
 msgid "Missing required settings: {}."
@@ -4357,6 +4520,10 @@ msgstr "Network address in CIDR format (e.g. 192.168.0.0/24)"
 
 msgid "Network address in CIDR format (e.g. 192.168.0.0/24, 2001:DB8::/48)"
 msgstr "Network address in CIDR format (e.g. 192.168.0.0/24, 2001:DB8::/48)"
+
+msgid "Network has an external routing facility that is not managed by Neutron"
+msgstr ""
+"Network has an external routing facility that is not managed by Neutron"
 
 msgid "Network list can not be retrieved."
 msgstr "Network list can not be retrieved."
@@ -4649,6 +4816,9 @@ msgstr ""
 
 msgid "Number of log lines to be shown per instance"
 msgstr "Number of log lines to be shown per instance"
+
+msgid "Number of vCPUs"
+msgstr "Number of vCPUs"
 
 msgid "OR Copy/Paste your Private Key"
 msgstr "OR Copy/Paste your Private Key"
@@ -4946,6 +5116,13 @@ msgstr "Project Usage"
 msgid "Project Usage Overview"
 msgstr "Project Usage Overview"
 
+msgid ""
+"Project limits the scope of the credential. It is is mandatory if the "
+"credential type is EC2."
+msgstr ""
+"Project limits the scope of the credential. It is mandatory if the "
+"credential type is EC2."
+
 #, python-format
 msgid "Project name \"%s\" is already used."
 msgstr "Project name \"%s\" is already used."
@@ -4998,6 +5175,9 @@ msgstr "QCOW2 - QEMU Emulator"
 
 msgid "QoS Policy"
 msgstr "QoS Policy"
+
+msgid "QoS Policy ID"
+msgstr "QoS Policy ID"
 
 #, python-format
 msgid "QoS Spec name \"%s\" already exists."
@@ -5084,6 +5264,9 @@ msgstr "RBAC Policy %s was successfully updated."
 
 msgid "RBAC Policy Details"
 msgstr "RBAC Policy Details"
+
+msgid "RBAC Policy quota exceeded."
+msgstr "RBAC Policy quota exceeded."
 
 msgid "RBAC Policy was successfully created."
 msgstr "RBAC Policy was successfully created."
@@ -5207,6 +5390,9 @@ msgstr ""
 
 msgid "Remote IP Prefix"
 msgstr "Remote IP Prefix"
+
+msgid "Remote Managed"
+msgstr "Remote Managed"
 
 msgid "Remote Security Group"
 msgstr "Remote Security Group"
@@ -5402,6 +5588,10 @@ msgstr "Retrieve Instance Password"
 
 msgid "Retrieve Password"
 msgstr "Retrieve Password"
+
+msgctxt "Current status of a Volume"
+msgid "Retyping"
+msgstr "Retyping"
 
 msgid "Revert Resize/Migrate"
 msgstr "Revert Resize/Migrate"
@@ -5842,6 +6032,9 @@ msgstr "Settings"
 msgid "Settings saved."
 msgstr "Settings saved."
 
+msgid "Share the network between projects"
+msgstr "Share the network between projects"
+
 msgid "Shared"
 msgstr "Shared"
 
@@ -5931,11 +6124,17 @@ msgstr "Size"
 msgid "Size (GiB)"
 msgstr "Size (GiB)"
 
+msgid "Size (GiB) ="
+msgstr "Size (GiB) ="
+
 msgid "Slash is not an allowed character."
 msgstr "Slash is not an allowed character."
 
 msgid "Small"
 msgstr "Small"
+
+msgid "Smart NIC"
+msgstr "Smart NIC"
 
 msgid "Snapshot"
 msgstr "Snapshot"
@@ -5953,6 +6152,9 @@ msgstr "Snapshot Limits"
 
 msgid "Snapshot Name"
 msgstr "Snapshot Name"
+
+msgid "Snapshot Name ="
+msgstr "Snapshot Name ="
 
 msgid "Snapshot Volume Types"
 msgstr "Snapshot Volume Types"
@@ -6338,6 +6540,9 @@ msgstr "System Scope"
 msgid "Systems:"
 msgstr "Systems:"
 
+msgid "TOTP"
+msgstr "TOTP"
+
 msgid "Target Host"
 msgstr "Target Host"
 
@@ -6620,6 +6825,21 @@ msgstr ""
 "The rescue mode is only for emergency purpose, for example in case of a "
 "system or access failure."
 
+msgid ""
+"The root disk is an ephemeral disk that the base image is copied into. When "
+"booting from a persistent volume it is not used. The 0 size is a special "
+"case which uses the native base image size as the size of the ephemeral root "
+"volume. However, in this case the scheduler cannot select  the compute host "
+"based on the virtual image size. As a result, 0 should only be used for "
+"volume booted instances or for testing purposes."
+msgstr ""
+"The root disk is an ephemeral disk that the base image is copied into. When "
+"booting from a persistent volume, it is not used. The 0 size is a special "
+"case which uses the native base image size as the size of the ephemeral root "
+"volume. However, in this case, the scheduler cannot select the compute host "
+"based on the virtual image size. As a result, 0 should only be used for "
+"volume-booted instances or for testing purposes."
+
 msgid "The specified floating IP no longer exists."
 msgstr "The specified Floating IP no longer exists."
 
@@ -6729,6 +6949,13 @@ msgid "This application requires JavaScript to be enabled in your web browser."
 msgstr ""
 "This application requires JavaScript to be enabled in your web browser."
 
+msgid ""
+"This example creates a lvm volume type with volume_backend_name=LVM as extra "
+"specifications."
+msgstr ""
+"This example creates a LVM volume type with volume_backend_name=LVM as extra "
+"specifications."
+
 msgid "This field is required."
 msgstr "This field is required."
 
@@ -6768,6 +6995,21 @@ msgstr ""
 
 msgid "This panel needs JavaScript support."
 msgstr "This panel needs JavaScript support."
+
+msgid ""
+"This property is optional. If unspecified, the value is 0 by default. "
+"Ephemeral disks offer machine local disk storage linked to the lifecycle of "
+"a VM instance. When a VM is terminated, all data on the ephemeral disk is "
+"lost. Ephemeral disks are not included in any snapshots.spaces. Pay "
+"attention that ID is not case sensitive. Use 'auto' to automatically "
+"generate ID."
+msgstr ""
+"This property is optional. If unspecified, the value is 0 by default. "
+"Ephemeral disks offer machine local disk storage linked to the lifecycle of "
+"a VM instance. When a VM is terminated, all data on the ephemeral disk is "
+"lost. Ephemeral disks are not included in any snapshots.spaces. Pay "
+"attention that ID is not case sensitive. Use 'auto' to automatically "
+"generate an ID."
 
 msgid ""
 "This volume is currently attached to an instance. In some cases, creating a "
@@ -6831,6 +7073,9 @@ msgstr "Toggle Labels"
 msgid "Toggle Network Collapse"
 msgstr "Toggle Network Collapse"
 
+msgid "Toggle key pair details"
+msgstr "Toggle key pair details"
+
 msgid "Toggle navigation"
 msgstr "Toggle navigation"
 
@@ -6876,6 +7121,14 @@ msgstr "Total disk usage (GB * Hours Used) for the project"
 
 msgid "Total memory usage (MB * Hours Used) for the project"
 msgstr "Total memory usage (MB * Hours Used) for the project"
+
+msgid "Total vCPU Usage (Hours):"
+msgstr "Total vCPU Usage (Hours):"
+
+msgid ""
+"Total vCPU usage (Number of vCPU in instance * Hours Used) for the project"
+msgstr ""
+"Total vCPU usage (Number of vCPU in instance * Hours Used) for the project"
 
 #, python-format
 msgid "Traced with id %(id)s. Go to <a href=\"%(url)s\">page</a>"
@@ -7090,6 +7343,9 @@ msgstr "Unable to create spec."
 #, python-format
 msgid "Unable to create subnet \"%s\"."
 msgstr "Unable to create subnet \"%s\"."
+
+msgid "Unable to create user credential."
+msgstr "Unable to create user credential."
 
 msgid "Unable to create user."
 msgstr "Unable to create user."
@@ -7386,6 +7642,9 @@ msgstr "Unable to retrieve QoS spec list."
 msgid "Unable to retrieve QoS specs"
 msgstr "Unable to retrieve QoS specs"
 
+msgid "Unable to retrieve RBAC Policy details."
+msgstr "Unable to retrieve RBAC Policy details."
+
 msgid "Unable to retrieve RBAC policies."
 msgstr "Unable to retrieve RBAC policies."
 
@@ -7438,6 +7697,10 @@ msgstr "Unable to retrieve default volume quotas."
 #, python-format
 msgid "Unable to retrieve details for %(resource)s \"%(resource_id)s\"."
 msgstr "Unable to retrieve details for %(resource)s \"%(resource_id)s\"."
+
+#, python-format
+msgid "Unable to retrieve details for RBAC Policy \"%s\"."
+msgstr "Unable to retrieve details for RBAC Policy \"%s\"."
 
 #, python-format
 msgid "Unable to retrieve details for instance \"%s\"."
@@ -7682,8 +7945,14 @@ msgstr "Unable to retrieve project information of volume snapshots."
 msgid "Unable to retrieve project information."
 msgstr "Unable to retrieve project information."
 
+msgid "Unable to retrieve project limits."
+msgstr "Unable to retrieve project limits."
+
 msgid "Unable to retrieve project list."
 msgstr "Unable to retrieve project list."
+
+msgid "Unable to retrieve project or user details."
+msgstr "Unable to retrieve project or user details."
 
 msgid "Unable to retrieve project quotas."
 msgstr "Unable to retrieve project quotas."
@@ -7758,6 +8027,9 @@ msgstr "Unable to retrieve subnet details."
 msgid "Unable to retrieve the aggregate to be updated"
 msgstr "Unable to retrieve the aggregate to be updated"
 
+msgid "Unable to retrieve the credentials of this user."
+msgstr "Unable to retrieve the credentials of this user."
+
 msgid "Unable to retrieve the instance."
 msgstr "Unable to retrieve the instance."
 
@@ -7772,6 +8044,9 @@ msgstr "Unable to retrieve the volume type list."
 
 msgid "Unable to retrieve usage information."
 msgstr "Unable to retrieve usage information."
+
+msgid "Unable to retrieve user credential details."
+msgstr "Unable to retrieve user credential details."
 
 msgid "Unable to retrieve user details."
 msgstr "Unable to retrieve user details."
@@ -7793,6 +8068,9 @@ msgstr "Unable to retrieve user list. Please try again later."
 
 msgid "Unable to retrieve user roles."
 msgstr "Unable to retrieve user roles."
+
+msgid "Unable to retrieve users credentials list."
+msgstr "Unable to retrieve users' credentials list."
 
 msgid "Unable to retrieve users."
 msgstr "Unable to retrieve users."
@@ -8003,6 +8281,9 @@ msgstr "Unable to update the user password."
 msgid "Unable to update the user."
 msgstr "Unable to update the user."
 
+msgid "Unable to update user credential."
+msgstr "Unable to update user credential."
+
 #, python-format
 msgid "Unable to update volume backup status to \"%s\"."
 msgstr "Unable to update volume backup status to \"%s\"."
@@ -8045,6 +8326,9 @@ msgstr "Unable to verify the VNIC types extension in Neutron"
 
 msgid "Unknown"
 msgstr "Unknown"
+
+msgid "Unknown IP address"
+msgstr "Unknown IP address"
 
 msgid "Unknown Settings"
 msgstr "Unknown Settings"
@@ -8157,6 +8441,9 @@ msgstr "Update"
 msgid "Update Associations"
 msgstr "Update Associations"
 
+msgid "Update Credential"
+msgstr "Update Credential"
+
 msgid "Update Default Quotas"
 msgstr "Update Default Quotas"
 
@@ -8195,6 +8482,9 @@ msgstr "Update Status"
 
 msgid "Update User"
 msgstr "Update User"
+
+msgid "Update User Credential"
+msgstr "Update User Credential"
 
 msgid "Update Volume Snapshot Status"
 msgstr "Update Volume Snapshot Status"
@@ -8289,6 +8579,10 @@ msgstr ""
 msgid "Upload to Image"
 msgstr "Upload to Image"
 
+msgctxt "Current status of a Volume"
+msgid "Uploading"
+msgstr "Uploading"
+
 msgid "Usage"
 msgstr "Usage"
 
@@ -8338,6 +8632,9 @@ msgstr "User \"%s\" has been updated successfully."
 msgid "User \"%s\" was successfully created."
 msgstr "User \"%s\" was successfully created."
 
+msgid "User Credential Details"
+msgstr "User Credential Details"
+
 msgid "User Credentials"
 msgstr "User Credentials"
 
@@ -8367,6 +8664,12 @@ msgstr "User Name ="
 
 msgid "User Settings"
 msgstr "User Settings"
+
+msgid "User credential created successfully."
+msgstr "User credential created successfully."
+
+msgid "User credential updated successfully."
+msgstr "User credentials updated successfully."
 
 #, python-format
 msgid "User name \"%s\" is already used."
@@ -8815,6 +9118,9 @@ msgstr "by Network (and IP address)"
 msgid "by Port"
 msgstr "by Port"
 
+msgid "cert"
+msgstr "cert"
+
 msgid "dm-crypt"
 msgstr "dm-crypt"
 
@@ -8850,6 +9156,21 @@ msgstr ""
 msgid "no"
 msgstr "no"
 
+msgid "pCPU Usage"
+msgstr "pCPU Usage"
+
+msgid "pCPUs allocation ratio"
+msgstr "pCPUs allocation ratio"
+
+msgid "pCPUs reserved"
+msgstr "pCPUs reserved"
+
+msgid "pCPUs total"
+msgstr "pCPUs total"
+
+msgid "pCPUs used"
+msgstr "pCPUs used"
+
 msgid "system scope"
 msgstr "system scope"
 
@@ -8858,6 +9179,33 @@ msgstr "undefined"
 
 msgid "up"
 msgstr "up"
+
+msgid "vCPU"
+msgstr "vCPU"
+
+msgid "vCPU Hours"
+msgstr "vCPU Hours"
+
+msgid "vCPU Usage"
+msgstr "vCPU Usage"
+
+msgid "vCPUs"
+msgstr "vCPUs"
+
+msgid "vCPUs allocation ratio"
+msgstr "vCPUs allocation ratio"
+
+msgid "vCPUs reserved"
+msgstr "vCPUs reserved"
+
+msgid "vCPUs total"
+msgstr "vCPUs total"
+
+msgid "vCPUs used"
+msgstr "vCPUs used"
+
+msgid "vHost vDPA"
+msgstr "vHost vDPA"
 
 msgid "yes"
 msgstr "yes"

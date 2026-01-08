@@ -10,15 +10,16 @@
 # Andi Chandler <andi@gowling.com>, 2022. #zanata
 # Andi Chandler <andi@gowling.com>, 2024. #zanata
 # Andi Chandler <andi@gowling.com>, 2025. #zanata
+# Andi Chandler <andi@gowling.com>, 2026. #zanata
 msgid ""
 msgstr ""
 "Project-Id-Version: horizon VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2025-07-21 16:55+0000\n"
+"POT-Creation-Date: 2025-12-18 20:55+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2025-02-07 12:06+0000\n"
+"PO-Revision-Date: 2026-01-07 03:34+0000\n"
 "Last-Translator: Andi Chandler <andi@gowling.com>\n"
 "Language-Team: English (United Kingdom)\n"
 "Language: en_GB\n"
@@ -78,6 +79,17 @@ msgstr "7"
 
 msgid "75%"
 msgstr "75%"
+
+msgid ""
+"<b>Image (with Create New Volume checked)</b>: This options uses an image to "
+"boot the instance, and creates a new volume to persist instance data. You "
+"can specify volume type and size, and whether to delete the volume on "
+"deletion of the instance."
+msgstr ""
+"<b>Image (with Create New Volume checked)</b>: This option uses an image to "
+"boot the instance, and creates a new volume to persist instance data. You "
+"can specify volume type and size, and whether to delete the volume on "
+"deletion of the instance."
 
 msgid "<b>Image</b>: This option uses an image to boot the instance."
 msgstr "<b>Image</b>: This option uses an image to boot the instance."
@@ -436,6 +448,24 @@ msgstr "Are you sure you want to delete container %(name)s?"
 msgid "Array"
 msgstr "Array"
 
+msgid ""
+"Attempts to restrict instances belonging to the server group to separate "
+"hosts. Where it is not possible to schedule all instances to separate hosts, "
+"they will be scheduled on as many separate hosts as possible."
+msgstr ""
+"Attempts to restrict instances belonging to the server group to separate "
+"hosts. Where it is not possible to schedule all instances to separate hosts, "
+"they will be scheduled on as many separate hosts as possible."
+
+msgid ""
+"Attempts to restrict instances belonging to the server group to the same "
+"host. Where it is not possible to schedule all instances on one host, they "
+"will be scheduled together on as few hosts as possible."
+msgstr ""
+"Attempts to restrict instances belonging to the server group to the same "
+"host. Where it is not possible to schedule all instances on one host, they "
+"will be scheduled together on as few hosts as possible."
+
 msgid "Automatic"
 msgstr "Automatic"
 
@@ -778,6 +808,9 @@ msgstr "Creating"
 #, python-format
 msgid "Creating volume %s"
 msgstr "Creating volume %s"
+
+msgid "Custom"
+msgstr "Custom"
 
 msgid "Custom Properties"
 msgstr "Custom Properties"
@@ -1276,6 +1309,9 @@ msgstr "File Name"
 msgid "Filename"
 msgstr "Filename"
 
+msgid "Filter"
+msgstr "Filter"
+
 msgid "Fingerprint"
 msgstr "Fingerprint"
 
@@ -1507,6 +1543,9 @@ msgstr "Image Source"
 
 msgid "Image Status"
 msgstr "Image Status"
+
+msgid "Image Visibility"
+msgstr "Image Visibility"
 
 msgid "Image from Other Project - Non-Public"
 msgstr "Image from Other Project - Non-Public"
@@ -1775,6 +1814,9 @@ msgstr "MAC Address"
 msgid "MacVTap"
 msgstr "MacVTap"
 
+msgid "Make the QoS policy accessible by other projects."
+msgstr "Make the QoS policy accessible to other projects."
+
 msgid "Manual"
 msgstr "Manual"
 
@@ -1811,6 +1853,13 @@ msgstr[0] "Metadata Definition"
 msgstr[1] "Metadata Definitions"
 
 msgid ""
+"Metadata is a collection of key-value pairs associated with an instance.\n"
+"    The maximum length for each metadata key is 255 characters."
+msgstr ""
+"Metadata is a collection of key-value pairs associated with an instance.\n"
+"    The maximum length for each metadata key is 255 characters."
+
+msgid ""
 "Metadata is used to provide additional information about the\n"
 "    image. Sometimes this information is only used for sorting and viewing.\n"
 "    In some installations this information may affect how the instance is\n"
@@ -1835,6 +1884,12 @@ msgstr "Min Kpps"
 
 msgid "Min Port"
 msgstr "Min Port"
+
+msgid "Min. Disk (GB)"
+msgstr "Min. Disk (GB)"
+
+msgid "Min. RAM (MB)"
+msgstr "Min. RAM (MB)"
 
 msgid "Min. Size (bytes)"
 msgstr "Min. Size (bytes)"
@@ -1936,6 +1991,26 @@ msgstr[1] "Network Subnets"
 
 msgid "Network characteristics"
 msgstr "Network characteristics"
+
+msgid ""
+"Network devices such as switches and routers can mark traffic so that it is "
+"handled with a higher priority to fulfill the QoS conditions agreed under "
+"the SLA.\n"
+"In other cases, certain network traffic such as Voice over IP (VoIP) and "
+"video streaming needs to be transmitted with minimal bandwidth constraints.\n"
+"On a system without network QoS management, all traffic will be transmitted "
+"in a “best-effort” manner making it impossible to guarantee service delivery "
+"to customers."
+msgstr ""
+"Network devices such as switches and routers can mark traffic so that it is "
+"handled with a higher priority to fulfil the QoS conditions agreed under the "
+"SLA.\n"
+"In other cases, certain network traffic, such as Voice over IP (VoIP) and "
+"video streaming, needs to be transmitted with minimal bandwidth "
+"constraints.\n"
+"On a system without network QoS management, all traffic will be transmitted "
+"in a “best-effort” manner, making it impossible to guarantee service "
+"delivery to customers."
 
 msgid "Networks"
 msgstr "Networks"
@@ -2286,6 +2361,9 @@ msgstr "Properties:"
 msgid "Protected"
 msgstr "Protected"
 
+msgid "Protected Image"
+msgstr "Protected Image"
+
 msgid "Protocol"
 msgstr "Protocol"
 
@@ -2332,6 +2410,21 @@ msgstr "QoS Policy ID"
 msgid "QoS Policy Name"
 msgstr "QoS Policy Name"
 
+#, python-format
+msgid "QoS Policy Rule %s was successfully updated."
+msgstr "QoS Policy Rule %s was successfully updated."
+
+msgid ""
+"QoS is defined as the ability to guarantee certain network requirements like "
+"bandwidth, latency, jitter,\n"
+"and reliability in order to satisfy a Service Level Agreement (SLA) between "
+"an application provider and end users."
+msgstr ""
+"QoS is defined as the ability to guarantee certain network requirements like "
+"bandwidth, latency, jitter,\n"
+"and reliability in order to satisfy a Service Level Agreement (SLA) between "
+"an application provider and end users."
+
 msgid "Qos Policy  Rule  was successfully deleted."
 msgstr "QoS Policy  Rule was successfully deleted."
 
@@ -2374,6 +2467,12 @@ msgstr "Remote"
 
 msgid "Resource ID(s)"
 msgstr "Resource ID(s)"
+
+msgid "Restricts instances belonging to the server group to separate hosts."
+msgstr "Restricts instances belonging to the server group to separate hosts."
+
+msgid "Restricts instances belonging to the server group to the same host."
+msgstr "Restricts instances belonging to the server group to the same host."
 
 msgid "Revision Number"
 msgstr "Revision Number"
@@ -2779,6 +2878,13 @@ msgstr "Text Inputs"
 msgid "Textarea"
 msgstr "Textarea"
 
+msgid ""
+"The CPU architecture that must be supported by the hypervisor. For example, "
+"x86_64, arm, or ppc64."
+msgstr ""
+"The CPU architecture that must be supported by the hypervisor. For example, "
+"x86_64, arm, or ppc64."
+
 msgid "The access permission for the image."
 msgstr "The access permission for the image."
 
@@ -2866,11 +2972,49 @@ msgstr ""
 "port."
 
 msgid ""
+"The minimum disk (GB) is required and must be an integer not less than 0."
+msgstr ""
+"The minimum disk (GB) is required and must be an integer not less than 0."
+
+msgid ""
+"The minimum disk (GB) size required to boot the image. If unspecified, this "
+"value defaults to 0 (no minimum)."
+msgstr ""
+"The minimum disk (GB) size required to boot the image. If unspecified, this "
+"value defaults to 0 (no minimum)."
+
+msgid ""
 "The minimum kpps (kilo(1000) packets per second) value which should be "
 "available for port."
 msgstr ""
 "The minimum kpps (kilo(1000) packets per second) value which should be "
 "available for port."
+
+msgid ""
+"The minimum memory (MB) is required and must be an integer not less than 0."
+msgstr ""
+"The minimum memory (MB) is required and must be an integer not less than 0."
+
+msgid ""
+"The minimum memory (MB) size required to boot the image. If unspecified, "
+"this value defaults to 0 (no minimum)."
+msgstr ""
+"The minimum memory (MB) size required to boot the image. If unspecified, "
+"this value defaults to 0 (no minimum)."
+
+msgid ""
+"The name of image stored in the Image service that should be used as the "
+"kernel when booting an AMI-style image."
+msgstr ""
+"The name of the image stored in the Image service that should be used as the "
+"kernel when booting an AMI-style image."
+
+msgid ""
+"The name of image stored in the Image service that should be used as the "
+"ramdisk when booting an AMI-style image."
+msgstr ""
+"The name of the image stored in the Image service that should be used as the "
+"ramdisk when booting an AMI-style image."
 
 msgid "The name of the Volume."
 msgstr "The name of the Volume."
@@ -3022,6 +3166,13 @@ msgstr ""
 "smaller flavour or decrease the instance count."
 
 msgid ""
+"This flavor requires more vCPUs than your quota allows. Please select a "
+"smaller flavor or decrease the instance count."
+msgstr ""
+"This flavour requires more vCPUs than your quota allows. Please select a "
+"smaller flavour or decrease the instance count."
+
+msgid ""
 "This is a simple hero unit, a simple jumbotron-style component for calling "
 "extra attention to featured content or information."
 msgstr ""
@@ -3094,6 +3245,9 @@ msgstr "Total Volume Storage"
 msgid "Total Volumes"
 msgstr "Total Volumes"
 
+msgid "Total vCPUs"
+msgstr "Total vCPUs"
+
 msgid "Trunk"
 msgid_plural "Trunks"
 msgstr[0] "Trunk"
@@ -3124,6 +3278,18 @@ msgstr "Typography"
 
 msgid "URL"
 msgstr "URL"
+
+msgid "Unable to add the DSCP marking rule."
+msgstr "Unable to add the DSCP marking rule."
+
+msgid "Unable to add the bandwidth rule."
+msgstr "Unable to add the bandwidth rule."
+
+msgid "Unable to add the minimum bandwidth rule."
+msgstr "Unable to add the minimum bandwidth rule."
+
+msgid "Unable to add the minimum packet rate rule."
+msgstr "Unable to add the minimum packet rate rule."
 
 msgid "Unable to allocate new floating IP address."
 msgstr "Unable to allocate new floating IP address."
@@ -3226,6 +3392,10 @@ msgstr[0] "Unable to delete Key Pair: %s."
 msgstr[1] "Unable to delete Key Pairs: %s."
 
 #, python-format
+msgid "Unable to delete QoS Policy %(id)s"
+msgstr "Unable to delete QoS Policy %(id)s"
+
+#, python-format
 msgid "Unable to delete Role: %s."
 msgid_plural "Unable to delete Roles: %s."
 msgstr[0] "Unable to delete Role: %s."
@@ -3261,6 +3431,12 @@ msgid_plural "Unable to delete policies: %s."
 msgstr[0] "Unable to delete policy: %s."
 msgstr[1] "Unable to delete policies: %s."
 
+msgid "Unable to delete the DSCP marking rule."
+msgstr "Unable to delete the DSCP marking rule."
+
+msgid "Unable to delete the bandwidth limit rule."
+msgstr "Unable to delete the bandwidth limit rule."
+
 msgid "Unable to delete the container."
 msgstr "Unable to delete the container."
 
@@ -3290,6 +3466,12 @@ msgstr "Unable to delete the image with id: %(id)s"
 #, python-format
 msgid "Unable to delete the keypair with name: %(name)s"
 msgstr "Unable to delete the keypair with name: %(name)s"
+
+msgid "Unable to delete the minimum bandwidth rule."
+msgstr "Unable to delete the minimum bandwidth rule."
+
+msgid "Unable to delete the minimum packet rate rule."
+msgstr "Unable to delete the minimum packet rate rule."
 
 msgid "Unable to delete the object."
 msgstr "Unable to delete the object."
@@ -3459,6 +3641,9 @@ msgstr "Unable to retrieve the Absolute Limits."
 
 msgid "Unable to retrieve the QoS Specs."
 msgstr "Unable to retrieve the QoS Specs."
+
+msgid "Unable to retrieve the QoS policies."
+msgstr "Unable to retrieve the QoS policies."
 
 msgid "Unable to retrieve the agents."
 msgstr "Unable to retrieve the agents."
@@ -3637,6 +3822,12 @@ msgstr "Unable to update metadata."
 
 msgid "Unable to update project quota data."
 msgstr "Unable to update project quota data."
+
+msgid "Unable to update the DSCP marking rule."
+msgstr "Unable to update the DSCP marking rule."
+
+msgid "Unable to update the bandwidth rule."
+msgstr "Unable to update the bandwidth rule."
 
 msgid "Unable to update the flavor."
 msgstr "Unable to update the flavour."
@@ -3858,6 +4049,9 @@ msgid "Volume Snapshot"
 msgid_plural "Volume Snapshots"
 msgstr[0] "Volume Snapshot"
 msgstr[1] "Volume Snapshots"
+
+msgid "Volume Type"
+msgstr "Volume Type"
 
 msgid "Volume Type Description:"
 msgstr "Volume Type Description:"
@@ -4117,6 +4311,9 @@ msgstr "resource load failed: %s"
 
 msgid "snapshot"
 msgstr "snapshot"
+
+msgid "vCPUs"
+msgstr "vCPUs"
 
 msgid "volume"
 msgstr "volume"
