@@ -139,7 +139,7 @@ class IndexView(tables.DataTableView):
 
 
 class ProjectUsageView(usage.UsageView):
-    table_class = usage.ProjectUsageTable
+    table_class = usage.IdentityProjectUsagesTable
     usage_class = usage.ProjectUsage
     template_name = 'identity/projects/usage.html'
     csv_response_class = project_views.ProjectUsageCsvRenderer
