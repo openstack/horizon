@@ -96,3 +96,16 @@ class ProjectUsageTable(BaseUsageTable):
         columns = ("instance", "vcpus", "disk", "memory", "uptime")
         table_actions = (CSVSummary,)
         multi_select = False
+
+
+def get_instance_link_admin(datum):
+    view = "horizon:admin:instances:detail"
+    if datum.get('instance_id', False):
+        return urls.reverse(view, args=(datum.get('instance_id'),))
+    return None
+
+
+class IdentityProjectUsagesTable(ProjectUsageTable):
+    instance = tables.Column('name',
+                             verbose_name=_("Instance Name"),
+                             link=get_instance_link_admin)

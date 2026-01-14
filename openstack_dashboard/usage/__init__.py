@@ -17,6 +17,7 @@ from openstack_dashboard.usage.base import GlobalUsage
 from openstack_dashboard.usage.base import ProjectUsage
 from openstack_dashboard.usage.tables import BaseUsageTable
 from openstack_dashboard.usage.tables import GlobalUsageTable
+from openstack_dashboard.usage.tables import IdentityProjectUsagesTable
 from openstack_dashboard.usage.tables import ProjectUsageTable
 from openstack_dashboard.usage.views import ProjectUsageView
 from openstack_dashboard.usage.views import UsageView
@@ -28,6 +29,7 @@ __all__ = [
     'ProjectUsage',
     'BaseUsageTable',
     'GlobalUsageTable',
+    'IdentityProjectUsagesTable',
     'ProjectUsageTable',
     'ProjectUsageView',
     'UsageView',
