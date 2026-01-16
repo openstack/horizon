@@ -170,6 +170,15 @@ Install and configure components
 
       WSGIApplicationGroup %{GLOBAL}
 
+4. Collect static files and compress by running the following commands:
+
+   .. code-block:: console
+
+       # /usr/share/openstack-dashboard/manage.py collectstatic
+       # /usr/share/openstack-dashboard/manage.py compress
+
+   .. end
+
 Finalize installation
 ---------------------
 
