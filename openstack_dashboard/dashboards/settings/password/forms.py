@@ -13,6 +13,7 @@
 #    under the License.
 
 from django.conf import settings
+from django.contrib.auth import logout
 from django.forms import ValidationError
 from django import http
 from django.utils.translation import gettext_lazy as _
@@ -75,7 +76,10 @@ class PasswordForm(forms.SelfHandlingForm):
                 api.keystone.user_update_own_password(request,
                                                       data['current_password'],
                                                       data['new_password'])
-                response = http.HttpResponseRedirect(settings.LOGOUT_URL)
+                # Avoid redirecting to LOGOUT_URL since logout is POST-only in
+                # Django 5.2+; following the redirect as GET can yield 405.
+                logout(request)
+                response = http.HttpResponseRedirect(settings.LOGIN_URL)
                 msg = _("Password changed. Please log in again to continue.")
                 utils.add_logout_reason(request, response, msg)
                 return response

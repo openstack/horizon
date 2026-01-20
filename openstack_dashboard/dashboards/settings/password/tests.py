@@ -13,10 +13,8 @@
 #    under the License.
 
 from unittest import mock
-from urllib.parse import urlsplit
 
 from django.conf import settings
-from django import http
 from django.urls import reverse
 
 
@@ -60,15 +58,13 @@ class ChangePasswordTests(test.TestCase):
                     'confirm_password': 'normalpwd'}
         res = self.client.post(INDEX_URL, formData, follow=False)
 
-        self.assertRedirectsNoFollow(res, settings.LOGOUT_URL)
+        # Password change logs the user out and redirects directly to login.
+        self.assertRedirectsNoFollow(res, settings.LOGIN_URL)
         self.assertIn('logout_reason', res.cookies)
         self.assertIn('logout_status', res.cookies)
         self.assertEqual(res.cookies['logout_reason'].value,
                          "Password changed. Please log in again to continue.")
         self.assertEqual('success', res.cookies['logout_status'].value)
-        scheme, netloc, path, query, fragment = urlsplit(res.url)
-        redirect_response = res.client.get(path, http.QueryDict(query))
-        self.assertRedirectsNoFollow(redirect_response, settings.LOGIN_URL)
 
         self.mock_user_get.assert_called_once_with(test.IsHttpRequest(), '1',
                                                    admin=False)
