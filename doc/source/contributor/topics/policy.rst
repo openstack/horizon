@@ -239,9 +239,10 @@ Policy file maintenance
   .. note::
 
      We now use YAML format for sample policy files now.
-     "oslo.policy" can accept both YAML and JSON files.
+     "oslo.policy" can accept both YAML and JSON files, but JSON format is
+     deprecated.
      We now support default policies so there is no need to define all
-     policies using JSON files. YAML files also allows us to use comments,
+     policies in policy files. YAML files also allows us to use comments,
      so we can provide good sample policy files.
      This is the same motivation as the Wallaby community goal
      `Migrate RBAC Policy Format from JSON to YAML
@@ -284,7 +285,7 @@ provided:
    # Show removed policies
    # The default is "--mode remove". You can omit --mode option.
    $ python ../../tools/policy-diff.py \
-       --old keystone_policy.json --new keystone_policy.json.new --mode remove
+       --old keystone_policy.yaml --new keystone_policy.yaml.new --mode remove
    default
    identity:change_password
    identity:get_identity_provider
