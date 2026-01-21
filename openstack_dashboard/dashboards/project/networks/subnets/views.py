@@ -71,7 +71,6 @@ class UpdateView(workflows.WorkflowView):
 
     def get_initial(self):
         initial = super().get_initial()
-
         subnet = self._get_object()
 
         initial['network_id'] = self.kwargs['network_id']
@@ -80,6 +79,8 @@ class UpdateView(workflows.WorkflowView):
 
         for key in ('cidr', 'ip_version', 'is_dhcp_enabled'):
             initial[key] = subnet[key]
+        initial['enable_dhcp'] = subnet.get('enable_dhcp',
+                                            subnet.get('is_dhcp_enabled'))
 
         initial['gateway_ip'] = subnet.get('gateway_ip', '')
         initial['no_gateway'] = not initial['gateway_ip']
