@@ -990,7 +990,7 @@ class OpenStackAuthTestsWebSSO(test.TestCase):
         url = reverse('logout')
 
         # POST to the page and redirect to logout method from idp.
-        response = self.client.get(url)
+        response = self.client.post(url)
         self.assertRedirects(response, settings.WEBSSO_DEFAULT_REDIRECT_LOGOUT,
                              status_code=302, target_status_code=301)
 
