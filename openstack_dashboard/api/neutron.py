@@ -197,7 +197,13 @@ class Port(NeutronAPIDictWrapper):
                 ON_STATE if apidict['mac_learning_enabled'] else OFF_STATE
         pairs = apidict.get('allowed_address_pairs')
         if pairs:
-            apidict = copy.deepcopy(apidict)
+            # Convert to dict first if possible to avoid RecursionError
+            # when deepcopy encounters openstacksdk objects with custom
+            # __getattr__ methods. to_dict() already returns a new dict.
+            if hasattr(apidict, 'to_dict'):
+                apidict = apidict.to_dict()
+            else:
+                apidict = copy.deepcopy(apidict)
             wrapped_pairs = [PortAllowedAddressPair(pair) for pair in pairs]
             apidict['allowed_address_pairs'] = wrapped_pairs
         super().__init__(apidict)
