@@ -39,6 +39,11 @@ from openstack_dashboard.utils import futurist_utils
 from openstack_dashboard.utils import settings as setting_utils
 
 
+class EncryptionDetailView(volumes_views.EncryptionDetailView):
+    def get_redirect_url(self):
+        return reverse('horizon:admin:volumes:index')
+
+
 class VolumesView(tables.PagedTableMixin, volumes_views.VolumeTableMixIn,
                   tables.DataTableView):
     table_class = volumes_tables.VolumesTable
