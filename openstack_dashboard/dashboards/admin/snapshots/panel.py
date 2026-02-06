@@ -21,8 +21,8 @@ class Snapshots(horizon.Panel):
     name = _("Snapshots")
     slug = 'snapshots'
     permissions = (
-        ('openstack.services/block-storage',
-         'openstack.services/block-store',
+        ('openstack.services.block-storage',
+         'openstack.services.block-store',
          'openstack.services.volume',
          'openstack.services.volumev3'),
     )
