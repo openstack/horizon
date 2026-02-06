@@ -27,7 +27,7 @@ class AddAllowedAddressPair(forms.ModalFormView):
     form_id = "addallowedaddresspair_form"
     template_name = 'project/networks/ports/add_addresspair.html'
     context_object_name = 'port'
-    submit_label = _("Submit")
+    submit_label = _("Add")
     submit_url = "horizon:project:networks:ports:addallowedaddresspairs"
     success_url = 'horizon:project:networks:ports:detail'
     page_title = _("Add Allowed Address Pair")
