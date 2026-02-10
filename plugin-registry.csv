@@ -10,7 +10,6 @@ magnum-ui,:opendev-repo:`openstack/magnum-ui`,:launchpad:`magnum-ui`
 manila-ui,:opendev-repo:`openstack/manila-ui`,:launchpad:`manila-ui`
 masakari-dashboard,:opendev-repo:`openstack/masakari-dashboard`,:launchpad:`masakari`
 mistral-dashboard,:opendev-repo:`openstack/mistral-dashboard`,:launchpad:`mistral`
-monasca-ui,:opendev-repo:`openstack/monasca-ui`,:launchpad:`monasca`
 networking-bgpvpn,:opendev-repo:`openstack/networking-bgpvpn`,:launchpad:`bgpvpn`
 neutron-vpnaas-dashboard,:opendev-repo:`openstack/neutron-vpnaas-dashboard`,:launchpad:`neutron-vpnaas-dashboard`
 neutron-fwaas-dashboard,:opendev-repo:`openstack/neutron-fwaas-dashboard`,:launchpad:`neutron-fwaas-dashboard`
