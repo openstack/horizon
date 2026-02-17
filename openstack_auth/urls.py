@@ -35,7 +35,7 @@ urlpatterns = [
             name='switch_system_scope'),
 ]
 
-if utils.allow_expired_passowrd_change():
+if utils.allow_expired_password_change():
     urlpatterns.append(
         re_path(r'^password/(?P<user_id>[^/]+)/$',
                 views.PasswordView.as_view(),
