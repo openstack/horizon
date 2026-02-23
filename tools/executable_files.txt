@@ -7,3 +7,4 @@
 ./tools/list-horizon-plugins.py
 ./tools/unit_tests.sh
 ./tools/selenium_tests.sh
+./tools/pip.sh
