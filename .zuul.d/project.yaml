@@ -12,9 +12,12 @@
     check:
       jobs:
         - horizon-selenium-headless
-        - horizon-integration-tests
-        - horizon-integration-pytest:
-            voting: false
+        # NOTE(elod.illes): this job is failing with missing ovn-*
+        # packages. To unblock the gate this needs to be removed now,
+        # but should be re-added as soon as this job is fixed.
+        # - horizon-integration-tests:
+        # - horizon-integration-pytest:
+        #     voting: false
         - horizon-dsvm-tempest-plugin
         - horizon-tox-bandit-baseline
         - horizon-tempest-plugin-ipv6
@@ -22,7 +25,10 @@
       jobs:
         - horizon-dsvm-tempest-plugin
         - horizon-selenium-headless
-        - horizon-integration-tests
+        # NOTE(elod.illes): this job is failing with missing ovn-*
+        # packages. To unblock the gate this needs to be removed now,
+        # but should be re-added as soon as this job is fixed.
+        # - horizon-integration-tests
         - horizon-tempest-plugin-ipv6
     experimental:
       jobs:
