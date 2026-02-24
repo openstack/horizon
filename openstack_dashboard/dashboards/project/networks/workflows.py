@@ -375,7 +375,7 @@ class CreateSubnetDetailAction(workflows.Action):
         widget=forms.widgets.Textarea(attrs={'rows': 4}),
         label=_("Host Routes"),
         help_text=_("Additional routes announced to the hosts. "
-                    "Each entry is: destination_cidr,nexthop "
+                    "Each entry is: Destination CIDR and Next Hop "
                     "(e.g., 192.168.200.0/24,10.56.1.254) "
                     "and one entry per line."),
         required=False)
@@ -444,7 +444,7 @@ class CreateSubnetDetailAction(workflows.Action):
             route = r.split(',')
             if len(route) != 2:
                 msg = _('Host Routes format error: '
-                        'Destination CIDR and nexthop must be specified '
+                        'Destination CIDR and Next Hop must be specified '
                         '(value=%s)') % r
                 raise forms.ValidationError(msg)
             self._convert_ip_network(route[0], "host_routes")
