@@ -5,6 +5,8 @@
 <div class="quota-dynamic">
   <h3>{% trans "Description:" %}</h3>
   <p>{% trans "Allocate a floating IP from a given floating IP pool." %}</p>
+  <p>{% trans "A <b>floating IP</b> is a static, publicly accessible IP address that can be dynamically assigned to different instances." %}
+     {% trans "It is used for communication with networks outside the cloud, including the Internet." %}</p>
   {% if usages %}
     <h3>{% trans "Project Quotas" %}</h3>
 
