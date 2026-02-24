@@ -6,6 +6,7 @@
       - ^doc/.*$
       - ^releasenotes/.*$
       - ^.*/locale/.*$
+      - ^plugin-registry\.csv$
 
 - job:
     name: horizon-selenium-headless
@@ -29,3 +30,4 @@
       - ^releasenotes/.*$
       - ^setup.cfg$
       - ^tools/.*$
+      - ^plugin-registry\.csv$
