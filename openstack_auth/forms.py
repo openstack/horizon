@@ -152,7 +152,7 @@ class Login(django_auth_forms.AuthenticationForm):
                      ' expired.',
                      {'username': username, 'domain': domain,
                       'remote_ip': utils.get_client_ip(self.request)})
-            if utils.allow_expired_passowrd_change():
+            if utils.allow_expired_password_change():
                 raise
             raise forms.ValidationError(exc)
         except exceptions.KeystoneTOTPRequired as exc:
