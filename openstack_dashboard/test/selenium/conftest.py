@@ -51,6 +51,7 @@ class Session:
             ),
         }
         self.project_name_xpath = config.theme.project_name_xpath
+        self.project_text_xpath = config.theme.project_text_xpath
         # NOTE: config.dashboard.dashboard_url may or may not end with a slash.
         # Avoid double-slashes (e.g. .../dashboard//auth/login)
         # which can yield 404s in some deployments.
@@ -87,19 +88,19 @@ class Session:
             button.click()
             self.current_user = user
             self.current_region = region
-            project_element = self.driver.find_element(
-                By.XPATH, self.project_name_xpath)
-            self.current_project = project_element.text
+            project_text = self.driver.find_element(
+                By.XPATH, self.project_text_xpath)
+            self.current_project = project_text.text
         if self.current_project != project:
-            project_element = self.driver.find_element(
+            project_dropdown = self.driver.find_element(
                 By.XPATH, self.project_name_xpath)
-            project_element.click()
-            selection = project_element.find_element(
+            project_dropdown.click()
+            selection = project_dropdown.find_element(
                 By.XPATH, f'.//*[normalize-space()="{project}"]')
             selection.click()
             widgets.get_and_dismiss_messages(self.driver, self.config)
             self.current_project = self.driver.find_element(
-                By.XPATH, self.project_name_xpath).text
+                By.XPATH, self.project_text_xpath).text
 
 
 @pytest.fixture(scope='session')
