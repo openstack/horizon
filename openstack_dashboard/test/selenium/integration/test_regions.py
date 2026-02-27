@@ -54,8 +54,8 @@ def test_region_login_selector(login, driver, config):
     if not regions:
         pytest.skip()
     login(None)
-    select = driver.find_element_by_id('id_region')
-    options = select.find_elements_by_tag_name('option')
+    select = driver.find_element(By.ID, 'id_region')
+    options = select.find_elements(By.TAG_NAME, 'option')
     assert len(options) == len(regions)
     for (index, option), (url, name) in zip(enumerate(options), regions):
         assert option.text.strip() == name
@@ -70,7 +70,7 @@ def test_region_login_user(login, driver, config):
         pytest.skip()
     for url, name in regions:
         login('user', region=name)
-        title = driver.find_element_by_xpath(config.theme.region_name_xpath)
+        title = driver.find_element(By.XPATH, config.theme.region_name_xpath)
         assert title.text == name
 
 
@@ -82,13 +82,13 @@ def test_region_switch(login, driver, config):
     for url, name in regions:
         wait_for_page_load(driver, config)
         time.sleep(0.5)  # we need slightly more time after page loads for js
-        title = driver.find_element_by_xpath(config.theme.region_name_xpath)
+        title = driver.find_element(By.XPATH, config.theme.region_name_xpath)
         if title.text == name:
             continue
         title.click()
-        region_list = driver.find_element_by_xpath(
-            config.theme.region_list_xpath)
-        region_link = region_list.find_element_by_link_text(name)
+        region_list = driver.find_element(
+            By.XPATH, config.theme.region_list_xpath)
+        region_link = region_list.find_element(By.LINK_TEXT, name)
         region_link.click()
 
         with no_wait(driver, config):
@@ -96,14 +96,14 @@ def test_region_switch(login, driver, config):
                 EC.visibility_of_element_located((By.ID, 'id_username'))
             )
 
-        user_field = driver.find_element_by_id('id_username')
+        user_field = driver.find_element(By.ID, 'id_username')
         user_field.send_keys(config.identity.username)
-        pass_field = driver.find_element_by_id('id_password')
+        pass_field = driver.find_element(By.ID, 'id_password')
         pass_field.send_keys(config.identity.password)
-        region_select = driver.find_element_by_id('id_region')
+        region_select = driver.find_element(By.ID, 'id_region')
         select_opt = Select(region_select)
         select_opt.select_by_visible_text(name)
-        button = driver.find_element_by_xpath('//*[@id="loginBtn"]')
+        button = driver.find_element(By.XPATH, '//*[@id="loginBtn"]')
         button.click()
 
         with no_wait(driver, config):
@@ -113,5 +113,5 @@ def test_region_switch(login, driver, config):
                 )
             )
 
-        title = driver.find_element_by_xpath(config.theme.region_name_xpath)
+        title = driver.find_element(By.XPATH, config.theme.region_name_xpath)
         assert title.text == name

@@ -13,6 +13,7 @@
 import openstack as openstack_sdk
 from oslo_utils import uuidutils
 import pytest
+from selenium.webdriver.common.by import By
 
 from openstack_dashboard.test.selenium import widgets
 
@@ -72,11 +73,11 @@ def test_create_metadata_namespace(login, driver, metadata_namespace_name,
         'metadata_defs',
     ))
     driver.get(url)
-    driver.find_element_by_link_text("Import Namespace").click()
-    namespace_form = driver.find_element_by_css_selector(".modal-dialog form")
+    driver.find_element(By.LINK_TEXT, "Import Namespace").click()
+    namespace_form = driver.find_element(By.CSS_SELECTOR, ".modal-dialog form")
     widgets.select_from_dropdown(namespace_form, "Direct Input")
-    namespace_form.find_element_by_id("id_direct_input").send_keys(namespace)
-    namespace_form.find_element_by_css_selector(".btn-primary").click()
+    namespace_form.find_element(By.ID, "id_direct_input").send_keys(namespace)
+    namespace_form.find_element(By.CSS_SELECTOR, ".btn-primary").click()
     messages = widgets.get_and_dismiss_messages(driver, config)
     assert (f"Success: Namespace {metadata_namespace_name} "
             f"has been created." in messages)
@@ -96,12 +97,12 @@ def test_delete_metadata_namespace(login, driver, new_metadata_namespace,
         'metadata_defs',
     ))
     driver.get(url)
-    rows = driver.find_elements_by_css_selector(
+    rows = driver.find_elements(
+        By.CSS_SELECTOR,
         f"table#namespaces tr[data-display"
-        f"='{new_metadata_namespace.namespace}']"
-    )
+        f"='{new_metadata_namespace.namespace}']")
     assert len(rows) == 1
-    actions_column = rows[0].find_element_by_css_selector("td.actions_column")
+    actions_column = rows[0].find_element(By.CSS_SELECTOR, "td.actions_column")
     widgets.select_from_dropdown(actions_column, "Delete Namespace")
     widgets.confirm_modal(driver)
     messages = widgets.get_and_dismiss_messages(driver, config)

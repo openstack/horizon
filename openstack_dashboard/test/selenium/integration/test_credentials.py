@@ -16,15 +16,15 @@ import shutil
 
 import pytest
 
+from selenium.webdriver.common.by import By
 from selenium.webdriver.support.wait import WebDriverWait
 
-from horizon.test import firefox_binary
 from openstack_dashboard.test.selenium import widgets
 
 
 @pytest.fixture
 def download_dir(driver):
-    directory = firefox_binary.WebDriver.TEMPDIR
+    directory = driver.TEMPDIR
     yield directory
     shutil.rmtree(directory)
 
@@ -39,8 +39,8 @@ def test_download_rc_file_admin(login, driver, config, openstack_admin,
         'api_access',
     ))
     driver.get(url)
-    openstack_file_dropdown = driver.find_element_by_class_name(
-        "table_actions_menu")
+    openstack_file_dropdown = driver.find_element(
+        By.CLASS_NAME, "table_actions_menu")
     widgets.select_from_dropdown(openstack_file_dropdown, "OpenStack RC File")
     WebDriverWait(driver, config.selenium.page_timeout).until(
         lambda x: ((len(os.listdir(download_dir)) == 1) and
@@ -71,8 +71,8 @@ def test_download_rc_file_demo(login, driver, config, openstack_admin,
         'api_access',
     ))
     driver.get(url)
-    openstack_file_dropdown = driver.find_element_by_class_name(
-        "table_actions_menu")
+    openstack_file_dropdown = driver.find_element(
+        By.CLASS_NAME, "table_actions_menu")
     widgets.select_from_dropdown(openstack_file_dropdown, "OpenStack RC File")
     WebDriverWait(driver, config.selenium.page_timeout).until(
         lambda x: ((len(os.listdir(download_dir)) == 1) and

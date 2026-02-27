@@ -29,24 +29,24 @@ def test_switch_to_material_theme(live_server, driver, user, config):
         pytest.skip("Test material theme skipped.")
 
     driver.get(live_server.url + '/settings')
-    user_dropdown_menu = driver.find_element_by_css_selector(
-        '.nav.navbar-nav.navbar-right')
+    user_dropdown_menu = driver.find_element(
+        By.CSS_SELECTOR, '.nav.navbar-nav.navbar-right')
     user_dropdown_menu.click()
-    assert ((user_dropdown_menu.find_element_by_css_selector(
-        ".theme-default.dropdown-selected") and
-        driver.find_element_by_css_selector(".navbar-default")))
-    options = user_dropdown_menu.find_element_by_css_selector(
-        "ul.dropdown-menu[id='editor_list']")
-    options.find_element_by_xpath(
-        ".//*[normalize-space()='Material']").click()
+    assert ((user_dropdown_menu.find_element(
+        By.CSS_SELECTOR, ".theme-default.dropdown-selected") and
+        driver.find_element(By.CSS_SELECTOR, ".navbar-default")))
+    options = user_dropdown_menu.find_element(
+        By.CSS_SELECTOR, "ul.dropdown-menu[id='editor_list']")
+    options.find_element(
+        By.XPATH, ".//*[normalize-space()='Material']").click()
     WebDriverWait(driver, config.selenium.page_timeout).until(
         EC.visibility_of_element_located((By.CSS_SELECTOR, '.material-header')))
-    user_dropdown_menu = driver.find_element_by_css_selector(
-        '.nav.navbar-nav.navbar-right')
+    user_dropdown_menu = driver.find_element(
+        By.CSS_SELECTOR, '.nav.navbar-nav.navbar-right')
     user_dropdown_menu.click()
-    assert (user_dropdown_menu.find_element_by_css_selector(
-        ".theme-material.dropdown-selected") and
-        driver.find_element_by_css_selector(".material-header"))
+    assert (user_dropdown_menu.find_element(
+        By.CSS_SELECTOR, ".theme-material.dropdown-selected") and
+        driver.find_element(By.CSS_SELECTOR, ".material-header"))
 
 
 def test_message_after_password_change(live_server, driver, user,
@@ -84,11 +84,11 @@ def test_message_after_password_change(live_server, driver, user,
         mock_user = api.keystone.user_get(None, None)
         mock_user.options = {}
         driver.get(live_server.url + '/settings/password')
-        driver.find_element_by_id("id_current_password").send_keys(
+        driver.find_element(By.ID, "id_current_password").send_keys(
             dashboard_data.user.password)
-        driver.find_element_by_id("id_new_password").send_keys("newpass")
-        driver.find_element_by_id("id_confirm_password").send_keys("newpass")
-        driver.find_element_by_css_selector(".btn-primary").click()
+        driver.find_element(By.ID, "id_new_password").send_keys("newpass")
+        driver.find_element(By.ID, "id_confirm_password").send_keys("newpass")
+        driver.find_element(By.CSS_SELECTOR, ".btn-primary").click()
         mocked_a_l_r.assert_called_once()
         assert (mocked_a_l_r.call_args.args[2] ==
                 'Password changed. Please log in again to continue.')
@@ -96,11 +96,12 @@ def test_message_after_password_change(live_server, driver, user,
 
 def test_languages(live_server, driver, user, config):
     driver.get(live_server.url + '/settings')
-    user_settings = driver.find_element_by_id('user_settings_modal')
-    language_options = user_settings.find_element_by_id('id_language')
+    user_settings = driver.find_element(By.ID, 'user_settings_modal')
+    language_options = user_settings.find_element(By.ID, 'id_language')
     language_options.click()
-    language_options.find_element_by_xpath("//option[@value='de']").click()
-    user_settings.find_element_by_xpath('//*[@class="btn btn-primary"]').click()
+    language_options.find_element(By.XPATH, "//option[@value='de']").click()
+    user_settings.find_element(
+        By.XPATH, '//*[@class="btn btn-primary"]').click()
     messages = widgets.get_and_dismiss_messages(driver, config)
     assert ("Success: Settings saved." in messages or
             "Erfolg:Einstellungen gespeichert." in messages)

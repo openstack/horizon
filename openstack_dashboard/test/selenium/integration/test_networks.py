@@ -12,6 +12,7 @@
 
 from oslo_utils import uuidutils
 import pytest
+from selenium.webdriver.common.by import By
 
 from openstack_dashboard.test.selenium import widgets
 
@@ -76,8 +77,8 @@ def new_subnet_demo(subnet_name, new_network_demo, openstack_demo):
 def ensure_checkbox(required_state, element):
     current_state = element.is_selected()
     if required_state != current_state:
-        element.find_element_by_xpath(
-            ".//following-sibling::label").click()  # noqa: E231
+        element.find_element(
+            By.XPATH, ".//following-sibling::label").click()  # noqa: E231
 
 
 def test_create_network_without_subnet_demo(login, openstack_demo, driver,
@@ -90,13 +91,13 @@ def test_create_network_without_subnet_demo(login, openstack_demo, driver,
         'networks',
     ))
     driver.get(url)
-    driver.find_element_by_link_text("Create Network").click()
-    network_form = driver.find_element_by_css_selector("form .modal-content")
-    network_form.find_element_by_id("id_net_name").send_keys(network_name)
-    checkbox_element = network_form.find_element_by_id("id_with_subnet")
+    driver.find_element(By.LINK_TEXT, "Create Network").click()
+    network_form = driver.find_element(By.CSS_SELECTOR, "form .modal-content")
+    network_form.find_element(By.ID, "id_net_name").send_keys(network_name)
+    checkbox_element = network_form.find_element(By.ID, "id_with_subnet")
     ensure_checkbox(False, checkbox_element)
-    network_form.find_element_by_css_selector(
-        ".btn-primary.button-final").click()
+    network_form.find_element(
+        By.CSS_SELECTOR, ".btn-primary.button-final").click()
     messages = widgets.get_and_dismiss_messages(driver, config)
     assert f'Success: Created network "{network_name}".' in messages
     assert openstack_demo.network.find_network(network_name) is not None
@@ -112,18 +113,18 @@ def test_create_network_with_subnet_demo(login, driver, openstack_demo,
         'networks',
     ))
     driver.get(url)
-    driver.find_element_by_link_text("Create Network").click()
-    network_form = driver.find_element_by_css_selector("form .modal-content")
-    network_form.find_element_by_id("id_net_name").send_keys(network_name)
-    network_form.find_element_by_css_selector(
-        ".btn-primary.button-next").click()
-    network_form.find_element_by_id("id_subnet_name").send_keys(subnet_name)
-    network_form.find_element_by_id(
-        "id_cidr").send_keys(config.network.network_cidr)
-    network_form.find_element_by_css_selector(
-        ".btn-primary.button-next").click()
-    network_form.find_element_by_css_selector(
-        ".btn-primary.button-final").click()
+    driver.find_element(By.LINK_TEXT, "Create Network").click()
+    network_form = driver.find_element(By.CSS_SELECTOR, "form .modal-content")
+    network_form.find_element(By.ID, "id_net_name").send_keys(network_name)
+    network_form.find_element(
+        By.CSS_SELECTOR, ".btn-primary.button-next").click()
+    network_form.find_element(By.ID, "id_subnet_name").send_keys(subnet_name)
+    network_form.find_element(
+        By.ID, "id_cidr").send_keys(config.network.network_cidr)
+    network_form.find_element(
+        By.CSS_SELECTOR, ".btn-primary.button-next").click()
+    network_form.find_element(
+        By.CSS_SELECTOR, ".btn-primary.button-final").click()
     messages = widgets.get_and_dismiss_messages(driver, config)
     assert f'Success: Created network "{network_name}".' in messages
     specified_network_sdk = openstack_demo.network.find_network(network_name)
@@ -141,10 +142,10 @@ def test_delete_network_demo(login, driver, network_name, openstack_demo,
         'networks',
     ))
     driver.get(url)
-    rows = driver.find_elements_by_css_selector(
-        f"table#networks tr[data-display='{network_name}']")
+    rows = driver.find_elements(
+        By.CSS_SELECTOR, f"table#networks tr[data-display='{network_name}']")
     assert len(rows) == 1
-    actions_column = rows[0].find_element_by_css_selector("td.actions_column")
+    actions_column = rows[0].find_element(By.CSS_SELECTOR, "td.actions_column")
     widgets.select_from_dropdown(actions_column, "Delete Network")
     widgets.confirm_modal(driver)
     messages = widgets.get_and_dismiss_messages(driver, config)
@@ -162,15 +163,15 @@ def test_create_network_without_subnet_admin(login, openstack_admin, driver,
         'networks',
     ))
     driver.get(url)
-    driver.find_element_by_link_text("Create Network").click()
-    network_form = driver.find_element_by_css_selector("form .modal-content")
-    network_form.find_element_by_id("id_name").send_keys(network_name)
-    checkbox_element = network_form.find_element_by_id("id_with_subnet")
+    driver.find_element(By.LINK_TEXT, "Create Network").click()
+    network_form = driver.find_element(By.CSS_SELECTOR, "form .modal-content")
+    network_form.find_element(By.ID, "id_name").send_keys(network_name)
+    checkbox_element = network_form.find_element(By.ID, "id_with_subnet")
     ensure_checkbox(False, checkbox_element)
     widgets.select_from_specific_dropdown_in_form(
         network_form, 'id_tenant_id', 'admin')
-    network_form.find_element_by_css_selector(
-        ".btn-primary.button-final").click()
+    network_form.find_element(
+        By.CSS_SELECTOR, ".btn-primary.button-final").click()
     messages = widgets.get_and_dismiss_messages(driver, config)
     assert f'Success: Created network "{network_name}".' in messages
     assert openstack_admin.network.find_network(network_name) is not None
@@ -186,20 +187,20 @@ def test_create_network_with_subnet_admin(login, driver, openstack_admin,
         'networks',
     ))
     driver.get(url)
-    driver.find_element_by_link_text("Create Network").click()
-    network_form = driver.find_element_by_css_selector("form .modal-content")
-    network_form.find_element_by_id("id_name").send_keys(network_name)
+    driver.find_element(By.LINK_TEXT, "Create Network").click()
+    network_form = driver.find_element(By.CSS_SELECTOR, "form .modal-content")
+    network_form.find_element(By.ID, "id_name").send_keys(network_name)
     widgets.select_from_specific_dropdown_in_form(
         network_form, 'id_tenant_id', 'admin')
-    network_form.find_element_by_css_selector(
-        ".btn-primary.button-next").click()
-    network_form.find_element_by_id("id_subnet_name").send_keys(subnet_name)
-    network_form.find_element_by_id(
-        "id_cidr").send_keys(config.network.network_cidr)
-    network_form.find_element_by_css_selector(
-        ".btn-primary.button-next").click()
-    network_form.find_element_by_css_selector(
-        ".btn-primary.button-final").click()
+    network_form.find_element(
+        By.CSS_SELECTOR, ".btn-primary.button-next").click()
+    network_form.find_element(By.ID, "id_subnet_name").send_keys(subnet_name)
+    network_form.find_element(
+        By.ID, "id_cidr").send_keys(config.network.network_cidr)
+    network_form.find_element(
+        By.CSS_SELECTOR, ".btn-primary.button-next").click()
+    network_form.find_element(
+        By.CSS_SELECTOR, ".btn-primary.button-final").click()
     messages = widgets.get_and_dismiss_messages(driver, config)
     assert f'Success: Created network "{network_name}".' in messages
     specified_network_sdk = openstack_admin.network.find_network(network_name)
@@ -217,10 +218,10 @@ def test_delete_network_admin(login, driver, network_name, openstack_admin,
         'networks',
     ))
     driver.get(url)
-    rows = driver.find_elements_by_css_selector(
-        f"table#networks tr[data-display='{network_name}']")
+    rows = driver.find_elements(
+        By.CSS_SELECTOR, f"table#networks tr[data-display='{network_name}']")
     assert len(rows) == 1
-    actions_column = rows[0].find_element_by_css_selector("td.actions_column")
+    actions_column = rows[0].find_element(By.CSS_SELECTOR, "td.actions_column")
     widgets.select_from_dropdown(actions_column, "Delete Network")
     widgets.confirm_modal(driver)
     messages = widgets.get_and_dismiss_messages(driver, config)

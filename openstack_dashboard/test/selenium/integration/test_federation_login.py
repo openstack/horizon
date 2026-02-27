@@ -12,6 +12,7 @@
 
 import pytest
 from selenium.common.exceptions import NoSuchElementException
+from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import Select
 
 
@@ -28,8 +29,7 @@ def test_federation_keystone_user_login(login, driver, config,
 
     login('user')
     try:
-        driver.find_element_by_xpath(
-            config.theme.user_name_xpath)
+        driver.find_element(By.XPATH, config.theme.user_name_xpath)
         assert True
     except NoSuchElementException:
         assert False
@@ -42,8 +42,7 @@ def test_federation_keystone_admin_login(login, driver, config,
 
     login('admin')
     try:
-        driver.find_element_by_xpath(
-            config.theme.user_name_xpath)
+        driver.find_element(By.XPATH, config.theme.user_name_xpath)
         assert True
     except NoSuchElementException:
         assert False
@@ -92,28 +91,28 @@ def start_common_federation_login(driver, openstack_admin,
         openstack_admin.identity
         .find_identity_provider(identity_provider)['remote_ids'][0]
     )
-    select_auth = driver.find_element_by_id('id_auth_type')
+    select_auth = driver.find_element(By.ID, 'id_auth_type')
     select_auth.click()
     select_opt = Select(select_auth)
     select_opt.select_by_value(web_sso_choice_value)
-    button = driver.find_element_by_css_selector('.btn-primary')
+    button = driver.find_element(By.CSS_SELECTOR, '.btn-primary')
     button.click()
-    keycloak_url_field = driver.find_element_by_css_selector(
-        'input[type="text"][name="iss"]')
+    keycloak_url_field = driver.find_element(
+        By.CSS_SELECTOR, 'input[type="text"][name="iss"]')
     keycloak_url_field.send_keys(idp_url)
-    submit_button = driver.find_element_by_css_selector(
-        'input[type="submit"][value="Submit"]')
+    submit_button = driver.find_element(
+        By.CSS_SELECTOR, 'input[type="submit"][value="Submit"]')
     submit_button.click()
 
 
 def logged_in_as(driver, config, idps_oidc_credentials):
     (username, _, home_project, _, _) = idps_oidc_credentials
     try:
-        project_element = driver.find_element_by_xpath(
-            config.theme.project_name_xpath)
+        project_element = driver.find_element(
+            By.XPATH, config.theme.project_name_xpath)
         try:
-            project_element.find_element_by_xpath(
-                f'.//*[normalize-space()="{home_project}"]')
+            project_element.find_element(
+                By.XPATH, f'.//*[normalize-space()="{home_project}"]')
         except NoSuchElementException:
             return False, f"Project '{home_project}' not found on page"
     except NoSuchElementException:
@@ -122,11 +121,11 @@ def logged_in_as(driver, config, idps_oidc_credentials):
             f"{config.theme.project_name_xpath}"
         )
     try:
-        username_element = driver.find_element_by_xpath(
-            config.theme.user_name_xpath)
+        username_element = driver.find_element(
+            By.XPATH, config.theme.user_name_xpath)
         try:
-            username_element.find_element_by_xpath(
-                f'.//*[normalize-space()="{username}"]')
+            username_element.find_element(
+                By.XPATH, f'.//*[normalize-space()="{username}"]')
         except NoSuchElementException:
             return False, f"Username '{username}' not found on page"
     except NoSuchElementException:
@@ -146,18 +145,17 @@ def test_federation_keycloak_test_user_login(driver, login,
 
     login(None)
     (username, password, _, _, _) = idps_oidc_credentials['user1']
-    select_auth = driver.find_element_by_id('id_auth_type')
+    select_auth = driver.find_element(By.ID, 'id_auth_type')
     select_auth.click()
     select_opt = Select(select_auth)
     select_opt.select_by_visible_text('OpenID Connect')
-    button = driver.find_element_by_css_selector(
-        '.btn-primary')
+    button = driver.find_element(By.CSS_SELECTOR, '.btn-primary')
     button.click()
-    keycloak_user_field = driver.find_element_by_id('username')
+    keycloak_user_field = driver.find_element(By.ID, 'username')
     keycloak_user_field.send_keys(username)
-    keycloak_pass_field = driver.find_element_by_id('password')
+    keycloak_pass_field = driver.find_element(By.ID, 'password')
     keycloak_pass_field.send_keys(password)
-    kc_login_button = driver.find_element_by_id('kc-login')
+    kc_login_button = driver.find_element(By.ID, 'kc-login')
     kc_login_button.click()
     success, message = logged_in_as(
         driver, config, idps_oidc_credentials['user1'])
@@ -188,11 +186,11 @@ def test_multi_realm_IdP1_login_full_flow(
     # Step 1: Full authentication (creates Keycloak session)
     # username + password required
     (username, password, _, _, _) = idps_oidc_credentials['user1']
-    keycloak_user_field = driver.find_element_by_id('username')
+    keycloak_user_field = driver.find_element(By.ID, 'username')
     keycloak_user_field.send_keys(username)
-    keycloak_pass_field = driver.find_element_by_id('password')
+    keycloak_pass_field = driver.find_element(By.ID, 'password')
     keycloak_pass_field.send_keys(password)
-    kc_login_button = driver.find_element_by_id('kc-login')
+    kc_login_button = driver.find_element(By.ID, 'kc-login')
     kc_login_button.click()
     success, message = logged_in_as(
         driver, config, idps_oidc_credentials['user1'])
@@ -202,11 +200,11 @@ def test_multi_realm_IdP1_login_full_flow(
     login(None)
     start_common_federation_login(
         driver, openstack_admin, idps_oidc_credentials['user1'])
-    driver.find_element_by_xpath(
-        "//span[text()='Please re-authenticate to continue']")
-    keycloak_pass_field = driver.find_element_by_id('password')
+    driver.find_element(
+        By.XPATH, "//span[text()='Please re-authenticate to continue']")
+    keycloak_pass_field = driver.find_element(By.ID, 'password')
     keycloak_pass_field.send_keys(password)
-    kc_login_button = driver.find_element_by_id('kc-login')
+    kc_login_button = driver.find_element(By.ID, 'kc-login')
     kc_login_button.click()
     success, message = logged_in_as(
         driver, config, idps_oidc_credentials['user1'])
@@ -218,12 +216,12 @@ def test_multi_realm_IdP1_login_full_flow(
     start_common_federation_login(
         driver, openstack_admin, idps_oidc_credentials['user2'])
     (username, password, _, _, _) = idps_oidc_credentials['user2']
-    driver.find_element_by_id('reset-login').click()
-    keycloak_user_field = driver.find_element_by_id('username')
+    driver.find_element(By.ID, 'reset-login').click()
+    keycloak_user_field = driver.find_element(By.ID, 'username')
     keycloak_user_field.send_keys(username)
-    keycloak_pass_field = driver.find_element_by_id('password')
+    keycloak_pass_field = driver.find_element(By.ID, 'password')
     keycloak_pass_field.send_keys(password)
-    kc_login_button = driver.find_element_by_id('kc-login')
+    kc_login_button = driver.find_element(By.ID, 'kc-login')
     kc_login_button.click()
     success, message = logged_in_as(
         driver, config, idps_oidc_credentials['user2'])
@@ -242,11 +240,11 @@ def test_multi_realm_IdP2_login_full_auth(driver, config, login,
     start_common_federation_login(
         driver, openstack_admin, idps_oidc_credentials['user3'])
     (username, password, _, _, _) = idps_oidc_credentials['user3']
-    keycloak_user_field = driver.find_element_by_id('username')
+    keycloak_user_field = driver.find_element(By.ID, 'username')
     keycloak_user_field.send_keys(username)
-    keycloak_pass_field = driver.find_element_by_id('password')
+    keycloak_pass_field = driver.find_element(By.ID, 'password')
     keycloak_pass_field.send_keys(password)
-    kc_login_button = driver.find_element_by_id('kc-login')
+    kc_login_button = driver.find_element(By.ID, 'kc-login')
     kc_login_button.click()
     success, message = logged_in_as(
         driver, config, idps_oidc_credentials['user3'])

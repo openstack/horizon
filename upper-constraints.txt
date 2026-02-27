@@ -161,7 +161,7 @@ reno===4.1.0
 ncclient===0.7.0
 imagesize===1.4.1
 pydot===4.0.1
-urllib3===1.26.20
+urllib3===2.6.3
 graphviz===0.21
 PyKMIP===0.10.0
 python-observabilityclient===1.2.0
@@ -279,7 +279,7 @@ docutils===0.21.2
 threadpoolctl===3.6.0
 os-ken===4.1.1
 ujson===5.11.0
-selenium===3.141.0
+selenium===4.41.0
 pytest-subtests===0.15.0
 mistral-lib===3.5.1
 dogtag-pki===11.2.1

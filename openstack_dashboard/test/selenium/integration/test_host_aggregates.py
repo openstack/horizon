@@ -12,6 +12,7 @@
 
 from oslo_utils import uuidutils
 import pytest
+from selenium.webdriver.common.by import By
 
 from openstack_dashboard.test.selenium import widgets
 
@@ -58,13 +59,13 @@ def test_create_host_aggregate(login, driver, openstack_admin, config,
         'aggregates',
     ))
     driver.get(url)
-    driver.find_element_by_link_text("Create Host Aggregate").click()
-    host_aggregate_form = driver.find_element_by_css_selector(
-        "form .modal-content")
-    host_aggregate_form.find_element_by_id("id_name").send_keys(
+    driver.find_element(By.LINK_TEXT, "Create Host Aggregate").click()
+    host_aggregate_form = driver.find_element(
+        By.CSS_SELECTOR, "form .modal-content")
+    host_aggregate_form.find_element(By.ID, "id_name").send_keys(
         host_aggregate_name)
-    host_aggregate_form.find_element_by_css_selector(
-        ".btn-primary[value='Create Host Aggregate']").click()
+    host_aggregate_form.find_element(
+        By.CSS_SELECTOR, ".btn-primary[value='Create Host Aggregate']").click()
     messages = widgets.get_and_dismiss_messages(driver, config)
     assert (f'Success: Created new host aggregate "{host_aggregate_name}".'
             in messages)
@@ -86,11 +87,12 @@ def test_delete_host_aggregate(login, driver, openstack_admin, config,
         'aggregates'
     ))
     driver.get(url)
-    rows = driver.find_elements_by_css_selector(
+    rows = driver.find_elements(
+        By.CSS_SELECTOR,
         f"table#host_aggregates tr[data-display="
         f"'{new_host_aggregate['aggregate']['name']}']")
     assert len(rows) == 1
-    actions_column = rows[0].find_element_by_css_selector("td.actions_column")
+    actions_column = rows[0].find_element(By.CSS_SELECTOR, "td.actions_column")
     widgets.select_from_dropdown(actions_column, "Delete Host Aggregate")
     widgets.confirm_modal(driver)
     messages = widgets.get_and_dismiss_messages(driver, config)

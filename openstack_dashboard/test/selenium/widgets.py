@@ -33,8 +33,8 @@ def get_and_dismiss_messages(driver, config):
             (By.CSS_SELECTOR, 'div.messages div.alert')))
     collect = []
     for message in messages:
-        text = message.find_element_by_css_selector("p, div").text
-        message.find_element_by_css_selector("a.close").click()
+        text = message.find_element(By.CSS_SELECTOR, "p, div").text
+        message.find_element(By.CSS_SELECTOR, "a.close").click()
         collect.append(text)
     return collect
 
@@ -45,37 +45,33 @@ def find_already_visible_element_by_xpath(element, driver):
 
 
 def select_from_dropdown(element, label):
-    menu_button = element.find_element_by_css_selector(
-        ".dropdown-toggle"
-    )
+    menu_button = element.find_element(By.CSS_SELECTOR, ".dropdown-toggle")
     menu_button.click()
-    options = element.find_element_by_css_selector("ul.dropdown-menu")
-    selection = options.find_element_by_xpath(
-        f".//*[normalize-space()='{label}']"
-    )
+    options = element.find_element(By.CSS_SELECTOR, "ul.dropdown-menu")
+    selection = options.find_element(
+        By.XPATH, f".//*[normalize-space()='{label}']")
     selection.click()
 
 
 def select_from_specific_dropdown_in_form(driver, dropdown_id, label):
-    dropdown = driver.find_element_by_xpath(
+    dropdown = driver.find_element(
+        By.XPATH,
         f".//*[@for='{dropdown_id}']/following-sibling::div")  # noqa: E231
     dropdown.click()
-    dropdown_options = dropdown.find_element_by_css_selector(
-        "ul.dropdown-menu")
-    dropdown_options.find_element_by_xpath(
-        f".//*[normalize-space()='{label}']").click()
+    dropdown_options = dropdown.find_element(
+        By.CSS_SELECTOR, "ul.dropdown-menu")
+    dropdown_options.find_element(
+        By.XPATH, f".//*[normalize-space()='{label}']").click()
 
 
 def confirm_modal(element):
-    confirm = element.find_element_by_css_selector(
-        ".modal-dialog .btn-danger"
-    )
+    confirm = element.find_element(By.CSS_SELECTOR, ".modal-dialog .btn-danger")
     confirm.click()
 
 
 def is_next_link_available(driver):
     try:
-        return driver.find_element_by_link_text("Next »").is_displayed()
+        return driver.find_element(By.LINK_TEXT, "Next »").is_displayed()
     except (exceptions.NoSuchElementException,
             exceptions.ElementNotVisibleException):
         return False
@@ -83,7 +79,7 @@ def is_next_link_available(driver):
 
 def is_prev_link_available(driver):
     try:
-        return driver.find_element_by_link_text("« Prev").is_displayed()
+        return driver.find_element(By.LINK_TEXT, "« Prev").is_displayed()
     except (exceptions.NoSuchElementException,
             exceptions.ElementNotVisibleException):
         return False
@@ -91,13 +87,13 @@ def is_prev_link_available(driver):
 
 def available_elements(driver, resource_type, name):
     try:
-        driver.find_elements_by_css_selector(
-            f"table#{resource_type} tr[data-display='{name}']")
+        driver.find_elements(
+            By.CSS_SELECTOR, f"table#{resource_type} tr[data-display='{name}']")
     except (exceptions.NoSuchElementException):
         pass
     finally:
-        return driver.find_elements_by_css_selector(
-            'table tr td:nth-child(2) a')
+        return driver.find_elements(
+            By.CSS_SELECTOR, 'table tr td:nth-child(2) a')
 
 
 def get_table_status(driver, resource_type, name, sorting=False):
@@ -113,8 +109,8 @@ def get_table_status(driver, resource_type, name, sorting=False):
 
 def get_image_table_definition(driver, sorting=False):
     """This function is specific to Image table definition"""
-    names = driver.find_elements_by_css_selector(
-        "td[class='rsp-p1 word-wrap']")
+    names = driver.find_elements(
+        By.CSS_SELECTOR, "td[class='rsp-p1 word-wrap']")
     if sorting:
         names = [name.text for name in names]
         names.sort()
@@ -126,16 +122,15 @@ def get_image_table_definition(driver, sorting=False):
 
 
 def select_from_transfer_table(element, label):
-    #   Choose row from available Images, Flavors, Networks, etc.
-    #   In launch tab for example: m1.tiny for Flavor, cirros for image, etc.
-
     try:
-        element.find_element_by_xpath(
+        element.find_element(
+            By.XPATH,
             f".//*[text()='{label}']//ancestor::tr/td//*"  # noqa: E231
             f"[@class='btn btn-default fa fa-arrow-up']").click()
     except exceptions.NoSuchElementException:
         try:
-            element.find_element_by_xpath(
+            element.find_element(
+                By.XPATH,
                 f".//*[text()='{label}']//ancestor::tr/td//*"  # noqa: E231
                 f"[@class='btn btn-default fa fa-arrow-down']")
         except exceptions.NoSuchElementException:

@@ -12,6 +12,8 @@
 
 from unittest import mock
 
+from selenium.webdriver.common.by import By
+
 from openstack_dashboard import api
 
 
@@ -51,36 +53,37 @@ def test_vcpu_pcpu_data_display(live_server, driver, user, dashboard_data):
         mocked_g_p.return_value = providers
 
         driver.get(live_server.url + '/admin/hypervisors')
-        assert (driver.find_element_by_xpath(
-            "//*[normalize-space()='vCPU Usage']/"
+        assert (driver.find_element(
+            By.XPATH, "//*[normalize-space()='vCPU Usage']/"
             "ancestor::div[contains(@class,'d3_quota_bar')]"  # noqa: E231
             "/div[contains(@class,'h6')]/"  # noqa: E231
             "span[1]").text == str(p['vcpus_used']))
-        assert (driver.find_element_by_xpath(
-            "//*[normalize-space()='vCPU Usage']/"
+        assert (driver.find_element(
+            By.XPATH, "//*[normalize-space()='vCPU Usage']/"
             "ancestor::div[contains(@class,'d3_quota_bar')]"  # noqa: E231
             "/div[contains(@class,'h6')]/"  # noqa: E231
             "span[2]").text == str(p['vcpus_capacity']))
 
-        assert (driver.find_element_by_xpath(
-            "//*[normalize-space()='pCPU Usage']/"
+        assert (driver.find_element(
+
+            By.XPATH, "//*[normalize-space()='pCPU Usage']/"
             "ancestor::div[contains(@class,'d3_quota_bar')]"  # noqa: E231
             "/div[contains(@class,'h6')]/"  # noqa: E231
             "span[1]").text == str(p['pcpus_used']))
-        assert (driver.find_element_by_xpath(
-            "//*[normalize-space()='pCPU Usage']/"
+        assert (driver.find_element(
+            By.XPATH, "//*[normalize-space()='pCPU Usage']/"
             "ancestor::div[contains(@class,'d3_quota_bar')]"  # noqa: E231
             "/div[contains(@class,'h6')]/"  # noqa: E231
             "span[2]").text == str(p['pcpus_capacity']))
 
-        driver.find_element_by_link_text("Resource Provider").click()
-        resource_provider_tab = driver.find_element_by_id(
-            "hypervisor_info__provider")
-        table_header = resource_provider_tab.find_elements_by_css_selector(
-            ".table_column_header th")
+        driver.find_element(By.LINK_TEXT, "Resource Provider").click()
+        resource_provider_tab = driver.find_element(
+            By.ID, "hypervisor_info__provider")
+        table_header = resource_provider_tab.find_elements(
+            By.CSS_SELECTOR, ".table_column_header th")
         table_row_test_provider = (
-            resource_provider_tab.find_elements_by_css_selector(
-                "#providers__row__test_provider td"))
+            resource_provider_tab.find_elements(
+                By.CSS_SELECTOR, "#providers__row__test_provider td"))
         table_providers = dict(zip((x.text for x in table_header),
                                    (x.text for x in table_row_test_provider)))
 

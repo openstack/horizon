@@ -13,6 +13,7 @@
 import time
 
 import pytest
+from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.wait import WebDriverWait
 
@@ -62,11 +63,11 @@ def test_create_empty_volume_demo(login, driver, volume_name, openstack_demo,
         'volumes',
     ))
     driver.get(url)
-    driver.find_element_by_link_text("Create Volume").click()
-    volume_form = driver.find_element_by_css_selector(".modal-dialog form")
-    volume_form.find_element_by_id("id_name").send_keys(volume_name)
-    volume_form.find_element_by_css_selector(
-        ".btn-primary[value='Create Volume']").click()
+    driver.find_element(By.LINK_TEXT, "Create Volume").click()
+    volume_form = driver.find_element(By.CSS_SELECTOR, ".modal-dialog form")
+    volume_form.find_element(By.ID, "id_name").send_keys(volume_name)
+    volume_form.find_element(
+        By.CSS_SELECTOR, ".btn-primary[value='Create Volume']").click()
     messages = widgets.get_and_dismiss_messages(driver, config)
     assert f'Info: Creating volume "{volume_name}"' in messages
     assert openstack_demo.block_storage.find_volume(volume_name) is not None
@@ -85,15 +86,15 @@ def test_create_volume_via_vol_source_image_demo(login, driver,
         'volumes',
     ))
     driver.get(url)
-    driver.find_element_by_link_text("Create Volume").click()
-    volume_form = driver.find_element_by_css_selector(".modal-dialog form")
-    volume_form.find_element_by_id("id_name").send_keys(volume_name)
+    driver.find_element(By.LINK_TEXT, "Create Volume").click()
+    volume_form = driver.find_element(By.CSS_SELECTOR, ".modal-dialog form")
+    volume_form.find_element(By.ID, "id_name").send_keys(volume_name)
     widgets.select_from_specific_dropdown_in_form(
         volume_form, 'id_volume_source_type', 'Image')
     widgets.select_from_specific_dropdown_in_form(
         volume_form, 'id_image_source', image_source_name)
-    volume_form.find_element_by_css_selector(
-        ".btn-primary[value='Create Volume']").click()
+    volume_form.find_element(
+        By.CSS_SELECTOR, ".btn-primary[value='Create Volume']").click()
     messages = widgets.get_and_dismiss_messages(driver, config)
     assert f'Info: Creating volume "{volume_name}"' in messages
     assert openstack_demo.block_storage.find_volume(volume_name) is not None
@@ -109,11 +110,11 @@ def test_delete_volume_demo(login, driver, volume_name, openstack_demo,
         'volumes',
     ))
     driver.get(url)
-    rows = driver.find_elements_by_css_selector(
-        f"table#volumes tr[data-display='{volume_name}']"
+    rows = driver.find_elements(
+        By.CSS_SELECTOR, f"table#volumes tr[data-display='{volume_name}']"
     )
     assert len(rows) == 1
-    actions_column = rows[0].find_element_by_css_selector("td.actions_column")
+    actions_column = rows[0].find_element(By.CSS_SELECTOR, "td.actions_column")
     widgets.select_from_dropdown(actions_column, "Delete Volume")
     widgets.confirm_modal(driver)
     messages = widgets.get_and_dismiss_messages(driver, config)
@@ -132,16 +133,16 @@ def test_edit_volume_description_demo(login, driver, volume_name, config,
         'volumes',
     ))
     driver.get(url)
-    rows = driver.find_elements_by_css_selector(
-        f"table#volumes tr[data-display='{volume_name}']"
+    rows = driver.find_elements(
+        By.CSS_SELECTOR, f"table#volumes tr[data-display='{volume_name}']"
     )
     assert len(rows) == 1
-    rows[0].find_element_by_css_selector(".data-table-action").click()
-    volume_form = driver.find_element_by_css_selector(".modal-dialog form")
-    volume_form.find_element_by_id("id_description").clear()
-    volume_form.find_element_by_id("id_description").send_keys(
+    rows[0].find_element(By.CSS_SELECTOR, ".data-table-action").click()
+    volume_form = driver.find_element(By.CSS_SELECTOR, ".modal-dialog form")
+    volume_form.find_element(By.ID, "id_description").clear()
+    volume_form.find_element(By.ID, "id_description").send_keys(
         f"EDITED_Description for: {volume_name}")
-    volume_form.find_element_by_css_selector(".btn-primary").click()
+    volume_form.find_element(By.CSS_SELECTOR, ".btn-primary").click()
     messages = widgets.get_and_dismiss_messages(driver, config)
     assert f'Info: Updating volume "{volume_name}"' in messages
     assert (openstack_demo.block_storage.find_volume(
@@ -157,18 +158,19 @@ def test_extend_volume_demo(login, driver, openstack_demo, new_volume_demo,
         'volumes',
     ))
     driver.get(url)
-    rows = driver.find_elements_by_css_selector(
+    rows = driver.find_elements(
+        By.CSS_SELECTOR,
         f"table#volumes tr[data-display='{new_volume_demo.name}']"
     )
     assert len(rows) == 1
     assert (openstack_demo.block_storage.find_volume(
         new_volume_demo.name).size == 1)
-    actions_column = rows[0].find_element_by_css_selector("td.actions_column")
+    actions_column = rows[0].find_element(By.CSS_SELECTOR, "td.actions_column")
     widgets.select_from_dropdown(actions_column, "Extend Volume")
-    volume_form = driver.find_element_by_css_selector(".modal-dialog form")
-    volume_form.find_element_by_id("id_new_size").send_keys(2)
-    volume_form.find_element_by_css_selector(
-        ".btn-primary[value='Extend Volume']").click()
+    volume_form = driver.find_element(By.CSS_SELECTOR, ".modal-dialog form")
+    volume_form.find_element(By.ID, "id_new_size").send_keys(2)
+    volume_form.find_element(
+        By.CSS_SELECTOR, ".btn-primary[value='Extend Volume']").click()
     messages = widgets.get_and_dismiss_messages(driver, config)
     assert f'Info: Extending volume: "{new_volume_demo.name}"' in messages
     wait_for_steady_state_of_volume(openstack_demo, new_volume_demo.name)
@@ -190,26 +192,27 @@ def test_volume_launch_as_instance_demo(login, driver, openstack_demo,
         'volumes',
     ))
     driver.get(url)
-    rows = driver.find_elements_by_css_selector(
+    rows = driver.find_elements(
+        By.CSS_SELECTOR,
         f"table#volumes tr[data-display='{new_volume_demo.name}']"
     )
     assert len(rows) == 1
-    actions_column = rows[0].find_element_by_css_selector("td.actions_column")
+    actions_column = rows[0].find_element(By.CSS_SELECTOR, "td.actions_column")
     widgets.select_from_dropdown(actions_column, "Launch as Instance")
-    wizard = driver.find_element_by_css_selector("wizard")
-    navigation = wizard.find_element_by_css_selector("div.wizard-nav")
+    wizard = driver.find_element(By.CSS_SELECTOR, "wizard")
+    navigation = wizard.find_element(By.CSS_SELECTOR, "div.wizard-nav")
     widgets.find_already_visible_element_by_xpath(
         ".//*[@id='name']", wizard).send_keys(instance_name)
-    navigation.find_element_by_link_text("Flavor").click()
-    flavor_table = wizard.find_element_by_css_selector(
-        "ng-include[ng-form=launchInstanceFlavorForm]")
+    navigation.find_element(By.LINK_TEXT, "Flavor").click()
+    flavor_table = wizard.find_element(
+        By.CSS_SELECTOR, "ng-include[ng-form=launchInstanceFlavorForm]")
     widgets.select_from_transfer_table(flavor_table, flavor)
-    navigation.find_element_by_link_text("Networks").click()
-    network_table = wizard.find_element_by_css_selector(
-        "ng-include[ng-form=launchInstanceNetworkForm]")
+    navigation.find_element(By.LINK_TEXT, "Networks").click()
+    network_table = wizard.find_element(
+        By.CSS_SELECTOR, "ng-include[ng-form=launchInstanceNetworkForm]")
     widgets.select_from_transfer_table(network_table, network)
-    wizard.find_element_by_css_selector(
-        "button.btn-primary.finish").click()
+    wizard.find_element(
+        By.CSS_SELECTOR, "button.btn-primary.finish").click()
 #   For create instance - message appears earlier than the page is refreshed.
 #   We are unable to ensure that the message will be captured.
 #   Checking of message is skipped, we wait for refresh page
@@ -233,17 +236,18 @@ def test_volume_upload_to_image_demo(login, driver, openstack_demo,
         'volumes',
     ))
     driver.get(url)
-    rows = driver.find_elements_by_css_selector(
+    rows = driver.find_elements(
+        By.CSS_SELECTOR,
         f"table#volumes tr[data-display='{new_volume_demo.name}']"
     )
     assert len(rows) == 1
-    actions_column = rows[0].find_element_by_css_selector("td.actions_column")
+    actions_column = rows[0].find_element(By.CSS_SELECTOR, "td.actions_column")
     widgets.select_from_dropdown(actions_column, "Upload to Image")
-    volume_form = driver.find_element_by_css_selector(
-        ".modal-dialog form")
-    volume_form.find_element_by_id("id_image_name").send_keys(image_names[0])
-    volume_form.find_element_by_css_selector(
-        ".btn-primary[value='Upload']").click()
+    volume_form = driver.find_element(
+        By.CSS_SELECTOR, ".modal-dialog form")
+    volume_form.find_element(By.ID, "id_image_name").send_keys(image_names[0])
+    volume_form.find_element(
+        By.CSS_SELECTOR, ".btn-primary[value='Upload']").click()
     messages = widgets.get_and_dismiss_messages(driver, config)
     assert ('Info: Successfully sent the request to upload volume to image for '
             f'volume: "{new_volume_demo.name}"' in messages)
@@ -295,25 +299,25 @@ def test_volumes_pagination_demo(login, driver, volume_name,
                                                     sorting=True)
     assert first_page_definition == current_table_status
     # Turning to next page(page2)
-    driver.find_element_by_link_text("Next »").click()
+    driver.find_element(By.LINK_TEXT, "Next »").click()
     current_table_status = widgets.get_table_status(driver, "volumes",
                                                     volume_name[1],
                                                     sorting=True)
     assert second_page_definition == current_table_status
     # Turning to next page(page3)
-    driver.find_element_by_link_text("Next »").click()
+    driver.find_element(By.LINK_TEXT, "Next »").click()
     current_table_status = widgets.get_table_status(driver, "volumes",
                                                     volume_name[0],
                                                     sorting=True)
     assert third_page_definition == current_table_status
     # Turning back to previous page(page2)
-    driver.find_element_by_link_text("« Prev").click()
+    driver.find_element(By.LINK_TEXT, "« Prev").click()
     current_table_status = widgets.get_table_status(driver, "volumes",
                                                     volume_name[1],
                                                     sorting=True)
     assert second_page_definition == current_table_status
     # Turning back to previous page(page1)
-    driver.find_element_by_link_text("« Prev").click()
+    driver.find_element(By.LINK_TEXT, "« Prev").click()
     current_table_status = widgets.get_table_status(driver, "volumes",
                                                     volume_name[2],
                                                     sorting=True)
@@ -332,19 +336,20 @@ def test_manage_volume_attachments(login, driver, openstack_demo,
         'volumes',
     ))
     driver.get(url)
-    rows = driver.find_elements_by_css_selector(
+    rows = driver.find_elements(
+        By.CSS_SELECTOR,
         f"table#volumes tr[data-display='{new_volume_demo.name}']"
     )
     assert len(rows) == 1
-    actions_column = rows[0].find_element_by_css_selector("td.actions_column")
+    actions_column = rows[0].find_element(By.CSS_SELECTOR, "td.actions_column")
     widgets.select_from_dropdown(actions_column, "Manage Attachments")
-    attach_to_instance_form = driver.find_element_by_css_selector(
-        ".modal-content form[id='attach_volume_form']")
+    attach_to_instance_form = driver.find_element(
+        By.CSS_SELECTOR, ".modal-content form[id='attach_volume_form']")
     widgets.select_from_dropdown(
         attach_to_instance_form,
         f"{new_instance_demo.name} ({new_instance_demo.id})")
-    attach_to_instance_form.find_element_by_css_selector(
-        ".btn-primary[value='Attach Volume']").click()
+    attach_to_instance_form.find_element(
+        By.CSS_SELECTOR, ".btn-primary[value='Attach Volume']").click()
     messages = widgets.get_and_dismiss_messages(driver, config)
     assert (f"Info: Attaching volume {new_volume_demo.name} to instance "
             f"{new_instance_demo.name} on /dev/vdb." in messages)
@@ -357,17 +362,18 @@ def test_manage_volume_attachments(login, driver, openstack_demo,
     row = widgets.find_already_visible_element_by_xpath(
         f".//tr[@data-display='{new_volume_demo.name}']/td[@class"
         f"='actions_column']/div/a[normalize-space()='Edit Volume']", driver)
-    actions_column = row.find_element_by_xpath(
-        ".//ancestor::tr/td[contains(@class,'actions_column')]")
+    actions_column = row.find_element(
+        By.XPATH, ".//ancestor::tr/td[contains(@class,'actions_column')]")
     widgets.select_from_dropdown(actions_column, "Manage Attachments")
-    rows_attachments = driver.find_elements_by_css_selector(
+    rows_attachments = driver.find_elements(
+        By.CSS_SELECTOR,
         f"table#attachments tr[data-display='Volume {new_volume_demo.name} "
         f"on instance {new_instance_demo.name}']")
     assert len(rows_attachments) == 1
-    rows_attachments[0].find_element_by_css_selector(
-        "td.actions_column").click()
-    driver.find_element_by_xpath(
-        ".//a[normalize-space()='Detach Volume']").click()
+    rows_attachments[0].find_element(
+        By.CSS_SELECTOR, "td.actions_column").click()
+    driver.find_element(
+        By.XPATH, ".//a[normalize-space()='Detach Volume']").click()
     messages = widgets.get_and_dismiss_messages(driver, config)
     assert (f"Success: Detaching Volume: Volume {new_volume_demo.name} "
             f"on instance {new_instance_demo.name}" in messages)
@@ -389,11 +395,11 @@ def test_create_empty_volume_admin(login, driver, volume_name, openstack_admin,
         'volumes',
     ))
     driver.get(url)
-    driver.find_element_by_link_text("Create Volume").click()
-    volume_form = driver.find_element_by_css_selector(".modal-dialog form")
-    volume_form.find_element_by_id("id_name").send_keys(volume_name)
-    volume_form.find_element_by_css_selector(
-        ".btn-primary[value='Create Volume']").click()
+    driver.find_element(By.LINK_TEXT, "Create Volume").click()
+    volume_form = driver.find_element(By.CSS_SELECTOR, ".modal-dialog form")
+    volume_form.find_element(By.ID, "id_name").send_keys(volume_name)
+    volume_form.find_element(
+        By.CSS_SELECTOR, ".btn-primary[value='Create Volume']").click()
     messages = widgets.get_and_dismiss_messages(driver, config)
     assert f'Info: Creating volume "{volume_name}"' in messages
     assert openstack_admin.block_storage.find_volume(volume_name) is not None
@@ -411,15 +417,15 @@ def test_create_volume_via_vol_source_image_admin(login, driver, volume_name,
         'volumes',
     ))
     driver.get(url)
-    driver.find_element_by_link_text("Create Volume").click()
-    volume_form = driver.find_element_by_css_selector(".modal-dialog form")
-    volume_form.find_element_by_id("id_name").send_keys(volume_name)
+    driver.find_element(By.LINK_TEXT, "Create Volume").click()
+    volume_form = driver.find_element(By.CSS_SELECTOR, ".modal-dialog form")
+    volume_form.find_element(By.ID, "id_name").send_keys(volume_name)
     widgets.select_from_specific_dropdown_in_form(
         volume_form, 'id_volume_source_type', 'Image')
     widgets.select_from_specific_dropdown_in_form(
         volume_form, 'id_image_source', image_source_name)
-    volume_form.find_element_by_css_selector(
-        ".btn-primary[value='Create Volume']").click()
+    volume_form.find_element(
+        By.CSS_SELECTOR, ".btn-primary[value='Create Volume']").click()
     messages = widgets.get_and_dismiss_messages(driver, config)
     assert f'Info: Creating volume "{volume_name}"' in messages
     assert openstack_admin.block_storage.find_volume(volume_name) is not None
@@ -435,11 +441,11 @@ def test_delete_volume_admin(login, driver, volume_name, openstack_admin,
         'volumes',
     ))
     driver.get(url)
-    rows = driver.find_elements_by_css_selector(
-        f"table#volumes tr[data-display='{volume_name}']"
+    rows = driver.find_elements(
+        By.CSS_SELECTOR, f"table#volumes tr[data-display='{volume_name}']"
     )
     assert len(rows) == 1
-    actions_column = rows[0].find_element_by_css_selector("td.actions_column")
+    actions_column = rows[0].find_element(By.CSS_SELECTOR, "td.actions_column")
     widgets.select_from_dropdown(actions_column, "Delete Volume")
     widgets.confirm_modal(driver)
     messages = widgets.get_and_dismiss_messages(driver, config)
@@ -458,16 +464,16 @@ def test_edit_volume_description_admin(login, driver, volume_name, config,
         'volumes',
     ))
     driver.get(url)
-    rows = driver.find_elements_by_css_selector(
-        f"table#volumes tr[data-display='{volume_name}']"
+    rows = driver.find_elements(
+        By.CSS_SELECTOR, f"table#volumes tr[data-display='{volume_name}']"
     )
     assert len(rows) == 1
-    rows[0].find_element_by_css_selector(".data-table-action").click()
-    volume_form = driver.find_element_by_css_selector(".modal-dialog form")
-    volume_form.find_element_by_id("id_description").clear()
-    volume_form.find_element_by_id("id_description").send_keys(
+    rows[0].find_element(By.CSS_SELECTOR, ".data-table-action").click()
+    volume_form = driver.find_element(By.CSS_SELECTOR, ".modal-dialog form")
+    volume_form.find_element(By.ID, "id_description").clear()
+    volume_form.find_element(By.ID, "id_description").send_keys(
         f"EDITED_Description for: {volume_name}")
-    volume_form.find_element_by_css_selector(".btn-primary").click()
+    volume_form.find_element(By.CSS_SELECTOR, ".btn-primary").click()
     messages = widgets.get_and_dismiss_messages(driver, config)
     assert f'Info: Updating volume "{volume_name}"' in messages
     assert (openstack_admin.block_storage.find_volume(
@@ -518,25 +524,25 @@ def test_volumes_pagination_admin(login, driver, volume_name,
                                                     sorting=True)
     assert first_page_definition == current_table_status
     # Turning to next page(page2)
-    driver.find_element_by_link_text("Next »").click()
+    driver.find_element(By.LINK_TEXT, "Next »").click()
     current_table_status = widgets.get_table_status(driver, "volumes",
                                                     volume_name[1],
                                                     sorting=True)
     assert second_page_definition == current_table_status
     # Turning to next page(page3)
-    driver.find_element_by_link_text("Next »").click()
+    driver.find_element(By.LINK_TEXT, "Next »").click()
     current_table_status = widgets.get_table_status(driver, "volumes",
                                                     volume_name[0],
                                                     sorting=True)
     assert third_page_definition == current_table_status
     # Turning back to previous page(page2)
-    driver.find_element_by_link_text("« Prev").click()
+    driver.find_element(By.LINK_TEXT, "« Prev").click()
     current_table_status = widgets.get_table_status(driver, "volumes",
                                                     volume_name[1],
                                                     sorting=True)
     assert second_page_definition == current_table_status
     # Turning back to previous page(page1)
-    driver.find_element_by_link_text("« Prev").click()
+    driver.find_element(By.LINK_TEXT, "« Prev").click()
     current_table_status = widgets.get_table_status(driver, "volumes",
                                                     volume_name[2],
                                                     sorting=True)

@@ -16,6 +16,7 @@ import openstack as openstack_sdk
 from oslo_utils import uuidutils
 import pytest
 from selenium.common import exceptions
+from selenium.webdriver.common.by import By
 
 from openstack_dashboard.test.selenium.integration import test_instances
 from openstack_dashboard.test.selenium.integration import test_volumes
@@ -76,14 +77,14 @@ def change_page_size(driver, config, page_size):
     # the text in page size field is rewritten after fully loaded page
     # repeated check
     for attempt in range(3):
-        element = driver.find_element_by_id("id_pagesize")
+        element = driver.find_element(By.ID, "id_pagesize")
         element.clear()
         element.send_keys(page_size)
-        driver.find_element_by_css_selector(
-            ".btn-primary[value='Save']").click()
+        driver.find_element(
+            By.CSS_SELECTOR, ".btn-primary[value='Save']").click()
         try:
-            driver.find_element_by_css_selector(
-                f"#id_pagesize[value='{page_size}']")
+            driver.find_element(
+                By.CSS_SELECTOR, f"#id_pagesize[value='{page_size}']")
             break
         except exceptions.NoSuchElementException:
             time.sleep(3)

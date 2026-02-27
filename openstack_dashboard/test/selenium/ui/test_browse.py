@@ -150,7 +150,8 @@ def test_browse_left_panel(live_server, driver, user, dashboard_data,
 
         driver.get(live_server.url + '/settings')
         # First scroll click
-        driver.find_element_by_xpath(
+        driver.find_element(
+            By.XPATH,
             f".//a[normalize-space()='{main_panel.capitalize()}']").click()
         if sec_panel != 'None':
             sec_line_req_button = config.theme.b_l_p_sec_line_req_btn.format(
@@ -162,31 +163,31 @@ def test_browse_left_panel(live_server, driver, user, dashboard_data,
             sidebar_xpath = config.theme.b_l_p_sidebar_xpath.format(
                 main_panel=main_panel, sec_panel=sec_panel)
             # Get tab with output of second scroll
-            sidebar = driver.find_element_by_xpath(sidebar_xpath)
+            sidebar = driver.find_element(By.XPATH, sidebar_xpath)
         else:
             # In case there is not second scroll
             sec_line_xpath = config.theme.b_l_p_sec_line_xpath.format(
                 main_panel=main_panel)
-            sidebar = driver.find_element_by_xpath(sec_line_xpath)
+            sidebar = driver.find_element(By.XPATH, sec_line_xpath)
         WebDriverWait(sidebar, config.selenium.implicit_wait).until(
             EC.element_to_be_clickable(
                 (By.LINK_TEXT, link_text))).click()
         assert driver.title == title
-        assert driver.find_element_by_css_selector("h1").text == h1_text
+        assert driver.find_element(By.CSS_SELECTOR, "h1").text == h1_text
 
 
 def test_browse_user_setting_tab(live_server, driver, user, config):
     driver.get(live_server.url + '/project/api_access')
-    user_button = driver.find_element_by_xpath(config.theme.user_name_xpath)
+    user_button = driver.find_element(By.XPATH, config.theme.user_name_xpath)
     widgets.select_from_dropdown(user_button, "Settings")
     assert driver.title == "User Settings - OpenStack Dashboard"
-    assert driver.find_element_by_css_selector("h1").text == "User Settings"
+    assert driver.find_element(By.CSS_SELECTOR, "h1").text == "User Settings"
 
 
 def test_browse_change_password_tab(live_server, driver, user, config):
     driver.get(live_server.url + '/project/api_access')
-    user_button = driver.find_element_by_xpath(config.theme.user_name_xpath)
+    user_button = driver.find_element(By.XPATH, config.theme.user_name_xpath)
     widgets.select_from_dropdown(user_button, "Settings")
-    driver.find_element_by_link_text("Change Password").click()
+    driver.find_element(By.LINK_TEXT, "Change Password").click()
     assert driver.title == "Change Password - OpenStack Dashboard"
-    assert driver.find_element_by_css_selector("h1").text == "Change Password"
+    assert driver.find_element(By.CSS_SELECTOR, "h1").text == "Change Password"

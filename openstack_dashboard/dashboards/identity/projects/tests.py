@@ -20,6 +20,7 @@ from django.test import tag
 from django.test.utils import override_settings
 from django.urls import reverse
 from django.utils import timezone
+from selenium.webdriver.common.by import By
 
 import pytest
 
@@ -1590,7 +1591,7 @@ class SeleniumTests(test.SeleniumAdminTestCase, test.TestCase):
                           (self.live_server_url,
                            reverse('horizon:identity:projects:create')))
 
-        members = self.selenium.find_element_by_css_selector(member_css_class)
+        members = self.selenium.find_element(By.CSS_SELECTOR, member_css_class)
 
         for user in users:
             self.assertIn(user.name, members.text)

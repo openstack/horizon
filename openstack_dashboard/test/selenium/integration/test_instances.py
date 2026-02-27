@@ -15,6 +15,7 @@ import time
 import pytest
 from selenium.common import exceptions
 from selenium.webdriver.common.action_chains import ActionChains as AC
+from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.wait import WebDriverWait
 
@@ -94,16 +95,16 @@ def apply_instance_name_filter(driver, config, name_pattern):
     # the text in filter field is rewritten after fully loaded page
     # repeated check
     for attempt in range(3):
-        filter_field = driver.find_element_by_css_selector(
-            "input[name='instances__filter__q']")
+        filter_field = driver.find_element(
+            By.CSS_SELECTOR, "input[name='instances__filter__q']")
         filter_field.clear()
         filter_field.send_keys(name_pattern)
-        driver.find_element_by_id("instances__action_filter").click()
+        driver.find_element(By.ID, "instances__action_filter").click()
         WebDriverWait(driver, config.selenium.page_timeout).until(
             EC.invisibility_of_element_located(filter_field))
         try:
-            driver.find_element_by_css_selector(
-                f".table_search input[value='{name_pattern}']")
+            driver.find_element(
+                By.CSS_SELECTOR, f".table_search input[value='{name_pattern}']")
             break
         except (exceptions.NoSuchElementException):
             time.sleep(3)
@@ -140,33 +141,30 @@ def test_create_instance_demo(complete_default_test_network, login, driver,
         'instances',
     ))
     driver.get(url)
-    launch_instance_btn = driver.find_element_by_link_text(
-        "Launch Instance")
+    launch_instance_btn = driver.find_element(
+        By.LINK_TEXT, "Launch Instance")
     launch_instance_btn.click()
-    wizard = driver.find_element_by_css_selector("wizard")
-    navigation = wizard.find_element_by_css_selector("div.wizard-nav")
+    wizard = driver.find_element(By.CSS_SELECTOR, "wizard")
+    navigation = wizard.find_element(By.CSS_SELECTOR, "div.wizard-nav")
     widgets.find_already_visible_element_by_xpath(
         ".//*[@id='name']", wizard).send_keys(instance_name)
-    navigation.find_element_by_link_text("Networks").click()
-    network_table = wizard.find_element_by_css_selector(
-        "ng-include[ng-form=launchInstanceNetworkForm]"
-    )
+    navigation.find_element(By.LINK_TEXT, "Networks").click()
+    network_table = wizard.find_element(
+        By.CSS_SELECTOR, "ng-include[ng-form=launchInstanceNetworkForm]")
     widgets.select_from_transfer_table(network_table, network)
-    navigation.find_element_by_link_text("Flavor").click()
-    flavor_table = wizard.find_element_by_css_selector(
-        "ng-include[ng-form=launchInstanceFlavorForm]"
-    )
+    navigation.find_element(By.LINK_TEXT, "Flavor").click()
+    flavor_table = wizard.find_element(
+        By.CSS_SELECTOR, "ng-include[ng-form=launchInstanceFlavorForm]")
     widgets.select_from_transfer_table(flavor_table, flavor)
-    navigation.find_element_by_link_text("Source").click()
+    navigation.find_element(By.LINK_TEXT, "Source").click()
     wait_for_angular_readiness_instance_source(driver, config)
-    source_table = wizard.find_element_by_css_selector(
-        "ng-include[ng-form=launchInstanceSourceForm]"
-    )
+    source_table = wizard.find_element(
+        By.CSS_SELECTOR, "ng-include[ng-form=launchInstanceSourceForm]")
 #   create_new_volume_during_create_instance(source_table, "No")
     delete_volume_on_instance_delete(source_table, "Yes")
     widgets.select_from_transfer_table(source_table, image)
-    wizard.find_element_by_css_selector(
-        "button.btn-primary.finish").click()
+    wizard.find_element(
+        By.CSS_SELECTOR, "button.btn-primary.finish").click()
 
 #   For create instance - message appears earlier than the page is refreshed.
 #   We are unable to ensure that the message will be captured.
@@ -195,36 +193,33 @@ def test_create_instance_from_volume_demo(complete_default_test_network, login,
         'instances',
     ))
     driver.get(url)
-    launch_instance_btn = driver.find_element_by_link_text(
-        "Launch Instance")
+    launch_instance_btn = driver.find_element(
+        By.LINK_TEXT, "Launch Instance")
     launch_instance_btn.click()
-    wizard = driver.find_element_by_css_selector("wizard")
-    navigation = wizard.find_element_by_css_selector("div.wizard-nav")
+    wizard = driver.find_element(By.CSS_SELECTOR, "wizard")
+    navigation = wizard.find_element(By.CSS_SELECTOR, "div.wizard-nav")
     widgets.find_already_visible_element_by_xpath(
         ".//*[@id='name']", wizard).send_keys(instance_name)
-    navigation.find_element_by_link_text("Networks").click()
-    network_table = wizard.find_element_by_css_selector(
-        "ng-include[ng-form=launchInstanceNetworkForm]"
-    )
+    navigation.find_element(By.LINK_TEXT, "Networks").click()
+    network_table = wizard.find_element(
+        By.CSS_SELECTOR, "ng-include[ng-form=launchInstanceNetworkForm]")
     widgets.select_from_transfer_table(network_table, network)
-    navigation.find_element_by_link_text("Flavor").click()
-    flavor_table = wizard.find_element_by_css_selector(
-        "ng-include[ng-form=launchInstanceFlavorForm]"
-    )
+    navigation.find_element(By.LINK_TEXT, "Flavor").click()
+    flavor_table = wizard.find_element(
+        By.CSS_SELECTOR, "ng-include[ng-form=launchInstanceFlavorForm]")
     widgets.select_from_transfer_table(flavor_table, flavor)
-    navigation.find_element_by_link_text("Source").click()
+    navigation.find_element(By.LINK_TEXT, "Source").click()
     wait_for_angular_readiness_instance_source(driver, config)
-    source_table = wizard.find_element_by_css_selector(
-        "ng-include[ng-form=launchInstanceSourceForm]"
-    )
-    select_boot_sources_type_tab = source_table.find_element_by_id(
-        "boot-source-type")
+    source_table = wizard.find_element(
+        By.CSS_SELECTOR, "ng-include[ng-form=launchInstanceSourceForm]")
+    select_boot_sources_type_tab = source_table.find_element(
+        By.ID, "boot-source-type")
     select_boot_sources_type_tab.click()
-    select_boot_sources_type_tab.find_element_by_css_selector(
-        "option[value='volume']").click()
+    select_boot_sources_type_tab.find_element(
+        By.CSS_SELECTOR, "option[value='volume']").click()
     delete_volume_on_instance_delete(source_table, "Yes")
     widgets.select_from_transfer_table(source_table, volume_name)
-    wizard.find_element_by_css_selector("button.btn-primary.finish").click()
+    wizard.find_element(By.CSS_SELECTOR, "button.btn-primary.finish").click()
     WebDriverWait(driver, config.selenium.page_timeout).until(
         EC.invisibility_of_element_located(launch_instance_btn))
     assert openstack_demo.compute.find_server(instance_name) is not None
@@ -239,11 +234,10 @@ def test_delete_instance_demo(login, driver, instance_name, openstack_demo,
         'instances',
     ))
     driver.get(url)
-    rows = driver.find_elements_by_css_selector(
-        f"table#instances tr[data-display='{instance_name}']"
-    )
+    rows = driver.find_elements(
+        By.CSS_SELECTOR, f"table#instances tr[data-display='{instance_name}']")
     assert len(rows) == 1
-    actions_column = rows[0].find_element_by_css_selector("td.actions_column")
+    actions_column = rows[0].find_element(By.CSS_SELECTOR, "td.actions_column")
     widgets.select_from_dropdown(actions_column, "Delete Instance")
     widgets.confirm_modal(driver)
     messages = widgets.get_and_dismiss_messages(driver, config)
@@ -294,13 +288,13 @@ def test_instance_pagination_demo(login, driver, instance_name,
                                                     sorting=True)
     assert first_page_definition == current_table_status
     # Turning to next page
-    driver.find_element_by_link_text("Next »").click()
+    driver.find_element(By.LINK_TEXT, "Next »").click()
     current_table_status = widgets.get_table_status(driver, "instances",
                                                     instance_list[0],
                                                     sorting=True)
     assert second_page_definition == current_table_status
     # Turning back to previous page
-    driver.find_element_by_link_text("« Prev").click()
+    driver.find_element(By.LINK_TEXT, "« Prev").click()
     current_table_status = widgets.get_table_status(driver, "instances",
                                                     instance_list[1],
                                                     sorting=True)
@@ -353,13 +347,14 @@ def test_instances_pagination_and_filtration_demo(login, driver, instance_name,
         'instances'
     ))
     driver.get(url)
-    h1 = driver.find_element_by_css_selector("h1")
+    h1 = driver.find_element(By.CSS_SELECTOR, "h1")
     AC(driver).move_to_element(h1).perform()
-    driver.find_element_by_css_selector(
+    driver.find_element(
+        By.CSS_SELECTOR,
         "button[class='btn btn-default dropdown-toggle']").click()
     # set filter by instance_name
-    driver.find_element_by_css_selector(
-        "a[data-select-value='name']").click()
+    driver.find_element(
+        By.CSS_SELECTOR, "a[data-select-value='name']").click()
     apply_instance_name_filter(driver, config, instance_list[1])
     current_table_status = widgets.get_table_status(driver, "instances",
                                                     instance_list[1],
@@ -376,7 +371,7 @@ def test_instances_pagination_and_filtration_demo(login, driver, instance_name,
                                                     sorting=True)
     assert common_filter_page1_def == current_table_status
     # Turning to next page
-    driver.find_element_by_link_text("Next »").click()
+    driver.find_element(By.LINK_TEXT, "Next »").click()
     current_table_status = widgets.get_table_status(driver, "instances",
                                                     instance_list[0],
                                                     sorting=True)
@@ -409,13 +404,14 @@ def test_filter_instances_demo(login, driver, instance_name,
         'instances'
     ))
     driver.get(url)
-    h1 = driver.find_element_by_css_selector("h1")
+    h1 = driver.find_element(By.CSS_SELECTOR, "h1")
     AC(driver).move_to_element(h1).perform()
-    driver.find_element_by_css_selector(
+    driver.find_element(
+        By.CSS_SELECTOR,
         "button[class='btn btn-default dropdown-toggle']").click()
     # set filter by instance_name
-    driver.find_element_by_css_selector(
-        "a[data-select-value='name']").click()
+    driver.find_element(
+        By.CSS_SELECTOR, "a[data-select-value='name']").click()
     apply_instance_name_filter(driver, config, instance_list[1])
     current_table_status = widgets.get_table_status(driver, "instances",
                                                     instance_list[1],
@@ -426,8 +422,8 @@ def test_filter_instances_demo(login, driver, instance_name,
     random_instance_name = 'horizon_instance_%s' % \
                            uuidutils.generate_uuid(dashed=False)
     apply_instance_name_filter(driver, config, random_instance_name)
-    no_items_present = driver.find_element_by_xpath(
-        "//td[text()='No items to display.']")
+    no_items_present = driver.find_element(
+        By.XPATH, "//td[text()='No items to display.']")
     assert no_items_present
 
 
@@ -448,33 +444,30 @@ def test_create_instance_admin(complete_default_test_network, login, driver,
         'instances',
     ))
     driver.get(url)
-    launch_instance_btn = driver.find_element_by_link_text(
-        "Launch Instance")
+    launch_instance_btn = driver.find_element(
+        By.LINK_TEXT, "Launch Instance")
     launch_instance_btn.click()
-    wizard = driver.find_element_by_css_selector("wizard")
-    navigation = wizard.find_element_by_css_selector("div.wizard-nav")
+    wizard = driver.find_element(By.CSS_SELECTOR, "wizard")
+    navigation = wizard.find_element(By.CSS_SELECTOR, "div.wizard-nav")
     widgets.find_already_visible_element_by_xpath(
         ".//*[@id='name']", wizard).send_keys(instance_name)
-    navigation.find_element_by_link_text("Networks").click()
-    network_table = wizard.find_element_by_css_selector(
-        "ng-include[ng-form=launchInstanceNetworkForm]"
-    )
+    navigation.find_element(By.LINK_TEXT, "Networks").click()
+    network_table = wizard.find_element(
+        By.CSS_SELECTOR, "ng-include[ng-form=launchInstanceNetworkForm]")
     widgets.select_from_transfer_table(network_table, network)
-    navigation.find_element_by_link_text("Flavor").click()
-    flavor_table = wizard.find_element_by_css_selector(
-        "ng-include[ng-form=launchInstanceFlavorForm]"
-    )
+    navigation.find_element(By.LINK_TEXT, "Flavor").click()
+    flavor_table = wizard.find_element(
+        By.CSS_SELECTOR, "ng-include[ng-form=launchInstanceFlavorForm]")
     widgets.select_from_transfer_table(flavor_table, flavor)
-    navigation.find_element_by_link_text("Source").click()
+    navigation.find_element(By.LINK_TEXT, "Source").click()
     wait_for_angular_readiness_instance_source(driver, config)
-    source_table = wizard.find_element_by_css_selector(
-        "ng-include[ng-form=launchInstanceSourceForm]"
-    )
+    source_table = wizard.find_element(
+        By.CSS_SELECTOR, "ng-include[ng-form=launchInstanceSourceForm]")
 #   create_new_volume_during_create_instance(source_table, "No")
     delete_volume_on_instance_delete(source_table, "Yes")
     widgets.select_from_transfer_table(source_table, image)
-    wizard.find_element_by_css_selector(
-        "button.btn-primary.finish").click()
+    wizard.find_element(
+        By.CSS_SELECTOR, "button.btn-primary.finish").click()
     WebDriverWait(driver, config.selenium.page_timeout).until(
         EC.invisibility_of_element_located(launch_instance_btn))
     assert openstack_admin.compute.find_server(instance_name) is not None
@@ -489,11 +482,10 @@ def test_delete_instance_admin(login, driver, instance_name, openstack_admin,
         'instances',
     ))
     driver.get(url)
-    rows = driver.find_elements_by_css_selector(
-        f"table#instances tr[data-display='{instance_name}']"
-    )
+    rows = driver.find_elements(
+        By.CSS_SELECTOR, f"table#instances tr[data-display='{instance_name}']")
     assert len(rows) == 1
-    actions_column = rows[0].find_element_by_css_selector("td.actions_column")
+    actions_column = rows[0].find_element(By.CSS_SELECTOR, "td.actions_column")
     widgets.select_from_dropdown(actions_column, "Delete Instance")
     widgets.confirm_modal(driver)
     messages = widgets.get_and_dismiss_messages(driver, config)
@@ -544,13 +536,13 @@ def test_instance_pagination_admin(login, driver, instance_name,
                                                     sorting=True)
     assert first_page_definition == current_table_status
     # Turning to next page
-    driver.find_element_by_link_text("Next »").click()
+    driver.find_element(By.LINK_TEXT, "Next »").click()
     current_table_status = widgets.get_table_status(driver, "instances",
                                                     instance_list[0],
                                                     sorting=True)
     assert second_page_definition == current_table_status
     # Turning back to previous page
-    driver.find_element_by_link_text("« Prev").click()
+    driver.find_element(By.LINK_TEXT, "« Prev").click()
     current_table_status = widgets.get_table_status(driver, "instances",
                                                     instance_list[1],
                                                     sorting=True)
@@ -604,13 +596,14 @@ def test_instances_pagination_and_filtration_admin(login, driver, instance_name,
         'instances'
     ))
     driver.get(url)
-    h1 = driver.find_element_by_css_selector("h1")
+    h1 = driver.find_element(By.CSS_SELECTOR, "h1")
     AC(driver).move_to_element(h1).perform()
-    driver.find_element_by_css_selector(
+    driver.find_element(
+        By.CSS_SELECTOR,
         "button[class='btn btn-default dropdown-toggle']").click()
     # set filter by instance_name
-    driver.find_element_by_css_selector(
-        "a[data-select-value='name']").click()
+    driver.find_element(
+        By.CSS_SELECTOR, "a[data-select-value='name']").click()
     apply_instance_name_filter(driver, config, instance_list[1])
     current_table_status = widgets.get_table_status(driver, "instances",
                                                     instance_list[1],
@@ -627,7 +620,7 @@ def test_instances_pagination_and_filtration_admin(login, driver, instance_name,
                                                     sorting=True)
     assert common_filter_page1_def == current_table_status
     # Turning to next page
-    driver.find_element_by_link_text("Next »").click()
+    driver.find_element(By.LINK_TEXT, "Next »").click()
     current_table_status = widgets.get_table_status(driver, "instances",
                                                     instance_list[0],
                                                     sorting=True)
@@ -660,13 +653,14 @@ def test_filter_instances_admin(login, driver, instance_name,
         'instances'
     ))
     driver.get(url)
-    h1 = driver.find_element_by_css_selector("h1")
+    h1 = driver.find_element(By.CSS_SELECTOR, "h1")
     AC(driver).move_to_element(h1).perform()
-    driver.find_element_by_css_selector(
+    driver.find_element(
+        By.CSS_SELECTOR,
         "button[class='btn btn-default dropdown-toggle']").click()
     # set filter by instance_name
-    driver.find_element_by_css_selector(
-        "a[data-select-value='name']").click()
+    driver.find_element(
+        By.CSS_SELECTOR, "a[data-select-value='name']").click()
     apply_instance_name_filter(driver, config, instance_list[1])
     current_table_status = widgets.get_table_status(driver, "instances",
                                                     instance_list[1],
@@ -677,6 +671,6 @@ def test_filter_instances_admin(login, driver, instance_name,
     random_instance_name = 'horizon_instance_%s' % \
                            uuidutils.generate_uuid(dashed=False)
     apply_instance_name_filter(driver, config, random_instance_name)
-    no_items_present = driver.find_element_by_xpath(
-        "//td[text()='No items to display.']")
+    no_items_present = driver.find_element(
+        By.XPATH, "//td[text()='No items to display.']")
     assert no_items_present

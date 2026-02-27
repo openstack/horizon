@@ -32,7 +32,7 @@ elif os.environ.get('SELENIUM_CHROME'):
     from selenium.webdriver import Chrome as WebDriver
     desired_capabilities = dc.DesiredCapabilities.CHROME
 else:
-    from horizon.test.firefox_binary import WebDriver
+    from selenium.webdriver.firefox.webdriver import WebDriver
     desired_capabilities = dc.DesiredCapabilities.FIREFOX
 
 

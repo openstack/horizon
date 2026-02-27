@@ -13,6 +13,7 @@
 import random
 
 import pytest
+from selenium.webdriver.common.by import By
 
 from openstack_dashboard.test.selenium import widgets
 
@@ -56,14 +57,14 @@ def test_update_compute_defaults(login, driver, openstack_admin, config,
         'defaults',
     ))
     driver.get(url)
-    driver.find_element_by_link_text("Update Default Quotas").click()
-    defaults_form = driver.find_element_by_css_selector("form .modal-content")
-    defaults_form.find_element_by_id("id_instances").clear()
-    defaults_form.find_element_by_id("id_instances").send_keys(
+    driver.find_element(By.LINK_TEXT, "Update Default Quotas").click()
+    defaults_form = driver.find_element(By.CSS_SELECTOR, "form .modal-content")
+    defaults_form.find_element(By.ID, "id_instances").clear()
+    defaults_form.find_element(By.ID, "id_instances").send_keys(
         number_of_instances)
-    defaults_form.find_element_by_id("id_cores").clear()
-    defaults_form.find_element_by_id("id_cores").send_keys(number_of_cores)
-    defaults_form.find_element_by_css_selector(".btn-primary").click()
+    defaults_form.find_element(By.ID, "id_cores").clear()
+    defaults_form.find_element(By.ID, "id_cores").send_keys(number_of_cores)
+    defaults_form.find_element(By.CSS_SELECTOR, ".btn-primary").click()
     messages = widgets.get_and_dismiss_messages(driver, config)
     assert 'Success: Default quotas updated.' in messages
     new_quotas = openstack_admin.compute.get(
@@ -84,15 +85,15 @@ def test_update_volume_defaults(login, driver, openstack_admin, config,
         'defaults',
     ))
     driver.get(url)
-    driver.find_element_by_link_text("Volume Quotas").click()
-    driver.find_element_by_link_text("Update Default Quotas").click()
-    defaults_form = driver.find_element_by_css_selector("form .modal-content")
-    defaults_form.find_element_by_id("id_volumes").clear()
-    defaults_form.find_element_by_id("id_volumes").send_keys(number_of_volumes)
-    defaults_form.find_element_by_id("id_snapshots").clear()
-    defaults_form.find_element_by_id("id_snapshots").send_keys(
+    driver.find_element(By.LINK_TEXT, "Volume Quotas").click()
+    driver.find_element(By.LINK_TEXT, "Update Default Quotas").click()
+    defaults_form = driver.find_element(By.CSS_SELECTOR, "form .modal-content")
+    defaults_form.find_element(By.ID, "id_volumes").clear()
+    defaults_form.find_element(By.ID, "id_volumes").send_keys(number_of_volumes)
+    defaults_form.find_element(By.ID, "id_snapshots").clear()
+    defaults_form.find_element(By.ID, "id_snapshots").send_keys(
         number_of_snapshots)
-    defaults_form.find_element_by_css_selector(".btn-primary").click()
+    defaults_form.find_element(By.CSS_SELECTOR, ".btn-primary").click()
     messages = widgets.get_and_dismiss_messages(driver, config)
     assert 'Success: Default quotas updated.' in messages
     new_quotas = openstack_admin.block_storage.get(

@@ -10,17 +10,18 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
+import tempfile
+
 from os import listdir
 from os.path import join
 from os import remove
 
-from horizon.test import firefox_binary
 from openstack_dashboard.test.integration_tests import helpers
 
 
 class TestDownloadRCFile(helpers.AdminTestCase):
 
-    _directory = firefox_binary.WebDriver.TEMPDIR
+    TEMPDIR = tempfile.mkdtemp(dir="/tmp")
     _openrc_template = "-openrc.sh"
 
     def setUp(self):

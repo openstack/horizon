@@ -12,6 +12,7 @@
 
 from oslo_utils import uuidutils
 import pytest
+from selenium.webdriver.common.by import By
 
 from openstack_dashboard.test.selenium import widgets
 
@@ -52,14 +53,14 @@ def test_create_flavor(login, driver, flavor_name, openstack_admin,
         'flavors',
     ))
     driver.get(url)
-    driver.find_element_by_link_text("Create Flavor").click()
-    flavors_form = driver.find_element_by_css_selector("form .modal-content")
-    flavors_form.find_element_by_id("id_name").send_keys(flavor_name)
-    flavors_form.find_element_by_id("id_vcpus").send_keys(flavor_vcpus)
-    flavors_form.find_element_by_id("id_memory_mb").send_keys(flavor_ram)
-    flavors_form.find_element_by_id("id_disk_gb").send_keys(flavor_disk)
-    flavors_form.find_element_by_css_selector(
-        ".btn-primary[value='Create Flavor']").click()
+    driver.find_element(By.LINK_TEXT, "Create Flavor").click()
+    flavors_form = driver.find_element(By.CSS_SELECTOR, "form .modal-content")
+    flavors_form.find_element(By.ID, "id_name").send_keys(flavor_name)
+    flavors_form.find_element(By.ID, "id_vcpus").send_keys(flavor_vcpus)
+    flavors_form.find_element(By.ID, "id_memory_mb").send_keys(flavor_ram)
+    flavors_form.find_element(By.ID, "id_disk_gb").send_keys(flavor_disk)
+    flavors_form.find_element(
+        By.CSS_SELECTOR, ".btn-primary[value='Create Flavor']").click()
     messages = widgets.get_and_dismiss_messages(driver, config)
     assert f'Success: Created new flavor "{flavor_name}".' in messages
     flavor_sdk = openstack_admin.compute.find_flavor(flavor_name)
@@ -78,10 +79,10 @@ def test_delete_flavor(login, driver, flavor_name, new_flavor, config,
         'flavors',
     ))
     driver.get(url)
-    rows = driver.find_elements_by_css_selector(
-        f"table#flavors tr[data-display='{flavor_name}']")
+    rows = driver.find_elements(
+        By.CSS_SELECTOR, f"table#flavors tr[data-display='{flavor_name}']")
     assert len(rows) == 1
-    actions_column = rows[0].find_element_by_css_selector("td.actions_column")
+    actions_column = rows[0].find_element(By.CSS_SELECTOR, "td.actions_column")
     widgets.select_from_dropdown(actions_column, "Delete Flavor")
     widgets.confirm_modal(driver)
     messages = widgets.get_and_dismiss_messages(driver, config)

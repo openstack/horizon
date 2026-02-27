@@ -15,6 +15,8 @@ from os.path import isfile
 from os.path import join
 from re import search
 
+from selenium.webdriver.common.by import By
+
 from openstack_dashboard.test.integration_tests.pages import basepage
 from openstack_dashboard.test.integration_tests.regions import tables
 
@@ -24,8 +26,8 @@ class ApiAccessTable(tables.TableRegion):
     dropdown = 'Download OpenStack'
 
     def download_rcfile_dropdown(self):
-        self.driver.find_element_by_partial_link_text(
-            self.dropdown).click()
+        self.driver.find_element(
+            By.PARTIAL_LINK_TEXT, self.dropdown).click()
 
     @tables.bind_table_action('download_openrc_v2')
     def download_openstack_rc_v2(self, download_button):

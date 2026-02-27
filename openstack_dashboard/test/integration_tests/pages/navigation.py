@@ -206,7 +206,7 @@ class Navigation(object):
 
     def _go_to_tab_menu_page(self, item_text):
         content_body = self.driver.find_element(*self._main_content_locator)
-        content_body.find_element_by_link_text(item_text).click()
+        content_body.find_element(by.By.LINK_TEXT, item_text).click()
 
     def _go_to_settings_page(self, item_text):
         """Go to page that is located under the settings tab."""

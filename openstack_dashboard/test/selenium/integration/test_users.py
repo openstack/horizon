@@ -12,6 +12,7 @@
 
 from oslo_utils import uuidutils
 import pytest
+from selenium.webdriver.common.by import By
 
 from openstack_dashboard.test.selenium import widgets
 
@@ -50,13 +51,13 @@ def test_create_user(login, driver, user_name, openstack_admin,
         'users',
     ))
     driver.get(url)
-    driver.find_element_by_link_text("Create User").click()
-    user_form = driver.find_element_by_css_selector(".modal-dialog form")
-    user_form.find_element_by_id("id_name").send_keys(user_name)
-    user_form.find_element_by_id("id_password").send_keys(default_password)
-    user_form.find_element_by_id(
-        "id_confirm_password").send_keys(default_password)
-    user_form.find_element_by_css_selector(".btn-primary").click()
+    driver.find_element(By.LINK_TEXT, "Create User").click()
+    user_form = driver.find_element(By.CSS_SELECTOR, ".modal-dialog form")
+    user_form.find_element(By.ID, "id_name").send_keys(user_name)
+    user_form.find_element(By.ID, "id_password").send_keys(default_password)
+    user_form.find_element(
+        By.ID, "id_confirm_password").send_keys(default_password)
+    user_form.find_element(By.CSS_SELECTOR, ".btn-primary").click()
     messages = widgets.get_and_dismiss_messages(driver, config)
     assert f'Success: User "{user_name}" was successfully created.' in messages
     assert openstack_admin.identity.find_user(user_name) is not None
@@ -71,10 +72,10 @@ def test_delete_user(login, driver, user_name, openstack_admin,
         'users',
     ))
     driver.get(url)
-    rows = driver.find_elements_by_css_selector(
-        f"table#users tr[data-display='{user_name}']")
+    rows = driver.find_elements(
+        By.CSS_SELECTOR, f"table#users tr[data-display='{user_name}']")
     assert len(rows) == 1
-    actions_column = rows[0].find_element_by_css_selector("td.actions_column")
+    actions_column = rows[0].find_element(By.CSS_SELECTOR, "td.actions_column")
     widgets.select_from_dropdown(actions_column, "Delete User")
     widgets.confirm_modal(driver)
     messages = widgets.get_and_dismiss_messages(driver, config)
@@ -91,15 +92,15 @@ def test_change_user_password(login, driver, user_name, new_user, config):
         'users',
     ))
     driver.get(url)
-    rows = driver.find_elements_by_css_selector(
-        f"table#users tr[data-display='{user_name}']")
+    rows = driver.find_elements(
+        By.CSS_SELECTOR, f"table#users tr[data-display='{user_name}']")
     assert len(rows) == 1
-    actions_column = rows[0].find_element_by_css_selector("td.actions_column")
+    actions_column = rows[0].find_element(By.CSS_SELECTOR, "td.actions_column")
     widgets.select_from_dropdown(actions_column, "Change Password")
-    password_form = driver.find_element_by_css_selector(".modal-dialog form")
-    password_form.find_element_by_id("id_password").send_keys(new_password)
-    password_form.find_element_by_id(
-        "id_confirm_password").send_keys(new_password)
-    password_form.find_element_by_css_selector(".btn-primary").click()
+    password_form = driver.find_element(By.CSS_SELECTOR, ".modal-dialog form")
+    password_form.find_element(By.ID, "id_password").send_keys(new_password)
+    password_form.find_element(
+        By.ID, "id_confirm_password").send_keys(new_password)
+    password_form.find_element(By.CSS_SELECTOR, ".btn-primary").click()
     messages = widgets.get_and_dismiss_messages(driver, config)
     assert "Success: User password has been updated successfully." in messages

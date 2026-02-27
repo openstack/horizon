@@ -12,6 +12,8 @@
 
 from unittest import mock
 
+from selenium.webdriver.common.by import By
+
 from openstack_dashboard import api
 from openstack_dashboard.test.selenium import widgets
 
@@ -44,9 +46,9 @@ def test_delete_multiple_instance_rows(live_server, driver, dashboard_data,
         mock_v_l.return_value = [dashboard_data.cinder_volumes.first()]
         mock_s_u_a.return_value = None
         driver.get(live_server.url + '/project/instances/')
-        driver.find_element_by_css_selector(
-            ".themable-checkbox label[for='ui-id-1']").click()
-        driver.find_element_by_id("instances__action_delete").click()
+        driver.find_element(
+            By.CSS_SELECTOR, ".themable-checkbox label[for='ui-id-1']").click()
+        driver.find_element(By.ID, "instances__action_delete").click()
         server_names = []
         for server in dashboard_data.servers.list():
             server_names.append(str(server)[1:-1].split("Server: ")[1])
@@ -84,12 +86,14 @@ def test_delete_multiple_images_rows(live_server, driver, dashboard_data,
         # refreshed to unclicked status in less than second because the
         # page/content is filled dynamically. And although page seems to
         # be fully loaded there is still activity in the background.
-        driver.find_element_by_xpath(f"//a[text()='{image_names[0]}']")
+        driver.find_element(By.XPATH, f"//a[text()='{image_names[0]}']")
 
-        driver.find_element_by_css_selector(
+        driver.find_element(
+
+            By.CSS_SELECTOR,
             ".themable-checkbox label[for='hz-table-select-all']").click()
-        driver.find_element_by_xpath(
-            "//button[normalize-space()='Delete Images']").click()
+        driver.find_element(
+            By.XPATH, "//button[normalize-space()='Delete Images']").click()
         widgets.confirm_modal(driver)
         messages = widgets.get_and_dismiss_messages(driver, config)
         assert (f"Success: Deleted Images: {string_image_names}."

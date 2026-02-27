@@ -311,7 +311,7 @@ class BaseTestCase(testtools.TestCase):
         self.driver.page_source is not used on purpose because it does not
         display html code generated/changed by javascript.
         """
-        html_elem = self.driver.find_element_by_tag_name("html")
+        html_elem = self.driver.find_element(by.By.TAG_NAME, "html")
         return html_elem.get_property("innerHTML")
 
 

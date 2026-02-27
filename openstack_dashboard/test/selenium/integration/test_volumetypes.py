@@ -12,6 +12,7 @@
 
 from oslo_utils import uuidutils
 import pytest
+from selenium.webdriver.common.by import By
 
 from openstack_dashboard.test.selenium import widgets
 
@@ -103,10 +104,11 @@ def test_create_volume_type(login, driver, volume_type_name, openstack_admin,
         'volume_types'
     ))
     driver.get(url)
-    driver.find_element_by_link_text("Create Volume Type").click()
-    volume_type_form = driver.find_element_by_css_selector(".modal-dialog form")
-    volume_type_form.find_element_by_id("id_name").send_keys(volume_type_name)
-    volume_type_form.find_element_by_css_selector(".btn-primary").click()
+    driver.find_element(By.LINK_TEXT, "Create Volume Type").click()
+    volume_type_form = driver.find_element(
+        By.CSS_SELECTOR, ".modal-dialog form")
+    volume_type_form.find_element(By.ID, "id_name").send_keys(volume_type_name)
+    volume_type_form.find_element(By.CSS_SELECTOR, ".btn-primary").click()
     messages = widgets.get_and_dismiss_messages(driver, config)
     assert (f'Success: Successfully created volume '
             f'type: {volume_type_name}' in messages)
@@ -122,10 +124,11 @@ def test_delete_volume_type(login, driver, volume_type_name, openstack_admin,
         'volume_types'
     ))
     driver.get(url)
-    rows = driver.find_elements_by_css_selector(
+    rows = driver.find_elements(
+        By.CSS_SELECTOR,
         f"table#volume_types tr[data-display='{volume_type_name}']")
     assert len(rows) == 1
-    actions_column = rows[0].find_element_by_css_selector("td.actions_column")
+    actions_column = rows[0].find_element(By.CSS_SELECTOR, "td.actions_column")
     widgets.select_from_dropdown(actions_column, "Delete Volume Type")
     widgets.confirm_modal(driver)
     messages = widgets.get_and_dismiss_messages(driver, config)
@@ -142,13 +145,16 @@ def test_volume_type_create_encryption(login, driver, openstack_admin, config,
         'volume_types'
     ))
     driver.get(url)
-    rows = driver.find_elements_by_css_selector(
+    rows = driver.find_elements(
+        By.CSS_SELECTOR,
         f"table#volume_types tr[data-display='{new_volume_type.name}']")
     assert len(rows) == 1
-    rows[0].find_element_by_css_selector(".data-table-action").click()
-    volume_type_form = driver.find_element_by_css_selector(".modal-dialog form")
-    volume_type_form.find_element_by_id("id_provider").send_keys("plain")
-    volume_type_form.find_element_by_css_selector(
+    rows[0].find_element(By.CSS_SELECTOR, ".data-table-action").click()
+    volume_type_form = driver.find_element(
+        By.CSS_SELECTOR, ".modal-dialog form")
+    volume_type_form.find_element(By.ID, "id_provider").send_keys("plain")
+    volume_type_form.find_element(
+        By.CSS_SELECTOR,
         ".btn-primary[value='Create Volume Type Encryption']").click()
     messages = widgets.get_and_dismiss_messages(driver, config)
     assert (f"Success: Successfully created encryption for "
@@ -166,14 +172,14 @@ def test_volume_type_delete_encryption(login, driver, openstack_admin, config,
         'volume_types'
     ))
     driver.get(url)
-    rows = driver.find_elements_by_css_selector(
-        f"table#volume_types tr[data-display="
+    rows = driver.find_elements(
+        By.CSS_SELECTOR, f"table#volume_types tr[data-display="
         f"'{new_volume_type_with_encryption.name}']")
     assert len(rows) == 1
     assert (openstack_admin.block_storage.get_type_encryption(
         new_volume_type_with_encryption.id).provider == 'plain')
-    rows[0].find_element_by_css_selector(".data-table-action")
-    actions_column = rows[0].find_element_by_css_selector("td.actions_column")
+    rows[0].find_element(By.CSS_SELECTOR, ".data-table-action")
+    actions_column = rows[0].find_element(By.CSS_SELECTOR, "td.actions_column")
     widgets.select_from_dropdown(actions_column, "Delete Encryption")
     widgets.confirm_modal(driver)
     messages = widgets.get_and_dismiss_messages(driver, config)
@@ -192,10 +198,10 @@ def test_create_qos_spec(login, driver, qos_spec_name, openstack_admin,
         'volume_types'
     ))
     driver.get(url)
-    driver.find_element_by_link_text("Create QoS Spec").click()
-    volume_qos_form = driver.find_element_by_css_selector(".modal-dialog form")
-    volume_qos_form.find_element_by_id("id_name").send_keys(qos_spec_name)
-    volume_qos_form.find_element_by_css_selector(".btn-primary").click()
+    driver.find_element(By.LINK_TEXT, "Create QoS Spec").click()
+    volume_qos_form = driver.find_element(By.CSS_SELECTOR, ".modal-dialog form")
+    volume_qos_form.find_element(By.ID, "id_name").send_keys(qos_spec_name)
+    volume_qos_form.find_element(By.CSS_SELECTOR, ".btn-primary").click()
     messages = widgets.get_and_dismiss_messages(driver, config)
     assert (f'Success: Successfully created QoS '
             f'Spec: {qos_spec_name}' in messages)
@@ -214,10 +220,10 @@ def test_delete_qos_spec(login, driver, qos_spec_name, openstack_admin,
         'volume_types'
     ))
     driver.get(url)
-    rows = driver.find_elements_by_css_selector(
-        f"table#qos_specs tr[data-display='{qos_spec_name}']")
+    rows = driver.find_elements(
+        By.CSS_SELECTOR, f"table#qos_specs tr[data-display='{qos_spec_name}']")
     assert len(rows) == 1
-    actions_column = rows[0].find_element_by_css_selector("td.actions_column")
+    actions_column = rows[0].find_element(By.CSS_SELECTOR, "td.actions_column")
     widgets.select_from_dropdown(actions_column, "Delete QoS Spec")
     widgets.confirm_modal(driver)
     messages = widgets.get_and_dismiss_messages(driver, config)
@@ -237,17 +243,18 @@ def test_edit_qos_spec_consumer(login, driver, openstack_admin, config,
         'volume_types'
     ))
     driver.get(url)
-    rows = driver.find_elements_by_css_selector(
+    rows = driver.find_elements(
+        By.CSS_SELECTOR,
         f"table#qos_specs tr[data-display='{new_qos_spec['name']}']")
     assert len(rows) == 1
     assert (openstack_admin.block_storage.get(
         f"/qos-specs/{new_qos_spec['id']}").json()['qos_specs']['consumer'] ==
         'back-end')
-    actions_column = rows[0].find_element_by_css_selector("td.actions_column")
+    actions_column = rows[0].find_element(By.CSS_SELECTOR, "td.actions_column")
     widgets.select_from_dropdown(actions_column, "Edit Consumer")
-    volume_qos_form = driver.find_element_by_css_selector(".modal-dialog form")
+    volume_qos_form = driver.find_element(By.CSS_SELECTOR, ".modal-dialog form")
     widgets.select_from_dropdown(volume_qos_form, 'front-end')
-    volume_qos_form.find_element_by_css_selector(".btn-primary").click()
+    volume_qos_form.find_element(By.CSS_SELECTOR, ".btn-primary").click()
     messages = widgets.get_and_dismiss_messages(driver, config)
     assert "Success: Successfully modified QoS Spec consumer." in messages
     assert (openstack_admin.block_storage.get(
@@ -264,16 +271,17 @@ def test_qos_spec_create_extra_specs(login, driver, openstack_admin, config,
         'volume_types'
     ))
     driver.get(url)
-    rows = driver.find_elements_by_css_selector(
+    rows = driver.find_elements(
+        By.CSS_SELECTOR,
         f"table#qos_specs tr[data-display='{new_qos_spec['name']}']")
     assert len(rows) == 1
-    rows[0].find_element_by_css_selector(".data-table-action").click()
-    driver.find_element_by_id("specs__action_create").click()
-    extra_specs_form = driver.find_element_by_css_selector(
-        ".modal-dialog form[id='extra_spec_create_form']")
-    extra_specs_form.find_element_by_id("id_key").send_keys('minIOPS')
-    extra_specs_form.find_element_by_id("id_value").send_keys(20)
-    extra_specs_form.find_element_by_css_selector(".btn-primary").click()
+    rows[0].find_element(By.CSS_SELECTOR, ".data-table-action").click()
+    driver.find_element(By.ID, "specs__action_create").click()
+    extra_specs_form = driver.find_element(
+        By.CSS_SELECTOR, ".modal-dialog form[id='extra_spec_create_form']")
+    extra_specs_form.find_element(By.ID, "id_key").send_keys('minIOPS')
+    extra_specs_form.find_element(By.ID, "id_value").send_keys(20)
+    extra_specs_form.find_element(By.CSS_SELECTOR, ".btn-primary").click()
     messages = widgets.get_and_dismiss_messages(driver, config)
     assert 'Success: Created spec "minIOPS".' in messages
     assert (openstack_admin.block_storage.get(
@@ -290,23 +298,23 @@ def test_qos_spec_delete_extra_specs(login, driver, openstack_admin, config,
         'volume_types'
     ))
     driver.get(url)
-    rows = driver.find_elements_by_css_selector(
-        f'table#qos_specs tr[data-display="'
+    rows = driver.find_elements(
+        By.CSS_SELECTOR, f'table#qos_specs tr[data-display="'
         f'{new_qos_spec_with_extra_specs["name"]}"]')
     assert len(rows) == 1
     assert (openstack_admin.block_storage.get(
         f"/qos-specs/{new_qos_spec_with_extra_specs['id']}").json()
         ['qos_specs']['specs'] == {'maxIOPS': '5000'})
-    rows[0].find_element_by_css_selector(".data-table-action").click()
-    volume_qos_form = driver.find_element_by_css_selector(".modal-dialog form")
-    rows_extra = volume_qos_form.find_elements_by_css_selector(
-        "table#specs tr[data-display='maxIOPS']")
+    rows[0].find_element(By.CSS_SELECTOR, ".data-table-action").click()
+    volume_qos_form = driver.find_element(By.CSS_SELECTOR, ".modal-dialog form")
+    rows_extra = volume_qos_form.find_elements(
+        By.CSS_SELECTOR, "table#specs tr[data-display='maxIOPS']")
     assert len(rows_extra) == 1
-    actions_column = rows_extra[0].find_element_by_css_selector(
-        "td.actions_column")
+    actions_column = rows_extra[0].find_element(
+        By.CSS_SELECTOR, "td.actions_column")
     widgets.select_from_dropdown(actions_column, "Delete Spec")
-    driver.find_element_by_css_selector(
-        ".modal-dialog .modal-footer .btn-danger").click()
+    driver.find_element(
+        By.CSS_SELECTOR, ".modal-dialog .modal-footer .btn-danger").click()
     messages = widgets.get_and_dismiss_messages(driver, config)
     assert "Success: Deleted Spec: maxIOPS" in messages
     assert (openstack_admin.block_storage.get(

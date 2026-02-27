@@ -63,6 +63,7 @@ LOG = logging.getLogger(__name__)
 # running selenium tests if we attempt to run selenium tests using the
 # Firefox driver and it is not available.
 try:
+    from selenium.webdriver.common.by import By
     from selenium.webdriver.support import ui as selenium_ui
     import xvfbwrapper  # Only needed when running the Selenium tests headless
 
@@ -309,19 +310,19 @@ class JasmineTests(SeleniumTestCase):
         wait = self.ui.WebDriverWait(self.selenium, 120)
 
         def jasmine_done(driver):
-            text = driver.find_element_by_class_name("duration").text
+            text = driver.find_element(By.CLASS_NAME, "duration").text
             return "finished" in text
 
         wait.until(jasmine_done)
         failures = \
-            self.selenium.find_elements_by_css_selector(".spec-detail.failed")
+            self.selenium.find_elements(By.CSS_SELECTOR, ".spec-detail.failed")
 
         results = []
         for failure in failures:
             results.append(
-                failure.find_element_by_class_name("description").text)
+                failure.find_element(By.CLASS_NAME, "description").text)
             results.append(
-                failure.find_element_by_class_name("stack-trace").text)
+                failure.find_element(By.CLASS_NAME, "stack-trace").text)
 
         self.assertEqual(results, [], '\n\n' + '\n\n'.join(results) + '\n\n')
 

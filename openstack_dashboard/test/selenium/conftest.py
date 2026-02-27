@@ -14,14 +14,16 @@ import os
 import signal
 import socket
 import subprocess
+import tempfile
 from threading import Thread
 import time
 
 import pytest
+from selenium.webdriver.common.by import By
+from selenium.webdriver import firefox
 from selenium.webdriver.support.ui import Select
 import xvfbwrapper
 
-from horizon.test import webdriver
 from openstack_dashboard.test.integration_tests import config as horizon_config
 from openstack_dashboard.test.selenium import widgets
 
@@ -67,32 +69,31 @@ class Session:
         if self.current_user != user or self.current_region != region:
             username, password, home_project = self.credentials[user]
             self.driver.get(self.logout_url)
-            user_field = self.driver.find_element_by_id('id_username')
+            user_field = self.driver.find_element(By.ID, 'id_username')
             user_field.send_keys(username)
-            pass_field = self.driver.find_element_by_id('id_password')
+            pass_field = self.driver.find_element(By.ID, 'id_password')
             pass_field.send_keys(password)
             if region is not None:
-                region_select = self.driver.find_element_by_id('id_region')
+                region_select = self.driver.find_element(By.ID, 'id_region')
                 select_opt = Select(region_select)
                 select_opt.select_by_visible_text(region)
-            button = self.driver.find_element_by_css_selector(
-                '.btn-primary')
+            button = self.driver.find_element(By.CSS_SELECTOR, '.btn-primary')
             button.click()
             self.current_user = user
             self.current_region = region
-            project_element = self.driver.find_element_by_xpath(
-                self.project_name_xpath)
+            project_element = self.driver.find_element(
+                By.XPATH, self.project_name_xpath)
             self.current_project = project_element.text
         if self.current_project != project:
-            project_element = self.driver.find_element_by_xpath(
-                self.project_name_xpath)
+            project_element = self.driver.find_element(
+                By.XPATH, self.project_name_xpath)
             project_element.click()
-            selection = project_element.find_element_by_xpath(
-                f'.//*[normalize-space()="{project}"]')
+            selection = project_element.find_element(
+                By.XPATH, f'.//*[normalize-space()="{project}"]')
             selection.click()
             widgets.get_and_dismiss_messages(self.driver, self.config)
-            self.current_project = self.driver.find_element_by_xpath(
-                self.project_name_xpath).text
+            self.current_project = self.driver.find_element(
+                By.XPATH, self.project_name_xpath).text
 
 
 @pytest.fixture(scope='session')
@@ -126,7 +127,7 @@ def save_page_source(request, report_dir, driver):
     if not request.node.stash.get(STASH_FAILED, False):
         return
     source_path = os.path.join(report_dir, 'page.html')
-    html_elem = driver.find_element_by_tag_name("html")
+    html_elem = driver.find_element(By.TAG_NAME, "html")
     page_source = html_elem.get_property("innerHTML")
     with open(source_path, 'w') as f:
         f.write(page_source)
@@ -237,11 +238,17 @@ def driver(config, xdisplay):
     # and the webdriver.
     socket.setdefaulttimeout(60)
     # Start the Selenium webdriver and setup configuration.
-    desired_capabilities = dict(webdriver.desired_capabilities)
-    desired_capabilities['loggingPrefs'] = {'browser': 'ALL'}
-    driver = webdriver.WebDriver(
-        desired_capabilities=desired_capabilities
-    )
+    TEMPDIR = tempfile.mkdtemp()
+    fp = firefox.firefox_profile.FirefoxProfile()
+    fp.set_preference("browser.download.folderList", 2)
+    fp.set_preference("browser.download.manager.showWhenStarting",
+                      False)
+    fp.set_preference("browser.download.dir", TEMPDIR)
+    fp.set_preference("browser.helperApps.neverAsk.saveToDisk",
+                      "application/binary,text/plain")
+    options = firefox.options.Options()
+    options.profile = fp
+    driver = firefox.webdriver.WebDriver(options=options)
     if config.selenium.maximize_browser:
         driver.maximize_window()
         if IS_SELENIUM_HEADLESS:  # force full screen in xvfb
@@ -250,5 +257,6 @@ def driver(config, xdisplay):
 
     driver.implicitly_wait(config.selenium.implicit_wait)
     driver.set_page_load_timeout(config.selenium.page_timeout)
+    driver.TEMPDIR = TEMPDIR
     yield driver
     driver.quit()

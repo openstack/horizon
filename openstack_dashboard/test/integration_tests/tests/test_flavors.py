@@ -10,6 +10,8 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
+from selenium.webdriver.common.by import By
+
 from openstack_dashboard.test.integration_tests import helpers
 from openstack_dashboard.test.integration_tests.regions import messages
 
@@ -60,7 +62,7 @@ class TestFlavors(helpers.AdminTestCase):
             " + angular.module('horizon.app.core.flavors').name"\
             " + '</div>');"
         self.driver.execute_script(js_cmd)
-        value = self.driver.find_element_by_id('testonly').text
+        value = self.driver.find_element(By.ID, 'testonly').text
         self.assertEqual(value, 'horizon.app.core.flavors')
 
     def test_flavor_create(self):

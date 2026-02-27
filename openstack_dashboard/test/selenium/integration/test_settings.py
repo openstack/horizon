@@ -23,7 +23,7 @@ def test_dashboard_help_redirection(login, driver, config):
     ))
     driver.get(url)
     for step in config.theme.help_sequence:
-        driver.find_element_by_xpath(step).click()
+        driver.find_element(By.XPATH, step).click()
     available_windows = driver.window_handles
     assert len(available_windows) == 2
     driver.switch_to.window(available_windows[-1])

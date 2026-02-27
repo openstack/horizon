@@ -13,6 +13,7 @@
 #    under the License.
 
 from django.test.utils import override_settings
+from selenium.webdriver.common.by import By
 
 from horizon.test import helpers as test
 
@@ -24,7 +25,7 @@ class BrowserTests(test.SeleniumTestCase):
         wait = self.ui.WebDriverWait(self.selenium, 30)
 
         def jasmine_legacy_done(driver):
-            failures = driver.find_element_by_class_name("jasmine-bar").text
+            failures = driver.find_element(By.CLASS_NAME, "jasmine-bar").text
             return failures
 
         self.assertIn('0 failures', wait.until(jasmine_legacy_done))
@@ -43,15 +44,17 @@ class LazyLoadedTabsTests(test.SeleniumTestCase):
     def setUp(self):
         super().setUp()
         wait = self.ui.WebDriverWait(self.selenium, 120)
-        self.get_element = self.selenium.find_element_by_css_selector
-        self.get_elements = self.selenium.find_elements_by_css_selector
+        self.get_element = (
+            lambda s: self.selenium.find_element(By.CSS_SELECTOR, s))
+        self.get_elements = (
+            lambda s: self.selenium.find_elements(By.CSS_SELECTOR, s))
 
         self.log_in()
         self.selenium.get('{0}/dogs/tabs'.format(self.live_server_url))
         self.get_element('a[data-target="#{0}"]'.format(self.tab_id)).click()
 
         def lazy_tab_loaded(driver):
-            return driver.find_element_by_css_selector(self.table_selector)
+            return driver.find_element(By.CSS_SELECTOR, self.table_selector)
         wait.until(lazy_tab_loaded)
 
     def log_in(self):

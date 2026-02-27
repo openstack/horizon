@@ -14,6 +14,7 @@ import random
 
 from oslo_utils import uuidutils
 import pytest
+from selenium.webdriver.common.by import By
 
 from openstack_dashboard.test.selenium import widgets
 
@@ -62,10 +63,10 @@ def test_create_sec_group_demo(login, driver, config, sec_group_name,
         'security_groups',
     ))
     driver.get(url)
-    driver.find_element_by_link_text("Create Security Group").click()
-    sec_group_form = driver.find_element_by_css_selector(".modal-dialog form")
-    sec_group_form.find_element_by_id("id_name").send_keys(sec_group_name)
-    sec_group_form.find_element_by_css_selector(".btn-primary").click()
+    driver.find_element(By.LINK_TEXT, "Create Security Group").click()
+    sec_group_form = driver.find_element(By.CSS_SELECTOR, ".modal-dialog form")
+    sec_group_form.find_element(By.ID, "id_name").send_keys(sec_group_name)
+    sec_group_form.find_element(By.CSS_SELECTOR, ".btn-primary").click()
     messages = widgets.get_and_dismiss_messages(driver, config)
     assert (f'Success: Successfully created security group: {sec_group_name}'
             in messages)
@@ -82,10 +83,11 @@ def test_delete_sec_group_demo(login, driver, sec_group_name, openstack_demo,
         'security_groups',
     ))
     driver.get(url)
-    rows = driver.find_elements_by_css_selector(
+    rows = driver.find_elements(
+        By.CSS_SELECTOR,
         f"table#security_groups tr[data-display='{sec_group_name}']")
     assert len(rows) == 1
-    actions_column = rows[0].find_element_by_css_selector("td.actions_column")
+    actions_column = rows[0].find_element(By.CSS_SELECTOR, "td.actions_column")
     widgets.select_from_dropdown(actions_column, "Delete Security Group")
     widgets.confirm_modal(driver)
     messages = widgets.get_and_dismiss_messages(driver, config)
@@ -104,10 +106,10 @@ def test_add_rule_sec_group_demo(login, driver, sec_group_name, openstack_demo,
         new_sec_group_demo.id,
     ))
     driver.get(url)
-    driver.find_element_by_id("rules__action_add_rule").click()
-    rule_form = driver.find_element_by_css_selector(".modal-dialog form")
-    rule_form.find_element_by_id("id_port").send_keys(rule_port)
-    rule_form.find_element_by_css_selector(".btn-primary").click()
+    driver.find_element(By.ID, "rules__action_add_rule").click()
+    rule_form = driver.find_element(By.CSS_SELECTOR, ".modal-dialog form")
+    rule_form.find_element(By.ID, "id_port").send_keys(rule_port)
+    rule_form.find_element(By.CSS_SELECTOR, ".btn-primary").click()
     messages = widgets.get_and_dismiss_messages(driver, config)
     assert (f"Success: Successfully added rule: ALLOW IPv4 {rule_port}"
             f"/tcp from 0.0.0.0/0" in messages)
@@ -133,10 +135,11 @@ def test_delete_rule_sec_group_demo(login, driver, sec_group_name,
         new_sec_group_demo.id,
     ))
     driver.get(url)
-    rows = driver.find_elements_by_css_selector(
+    rows = driver.find_elements(
+        By.CSS_SELECTOR,
         f"table#rules tr[data-object-id='{new_sec_group_rule_demo.id}']")
     assert len(rows) == 1
-    rows[0].find_element_by_css_selector("td.actions_column").click()
+    rows[0].find_element(By.CSS_SELECTOR, "td.actions_column").click()
     widgets.confirm_modal(driver)
     messages = widgets.get_and_dismiss_messages(driver, config)
     assert (f"Success: Deleted Rule: ALLOW IPv4 {rule_port}/tcp from 0.0.0.0/0"

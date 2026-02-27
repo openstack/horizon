@@ -13,6 +13,7 @@
 from oslo_utils import uuidutils
 import pytest
 from selenium.common import exceptions
+from selenium.webdriver.common.by import By
 
 from openstack_dashboard.test.selenium import widgets
 
@@ -52,12 +53,12 @@ def test_create_user_credential_totp(login, driver, openstack_admin, config,
     driver.get(url)
     credentials_sdk_before = list(openstack_admin.identity.credentials())
     assert (len(credentials_sdk_before) == 0)
-    driver.find_element_by_link_text("Create User Credential").click()
-    user_credential_form = driver.find_element_by_css_selector(
-        ".modal-dialog form")
+    driver.find_element(By.LINK_TEXT, "Create User Credential").click()
+    user_credential_form = driver.find_element(
+        By.CSS_SELECTOR, ".modal-dialog form")
     widgets.select_from_specific_dropdown_in_form(
         user_credential_form, 'id_cred_type', 'TOTP')
-    user_credential_form.find_element_by_css_selector(".btn-primary").click()
+    user_credential_form.find_element(By.CSS_SELECTOR, ".btn-primary").click()
     messages = widgets.get_and_dismiss_messages(driver, config)
     assert 'Success: User credential created successfully.' in messages
     credentials_sdk_after = list(openstack_admin.identity.credentials())
@@ -76,17 +77,17 @@ def test_create_user_credential_ec2(login, driver, openstack_admin, config,
     driver.get(url)
     credentials_sdk_before = list(openstack_admin.identity.credentials())
     assert (len(credentials_sdk_before) == 0)
-    driver.find_element_by_link_text("Create User Credential").click()
-    user_credential_form = driver.find_element_by_css_selector(
-        ".modal-dialog form")
+    driver.find_element(By.LINK_TEXT, "Create User Credential").click()
+    user_credential_form = driver.find_element(
+        By.CSS_SELECTOR, ".modal-dialog form")
     widgets.select_from_specific_dropdown_in_form(
         user_credential_form, 'id_cred_type', 'EC2')
-    user_credential_form.find_element_by_id("id_data").clear()
-    user_credential_form.find_element_by_id("id_data").send_keys(
+    user_credential_form.find_element(By.ID, "id_data").clear()
+    user_credential_form.find_element(By.ID, "id_data").send_keys(
         '{"access": "acs", "secret": "scrt"}')
     widgets.select_from_specific_dropdown_in_form(
         user_credential_form, 'id_project', 'admin')
-    user_credential_form.find_element_by_css_selector(".btn-primary").click()
+    user_credential_form.find_element(By.CSS_SELECTOR, ".btn-primary").click()
     messages = widgets.get_and_dismiss_messages(driver, config)
     assert 'Success: User credential created successfully.' in messages
     credentials_sdk_after = list(openstack_admin.identity.credentials())
@@ -107,10 +108,11 @@ def test_delete_user_credential(login, driver, openstack_admin, config,
         'credentials',
     ))
     driver.get(url)
-    rows = driver.find_elements_by_css_selector(
+    rows = driver.find_elements(
+        By.CSS_SELECTOR,
         f"table#credentialstable tr[data-display='{user_credential_blob}']")
     assert len(rows) == 1
-    actions_column = rows[0].find_element_by_css_selector("td.actions_column")
+    actions_column = rows[0].find_element(By.CSS_SELECTOR, "td.actions_column")
     widgets.select_from_dropdown(actions_column, "Delete User Credential")
     widgets.confirm_modal(driver)
     messages = widgets.get_and_dismiss_messages(driver, config)
@@ -129,16 +131,17 @@ def test_edit_user_credential(login, driver, openstack_admin, config,
         'credentials',
     ))
     driver.get(url)
-    rows = driver.find_elements_by_css_selector(
+    rows = driver.find_elements(
+        By.CSS_SELECTOR,
         f"table#credentialstable tr[data-display='{user_credential_blob}']")
     assert len(rows) == 1
-    rows[0].find_element_by_css_selector(".data-table-action").click()
-    user_credential_form = driver.find_element_by_css_selector(
-        ".modal-dialog form")
-    user_credential_form.find_element_by_id("id_data").clear()
-    user_credential_form.find_element_by_id("id_data").send_keys(
+    rows[0].find_element(By.CSS_SELECTOR, ".data-table-action").click()
+    user_credential_form = driver.find_element(
+        By.CSS_SELECTOR, ".modal-dialog form")
+    user_credential_form.find_element(By.ID, "id_data").clear()
+    user_credential_form.find_element(By.ID, "id_data").send_keys(
         f"EDITED_{user_credential_blob}")
-    user_credential_form.find_element_by_css_selector(".btn-primary").click()
+    user_credential_form.find_element(By.CSS_SELECTOR, ".btn-primary").click()
     messages = widgets.get_and_dismiss_messages(driver, config)
     assert ("Success: User credential updated successfully." in messages)
     credentials_sdk = list(openstack_admin.identity.credentials())
@@ -156,19 +159,19 @@ def test_user_credential_filtration(login, driver, openstack_admin,
         'credentials',
     ))
     driver.get(url)
-    filter_input_field = driver.find_element_by_css_selector(".form-control")
+    filter_input_field = driver.find_element(By.CSS_SELECTOR, ".form-control")
     filter_input_field.clear()
     filter_input_field.send_keys('demo')
-    driver.find_element_by_id("credentialstable__action_filter").click()
+    driver.find_element(By.ID, "credentialstable__action_filter").click()
     try:
-        driver.find_element_by_xpath(
-            "//td[text()='No items to display.']")
+        driver.find_element(
+            By.XPATH, "//td[text()='No items to display.']")
     except exceptions.NoSuchElementException:
         assert False, "Message 'No items to display' not found"
-    filter_input_field = driver.find_element_by_css_selector(".form-control")
+    filter_input_field = driver.find_element(By.CSS_SELECTOR, ".form-control")
     filter_input_field.clear()
     filter_input_field.send_keys('admin')
-    driver.find_element_by_id("credentialstable__action_filter").click()
-    rows = driver.find_elements_by_css_selector(
-        "table#credentialstable tr[data-display]")
+    driver.find_element(By.ID, "credentialstable__action_filter").click()
+    rows = driver.find_elements(
+        By.CSS_SELECTOR, "table#credentialstable tr[data-display]")
     assert len(rows) == 1

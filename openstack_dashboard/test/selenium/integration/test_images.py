@@ -152,17 +152,17 @@ def test_image_create_from_local_file_demo(login, driver, image_names,
         'images',
     ))
     driver.get(url)
-    driver.find_element_by_xpath(
-        "//button[normalize-space()='Create Image']").click()
-    wizard = driver.find_element_by_css_selector("wizard")
-    wizard.find_element_by_id("imageForm-name").send_keys(image_name)
-    select_element = wizard.find_element_by_css_selector(
-        "input[name='image_file']")
+    driver.find_element(
+        By.XPATH, "//button[normalize-space()='Create Image']").click()
+    wizard = driver.find_element(By.CSS_SELECTOR, "wizard")
+    wizard.find_element(By.ID, "imageForm-name").send_keys(image_name)
+    select_element = wizard.find_element(
+        By.CSS_SELECTOR, "input[name='image_file']")
     select_element.send_keys(temporary_file)
-    wizard.find_element_by_id("imageForm-format").click()
-    wizard.find_element_by_css_selector(
-        "[label='QCOW2 - QEMU Emulator']").click()
-    wizard.find_element_by_css_selector("button.btn-primary.finish").click()
+    wizard.find_element(By.ID, "imageForm-format").click()
+    wizard.find_element(
+        By.CSS_SELECTOR, "[label='QCOW2 - QEMU Emulator']").click()
+    wizard.find_element(By.CSS_SELECTOR, "button.btn-primary.finish").click()
     messages = widgets.get_and_dismiss_messages(driver, config)
     assert (f"Success: Image {image_name} was successfully"
             f" created." in messages)
@@ -179,10 +179,10 @@ def test_image_delete_demo(login, driver, image_names, openstack_demo,
         'images',
     ))
     driver.get(url)
-    rows = driver.find_elements_by_xpath(f"//a[text()='{image_name}']")
+    rows = driver.find_elements(By.XPATH, f"//a[text()='{image_name}']")
     assert len(rows) == 1
-    actions_column = rows[0].find_element_by_xpath(
-        ".//ancestor::tr/td[contains(@class,'actions_column')]")
+    actions_column = rows[0].find_element(
+        By.XPATH, ".//ancestor::tr/td[contains(@class,'actions_column')]")
     widgets.select_from_dropdown(actions_column, "Delete Image")
     widgets.confirm_modal(driver)
     messages = widgets.get_and_dismiss_messages(driver, config)
@@ -216,22 +216,22 @@ def test_image_pagination_demo(login, driver, image_names, openstack_demo,
                                                                  sorting=True)
     assert first_page_definition == actual_page1_definition
     # Turning to next page(page2)
-    driver.find_element_by_link_text("Next »").click()
+    driver.find_element(By.LINK_TEXT, "Next »").click()
     actual_page2_definition = widgets.get_image_table_definition(driver,
                                                                  sorting=True)
     assert second_page_definition == actual_page2_definition
     # Turning to next page(page3)
-    driver.find_element_by_link_text("Next »").click()
+    driver.find_element(By.LINK_TEXT, "Next »").click()
     actual_page3_definition = widgets.get_image_table_definition(driver,
                                                                  sorting=True)
     assert third_page_definition == actual_page3_definition
     # Turning back to previous page(page2)
-    driver.find_element_by_link_text("« Prev").click()
+    driver.find_element(By.LINK_TEXT, "« Prev").click()
     actual_page2_definition = widgets.get_image_table_definition(driver,
                                                                  sorting=True)
     assert second_page_definition == actual_page2_definition
     # Turning back to previous page(page1)
-    driver.find_element_by_link_text("« Prev").click()
+    driver.find_element(By.LINK_TEXT, "« Prev").click()
     actual_page1_definition = widgets.get_image_table_definition(driver,
                                                                  sorting=True)
     assert first_page_definition == actual_page1_definition
@@ -251,17 +251,17 @@ def test_image_create_from_local_file_admin(login, driver, image_names,
         'images',
     ))
     driver.get(url)
-    driver.find_element_by_xpath(
-        "//button[normalize-space()='Create Image']").click()
-    wizard = driver.find_element_by_css_selector("wizard")
-    wizard.find_element_by_id("imageForm-name").send_keys(image_name)
-    select_element = wizard.find_element_by_css_selector(
-        "input[name='image_file']")
+    driver.find_element(
+        By.XPATH, "//button[normalize-space()='Create Image']").click()
+    wizard = driver.find_element(By.CSS_SELECTOR, "wizard")
+    wizard.find_element(By.ID, "imageForm-name").send_keys(image_name)
+    select_element = wizard.find_element(
+        By.CSS_SELECTOR, "input[name='image_file']")
     select_element.send_keys(temporary_file)
-    wizard.find_element_by_id("imageForm-format").click()
-    wizard.find_element_by_css_selector(
-        "[label='QCOW2 - QEMU Emulator']").click()
-    wizard.find_element_by_css_selector("button.btn-primary.finish").click()
+    wizard.find_element(By.ID, "imageForm-format").click()
+    wizard.find_element(
+        By.CSS_SELECTOR, "[label='QCOW2 - QEMU Emulator']").click()
+    wizard.find_element(By.CSS_SELECTOR, "button.btn-primary.finish").click()
     messages = widgets.get_and_dismiss_messages(driver, config)
     assert (f"Success: Image {image_name} was successfully"
             f" created." in messages)
@@ -278,10 +278,10 @@ def test_image_delete_admin(login, driver, image_names, openstack_admin,
         'images',
     ))
     driver.get(url)
-    rows = driver.find_elements_by_xpath(f"//a[text()='{image_name}']")
+    rows = driver.find_elements(By.XPATH, f"//a[text()='{image_name}']")
     assert len(rows) == 1
-    actions_column = rows[0].find_element_by_xpath(
-        ".//ancestor::tr/td[contains(@class,'actions_column')]")
+    actions_column = rows[0].find_element(
+        By.XPATH, ".//ancestor::tr/td[contains(@class,'actions_column')]")
     widgets.select_from_dropdown(actions_column, "Delete Image")
     widgets.confirm_modal(driver)
     messages = widgets.get_and_dismiss_messages(driver, config)
@@ -316,22 +316,22 @@ def test_image_pagination_admin(login, driver, image_names, openstack_admin,
                                                                  sorting=True)
     assert first_page_definition == actual_page1_definition
     # Turning to next page(page2)
-    driver.find_element_by_link_text("Next »").click()
+    driver.find_element(By.LINK_TEXT, "Next »").click()
     actual_page2_definition = widgets.get_image_table_definition(driver,
                                                                  sorting=True)
     assert second_page_definition == actual_page2_definition
     # Turning to next page(page3)
-    driver.find_element_by_link_text("Next »").click()
+    driver.find_element(By.LINK_TEXT, "Next »").click()
     actual_page3_definition = widgets.get_image_table_definition(driver,
                                                                  sorting=True)
     assert third_page_definition == actual_page3_definition
     # Turning back to previous page(page2)
-    driver.find_element_by_link_text("« Prev").click()
+    driver.find_element(By.LINK_TEXT, "« Prev").click()
     actual_page2_definition = widgets.get_image_table_definition(driver,
                                                                  sorting=True)
     assert second_page_definition == actual_page2_definition
     # Turning back to previous page(page1)
-    driver.find_element_by_link_text("« Prev").click()
+    driver.find_element(By.LINK_TEXT, "« Prev").click()
     actual_page1_definition = widgets.get_image_table_definition(driver,
                                                                  sorting=True)
     assert first_page_definition == actual_page1_definition
@@ -346,7 +346,7 @@ def test_image_filtration_admin(login, driver, new_image_admin, config):
         'images',
     ))
     driver.get(url)
-    filter_input_field = driver.find_element_by_css_selector(".search-input")
+    filter_input_field = driver.find_element(By.CSS_SELECTOR, ".search-input")
     filter_input_field.send_keys(image_name)
     # Fetch page definition after filtration
     current_page_definition = widgets.get_image_table_definition(driver)
@@ -357,8 +357,8 @@ def test_image_filtration_admin(login, driver, new_image_admin, config):
     random_img_name = 'horizon_img_%s' % uuidutils.generate_uuid(dashed=False)
     filter_input_field.send_keys(random_img_name)
     # Fetch page definition after filtration
-    no_items_present = driver.find_element_by_xpath(
-        "//*[normalize-space()='No items to display.']")
+    no_items_present = driver.find_element(
+        By.XPATH, "//*[normalize-space()='No items to display.']")
     assert no_items_present
 
 
@@ -373,36 +373,35 @@ def test_remove_protected_image_admin(login, driver, image_names,
         'images',
     ))
     driver.get(url)
-    rows = driver.find_elements_by_xpath(f"//a[text()='{image_name}']")
+    rows = driver.find_elements(By.XPATH, f"//a[text()='{image_name}']")
     assert len(rows) == 1
-    actions_column = rows[0].find_element_by_xpath(
-        ".//ancestor::tr/td[contains(@class,'actions_column')]")
-    menu_button = actions_column.find_element_by_css_selector(
-        ".dropdown-toggle"
-    )
+    actions_column = rows[0].find_element(
+        By.XPATH, ".//ancestor::tr/td[contains(@class,'actions_column')]")
+    menu_button = actions_column.find_element(
+        By.CSS_SELECTOR, ".dropdown-toggle")
     menu_button.click()
-    options = actions_column.find_elements_by_css_selector(
-        "ul.dropdown-menu li")
+    options = actions_column.find_elements(
+        By.CSS_SELECTOR, "ul.dropdown-menu li")
     for option in options:
         if option.text == "Delete Image":
             pytest.fail("Delete option should not exist")
-    actions_column.find_element_by_xpath(
-        ".//*[normalize-space()='Edit Image']").click()
+    actions_column.find_element(
+        By.XPATH, ".//*[normalize-space()='Edit Image']").click()
     wait_for_angular_readiness(driver, config)
-    image_form = driver.find_element_by_css_selector(".ng-wizard")
-    image_form.find_element_by_xpath(".//label[text()='No']").click()
-    image_form.find_element_by_xpath(
-        ".//button[@class='btn btn-primary finish']").click()
+    image_form = driver.find_element(By.CSS_SELECTOR, ".ng-wizard")
+    image_form.find_element(By.XPATH, ".//label[text()='No']").click()
+    image_form.find_element(
+        By.XPATH, ".//button[@class='btn btn-primary finish']").click()
     messages = widgets.get_and_dismiss_messages(driver, config)
     assert f"Success: Image {image_name} was successfully updated." in messages
     wait_for_steady_state_of_unprotected_image(openstack_admin, image_name)
     WebDriverWait(driver, config.selenium.page_timeout).until(
         EC.invisibility_of_element(
-            (By.CLASS_NAME, "modal modal-dialog-wizard fade ng-scope "
-                "ng-isolate-scope ng-animate ng-leave ng-leave-active")))
-    rows = driver.find_elements_by_xpath(f"//a[text()='{image_name}']")
-    actions_column = rows[0].find_element_by_xpath(
-        ".//ancestor::tr/td[contains(@class,'actions_column')]")
+            (By.CSS_SELECTOR, ".modal.modal-dialog-wizard.fade.ng-scope"
+                ".ng-isolate-scope.ng-animate.ng-leave.ng-leave-active")))
+    rows = driver.find_elements(By.XPATH, f"//a[text()='{image_name}']")
+    actions_column = rows[0].find_element(
+        By.XPATH, ".//ancestor::tr/td[contains(@class,'actions_column')]")
     widgets.select_from_dropdown(actions_column, "Delete Image")
     widgets.confirm_modal(driver)
     messages = widgets.get_and_dismiss_messages(driver, config)
@@ -422,20 +421,20 @@ def test_edit_image_description_admin(login, driver, image_names,
         'images',
     ))
     driver.get(url)
-    rows = driver.find_elements_by_xpath(f"//a[text()='{image_name}']")
+    rows = driver.find_elements(By.XPATH, f"//a[text()='{image_name}']")
     assert len(rows) == 1
-    actions_column = rows[0].find_element_by_xpath(
-        ".//ancestor::tr/td[contains(@class,'actions_column')]")
+    actions_column = rows[0].find_element(
+        By.XPATH, ".//ancestor::tr/td[contains(@class,'actions_column')]")
     widgets.select_from_dropdown(actions_column, "Edit Image")
     wait_for_angular_readiness(driver, config)
-    image_form = driver.find_element_by_css_selector(".ng-wizard")
-    desc_field = image_form.find_element_by_css_selector(
-        "#imageForm-description")
+    image_form = driver.find_element(By.CSS_SELECTOR, ".ng-wizard")
+    desc_field = image_form.find_element(
+        By.CSS_SELECTOR, "#imageForm-description")
 
     desc_field.clear()
     desc_field.send_keys(new_description)
-    image_form.find_element_by_xpath(
-        ".//button[@class='btn btn-primary finish']").click()
+    image_form.find_element(
+        By.XPATH, ".//button[@class='btn btn-primary finish']").click()
     messages = widgets.get_and_dismiss_messages(driver, config)
     assert f"Success: Image {image_name} " \
         f"was successfully updated." in messages
@@ -459,21 +458,21 @@ def test_update_image_metadata_admin(login, driver,
         'images',
     ))
     driver.get(url)
-    rows = driver.find_elements_by_xpath(f"//a[text()='{image_name}']")
+    rows = driver.find_elements(By.XPATH, f"//a[text()='{image_name}']")
     assert len(rows) == 1
-    actions_column = rows[0].find_element_by_xpath(
-        ".//ancestor::tr/td[contains(@class,'actions_column')]")
+    actions_column = rows[0].find_element(
+        By.XPATH, ".//ancestor::tr/td[contains(@class,'actions_column')]")
     widgets.select_from_dropdown(actions_column, "Update Metadata")
-    image_form = driver.find_element_by_css_selector(".modal-content")
+    image_form = driver.find_element(By.CSS_SELECTOR, ".modal-content")
     for name, value in new_metadata.items():
-        image_form.find_element_by_xpath(
-            "//input[@name='customItem']").send_keys(name)
-        image_form.find_element_by_css_selector(
-            "button.btn span[class='fa fa-plus']").click()
-        image_form.find_element_by_xpath(
-            f"//span[@title='{name}']/parent::div/input").send_keys(value)  # noqa: E231,E501
-    image_form.find_element_by_xpath(
-        "//button[@ng-click='modal.save()']").click()
+        image_form.find_element(
+            By.XPATH, "//input[@name='customItem']").send_keys(name)
+        image_form.find_element(
+            By.CSS_SELECTOR, "button.btn span[class='fa fa-plus']").click()
+        image_form.find_element(
+            By.XPATH, f"//span[@title='{name}']/parent::div/input").send_keys(value)  # noqa: E231,E501
+    image_form.find_element(
+        By.XPATH, "//button[@ng-click='modal.save()']").click()
     messages = widgets.get_and_dismiss_messages(driver, config)
     assert "Success: Metadata was successfully updated." in messages
     image_id = new_image_admin.id
@@ -496,31 +495,28 @@ def test_launch_instance_from_image_admin(complete_default_test_network, login,
         'images',
     ))
     driver.get(url)
-    rows = driver.find_elements_by_xpath(f"//a[text()='{image_name}']")
+    rows = driver.find_elements(By.XPATH, f"//a[text()='{image_name}']")
     assert len(rows) == 1
-    rows[0].find_element_by_xpath(
-        "//ng-transclude[normalize-space()='Launch']").click()
-    wizard = driver.find_element_by_css_selector("wizard")
-    navigation = wizard.find_element_by_css_selector("div.wizard-nav")
+    rows[0].find_element(
+        By.XPATH, "//ng-transclude[normalize-space()='Launch']").click()
+    wizard = driver.find_element(By.CSS_SELECTOR, "wizard")
+    navigation = wizard.find_element(By.CSS_SELECTOR, "div.wizard-nav")
     widgets.find_already_visible_element_by_xpath(
         ".//*[@id='name']", wizard).send_keys(instance_name)
-    navigation.find_element_by_link_text("Networks").click()
-    network_table = wizard.find_element_by_css_selector(
-        "ng-include[ng-form=launchInstanceNetworkForm]"
-    )
+    navigation.find_element(By.LINK_TEXT, "Networks").click()
+    network_table = wizard.find_element(
+        By.CSS_SELECTOR, "ng-include[ng-form=launchInstanceNetworkForm]")
     widgets.select_from_transfer_table(network_table, network)
-    navigation.find_element_by_link_text("Flavor").click()
-    flavor_table = wizard.find_element_by_css_selector(
-        "ng-include[ng-form=launchInstanceFlavorForm]"
-    )
+    navigation.find_element(By.LINK_TEXT, "Flavor").click()
+    flavor_table = wizard.find_element(
+        By.CSS_SELECTOR, "ng-include[ng-form=launchInstanceFlavorForm]")
     widgets.select_from_transfer_table(flavor_table, flavor)
-    navigation.find_element_by_link_text("Source").click()
-    source_table = wizard.find_element_by_css_selector(
-        "ng-include[ng-form=launchInstanceSourceForm]"
-    )
+    navigation.find_element(By.LINK_TEXT, "Source").click()
+    source_table = wizard.find_element(
+        By.CSS_SELECTOR, "ng-include[ng-form=launchInstanceSourceForm]")
     test_instances.delete_volume_on_instance_delete(source_table, "Yes")
-    wizard.find_element_by_css_selector(
-        "button.btn-primary.finish").click()
+    wizard.find_element(
+        By.CSS_SELECTOR, "button.btn-primary.finish").click()
     messages = widgets.get_and_dismiss_messages(driver, config)
     assert "Info: Scheduled creation of 1 instance." in messages
     assert openstack_admin.compute.find_server(instance_name) is not None
@@ -538,12 +534,12 @@ def test_create_volume_from_image_admin(login, driver, volume_name,
         'images',
     ))
     driver.get(url)
-    rows = driver.find_elements_by_xpath(f"//a[text()='{image_name}']")
+    rows = driver.find_elements(By.XPATH, f"//a[text()='{image_name}']")
     assert len(rows) == 1
-    actions_column = rows[0].find_element_by_xpath(
-        ".//ancestor::tr/td[contains(@class,'actions_column')]")
+    actions_column = rows[0].find_element(
+        By.XPATH, ".//ancestor::tr/td[contains(@class,'actions_column')]")
     widgets.select_from_dropdown(actions_column, "Create Volume")
-    name_field = driver.find_element_by_xpath("//input[@name='name']")
+    name_field = driver.find_element(By.XPATH, "//input[@name='name']")
     name_field.clear()
     name_field.send_keys(volume_name)
     create_vol_btn = WebDriverWait(driver, config.selenium.page_timeout).until(
