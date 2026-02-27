@@ -17,10 +17,8 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
-import os
 from socket import timeout as socket_timeout
 import tempfile
-import unittest
 from unittest import mock
 
 from django.urls import reverse
@@ -419,8 +417,6 @@ class SeleniumTests(test.SeleniumTestCase):
             mock.call(test.IsHttpRequest(), filters={'disk_format': 'ari'}),
         ])
 
-    @unittest.skipIf(os.environ.get('SELENIUM_PHANTOMJS'),
-                     "PhantomJS cannot test file upload widgets.")
     @test.create_mocks({api.glance: ('image_list_detailed',)})
     def test_modal_create_image_from_file(self):
         driver = self.selenium
@@ -478,8 +474,6 @@ class SeleniumTests(test.SeleniumTestCase):
             mock.call(test.IsHttpRequest(), filters={'disk_format': 'ari'}),
         ])
 
-    @unittest.skipIf(os.environ.get('SELENIUM_PHANTOMJS'),
-                     "PhantomJS cannot test file upload widgets.")
     @test.create_mocks({api.glance: ('image_list_detailed',)})
     def test_create_image_from_file(self):
         driver = self.selenium
