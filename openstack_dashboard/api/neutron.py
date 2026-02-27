@@ -758,12 +758,12 @@ class FloatingIpManager(object):
         :returns: List of FloatingIp object
         """
         if not all_tenants:
-            tenant_id = self.request.user.tenant_id
+            project_id = self.request.user.tenant_id
             # In Neutron, list_floatingips returns Floating IPs from
-            # all tenants when the API is called with admin role, so
-            # we need to filter them with tenant_id.
-            search_opts['tenant_id'] = tenant_id
-            port_search_opts = {'tenant_id': tenant_id}
+            # all projects when the API is called with admin role, so
+            # we need to filter them with project_id.
+            search_opts['project_id'] = project_id
+            port_search_opts = {'project_id': project_id}
         else:
             port_search_opts = {}
         fips = list(self.net_client.ips(**search_opts))
@@ -880,8 +880,7 @@ class FloatingIpManager(object):
         FloatingIpTarget.id can be passed as port_id in associate().
         FloatingIpTarget.name is displayed in Floating Ip Association Form.
         """
-        tenant_id = self.request.user.tenant_id
-        ports = port_list(self.request, tenant_id=tenant_id)
+        ports = port_list(self.request, project_id=self.request.user.tenant_id)
         servers, has_more = nova.server_list(self.request, detailed=False)
         server_dict = collections.OrderedDict(
             [(s.id, s.name) for s in servers])
@@ -907,8 +906,7 @@ class FloatingIpManager(object):
     def _target_ports_by_instance(self, instance_id):
         if not instance_id:
             return None
-        search_opts = {'device_id': instance_id}
-        return port_list(self.request, **search_opts)
+        return port_list(self.request, device_id=instance_id)
 
     @profiler.trace
     def list_targets_by_instance(self, instance_id, target_list=None):
@@ -1855,6 +1853,12 @@ def subnetpool_delete(request, subnetpool_id):
 @profiler.trace
 @memoized
 def port_list(request, **params):
+    # this is a possible fix for horizon plugins that make incorrect filtering
+    if "tenant_id" in params and "project_id" not in params:
+        params["project_id"] = params.pop("tenant_id")
+        LOG.error("port_list() is called with 'tenant_id' filter parameter. "
+                  "Use project_id instead.")
+
     LOG.debug("port_list(): params=%s", params)
     ports = networkclient(request).ports(**params)
     if not isinstance(ports, (types.GeneratorType, list)):

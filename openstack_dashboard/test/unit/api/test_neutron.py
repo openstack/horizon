@@ -13,6 +13,7 @@
 #    under the License.
 import copy
 from unittest import mock
+import uuid
 
 import netaddr
 from neutronclient.common import exceptions as neutron_exc
@@ -1174,11 +1175,13 @@ class NeutronApiTests(test.APIMockTestCase):
         network_client = mock_networkclient.return_value
         network_client.ports.return_value = ports
 
-        ret_val = api.neutron.port_list(self.request)
+        tenant_id = str(uuid.uuid4())
+
+        ret_val = api.neutron.port_list(self.request, tenant_id=tenant_id)
 
         for p in ret_val:
             self.assertIsInstance(p, api.neutron.Port)
-        network_client.ports.assert_called_once_with()
+        network_client.ports.assert_called_once_with(project_id=tenant_id)
 
     @mock.patch.object(api.neutron, 'is_extension_supported')
     @mock.patch.object(api.neutron, 'networkclient')
@@ -2408,7 +2411,7 @@ class NeutronApiFloatingIpTests(test.APIMockTestCase):
 
     def test_floating_ip_list(self):
         fips = self.api_floating_ips_sdk
-        filters = {'tenant_id': self.request.user.tenant_id}
+        filters = {'project_id': self.request.user.tenant_id}
 
         self.netclient.ips.return_value = fips
         self.netclient.ports.return_value = self.api_ports_sdk
@@ -2589,7 +2592,7 @@ class NeutronApiFloatingIpTests(test.APIMockTestCase):
                 target_ports.append((
                     self._get_target_id(p, ip['ip_address']),
                     self._get_target_name(p, ip['ip_address'])))
-        filters = {'tenant_id': self.request.user.tenant_id}
+        filters = {'project_id': self.request.user.tenant_id}
         self.netclient.ports.return_value = ports
         servers = self.servers.list()
         novaclient = mock_novaclient.return_value

@@ -127,8 +127,8 @@ class NetworkApiNeutronTests(test.APIMockTestCase):
         expected_list_ports = [mock.call(device_id=server_ids)]
         if router_enabled:
             self.sdk_net_client.ips.assert_called_once_with(
-                tenant_id=tenant_id, port_id=server_port_ids)
-            expected_list_ports.append(mock.call(tenant_id=tenant_id))
+                project_id=tenant_id, port_id=server_port_ids)
+            expected_list_ports.append(mock.call(project_id=tenant_id))
         else:
             self.assertEqual(0, self.sdk_net_client.ips.call_count)
         self.sdk_net_client.ports.assert_has_calls(expected_list_ports)
