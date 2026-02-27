@@ -1,6 +1,0 @@
-- hosts: all
-  tasks:
-  - name: Install libfontconfig
-    apt:
-      name: libfontconfig1
-    become: yes
