@@ -990,14 +990,18 @@ def protocol_list(request, identity_provider):
 @profiler.trace
 def application_credential_list(request, filters=None):
     user = request.user.id
-    manager = keystoneclient(request).application_credentials
+    manager = keystoneclient(
+        request, force_scoped=True
+    ).application_credentials
     return manager.list(user=user, **filters)
 
 
 @profiler.trace
 def application_credential_get(request, application_credential_id):
     user = request.user.id
-    manager = keystoneclient(request).application_credentials
+    manager = keystoneclient(
+        request, force_scoped=True
+    ).application_credentials
     return manager.get(application_credential=application_credential_id,
                        user=user)
 
@@ -1005,7 +1009,9 @@ def application_credential_get(request, application_credential_id):
 @profiler.trace
 def application_credential_delete(request, application_credential_id):
     user = request.user.id
-    manager = keystoneclient(request).application_credentials
+    manager = keystoneclient(
+        request, force_scoped=True
+    ).application_credentials
     return manager.delete(application_credential=application_credential_id,
                           user=user)
 
@@ -1016,17 +1022,9 @@ def application_credential_create(request, name, secret=None,
                                   roles=None, unrestricted=False,
                                   access_rules=None):
     user = request.user.id
-    # NOTE(ganso): users with domain admin role that are not cloud admins are
-    # not able to get scoped context and create an application credential with
-    # project_id, so only in this particular case we force a scoped context
-    force_scoped = False
-    if (request.user.project_id and request.session.get("domain_token") and
-            not policy.check(
-                (("identity", "identity:update_domain"),), request)):
-        force_scoped = True
-
     manager = keystoneclient(
-        request, force_scoped=force_scoped).application_credentials
+        request, force_scoped=True
+    ).application_credentials
     try:
         return manager.create(name=name, user=user, secret=secret,
                               description=description, expires_at=expires_at,
