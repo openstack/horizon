@@ -45,9 +45,9 @@ Alternatively, for Fedora/Red Hat flavours::
 
     $ sudo dnf install xorg-x11-server-Xvfb
 
-To run integration tests you should use `integration` tox environment::
+To run integration tests you should use `integration-pytest` tox environment::
 
-    $ tox -e integration
+    $ tox -e integration-pytest
 
 These tests requires `geckodriver` installed. It could be downloaded from
 https://github.com/mozilla/geckodriver/releases.
