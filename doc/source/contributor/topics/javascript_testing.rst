@@ -12,9 +12,6 @@ There are multiple components in our JavaScript testing framework:
   tests against multiple browsers and generate test coverage reports.
   Alternatively, tests can be run inside the browser with the Jasmine spec
   runner.
-* `PhantomJS`_ provides a headless WebKit (the browser engine). This gives us
-  native support for many web features without relying on specific browsers
-  being installed.
 * `ESLint`_ is a pluggable code linting utility. This will catch small errors
   and inconsistencies in your JS, which may lead to bigger issues later on.
   See :ref:`js_code_style` for more detail.
@@ -25,7 +22,6 @@ that they are testing. See the :ref:`js_file_structure` section or the
 
 .. _Jasmine: https://jasmine.github.io/2.3/introduction.html
 .. _Karma: https://karma-runner.github.io/
-.. _PhantomJS: http://phantomjs.org/
 .. _ESLint: https://eslint.org/
 
 Running Tests
@@ -36,8 +32,7 @@ Tests can be run in two ways:
 1. Open <dev_server_ip:port>/jasmine in a browser. The development server can be
    run with ``tox -e runserver`` from the horizon root directory.
 2. ``tox -e npm`` from the horizon root directory. This runs Karma,
-   so it will run all the tests against PhantomJS and generate coverage
-   reports.
+   so it will run all the tests and generate coverage reports.
 
 The code linting job can be run with ``tox -e npm -- lint``, or
 ``tox -e npm -- lintq`` to show errors, but not warnings.

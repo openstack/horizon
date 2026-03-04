@@ -36,26 +36,14 @@ are ran on Jenkins), you can run the tests::
     $ tox -e selenium-headless
 
 Selenium will use a virtual display in this case, instead of your own. In order
-to run the tests this way you have to install the dependency `xvfb`, like
-this::
+to run the tests this way you have to install the dependency `xvfb`. For Debian
+flavours, use::
 
     $ sudo apt install xvfb
 
-for a Debian OS flavour, or for Fedora/Red Hat flavours::
+Alternatively, for Fedora/Red Hat flavours::
 
     $ sudo dnf install xorg-x11-server-Xvfb
-
-If you can't run a virtual display, or would prefer not to, you can use the
-PhantomJS web driver instead::
-
-    $ tox -e selenium-phantomjs
-
-If you need to install PhantomJS, you may do so with `npm` like this::
-
-    $ npm -g install phantomjs
-
-Alternatively, many distributions have system packages for PhantomJS, or
-it can be downloaded from http://phantomjs.org/download.html.
 
 To run integration tests you should use `integration` tox environment::
 
