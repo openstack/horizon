@@ -36,10 +36,6 @@ def importer(path, prev):
             os.path.normpath(os.path.join(os.path.dirname(prev), path)),
             path,
         ]
-    # Work around name change in font-awesome 6.2
-    if 'fontawesome' in path:
-        for candidate in candidates[:]:
-            candidates.append(candidate.replace('fontawesome', 'font-awesome'))
     # Try adding _ in front of the file for partials.
     for candidate in candidates[:]:
         if '/' in candidate:

@@ -18,8 +18,8 @@
       margin-bottom: 0;  // remove the Bootstrap margin
 
       &:before {
-        @include fa-icon();
-        content: $fa-var-square;
+        @include fa-icon-regular($fa-var-square);
+        content: '\f096';
         width: 1em;
         vertical-align: middle;
       }
@@ -32,7 +32,7 @@
 
     // The checkbox - Checked
     &:checked + label:before {
-      content: $fa-var-square-check;
+      content: '\f046';
     }
   }
 }
