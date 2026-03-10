@@ -51,15 +51,21 @@ class Session:
             ),
         }
         self.project_name_xpath = config.theme.project_name_xpath
-        self.logout_url = '/'.join((
-            config.dashboard.dashboard_url,
-            'auth',
-            'logout',
-        ))
+        # NOTE: config.dashboard.dashboard_url may or may not end with a slash.
+        # Avoid double-slashes (e.g. .../dashboard//auth/login)
+        # which can yield 404s in some deployments.
+        dashboard_url = config.dashboard.dashboard_url.rstrip('/')
+        self.login_url = f"{dashboard_url}/auth/login/"
+
+    def _reset_to_login_page(self):
+        # Logout is POST-only (Django 5.2+ behavior). Avoid GET /auth/logout/
+        # in selenium helpers; instead clear cookies and navigate to login.
+        self.driver.delete_cookie('sessionid')
+        self.driver.get(self.login_url)
 
     def login(self, user, project=None, region=None):
         if user is None:
-            self.driver.get(self.logout_url)
+            self._reset_to_login_page()
             self.current_user = None
             self.current_project = None
             self.current_region = None
@@ -68,7 +74,7 @@ class Session:
             project = self.credentials[user][2]
         if self.current_user != user or self.current_region != region:
             username, password, home_project = self.credentials[user]
-            self.driver.get(self.logout_url)
+            self._reset_to_login_page()
             user_field = self.driver.find_element(By.ID, 'id_username')
             user_field.send_keys(username)
             pass_field = self.driver.find_element(By.ID, 'id_password')

@@ -59,10 +59,13 @@
     {% endif %}
     <li class="divider"></li>
     <li>
-      <a href="{{ LOGOUT_URL }}" target="_self">
-        <span class="fa fa-sign-out"></span>
-        {% trans "Sign Out" %}
-      </a>
+      <form method="post" action="{{ LOGOUT_URL }}">
+        {% csrf_token %}
+        <button type="submit" class="btn btn-link" target="_self">
+          <span class="fa fa-sign-out"></span>
+          {% trans "Sign Out" %}
+        </button>
+      </form>
     </li>
   </ul>
 </li>

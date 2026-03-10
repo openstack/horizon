@@ -30,6 +30,7 @@ from django.views.decorators.cache import never_cache
 from django.views.decorators.csrf import csrf_exempt
 from django.views.decorators.csrf import csrf_protect
 from django.views.decorators.debug import sensitive_post_parameters
+from django.views.decorators.http import require_POST
 from django.views.generic import edit as edit_views
 from keystoneauth1 import exceptions as keystone_exceptions
 
@@ -260,6 +261,8 @@ def websso(request):
 
 
 # TODO(stephenfin): Migrate to CBV
+@csrf_protect
+@require_POST
 def logout(request, login_url=None, **kwargs):
     """Logs out the user if he is logged in. Then redirects to the log-in page.
 
@@ -281,9 +284,13 @@ def logout(request, login_url=None, **kwargs):
         return django_http.HttpResponseRedirect(
             settings.WEBSSO_DEFAULT_REDIRECT_LOGOUT)
 
-    return django_auth_views.logout_then_login(request,
-                                               login_url=login_url,
-                                               **kwargs)
+    # Django 5.2 makes the built-in LogoutView POST-only. Calling
+    # logout_then_login() here will result in 405 for GET-based logout flows.
+    # Enforce POST at this view and perform logout directly.
+    auth.logout(request)
+    return django_http.HttpResponseRedirect(
+        shortcuts.resolve_url(login_url or settings.LOGIN_URL)
+    )
 
 
 # TODO(stephenfin): Migrate to CBV
