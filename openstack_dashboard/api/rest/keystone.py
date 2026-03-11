@@ -548,9 +548,11 @@ class ServiceCatalog(generic.View):
             for endpoint in record['endpoints']:
                 if endpoint['interface'] == 'public':
                     new_endpoints.append(endpoint)
+
             if new_endpoints:
-                record['endpoints'] = new_endpoints
-                new_catalog.append(record)
+                new_record = record.copy()
+                new_record['endpoints'] = new_endpoints
+                new_catalog.append(new_record)
 
         return new_catalog
 
