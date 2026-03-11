@@ -1,0 +1,9 @@
+---
+fixes:
+  - |
+    [`bug 2134580 <https://bugs.launchpad.net/horizon/+bug/2134580>`__]
+    Fixed an issue where calling ``/api/keystone/svc-catalog/`` could mutate
+    ``request.user.service_catalog`` and cause follow-up API calls to fail
+    with ``horizon.exceptions.ServiceCatalogException: Invalid service catalog:
+    image``.
+
