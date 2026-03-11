@@ -8,6 +8,8 @@
             voting: false
         - horizon-cross-heat-dashboard-python:
             voting: false
+        - horizon-cross-magnum-ui-python:
+            voting: false
 
 - job:
     name: horizon-cross-manila-ui-python
@@ -32,3 +34,11 @@
       zuul_work_dir: "{{ zuul.projects['opendev.org/openstack/heat-dashboard'].src_dir }}"
     required-projects:
       - openstack/heat-dashboard
+
+- job:
+    name: horizon-cross-magnum-ui-python
+    parent: openstack-tox-py310
+    vars:
+      zuul_work_dir: "{{ zuul.projects['opendev.org/openstack/magnum-ui'].src_dir }}"
+    required-projects:
+      - openstack/magnum-ui
