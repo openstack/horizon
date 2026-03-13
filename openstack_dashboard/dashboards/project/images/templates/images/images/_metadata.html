@@ -1,0 +1,196 @@
+{% extends "horizon/common/_modal_form.html" %}
+
+{% load i18n %}
+
+{% block content %}
+<form id="{% block form_id %}{{ form_id }}{% endblock %}"
+    name="{% block form_name %}{% endblock %}"
+    autocomplete="{% block autocomplete %}{% if form.no_autocomplete %}off{% endif %}{% endblock %}"
+    class="{% block form_class %}{% endblock %}"
+    action="{% block form_action %}{{ submit_url }}{% endblock %}"
+    method="{% block form-method %}POST{% endblock %}"
+    {% block form_validation %}{% endblock %}
+    {% if add_to_field %}data-add-to-field="{{ add_to_field }}"{% endif %} {% block form_attrs %}{% endblock %}>
+{% csrf_token %}
+{{ management_form }}
+
+<div class="metadata-tree">
+<template class="metadata-property-template" style="display:none">
+  <li class="list-group-item dark-stripe">
+    <div class="metadata-tree-item">
+      <div class="input-group input-group-sm">
+        <span class="input-group-addon" ></span>
+        <input class="form-control" type="text">
+        <div class="input-group-btn">
+          <a class="btn btn-default"><span class="fa fa-minus"></span></a>
+        </div>
+      </div>
+      <div class="label label-info"></div>
+    </div>
+  </li>
+</template>
+<div class="modal-body">
+  <div class="row">
+    <p class="col-sm-11">
+      You can specify resource&nbsp;metadata by&nbsp;moving items from the left column to the right column. In the&nbsp;left column there are metadata definitions from the Glance Metadata Catalog. Use the "Custom" option to&nbsp;add metadata with the&nbsp;key of your choice.
+    </p>
+  </div> {# row #}
+
+  <div class="row">
+    <div class="col-md-6">
+      <div class="panel panel-default">
+
+        <div class="panel-heading">
+          <div class="row">
+            <div class="col-md-6 v-align">
+              <strong>Available Metadata</strong>
+            </div>
+            <div class="col-md-6">
+              <div class="has-feedback">
+                <input class="form-control input-sm" type="text" placeholder="Filter">
+                <span class="fa fa-search form-control-feedback"></span>
+              </div>
+            </div>
+          </div>
+        </div> {# panel-heading #}
+
+        <ul class="list-group metadata-list-group metadata-metadefs">
+            <li class="list-group-item metadata-custom">
+            <div class="input-group input-group-sm">
+              <span class="input-group-addon">Custom</span>
+              <input class="form-control custom-item" type="text">
+              <span class="input-group-btn">
+                <button type="button" class="btn btn-primary" disabled="disabled">
+                  <span class="fa fa-plus"></span>
+                </button>
+              </span>
+            </div>
+          </li>
+          {% for namespace in namespaces %}
+          <li class="list-group-item list-group-item-action level-0 metadata-namespace" data-name="{{ namespace.namespace }}" data-description="{{ namespace.description }}" data-title="{{ namespace.display_name }}">
+            <div class="clearfix">
+              <div class="pull-left">
+                  <span class="fa fa-chevron-right"></span> {{ namespace.display_name }}
+              </div>
+              <div class="pull-right">
+                <a class="btn btn-primary btn-xs"><span class="fa fa-plus"></span></a>
+              </div>
+            </div>
+          </li>
+            {% for name, property in namespace.properties.items %}
+            <li class="list-group-item light-stripe level-1 metadata-property metadata-collapsed" data-name="{{ name }}" data-description="{{ property.description }}" data-title="{{ property.title }}" data-parentnamespace="{{ namespace.namespace }}">
+                <div class="clearfix">
+                  <div class="pull-left">
+                  <span class="leaf">
+                      {{ property.title }}
+                  </span>
+                  </div>
+                  <div class="pull-right">
+                    <a class="btn btn-primary btn-xs">
+                      <span class="fa fa-plus"></span>
+                    </a>
+                  </div>
+                </div>
+              </li>
+            {% endfor %}
+            {% for obj in namespace.objects %}
+            <li class="list-group-item list-group-item-action level-1 metadata-object metadata-collapsed" data-parentnamespace="{{ namespace.namespace }}" data-description="{{ obj.description }}" data-name="{{ obj.name }}">
+                <div class="clearfix">
+                  <div class="pull-left">
+                      <span class="fa fa-chevron-right"></span> {{ obj.name }}
+                  </div>
+                  <div class="pull-right">
+                    <a class="btn btn-primary btn-xs"><span class="fa fa-plus"></span></a>
+                  </div>
+                </div>
+              </li>
+                  {% for name, property in obj.properties.items %}
+                    <li class="list-group-item light-stripe level-2 metadata-property metadata-collapsed metadata-objcollapsed" data-name="{{ name }}" data-description="{{ property.description }}" data-title="{{ property.title }}" data-parentnamespace="{{ namespace.namespace }}" data-parentobject="{{ obj.name }}">
+                        <div class="clearfix">
+                          <div class="pull-left">
+                          <span class="leaf">
+                              {{ property.title }}
+                          </span>
+                          </div>
+                          <div class="pull-right">
+                            <a class="btn btn-primary btn-xs">
+                              <span class="fa fa-plus"></span>
+                            </a>
+                          </div>
+                        </div>
+                      </li>
+                  {% endfor %}
+            {% endfor %}
+          {% endfor %}
+          {% if not namespaces %}
+          <li class="list-group-item disabled" disabled>No available metadata</li>
+          {% endif %}
+        </ul>
+
+      </div> {# panel #}
+    </div> {# col-md-6 #}
+
+    <div class="col-md-6">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <div class="row">
+            <div class="col-md-6 v-align">
+              <strong>Existing Metadata</strong>
+            </div>
+            <div class="col-md-6">
+              <div class="has-feedback">
+                <input class="form-control input-sm" type="text" placeholder="Filter">
+                <span class="fa fa-search form-control-feedback"></span>
+              </div>
+            </div>
+          </div> {# row #}
+        </div> {# panel-heading #}
+
+        <ul class="list-group metadata-list-group metadata-properties">
+          {% for entry in form %}
+            {{ entry }}
+          {% endfor %}
+          {% if not form %}
+          <li class="list-group-item disabled">No existing metadata</li>
+          {% endif %}
+        </ul>
+
+      </div> {# panel #}
+    </div> {# col-md-6 #}
+
+  </div> {# row #}
+
+  <div class="well metadef-description">
+      <p>Click each item to get its description here.</p>
+  </div>
+  <div class="modal-footer">
+    {% block modal-footer %}
+      {% if cancel_url %}
+      <a href="{% block cancel_url %}{{ cancel_url }}{% endblock %}"
+         class="btn btn-default cancel">
+        {{ cancel_label }}
+      </a>
+      {% endif %}
+      <input class="btn btn-primary" type="submit" value="{{ submit_label }}">
+    {% endblock %}
+  </div> {# footer #}
+
+</div> {# modal-body #}
+</div> {# metadata-tree #}
+</form>
+<script>horizon.MetadataTree.connect();</script>
+<style>
+    div.metadata-tree li.metadata-collapsed {
+        display: none;
+    }
+    div.metadata-tree li.metadata-objcollapsed {
+        display: none;
+    }
+    div.metadata-tree li.metadata-used {
+        display: none;
+    }
+    div.metadata-tree li.metadata-filtered {
+        display: none;
+    }
+</style>
+{% endblock %}

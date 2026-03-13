@@ -1,0 +1,17 @@
+{% extends "project/images/images/meta_plain_widget.html" %}
+
+{% block formfield %}
+  <input
+    class="form-control"
+    name="{{ name }}"
+    type="text"
+    value="{{ value|default_if_none:'' }}"
+    id="{{ id }}"
+    {% if disabled %}
+    disabled="disabled"
+    {% endif %}
+    {% if readonly %}
+    readonly="readonly"
+    {% endif %}
+  >
+{% endblock %}

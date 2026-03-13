@@ -171,19 +171,9 @@ class CreateVolumeFromImage(tables.LinkAction):
 class UpdateMetadata(tables.LinkAction):
     name = "update_metadata"
     verbose_name = _("Update Metadata")
-    ajax = False
     icon = "pencil"
-    attrs = {"ng-controller": "MetadataModalHelperController as modal"}
-
-    def __init__(self, attrs=None, **kwargs):
-        kwargs['preempt'] = True
-        super().__init__(attrs, **kwargs)
-
-    def get_link_url(self, datum):
-        image_id = self.table.get_object_id(datum)
-        self.attrs['ng-click'] = (
-            "modal.openMetadataModal('image', '%s', true)" % image_id)
-        return "javascript:void(0);"
+    url = "horizon:project:images:images:metadata"
+    classes = ("ajax-modal",)
 
     def allowed(self, request, image=None):
         return (api.glance.VERSIONS.active >= 2 and

@@ -38,4 +38,6 @@ else:
                 views.UpdateView.as_view(), name='update'),
         re_path(r'^(?P<image_id>[^/]+)/$', views.DetailView.as_view(),
                 name='detail'),
+        re_path(r'^(?P<image_id>[^/]+)/metadata/$',
+                views.MetadataView.as_view(), name='metadata'),
     ]

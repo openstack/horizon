@@ -153,3 +153,45 @@ class DetailView(tabs.TabView):
     def get_tabs(self, request, *args, **kwargs):
         image = self.get_data()
         return self.tab_group_class(request, image=image, **kwargs)
+
+
+class MetadataView(forms.ModalFormView):
+    form_class = project_forms.ImageMetadataForm
+    form_id = "image_metadata_form"
+    submit_label = _("Save")
+    submit_url = "horizon:project:images:images:metadata"
+    template_name = 'project/images/images/metadata.html'
+    success_url = reverse_lazy("horizon:project:images:index")
+    page_title = _("Image Metadata")
+
+    @memoized.memoized_method
+    def get_object(self):
+        try:
+            return api.glance.image_get(self.request, self.kwargs['image_id'])
+        except Exception:
+            msg = _('Unable to retrieve image.')
+            url = reverse('horizon:project:images:index')
+            exceptions.handle(self.request, msg, redirect=url)
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['image'] = self.get_object()
+        args = (self.kwargs['image_id'],)
+        context['submit_url'] = reverse(self.submit_url, args=args)
+        namespaces, _, _ = api.glance.metadefs_namespace_full_list(
+            self.request, 'OS::Glance::Image')
+        context['namespaces'] = namespaces
+        return context
+
+    def get_form_kwargs(self):
+        kwargs = super().get_form_kwargs()
+        namespaces, _, _ = api.glance.metadefs_namespace_full_list(
+            self.request, 'OS::Glance::Image')
+        kwargs['namespaces'] = namespaces
+        return kwargs
+
+    def get_initial(self):
+        image = self.get_object()
+        data = image.properties
+        data['image_id'] = image.id
+        return data
