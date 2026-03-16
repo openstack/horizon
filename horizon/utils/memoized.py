@@ -106,7 +106,13 @@ def memoized(func=None, max_size=None):
                         # the position it has in the order updates.
                         value = cache[key] = cache.pop(key)
                     except KeyError:
-                        value = cache[key] = func(*args, **kwargs)
+                        try:
+                            value = cache[key] = func(*args, **kwargs)
+                        except Exception as exc:
+                            # Prevent exception chaining to avoid confusing
+                            # error messages that have nothing to do with the
+                            # memoization.
+                            raise exc from None
             except TypeError:
                 # The calculated key may be unhashable when an unhashable
                 # object, such as a list, is passed as one of the arguments. In
@@ -116,7 +122,10 @@ def memoized(func=None, max_size=None):
                     "The key of %s %s is not hashable and cannot be memoized: "
                     "%r\n" % (func.__module__, func.__name__, key),
                     UnhashableKeyWarning, 2)
-                value = func(*args, **kwargs)
+                try:
+                    value = func(*args, **kwargs)
+                except Exception as exc:
+                    raise exc from None
 
             while len(cache) > max_cache_size:
                 try:
