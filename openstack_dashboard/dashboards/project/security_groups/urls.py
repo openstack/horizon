@@ -29,6 +29,10 @@ urlpatterns = [
     re_path(r'^(?P<security_group_id>[^/]+)/add_rule/$',
             views.AddRuleView.as_view(),
             name='add_rule'),
+    re_path(r'^(?P<security_group_id>[^/]+)/update_rule/'
+            r'(?P<rule_id>[^/]+)/$',
+            views.UpdateRuleView.as_view(),
+            name='update_rule'),
     re_path(r'^(?P<security_group_id>[^/]+)/update/$',
             views.UpdateView.as_view(),
             name='update')

@@ -1,0 +1,10 @@
+{% extends "horizon/common/_modal_form.html" %}
+{% load i18n %}
+
+{% block modal-body-right %}
+  <h3>{% trans "Description:" %}</h3>
+  <p>{% blocktrans %}Update the properties of the selected rule. Fields are identical to the add rule form, so you can change the protocol, ports, direction, and remote target without manually deleting and re-adding the rule.{% endblocktrans %}</p>
+  <p><strong>{% trans "Rule:" %}</strong> {% blocktrans %}Choose from the predefined templates or keep the current protocol as a custom rule.{% endblocktrans %}</p>
+  <p><strong>{% trans "Open Port/Port Range:" %}</strong> {% blocktrans %}For TCP and UDP you can choose a single port, a range, or all ports. ICMP rules allow you to adjust the ICMP type and code.{% endblocktrans %}</p>
+  <p><strong>{% trans "Remote:" %}</strong> {% blocktrans %}You may continue allowing traffic from a CIDR block or switch to another security group as the remote source.{% endblocktrans %}</p>
+{% endblock %}

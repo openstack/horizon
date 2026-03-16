@@ -326,6 +326,7 @@ class SecurityGroupRule(NeutronAPIDictWrapper):
         rule['ip_range'] = {'cidr': cidr} if cidr else {}
         group = self._get_secgroup_name(sgr['remote_group_id'], sg_dict)
         rule['group'] = {'name': group} if group else {}
+        rule['remote_group_id'] = sgr.get('remote_group_id')
         super().__init__(rule)
 
     def __str__(self):

@@ -139,7 +139,8 @@ def test_delete_rule_sec_group_demo(login, driver, sec_group_name,
         By.CSS_SELECTOR,
         f"table#rules tr[data-object-id='{new_sec_group_rule_demo.id}']")
     assert len(rows) == 1
-    rows[0].find_element(By.CSS_SELECTOR, "td.actions_column").click()
+    actions_column = rows[0].find_element(By.CSS_SELECTOR, "td.actions_column")
+    widgets.select_from_dropdown(actions_column, "Delete Rule")
     widgets.confirm_modal(driver)
     messages = widgets.get_and_dismiss_messages(driver, config)
     assert (f"Success: Deleted Rule: ALLOW IPv4 {rule_port}/tcp from 0.0.0.0/0"

@@ -165,6 +165,27 @@ class CreateRule(policy.PolicyTargetMixin, tables.LinkAction):
         return True
 
 
+class EditRule(policy.PolicyTargetMixin, tables.LinkAction):
+    name = "update_rule"
+    verbose_name = _("Edit Rule")
+    url = "horizon:project:security_groups:update_rule"
+    classes = ("ajax-modal",)
+    icon = "pencil"
+    policy_rules = (("network", "create_security_group_rule"),)
+
+    def allowed(self, request, rule=None):
+        if not rule:
+            return False
+        create_allowed = policy.check(self.policy_rules, request)
+        delete_allowed = policy.check(
+            (("network", "delete_security_group_rule"),), request)
+        return create_allowed and delete_allowed
+
+    def get_link_url(self, datum):
+        sg_id = datum.parent_group_id
+        return reverse(self.url, args=[sg_id, datum.id])
+
+
 class DeleteRule(policy.PolicyTargetMixin, tables.DeleteAction):
     policy_rules = (("network", "delete_security_group_rule"),)
 
@@ -290,4 +311,4 @@ class RulesTable(tables.DataTable):
         name = "rules"
         verbose_name = _("Security Group Rules")
         table_actions = (CreateRule, DeleteRule)
-        row_actions = (DeleteRule,)
+        row_actions = (EditRule, DeleteRule)

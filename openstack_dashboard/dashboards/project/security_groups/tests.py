@@ -38,11 +38,13 @@ SG_VIEW_PATH = 'horizon:project:security_groups:%s'
 SG_DETAIL_VIEW = SG_VIEW_PATH % 'detail'
 SG_UPDATE_VIEW = SG_VIEW_PATH % 'update'
 SG_ADD_RULE_VIEW = SG_VIEW_PATH % 'add_rule'
+SG_UPDATE_RULE_VIEW = SG_VIEW_PATH % 'update_rule'
 
 SG_TEMPLATE_PATH = 'project/security_groups/%s'
 SG_DETAIL_TEMPLATE = SG_TEMPLATE_PATH % 'detail.html'
 SG_CREATE_TEMPLATE = SG_TEMPLATE_PATH % 'create.html'
 SG_UPDATE_TEMPLATE = SG_TEMPLATE_PATH % '_update.html'
+SG_UPDATE_RULE_TEMPLATE = SG_TEMPLATE_PATH % '_update_rule.html'
 
 
 def strip_absolute_base(uri):
@@ -202,6 +204,19 @@ class SecurityGroupsViewTests(test.TestCase):
             **extra_params)
         self.mock_security_group_list.assert_called_once_with(
             test.IsHttpRequest())
+        self.mock_is_extension_supported.assert_called_once_with(
+            test.IsHttpRequest(), 'standard-attr-description')
+
+    @test.create_mocks({api.neutron: ('is_extension_supported',)})
+    def test_rules_table_has_edit_action(self):
+        sec_group = self.security_groups.first()
+        self.mock_is_extension_supported.return_value = True
+        req = self.factory.get(self.detail_url)
+        kwargs = {'security_group_id': sec_group.id}
+        table = tables.RulesTable(req, sec_group.rules, **kwargs)
+        actions = table.get_row_actions(sec_group.rules[0])
+        action_names = [action.name for action in actions]
+        self.assertIn('update_rule', action_names)
         self.mock_is_extension_supported.assert_called_once_with(
             test.IsHttpRequest(), 'standard-attr-description')
 
@@ -790,6 +805,111 @@ class SecurityGroupsViewTests(test.TestCase):
                          self.detail_url)
         self.mock_security_group_rule_delete.assert_called_once_with(
             test.IsHttpRequest(), rule.id)
+        self.mock_is_extension_supported.assert_called_once_with(
+            test.IsHttpRequest(), 'standard-attr-description')
+
+    @test.create_mocks({api.neutron: ('security_group_get',
+                                      'security_group_list',
+                                      'is_extension_supported')})
+    def test_update_rule_get(self):
+        sec_group = self.security_groups.first()
+        rule = sec_group.rules[0]
+        url = reverse(SG_UPDATE_RULE_VIEW, args=[sec_group.id, rule.id])
+        self.mock_security_group_get.return_value = sec_group
+        self.mock_security_group_list.return_value = self.security_groups.list()
+        self.mock_is_extension_supported.return_value = True
+
+        res = self.client.get(url)
+        self.assertTemplateUsed(res, SG_UPDATE_RULE_TEMPLATE)
+        self.assertEqual(res.context['rule'].id, rule.id)
+
+        self.mock_security_group_get.assert_called_once_with(
+            test.IsHttpRequest(), sec_group.id)
+        self.mock_security_group_list.assert_called_once_with(
+            test.IsHttpRequest())
+        self.mock_is_extension_supported.assert_called_once_with(
+            test.IsHttpRequest(), 'standard-attr-description')
+
+    @test.create_mocks({api.neutron: ('security_group_get',
+                                      'security_group_list',
+                                      'security_group_rule_delete',
+                                      'security_group_rule_create',
+                                      'is_extension_supported')})
+    def test_update_rule_post(self):
+        sec_group = self.security_groups.first()
+        rule = sec_group.rules[0]
+        new_rule = self.security_group_rules.list()[1]
+        url = reverse(SG_UPDATE_RULE_VIEW, args=[sec_group.id, rule.id])
+
+        self.mock_security_group_get.return_value = sec_group
+        self.mock_security_group_list.return_value = self.security_groups.list()
+        self.mock_security_group_rule_delete.return_value = None
+        self.mock_security_group_rule_create.return_value = new_rule
+        self.mock_is_extension_supported.return_value = True
+
+        formData = {'method': 'UpdateRule',
+                    'id': sec_group.id,
+                    'rule_id': rule.id,
+                    'rule_menu': 'tcp',
+                    'direction': 'ingress',
+                    'ethertype': 'IPv4',
+                    'port_or_range': 'port',
+                    'port': 22,
+                    'cidr': '203.0.113.0/24',
+                    'remote': 'cidr',
+                    'description': 'Updated SSH rule'}
+
+        res = self.client.post(url, formData)
+        self.assertRedirectsNoFollow(res, self.detail_url)
+
+        self.mock_security_group_rule_delete.assert_called_once_with(
+            test.IsHttpRequest(), rule.id)
+        self.mock_security_group_rule_create.assert_called_once_with(
+            test.IsHttpRequest(),
+            sec_group.id, 'ingress', 'IPv4',
+            'tcp', 22, 22, '203.0.113.0/24',
+            None, description='Updated SSH rule')
+        self.mock_security_group_get.assert_called_once_with(
+            test.IsHttpRequest(), sec_group.id)
+        self.mock_security_group_list.assert_called_once_with(
+            test.IsHttpRequest())
+        self.mock_is_extension_supported.assert_called_once_with(
+            test.IsHttpRequest(), 'standard-attr-description')
+
+    @test.create_mocks({api.neutron: ('security_group_get',
+                                      'security_group_list',
+                                      'security_group_rule_delete',
+                                      'security_group_rule_create',
+                                      'is_extension_supported')})
+    def test_update_rule_post_no_changes(self):
+        sec_group = self.security_groups.first()
+        rule = sec_group.rules[0]
+        url = reverse(SG_UPDATE_RULE_VIEW, args=[sec_group.id, rule.id])
+
+        self.mock_security_group_get.return_value = sec_group
+        self.mock_security_group_list.return_value = self.security_groups.list()
+        self.mock_is_extension_supported.return_value = True
+
+        formData = {'method': 'UpdateRule',
+                    'id': sec_group.id,
+                    'rule_id': rule.id,
+                    'rule_menu': 'tcp',
+                    'direction': rule.direction,
+                    'ethertype': rule.ethertype,
+                    'port_or_range': 'port',
+                    'port': int(rule.from_port),
+                    'cidr': rule.ip_range['cidr'],
+                    'remote': 'cidr',
+                    'description': rule.description}
+
+        res = self.client.post(url, formData)
+        self.assertRedirectsNoFollow(res, self.detail_url)
+        self.assertFalse(self.mock_security_group_rule_delete.called)
+        self.assertFalse(self.mock_security_group_rule_create.called)
+        self.mock_security_group_get.assert_called_once_with(
+            test.IsHttpRequest(), sec_group.id)
+        self.mock_security_group_list.assert_called_once_with(
+            test.IsHttpRequest())
         self.mock_is_extension_supported.assert_called_once_with(
             test.IsHttpRequest(), 'standard-attr-description')
 
