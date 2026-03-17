@@ -7,10 +7,10 @@
     <div id="{{ chevron_id }}" class="collapse">
       <div class="keypair-details">
         <dl class="dl-horizontal">
-          <dt>{% trans "Key Pair Name" %}</dt>
+          <dt>{% trans "Name" %}</dt>
           <dd>{{ row.datum.name }}</dd>
 
-          <dt>{% trans "Key Pair Type" %}</dt>
+          <dt>{% trans "Type" %}</dt>
           <dd>{{ row.datum.type|default:"ssh" }}</dd>
 
           <dt>{% trans "Fingerprint" %}</dt>
