@@ -29,6 +29,7 @@ from openstack_dashboard.usage import quotas
 
 
 INDEX_URL = reverse('horizon:project:key_pairs:index')
+CREATE_URL = reverse('horizon:project:key_pairs:create')
 
 
 class KeyPairTests(test.TestCase):
@@ -195,3 +196,32 @@ class KeyPairTests(test.TestCase):
             test.IsHttpRequest(), key1_name,
             public_key.replace("\r", "").replace("\n", ""),
             key_type)
+
+    @test.create_mocks({api.nova: ('keypair_create',)})
+    def test_create_keypair_returns_inline_download(self):
+        """Create returns file inline; no redirect to download page."""
+        keypair_name = "new key pair"
+        private_key = (
+            "-----BEGIN PRIVATE KEY-----\n"
+            "secret\n"
+            "-----END PRIVATE KEY-----\n"
+        )
+        keypair = self.keypairs.first()
+        keypair.name = keypair_name
+        keypair.private_key = private_key
+        self.mock_keypair_create.return_value = keypair
+
+        formData = {'name': keypair_name, 'key_type': 'ssh'}
+        res = self.client.post(CREATE_URL, formData)
+
+        self.assertEqual(res.status_code, 200)
+        self.assertIn('attachment', res.get('Content-Disposition', ''))
+        self.assertIn('.pem', res.get('Content-Disposition', ''))
+        self.assertIn(b'-----BEGIN', res.content)
+        self.assertIn(b'secret', res.content)
+
+        self.mock_keypair_create.assert_called_once_with(
+            test.IsHttpRequest(),
+            keypair_name,
+            key_type='ssh'
+        )

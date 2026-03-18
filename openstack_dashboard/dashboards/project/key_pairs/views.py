@@ -14,6 +14,8 @@
 
 import logging
 
+from django.shortcuts import render
+from django.template.defaultfilters import slugify
 from django.urls import reverse
 from django.urls import reverse_lazy
 from django.utils.translation import gettext_lazy as _
@@ -70,6 +72,38 @@ class ImportView(forms.ModalFormView):
 
     def get_object_id(self, keypair):
         return keypair.name
+
+
+class CreateView(forms.ModalFormView):
+    """View for generating a new key pair."""
+
+    form_class = key_pairs_forms.GenerateKeyPairForm
+    template_name = 'project/key_pairs/create.html'
+    success_url = reverse_lazy('horizon:project:key_pairs:index')
+    modal_id = "create_keypair_modal"
+    modal_header = _("Create Key Pair")
+    submit_label = _("Create Key Pair")
+    submit_url = reverse_lazy("horizon:project:key_pairs:create")
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['submit_url'] = self.submit_url
+        return context
+
+    def form_valid(self, form):
+        response = super().form_valid(form)
+        if form.keypair_private_key is not None:
+            response = render(
+                self.request,
+                'project/key_pairs/private_key.pem',
+                {'key': form.keypair_private_key},
+                content_type='text/plain',
+            )
+            response['Content-Disposition'] = (
+                'attachment; filename=%s.pem' % slugify(form.keypair_name))
+            # refresh page
+            response['X-Horizon-Location'] = self.success_url
+        return response
 
 
 class DetailView(views.HorizonTemplateView):

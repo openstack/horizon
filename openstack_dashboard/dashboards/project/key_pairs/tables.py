@@ -15,7 +15,6 @@
 from urllib import parse
 
 from django.template.loader import render_to_string
-from django import urls
 from django.utils.text import format_lazy
 from django.utils.translation import gettext_lazy as _
 from django.utils.translation import ngettext_lazy
@@ -83,25 +82,13 @@ class ImportKeyPair(QuotaKeypairMixin, tables.LinkAction):
         return True
 
 
-class CreateLinkNG(QuotaKeypairMixin, tables.LinkAction):
-    name = "create-keypair-ng"
+class CreateKeyPair(QuotaKeypairMixin, tables.LinkAction):
+    name = "create"
     verbose_name = _("Create Key Pair")
-    url = "horizon:project:key_pairs:index"
-    classes = ("btn-launch",)
+    url = "horizon:project:key_pairs:create"
+    classes = ("ajax-modal",)
     icon = "plus"
     policy_rules = (("compute", "os_compute_api:os-keypairs:create"),)
-
-    def get_default_attrs(self):
-        url = urls.reverse(self.url)
-        ngclick = "modal.createKeyPair({ successUrl: '%s' })" % url
-        self.attrs.update({
-            'ng-controller': 'KeypairController as modal',
-            'ng-click': ngclick
-        })
-        return super().get_default_attrs()
-
-    def get_link_url(self, datum=None):
-        return "javascript:void(0);"
 
     def allowed(self, request, keypair=None):
         if super().allowed(request, keypair):
@@ -179,6 +166,6 @@ class KeyPairsTable(tables.DataTable):
         verbose_name = _("Key Pairs")
         row_class = ExpandableKeyPairRow
         template = 'key_pairs/_keypairs_table.html'
-        table_actions = (CreateLinkNG, ImportKeyPair, DeleteKeyPairs,
+        table_actions = (CreateKeyPair, ImportKeyPair, DeleteKeyPairs,
                          KeypairsFilterAction,)
         row_actions = (DeleteKeyPairs,)

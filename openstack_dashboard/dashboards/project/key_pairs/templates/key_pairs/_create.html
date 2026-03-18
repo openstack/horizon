@@ -1,0 +1,24 @@
+{% extends "horizon/common/_modal_form.html" %}
+{% load i18n %}
+
+{% block modal-body-right %}
+  <h3>{% trans "Description" %}</h3>
+  <p>
+    {% trans "Generate a new key pair. The private key will be generated and must be downloaded immediately after creation." %}
+  </p>
+  <p>
+    {% trans "Key pairs are used to access instances via SSH. The private key should be kept secure." %}
+  </p>
+  <h4>{% trans "Key Types" %}</h4>
+  <dl>
+    <dt>{% trans "SSH Key" %}</dt>
+    <dd>
+      {% trans "Standard SSH key pair (RSA). Recommended for most use cases." %}
+    </dd>
+    <dt>{% trans "X509 Certificate" %}</dt>
+    <dd>
+      {% trans "X509 certificate key pair. Used for specific authentication scenarios." %}
+    </dd>
+  </dl>
+{% endblock %}
+
