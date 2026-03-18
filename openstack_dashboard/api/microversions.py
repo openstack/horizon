@@ -38,6 +38,7 @@ MICROVERSION_FEATURES = {
         "key_types": ["2.2", "2.9"],
         "key_type_list": ["2.9"],
         "rescue_instance_volume_based": ["2.87", "2.93"],
+        "live_migrate": ["2.30"],
     },
     "cinder": {
         "groups": ["3.27", "3.43", "3.48", "3.58"],
