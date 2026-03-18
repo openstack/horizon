@@ -137,6 +137,12 @@ class Subnet(NeutronAPIDictWrapper):
 
     def __init__(self, apidict):
         apidict['ipver_str'] = get_ipver_str(apidict['ip_version'])
+
+        if 'is_dhcp_enabled' in apidict and 'enable_dhcp' not in apidict:
+            apidict['enable_dhcp'] = apidict['is_dhcp_enabled']
+        if 'enable_dhcp' in apidict and 'is_dhcp_enabled' not in apidict:
+            apidict['is_dhcp_enabled'] = apidict['enable_dhcp']
+
         super().__init__(apidict)
 
 
