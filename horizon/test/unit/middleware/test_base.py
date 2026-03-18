@@ -51,7 +51,7 @@ class MiddlewareTests(django_test.TestCase):
         self.assertRedirects(resp, settings.TESTSERVER + url)
 
     def test_process_response_redirect_on_ajax_request(self):
-        url = settings.LOGIN_URL
+        url = settings.LOGIN_REDIRECT_URL
         mw = middleware.HorizonMiddleware(self.get_response)
 
         request = self.factory.post(url,

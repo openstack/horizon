@@ -28,7 +28,6 @@ from openstack_dashboard import policy
 
 
 LOG = logging.getLogger(__name__)
-LOGOUT_URL = 'logout'
 STATUS_CHOICES = (
     ("true", True),
     ("false", False)

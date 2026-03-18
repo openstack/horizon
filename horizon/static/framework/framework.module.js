@@ -153,7 +153,7 @@
       $rootScope.$broadcast(frameworkEvents.AUTH_ERROR, msg);
     }
     if (forceLogout) {
-      $window.location.replace($window.WEBROOT + 'auth/logout');
+      $window.location.replace($window.WEBROOT + 'auth/login');
     }
   }
 

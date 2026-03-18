@@ -173,7 +173,7 @@ class HorizonMiddleware(object):
                 # use django's messages methods here.
                 for tag, message, extra_tags in queued_msgs:
                     getattr(django_messages, tag)(request, message, extra_tags)
-                if response['location'].startswith(settings.LOGOUT_URL):
+                if response['location'].startswith(settings.LOGIN_URL):
                     redirect_response = http.HttpResponse(status=401)
                     # This header is used for handling the logout in JS
                     redirect_response['logout'] = True

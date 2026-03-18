@@ -48,7 +48,7 @@
           $http.get('/api').catch(function onError() {
             expect(toastService.add).toHaveBeenCalled();
             expect($rootScope.$broadcast).toHaveBeenCalled();
-            expect($window.location.replace).toHaveBeenCalledWith('/dashboard/auth/logout');
+            expect($window.location.replace).toHaveBeenCalledWith('/dashboard/auth/login');
           });
           $httpBackend.flush();
         })
