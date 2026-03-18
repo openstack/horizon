@@ -611,9 +611,11 @@ def server_migrate(request, instance_id):
 @profiler.trace
 def server_live_migrate(request, instance_id, host, block_migration=False,
                         disk_over_commit=False):
-    _nova.novaclient(request).servers.live_migrate(instance_id, host,
-                                                   block_migration,
-                                                   disk_over_commit)
+    microversion = get_microversion(request, "live_migrate")
+    _nova.novaclient(request, version=microversion).servers.live_migrate(
+        instance_id, host,
+        block_migration,
+        disk_over_commit)
 
 
 @profiler.trace
