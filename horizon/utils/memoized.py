@@ -94,7 +94,23 @@ def memoized(func=None, max_size=None):
 
             key = _get_key(args, kwargs, remove)
             try:
-                with locks[key]:
+                lock = locks[key]
+            except TypeError:
+                # The calculated key may be unhashable when an unhashable
+                # object, such as a list, is passed as one of the arguments. In
+                # that case, we can't cache anything and simply always call the
+                # decorated function.
+                warnings.warn(
+                    "The key of %s %s is not hashable and cannot be memoized: "
+                    "%r\n" % (func.__module__, func.__name__, key),
+                    UnhashableKeyWarning, 2)
+                try:
+                    # Prevent exception chaining.
+                    value = func(*args, **kwargs)
+                except Exception as exc:
+                    raise exc from None
+            else:
+                with lock:
                     try:
                         # We want cache hit to be as fast as possible, and
                         # don't really care much about the speed of a cache
@@ -113,19 +129,6 @@ def memoized(func=None, max_size=None):
                             # error messages that have nothing to do with the
                             # memoization.
                             raise exc from None
-            except TypeError:
-                # The calculated key may be unhashable when an unhashable
-                # object, such as a list, is passed as one of the arguments. In
-                # that case, we can't cache anything and simply always call the
-                # decorated function.
-                warnings.warn(
-                    "The key of %s %s is not hashable and cannot be memoized: "
-                    "%r\n" % (func.__module__, func.__name__, key),
-                    UnhashableKeyWarning, 2)
-                try:
-                    value = func(*args, **kwargs)
-                except Exception as exc:
-                    raise exc from None
 
             while len(cache) > max_cache_size:
                 try:
