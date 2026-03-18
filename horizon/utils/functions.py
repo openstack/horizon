@@ -49,7 +49,7 @@ def add_logout_reason(request, response, reason, status='success'):
 
 
 def logout_with_message(request, msg, redirect=True, status='success'):
-    """Send HttpResponseRedirect to LOGOUT_URL.
+    """Logout the user and take them to the login screen.
 
     `msg` is a message displayed on the login page after the logout, to explain
     the logout reason.
@@ -57,9 +57,9 @@ def logout_with_message(request, msg, redirect=True, status='success'):
     logout(request)
     if redirect:
         response = http.HttpResponseRedirect(
-            '%s?next=%s' % (settings.LOGOUT_URL, request.path))
+            '%s?next=%s' % (settings.LOGIN_URL, request.path))
     else:
-        response = http.HttpResponseRedirect(settings.LOGOUT_URL)
+        response = http.HttpResponseRedirect(settings.LOGIN_URL)
     add_logout_reason(request, response, msg, status)
     return response
 
