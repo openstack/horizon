@@ -204,7 +204,7 @@ class ApplicationCredentialsAPITests(test.APIMockTestCase):
         mock_policy.return_value = True
         api.keystone.application_credential_create(self.request, None)
         mock_keystoneclient.assert_called_once_with(
-            self.request, force_scoped=False)
+            self.request, force_scoped=True)
 
     @mock.patch.object(policy, 'check')
     @mock.patch.object(api.keystone, 'keystoneclient')
@@ -213,7 +213,7 @@ class ApplicationCredentialsAPITests(test.APIMockTestCase):
         mock_policy.return_value = True
         api.keystone.application_credential_create(self.request, None)
         mock_keystoneclient.assert_called_once_with(
-            self.request, force_scoped=False)
+            self.request, force_scoped=True)
 
     @mock.patch.object(policy, 'check')
     @mock.patch.object(api.keystone, 'keystoneclient')
@@ -224,4 +224,4 @@ class ApplicationCredentialsAPITests(test.APIMockTestCase):
         self.request.user.project_id = None
         api.keystone.application_credential_create(self.request, None)
         mock_keystoneclient.assert_called_once_with(
-            self.request, force_scoped=False)
+            self.request, force_scoped=True)
