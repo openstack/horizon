@@ -261,7 +261,7 @@
             .finally(onGetAvailabilityZonesComplete),
           novaAPI.getFlavors({
             is_public: true,
-            get_extras: true
+            get_extras: false
           }).then(onGetFlavors, noop),
           novaAPI.getKeypairs().then(onGetKeypairs, noop),
           novaAPI.getLimits(true).then(onGetNovaLimits, noop),
