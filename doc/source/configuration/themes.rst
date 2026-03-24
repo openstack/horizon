@@ -148,9 +148,9 @@ If the static root of the theme folder contains an ``img`` directory,
 then all images that make use of the {% themable_asset %} templatetag
 can be overridden.
 
-These assets include logo.svg, splash-logo.svg and favicon.ico, however
-overriding the SVG/GIF assets used by Heat within the `dashboard/img` folder
-is not currently supported.
+These assets include ``logo.svg``, ``logo-splash.svg`` and ``favicon.ico``,
+however overriding the SVG/GIF assets used by Heat within the ``dashboard/img``
+folder is not currently supported.
 
 Customizing the Logo
 --------------------
