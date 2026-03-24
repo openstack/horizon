@@ -51,6 +51,7 @@
     gettext,
     toast
   ) {
+    var caption = gettext("Create Role");
     var invalidMsg = gettext("Role already exists.");
     var roles = [];
     var form = [
@@ -88,7 +89,8 @@
       var model = {};
 
       var config = {
-        title: gettext('Create Role'),
+        title: caption,
+        submitText: caption,
         schema: schema,
         form: form,
         model: model,

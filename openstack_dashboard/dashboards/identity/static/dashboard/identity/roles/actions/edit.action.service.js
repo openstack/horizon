@@ -49,6 +49,7 @@
     actionResultService,
     toast
   ) {
+    var caption = gettext("Edit Role");
     var service = {
       allowed: allowed,
       perform: perform,
@@ -74,7 +75,8 @@
 
     function onLoad(response) {
       var config = {
-        title: gettext('Edit Role'),
+        title: caption,
+        submitText: caption,
         schema: schema,
         form: ['*'],
         model: response.data,
