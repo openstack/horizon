@@ -21,9 +21,8 @@ assumes that role inherits those rights and privileges.
 Create a role
 ~~~~~~~~~~~~~
 
-#. Log in to the dashboard and select the :guilabel:`admin` project from the
-   drop-down list.
-#. On the :guilabel:`Identity` tab, click the :guilabel:`Roles` category.
+#. Log in to the dashboard and select :guilabel:`Identity` tab.
+#. On the :guilabel:`Identity` tab click the :guilabel:`Roles` category.
 #. Click the :guilabel:`Create Role` button.
 
    In the :guilabel:`Create Role` window, enter a name for the role.
@@ -32,9 +31,8 @@ Create a role
 Edit a role
 ~~~~~~~~~~~
 
-#. Log in to the dashboard and select the :guilabel:`Identity` project from the
-   drop-down list.
-#. On the :guilabel:`Identity` tab, click the :guilabel:`Roles` category.
+#. Log in to the dashboard and select :guilabel:`Identity` tab.
+#. On the :guilabel:`Identity` tab click the :guilabel:`Roles` category.
 #. Click the :guilabel:`Edit` button.
 
    In the :guilabel:`Update Role` window, enter a new name for the role.
@@ -48,9 +46,8 @@ Edit a role
 Delete a role
 ~~~~~~~~~~~~~
 
-#. Log in to the dashboard and select the :guilabel:`Identity` project from the
-   drop-down list.
-#. On the :guilabel:`Identity` tab, click the :guilabel:`Roles` category.
+#. Log in to the dashboard and select :guilabel:`Identity` tab.
+#. On the :guilabel:`Identity` tab click the :guilabel:`Roles` category.
 #. Select the role you want to delete and click the :guilabel:`Delete
    Roles` button.
 #. In the :guilabel:`Confirm Delete Roles` window, click :guilabel:`Delete
