@@ -115,7 +115,12 @@ def login(request):
             if auth_url is None:
                 auth_url = forms.get_region_endpoint(region_id)
             url = utils.get_websso_url(request, auth_url, auth_type)
-            return shortcuts.redirect(url)
+            response = django_http.HttpResponseRedirect(url)
+            utils.set_response_cookie(response, 'login_region',
+                                      request.POST.get('region', ''))
+            utils.set_response_cookie(response, 'login_domain',
+                                      request.POST.get('domain', ''))
+            return response
 
     if not is_ajax(request):
         # If the user is already authenticated, redirect them to the
