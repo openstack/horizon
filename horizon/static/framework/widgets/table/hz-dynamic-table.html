@@ -3,7 +3,7 @@
 -->
 <hz-magic-search-context filter-facets="filterFacets">
   <div hz-table
-    track-rows-by="config.trackId"
+    track-rows-by="'id'"
     ng-cloak
     st-magic-search
     st-table="items"
@@ -59,16 +59,16 @@
           classes rsp-p1 rsp-p2 are responsive priority as user resizes window.
         -->
         <tr ng-repeat-start="item in items track by item[config.trackId]"
-            ng-class="{'st-selected': checked[item[config.trackId]],
+            ng-class="{'st-selected': checked[item['id']],
                        'warning': itemInTransitionFunction(item)}">
 
           <td ng-show="config.selectAll" class="multi_select_column">
             <div class="themable-checkbox">
               <input type="checkbox"
-                     id="{$ item[config.trackId] $}"
-                     ng-model="tCtrl.selections[item[config.trackId]].checked"
+                     id="{$ item['id'] $}"
+                     ng-model="tCtrl.selections[item['id']].checked"
                      hz-select="item">
-              <label for="{$ item[config.trackId] $}"></label>
+              <label for="{$ item['id'] $}"></label>
             </div>
           </td>
           <td ng-show="config.expand" class="expander">
