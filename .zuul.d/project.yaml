@@ -27,7 +27,7 @@
     experimental:
       jobs:
         - horizon-integration-pytest-xstatic-master
-        - horizon-tox-py36-xstatic-master
+        - horizon-tox-py310-xstatic-master
         - horizon-nodejs20-run-test-xstatic-master
     periodic:
       jobs:

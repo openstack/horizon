@@ -4,7 +4,7 @@ System Requirements
 
 The latest version of Horizon has the following dependencies:
 
-* Python 3.9, 3.10 or 3.11
+* Python 3.10, 3.11, 3.12 or 3.13
 
 * Django 4.2
 
