@@ -2333,7 +2333,7 @@ class NeutronApiFloatingIpPortForwardingTest(test.APIMockTestCase):
         for attr in response.to_dict():
             self.assertEqual(getattr(response, attr), pfw[attr])
         self.client_mock.get_port_forwarding.assert_called_once_with(
-            fip_id, pfw_id)
+            pfw_id, fip_id)
 
     def test_port_forwarding_create(self):
         pfw_resp_mock = self.api_port_forwardings_sdk[0]
@@ -2353,7 +2353,7 @@ class NeutronApiFloatingIpPortForwardingTest(test.APIMockTestCase):
         for attr in response.to_dict():
             self.assertEqual(getattr(response, attr), pfw_expected[attr])
         self.client_mock.create_port_forwarding.assert_called_once_with(
-            fip_id, **pfw)
+            floatingip_id=fip_id, **pfw)
 
     def test_port_forwarding_update(self):
         pfw_resp_mock = self.api_port_forwardings_sdk[0]
@@ -2371,7 +2371,7 @@ class NeutronApiFloatingIpPortForwardingTest(test.APIMockTestCase):
         for attr in response.to_dict():
             self.assertEqual(getattr(response, attr), pfw_expected[attr])
         self.client_mock.update_port_forwarding.assert_called_once_with(
-            fip_id, pfw_id, **pfw)
+            pfw_id, fip_id, **pfw)
 
     def test_port_forwarding_delete(self):
         pfw_id = self.api_port_forwardings_sdk[0]['id']

@@ -639,8 +639,8 @@ class PortForwardingManager(object):
         portforwarding_id = params['portforwarding_id']
         LOG.debug("Updating Portforwarding rule with id %s", portforwarding_id)
         pfw = self.net_client.update_port_forwarding(
-            floating_ip_id,
             portforwarding_id,
+            floating_ip_id,
             **portforwarding_dict).to_dict()
 
         return PortForwarding(pfw, floating_ip_id)
@@ -649,7 +649,7 @@ class PortForwardingManager(object):
     def create(self, floating_ip_id, **params):
         portforwarding_dict = self.create_port_forwarding_dict(**params)
         portforwarding_rule = self.net_client.create_port_forwarding(
-            floating_ip_id, **portforwarding_dict).to_dict()
+            floatingip_id=floating_ip_id, **portforwarding_dict).to_dict()
         LOG.debug("Created a Portforwarding rule to floating IP %s with id %s",
                   floating_ip_id,
                   portforwarding_rule['id'])
@@ -688,8 +688,8 @@ class PortForwardingManager(object):
             floating_ip_id, portforwarding_id)
 
     def get(self, floating_ip_id, portforwarding_id):
-        pfw = self.net_client.get_port_forwarding(floating_ip_id,
-                                                  portforwarding_id).to_dict()
+        pfw = self.net_client.get_port_forwarding(portforwarding_id,
+                                                  floating_ip_id).to_dict()
         return PortForwarding(pfw, floating_ip_id)
 
 

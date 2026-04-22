@@ -95,6 +95,8 @@ class FloatingIpPortforwardingViewTests(test.TestCase):
                     'protocol': 'TCP',
                     'internal_port_range': str(port),
                     'external_port_range': str(port + 10),
+                    'internal_port': str(port),
+                    'external_port': str(port + 10),
                     'internal_ip_address': ip['ip_address'],
                     'description': '',
                     'internal_port_id': '',
@@ -175,9 +177,8 @@ class FloatingIpPortforwardingViewTests(test.TestCase):
         self.mock_floating_ip_port_forwarding_list.return_value = (
             fip.port_forwardings)
         self.mock_floating_ip_target_list.return_value = [fip]
-        self.mock_floating_ip_port_forwarding_get.return_value = {
-            'port_forwarding': fip.port_forwardings[0].to_dict()
-        }
+        self.mock_floating_ip_port_forwarding_get.return_value = (
+            fip.port_forwardings[0].to_dict())
 
         params = urlencode({'floating_ip_id': fip_id,
                             'pfwd_id': fip.port_forwardings[0]['id']})
@@ -193,9 +194,9 @@ class FloatingIpPortforwardingViewTests(test.TestCase):
         self.assertEqual(workflow.steps[0].action.initial['protocol'],
                          fip.port_forwardings[0]['protocol'])
         self.assertEqual(workflow.steps[0].action.initial['internal_port'],
-                         fip.port_forwardings[0]['internal_port_range'])
+                         fip.port_forwardings[0]['internal_port'])
         self.assertEqual(workflow.steps[0].action.initial['external_port'],
-                         fip.port_forwardings[0]['external_port_range'])
+                         fip.port_forwardings[0]['external_port'])
         self.assertEqual(workflow.steps[0].action.initial['description'],
                          fip.port_forwardings[0]['description'])
 
