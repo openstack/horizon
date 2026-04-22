@@ -138,9 +138,8 @@ class EditFloatingIpPortForwardingRuleAction(
         else:
             floating_ip_id = request.GET.get('floating_ip_id')
             port_forwarding_id = request.GET.get('pfwd_id')
-            port_forwarding = api.neutron.floating_ip_port_forwarding_get(
+            port_forwarding_rule = api.neutron.floating_ip_port_forwarding_get(
                 request, floating_ip_id, port_forwarding_id)
-            port_forwarding_rule = port_forwarding['port_forwarding']
             self.instance_id = "%s_%s" % (
                 port_forwarding_rule['internal_port_id'],
                 port_forwarding_rule['internal_ip_address'])
@@ -150,12 +149,11 @@ class EditFloatingIpPortForwardingRuleAction(
             self.initial['protocol'] = str(
                 port_forwarding_rule['protocol']).upper()
             self.initial['internal_port'] = port_forwarding_rule[
-                'internal_port_range']
+                'internal_port']
             self.initial['external_port'] = port_forwarding_rule[
-                'external_port_range']
-            if 'description' in port_forwarding_rule.keys():
-                self.initial['description'] = port_forwarding_rule[
-                    'description']
+                'external_port']
+            self.initial['description'] = port_forwarding_rule[
+                'description']
 
     def populate_internal_ip_address_choices(self, request, context):
         targets = api.neutron.floating_ip_target_list(self.request)
