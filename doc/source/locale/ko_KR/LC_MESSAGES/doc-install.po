@@ -4,9 +4,9 @@
 # Ian Y. Choi <ianyrchoi@gmail.com>, 2023. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 25.6.0.dev56\n"
+"Project-Id-Version: horizon 25.7.2.dev3\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-12-01 20:51+0000\n"
+"POT-Creation-Date: 2026-04-24 08:10+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -38,23 +38,11 @@ msgstr ":launchpad:`masakari`"
 msgid ":launchpad:`mistral`"
 msgstr ":launchpad:`mistral`"
 
-msgid ":launchpad:`monasca`"
-msgstr ":launchpad:`monasca`"
-
-msgid ":launchpad:`murano`"
-msgstr ":launchpad:`murano`"
-
 msgid ":launchpad:`neutron-fwaas-dashboard`"
 msgstr ":launchpad:`neutron-fwaas-dashboard`"
 
 msgid ":launchpad:`neutron-vpnaas-dashboard`"
 msgstr ":launchpad:`neutron-vpnaas-dashboard`"
-
-msgid ":launchpad:`senlin-dashboard`"
-msgstr ":launchpad:`senlin-dashboard`"
-
-msgid ":launchpad:`solum`"
-msgstr ":launchpad:`solum`"
 
 msgid ":launchpad:`tacker`"
 msgstr ":launchpad:`tacker`"
@@ -104,12 +92,6 @@ msgstr ":opendev-repo:`openstack/masakari-dashboard`"
 msgid ":opendev-repo:`openstack/mistral-dashboard`"
 msgstr ":opendev-repo:`openstack/mistral-dashboard`"
 
-msgid ":opendev-repo:`openstack/monasca-ui`"
-msgstr ":opendev-repo:`openstack/monasca-ui`"
-
-msgid ":opendev-repo:`openstack/murano-dashboard`"
-msgstr ":opendev-repo:`openstack/murano-dashboard`"
-
 msgid ":opendev-repo:`openstack/networking-bgpvpn`"
 msgstr ":opendev-repo:`openstack/networking-bgpvpn`"
 
@@ -121,15 +103,6 @@ msgstr ":opendev-repo:`openstack/neutron-vpnaas-dashboard`"
 
 msgid ":opendev-repo:`openstack/octavia-dashboard`"
 msgstr ":opendev-repo:`openstack/octavia-dashboard`"
-
-msgid ":opendev-repo:`openstack/sahara-dashboard`"
-msgstr ":opendev-repo:`openstack/sahara-dashboard`"
-
-msgid ":opendev-repo:`openstack/senlin-dashboard`"
-msgstr ":opendev-repo:`openstack/senlin-dashboard`"
-
-msgid ":opendev-repo:`openstack/solum-dashboard`"
-msgstr ":opendev-repo:`openstack/solum-dashboard`"
 
 msgid ":opendev-repo:`openstack/tacker-horizon`"
 msgstr ":opendev-repo:`openstack/tacker-horizon`"
@@ -155,17 +128,11 @@ msgstr ":storyboard:`openstack/adjutant-ui`"
 msgid ":storyboard:`openstack/cloudkitty-dashboard`"
 msgstr ":storyboard:`openstack/cloudkitty-dashboard`"
 
-msgid ":storyboard:`openstack/freezer-web-ui`"
-msgstr ":storyboard:`openstack/freezer-web-ui`"
-
 msgid ":storyboard:`openstack/heat-dashboard`"
 msgstr ":storyboard:`openstack/heat-dashboard`"
 
 msgid ":storyboard:`openstack/octavia-dashboard`"
 msgstr ":storyboard:`openstack/octavia-dashboard`"
-
-msgid ":storyboard:`openstack/sahara-dashboard`"
-msgstr ":storyboard:`openstack/sahara-dashboard`"
 
 msgid ":storyboard:`openstack/vitrage-dashboard`"
 msgstr ":storyboard:`openstack/vitrage-dashboard`"
@@ -804,12 +771,6 @@ msgstr "masakari-dashboard"
 msgid "mistral-dashboard"
 msgstr "mistral-dashboard"
 
-msgid "monasca-ui"
-msgstr "monasca-ui"
-
-msgid "murano-dashboard"
-msgstr "murano-dashboard"
-
 msgid "networking-bgpvpn"
 msgstr "networking-bgpvpn"
 
@@ -821,15 +782,6 @@ msgstr "neutron-vpnaas-dashboard"
 
 msgid "octavia-dashboard"
 msgstr "octavia-dashboard"
-
-msgid "sahara-dashboard"
-msgstr "sahara-dashboard"
-
-msgid "senlin-dashboard"
-msgstr "senlin-dashboard"
-
-msgid "solum-dashboard"
-msgstr "solum-dashboard"
 
 msgid "tacker-horizon"
 msgstr "tacker-horizon"

@@ -1,18 +1,18 @@
 # Ian Y. Choi <ianyrchoi@gmail.com>, 2015. #zanata
 # OpenStack Infra <zanata@openstack.org>, 2015. #zanata
-# Sungjin Kang <gang.sungjin@gmail.com>, 2015. #zanata
+# Sungjin Kang <ujuc@ujuc.me>, 2015. #zanata
 # jay jeong <jay.gtv@gmail.com>, 2015. #zanata
 # Andrea Young Oak Li <youli@redhat.com>, 2016. #zanata
 # Andreas Jaeger <jaegerandi@gmail.com>, 2016. #zanata
 # Eunseop Shin <kairos9603@khu.ac.kr>, 2016. #zanata
 # Ian Y. Choi <ianyrchoi@gmail.com>, 2016. #zanata
 # Jaesang Lee <hyangii@gmail.com>, 2016. #zanata
-# Sungjin Kang <gang.sungjin@gmail.com>, 2016. #zanata
+# Sungjin Kang <ujuc@ujuc.me>, 2016. #zanata
 # Sunhong Kim <intensify7@naver.com>, 2016. #zanata
 # skywalker54 <shpark@rockplace.co.kr>, 2016. #zanata
 # ByungYeol Woo <wby1089@gmail.com>, 2017. #zanata
 # Ian Y. Choi <ianyrchoi@gmail.com>, 2017. #zanata
-# Sungjin Kang <gang.sungjin@gmail.com>, 2017. #zanata
+# Sungjin Kang <ujuc@ujuc.me>, 2017. #zanata
 # Wonil Choi <wonil0522@gmail.com>, 2017. #zanata
 # bryan tak <neos346@gmail.com>, 2017. #zanata
 # minwook-shin <minwook0106@gmail.com>, 2017. #zanata
@@ -21,17 +21,17 @@
 # Jaeho Cho <jaeho8032@gmail.com>, 2018. #zanata
 # Jaewook Oh <kyle.oh95@gmail.com>, 2018. #zanata
 # Soonyeul Park <ardentpark@gmail.com>, 2018. #zanata
-# Sungjin Kang <gang.sungjin@gmail.com>, 2018. #zanata
+# Sungjin Kang <ujuc@ujuc.me>, 2018. #zanata
 # ByungYeol Woo <wby1089@gmail.com>, 2019. #zanata
 # Ian Y. Choi <ianyrchoi@gmail.com>, 2019. #zanata
-# Sungjin Kang <gang.sungjin@gmail.com>, 2019. #zanata
+# Sungjin Kang <ujuc@ujuc.me>, 2019. #zanata
 # Ian Y. Choi <ianyrchoi@gmail.com>, 2020. #zanata
 # Ian Y. Choi <ianyrchoi@gmail.com>, 2023. #zanata
 msgid ""
 msgstr ""
 "Project-Id-Version: horizon VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2025-09-17 19:09+0000\n"
+"POT-Creation-Date: 2026-04-24 08:10+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -88,12 +88,6 @@ msgstr ""
 "  (object storage service, Ceph, NFS, etc ...).\n"
 "  백업을 생성하기 위해 이러한 서비스 중 하나를 활성화해야 합니다.\n"
 "  "
-
-msgid " - End"
-msgstr "- 끝"
-
-msgid " : Next hop"
-msgstr ": 다음 홉"
 
 msgid ""
 " A protocol entry contains information that dictates which mapping rules to "
@@ -535,13 +529,6 @@ msgstr[0] "추가된 사용자"
 
 msgid "Additional Routes"
 msgstr "추가적인 경로"
-
-msgid ""
-"Additional routes announced to the hosts. Each entry is: destination_cidr,"
-"nexthop (e.g., 192.168.200.0/24,10.56.1.254) and one entry per line."
-msgstr ""
-"호스트에 추가 경로가 알려졌습니다. 각 엔트리는: destination_cidr,nexthop "
-"(예., 192.168.200.0/24,10.56.1.254) 그리고 한 행당 하나의 엔트리입니다."
 
 msgid ""
 "Additionally, some resource types may require a prefix to be used when "
@@ -3261,13 +3248,6 @@ msgstr "Host Name ="
 
 msgid "Host Routes"
 msgstr "호스트 경로"
-
-#, python-format
-msgid ""
-"Host Routes format error: Destination CIDR and nexthop must be specified "
-"(value=%s)"
-msgstr ""
-"호스트 경로 포멧 오류: 대상 CIDR과 nexthop을 지정해야 합니다. (값 = %s)"
 
 msgid ""
 "Host aggregates divide an availability zone into logical units by grouping "

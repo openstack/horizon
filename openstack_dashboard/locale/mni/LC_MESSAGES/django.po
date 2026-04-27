@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: horizon VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2025-08-11 19:58+0000\n"
+"POT-Creation-Date: 2026-04-24 08:10+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -13,12 +13,6 @@ msgstr ""
 "Language: mni\n"
 "X-Generator: Zanata 4.3.3\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
-
-msgid " - End"
-msgstr " - এন্দ"
-
-msgid " : Next hop"
-msgstr " : নেক্স হোপ"
 
 #, python-format
 msgid "%(field_name)s: Invalid IP address (value=%(ip)s)"
@@ -162,13 +156,6 @@ msgstr ""
 
 msgid "Add/Remove Hosts to Aggregate"
 msgstr "এগ্রিগেত্তা হোষ্টশীং হাপচিল্লু/লৌথোকউ"
-
-msgid ""
-"Additional routes announced to the hosts. Each entry is: destination_cidr,"
-"nexthop (e.g., 192.168.200.0/24,10.56.1.254) and one entry per line."
-msgstr ""
-"হোষ্টশীংদা অহেনবা রুতশীং খংহল্লে। এন্ত্রি খুদিংমক অসি: destination_cidr,nexthop (e."
-"g., 192.168.200.0/24,10.56.1.254) অমসুং লাইন খুদিংগী এন্ত্রি অমনি।"
 
 msgid "Admin"
 msgstr "এদমিন"
@@ -1320,14 +1307,6 @@ msgstr "হোষ্ট এগ্রিগেতশীং"
 
 msgid "Host Routes"
 msgstr "হোষ্ট রুতশীং"
-
-#, python-format
-msgid ""
-"Host Routes format error: Destination CIDR and nexthop must be specified "
-"(value=%s)"
-msgstr ""
-"হোষ্ট রুতশীংগী ফোর্মেত শোয়রে: দেষ্টিনেসন CIDR অমসুং নেক্সহোপ অদু শেংনা তাক্কদবনি "
-"(ভেল্যু=%s)"
 
 msgid ""
 "Host aggregates divide an availability zone into logical units by grouping "

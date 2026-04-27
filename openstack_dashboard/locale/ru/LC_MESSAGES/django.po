@@ -42,15 +42,16 @@
 # Ivan Anfimov <lazekteam@gmail.com>, 2024. #zanata
 # Dmitriy Chubinidze <dcu995@gmail.com>, 2025. #zanata
 # Ivan Anfimov <lazekteam@gmail.com>, 2025. #zanata
+# Dmitriy Chubinidze <dcu995@gmail.com>, 2026. #zanata
 msgid ""
 msgstr ""
 "Project-Id-Version: horizon VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2025-12-03 16:21+0000\n"
+"POT-Creation-Date: 2026-04-24 08:10+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2025-12-03 08:42+0000\n"
+"PO-Revision-Date: 2026-04-26 03:30+0000\n"
 "Last-Translator: Dmitriy Chubinidze <dcu995@gmail.com>\n"
 "Language: ru\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
@@ -118,12 +119,6 @@ msgstr ""
 " У вас должен быть активирован один из этих сервисов, чтобы создать\n"
 " резервную копию.\n"
 " "
-
-msgid " - End"
-msgstr " - Конец"
-
-msgid " : Next hop"
-msgstr " : Следующий hop"
 
 msgid ""
 " A protocol entry contains information that dictates which mapping rules to "
@@ -241,7 +236,11 @@ msgid "-"
 msgstr "-"
 
 msgid "1 (icmp) should be specified for IPv4 instead of 58."
-msgstr "Для IPv4 следует указать тип 1 (ipv4-icmp), вместо 58."
+msgstr "Для IPv4 следует указать тип 1 (ipv4), вместо 58."
+
+#. Translators: When the number of free IPs exceeds 10000.
+msgid "10,000+ free IPs"
+msgstr "10,000+ свободных IP"
 
 msgid "58 (ipv6-icmp) should be specified for IPv6 instead of 1."
 msgstr "Для IPv6 следует указать тип 58 (ipv6-icmp), вместо 1."
@@ -338,6 +337,13 @@ msgstr ""
 "затронет все интерфейсы инстанса. Если у вас имеется несколько интерфейсов "
 "на данном инстансе и применены различные группы безопасности для портов, "
 "используйте опцию \"Редактировать группы безопасности порта\"."
+
+msgid ""
+"A <b>floating IP</b> is a static, publicly accessible IP address that can be "
+"dynamically assigned to different instances."
+msgstr ""
+"<b>Плавающий IP-адрес</b> — это статический, публично доступный IP-адрес, "
+"который может динамически назначаться различным инстансам."
 
 msgid "A brief description of the security group rule you are adding"
 msgstr "Краткое описание добавляемого правила группы безопасности"
@@ -592,11 +598,12 @@ msgid "Additional Routes"
 msgstr "Дополнительные маршруты"
 
 msgid ""
-"Additional routes announced to the hosts. Each entry is: destination_cidr,"
-"nexthop (e.g., 192.168.200.0/24,10.56.1.254) and one entry per line."
+"Additional routes announced to the hosts. Each entry is: Destination CIDR "
+"and Next Hop (e.g., 192.168.200.0/24,10.56.1.254) and one entry per line."
 msgstr ""
-"Дополнительные маршруты объявленные для узла. Каждый ввод: destination_cidr,"
-"nexthop (напр. 192.168.200.0/24,10.56.1.254) по одной записи в строке."
+"Объявлены дополнительные маршруты для хостов. Формат каждой записи: CIDR "
+"назначения и следующий хоп (например, 192.168.200.0/24,10.56.1.254) и одна "
+"запись на строку."
 
 msgid ""
 "Additionally, some resource types may require a prefix to be used when "
@@ -2797,6 +2804,9 @@ msgstr ""
 "Шифрование информации не может быть изменено для типа диска, если существуют "
 "подключенные диски данного типа."
 
+msgid "End"
+msgstr "Конец"
+
 msgid "Endpoints"
 msgstr "Точки доступа"
 
@@ -2804,10 +2814,10 @@ msgid "Enter Network Address manually"
 msgstr "Введите сетевой адрес вручную"
 
 msgid "Enter a value for ICMP code in the range (-1: 255)"
-msgstr "Введите значение кода ICMP из диапазона (-1:255)"
+msgstr "Введите значение кода ICMP из диапазона (-1: 255)"
 
 msgid "Enter a value for ICMP type in the range (-1: 255)"
-msgstr "Введите значение для типа ICMP из диапазона (-1:255)"
+msgstr "Введите значение для типа ICMP из диапазона (-1: 255)"
 
 msgid "Enter an integer value between -1 and 255 (-1 means wild card)."
 msgstr "Введите целое число между -1 и 255 (-1 обозначает все значения)."
@@ -3629,11 +3639,11 @@ msgstr "Маршруты узла"
 
 #, python-format
 msgid ""
-"Host Routes format error: Destination CIDR and nexthop must be specified "
+"Host Routes format error: Destination CIDR and Next Hop must be specified "
 "(value=%s)"
 msgstr ""
-"Ошибка формата маршрутов узла: конечный CIDR и nexthop должны быть заданы "
-"(значение=%s)"
+"Ошибка формата маршрутов хоста: необходимо указать CIDR назначения и "
+"следующий хоп (value=%s)"
 
 msgid ""
 "Host aggregates divide an availability zone into logical units by grouping "
@@ -4066,6 +4076,13 @@ msgstr ""
 msgid "Is Public ="
 msgstr "Публичный ="
 
+msgid ""
+"It is used for communication with networks outside the cloud, including the "
+"Internet."
+msgstr ""
+"Он используется для взаимодействия с сетями, находящимися за пределами "
+"облака, включая Интернет."
+
 msgid "It specifies the VNIC type bound to the networking port."
 msgstr "Определяет тип подключения VNIC к сетевому порту."
 
@@ -4141,7 +4158,7 @@ msgstr "Ключ:"
 
 msgid "Key: burstIOPS and Value: 5000 (number value bigger than minIOPS)"
 msgstr ""
-"Ключ: burstIOPS и Значение: 5000 (значение должно быть больше, чем minIOPS)"
+"Ключ: burstIOPS и значение: 5000 (значение должно быть больше, чем minIOPS)"
 
 msgid "Key: maxIOPS and Value: 5000 (number value bigger than minIOPS)"
 msgstr ""
@@ -4944,11 +4961,15 @@ msgstr "Ничего (удаляет спецификацию)"
 msgid "Normal"
 msgstr "Нормальная"
 
+#. Translators: When there are no free IPs in the subnet.
+msgid "Not Available"
+msgstr "Недоступно"
+
 msgid "Not attached"
 msgstr "Не подключен"
 
 msgid "Not available"
-msgstr "Недоступен"
+msgstr "Недоступно"
 
 msgid ""
 "Note that a volume can not be deleted if it is &quot;attached&quot; or has "
@@ -4996,7 +5017,7 @@ msgid "Object ID"
 msgstr "ID объекта"
 
 msgid "Object Store"
-msgstr "Хранилище объектов"
+msgstr "Объектное хранилище"
 
 msgid "Object Type"
 msgstr "Тип объекта"
@@ -5005,7 +5026,7 @@ msgid "Old Flavor"
 msgstr "Старый шаблон конфигурации"
 
 msgid "Old password and new password must be different"
-msgstr "Новый пароль должен отличаться от старого."
+msgstr "Новый пароль должен отличаться от старого"
 
 msgid "On Demand"
 msgstr "По требованию"
@@ -5273,7 +5294,7 @@ msgid "Project Name ="
 msgstr "Имя проекта ="
 
 msgid "Project Quotas"
-msgstr "Квоты проектов"
+msgstr "Квоты проекта"
 
 msgid "Project Usage"
 msgstr "Использование проекта"

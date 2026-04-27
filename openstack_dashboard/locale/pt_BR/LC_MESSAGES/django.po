@@ -17,7 +17,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: horizon VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2025-09-17 19:09+0000\n"
+"POT-Creation-Date: 2026-04-24 08:10+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -74,12 +74,6 @@ msgstr ""
 "  (serviço de armazenamento de objetos, Ceph, NFS, etc ...).\n"
 "  Você deve ter um desses serviços ativados para criar um backup.\n"
 "  "
-
-msgid " - End"
-msgstr "- Fim"
-
-msgid " : Next hop"
-msgstr ": Próximo salto"
 
 msgid ""
 " A protocol entry contains information that dictates which mapping rules to "
@@ -421,13 +415,6 @@ msgstr[1] "Usuários Adicionados"
 
 msgid "Additional Routes"
 msgstr "Rotas Adicionais"
-
-msgid ""
-"Additional routes announced to the hosts. Each entry is: destination_cidr,"
-"nexthop (e.g., 192.168.200.0/24,10.56.1.254) and one entry per line."
-msgstr ""
-"Rotas adicionais anunciados para os hosts. Cada entrada é: destination_cidr, "
-"nexthop (por exemplo, 192.168.200.0/24,10.56.1.254) e uma entrada por linha."
 
 msgid ""
 "Additionally, some resource types may require a prefix to be used when "
@@ -3024,14 +3011,6 @@ msgstr "Nome do Host ="
 
 msgid "Host Routes"
 msgstr "Rotas de Host"
-
-#, python-format
-msgid ""
-"Host Routes format error: Destination CIDR and nexthop must be specified "
-"(value=%s)"
-msgstr ""
-"Erro no formato das Rotas de Host: CIDR destino e nexthop devem ser "
-"especificados (valor=%s)"
 
 msgid ""
 "Host aggregates divide an availability zone into logical units by grouping "

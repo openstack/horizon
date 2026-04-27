@@ -3,9 +3,9 @@
 # Michele Valsecchi <mvalsecc@redhat.com>, 2019. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 25.6.0.dev56\n"
+"Project-Id-Version: horizon 25.7.2.dev3\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-12-01 20:51+0000\n"
+"POT-Creation-Date: 2026-04-24 08:10+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -31,14 +31,8 @@ msgstr ":opendev-repo:`openstack/neutron-vpnaas-dashboard`"
 msgid ":opendev-repo:`openstack/octavia-dashboard`"
 msgstr ":opendev-repo:`openstack/octavia-dashboard`"
 
-msgid ":opendev-repo:`openstack/sahara-dashboard`"
-msgstr ":opendev-repo:`openstack/sahara-dashboard`"
-
 msgid ":storyboard:`openstack/octavia-dashboard`"
 msgstr ":storyboard:`openstack/octavia-dashboard`"
-
-msgid ":storyboard:`openstack/sahara-dashboard`"
-msgstr ":storyboard:`openstack/sahara-dashboard`"
 
 msgid ""
 "ALLOWED_HOSTS can also be ['*'] to accept all hosts. This may be useful for "

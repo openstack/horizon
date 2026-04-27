@@ -6,15 +6,16 @@
 # Andi Chandler <andi@gowling.com>, 2023. #zanata
 # Andi Chandler <andi@gowling.com>, 2024. #zanata
 # Andi Chandler <andi@gowling.com>, 2025. #zanata
+# Andi Chandler <andi@gowling.com>, 2026. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 25.4.1.dev54\n"
+"Project-Id-Version: horizon 25.7.2.dev3\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-07-21 16:55+0000\n"
+"POT-Creation-Date: 2026-04-24 08:10+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2025-02-07 12:05+0000\n"
+"PO-Revision-Date: 2026-02-19 02:05+0000\n"
 "Last-Translator: Andi Chandler <andi@gowling.com>\n"
 "Language-Team: English (United Kingdom)\n"
 "Language: en_GB\n"
@@ -503,6 +504,9 @@ msgstr "Added the ``enable_metadata``, ``enable_net_ports`` options."
 
 msgid "Added the ``hide_create_volume`` option."
 msgstr "Added the ``hide_create_volume`` option."
+
+msgid "Added the ``vol_delete_on_instance_delete`` option."
+msgstr "Added the ``vol_delete_on_instance_delete`` option."
 
 msgid ""
 "Additional settings may be required in the config files of your webserver of "
@@ -1114,6 +1118,9 @@ msgstr "Default: ``1000``"
 msgid "Default: ``10``"
 msgstr "Default: ``10``"
 
+msgid "Default: ``1``"
+msgstr "Default: ``1``"
+
 msgid "Default: ``20``"
 msgstr "Default: ``20``"
 
@@ -1165,11 +1172,17 @@ msgstr "Default: ``['openstack_auth.urls']``"
 msgid "Default: ``[]``"
 msgstr "Default: ``[]``"
 
+msgid "Default: ``all languages with translation catalogs are enabled``"
+msgstr "Default: ``all languages with translation catalogues are enabled``"
+
 msgid "Default: ``allow``"
 msgstr "Default: ``allow``"
 
 msgid "Default: ``image``"
 msgstr "Default: ``image``"
+
+msgid "Default: ``openstack_auth.policy.check``"
+msgstr "Default: ``openstack_auth.policy.check``"
 
 msgid "Default: ``settings.LOGIN_REDIRECT_URL``"
 msgstr "Default: ``settings.LOGIN_REDIRECT_URL``"
@@ -1328,6 +1341,12 @@ msgstr "Example: ``['local', 'flat', 'gre']``"
 
 msgid "Example: ``['normal', 'direct']``"
 msgstr "Example: ``['normal', 'direct']``"
+
+msgid "Example: ``my-clouds.yaml.template``"
+msgstr "Example: ``my-clouds.yaml.template``"
+
+msgid "Example: ``my-openrc.sh.template``"
+msgstr "Example: ``my-openrc.sh.template``"
 
 msgid "Examples"
 msgstr "Examples"
@@ -1895,6 +1914,15 @@ msgstr ""
 "and simply be centred vertically in the available space."
 
 msgid ""
+"If you would like to enable a specific set of languages, you can do this by "
+"setting LANGUAGES list below. Each entry is a tuple of language code and "
+"language name."
+msgstr ""
+"If you would like to enable a specific set of languages, you can do this by "
+"setting the LANGUAGES list below. Each entry is a tuple of language code and "
+"language name."
+
+msgid ""
 "If your deployment has no support of floating IP like provider network "
 "scenario, you can set this to ``False`` in most cases. If your deployment "
 "supports floating IP, read the detail below and understand the under-the-"
@@ -2071,6 +2099,9 @@ msgstr ""
 "control panel which can be used for authenticating with a Kubernetes "
 "cluster. This setting enables this behavior."
 
+msgid "LANGUAGE"
+msgstr "LANGUAGE"
+
 msgid "LAUNCH_INSTANCE_DEFAULTS"
 msgstr "LAUNCH_INSTANCE_DEFAULTS"
 
@@ -2123,6 +2154,15 @@ msgstr "NG_TEMPLATE_CACHE_AGE"
 
 msgid "Neutron"
 msgstr "Neutron"
+
+msgid ""
+"Note that the Swift panel does client side pagination and retrieves all "
+"containers and objects from the API that can have an negative effect on "
+"Horizon's resource consumption if this is True."
+msgstr ""
+"Note that the Swift panel does client-side pagination and retrieves all "
+"containers and objects from the API, which can have a negative effect on "
+"Horizon's resource consumption if this is True."
 
 msgid "Nova"
 msgstr "Nova"
@@ -2340,6 +2380,9 @@ msgstr ""
 "alerted when the password expires in less than ``N+1`` days. ``-1`` disables "
 "the feature."
 
+msgid "Perform full listing of containers and objects in the Swift panel."
+msgstr "Perform a full listing of containers and objects in the Swift panel."
+
 msgid "Pie Charts"
 msgstr "Pie Charts"
 
@@ -2451,6 +2494,9 @@ msgstr "STATIC_URL"
 
 msgid "SWIFT_FILE_TRANSFER_CHUNK_SIZE"
 msgstr "SWIFT_FILE_TRANSFER_CHUNK_SIZE"
+
+msgid "SWIFT_PANEL_FULL_LISTING"
+msgstr "SWIFT_PANEL_FULL_LISTING"
 
 msgid "SWIFT_STORAGE_POLICY_DISPLAY_NAMES"
 msgstr "SWIFT_STORAGE_POLICY_DISPLAY_NAMES"
@@ -2897,6 +2943,11 @@ msgstr ""
 "openstack_dashboard/dashboards/project/api_access/views.py>`"
 
 msgid ""
+"The default value has been updated to include the credentials mechanism."
+msgstr ""
+"The default value has been updated to include the credentials mechanism."
+
+msgid ""
 "The default value is changed from ``_member_`` to ``member`` to conform with "
 "what keystone-bootstrap creates."
 msgstr ""
@@ -3255,15 +3306,6 @@ msgstr ""
 "as a priority."
 
 msgid ""
-"These assets include logo.svg, splash-logo.svg and favicon.ico, however "
-"overriding the SVG/GIF assets used by Heat within the `dashboard/img` folder "
-"is not currently supported."
-msgstr ""
-"These assets include logo.svg, splash-logo.svg and favicon.ico, however "
-"overriding the SVG/GIF assets used by Heat within the `dashboard/img` folder "
-"is not currently supported."
-
-msgid ""
 "These properties in the registry use the extensibility service (as of Newton "
 "release):"
 msgstr ""
@@ -3313,6 +3355,9 @@ msgstr ""
 "This can be either a literal URL path (such as the default), or Python's "
 "dotted string notation representing a function which will evaluate what URL "
 "a user should be redirected to based on the attributes of that user."
+
+msgid "This example sorts flavors by vCPUs in descending order:"
+msgstr "This example sorts flavours by vCPUs in descending order:"
 
 msgid ""
 "This is a dict setting. A key of the dict specifies a tab group which extra "
@@ -3405,6 +3450,17 @@ msgstr ""
 "Plugins needing this level of monkey patching and flexibility should instead "
 "look for changing their __init__.py file and performing customisations "
 "through other means."
+
+msgid ""
+"This option controls the default behavior of the 'Delete Volume on Instance "
+"Delete' setting in the web interface. If set to ``True``, the default is "
+"'Yes', meaning volumes will be deleted when the instance is deleted. If set "
+"to ``False`` (default), the setting remains 'No', and volumes are preserved."
+msgstr ""
+"This option controls the default behaviour of the 'Delete Volume on Instance "
+"Delete' setting in the web interface. If set to ``True``, the default is "
+"'Yes', meaning volumes will be deleted when the instance is deleted. If set "
+"to ``False`` (default), the setting remains 'No', and volumes are preserved."
 
 msgid ""
 "This setting allows an administrator to specify a default availability zone "
@@ -4038,6 +4094,19 @@ msgstr ""
 "expired or when it is required to be changed on first use. Disabling it will "
 "force such users to either use the command line interface to change their "
 "password, or contact the system administrator."
+
+msgid ""
+"When launching a new instance the default flavor is sorted by RAM usage in "
+"ascending order. You can customize the sort order by: id, name, ram, disk "
+"and vCPUs. Additionally, you can insert any custom callback function. You "
+"can also provide a flag for reverse sort. See the description in "
+"local_settings.py.example for more information."
+msgstr ""
+"When launching a new instance, the default flavour is sorted by RAM usage in "
+"ascending order. You can customise the sort order by: id, name, ram, disk "
+"and vCPUs. Additionally, you can insert any custom callback function. You "
+"can also provide a flag for reverse sort. See the description in "
+"local_settings.py.example for more information."
 
 msgid ""
 "When set to an integer N (as by default), the start date in the Overview "
@@ -4742,3 +4811,6 @@ msgstr "URL"
 
 msgid "user_home"
 msgstr "user_home"
+
+msgid "vol_delete_on_instance_delete"
+msgstr "vol_delete_on_instance_delete"

@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: horizon VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2025-08-11 19:58+0000\n"
+"POT-Creation-Date: 2026-04-24 08:10+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -13,12 +13,6 @@ msgstr ""
 "Language: as\n"
 "X-Generator: Zanata 4.3.3\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
-
-msgid " - End"
-msgstr " - সমাপ্ত"
-
-msgid " : Next hop"
-msgstr " : পৰৱৰ্তী হপ"
 
 #, python-format
 msgid "%(field_name)s: Invalid IP address (value=%(ip)s)"
@@ -167,13 +161,6 @@ msgstr "এই গড়টোলৈ হষ্টবোৰ যোগ কৰক. 
 
 msgid "Add/Remove Hosts to Aggregate"
 msgstr "গড় কৰিবলৈ হষ্টবোৰক যোগ/আতঁৰ কৰক"
-
-msgid ""
-"Additional routes announced to the hosts. Each entry is: destination_cidr,"
-"nexthop (e.g., 192.168.200.0/24,10.56.1.254) and one entry per line."
-msgstr ""
-"হষ্টবোৰলৈ অতিৰিক্ত ৰাউটবোৰ ঘোষণা কৰা হল. প্ৰত্যেকটো প্ৰৱিষ্টি হল: destination_cidr,"
-"nexthop (উদাহৰণ, 192.168.200.0/24,10.56.1.254) আৰু প্ৰত্যেক শাৰীত এটা প্ৰৱিষ্টি."
 
 msgid "Admin"
 msgstr "কৰ্তৃপক্ষ"
@@ -1382,14 +1369,6 @@ msgstr "হষ্ট গড়বোৰ"
 
 msgid "Host Routes"
 msgstr "হষ্ট ৰাউটাৰবোৰ"
-
-#, python-format
-msgid ""
-"Host Routes format error: Destination CIDR and nexthop must be specified "
-"(value=%s)"
-msgstr ""
-"হষ্ট ৰাউটবোৰৰ ফৰমেট ভুল: গন্তব্যস্থান CIDR আৰু পৰৱৰ্তী হপ নিৰ্ধাৰণ কৰাটো অপৰিহাৰ্য "
-"(মান=%s)"
 
 msgid ""
 "Host aggregates divide an availability zone into logical units by grouping "

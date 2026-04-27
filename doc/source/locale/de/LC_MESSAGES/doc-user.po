@@ -2,9 +2,9 @@
 # Andreas Jaeger <jaegerandi@gmail.com>, 2019. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 25.6.0.dev62\n"
+"Project-Id-Version: horizon 25.7.2.dev3\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-12-03 16:21+0000\n"
+"POT-Creation-Date: 2026-04-24 08:10+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -1899,10 +1899,6 @@ msgstr ""
 "Im oberen Teil des Fensters wird Ihr Benutzername angezeigt. Sie können auch "
 "auf die Registerkarte :guilabel:`Einstellungen` (:ref:`dashboard-settings-"
 "tab`) zugreifen oder sich aus dem Dashboard austragen."
-
-msgid "The user name is ``ubuntu`` for the Ubuntu cloud images on TryStack."
-msgstr ""
-"Der Benutzername ist ``ubuntu``` für die Ubuntu-Cloud-Abbilder auf TryStack."
 
 msgid ""
 "The visible tabs and functions in the dashboard depend on the access "

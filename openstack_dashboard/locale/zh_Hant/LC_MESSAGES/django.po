@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: horizon VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2025-09-17 19:09+0000\n"
+"POT-Creation-Date: 2026-04-24 08:10+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -63,12 +63,6 @@ msgstr ""
 "\n"
 "雲硬碟備份使用了其中一個 cinder-backup drivers (物件儲存服務， Ceph，NFS等)。"
 "您必須已啟動其中一下服務才能新增備份。"
-
-msgid " - End"
-msgstr "- 結束"
-
-msgid " : Next hop"
-msgstr "：下一跳點"
 
 msgid ""
 " A protocol entry contains information that dictates which mapping rules to "
@@ -372,13 +366,6 @@ msgstr[0] "已加入用戶"
 
 msgid "Additional Routes"
 msgstr "其他路由"
-
-msgid ""
-"Additional routes announced to the hosts. Each entry is: destination_cidr,"
-"nexthop (e.g., 192.168.200.0/24,10.56.1.254) and one entry per line."
-msgstr ""
-"額外的路由發佈到主機。每個條目就像：destination_cidr,nexthop（如 "
-"192.168.200.0/24,10.56.1.254）並且一行一個條目。"
 
 msgid ""
 "Additionally, some resource types may require a prefix to be used when "
@@ -2789,12 +2776,6 @@ msgstr "主機名稱＝"
 
 msgid "Host Routes"
 msgstr "主機路由"
-
-#, python-format
-msgid ""
-"Host Routes format error: Destination CIDR and nexthop must be specified "
-"(value=%s)"
-msgstr "主機路由格式錯誤：必須指定目標 CIDR 與下一跳點（值為 %s）"
 
 msgid ""
 "Host aggregates divide an availability zone into logical units by grouping "

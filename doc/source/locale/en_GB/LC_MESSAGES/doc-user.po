@@ -1,14 +1,15 @@
 # Andi Chandler <andi@gowling.com>, 2018. #zanata
 # Andi Chandler <andi@gowling.com>, 2019. #zanata
+# Andi Chandler <andi@gowling.com>, 2026. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 25.6.0.dev62\n"
+"Project-Id-Version: horizon 25.7.2.dev3\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-12-03 16:21+0000\n"
+"POT-Creation-Date: 2026-04-24 08:10+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2019-11-14 11:13+0000\n"
+"PO-Revision-Date: 2026-02-19 02:10+0000\n"
 "Last-Translator: Andi Chandler <andi@gowling.com>\n"
 "Language-Team: English (United Kingdom)\n"
 "Language: en_GB\n"
@@ -136,6 +137,15 @@ msgstr ":guilabel:`Create Subnet`: Select this check box to create a subnet"
 
 msgid ":guilabel:`DNS Name Servers`: Specify a name for the DNS server."
 msgstr ":guilabel:`DNS Name Servers`: Specify a name for the DNS server."
+
+msgid ""
+":guilabel:`Default Quotas`: View default quota values. Quotas are hard-coded "
+"in OpenStack Compute and define the maximum allowable size and number of "
+"resources."
+msgstr ""
+":guilabel:`Default Quotas`: View default quota values. Quotas are hard-coded "
+"in OpenStack Compute and define the maximum allowable size and number of "
+"resources."
 
 msgid ""
 ":guilabel:`Description`: Optionally, provide a brief description for the "
@@ -364,6 +374,13 @@ msgstr ""
 msgid ":guilabel:`Security Groups` tab"
 msgstr ":guilabel:`Security Groups` tab"
 
+msgid ""
+":guilabel:`Security Groups`: View, create, edit, and delete security groups "
+"and security group rules."
+msgstr ""
+":guilabel:`Security Groups`: View, create, edit, and delete security groups "
+"and security group rules."
+
 msgid ":guilabel:`Services`: View a list of the services."
 msgstr ":guilabel:`Services`: View a list of the services."
 
@@ -373,6 +390,9 @@ msgid ""
 msgstr ""
 ":guilabel:`Shared`: Share the network with other projects. Non admin users "
 "are not allowed to set shared option."
+
+msgid ":guilabel:`Size (GiB)`: The size of the volume in gibibytes (GiB)."
+msgstr ":guilabel:`Size (GiB)`: The size of the volume in gibibytes (GiB)."
 
 msgid ":guilabel:`Snapshots`: View, create, edit, and delete volume snapshots."
 msgstr ""
@@ -582,6 +602,9 @@ msgstr "Broken: Essential functionality not working (link to bug in the notes)"
 
 msgid "Browse to and select the file that you want to upload."
 msgstr "Browse to and select the file that you want to upload."
+
+msgid "Browser"
+msgstr "Browser"
 
 msgid ""
 "By default, this value is set to the availability zone given by the cloud "
@@ -909,6 +932,15 @@ msgid ""
 msgstr ""
 "Good: Moderately tested, should look nice and work fine, maybe a few visual "
 "hiccups"
+
+msgid ""
+"Horizon is primarily tested and supported on the latest version of Firefox, "
+"Chrome and the latest version of Safari. Issues related to another browsers "
+"will also be considered."
+msgstr ""
+"Horizon is primarily tested and supported on the latest version of Firefox, "
+"Chrome and the latest version of Safari. Issues related to other browsers "
+"will also be considered."
 
 msgid ""
 "However, in addition to the fixed IP address, a floating IP address can also "
@@ -1290,6 +1322,9 @@ msgstr "Manage an instance"
 msgid "Manage an object"
 msgstr "Manage an object"
 
+msgid "Microsoft Edge"
+msgstr "Microsoft Edge"
+
 msgid "Network tab"
 msgstr "Network tab"
 
@@ -1558,6 +1593,13 @@ msgstr "Select the instance from which to create a snapshot."
 msgid "Select the volume and click :guilabel:`Manage Attachments`."
 msgstr "Select the volume and click :guilabel:`Manage Attachments`."
 
+msgid ""
+"Select the volume or volume snapshot from which to boot. Enter a device name "
+"(``vda`` for KVM images)."
+msgstr ""
+"Select the volume or volume snapshot from which to boot. Enter a device name "
+"(``vda`` for KVM images)."
+
 msgid "Select the volume that you want to edit."
 msgstr "Select the volume that you want to edit."
 
@@ -1724,6 +1766,13 @@ msgstr ""
 msgid "The dashboard shows the network on the :guilabel:`Networks` tab."
 msgstr "The dashboard shows the network on the :guilabel:`Networks` tab."
 
+msgid ""
+"The dashboard shows the new volume snapshot in :guilabel:`Volume Snapshots` "
+"tab."
+msgstr ""
+"The dashboard shows the new volume snapshot in :guilabel:`Volume Snapshots` "
+"tab."
+
 msgid "The dashboard shows the volume on the :guilabel:`Volumes` tab."
 msgstr "The dashboard shows the volume on the :guilabel:`Volumes` tab."
 
@@ -1777,9 +1826,6 @@ msgstr ""
 "The top of the window displays your user name. You can also access the :"
 "guilabel:`Settings` tab (:ref:`dashboard-settings-tab`) or sign out of the "
 "dashboard."
-
-msgid "The user name is ``ubuntu`` for the Ubuntu cloud images on TryStack."
-msgstr "The user name is ``ubuntu`` for the Ubuntu cloud images on TryStack."
 
 msgid ""
 "The visible tabs and functions in the dashboard depend on the access "
@@ -1882,6 +1928,9 @@ msgid ""
 msgstr ""
 "To connect a private network to the newly created router, perform the "
 "following steps:"
+
+msgid "To connect to your instance via SSH, use the downloaded key pair file."
+msgstr "To connect to your instance via SSH, use the downloaded key pair file."
 
 msgid ""
 "To delete a container, click the :guilabel:`More` button and select :"
@@ -2083,6 +2132,15 @@ msgstr ""
 "When running QEMU without support for the hardware virtualization, set "
 "``cpu_mode=\"none\"`` alongside ``virt_type=qemu`` in ``/etc/nova/nova-"
 "compute.conf`` to solve the following error:"
+
+msgid ""
+"When you delete an instance, the data in its attached volumes is not deleted "
+"(unless you chose delete volume on instance delete when creating an "
+"instance)."
+msgstr ""
+"When you delete an instance, the data in its attached volumes is not deleted "
+"(unless you chose delete volume on instance delete when creating an "
+"instance)."
 
 msgid "When you launch an instance from a volume, note the following steps:"
 msgstr "When you launch an instance from a volume, note the following steps:"
