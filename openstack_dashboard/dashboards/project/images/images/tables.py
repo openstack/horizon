@@ -201,6 +201,73 @@ class UpdateMetadata(tables.LinkAction):
                 image.owner == request.user.project_id)
 
 
+class DeactivateImage(tables.BatchAction):
+    name = "deactivate"
+    classes = ("btn-danger",)
+    icon = "pause"
+    policy_rules = (("image", "deactivate"),)
+
+    @staticmethod
+    def action_present(count):
+        return ngettext_lazy(
+            "Deactivate Image",
+            "Deactivate Images",
+            count
+        )
+
+    @staticmethod
+    def action_past(count):
+        return ngettext_lazy(
+            "Deactivated Image",
+            "Deactivated Images",
+            count
+        )
+
+    def allowed(self, request, image=None):
+        if image is None:
+            return True
+        if image.protected:
+            return False
+        if image.owner != request.user.tenant_id:
+            return False
+        return image.status == "active"
+
+    def action(self, request, obj_id):
+        api.glance.image_deactivate(request, obj_id)
+
+
+class ReactivateImage(tables.BatchAction):
+    name = "reactivate"
+    icon = "play"
+    policy_rules = (("image", "reactivate"),)
+
+    @staticmethod
+    def action_present(count):
+        return ngettext_lazy(
+            "Reactivate Image",
+            "Reactivate Images",
+            count
+        )
+
+    @staticmethod
+    def action_past(count):
+        return ngettext_lazy(
+            "Reactivated Image",
+            "Reactivated Images",
+            count
+        )
+
+    def allowed(self, request, image=None):
+        if image is None:
+            return True
+        if image.owner != request.user.tenant_id:
+            return False
+        return image.status == "deactivated"
+
+    def action(self, request, obj_id):
+        api.glance.image_reactivate(request, obj_id)
+
+
 class ImageFilterAction(tables.FilterAction):
     filter_type = "server"
     filter_choices = (
@@ -421,4 +488,6 @@ class ImagesTable(tables.DataTable):
         launch_actions = (LaunchImageNG,)
         row_actions = launch_actions + (CreateVolumeFromImage,
                                         EditImage, UpdateMetadata,
+                                        DeactivateImage,
+                                        ReactivateImage,
                                         DeleteImage,)
