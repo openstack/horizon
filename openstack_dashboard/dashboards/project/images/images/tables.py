@@ -201,6 +201,17 @@ class UpdateMetadata(tables.LinkAction):
                 image.owner == request.user.project_id)
 
 
+class ImageFilterAction(tables.FilterAction):
+    filter_type = "server"
+    filter_choices = (
+        ('name', _("Image Name ="), True),
+        ('status', _('Status ='), True),
+        ('disk_format', _('Format ='), True),
+        ('visibility', _('Visibility ='), True),
+        ('owner', _('Owner (Project ID) ='), True),
+    )
+
+
 def filter_tenants():
     return settings.IMAGES_LIST_FILTER_TENANTS
 
@@ -406,7 +417,7 @@ class ImagesTable(tables.DataTable):
                    "status", "visibility", "protected",
                    "disk_format", "size")
         template = "images/images/_images_table.html"
-        table_actions = (OwnerFilter, CreateImage, DeleteImage,)
+        table_actions = (ImageFilterAction, CreateImage, DeleteImage,)
         launch_actions = (LaunchImageNG,)
         row_actions = launch_actions + (CreateVolumeFromImage,
                                         EditImage, UpdateMetadata,

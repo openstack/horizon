@@ -351,6 +351,30 @@ class ImageViewTests(test.ResetImageAPIVersionMixin, test.TestCase):
         mock_image_get.assert_called_once_with(test.IsHttpRequest(), image.id)
 
 
+class ImageFilterActionTests(test.TestCase):
+    def test_filter_action_in_table_actions(self):
+        self.assertIn(tables.ImageFilterAction,
+                      tables.ImagesTable._meta.table_actions)
+
+    def test_filter_action_is_server_side(self):
+        action = tables.ImageFilterAction()
+        self.assertEqual(action.filter_type, 'server')
+
+    def test_filter_choices_include_name_status_format(self):
+        action = tables.ImageFilterAction()
+        choice_fields = [c[0] for c in action.filter_choices]
+        self.assertIn('name', choice_fields)
+        self.assertIn('status', choice_fields)
+        self.assertIn('disk_format', choice_fields)
+        self.assertIn('visibility', choice_fields)
+        self.assertIn('owner', choice_fields)
+
+    def test_owner_filter_not_in_table_actions(self):
+        """OwnerFilter replaced by ImageFilterAction; class still exists."""
+        self.assertNotIn(tables.OwnerFilter,
+                         tables.ImagesTable._meta.table_actions)
+
+
 class OwnerFilterTests(test.TestCase):
     def setUp(self):
         super().setUp()

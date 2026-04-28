@@ -55,6 +55,16 @@ class IndexView(tables.DataTableView):
     def has_more_data(self, table):
         return getattr(self, "_more", False)
 
+    def get_filters(self):
+        filters = {}
+        filter_field = self.table.get_filter_field()
+        filter_string = self.table.get_filter_string()
+        filter_action = self.table._meta._filter_action
+        if filter_field and filter_string and (
+                filter_action and filter_action.is_api_filter(filter_field)):
+            filters[filter_field] = filter_string
+        return filters
+
     def get_data(self):
         if not policy.check((("image", "get_images"),), self.request):
             msg = _("Insufficient privilege level to retrieve image list.")
@@ -69,11 +79,13 @@ class IndexView(tables.DataTableView):
             marker = self.request.GET.get(
                 images_tables.ImagesTable._meta.pagination_param, None)
         reversed_order = prev_marker is not None
+        filters = self.get_filters()
         try:
             images, self._more, self._prev = api.glance.image_list_detailed(
                 self.request,
                 marker=marker,
                 paginate=True,
+                filters=filters,
                 sort_dir='asc',
                 sort_key='name',
                 reversed_order=reversed_order)
