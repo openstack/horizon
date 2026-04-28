@@ -61,9 +61,3 @@ XStatic-smart-table>=1.4.13.2 # MIT License
 XStatic-Spin>=1.2.5.2 # MIT License
 XStatic-term.js>=0.0.7.0 # MIT License
 XStatic-tv4>=1.2.7.0 # MIT
-
-# enmerkar is not a runtime requirement.
-# It is only required when extracting translation strings.
-# Most horizon plugins do not have enmerkar in their requirements.txt
-# and they depends on horizon requirements, so we keep it here.
-enmerkar>=0.7.1 # BSD
