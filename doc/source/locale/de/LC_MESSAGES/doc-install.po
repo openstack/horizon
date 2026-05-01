@@ -1,16 +1,17 @@
 # Andreas Jaeger <jaegerandi@gmail.com>, 2019. #zanata
 # Robert Holling <r.holling@protonmail.ch>, 2019. #zanata
 # Andreas Jaeger <jaegerandi@gmail.com>, 2020. #zanata
+# Eugen Block <eblock@nde.ag>, 2026. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 25.7.2.dev3\n"
+"Project-Id-Version: horizon 25.7.3.dev3\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-04-24 08:10+0000\n"
+"POT-Creation-Date: 2026-04-29 08:41+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2020-07-11 10:06+0000\n"
-"Last-Translator: Andreas Jaeger <jaegerandi@gmail.com>\n"
+"PO-Revision-Date: 2026-04-30 10:13+0000\n"
+"Last-Translator: Eugen Block <eblock@nde.ag>\n"
 "Language-Team: German\n"
 "Language: de\n"
 "X-Generator: Zanata 4.3.3\n"
@@ -24,6 +25,9 @@ msgstr ":launchpad:`blazar`"
 
 msgid ":launchpad:`designate-dashboard`"
 msgstr ":launchpad:`designate-dashboard`"
+
+msgid ":launchpad:`freezer`"
+msgstr ":launchpad:`freezer`"
 
 msgid ":launchpad:`ironic-ui`"
 msgstr ":launchpad:`ironic-ui`"
@@ -124,6 +128,13 @@ msgstr ":opendev-repo:`openstack/zaqar-ui`"
 msgid ":opendev-repo:`openstack/zun-ui`"
 msgstr ":opendev-repo:`openstack/zun-ui`"
 
+msgid ":ref:`install-customizing` describes how to customize Horizon."
+msgstr ":ref:`install-customizing` beschreibt wie Sie Horizon anpassen können."
+
+msgid ":ref:`install-settings` lists the available settings for Horizon."
+msgstr ""
+":ref:`install-settings` zeigt die verfügbaren Einstellungen für Horizon an."
+
 msgid ":storyboard:`openstack/adjutant-ui`"
 msgstr ":storyboard:`openstack/adjutant-ui`"
 
@@ -190,6 +201,16 @@ msgstr ""
 "Nachdem Sie das Dashboard installiert und konfiguriert haben, können Sie "
 "folgende Aufgaben durchführen:"
 
+msgid ""
+"All other services are optional. Horizon supports the following services as "
+"of the Stein release. If the keystone endpoint for a service is configured, "
+"Horizon detects it and enables its support automatically."
+msgstr ""
+"Alle anderen Dienste sind optional. Horizon unterstützt die folgenden "
+"Dienste seit der Stein-Version. Wenn der Keystone-Endpunkt für einen Dienst "
+"konfiguriert ist, erkennt Horizon ihn und aktiviert seine Unterstützung "
+"automatisch."
+
 msgid "Allow your hosts to access the dashboard:"
 msgstr "Erlauben Sie Ihrem Hosts den Zugriff auf das Dashboard:"
 
@@ -215,6 +236,10 @@ msgstr "Zwischengespeicherte Datenbank"
 
 msgid "Clone Horizon"
 msgstr "Horizon duplizieren"
+
+msgid "Collect static files and compress by running the following commands:"
+msgstr ""
+"Sammeln und Komprimierung von statischen Dateien durch folgende Befehle:"
 
 msgid "Comment out any other session storage configuration."
 msgstr ""
@@ -290,6 +315,13 @@ msgstr ""
 
 msgid "Deployment"
 msgstr "Bereitstellung"
+
+msgid "Django 4.2"
+msgstr "Django 4.2"
+
+msgid "Django support policy is documented at :ref:`django_support`."
+msgstr ""
+"Die Django Support-Richtlinie ist dokumentiert unter :ref:`django_support`."
 
 msgid ""
 "Do not edit the ``ALLOWED_HOSTS`` parameter under the Ubuntu configuration "
@@ -372,6 +404,15 @@ msgstr ""
 "mit \"master\"."
 
 msgid ""
+"In case your keystone run at 5000 port then you would mentioned keystone "
+"port here as well i.e. OPENSTACK_KEYSTONE_URL = \"http://%s:5000/identity/"
+"v3\" % OPENSTACK_HOST"
+msgstr ""
+"Falls Ihre Keystone-Instanz auf Port 5000 läuft, sollten Sie den Keystone-"
+"Port hier ebenfalls eintragen, z. B.:\n"
+"OPENSTACK_KEYSTONE_URL = \"http://%s:5000/identity/v3\" % OPENSTACK_HOST"
+
+msgid ""
 "In the Dashboard configuration section, allow your hosts to access Dashboard:"
 msgstr ""
 "Erlauben Sie Ihren Hosts den Zugriff auf das Dashboard in der Dashboard-"
@@ -395,6 +436,9 @@ msgstr "Installation und Konfiguration für Red Hat Enterprise Linux und CentOS"
 
 msgid "Install and configure for Ubuntu"
 msgstr "Installation dun Konfiguration für Ubuntu"
+
+msgid "Install the Horizon python module into your system"
+msgstr "Installieren Sie das Horizon Python-Modul auf Ihrem System"
 
 msgid "Install the packages:"
 msgstr "Installieren Sie die Pakete:"
@@ -429,6 +473,13 @@ msgstr "Nächste Schritte"
 msgid "Next steps"
 msgstr "Nächste Schritte"
 
+msgid ""
+"Optionally, configure location where the access to the dashboard (if not "
+"included):"
+msgstr ""
+"(Optional) Konfigurieren Sie den Zugriffsort für das Dashboard (wenn nicht "
+"bereits enthalten):"
+
 msgid "Optionally, configure the time zone:"
 msgstr "Konfigurieren Sie optional die Zeitzone:"
 
@@ -449,6 +500,9 @@ msgstr ""
 "können. Bei Verbindungsproblemen aufgrund von SSL-Zertifikaten weisen Sie "
 "der IP-Adresse des Servers einen Domänennamen zu und erlauben dann Benutzern "
 "den Zugriff."
+
+msgid "Python 3.9, 3.10 or 3.11"
+msgstr "Python 3.9, 3.10 oder 3.11"
 
 msgid "Python memcached module installed"
 msgstr "Das Modul Python Memcached ist installiert"
@@ -537,6 +591,9 @@ msgstr ""
 "Die folgenden Schritte im Abschnitt \"Konfiguration\" sind optional, aber in "
 "einer Produktiv-Umgebung sehr empfohlen."
 
+msgid "The latest version of Horizon has the following dependencies:"
+msgstr "Die neueste Version von Horizon hat die folgenden Abhängigkeiten:"
+
 msgid ""
 "The only core service required by the dashboard is the Identity service. You "
 "can use the dashboard in combination with other services, such as Image "
@@ -581,12 +638,29 @@ msgstr ""
 "Versionen sind."
 
 msgid ""
+"This page covers the basic installation of Horizon in a production "
+"environment. If you are looking for a developer environment, see :ref:"
+"`quickstart`."
+msgstr ""
+"Diese Seite beschreibt die Grundinstallation von Horizon in einer "
+"produktiven Umgebung. Wenn Sie nach einer Entwicklerdokumentation suchen, "
+"navigieren Sie zu :ref:`quickstart`."
+
+msgid ""
 "This section assumes proper installation, configuration, and operation of "
 "the Identity service using the Apache HTTP server and Memcached service."
 msgstr ""
 "Dieser Abschnitt setzt voraus, dass der Identitätsdienst unter Verwendung "
 "des Apache HTTP-Servers und des Memcached-Dienstes korrekt installiert und "
 "konfiguriert wurde und auch funktioniert."
+
+msgid ""
+"This section contains a small summary of the critical settings required to "
+"run Horizon. For more details, please refer to :ref:`install-settings`."
+msgstr ""
+"Dieser Abschnitt enthält eine kurze Zusammenfassung der wichtigsten "
+"Einstellungen, um Horizon zu konfigurieren. Weitere Details sind hier zu "
+"finden: :ref:`install-settings`."
 
 msgid ""
 "This section describes how to install and configure the dashboard on the "
@@ -616,6 +690,18 @@ msgstr "Überprüfe Funktion für Ubuntu"
 
 msgid "Verify operation of the dashboard."
 msgstr "Überprüfe die Funktion des Dashboards."
+
+msgid ""
+"You can either use the provided ``openstack_dashboard/wsgi.py`` or generate "
+"a ``openstack_dashboard/horizon_wsgi.py`` file with the following command "
+"(which detects if you use a virtual environment or not to automatically "
+"build an adapted WSGI file)"
+msgstr ""
+"Sie können entweder das mitgelieferte ``openstack_dashboard/wsgi.py`` "
+"verwenden oder die Datei ``openstack_dashboard/horizon_wsgi.py`` generieren "
+"mit dem folgenden Befehl generieren lassen (Der Befehl erkennt, ob Sie sich "
+"in einer virtuellen Umgebung befinden oder nicht, um automatisch eine "
+"angepasste WSGI-Datei zu erstellen)."
 
 msgid "Your OpenStack environment now includes the dashboard."
 msgstr "Ihre OpenStack Umgebung beinhaltet nun das Dashboard."
