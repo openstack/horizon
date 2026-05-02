@@ -87,6 +87,10 @@ def is_ajax(request):
 def login(request):
     """Logs a user in using the :class:`~openstack_auth.forms.Login` form."""
 
+    # Store the next URL in cookie so we can use it after WebSSO.
+    # We can't use session, because user is not logged in yet.
+    next_url = request.GET.get('next')
+
     # If the user enabled websso and the default redirect
     # redirect to the default websso url
     if (request.method == 'GET' and settings.WEBSSO_ENABLED and
@@ -96,13 +100,10 @@ def login(request):
         origin = utils.build_absolute_uri(request, '/auth/websso/')
         url = ('%s/auth/OS-FEDERATION/websso/%s?origin=%s' %
                (region, protocol, origin))
-        return shortcuts.redirect(url)
-
-    # Store the next URL in session so we can use it after WebSSO
-    next_url = request.GET.get('next')
-    if next_url:
-        request.session['post_login_redirect'] = next_url
-        LOG.info("Remembering post_login_redirect in session: %s", next_url)
+        response = django_http.HttpResponseRedirect(url)
+        if next_url:
+            response.set_cookie('login_redirect', next_url, max_age=3600)
+        return response
 
     # If the user enabled websso and selects default protocol
     # from the dropdown, We need to redirect user to the websso url
@@ -182,6 +183,9 @@ def login(request):
         msg = _("Your password has expired. Please set a new password.")
         set_logout_reason(res, msg)
 
+    if next_url:
+        res.set_cookie('login_redirect', next_url, max_age=3600)
+
     # Save the region in the cookie, this is used as the default
     # selected region next time the Login form loads.
     if request.method == "POST":
@@ -247,17 +251,16 @@ def websso(request):
     if request.session.test_cookie_worked():
         request.session.delete_test_cookie()
 
-    redirect_to = request.session.pop('post_login_redirect', None)
-    LOG.info("Fetched post_login_redirect from session: %s", redirect_to)
-
+    redirect_to = request.COOKIES.get('login_redirect')
     if not redirect_to:
         redirect_to = request.POST.get('RelayState')
-
-    if redirect_to and http.url_has_allowed_host_and_scheme(
+    if not redirect_to or not http.url_has_allowed_host_and_scheme(
             redirect_to, allowed_hosts={request.get_host()}):
-        return django_http.HttpResponseRedirect(redirect_to)
+        redirect_to = settings.LOGIN_REDIRECT_URL
 
-    return django_http.HttpResponseRedirect(settings.LOGIN_REDIRECT_URL)
+    response = django_http.HttpResponseRedirect(redirect_to)
+    response.delete_cookie('login_redirect')
+    return response
 
 
 # TODO(stephenfin): Migrate to CBV
