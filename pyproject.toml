@@ -9,7 +9,7 @@ authors = [
     {name = "OpenStack", email = "openstack-discuss@lists.openstack.org"},
 ]
 readme = {file = "README.rst", content-type = "text/x-rst"}
-license = {text = "Apache-2.0"}
+license = "Apache-2.0"
 dynamic = ["version", "dependencies"]
 requires-python = ">=3.10"
 classifiers = [
@@ -19,7 +19,6 @@ classifiers = [
     "Intended Audience :: Developers",
     "Intended Audience :: Information Technology",
     "Intended Audience :: System Administrators",
-    "License :: OSI Approved :: Apache Software License",
     "Operating System :: OS Independent",
     "Operating System :: POSIX :: Linux",
     "Programming Language :: Python",
@@ -47,12 +46,8 @@ django = "horizon.utils.babel_extract_django:extract_django"
 Homepage = "https://docs.openstack.org/horizon"
 Repository = "https://opendev.org/openstack/horizon/"
 
-[tool.setuptools]
-packages = [
-    "horizon",
-    "openstack_auth",
-    "openstack_dashboard",
-]
+[tool.setuptools.packages.find]
+include = ["horizon", "openstack_auth", "openstack_dashboard"]
 
 [tool.coverage.html]
 directory = "reports"
