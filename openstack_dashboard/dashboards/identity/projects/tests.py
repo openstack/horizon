@@ -58,6 +58,8 @@ class TenantsViewTests(test.BaseAdminViewTests):
         res = self.client.get(INDEX_URL)
         self.assertTemplateUsed(res, 'identity/projects/index.html')
         self.assertCountEqual(res.context['table'].data, self.tenants.list())
+        self.assertContains(res, 'data-sorter="plainText"', count=2)
+        self.assertContains(res, 'data-sorter="uuid"', count=1)
 
         self.mock_tenant_list.assert_called_once_with(test.IsHttpRequest(),
                                                       domain=None,

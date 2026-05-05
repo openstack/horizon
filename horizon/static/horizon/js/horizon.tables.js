@@ -352,6 +352,21 @@ horizon.datatables.confirm = function(action) {
   return modal;
 };
 
+// Plain string sort for columns that must never use date/numeric auto parsers
+$.tablesorter.addParser({
+  id: 'plainText',
+  is: function() {
+    return false;
+  },
+  format: function(s) {
+    if (s === null || typeof s === 'undefined') {
+      return '';
+    }
+    return $.trim(String(s)).toLowerCase();
+  },
+  type: 'text'
+});
+
 $.tablesorter.addParser({
   // set a unique id
   id: 'sizeSorter',
@@ -548,6 +563,9 @@ horizon.datatables.set_table_sorting = function (parent) {
         var $th = $(this);
         if (!$th.hasClass('sortable')) {
           header_options[i] = {sorter: false};
+        } else if ($th.attr('data-sorter')) {
+          // Native TableSorter hook on <th>: .attr avoids jQuery .data() cache
+          header_options[i] = {sorter: $th.attr('data-sorter')};
         } else if ($th.data('type') === 'size'){
           header_options[i] = {sorter: 'sizeSorter'};
         } else if ($th.data('type') === 'ip'){
@@ -556,7 +574,9 @@ horizon.datatables.set_table_sorting = function (parent) {
           header_options[i] = {sorter: 'timesinceSorter'};
         } else if ($th.data('type') === 'timestamp'){
           header_options[i] = {sorter: 'timestampSorter'};
-        } else if ($th.data('type') == 'uuid'){
+        } else if ($th.data('type') === 'text'){
+          header_options[i] = {sorter: 'plainText'};
+        } else if ($th.data('type') === 'uuid'){
           header_options[i] = {sorter: 'uuid'};
         }
       });
@@ -567,7 +587,15 @@ horizon.datatables.set_table_sorting = function (parent) {
         cancelSelection: false,
         emptyTo: 'none',
         headerTemplate: '{content}{icon}',
-        cssIcon: 'table-sort-indicator'
+        cssIcon: 'table-sort-indicator',
+        // Rebuild parser/cache once; fixes columns where first-pass detection
+        // does not match explicit data-sorter / sorter-* headers.
+        initialized: function(table) {
+          var $t = $(table);
+          if ($t.find('thead th[data-sorter]').length) {
+            $t.trigger('update', [false]);
+          }
+        }
       });
     }
   });
