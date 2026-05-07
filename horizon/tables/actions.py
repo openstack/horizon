@@ -692,7 +692,7 @@ class BatchAction(Action):
         return super()._allowed(request, datum)
 
     def _get_action_name(self, items=None, past=False):
-        """Retreive action name based on the number of items and `past` flag.
+        """Retrieve action name based on the number of items and `past` flag.
 
         :param items:
 
