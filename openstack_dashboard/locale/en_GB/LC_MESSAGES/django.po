@@ -17,7 +17,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: horizon VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2026-04-23 15:13+0000\n"
+"POT-Creation-Date: 2026-05-06 16:15+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -5761,9 +5761,6 @@ msgstr "Security Group Rules"
 
 msgid "Security Groups"
 msgstr "Security Groups"
-
-msgid "Security group rule already exists."
-msgstr "Security group rule already exists."
 
 msgid "Security group rule quota exceeded."
 msgstr "Security group rule quota exceeded."

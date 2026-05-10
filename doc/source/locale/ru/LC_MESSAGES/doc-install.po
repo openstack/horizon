@@ -1,16 +1,17 @@
 # Dmitriy Chubinidze <dcu995@gmail.com>, 2025. #zanata
 # Ivan Anfimov <lazekteam@gmail.com>, 2025. #zanata
 # Dmitriy Chubinidze <dcu995@gmail.com>, 2026. #zanata
+# Ivan Anfimov <lazekteam@gmail.com>, 2026. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 25.8.0.dev45\n"
+"Project-Id-Version: horizon 25.8.0.dev58\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-04-23 15:13+0000\n"
+"POT-Creation-Date: 2026-05-06 16:15+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2026-04-25 06:51+0000\n"
-"Last-Translator: Dmitriy Chubinidze <dcu995@gmail.com>\n"
+"PO-Revision-Date: 2026-05-07 09:45+0000\n"
+"Last-Translator: Ivan Anfimov <lazekteam@gmail.com>\n"
 "Language-Team: Russian\n"
 "Language: ru\n"
 "X-Generator: Zanata 4.3.3\n"
@@ -559,8 +560,8 @@ msgstr ""
 "случае возникновения проблем с подключением SSL-сертификата укажите IP-адрес "
 "сервера на доменное имя и предоставьте пользователям доступ."
 
-msgid "Python 3.10, 3.11, 3.12 or 3.13"
-msgstr "Python 3.10, 3.11, 3.12 или 3.13"
+msgid "Python 3.11, 3.12 or 3.13"
+msgstr "Python 3.11, 3.12 или 3.13"
 
 msgid "Python memcached module installed"
 msgstr "Python модуль memcached установлен"
