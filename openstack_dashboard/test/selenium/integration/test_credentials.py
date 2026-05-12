@@ -54,7 +54,7 @@ def test_download_rc_file_admin(login, driver, config, openstack_admin,
     project_name = re.search(
         r'export OS_PROJECT_NAME="([^"]+)"', content).group(1)
     project_id = re.search(
-        r'export OS_PROJECT_ID=(.+)', content).group(1)
+        r'export OS_PROJECT_ID="([^"]+)"', content).group(1)
 
     assert(config.identity.admin_username == username and
            config.identity.admin_home_project == project_name and
@@ -86,7 +86,7 @@ def test_download_rc_file_demo(login, driver, config, openstack_admin,
     project_name = re.search(
         r'export OS_PROJECT_NAME="([^"]+)"', content).group(1)
     project_id = re.search(
-        r'export OS_PROJECT_ID=(.+)', content).group(1)
+        r'export OS_PROJECT_ID="([^"]+)"', content).group(1)
 
     assert(config.identity.username == username and
            config.identity.home_project == project_name and
