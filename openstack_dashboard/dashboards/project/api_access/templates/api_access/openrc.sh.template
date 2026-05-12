@@ -11,11 +11,11 @@
 # OpenStack API is version 3. For example, your cloud provider may implement
 # Image API v1.1, Block Storage API v2, and Compute API v2.0. OS_AUTH_URL is
 # only for the Identity API served through keystone.
-export OS_AUTH_URL={{ auth_url }}
+export OS_AUTH_URL="{{ auth_url|shellfilter }}"
 
 # With the addition of Keystone we have standardized on the term **project**
 # as the entity that owns the resources.
-export OS_PROJECT_ID={{ tenant_id }}
+export OS_PROJECT_ID="{{ tenant_id|shellfilter }}"
 export OS_PROJECT_NAME="{{ tenant_name|shellfilter }}"
 export OS_USER_DOMAIN_NAME="{{ user_domain_name|shellfilter }}"
 if [ -z "$OS_USER_DOMAIN_NAME" ]; then unset OS_USER_DOMAIN_NAME; fi
@@ -33,7 +33,7 @@ export OS_USERNAME="{{ user.username|shellfilter }}"
 # With Keystone you pass the keystone password.
 echo "Please enter your OpenStack Password for project $OS_PROJECT_NAME as user $OS_USERNAME: "
 read -sr OS_PASSWORD_INPUT
-export OS_PASSWORD=$OS_PASSWORD_INPUT
+export OS_PASSWORD="$OS_PASSWORD_INPUT"
 
 # If your configuration has multiple regions, we set that information here.
 # OS_REGION_NAME is optional and only valid in certain environments.
@@ -41,5 +41,5 @@ export OS_REGION_NAME="{{ region|shellfilter }}"
 # Don't leave a blank variable, unset it if it was empty
 if [ -z "$OS_REGION_NAME" ]; then unset OS_REGION_NAME; fi
 
-export OS_INTERFACE={{ interface }}
-export OS_IDENTITY_API_VERSION={{ os_identity_api_version }}
+export OS_INTERFACE="{{ interface|shellfilter }}"
+export OS_IDENTITY_API_VERSION="{{ os_identity_api_version|shellfilter }}"
