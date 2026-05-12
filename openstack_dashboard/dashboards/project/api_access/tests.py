@@ -37,7 +37,7 @@ class APIAccessTests(test.TestCase):
         openrc = 'project/api_access/openrc.sh.template'
         self.assertTemplateUsed(res, openrc)
         name = 'export OS_USERNAME="{}"'.format(self.request.user.username)
-        p_id = 'export OS_PROJECT_ID={}'.format(self.request.user.tenant_id)
+        p_id = 'export OS_PROJECT_ID="{}"'.format(self.request.user.tenant_id)
         domain = 'export OS_USER_DOMAIN_NAME="{}"'.format(
             self.request.user.user_domain_name)
         self.assertIn(name.encode('utf-8'), res.content)
@@ -144,7 +144,7 @@ class TemplateRenderTest(test.TestCase):
             context,
             template.Context(context))
 
-        self.assertIn("OS_REGION_NAME=\"Colorado\"", out)
+        self.assertIn('OS_REGION_NAME="Colorado"', out)
 
     def test_openrc_region_not_set(self):
         context = {
@@ -157,7 +157,7 @@ class TemplateRenderTest(test.TestCase):
             context,
             template.Context(context))
 
-        self.assertIn("OS_REGION_NAME=\"\"", out)
+        self.assertIn('OS_REGION_NAME=""', out)
 
     def test_clouds_yaml_set_region(self):
         context = {
