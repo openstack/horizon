@@ -38,8 +38,12 @@ openstack_dashboard_integration_tests = "openstack_dashboard.test.integration_te
 Homepage = "https://docs.openstack.org/horizon"
 Repository = "https://opendev.org/openstack/horizon/"
 
-[tool.setuptools.packages.find]
-include = ["horizon", "openstack_auth", "openstack_dashboard"]
+[tool.setuptools]
+packages = [
+    "horizon",
+    "openstack_auth",
+    "openstack_dashboard",
+]
 
 [tool.coverage.html]
 directory = "reports"
