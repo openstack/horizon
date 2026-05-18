@@ -13,6 +13,7 @@
 import re
 
 import pytest
+from selenium.common.exceptions import StaleElementReferenceException
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.wait import WebDriverWait
 
@@ -67,8 +68,15 @@ def switch_to_services_region(driver, config, services_region):
         By.XPATH, config.services_regions.region_dropdown_xpath)
     widgets.select_from_dropdown(switch_services_region_btn, services_region)
     wait_for_page_ready(driver, config)
-    driver.find_element(
-        By.XPATH, config.services_regions.region_name_xpath)
+    WebDriverWait(
+        driver, config.selenium.page_timeout,
+        ignored_exceptions=[StaleElementReferenceException]
+    ).until(
+        lambda d: d.find_element(
+            By.XPATH, config.services_regions.region_name_xpath
+        ).text == config.services_regions.region_btn_text_pattern.format(
+            region=services_region)
+    )
 
 
 def wait_for_page_ready(driver, config):
@@ -136,12 +144,12 @@ def test_services_regions_endpoints_in_service_catalog(
             match = re.search(re_pattern, url)
             if match:
                 url = match.group(1)
-            service_row = driver.find_element(
-                By.CSS_SELECTOR,
-                f"table#endpoints"
-                f" tr[data-display='{service}']")
-            assert service_row.find_element(
-                By.XPATH, f".//*[contains(normalize-space(), '{url}')]")
+            assert driver.find_element(
+                By.XPATH,
+                f"//table[@id='endpoints']"
+                f"//tr[@data-display='{service}']"
+                f"//*[contains(normalize-space(), '{url}')]"
+            )
 
 
 def test_services_regions_resource_availability_region_one(
