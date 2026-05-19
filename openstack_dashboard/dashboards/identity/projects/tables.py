@@ -209,13 +209,18 @@ class UpdateRow(tables.Row):
 class TenantsTable(tables.DataTable):
     name = tables.WrappingColumn('name', verbose_name=_('Name'),
                                  link=("horizon:identity:projects:detail"),
-                                 form_field=forms.CharField(max_length=64))
+                                 form_field=forms.CharField(max_length=64),
+                                 attrs={'data-sorter': 'plainText'},
+                                 classes=['sorter-plainText'])
     description = tables.Column(lambda obj: getattr(obj, 'description', None),
                                 verbose_name=_('Description'),
                                 form_field=forms.CharField(
                                     widget=forms.Textarea(attrs={'rows': 4}),
-                                    required=False))
-    id = tables.Column('id', verbose_name=_('Project ID'))
+                                    required=False),
+                                attrs={'data-sorter': 'plainText'},
+                                classes=['sorter-plainText'])
+    id = tables.Column('id', verbose_name=_('Project ID'),
+                       attrs={'data-sorter': 'uuid'})
     domain_name = tables.Column(
         'domain_name', verbose_name=_('Domain Name'))
     enabled = tables.Column('enabled', verbose_name=_('Enabled'), status=True,
