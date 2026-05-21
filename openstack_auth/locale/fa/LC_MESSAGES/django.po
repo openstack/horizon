@@ -1,0 +1,142 @@
+# Amin Am <amin.alimoradi66@gmail.com>, 2026. #zanata
+msgid ""
+msgstr ""
+"Project-Id-Version: horizon VERSION\n"
+"Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
+"POT-Creation-Date: 2025-12-08 13:00+0000\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"PO-Revision-Date: 2026-02-21 03:52+0000\n"
+"Last-Translator: Amin Am <amin.alimoradi66@gmail.com>\n"
+"Language-Team: Persian\n"
+"Language: fa\n"
+"X-Generator: Zanata 4.3.3\n"
+"Plural-Forms: nplurals=1; plural=0\n"
+
+msgid "An error occurred authenticating. Please try again later."
+msgstr "خطایی در احراز هویت رخ داده است. لطفاً بعداً دوباره امتحان کنید."
+
+msgid "Authenticate using"
+msgstr "احراز هویت با استفاده از"
+
+msgid "Authentication via TOTP is required."
+msgstr "احراز هویت از طریق TOTP الزامی است."
+
+msgid "Confirm password"
+msgstr "رمز عبور را تأیید کنید"
+
+msgid "Cookies may be turned off. Make sure cookies are enabled and try again."
+msgstr ""
+"ممکن است کوکی‌ها غیرفعال باشند. مطمئن شوید کوکی‌ها فعال هستند و دوباره امتحان "
+"کنید."
+
+msgid "Could not find service provider ID on keystone."
+msgstr "شناسه ارائه دهنده سرویس در keystone یافت نشد."
+
+msgid "Default Region"
+msgstr "ریجن (منطقه) پیش‌فرض"
+
+msgid "Domain"
+msgstr "دامنه"
+
+msgid "Identity provider authentication failed."
+msgstr ""
+"احراز هویت (authentication) ارائه دهنده هویت (Identity provider) ناموفق بود."
+
+msgid "Invalid credentials."
+msgstr "مدارک شناسایی (کردنشیال) نامعتبر."
+
+msgid "K2K Federation not setup for this session"
+msgstr "Federation K2K برای این session آماده نیست"
+
+msgid "New password"
+msgstr "پسورد جدید"
+
+msgid ""
+"No authentication backend could be determined to handle the provided "
+"credentials."
+msgstr ""
+"هیچ backend احراز هویتی برای مدیریت اعتبارنامه‌های (کردنشیال‌های) ارائه شده "
+"قابل تعیین نیست."
+
+msgid "Old password and new password must be different."
+msgstr "پسورد قدیمی و پسورد جدید باید متفاوت باشند."
+
+msgid "Original password"
+msgstr "پسورد اصلی"
+
+msgid "Passcode"
+msgstr "کد عبور"
+
+msgid "Password"
+msgstr "رمز عبور"
+
+msgid "Password changed. Please log in to continue."
+msgstr "رمز عبور تغییر کرد. لطفا برای ادامه وارد شوید."
+
+msgid "Password expired."
+msgstr "پسورد منقضی شده است."
+
+msgid "Password is not accepted"
+msgstr "رمز عبور (پسورد) پذیرفته نمی‌شود"
+
+msgid "Passwords do not match."
+msgstr "رمزهای عبور مطابقت ندارند."
+
+#, python-format
+msgid "Please consider changing your password, it will expire in %s minutes"
+msgstr ""
+"لطفا تغییر پسورد خود را در نظر داشته باشید، این پسورد ظرف %s دقیقه منقضی "
+"خواهد شد."
+
+#, python-format
+msgid "Project switch failed for user \"%(username)s\"."
+msgstr "تغییر پروژه برای کاربر \"%(username)s\" ناموفق بود."
+
+msgid "Region"
+msgstr "Region (ریجن یا منطقه)"
+
+#, python-format
+msgid "Service provider authentication failed. %s"
+msgstr "احراز هویت ارائه دهنده سرویس ناموفق بود. %s"
+
+#, python-format
+msgid "Switch to Keystone Provider \"%(keystone_provider)s\" successful."
+msgstr ""
+"تغییر به ارائه دهنده Keystone با موفقیت انجام شد. \"%(keystone_provider)s\""
+
+#, python-format
+msgid "Switch to project \"%(project_name)s\" successful."
+msgstr "تغییر به پروژه \"%(project_name)s\" با موفقیت انجام شد."
+
+msgid "Switch to system scope successful."
+msgstr "تغییر به محدوده سیستم با موفقیت انجام شد."
+
+#, python-format
+msgid "System switch failed for user \"%(username)s\"."
+msgstr "تغییر سیستم برای کاربر \"%(username)s\" ناموفق بود."
+
+msgid "The authentication token issued by the Identity service has expired."
+msgstr "توکن احراز هویت صادر شده توسط سرویس هویت (Identity ) منقضی شده است."
+
+msgid "Unable to establish connection to keystone endpoint."
+msgstr "قادر به برقراری اتصال به Endpoint (اند‌پوینت) keystone نیست."
+
+msgid "Unable to retrieve authorized domains."
+msgstr "بازیابی دامنه‌های مجاز امکان‌پذیر نیست."
+
+msgid "Unable to retrieve authorized projects."
+msgstr "امکان بازیابی پروژه‌های مجاز وجود ندارد."
+
+msgid "Unable to update the user password."
+msgstr "به‌روزرسانی پسورد کاربر امکان‌پذیر نیست."
+
+msgid "User Name"
+msgstr "نام کاربری"
+
+msgid "You are not authorized for any projects or domains."
+msgstr "شما برای هیچ پروژه یا دامنه‌ای مجاز نیستید."
+
+msgid "Your password has expired. Please set a new password."
+msgstr "پسورد شما منقضی شده است. لطفا پسورد جدیدی تنظیم کنید."

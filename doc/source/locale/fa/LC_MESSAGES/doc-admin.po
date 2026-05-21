@@ -1,0 +1,2098 @@
+# Amin Am <amin.alimoradi66@gmail.com>, 2026. #zanata
+msgid ""
+msgstr ""
+"Project-Id-Version: horizon 25.5.2.dev13\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-12-08 13:00+0000\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"PO-Revision-Date: 2026-02-21 03:16+0000\n"
+"Last-Translator: Amin Am <amin.alimoradi66@gmail.com>\n"
+"Language-Team: Persian\n"
+"Language: fa\n"
+"X-Generator: Zanata 4.3.3\n"
+"Plural-Forms: nplurals=1; plural=0\n"
+
+msgid "**Bandwidth I/O**"
+msgstr "**پهنای باند ورودی/خروجی**"
+
+msgid "**CPU limits**"
+msgstr "**محدودیت‌های پردازنده**"
+
+msgid "**Dashboard — Create Flavor**"
+msgstr "**داشبورد — ایجاد فلیور**"
+
+msgid "**Disk tuning**"
+msgstr "**تنظیم دیسک**"
+
+msgid "**Encryption Options**"
+msgstr "**Encryption Options**"
+
+msgid "**Ephemeral Disk (GB)**"
+msgstr "**دیسک موقت (گیگابایت)**"
+
+msgid "**Example After**"
+msgstr "**مثال بعد از**"
+
+msgid "**Example Before**"
+msgstr "**مثال قبل**"
+
+msgid "**Figure Dashboard — Create Image**"
+msgstr "**داشبورد تصاویر — ایجاد ایمیج**"
+
+msgid "**Figure Dashboard — Instance Actions**"
+msgstr "**داشبورد شکل — اقدامات اینستنس**"
+
+msgid "**ID**"
+msgstr "**شناسه**"
+
+msgid "**Name**"
+msgstr "**نام**"
+
+msgid "**Optional metadata keys**"
+msgstr "**کلیدهای متادیتا (فراداده) اختیاری**"
+
+msgid "**Quota Descriptions**"
+msgstr "**Quota Descriptions** (شرح کوتا)"
+
+msgid "**RAM (MB)**"
+msgstr "**حافظه رم (مگابایت)**"
+
+msgid "**Random-number generator**"
+msgstr "**مولد (تولیدکننده) اعداد تصادفی**"
+
+msgid "**Root Disk (GB)**"
+msgstr "**دیسک ریشه (روت) (گیگابایت)**"
+
+msgid "**Swap Disk (MB)**"
+msgstr "**دیسک Swap(مگابایت)**"
+
+msgid "**Watchdog behavior**"
+msgstr "**رفتار نظارتی**"
+
+msgid "**vCPUs**"
+msgstr "**پردازنده‌های مجازی**"
+
+msgid "1"
+msgstr "1"
+
+msgid "160"
+msgstr "160"
+
+msgid "16384"
+msgstr "16384"
+
+msgid "2"
+msgstr "2"
+
+msgid "20"
+msgstr "20"
+
+msgid "2048"
+msgstr "2048"
+
+msgid "256 (Recommended for aes-xts-plain64 and aes-cbc-essiv)"
+msgstr "256 (Recommended for aes-xts-plain64 and aes-cbc-essiv)"
+
+msgid "4"
+msgstr "4"
+
+msgid "40"
+msgstr "40"
+
+msgid "4096"
+msgstr "4096"
+
+msgid "512"
+msgstr "512"
+
+msgid "8"
+msgstr "8"
+
+msgid "80"
+msgstr "80"
+
+msgid "8192"
+msgstr "8192"
+
+msgid ":guilabel:`Architecture`"
+msgstr ":guilabel:`Architecture`"
+
+msgid ""
+":guilabel:`Availability Zone`: The cloud provider defines the default "
+"availability zone, such as ``us-west``, ``apac-south``, or ``nova``. You can "
+"target the host aggregate, as follows:"
+msgstr ""
+":`guilabel:`Availability Zone: ارائه دهنده کلاد، منطقه در دسترس بودن پیش‌فرض، "
+"مانند `us-west``، `apac-south`` یا `nova`` را تعریف می‌کند. شما می‌توانید به "
+"صورت زیر، مجموعه هاست را هدف قرار دهید:"
+
+msgid ""
+":guilabel:`Block Storage Services`: Displays information specific to the "
+"Block Storage service. Both host and zone are listed for each service, as "
+"well as its activation status."
+msgstr ""
+":guilabel:`Block Storage Services`: اطلاعات مربوط به سرویس Block Storage را "
+"نمایش می‌دهد. host و zone برای هر سرویس و همچنین وضعیت فعال‌سازی آن فهرست "
+"شده‌اند."
+
+msgid ""
+":guilabel:`Compute Services`: Displays information specific to the Compute "
+"service. Both host and zone are listed for each service, as well as its "
+"activation status."
+msgstr ""
+":guilabel:`Compute Services`: اطلاعات مربوط به سرویس Compute را نمایش می‌دهد. "
+"host و zone برای هر سرویس و همچنین وضعیت فعال‌سازی آن فهرست شده‌اند."
+
+msgid ":guilabel:`Copy Data`"
+msgstr ":guilabel:`Copy Data`"
+
+msgid ":guilabel:`Description`"
+msgstr ":guilabel:`Description`"
+
+msgid ":guilabel:`Format`"
+msgstr ":guilabel:`Format`"
+
+msgid ":guilabel:`Image File` or :guilabel:`Image Location`"
+msgstr ":guilabel:`Image File` یا :guilabel:`Image Location`"
+
+msgid ":guilabel:`Image Source`"
+msgstr ":guilabel:`Image Source`"
+
+msgid ":guilabel:`Minimum Disk (GB)`"
+msgstr ":guilabel:`Minimum Disk (GB)`"
+
+msgid ":guilabel:`Minimum RAM (MB)`"
+msgstr ":guilabel:`Minimum RAM (MB)`"
+
+msgid ":guilabel:`Name`"
+msgstr ":guilabel:`Name`"
+
+msgid ":guilabel:`Name`: The host aggregate name."
+msgstr ":`guilabel:`Name: نام مجموعه هاست."
+
+msgid ""
+":guilabel:`Network Agents`: Displays the network agents active within the "
+"cluster, such as L3 and DHCP agents, and the status of each agent."
+msgstr ""
+":guilabel:`Network Agents`: Agentهای شبکه فعال در کلاستر، مانند Agentهای L3 "
+"و DHCP، و وضعیت هر Agent را نمایش می‌دهد."
+
+msgid ":guilabel:`Protected`"
+msgstr ":guilabel:`Protected`"
+
+msgid ":guilabel:`Public`"
+msgstr ":guilabel:`Public`"
+
+msgid ""
+":guilabel:`Services`: Displays the internal name and the public OpenStack "
+"name for each service, the host on which the service runs, and whether or "
+"not the service is enabled."
+msgstr ""
+":guilabel:`Services`: نام داخلی و نام عمومی OpenStack را برای هر سرویس، "
+"میزبانی که سرویس روی آن اجرا می‌شود و اینکه آیا سرویس فعال است یا خیر، نمایش "
+"می‌دهد."
+
+msgid "A message indicates whether the action succeeded."
+msgstr "یک پیام نشان می‌دهد که آیا این اقدام موفقیت‌آمیز بوده است یا خیر."
+
+msgid ""
+"A role is a personality that a user assumes to perform a specific set of "
+"operations. A role includes a set of rights and privileges. A user assumes "
+"that role inherits those rights and privileges."
+msgstr ""
+"یک نقش، شخصیتی است که یک کاربر برای انجام مجموعه‌ای خاص از عملیات در نظر "
+"می‌گیرد. یک نقش شامل مجموعه‌ای از حقوق و امتیازات است. یک کاربر فرض می‌کند که "
+"آن نقش، آن حقوق و امتیازات را به ارث می‌برد."
+
+msgid ""
+"Add a line to include your newly created style sheet. For example, ``custom."
+"css`` file:"
+msgstr ""
+"یک خط برای اضافه کردن فایل style sheet جدید ایجاد شده اضافه کنید. برای مثال، "
+"فایل `custom.css`:"
+
+msgid "Add a new project"
+msgstr "اضافه کردن یک پروژه جدید"
+
+msgid "Add a new user"
+msgstr "کاربر جدید اضافه کنید"
+
+msgid ""
+"Adjust the :guilabel:`Domain Name`, :guilabel:`User Name`, :guilabel:"
+"`Description`, :guilabel:`Email`, and :guilabel:`Primary Project`."
+msgstr ""
+"مقادیر :guilabel:`DomainName`، :guilabel:`UserName`، :guilabel:"
+"`Description`، :guilabel:`Email` و :guilabel:`Primary Project` را تنظیم کنید."
+
+msgid "Administration Guide"
+msgstr "راهنمای مدیریت"
+
+msgid ""
+"After architecting and implementing the core OpenStack services and other "
+"required services, combined with the Dashboard service steps below, users "
+"and administrators can use the OpenStack dashboard. Refer to the :doc:"
+"`OpenStack User Documentation </user/index>` chapter of the OpenStack End "
+"User Guide for further instructions on logging in to the Dashboard."
+msgstr ""
+"پس از معماری و پیاده‌سازی سرویس‌های اصلی OpenStack و سایر سرویس‌های مورد نیاز، "
+"همراه با مراحل سرویس داشبورد که در زیر آمده است، کاربران و مدیران می‌توانند "
+"از داشبورد OpenStack استفاده کنند. برای دستورالعمل‌های بیشتر در مورد ورود به "
+"داشبورد، به فصل :doc:`مستندات کاربر OpenStack </user/index>` از راهنمای "
+"کاربر نهایی OpenStack مراجعه کنید."
+
+msgid ""
+"After configuring the ``local_settings.py`` file as shown, you can run the :"
+"command:`manage.py migrate` command to populate this newly created database."
+msgstr ""
+"پس از پیکربندی فایل `local_settings.py`` همانطور که نشان داده شده است، "
+"می‌توانید دستور :command:`manage.py migrate` را برای پر کردن این پایگاه داده "
+"تازه ایجاد شده اجرا کنید."
+
+msgid ""
+"Allows easier import and migration of imported encrypted volumes, and allows "
+"access key to be changed without re-encrypting the volume"
+msgstr ""
+"امکان ایمپورت و مایگریشن آسان‌تر والیوم‌های رمزگذاری‌شده‌ی ایمپورت‌ شده را فراهم "
+"می‌کند و امکان تغییر کلید دسترسی (access key) بدون رمزگذاری مجدد والیوم را "
+"فراهم می‌کند."
+
+msgid ""
+"As an administrative user, you can create and manage images for the projects "
+"to which you belong. You can also create and manage images for users in all "
+"projects to which you have access."
+msgstr ""
+"به عنوان یک کاربر مدیریتی، می‌توانید ایمیج‌ها را برای پروژه‌هایی که به آنها "
+"تعلق دارید ایجاد و مدیریت کنید. همچنین می‌توانید ایمیج‌ها را برای کاربران در "
+"تمام پروژه‌هایی که به آنها دسترسی دارید ایجاد و مدیریت کنید."
+
+msgid ""
+"As an administrative user, you can manage instances for users in various "
+"projects. You can view, terminate, edit, perform a soft or hard reboot, "
+"create a snapshot from, and migrate instances. You can also view the logs "
+"for instances or launch a VNC console for an instance."
+msgstr ""
+"به عنوان یک کاربر مدیریتی، می‌توانید اینستنس‌های کاربران را در پروژه‌های مختلف "
+"مدیریت کنید. می‌توانید اینستنس‌ها را مشاهده، خاتمه، ویرایش، راه‌اندازی مجدد "
+"نرم‌افزاری یا سخت‌افزاری انجام دهید، از اینستنس‌ها (اسنپ‌شات) ایجاد کنید و آنها "
+"را ماگریت (منتقل) کنید. همچنین می‌توانید گزارش‌های مربوط به اینستنس‌ها را "
+"مشاهده کنید یا یک کنسول VNC را برای یک اینستنس اجرا کنید."
+
+msgid ""
+"As an administrative user, you can manage volumes and volume types for users "
+"in various projects. You can create and delete volume types, and you can "
+"view and delete volumes. Note that a volume can be encrypted by using the "
+"steps outlined below."
+msgstr ""
+"به عنوان یک کاربر مدیریتی، می‌توانید والیوم‌ها و تایپ‌های والیوم‌ را برای "
+"کاربران در پروژه‌های مختلف مدیریت کنید. می‌توانیدتایپ‌های والیوم را ایجاد و حذف "
+"کنید و والیوم‌ها را مشاهده و حذف کنید. توجه داشته باشید که می‌توان والیوم‌ها را "
+"با استفاده از مراحل ذکر شده در زیر رمزگذاری کرد."
+
+msgid ""
+"As an administrative user, you can view information for OpenStack services."
+msgstr ""
+"به عنوان یک کاربر مدیریتی، می‌توانید اطلاعات مربوط به سرویس‌های OpenStack را "
+"مشاهده کنید."
+
+msgid ""
+"As of Newton, there are no default flavors.  The following table lists the "
+"default flavors for Mitaka and earlier."
+msgstr ""
+"از نسخه نیوتن، هیچ فلیور پیش‌فرضی وجود ندارد. جدول زیر فلیورهای پیش‌فرض برای "
+"Mitaka و نسخه‌های قبل از آن را فهرست می‌کند."
+
+msgid ""
+"Assign hosts to the aggregate using the :guilabel:`Manage Hosts within "
+"Aggregate` tab in the same dialog box."
+msgstr ""
+"با استفاده از تب `guilabel:`Manage Hosts within Aggregate: در همان کادر "
+"محاوره‌ای، هاست‌ها را به مجموعه اختصاص دهید."
+
+msgid ""
+"Based on your selection, there is an :guilabel:`Image File` or :guilabel:"
+"`Image Location` field. You can include the location URL or browse for the "
+"image file on your file system and add it."
+msgstr ""
+"بر اساس انتخاب شما، یک فیلد :guilabel:`Image File` یا :guilabel:`Image "
+"Location` وجود دارد. می‌توانید آدرس اینترنتی (URL) مکان را وارد کنید یا فایل "
+"ایمیج را در سیستم فایل خود جستجو کرده و آن را اضافه کنید."
+
+msgid "Block Storage"
+msgstr "Block Storage"
+
+msgid ""
+"By default, the help URL points to https://docs.openstack.org. To change "
+"this, edit the following attribute in ``local_settings.py``:"
+msgstr ""
+"به طور پیش‌فرض، آدرس اینترنتی راهنما به آدرس https://docs.openstack.org اشاره "
+"می‌کند. برای تغییر این مورد، ویژگی زیر را در `local_settings.py` ویرایش کنید:"
+
+msgid "Cached database"
+msgstr "پایگاه داده ذخیره شده (کش شده)"
+
+msgid ""
+"Change the colors and image file names as appropriate. Ensure the relative "
+"directory paths are the same. The following example file shows you how to "
+"customize your CSS file:"
+msgstr ""
+"رنگ‌ها و نام فایل‌های تصویر را به صورت مناسب تغییر دهید. مطمئن شوید که مسیرهای "
+"دایرکتوری نسبی یکسان هستند. فایل نمونه زیر نحوه سفارشی‌سازی فایل CSS شما را "
+"نشان می‌دهد:"
+
+msgid ""
+"Choose the image source from the dropdown list. Your choices are :guilabel:"
+"`Image Location` and :guilabel:`Image File`."
+msgstr ""
+"منبع ایمیج را از لیست کشویی انتخاب کنید. گزینه‌های شما عبارتند از :guilabel:"
+"`Image Location` و :guilabel:`Image File`."
+
+msgid "Cipher"
+msgstr "رمزگذار (Cipher)"
+
+msgid ""
+"Click :guilabel:`Create Encryption` in the Actions column of the newly "
+"created volume type."
+msgstr ""
+"در ستون Actions مربوط به تایپ والیوم جدید ایجاد شده، روی :guilabel:`Create "
+"Encryption` کلیک کنید."
+
+msgid "Click :guilabel:`Create Flavor`."
+msgstr "روی :guilabel:`ایجاد فلیور` کلیک کنید."
+
+msgid "Click :guilabel:`Create Host Aggregate`."
+msgstr "روی `guilabel:`Create Host Aggregate کلیک کنید."
+
+msgid ""
+"Click :guilabel:`Create Image`, which opens the :guilabel:`Create An Image` "
+"window."
+msgstr ""
+"روی :guilabel:`Create Image` کلیک کنید، که پنجره :guilabel:`Create An Image` "
+"را باز می‌کند."
+
+msgid "Click :guilabel:`Create Image`."
+msgstr "روی guilabel:`Create Image` کلیک کنید."
+
+msgid "Click :guilabel:`Create Project`."
+msgstr "روی guilabel:`Create Project` کلیک کنید."
+
+msgid ""
+"Click :guilabel:`Create Snapshot`. The Dashboard shows the instance snapshot "
+"in the :guilabel:`Images` category."
+msgstr ""
+"روی :guilabel:`Create Snapshot` کلیک کنید. داشبورد، نمونه اسنپ‌شات را در "
+"دسته‌بندی :guilabel:`Images` نشان می‌دهد."
+
+msgid "Click :guilabel:`Create User`."
+msgstr "روی guilabel:`Create User` کلیک کنید."
+
+msgid "Click :guilabel:`Create Volume Type Encryption`."
+msgstr "روی guilabel:`Create Volume Type Encryption` کلیک کنید."
+
+msgid "Click :guilabel:`Create Volume Type` button to confirm your changes."
+msgstr ""
+"برای تأیید تغییرات، روی دکمه‌ی :guilabel:`Create Volume Type` کلیک کنید."
+
+msgid "Click :guilabel:`Delete Flavors`."
+msgstr "روی `guilabel:`Delete Flavors کلیک کنید."
+
+msgid "Click :guilabel:`Delete Images`."
+msgstr "روی :guilabel:`Delete Images` کلیک کنید."
+
+msgid "Click :guilabel:`Delete Volume Types` button."
+msgstr "روی دکمه‌ی :guilabel:`Delete Volume Types` کلیک کنید."
+
+msgid "Click :guilabel:`Delete Volumes` button."
+msgstr "روی دکمه‌ی :guilabel:`Delete Volumes` کلیک کنید."
+
+msgid "Click :guilabel:`Download CSV Summary` to download a CSV summary."
+msgstr "برای دانلود خلاصه CSV، روی :guilabel:`Download CSV Summary` کلیک کنید."
+
+msgid "Click :guilabel:`Edit Image`."
+msgstr "روی :guilabel:`Edit Image` کلیک کنید."
+
+msgid "Click :guilabel:`Save`."
+msgstr "روی :guilabel:`ذخیره` کلیک کنید."
+
+msgid "Click on the :guilabel:`Delete Projects` push button."
+msgstr "روی دکمه‌ی :guilabel:`Delete Projects` کلیک کنید."
+
+msgid "Click on the :guilabel:`Delete Users` push button."
+msgstr "روی دکمه‌ی :guilabel:`Delete Users` کلیک کنید."
+
+msgid ""
+"Click on the :guilabel:`Identity` label on the left column, and click :"
+"guilabel:`Projects`."
+msgstr ""
+"روی برچسب :guilabel:`Identity` در ستون سمت چپ کلیک کنید و سپس روی :guilabel:"
+"`Projects` کلیک کنید."
+
+msgid ""
+"Click on the :guilabel:`Identity` label on the left column, and click :"
+"guilabel:`Users`."
+msgstr ""
+"روی برچسب :guilabel:`Identity` در ستون سمت چپ کلیک کنید و سپس روی :guilabel:"
+"`Users` کلیک کنید."
+
+msgid "Click the :guilabel:`Create Role` button to confirm your changes."
+msgstr "برای تأیید تغییرات، روی دکمه‌ی :guilabel:`Create Role` کلیک کنید."
+
+msgid "Click the :guilabel:`Create Role` button."
+msgstr "روی دکمه‌ی :guilabel:`Create Role` کلیک کنید."
+
+msgid "Click the :guilabel:`Create User` push button."
+msgstr "روی دکمه‌ی :guilabel:`Create User` کلیک کنید."
+
+msgid "Click the :guilabel:`Edit` button."
+msgstr "روی دکمه‌ی :guilabel:`Edit` کلیک کنید."
+
+msgid "Click the :guilabel:`Update Default Quotas` button."
+msgstr "روی دکمه‌ی :guilabel:`به‌روزرسانی کوتا‌های پیش‌فرض` کلیک کنید."
+
+msgid "Click the :guilabel:`Update Role` button to confirm your changes."
+msgstr "برای تأیید تغییرات، روی دکمه‌ی :guilabel:`Update Role` کلیک کنید."
+
+msgid ""
+"Click the :guilabel:`Volume Types` tab, and click :guilabel:`Create Volume "
+"Type` button. In the :guilabel:`Create Volume Type` window, enter a name for "
+"the volume type."
+msgstr ""
+"روی تب :guilabel:`Volume Types` کلیک کنید و سپس روی دکمه :guilabel:`Create "
+"Volume Type` کلیک کنید. در پنجره :guilabel:`Create Volume Type`، نامی برای "
+"تایپ والیوم وارد کنید."
+
+msgid ""
+"Click the :guilabel:`Volume Types` tab, select the volume type or types that "
+"you want to delete."
+msgstr ""
+"روی تب :guilabel:`Volume Types` کلیک کنید، تایپ‌ها یا تایپ‌ والیوم را که "
+"می‌خواهید حذف کنید، انتخاب کنید."
+
+msgid ""
+"Click the :guilabel:`Volumes` tab, Select the volume or volumes that you "
+"want to delete."
+msgstr ""
+"روی تب :guilabel:`Volumes` کلیک کنید، والیوم یا والیوم‌هایی را که می‌خواهید "
+"حذف کنید انتخاب کنید."
+
+msgid "Comments"
+msgstr "Comments"
+
+msgid "Compute"
+msgstr "Compute"
+
+msgid "Configure the Dashboard"
+msgstr "پیکربندی داشبورد"
+
+msgid "Configure the Dashboard for HTTP"
+msgstr "پیکربندی داشبورد برای HTTP"
+
+msgid "Configure the Dashboard for HTTPS"
+msgstr "پیکربندی داشبورد برای HTTPS"
+
+msgid ""
+"Configure the encrypted volume by setting the parameters below from "
+"available options (see table):"
+msgstr ""
+"با تنظیم پارامترهای زیر از گزینه‌های موجود، والیوم رمزگذاری‌شده را پیکربندی "
+"کنید (به جدول مراجعه کنید):"
+
+msgid ""
+"Configuring the Dashboard for HTTPS also requires enabling SSL for the noVNC "
+"proxy service. On the controller node, add the following additional options "
+"to the ``[DEFAULT]`` section of the ``/etc/nova/nova.conf`` file:"
+msgstr ""
+"پیکربندی داشبورد برای HTTPS همچنین نیاز به فعال کردن SSL برای سرویس پروکسی "
+"noVNC دارد. در نود (گره) کنترلر، گزینه‌های اضافی زیر را به بخش ``[DEFAULT]`` "
+"از فایل ``/etc/nova/nova.conf`` اضافه کنید:"
+
+msgid "Content bytes allowed for each injected file."
+msgstr "بایت‌های محتوای مجاز برای هر فایل تزریق‌شده."
+
+msgid "Control Location"
+msgstr "لوکیشن کنترل (Control Location)"
+
+msgid "Control the state of an instance"
+msgstr "کنترل وضعیت یک اینستنس"
+
+msgid "Cookies"
+msgstr "Cookies (کوکی‌ها)"
+
+msgid ""
+"Create a CSS style sheet in ``/usr/share/openstack-dashboard/"
+"openstack_dashboard/static/dashboard/scss/``."
+msgstr ""
+"یک فایل CSS در مسیر ``/usr/share/openstack-dashboard/openstack_dashboard/"
+"static/dashboard/scss/`` ایجاد کنید."
+
+msgid ""
+"Create a MySQL user for the newly created dash database that has full "
+"control of the database. Replace DASH\\_DBPASS with a password for the new "
+"user."
+msgstr ""
+"یک کاربر MySQL برای پایگاه داده‌ی dash تازه ایجاد شده ایجاد کنید که کنترل "
+"کامل پایگاه داده را داشته باشد. به جای DASH\\_DBPASS، یک رمز عبور برای کاربر "
+"جدید وارد کنید."
+
+msgid "Create a role"
+msgstr "ایجاد یک نقش (رول)"
+
+msgid "Create a volume type"
+msgstr "ایجاد یک تایپ والیوم"
+
+msgid ""
+"Create a volume type using the steps above for :ref:`create-a-volume-type`."
+msgstr ""
+"با استفاده از مراحل بالا  :ref:`create-a-volume-type`، یک تایپ والیوم ایجاد "
+"کنید."
+
+msgid "Create an encrypted volume type"
+msgstr "ایجاد یک تایپ والیوم رمزگذاری شده"
+
+msgid "Create and manage host aggregates"
+msgstr "ایجاد و مدیریت مجموعه‌های(aggregates) هاست"
+
+msgid "Create and manage images"
+msgstr "ایجاد و مدیریت ایمیج‌ها"
+
+msgid "Create and manage roles"
+msgstr "نقش‌ها (رول‌ها)  را تعریف و مدیریت کنید. "
+
+msgid "Create flavors"
+msgstr "ایجاد فلیور (اندازه)"
+
+msgid "Create images"
+msgstr "ایجاد ایمیج‌ها"
+
+msgid "Create instance snapshots"
+msgstr "ایجاد اسنپ‌شات‌های اینستنس"
+
+msgid ""
+"Create two PNG logo files with transparent backgrounds using the following "
+"sizes:"
+msgstr "دو فایل لوگوی PNG با پس‌زمینه شفاف با اندازه‌های زیر ایجاد کنید:"
+
+msgid "Customize and configure the Dashboard"
+msgstr "داشبورد را سفارشی سازی و پیکربندی کنید"
+
+msgid "Customize the Dashboard"
+msgstr "داشبورد را سفارشی‌سازی کنید."
+
+msgid ""
+"Database-backed sessions are scalable, persistent, and can be made high-"
+"concurrency and highly available."
+msgstr ""
+"جلسات (سشن‌ها) پشتیبانی‌شده توسط پایگاه داده، مقیاس‌پذیر و پایدار هستند و "
+"می‌توانند همزمانی بالا و دسترسی‌پذیری بالایی داشته باشند."
+
+msgid "Defines the number of"
+msgstr "تعداد را تعریف می‌کند"
+
+msgid "Delete a new user"
+msgstr "حذف کاربر جدید"
+
+msgid "Delete a project"
+msgstr "حذف یک پروژه"
+
+msgid "Delete a role"
+msgstr "حذف یک نقش (رول)"
+
+msgid "Delete flavors"
+msgstr "حذف فلیورها"
+
+msgid "Delete images"
+msgstr "حذف ایمیج‌ها"
+
+msgid "Delete volume types"
+msgstr "تایپ‌های والیوم را حذف کنید"
+
+msgid "Delete volumes"
+msgstr "حذف والیوم‌ها"
+
+msgid ""
+"Depending on the current state of the instance, you can perform various "
+"actions on the instance. For example, pause, un-pause, suspend, resume, soft "
+"or hard reboot, or terminate (actions in red are dangerous)."
+msgstr ""
+"بسته به وضعیت فعلی اینستنس، می‌توانید اقدامات مختلفی را روی اینستنس انجام "
+"دهید. به عنوان مثال، pause(مکث)، un-pause(لغو مکث)،  suspend(تعلیق)، "
+"resume(از سرگیری)، راه‌اندازی مجدد نرم یا سخت، یا خاتمه (اقدامات با رنگ قرمز "
+"خطرناک هستند)."
+
+msgid "Disk (in GB)"
+msgstr "دیسک (به گیگابایت)"
+
+msgid ""
+"Each node can have multiple aggregates and each aggregate can have multiple "
+"key-value pairs. You can assign the same key-value pair to multiple "
+"aggregates."
+msgstr ""
+"هر نود(گره) می‌تواند چندین مجموعه داشته باشد و هر مجموعه می‌تواند چندین جفت "
+"کلید-مقدار داشته باشد. می‌توانید یک جفت کلید-مقدار یکسان را به چندین مجموعه "
+"اختصاص دهید."
+
+msgid "Edit a role"
+msgstr "ویرایش یک نقش (رول)"
+
+msgid ""
+"Edit the ``openstack-dashboard.conf`` file as shown in the **Example After**:"
+msgstr ""
+"فایل `openstack-dashboard.conf`` را مطابق آنچه در **مثال بعد** نشان داده شده "
+"است، ویرایش کنید:"
+
+msgid "Enable or disable a user"
+msgstr "فعال یا غیرفعال کردن یک کاربر"
+
+msgid ""
+"Enable this hybrid setting by configuring both your database and cache, as "
+"discussed previously. Then, set the following value:"
+msgstr ""
+"این تنظیم ترکیبی را با پیکربندی پایگاه داده و حافظه پنهان خود (کش)، همانطور "
+"که قبلاً بحث شد، فعال کنید. سپس، مقدار زیر را تنظیم کنید:"
+
+msgid "Encryption parameters"
+msgstr "پارامترهای رمزگذاری"
+
+msgid "Enter ``quit`` at the ``mysql>`` prompt to exit MySQL."
+msgstr "برای خروج از MySQL، در اعلان `mysql>`، عبارت `quit` را وارد کنید."
+
+msgid ""
+"Enter a :guilabel:`Domain Name`, the :guilabel:`Username`, and a :guilabel:"
+"`password` for the new user. Enter an email for the new user, and specify "
+"which :guilabel:`Primary Project` they belong to. Leave the :guilabel:"
+"`Domain ID` field set at *default*. You can also enter a decription for the "
+"new user."
+msgstr ""
+"برای کاربر جدید، یک :guilabel:`DomainName`، یک :guilabel:`Username` و یک :"
+"guilabel:`password` وارد کنید. یک ایمیل برای کاربر جدید وارد کنید و مشخص "
+"کنید که :guilabel:`Primary Project` به کدام پروژه تعلق دارد. فیلد :guilabel:"
+"`DomainID` را روی *default* بگذارید. همچنین می‌توانید یک توضیح برای کاربر "
+"جدید وارد کنید."
+
+msgid "Enter a brief description of the image."
+msgstr "توضیح مختصری از ایمیج  وارد کنید."
+
+msgid "Enter a name for the image."
+msgstr "یک نام برای ایمیج وارد کنید."
+
+msgid "Enter the MySQL root user's password when prompted."
+msgstr "در صورت درخواست، رمز عبور کاربر root (روت) MySQL را وارد کنید."
+
+msgid ""
+"Enter the Project name and description. Leave the :guilabel:`Domain ID` "
+"field set at *default*."
+msgstr ""
+"نام و توضیحات پروژه را وارد کنید. فیلد :guilabel:`Domain ID` را روی "
+"*default* تنظیم کنید."
+
+msgid "Enter the amount of RAM to use, in megabytes."
+msgstr "مقدار حافظه رم مورد استفاده را بر حسب مگابایت وارد کنید."
+
+msgid ""
+"Enter the amount of disk space in gigabytes to use for the ephemeral "
+"partition. If unspecified, the value is 0 by default."
+msgstr ""
+"مقدار فضای دیسک مورد نیاز برای پارتیشن موقت را بر حسب گیگابایت وارد کنید. در "
+"صورت عدم تعیین مقدار، مقدار پیش‌فرض 0 است."
+
+msgid ""
+"Enter the amount of disk space in gigabytes to use for the root (/) "
+"partition."
+msgstr ""
+"مقدار فضای دیسک مورد نیاز برای پارتیشن ریشه(روت) (/) را بر حسب گیگابایت وارد "
+"کنید."
+
+msgid ""
+"Enter the amount of swap space (in megabytes) to use. If unspecified, the "
+"default is 0."
+msgstr ""
+"مقدار فضای swap مورد استفاده (برحسب مگابایت) را وارد کنید. در صورت عدم "
+"تعیین، مقدار پیش‌فرض 0 است."
+
+msgid "Enter the flavor name."
+msgstr "نام فلیور را وارد کنید."
+
+msgid "Enter the number of virtual CPUs to use."
+msgstr "تعداد پردازنده‌های مجازی مورد استفاده را وارد کنید."
+
+msgid ""
+"Ephemeral disks offer machine local disk storage linked to the lifecycle of "
+"a VM instance. When a VM is terminated, all data on the ephemeral disk is "
+"lost. Ephemeral disks are not included in any snapshots."
+msgstr ""
+"دیسک‌های موقت، فضای ذخیره‌سازی دیسک محلی ماشین را ارائه می‌دهند که به چرخه حیات "
+"یک نمونه ماشین مجازی مرتبط است. هنگامی که یک ماشین مجازی از کار می‌افتد، تمام "
+"داده‌های روی دیسک موقت از بین می‌رود. دیسک‌های موقت در هیچ اسنپ‌شات (عکس فوری) "
+"گنجانده نمی‌شوند."
+
+msgid "Flavor"
+msgstr "فلیور (اندازه)"
+
+msgid ""
+"For details about image creation, see the `Virtual Machine Image Guide "
+"<https://docs.openstack.org/image-guide/>`_."
+msgstr ""
+"برای جزئیات بیشتر در مورد ایجاد ایمیج، به «راهنمای ایمیج ماشین مجازی "
+"<https://docs.openstack.org/image-guide/>» مراجعه کنید."
+
+msgid ""
+"For information about supporting metadata keys, see the the Compute service "
+"documentation."
+msgstr ""
+"برای اطلاعات مربوط به پشتیبانی از کلیدهای فراداده، به مستندات سرویس Compute "
+"مراجعه کنید."
+
+msgid ""
+"For information about using the Dashboard to launch instances as an end "
+"user, see the :doc:`OpenStack End User Guide </user/launch-instances>`."
+msgstr ""
+"برای اطلاعات بیشتر در مورد استفاده از داشبورد برای راه‌اندازی اینستنس‌ها به "
+"عنوان کاربر نهایی، به :doc:`راهنمای کاربر نهایی OpenStack </user/launch-"
+"instances>` مراجعه کنید."
+
+msgid ""
+"For information on configuring HTTPS or HTTP, see :ref:`configure_dashboard`."
+msgstr ""
+"برای اطلاعات بیشتر در مورد پیکربندی HTTPS یا HTTP، به :ref:"
+"`configure_dashboard` مراجعه کنید."
+
+msgid "From the drop-down list in the Actions column, select the state."
+msgstr "از لیست کشویی در ستون «Actions»، حالت را انتخاب کنید."
+
+msgid "Gigabytes"
+msgstr "Gigabytes"
+
+msgid "HTML title"
+msgstr "عنوان HTML"
+
+msgid "Help URL"
+msgstr "لینک (URL) راهنما"
+
+msgid ""
+"Host aggregates enable administrative users to assign key-value pairs to "
+"groups of machines."
+msgstr ""
+"تجمیع‌های میزبان، کاربران مدیریتی را قادر می‌سازد تا جفت‌های کلید-مقدار را به "
+"گروه‌هایی از ماشین‌ها اختصاص دهند."
+
+msgid ""
+"However, database-backed sessions are one of the slower session storages and "
+"incur a high overhead under heavy usage. Proper configuration of your "
+"database deployment can also be a substantial undertaking and is far beyond "
+"the scope of this documentation."
+msgstr ""
+"با این حال، session های پشتیبانی شده توسط پایگاه داده یکی از کندترین "
+"حافظه‌های session هستند و در صورت استفاده زیاد، سربار زیادی را متحمل می‌شوند. "
+"پیکربندی صحیح استقرار پایگاه داده شما نیز می‌تواند یک کار قابل توجه باشد و "
+"بسیار فراتر از محدوده این مستندات است."
+
+msgid ""
+"If you try to access the Dashboard through HTTP, the browser redirects you "
+"to the HTTPS page."
+msgstr ""
+"اگر سعی کنید از طریق HTTP به داشبورد دسترسی پیدا کنید، مرورگر شما را به صفحه "
+"HTTPS هدایت می‌کند."
+
+msgid ""
+"If you use Django 1.4 or later, the ``signed_cookies`` back end avoids "
+"server load and scaling problems."
+msgstr ""
+"اگر از جنگو ۱.۴ یا بالاتر استفاده می‌کنید، بک‌اند «signed_cookies» از مشکلات "
+"بارگذاری سرور و مقیاس‌پذیری جلوگیری می‌کند."
+
+msgid ""
+"In OpenStack, a flavor defines the compute, memory, and storage capacity of "
+"a virtual server, also known as an instance. As an administrative user, you "
+"can create and delete flavors and update their metadata."
+msgstr ""
+"در OpenStack، یک flavor، ظرفیت محاسباتی، حافظه و ذخیره‌سازی یک سرور مجازی را "
+"که به عنوان یک instance نیز شناخته می‌شود، تعریف می‌کند. به عنوان یک کاربر "
+"مدیریتی، می‌توانید flavorها را ایجاد و حذف کرده و متادیتا (فراداده‌های) آنها "
+"را به‌روزرسانی کنید."
+
+msgid ""
+"In the :guilabel:`Add/Remove Hosts to Aggregate` dialog box, click **+** to "
+"assign a host to an aggregate. Click **-** to remove a host that is assigned "
+"to an aggregate."
+msgstr ""
+"در کادر محاوره‌ای `guilabel:`Add/Remove Hosts to Aggregate:، برای اختصاص یک "
+"هاست به یک مجموعه، روی **+** کلیک کنید. برای حذف هاستی که به یک مجموعه "
+"اختصاص داده شده است، روی **-** کلیک کنید."
+
+msgid ""
+"In the :guilabel:`Admin` tab, open the :guilabel:`Compute` tab and click "
+"the :guilabel:`Flavors` category."
+msgstr ""
+"در تب :guilabel:`Admin`، تب :guilabel:`Compute` را باز کنید و روی دسته‌بندی :"
+"guilabel:`Flavors` کلیک کنید."
+
+msgid ""
+"In the :guilabel:`Confirm Delete Flavors` window, click :guilabel:`Delete "
+"Flavors` to confirm the deletion. You cannot undo this action."
+msgstr ""
+"در پنجره‌ی `guilabel:`Confirm Delete Flavors، برای تأیید حذف، روی `guilabel:"
+"`Delete Flavors کلیک کنید. این عمل قابل بازگشت نیست."
+
+msgid ""
+"In the :guilabel:`Confirm Delete Images` window, click :guilabel:`Delete "
+"Images` to confirm the deletion."
+msgstr ""
+"در پنجره‌ی :guilabel:`Confirm Delete Images`، برای تأیید حذف، روی :guilabel:"
+"`Delete Images` کلیک کنید."
+
+msgid ""
+"In the :guilabel:`Confirm Delete Roles` window, click :guilabel:`Delete "
+"Roles` to confirm the deletion."
+msgstr ""
+"در پنجره‌ی :guilabel:`Confirm Delete Roles`، برای تأیید حذف، روی :guilabel:"
+"`Delete Roles` کلیک کنید."
+
+msgid ""
+"In the :guilabel:`Confirm Delete Volume Types` window, click the :guilabel:"
+"`Delete Volume Types` button to confirm the action."
+msgstr ""
+"در پنجره‌ی :guilabel:`Confirm Delete Volume Types`، برای تأیید اقدام(اکشن)، "
+"روی دکمه‌ی :guilabel:`Delete Volume Types` کلیک کنید."
+
+msgid ""
+"In the :guilabel:`Confirm Delete Volumes` window, click the :guilabel:"
+"`Delete Volumes` button to confirm the action."
+msgstr ""
+"در پنجره‌ی :guilabel:`Confirm Delete Volumes`، برای تأیید اقدام، روی دکمه‌ی :"
+"guilabel:`Delete Volumes` کلیک کنید."
+
+msgid ""
+"In the :guilabel:`Create An Image` window, enter or select the following "
+"values:"
+msgstr ""
+"در پنجره‌ی :guilabel:`Create An Image`، مقادیر زیر را وارد یا انتخاب کنید:"
+
+msgid ""
+"In the :guilabel:`Create Flavor` window, enter or select the parameters for "
+"the flavor in the :guilabel:`Flavor Information` tab."
+msgstr ""
+"در پنجره‌ی :guilabel:`Create Flavor`، پارامترهای مربوط به فلیور را در تب :"
+"guilabel:`Flavor Information` وارد یا انتخاب کنید."
+
+msgid ""
+"In the :guilabel:`Create Host Aggregate` dialog box, enter or select the "
+"following values on the :guilabel:`Host Aggregate Information` tab:"
+msgstr ""
+"در کادر محاوره‌ای `guilabel:`Create Host Aggregate، مقادیر زیر را در تب "
+"`guilabel:`Host Aggregate Information وارد یا انتخاب کنید:"
+
+msgid "In the :guilabel:`Create Role` window, enter a name for the role."
+msgstr "در پنجره‌ی :guilabel:`Create Role`، نامی برای نقش وارد کنید."
+
+msgid ""
+"In the :guilabel:`Create Snapshot` window, enter a name for the snapshot."
+msgstr "در پنجره‌ی :guilabel:`Create Snapshot`، نامی برای اسنپ‌شات وارد کنید."
+
+msgid ""
+"In the :guilabel:`Edit Host Aggregate` dialog box, you can change the name "
+"and availability zone for the aggregate."
+msgstr ""
+"در کادر محاوره‌ای `guilabel:`Edit Host Aggregate:، می‌توانید نام و "
+"availability zone را برای مجموعه تغییر دهید."
+
+msgid "In the :guilabel:`Edit Image` window, you can change the image name."
+msgstr "در پنجره‌ی :guilabel:`Edit Image` می‌توانید نام ایمیج را تغییر دهید."
+
+msgid ""
+"In the :guilabel:`Flavor Access` tab, you can control access to the flavor "
+"by moving projects from the :guilabel:`All Projects` column to the :guilabel:"
+"`Selected Projects` column."
+msgstr ""
+"در تب :guilabel:`Flavor Access`، می‌توانید با انتقال پروژه‌ها از ستون :"
+"guilabel:`All Projects` به ستون :guilabel:`Selected Projects`، دسترسی به "
+"فلیور را کنترل کنید."
+
+msgid ""
+"In the :guilabel:`Update Default Quotas` window, you can edit the default "
+"quota values."
+msgstr ""
+"در پنجره‌ی :guilabel:`Update Default Quotas` می‌توانید مقادیر پیش‌فرض کوتا را "
+"ویرایش کنید."
+
+msgid ""
+"In the :guilabel:`Update Flavor Metadata` window, you can customize some "
+"metadata keys, then add it to this flavor and set them values."
+msgstr ""
+"در پنجره‌ی :guilabel:`Update Flavor Metadata`، می‌توانید برخی از کلیدهای "
+"متادیتا (فراداده) را سفارشی کنید، سپس آن را به این فلیور اضافه کنید و مقادیر "
+"آنها را تنظیم کنید."
+
+msgid "In the :guilabel:`Update Role` window, enter a new name for the role."
+msgstr "در پنجره‌ی :guilabel:`Update Role`، نام جدیدی برای نقش وارد کنید."
+
+msgid "In the ``local_settings.py`` file, change these options:"
+msgstr "در فایل `local_settings.py``، این گزینه‌ها را تغییر دهید:"
+
+msgid "In the ``local_settings.py`` file, update the following options:"
+msgstr "در فایل `local_settings.py``، گزینه‌های زیر را به‌روزرسانی کنید:"
+
+msgid ""
+"In this configuration, the Apache HTTP Server listens on port 443 and "
+"redirects all non-secure requests to the HTTPS protocol. The secured section "
+"defines the private key, public key, and certificate to use."
+msgstr ""
+"در این پیکربندی، سرور HTTP آپاچی به پورت ۴۴۳ گوش می‌دهد و تمام درخواست‌های "
+"غیرایمن را به پروتکل HTTPS هدایت می‌کند. بخش امن، کلید خصوصی، کلید عمومی و "
+"گواهی مورد استفاده را تعریف می‌کند."
+
+msgid "Initialize and configure the database"
+msgstr "مقداردهی اولیه و پیکربندی پایگاه داده (دیتابیس)"
+
+msgid "Injected File Content Bytes"
+msgstr "بایت‌های محتوای فایل تزریق‌شده"
+
+msgid "Injected Files"
+msgstr "فایل‌های تزریق‌شده (اینجکت شده)"
+
+msgid "Injected files allowed for each project."
+msgstr "فایل‌های اینجکت شده مجاز برای هر پروژه."
+
+msgid "Instance cores allowed for each project."
+msgstr "هسته‌های اینستنس مجاز برای هر پروژه"
+
+msgid "Instances"
+msgstr "Instances"
+
+msgid "Instances allowed for each project."
+msgstr "اینستنس مجاز برای هر پروژه"
+
+msgid "Key Size (bits)"
+msgstr "Key Size (bits)"
+
+msgid "Key pairs"
+msgstr "Key pairs"
+
+msgid "Leave this field empty."
+msgstr "این فیلد را خالی بگذارید."
+
+msgid "Less disk overhead than LUKS"
+msgstr "سربار دیسک کمتر نسبت به LUKS"
+
+msgid "Local memory cache"
+msgstr "Local memory cache (حافظه کش لوکال)"
+
+msgid ""
+"Local memory storage is the quickest and easiest session back end to set up, "
+"as it has no external dependencies whatsoever. It has the following "
+"significant drawbacks:"
+msgstr ""
+"ذخیره‌سازی حافظه محلی (Local memory storage) سریع‌ترین و آسان‌ترین روش برای "
+"راه‌اندازی بک‌اند session (سشن) است، زیرا هیچ وابستگی خارجی ندارد. اما معایب "
+"قابل توجه زیر را دارد:"
+
+msgid ""
+"Locate the User you would like to update, and select the :guilabel:`Edit` "
+"push button under the :guilabel:`Actions` column."
+msgstr ""
+"کاربری را که می‌خواهید به‌روزرسانی کنید، پیدا کنید و دکمه‌ی :guilabel:`Edit` را "
+"در زیر ستون :guilabel:`Actions` انتخاب کنید."
+
+msgid ""
+"Locate the User you would like to update, and select the arrow to the right "
+"of the :guilabel:`Edit` push button. This will open a drop down menu."
+msgstr ""
+"کاربری را که می‌خواهید به‌روزرسانی کنید، پیدا کنید و فلش سمت راست دکمه‌ی :"
+"guilabel:`Edit` را انتخاب کنید. با این کار یک منوی کشویی باز می‌شود."
+
+msgid ""
+"Locate the project you wish to update, and under the :guilabel:`Actions` "
+"column click on the drop down arrow next to the :guilabel:`Manage Members` "
+"push button. The :guilabel:`Update Project` window will open."
+msgstr ""
+"پروژه‌ای را که می‌خواهید به‌روزرسانی کنید، پیدا کنید و در زیر ستون :guilabel:"
+"`Actions` روی فلش کشویی کنار دکمه :guilabel:`Manage Members` کلیک کنید. "
+"پنجره :guilabel:`Update Project` باز خواهد شد."
+
+msgid ""
+"Log in to the Dashboard and select the :guilabel:`admin` project from the "
+"drop-down list."
+msgstr ""
+"وارد داشبورد شوید و پروژه :guilabel:`admin` را از لیست کشویی انتخاب کنید."
+
+msgid ""
+"Log in to the dashboard and select the :guilabel:`Identity` project from the "
+"drop-down list."
+msgstr ""
+"وارد داشبورد شوید و پروژه :guilabel:`Identity` را از لیست کشویی انتخاب کنید."
+
+msgid ""
+"Log in to the dashboard and select the :guilabel:`admin` project from the "
+"drop-down list."
+msgstr ""
+"وارد داشبورد شوید و پروژه :guilabel:`admin` را از لیست کشویی انتخاب کنید."
+
+msgid "Log into the OpenStack Dashboard as the Admin user."
+msgstr "به عنوان کاربر مدیر (Admin) وارد داشبورد OpenStack شوید."
+
+msgid "Logged in banner: 216 x 35"
+msgstr "بنر صفحه  ورود: 216 در 35"
+
+msgid "Login screen: 365 x 50"
+msgstr "صفحه ورود: ۳۶۵ در ۵۰"
+
+msgid "Logo"
+msgstr "لوگو"
+
+msgid "Logo and site colors"
+msgstr "رنگ‌  لوگو و سایت"
+
+msgid "Logo link"
+msgstr "لینک لوگو"
+
+msgid "Manage flavors"
+msgstr "مدیریت فلیورها (اندازه‌ها)"
+
+msgid "Manage instances"
+msgstr "مدیریت اینستنس‌ها"
+
+msgid "Manage projects and users"
+msgstr "مدیریت پروژه‌ها و کاربران"
+
+msgid "Manage volumes and volume types"
+msgstr "مدیریت والیوم‌ها و تایپ‌های والیوم"
+
+msgid "Memcached"
+msgstr "Memcached"
+
+msgid ""
+"Memcached is a high-performance and distributed memory object caching system "
+"providing in-memory key-value store for small chunks of arbitrary data."
+msgstr ""
+"Memcached یک سیستم ذخیره‌سازی اشیاء(آبجکت) در حافظه توزیع‌شده و با کارایی بالا "
+"است که امکان ذخیره‌سازی کلید-مقدار درون حافظه‌ای را برای تکه‌های کوچک داده‌های "
+"دلخواه فراهم می‌کند."
+
+msgid "Memcached service running and accessible."
+msgstr "سرویس Memcached در حال اجرا و قابل دسترسی است."
+
+msgid "Metadata Items"
+msgstr "موارد فراداده (آیتم‌های متادیتا)"
+
+msgid "Metadata items allowed for each instance."
+msgstr "آیتم‌های متادیتا مجاز برای هر اینستنس."
+
+msgid "No persistence after a process terminates."
+msgstr "پس از خاتمه یک فرآیند، هیچ گونه ماندگاری وجود ندارد."
+
+msgid "No shared storage across processes or workers."
+msgstr "هیچ فضای ذخیره‌سازی مشترکی بین فرآیندها یا ورکرها وجود ندارد."
+
+msgid ""
+"Note: On the command line, type 'cryptsetup benchmark' for additional options"
+msgstr ""
+"توجه: برای گزینه‌های بیشتر، در خط فرمان(کامند‌لاین)، عبارت 'cryptsetup "
+"benchmark' را تایپ کنید."
+
+msgid "Number of key pairs."
+msgstr "تعداد جفت کلیدها (Key pairs)."
+
+msgid ""
+"On Ubuntu, restart the ``nova-api`` service to ensure that the API server "
+"can connect to the Dashboard without error."
+msgstr ""
+"در اوبونتو، سرویس `nova-api` را مجدداً راه‌اندازی کنید تا مطمئن شوید که سرور "
+"API می‌تواند بدون خطا به داشبورد متصل شود."
+
+msgid ""
+"On the :guilabel:`Admin tab`, open the :guilabel:`Compute` tab and click "
+"the :guilabel:`Images` category."
+msgstr ""
+"در تب :guilabel:`Admin`، تب :guilabel:`Compute` را باز کنید و روی دسته‌بندی :"
+"guilabel:`Images` کلیک کنید."
+
+msgid "On the :guilabel:`Admin` tab, click the :guilabel:`Overview` category."
+msgstr "در تب :guilabel:`Admin`، روی دسته‌بندی :guilabel:`Overview` کلیک کنید."
+
+msgid ""
+"On the :guilabel:`Admin` tab, open the :guilabel:`Compute` tab and click "
+"the :guilabel:`Host Aggregates` category."
+msgstr ""
+"در تب `guilabel:`Admin، تب `guilabel:`Compute را باز کنید و روی دسته :"
+"`guilabel:`Host Aggregates کلیک کنید."
+
+msgid ""
+"On the :guilabel:`Admin` tab, open the :guilabel:`Compute` tab and click "
+"the :guilabel:`Images` category."
+msgstr ""
+"در تب :guilabel:`Admin`، تب :guilabel:`Compute` را باز کنید و روی دسته‌بندی :"
+"guilabel:`Images` کلیک کنید."
+
+msgid ""
+"On the :guilabel:`Admin` tab, open the :guilabel:`Compute` tab and click "
+"the :guilabel:`Images` category. The images that you can administer for "
+"cloud users appear on this page."
+msgstr ""
+"در تب :guilabel:`Admin`، تب :guilabel:`Compute` را باز کنید و روی دسته‌بندی :"
+"guilabel:`Images` کلیک کنید. ایمیج‌هایی که می‌توانید برای کاربران کلاد مدیریت "
+"کنید، در این صفحه نمایش داده می‌شوند."
+
+msgid ""
+"On the :guilabel:`Admin` tab, open the :guilabel:`Compute` tab and click "
+"the :guilabel:`Instances` category."
+msgstr ""
+"در تب :guilabel:`Admin`، تب :guilabel:`Compute` را باز کنید و روی دسته بندی :"
+"guilabel:`Instances` کلیک کنید."
+
+msgid ""
+"On the :guilabel:`Admin` tab, open the :guilabel:`System` tab and click the :"
+"guilabel:`Default Quotas` category."
+msgstr ""
+"در تب :guilabel:`Admin`، تب :guilabel:`System را باز کنید و روی دسته :"
+"guilabel:`Default Quotas کلیک کنید."
+
+msgid ""
+"On the :guilabel:`Admin` tab, open the :guilabel:`System` tab and click the :"
+"guilabel:`System Information` category."
+msgstr ""
+"در تب :guilabel:`Admin`، تب :guilabel:`System` را باز کنید و روی دسته‌بندی :"
+"guilabel:`System Information` کلیک کنید."
+
+msgid "On the :guilabel:`Admin` tab, open the :guilabel:`Volume` tab."
+msgstr "در برگه :guilabel:`Admin`، تب :guilabel:`Volume` را باز کنید."
+
+msgid "On the :guilabel:`Identity` tab, click the :guilabel:`Roles` category."
+msgstr "در تب :guilabel:`Identity`، روی دسته‌بندی :guilabel:`Roles` کلیک کنید."
+
+msgid ""
+"On the compute nodes, ensure the ``nonvncproxy_base_url`` option points to a "
+"URL with an HTTPS scheme:"
+msgstr ""
+"در گره‌های محاسباتی (نودهای کامپیوت)، مطمئن شوید که گزینه "
+"``nonvncproxy_base_url`` به یک URL با طرح HTTPS اشاره می‌کند:"
+
+msgid ""
+"Once you have the Dashboard installed, you can customize the way it looks "
+"and feels to suit the needs of your environment, your project, or your "
+"business."
+msgstr ""
+"پس از نصب داشبورد، می‌توانید ظاهر و حس آن را متناسب با نیازهای محیط، پروژه یا "
+"کسب و کار خود سفارشی کنید."
+
+msgid ""
+"Only projects in the :guilabel:`Selected Projects` column can use the "
+"flavor. If there are no projects in the right column, all projects can use "
+"the flavor."
+msgstr ""
+"فقط پروژه‌هایی که در ستون :guilabel:`Selected Projects` قرار دارند می‌توانند "
+"از فلیور استفاده کنند. اگر هیچ پروژه‌ای در ستون سمت راست وجود نداشته باشد، "
+"همه پروژه‌ها می‌توانند از flavor استفاده کنند."
+
+msgid "Open the following HTML template in an editor of your choice:"
+msgstr "قالب HTML زیر را در ویرایشگر دلخواه خود باز کنید:"
+
+msgid ""
+"OpenStack Identity service defines a user's role on a project, but it is "
+"completely up to the individual service to define what that role means. This "
+"is referred to as the service's policy. To get details about what the "
+"privileges for each role are, refer to the ``policy.json`` file available "
+"for each service in the ``/etc/SERVICE/policy.json`` file. For example, the "
+"policy defined for OpenStack Identity service is defined in the ``/etc/"
+"keystone/policy.json`` file."
+msgstr ""
+"سرویس OpenStack Identity نقش یک کاربر را در یک پروژه تعریف می‌کند، اما تعریف "
+"معنای آن نقش کاملاً به خود سرویس بستگی دارد. به این موضوع، سیاست سرویس گفته "
+"می‌شود. برای دریافت جزئیات مربوط به امتیازات هر نقش، به فایل ``policy.json`` "
+"موجود برای هر سرویس در فایل ``/etc/SERVICE/policy.json`` مراجعه کنید. به "
+"عنوان مثال، سیاست تعریف شده برای سرویس OpenStack Identity در فایل ``/etc/"
+"keystone/policy.json`` تعریف شده است."
+
+msgid ""
+"OpenStack administrators can create projects, and create accounts for new "
+"users using the OpenStack Dasboard. Projects own specific resources in your "
+"OpenStack environment. You can associate users with roles, projects, or both."
+msgstr ""
+"مدیران OpenStack می‌توانند با استفاده از داشبورد OpenStack، پروژه‌ها را ایجاد "
+"کرده و برای کاربران جدید حساب کاربری ایجاد کنند. پروژه‌ها در محیط OpenStack "
+"شما، منابع مشخصی را در اختیار دارند. می‌توانید کاربران را با نقش‌ها، پروژه‌ها "
+"یا هر دو مرتبط کنید."
+
+msgid "Parameter options"
+msgstr "گزینه‌های پارامتر"
+
+msgid "Provider"
+msgstr "پروایدر(Provider)"
+
+msgid "Python module ``python-memcached`` installed."
+msgstr "ماژول پایتون `python-memcached` نصب شد."
+
+msgid "Python modules ``redis`` and ``django-redis`` installed."
+msgstr "ماژول‌های پایتون `redis` و `django-redis` نصب شده باشند."
+
+msgid "Quota Name"
+msgstr "نام کوتا"
+
+msgid "RAM (MB)"
+msgstr "RAM (MB)"
+
+msgid "RAM (in MB)"
+msgstr "حافظه رم (به مگابایت)"
+
+msgid "RAM megabytes allowed for each instance."
+msgstr "مگابایت رم مجاز برای هر اینستنس."
+
+msgid "Redis"
+msgstr "Redis"
+
+msgid ""
+"Redis is an open source, BSD licensed, advanced key-value store. It is often "
+"referred to as a data structure server."
+msgstr ""
+"Redis یک مخزن کلید-مقدار پیشرفته متن‌باز و دارای مجوز BSD است. اغلب به عنوان "
+"یک سرور ساختار داده شناخته می‌شود."
+
+msgid "Redis service running and accessible."
+msgstr "سرویس Redis در حال اجرا و قابل دسترسی است."
+
+msgid "Requirements:"
+msgstr "الزامات:"
+
+msgid "Restart Apache for this change to take effect."
+msgstr "برای اعمال این تغییر، آپاچی را مجدداً راه‌اندازی کنید."
+
+msgid "Restart ``memcached``."
+msgstr "سرویس memcached را مجدداً راه‌اندازی کنید."
+
+msgid "Restart the Apache HTTP Server."
+msgstr "سرور HTTP آپاچی را مجدداً راه‌اندازی کنید."
+
+msgid "Restart the Apache service."
+msgstr "سرویس آپاچی را مجدداً راه‌اندازی کنید."
+
+msgid "Security Group Rules"
+msgstr "قوانین (رول‌های) سکوریتی گروپ"
+
+msgid "Security Groups"
+msgstr "Security Groups (سکوریتی گروپ)"
+
+msgid "Security group rules allowed for each project."
+msgstr "قوانین (رول‌های) سکوریتی گروپ مجاز برای هر پروژه."
+
+msgid "Security groups allowed for each project."
+msgstr "سکوریتی گروپ‌های مجاز برای هر پروژه"
+
+msgid "See NIST reference below to see advantages*"
+msgstr "برای مشاهده مزایا به مرجع NIST در زیر مراجعه کنید*"
+
+msgid ""
+"See the Django `cookie-based sessions <https://docs.djangoproject.com/en/dev/"
+"topics/http/sessions/#using-cookie-based-sessions>`__ documentation."
+msgstr ""
+"مستندات مربوط به جلسات مبتنی بر کوکی جنگو <https://docs.djangoproject.com/en/"
+"dev/topics/http/sessions/#using-cookie-based-sessions>`__ را ببینید."
+
+msgid "Select :guilabel:`Disable User`."
+msgstr "گزینه :guilabel:`Disable User` را انتخاب کنید."
+
+msgid ""
+"Select a month and click :guilabel:`Submit` to query the instance usage for "
+"that month."
+msgstr ""
+"یک ماه را انتخاب کنید و برای مشاهده‌ی میزان استفاده اینستنس در آن ماه، روی :"
+"guilabel:`Submit` کلیک کنید."
+
+msgid ""
+"Select an instance to create a snapshot from it. From the Actions drop-down "
+"list, select :guilabel:`Create Snapshot`."
+msgstr ""
+"یک اینستنس را برای ایجاد یک اسنپ‌شات از آن انتخاب کنید. از لیست کشویی "
+"Actions، گزینه :guilabel:`Create Snapshot` را انتخاب کنید."
+
+msgid ""
+"Select the :guilabel:`Create Project` push button. The :guilabel:`Create "
+"Project` window will open."
+msgstr ""
+"دکمه‌ی :guilabel:`Create Project` را انتخاب کنید. پنجره‌ی :guilabel:`Create "
+"Project` باز خواهد شد."
+
+msgid ""
+"Select the :guilabel:`Public` check box to make the image public. Clear this "
+"check box to make the image private. You cannot change the :guilabel:`Kernel "
+"ID`, :guilabel:`Ramdisk ID`, or :guilabel:`Architecture` attributes for an "
+"image."
+msgstr ""
+"برای عمومی کردن ایمیج، کادر انتخاب :guilabel:`Public` را علامت بزنید. برای "
+"خصوصی کردن ایمیج، این کادر را پاک کنید. شما نمی‌توانید ویژگی‌های :guilabel:"
+"`Kernel ID`، :guilabel:`Ramdisk ID` یا :guilabel:`Architecture` را برای یک "
+"ایمیج تغییر دهید."
+
+msgid ""
+"Select the :guilabel:`admin` project from the drop-down list at the top of "
+"the page."
+msgstr "انتخاب عنوان"
+
+msgid ""
+"Select the checkbox to the left of the project you would like to delete."
+msgstr "کادر انتخاب سمت چپ پروژه‌ای که می‌خواهید حذف کنید را انتخاب کنید."
+
+msgid "Select the checkbox to the left of the user you would like to delete."
+msgstr "کادر انتخاب سمت چپ کاربری که می‌خواهید حذف کنید را علامت بزنید."
+
+msgid ""
+"Select the flavor that you want to update. In the drop-down list, click :"
+"guilabel:`Update Metadata` or click :guilabel:`No` or :guilabel:`Yes` in "
+"the :guilabel:`Metadata` column."
+msgstr ""
+"فلیور ای را که می‌خواهید به‌روزرسانی کنید، انتخاب کنید. در لیست کشویی، روی :"
+"guilabel:`Update Metadata` کلیک کنید یا در ستون :guilabel:`Metadata` روی :"
+"guilabel:`No` یا :guilabel:`Yes` کلیک کنید."
+
+msgid "Select the flavors that you want to delete."
+msgstr "فلیورهایی را که می‌خواهید حذف کنید، انتخاب کنید."
+
+msgid "Select the image format."
+msgstr "فرمت ایمیج را انتخاب کنید."
+
+msgid "Select the images that you want to delete."
+msgstr "ایمیج‌هایی را که می‌خواهید حذف کنید، انتخاب کنید."
+
+msgid "Select the images that you want to edit. Click :guilabel:`Edit Image`."
+msgstr ""
+"ایمیج‌هایی را که می‌خواهید ویرایش کنید انتخاب کنید. روی :guilabel:`Edit Image` "
+"کلیک کنید."
+
+msgid "Select the instance for which you want to change the state."
+msgstr "اینستنس‌ای را که می‌خواهید وضعیت آن را تغییر دهید، انتخاب کنید."
+
+msgid ""
+"Select the role you want to delete and click the :guilabel:`Delete Roles` "
+"button."
+msgstr ""
+"نقشی را که می‌خواهید حذف کنید انتخاب کنید و روی دکمه‌ی :guilabel:`Delete "
+"Roles` کلیک کنید."
+
+msgid ""
+"Select this option to ensure that only users with permissions can delete it."
+msgstr ""
+"این گزینه را انتخاب کنید تا مطمئن شوید فقط کاربران دارای مجوز می‌توانند آن را "
+"حذف کنند."
+
+msgid "Select this option to make the image public to all users."
+msgstr ""
+"با انتخاب این گزینه، ایمیج برای همه کاربران قابل مشاهده (عمومی) خواهد بود."
+
+msgid "Service"
+msgstr "Service"
+
+msgid ""
+"Set the HTML title, which appears at the top of the browser window, by "
+"adding the following line to ``local_settings.py``:"
+msgstr ""
+"عنوان HTML را که در بالای پنجره مرورگر ظاهر می‌شود، با اضافه کردن خط زیر به "
+"`local_settings.py`` تنظیم کنید:"
+
+msgid "Set up session storage for the Dashboard"
+msgstr "تنظیم فضای ذخیره‌سازی session (جلسه) برای داشبورد"
+
+msgid "Site colors"
+msgstr "رنگ‌های سایت"
+
+msgid "Snapshots"
+msgstr "Snapshots"
+
+msgid "Specifies the encryption algorithm."
+msgstr "الگوریتم رمزگذاری را مشخص می‌کند."
+
+msgid "Specifies the encryption key size."
+msgstr "اندازه کلید رمزگذاری را مشخص می‌کند."
+
+msgid "Specifies the encryption provider format."
+msgstr "فرمت پروایدر (Provider) رمزگذاری را مشخص می‌کند."
+
+msgid ""
+"Specifies whether the encryption is from the front end (nova) or the back "
+"end (cinder)."
+msgstr ""
+"مشخص می‌کند که رمزگذاری از سمت فرانت‌اند (nova) باشد یا از سمت بک‌اند (cinder)."
+
+msgid ""
+"Specify the architecture. For example, ``i386`` for a 32-bit architecture or "
+"``x86_64`` for a 64-bit architecture."
+msgstr ""
+"معماری را مشخص کنید. برای مثال، ``i386`` برای معماری ۳۲ بیتی یا ``x86_64`` "
+"برای معماری ۶۴ بیتی."
+
+msgid ""
+"Specify the host for your Identity service endpoint in the ``local_settings."
+"py`` file with the ``OPENSTACK_HOST`` setting."
+msgstr ""
+"میزبان (host) سرویس Identity خود را در فایل `local_settings.py` با تنظیم "
+"`OPENSTACK_HOST`` مشخص کنید."
+
+msgid "Specify this option to copy image data to the Image service."
+msgstr "این گزینه را برای کپی کردن داده‌های ایمیج در سرویس ایمیج مشخص کنید."
+
+msgid "Start the MySQL command-line client."
+msgstr "کلاینت کامند‌لاین (خط فرمان) MySQL را اجرا کنید."
+
+msgid ""
+"The Dashboard uses `Django sessions framework <https://docs.djangoproject."
+"com/en/dev/topics/http/sessions/>`__ to handle user session data. However, "
+"you can use any available session back end. You customize the session back "
+"end through the ``SESSION_ENGINE`` setting in your ``local_settings.py`` "
+"file."
+msgstr ""
+"داشبورد از `فریم‌ورک session های جنگو <https://docs.djangoproject.com/en/dev/"
+"topics/http/sessions/>`__ برای مدیریت داده‌های session کاربر استفاده می‌کند. "
+"با این حال، می‌توانید از هر session back end موجود استفاده کنید. می‌توانید "
+"session back end را از طریق تنظیم `SESSION_ENGINE`` در فایل `local_settings."
+"py`` خود سفارشی کنید."
+
+msgid ""
+"The OpenStack Dashboard is a web-based interface that allows you to manage "
+"OpenStack resources and services. The Dashboard allows you to interact with "
+"the OpenStack Compute cloud controller using the OpenStack APIs. For more "
+"information about installing and configuring the Dashboard, see the :doc:`/"
+"install/index` for your operating system."
+msgstr ""
+"داشبورد OpenStack یک رابط کاربری مبتنی بر وب است که به شما امکان مدیریت "
+"منابع و سرویس‌های OpenStack را می‌دهد. داشبورد به شما امکان می‌دهد با استفاده "
+"از APIهای OpenStack با کنترلر ابری OpenStack Compute تعامل داشته باشید. برای "
+"اطلاعات بیشتر در مورد نصب و پیکربندی داشبورد، به فایل :doc:`/install/index` "
+"مربوط به سیستم عامل خود مراجعه کنید."
+
+msgid ""
+"The OpenStack Dashboard on Ubuntu installs the ``openstack-dashboard-ubuntu-"
+"theme`` package by default. If you do not want to use this theme, remove it "
+"and its dependencies:"
+msgstr ""
+"داشبورد اپن‌استک روی اوبونتو به صورت پیش فرض بسته (پکیج) ``openstack-"
+"dashboard-ubuntu-theme`` را نصب می‌کند. اگر نمی‌خواهید از این تم استفاده کنید، "
+"آن را به همراه وابستگی‌هایش حذف کنید."
+
+msgid ""
+"The biggest downside is that it places session data into storage on the "
+"user's machine and transports it over the wire. It also limits the quantity "
+"of session data that can be stored."
+msgstr ""
+"بزرگترین عیب آن این است که داده‌های session را در دستگاه کاربر ذخیره کرده و "
+"از طریق سیم منتقل می‌کند. همچنین مقدار داده‌های session  ای که می‌توان ذخیره "
+"کرد را محدود می‌کند."
+
+msgid ""
+"The dashboard does not show all possible project quotas. To view and update "
+"the quotas for a service, use its command-line client. See `OpenStack "
+"Administrator Guide <https://docs.openstack.org/admin-guide/cli-set-quotas."
+"html>`_."
+msgstr ""
+"داشبورد تمام کوتا‌های ممکن پروژه را نشان نمی‌دهد. برای مشاهده و به‌روزرسانی "
+"کوتا‌های یک سرویس، از کلاینت خط فرمان (کامند‌لاین) آن استفاده کنید. به "
+"`راهنمای مدیر OpenStack <https://docs.openstack.org/admin-guide/cli-set-"
+"quotas.html>`_ مراجعه کنید."
+
+msgid "The default quota values are displayed."
+msgstr "مقادیر کوتا پیش‌فرض نمایش داده می‌شوند."
+
+msgid ""
+"The encryption occurs within nova so that the data transmitted over the "
+"network is encrypted"
+msgstr ""
+"رمزگذاری درون nova رخ می‌دهد تا داده‌های منتقل‌شده از طریق شبکه رمزگذاری شوند."
+
+msgid "The following Dashboard content can be customized to suit your needs:"
+msgstr "محتوای داشبورد زیر می‌تواند متناسب با نیازهای شما سفارشی‌سازی شود:"
+
+msgid "The following example shows this setting:"
+msgstr "مثال زیر این تنظیم را نشان می‌دهد:"
+
+msgid ""
+"The following section on configuring the Dashboard for a secure HTTPS "
+"deployment, or a HTTP deployment, uses concrete examples to ensure the "
+"procedure is clear. The file path varies by distribution, however. If "
+"needed, you can also configure the VNC window size in the Dashboard."
+msgstr ""
+"بخش بعدی در مورد پیکربندی داشبورد برای استقرار امن HTTPS یا استقرار HTTP، از "
+"مثال‌های ملموس برای اطمینان از واضح بودن روش استفاده می‌کند. با این حال، مسیر "
+"فایل بسته به توزیع متفاوت است. در صورت نیاز، می‌توانید اندازه پنجره VNC را "
+"نیز در داشبورد پیکربندی کنید."
+
+msgid ""
+"The following sections describe the pros and cons of each option as it "
+"pertains to deploying the Dashboard."
+msgstr ""
+"بخش‌های زیر مزایا و معایب هر گزینه را در رابطه با استقرار داشبورد شرح می‌دهند."
+
+msgid ""
+"The following table describes the Compute and Block Storage service quotas:"
+msgstr ""
+"جدول زیر سهمیه‌های (کوتا‌های) سرویس Compute و Block Storage را شرح می‌دهد:"
+
+msgid ""
+"The image is queued to be uploaded. It might take several minutes before the "
+"status changes from ``Queued`` to ``Active``."
+msgstr ""
+"ایمیج در صف آپلود قرار دارد. ممکن است چند دقیقه طول بکشد تا وضعیت از "
+"``Queued`` به ``Active`` تغییر کند."
+
+msgid ""
+"The local memory back end is enabled as the default for Horizon solely "
+"because it has no dependencies. It is not recommended for production use, or "
+"even for serious development work."
+msgstr ""
+"حافظه محلی backend به عنوان پیش‌فرض برای Horizon فعال شده است، صرفاً به این "
+"دلیل که هیچ وابستگی ندارد. این مورد برای استفاده در محیط عملیاتی(پروداکشن) "
+"یا حتی برای کارهای توسعه جدی توصیه نمی‌شود."
+
+msgid ""
+"The logo also acts as a hyperlink. The default behavior is to redirect to "
+"``horizon:user_home``. To change this, add the following attribute to "
+"``local_settings.py``:"
+msgstr ""
+"این لوگو همچنین به عنوان یک هایپرلینک عمل می‌کند. رفتار پیش‌فرض، هدایت به "
+"``horizon:user_home`` است. برای تغییر این مورد، ویژگی زیر را به "
+"``local_settings.py`` اضافه کنید:"
+
+msgid ""
+"The new user will then appear in the list of projects displayed under the :"
+"guilabel:`Users` page of the dashboard. You can check on the **User Name**, "
+"**User ID**, **Domain name**, and the User status in this section."
+msgstr ""
+"کاربر جدید سپس در فهرست پروژه‌های نمایش داده شده در صفحه :guilabel:`Users` در "
+"داشبورد ظاهر می‌شود. می‌توانید **User Name**، **User ID**، **Domain name** و "
+"وضعیت کاربر را در این بخش بررسی کنید."
+
+msgid ""
+"The other options require that HTTPS is enabled; these options defend "
+"against cross-site scripting."
+msgstr ""
+"گزینه‌های دیگر نیاز به فعال بودن HTTPS دارند؛ این گزینه‌ها در برابر "
+"اسکریپت‌نویسی بین‌سایتی (Cross-site scripting) محافظت می‌کنند."
+
+msgid ""
+"The pros of this engine are that it requires no additional dependencies or "
+"infrastructure overhead, and it scales indefinitely as long as the quantity "
+"of session data being stored fits into a normal cookie."
+msgstr ""
+"از مزایای این موتور این است که به هیچ وابستگی یا سربار زیرساختی اضافی نیاز "
+"ندارد و تا زمانی که مقدار داده‌های session ذخیره شده در یک کوکی معمولی جا "
+"شود، به طور نامحدود مقیاس‌پذیر است."
+
+msgid ""
+"The scheduler uses this information to make scheduling decisions. For "
+"information, see `Scheduling <https://docs.openstack.org/nova/latest/admin/"
+"configuration/schedulers.html>`__."
+msgstr ""
+"زمان‌بند از این اطلاعات برای تصمیم‌گیری در مورد زمان‌بندی استفاده می‌کند. برای "
+"اطلاعات بیشتر، به «زمان‌بندی <https://docs.openstack.org/nova/latest/admin/"
+"configuration/schedulers.html>» مراجعه کنید."
+
+msgid ""
+"The service catalog configuration in the Identity service determines whether "
+"a service appears in the Dashboard. For the full listing, see :ref:`install-"
+"settings`."
+msgstr ""
+"پیکربندی کاتالوگ سرویس در سرویس Identity تعیین می‌کند که آیا یک سرویس در "
+"داشبورد نمایش داده شود یا خیر. برای مشاهده لیست کامل، به :ref:`install-"
+"settings` مراجعه کنید."
+
+msgid ""
+"The table below provides a few alternatives available for creating encrypted "
+"volumes."
+msgstr ""
+"جدول زیر چند گزینه جایگزین برای ایجاد والیوم‌های رمزگذاری شده ارائه می‌دهد."
+
+msgid ""
+"This back end stores session data in a cookie, which is stored by the user's "
+"browser. The back end uses a cryptographic signing technique to ensure "
+"session data is not tampered with during transport. This is not the same as "
+"encryption; session data is still readable by an attacker."
+msgstr ""
+"این backend داده‌های session را در یک کوکی ذخیره می‌کند که توسط مرورگر کاربر "
+"ذخیره می‌شود. backend از یک تکنیک امضای رمزنگاری برای اطمینان از عدم دستکاری "
+"داده‌های session در حین انتقال استفاده می‌کند. این با رمزگذاری متفاوت است؛ "
+"داده‌های session همچنان توسط یک مهاجم قابل خواندن هستند."
+
+msgid ""
+"This could be selected if a cinder plug-in supporting an encrypted back-end "
+"block storage device becomes available in the future. TLS or other network "
+"encryption would also be needed to protect data as it traverses the network"
+msgstr ""
+"اگر در آینده افزونه(پلاگین) cinder که از یک دستگاه ذخیره‌سازی بلاک‌ای "
+"رمزگذاری‌شده پشتیبانی می‌کند، در دسترس قرار گیرد، می‌توان این گزینه را انتخاب "
+"کرد. TLS یا سایر رمزگذاری‌های شبکه نیز برای محافظت از داده‌ها هنگام عبور از "
+"شبکه مورد نیاز خواهد بود."
+
+msgid ""
+"This example uses the ``http://openstack.example.com`` domain. Use a domain "
+"that fits your current setup."
+msgstr ""
+"این مثال از دامنه‌ی ``http://openstack.example.com`` استفاده می‌کند. از "
+"دامنه‌ای استفاده کنید که با تنظیمات فعلی شما مطابقت داشته باشد."
+
+msgid "This guide focuses on the ``local_settings.py`` file."
+msgstr "این راهنما بر روی فایل `local_settings.py`` تمرکز دارد."
+
+msgid ""
+"To assign a host to the aggregate, click **+** for the host. The host moves "
+"from the :guilabel:`All available hosts` list to the :guilabel:`Selected "
+"hosts` list."
+msgstr ""
+"برای اختصاص یک هاست به مجموعه، روی **+** در هاست کلیک کنید. هاست از لیست "
+"`guilabel:`All available hosts: به لیست `guilabel:`Selected hosts`: منتقل "
+"می‌شود."
+
+msgid ""
+"To avoid a warning when you restart Apache on Ubuntu, create a ``blackhole`` "
+"directory in the Dashboard directory, as follows."
+msgstr ""
+"برای جلوگیری از نمایش هشدار هنگام راه‌اندازی مجدد Apache در اوبونتو، یک "
+"دایرکتوری ``blackhole`` در دایرکتوری داشبورد، به صورت زیر ایجاد کنید."
+
+msgid "To configure the MySQL database, create the dash database."
+msgstr "برای پیکربندی پایگاه داده MySQL، پایگاه داده dash را ایجاد کنید."
+
+msgid "To create a host aggregate"
+msgstr "برای ایجاد یک مجموعه میزبان"
+
+msgid ""
+"To create and manage images as an administrator for other users, use the "
+"following procedures."
+msgstr ""
+"برای ایجاد و مدیریت ایمیج‌ها به عنوان مدیر برای سایر کاربران، از رویه‌های زیر "
+"استفاده کنید."
+
+msgid ""
+"To create and manage images in specified projects as an end user, see the :"
+"doc:`upload and manage images with Dashboard in OpenStack End User Guide </"
+"user/manage-images>` and `manage images with CLI in OpenStack End User Guide "
+"<https://docs.openstack.org/glance/latest/admin/manage-images.html>`_."
+msgstr ""
+"برای ایجاد و مدیریت ایمیج‌ها در پروژه‌های مشخص شده به عنوان کاربر نهایی، به :"
+"doc:`upload and manage images with Dashboard in OpenStack End User Guide </"
+"user/manage-images>` و `manage images with CLI in OpenStack End User Guide "
+"<https://docs.openstack.org/glance/latest/admin/manage-images.html>`_ مراجعه "
+"کنید."
+
+msgid ""
+"To create and manage ports, see the :doc:`/user/create-networks` section of "
+"the OpenStack End User Guide."
+msgstr ""
+"برای ایجاد و مدیریت پورت‌ها، به بخش :doc:`/user/create-networks` در راهنمای "
+"کاربر نهایی OpenStack مراجعه کنید."
+
+msgid ""
+"To delete host aggregates, locate the host aggregate that you want to edit "
+"in the table. Click :guilabel:`More` and select :guilabel:`Delete Host "
+"Aggregate`."
+msgstr ""
+"برای حذف تجمیع‌کننده هاست، تجمیع‌کننده هاست مورد نظر برای ویرایش را در جدول "
+"پیدا کنید. روی `guilabel:`More: کلیک کنید و :guilabel:`Delete Host "
+"Aggregate` را انتخاب کنید."
+
+msgid "To deploy the dashboard, see the :doc:`/install/index`."
+msgstr "برای استقرار داشبورد، به فایل :doc:`/install/index` مراجعه کنید."
+
+msgid ""
+"To edit host aggregates, select the host aggregate that you want to edit. "
+"Click :guilabel:`Edit Host Aggregate`."
+msgstr ""
+"برای ویرایش مجموعه هاست‌ها، مجموعه هاست مورد نظر خود را انتخاب کنید. روی "
+"`guilabel:`Edit Host Aggregate: کلیک کنید."
+
+msgid ""
+"To launch an instance from the snapshot, select the snapshot and click :"
+"guilabel:`Launch`. For information about launching instances, see the :doc:"
+"`OpenStack End User Guide </user/launch-instances>`."
+msgstr ""
+"برای راه‌اندازی یک اینستنس از اسنپ‌شات، آن را انتخاب کرده و روی :guilabel:"
+"`Launch` کلیک کنید. برای اطلاعات بیشتر در مورد راه‌اندازی اینستنس‌ها، به :doc:"
+"`راهنمای کاربر نهایی OpenStack </user/launch-instances>` مراجعه کنید."
+
+msgid ""
+"To launch instances with the dashboard as an end user, see the :doc:`/user/"
+"launch-instances` in the OpenStack End User Guide."
+msgstr ""
+"برای راه‌اندازی اینستنس‌هایی (نمونه‌هایی) با داشبورد به عنوان کاربر نهایی، به :"
+"doc:`/user/launch-instances` در راهنمای کاربر نهایی OpenStack مراجعه کنید."
+
+msgid "To manage host aggregates"
+msgstr "برای مدیریت مجموعه‌های هاست"
+
+msgid ""
+"To manage hosts, locate the host aggregate that you want to edit in the "
+"table. Click :guilabel:`More` and select :guilabel:`Manage Hosts`."
+msgstr ""
+"برای مدیریت هاست‌ها، مجموعه هاست‌هایی را که می‌خواهید ویرایش کنید در جدول پیدا "
+"کنید. روی `guilabel:`More: کلیک کنید و `guilabel:`Manage Hosts: را انتخاب "
+"کنید."
+
+msgid ""
+"To mitigate the performance issues of database queries, you can use the "
+"Django ``cached_db`` session back end, which utilizes both your database and "
+"caching infrastructure to perform write-through caching and efficient "
+"retrieval."
+msgstr ""
+"برای کاهش مشکلات عملکرد کوئری‌های پایگاه داده، می‌توانید از بک‌اند سشن "
+"`cached_db`` جنگو استفاده کنید، که از هر دو زیرساخت پایگاه داده و ذخیره‌سازی "
+"(کش کردن) شما برای انجام ذخیره‌سازی از طریق نوشتن و بازیابی کارآمد استفاده "
+"می‌کند."
+
+msgid ""
+"To prevent system capacities from being exhausted without notification, you "
+"can set up quotas. Quotas are operational limits. For example, the number of "
+"gigabytes allowed for each project can be controlled so that cloud resources "
+"are optimized. Quotas can be enforced at both the project and the project-"
+"user level."
+msgstr ""
+"برای جلوگیری از اتمام ظرفیت سیستم بدون اطلاع قبلی، می‌توانید سهمیه‌بندی (کوتا) "
+"کنید. سهمیه‌ها (کوتا‌ها) محدودیت‌های عملیاتی هستند. به عنوان مثال، می‌توان تعداد "
+"گیگابایت‌های مجاز برای هر پروژه را کنترل کرد تا منابع ابری بهینه شوند. "
+"سهمیه‌ها (کوتا‌ها) را می‌توان هم در سطح پروژه و هم در سطح کاربر پروژه اعمال کرد."
+
+msgid ""
+"To reactivate a disabled user, select :guilabel:`Enable User` under the drop "
+"down menu."
+msgstr ""
+"برای فعال‌سازی مجدد یک کاربر غیرفعال، از منوی کشویی گزینه :guilabel:`Enable "
+"User` را انتخاب کنید."
+
+msgid ""
+"To see further information and CLI instructions, see `Create an encrypted "
+"volume type <https://docs.openstack.org/cinder/latest/configuration/block-"
+"storage/volume-encryption.html#create-an-encrypted-volume-type>`__ in the "
+"OpenStack Block Storage Configuration Guide."
+msgstr ""
+"برای مشاهده اطلاعات بیشتر و دستورالعمل‌های رابط کامند‌لاین (CLI)، به بخش "
+"«ایجاد یک تایپ والیوم رمزگذاری شده <https://docs.openstack.org/cinder/latest/"
+"configuration/block-storage/volume-encryption.html#create-an-encrypted-"
+"volume-type>» در راهنمای پیکربندی ذخیره‌سازی بلاک‌ای OpenStack مراجعه کنید."
+
+msgid ""
+"To view your changes, reload your Dashboard. If necessary, go back and "
+"modify your CSS file as appropriate."
+msgstr ""
+"برای مشاهده تغییرات، داشبورد خود را مجدداً بارگذاری کنید. در صورت لزوم، به "
+"عقب برگردید و فایل CSS خود را مطابق با آن تغییر دهید."
+
+msgid "Track usage"
+msgstr "پیگیری میزان استفاده"
+
+msgid ""
+"Typically, you change quotas when a project needs more than ten volumes or 1 "
+"|nbsp| TB on a compute node."
+msgstr ""
+"معمولاً وقتی یک پروژه به بیش از ده والیوم یا ۱ ترابایت حافظه در یک نود "
+"محاسباتی (کامپیوت) نیاز دارد، سهمیه‌ها (کوتا‌ها) را تغییر می‌دهید."
+
+msgid ""
+"Unique ID (integer or UUID) for the new flavor. If specifying 'auto', a UUID "
+"will be automatically generated."
+msgstr ""
+"شناسه منحصر به فرد (عدد صحیح یا UUID) برای فلیور جدید. در صورت مشخص کردن "
+"'auto'، یک UUID به طور خودکار تولید می‌شود."
+
+msgid "Update Metadata"
+msgstr "به‌روزرسانی متادیتا (فراداده)"
+
+msgid "Update a project"
+msgstr "به‌روزرسانی یک پروژه"
+
+msgid "Update a user"
+msgstr "به‌روزرسانی یک کاربر"
+
+msgid "Update images"
+msgstr "ایمیج‌ها را به‌روزرسانی کنید"
+
+msgid "Update project quotas"
+msgstr "به‌روزرسانی کوتاهای پروژه"
+
+msgid ""
+"Update the name of the project, enable the project, or disable the project "
+"as needed."
+msgstr ""
+"نام پروژه را به‌روزرسانی کنید، پروژه را فعال کنید یا در صورت نیاز پروژه را "
+"غیرفعال کنید."
+
+msgid ""
+"Upload your new images to ``/usr/share/openstack-dashboard/"
+"openstack_dashboard/static/dashboard/img/``."
+msgstr ""
+"تصاویر جدید خود را در ``/usr/share/openstack-dashboard/openstack_dashboard/"
+"static/dashboard/img/`` آپلود کنید."
+
+msgid ""
+"Use the :guilabel:`Overview` category to track usage of instances for each "
+"project."
+msgstr ""
+"از دسته‌ی :guilabel:`Overview` برای پیگیری میزان استفاده اینستنس‌ها در هر "
+"پروژه استفاده کنید."
+
+msgid ""
+"Using the Dashboard, you can view default Compute and Block Storage quotas "
+"for new projects, as well as update quotas for existing projects."
+msgstr ""
+"با استفاده از داشبورد، می‌توانید سهمیه‌های (کوتا‌های) پیش‌فرض کامپیوت و "
+"ذخیره‌سازی بلاک‌ای را برای پروژه‌های جدید مشاهده کنید، همچنین سهمیه‌های (کوتا‌ "
+"های) پروژه‌های موجود را به‌روزرسانی کنید."
+
+msgid ""
+"Using the command-line interface, you can manage quotas for `the OpenStack "
+"Compute service <https://docs.openstack.org/nova/latest/admin/quotas."
+"html>`__, `the OpenStack Block Storage service <https://docs.openstack.org/"
+"cinder/latest/cli/cli-set-quotas.html>`__, and the OpenStack Networking "
+"service (For CLI details, see `OpenStackClient CLI reference <https://docs."
+"openstack.org/python-openstackclient/latest/cli/command-objects/quota."
+"html>`_). Additionally, you can update Compute service quotas for project "
+"users."
+msgstr ""
+"با استفاده از رابط خط فرمان، می‌توانید سهمیه‌ها را برای `سرویس OpenStack "
+"Compute <https://docs.openstack.org/nova/latest/admin/quotas.html>`__، "
+"`سرویس OpenStack Block Storage <https://docs.openstack.org/cinder/latest/cli/"
+"cli-set-quotas.html>`__، و سرویس OpenStack Networking مدیریت کنید (برای "
+"جزئیات CLI، به `مرجع CLI OpenStackClient <https://docs.openstack.org/python-"
+"openstackclient/latest/cli/command-objects/quota.html>`_ مراجعه کنید). علاوه "
+"بر این، می‌توانید سهمیه‌های سرویس Compute را برای کاربران پروژه به‌روزرسانی "
+"کنید."
+
+msgid "Using the dashboard, you can edit only the name assigned to a role."
+msgstr ""
+"با استفاده از داشبورد، می‌توانید فقط نام اختصاص داده شده به یک نقش را ویرایش "
+"کنید."
+
+msgid ""
+"Using this selection for aes-xts, the underlying key size would only be 128-"
+"bits*"
+msgstr ""
+"با استفاده از این انتخاب برای aes-xts، اندازه کلید اصلی فقط ۱۲۸ بیت(128-"
+"bits) خواهد بود*"
+
+msgid "View and manage quotas"
+msgstr "مشاهده و مدیریت سهمیه‌ها (کوتا)"
+
+msgid "View default project quotas"
+msgstr "مشاهده کوتاهای پیش‌فرض پروژه"
+
+msgid "View services information"
+msgstr "مشاهده اطلاعات سرویس‌ها"
+
+msgid "View the following information on these tabs:"
+msgstr "اطلاعات زیر را در این تب‌ها مشاهده کنید:"
+
+msgid "Volume gigabytes allowed for each project."
+msgstr "گیگابایت والیوم مجاز برای هر پروژه."
+
+msgid "Volume snapshots allowed for each project."
+msgstr "اسنپ‌شات‌های والیوم مجاز برای هر پروژه."
+
+msgid "Volumes"
+msgstr "Volumes"
+
+msgid "Volumes allowed for each project."
+msgstr "والیوم‌های مجاز برای هر پروژه"
+
+msgid ""
+"Volumes are the Block Storage devices that you attach to instances to enable "
+"persistent storage. Users can attach a volume to a running instance or "
+"detach a volume and attach it to another instance at any time. For "
+"information about using the dashboard to create and manage volumes as an end "
+"user, see the :doc:`OpenStack End User Guide </user/manage-volumes>`."
+msgstr ""
+"والیوم‌ها دستگاه‌های ذخیره‌سازی بلاک‌ای هستند که شما برای فعال کردن ذخیره‌سازی "
+"پایدار به اینستنس‌ها متصل می‌کنید. کاربران می‌توانند در هر زمانی یک والیوم را "
+"به یک اینستنس در حال اجرا متصل کنند یا یک والیوم را جدا کرده و به اینستنس "
+"دیگری متصل کنند. برای اطلاعات بیشتر در مورد استفاده از داشبورد برای ایجاد و "
+"مدیریت والیوم‌ها به عنوان کاربر نهایی، به :doc:`راهنمای کاربر نهایی "
+"OpenStack</user/manage-volumes>` مراجعه کنید."
+
+msgid ""
+"When the host aggregate is exposed as an availability zone, select the "
+"availability zone when you launch an instance."
+msgstr ""
+"وقتی مجموعه هاست به عنوان یک availability zone نمایش داده می‌شود، هنگام "
+"راه‌اندازی یک اینستنس، availability zone را انتخاب کنید."
+
+msgid ""
+"When the host aggregate is not exposed as an availability zone, select a "
+"flavor and its extra specs to target the host aggregate."
+msgstr ""
+"وقتی مجموعه هاست به عنوان یک availability zone نمایش داده نمی‌شود، یک فلیور و "
+"مشخصات اضافی (extra specs) آن را برای هدف قرار دادن مجموعه هاست انتخاب کنید."
+
+msgid "When you delete a volume type, volumes of that type are not deleted."
+msgstr "وقتی یک تایپ والیوم را حذف می‌کنید، والیوم‌های آن تایپ حذف نمی‌شوند."
+
+msgid ""
+"When you delete an instance, the data of its attached volumes is not "
+"destroyed."
+msgstr ""
+"وقتی یک اینستنس را حذف می‌کنید، داده‌های(دیتا‎‌های) مربوط به volumeهای پیوست‌شده "
+"به آن از بین نمی‌روند."
+
+msgid ""
+"You can add one host to one or more aggregates. To add a host to an existing "
+"aggregate, edit the aggregate."
+msgstr ""
+"شما می‌توانید یک هاست را به یک یا چند مجموعه اضافه کنید. برای افزودن هاست به "
+"یک مجموعه موجود، مجموعه را ویرایش کنید."
+
+msgid ""
+"You can also configure the Dashboard for a secure HTTPS deployment, or an "
+"HTTP deployment. The standard OpenStack installation uses a non-encrypted "
+"HTTP channel, but you can enable SSL support for the Dashboard."
+msgstr ""
+"همچنین می‌توانید داشبورد را برای استقرار امن HTTPS یا استقرار HTTP پیکربندی "
+"کنید. نصب استاندارد OpenStack از یک کانال HTTP رمزگذاری نشده استفاده می‌کند، "
+"اما می‌توانید پشتیبانی SSL را برای داشبورد فعال کنید."
+
+msgid ""
+"You can configure the Dashboard for a secured HTTPS deployment. While the "
+"standard installation uses a non-encrypted HTTP channel, you can enable SSL "
+"support for the Dashboard."
+msgstr ""
+"شما می‌توانید داشبورد را برای استقرار امن HTTPS پیکربندی کنید. در حالی که نصب "
+"استاندارد از یک کانال HTTP رمزگذاری نشده استفاده می‌کند، می‌توانید پشتیبانی "
+"SSL را برای داشبورد فعال کنید."
+
+msgid ""
+"You can configure the Dashboard for a simple HTTP deployment. The standard "
+"installation uses a non-encrypted HTTP channel."
+msgstr ""
+"شما می‌توانید داشبورد را برای یک استقرار ساده HTTP پیکربندی کنید. نصب "
+"استاندارد از یک کانال HTTP رمزگذاری نشده استفاده می‌کند."
+
+msgid ""
+"You can sort the table by clicking on either the :guilabel:`Quota Name` or :"
+"guilabel:`Limit` column headers."
+msgstr ""
+"شما می‌توانید جدول را با کلیک روی هدرهای ستون‌های :guilabel:`Quota Name` یا :"
+"guilabel:`Limit` مرتب کنید."
+
+msgid ""
+"You can track costs per month by showing meters like number of vCPUs, disks, "
+"RAM, and uptime of all your instances."
+msgstr ""
+"شما می‌توانید با نمایش مواردی مانند تعداد vCPUها، دیسک‌ها، رم و زمان روشن بودن "
+"همه اینستنس‌ها، هزینه‌ها را در هر ماه پیگیری(دنبال) کنید."
+
+msgid ""
+"You can use applications such as ``Memcached`` or ``Redis`` for external "
+"caching. These applications offer persistence and shared storage and are "
+"useful for small-scale deployments and development."
+msgstr ""
+"شما می‌توانید از برنامه‌هایی مانند «Memcached» یا «Redis» برای ذخیره‌سازی خارجی "
+"(اکسترنال) استفاده کنید. این برنامه‌ها پایداری و فضای ذخیره‌سازی مشترک را "
+"ارائه می‌دهند و برای استقرار و توسعه در مقیاس کوچک مفید هستند."
+
+msgid "You cannot undo this action."
+msgstr "شما نمی‌توانید این اقدام را لغو کنید."
+
+msgid ""
+"Your new project will appear in the list of projects displayed under the :"
+"guilabel:`Projects` page of the dashboard. Projects are listed in "
+"alphabetical order, and you can check on the **Project ID**, **Domain "
+"name**, and status of the project in this section."
+msgstr ""
+"پروژه جدید شما در فهرست پروژه‌های نمایش داده شده در صفحه :guilabel:`Projects` "
+"داشبورد ظاهر خواهد شد. پروژه‌ها به ترتیب حروف الفبا فهرست شده‌اند و می‌توانید "
+"**Project ID**، **Domain name** و وضعیت پروژه را در این بخش بررسی کنید."
+
+msgid ""
+"`*` Source `NIST SP 800-38E <https://nvlpubs.nist.gov/nistpubs/Legacy/SP/"
+"nistspecialpublication800-38e.pdf>`_"
+msgstr ""
+"`*` Source `NIST SP 800-38E <https://nvlpubs.nist.gov/nistpubs/Legacy/SP/"
+"nistspecialpublication800-38e.pdf>`_"
+
+msgid "aes-cbc-essiv"
+msgstr "aes-cbc-essiv"
+
+msgid "aes-xts-plain64 (Recommended)"
+msgstr "aes-xts-plain64 (Recommended)"
+
+msgid "back-end"
+msgstr "back-end"
+
+msgid "front-end (Recommended)"
+msgstr "front-end (Recommended)"
+
+msgid "hw:watchdog_action"
+msgstr "hw:اقدام نظارتی"
+
+msgid "hw_rng:allowed"
+msgstr "hw_rng:مجاز"
+
+msgid "hw_rng:rate_bytes"
+msgstr "hw_rng:rate_bytes"
+
+msgid "hw_rng:rate_period"
+msgstr "hw_rng:rate_period"
+
+msgid "luks (Recommended)"
+msgstr "luks (Recommended)"
+
+msgid "m1.large"
+msgstr "m1.large"
+
+msgid "m1.medium"
+msgstr "m1.medium"
+
+msgid "m1.small"
+msgstr "m1.small"
+
+msgid "m1.tiny"
+msgstr "m1.tiny"
+
+msgid "m1.xlarge"
+msgstr "m1.xlarge"
+
+msgid "plain"
+msgstr "plain"
+
+msgid "quota:cpu_limit"
+msgstr "سهمیه: محدودیت پردازنده"
+
+msgid "quota:cpu_period"
+msgstr "سهمیه: دوره_پردازش_پردازنده"
+
+msgid "quota:cpu_quota"
+msgstr "سهمیه:سهمیه_پردازنده"
+
+msgid "quota:cpu_reservation"
+msgstr "سهمیه:رزرو پردازنده"
+
+msgid "quota:cpu_shares"
+msgstr "سهمیه:سهام_پردازنده"
+
+msgid "quota:disk_read_bytes_sec"
+msgstr "سهمیه: خواندن دیسک برحسب بایت بر ثانیه"
+
+msgid "quota:disk_read_iops_sec"
+msgstr "سهمیه: iops خواندن از دیسک برحسب ثانیه"
+
+msgid "quota:disk_total_bytes_sec"
+msgstr "سهمیه: مجموع بایت‌های دیسک در ثانیه"
+
+msgid "quota:disk_total_iops_sec"
+msgstr "سهمیه: مجموع iops های دیسک در ثانیه"
+
+msgid "quota:disk_write_bytes_sec"
+msgstr "سهمیه: نوشتن روی دیسک برحسب بایت بر ثانیه"
+
+msgid "quota:disk_write_iops_sec"
+msgstr "سهمیه: iops نوشتن روی دیسک برحسب ثانیه"
+
+msgid "quota:vif_inbound_average"
+msgstr "سهمیه: میانگین ورودی vif"
+
+msgid "quota:vif_inbound_burst"
+msgstr "سهمیه: انفجار (پشت‌سر‌هم) ورودی vif"
+
+msgid "quota:vif_inbound_peak"
+msgstr "سهمیه: حداکثر ورودی vif"
+
+msgid "quota:vif_outbound_average"
+msgstr "سهمیه: میانگین خروجی vif"
+
+msgid "quota:vif_outbound_burst"
+msgstr "سهمیه: انفجار (پشت‌سر‌هم) خروجی vif"
+
+msgid "quota:vif_outbound_peak"
+msgstr "سهمیه: حداکثر خروجی vif"
+
+msgid "vCPUs"
+msgstr "پردازنده‌های مجازی"
