@@ -2,30 +2,26 @@
     name: horizon-cross-jobs
     check:
       jobs:
-        - horizon-cross-manila-ui-python:
-            voting: false
-        - horizon-cross-ironic-ui-npm:
+        - horizon-cross-designate-dashboard-python:
             voting: false
         - horizon-cross-heat-dashboard-python:
             voting: false
+        - horizon-cross-ironic-ui-npm:
+            voting: false
+        - horizon-cross-octavia-dashboard-python:
+            voting: false
         - horizon-cross-magnum-ui-python:
+            voting: false
+        - horizon-cross-manila-ui-python:
             voting: false
 
 - job:
-    name: horizon-cross-manila-ui-python
+    name: horizon-cross-designate-dashboard-python
     parent: openstack-tox-py311
     vars:
-      zuul_work_dir: "{{ zuul.projects['opendev.org/openstack/manila-ui'].src_dir }}"
+      zuul_work_dir: "{{ zuul.projects['opendev.org/openstack/designate-dashboard'].src_dir }}"
     required-projects:
-      - openstack/manila-ui
-
-- job:
-    name: horizon-cross-ironic-ui-npm
-    parent: horizon-nodejs20-run-test
-    vars:
-      zuul_work_dir: "{{ zuul.projects['opendev.org/openstack/ironic-ui'].src_dir }}"
-    required-projects:
-      - openstack/ironic-ui
+      - openstack/designate-dashboard
 
 - job:
     name: horizon-cross-heat-dashboard-python
@@ -36,9 +32,33 @@
       - openstack/heat-dashboard
 
 - job:
+    name: horizon-cross-ironic-ui-npm
+    parent: horizon-nodejs20-run-test
+    vars:
+      zuul_work_dir: "{{ zuul.projects['opendev.org/openstack/ironic-ui'].src_dir }}"
+    required-projects:
+      - openstack/ironic-ui
+
+- job:
     name: horizon-cross-magnum-ui-python
     parent: openstack-tox-py311
     vars:
       zuul_work_dir: "{{ zuul.projects['opendev.org/openstack/magnum-ui'].src_dir }}"
     required-projects:
       - openstack/magnum-ui
+
+- job:
+    name: horizon-cross-manila-ui-python
+    parent: openstack-tox-py311
+    vars:
+      zuul_work_dir: "{{ zuul.projects['opendev.org/openstack/manila-ui'].src_dir }}"
+    required-projects:
+      - openstack/manila-ui
+
+- job:
+    name: horizon-cross-octavia-dashboard-python
+    parent: openstack-tox-py311
+    vars:
+      zuul_work_dir: "{{ zuul.projects['opendev.org/openstack/octavia-dashboard'].src_dir }}"
+    required-projects:
+      - openstack/octavia-dashboard
