@@ -21,7 +21,7 @@
     <dt>{% trans "Password Expires At" %}</dt>
     <dd>{{ user.password_expires_at }}</dd>
     <dt>{% trans "Lock password" %}</dt>
-    <dd>{{ lock_password|yesno:"yes,no"|capfirst }}</dd>
+    <dd>{{ lock_password|yesno|capfirst }}</dd>
     <dt>{% trans "Primary Project" %}</dt>
     {% if user.project_id %}
       <dd class="word-wrap">
