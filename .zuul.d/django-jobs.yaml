@@ -35,7 +35,6 @@
 - job:
     name: horizon-tox-python3-django52
     parent: horizon-tox-python3-django
-    voting: false
     vars:
       django_version: '>=5.2,<5.3'
 
@@ -60,3 +59,4 @@
         # Default python job in openstack-python3-jobs(-horizon)
         - openstack-tox-py313
         - horizon-tox-python3-django42
+        - horizon-tox-python3-django52
