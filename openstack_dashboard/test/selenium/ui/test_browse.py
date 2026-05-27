@@ -127,6 +127,7 @@ def test_browse_left_panel(live_server, driver, user, dashboard_data,
                 api.neutron, 'is_extension_supported') as mocked_i_e_s, \
             mock.patch.object(
                 api.nova, 'flavor_list') as mocked_f_l, \
+            mock.patch.object(api._nova, 'computeclient'), \
             mock.patch.object(
                 api.nova, 'tenant_absolute_limits') as mocked_t_a_l, \
             mock.patch.object(

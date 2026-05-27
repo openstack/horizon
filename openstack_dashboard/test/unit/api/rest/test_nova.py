@@ -13,30 +13,21 @@
 # limitations under the License.
 
 import json
-from json import loads as to_json
 from unittest import mock
 import uuid
 
 from django.conf import settings
 
+import openstack.compute.v2 as compute_v2
+from openstack.compute.v2 import flavor as flavor_resource
+from openstack.test import fakes
+
 from openstack_dashboard import api
 from openstack_dashboard.api.base import Quota
 from openstack_dashboard.api.rest import nova
+from openstack_dashboard.dashboards.project.instances import utils
 from openstack_dashboard.test import helpers as test
 from openstack_dashboard.usage import quotas
-
-
-# NOTE(flwang): mock.Mock and mock.MagicMock do not support sort, so the test
-# case involved sorted will fail. This fake class is for the flavor test cases
-# related to sort.
-class FakeFlavor(object):
-    def __init__(self, id, ram=1):
-        self.id = id
-        self.ram = ram
-        self.extras = {}
-
-    def to_dict(self):
-        return {"id": self.id}
 
 
 class NovaRestTestCase(test.RestAPITestCase):
@@ -484,372 +475,8 @@ class NovaRestTestCase(test.RestAPITestCase):
         )
 
     #
-    # Flavors
+    # Aggregates
     #
-
-    @test.create_mocks({api.nova: ['flavor_get', 'flavor_access_list']})
-    def test_flavor_get_single_with_access_list(self):
-        request = self.mock_rest_request(GET={'get_access_list': 'tRuE'})
-        self.mock_flavor_get.return_value.to_dict.return_value = {'name': '1'}
-        self.mock_flavor_get.return_value.is_public = False
-
-        self.mock_flavor_access_list.return_value = [
-            mock.Mock(**{'tenant_id': '11'}),
-            mock.Mock(**{'tenant_id': '22'}),
-        ]
-
-        response = nova.Flavor().get(request, "1")
-
-        self.assertStatusCode(response, 200)
-        self.assertEqual(to_json(response.content.decode('utf-8')),
-                         to_json('{"access-list": ["11", "22"], "name": "1"}'))
-
-        self.mock_flavor_get.assert_called_once_with(request, "1",
-                                                     get_extras=False)
-        self.mock_flavor_access_list.assert_called_once_with(request, "1")
-
-    def test_get_extras_no(self):
-        self._test_flavor_get_single(get_extras=False)
-
-    def test_get_extras_yes(self):
-        self._test_flavor_get_single(get_extras=True)
-
-    def test_get_extras_default(self):
-        self._test_flavor_get_single(get_extras=None)
-
-    @test.create_mocks({api.nova: ['flavor_get']})
-    def _test_flavor_get_single(self, get_extras):
-        if get_extras:
-            request = self.mock_rest_request(GET={'get_extras': 'tRuE'})
-        elif get_extras is None:
-            request = self.mock_rest_request()
-            get_extras = False
-        else:
-            request = self.mock_rest_request(GET={'get_extras': 'fAlsE'})
-        self.mock_flavor_get.return_value.to_dict.return_value = {'name': '1'}
-
-        response = nova.Flavor().get(request, "1")
-        self.assertStatusCode(response, 200)
-        if get_extras:
-            self.assertEqual(response.json, {"extras": {}, "name": "1"})
-        else:
-            self.assertEqual({"name": "1"}, response.json)
-        self.mock_flavor_get.assert_called_once_with(request, "1",
-                                                     get_extras=get_extras)
-
-    @test.create_mocks({api.nova: ['flavor_get']})
-    def test_flavor_get_single_with_swap_set_to_empty(self):
-        request = self.mock_rest_request()
-        self.mock_flavor_get.return_value\
-            .to_dict.return_value = {'name': '1', 'swap': ''}
-
-        response = nova.Flavor().get(request, "1")
-
-        self.assertStatusCode(response, 200)
-        self.assertEqual(to_json(response.content.decode('utf-8')),
-                         to_json('{"name": "1", "swap": 0}'))
-        self.mock_flavor_get.assert_called_once_with(request, '1',
-                                                     get_extras=False)
-
-    @test.create_mocks({api.nova: ['flavor_delete']})
-    def test_flavor_delete(self):
-        self.mock_flavor_delete.return_value = None
-        request = self.mock_rest_request()
-        nova.Flavor().delete(request, "1")
-        self.mock_flavor_delete.assert_called_once_with(request, "1")
-
-    @test.create_mocks({api.nova: ['flavor_create']})
-    def test_flavor_create(self):
-        flavor_req_data = '{"name": "flavor", ' \
-                          '"ram": 12, ' \
-                          '"vcpus": 1, ' \
-                          '"disk": 2, ' \
-                          '"OS-FLV-EXT-DATA:ephemeral": 3, ' \
-                          '"swap": 4, ' \
-                          '"id": "123"' \
-                          '}'
-
-        self.mock_flavor_create.return_value = mock.Mock(**{
-            'id': '123',
-            'to_dict.return_value': {'id': '123', 'name': 'flavor'}
-        })
-
-        flavor_data = {'name': 'flavor',
-                       'memory': 12,
-                       'vcpu': 1,
-                       'disk': 2,
-                       'ephemeral': 3,
-                       'swap': 4,
-                       'flavorid': '123',
-                       'is_public': True}
-
-        request = self.mock_rest_request(body=flavor_req_data)
-        response = nova.Flavors().post(request)
-
-        self.assertStatusCode(response, 201)
-        self.assertEqual('/api/nova/flavors/123', response['location'])
-
-        self.mock_flavor_create.assert_called_once_with(request, **flavor_data)
-
-    @test.create_mocks({api.nova: ['flavor_create',
-                                   'add_tenant_to_flavor']})
-    def test_flavor_create_with_access_list(self):
-        flavor_req_data = '{"name": "flavor", ' \
-                          '"ram": 12, ' \
-                          '"vcpus": 1, ' \
-                          '"disk": 2, ' \
-                          '"OS-FLV-EXT-DATA:ephemeral": 3, ' \
-                          '"swap": 4, ' \
-                          '"id": "123", ' \
-                          '"flavor_access": [{"id":"1", "name":"test"}]' \
-                          '}'
-
-        self.mock_flavor_create.return_value = mock.Mock(**{
-            'id': '1234',
-            'to_dict.return_value': {'id': '1234', 'name': 'flavor'}
-        })
-        # A list of FlavorAccess object is returned but it is actually unused.
-        self.mock_add_tenant_to_flavor.return_value = [
-            mock.sentinel.flavor_access1,
-        ]
-
-        flavor_data = {'name': 'flavor',
-                       'memory': 12,
-                       'vcpu': 1,
-                       'disk': 2,
-                       'ephemeral': 3,
-                       'swap': 4,
-                       'flavorid': '123',
-                       'is_public': False}
-
-        request = self.mock_rest_request(body=flavor_req_data)
-        response = nova.Flavors().post(request)
-
-        self.assertStatusCode(response, 201)
-        self.assertEqual('/api/nova/flavors/1234', response['location'])
-
-        self.mock_flavor_create.assert_called_once_with(request, **flavor_data)
-        self.mock_add_tenant_to_flavor.assert_called_once_with(
-            request, '1234', '1')
-
-    @test.create_mocks({api.nova: ['flavor_create',
-                                   'flavor_delete',
-                                   'flavor_get_extras']})
-    def test_flavor_update(self):
-        flavor_req_data = '{"name": "flavor", ' \
-                          '"ram": 12, ' \
-                          '"vcpus": 1, ' \
-                          '"disk": 2, ' \
-                          '"OS-FLV-EXT-DATA:ephemeral": 3, ' \
-                          '"swap": 4' \
-                          '}'
-
-        self.mock_flavor_get_extras.return_value = {}
-        self.mock_flavor_create.return_value = mock.Mock(**{
-            'id': '123',
-            'to_dict.return_value': {'id': '123', 'name': 'flavor'}
-        })
-        self.mock_flavor_delete.return_value = None
-
-        flavor_data = {'name': 'flavor',
-                       'memory': 12,
-                       'vcpu': 1,
-                       'disk': 2,
-                       'ephemeral': 3,
-                       'swap': 4,
-                       'flavorid': '123',
-                       'is_public': True}
-
-        request = self.mock_rest_request(body=flavor_req_data)
-        response = nova.Flavor().patch(request, '123')
-
-        self.assertStatusCode(response, 204)
-
-        self.mock_flavor_get_extras.assert_called_once_with(
-            request, '123', raw=True)
-        self.mock_flavor_delete.assert_called_once_with(request, '123')
-        self.mock_flavor_create.assert_called_once_with(request, **flavor_data)
-
-    @test.create_mocks({api.nova: ['flavor_create', 'flavor_delete',
-                                   'flavor_extra_set', 'flavor_get_extras']})
-    def test_flavor_update_with_extras(self):
-        flavor_req_data = '{"name": "flavor", ' \
-                          '"ram": 12, ' \
-                          '"vcpus": 1, ' \
-                          '"disk": 2, ' \
-                          '"OS-FLV-EXT-DATA:ephemeral": 3, ' \
-                          '"swap": 4' \
-                          '}'
-
-        extra_dict = mock.Mock()
-
-        self.mock_flavor_get_extras.return_value = extra_dict
-        self.mock_flavor_create.return_value = mock.Mock(**{
-            'id': '1234',
-            'to_dict.return_value': {'id': '1234', 'name': 'flavor'}
-        })
-        self.mock_flavor_delete.return_value = None
-        self.mock_flavor_extra_set.return_value = None
-
-        flavor_data = {'name': 'flavor',
-                       'memory': 12,
-                       'vcpu': 1,
-                       'disk': 2,
-                       'ephemeral': 3,
-                       'swap': 4,
-                       'flavorid': '123',
-                       'is_public': True}
-
-        request = self.mock_rest_request(body=flavor_req_data)
-        response = nova.Flavor().patch(request, '123')
-
-        self.assertStatusCode(response, 204)
-
-        self.mock_flavor_delete.assert_called_once_with(request, '123')
-        self.mock_flavor_create.assert_called_once_with(request, **flavor_data)
-        self.mock_flavor_get_extras.assert_called_once_with(request, '123',
-                                                            raw=True)
-        self.mock_flavor_extra_set.assert_called_once_with(request, '1234',
-                                                           extra_dict)
-
-    @test.create_mocks({api.nova: ['flavor_create',
-                                   'flavor_delete',
-                                   'flavor_get_extras',
-                                   'add_tenant_to_flavor']})
-    def test_flavor_update_with_access_list(self):
-        flavor_req_data = '{"name": "flavor", ' \
-                          '"ram": 12, ' \
-                          '"vcpus": 1, ' \
-                          '"disk": 2, ' \
-                          '"OS-FLV-EXT-DATA:ephemeral": 3, ' \
-                          '"swap": 4, ' \
-                          '"flavor_access": [{"id":"1", "name":"test"}]' \
-                          '}'
-
-        self.mock_flavor_get_extras.return_value = {}
-        self.mock_flavor_create.return_value = mock.Mock(**{
-            'id': '1234',
-            'to_dict.return_value': {'id': '1234', 'name': 'flavor'}
-        })
-        self.mock_flavor_delete.return_value = None
-        # A list of FlavorAccess object is returned but it is actually unused.
-        self.mock_add_tenant_to_flavor.return_value = [
-            mock.sentinel.flavor_access1,
-        ]
-
-        flavor_data = {'name': 'flavor',
-                       'memory': 12,
-                       'vcpu': 1,
-                       'disk': 2,
-                       'ephemeral': 3,
-                       'swap': 4,
-                       'flavorid': '123',
-                       'is_public': False}
-
-        request = self.mock_rest_request(body=flavor_req_data)
-        response = nova.Flavor().patch(request, '123')
-
-        self.assertStatusCode(response, 204)
-
-        self.mock_flavor_get_extras.assert_called_once_with(
-            request, '123', raw=True)
-        self.mock_flavor_delete.assert_called_once_with(request, '123')
-        self.mock_flavor_create.assert_called_once_with(request, **flavor_data)
-        self.mock_add_tenant_to_flavor.assert_called_once_with(
-            request, '1234', '1')
-
-    @test.create_mocks({api.nova: ['flavor_list']})
-    def _test_flavor_list_public(self, is_public=None):
-        if is_public:
-            request = self.mock_rest_request(GET={'is_public': 'tRuE'})
-        elif is_public is None:
-            request = self.mock_rest_request(GET={})
-        else:
-            request = self.mock_rest_request(GET={'is_public': 'fAlsE'})
-        self.mock_flavor_list.return_value = [
-            FakeFlavor("1"), FakeFlavor("2")
-        ]
-        response = nova.Flavors().get(request)
-        self.assertStatusCode(response, 200)
-        self.assertEqual({"items": [{"id": "1"}, {"id": "2"}]},
-                         response.json)
-        self.mock_flavor_list.assert_called_once_with(request,
-                                                      is_public=is_public,
-                                                      get_extras=False)
-
-    def test_flavor_list_private(self):
-        self._test_flavor_list_public(is_public=False)
-
-    def test_flavor_list_public(self):
-        self._test_flavor_list_public(is_public=True)
-
-    def test_flavor_list_public_none(self):
-        self._test_flavor_list_public(is_public=None)
-
-    @test.create_mocks({api.nova: ['flavor_list']})
-    def _test_flavor_list_extras(self, get_extras=None):
-        if get_extras:
-            request = self.mock_rest_request(GET={'get_extras': 'tRuE'})
-        elif get_extras is None:
-            request = self.mock_rest_request(GET={})
-            get_extras = False
-        else:
-            request = self.mock_rest_request(GET={'get_extras': 'fAlsE'})
-
-        self.mock_flavor_list.return_value = [
-            FakeFlavor("1"), FakeFlavor("2")
-        ]
-        response = nova.Flavors().get(request)
-        self.assertStatusCode(response, 200)
-        if get_extras:
-            self.assertEqual({"items": [{"extras": {}, "id": "1"},
-                                        {"extras": {}, "id": "2"}]},
-                             response.json)
-        else:
-            self.assertEqual({"items": [{"id": "1"}, {"id": "2"}]},
-                             response.json)
-        self.mock_flavor_list.assert_called_once_with(request, is_public=None,
-                                                      get_extras=get_extras)
-
-    def test_flavor_list_extras_no(self):
-        self._test_flavor_list_extras(get_extras=False)
-
-    def test_flavor_list_extras_yes(self):
-        self._test_flavor_list_extras(get_extras=True)
-
-    def test_flavor_list_extras_absent(self):
-        self._test_flavor_list_extras(get_extras=None)
-
-    @test.create_mocks({api.nova: ['flavor_get_extras']})
-    def test_flavor_get_extra_specs(self):
-        request = self.mock_rest_request()
-        self.mock_flavor_get_extras.return_value.to_dict.return_value = \
-            {'foo': '1'}
-
-        response = nova.FlavorExtraSpecs().get(request, "1")
-        self.assertStatusCode(response, 200)
-        self.mock_flavor_get_extras.assert_called_once_with(request, "1",
-                                                            raw=True)
-
-    @test.create_mocks({api.nova: ['flavor_extra_delete',
-                                   'flavor_extra_set']})
-    def test_flavor_edit_extra_specs(self):
-        request = self.mock_rest_request(
-            body='{"updated": {"a": "1", "b": "2"}, "removed": ["c", "d"]}'
-        )
-        self.mock_flavor_extra_delete.return_value = None
-        self.mock_flavor_extra_set.return_value = {'a': '1', 'b': '2'}
-
-        response = nova.FlavorExtraSpecs().patch(request, '1')
-        self.assertStatusCode(response, 204)
-        self.assertEqual(b'', response.content)
-        self.mock_flavor_extra_set.assert_called_once_with(
-            request, '1', {'a': '1', 'b': '2'}
-        )
-        self.mock_flavor_extra_delete.assert_called_once_with(
-            request, '1', ['c', 'd']
-        )
-
     @test.create_mocks({api.nova: ['aggregate_get']})
     def test_aggregate_get_extra_specs(self):
         request = self.mock_rest_request()
@@ -877,7 +504,6 @@ class NovaRestTestCase(test.RestAPITestCase):
     #
     # Services
     #
-
     @test.create_mocks({api.base: ['is_service_enabled'],
                         api.nova: ['service_list']})
     def test_services_get(self):
@@ -1107,3 +733,370 @@ class NovaRestTestCase(test.RestAPITestCase):
         self.assertEqual(response.content.decode('utf-8'), 'true')
         self.mock_is_feature_available.assert_called_once_with(request,
                                                                ('fake',))
+
+
+class FlavorRestTestCase(test.RestAPITestCase):
+
+    def setUp(self):
+        super().setUp()
+        patcher = mock.patch.object(
+            api._nova, 'computeclient', autospec=compute_v2.Proxy)
+        self.mock_computeclient = patcher.start()
+        self.computeclient = self.mock_computeclient.return_value
+        self.addCleanup(patcher.stop)
+
+    def _sdk_flavor(self, nova_flavor=None, **attrs):
+        if nova_flavor is None:
+            nova_flavor = self.flavors.first()
+        defaults = {
+            'id': nova_flavor.id,
+            'name': nova_flavor.name,
+            'ram': nova_flavor.ram,
+            'vcpus': nova_flavor.vcpus,
+            'disk': nova_flavor.disk,
+            'swap': getattr(nova_flavor, 'swap', 0) or 0,
+            'ephemeral': getattr(
+                nova_flavor, 'OS-FLV-EXT-DATA:ephemeral', 0) or 0,
+            'is_public': nova_flavor.is_public,
+        }
+        defaults.update(attrs)
+        return fakes.generate_fake_resource(
+            flavor_resource.Flavor, **defaults)
+
+    def _flavor_dict(self, flavor):
+        return api.nova.flavor_to_dict(flavor)
+
+    def _assert_flavor_list_items(self, flavors, response_items,
+                                  get_extras=False):
+        items_by_id = {item['id']: item for item in response_items}
+        self.assertEqual({flavor.id for flavor in flavors}, set(items_by_id))
+        for flavor in flavors:
+            expected = self._flavor_dict(flavor)
+            if get_extras:
+                expected = dict(expected, extras={})
+            self.assertEqual(expected, items_by_id[flavor.id])
+
+    def _list_flavors(self):
+        return [
+            self._sdk_flavor(id='1', name='flavor-1', ram=512),
+            self._sdk_flavor(id='2', name='flavor-2', ram=1024),
+        ]
+
+    def _mock_empty_extras_fetch(self):
+        self.computeclient.fetch_flavor_extra_specs.return_value = (
+            self._sdk_flavor(extra_specs={}))
+
+    def test_flavor_to_dict_legacy_keys(self):
+        flavor = self._sdk_flavor(id='1', ephemeral=3, is_public=True)
+        result = api.nova.flavor_to_dict(flavor)
+        self.assertEqual(3, result['OS-FLV-EXT-DATA:ephemeral'])
+        self.assertTrue(result['os-flavor-access:is_public'])
+
+    def test_flavor_get_single_with_access_list(self):
+        request = self.mock_rest_request(GET={'get_access_list': 'tRuE'})
+        flavor = self._sdk_flavor(id='1', name='1', is_public=False)
+        self.computeclient.get_flavor.return_value = flavor
+        self.computeclient.get_flavor_access.return_value = [
+            {'tenant_id': '11'},
+            {'tenant_id': '22'},
+        ]
+
+        response = nova.Flavor().get(request, "1")
+
+        self.assertStatusCode(response, 200)
+        expected = dict(self._flavor_dict(flavor))
+        expected['access-list'] = ['11', '22']
+        self.assertEqual(response.json, expected)
+
+        self.computeclient.get_flavor.assert_called_once_with(
+            '1', get_extra_specs=False)
+        self.computeclient.get_flavor_access.assert_called_once_with('1')
+
+    def test_get_extras_no(self):
+        self._test_flavor_get_single(get_extras=False)
+
+    def test_get_extras_yes(self):
+        self._test_flavor_get_single(get_extras=True)
+
+    def test_get_extras_default(self):
+        self._test_flavor_get_single(get_extras=None)
+
+    def _test_flavor_get_single(self, get_extras):
+        if get_extras:
+            request = self.mock_rest_request(GET={'get_extras': 'tRuE'})
+        elif get_extras is None:
+            request = self.mock_rest_request()
+            get_extras = False
+        else:
+            request = self.mock_rest_request(GET={'get_extras': 'fAlsE'})
+        flavor = self._sdk_flavor(id='1', name='1')
+        self.computeclient.get_flavor.return_value = flavor
+        if get_extras:
+            self._mock_empty_extras_fetch()
+
+        response = nova.Flavor().get(request, "1")
+        self.assertStatusCode(response, 200)
+        if get_extras:
+            expected = dict(self._flavor_dict(flavor))
+            expected['extras'] = {}
+            self.assertEqual(response.json, expected)
+            self.computeclient.fetch_flavor_extra_specs.assert_called_once_with(
+                '1')
+        else:
+            self.assertEqual(self._flavor_dict(flavor), response.json)
+            self.computeclient.fetch_flavor_extra_specs.assert_not_called()
+        self.computeclient.get_flavor.assert_called_once_with(
+            '1', get_extra_specs=get_extras)
+
+    def test_flavor_get_single_with_swap_set_to_empty(self):
+        request = self.mock_rest_request()
+        flavor = self._sdk_flavor(id='1', name='1')
+        # Nova may return an empty string for zero swap (LP:#1408954); the SDK
+        # normalizes swap to int, so override to_dict for this quirk test.
+        flavor.to_dict = lambda computed=False: {'name': '1', 'swap': ''}
+        self.computeclient.get_flavor.return_value = flavor
+
+        response = nova.Flavor().get(request, "1")
+
+        self.assertStatusCode(response, 200)
+        self.assertEqual({'name': '1', 'swap': 0}, response.json)
+        self.computeclient.get_flavor.assert_called_once_with(
+            '1', get_extra_specs=False)
+
+    def test_flavor_delete(self):
+        request = self.mock_rest_request()
+        nova.Flavor().delete(request, "1")
+        self.computeclient.delete_flavor.assert_called_once_with('1')
+
+    def test_flavor_create(self):
+        flavor_req_data = '{"name": "flavor", ' \
+                          '"ram": 12, ' \
+                          '"vcpus": 1, ' \
+                          '"disk": 2, ' \
+                          '"OS-FLV-EXT-DATA:ephemeral": 3, ' \
+                          '"swap": 4, ' \
+                          '"id": "123"' \
+                          '}'
+
+        self.computeclient.create_flavor.return_value = self._sdk_flavor(
+            id='123', name='flavor')
+
+        request = self.mock_rest_request(body=flavor_req_data)
+        response = nova.Flavors().post(request)
+
+        self.assertStatusCode(response, 201)
+        self.assertEqual('/api/nova/flavors/123', response['location'])
+
+        self.computeclient.create_flavor.assert_called_once_with(
+            name='flavor', ram=12, vcpus=1, disk=2, ephemeral=3, swap=4,
+            is_public=True, id='123')
+
+    def test_flavor_create_with_access_list(self):
+        flavor_req_data = '{"name": "flavor", ' \
+                          '"ram": 12, ' \
+                          '"vcpus": 1, ' \
+                          '"disk": 2, ' \
+                          '"OS-FLV-EXT-DATA:ephemeral": 3, ' \
+                          '"swap": 4, ' \
+                          '"id": "123", ' \
+                          '"flavor_access": [{"id":"1", "name":"test"}]' \
+                          '}'
+
+        self.computeclient.create_flavor.return_value = self._sdk_flavor(
+            id='1234', name='flavor')
+        self.computeclient.get_flavor_access.return_value = [
+            {'flavor_id': '1234', 'tenant_id': '1'},
+        ]
+
+        request = self.mock_rest_request(body=flavor_req_data)
+        response = nova.Flavors().post(request)
+
+        self.assertStatusCode(response, 201)
+        self.assertEqual('/api/nova/flavors/1234', response['location'])
+
+        self.computeclient.create_flavor.assert_called_once_with(
+            name='flavor', ram=12, vcpus=1, disk=2, ephemeral=3, swap=4,
+            is_public=False, id='123')
+        self.computeclient.flavor_add_tenant_access.assert_called_once_with(
+            '1234', '1')
+
+    def test_flavor_update(self):
+        flavor_req_data = '{"name": "flavor", ' \
+                          '"ram": 12, ' \
+                          '"vcpus": 1, ' \
+                          '"disk": 2, ' \
+                          '"OS-FLV-EXT-DATA:ephemeral": 3, ' \
+                          '"swap": 4' \
+                          '}'
+
+        self.computeclient.get_flavor.return_value = self._sdk_flavor(
+            id='123', extra_specs={})
+        self._mock_empty_extras_fetch()
+        self.computeclient.create_flavor.return_value = self._sdk_flavor(
+            id='123', name='flavor')
+
+        request = self.mock_rest_request(body=flavor_req_data)
+        response = nova.Flavor().patch(request, '123')
+
+        self.assertStatusCode(response, 204)
+
+        self.computeclient.get_flavor.assert_called_once_with(
+            '123', get_extra_specs=True)
+        self.computeclient.delete_flavor.assert_called_once_with('123')
+        self.computeclient.create_flavor.assert_called_once_with(
+            name='flavor', ram=12, vcpus=1, disk=2, ephemeral=3, swap=4,
+            is_public=True, id='123')
+        self.computeclient.create_flavor_extra_specs.assert_not_called()
+
+    def test_flavor_update_with_extras(self):
+        flavor_req_data = '{"name": "flavor", ' \
+                          '"ram": 12, ' \
+                          '"vcpus": 1, ' \
+                          '"disk": 2, ' \
+                          '"OS-FLV-EXT-DATA:ephemeral": 3, ' \
+                          '"swap": 4' \
+                          '}'
+
+        extra_dict = {'a': '1', 'b': '2'}
+        self.computeclient.get_flavor.return_value = self._sdk_flavor(
+            id='123', extra_specs=extra_dict)
+        self.computeclient.create_flavor.return_value = self._sdk_flavor(
+            id='1234', name='flavor')
+
+        request = self.mock_rest_request(body=flavor_req_data)
+        response = nova.Flavor().patch(request, '123')
+
+        self.assertStatusCode(response, 204)
+
+        self.computeclient.delete_flavor.assert_called_once_with('123')
+        self.computeclient.create_flavor.assert_called_once_with(
+            name='flavor', ram=12, vcpus=1, disk=2, ephemeral=3, swap=4,
+            is_public=True, id='123')
+        self.computeclient.get_flavor.assert_called_once_with(
+            '123', get_extra_specs=True)
+        self.computeclient.create_flavor_extra_specs.assert_called_once_with(
+            '1234', extra_dict)
+
+    def test_flavor_update_with_access_list(self):
+        flavor_req_data = '{"name": "flavor", ' \
+                          '"ram": 12, ' \
+                          '"vcpus": 1, ' \
+                          '"disk": 2, ' \
+                          '"OS-FLV-EXT-DATA:ephemeral": 3, ' \
+                          '"swap": 4, ' \
+                          '"flavor_access": [{"id":"1", "name":"test"}]' \
+                          '}'
+
+        self.computeclient.get_flavor.return_value = self._sdk_flavor(
+            id='123', extra_specs={})
+        self._mock_empty_extras_fetch()
+        self.computeclient.create_flavor.return_value = self._sdk_flavor(
+            id='1234', name='flavor')
+        self.computeclient.get_flavor_access.return_value = [
+            {'flavor_id': '1234', 'tenant_id': '1'},
+        ]
+
+        request = self.mock_rest_request(body=flavor_req_data)
+        response = nova.Flavor().patch(request, '123')
+
+        self.assertStatusCode(response, 204)
+
+        self.computeclient.get_flavor.assert_called_once_with(
+            '123', get_extra_specs=True)
+        self.computeclient.delete_flavor.assert_called_once_with('123')
+        self.computeclient.create_flavor.assert_called_once_with(
+            name='flavor', ram=12, vcpus=1, disk=2, ephemeral=3, swap=4,
+            is_public=False, id='123')
+        self.computeclient.flavor_add_tenant_access.assert_called_once_with(
+            '1234', '1')
+
+    def _test_flavor_list_public(self, is_public=None):
+        if is_public:
+            request = self.mock_rest_request(GET={'is_public': 'tRuE'})
+        elif is_public is None:
+            request = self.mock_rest_request(GET={})
+        else:
+            request = self.mock_rest_request(GET={'is_public': 'fAlsE'})
+        flavors = self._list_flavors()
+        self.computeclient.flavors.return_value = flavors
+        response = nova.Flavors().get(request)
+        self.assertStatusCode(response, 200)
+        self.assertEqual(2, len(response.json['items']))
+        self._assert_flavor_list_items(flavors, response.json['items'])
+        self.computeclient.flavors.assert_called_once_with(
+            is_public=is_public, get_extra_specs=False)
+
+    def test_flavor_list_private(self):
+        self._test_flavor_list_public(is_public=False)
+
+    def test_flavor_list_public(self):
+        self._test_flavor_list_public(is_public=True)
+
+    def test_flavor_list_public_none(self):
+        self._test_flavor_list_public(is_public=None)
+
+    def _test_flavor_list_extras(self, get_extras=None):
+        if get_extras:
+            request = self.mock_rest_request(GET={'get_extras': 'tRuE'})
+        elif get_extras is None:
+            request = self.mock_rest_request(GET={})
+            get_extras = False
+        else:
+            request = self.mock_rest_request(GET={'get_extras': 'fAlsE'})
+
+        flavors = self._list_flavors()
+        self.computeclient.flavors.return_value = flavors
+        if get_extras:
+            self._mock_empty_extras_fetch()
+        response = nova.Flavors().get(request)
+        self.assertStatusCode(response, 200)
+        self.assertEqual(2, len(response.json['items']))
+        self._assert_flavor_list_items(
+            flavors, response.json['items'], get_extras=get_extras)
+        if get_extras:
+            sorted_flavors = utils.sort_flavor_list(
+                request, flavors, with_menu_label=False)
+            self.assertEqual(
+                2, self.computeclient.fetch_flavor_extra_specs.call_count)
+            self.computeclient.fetch_flavor_extra_specs.assert_has_calls([
+                mock.call(f.id) for f in sorted_flavors
+            ])
+        else:
+            self.computeclient.fetch_flavor_extra_specs.assert_not_called()
+        self.computeclient.flavors.assert_called_once_with(
+            is_public=None, get_extra_specs=get_extras)
+
+    def test_flavor_list_extras_no(self):
+        self._test_flavor_list_extras(get_extras=False)
+
+    def test_flavor_list_extras_yes(self):
+        self._test_flavor_list_extras(get_extras=True)
+
+    def test_flavor_list_extras_absent(self):
+        self._test_flavor_list_extras(get_extras=None)
+
+    def test_flavor_get_extra_specs(self):
+        request = self.mock_rest_request()
+        self.computeclient.get_flavor.return_value = self._sdk_flavor(
+            id='1', extra_specs={'foo': '1'})
+
+        response = nova.FlavorExtraSpecs().get(request, "1")
+        self.assertStatusCode(response, 200)
+        self.assertEqual({'foo': '1'}, response.json)
+        self.computeclient.get_flavor.assert_called_once_with(
+            '1', get_extra_specs=True)
+
+    def test_flavor_edit_extra_specs(self):
+        request = self.mock_rest_request(
+            body='{"updated": {"a": "1", "b": "2"}, "removed": ["c", "d"]}'
+        )
+
+        response = nova.FlavorExtraSpecs().patch(request, '1')
+        self.assertStatusCode(response, 204)
+        self.assertEqual(b'', response.content)
+        self.computeclient.create_flavor_extra_specs.assert_called_once_with(
+            '1', {'a': '1', 'b': '2'})
+        self.computeclient.delete_flavor_extra_specs_property.assert_has_calls([
+            mock.call('1', 'c'),
+            mock.call('1', 'd'),
+        ])

@@ -127,11 +127,11 @@ def get_disk_size(flavor):
 
 
 def get_ephemeral_size(flavor):
-    return _("%s GB") % getattr(flavor, 'OS-FLV-EXT-DATA:ephemeral', 0)
+    return _("%s GB") % (flavor.ephemeral or 0)
 
 
 def get_extra_specs(flavor):
-    return flavor.get_keys()
+    return flavor.extra_specs
 
 
 class FlavorsTable(tables.DataTable):

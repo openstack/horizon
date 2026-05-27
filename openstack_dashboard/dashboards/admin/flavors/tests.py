@@ -15,7 +15,6 @@ from unittest import mock
 import django
 from django.conf import settings
 from django.urls import reverse
-from novaclient.v2 import flavors
 
 from openstack_dashboard import api
 from openstack_dashboard.dashboards.admin.flavors import constants
@@ -26,12 +25,10 @@ from openstack_dashboard.test import helpers as test
 
 class FlavorsViewTests(test.BaseAdminViewTests):
 
-    @test.create_mocks({api.nova: ('flavor_list_paged',),
-                        flavors.Flavor: ('get_keys',), })
+    @test.create_mocks({api.nova: ('flavor_list_paged',), })
     def test_index(self):
         self.mock_flavor_list_paged.return_value = (self.flavors.list(),
                                                     False, False)
-        self.mock_get_keys.return_value = {}
 
         res = self.client.get(reverse(constants.FLAVORS_INDEX_URL))
         self.assertTemplateUsed(res, constants.FLAVORS_TEMPLATE_NAME)
@@ -41,12 +38,9 @@ class FlavorsViewTests(test.BaseAdminViewTests):
             test.IsHttpRequest(), is_public=None, min_disk=None, min_ram=None,
             marker=None, paginate=True, sort_dir='asc', sort_key='name',
             reversed_order=False)
-        self.assert_mock_multiple_calls_with_same_arguments(
-            self.mock_get_keys, 4, mock.call())
 
     @django.test.utils.override_settings(API_RESULT_PAGE_SIZE=2)
-    @test.create_mocks({api.nova: ('flavor_list_paged',),
-                        flavors.Flavor: ('get_keys',), })
+    @test.create_mocks({api.nova: ('flavor_list_paged',), })
     def test_index_pagination(self):
         flavors_list = self.flavors.list()[:4]
         self.mock_flavor_list_paged.side_effect = [
@@ -54,7 +48,6 @@ class FlavorsViewTests(test.BaseAdminViewTests):
             (flavors_list[:2], True, True),
             (flavors_list[2:4], True, True),
         ]
-        self.mock_get_keys.return_value = {}
 
         # get all
         res = self.client.get(reverse(constants.FLAVORS_INDEX_URL))
@@ -94,12 +87,9 @@ class FlavorsViewTests(test.BaseAdminViewTests):
                       reversed_order=False),
         ])
         self.assertEqual(3, self.mock_flavor_list_paged.call_count)
-        self.assert_mock_multiple_calls_with_same_arguments(
-            self.mock_get_keys, 8, mock.call())
 
     @django.test.utils.override_settings(API_RESULT_PAGE_SIZE=2)
-    @test.create_mocks({api.nova: ('flavor_list_paged',),
-                        flavors.Flavor: ('get_keys',), })
+    @test.create_mocks({api.nova: ('flavor_list_paged',), })
     def test_index_prev_pagination(self):
         flavors_list = self.flavors.list()[:3]
         self.mock_flavor_list_paged.side_effect = [
@@ -108,7 +98,6 @@ class FlavorsViewTests(test.BaseAdminViewTests):
             (flavors_list[2:], True, True),
             (flavors_list[:2], True, True),
         ]
-        self.mock_get_keys.return_value = {}
 
         # get all
         res = self.client.get(reverse(constants.FLAVORS_INDEX_URL))
@@ -163,12 +152,9 @@ class FlavorsViewTests(test.BaseAdminViewTests):
                       reversed_order=True),
         ])
         self.assertEqual(4, self.mock_flavor_list_paged.call_count)
-        self.assert_mock_multiple_calls_with_same_arguments(
-            self.mock_get_keys, 8, mock.call())
 
     @django.test.utils.override_settings(API_RESULT_PAGE_SIZE=1)
-    @test.create_mocks({api.nova: ('flavor_list_paged',),
-                        flavors.Flavor: ('get_keys',), })
+    @test.create_mocks({api.nova: ('flavor_list_paged',), })
     def test_index_form_action_with_pagination(self):
         page_size = settings.API_RESULT_PAGE_SIZE
         flavors_list = self.flavors.list()[:2]
@@ -176,7 +162,6 @@ class FlavorsViewTests(test.BaseAdminViewTests):
             (flavors_list[:page_size], False, False),
             (flavors_list[page_size:], False, False),
         ]
-        self.mock_get_keys.return_value = {}
 
         res = self.client.get(reverse(constants.FLAVORS_INDEX_URL))
         self.assertTemplateUsed(res, constants.FLAVORS_TEMPLATE_NAME)
@@ -206,8 +191,6 @@ class FlavorsViewTests(test.BaseAdminViewTests):
                       reversed_order=False),
         ])
         self.assertEqual(2, self.mock_flavor_list_paged.call_count)
-        self.assert_mock_multiple_calls_with_same_arguments(
-            self.mock_get_keys, 2, mock.call())
 
 
 class BaseFlavorWorkflowTests(test.BaseAdminViewTests):
@@ -490,7 +473,9 @@ class UpdateFlavorWorkflowTests(BaseFlavorWorkflowTests):
 
         self.mock_flavor_get.return_value = flavor
         self.mock_tenant_list.return_value = [projects, False]
-        self.mock_flavor_access_list.return_value = flavor_access
+        self.mock_flavor_access_list.return_value = [
+            {'flavor_id': access.flavor_id, 'tenant_id': access.tenant_id}
+            for access in flavor_access]
 
         url = reverse(constants.FLAVORS_UPDATE_URL, args=[flavor.id])
         res = self.client.get(url)
@@ -509,7 +494,7 @@ class UpdateFlavorWorkflowTests(BaseFlavorWorkflowTests):
         step = workflow.get_step("flavor_access")
         field_name = step.get_member_field_name('member')
         self.assertEqual(step.action.fields[field_name].initial,
-                         [fa.tenant_id for fa in flavor_access])
+                         [access.tenant_id for access in flavor_access])
 
         self.mock_flavor_get.assert_called_once_with(test.IsHttpRequest(),
                                                      flavor.id)
@@ -543,7 +528,9 @@ class UpdateFlavorWorkflowTests(BaseFlavorWorkflowTests):
 
         self.mock_flavor_get.return_value = flavor
         self.mock_tenant_list.return_value = [projects, False]
-        self.mock_flavor_access_list.return_value = flavor_accesses
+        self.mock_flavor_access_list.return_value = [
+            {'flavor_id': access.flavor_id, 'tenant_id': access.tenant_id}
+            for access in flavor_accesses]
         self.mock_add_tenant_to_flavor.return_value = None
         self.mock_remove_tenant_from_flavor.return_value = None
 

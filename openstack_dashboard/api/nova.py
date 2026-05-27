@@ -172,6 +172,41 @@ class FlavorExtraSpec(object):
         self.value = val
 
 
+def _flavor_identifier(flavor):
+    return getattr(flavor, 'id', flavor)
+
+
+def _flavor_extra_specs(request, flavor):
+    """Return extra specs for a flavor resource."""
+    extras = getattr(flavor, 'extra_specs', None) or {}
+    if not extras:
+        flavor = _nova.computeclient(request).fetch_flavor_extra_specs(
+            _flavor_identifier(flavor))
+        extras = flavor.extra_specs or {}
+    return dict(extras)
+
+
+def flavor_to_dict(flavor, computed=False):
+    """Serialize a flavor for Horizon UI and REST responses.
+
+    openstacksdk uses pythonic attribute names in ``to_dict()``, but Horizon's
+    Angular and legacy JS still expect novaclient-style Nova API key names.
+    """
+    result = flavor.to_dict(computed=computed)
+    if 'ephemeral' in result and 'OS-FLV-EXT-DATA:ephemeral' not in result:
+        result['OS-FLV-EXT-DATA:ephemeral'] = result['ephemeral']
+    if 'is_public' in result and 'os-flavor-access:is_public' not in result:
+        result['os-flavor-access:is_public'] = result['is_public']
+    if ('is_disabled' in result and
+            'OS-FLV-DISABLED:disabled' not in result):
+        result['OS-FLV-DISABLED:disabled'] = result['is_disabled']
+    # Bug: nova API stores and returns empty string when swap equals 0
+    # https://bugs.launchpad.net/nova/+bug/1408954
+    if 'swap' in result and result['swap'] == '':
+        result['swap'] = 0
+    return result
+
+
 class QuotaSet(base.QuotaSet):
 
     # We don't support nova-network, so we exclude nova-network related
@@ -232,38 +267,40 @@ def server_mks_console(request, instance_id):
 @profiler.trace
 def flavor_create(request, name, memory, vcpu, disk, flavorid='auto',
                   ephemeral=0, swap=0, metadata=None, is_public=True):
-    flavor = _nova.novaclient(request).flavors.create(name, memory, vcpu, disk,
-                                                      flavorid=flavorid,
-                                                      ephemeral=ephemeral,
-                                                      swap=swap,
-                                                      is_public=is_public)
-    if (metadata):
+    attrs = {
+        'name': name,
+        'ram': memory,
+        'vcpus': vcpu,
+        'disk': disk,
+        'ephemeral': ephemeral,
+        'swap': swap,
+        'is_public': is_public,
+    }
+    if flavorid != 'auto':
+        attrs['id'] = flavorid
+    flavor = _nova.computeclient(request).create_flavor(**attrs)
+    if metadata:
         flavor_extra_set(request, flavor.id, metadata)
     return flavor
 
 
 @profiler.trace
 def flavor_delete(request, flavor_id):
-    _nova.novaclient(request).flavors.delete(flavor_id)
+    _nova.computeclient(request).delete_flavor(flavor_id)
 
 
 @profiler.trace
 def flavor_get(request, flavor_id, get_extras=False):
-    flavor = _nova.novaclient(request).flavors.get(flavor_id)
-    if get_extras:
-        flavor.extras = flavor_get_extras(request, flavor.id, True, flavor)
-    return flavor
+    return _nova.computeclient(request).get_flavor(
+        flavor_id, get_extra_specs=get_extras)
 
 
 @profiler.trace
 @memoized.memoized
 def flavor_list(request, is_public=None, get_extras=False):
     """Get the list of available instance sizes (flavors)."""
-    flavors = _nova.novaclient(request).flavors.list(is_public=is_public)
-    if get_extras:
-        for flavor in flavors:
-            flavor.extras = flavor_get_extras(request, flavor.id, True, flavor)
-    return flavors
+    return list(_nova.computeclient(request).flavors(
+        is_public=is_public, get_extra_specs=get_extras))
 
 
 @profiler.trace
@@ -297,56 +334,67 @@ def flavor_list_paged(request, is_public=None, min_disk=None, min_ram=None,
     has_more_data = False
     has_prev_data = False
 
+    query = {'is_public': is_public, 'get_extra_specs': get_extras}
+    if min_disk is not None:
+        query['min_disk'] = min_disk
+    if min_ram is not None:
+        query['min_ram'] = min_ram
+
     if paginate:
         if reversed_order:
             sort_dir = 'desc' if sort_dir == 'asc' else 'asc'
         page_size = utils.get_page_size(request)
-        flavors = _nova.novaclient(request).flavors.list(is_public=is_public,
-                                                         min_disk=min_disk,
-                                                         min_ram=min_ram,
-                                                         marker=marker,
-                                                         limit=page_size + 1,
-                                                         sort_key=sort_key,
-                                                         sort_dir=sort_dir)
+        query.update({
+            'marker': marker,
+            'limit': page_size + 1,
+            'sort_key': sort_key,
+            'sort_dir': sort_dir,
+        })
+        flavors = list(_nova.computeclient(request).flavors(**query))
         flavors, has_more_data, has_prev_data = update_pagination(
             flavors, page_size, marker, reversed_order)
     else:
-        flavors = _nova.novaclient(request).flavors.list(is_public=is_public)
+        flavors = list(_nova.computeclient(request).flavors(**query))
 
-    if get_extras:
-        for flavor in flavors:
-            flavor.extras = flavor_get_extras(request, flavor.id, True, flavor)
-
-    return (flavors, has_more_data, has_prev_data)
+    return flavors, has_more_data, has_prev_data
 
 
 @profiler.trace
 @memoized.memoized
 def flavor_access_list(request, flavor=None):
     """Get the list of access instance sizes (flavors)."""
-    return _nova.novaclient(request).flavor_access.list(flavor=flavor)
+    if flavor is None:
+        return []
+    flavor_id = _flavor_identifier(flavor)
+    return _nova.computeclient(request).get_flavor_access(flavor_id)
 
 
 @profiler.trace
 def add_tenant_to_flavor(request, flavor, tenant):
     """Add a tenant to the given flavor access list."""
-    return _nova.novaclient(request).flavor_access.add_tenant_access(
-        flavor=flavor, tenant=tenant)
+    compute = _nova.computeclient(request)
+    flavor_id = _flavor_identifier(flavor)
+    tenant_id = _flavor_identifier(tenant)
+    compute.flavor_add_tenant_access(flavor_id, tenant_id)
+    return flavor_access_list(request, flavor_id)
 
 
 @profiler.trace
 def remove_tenant_from_flavor(request, flavor, tenant):
     """Remove a tenant from the given flavor access list."""
-    return _nova.novaclient(request).flavor_access.remove_tenant_access(
-        flavor=flavor, tenant=tenant)
+    compute = _nova.computeclient(request)
+    flavor_id = _flavor_identifier(flavor)
+    tenant_id = _flavor_identifier(tenant)
+    compute.flavor_remove_tenant_access(flavor_id, tenant_id)
+    return []
 
 
 @profiler.trace
 def flavor_get_extras(request, flavor_id, raw=False, flavor=None):
     """Get flavor extra specs."""
     if flavor is None:
-        flavor = _nova.novaclient(request).flavors.get(flavor_id)
-    extras = flavor.get_keys()
+        flavor = flavor_get(request, flavor_id, get_extras=True)
+    extras = _flavor_extra_specs(request, flavor)
     if raw:
         return extras
     return [FlavorExtraSpec(flavor_id, key, value) for
@@ -356,17 +404,18 @@ def flavor_get_extras(request, flavor_id, raw=False, flavor=None):
 @profiler.trace
 def flavor_extra_delete(request, flavor_id, keys):
     """Unset the flavor extra spec keys."""
-    flavor = _nova.novaclient(request).flavors.get(flavor_id)
-    return flavor.unset_keys(keys)
+    compute = _nova.computeclient(request)
+    for key in keys:
+        compute.delete_flavor_extra_specs_property(flavor_id, key)
 
 
 @profiler.trace
 def flavor_extra_set(request, flavor_id, metadata):
     """Set the flavor extra spec keys."""
-    flavor = _nova.novaclient(request).flavors.get(flavor_id)
-    if (not metadata):  # not a way to delete keys
+    if not metadata:
         return None
-    return flavor.set_keys(metadata)
+    return _nova.computeclient(request).create_flavor_extra_specs(
+        flavor_id, metadata)
 
 
 @profiler.trace

@@ -531,9 +531,10 @@ class Flavors(generic.View):
                                                    with_menu_label=False)
         result = {'items': []}
         for flavor in flavors:
-            d = flavor.to_dict()
+            d = api.nova.flavor_to_dict(flavor)
             if get_extras:
-                d['extras'] = flavor.extras
+                d['extras'] = api.nova.flavor_get_extras(
+                    request, flavor.id, raw=True, flavor=flavor)
             result['items'].append(d)
         return result
 
@@ -561,7 +562,7 @@ class Flavors(generic.View):
 
         return rest_utils.CreatedResponse(
             '/api/nova/flavors/%s' % flavor.id,
-            flavor.to_dict()
+            api.nova.flavor_to_dict(flavor)
         )
 
 
@@ -583,16 +584,13 @@ class Flavor(generic.View):
         get_access_list = self.extract_boolean(request, 'get_access_list')
         flavor = api.nova.flavor_get(request, flavor_id, get_extras=get_extras)
 
-        result = flavor.to_dict()
-        # Bug: nova API stores and returns empty string when swap equals 0
-        # https://bugs.launchpad.net/nova/+bug/1408954
-        if 'swap' in result and result['swap'] == '':
-            result['swap'] = 0
+        result = api.nova.flavor_to_dict(flavor)
         if get_extras:
-            result['extras'] = flavor.extras
+            result['extras'] = api.nova.flavor_get_extras(
+                request, flavor_id, raw=True, flavor=flavor)
 
         if get_access_list and not flavor.is_public:
-            access_list = [item.tenant_id for item in
+            access_list = [item['tenant_id'] for item in
                            api.nova.flavor_access_list(request, flavor_id)]
             result['access-list'] = access_list
         return result
