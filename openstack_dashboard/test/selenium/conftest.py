@@ -222,10 +222,9 @@ def config():
 
 @pytest.fixture(scope='function')
 def report_dir(request, config):
-    root_path = os.path.dirname(os.path.abspath(horizon_config.__file__))
+    root_path = horizon_config.get_screenshots_directory(config)
     test_name = request.node.nodeid.rsplit('/', 1)[1]
-    report_dir = os.path.join(
-        root_path, config.selenium.screenshots_directory, test_name)
+    report_dir = os.path.join(root_path, test_name)
     if not os.path.isdir(report_dir):
         os.makedirs(report_dir)
     yield report_dir

@@ -3,3 +3,9 @@ zuul_work_dir: "{{ zuul.project.src_dir }}"
 
 zuul_output_dir: "{{ ansible_user_dir }}/zuul-output"
 zuul_use_fetch_output: "{{ zuul_site_use_fetch_output|default(false) }}"
+
+# Optional: extra per-test selenium artifacts.
+# For UI plugin jobs (e.g. manila-ui).
+# Leave empty for standard Horizon integration-pytest only.
+extra_selenium_artifacts_src: ""
+extra_selenium_artifacts_dest: "plugin-selenium"
