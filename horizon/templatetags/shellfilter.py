@@ -23,6 +23,8 @@ def shellfilter(value):
     """Replace HTML chars for shell usage."""
     replacements = {'\\': '\\\\',
                     '`': '\\`',
+                    '$': '\\$',
+                    '!': '\\!',
                     "'": "\\'",
                     '"': '\\"'}
     for search, repl in replacements.items():
