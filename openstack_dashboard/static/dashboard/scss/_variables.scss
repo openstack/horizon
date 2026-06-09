@@ -17,25 +17,25 @@ $table-bg-even: #ffffff !default;
 
 /* Resource Browser */
 
-$rbrowser-data-table-border-width: 1px;
-$rbrowser-data-table-border-color: $border-color;
+$rbrowser-data-table-border-width: 1px !default;
+$rbrowser-data-table-border-color: $border-color !default;
 
-$rbrowser-actions-column-padding: 10px;
+$rbrowser-actions-column-padding: 10px !default;
 
-$rbrowser-small-button-height: 28px;
-$rbrowser-td-height: $rbrowser-small-button-height;
+$rbrowser-small-button-height: 28px !default;
+$rbrowser-td-height: $rbrowser-small-button-height !default;
 
-$rbrowser-table-cell-padding: 8px;
+$rbrowser-table-cell-padding: 8px !default;
 
-$rbrowser-selected-color: #e9f5fa;
+$rbrowser-selected-color: #e9f5fa !default;
 
-$rbrowser-wrapper-width: 100%;
-$rbrowser-navigation-table-width: 40%;
-$rbrowser-content-table-width: $rbrowser-wrapper-width - $rbrowser-navigation-table-width;
+$rbrowser-wrapper-width: 100% !default;
+$rbrowser-navigation-table-width: 40% !default;
+$rbrowser-content-table-width: $rbrowser-wrapper-width - $rbrowser-navigation-table-width !default;
 
-$rbrowser-body-background-color: $body-bg;
-$rbrowser-header-background-color: $gray-lighter;
-$rbrowser-footer-background-color: #f1f1f1;
+$rbrowser-body-background-color: $body-bg !default;
+$rbrowser-header-background-color: $gray-lighter !default;
+$rbrowser-footer-background-color: #f1f1f1 !default;
 // Note: the content-wrapper background colors are determined by
 //       .table-striped-datatable styles.
 
