@@ -113,10 +113,11 @@ class CreateUserForm(PasswordMixin, BaseUserForm, AddExtraColumnMixIn):
                                   required=False,
                                   widget=forms.HiddenInput())
     name = forms.CharField(max_length=255, label=_("User Name"))
-    description = forms.CharField(widget=forms.widgets.Textarea(
-                                  attrs={'rows': 4}),
-                                  label=_("Description"),
-                                  required=False)
+    description = forms.CharField(
+        max_length=255,
+        widget=forms.widgets.Textarea(attrs={'rows': 4}),
+        label=_("Description"),
+        required=False)
     email = forms.EmailField(
         label=_("Email"),
         required=False)
@@ -218,10 +219,11 @@ class UpdateUserForm(BaseUserForm, AddExtraColumnMixIn):
                                   widget=forms.HiddenInput())
     id = forms.CharField(label=_("ID"), widget=forms.HiddenInput)
     name = forms.CharField(max_length=255, label=_("User Name"))
-    description = forms.CharField(widget=forms.widgets.Textarea(
-                                  attrs={'rows': 4}),
-                                  label=_("Description"),
-                                  required=False)
+    description = forms.CharField(
+        max_length=255,
+        widget=forms.widgets.Textarea(attrs={'rows': 4}),
+        label=_("Description"),
+        required=False)
     email = forms.EmailField(
         label=_("Email"),
         required=False)
