@@ -49,19 +49,17 @@ def test_create_keypair_demo(login, driver, openstack_demo, clear_keypair_demo,
         'key_pairs',
     ))
     driver.get(url)
-    driver.find_element(
-        By.XPATH, "//button[normalize-space()='Create Key Pair']").click()
+    driver.find_element(By.LINK_TEXT, "Create Key Pair").click()
     keypair_form = driver.find_element(By.CSS_SELECTOR, ".modal-content")
-    keypair_form.find_element(By.ID, "name").send_keys(keypair_name)
-    type_options = keypair_form.find_element(
-        By.CSS_SELECTOR, ".form-control.switchable")
+    keypair_form.find_element(By.ID, "id_name").send_keys(keypair_name)
+    type_options = keypair_form.find_element(By.ID, "id_key_type")
     type_options.click()
     type_options.find_element(
-        By.CSS_SELECTOR, 'option[label="SSH Key"]').click()
+        By.CSS_SELECTOR, 'option[value="ssh"]').click()
     keypair_form.find_element(By.CSS_SELECTOR, ".btn-primary").click()
     messages = widgets.get_and_dismiss_messages(driver, config)
-    assert (f'Success: Key pair {keypair_name} was successfully created.'
-            in messages)
+    assert (f'Success: Successfully created key pair "{keypair_name}".'
+            ' Your private key is ready for download.') in messages
     assert openstack_demo.compute.find_keypair(keypair_name) is not None
 
 
@@ -82,5 +80,5 @@ def test_delete_keypair_demo(login, driver, openstack_demo, config,
         ".//ancestor::tr/td[contains(@class,'actions_column')]").click()
     widgets.confirm_modal(driver)
     messages = widgets.get_and_dismiss_messages(driver, config)
-    assert f"Success: Deleted Key Pair: {new_keypair_demo.name}." in messages
+    assert f"Success: Deleted Key Pair: {new_keypair_demo.name}" in messages
     assert openstack_demo.compute.find_keypair(new_keypair_demo.name) is None

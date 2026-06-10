@@ -1,0 +1,21 @@
+---
+upgrade:
+  - |
+    The default value of ``key_pairs_panel`` in the ``ANGULAR_FEATURES``
+    setting has been changed from ``True`` to ``False``. The Key Pairs panel
+    now uses the Python/Django implementation by default instead of the
+    AngularJS version. The Python implementation includes feature parity
+    improvements: expandable chevron rows for key pair metadata display,
+    a server-generated key pair create form with private key download,
+    and a public key import form.
+
+    If you need to temporarily revert to the AngularJS version, set
+    ``ANGULAR_FEATURES['key_pairs_panel'] = True`` in your local settings.
+    The AngularJS version will be removed in a future release.
+deprecations:
+  - |
+    The AngularJS version of the Key Pairs panel is now deprecated.
+    Set ``ANGULAR_FEATURES['key_pairs_panel'] = False`` (now the default)
+    to use the Python/Django implementation. The AngularJS implementation
+    will be removed in a future release as part of the broader
+    de-angularization effort.

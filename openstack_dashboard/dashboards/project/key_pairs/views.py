@@ -41,12 +41,6 @@ class IndexView(tables.DataTableView):
     table_class = key_pairs_tables.KeyPairsTable
     page_title = _("Key Pairs")
 
-    def __init__(self):
-        super().__init__()
-        LOG.warning('The Django version of the Key Pairs panel is deprecated '
-                    'since Zed release. Switch to the AngularJS version by '
-                    'setting "ANGULAR_FEATURES[\'key_pairs_panel\'] = True".')
-
     def get_data(self):
         if not policy.check(
                 (("compute", "os_compute_api:os-keypairs:index"),),

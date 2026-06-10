@@ -46,10 +46,17 @@ ANGULAR_FEATURES
 
 
 .. deprecated:: 22.2.0(Zed)
-   The Django version of the Images, Keypairs, and Roles panels are deprecated.
-   As a result, "images_panel", "key_pairs_panel" and "roles_panel" keys in
-   this setting are deprecated. Consider switching to the AngujarJS version
+   The Django version of the Images and Roles panels are deprecated.
+   As a result, "images_panel" and "roles_panel" keys in
+   this setting are deprecated. Consider switching to the AngularJS version
    by setting corresponding entries to True (the default value).
+
+.. deprecated:: 2026.2(Hibiscus)
+   The AngularJS version of the Key Pairs panel is deprecated.
+   The default has been changed to the Python/Django implementation
+   (``key_pairs_panel`` = ``False``). Operators can temporarily revert
+   by setting ``ANGULAR_FEATURES['key_pairs_panel'] = True``
+   in local settings.
 
 Default:
 
@@ -57,7 +64,7 @@ Default:
 
     {
         'images_panel': True,
-        'key_pairs_panel': True,
+        'key_pairs_panel': False,
         'flavors_panel': False,
         'domains_panel': False,
         'users_panel': False,
