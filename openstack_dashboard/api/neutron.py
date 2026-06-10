@@ -2735,13 +2735,12 @@ def minimum_packet_rate_rule_delete(request, policy_id, rule_id):
 
 @profiler.trace
 def list_availability_zones(request, resource=None, state=None):
-    az_list = networkclient(request).availability_zones()
+    az_list = [az.to_dict()
+               for az in networkclient(request).availability_zones()]
     if resource:
-        az_list = [az.to_dict() for az in az_list
-                   if az['resource'] == resource]
+        az_list = [az for az in az_list if az['resource'] == resource]
     if state:
-        az_list = [az.to_dict() for az in az_list
-                   if az['state'] == state]
+        az_list = [az for az in az_list if az['state'] == state]
 
     return sorted(az_list, key=lambda zone: zone['name'])
 

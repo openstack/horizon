@@ -1579,6 +1579,38 @@ class NeutronApiTests(test.APIMockTestCase):
         networkclient.extensions.assert_called_once_with()
 
     @mock.patch.object(api.neutron, 'networkclient')
+    def test_list_availability_zones_with_resource_and_state_filters(
+            self, mock_networkclient):
+        class AvailabilityZone(object):
+            def __init__(self, **kwargs):
+                self.az = kwargs
+
+            def __getitem__(self, key):
+                return self.az[key]
+
+            def to_dict(self):
+                return dict(self.az)
+
+        zones = [
+            AvailabilityZone(name='nova', resource='router',
+                             state='available'),
+            AvailabilityZone(name='internal', resource='network',
+                             state='available'),
+            AvailabilityZone(name='nova-unavailable', resource='router',
+                             state='unavailable'),
+        ]
+        networkclient = mock_networkclient.return_value
+        networkclient.availability_zones.return_value = zones
+
+        ret_val = api.neutron.list_availability_zones(
+            self.request, 'router', 'available')
+
+        self.assertEqual(
+            [{'name': 'nova', 'resource': 'router', 'state': 'available'}],
+            ret_val)
+        networkclient.availability_zones.assert_called_once_with()
+
+    @mock.patch.object(api.neutron, 'networkclient')
     def test_router_static_route_list(self, mock_networkclient):
         router = self.api_routers_with_routes_sdk[0]
         router_id = self.api_routers_with_routes_sdk[0]['id']
