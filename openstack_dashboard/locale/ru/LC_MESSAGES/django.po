@@ -48,12 +48,12 @@ msgid ""
 msgstr ""
 "Project-Id-Version: horizon VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2026-05-19 15:09+0000\n"
+"POT-Creation-Date: 2026-06-09 19:08+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2026-05-19 12:35+0000\n"
-"Last-Translator: Dmitriy Chubinidze <dcu995@gmail.com>\n"
+"PO-Revision-Date: 2026-06-10 10:28+0000\n"
+"Last-Translator: Ivan Anfimov <lazekteam@gmail.com>\n"
 "Language: ru\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
 "n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
@@ -894,7 +894,7 @@ msgstr ""
 "доступности"
 
 msgid "Available"
-msgstr "Доступно"
+msgstr "Доступна"
 
 msgctxt "Current status of Volume Group"
 msgid "Available"
@@ -3300,8 +3300,7 @@ msgid ""
 "hyphens, spaces. Use 'auto' to automatically generate ID."
 msgstr ""
 "ID шаблона конфигурации может содержать только буквы, цифры, подчёркивания, "
-"точки, дефисы и пробелы. Используйте \"auto\" для автоматической генерации "
-"ID."
+"точки, дефисы и пробелы. Используйте 'auto' для автоматической генерации ID."
 
 msgid "Flavor Information"
 msgstr "Информация о шаблоне конфигурации"
@@ -5491,7 +5490,7 @@ msgid "RAM (used)"
 msgstr "RAM (использовано)"
 
 msgid "RAM allocation ratio"
-msgstr "Коэффициент выделения RAM"
+msgstr "Коэффициент переподписки RAM"
 
 msgid "RAM reserved"
 msgstr "Зарезервировано RAM"
@@ -6615,13 +6614,13 @@ msgid "Stopped"
 msgstr "Остановлен"
 
 msgid "Storage allocation ratio"
-msgstr "Коэффициент выделения хранилища"
+msgstr "Коэффициент переподписки хранилища"
 
 msgid "Storage reserved"
 msgstr "Зарезервировано хранилища"
 
 msgid "Storage total"
-msgstr "Хранилище (всего)"
+msgstr "Общий объем хранилища"
 
 msgid "Storage used"
 msgstr "Использовано хранилища"
@@ -9513,19 +9512,19 @@ msgid "os_hash_value"
 msgstr "os_hash_value"
 
 msgid "pCPU Usage"
-msgstr "Потребление pCPU"
+msgstr "Использование pCPU"
 
 msgid "pCPUs allocation ratio"
-msgstr "Коэффициент выделения pCPU"
+msgstr "Коэффициент переподписки pCPU"
 
 msgid "pCPUs reserved"
-msgstr "pCPU зарезервировано"
+msgstr "Зарезервировано pCPU"
 
 msgid "pCPUs total"
-msgstr "pCPU всего"
+msgstr "Всего pCPU"
 
 msgid "pCPUs used"
-msgstr "pCPU использовано"
+msgstr "Использовано pCPU"
 
 msgid "system scope"
 msgstr "область системы"
@@ -9543,22 +9542,22 @@ msgid "vCPU Hours"
 msgstr "vCPU часы"
 
 msgid "vCPU Usage"
-msgstr "Потребление vCPU"
+msgstr "Использование vCPU"
 
 msgid "vCPUs"
 msgstr "vCPU"
 
 msgid "vCPUs allocation ratio"
-msgstr "Коэффициент выделения vCPU"
+msgstr "Коэффициент переподписки vCPU"
 
 msgid "vCPUs reserved"
-msgstr "vCPU зарезервировано"
+msgstr "Зарезервировано vCPU"
 
 msgid "vCPUs total"
-msgstr "vCPU всего"
+msgstr "Всего vCPU"
 
 msgid "vCPUs used"
-msgstr "vCPU использовано"
+msgstr "Использовано vCPU"
 
 msgid "vHost vDPA"
 msgstr "vHost vDPA"
