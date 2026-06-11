@@ -130,7 +130,10 @@ SeleniumGroup = [
     cfg.StrOpt(
         'screenshots_directory',
         default='test_reports',
-        help='Output directory for screenshots'),
+        help=('Root directory for per-test screenshot, video, and page '
+              'source artifacts. Relative paths are resolved from the '
+              'directory of the first loaded integration config file; '
+              'absolute paths are used as-is.')),
     cfg.BoolOpt(
         'maximize_browser',
         default=True,
@@ -335,6 +338,29 @@ def _get_config_files():
                                   '%s/local-horizon.conf' % conf_dir)
     config_files = [conf_file, local_config]
     return [f for f in config_files if os.path.isfile(f)]
+
+
+def get_screenshots_directory(conf):
+    """Return the root directory for per-test screenshot/video artifacts.
+
+    Per-test folders (screenshot.png, video.mp4, etc.) are created
+    underneath this path.
+
+    Relative paths in [selenium] screenshots_directory are resolved from
+    the directory of the first existing integration config file. If no
+    config file exists, the integration_tests package directory is used.
+    """
+    screenshots_dir = conf.selenium.screenshots_directory
+    if os.path.isabs(screenshots_dir):
+        return os.path.abspath(screenshots_dir)
+
+    config_files = _get_config_files()
+    if config_files:
+        anchor = os.path.dirname(os.path.abspath(config_files[0]))
+    else:
+        anchor = os.path.dirname(os.path.abspath(__file__))
+
+    return os.path.abspath(os.path.join(anchor, screenshots_dir))
 
 
 def get_config():

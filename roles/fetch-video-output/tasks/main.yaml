@@ -42,3 +42,32 @@
   # no ./tox/env directory
   failed_when: false
   when: not zuul_use_fetch_output
+
+- name: Ensure extra selenium artifacts dest dir
+  file:
+    path: "{{ log_path }}/{{ extra_selenium_artifacts_dest }}"
+    state: directory
+  delegate_to: localhost
+  when: extra_selenium_artifacts_src | length > 0
+- name: Copy extra selenium artifacts
+  copy:
+    dest: "{{ zuul_output_dir }}/logs/tox/{{ extra_selenium_artifacts_dest }}/"
+    src: "{{ extra_selenium_artifacts_src }}"
+    remote_src: true
+  failed_when: false
+  when:
+    - extra_selenium_artifacts_src | length > 0
+    - zuul_use_fetch_output
+
+- name: Collect extra selenium artifacts
+  synchronize:
+    dest: "{{ log_path }}/{{ extra_selenium_artifacts_dest }}/"
+    mode: pull
+    src: "{{ extra_selenium_artifacts_src }}/"
+    verify_host: true
+    owner: no
+    group: no
+  failed_when: false
+  when:
+    - extra_selenium_artifacts_src | length > 0
+    - not zuul_use_fetch_output

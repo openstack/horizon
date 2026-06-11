@@ -14,3 +14,17 @@ Collect log output from a tox build
    on the test instance.
    When set to false, the role synchronizes the file to the executor.
    When set to true, the job needs to use the fetch-output role later.
+
+
+.. zuul:rolevar:: extra_selenium_artifacts_src
+   :default: ""
+
+   Optional path on the test node to per-test selenium failure artifacts
+   (screenshot.png, page.html, video.mp4). Used by Horizon-based UI plugin
+   integration jobs. Leave unset for standard Horizon jobs.
+
+.. zuul:rolevar:: extra_selenium_artifacts_dest
+   :default: plugin-selenium
+
+   Subdirectory under logs/tox/ on the Zuul executor for
+   extra_selenium_artifacts_src.
