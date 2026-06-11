@@ -29,27 +29,26 @@ from openstack_dashboard import api
 class CreateFlavorInfoAction(workflows.Action):
     _flavor_id_regex = (r'^[a-zA-Z0-9. _-]+$')
     _flavor_id_help_text = _("Flavor ID can only contain alphanumeric "
-                             "characters, underscores, periods, hyphens, "
-                             "spaces. Use 'auto' to automatically generate ID.")
+                             "characters, underscores, periods, hyphens and "
+                             "spaces. Pay attention that ID is not case "
+                             "sensitive. Use 'auto' to automatically generate "
+                             "ID.")
     _disk_gb_help_text = _("The root disk is an ephemeral disk that the base "
                            "image is copied into. When booting from a "
                            "persistent volume it is not used. The 0 size is "
                            "a special case which uses the native base image "
                            "size as the size of the ephemeral root volume. "
                            "However, in this case the scheduler cannot "
-                           "select  the compute host based on the virtual "
+                           "select the compute host based on the virtual "
                            "image size. As a result, 0 should only be used "
                            "for volume booted instances or for testing "
                            "purposes.")
-    _eph_gb_help_text = _("This property is optional. If unspecified, the "
-                          "value is 0 by default. Ephemeral disks offer "
+    _eph_gb_help_text = _("This property is optional. Ephemeral disks offer "
                           "machine local disk storage linked to the lifecycle "
                           "of a VM instance. When a VM is terminated, all "
                           "data on the ephemeral disk is lost. Ephemeral disks "
-                          "are not included in any snapshots."
-                          "spaces. Pay attention that ID is not case "
-                          "sensitive. Use 'auto' to automatically "
-                          "generate ID.")
+                          "are not included in any snapshots. If unspecified, "
+                          "the value is 0 by default.")
     name = forms.CharField(
         label=_("Name"),
         max_length=255)
