@@ -677,6 +677,19 @@ class DecryptInstancePassword(tables.LinkAction):
                                             keypair_name])
 
 
+class ChangeInstancePassword(tables.LinkAction):
+    name = "changepassword"
+    verbose_name = _("Change Password")
+    classes = ("btn-change", "ajax-modal")
+    url = "horizon:project:instances:changepassword"
+
+    def allowed(self, request, instance):
+        return (settings.OPENSTACK_ENABLE_INSTANCE_PASSWORD_CHANGE and
+                (instance.status in ACTIVE_STATES or
+                 instance.status == 'SHUTOFF') and
+                not is_deleting(instance))
+
+
 class AssociateIP(policy.PolicyTargetMixin, tables.LinkAction):
     name = "associate"
     verbose_name = _("Associate Floating IP")
@@ -1329,6 +1342,7 @@ class InstancesTable(tables.DataTable):
                        AttachInterface, DetachInterface, EditInstance,
                        AttachVolume, DetachVolume,
                        UpdateMetadata, DecryptInstancePassword,
+                       ChangeInstancePassword,
                        EditInstanceSecurityGroups,
                        EditPortSecurityGroups,
                        ConsoleLink, LogLink,

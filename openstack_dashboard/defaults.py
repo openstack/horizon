@@ -496,6 +496,12 @@ OPENSTACK_HYPERVISOR_FEATURES = {
 # allowing Admin session password retrieval/decryption.
 OPENSTACK_ENABLE_PASSWORD_RETRIEVE = False
 
+# Setting this to True, will add a new "Change Password" action on instance,
+# allowing Admin session password changing. This function requires the QEMU
+# Guest Agent to be running inside the instance. Without it, password changes
+# cannot be applied from the interface.
+OPENSTACK_ENABLE_INSTANCE_PASSWORD_CHANGE = False
+
 # The OPENSTACK_IMAGE_BACKEND settings can be used to customize features
 # in the OpenStack Dashboard related to the Image service, such as the list
 # of supported image formats.

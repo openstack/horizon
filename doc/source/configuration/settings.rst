@@ -2473,6 +2473,20 @@ Default: ``"False"``
 When set, enables the instance action "Retrieve password" allowing password
 retrieval from metadata service.
 
+OPENSTACK_ENABLE_INSTANCE_PASSWORD_CHANGE
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. versionadded:: 2026.2(Hibiscus)
+
+Default: ``"False"``
+
+When set, enables the instance action "Change password" allowing to change
+password for root user. The action is allowed if the instance is in one of
+the active states or is shutt off and is enabled in settings.
+This function requires the QEMU Guest Agent to be running inside the guest
+instance. Without it, password changes cannot be applied from the
+interface.
+
 OPENSTACK_HYPERVISOR_FEATURES
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
