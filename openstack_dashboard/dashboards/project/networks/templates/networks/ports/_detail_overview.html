@@ -22,7 +22,7 @@
     <dd>{{ port.admin_state_label|default:_("None") }}</dd>
     {% if port.port_security_enabled != None %}
       <dt>{% trans "Port Security Enabled" %}</dt>
-      <dd>{{ port.port_security_enabled }}</dd>
+      <dd>{{ port.port_security_enabled|yesno|capfirst }}</dd>
     {% endif %}
     <dt>{% trans "DNS Name" %}</dt>
     <dd class="word-wrap">{{ port.dns_name|default:_("None") }}</dd>
