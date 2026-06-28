@@ -321,7 +321,7 @@ horizon.addInitFunction(horizon.modals.init = function() {
         add_to_field_header = jqXHR.getResponseHeader("X-Horizon-Add-To-Field"),
         json_data, field_to_update;
       if (redirect_header === null) {
-        $('.ajax-modal, .dropdown-toggle').prop("disabled", false);
+        $('.ajax-modal, .dropdown-toggle').removeAttr('disabled');
       }
 
       content_disposition = jqXHR.getResponseHeader("content-disposition");
@@ -361,7 +361,7 @@ horizon.addInitFunction(horizon.modals.init = function() {
       if (jqXHR.getResponseHeader('logout')) {
         location.href = jqXHR.getResponseHeader("X-Horizon-Location");
       } else {
-        $('.ajax-modal, .dropdown-toggle').prop("disabled", false);
+        $('.ajax-modal, .dropdown-toggle').removeAttr('disabled');
         $formElement.closest(".modal").modal("hide");
         horizon.toast.add("danger", gettext("There was an error submitting the form. Please try again."));
       }
@@ -504,6 +504,7 @@ horizon.addInitFunction(horizon.modals.init = function() {
   // modals, e.g. it's the one currently being interacted with and isn't just
   // temporarily being hidden.
   $document.on('hidden.bs.modal', '.modal', function () {
+    $('.ajax-modal, .dropdown-toggle').removeAttr('disabled');
     var $this = $(this),
       modal_stack = $("#modal_wrapper .modal");
     if ($this[0] === modal_stack.last()[0] || $this.hasClass("loading")) {
