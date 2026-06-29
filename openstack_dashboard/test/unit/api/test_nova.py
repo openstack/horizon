@@ -804,7 +804,7 @@ class FlavorApiTests(test.APIMockTestCase):
             {'flavor_id': access.flavor_id, 'tenant_id': access.tenant_id}
             for access in flavor_access]
 
-        api_flavor_access = api.nova.flavor_access_list(self.request, flavor)
+        api_flavor_access = api.nova.flavor_access_list(self.request, flavor.id)
 
         self.assertEqual(len(flavor_access), len(api_flavor_access))
         for access in api_flavor_access:

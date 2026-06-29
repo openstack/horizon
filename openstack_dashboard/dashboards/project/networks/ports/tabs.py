@@ -31,7 +31,7 @@ class OverviewTab(tabs.Tab):
     template_name = "project/networks/ports/_detail_overview.html"
 
     def get_context_data(self, request):
-        @memoized.memoized_method
+        @memoized.memoized
         def get_security_groups(sg_ids):
             # Avoid extra API calls if no security group is associated.
             if not sg_ids:
@@ -46,7 +46,8 @@ class OverviewTab(tabs.Tab):
             return security_groups
 
         port = self.tab_group.kwargs['port']
-        security_groups = get_security_groups(port.security_group_ids)
+        security_group_ids = tuple(port.security_group_ids)
+        security_groups = get_security_groups(security_group_ids)
         return {'port': port, 'security_groups': security_groups}
 
 
