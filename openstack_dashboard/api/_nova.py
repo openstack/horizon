@@ -16,10 +16,17 @@ which need to be imported outside of openstack_dashboard.api.nova
 (like cinder.py) to avoid cyclic imports.
 """
 
+import importlib
+
 from django.conf import settings
 from glanceclient import exc as glance_exceptions
+from keystoneauth1 import session
+from keystoneauth1 import token_endpoint
 from novaclient import api_versions
 from novaclient import client as nova_client
+import openstack
+
+from openstack_auth import utils as auth_utils
 
 from horizon import exceptions as horizon_exceptions
 from horizon.utils import memoized
@@ -191,6 +198,39 @@ def novaclient(request, version=None):
 def get_novaclient_with_instance_desc(request):
     microversion = get_microversion(request, "instance_description")
     return novaclient(request, version=microversion)
+
+
+@memoized.memoized
+def computeclient(request):
+    """Return the openstacksdk compute proxy for the current request."""
+    (
+        _username,
+        token_id,
+        _project_id,
+        _project_domain_id,
+        nova_url,
+        _auth_url,
+    ) = get_auth_params_from_request(request)
+
+    insecure = settings.OPENSTACK_SSL_NO_VERIFY
+    cacert = settings.OPENSTACK_SSL_CACERT
+    verify = cacert if not insecure else False
+
+    token_auth = token_endpoint.Token(
+        endpoint=nova_url,
+        token=token_id)
+    k_session = session.Session(
+        auth=token_auth,
+        original_ip=auth_utils.get_client_ip(request),
+        verify=verify,
+    )
+    conn = openstack.connection.Connection(
+        session=k_session,
+        region_name=request.user.services_region,
+        app_name='horizon',
+        app_version=importlib.metadata.version('horizon'),
+    )
+    return conn.compute
 
 
 @profiler.trace

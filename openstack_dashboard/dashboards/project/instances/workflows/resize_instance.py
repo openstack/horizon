@@ -85,8 +85,9 @@ class SetFlavorChoiceAction(workflows.Action):
             extra['usages'] = api.nova.tenant_absolute_limits(self.request,
                                                               reserved=True)
             extra['usages_json'] = json.dumps(extra['usages'])
-            flavors = json.dumps([f._info for f in
-                                  instance_utils.flavor_list(self.request)])
+            flavors = json.dumps([api.nova.flavor_to_dict(f)
+                                  for f in instance_utils.flavor_list(
+                                      self.request)])
             extra['flavors'] = flavors
             extra['resize_instance'] = True
         except Exception:

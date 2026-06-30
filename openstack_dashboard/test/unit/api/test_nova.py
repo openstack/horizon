@@ -23,9 +23,12 @@ from django.test.utils import override_settings
 
 from novaclient import api_versions
 from novaclient import exceptions as nova_exceptions
-from novaclient.v2 import flavor_access as nova_flavor_access
 from novaclient.v2 import quotas
 from novaclient.v2 import servers
+
+import openstack.compute.v2 as compute_v2
+from openstack.compute.v2 import flavor as flavor_resource
+from openstack.test import fakes
 
 from horizon import exceptions as horizon_exceptions
 from openstack_dashboard import api
@@ -480,189 +483,6 @@ class ComputeApiTests(test.APIMockTestCase):
         novaclient.servers.get.assert_called_once_with(server_uuid)
         novaclient.servers.migrate.assert_called_once_with(server_uuid)
 
-    """Flavor Tests"""
-
-    @mock.patch.object(api._nova, 'novaclient')
-    def test_flavor_list_no_extras(self, mock_novaclient):
-        flavors = self.flavors.list()
-        novaclient = mock_novaclient.return_value
-        novaclient.flavors.list.return_value = flavors
-
-        api_flavors = api.nova.flavor_list(self.request)
-
-        self.assertEqual(len(flavors), len(api_flavors))
-        novaclient.flavors.list.assert_called_once_with(is_public=None)
-
-    @mock.patch.object(api._nova, 'novaclient')
-    def test_flavor_get_no_extras(self, mock_novaclient):
-        flavor = self.flavors.list()[1]
-        novaclient = mock_novaclient.return_value
-        novaclient.flavors.get.return_value = flavor
-
-        api_flavor = api.nova.flavor_get(self.request, flavor.id)
-
-        self.assertEqual(api_flavor.id, flavor.id)
-        novaclient.flavors.get.assert_called_once_with(flavor.id)
-
-    @mock.patch.object(api._nova, 'novaclient')
-    def _test_flavor_list_paged(self, mock_novaclient,
-                                reversed_order=False, paginate=True):
-        page_size = settings.API_RESULT_PAGE_SIZE
-        flavors = self.flavors.list()
-        order = 'asc' if reversed_order else 'desc'
-        novaclient = mock_novaclient.return_value
-        novaclient.flavors.list.return_value = flavors
-
-        api_flavors, has_more, has_prev = api.nova.flavor_list_paged(
-            self.request, None, None, None, paginate=paginate,
-            reversed_order=reversed_order)
-
-        for flavor in api_flavors:
-            self.assertIsInstance(flavor, type(flavors[0]))
-        self.assertFalse(has_more)
-        self.assertFalse(has_prev)
-        if paginate:
-            novaclient.flavors.list.assert_called_once_with(
-                is_public=None, min_disk=None, min_ram=None, marker=None,
-                limit=page_size + 1, sort_key='name', sort_dir=order)
-        else:
-            novaclient.flavors.list.assert_called_once_with(
-                is_public=None)
-
-    @override_settings(API_RESULT_PAGE_SIZE=1)
-    @mock.patch.object(api._nova, 'novaclient')
-    def test_flavor_list_pagination_more_and_prev(self, mock_novaclient):
-        page_size = settings.API_RESULT_PAGE_SIZE
-        flavors = self.flavors.list()
-        marker = flavors[0].id
-        novaclient = mock_novaclient.return_value
-        novaclient.flavors.list.return_value = flavors[1:page_size + 2]
-
-        api_flavors, has_more, has_prev = api.nova\
-                                             .flavor_list_paged(
-                                                 self.request,
-                                                 None,
-                                                 None,
-                                                 None,
-                                                 False,
-                                                 marker,
-                                                 paginate=True)
-
-        for flavor in api_flavors:
-            self.assertIsInstance(flavor, type(flavors[0]))
-        self.assertEqual(page_size, len(api_flavors))
-        self.assertTrue(has_more)
-        self.assertTrue(has_prev)
-        novaclient.flavors.list.assert_called_once_with(
-            is_public=None, min_disk=None, min_ram=None, marker=marker,
-            limit=page_size + 1, sort_key='name', sort_dir='desc')
-
-    def test_flavor_list_paged_default_order(self):
-        self._test_flavor_list_paged()
-
-    def test_flavor_list_paged_reversed_order(self):
-        self._test_flavor_list_paged(reversed_order=True)
-
-    def test_flavor_list_paged_paginate_false(self):
-        self._test_flavor_list_paged(paginate=False)
-
-    @mock.patch.object(api._nova, 'novaclient')
-    def test_flavor_create(self, mock_novaclient):
-        flavor = self.flavors.first()
-
-        novaclient = mock_novaclient.return_value
-        novaclient.flavors.create.return_value = flavor
-
-        api_flavor = api.nova.flavor_create(self.request,
-                                            flavor.name,
-                                            flavor.ram,
-                                            flavor.vcpus,
-                                            flavor.disk)
-
-        self.assertIsInstance(api_flavor, type(flavor))
-        self.assertEqual(flavor.name, api_flavor.name)
-        self.assertEqual(flavor.ram, api_flavor.ram)
-        self.assertEqual(flavor.vcpus, api_flavor.vcpus)
-        self.assertEqual(flavor.disk, api_flavor.disk)
-        self.assertEqual(0, api_flavor.ephemeral)
-        self.assertEqual(0, api_flavor.swap)
-        self.assertTrue(api_flavor.is_public)
-
-        novaclient.flavors.create.assert_called_once_with(
-            flavor.name, flavor.ram, flavor.vcpus, flavor.disk,
-            flavorid='auto', ephemeral=0, swap=0, is_public=True)
-
-    @mock.patch.object(api._nova, 'novaclient')
-    def test_flavor_delete(self, mock_novaclient):
-        flavor = self.flavors.first()
-        novaclient = mock_novaclient.return_value
-        novaclient.flavors.delete.return_value = None
-
-        api_val = api.nova.flavor_delete(self.request, flavor.id)
-
-        self.assertIsNone(api_val)
-        novaclient.flavors.delete.assert_called_once_with(flavor.id)
-
-    @mock.patch.object(api._nova, 'novaclient')
-    def test_flavor_access_list(self, mock_novaclient):
-        flavor_access = self.flavor_access.list()
-        flavor = [f for f in self.flavors.list() if f.id ==
-                  flavor_access[0].flavor_id][0]
-
-        novaclient = mock_novaclient.return_value
-        novaclient.flavor_access.list.return_value = flavor_access
-
-        api_flavor_access = api.nova.flavor_access_list(self.request, flavor)
-
-        self.assertEqual(len(flavor_access), len(api_flavor_access))
-        for access in api_flavor_access:
-            self.assertIsInstance(access, nova_flavor_access.FlavorAccess)
-            self.assertEqual(access.flavor_id, flavor.id)
-        novaclient.flavor_access.list.assert_called_once_with(flavor=flavor)
-
-    @mock.patch.object(api._nova, 'novaclient')
-    def test_add_tenant_to_flavor(self, mock_novaclient):
-        flavor_access = [self.flavor_access.first()]
-        flavor = [f for f in self.flavors.list() if f.id ==
-                  flavor_access[0].flavor_id][0]
-        tenant = [t for t in self.tenants.list() if t.id ==
-                  flavor_access[0].tenant_id][0]
-        novaclient = mock_novaclient.return_value
-        novaclient.flavor_access.add_tenant_access.return_value = flavor_access
-
-        api_flavor_access = api.nova.add_tenant_to_flavor(self.request,
-                                                          flavor,
-                                                          tenant)
-        self.assertIsInstance(api_flavor_access, list)
-        self.assertEqual(len(flavor_access), len(api_flavor_access))
-
-        for access in api_flavor_access:
-            self.assertEqual(access.flavor_id, flavor.id)
-            self.assertEqual(access.tenant_id, tenant.id)
-
-        novaclient.flavor_access.add_tenant_access.assert_called_once_with(
-            flavor=flavor, tenant=tenant)
-
-    @mock.patch.object(api._nova, 'novaclient')
-    def test_remove_tenant_from_flavor(self, mock_novaclient):
-        flavor_access = [self.flavor_access.first()]
-        flavor = [f for f in self.flavors.list() if f.id ==
-                  flavor_access[0].flavor_id][0]
-        tenant = [t for t in self.tenants.list() if t.id ==
-                  flavor_access[0].tenant_id][0]
-
-        novaclient = mock_novaclient.return_value
-        novaclient.flavor_access.remove_tenant_access.return_value = []
-
-        api_val = api.nova.remove_tenant_from_flavor(self.request,
-                                                     flavor,
-                                                     tenant)
-
-        self.assertEqual(len(api_val), len([]))
-        self.assertIsInstance(api_val, list)
-        novaclient.flavor_access.remove_tenant_access.assert_called_once_with(
-            flavor=flavor, tenant=tenant)
-
     @mock.patch.object(api._nova, 'novaclient')
     def test_server_group_list(self, mock_novaclient):
         server_groups = self.server_groups.list()
@@ -835,3 +655,200 @@ class ComputeApiTests(test.APIMockTestCase):
         }
         self._test_server_create(extra_kwargs=kwargs,
                                  expected_kwargs={'nics': 'auto'})
+
+
+class FlavorApiTests(test.APIMockTestCase):
+
+    def setUp(self):
+        super().setUp()
+        patcher = mock.patch.object(
+            api._nova, 'computeclient', autospec=compute_v2.Proxy)
+        self.mock_computeclient = patcher.start()
+        self.computeclient = self.mock_computeclient.return_value
+        self.addCleanup(patcher.stop)
+
+    def _sdk_flavor(self, nova_flavor=None, **attrs):
+        if nova_flavor is None:
+            nova_flavor = self.flavors.first()
+        defaults = {
+            'id': nova_flavor.id,
+            'name': nova_flavor.name,
+            'ram': nova_flavor.ram,
+            'vcpus': nova_flavor.vcpus,
+            'disk': nova_flavor.disk,
+            'swap': getattr(nova_flavor, 'swap', 0) or 0,
+            'ephemeral': getattr(
+                nova_flavor, 'OS-FLV-EXT-DATA:ephemeral', 0) or 0,
+            'is_public': nova_flavor.is_public,
+        }
+        defaults.update(attrs)
+        return fakes.generate_fake_resource(
+            flavor_resource.Flavor, **defaults)
+
+    def test_flavor_list_no_extras(self):
+        flavors = [self._sdk_flavor(f) for f in self.flavors.list()]
+        self.computeclient.flavors.return_value = flavors
+
+        api_flavors = api.nova.flavor_list(self.request)
+
+        self.assertEqual(len(flavors), len(api_flavors))
+        self.computeclient.flavors.assert_called_once_with(
+            is_public=None, get_extra_specs=False)
+
+    def test_flavor_get_no_extras(self):
+        flavor = self._sdk_flavor(self.flavors.list()[1])
+        self.computeclient.get_flavor.return_value = flavor
+
+        api_flavor = api.nova.flavor_get(self.request, flavor.id)
+
+        self.assertEqual(api_flavor.id, flavor.id)
+        self.computeclient.get_flavor.assert_called_once_with(
+            flavor.id, get_extra_specs=False)
+
+    def _test_flavor_list_paged(self, reversed_order=False, paginate=True):
+        page_size = settings.API_RESULT_PAGE_SIZE
+        flavors = [self._sdk_flavor(f) for f in self.flavors.list()]
+        order = 'asc' if reversed_order else 'desc'
+        self.computeclient.flavors.return_value = flavors
+
+        api_flavors, has_more, has_prev = api.nova.flavor_list_paged(
+            self.request, None, None, None, paginate=paginate,
+            reversed_order=reversed_order)
+
+        for api_flavor in api_flavors:
+            self.assertIsInstance(api_flavor, flavor_resource.Flavor)
+        self.assertFalse(has_more)
+        self.assertFalse(has_prev)
+        if paginate:
+            self.computeclient.flavors.assert_called_once_with(
+                is_public=None, get_extra_specs=False, marker=None,
+                limit=page_size + 1, sort_key='name', sort_dir=order)
+        else:
+            self.computeclient.flavors.assert_called_once_with(
+                is_public=None, get_extra_specs=False)
+
+    @override_settings(API_RESULT_PAGE_SIZE=1)
+    def test_flavor_list_pagination_more_and_prev(self):
+        page_size = settings.API_RESULT_PAGE_SIZE
+        flavors = [self._sdk_flavor(f) for f in self.flavors.list()]
+        marker = flavors[0].id
+        self.computeclient.flavors.return_value = flavors[1:page_size + 2]
+
+        api_flavors, has_more, has_prev = api.nova.flavor_list_paged(
+            self.request,
+            None,
+            None,
+            None,
+            False,
+            marker,
+            paginate=True)
+
+        for api_flavor in api_flavors:
+            self.assertIsInstance(api_flavor, flavor_resource.Flavor)
+        self.assertEqual(page_size, len(api_flavors))
+        self.assertTrue(has_more)
+        self.assertTrue(has_prev)
+        self.computeclient.flavors.assert_called_once_with(
+            is_public=None, get_extra_specs=False, marker=marker,
+            limit=page_size + 1, sort_key='name', sort_dir='desc')
+
+    def test_flavor_list_paged_default_order(self):
+        self._test_flavor_list_paged()
+
+    def test_flavor_list_paged_reversed_order(self):
+        self._test_flavor_list_paged(reversed_order=True)
+
+    def test_flavor_list_paged_paginate_false(self):
+        self._test_flavor_list_paged(paginate=False)
+
+    def test_flavor_create(self):
+        nova_flavor = self.flavors.first()
+        flavor = self._sdk_flavor(nova_flavor)
+        self.computeclient.create_flavor.return_value = flavor
+
+        api_flavor = api.nova.flavor_create(self.request,
+                                            nova_flavor.name,
+                                            nova_flavor.ram,
+                                            nova_flavor.vcpus,
+                                            nova_flavor.disk)
+
+        self.assertIsInstance(api_flavor, flavor_resource.Flavor)
+        self.assertEqual(nova_flavor.name, api_flavor.name)
+        self.assertEqual(nova_flavor.ram, api_flavor.ram)
+        self.assertEqual(nova_flavor.vcpus, api_flavor.vcpus)
+        self.assertEqual(nova_flavor.disk, api_flavor.disk)
+        self.assertEqual(0, api_flavor.ephemeral)
+        self.assertEqual(0, api_flavor.swap)
+        self.assertTrue(api_flavor.is_public)
+
+        self.computeclient.create_flavor.assert_called_once_with(
+            name=nova_flavor.name, ram=nova_flavor.ram,
+            vcpus=nova_flavor.vcpus, disk=nova_flavor.disk,
+            ephemeral=0, swap=0, is_public=True)
+
+    def test_flavor_delete(self):
+        flavor = self._sdk_flavor()
+
+        api_val = api.nova.flavor_delete(self.request, flavor.id)
+
+        self.assertIsNone(api_val)
+        self.computeclient.delete_flavor.assert_called_once_with(flavor.id)
+
+    def test_flavor_access_list(self):
+        flavor_access = self.flavor_access.list()
+        nova_flavor = [f for f in self.flavors.list() if f.id ==
+                       flavor_access[0].flavor_id][0]
+        flavor = self._sdk_flavor(nova_flavor)
+
+        self.computeclient.get_flavor_access.return_value = [
+            {'flavor_id': access.flavor_id, 'tenant_id': access.tenant_id}
+            for access in flavor_access]
+
+        api_flavor_access = api.nova.flavor_access_list(self.request, flavor)
+
+        self.assertEqual(len(flavor_access), len(api_flavor_access))
+        for access in api_flavor_access:
+            self.assertEqual(access['flavor_id'], flavor.id)
+        self.computeclient.get_flavor_access.assert_called_once_with(
+            flavor.id)
+
+    def test_add_tenant_to_flavor(self):
+        flavor_access = [self.flavor_access.first()]
+        nova_flavor = [f for f in self.flavors.list() if f.id ==
+                       flavor_access[0].flavor_id][0]
+        tenant = [t for t in self.tenants.list() if t.id ==
+                  flavor_access[0].tenant_id][0]
+        flavor = self._sdk_flavor(nova_flavor)
+        self.computeclient.get_flavor_access.return_value = [
+            {'flavor_id': access.flavor_id, 'tenant_id': access.tenant_id}
+            for access in flavor_access]
+
+        api_flavor_access = api.nova.add_tenant_to_flavor(self.request,
+                                                          flavor,
+                                                          tenant)
+        self.assertIsInstance(api_flavor_access, list)
+        self.assertEqual(len(flavor_access), len(api_flavor_access))
+
+        for access in api_flavor_access:
+            self.assertEqual(access['flavor_id'], flavor.id)
+            self.assertEqual(access['tenant_id'], tenant.id)
+
+        self.computeclient.flavor_add_tenant_access.assert_called_once_with(
+            flavor.id, tenant.id)
+
+    def test_remove_tenant_from_flavor(self):
+        flavor_access = [self.flavor_access.first()]
+        nova_flavor = [f for f in self.flavors.list() if f.id ==
+                       flavor_access[0].flavor_id][0]
+        tenant = [t for t in self.tenants.list() if t.id ==
+                  flavor_access[0].tenant_id][0]
+        flavor = self._sdk_flavor(nova_flavor)
+
+        api_val = api.nova.remove_tenant_from_flavor(self.request,
+                                                     flavor,
+                                                     tenant)
+
+        self.assertEqual(len(api_val), len([]))
+        self.assertIsInstance(api_val, list)
+        self.computeclient.flavor_remove_tenant_access.assert_called_once_with(
+            flavor.id, tenant.id)

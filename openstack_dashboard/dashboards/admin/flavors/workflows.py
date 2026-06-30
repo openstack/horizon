@@ -166,7 +166,7 @@ class FlavorAccessAction(workflows.MembershipAction):
         flavor_access = []
         try:
             if flavor and not flavor.is_public:
-                flavor_access = [project.tenant_id for project in
+                flavor_access = [access['tenant_id'] for access in
                                  context['current_flavor_access']]
         except Exception:
             exceptions.handle(request, err_msg)
@@ -275,7 +275,7 @@ class UpdateFlavor(workflows.Workflow):
             if flavor.is_public:
                 old_flavor_projects = []
             else:
-                old_flavor_projects = [project.tenant_id for project in
+                old_flavor_projects = [access['tenant_id'] for access in
                                        self.context['current_flavor_access']]
             to_remove = [project for project in old_flavor_projects if project
                          not in flavor_projects]

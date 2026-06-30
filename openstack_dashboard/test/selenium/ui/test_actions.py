@@ -31,6 +31,7 @@ def test_delete_multiple_instance_rows(live_server, driver, dashboard_data,
                 api.nova, 'tenant_absolute_limits') as mocked_t_a_l, \
             mock.patch.object(
                 api._nova, 'novaclient') as mock_novaclient, \
+            mock.patch.object(api._nova, 'computeclient'), \
             mock.patch.object(
                 api.cinder, 'volume_list') as mock_v_l, \
             mock.patch.object(
