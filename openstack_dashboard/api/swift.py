@@ -16,7 +16,7 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
-from datetime import datetime
+import datetime
 from urllib import parse
 
 import functools
@@ -199,7 +199,7 @@ def swift_get_container(request, container_name, with_data=False):
             parameters = parse.quote(container_name.encode('utf8'))
             public_url = swift_endpoint + '/' + parameters
         ts_float = float(headers.get('x-timestamp'))
-        timestamp = datetime.fromtimestamp(
+        timestamp = datetime.datetime.fromtimestamp(
             ts_float, tz=datetime.timezone.utc).replace(
                 tzinfo=None).isoformat()
     except Exception:
@@ -415,7 +415,7 @@ def swift_get_object(request, container_name, object_name, with_data=True,
     timestamp = None
     try:
         ts_float = float(headers.get('x-timestamp'))
-        timestamp = datetime.fromtimestamp(
+        timestamp = datetime.datetime.fromtimestamp(
             ts_float, tz=datetime.timezone.utc).replace(
                 tzinfo=None).isoformat()
     except Exception:
