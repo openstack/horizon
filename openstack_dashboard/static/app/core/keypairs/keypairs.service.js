@@ -56,7 +56,6 @@
         return {data: {items: response.data.items.map(modifyItem)}};
 
         function modifyItem(item) {
-          item = item.keypair;
           item.id = item.name;
           item.trackBy = item.name + item.fingerprint;
           return item;

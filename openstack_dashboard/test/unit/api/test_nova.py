@@ -28,6 +28,7 @@ from novaclient.v2 import servers
 
 import openstack.compute.v2 as compute_v2
 from openstack.compute.v2 import flavor as flavor_resource
+from openstack.compute.v2 import keypair as keypair_resource
 from openstack.test import fakes
 
 from horizon import exceptions as horizon_exceptions
@@ -852,3 +853,94 @@ class FlavorApiTests(test.APIMockTestCase):
         self.assertIsInstance(api_val, list)
         self.computeclient.flavor_remove_tenant_access.assert_called_once_with(
             flavor.id, tenant.id)
+
+
+class KeypairApiTests(test.APIMockTestCase):
+
+    def setUp(self):
+        super().setUp()
+        self.computeclient = mock.create_autospec(
+            compute_v2.Proxy, instance=True)
+        patcher = mock.patch.object(
+            api._nova, 'computeclient', return_value=self.computeclient)
+        self.mock_computeclient = patcher.start()
+        self.addCleanup(patcher.stop)
+
+    def _sdk_keypair(self, nova_keypair=None, **attrs):
+        if nova_keypair is None:
+            nova_keypair = self.keypairs.first()
+        defaults = {
+            'name': nova_keypair.name,
+            'type': 'ssh',
+        }
+        defaults.update(attrs)
+        return fakes.generate_fake_resource(
+            keypair_resource.Keypair, **defaults)
+
+    @mock.patch.object(api.nova, 'get_microversion')
+    def test_keypair_list(self, mock_get_microversion):
+        keypairs = [self._sdk_keypair()]
+        mock_get_microversion.return_value = mock.sentinel.microversion
+        self.computeclient.keypairs.return_value = keypairs
+
+        api_keypairs = api.nova.keypair_list(self.request)
+
+        self.assertEqual(len(keypairs), len(api_keypairs))
+        mock_get_microversion.assert_called_once_with(
+            self.request, 'key_type_list')
+        self.mock_computeclient.assert_called_once_with(
+            self.request, mock.sentinel.microversion)
+        self.computeclient.keypairs.assert_called_once_with()
+
+    def test_keypair_get(self):
+        keypair = self._sdk_keypair()
+        self.computeclient.get_keypair.return_value = keypair
+
+        api_keypair = api.nova.keypair_get(self.request, keypair.name)
+
+        self.assertEqual(api_keypair.name, keypair.name)
+        self.mock_computeclient.assert_called_once_with(self.request)
+        self.computeclient.get_keypair.assert_called_once_with(keypair.name)
+
+    @mock.patch.object(api.nova, 'get_microversion')
+    def test_keypair_create(self, mock_get_microversion):
+        keypair = self._sdk_keypair()
+        mock_get_microversion.return_value = mock.sentinel.microversion
+        self.computeclient.create_keypair.return_value = keypair
+
+        api_keypair = api.nova.keypair_create(self.request, keypair.name,
+                                              key_type='ssh')
+
+        self.assertEqual(api_keypair.name, keypair.name)
+        mock_get_microversion.assert_called_once_with(
+            self.request, 'key_types')
+        self.mock_computeclient.assert_called_once_with(
+            self.request, mock.sentinel.microversion)
+        self.computeclient.create_keypair.assert_called_once_with(
+            name=keypair.name, type='ssh')
+
+    @mock.patch.object(api.nova, 'get_microversion')
+    def test_keypair_import(self, mock_get_microversion):
+        keypair = self._sdk_keypair()
+        mock_get_microversion.return_value = mock.sentinel.microversion
+        self.computeclient.create_keypair.return_value = keypair
+
+        api_keypair = api.nova.keypair_import(
+            self.request, keypair.name, 'public-key', key_type='ssh')
+
+        self.assertEqual(api_keypair.name, keypair.name)
+        mock_get_microversion.assert_called_once_with(
+            self.request, 'key_types')
+        self.mock_computeclient.assert_called_once_with(
+            self.request, mock.sentinel.microversion)
+        self.computeclient.create_keypair.assert_called_once_with(
+            name=keypair.name, public_key='public-key', type='ssh')
+
+    def test_keypair_delete(self):
+        keypair = self._sdk_keypair()
+
+        api_val = api.nova.keypair_delete(self.request, keypair.name)
+
+        self.assertIsNone(api_val)
+        self.mock_computeclient.assert_called_once_with(self.request)
+        self.computeclient.delete_keypair.assert_called_once_with(keypair.name)

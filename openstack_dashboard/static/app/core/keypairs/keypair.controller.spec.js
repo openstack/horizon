@@ -21,7 +21,7 @@
     var ctrl, keyPairCall, $timeout;
     var nova = {
       getKeypairs: function() {
-        var kps = {data: {items: [{keypair: {name: 'one'}},{keypair: {name: 'two'}} ]}};
+        var kps = {data: {items: [{name: 'one'},{name: 'two'} ]}};
         keyPairCall.resolve(kps);
         return keyPairCall.promise;
       }
