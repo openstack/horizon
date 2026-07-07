@@ -30,7 +30,7 @@ def test_switch_to_material_theme(live_server, driver, user, config):
 
     driver.get(live_server.url + '/settings')
     user_dropdown_menu = driver.find_element(
-        By.CSS_SELECTOR, '.nav.navbar-nav.navbar-right')
+        By.CSS_SELECTOR, '.nav.navbar-nav.navbar-right .user-menu')
     user_dropdown_menu.click()
     assert ((user_dropdown_menu.find_element(
         By.CSS_SELECTOR, ".theme-default.dropdown-selected") and
