@@ -134,8 +134,7 @@
       const description = element.dataset.description;
       const title = element.dataset.title;
       const name = element.dataset.name;
-      // We probably want some html escaping here?
-      well.innerHTML = `<p><strong>${title}</strong> (${name})</p><p>${description}</p>`;
+      well.innerHTML = horizon.string.esc`<p><strong>${title}</strong> (${name})</p><p>${description}</p>`;
     }
 
     select_item(element) {
