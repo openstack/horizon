@@ -112,6 +112,7 @@ def data(TEST):
                   'owner': TEST.tenant.id,
                   'container_format': 'novaImage',
                   'properties': {'image_type': 'image'},
+                  'test_property': 'test value',
                   'is_public': True,
                   'protected': False,
                   'min_ram': 0,
