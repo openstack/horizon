@@ -972,9 +972,9 @@ def tenant_absolute_limits(request, reserved=False, tenant_id=None):
 
 @profiler.trace
 def availability_zone_list(request, detailed=False):
-    nc = _nova.novaclient(request)
-    zones = nc.availability_zones.list(detailed=detailed)
-    zones.sort(key=attrgetter('zoneName'))
+    zones = list(_nova.computeclient(request).availability_zones(
+        details=detailed))
+    zones.sort(key=attrgetter('name'))
     return zones
 
 

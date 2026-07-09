@@ -58,7 +58,7 @@ class IndexView(tables.MultiTableView):
         except Exception:
             exceptions.handle(request,
                               _('Unable to retrieve availability zone list.'))
-        availability_zones.sort(key=lambda az: az.zoneName.lower())
+        availability_zones.sort(key=lambda az: az.name.lower())
         return availability_zones
 
 

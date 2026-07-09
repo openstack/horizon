@@ -19,6 +19,7 @@ import uuid
 from django.conf import settings
 
 import openstack.compute.v2 as compute_v2
+from openstack.compute.v2 import availability_zone as az_resource
 from openstack.compute.v2 import flavor as flavor_resource
 from openstack.test import fakes
 
@@ -264,32 +265,6 @@ class NovaRestTestCase(test.RestAPITestCase):
         request = self.mock_rest_request()
         nova.Keypair().delete(request, "1")
         self.mock_keypair_delete.assert_called_once_with(request, "1")
-
-    #
-    # Availability Zones
-    #
-    def test_availzone_get_brief(self):
-        self._test_availzone_get(False)
-
-    def test_availzone_get_detailed(self):
-        self._test_availzone_get(True)
-
-    @test.create_mocks({api.nova: ['availability_zone_list']})
-    def _test_availzone_get(self, detail):
-        if detail:
-            request = self.mock_rest_request(GET={'detailed': 'true'})
-        else:
-            request = self.mock_rest_request(GET={})
-        self.mock_availability_zone_list.return_value = [
-            mock.Mock(**{'to_dict.return_value': {'id': 'one'}}),
-            mock.Mock(**{'to_dict.return_value': {'id': 'two'}}),
-        ]
-        response = nova.AvailabilityZones().get(request)
-        self.assertStatusCode(response, 200)
-        self.assertEqual({"items": [{"id": "one"}, {"id": "two"}]},
-                         response.json)
-        self.mock_availability_zone_list.assert_called_once_with(request,
-                                                                 detail)
 
     #
     # Limits
@@ -1100,3 +1075,65 @@ class FlavorRestTestCase(test.RestAPITestCase):
             mock.call('1', 'c'),
             mock.call('1', 'd'),
         ])
+
+
+class AvailabilityZoneRestTestCase(test.RestAPITestCase):
+
+    def setUp(self):
+        super().setUp()
+        patcher = mock.patch.object(
+            api._nova, 'computeclient', autospec=compute_v2.Proxy)
+        self.mock_computeclient = patcher.start()
+        self.computeclient = self.mock_computeclient.return_value
+        self.addCleanup(patcher.stop)
+
+    def _sdk_availability_zone(self, nova_zone=None, **attrs):
+        if nova_zone is None:
+            nova_zone = self.availability_zones.first()
+        defaults = {
+            'name': nova_zone.name,
+            'state': nova_zone.state,
+            'hosts': nova_zone.hosts,
+        }
+        defaults.update(attrs)
+        return fakes.generate_fake_resource(
+            az_resource.AvailabilityZone, **defaults)
+
+    def _availability_zone_dict(self, zone):
+        return zone.to_dict()
+
+    def _assert_availability_zone_list_items(self, zones, response_items):
+        items_by_name = {item['name']: item for item in response_items}
+        self.assertEqual({zone.name for zone in zones}, set(items_by_name))
+        for zone in zones:
+            self.assertEqual(
+                self._availability_zone_dict(zone),
+                items_by_name[zone.name])
+
+    def _list_availability_zones(self):
+        return [
+            self._sdk_availability_zone(name='one'),
+            self._sdk_availability_zone(name='two'),
+        ]
+
+    def test_availzone_get_brief(self):
+        self._test_availzone_get(False)
+
+    def test_availzone_get_detailed(self):
+        self._test_availzone_get(True)
+
+    def _test_availzone_get(self, detail):
+        if detail:
+            request = self.mock_rest_request(GET={'detailed': 'true'})
+        else:
+            request = self.mock_rest_request(GET={})
+        zones = self._list_availability_zones()
+        self.computeclient.availability_zones.return_value = zones
+
+        response = nova.AvailabilityZones().get(request)
+
+        self.assertStatusCode(response, 200)
+        self._assert_availability_zone_list_items(zones, response.json['items'])
+        self.mock_computeclient.assert_called_once_with(request)
+        self.computeclient.availability_zones.assert_called_once_with(
+            details=detail)

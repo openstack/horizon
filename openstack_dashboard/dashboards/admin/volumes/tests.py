@@ -225,7 +225,7 @@ class VolumeTests(test.BaseAdminViewTests):
         self.mock_volume_type_list.return_value = \
             self.cinder_volume_types.list()
         self.mock_availability_zone_list.return_value = \
-            self.availability_zones.list()
+            self.cinder_availability_zones.list()
         self.mock_extension_supported.return_value = True
 
         res = self.client.post(

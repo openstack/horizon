@@ -370,10 +370,10 @@
       push.apply(
         model.availabilityZones,
         data.data.items.filter(function (zone) {
-          return zone.zoneState && zone.zoneState.available;
+          return zone.state && zone.state.available;
         })
         .map(function (zone) {
-          return {label: zone.zoneName, value: zone.zoneName};
+          return {label: zone.name, value: zone.name};
         })
       );
 

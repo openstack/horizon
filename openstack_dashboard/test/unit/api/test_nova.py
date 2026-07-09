@@ -27,6 +27,7 @@ from novaclient.v2 import quotas
 from novaclient.v2 import servers
 
 import openstack.compute.v2 as compute_v2
+from openstack.compute.v2 import availability_zone as az_resource
 from openstack.compute.v2 import flavor as flavor_resource
 from openstack.compute.v2 import keypair as keypair_resource
 from openstack.test import fakes
@@ -571,20 +572,6 @@ class ComputeApiTests(test.APIMockTestCase):
             self.assertEqual(quota_data[key], ret_val.get(key).limit)
         novaclient.quotas.get.assert_called_once_with(tenant_id)
 
-    @mock.patch.object(api._nova, 'novaclient')
-    def test_availability_zone_list(self, mock_novaclient):
-        novaclient = mock_novaclient.return_value
-        detailed = False
-        zones = [mock.Mock(zoneName='john'), mock.Mock(zoneName='sam'),
-                 mock.Mock(zoneName='bob')]
-        novaclient.availability_zones.list.return_value = zones
-
-        ret_val = api.nova.availability_zone_list(self.request, detailed)
-        self.assertEqual([zone.zoneName for zone in ret_val],
-                         ['bob', 'john', 'sam'])
-        novaclient.availability_zones.list.assert_called_once_with(
-            detailed=detailed)
-
     @test.create_mocks({api.nova: ['get_microversion'],
                         api._nova: ['novaclient']})
     def _test_server_create(self, extra_kwargs=None, expected_kwargs=None):
@@ -853,6 +840,57 @@ class FlavorApiTests(test.APIMockTestCase):
         self.assertIsInstance(api_val, list)
         self.computeclient.flavor_remove_tenant_access.assert_called_once_with(
             flavor.id, tenant.id)
+
+
+class AvailabilityZoneApiTests(test.APIMockTestCase):
+
+    def setUp(self):
+        super().setUp()
+        self.computeclient = mock.create_autospec(
+            compute_v2.Proxy, instance=True)
+        patcher = mock.patch.object(
+            api._nova, 'computeclient', return_value=self.computeclient)
+        self.mock_computeclient = patcher.start()
+        self.addCleanup(patcher.stop)
+
+    def _sdk_availability_zone(self, nova_zone=None, **attrs):
+        if nova_zone is None:
+            nova_zone = self.availability_zones.first()
+        defaults = {
+            'name': nova_zone.name,
+            'state': nova_zone.state,
+            'hosts': nova_zone.hosts,
+        }
+        defaults.update(attrs)
+        return fakes.generate_fake_resource(
+            az_resource.AvailabilityZone, **defaults)
+
+    def test_availability_zone_list(self):
+        zones = [
+            self._sdk_availability_zone(name='john'),
+            self._sdk_availability_zone(name='sam'),
+            self._sdk_availability_zone(name='bob'),
+        ]
+        self.computeclient.availability_zones.return_value = zones
+
+        ret_val = api.nova.availability_zone_list(self.request, detailed=False)
+
+        self.assertEqual([zone.name for zone in ret_val],
+                         ['bob', 'john', 'sam'])
+        self.mock_computeclient.assert_called_once_with(self.request)
+        self.computeclient.availability_zones.assert_called_once_with(
+            details=False)
+
+    def test_availability_zone_list_detailed(self):
+        zones = [self._sdk_availability_zone()]
+        self.computeclient.availability_zones.return_value = zones
+
+        ret_val = api.nova.availability_zone_list(self.request, detailed=True)
+
+        self.assertEqual(len(zones), len(ret_val))
+        self.mock_computeclient.assert_called_once_with(self.request)
+        self.computeclient.availability_zones.assert_called_once_with(
+            details=True)
 
 
 class KeypairApiTests(test.APIMockTestCase):
