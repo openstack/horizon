@@ -14,6 +14,7 @@
 
 import logging
 
+from django.contrib import messages as django_messages
 from django.shortcuts import render
 from django.template.defaultfilters import slugify
 from django.urls import reverse
@@ -93,6 +94,14 @@ class CreateView(forms.ModalFormView):
     def form_valid(self, form):
         response = super().form_valid(form)
         if form.keypair_private_key is not None:
+            # The render() response below is not an HttpResponseRedirect,
+            # so HorizonMiddleware won't move async messages back into
+            # the Django session. Move them manually so they appear on
+            # the redirected page after the file download completes.
+            for tag, msg, extra in self.request.horizon['async_messages']:
+                getattr(django_messages, tag)(self.request, msg, extra)
+            self.request.horizon['async_messages'] = []
+
             response = render(
                 self.request,
                 'project/key_pairs/private_key.pem',
