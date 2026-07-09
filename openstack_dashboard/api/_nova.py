@@ -200,8 +200,16 @@ def get_novaclient_with_instance_desc(request):
     return novaclient(request, version=microversion)
 
 
+def _microversion_string(microversion):
+    if microversion is None:
+        return None
+    if isinstance(microversion, api_versions.APIVersion):
+        return microversion.get_string()
+    return str(microversion)
+
+
 @memoized.memoized
-def computeclient(request):
+def computeclient(request, microversion=None):
     """Return the openstacksdk compute proxy for the current request."""
     (
         _username,
@@ -230,7 +238,11 @@ def computeclient(request):
         app_name='horizon',
         app_version=importlib.metadata.version('horizon'),
     )
-    return conn.compute
+    compute = conn.compute
+    microversion_str = _microversion_string(microversion)
+    if microversion_str:
+        compute.default_microversion = microversion_str
+    return compute
 
 
 @profiler.trace

@@ -65,7 +65,7 @@
         }).result.then(go(config.successUrl));
 
         function getName(item) {
-          return item.keypair.name;
+          return item.name;
         }
 
         function getKeypairs() {

@@ -54,8 +54,8 @@
           return deferred.promise;
         },
         getKeypairs: function() {
-          var keypairs = [ { keypair: { name: 'key-1' } },
-                           { keypair: { name: 'key-2' } } ];
+          var keypairs = [ { name: 'key-1' },
+                           { name: 'key-2' } ];
 
           var deferred = $q.defer();
           deferred.resolve({ data: { items: keypairs } });
@@ -616,7 +616,7 @@
 //        });
 
         it('should set a keypair by default if only one keypair is available', function () {
-          var keypair = { keypair: { name: 'key-1' } };
+          var keypair = { name: 'key-1' };
           spyOn(novaApi, 'getKeypairs').and.callFake(function () {
             var deferred = $q.defer();
             deferred.resolve({ data: { items: [ keypair ] } });
@@ -625,7 +625,9 @@
           model.initialize(true);
           scope.$apply();
           expect(model.newInstanceSpec.key_pair.length).toBe(1);
-          expect(model.newInstanceSpec.key_pair).toEqual([ keypair.keypair ]);
+          expect(model.newInstanceSpec.key_pair).toEqual([
+            { name: 'key-1', id: 'li_keypair:key-1' }
+          ]);
         });
 
         it('should set a security group by default if one named "default" is available',

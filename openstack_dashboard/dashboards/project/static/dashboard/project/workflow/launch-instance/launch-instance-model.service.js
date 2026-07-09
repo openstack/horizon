@@ -437,12 +437,12 @@
     function onGetKeypairs(data) {
       angular.extend(
         model.keypairs,
-        data.data.items.map(function (e) {
-          e.keypair.id = 'li_keypair:' + e.keypair.name;
-          return e.keypair;
+        data.data.items.map(function (keypair) {
+          keypair.id = 'li_keypair:' + keypair.name;
+          return keypair;
         }));
       if (data.data.items.length === 1) {
-        model.newInstanceSpec.key_pair.push(data.data.items[0].keypair);
+        model.newInstanceSpec.key_pair.push(data.data.items[0]);
       }
     }
 

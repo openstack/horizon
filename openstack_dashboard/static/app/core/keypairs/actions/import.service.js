@@ -147,7 +147,7 @@
     }
 
     function getName(item) {
-      return item.keypair.name.toLowerCase();
+      return item.name.toLowerCase();
     }
   }
 })();

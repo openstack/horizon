@@ -48,10 +48,10 @@
       nova = $injector.get('horizon.app.core.openstack-service-api.nova');
       toast = $injector.get('horizon.framework.widgets.toast.service');
       deferredKeypairs = $q.defer();
-      deferredKeypairs.resolve({data: {items: [{keypair: {name: "Hokusai"}}]}});
+      deferredKeypairs.resolve({data: {items: [{name: "Hokusai"}]}});
       spyOn(nova, 'getKeypairs').and.returnValue(deferredKeypairs.promise);
       deferredNewKeypair = $q.defer();
-      deferredNewKeypair.resolve({data: {items: [{keypair: {name: "Hiroshige"}}]}});
+      deferredNewKeypair.resolve({data: {name: "Hiroshige", private_key: "pem"}});
       spyOn(nova, 'createKeypair').and.returnValue(deferredNewKeypair.promise);
       spyOn(modal, 'open').and.callThrough();
       spyOn(toast, 'add').and.callFake(angular.noop);

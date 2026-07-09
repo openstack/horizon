@@ -40,7 +40,7 @@
         deferredSession.resolve({});
         deferred.resolve({
           data: {
-            items: [{keypair: {name: 'keypair1', fingerprint: 'fp'}}]
+            items: [{name: 'keypair1', fingerprint: 'fp'}]
           }
         });
         $timeout.flush();
@@ -56,9 +56,9 @@
         var deferred = $q.defer();
         spyOn(nova, 'getKeypair').and.returnValue(deferred.promise);
         var result = service.getKeypairPromise('keypair1');
-        deferred.resolve({data: {keypair: {name: 'keypair1'}}});
+        deferred.resolve({data: {name: 'keypair1'}});
         expect(nova.getKeypair).toHaveBeenCalled();
-        expect(result.$$state.value.data.keypair.name).toBe('keypair1');
+        expect(result.$$state.value.data.name).toBe('keypair1');
       }));
     });
 
