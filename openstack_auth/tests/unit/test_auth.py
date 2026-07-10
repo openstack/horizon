@@ -40,6 +40,7 @@ DEFAULT_DOMAIN = settings.OPENSTACK_KEYSTONE_DEFAULT_DOMAIN
 # figure out how to avoid this.
 class IsA(object):
     """Class to compare param is a specified class."""
+
     def __init__(self, cls):
         self.cls = cls
 
@@ -1309,7 +1310,7 @@ class OpenStackAuthTests(test.TestCase):
             response = self.client.post(url, form_data)
             self.assertRedirects(response, settings.LOGIN_REDIRECT_URL)
 
-            url = reverse('switch_tenants', args=[project.id])
+            url = reverse('switch_project_id', args=[project.id])
 
             scoped._project['id'] = self.data.project_two.id
 
@@ -1338,6 +1339,70 @@ class OpenStackAuthTests(test.TestCase):
 
     def test_switch_with_wrong_next(self):
         self.test_switch(next='/bad_url')
+
+    @mock.patch.object(v3_auth.Token, 'get_access')
+    @mock.patch.object(password.PasswordPlugin, 'list_projects')
+    @mock.patch.object(v3_auth.Password, 'get_access')
+    def test_switch_by_name(self, mock_get_access, mock_project_list,
+                            mock_get_access_token,
+                            next=None):
+        def mock_redirect_return(param):
+            if 'bad' not in param:
+                return original_redirect(param)
+            else:
+                raise NoReverseMatch
+
+        project = self.data.project_two
+        projects = [self.data.project_one, self.data.project_two]
+        user = self.data.user
+        scoped = self.data.scoped_access_info
+
+        form_data = self.get_form_data(user)
+
+        mock_get_access.return_value = self.data.unscoped_access_info
+        mock_get_access_token.return_value = scoped
+        mock_project_list.return_value = projects
+
+        original_redirect = shortcuts.redirect
+        with mock.patch('django.shortcuts.redirect',
+                        side_effect=mock_redirect_return):
+            url = reverse('login')
+
+            response = self.client.get(url)
+            self.assertEqual(response.status_code, 200)
+
+            response = self.client.post(url, form_data)
+            self.assertRedirects(response, settings.LOGIN_REDIRECT_URL)
+
+            url = reverse('switch_project_name', args=[project.name])
+
+            scoped._project['id'] = self.data.project_two.id
+
+            if next:
+                form_data.update({auth.REDIRECT_FIELD_NAME: next})
+            response = self.client.get(url, form_data)
+
+        if next and 'bad' not in next:
+            expected_url = next
+            self.assertEqual(response['location'], expected_url)
+        else:
+            self.assertRedirects(response, settings.LOGIN_REDIRECT_URL)
+
+        self.assertEqual(self.client.session['token'].project['id'],
+                         scoped.project_id)
+
+        mock_get_access.assert_called_once_with(IsA(session.Session))
+        mock_get_access_token.assert_called_with(IsA(session.Session))
+        mock_project_list.assert_called_once_with(
+            IsA(session.Session),
+            IsA(v3_auth.Password),
+            self.data.unscoped_access_info)
+
+    def test_switch_by_name_with_next(self):
+        self.test_switch_by_name(next='/next_url')
+
+    def test_switch_by_name_with_wrong_next(self):
+        self.test_switch_by_name(next='/bad_url')
 
     @mock.patch.object(v3_auth.Token, 'get_access')
     @mock.patch.object(password.PasswordPlugin, 'list_projects')

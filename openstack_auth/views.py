@@ -24,6 +24,7 @@ from django.middleware import csrf
 from django import shortcuts
 from django.urls import NoReverseMatch
 from django.urls import reverse
+from django.utils.decorators import method_decorator
 from django.utils import http
 from django.utils.translation import gettext_lazy as _
 from django.views.decorators.cache import never_cache
@@ -32,6 +33,7 @@ from django.views.decorators.csrf import csrf_protect
 from django.views.decorators.debug import sensitive_post_parameters
 from django.views.decorators.http import require_POST
 from django.views.generic import edit as edit_views
+from django.views import View
 from keystoneauth1 import exceptions as keystone_exceptions
 
 from openstack_auth import exceptions
@@ -301,62 +303,88 @@ def logout(request, login_url=None, **kwargs):
     )
 
 
-# TODO(stephenfin): Migrate to CBV
-@login_required
-def switch(request, tenant_id, redirect_field_name=auth.REDIRECT_FIELD_NAME):
-    """Switches an authenticated user from one project to another."""
-    LOG.debug('Switching to tenant %s for user "%s".',
-              tenant_id, request.user.username)
+class ProjectSwitchView(View):
+    def _get_token_auth_plugin_kwargs(self, request, project, domain=None):
+        """This need to be implemented by the view."""
+        return {}
 
-    endpoint, __ = utils.fix_auth_url_version_prefix(request.user.endpoint)
-    client_ip = utils.get_client_ip(request)
-    session = utils.get_session(original_ip=client_ip)
-    # Keystone can be configured to prevent exchanging a scoped token for
-    # another token. Always use the unscoped token for requesting a
-    # scoped token.
-    unscoped_token = request.user.unscoped_token
-    auth = utils.get_token_auth_plugin(auth_url=endpoint,
-                                       token=unscoped_token,
-                                       project_id=tenant_id)
+    def get(self, request, project):
+        LOG.debug('Switching to project %s for user "%s".',
+                  project, request.user.username)
+        endpoint, __ = utils.fix_auth_url_version_prefix(request.user.endpoint)
+        client_ip = utils.get_client_ip(request)
+        session = utils.get_session(original_ip=client_ip)
+        # Keystone can be configured to prevent exchanging a scoped token for
+        # another token. Always use the unscoped token for requesting a
+        # scoped token.
+        unscoped_token = request.user.unscoped_token
 
-    try:
-        auth_ref = auth.get_access(session)
-        msg = 'Project switch successful for user "%(username)s".' % \
-            {'username': request.user.username}
-        LOG.info(msg)
-    except keystone_exceptions.ClientException:
-        msg = (
-            _('Project switch failed for user "%(username)s".') %
-            {'username': request.user.username})
-        messages.error(request, msg)
-        auth_ref = None
-        LOG.exception('An error occurred while switching sessions.')
+        auth_plugin_kwargs = {
+            'auth_url': endpoint,
+            'token': unscoped_token,
+        }
+        requested_domain_id = request.GET.get('domain_id')
+        auth_plugin_kwargs.update(
+            self._get_token_auth_plugin_kwargs(
+                request, project, domain=requested_domain_id))
+        auth_plugin = utils.get_token_auth_plugin(**auth_plugin_kwargs)
 
-    # Ensure the user-originating redirection url is safe.
-    # Taken from django.contrib.auth.views.login()
-    redirect_to = request.GET.get(redirect_field_name, '')
-    if (not http.url_has_allowed_host_and_scheme(
-            url=redirect_to,
-            allowed_hosts=[request.get_host()])):
-        redirect_to = settings.LOGIN_REDIRECT_URL
+        try:
+            auth_ref = auth_plugin.get_access(session)
+            msg = 'Project switch successful for user "%(username)s".' % \
+                {'username': request.user.username}
+            LOG.info(msg)
+        except keystone_exceptions.ClientException:
+            msg = (
+                _('Project switch failed for user "%(username)s".') %
+                {'username': request.user.username})
+            messages.error(request, msg)
+            auth_ref = None
+            LOG.exception('An error occurred while switching sessions.')
 
-    if auth_ref:
-        user = auth_user.create_user_from_token(
-            request,
-            auth_user.Token(auth_ref, unscoped_token=unscoped_token),
-            endpoint)
-        auth_user.set_session_from_user(request, user)
-        message = (
-            _('Switch to project "%(project_name)s" successful.') %
-            {'project_name': request.user.project_name})
-        messages.success(request, message)
-    try:
-        response = shortcuts.redirect(redirect_to)
-    except NoReverseMatch:
-        response = django_http.HttpResponseRedirect(settings.LOGIN_REDIRECT_URL)
-    utils.set_response_cookie(response, 'recent_project',
-                              request.user.project_id)
-    return response
+        # Ensure the user-originating redirection url is safe.
+        # Taken from django.contrib.auth.views.login()
+        redirect_to = request.GET.get(auth.REDIRECT_FIELD_NAME, '')
+        if (not http.url_has_allowed_host_and_scheme(
+                url=redirect_to,
+                allowed_hosts=[request.get_host()])):
+            redirect_to = settings.LOGIN_REDIRECT_URL
+
+        if auth_ref:
+            user = auth_user.create_user_from_token(
+                request,
+                auth_user.Token(auth_ref, unscoped_token=unscoped_token),
+                endpoint)
+            auth_user.set_session_from_user(request, user)
+            message = (
+                _('Switch to project "%(project_name)s" successful.') %
+                {'project_name': request.user.project_name})
+            messages.success(request, message)
+        try:
+            response = shortcuts.redirect(redirect_to)
+        except NoReverseMatch:
+            response = django_http.HttpResponseRedirect(
+                settings.LOGIN_REDIRECT_URL)
+        utils.set_response_cookie(response, 'recent_project',
+                                  request.user.project_id)
+
+        return response
+
+
+@method_decorator(login_required, name="dispatch")
+class ProjectSwitchByIDView(ProjectSwitchView):
+    def _get_token_auth_plugin_kwargs(self, request, project, domain=None):
+        return {'project_id': project}
+
+
+@method_decorator(login_required, name="dispatch")
+class ProjectSwitchByNameView(ProjectSwitchView):
+    def _get_token_auth_plugin_kwargs(self, request, project, domain=None):
+        current_domain = request.user.token.project['domain_id']
+        return {
+            'project_name': project,
+            'project_domain_id': domain or current_domain,
+        }
 
 
 # TODO(stephenfin): Migrate to CBV
