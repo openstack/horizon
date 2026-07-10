@@ -36,5 +36,19 @@ horizon.string = {
       .replace(/"/g, '&quot;')
       .replace(/'/g, '&#x27;')
       .replace(/\//g, '&#x2F;');
+  },
+
+  /**
+   * A template tag for escaping HTML.
+   */
+  esc: function(strings, ...values) {
+    let output = "";
+    for (let [i, value] of values.entries()) {
+      output += strings[i];
+      if (typeof value !== "undefined") {
+        output += horizon.string.escapeHtml(value);
+      }
+    }
+    return output + strings[strings.length - 1];
   }
 };

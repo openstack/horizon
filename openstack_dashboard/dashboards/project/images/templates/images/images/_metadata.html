@@ -94,7 +94,7 @@
               </li>
             {% endfor %}
             {% for obj in namespace.objects %}
-            <li class="list-group-item list-group-item-action level-1 metadata-object metadata-collapsed" data-parentnamespace="{{ namespace.namespace }}" data-description="{{ obj.description }}" data-name="{{ obj.name }}">
+            <li class="list-group-item list-group-item-action level-1 metadata-object metadata-collapsed" data-parentnamespace="{{ namespace.namespace }}" data-description="{{ obj.description }}" data-name="{{ obj.name }}" data-title="{{ obj.name }}">
                 <div class="clearfix">
                   <div class="pull-left">
                       <span class="fa fa-chevron-right"></span> {{ obj.name }}
