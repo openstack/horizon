@@ -108,7 +108,7 @@ class AvailabilityZoneFilterAction(tables.FilterAction):
         q = filter_string.lower()
 
         def comp(availabilityZone):
-            return q in availabilityZone.zoneName.lower()
+            return q in availabilityZone.name.lower()
 
         return filter(comp, availability_zones)
 
@@ -123,7 +123,7 @@ def get_metadata(aggregate):
 
 
 def get_available(zone):
-    return zone.zoneState['available']
+    return zone.state['available']
 
 
 def get_zone_hosts(zone):
@@ -169,7 +169,7 @@ class HostAggregatesTable(tables.DataTable):
 
 
 class AvailabilityZonesTable(tables.DataTable):
-    name = tables.WrappingColumn('zoneName',
+    name = tables.WrappingColumn('name',
                                  verbose_name=_('Availability Zone Name'))
     hosts = tables.Column(get_zone_hosts,
                           verbose_name=_('Hosts'),
@@ -181,7 +181,7 @@ class AvailabilityZonesTable(tables.DataTable):
                               filters=(filters.yesno, filters.capfirst))
 
     def get_object_id(self, zone):
-        return zone.zoneName
+        return zone.name
 
     class Meta(object):
         name = "availability_zones"

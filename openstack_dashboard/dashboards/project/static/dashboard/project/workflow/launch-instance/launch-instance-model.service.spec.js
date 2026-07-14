@@ -34,10 +34,10 @@
         },
         getAvailabilityZones: function() {
           var zones = [
-            { zoneName: 'zone-1', zoneState: { available: true } },
-            { zoneName: 'zone-2', zoneState: { available: true } },
-            { zoneName: 'invalid-zone-1' },
-            { zoneName: 'invalid-zone-2' }
+            { name: 'zone-1', state: { available: true } },
+            { name: 'zone-2', state: { available: true } },
+            { name: 'invalid-zone-1' },
+            { name: 'invalid-zone-2' }
           ];
 
           var deferred = $q.defer();

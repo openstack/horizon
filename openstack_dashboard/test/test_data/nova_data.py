@@ -15,7 +15,6 @@
 import json
 
 from novaclient.v2 import aggregates
-from novaclient.v2 import availability_zones
 from novaclient.v2 import flavor_access
 from novaclient.v2 import flavors
 from novaclient.v2 import hypervisors
@@ -26,6 +25,9 @@ from novaclient.v2 import servers
 from novaclient.v2 import services
 from novaclient.v2 import usage
 from novaclient.v2 import volumes
+
+from openstack.compute.v2 import availability_zone as az_resource
+from openstack.test import fakes
 
 from openstack_dashboard.api import base
 from openstack_dashboard.usage import quotas as usage_quotas
@@ -439,17 +441,15 @@ def data(TEST):
     TEST.usages.add(usage_obj_3)
 
     # Availability Zones
-    TEST.availability_zones.add(availability_zones.AvailabilityZone(
-        availability_zones.AvailabilityZoneManager(None),
-        {
-            'zoneName': 'nova',
-            'zoneState': {'available': True},
-            'hosts': {
-                "host001": {
-                    "nova-network": {
-                        "active": True,
-                        "available": True,
-                    },
+    TEST.availability_zones.add(fakes.generate_fake_resource(
+        az_resource.AvailabilityZone,
+        name='nova',
+        state={'available': True},
+        hosts={
+            "host001": {
+                "nova-network": {
+                    "active": True,
+                    "available": True,
                 },
             },
         },
