@@ -18,6 +18,12 @@
   font-size: 0;
 }
 
+@media (min-width: $screen-sm-min) {
+  .navbar-header {
+    min-width: $sidebar-width - 15px;
+  }
+}
+
 .topbar {
   .navbar {
     margin-bottom: 1px;
