@@ -476,38 +476,6 @@ class NovaRestTestCase(test.RestAPITestCase):
             request, '1', {'a': '1', 'b': '2', 'c': None, 'd': None}
         )
 
-    #
-    # Services
-    #
-    @test.create_mocks({api.base: ['is_service_enabled'],
-                        api.nova: ['service_list']})
-    def test_services_get(self):
-        request = self.mock_rest_request(GET={})
-        self.mock_service_list.return_value = [
-            mock.Mock(**{'to_dict.return_value': {'id': '1'}}),
-            mock.Mock(**{'to_dict.return_value': {'id': '2'}})
-        ]
-        self.mock_is_service_enabled.return_value = True
-
-        response = nova.Services().get(request)
-
-        self.assertStatusCode(response, 200)
-        self.assertEqual('{"items": [{"id": "1"}, {"id": "2"}]}',
-                         response.content.decode('utf-8'))
-        self.mock_service_list.assert_called_once_with(request)
-        self.mock_is_service_enabled.assert_called_once_with(request,
-                                                             'compute')
-
-    @mock.patch.object(api.base, 'is_service_enabled')
-    def test_services_get_disabled(self, mock_is_service_enabled):
-        request = self.mock_rest_request(GET={})
-        mock_is_service_enabled.return_value = False
-
-        response = nova.Services().get(request)
-
-        self.assertStatusCode(response, 501)
-        mock_is_service_enabled.assert_called_once_with(request, 'compute')
-
     @test.create_mocks({api.base: ['is_service_enabled'],
                         quotas: ['get_disabled_quotas'],
                         api.nova: ['default_quota_get']})
@@ -1137,3 +1105,46 @@ class AvailabilityZoneRestTestCase(test.RestAPITestCase):
         self.mock_computeclient.assert_called_once_with(request)
         self.computeclient.availability_zones.assert_called_once_with(
             details=detail)
+
+
+class ServiceRestTestCase(test.RestAPITestCase):
+
+    def setUp(self):
+        super().setUp()
+        patcher = mock.patch.object(
+            api._nova, 'computeclient', autospec=compute_v2.Proxy)
+        self.mock_computeclient = patcher.start()
+        self.computeclient = self.mock_computeclient.return_value
+        self.addCleanup(patcher.stop)
+
+        service_enabled_patcher = mock.patch.object(
+            api.base, 'is_service_enabled')
+        self.mock_is_service_enabled = service_enabled_patcher.start()
+        self.addCleanup(service_enabled_patcher.stop)
+
+    def test_services_get(self):
+        request = self.mock_rest_request(GET={})
+        services = self.services.list()
+        self.computeclient.services.return_value = services
+        self.mock_is_service_enabled.return_value = True
+
+        response = nova.Services().get(request)
+
+        self.assertStatusCode(response, 200)
+        self.assertEqual(
+            [service.to_dict() for service in services],
+            response.json['items'])
+        self.mock_computeclient.assert_called_once_with(request)
+        self.computeclient.services.assert_called_once_with()
+        self.mock_is_service_enabled.assert_called_once_with(request,
+                                                             'compute')
+
+    def test_services_get_disabled(self):
+        request = self.mock_rest_request(GET={})
+        self.mock_is_service_enabled.return_value = False
+
+        response = nova.Services().get(request)
+
+        self.assertStatusCode(response, 501)
+        self.mock_is_service_enabled.assert_called_once_with(request,
+                                                             'compute')

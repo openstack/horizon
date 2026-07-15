@@ -22,11 +22,11 @@ from novaclient.v2 import keypairs
 from novaclient.v2 import quotas
 from novaclient.v2 import server_groups
 from novaclient.v2 import servers
-from novaclient.v2 import services
 from novaclient.v2 import usage
 from novaclient.v2 import volumes
 
 from openstack.compute.v2 import availability_zone as az_resource
+from openstack.compute.v2 import service as service_resource
 from openstack.test import fakes
 
 from openstack_dashboard.api import base
@@ -556,45 +556,49 @@ def data(TEST):
     }
 
     # Services
-    service_1 = services.Service(services.ServiceManager(None), {
-        "status": "enabled",
-        "binary": "nova-conductor",
-        "zone": "internal",
-        "state": "up",
-        "updated_at": "2013-07-08T05:21:00.000000",
-        "host": "devstack001",
-        "disabled_reason": None,
-    })
+    service_1 = fakes.generate_fake_resource(
+        service_resource.Service,
+        status="enabled",
+        binary="nova-conductor",
+        availability_zone="internal",
+        state="up",
+        updated_at="2013-07-08T05:21:00.000000",
+        host="devstack001",
+        disabled_reason=None,
+    )
 
-    service_2 = services.Service(services.ServiceManager(None), {
-        "status": "enabled",
-        "binary": "nova-compute",
-        "zone": "nova",
-        "state": "up",
-        "updated_at": "2013-07-08T05:20:51.000000",
-        "host": "devstack001",
-        "disabled_reason": None,
-    })
+    service_2 = fakes.generate_fake_resource(
+        service_resource.Service,
+        status="enabled",
+        binary="nova-compute",
+        availability_zone="nova",
+        state="up",
+        updated_at="2013-07-08T05:20:51.000000",
+        host="devstack001",
+        disabled_reason=None,
+    )
 
-    service_3 = services.Service(services.ServiceManager(None), {
-        "status": "enabled",
-        "binary": "nova-compute",
-        "zone": "nova",
-        "state": "down",
-        "updated_at": "2013-07-08T04:20:51.000000",
-        "host": "devstack002",
-        "disabled_reason": None,
-    })
+    service_3 = fakes.generate_fake_resource(
+        service_resource.Service,
+        status="enabled",
+        binary="nova-compute",
+        availability_zone="nova",
+        state="down",
+        updated_at="2013-07-08T04:20:51.000000",
+        host="devstack002",
+        disabled_reason=None,
+    )
 
-    service_4 = services.Service(services.ServiceManager(None), {
-        "status": "disabled",
-        "binary": "nova-compute",
-        "zone": "nova",
-        "state": "up",
-        "updated_at": "2013-07-08T04:20:51.000000",
-        "host": "devstack003",
-        "disabled_reason": None,
-    })
+    service_4 = fakes.generate_fake_resource(
+        service_resource.Service,
+        status="disabled",
+        binary="nova-compute",
+        availability_zone="nova",
+        state="up",
+        updated_at="2013-07-08T04:20:51.000000",
+        host="devstack003",
+        disabled_reason=None,
+    )
 
     TEST.services.add(service_1)
     TEST.services.add(service_2)
