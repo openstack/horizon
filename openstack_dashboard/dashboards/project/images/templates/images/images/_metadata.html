@@ -47,7 +47,7 @@
             </div>
             <div class="col-md-6">
               <div class="has-feedback">
-                <input class="form-control input-sm" type="text" placeholder="Filter">
+                <input class="form-control input-sm metadata-find-metadefs" type="text" placeholder="Filter">
                 <span class="fa fa-search form-control-feedback"></span>
               </div>
             </div>
@@ -139,7 +139,7 @@
             </div>
             <div class="col-md-6">
               <div class="has-feedback">
-                <input class="form-control input-sm" type="text" placeholder="Filter">
+                <input class="form-control input-sm metadata-find-properties" type="text" placeholder="Filter">
                 <span class="fa fa-search form-control-feedback"></span>
               </div>
             </div>
@@ -180,10 +180,10 @@
 </form>
 <script>horizon.MetadataTree.connect();</script>
 <style>
-    div.metadata-tree li.metadata-collapsed {
+    div.metadata-tree ul:not(.metadata-filtering) li.metadata-collapsed {
         display: none;
     }
-    div.metadata-tree li.metadata-objcollapsed {
+    div.metadata-tree ul:not(.metadata-filtering) li.metadata-objcollapsed {
         display: none;
     }
     div.metadata-tree li.metadata-used {

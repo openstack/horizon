@@ -22,6 +22,65 @@
       this.properties_init();
       this.objects_init();
       this.custom_init();
+      this.filter_init();
+    }
+
+    filter_init() {
+      const props = this.root.querySelector('input.metadata-find-properties');
+      const metadefs = this.root.querySelector('input.metadata-find-metadefs');
+      props.oninput = () => this.filter_properties_update(props);
+      metadefs.oninput = () => this.filter_metadefs_update(metadefs);
+    }
+
+    filter_match(element, value) {
+      for (let data of [
+        element.dataset.name,
+        element.dataset.title,
+        element.dataset.description,
+      ]) {
+        if (data && data.toLowerCase().includes(value)) {
+          return true;
+        }
+      }
+    }
+
+    filter_update(elements, value) {
+      if (value.length == 0) {
+        // Remove all filtering.
+        for (let element of elements) {
+          element.classList.remove('metadata-filtered');
+        }
+        return false;
+      }
+
+      for (let element of elements) {
+        if (this.filter_match(element, value)) {
+          element.classList.remove('metadata-filtered');
+        } else {
+          element.classList.add('metadata-filtered');
+        }
+      }
+      return true;
+    }
+
+    filter_metadefs_update(element) {
+      const value = element.value.toLowerCase();
+      const container = this.root.querySelector('ul.metadata-metadefs');
+      const elements = container.querySelectorAll('li');
+      if (this.filter_update(elements, value)) {
+        // Expand all parents, so all leaf nodes are visible.
+        // This is done in the CSS.
+        container.classList.add('metadata-filtering');
+      } else {
+        container.classList.remove('metadata-filtering');
+      }
+    }
+
+    filter_properties_update(element) {
+      const value = element.value.toLowerCase();
+      const container = this.root.querySelector('ul.metadata-properties');
+      const elements = container.querySelectorAll('li');
+      this.filter_update(elements, value);
     }
 
     custom_init() {
