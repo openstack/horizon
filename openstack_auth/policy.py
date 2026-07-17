@@ -236,9 +236,6 @@ def check(actions, request, target=None):
 
     credentials = _user_to_credentials(user)
     domain_credentials = _domain_to_credentials(request, user)
-    # if there is a domain token use the domain_id instead of the user's domain
-    if domain_credentials:
-        credentials['domain_id'] = domain_credentials.get('domain_id')
 
     enforcer = _get_enforcer()
 
@@ -268,14 +265,38 @@ def check(actions, request, target=None):
 
 def _check_credentials(enforcer_scope, action, target, credentials):
     is_valid = True
-    if not enforcer_scope.enforce(action, target, credentials):
+    try:
+        allowed = enforcer_scope.enforce(
+            action,
+            target,
+            credentials,
+            do_raise=True,
+        )
+    except policy.InvalidScope:
+        # Ignore oslo.policy token scope checks.
+        allowed = True
+    except policy.PolicyNotAuthorized:
+        allowed = False
+    if not allowed:
         # to match service implementations, if a rule is not found,
         # use the default rule for that service policy
         #
         # waiting to make the check because the first call to
         # enforce loads the rules
         if action not in enforcer_scope.rules:
-            if not enforcer_scope.enforce('default', target, credentials):
+            try:
+                allowed = enforcer_scope.enforce(
+                    'default',
+                    target,
+                    credentials,
+                    do_raise=True,
+                )
+            except policy.InvalidScope:
+                # Ignore oslo.policy token scope checks.
+                allowed = True
+            except policy.PolicyNotAuthorized:
+                allowed = False
+            if not allowed:
                 if 'default' in enforcer_scope.rules:
                     is_valid = False
         else:
@@ -291,7 +312,6 @@ def _user_to_credentials(user):
                              'project_id': user.project_id,
                              'tenant_id': user.project_id,
                              'project_name': user.project_name,
-                             'domain_id': user.user_domain_id,
                              'is_admin': user.is_superuser,
                              'roles': roles}
     return user._credentials
@@ -299,21 +319,24 @@ def _user_to_credentials(user):
 
 def _domain_to_credentials(request, user):
     if not hasattr(user, "_domain_credentials"):
+        credentials = None
         try:
             domain_auth_ref = request.session.get('domain_token')
 
             # no domain role or not running on V3
-            if not domain_auth_ref:
-                return None
-            domain_user = auth_user.create_user_from_token(
-                request, auth_user.Token(domain_auth_ref),
-                domain_auth_ref.service_catalog.url_for(interface=None))
-            user._domain_credentials = _user_to_credentials(domain_user)
-
-            # uses the domain_id associated with the domain_user
-            user._domain_credentials['domain_id'] = domain_user.domain_id
-
+            if domain_auth_ref:
+                domain_user = auth_user.create_user_from_token(
+                    request, auth_user.Token(domain_auth_ref),
+                    domain_auth_ref.service_catalog.url_for(interface=None))
+                credentials = dict(_user_to_credentials(domain_user))
+                # uses the domain_id associated with the domain_user
+                credentials['domain_id'] = domain_user.domain_id
         except Exception:
             LOG.warning("Failed to create user from domain scoped token.")
-            return None
+
+        if credentials is None:
+            credentials = dict(_user_to_credentials(user))
+            credentials['domain_id'] = user.domain_id
+
+        user._domain_credentials = credentials
     return user._domain_credentials
