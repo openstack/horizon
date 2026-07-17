@@ -16,7 +16,6 @@ neutron-fwaas-dashboard,:opendev-repo:`openstack/neutron-fwaas-dashboard`,:launc
 octavia-dashboard,:opendev-repo:`openstack/octavia-dashboard`,:storyboard:`openstack/octavia-dashboard`
 tacker-horizon,:opendev-repo:`openstack/tacker-horizon`,:launchpad:`tacker`
 trove-dashboard,:opendev-repo:`openstack/trove-dashboard`,:launchpad:`trove-dashboard`
-vitrage-dashboard,:opendev-repo:`openstack/vitrage-dashboard`,:storyboard:`openstack/vitrage-dashboard`
 watcher-dashboard,:opendev-repo:`openstack/watcher-dashboard`,:launchpad:`watcher-dashboard`
 zaqar-ui,:opendev-repo:`openstack/zaqar-ui`,:launchpad:`zaqar-ui`
 zun-ui,:opendev-repo:`openstack/zun-ui`,:launchpad:`zun-ui`
