@@ -8,9 +8,9 @@
 # Andi Chandler <andi@gowling.com>, 2026. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 25.8.0.dev45\n"
+"Project-Id-Version: horizon 26.0.1.dev23\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-04-23 15:13+0000\n"
+"POT-Creation-Date: 2026-07-15 20:54+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -7850,9 +7850,6 @@ msgstr ""
 
 msgid "Switchable Fields"
 msgstr "Switchable Fields"
-
-msgid "Switches an authenticated user from one project to another."
-msgstr "Switches an authenticated user from one project to another."
 
 msgid "Switches an authenticated user from one system to another."
 msgstr "Switches an authenticated user from one system to another."
