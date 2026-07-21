@@ -1808,7 +1808,8 @@ class InstanceTests(InstanceTestBase):
             helpers.IsHttpRequest(), server.id, "snapshot1")
         self.mock_image_list_detailed.assert_called_once_with(
             helpers.IsHttpRequest(), marker=None, paginate=True,
-            reversed_order=False, sort_dir='asc', sort_key='name')
+            filters={}, reversed_order=False, sort_dir='asc',
+            sort_key='name')
 
     @django.test.utils.override_settings(
         OPENSTACK_ENABLE_PASSWORD_RETRIEVE=False)

@@ -73,6 +73,7 @@ class ImagesAndSnapshotsTests(BaseImagesTestCase):
         self.mock_image_list.assert_called_once_with(test.IsHttpRequest(),
                                                      marker=None,
                                                      paginate=True,
+                                                     filters={},
                                                      sort_dir='asc',
                                                      sort_key='name',
                                                      reversed_order=False)
@@ -85,6 +86,7 @@ class ImagesAndSnapshotsTests(BaseImagesTestCase):
         self.mock_image_list.assert_called_once_with(test.IsHttpRequest(),
                                                      marker=None,
                                                      paginate=True,
+                                                     filters={},
                                                      sort_dir='asc',
                                                      sort_key='name',
                                                      reversed_order=False)
@@ -99,6 +101,7 @@ class ImagesAndSnapshotsTests(BaseImagesTestCase):
         self.mock_image_list.assert_called_once_with(test.IsHttpRequest(),
                                                      marker=None,
                                                      paginate=True,
+                                                     filters={},
                                                      sort_dir='asc',
                                                      sort_key='name',
                                                      reversed_order=False)
@@ -140,6 +143,7 @@ class ImagesAndSnapshotsTests(BaseImagesTestCase):
         self.mock_image_list.assert_called_once_with(test.IsHttpRequest(),
                                                      marker=None,
                                                      paginate=True,
+                                                     filters={},
                                                      sort_dir='asc',
                                                      sort_key='name',
                                                      reversed_order=False)
@@ -416,7 +420,8 @@ class SeleniumTests(test.SeleniumTestCase):
         self.assertEqual(3, self.mock_image_list_detailed.call_count)
         self.mock_image_list_detailed.assert_has_calls([
             mock.call(test.IsHttpRequest(), marker=None, paginate=True,
-                      reversed_order=False, sort_dir='asc', sort_key='name'),
+                      filters={}, reversed_order=False, sort_dir='asc',
+                      sort_key='name'),
             mock.call(test.IsHttpRequest(), filters={'disk_format': 'aki'}),
             mock.call(test.IsHttpRequest(), filters={'disk_format': 'ari'}),
         ])
@@ -447,7 +452,8 @@ class SeleniumTests(test.SeleniumTestCase):
         self.assertEqual(3, self.mock_image_list_detailed.call_count)
         self.mock_image_list_detailed.assert_has_calls([
             mock.call(test.IsHttpRequest(), marker=None, paginate=True,
-                      reversed_order=False, sort_dir='asc', sort_key='name'),
+                      filters={}, reversed_order=False, sort_dir='asc',
+                      sort_key='name'),
             mock.call(test.IsHttpRequest(), filters={'disk_format': 'aki'}),
             mock.call(test.IsHttpRequest(), filters={'disk_format': 'ari'}),
         ])
