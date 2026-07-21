@@ -62,11 +62,13 @@ class ImagesAndSnapshotsTests(BaseImagesTestCase):
 
         self.assertEqual(len(images), 10)
         row_actions = images_table.get_row_actions(images[0])
-        self.assertEqual(len(row_actions), 5)
+        self.assertEqual(len(row_actions), 6)
+        self.assertIn('deactivate', [a.name for a in row_actions])
         row_actions = images_table.get_row_actions(images[1])
-        self.assertEqual(len(row_actions), 3)
+        self.assertEqual(len(row_actions), 4)
         self.assertNotIn('delete_image',
                          [a.name for a in row_actions])
+        self.assertIn('deactivate', [a.name for a in row_actions])
         row_actions = images_table.get_row_actions(images[2])
         self.assertEqual(len(row_actions), 4)
 
@@ -120,12 +122,13 @@ class ImagesAndSnapshotsTests(BaseImagesTestCase):
         row_actions = snaps.get_row_actions(snaps.data[0])
 
         # first instance - status active, owned
-        self.assertEqual(len(row_actions), 5)
+        self.assertEqual(len(row_actions), 6)
         self.assertEqual(row_actions[0].verbose_name, "Launch")
         self.assertEqual(row_actions[1].verbose_name, "Create Volume")
         self.assertEqual(row_actions[2].verbose_name, "Edit Image")
         self.assertEqual(row_actions[3].verbose_name, "Update Metadata")
-        self.assertEqual(row_actions[4].verbose_name, "Delete Image")
+        self.assertEqual(row_actions[4].verbose_name, "Deactivate Image")
+        self.assertEqual(row_actions[5].verbose_name, "Delete Image")
 
         row_actions = snaps.get_row_actions(snaps.data[1])
 
