@@ -19,7 +19,7 @@
 
       &:before {
         @include fa-icon-regular($fa-var-square);
-        content: '\f096';
+        content: unquote("\"#{ $fa-var-square }\"");
         width: 1em;
         vertical-align: middle;
       }
@@ -32,7 +32,7 @@
 
     // The checkbox - Checked
     &:checked + label:before {
-      content: '\f046';
+      content: unquote("\"#{ $fa-var-square-check }\"");
     }
   }
 }
