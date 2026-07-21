@@ -1004,20 +1004,22 @@ def server_group_get(request, servergroup_id):
 
 @profiler.trace
 def service_list(request, binary=None):
-    return _nova.novaclient(request).services.list(binary=binary)
+    query = {}
+    if binary is not None:
+        query['binary'] = binary
+    return list(_nova.computeclient(request).services(**query))
 
 
 @profiler.trace
 def service_enable(request, host, binary):
-    return _nova.novaclient(request).services.enable(host, binary)
+    return _nova.computeclient(request).enable_service(
+        None, host=host, binary=binary)
 
 
 @profiler.trace
 def service_disable(request, host, binary, reason=None):
-    if reason:
-        return _nova.novaclient(request).services.disable_log_reason(
-            host, binary, reason)
-    return _nova.novaclient(request).services.disable(host, binary)
+    return _nova.computeclient(request).disable_service(
+        None, host=host, binary=binary, disabled_reason=reason)
 
 
 @profiler.trace

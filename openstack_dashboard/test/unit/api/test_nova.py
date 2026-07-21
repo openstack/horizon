@@ -30,6 +30,7 @@ import openstack.compute.v2 as compute_v2
 from openstack.compute.v2 import availability_zone as az_resource
 from openstack.compute.v2 import flavor as flavor_resource
 from openstack.compute.v2 import keypair as keypair_resource
+from openstack.compute.v2 import service as service_resource
 from openstack.test import fakes
 
 from horizon import exceptions as horizon_exceptions
@@ -982,3 +983,76 @@ class KeypairApiTests(test.APIMockTestCase):
         self.assertIsNone(api_val)
         self.mock_computeclient.assert_called_once_with(self.request)
         self.computeclient.delete_keypair.assert_called_once_with(keypair.name)
+
+
+class ServiceApiTests(test.APIMockTestCase):
+
+    def setUp(self):
+        super().setUp()
+        self.computeclient = mock.create_autospec(
+            compute_v2.Proxy, instance=True)
+        patcher = mock.patch.object(
+            api._nova, 'computeclient', return_value=self.computeclient)
+        self.mock_computeclient = patcher.start()
+        self.addCleanup(patcher.stop)
+
+    def test_service_list(self):
+        services = self.services.list()
+        self.computeclient.services.return_value = services
+
+        api_services = api.nova.service_list(self.request)
+
+        self.assertEqual(len(services), len(api_services))
+        self.assertIsInstance(api_services[0], service_resource.Service)
+        self.mock_computeclient.assert_called_once_with(self.request)
+        self.computeclient.services.assert_called_once_with()
+
+    def test_service_list_with_binary(self):
+        services = self.services.list()
+        self.computeclient.services.return_value = services
+
+        api_services = api.nova.service_list(
+            self.request, binary='nova-compute')
+
+        self.assertEqual(len(services), len(api_services))
+        self.mock_computeclient.assert_called_once_with(self.request)
+        self.computeclient.services.assert_called_once_with(
+            binary='nova-compute')
+
+    def test_service_enable(self):
+        service = self.services.first()
+        self.computeclient.enable_service.return_value = service
+
+        api_service = api.nova.service_enable(
+            self.request, 'devstack001', 'nova-compute')
+
+        self.assertEqual(api_service, service)
+        self.mock_computeclient.assert_called_once_with(self.request)
+        self.computeclient.enable_service.assert_called_once_with(
+            None, host='devstack001', binary='nova-compute')
+
+    def test_service_disable(self):
+        service = self.services.first()
+        self.computeclient.disable_service.return_value = service
+
+        api_service = api.nova.service_disable(
+            self.request, 'devstack001', 'nova-compute')
+
+        self.assertEqual(api_service, service)
+        self.mock_computeclient.assert_called_once_with(self.request)
+        self.computeclient.disable_service.assert_called_once_with(
+            None, host='devstack001', binary='nova-compute',
+            disabled_reason=None)
+
+    def test_service_disable_with_reason(self):
+        service = self.services.first()
+        self.computeclient.disable_service.return_value = service
+
+        api_service = api.nova.service_disable(
+            self.request, 'devstack001', 'nova-compute',
+            reason='maintenance')
+
+        self.assertEqual(api_service, service)
+        self.computeclient.disable_service.assert_called_once_with(
+            None, host='devstack001', binary='nova-compute',
+            disabled_reason='maintenance')

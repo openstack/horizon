@@ -104,7 +104,8 @@ def get_agent_status(agent):
 class NovaServicesTable(tables.DataTable):
     binary = tables.Column("binary", verbose_name=_('Name'))
     host = tables.WrappingColumn('host', verbose_name=_('Host'))
-    zone = tables.Column('zone', verbose_name=_('Zone'))
+    availability_zone = tables.Column(
+        'availability_zone', verbose_name=_('Zone'))
     status = tables.Column(get_agent_status, verbose_name=_('Status'))
     state = tables.Column('state', verbose_name=_('State'),
                           display_choices=SERVICE_STATE_DISPLAY_CHOICES)
@@ -116,7 +117,7 @@ class NovaServicesTable(tables.DataTable):
                                         filters.timesince))
 
     def get_object_id(self, obj):
-        return "%s-%s-%s" % (obj.binary, obj.host, obj.zone)
+        return "%s-%s-%s" % (obj.binary, obj.host, obj.availability_zone)
 
     class Meta(object):
         name = "nova_services"
