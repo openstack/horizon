@@ -19,7 +19,7 @@
 
       &:before {
         @include fa-icon-regular($fa-var-circle);
-        content: '\f111';
+        content: unquote("\"#{ $fa-var-circle }\"");
       }
 
       & > span {
@@ -30,7 +30,7 @@
 
     // Radio Button - Checked
     &:checked + label:before {
-      content: '\f192';
+      content: unquote("\"#{ $fa-var-circle-dot }\"");
     }
   }
 }

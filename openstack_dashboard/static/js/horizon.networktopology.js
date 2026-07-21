@@ -60,7 +60,7 @@ function Server(data) {
     }
   }
   this.iconType = 'text';
-  this.icon = '\uf108'; // Server
+  this.icon = '\uf390'; // Server (desktop)
   this.networks = [];
   this.type = 'instance';
   this.ip_addresses = [];
@@ -472,7 +472,7 @@ horizon.network_topology = {
       case 'text':
         nodeEnter.append('text')
           .style('fill', 'black')
-          .style('font', '20px FontAwesome')
+          .style('font', '900 20px "Font Awesome 6 Free"')
           .attr('text-anchor', 'middle')
           .attr('dominant-baseline', 'central')
           .text(function(d) { return d.data.icon; })
