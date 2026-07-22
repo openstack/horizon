@@ -1,11 +1,14 @@
 # Rule for cloud admin access
 #"context_is_admin": "role:admin"
 
+# Rule for context with global access to the resources
+#"context_with_global_access": "!"
+
 # Default rule for the service-to-service APIs.
 #"service_api": "role:service"
 
 # Rule for resource owner access
-#"owner": "tenant_id:%(tenant_id)s"
+#"owner": "project_id:%(project_id)s"
 
 # Rule for admin or owner access
 #"admin_or_owner": "rule:context_is_admin or rule:owner"
@@ -14,13 +17,13 @@
 #"context_is_advsvc": "role:advsvc"
 
 # Rule for admin or network owner access
-#"admin_or_network_owner": "rule:context_is_admin or tenant_id:%(network:tenant_id)s"
+#"admin_or_network_owner": "rule:context_is_admin or project_id:%(network:project_id)s"
 
 # Rule for resource owner, admin or network owner access
 #"admin_owner_or_network_owner": "rule:owner or rule:admin_or_network_owner"
 
 # Rule for network owner access
-#"network_owner": "tenant_id:%(network:tenant_id)s"
+#"network_owner": "project_id:%(network:project_id)s"
 
 # Rule for admin-only access
 #"admin_only": "rule:context_is_admin"
@@ -35,16 +38,27 @@
 #"default": "rule:admin_or_owner"
 
 # Rule for common parent owner check
-#"admin_or_ext_parent_owner": "rule:context_is_admin or tenant_id:%(ext_parent:tenant_id)s"
+#"admin_or_ext_parent_owner": "rule:context_is_admin or project_id:%(ext_parent:project_id)s"
 
 # Rule for common parent owner check
-#"ext_parent_owner": "tenant_id:%(ext_parent:tenant_id)s"
+#"ext_parent_owner": "project_id:%(ext_parent:project_id)s"
 
 # Rule for security group owner access
-#"sg_owner": "tenant_id:%(security_group:tenant_id)s"
+#"sg_owner": "project_id:%(security_group:project_id)s"
 
 # Definition of a shared address group
 #"shared_address_groups": "field:address_groups:shared=True"
+
+# Create an address group
+# POST  /address-groups
+# Intended scope(s): project
+#"create_address_group": "(rule:admin_only) or (role:member and project_id:%(project_id)s)"
+
+# DEPRECATED
+# "create_address_group":"rule:regular_user" has been deprecated since
+# W in favor of "create_address_group":"(rule:admin_only) or
+# (role:member and project_id:%(project_id)s)".
+# The Address group API now supports system scope and default roles.
 
 # Get an address group
 # GET  /address-groups
@@ -57,7 +71,51 @@
 # rule:shared_address_groups" has been deprecated since W in favor of
 # "get_address_group":"(rule:admin_only) or (role:reader and
 # project_id:%(project_id)s) or rule:shared_address_groups".
-# The Address scope API now supports system scope and default roles.
+# The Address group API now supports system scope and default roles.
+
+# Update an address group
+# PUT  /address-groups/{id}
+# Intended scope(s): project
+#"update_address_group": "(rule:admin_only) or (role:member and project_id:%(project_id)s)"
+
+# DEPRECATED
+# "update_address_group":"rule:admin_or_owner" has been deprecated
+# since W in favor of "update_address_group":"(rule:admin_only) or
+# (role:member and project_id:%(project_id)s)".
+# The Address group API now supports system scope and default roles.
+
+# Delete an address group
+# DELETE  /address-groups/{id}
+# Intended scope(s): project
+#"delete_address_group": "(rule:admin_only) or (role:member and project_id:%(project_id)s)"
+
+# DEPRECATED
+# "delete_address_group":"rule:admin_or_owner" has been deprecated
+# since W in favor of "delete_address_group":"(rule:admin_only) or
+# (role:member and project_id:%(project_id)s)".
+# The Address group API now supports system scope and default roles.
+
+# Add addresses to an address group
+# PUT  /address-groups/{id}/add_addresses
+# Intended scope(s): project
+#"add_addresses": "(rule:admin_only) or (role:member and project_id:%(project_id)s)"
+
+# DEPRECATED
+# "add_addresses":"rule:admin_or_owner" has been deprecated since W in
+# favor of "add_addresses":"(rule:admin_only) or (role:member and
+# project_id:%(project_id)s)".
+# The Address group API now supports system scope and default roles.
+
+# Remove addresses from an address group
+# PUT  /address-groups/{id}/remove_addresses
+# Intended scope(s): project
+#"remove_addresses": "(rule:admin_only) or (role:member and project_id:%(project_id)s)"
+
+# DEPRECATED
+# "remove_addresses":"rule:admin_or_owner" has been deprecated since W
+# in favor of "remove_addresses":"(rule:admin_only) or (role:member
+# and project_id:%(project_id)s)".
+# The Address group API now supports system scope and default roles.
 
 # Definition of a shared address scope
 #"shared_address_scopes": "field:address_scopes:shared=True"
@@ -127,6 +185,11 @@
 # since W in favor of "delete_address_scope":"(rule:admin_only) or
 # (role:member and project_id:%(project_id)s)".
 # The Address scope API now supports system scope and default roles.
+
+# Create an agent
+# POST  /agents
+# Intended scope(s): project
+#"create_agent": "rule:admin_only"
 
 # Get an agent
 # GET  /agents
@@ -207,6 +270,16 @@
 # DEPRECATED
 # "get_l3-routers":"rule:admin_only" has been deprecated since W in
 # favor of "get_l3-routers":"rule:admin_only".
+# The Agent API now supports project scope and default roles.
+
+# Update a router in an L3 agent
+# PUT  /agents/{agent_id}/l3-routers/{router_id}
+# Intended scope(s): project
+#"update_l3-router": "rule:admin_only"
+
+# DEPRECATED
+# "update_l3-router":"rule:admin_only" has been deprecated since W in
+# favor of "update_l3-router":"rule:admin_only".
 # The Agent API now supports project scope and default roles.
 
 # Remove a router from an L3 agent
@@ -312,6 +385,17 @@
 # "delete_default_security_group_rule":"rule:admin_only".
 # The default security group rules API supports system scope and
 # default roles.
+
+# Specify ``evpn_vni`` attribute when creating a router
+# POST  /routers
+# Intended scope(s): project
+#"create_router:evpn_vni": "rule:admin_only"
+
+# Get ``evpn_vni`` attribute of a router
+# GET  /routers
+# GET  /routers/{id}
+# Intended scope(s): project
+#"get_router:evpn_vni": "(rule:admin_only) or (role:reader and project_id:%(project_id)s)"
 
 # Create a flavor
 # POST  /flavors
@@ -443,13 +527,36 @@
 # Create a floating IP with a specific IP address
 # POST  /floatingips
 # Intended scope(s): project
-#"create_floatingip:floating_ip_address": "rule:admin_only"
+#"create_floatingip:floating_ip_address": "(rule:admin_only) or (role:manager and project_id:%(project_id)s)"
 
 # DEPRECATED
 # "create_floatingip:floating_ip_address":"rule:admin_only" has been
 # deprecated since W in favor of
-# "create_floatingip:floating_ip_address":"rule:admin_only".
+# "create_floatingip:floating_ip_address":"(rule:admin_only) or
+# (role:manager and project_id:%(project_id)s)".
 # The Floating IP API now supports system scope and default roles.
+
+# Create the floating IP tags
+# POST  /floatingips/{id}/tags
+# Intended scope(s): project
+#"create_floatingip:tags": "(rule:admin_only) or (role:member and project_id:%(project_id)s)"
+
+# DEPRECATED
+# "create_floatingips_tags":"(rule:admin_only) or (role:member and
+# project_id:%(project_id)s)" has been deprecated since 2025.1 in
+# favor of "create_floatingip:tags":"(rule:admin_only) or (role:member
+# and project_id:%(project_id)s)".
+# Name of the rule is changed.
+# WARNING: A rule name change has been identified.
+#          This may be an artifact of new rules being
+#          included which require legacy fallback
+#          rules to ensure proper policy behavior.
+#          Alternatively, this may just be an alias.
+#          Please evaluate on a case by case basis
+#          keeping in mind the format for aliased
+#          rules is:
+#          "old_rule_name": "new_rule_name".
+# "create_floatingips_tags": "rule:create_floatingip:tags"
 
 # Get a floating IP
 # GET  /floatingips
@@ -467,7 +574,24 @@
 # GET  /floatingips/{id}/tags
 # GET  /floatingips/{id}/tags/{tag_id}
 # Intended scope(s): project
-#"get_floatingips_tags": "(rule:admin_only) or (role:reader and project_id:%(project_id)s)"
+#"get_floatingip:tags": "(rule:admin_only) or (role:reader and project_id:%(project_id)s)"
+
+# DEPRECATED
+# "get_floatingips_tags":"(rule:admin_only) or (role:reader and
+# project_id:%(project_id)s)" has been deprecated since 2025.1 in
+# favor of "get_floatingip:tags":"(rule:admin_only) or (role:reader
+# and project_id:%(project_id)s)".
+# Name of the rule is changed.
+# WARNING: A rule name change has been identified.
+#          This may be an artifact of new rules being
+#          included which require legacy fallback
+#          rules to ensure proper policy behavior.
+#          Alternatively, this may just be an alias.
+#          Please evaluate on a case by case basis
+#          keeping in mind the format for aliased
+#          rules is:
+#          "old_rule_name": "new_rule_name".
+# "get_floatingips_tags": "rule:get_floatingip:tags"
 
 # Update a floating IP
 # PUT  /floatingips/{id}
@@ -484,7 +608,24 @@
 # PUT  /floatingips/{id}/tags
 # PUT  /floatingips/{id}/tags/{tag_id}
 # Intended scope(s): project
-#"update_floatingips_tags": "(rule:admin_only) or (role:member and project_id:%(project_id)s)"
+#"update_floatingip:tags": "(rule:admin_only) or (role:member and project_id:%(project_id)s)"
+
+# DEPRECATED
+# "update_floatingips_tags":"(rule:admin_only) or (role:member and
+# project_id:%(project_id)s)" has been deprecated since 2025.1 in
+# favor of "update_floatingip:tags":"(rule:admin_only) or (role:member
+# and project_id:%(project_id)s)".
+# Name of the rule is changed.
+# WARNING: A rule name change has been identified.
+#          This may be an artifact of new rules being
+#          included which require legacy fallback
+#          rules to ensure proper policy behavior.
+#          Alternatively, this may just be an alias.
+#          Please evaluate on a case by case basis
+#          keeping in mind the format for aliased
+#          rules is:
+#          "old_rule_name": "new_rule_name".
+# "update_floatingips_tags": "rule:update_floatingip:tags"
 
 # Delete a floating IP
 # DELETE  /floatingips/{id}
@@ -501,7 +642,24 @@
 # DELETE  /floatingips/{id}/tags
 # DELETE  /floatingips/{id}/tags/{tag_id}
 # Intended scope(s): project
-#"delete_floatingips_tags": "(rule:admin_only) or (role:member and project_id:%(project_id)s)"
+#"delete_floatingip:tags": "(rule:admin_only) or (role:member and project_id:%(project_id)s)"
+
+# DEPRECATED
+# "delete_floatingips_tags":"(rule:admin_only) or (role:member and
+# project_id:%(project_id)s)" has been deprecated since 2025.1 in
+# favor of "delete_floatingip:tags":"(rule:admin_only) or (role:member
+# and project_id:%(project_id)s)".
+# Name of the rule is changed.
+# WARNING: A rule name change has been identified.
+#          This may be an artifact of new rules being
+#          included which require legacy fallback
+#          rules to ensure proper policy behavior.
+#          Alternatively, this may just be an alias.
+#          Please evaluate on a case by case basis
+#          keeping in mind the format for aliased
+#          rules is:
+#          "old_rule_name": "new_rule_name".
+# "delete_floatingips_tags": "rule:delete_floatingip:tags"
 
 # Get floating IP pools
 # GET  /floatingip_pools
@@ -571,13 +729,13 @@
 # Create a router conntrack helper
 # POST  /routers/{router_id}/conntrack_helpers
 # Intended scope(s): project
-#"create_router_conntrack_helper": "(rule:admin_only) or (role:member and project_id:%(project_id)s) or rule:ext_parent_owner"
+#"create_router_conntrack_helper": "(rule:admin_only) or (role:member and rule:ext_parent_owner)"
 
 # DEPRECATED
 # "create_router_conntrack_helper":"rule:admin_or_ext_parent_owner"
 # has been deprecated since W in favor of
 # "create_router_conntrack_helper":"(rule:admin_only) or (role:member
-# and project_id:%(project_id)s) or rule:ext_parent_owner".
+# and rule:ext_parent_owner)".
 # The router conntrack API now supports system scope and default
 # roles.
 
@@ -585,39 +743,39 @@
 # GET  /routers/{router_id}/conntrack_helpers
 # GET  /routers/{router_id}/conntrack_helpers/{conntrack_helper_id}
 # Intended scope(s): project
-#"get_router_conntrack_helper": "(rule:admin_only) or (role:reader and project_id:%(project_id)s) or rule:ext_parent_owner"
+#"get_router_conntrack_helper": "(rule:admin_only) or (role:reader and rule:ext_parent_owner)"
 
 # DEPRECATED
 # "get_router_conntrack_helper":"rule:admin_or_ext_parent_owner" has
 # been deprecated since W in favor of
 # "get_router_conntrack_helper":"(rule:admin_only) or (role:reader and
-# project_id:%(project_id)s) or rule:ext_parent_owner".
+# rule:ext_parent_owner)".
 # The router conntrack API now supports system scope and default
 # roles.
 
 # Update a router conntrack helper
 # PUT  /routers/{router_id}/conntrack_helpers/{conntrack_helper_id}
 # Intended scope(s): project
-#"update_router_conntrack_helper": "(rule:admin_only) or (role:member and project_id:%(project_id)s) or rule:ext_parent_owner"
+#"update_router_conntrack_helper": "(rule:admin_only) or (role:member and rule:ext_parent_owner)"
 
 # DEPRECATED
 # "update_router_conntrack_helper":"rule:admin_or_ext_parent_owner"
 # has been deprecated since W in favor of
 # "update_router_conntrack_helper":"(rule:admin_only) or (role:member
-# and project_id:%(project_id)s) or rule:ext_parent_owner".
+# and rule:ext_parent_owner)".
 # The router conntrack API now supports system scope and default
 # roles.
 
 # Delete a router conntrack helper
 # DELETE  /routers/{router_id}/conntrack_helpers/{conntrack_helper_id}
 # Intended scope(s): project
-#"delete_router_conntrack_helper": "(rule:admin_only) or (role:member and project_id:%(project_id)s) or rule:ext_parent_owner"
+#"delete_router_conntrack_helper": "(rule:admin_only) or (role:member and rule:ext_parent_owner)"
 
 # DEPRECATED
 # "delete_router_conntrack_helper":"rule:admin_or_ext_parent_owner"
 # has been deprecated since W in favor of
 # "delete_router_conntrack_helper":"(rule:admin_only) or (role:member
-# and project_id:%(project_id)s) or rule:ext_parent_owner".
+# and rule:ext_parent_owner)".
 # The router conntrack API now supports system scope and default
 # roles.
 
@@ -669,101 +827,105 @@
 # Create a Local IP port association
 # POST  /local_ips/{local_ip_id}/port_associations
 # Intended scope(s): project
-#"create_local_ip_port_association": "(rule:admin_only) or (role:member and project_id:%(project_id)s) or rule:ext_parent_owner"
+#"create_local_ip_port_association": "(rule:admin_only) or (role:member and rule:ext_parent_owner)"
 
 # DEPRECATED
 # "create_local_ip_port_association":"rule:admin_or_ext_parent_owner"
 # has been deprecated since W in favor of
 # "create_local_ip_port_association":"(rule:admin_only) or
-# (role:member and project_id:%(project_id)s) or
-# rule:ext_parent_owner".
+# (role:member and rule:ext_parent_owner)".
 # The Local IP API now supports system scope and default roles.
 
 # Get a Local IP port association
 # GET  /local_ips/{local_ip_id}/port_associations
 # GET  /local_ips/{local_ip_id}/port_associations/{fixed_port_id}
 # Intended scope(s): project
-#"get_local_ip_port_association": "(rule:admin_only) or (role:reader and project_id:%(project_id)s) or rule:ext_parent_owner"
+#"get_local_ip_port_association": "(rule:admin_only) or (role:reader and rule:ext_parent_owner)"
 
 # DEPRECATED
 # "get_local_ip_port_association":"rule:admin_or_ext_parent_owner" has
 # been deprecated since W in favor of
 # "get_local_ip_port_association":"(rule:admin_only) or (role:reader
-# and project_id:%(project_id)s) or rule:ext_parent_owner".
+# and rule:ext_parent_owner)".
 # The Local IP API now supports system scope and default roles.
 
 # Delete a Local IP port association
 # DELETE  /local_ips/{local_ip_id}/port_associations/{fixed_port_id}
 # Intended scope(s): project
-#"delete_local_ip_port_association": "(rule:admin_only) or (role:member and project_id:%(project_id)s) or rule:ext_parent_owner"
+#"delete_local_ip_port_association": "(rule:admin_only) or (role:member and rule:ext_parent_owner)"
 
 # DEPRECATED
 # "delete_local_ip_port_association":"rule:admin_or_ext_parent_owner"
 # has been deprecated since W in favor of
 # "delete_local_ip_port_association":"(rule:admin_only) or
-# (role:member and project_id:%(project_id)s) or
-# rule:ext_parent_owner".
+# (role:member and rule:ext_parent_owner)".
 # The Local IP API now supports system scope and default roles.
 
 # Get loggable resources
 # GET  /log/loggable-resources
 # Intended scope(s): project
-#"get_loggable_resource": "rule:admin_only"
+#"get_loggable_resource": "(rule:admin_only) or (role:manager and project_id:%(project_id)s)"
 
 # DEPRECATED
 # "get_loggable_resource":"rule:admin_only" has been deprecated since
-# W in favor of "get_loggable_resource":"rule:admin_only".
+# W in favor of "get_loggable_resource":"(rule:admin_only) or
+# (role:manager and project_id:%(project_id)s)".
 # The logging API now supports project scope and default roles.
 
 # Create a network log
 # POST  /log/logs
 # Intended scope(s): project
-#"create_log": "rule:admin_only"
+#"create_log": "(rule:admin_only) or (role:manager and project_id:%(project_id)s)"
 
 # DEPRECATED
 # "create_log":"rule:admin_only" has been deprecated since W in favor
-# of "create_log":"rule:admin_only".
+# of "create_log":"(rule:admin_only) or (role:manager and
+# project_id:%(project_id)s)".
 # The logging API now supports project scope and default roles.
 
 # Get a network log
 # GET  /log/logs
 # GET  /log/logs/{id}
 # Intended scope(s): project
-#"get_log": "rule:admin_only"
+#"get_log": "(rule:admin_only) or (role:manager and project_id:%(project_id)s)"
 
 # DEPRECATED
 # "get_log":"rule:admin_only" has been deprecated since W in favor of
-# "get_log":"rule:admin_only".
+# "get_log":"(rule:admin_only) or (role:manager and
+# project_id:%(project_id)s)".
 # The logging API now supports project scope and default roles.
 
 # Update a network log
 # PUT  /log/logs/{id}
 # Intended scope(s): project
-#"update_log": "rule:admin_only"
+#"update_log": "(rule:admin_only) or (role:manager and project_id:%(project_id)s)"
 
 # DEPRECATED
 # "update_log":"rule:admin_only" has been deprecated since W in favor
-# of "update_log":"rule:admin_only".
+# of "update_log":"(rule:admin_only) or (role:manager and
+# project_id:%(project_id)s)".
 # The logging API now supports project scope and default roles.
 
 # Delete a network log
 # DELETE  /log/logs/{id}
 # Intended scope(s): project
-#"delete_log": "rule:admin_only"
+#"delete_log": "(rule:admin_only) or (role:manager and project_id:%(project_id)s)"
 
 # DEPRECATED
 # "delete_log":"rule:admin_only" has been deprecated since W in favor
-# of "delete_log":"rule:admin_only".
+# of "delete_log":"(rule:admin_only) or (role:manager and
+# project_id:%(project_id)s)".
 # The logging API now supports project scope and default roles.
 
 # Create a metering label
 # POST  /metering/metering-labels
 # Intended scope(s): project
-#"create_metering_label": "rule:admin_only"
+#"create_metering_label": "(rule:admin_only) or (role:manager and project_id:%(project_id)s)"
 
 # DEPRECATED
 # "create_metering_label":"rule:admin_only" has been deprecated since
-# W in favor of "create_metering_label":"rule:admin_only".
+# W in favor of "create_metering_label":"(rule:admin_only) or
+# (role:manager and project_id:%(project_id)s)".
 # The metering API now supports system scope and default roles.
 
 # Get a metering label
@@ -781,21 +943,23 @@
 # Delete a metering label
 # DELETE  /metering/metering-labels/{id}
 # Intended scope(s): project
-#"delete_metering_label": "rule:admin_only"
+#"delete_metering_label": "(rule:admin_only) or (role:manager and project_id:%(project_id)s)"
 
 # DEPRECATED
 # "delete_metering_label":"rule:admin_only" has been deprecated since
-# W in favor of "delete_metering_label":"rule:admin_only".
+# W in favor of "delete_metering_label":"(rule:admin_only) or
+# (role:manager and project_id:%(project_id)s)".
 # The metering API now supports system scope and default roles.
 
 # Create a metering label rule
 # POST  /metering/metering-label-rules
 # Intended scope(s): project
-#"create_metering_label_rule": "rule:admin_only"
+#"create_metering_label_rule": "(rule:admin_only) or (role:manager and project_id:%(project_id)s)"
 
 # DEPRECATED
 # "create_metering_label_rule":"rule:admin_only" has been deprecated
-# since W in favor of "create_metering_label_rule":"rule:admin_only".
+# since W in favor of "create_metering_label_rule":"(rule:admin_only)
+# or (role:manager and project_id:%(project_id)s)".
 # The metering API now supports system scope and default roles.
 
 # Get a metering label rule
@@ -813,11 +977,12 @@
 # Delete a metering label rule
 # DELETE  /metering/metering-label-rules/{id}
 # Intended scope(s): project
-#"delete_metering_label_rule": "rule:admin_only"
+#"delete_metering_label_rule": "(rule:admin_only) or (role:manager and project_id:%(project_id)s)"
 
 # DEPRECATED
 # "delete_metering_label_rule":"rule:admin_only" has been deprecated
-# since W in favor of "delete_metering_label_rule":"rule:admin_only".
+# since W in favor of "delete_metering_label_rule":"(rule:admin_only)
+# or (role:manager and project_id:%(project_id)s)".
 # The metering API now supports system scope and default roles.
 
 # Create a ndp proxy
@@ -965,6 +1130,28 @@
 # "create_network:provider:segmentation_id":"rule:admin_only".
 # The network API now supports system scope and default roles.
 
+# Create the network tags
+# POST  /networks/{id}/tags
+# Intended scope(s): project
+#"create_network:tags": "(rule:admin_only) or (role:member and project_id:%(project_id)s)"
+
+# DEPRECATED
+# "create_networks_tags":"(rule:admin_only) or (role:member and
+# project_id:%(project_id)s)" has been deprecated since 2025.1 in
+# favor of "create_network:tags":"(rule:admin_only) or (role:member
+# and project_id:%(project_id)s)".
+# Name of the rule is changed.
+# WARNING: A rule name change has been identified.
+#          This may be an artifact of new rules being
+#          included which require legacy fallback
+#          rules to ensure proper policy behavior.
+#          Alternatively, this may just be an alias.
+#          Please evaluate on a case by case basis
+#          keeping in mind the format for aliased
+#          rules is:
+#          "old_rule_name": "new_rule_name".
+# "create_networks_tags": "rule:create_network:tags"
+
 # Get a network
 # GET  /networks
 # GET  /networks/{id}
@@ -1030,7 +1217,25 @@
 # GET  /networks/{id}/tags
 # GET  /networks/{id}/tags/{tag_id}
 # Intended scope(s): project
-#"get_networks_tags": "(rule:admin_only) or (role:reader and project_id:%(project_id)s) or rule:shared or rule:external or rule:context_is_advsvc"
+#"get_network:tags": "(rule:admin_only) or (role:reader and project_id:%(project_id)s) or rule:shared or rule:external or rule:context_is_advsvc"
+
+# DEPRECATED
+# "get_networks_tags":"(rule:admin_only) or (role:reader and
+# project_id:%(project_id)s)" has been deprecated since 2025.1 in
+# favor of "get_network:tags":"(rule:admin_only) or (role:reader and
+# project_id:%(project_id)s) or rule:shared or rule:external or
+# rule:context_is_advsvc".
+# Name of the rule is changed.
+# WARNING: A rule name change has been identified.
+#          This may be an artifact of new rules being
+#          included which require legacy fallback
+#          rules to ensure proper policy behavior.
+#          Alternatively, this may just be an alias.
+#          Please evaluate on a case by case basis
+#          keeping in mind the format for aliased
+#          rules is:
+#          "old_rule_name": "new_rule_name".
+# "get_networks_tags": "rule:get_network:tags"
 
 # Update a network
 # PUT  /networks/{id}
@@ -1133,7 +1338,24 @@
 # PUT  /networks/{id}/tags
 # PUT  /networks/{id}/tags/{tag_id}
 # Intended scope(s): project
-#"update_networks_tags": "(rule:admin_only) or (role:member and project_id:%(project_id)s)"
+#"update_network:tags": "(rule:admin_only) or (role:member and project_id:%(project_id)s)"
+
+# DEPRECATED
+# "update_networks_tags":"(rule:admin_only) or (role:member and
+# project_id:%(project_id)s)" has been deprecated since 2025.1 in
+# favor of "update_network:tags":"(rule:admin_only) or (role:member
+# and project_id:%(project_id)s)".
+# Name of the rule is changed.
+# WARNING: A rule name change has been identified.
+#          This may be an artifact of new rules being
+#          included which require legacy fallback
+#          rules to ensure proper policy behavior.
+#          Alternatively, this may just be an alias.
+#          Please evaluate on a case by case basis
+#          keeping in mind the format for aliased
+#          rules is:
+#          "old_rule_name": "new_rule_name".
+# "update_networks_tags": "rule:update_network:tags"
 
 # Delete a network
 # DELETE  /networks/{id}
@@ -1150,17 +1372,35 @@
 # DELETE  /networks/{id}/tags
 # DELETE  /networks/{id}/tags/{tag_id}
 # Intended scope(s): project
-#"delete_networks_tags": "(rule:admin_only) or (role:member and project_id:%(project_id)s)"
+#"delete_network:tags": "(rule:admin_only) or (role:member and project_id:%(project_id)s)"
+
+# DEPRECATED
+# "delete_networks_tags":"(rule:admin_only) or (role:member and
+# project_id:%(project_id)s)" has been deprecated since 2025.1 in
+# favor of "delete_network:tags":"(rule:admin_only) or (role:member
+# and project_id:%(project_id)s)".
+# Name of the rule is changed.
+# WARNING: A rule name change has been identified.
+#          This may be an artifact of new rules being
+#          included which require legacy fallback
+#          rules to ensure proper policy behavior.
+#          Alternatively, this may just be an alias.
+#          Please evaluate on a case by case basis
+#          keeping in mind the format for aliased
+#          rules is:
+#          "old_rule_name": "new_rule_name".
+# "delete_networks_tags": "rule:delete_network:tags"
 
 # Get network IP availability
 # GET  /network-ip-availabilities
 # GET  /network-ip-availabilities/{network_id}
 # Intended scope(s): project
-#"get_network_ip_availability": "rule:admin_only"
+#"get_network_ip_availability": "(rule:admin_only) or (rule:service_api)"
 
 # DEPRECATED
 # "get_network_ip_availability":"rule:admin_only" has been deprecated
-# since W in favor of "get_network_ip_availability":"rule:admin_only".
+# since W in favor of "get_network_ip_availability":"(rule:admin_only)
+# or (rule:service_api)".
 # The network IP availability API now support project scope and
 # default roles.
 
@@ -1175,6 +1415,27 @@
 # "create_network_segment_range":"rule:admin_only".
 # The network segment range API now supports project scope and default
 # roles.
+
+# Create the network segment range tags
+# POST  /network_segment_ranges/{id}/tags
+# Intended scope(s): project
+#"create_network_segment_range:tags": "rule:admin_only"
+
+# DEPRECATED
+# "create_network_segment_ranges_tags":"rule:admin_only" has been
+# deprecated since 2025.1 in favor of
+# "create_network_segment_range:tags":"rule:admin_only".
+# Name of the rule is changed.
+# WARNING: A rule name change has been identified.
+#          This may be an artifact of new rules being
+#          included which require legacy fallback
+#          rules to ensure proper policy behavior.
+#          Alternatively, this may just be an alias.
+#          Please evaluate on a case by case basis
+#          keeping in mind the format for aliased
+#          rules is:
+#          "old_rule_name": "new_rule_name".
+# "create_network_segment_ranges_tags": "rule:create_network_segment_range:tags"
 
 # Get a network segment range
 # GET  /network_segment_ranges
@@ -1192,7 +1453,23 @@
 # GET  /network_segment_ranges/{id}/tags
 # GET  /network_segment_ranges/{id}/tags/{tag_id}
 # Intended scope(s): project
-#"get_network_segment_ranges_tags": "rule:admin_only"
+#"get_network_segment_range:tags": "rule:admin_only"
+
+# DEPRECATED
+# "get_network_segment_ranges_tags":"rule:admin_only" has been
+# deprecated since 2025.1 in favor of
+# "get_network_segment_range:tags":"rule:admin_only".
+# Name of the rule is changed.
+# WARNING: A rule name change has been identified.
+#          This may be an artifact of new rules being
+#          included which require legacy fallback
+#          rules to ensure proper policy behavior.
+#          Alternatively, this may just be an alias.
+#          Please evaluate on a case by case basis
+#          keeping in mind the format for aliased
+#          rules is:
+#          "old_rule_name": "new_rule_name".
+# "get_network_segment_ranges_tags": "rule:get_network_segment_range:tags"
 
 # Update a network segment range
 # PUT  /network_segment_ranges/{id}
@@ -1210,7 +1487,23 @@
 # PUT  /network_segment_ranges/{id}/tags
 # PUT  /network_segment_ranges/{id}/tags/{tag_id}
 # Intended scope(s): project
-#"update_network_segment_ranges_tags": "rule:admin_only"
+#"update_network_segment_range:tags": "rule:admin_only"
+
+# DEPRECATED
+# "update_network_segment_ranges_tags":"rule:admin_only" has been
+# deprecated since 2025.1 in favor of
+# "update_network_segment_range:tags":"rule:admin_only".
+# Name of the rule is changed.
+# WARNING: A rule name change has been identified.
+#          This may be an artifact of new rules being
+#          included which require legacy fallback
+#          rules to ensure proper policy behavior.
+#          Alternatively, this may just be an alias.
+#          Please evaluate on a case by case basis
+#          keeping in mind the format for aliased
+#          rules is:
+#          "old_rule_name": "new_rule_name".
+# "update_network_segment_ranges_tags": "rule:update_network_segment_range:tags"
 
 # Delete a network segment range
 # DELETE  /network_segment_ranges/{id}
@@ -1228,7 +1521,23 @@
 # DELETE  /network_segment_ranges/{id}/tags
 # DELETE  /network_segment_ranges/{id}/tags/{tag_id}
 # Intended scope(s): project
-#"delete_network_segment_ranges_tags": "rule:admin_only"
+#"delete_network_segment_range:tags": "rule:admin_only"
+
+# DEPRECATED
+# "delete_network_segment_ranges_tags":"rule:admin_only" has been
+# deprecated since 2025.1 in favor of
+# "delete_network_segment_range:tags":"rule:admin_only".
+# Name of the rule is changed.
+# WARNING: A rule name change has been identified.
+#          This may be an artifact of new rules being
+#          included which require legacy fallback
+#          rules to ensure proper policy behavior.
+#          Alternatively, this may just be an alias.
+#          Please evaluate on a case by case basis
+#          keeping in mind the format for aliased
+#          rules is:
+#          "old_rule_name": "new_rule_name".
+# "delete_network_segment_ranges_tags": "rule:delete_network_segment_range:tags"
 
 # Get port binding information
 # GET  /ports/{port_id}/bindings/
@@ -1259,12 +1568,23 @@
 # Create a port
 # POST  /ports
 # Intended scope(s): project
-#"create_port": "(rule:admin_only) or (role:member and project_id:%(project_id)s) or rule:service_api"
+#"create_port": "(rule:admin_only) or (rule:service_api) or role:member and rule:network_owner or rule:shared"
 
 # DEPRECATED
 # "create_port":"rule:regular_user" has been deprecated since W in
-# favor of "create_port":"(rule:admin_only) or (role:member and
-# project_id:%(project_id)s) or rule:service_api".
+# favor of "create_port":"(rule:admin_only) or (rule:service_api) or
+# role:member and rule:network_owner or rule:shared".
+# The port API now supports project scope and default roles.
+
+# Specify ``device_id`` attribute when creating a port
+# POST  /ports
+# Intended scope(s): project
+#"create_port:device_id": "(rule:admin_only) or (role:member and project_id:%(project_id)s) or rule:service_api"
+
+# DEPRECATED
+# "create_port:device_id":"rule:regular_user" has been deprecated
+# since W in favor of "create_port:device_id":"(rule:admin_only) or
+# (role:member and project_id:%(project_id)s) or rule:service_api".
 # The port API now supports project scope and default roles.
 
 # Specify ``device_owner`` attribute when creating a port
@@ -1380,45 +1700,73 @@
 # Specify ``allowed_address_pairs`` attribute when creating a port
 # POST  /ports
 # Intended scope(s): project
-#"create_port:allowed_address_pairs": "(rule:admin_only) or (role:member and rule:network_owner)"
+#"create_port:allowed_address_pairs": "(rule:admin_only) or (role:member and rule:network_owner) or rule:service_api"
 
 # DEPRECATED
 # "create_port:allowed_address_pairs":"rule:admin_or_network_owner"
 # has been deprecated since W in favor of
 # "create_port:allowed_address_pairs":"(rule:admin_only) or
-# (role:member and rule:network_owner)".
+# (role:member and rule:network_owner) or rule:service_api".
 # The port API now supports project scope and default roles.
 
 # Specify ``mac_address` of `allowed_address_pairs`` attribute when
 # creating a port
 # POST  /ports
 # Intended scope(s): project
-#"create_port:allowed_address_pairs:mac_address": "(rule:admin_only) or (role:member and rule:network_owner)"
+#"create_port:allowed_address_pairs:mac_address": "(rule:admin_only) or (role:member and rule:network_owner) or rule:service_api"
 
 # DEPRECATED
 # "create_port:allowed_address_pairs:mac_address":"rule:admin_or_netwo
 # rk_owner" has been deprecated since W in favor of
 # "create_port:allowed_address_pairs:mac_address":"(rule:admin_only)
-# or (role:member and rule:network_owner)".
+# or (role:member and rule:network_owner) or rule:service_api".
 # The port API now supports project scope and default roles.
 
 # Specify ``ip_address`` of ``allowed_address_pairs`` attribute when
 # creating a port
 # POST  /ports
 # Intended scope(s): project
-#"create_port:allowed_address_pairs:ip_address": "(rule:admin_only) or (role:member and rule:network_owner)"
+#"create_port:allowed_address_pairs:ip_address": "(rule:admin_only) or (role:member and rule:network_owner) or rule:service_api"
 
 # DEPRECATED
 # "create_port:allowed_address_pairs:ip_address":"rule:admin_or_networ
 # k_owner" has been deprecated since W in favor of
 # "create_port:allowed_address_pairs:ip_address":"(rule:admin_only) or
-# (role:member and rule:network_owner)".
+# (role:member and rule:network_owner) or rule:service_api".
 # The port API now supports project scope and default roles.
 
 # Specify ``hints`` attribute when creating a port
 # POST  /ports
 # Intended scope(s): project
 #"create_port:hints": "rule:admin_only"
+
+# Specify ``trusted`` attribute when creating a port
+# POST  /ports
+# Intended scope(s): project
+#"create_port:trusted": "rule:admin_only"
+
+# Create the port tags
+# POST  /ports/{id}/tags
+# Intended scope(s): project
+#"create_port:tags": "(rule:admin_only) or (role:member and project_id:%(project_id)s) or rule:context_is_advsvc"
+
+# DEPRECATED
+# "create_ports_tags":"(rule:admin_only) or (role:member and
+# project_id:%(project_id)s) or rule:context_is_advsvc" has been
+# deprecated since 2025.1 in favor of
+# "create_port:tags":"(rule:admin_only) or (role:member and
+# project_id:%(project_id)s) or rule:context_is_advsvc".
+# Name of the rule is changed.
+# WARNING: A rule name change has been identified.
+#          This may be an artifact of new rules being
+#          included which require legacy fallback
+#          rules to ensure proper policy behavior.
+#          Alternatively, this may just be an alias.
+#          Please evaluate on a case by case basis
+#          keeping in mind the format for aliased
+#          rules is:
+#          "old_rule_name": "new_rule_name".
+# "create_ports_tags": "rule:create_port:tags"
 
 # Get a port
 # GET  /ports
@@ -1500,11 +1848,36 @@
 # Intended scope(s): project
 #"get_port:hints": "rule:admin_only"
 
+# Get ``trusted`` attribute of a port
+# GET  /ports
+# GET  /ports/{id}
+# Intended scope(s): project
+#"get_port:trusted": "rule:admin_only"
+
 # Get the port tags
 # GET  /ports/{id}/tags
 # GET  /ports/{id}/tags/{tag_id}
 # Intended scope(s): project
-#"get_ports_tags": "rule:context_is_advsvc or (rule:admin_only) or (role:reader and rule:network_owner) or role:reader and project_id:%(project_id)s"
+#"get_port:tags": "rule:context_is_advsvc or (rule:admin_only) or (role:reader and rule:network_owner) or role:reader and project_id:%(project_id)s"
+
+# DEPRECATED
+# "get_ports_tags":"rule:context_is_advsvc or (rule:admin_only) or
+# (role:reader and rule:network_owner) or role:reader and
+# project_id:%(project_id)s" has been deprecated since 2025.1 in favor
+# of "get_port:tags":"rule:context_is_advsvc or (rule:admin_only) or
+# (role:reader and rule:network_owner) or role:reader and
+# project_id:%(project_id)s".
+# Name of the rule is changed.
+# WARNING: A rule name change has been identified.
+#          This may be an artifact of new rules being
+#          included which require legacy fallback
+#          rules to ensure proper policy behavior.
+#          Alternatively, this may just be an alias.
+#          Please evaluate on a case by case basis
+#          keeping in mind the format for aliased
+#          rules is:
+#          "old_rule_name": "new_rule_name".
+# "get_ports_tags": "rule:get_port:tags"
 
 # Update a port
 # PUT  /ports/{id}
@@ -1515,6 +1888,17 @@
 # "update_port":"rule:admin_or_owner or rule:context_is_advsvc" has
 # been deprecated since W in favor of "update_port":"(rule:admin_only)
 # or (rule:service_api) or role:member and project_id:%(project_id)s".
+# The port API now supports project scope and default roles.
+
+# Update ``device_id`` attribute of a port
+# PUT  /ports/{id}
+# Intended scope(s): project
+#"update_port:device_id": "(rule:admin_only) or (role:member and project_id:%(project_id)s) or rule:service_api"
+
+# DEPRECATED
+# "update_port:device_id":"rule:regular_user" has been deprecated
+# since W in favor of "update_port:device_id":"(rule:admin_only) or
+# (role:member and project_id:%(project_id)s) or rule:service_api".
 # The port API now supports project scope and default roles.
 
 # Update ``device_owner`` attribute of a port
@@ -1533,12 +1917,13 @@
 # Update ``mac_address`` attribute of a port
 # PUT  /ports/{id}
 # Intended scope(s): project
-#"update_port:mac_address": "(rule:admin_only) or (rule:service_api)"
+#"update_port:mac_address": "(rule:admin_only) or (rule:service_api) or role:manager and rule:network_owner"
 
 # DEPRECATED
 # "update_port:mac_address":"rule:admin_only or
 # rule:context_is_advsvc" has been deprecated since W in favor of
-# "update_port:mac_address":"(rule:admin_only) or (rule:service_api)".
+# "update_port:mac_address":"(rule:admin_only) or (rule:service_api)
+# or role:manager and rule:network_owner".
 # The port API now supports project scope and default roles.
 
 # Specify ``fixed_ips`` information when updating a port
@@ -1628,39 +2013,39 @@
 # Update ``allowed_address_pairs`` attribute of a port
 # PUT  /ports/{id}
 # Intended scope(s): project
-#"update_port:allowed_address_pairs": "(rule:admin_only) or (role:member and rule:network_owner)"
+#"update_port:allowed_address_pairs": "(rule:admin_only) or (role:member and rule:network_owner) or rule:service_api"
 
 # DEPRECATED
 # "update_port:allowed_address_pairs":"rule:admin_or_network_owner"
 # has been deprecated since W in favor of
 # "update_port:allowed_address_pairs":"(rule:admin_only) or
-# (role:member and rule:network_owner)".
+# (role:member and rule:network_owner) or rule:service_api".
 # The port API now supports project scope and default roles.
 
 # Update ``mac_address`` of ``allowed_address_pairs`` attribute of a
 # port
 # PUT  /ports/{id}
 # Intended scope(s): project
-#"update_port:allowed_address_pairs:mac_address": "(rule:admin_only) or (role:member and rule:network_owner)"
+#"update_port:allowed_address_pairs:mac_address": "(rule:admin_only) or (role:member and rule:network_owner) or rule:service_api"
 
 # DEPRECATED
 # "update_port:allowed_address_pairs:mac_address":"rule:admin_or_netwo
 # rk_owner" has been deprecated since W in favor of
 # "update_port:allowed_address_pairs:mac_address":"(rule:admin_only)
-# or (role:member and rule:network_owner)".
+# or (role:member and rule:network_owner) or rule:service_api".
 # The port API now supports project scope and default roles.
 
 # Update ``ip_address`` of ``allowed_address_pairs`` attribute of a
 # port
 # PUT  /ports/{id}
 # Intended scope(s): project
-#"update_port:allowed_address_pairs:ip_address": "(rule:admin_only) or (role:member and rule:network_owner)"
+#"update_port:allowed_address_pairs:ip_address": "(rule:admin_only) or (role:member and rule:network_owner) or rule:service_api"
 
 # DEPRECATED
 # "update_port:allowed_address_pairs:ip_address":"rule:admin_or_networ
 # k_owner" has been deprecated since W in favor of
 # "update_port:allowed_address_pairs:ip_address":"(rule:admin_only) or
-# (role:member and rule:network_owner)".
+# (role:member and rule:network_owner) or rule:service_api".
 # The port API now supports project scope and default roles.
 
 # Update ``data_plane_status`` attribute of a port
@@ -1680,11 +2065,34 @@
 # Intended scope(s): project
 #"update_port:hints": "rule:admin_only"
 
+# Update ``trusted`` attribute of a port
+# PUT  /ports/{id}
+# Intended scope(s): project
+#"update_port:trusted": "rule:admin_only"
+
 # Update the port tags
 # PUT  /ports/{id}/tags
 # PUT  /ports/{id}/tags/{tag_id}
 # Intended scope(s): project
-#"update_ports_tags": "(rule:admin_only) or (role:member and project_id:%(project_id)s) or rule:context_is_advsvc"
+#"update_port:tags": "(rule:admin_only) or (role:member and project_id:%(project_id)s) or rule:context_is_advsvc"
+
+# DEPRECATED
+# "update_ports_tags":"(rule:admin_only) or (role:member and
+# project_id:%(project_id)s) or rule:context_is_advsvc" has been
+# deprecated since 2025.1 in favor of
+# "update_port:tags":"(rule:admin_only) or (role:member and
+# project_id:%(project_id)s) or rule:context_is_advsvc".
+# Name of the rule is changed.
+# WARNING: A rule name change has been identified.
+#          This may be an artifact of new rules being
+#          included which require legacy fallback
+#          rules to ensure proper policy behavior.
+#          Alternatively, this may just be an alias.
+#          Please evaluate on a case by case basis
+#          keeping in mind the format for aliased
+#          rules is:
+#          "old_rule_name": "new_rule_name".
+# "update_ports_tags": "rule:update_port:tags"
 
 # Delete a port
 # DELETE  /ports/{id}
@@ -1703,7 +2111,74 @@
 # DELETE  /ports/{id}/tags
 # DELETE  /ports/{id}/tags/{tag_id}
 # Intended scope(s): project
-#"delete_ports_tags": "rule:context_is_advsvc or role:member and project_id:%(project_id)s or (rule:admin_only) or (role:member and rule:network_owner)"
+#"delete_port:tags": "rule:context_is_advsvc or role:member and project_id:%(project_id)s or (rule:admin_only) or (role:member and rule:network_owner)"
+
+# DEPRECATED
+# "delete_ports_tags":"rule:context_is_advsvc or role:member and
+# project_id:%(project_id)s or (rule:admin_only) or (role:member and
+# rule:network_owner)" has been deprecated since 2025.1 in favor of
+# "delete_port:tags":"rule:context_is_advsvc or role:member and
+# project_id:%(project_id)s or (rule:admin_only) or (role:member and
+# rule:network_owner)".
+# Name of the rule is changed.
+# WARNING: A rule name change has been identified.
+#          This may be an artifact of new rules being
+#          included which require legacy fallback
+#          rules to ensure proper policy behavior.
+#          Alternatively, this may just be an alias.
+#          Please evaluate on a case by case basis
+#          keeping in mind the format for aliased
+#          rules is:
+#          "old_rule_name": "new_rule_name".
+# "delete_ports_tags": "rule:delete_port:tags"
+
+# Specify ``pvlan_type`` attribute when creating a port
+# POST  /ports
+# Intended scope(s): project
+#"create_port:pvlan_type": "(rule:admin_only) or (role:member and project_id:%(project_id)s)"
+
+# Specify ``pvlan_community`` attribute when creating a port
+# POST  /ports
+# Intended scope(s): project
+#"create_port:pvlan_community": "(rule:admin_only) or (role:member and project_id:%(project_id)s)"
+
+# Update ``pvlan_type`` attribute of a port
+# PUT  /ports/{id}
+# Intended scope(s): project
+#"update_port:pvlan_type": "(rule:admin_only) or (role:member and project_id:%(project_id)s)"
+
+# Update ``pvlan_community`` attribute of a port
+# PUT  /ports/{id}
+# Intended scope(s): project
+#"update_port:pvlan_community": "(rule:admin_only) or (role:member and project_id:%(project_id)s)"
+
+# Get ``pvlan_type`` attribute of a port
+# GET  /ports
+# GET  /ports/{id}
+# Intended scope(s): project
+#"get_port:pvlan_type": "(rule:admin_only) or (role:reader and project_id:%(project_id)s)"
+
+# Get ``pvlan_community`` attribute of a port
+# GET  /ports
+# GET  /ports/{id}
+# Intended scope(s): project
+#"get_port:pvlan_community": "(rule:admin_only) or (role:reader and project_id:%(project_id)s)"
+
+# Specify ``pvlan`` attribute when creating a network
+# POST  /networks
+# Intended scope(s): project
+#"create_network:pvlan": "(rule:admin_only) or (role:member and project_id:%(project_id)s)"
+
+# Update ``pvlan`` attribute of a network
+# PUT  /networks/{id}
+# Intended scope(s): project
+#"update_network:pvlan": "(rule:admin_only) or (role:member and project_id:%(project_id)s)"
+
+# Get ``pvlan`` attribute of a network
+# GET  /networks
+# GET  /networks/{id}
+# Intended scope(s): project
+#"get_network:pvlan": "(rule:admin_only) or (role:reader and project_id:%(project_id)s)"
 
 # Rule of shared qos policy
 #"shared_qos_policy": "field:policies:shared=True"
@@ -1720,35 +2195,130 @@
 # project_id:%(project_id)s) or rule:shared_qos_policy".
 # The QoS API now supports project scope and default roles.
 
+# Get QoS policy tags
+# GET  /qos/policies/{id}/tags
+# GET  /qos/policies/{id}/tags/{tag_id}
+# Intended scope(s): project
+#"get_policy:tags": "(rule:admin_only) or (role:reader and project_id:%(project_id)s) or rule:shared_qos_policy"
+
+# DEPRECATED
+# "get_policies_tags":"(rule:admin_only) or (role:reader and
+# project_id:%(project_id)s) or rule:shared_qos_policy" has been
+# deprecated since 2025.1 in favor of
+# "get_policy:tags":"(rule:admin_only) or (role:reader and
+# project_id:%(project_id)s) or rule:shared_qos_policy".
+# Name of the rule is changed.
+# WARNING: A rule name change has been identified.
+#          This may be an artifact of new rules being
+#          included which require legacy fallback
+#          rules to ensure proper policy behavior.
+#          Alternatively, this may just be an alias.
+#          Please evaluate on a case by case basis
+#          keeping in mind the format for aliased
+#          rules is:
+#          "old_rule_name": "new_rule_name".
+# "get_policies_tags": "rule:get_policy:tags"
+
 # Create a QoS policy
 # POST  /qos/policies
 # Intended scope(s): project
-#"create_policy": "rule:admin_only"
+#"create_policy": "(rule:admin_only) or (role:manager and project_id:%(project_id)s)"
 
 # DEPRECATED
 # "create_policy":"rule:admin_only" has been deprecated since W in
-# favor of "create_policy":"rule:admin_only".
+# favor of "create_policy":"(rule:admin_only) or (role:manager and
+# project_id:%(project_id)s)".
 # The QoS API now supports project scope and default roles.
+
+# Create the QoS policy tags
+# POST  /qos/policies/{id}/tags
+# Intended scope(s): project
+#"create_policy:tags": "(rule:admin_only) or (role:manager and project_id:%(project_id)s)"
+
+# DEPRECATED
+# "create_policies_tags":"(rule:admin_only) or (role:manager and
+# project_id:%(project_id)s)" has been deprecated since 2025.1 in
+# favor of "create_policy:tags":"(rule:admin_only) or (role:manager
+# and project_id:%(project_id)s)".
+# Name of the rule is changed.
+# WARNING: A rule name change has been identified.
+#          This may be an artifact of new rules being
+#          included which require legacy fallback
+#          rules to ensure proper policy behavior.
+#          Alternatively, this may just be an alias.
+#          Please evaluate on a case by case basis
+#          keeping in mind the format for aliased
+#          rules is:
+#          "old_rule_name": "new_rule_name".
+# "create_policies_tags": "rule:create_policy:tags"
 
 # Update a QoS policy
 # PUT  /qos/policies/{id}
 # Intended scope(s): project
-#"update_policy": "rule:admin_only"
+#"update_policy": "(rule:admin_only) or (role:manager and project_id:%(project_id)s)"
 
 # DEPRECATED
 # "update_policy":"rule:admin_only" has been deprecated since W in
-# favor of "update_policy":"rule:admin_only".
+# favor of "update_policy":"(rule:admin_only) or (role:manager and
+# project_id:%(project_id)s)".
 # The QoS API now supports project scope and default roles.
+
+# Update the QoS policy tags
+# PUT  /qos/policies/{id}/tags
+# PUT  /qos/policies/{id}/tags/{tag_id}
+# Intended scope(s): project
+#"update_policy:tags": "(rule:admin_only) or (role:manager and project_id:%(project_id)s)"
+
+# DEPRECATED
+# "update_policies_tags":"(rule:admin_only) or (role:manager and
+# project_id:%(project_id)s)" has been deprecated since 2025.1 in
+# favor of "update_policy:tags":"(rule:admin_only) or (role:manager
+# and project_id:%(project_id)s)".
+# Name of the rule is changed.
+# WARNING: A rule name change has been identified.
+#          This may be an artifact of new rules being
+#          included which require legacy fallback
+#          rules to ensure proper policy behavior.
+#          Alternatively, this may just be an alias.
+#          Please evaluate on a case by case basis
+#          keeping in mind the format for aliased
+#          rules is:
+#          "old_rule_name": "new_rule_name".
+# "update_policies_tags": "rule:update_policy:tags"
 
 # Delete a QoS policy
 # DELETE  /qos/policies/{id}
 # Intended scope(s): project
-#"delete_policy": "rule:admin_only"
+#"delete_policy": "(rule:admin_only) or (role:manager and project_id:%(project_id)s)"
 
 # DEPRECATED
 # "delete_policy":"rule:admin_only" has been deprecated since W in
-# favor of "delete_policy":"rule:admin_only".
+# favor of "delete_policy":"(rule:admin_only) or (role:manager and
+# project_id:%(project_id)s)".
 # The QoS API now supports project scope and default roles.
+
+# Delete the QoS policy tags
+# DELETE  /qos/policies/{id}/tags
+# DELETE  /qos/policies/{id}/tags/{tag_id}
+# Intended scope(s): project
+#"delete_policy:tags": "(rule:admin_only) or (role:manager and project_id:%(project_id)s)"
+
+# DEPRECATED
+# "delete_policies_tags":"(rule:admin_only) or (role:manager and
+# project_id:%(project_id)s)" has been deprecated since 2025.1 in
+# favor of "delete_policy:tags":"(rule:admin_only) or (role:manager
+# and project_id:%(project_id)s)".
+# Name of the rule is changed.
+# WARNING: A rule name change has been identified.
+#          This may be an artifact of new rules being
+#          included which require legacy fallback
+#          rules to ensure proper policy behavior.
+#          Alternatively, this may just be an alias.
+#          Please evaluate on a case by case basis
+#          keeping in mind the format for aliased
+#          rules is:
+#          "old_rule_name": "new_rule_name".
+# "delete_policies_tags": "rule:delete_policy:tags"
 
 # Get available QoS rule types
 # GET  /qos/rule-types
@@ -1777,34 +2347,37 @@
 # Create a QoS bandwidth limit rule
 # POST  /qos/policies/{policy_id}/bandwidth_limit_rules
 # Intended scope(s): project
-#"create_policy_bandwidth_limit_rule": "rule:admin_only"
+#"create_policy_bandwidth_limit_rule": "(rule:admin_only) or (role:manager and rule:ext_parent_owner)"
 
 # DEPRECATED
 # "create_policy_bandwidth_limit_rule":"rule:admin_only" has been
 # deprecated since W in favor of
-# "create_policy_bandwidth_limit_rule":"rule:admin_only".
+# "create_policy_bandwidth_limit_rule":"(rule:admin_only) or
+# (role:manager and rule:ext_parent_owner)".
 # The QoS API now supports project scope and default roles.
 
 # Update a QoS bandwidth limit rule
 # PUT  /qos/policies/{policy_id}/bandwidth_limit_rules/{rule_id}
 # Intended scope(s): project
-#"update_policy_bandwidth_limit_rule": "rule:admin_only"
+#"update_policy_bandwidth_limit_rule": "(rule:admin_only) or (role:manager and rule:ext_parent_owner)"
 
 # DEPRECATED
 # "update_policy_bandwidth_limit_rule":"rule:admin_only" has been
 # deprecated since W in favor of
-# "update_policy_bandwidth_limit_rule":"rule:admin_only".
+# "update_policy_bandwidth_limit_rule":"(rule:admin_only) or
+# (role:manager and rule:ext_parent_owner)".
 # The QoS API now supports project scope and default roles.
 
 # Delete a QoS bandwidth limit rule
 # DELETE  /qos/policies/{policy_id}/bandwidth_limit_rules/{rule_id}
 # Intended scope(s): project
-#"delete_policy_bandwidth_limit_rule": "rule:admin_only"
+#"delete_policy_bandwidth_limit_rule": "(rule:admin_only) or (role:manager and rule:ext_parent_owner)"
 
 # DEPRECATED
 # "delete_policy_bandwidth_limit_rule":"rule:admin_only" has been
 # deprecated since W in favor of
-# "delete_policy_bandwidth_limit_rule":"rule:admin_only".
+# "delete_policy_bandwidth_limit_rule":"(rule:admin_only) or
+# (role:manager and rule:ext_parent_owner)".
 # The QoS API now supports project scope and default roles.
 
 # Get a QoS packet rate limit rule
@@ -1816,17 +2389,17 @@
 # Create a QoS packet rate limit rule
 # POST  /qos/policies/{policy_id}/packet_rate_limit_rules
 # Intended scope(s): project
-#"create_policy_packet_rate_limit_rule": "rule:admin_only"
+#"create_policy_packet_rate_limit_rule": "(rule:admin_only) or (role:manager and rule:ext_parent_owner)"
 
 # Update a QoS packet rate limit rule
 # PUT  /qos/policies/{policy_id}/packet_rate_limit_rules/{rule_id}
 # Intended scope(s): project
-#"update_policy_packet_rate_limit_rule": "rule:admin_only"
+#"update_policy_packet_rate_limit_rule": "(rule:admin_only) or (role:manager and rule:ext_parent_owner)"
 
 # Delete a QoS packet rate limit rule
 # DELETE  /qos/policies/{policy_id}/packet_rate_limit_rules/{rule_id}
 # Intended scope(s): project
-#"delete_policy_packet_rate_limit_rule": "rule:admin_only"
+#"delete_policy_packet_rate_limit_rule": "(rule:admin_only) or (role:manager and rule:ext_parent_owner)"
 
 # Get a QoS DSCP marking rule
 # GET  /qos/policies/{policy_id}/dscp_marking_rules
@@ -1844,34 +2417,37 @@
 # Create a QoS DSCP marking rule
 # POST  /qos/policies/{policy_id}/dscp_marking_rules
 # Intended scope(s): project
-#"create_policy_dscp_marking_rule": "rule:admin_only"
+#"create_policy_dscp_marking_rule": "(rule:admin_only) or (role:manager and rule:ext_parent_owner)"
 
 # DEPRECATED
 # "create_policy_dscp_marking_rule":"rule:admin_only" has been
 # deprecated since W in favor of
-# "create_policy_dscp_marking_rule":"rule:admin_only".
+# "create_policy_dscp_marking_rule":"(rule:admin_only) or
+# (role:manager and rule:ext_parent_owner)".
 # The QoS API now supports project scope and default roles.
 
 # Update a QoS DSCP marking rule
 # PUT  /qos/policies/{policy_id}/dscp_marking_rules/{rule_id}
 # Intended scope(s): project
-#"update_policy_dscp_marking_rule": "rule:admin_only"
+#"update_policy_dscp_marking_rule": "(rule:admin_only) or (role:manager and rule:ext_parent_owner)"
 
 # DEPRECATED
 # "update_policy_dscp_marking_rule":"rule:admin_only" has been
 # deprecated since W in favor of
-# "update_policy_dscp_marking_rule":"rule:admin_only".
+# "update_policy_dscp_marking_rule":"(rule:admin_only) or
+# (role:manager and rule:ext_parent_owner)".
 # The QoS API now supports project scope and default roles.
 
 # Delete a QoS DSCP marking rule
 # DELETE  /qos/policies/{policy_id}/dscp_marking_rules/{rule_id}
 # Intended scope(s): project
-#"delete_policy_dscp_marking_rule": "rule:admin_only"
+#"delete_policy_dscp_marking_rule": "(rule:admin_only) or (role:manager and rule:ext_parent_owner)"
 
 # DEPRECATED
 # "delete_policy_dscp_marking_rule":"rule:admin_only" has been
 # deprecated since W in favor of
-# "delete_policy_dscp_marking_rule":"rule:admin_only".
+# "delete_policy_dscp_marking_rule":"(rule:admin_only) or
+# (role:manager and rule:ext_parent_owner)".
 # The QoS API now supports project scope and default roles.
 
 # Get a QoS minimum bandwidth rule
@@ -1890,34 +2466,37 @@
 # Create a QoS minimum bandwidth rule
 # POST  /qos/policies/{policy_id}/minimum_bandwidth_rules
 # Intended scope(s): project
-#"create_policy_minimum_bandwidth_rule": "rule:admin_only"
+#"create_policy_minimum_bandwidth_rule": "(rule:admin_only) or (role:manager and rule:ext_parent_owner)"
 
 # DEPRECATED
 # "create_policy_minimum_bandwidth_rule":"rule:admin_only" has been
 # deprecated since W in favor of
-# "create_policy_minimum_bandwidth_rule":"rule:admin_only".
+# "create_policy_minimum_bandwidth_rule":"(rule:admin_only) or
+# (role:manager and rule:ext_parent_owner)".
 # The QoS API now supports project scope and default roles.
 
 # Update a QoS minimum bandwidth rule
 # PUT  /qos/policies/{policy_id}/minimum_bandwidth_rules/{rule_id}
 # Intended scope(s): project
-#"update_policy_minimum_bandwidth_rule": "rule:admin_only"
+#"update_policy_minimum_bandwidth_rule": "(rule:admin_only) or (role:manager and rule:ext_parent_owner)"
 
 # DEPRECATED
 # "update_policy_minimum_bandwidth_rule":"rule:admin_only" has been
 # deprecated since W in favor of
-# "update_policy_minimum_bandwidth_rule":"rule:admin_only".
+# "update_policy_minimum_bandwidth_rule":"(rule:admin_only) or
+# (role:manager and rule:ext_parent_owner)".
 # The QoS API now supports project scope and default roles.
 
 # Delete a QoS minimum bandwidth rule
 # DELETE  /qos/policies/{policy_id}/minimum_bandwidth_rules/{rule_id}
 # Intended scope(s): project
-#"delete_policy_minimum_bandwidth_rule": "rule:admin_only"
+#"delete_policy_minimum_bandwidth_rule": "(rule:admin_only) or (role:manager and rule:ext_parent_owner)"
 
 # DEPRECATED
 # "delete_policy_minimum_bandwidth_rule":"rule:admin_only" has been
 # deprecated since W in favor of
-# "delete_policy_minimum_bandwidth_rule":"rule:admin_only".
+# "delete_policy_minimum_bandwidth_rule":"(rule:admin_only) or
+# (role:manager and rule:ext_parent_owner)".
 # The QoS API now supports project scope and default roles.
 
 # Get a QoS minimum packet rate rule
@@ -1929,17 +2508,17 @@
 # Create a QoS minimum packet rate rule
 # POST  /qos/policies/{policy_id}/minimum_packet_rate_rules
 # Intended scope(s): project
-#"create_policy_minimum_packet_rate_rule": "rule:admin_only"
+#"create_policy_minimum_packet_rate_rule": "(rule:admin_only) or (role:manager and rule:ext_parent_owner)"
 
 # Update a QoS minimum packet rate rule
 # PUT  /qos/policies/{policy_id}/minimum_packet_rate_rules/{rule_id}
 # Intended scope(s): project
-#"update_policy_minimum_packet_rate_rule": "rule:admin_only"
+#"update_policy_minimum_packet_rate_rule": "(rule:admin_only) or (role:manager and rule:ext_parent_owner)"
 
 # Delete a QoS minimum packet rate rule
 # DELETE  /qos/policies/{policy_id}/minimum_packet_rate_rules/{rule_id}
 # Intended scope(s): project
-#"delete_policy_minimum_packet_rate_rule": "rule:admin_only"
+#"delete_policy_minimum_packet_rate_rule": "(rule:admin_only) or (role:manager and rule:ext_parent_owner)"
 
 # Get a QoS bandwidth limit rule through alias
 # GET  /qos/alias_bandwidth_limit_rules/{rule_id}/
@@ -1956,23 +2535,25 @@
 # Update a QoS bandwidth limit rule through alias
 # PUT  /qos/alias_bandwidth_limit_rules/{rule_id}/
 # Intended scope(s): project
-#"update_alias_bandwidth_limit_rule": "rule:admin_only"
+#"update_alias_bandwidth_limit_rule": "(rule:admin_only) or (role:manager and rule:ext_parent_owner)"
 
 # DEPRECATED
 # "update_alias_bandwidth_limit_rule":"rule:admin_only" has been
 # deprecated since W in favor of
-# "update_alias_bandwidth_limit_rule":"rule:admin_only".
+# "update_alias_bandwidth_limit_rule":"(rule:admin_only) or
+# (role:manager and rule:ext_parent_owner)".
 # The QoS API now supports project scope and default roles.
 
 # Delete a QoS bandwidth limit rule through alias
 # DELETE  /qos/alias_bandwidth_limit_rules/{rule_id}/
 # Intended scope(s): project
-#"delete_alias_bandwidth_limit_rule": "rule:admin_only"
+#"delete_alias_bandwidth_limit_rule": "(rule:admin_only) or (role:manager and rule:ext_parent_owner)"
 
 # DEPRECATED
 # "delete_alias_bandwidth_limit_rule":"rule:admin_only" has been
 # deprecated since W in favor of
-# "delete_alias_bandwidth_limit_rule":"rule:admin_only".
+# "delete_alias_bandwidth_limit_rule":"(rule:admin_only) or
+# (role:manager and rule:ext_parent_owner)".
 # The QoS API now supports project scope and default roles.
 
 # Get a QoS DSCP marking rule through alias
@@ -1990,23 +2571,25 @@
 # Update a QoS DSCP marking rule through alias
 # PUT  /qos/alias_dscp_marking_rules/{rule_id}/
 # Intended scope(s): project
-#"update_alias_dscp_marking_rule": "rule:admin_only"
+#"update_alias_dscp_marking_rule": "(rule:admin_only) or (role:manager and rule:ext_parent_owner)"
 
 # DEPRECATED
 # "update_alias_dscp_marking_rule":"rule:admin_only" has been
 # deprecated since W in favor of
-# "update_alias_dscp_marking_rule":"rule:admin_only".
+# "update_alias_dscp_marking_rule":"(rule:admin_only) or (role:manager
+# and rule:ext_parent_owner)".
 # The QoS API now supports project scope and default roles.
 
 # Delete a QoS DSCP marking rule through alias
 # DELETE  /qos/alias_dscp_marking_rules/{rule_id}/
 # Intended scope(s): project
-#"delete_alias_dscp_marking_rule": "rule:admin_only"
+#"delete_alias_dscp_marking_rule": "(rule:admin_only) or (role:manager and rule:ext_parent_owner)"
 
 # DEPRECATED
 # "delete_alias_dscp_marking_rule":"rule:admin_only" has been
 # deprecated since W in favor of
-# "delete_alias_dscp_marking_rule":"rule:admin_only".
+# "delete_alias_dscp_marking_rule":"(rule:admin_only) or (role:manager
+# and rule:ext_parent_owner)".
 # The QoS API now supports project scope and default roles.
 
 # Get a QoS minimum bandwidth rule through alias
@@ -2024,23 +2607,25 @@
 # Update a QoS minimum bandwidth rule through alias
 # PUT  /qos/alias_minimum_bandwidth_rules/{rule_id}/
 # Intended scope(s): project
-#"update_alias_minimum_bandwidth_rule": "rule:admin_only"
+#"update_alias_minimum_bandwidth_rule": "(rule:admin_only) or (role:manager and rule:ext_parent_owner)"
 
 # DEPRECATED
 # "update_alias_minimum_bandwidth_rule":"rule:admin_only" has been
 # deprecated since W in favor of
-# "update_alias_minimum_bandwidth_rule":"rule:admin_only".
+# "update_alias_minimum_bandwidth_rule":"(rule:admin_only) or
+# (role:manager and rule:ext_parent_owner)".
 # The QoS API now supports project scope and default roles.
 
 # Delete a QoS minimum bandwidth rule through alias
 # DELETE  /qos/alias_minimum_bandwidth_rules/{rule_id}/
 # Intended scope(s): project
-#"delete_alias_minimum_bandwidth_rule": "rule:admin_only"
+#"delete_alias_minimum_bandwidth_rule": "(rule:admin_only) or (role:manager and rule:ext_parent_owner)"
 
 # DEPRECATED
 # "delete_alias_minimum_bandwidth_rule":"rule:admin_only" has been
 # deprecated since W in favor of
-# "delete_alias_minimum_bandwidth_rule":"rule:admin_only".
+# "delete_alias_minimum_bandwidth_rule":"(rule:admin_only) or
+# (role:manager and rule:ext_parent_owner)".
 # The QoS API now supports project scope and default roles.
 
 # Get a QoS minimum packet rate rule through alias
@@ -2062,11 +2647,12 @@
 # GET  /quota
 # GET  /quota/{id}
 # Intended scope(s): project
-#"get_quota": "rule:admin_only"
+#"get_quota": "(rule:admin_only) or (role:manager and project_id:%(project_id)s)"
 
 # DEPRECATED
 # "get_quota":"rule:admin_only" has been deprecated since W in favor
-# of "get_quota":"rule:admin_only".
+# of "get_quota":"(rule:admin_only) or (role:manager and
+# project_id:%(project_id)s)".
 # The quotas API now supports project scope and default roles.
 
 # Update a resource quota
@@ -2103,18 +2689,18 @@
 # and project_id:%(project_id)s)".
 # The RBAC API now supports system scope and default roles.
 
+# DEPRECATED
+# "create_rbac_policy:target_tenant" has been deprecated since 2025.1.
+# Replaced by "create_rbac_policy:target_project
 # Specify ``target_tenant`` when creating an RBAC policy
 # POST  /rbac-policies
 # Intended scope(s): project
 #"create_rbac_policy:target_tenant": "rule:admin_only or (not field:rbac_policy:target_tenant=* and not field:rbac_policy:target_project=*)"
 
-# DEPRECATED
-# "create_rbac_policy:target_tenant":"rule:restrict_wildcard" has been
-# deprecated since W in favor of
-# "create_rbac_policy:target_tenant":"rule:admin_only or (not
-# field:rbac_policy:target_tenant=* and not
-# field:rbac_policy:target_project=*)".
-# The RBAC API now supports system scope and default roles.
+# Specify ``target_project`` when creating an RBAC policy
+# POST  /rbac-policies
+# Intended scope(s): project
+#"create_rbac_policy:target_project": "rule:admin_only or not field:rbac_policy:target_project=*"
 
 # Update an RBAC policy
 # PUT  /rbac-policies/{id}
@@ -2127,18 +2713,18 @@
 # (role:member and project_id:%(project_id)s)".
 # The RBAC API now supports system scope and default roles.
 
+# DEPRECATED
+# "update_rbac_policy:target_tenant" has been deprecated since 2025.1.
+# Replaced by "update_rbac_policy:target_project
 # Update ``target_tenant`` attribute of an RBAC policy
 # PUT  /rbac-policies/{id}
 # Intended scope(s): project
 #"update_rbac_policy:target_tenant": "rule:admin_only or (not field:rbac_policy:target_tenant=* and not field:rbac_policy:target_project=*)"
 
-# DEPRECATED
-# "update_rbac_policy:target_tenant":"rule:restrict_wildcard and
-# rule:admin_or_owner" has been deprecated since W in favor of
-# "update_rbac_policy:target_tenant":"rule:admin_only or (not
-# field:rbac_policy:target_tenant=* and not
-# field:rbac_policy:target_project=*)".
-# The RBAC API now supports system scope and default roles.
+# Update ``target_project`` attribute of an RBAC policy
+# PUT  /rbac-policies/{id}
+# Intended scope(s): project
+#"update_rbac_policy:target_project": "rule:admin_only or not field:rbac_policy:target_project=*"
 
 # Get an RBAC policy
 # GET  /rbac-policies
@@ -2255,6 +2841,28 @@
 # Intended scope(s): project
 #"create_router:enable_default_route_ecmp": "rule:admin_only"
 
+# Create the router tags
+# POST  /routers/{id}/tags
+# Intended scope(s): project
+#"create_router:tags": "(rule:admin_only) or (role:member and project_id:%(project_id)s)"
+
+# DEPRECATED
+# "create_routers_tags":"(rule:admin_only) or (role:manager and
+# project_id:%(project_id)s)" has been deprecated since 2025.1 in
+# favor of "create_router:tags":"(rule:admin_only) or (role:member and
+# project_id:%(project_id)s)".
+# Name of the rule is changed.
+# WARNING: A rule name change has been identified.
+#          This may be an artifact of new rules being
+#          included which require legacy fallback
+#          rules to ensure proper policy behavior.
+#          Alternatively, this may just be an alias.
+#          Please evaluate on a case by case basis
+#          keeping in mind the format for aliased
+#          rules is:
+#          "old_rule_name": "new_rule_name".
+# "create_routers_tags": "rule:create_router:tags"
+
 # Get a router
 # GET  /routers
 # GET  /routers/{id}
@@ -2293,7 +2901,24 @@
 # GET  /routers/{id}/tags
 # GET  /routers/{id}/tags/{tag_id}
 # Intended scope(s): project
-#"get_routers_tags": "(rule:admin_only) or (role:reader and project_id:%(project_id)s)"
+#"get_router:tags": "(rule:admin_only) or (role:reader and project_id:%(project_id)s)"
+
+# DEPRECATED
+# "get_routers_tags":"(rule:admin_only) or (role:reader and
+# project_id:%(project_id)s)" has been deprecated since 2025.1 in
+# favor of "get_router:tags":"(rule:admin_only) or (role:reader and
+# project_id:%(project_id)s)".
+# Name of the rule is changed.
+# WARNING: A rule name change has been identified.
+#          This may be an artifact of new rules being
+#          included which require legacy fallback
+#          rules to ensure proper policy behavior.
+#          Alternatively, this may just be an alias.
+#          Please evaluate on a case by case basis
+#          keeping in mind the format for aliased
+#          rules is:
+#          "old_rule_name": "new_rule_name".
+# "get_routers_tags": "rule:get_router:tags"
 
 # Update a router
 # PUT  /routers/{id}
@@ -2377,13 +3002,13 @@
 
 # Specify ``enable_default_route_bfd`` attribute when updating a
 # router
-# POST  /routers
+# PUT  /routers/{id}
 # Intended scope(s): project
 #"update_router:enable_default_route_bfd": "rule:admin_only"
 
 # Specify ``enable_default_route_ecmp`` attribute when updating a
 # router
-# POST  /routers
+# PUT  /routers/{id}
 # Intended scope(s): project
 #"update_router:enable_default_route_ecmp": "rule:admin_only"
 
@@ -2391,7 +3016,24 @@
 # PUT  /routers/{id}/tags
 # PUT  /routers/{id}/tags/{tag_id}
 # Intended scope(s): project
-#"update_routers_tags": "(rule:admin_only) or (role:member and project_id:%(project_id)s)"
+#"update_router:tags": "(rule:admin_only) or (role:member and project_id:%(project_id)s)"
+
+# DEPRECATED
+# "update_routers_tags":"(rule:admin_only) or (role:manager and
+# project_id:%(project_id)s)" has been deprecated since 2025.1 in
+# favor of "update_router:tags":"(rule:admin_only) or (role:member and
+# project_id:%(project_id)s)".
+# Name of the rule is changed.
+# WARNING: A rule name change has been identified.
+#          This may be an artifact of new rules being
+#          included which require legacy fallback
+#          rules to ensure proper policy behavior.
+#          Alternatively, this may just be an alias.
+#          Please evaluate on a case by case basis
+#          keeping in mind the format for aliased
+#          rules is:
+#          "old_rule_name": "new_rule_name".
+# "update_routers_tags": "rule:update_router:tags"
 
 # Delete a router
 # DELETE  /routers/{id}
@@ -2408,7 +3050,24 @@
 # DELETE  /routers/{id}/tags
 # DELETE  /routers/{id}/tags/{tag_id}
 # Intended scope(s): project
-#"delete_routers_tags": "(rule:admin_only) or (role:member and project_id:%(project_id)s)"
+#"delete_router:tags": "(rule:admin_only) or (role:member and project_id:%(project_id)s)"
+
+# DEPRECATED
+# "delete_routers_tags":"(rule:admin_only) or (role:manager and
+# project_id:%(project_id)s)" has been deprecated since 2025.1 in
+# favor of "delete_router:tags":"(rule:admin_only) or (role:member and
+# project_id:%(project_id)s)".
+# Name of the rule is changed.
+# WARNING: A rule name change has been identified.
+#          This may be an artifact of new rules being
+#          included which require legacy fallback
+#          rules to ensure proper policy behavior.
+#          Alternatively, this may just be an alias.
+#          Please evaluate on a case by case basis
+#          keeping in mind the format for aliased
+#          rules is:
+#          "old_rule_name": "new_rule_name".
+# "delete_routers_tags": "rule:delete_router:tags"
 
 # Add an interface to a router
 # PUT  /routers/{id}/add_router_interface
@@ -2454,8 +3113,68 @@
 # (role:member and project_id:%(project_id)s)".
 # The router API now supports system scope and default roles.
 
+# Add router external gateways
+# PUT  /routers/{id}
+# Intended scope(s): project
+#"add_external_gateways": "(rule:admin_only) or (role:member and project_id:%(project_id)s)"
+
+# Add router external gateways
+# PUT  /routers/{id}
+# Intended scope(s): project
+#"add_external_gateways:external_gateways": "(rule:admin_only) or (role:member and project_id:%(project_id)s)"
+
+# Add router external gateways with defined network ID
+# PUT  /routers/{id}
+# Intended scope(s): project
+#"add_external_gateways:external_gateways:network_id": "(rule:admin_only) or (role:member and project_id:%(project_id)s)"
+
+# Add router external gateways specifying SNAT flag
+# PUT  /routers/{id}
+# Intended scope(s): project
+#"add_external_gateways:external_gateways:enable_snat": "rule:admin_only"
+
+# Add router external gateways specifying the fixed IPs
+# PUT  /routers/{id}
+# Intended scope(s): project
+#"add_external_gateways:external_gateways:external_fixed_ips": "rule:admin_only"
+
+# Update router external gateways
+# PUT  /routers/{id}
+# Intended scope(s): project
+#"update_external_gateways": "(rule:admin_only) or (role:member and project_id:%(project_id)s)"
+
+# Update router external gateways
+# PUT  /routers/{id}
+# Intended scope(s): project
+#"update_external_gateways:external_gateways": "(rule:admin_only) or (role:member and project_id:%(project_id)s)"
+
+# Update router external gateways network ID
+# PUT  /routers/{id}
+# Intended scope(s): project
+#"update_external_gateways:external_gateways:network_id": "(rule:admin_only) or (role:member and project_id:%(project_id)s)"
+
+# Update router external gateways SNAT flag
+# PUT  /routers/{id}
+# Intended scope(s): project
+#"update_external_gateways:external_gateways:enable_snat": "rule:admin_only"
+
+# Update router external gateways fixed IPs
+# PUT  /routers/{id}
+# Intended scope(s): project
+#"update_external_gateways:external_gateways:external_fixed_ips": "rule:admin_only"
+
+# Remove router external gateways
+# PUT  /routers/{id}
+# Intended scope(s): project
+#"remove_external_gateways": "(rule:admin_only) or (role:member and project_id:%(project_id)s)"
+
+# Remove router external gateways
+# PUT  /routers/{id}
+# Intended scope(s): project
+#"remove_external_gateways:external_gateways": "(rule:admin_only) or (role:member and project_id:%(project_id)s)"
+
 # Rule for admin or security group owner access
-#"admin_or_sg_owner": "rule:context_is_admin or tenant_id:%(security_group:tenant_id)s"
+#"admin_or_sg_owner": "rule:context_is_admin or project_id:%(security_group:project_id)s"
 
 # Rule for resource owner, admin or security group owner access
 #"admin_owner_or_sg_owner": "rule:owner or rule:admin_or_sg_owner"
@@ -2478,6 +3197,28 @@
 # (role:member and project_id:%(project_id)s)".
 # The security group API now supports system scope and default roles.
 
+# Create the security group tags
+# POST  /security-groups/{id}/tags
+# Intended scope(s): project
+#"create_security_group:tags": "(rule:admin_only) or (role:member and project_id:%(project_id)s)"
+
+# DEPRECATED
+# "create_security_groups_tags":"(rule:admin_only) or (role:member and
+# project_id:%(project_id)s)" has been deprecated since 2025.1 in
+# favor of "create_security_group:tags":"(rule:admin_only) or
+# (role:member and project_id:%(project_id)s)".
+# Name of the rule is changed.
+# WARNING: A rule name change has been identified.
+#          This may be an artifact of new rules being
+#          included which require legacy fallback
+#          rules to ensure proper policy behavior.
+#          Alternatively, this may just be an alias.
+#          Please evaluate on a case by case basis
+#          keeping in mind the format for aliased
+#          rules is:
+#          "old_rule_name": "new_rule_name".
+# "create_security_groups_tags": "rule:create_security_group:tags"
+
 # Get a security group
 # GET  /security-groups
 # GET  /security-groups/{id}
@@ -2494,7 +3235,25 @@
 # GET  /security-groups/{id}/tags
 # GET  /security-groups/{id}/tags/{tag_id}
 # Intended scope(s): project
-#"get_security_groups_tags": "(rule:admin_only) or (role:reader and project_id:%(project_id)s) or rule:shared_security_group"
+#"get_security_group:tags": "(rule:admin_only) or (role:reader and project_id:%(project_id)s) or rule:shared_security_group"
+
+# DEPRECATED
+# "get_security_groups_tags":"(rule:admin_only) or (role:reader and
+# project_id:%(project_id)s) or rule:shared_security_group" has been
+# deprecated since 2025.1 in favor of
+# "get_security_group:tags":"(rule:admin_only) or (role:reader and
+# project_id:%(project_id)s) or rule:shared_security_group".
+# Name of the rule is changed.
+# WARNING: A rule name change has been identified.
+#          This may be an artifact of new rules being
+#          included which require legacy fallback
+#          rules to ensure proper policy behavior.
+#          Alternatively, this may just be an alias.
+#          Please evaluate on a case by case basis
+#          keeping in mind the format for aliased
+#          rules is:
+#          "old_rule_name": "new_rule_name".
+# "get_security_groups_tags": "rule:get_security_group:tags"
 
 # Update a security group
 # PUT  /security-groups/{id}
@@ -2511,7 +3270,24 @@
 # PUT  /security-groups/{id}/tags
 # PUT  /security-groups/{id}/tags/{tag_id}
 # Intended scope(s): project
-#"update_security_groups_tags": "(rule:admin_only) or (role:member and project_id:%(project_id)s)"
+#"update_security_group:tags": "(rule:admin_only) or (role:member and project_id:%(project_id)s)"
+
+# DEPRECATED
+# "update_security_groups_tags":"(rule:admin_only) or (role:member and
+# project_id:%(project_id)s)" has been deprecated since 2025.1 in
+# favor of "update_security_group:tags":"(rule:admin_only) or
+# (role:member and project_id:%(project_id)s)".
+# Name of the rule is changed.
+# WARNING: A rule name change has been identified.
+#          This may be an artifact of new rules being
+#          included which require legacy fallback
+#          rules to ensure proper policy behavior.
+#          Alternatively, this may just be an alias.
+#          Please evaluate on a case by case basis
+#          keeping in mind the format for aliased
+#          rules is:
+#          "old_rule_name": "new_rule_name".
+# "update_security_groups_tags": "rule:update_security_group:tags"
 
 # Delete a security group
 # DELETE  /security-groups/{id}
@@ -2528,44 +3304,93 @@
 # DELETE  /security-groups/{id}/tags
 # DELETE  /security-groups/{id}/tags/{tag_id}
 # Intended scope(s): project
-#"delete_security_groups_tags": "(rule:admin_only) or (role:member and project_id:%(project_id)s)"
+#"delete_security_group:tags": "(rule:admin_only) or (role:member and project_id:%(project_id)s)"
+
+# DEPRECATED
+# "delete_security_groups_tags":"(rule:admin_only) or (role:member and
+# project_id:%(project_id)s)" has been deprecated since 2025.1 in
+# favor of "delete_security_group:tags":"(rule:admin_only) or
+# (role:member and project_id:%(project_id)s)".
+# Name of the rule is changed.
+# WARNING: A rule name change has been identified.
+#          This may be an artifact of new rules being
+#          included which require legacy fallback
+#          rules to ensure proper policy behavior.
+#          Alternatively, this may just be an alias.
+#          Please evaluate on a case by case basis
+#          keeping in mind the format for aliased
+#          rules is:
+#          "old_rule_name": "new_rule_name".
+# "delete_security_groups_tags": "rule:delete_security_group:tags"
 
 # Create a security group rule
 # POST  /security-group-rules
 # Intended scope(s): project
-#"create_security_group_rule": "(rule:admin_only) or (role:member and project_id:%(project_id)s)"
+#"create_security_group_rule": "(rule:admin_only) or (role:member and rule:sg_owner)"
 
 # DEPRECATED
 # "create_security_group_rule":"rule:admin_or_owner" has been
 # deprecated since W in favor of
 # "create_security_group_rule":"(rule:admin_only) or (role:member and
-# project_id:%(project_id)s)".
+# rule:sg_owner)".
 # The security group API now supports system scope and default roles.
 
 # Get a security group rule
 # GET  /security-group-rules
 # GET  /security-group-rules/{id}
 # Intended scope(s): project
-#"get_security_group_rule": "(rule:admin_only) or (role:reader and project_id:%(project_id)s) or rule:sg_owner"
+#"get_security_group_rule": "(rule:admin_only) or (role:reader and rule:sg_owner)"
 
 # DEPRECATED
 # "get_security_group_rule":"rule:admin_owner_or_sg_owner" has been
 # deprecated since W in favor of
 # "get_security_group_rule":"(rule:admin_only) or (role:reader and
-# project_id:%(project_id)s) or rule:sg_owner".
+# rule:sg_owner)".
 # The security group API now supports system scope and default roles.
 
 # Delete a security group rule
 # DELETE  /security-group-rules/{id}
 # Intended scope(s): project
-#"delete_security_group_rule": "(rule:admin_only) or (role:member and project_id:%(project_id)s)"
+#"delete_security_group_rule": "(rule:admin_only) or (role:member and rule:sg_owner)"
 
 # DEPRECATED
 # "delete_security_group_rule":"rule:admin_or_owner" has been
 # deprecated since W in favor of
 # "delete_security_group_rule":"(rule:admin_only) or (role:member and
-# project_id:%(project_id)s)".
+# rule:sg_owner)".
 # The security group API now supports system scope and default roles.
+
+# Create a default statefulness setting for security groups. System-
+# wide settings (no project_id) always require admin privileges. Per-
+# project settings could be relaxed via policy override to allow
+# creation by project owners.
+# POST  /security-groups-default-statefulness
+# Intended scope(s): project
+#"create_security_groups_default_statefulness": "(rule:admin_only) or (role:manager and project_id:%(project_id)s)"
+
+# Get default statefulness settings for security groups. Admins can
+# list all settings; project readers can see the setting for their own
+# project.
+# GET  /security-groups-default-statefulness
+# GET  /security-groups-default-statefulness/{id}
+# Intended scope(s): project
+#"get_security_groups_default_statefulness": "(rule:admin_only) or (role:reader and project_id:%(project_id)s)"
+
+# Update a default statefulness setting for security groups. System-
+# wide settings always require admin privileges. Per-project settings
+# could be relaxed via policy override to allow update by project
+# owners.
+# PUT  /security-groups-default-statefulness/{id}
+# Intended scope(s): project
+#"update_security_groups_default_statefulness": "(rule:admin_only) or (role:manager and project_id:%(project_id)s)"
+
+# Delete a default statefulness setting for security groups. System-
+# wide settings always require admin privileges. Per-project settings
+# could be relaxed via policy override to allow deletion by project
+# owners.
+# DELETE  /security-groups-default-statefulness/{id}
+# Intended scope(s): project
+#"delete_security_groups_default_statefulness": "(rule:admin_only) or (role:manager and project_id:%(project_id)s)"
 
 # Create a segment
 # POST  /segments
@@ -2576,6 +3401,11 @@
 # "create_segment":"rule:admin_only" has been deprecated since W in
 # favor of "create_segment":"rule:admin_only".
 # The segment API now supports project scope and default roles.
+
+# Create the segment tags
+# POST  /segments/{id}/tags
+# Intended scope(s): project
+#"create_segments_tags": "rule:admin_only"
 
 # Get a segment
 # GET  /segments
@@ -2637,6 +3467,9 @@
 # The Service Providers API now supports project scope and default
 # roles.
 
+# Definition of a subnet that belongs to an external network
+#"external_network": "field:subnets:router:external=True"
+
 # Create a subnet
 # POST  /subnets
 # Intended scope(s): project
@@ -2668,17 +3501,41 @@
 # since W in favor of "create_subnet:service_types":"rule:admin_only".
 # The subnet API now supports system scope and default roles.
 
+# Create the subnet tags
+# POST  /subnets/{id}/tags
+# Intended scope(s): project
+#"create_subnet:tags": "role:member and project_id:%(project_id)s or (rule:admin_only) or (role:member and rule:network_owner)"
+
+# DEPRECATED
+# "create_subnets_tags":"role:member and project_id:%(project_id)s or
+# (rule:admin_only) or (role:member and rule:network_owner)" has been
+# deprecated since 2025.1 in favor of
+# "create_subnet:tags":"role:member and project_id:%(project_id)s or
+# (rule:admin_only) or (role:member and rule:network_owner)".
+# Name of the rule is changed.
+# WARNING: A rule name change has been identified.
+#          This may be an artifact of new rules being
+#          included which require legacy fallback
+#          rules to ensure proper policy behavior.
+#          Alternatively, this may just be an alias.
+#          Please evaluate on a case by case basis
+#          keeping in mind the format for aliased
+#          rules is:
+#          "old_rule_name": "new_rule_name".
+# "create_subnets_tags": "rule:create_subnet:tags"
+
 # Get a subnet
 # GET  /subnets
 # GET  /subnets/{id}
 # Intended scope(s): project
-#"get_subnet": "(rule:admin_only) or (role:member and rule:network_owner) or role:reader and project_id:%(project_id)s or rule:shared"
+#"get_subnet": "role:reader and project_id:%(project_id)s or rule:shared or rule:external_network or (rule:admin_only) or (role:reader and rule:network_owner) or rule:service_api"
 
 # DEPRECATED
-# "get_subnet":"rule:admin_or_owner or rule:shared" has been
-# deprecated since W in favor of "get_subnet":"(rule:admin_only) or
-# (role:member and rule:network_owner) or role:reader and
-# project_id:%(project_id)s or rule:shared".
+# "get_subnet":"rule:shared or rule:external_network or
+# rule:admin_or_owner" has been deprecated since W in favor of
+# "get_subnet":"role:reader and project_id:%(project_id)s or
+# rule:shared or rule:external_network or (rule:admin_only) or
+# (role:reader and rule:network_owner) or rule:service_api".
 # The subnet API now supports system scope and default roles.
 
 # Get ``segment_id`` attribute of a subnet
@@ -2696,18 +3553,37 @@
 # GET  /subnets/{id}/tags
 # GET  /subnets/{id}/tags/{tag_id}
 # Intended scope(s): project
-#"get_subnets_tags": "(rule:admin_only) or (role:member and rule:network_owner) or role:reader and project_id:%(project_id)s or rule:shared"
+#"get_subnet:tags": "role:reader and project_id:%(project_id)s or rule:shared or rule:external_network or (rule:admin_only) or (role:reader and rule:network_owner)"
+
+# DEPRECATED
+# "get_subnets_tags":"role:reader and project_id:%(project_id)s or
+# rule:shared or rule:external_network or (rule:admin_only) or
+# (role:reader and rule:network_owner)" has been deprecated since
+# 2025.1 in favor of "get_subnet:tags":"role:reader and
+# project_id:%(project_id)s or rule:shared or rule:external_network or
+# (rule:admin_only) or (role:reader and rule:network_owner)".
+# Name of the rule is changed.
+# WARNING: A rule name change has been identified.
+#          This may be an artifact of new rules being
+#          included which require legacy fallback
+#          rules to ensure proper policy behavior.
+#          Alternatively, this may just be an alias.
+#          Please evaluate on a case by case basis
+#          keeping in mind the format for aliased
+#          rules is:
+#          "old_rule_name": "new_rule_name".
+# "get_subnets_tags": "rule:get_subnet:tags"
 
 # Update a subnet
 # PUT  /subnets/{id}
 # Intended scope(s): project
-#"update_subnet": "(rule:admin_only) or (role:member and rule:network_owner) or role:member and project_id:%(project_id)s"
+#"update_subnet": "role:member and project_id:%(project_id)s or (rule:admin_only) or (role:member and rule:network_owner)"
 
 # DEPRECATED
 # "update_subnet":"rule:admin_or_network_owner" has been deprecated
-# since W in favor of "update_subnet":"(rule:admin_only) or
-# (role:member and rule:network_owner) or role:member and
-# project_id:%(project_id)s".
+# since W in favor of "update_subnet":"role:member and
+# project_id:%(project_id)s or (rule:admin_only) or (role:member and
+# rule:network_owner)".
 # The subnet API now supports system scope and default roles.
 
 # Update ``segment_id`` attribute of a subnet
@@ -2734,25 +3610,61 @@
 # PUT  /subnets/{id}/tags
 # PUT  /subnets/{id}/tags/{tag_id}
 # Intended scope(s): project
-#"update_subnets_tags": "(rule:admin_only) or (role:member and rule:network_owner) or role:member and project_id:%(project_id)s"
+#"update_subnet:tags": "role:member and project_id:%(project_id)s or (rule:admin_only) or (role:member and rule:network_owner)"
+
+# DEPRECATED
+# "update_subnets_tags":"role:member and project_id:%(project_id)s or
+# (rule:admin_only) or (role:member and rule:network_owner)" has been
+# deprecated since 2025.1 in favor of
+# "update_subnet:tags":"role:member and project_id:%(project_id)s or
+# (rule:admin_only) or (role:member and rule:network_owner)".
+# Name of the rule is changed.
+# WARNING: A rule name change has been identified.
+#          This may be an artifact of new rules being
+#          included which require legacy fallback
+#          rules to ensure proper policy behavior.
+#          Alternatively, this may just be an alias.
+#          Please evaluate on a case by case basis
+#          keeping in mind the format for aliased
+#          rules is:
+#          "old_rule_name": "new_rule_name".
+# "update_subnets_tags": "rule:update_subnet:tags"
 
 # Delete a subnet
 # DELETE  /subnets/{id}
 # Intended scope(s): project
-#"delete_subnet": "(rule:admin_only) or (role:member and rule:network_owner) or role:member and project_id:%(project_id)s"
+#"delete_subnet": "role:member and project_id:%(project_id)s or (rule:admin_only) or (role:member and rule:network_owner)"
 
 # DEPRECATED
 # "delete_subnet":"rule:admin_or_network_owner" has been deprecated
-# since W in favor of "delete_subnet":"(rule:admin_only) or
-# (role:member and rule:network_owner) or role:member and
-# project_id:%(project_id)s".
+# since W in favor of "delete_subnet":"role:member and
+# project_id:%(project_id)s or (rule:admin_only) or (role:member and
+# rule:network_owner)".
 # The subnet API now supports system scope and default roles.
 
 # Delete the subnet tags
 # DELETE  /subnets/{id}/tags
 # DELETE  /subnets/{id}/tags/{tag_id}
 # Intended scope(s): project
-#"delete_subnets_tags": "(rule:admin_only) or (role:member and rule:network_owner) or role:member and project_id:%(project_id)s"
+#"delete_subnet:tags": "role:member and project_id:%(project_id)s or (rule:admin_only) or (role:member and rule:network_owner)"
+
+# DEPRECATED
+# "delete_subnets_tags":"role:member and project_id:%(project_id)s or
+# (rule:admin_only) or (role:member and rule:network_owner)" has been
+# deprecated since 2025.1 in favor of
+# "delete_subnet:tags":"role:member and project_id:%(project_id)s or
+# (rule:admin_only) or (role:member and rule:network_owner)".
+# Name of the rule is changed.
+# WARNING: A rule name change has been identified.
+#          This may be an artifact of new rules being
+#          included which require legacy fallback
+#          rules to ensure proper policy behavior.
+#          Alternatively, this may just be an alias.
+#          Please evaluate on a case by case basis
+#          keeping in mind the format for aliased
+#          rules is:
+#          "old_rule_name": "new_rule_name".
+# "delete_subnets_tags": "rule:delete_subnet:tags"
 
 # Definition of a shared subnetpool
 #"shared_subnetpools": "field:subnetpools:shared=True"
@@ -2789,6 +3701,28 @@
 # "create_subnetpool:is_default":"rule:admin_only".
 # The subnet pool API now supports system scope and default roles.
 
+# Create the subnetpool tags
+# POST  /subnetpools/{id}/tags
+# Intended scope(s): project
+#"create_subnetpool:tags": "(rule:admin_only) or (role:member and project_id:%(project_id)s)"
+
+# DEPRECATED
+# "create_subnetpools_tags":"(rule:admin_only) or (role:member and
+# project_id:%(project_id)s)" has been deprecated since 2025.1 in
+# favor of "create_subnetpool:tags":"(rule:admin_only) or (role:member
+# and project_id:%(project_id)s)".
+# Name of the rule is changed.
+# WARNING: A rule name change has been identified.
+#          This may be an artifact of new rules being
+#          included which require legacy fallback
+#          rules to ensure proper policy behavior.
+#          Alternatively, this may just be an alias.
+#          Please evaluate on a case by case basis
+#          keeping in mind the format for aliased
+#          rules is:
+#          "old_rule_name": "new_rule_name".
+# "create_subnetpools_tags": "rule:create_subnetpool:tags"
+
 # Get a subnetpool
 # GET  /subnetpools
 # GET  /subnetpools/{id}
@@ -2806,7 +3740,25 @@
 # GET  /subnetpools/{id}/tags
 # GET  /subnetpools/{id}/tags/{tag_id}
 # Intended scope(s): project
-#"get_subnetpools_tags": "(rule:admin_only) or (role:reader and project_id:%(project_id)s) or rule:shared_subnetpools"
+#"get_subnetpool:tags": "(rule:admin_only) or (role:reader and project_id:%(project_id)s) or rule:shared_subnetpools"
+
+# DEPRECATED
+# "get_subnetpools_tags":"(rule:admin_only) or (role:reader and
+# project_id:%(project_id)s) or rule:shared_subnetpools" has been
+# deprecated since 2025.1 in favor of
+# "get_subnetpool:tags":"(rule:admin_only) or (role:reader and
+# project_id:%(project_id)s) or rule:shared_subnetpools".
+# Name of the rule is changed.
+# WARNING: A rule name change has been identified.
+#          This may be an artifact of new rules being
+#          included which require legacy fallback
+#          rules to ensure proper policy behavior.
+#          Alternatively, this may just be an alias.
+#          Please evaluate on a case by case basis
+#          keeping in mind the format for aliased
+#          rules is:
+#          "old_rule_name": "new_rule_name".
+# "get_subnetpools_tags": "rule:get_subnetpool:tags"
 
 # Update a subnetpool
 # PUT  /subnetpools/{id}
@@ -2834,7 +3786,24 @@
 # PUT  /subnetpools/{id}/tags
 # PUT  /subnetpools/{id}/tags/{tag_id}
 # Intended scope(s): project
-#"update_subnetpools_tags": "(rule:admin_only) or (role:member and project_id:%(project_id)s)"
+#"update_subnetpool:tags": "(rule:admin_only) or (role:member and project_id:%(project_id)s)"
+
+# DEPRECATED
+# "update_subnetpools_tags":"(rule:admin_only) or (role:member and
+# project_id:%(project_id)s)" has been deprecated since 2025.1 in
+# favor of "update_subnetpool:tags":"(rule:admin_only) or (role:member
+# and project_id:%(project_id)s)".
+# Name of the rule is changed.
+# WARNING: A rule name change has been identified.
+#          This may be an artifact of new rules being
+#          included which require legacy fallback
+#          rules to ensure proper policy behavior.
+#          Alternatively, this may just be an alias.
+#          Please evaluate on a case by case basis
+#          keeping in mind the format for aliased
+#          rules is:
+#          "old_rule_name": "new_rule_name".
+# "update_subnetpools_tags": "rule:update_subnetpool:tags"
 
 # Delete a subnetpool
 # DELETE  /subnetpools/{id}
@@ -2851,7 +3820,24 @@
 # DELETE  /subnetpools/{id}/tags
 # DELETE  /subnetpools/{id}/tags/{tag_id}
 # Intended scope(s): project
-#"delete_subnetpools_tags": "(rule:admin_only) or (role:member and project_id:%(project_id)s)"
+#"delete_subnetpool:tags": "(rule:admin_only) or (role:member and project_id:%(project_id)s)"
+
+# DEPRECATED
+# "delete_subnetpools_tags":"(rule:admin_only) or (role:member and
+# project_id:%(project_id)s)" has been deprecated since 2025.1 in
+# favor of "delete_subnetpool:tags":"(rule:admin_only) or (role:member
+# and project_id:%(project_id)s)".
+# Name of the rule is changed.
+# WARNING: A rule name change has been identified.
+#          This may be an artifact of new rules being
+#          included which require legacy fallback
+#          rules to ensure proper policy behavior.
+#          Alternatively, this may just be an alias.
+#          Please evaluate on a case by case basis
+#          keeping in mind the format for aliased
+#          rules is:
+#          "old_rule_name": "new_rule_name".
+# "delete_subnetpools_tags": "rule:delete_subnetpool:tags"
 
 # Onboard existing subnet into a subnetpool
 # PUT  /subnetpools/{id}/onboard_network_subnets
@@ -2897,6 +3883,28 @@
 # project_id:%(project_id)s)".
 # The trunks API now supports system scope and default roles.
 
+# Create the trunk tags
+# POST  /trunks/{id}/tags
+# Intended scope(s): project
+#"create_trunk:tags": "(rule:admin_only) or (role:member and project_id:%(project_id)s)"
+
+# DEPRECATED
+# "create_trunks_tags":"(rule:admin_only) or (role:member and
+# project_id:%(project_id)s)" has been deprecated since 2025.1 in
+# favor of "create_trunk:tags":"(rule:admin_only) or (role:member and
+# project_id:%(project_id)s)".
+# Name of the rule is changed.
+# WARNING: A rule name change has been identified.
+#          This may be an artifact of new rules being
+#          included which require legacy fallback
+#          rules to ensure proper policy behavior.
+#          Alternatively, this may just be an alias.
+#          Please evaluate on a case by case basis
+#          keeping in mind the format for aliased
+#          rules is:
+#          "old_rule_name": "new_rule_name".
+# "create_trunks_tags": "rule:create_trunk:tags"
+
 # Get a trunk
 # GET  /trunks
 # GET  /trunks/{id}
@@ -2913,7 +3921,24 @@
 # GET  /trunks/{id}/tags
 # GET  /trunks/{id}/tags/{tag_id}
 # Intended scope(s): project
-#"get_trunks_tags": "(rule:admin_only) or (role:reader and project_id:%(project_id)s)"
+#"get_trunk:tags": "(rule:admin_only) or (role:reader and project_id:%(project_id)s)"
+
+# DEPRECATED
+# "get_trunks_tags":"(rule:admin_only) or (role:reader and
+# project_id:%(project_id)s)" has been deprecated since 2025.1 in
+# favor of "get_trunk:tags":"(rule:admin_only) or (role:reader and
+# project_id:%(project_id)s)".
+# Name of the rule is changed.
+# WARNING: A rule name change has been identified.
+#          This may be an artifact of new rules being
+#          included which require legacy fallback
+#          rules to ensure proper policy behavior.
+#          Alternatively, this may just be an alias.
+#          Please evaluate on a case by case basis
+#          keeping in mind the format for aliased
+#          rules is:
+#          "old_rule_name": "new_rule_name".
+# "get_trunks_tags": "rule:get_trunk:tags"
 
 # Update a trunk
 # PUT  /trunks/{id}
@@ -2930,7 +3955,24 @@
 # PUT  /trunks/{id}/tags
 # PUT  /trunks/{id}/tags/{tag_id}
 # Intended scope(s): project
-#"update_trunks_tags": "(rule:admin_only) or (role:member and project_id:%(project_id)s)"
+#"update_trunk:tags": "(rule:admin_only) or (role:member and project_id:%(project_id)s)"
+
+# DEPRECATED
+# "update_trunks_tags":"(rule:admin_only) or (role:member and
+# project_id:%(project_id)s)" has been deprecated since 2025.1 in
+# favor of "update_trunk:tags":"(rule:admin_only) or (role:member and
+# project_id:%(project_id)s)".
+# Name of the rule is changed.
+# WARNING: A rule name change has been identified.
+#          This may be an artifact of new rules being
+#          included which require legacy fallback
+#          rules to ensure proper policy behavior.
+#          Alternatively, this may just be an alias.
+#          Please evaluate on a case by case basis
+#          keeping in mind the format for aliased
+#          rules is:
+#          "old_rule_name": "new_rule_name".
+# "update_trunks_tags": "rule:update_trunk:tags"
 
 # Delete a trunk
 # DELETE  /trunks/{id}
@@ -2947,7 +3989,24 @@
 # DELETE  /trunks/{id}/tags
 # DELETE  /trunks/{id}/tags/{tag_id}
 # Intended scope(s): project
-#"delete_trunks_tags": "(rule:admin_only) or (role:member and project_id:%(project_id)s)"
+#"delete_trunk:tags": "(rule:admin_only) or (role:member and project_id:%(project_id)s)"
+
+# DEPRECATED
+# "delete_trunks_tags":"(rule:admin_only) or (role:member and
+# project_id:%(project_id)s)" has been deprecated since 2025.1 in
+# favor of "delete_trunk:tags":"(rule:admin_only) or (role:member and
+# project_id:%(project_id)s)".
+# Name of the rule is changed.
+# WARNING: A rule name change has been identified.
+#          This may be an artifact of new rules being
+#          included which require legacy fallback
+#          rules to ensure proper policy behavior.
+#          Alternatively, this may just be an alias.
+#          Please evaluate on a case by case basis
+#          keeping in mind the format for aliased
+#          rules is:
+#          "old_rule_name": "new_rule_name".
+# "delete_trunks_tags": "rule:delete_trunk:tags"
 
 # List subports attached to a trunk
 # GET  /trunks/{id}/get_subports

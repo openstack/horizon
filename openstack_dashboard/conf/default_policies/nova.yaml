@@ -48,6 +48,24 @@
   name: admin_api
   operations: []
   scope_types: null
+- check_str: role:manager and project_id:%(project_id)s
+  deprecated_rule:
+    check_str: is_admin:True
+    deprecated_reason: '
+
+      Nova API policies are introducing new default roles with scope_type
+
+      capabilities. Old policies are deprecated and silently going to be ignored
+
+      in nova 23.0.0 release.
+
+      '
+    deprecated_since: 21.0.0
+    name: rule:admin_api
+  description: Default rule for Project level management APIs.
+  name: project_manager_api
+  operations: []
+  scope_types: null
 - check_str: role:member and project_id:%(project_id)s
   deprecated_rule:
     check_str: is_admin:True or project_id:%(project_id)s
@@ -84,6 +102,42 @@
   name: project_reader_api
   operations: []
   scope_types: null
+- check_str: role:service
+  deprecated_rule:
+    check_str: is_admin:True
+    deprecated_reason: '
+
+      Nova API policies are introducing new default roles with scope_type
+
+      capabilities. Old policies are deprecated and silently going to be ignored
+
+      in nova 23.0.0 release.
+
+      '
+    deprecated_since: 21.0.0
+    name: rule:admin_api
+  description: Default rule for service-to-service APIs.
+  name: service_api
+  operations: []
+  scope_types: null
+- check_str: rule:project_manager_api or rule:context_is_admin
+  deprecated_rule:
+    check_str: is_admin:True
+    deprecated_reason: '
+
+      Nova API policies are introducing new default roles with scope_type
+
+      capabilities. Old policies are deprecated and silently going to be ignored
+
+      in nova 23.0.0 release.
+
+      '
+    deprecated_since: 21.0.0
+    name: rule:admin_api
+  description: Default rule for Project Manager or admin APIs.
+  name: project_manager_or_admin
+  operations: []
+  scope_types: null
 - check_str: rule:project_member_api or rule:context_is_admin
   deprecated_rule:
     check_str: is_admin:True or project_id:%(project_id)s
@@ -118,6 +172,24 @@
     name: rule:admin_or_owner
   description: Default rule for Project reader or admin APIs.
   name: project_reader_or_admin
+  operations: []
+  scope_types: null
+- check_str: rule:service_api or rule:context_is_admin
+  deprecated_rule:
+    check_str: is_admin:True
+    deprecated_reason: '
+
+      Nova API policies are introducing new default roles with scope_type
+
+      capabilities. Old policies are deprecated and silently going to be ignored
+
+      in nova 23.0.0 release.
+
+      '
+    deprecated_since: 21.0.0
+    name: rule:admin_api
+  description: Default rule for service or admin APIs.
+  name: service_or_admin
   operations: []
   scope_types: null
 - check_str: rule:context_is_admin
@@ -216,7 +288,7 @@
     path: /os-aggregates/{aggregate_id}/images
   scope_types:
   - project
-- check_str: rule:context_is_admin
+- check_str: rule:service_or_admin
   description: Create an assisted volume snapshot
   name: os_compute_api:os-assisted-volume-snapshots:create
   operations:
@@ -224,7 +296,7 @@
     path: /os-assisted-volume-snapshots
   scope_types:
   - project
-- check_str: rule:context_is_admin
+- check_str: rule:service_or_admin
   description: Delete an assisted volume snapshot
   name: os_compute_api:os-assisted-volume-snapshots:delete
   operations:
@@ -1307,7 +1379,7 @@
     path: /servers/{server_id}/action (unlock)
   scope_types:
   - project
-- check_str: rule:context_is_admin
+- check_str: rule:project_manager_or_admin
   description: Cold migrate a server without specifying a host
   name: os_compute_api:os-migrate-server:migrate
   operations:
@@ -1323,8 +1395,9 @@
     path: /servers/{server_id}/action (migrate)
   scope_types:
   - project
-- check_str: rule:context_is_admin
-  description: Live migrate a server to a new host without a reboot
+- check_str: rule:project_manager_or_admin
+  description: Live migrate a server to a new host without a reboot without specifying
+    a host.
   name: os_compute_api:os-migrate-server:migrate_live
   operations:
   - method: POST
@@ -1332,8 +1405,86 @@
   scope_types:
   - project
 - check_str: rule:context_is_admin
-  description: List migrations
+  deprecated_rule:
+    check_str: rule:context_is_admin
+    deprecated_reason: 'Nova introduces one more policy to live migration API. The
+      original policy is
+
+      not deprecated and used to allow live migration without requesting a specific
+
+      host. A new policy is added to control the live migration requesting a
+
+      specific host. If you have overridden the original policy in your deployment,
+
+      you must also add the new policy to keep the same permissions for live
+
+      migration to a specific host.
+
+      '
+    deprecated_since: 32.0.0
+    name: os_compute_api:os-migrate-server:migrate_live
+  description: Live migrate a server to a specified host without a reboot.
+  name: os_compute_api:os-migrate-server:migrate_live:host
+  operations:
+  - method: POST
+    path: /servers/{server_id}/action (os-migrateLive)
+  scope_types:
+  - project
+- check_str: rule:project_manager_or_admin
+  description: List migrations without host info
   name: os_compute_api:os-migrations:index
+  operations:
+  - method: GET
+    path: /os-migrations
+  scope_types:
+  - project
+- check_str: rule:context_is_admin
+  deprecated_rule:
+    check_str: rule:context_is_admin
+    deprecated_reason: 'Nova introduces two new policies to list migrations. The original
+      policy
+
+      is not deprecated and used to list the live migration without host info.
+
+      Two new policies are added to list migration with host info and cross
+
+      projects migrations. If you have overridden the original policy in your
+
+      deployment, you must also update the new policy to keep the same
+
+      permissions.
+
+      '
+    deprecated_since: 32.0.0
+    name: os_compute_api:os-migrations:index
+  description: List migrations for all or cross projects
+  name: os_compute_api:os-migrations:index:all_projects
+  operations:
+  - method: GET
+    path: /os-migrations
+  scope_types:
+  - project
+- check_str: rule:context_is_admin
+  deprecated_rule:
+    check_str: rule:context_is_admin
+    deprecated_reason: 'Nova introduces two new policies to list migrations. The original
+      policy
+
+      is not deprecated and used to list the live migration without host info.
+
+      Two new policies are added to list migration with host info and cross
+
+      projects migrations. If you have overridden the original policy in your
+
+      deployment, you must also update the new policy to keep the same
+
+      permissions.
+
+      '
+    deprecated_since: 32.0.0
+    name: os_compute_api:os-migrations:index
+  description: List migrations with host info
+  name: os_compute_api:os-migrations:index:host
   operations:
   - method: GET
     path: /os-migrations
@@ -1512,7 +1663,7 @@
   scope_types:
   - project
 - check_str: rule:project_member_or_admin
-  description: 'Generate a URL to access remove server console.
+  description: 'Generate a URL to access remote server console.
 
 
     This policy is for ``POST /remote-consoles`` API and below Server actions APIs
@@ -1782,7 +1933,7 @@
     path: /servers/{server_id}/diagnostics
   scope_types:
   - project
-- check_str: rule:context_is_admin
+- check_str: rule:service_or_admin
   description: Create one or more external events
   name: os_compute_api:os-server-external-events:create
   operations:
@@ -1918,6 +2069,38 @@
   operations:
   - method: DELETE
     path: /servers/{server_id}/os-server-password
+  scope_types:
+  - project
+- check_str: rule:project_reader_or_admin
+  description: List all shares for given server
+  name: os_compute_api:os-server-shares:index
+  operations:
+  - method: GET
+    path: /servers/{server_id}/shares
+  scope_types:
+  - project
+- check_str: rule:project_member_or_admin
+  description: Attach a share to the specified server
+  name: os_compute_api:os-server-shares:create
+  operations:
+  - method: POST
+    path: /servers/{server_id}/shares
+  scope_types:
+  - project
+- check_str: rule:project_reader_or_admin
+  description: Show a share configured for the specified server
+  name: os_compute_api:os-server-shares:show
+  operations:
+  - method: GET
+    path: /servers/{server_id}/shares/{share_id}
+  scope_types:
+  - project
+- check_str: rule:project_member_or_admin
+  description: Detach a share to the specified server
+  name: os_compute_api:os-server-shares:delete
+  operations:
+  - method: DELETE
+    path: /servers/{server_id}/shares/{share_id}
   scope_types:
   - project
 - check_str: rule:project_member_or_admin
@@ -2362,7 +2545,7 @@
     path: /servers/{server_id}/migrations/{migration_id}
   scope_types:
   - project
-- check_str: rule:context_is_admin
+- check_str: rule:project_manager_or_admin
   description: Force an in-progress live migration for a given server to complete
   name: os_compute_api:servers:migrations:force_complete
   operations:
@@ -2370,7 +2553,7 @@
     path: /servers/{server_id}/migrations/{migration_id}/action (force_complete)
   scope_types:
   - project
-- check_str: rule:context_is_admin
+- check_str: rule:project_manager_or_admin
   description: Delete(Abort) an in-progress live migration
   name: os_compute_api:servers:migrations:delete
   operations:
@@ -2378,9 +2561,33 @@
     path: /servers/{server_id}/migrations/{migration_id}
   scope_types:
   - project
-- check_str: rule:context_is_admin
-  description: Lists in-progress live migrations for a given server
+- check_str: rule:project_manager_or_admin
+  description: Lists in-progress live migrations for a given server without host info.
   name: os_compute_api:servers:migrations:index
+  operations:
+  - method: GET
+    path: /servers/{server_id}/migrations
+  scope_types:
+  - project
+- check_str: rule:context_is_admin
+  deprecated_rule:
+    check_str: rule:context_is_admin
+    deprecated_reason: 'Nova introduces one new policy to list live migrations. The
+      original policy
+
+      is not deprecated and used to list the in-progress live migration without
+
+      host info. A new policy is added to list live migration with host info.
+
+      If you have overridden the original policy in your deployment, you must
+
+      also update the new policy to keep the same permissions.
+
+      '
+    deprecated_since: 32.0.0
+    name: os_compute_api:servers:migrations:index
+  description: Lists in-progress live migrations for a given server with host info.
+  name: os_compute_api:servers:migrations:index:host
   operations:
   - method: GET
     path: /servers/{server_id}/migrations
@@ -2841,7 +3048,7 @@
     path: /servers/{server_id}/os-volume_attachments/{volume_id}
   scope_types:
   - project
-- check_str: rule:context_is_admin
+- check_str: rule:service_or_admin
   description: Update a volume attachment with a different volumeId
   name: os_compute_api:os-volumes-attachments:swap
   operations:
