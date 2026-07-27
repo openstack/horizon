@@ -57,7 +57,7 @@ def clear_flavor_region_two(flavor_name, openstack_admin_region_two):
 
 
 def switch_to_services_region(driver, config, services_region):
-    wait_for_page_ready(driver, config)
+    widgets.wait_for_page_ready(driver, config)
     switch_services_region_name = driver.find_element(
         By.XPATH, config.services_regions.region_name_xpath)
     if (switch_services_region_name.text ==
@@ -67,7 +67,7 @@ def switch_to_services_region(driver, config, services_region):
     switch_services_region_btn = driver.find_element(
         By.XPATH, config.services_regions.region_dropdown_xpath)
     widgets.select_from_dropdown(switch_services_region_btn, services_region)
-    wait_for_page_ready(driver, config)
+    widgets.wait_for_page_ready(driver, config)
     WebDriverWait(
         driver, config.selenium.page_timeout,
         ignored_exceptions=[StaleElementReferenceException]
@@ -77,15 +77,6 @@ def switch_to_services_region(driver, config, services_region):
         ).text == config.services_regions.region_btn_text_pattern.format(
             region=services_region)
     )
-
-
-def wait_for_page_ready(driver, config):
-    wait = WebDriverWait(driver, config.selenium.page_timeout)
-    wait.until(lambda d: d.execute_script(
-        "return document.readyState") == "complete")
-    wait.until(lambda d: d.execute_script(
-        "return (typeof jQuery === 'undefined') || (jQuery.active === 0)"
-    ))
 
 
 def test_services_regions_switch_admin(require_multiple_regions, login, driver,
