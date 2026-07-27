@@ -15,11 +15,19 @@ from selenium.common.exceptions import NoSuchElementException
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import Select
 
+from openstack_dashboard.test.selenium import widgets
+
 
 @pytest.fixture(scope='session')
 def env_identity_providers(openstack_admin):
     identity_providers_sdk = list(openstack_admin.identity.identity_providers())
     yield identity_providers_sdk
+
+
+@pytest.fixture()
+def clear_login_session_after_logout(login):
+    yield None
+    login(None)
 
 
 def test_federation_keystone_user_login(login, driver, config,
@@ -249,3 +257,33 @@ def test_multi_realm_IdP2_login_full_auth(driver, config, login,
     success, message = logged_in_as(
         driver, config, idps_oidc_credentials['user3'])
     assert success, message
+
+
+def test_federation_keystone_user_logout(login, driver, config,
+                                         clear_login_session_after_logout):
+    login('user')
+    driver.find_element(By.XPATH, config.theme.user_name_xpath).click()
+    driver.find_element(
+        By.XPATH, "//*[self::a or self::button][contains("
+                  "normalize-space(.), 'Sign Out')]").click()
+    widgets.wait_for_page_ready(driver, config)
+    try:
+        driver.find_element(By.XPATH, "//form[contains(@action, 'login')]")
+        assert True
+    except NoSuchElementException:
+        assert False
+
+
+def test_federation_keystone_admin_logout(login, driver, config,
+                                          clear_login_session_after_logout):
+    login('admin')
+    driver.find_element(By.XPATH, config.theme.user_name_xpath).click()
+    driver.find_element(
+        By.XPATH, "//*[self::a or self::button][contains("
+                  "normalize-space(.), 'Sign Out')]").click()
+    widgets.wait_for_page_ready(driver, config)
+    try:
+        driver.find_element(By.XPATH, "//form[contains(@action, 'login')]")
+        assert True
+    except NoSuchElementException:
+        assert False
