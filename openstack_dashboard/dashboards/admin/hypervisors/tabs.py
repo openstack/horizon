@@ -46,6 +46,7 @@ class ProviderTab(tabs.TableTab):
     name = _("Resource Provider")
     slug = "provider"
     template_name = "horizon/common/_detail_table.html"
+    preload = False
 
     def get_providers_data(self):
         providers = []

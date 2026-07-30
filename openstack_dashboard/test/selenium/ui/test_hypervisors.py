@@ -36,6 +36,9 @@ def test_vcpu_pcpu_data_display(live_server, driver, user, dashboard_data):
             vcpus = inventories.get('VCPU')
             pcpus = inventories.get('PCPU')
             p['uuid'] = "test_provider"
+            p['name'] = "test_provider"
+            p['parent_provider_uuid'] = None
+            p['root_provider_uuid'] = "test_provider"
             p['inventories'] = inventories
             p['usages'] = usages
             p['vcpus_used'] = usages.get('VCPU')
@@ -50,6 +53,16 @@ def test_vcpu_pcpu_data_display(live_server, driver, user, dashboard_data):
             p['pcpus_ar'] = pcpus['allocation_ratio']
             p['pcpus_capacity'] = int(pcpus['allocation_ratio'] *
                                       pcpus['total'])
+            p['memory_mb_used'] = None
+            p['memory_mb_reserved'] = None
+            p['memory_mb'] = None
+            p['memory_mb_ar'] = None
+            p['memory_mb_capacity'] = None
+            p['disk_gb_used'] = None
+            p['disk_gb_reserved'] = None
+            p['disk_gb'] = None
+            p['disk_gb_ar'] = None
+            p['disk_gb_capacity'] = None
         mocked_g_p.return_value = providers
 
         driver.get(live_server.url + '/admin/hypervisors')

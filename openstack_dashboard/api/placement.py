@@ -49,7 +49,7 @@ def make_adapter(request):
         verify = settings.OPENSTACK_SSL_CACERT
     return Adapter(
         session.Session(auth=auth, verify=verify),
-        api_version="placement 1.6",
+        api_version="placement 1.14",
     )
 
 
@@ -98,6 +98,12 @@ def resource_provider_traits(request, uuid):
 
 def get_providers(request):
     providers = resource_providers(request)
+    # Filter to root providers only (microversion 1.14+). Nested child
+    # providers (vGPU, PCI passthrough) carry no VCPU/MEMORY_MB/DISK_GB
+    # inventory and would otherwise multiply the per-provider API calls
+    # by the number of devices rather than the number of hosts.
+    providers = [p for p in providers
+                 if p.get('parent_provider_uuid') is None]
     for p in providers:
         inventories = resource_provider_inventories(request, p['uuid'])
         usages = resource_provider_usages(request, p['uuid'])
@@ -107,8 +113,6 @@ def get_providers(request):
         disk = inventories.get('DISK_GB')
         p['inventories'] = inventories
         p['usages'] = usages
-        p['aggregates'] = resource_provider_aggregates(request, p['uuid'])
-        p['traits'] = resource_provider_traits(request, p['uuid'])
 
         p['vcpus_used'] = usages.get('VCPU')
         # Reserved:
