@@ -192,7 +192,8 @@ class UsersTable(tables.DataTable):
                             status_choices=STATUS_CHOICES,
                             filters=(defaultfilters.yesno,
                                      defaultfilters.capfirst),
-                            empty_value=_('False'))
+                            # Translators: User status not set in group users.
+                            empty_value=_('Not Available'))
 
 
 class GroupMembersTable(UsersTable):
