@@ -1582,7 +1582,16 @@ OPENSTACK_KEYSTONE_PREFER_DOMAIN_TOKEN
 
 .. versionadded:: 2026.1(Gazpacho)
 
-Default: ``True``
+.. versionchanged:: 2026.2(Hibiscus)
+
+   The default value was changed to `False`
+
+.. deprecated:: 2026.2(Hibiscus)
+
+   Setting this option to True is known to break keystone API access due to
+   keystone not allowing all administrator operations for domain admin.
+
+Default: ``False``
 
 When ``OPENSTACK_KEYSTONE_MULTIDOMAIN_SUPPORT`` is enabled,
 for certain users (that are for example both project and domain admins),

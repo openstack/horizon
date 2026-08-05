@@ -401,7 +401,7 @@ OPENSTACK_KEYSTONE_MULTIDOMAIN_SUPPORT = False
 # Horizon will mostly attempt to use domain scope for calls to Keystone.
 # This behavior does not work properly with some policy combinations,
 # and can be disabled here.
-OPENSTACK_KEYSTONE_PREFER_DOMAIN_TOKEN = True
+OPENSTACK_KEYSTONE_PREFER_DOMAIN_TOKEN = False
 # Set this to True to enable panels that provide the ability for users to
 # manage Identity Providers (IdPs) and establish a set of rules to map
 # federation protocol attributes to Identity API attributes.

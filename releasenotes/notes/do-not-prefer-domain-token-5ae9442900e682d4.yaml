@@ -1,0 +1,12 @@
+---
+deprecations:
+  - |
+    The ``OPENSTACK_KEYSTONE_PREFER_DOMAIN_TOKEN`` option is now deprecated.
+    Changing this option is known to break operations of some of the resources
+    in keystone such as identity provider.
+
+fixes:
+  - |
+    Default value of the ``OPENSTACK_KEYSTONE_PREFER_DOMAIN_TOKEN`` option has
+    been changed to ``False``, to fix some operations rejected by keystone due
+    to its policy rules not permitting domain-scope access.
