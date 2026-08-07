@@ -18,6 +18,11 @@
   name: context_is_admin
   operations: []
   scope_types: null
+- check_str: role:service or role:admin
+  description: Default rule for the service-to-service API.
+  name: service_api
+  operations: []
+  scope_types: null
 - check_str: rule:context_is_admin or (role:member and project_id:%(project_id)s and
     project_id:%(owner)s)
   deprecated_rule:
@@ -150,6 +155,16 @@
     path: /v2/images/{image_id}/file
   scope_types:
   - project
+- check_str: rule:context_is_admin or (role:member and (project_id:%(project_id)s
+    or project_id:%(member_id)s or 'community':%(visibility)s or 'public':%(visibility)s
+    or 'shared':%(visibility)s))
+  description: Downloads image from specific store using store selection parameters
+  name: download_from_store
+  operations:
+  - method: GET
+    path: /v2/images/{image_id}/file
+  scope_types:
+  - project
 - check_str: rule:context_is_admin or (role:member and project_id:%(project_id)s)
   deprecated_rule:
     check_str: rule:default
@@ -216,6 +231,22 @@
   operations:
   - method: PATCH
     path: /v2/images/{image_id}
+  scope_types:
+  - project
+- check_str: rule:service_api or (role:member and project_id:%(project_id)s and project_id:%(owner)s)
+  description: Add location URI to given image
+  name: add_image_location
+  operations:
+  - method: POST
+    path: /v2/images/{image_id}/locations
+  scope_types:
+  - project
+- check_str: rule:service_api
+  description: Show all locations associated to given image
+  name: fetch_image_location
+  operations:
+  - method: GET
+    path: /v2/images/{image_id}/locations
   scope_types:
   - project
 - check_str: rule:context_is_admin or (role:member and project_id:%(project_id)s)
@@ -351,6 +382,14 @@
   operations:
   - method: POST
     path: /v2/images/{image_id}/import
+  scope_types:
+  - project
+- check_str: rule:context_is_admin
+  description: Get all nodes where specified image is cached
+  name: list_cached_nodes
+  operations:
+  - method: GET
+    path: /v2/cache/nodes/{image_id}
   scope_types:
   - project
 - check_str: rule:default
@@ -877,6 +916,27 @@
   scope_types:
   - project
 - check_str: rule:context_is_admin
+  description: Clean invalid and stalled cached images
+  name: cache_clean
+  operations:
+  - method: POST
+    path: /v2/cache/clean
+  scope_types:
+  - project
+- check_str: rule:context_is_admin
+  description: Prune cached images to reduce cache size
+  name: cache_prune
+  operations:
+  - method: POST
+    path: /v2/cache/prune
+  scope_types:
+  - project
+- check_str: rule:context_is_admin or rule:service_api
+  deprecated_rule:
+    check_str: rule:context_is_admin
+    deprecated_reason: Stores info detail now supports service role.
+    deprecated_since: '2025.1'
+    name: stores_info_detail
   description: Expose store specific information
   name: stores_info_detail
   operations:

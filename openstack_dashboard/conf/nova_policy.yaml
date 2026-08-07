@@ -34,6 +34,27 @@
 # Default rule for most Admin APIs.
 #"admin_api": "is_admin:True"
 
+# Default rule for Project level management APIs.
+#"project_manager_api": "role:manager and project_id:%(project_id)s"
+
+# DEPRECATED
+# "rule:admin_api":"is_admin:True" has been deprecated since 21.0.0 in
+# favor of "project_manager_api":"role:manager and
+# project_id:%(project_id)s".
+# Nova API policies are introducing new default roles with scope_type
+# capabilities. Old policies are deprecated and silently going to be
+# ignored in nova 23.0.0 release.
+# WARNING: A rule name change has been identified.
+#          This may be an artifact of new rules being
+#          included which require legacy fallback
+#          rules to ensure proper policy behavior.
+#          Alternatively, this may just be an alias.
+#          Please evaluate on a case by case basis
+#          keeping in mind the format for aliased
+#          rules is:
+#          "old_rule_name": "new_rule_name".
+# "rule:admin_api": "rule:project_manager_api"
+
 # Default rule for Project level non admin APIs.
 #"project_member_api": "role:member and project_id:%(project_id)s"
 
@@ -75,6 +96,47 @@
 #          rules is:
 #          "old_rule_name": "new_rule_name".
 # "rule:admin_or_owner": "rule:project_reader_api"
+
+# Default rule for service-to-service APIs.
+#"service_api": "role:service"
+
+# DEPRECATED
+# "rule:admin_api":"is_admin:True" has been deprecated since 21.0.0 in
+# favor of "service_api":"role:service".
+# Nova API policies are introducing new default roles with scope_type
+# capabilities. Old policies are deprecated and silently going to be
+# ignored in nova 23.0.0 release.
+# WARNING: A rule name change has been identified.
+#          This may be an artifact of new rules being
+#          included which require legacy fallback
+#          rules to ensure proper policy behavior.
+#          Alternatively, this may just be an alias.
+#          Please evaluate on a case by case basis
+#          keeping in mind the format for aliased
+#          rules is:
+#          "old_rule_name": "new_rule_name".
+# "rule:admin_api": "rule:service_api"
+
+# Default rule for Project Manager or admin APIs.
+#"project_manager_or_admin": "rule:project_manager_api or rule:context_is_admin"
+
+# DEPRECATED
+# "rule:admin_api":"is_admin:True" has been deprecated since 21.0.0 in
+# favor of "project_manager_or_admin":"rule:project_manager_api or
+# rule:context_is_admin".
+# Nova API policies are introducing new default roles with scope_type
+# capabilities. Old policies are deprecated and silently going to be
+# ignored in nova 23.0.0 release.
+# WARNING: A rule name change has been identified.
+#          This may be an artifact of new rules being
+#          included which require legacy fallback
+#          rules to ensure proper policy behavior.
+#          Alternatively, this may just be an alias.
+#          Please evaluate on a case by case basis
+#          keeping in mind the format for aliased
+#          rules is:
+#          "old_rule_name": "new_rule_name".
+# "rule:admin_api": "rule:project_manager_or_admin"
 
 # Default rule for Project Member or admin APIs.
 #"project_member_or_admin": "rule:project_member_api or rule:context_is_admin"
@@ -119,6 +181,27 @@
 #          rules is:
 #          "old_rule_name": "new_rule_name".
 # "rule:admin_or_owner": "rule:project_reader_or_admin"
+
+# Default rule for service or admin APIs.
+#"service_or_admin": "rule:service_api or rule:context_is_admin"
+
+# DEPRECATED
+# "rule:admin_api":"is_admin:True" has been deprecated since 21.0.0 in
+# favor of "service_or_admin":"rule:service_api or
+# rule:context_is_admin".
+# Nova API policies are introducing new default roles with scope_type
+# capabilities. Old policies are deprecated and silently going to be
+# ignored in nova 23.0.0 release.
+# WARNING: A rule name change has been identified.
+#          This may be an artifact of new rules being
+#          included which require legacy fallback
+#          rules to ensure proper policy behavior.
+#          Alternatively, this may just be an alias.
+#          Please evaluate on a case by case basis
+#          keeping in mind the format for aliased
+#          rules is:
+#          "old_rule_name": "new_rule_name".
+# "rule:admin_api": "rule:service_or_admin"
 
 # Reset the state of a given server
 # POST  /servers/{server_id}/action (os-resetState)
@@ -183,12 +266,12 @@
 # Create an assisted volume snapshot
 # POST  /os-assisted-volume-snapshots
 # Intended scope(s): project
-#"os_compute_api:os-assisted-volume-snapshots:create": "rule:context_is_admin"
+#"os_compute_api:os-assisted-volume-snapshots:create": "rule:service_or_admin"
 
 # Delete an assisted volume snapshot
 # DELETE  /os-assisted-volume-snapshots/{snapshot_id}
 # Intended scope(s): project
-#"os_compute_api:os-assisted-volume-snapshots:delete": "rule:context_is_admin"
+#"os_compute_api:os-assisted-volume-snapshots:delete": "rule:service_or_admin"
 
 # List port interfaces attached to a server
 # GET  /servers/{server_id}/os-interface
@@ -1172,22 +1255,103 @@
 # Cold migrate a server without specifying a host
 # POST  /servers/{server_id}/action (migrate)
 # Intended scope(s): project
-#"os_compute_api:os-migrate-server:migrate": "rule:context_is_admin"
+#"os_compute_api:os-migrate-server:migrate": "rule:project_manager_or_admin"
 
 # Cold migrate a server to a specified host
 # POST  /servers/{server_id}/action (migrate)
 # Intended scope(s): project
 #"os_compute_api:os-migrate-server:migrate:host": "rule:context_is_admin"
 
-# Live migrate a server to a new host without a reboot
+# Live migrate a server to a new host without a reboot without
+# specifying a host.
 # POST  /servers/{server_id}/action (os-migrateLive)
 # Intended scope(s): project
-#"os_compute_api:os-migrate-server:migrate_live": "rule:context_is_admin"
+#"os_compute_api:os-migrate-server:migrate_live": "rule:project_manager_or_admin"
 
-# List migrations
+# Live migrate a server to a specified host without a reboot.
+# POST  /servers/{server_id}/action (os-migrateLive)
+# Intended scope(s): project
+#"os_compute_api:os-migrate-server:migrate_live:host": "rule:context_is_admin"
+
+# DEPRECATED
+# "os_compute_api:os-migrate-
+# server:migrate_live":"rule:context_is_admin" has been deprecated
+# since 32.0.0 in favor of "os_compute_api:os-migrate-
+# server:migrate_live:host":"rule:context_is_admin".
+# Nova introduces one more policy to live migration API. The original
+# policy is not deprecated and used to allow live migration without
+# requesting a specific host. A new policy is added to control the
+# live migration requesting a specific host. If you have overridden
+# the original policy in your deployment, you must also add the new
+# policy to keep the same permissions for live migration to a specific
+# host.
+# WARNING: A rule name change has been identified.
+#          This may be an artifact of new rules being
+#          included which require legacy fallback
+#          rules to ensure proper policy behavior.
+#          Alternatively, this may just be an alias.
+#          Please evaluate on a case by case basis
+#          keeping in mind the format for aliased
+#          rules is:
+#          "old_rule_name": "new_rule_name".
+# "os_compute_api:os-migrate-server:migrate_live": "rule:os_compute_api:os-migrate-server:migrate_live:host"
+
+# List migrations without host info
 # GET  /os-migrations
 # Intended scope(s): project
-#"os_compute_api:os-migrations:index": "rule:context_is_admin"
+#"os_compute_api:os-migrations:index": "rule:project_manager_or_admin"
+
+# List migrations for all or cross projects
+# GET  /os-migrations
+# Intended scope(s): project
+#"os_compute_api:os-migrations:index:all_projects": "rule:context_is_admin"
+
+# DEPRECATED
+# "os_compute_api:os-migrations:index":"rule:context_is_admin" has
+# been deprecated since 32.0.0 in favor of "os_compute_api:os-
+# migrations:index:all_projects":"rule:context_is_admin".
+# Nova introduces two new policies to list migrations. The original
+# policy is not deprecated and used to list the live migration without
+# host info. Two new policies are added to list migration with host
+# info and cross projects migrations. If you have overridden the
+# original policy in your deployment, you must also update the new
+# policy to keep the same permissions.
+# WARNING: A rule name change has been identified.
+#          This may be an artifact of new rules being
+#          included which require legacy fallback
+#          rules to ensure proper policy behavior.
+#          Alternatively, this may just be an alias.
+#          Please evaluate on a case by case basis
+#          keeping in mind the format for aliased
+#          rules is:
+#          "old_rule_name": "new_rule_name".
+# "os_compute_api:os-migrations:index": "rule:os_compute_api:os-migrations:index:all_projects"
+
+# List migrations with host info
+# GET  /os-migrations
+# Intended scope(s): project
+#"os_compute_api:os-migrations:index:host": "rule:context_is_admin"
+
+# DEPRECATED
+# "os_compute_api:os-migrations:index":"rule:context_is_admin" has
+# been deprecated since 32.0.0 in favor of "os_compute_api:os-
+# migrations:index:host":"rule:context_is_admin".
+# Nova introduces two new policies to list migrations. The original
+# policy is not deprecated and used to list the live migration without
+# host info. Two new policies are added to list migration with host
+# info and cross projects migrations. If you have overridden the
+# original policy in your deployment, you must also update the new
+# policy to keep the same permissions.
+# WARNING: A rule name change has been identified.
+#          This may be an artifact of new rules being
+#          included which require legacy fallback
+#          rules to ensure proper policy behavior.
+#          Alternatively, this may just be an alias.
+#          Please evaluate on a case by case basis
+#          keeping in mind the format for aliased
+#          rules is:
+#          "old_rule_name": "new_rule_name".
+# "os_compute_api:os-migrations:index": "rule:os_compute_api:os-migrations:index:host"
 
 # Add a fixed IP address to a server.
 #
@@ -1334,7 +1498,7 @@
 # Intended scope(s): project
 #"os_compute_api:os-quota-sets:detail": "rule:project_reader_or_admin"
 
-# Generate a URL to access remove server console.
+# Generate a URL to access remote server console.
 #
 # This policy is for ``POST /remote-consoles`` API and below Server
 # actions APIs are deprecated:
@@ -1613,7 +1777,7 @@
 # Create one or more external events
 # POST  /os-server-external-events
 # Intended scope(s): project
-#"os_compute_api:os-server-external-events:create": "rule:context_is_admin"
+#"os_compute_api:os-server-external-events:create": "rule:service_or_admin"
 
 # Create a new server group
 # POST  /os-server-groups
@@ -1715,6 +1879,26 @@
 #          rules is:
 #          "old_rule_name": "new_rule_name".
 # "os_compute_api:os-server-password": "rule:os_compute_api:os-server-password:clear"
+
+# List all shares for given server
+# GET  /servers/{server_id}/shares
+# Intended scope(s): project
+#"os_compute_api:os-server-shares:index": "rule:project_reader_or_admin"
+
+# Attach a share to the specified server
+# POST  /servers/{server_id}/shares
+# Intended scope(s): project
+#"os_compute_api:os-server-shares:create": "rule:project_member_or_admin"
+
+# Show a share configured for the specified server
+# GET  /servers/{server_id}/shares/{share_id}
+# Intended scope(s): project
+#"os_compute_api:os-server-shares:show": "rule:project_reader_or_admin"
+
+# Detach a share to the specified server
+# DELETE  /servers/{server_id}/shares/{share_id}
+# Intended scope(s): project
+#"os_compute_api:os-server-shares:delete": "rule:project_member_or_admin"
 
 # Delete all the server tags
 # DELETE  /servers/{server_id}/tags
@@ -1997,17 +2181,44 @@
 # Force an in-progress live migration for a given server to complete
 # POST  /servers/{server_id}/migrations/{migration_id}/action (force_complete)
 # Intended scope(s): project
-#"os_compute_api:servers:migrations:force_complete": "rule:context_is_admin"
+#"os_compute_api:servers:migrations:force_complete": "rule:project_manager_or_admin"
 
 # Delete(Abort) an in-progress live migration
 # DELETE  /servers/{server_id}/migrations/{migration_id}
 # Intended scope(s): project
-#"os_compute_api:servers:migrations:delete": "rule:context_is_admin"
+#"os_compute_api:servers:migrations:delete": "rule:project_manager_or_admin"
 
-# Lists in-progress live migrations for a given server
+# Lists in-progress live migrations for a given server without host
+# info.
 # GET  /servers/{server_id}/migrations
 # Intended scope(s): project
-#"os_compute_api:servers:migrations:index": "rule:context_is_admin"
+#"os_compute_api:servers:migrations:index": "rule:project_manager_or_admin"
+
+# Lists in-progress live migrations for a given server with host info.
+# GET  /servers/{server_id}/migrations
+# Intended scope(s): project
+#"os_compute_api:servers:migrations:index:host": "rule:context_is_admin"
+
+# DEPRECATED
+# "os_compute_api:servers:migrations:index":"rule:context_is_admin"
+# has been deprecated since 32.0.0 in favor of "os_compute_api:servers
+# :migrations:index:host":"rule:context_is_admin".
+# Nova introduces one new policy to list live migrations. The original
+# policy is not deprecated and used to list the in-progress live
+# migration without host info. A new policy is added to list live
+# migration with host info. If you have overridden the original policy
+# in your deployment, you must also update the new policy to keep the
+# same permissions.
+# WARNING: A rule name change has been identified.
+#          This may be an artifact of new rules being
+#          included which require legacy fallback
+#          rules to ensure proper policy behavior.
+#          Alternatively, this may just be an alias.
+#          Please evaluate on a case by case basis
+#          keeping in mind the format for aliased
+#          rules is:
+#          "old_rule_name": "new_rule_name".
+# "os_compute_api:servers:migrations:index": "rule:os_compute_api:servers:migrations:index:host"
 
 # List all running Compute services in a region.
 # GET  /os-services
@@ -2444,7 +2655,7 @@
 # Update a volume attachment with a different volumeId
 # PUT  /servers/{server_id}/os-volume_attachments/{volume_id}
 # Intended scope(s): project
-#"os_compute_api:os-volumes-attachments:swap": "rule:context_is_admin"
+#"os_compute_api:os-volumes-attachments:swap": "rule:service_or_admin"
 
 # Detach a volume from an instance
 # DELETE  /servers/{server_id}/os-volume_attachments/{volume_id}

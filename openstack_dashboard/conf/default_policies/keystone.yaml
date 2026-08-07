@@ -38,6 +38,12 @@
   name: service_admin_or_token_subject
   operations: []
   scope_types: null
+- check_str: '''manager'':%(target.role.name)s or ''member'':%(target.role.name)s
+    or ''reader'':%(target.role.name)s'
+  description: null
+  name: domain_managed_target_role
+  operations: []
+  scope_types: null
 - check_str: (role:reader and system_scope:all) or user_id:%(target.user.id)s
   description: Show access rule details.
   name: identity:get_access_rule
@@ -117,7 +123,7 @@
     path: /v3/users/{user_id}/OS-OAUTH1/access_tokens/{access_token_id}
   scope_types:
   - project
-- check_str: (role:reader and system_scope:all) or rule:owner
+- check_str: (rule:admin_required) or (role:reader and system_scope:all) or rule:owner
   deprecated_rule:
     check_str: rule:admin_or_owner
     deprecated_reason: The application credential API is now aware of system scope
@@ -134,7 +140,7 @@
   scope_types:
   - system
   - project
-- check_str: (role:reader and system_scope:all) or rule:owner
+- check_str: (rule:admin_required) or (role:reader and system_scope:all) or rule:owner
   deprecated_rule:
     check_str: rule:admin_or_owner
     deprecated_reason: The application credential API is now aware of system scope
@@ -159,7 +165,7 @@
     path: /v3/users/{user_id}/application_credentials
   scope_types:
   - project
-- check_str: (role:admin and system_scope:all) or rule:owner
+- check_str: rule:admin_or_owner
   deprecated_rule:
     check_str: rule:admin_or_owner
     deprecated_reason: The application credential API is now aware of system scope
@@ -285,7 +291,7 @@
   scope_types:
   - system
   - project
-- check_str: (role:reader and system_scope:all) or user_id:%(target.credential.user_id)s
+- check_str: (rule:admin_required) or (role:reader and system_scope:all) or user_id:%(target.credential.user_id)s
   deprecated_rule:
     check_str: rule:admin_required
     deprecated_reason: The credential API is now aware of system scope and default
@@ -299,8 +305,9 @@
     path: /v3/credentials/{credential_id}
   scope_types:
   - system
+  - domain
   - project
-- check_str: (role:reader and system_scope:all) or user_id:%(target.credential.user_id)s
+- check_str: (rule:admin_required) or (role:reader and system_scope:all) or user_id:%(target.credential.user_id)s
   deprecated_rule:
     check_str: rule:admin_required
     deprecated_reason: The credential API is now aware of system scope and default
@@ -314,8 +321,9 @@
     path: /v3/credentials
   scope_types:
   - system
+  - domain
   - project
-- check_str: (role:admin and system_scope:all) or user_id:%(target.credential.user_id)s
+- check_str: (rule:admin_required) or user_id:%(target.credential.user_id)s
   deprecated_rule:
     check_str: rule:admin_required
     deprecated_reason: The credential API is now aware of system scope and default
@@ -329,8 +337,9 @@
     path: /v3/credentials
   scope_types:
   - system
+  - domain
   - project
-- check_str: (role:admin and system_scope:all) or user_id:%(target.credential.user_id)s
+- check_str: (rule:admin_required) or user_id:%(target.credential.user_id)s
   deprecated_rule:
     check_str: rule:admin_required
     deprecated_reason: The credential API is now aware of system scope and default
@@ -344,8 +353,9 @@
     path: /v3/credentials/{credential_id}
   scope_types:
   - system
+  - domain
   - project
-- check_str: (role:admin and system_scope:all) or user_id:%(target.credential.user_id)s
+- check_str: (rule:admin_required) or user_id:%(target.credential.user_id)s
   deprecated_rule:
     check_str: rule:admin_required
     deprecated_reason: The credential API is now aware of system scope and default
@@ -359,6 +369,7 @@
     path: /v3/credentials/{credential_id}
   scope_types:
   - system
+  - domain
   - project
 - check_str: rule:admin_required or (role:reader and system_scope:all) or token.domain.id:%(target.domain.id)s
     or token.project.domain.id:%(target.domain.id)s
@@ -558,7 +569,7 @@
   scope_types:
   - system
   - project
-- check_str: (role:reader and system_scope:all) or user_id:%(target.credential.user_id)s
+- check_str: (rule:admin_required) or (role:reader and system_scope:all) or user_id:%(target.credential.user_id)s
   deprecated_rule:
     check_str: rule:admin_required or (rule:owner and user_id:%(target.credential.user_id)s)
     deprecated_reason: The EC2 credential API is now aware of system scope and default
@@ -573,7 +584,7 @@
   scope_types:
   - system
   - project
-- check_str: (role:reader and system_scope:all) or rule:owner
+- check_str: (rule:admin_required) or (role:reader and system_scope:all) or rule:owner
   deprecated_rule:
     check_str: rule:admin_or_owner
     deprecated_reason: The EC2 credential API is now aware of system scope and default
@@ -588,7 +599,7 @@
   scope_types:
   - system
   - project
-- check_str: (role:admin and system_scope:all) or rule:owner
+- check_str: (rule:admin_required) or (role:member and user_id:%(target.credential.user_id)s)
   deprecated_rule:
     check_str: rule:admin_or_owner
     deprecated_reason: The EC2 credential API is now aware of system scope and default
@@ -603,7 +614,7 @@
   scope_types:
   - system
   - project
-- check_str: (role:admin and system_scope:all) or user_id:%(target.credential.user_id)s
+- check_str: (rule:admin_required) or (role:member and user_id:%(target.credential.user_id)s)
   deprecated_rule:
     check_str: rule:admin_required or (rule:owner and user_id:%(target.credential.user_id)s)
     deprecated_reason: The EC2 credential API is now aware of system scope and default
@@ -957,7 +968,11 @@
     and domain_id:%(target.domain.id)s) or (role:admin and domain_id:%(target.group.domain_id)s
     and domain_id:%(target.project.domain_id)s) or (role:admin and domain_id:%(target.group.domain_id)s
     and domain_id:%(target.domain.id)s)) and (domain_id:%(target.role.domain_id)s
-    or None:%(target.role.domain_id)s)
+    or None:%(target.role.domain_id)s) or ((role:manager and domain_id:%(target.user.domain_id)s
+    and domain_id:%(target.project.domain_id)s) or (role:manager and domain_id:%(target.user.domain_id)s
+    and domain_id:%(target.domain.id)s) or (role:manager and domain_id:%(target.group.domain_id)s
+    and domain_id:%(target.project.domain_id)s) or (role:manager and domain_id:%(target.group.domain_id)s
+    and domain_id:%(target.domain.id)s)) and rule:domain_managed_target_role
   deprecated_rule:
     check_str: rule:admin_required
     deprecated_reason: The assignment API is now aware of system scope and default
@@ -995,7 +1010,11 @@
     and domain_id:%(target.domain.id)s) or (role:admin and domain_id:%(target.group.domain_id)s
     and domain_id:%(target.project.domain_id)s) or (role:admin and domain_id:%(target.group.domain_id)s
     and domain_id:%(target.domain.id)s)) and (domain_id:%(target.role.domain_id)s
-    or None:%(target.role.domain_id)s)
+    or None:%(target.role.domain_id)s) or ((role:manager and domain_id:%(target.user.domain_id)s
+    and domain_id:%(target.project.domain_id)s) or (role:manager and domain_id:%(target.user.domain_id)s
+    and domain_id:%(target.domain.id)s) or (role:manager and domain_id:%(target.group.domain_id)s
+    and domain_id:%(target.project.domain_id)s) or (role:manager and domain_id:%(target.group.domain_id)s
+    and domain_id:%(target.domain.id)s)) and rule:domain_managed_target_role
   deprecated_rule:
     check_str: rule:admin_required
     deprecated_reason: The assignment API is now aware of system scope and default
@@ -1216,7 +1235,7 @@
   - system
   - domain
   - project
-- check_str: rule:admin_required
+- check_str: (rule:admin_required) or (role:manager and domain_id:%(target.group.domain_id)s)
   deprecated_rule:
     check_str: rule:admin_required
     deprecated_reason: The group API is now aware of system scope and default roles.
@@ -1231,7 +1250,7 @@
   - system
   - domain
   - project
-- check_str: rule:admin_required
+- check_str: (rule:admin_required) or (role:manager and domain_id:%(target.group.domain_id)s)
   deprecated_rule:
     check_str: rule:admin_required
     deprecated_reason: The group API is now aware of system scope and default roles.
@@ -1246,7 +1265,7 @@
   - system
   - domain
   - project
-- check_str: rule:admin_required
+- check_str: (rule:admin_required) or (role:manager and domain_id:%(target.group.domain_id)s)
   deprecated_rule:
     check_str: rule:admin_required
     deprecated_reason: The group API is now aware of system scope and default roles.
@@ -1279,7 +1298,8 @@
   - system
   - domain
   - project
-- check_str: rule:admin_required
+- check_str: (rule:admin_required) or (role:manager and domain_id:%(target.group.domain_id)s
+    and domain_id:%(target.user.domain_id)s)
   deprecated_rule:
     check_str: rule:admin_required
     deprecated_reason: The group API is now aware of system scope and default roles.
@@ -1312,7 +1332,8 @@
   - system
   - domain
   - project
-- check_str: rule:admin_required
+- check_str: (rule:admin_required) or (role:manager and domain_id:%(target.group.domain_id)s
+    and domain_id:%(target.user.domain_id)s)
   deprecated_rule:
     check_str: rule:admin_required
     deprecated_reason: The group API is now aware of system scope and default roles.
@@ -1902,7 +1923,8 @@
   - system
   - project
 - check_str: (rule:admin_required) or (role:reader and system_scope:all) or (role:reader
-    and domain_id:%(target.project.domain_id)s) or project_id:%(target.project.id)s
+    and domain_id:%(target.project.domain_id)s and not None:%(target.project.domain_id)s)
+    or project_id:%(target.project.id)s
   deprecated_rule:
     check_str: rule:admin_required or project_id:%(target.project.id)s
     deprecated_reason: The project API is now aware of system scope and default roles.
@@ -1949,7 +1971,8 @@
   - system
   - domain
   - project
-- check_str: rule:admin_required
+- check_str: (rule:admin_required) or (role:manager and domain_id:%(target.project.domain_id)s
+    and not None:%(target.project.domain_id)s)
   deprecated_rule:
     check_str: rule:admin_required
     deprecated_reason: The project API is now aware of system scope and default roles.
@@ -1964,7 +1987,8 @@
   - system
   - domain
   - project
-- check_str: rule:admin_required
+- check_str: (rule:admin_required) or (role:manager and domain_id:%(target.project.domain_id)s
+    and not None:%(target.project.domain_id)s)
   deprecated_rule:
     check_str: rule:admin_required
     deprecated_reason: The project API is now aware of system scope and default roles.
@@ -1979,7 +2003,8 @@
   - system
   - domain
   - project
-- check_str: rule:admin_required
+- check_str: (rule:admin_required) or (role:manager and domain_id:%(target.project.domain_id)s
+    and not None:%(target.project.domain_id)s)
   deprecated_rule:
     check_str: rule:admin_required
     deprecated_reason: The project API is now aware of system scope and default roles.
@@ -1995,7 +2020,8 @@
   - domain
   - project
 - check_str: (rule:admin_required) or (role:reader and system_scope:all) or (role:reader
-    and domain_id:%(target.project.domain_id)s) or project_id:%(target.project.id)s
+    and domain_id:%(target.project.domain_id)s and not None:%(target.project.domain_id)s)
+    or project_id:%(target.project.id)s
   deprecated_rule:
     check_str: rule:admin_required or project_id:%(target.project.id)s
     deprecated_reason: The project API is now aware of system scope and default roles.
@@ -2013,7 +2039,8 @@
   - domain
   - project
 - check_str: (rule:admin_required) or (role:reader and system_scope:all) or (role:reader
-    and domain_id:%(target.project.domain_id)s) or project_id:%(target.project.id)s
+    and domain_id:%(target.project.domain_id)s and not None:%(target.project.domain_id)s)
+    or project_id:%(target.project.id)s
   deprecated_rule:
     check_str: rule:admin_required or project_id:%(target.project.id)s
     deprecated_reason: The project API is now aware of system scope and default roles.
@@ -2030,7 +2057,8 @@
   - system
   - domain
   - project
-- check_str: rule:admin_required
+- check_str: (rule:admin_required) or (role:manager and domain_id:%(target.project.domain_id)s
+    and not None:%(target.project.domain_id)s)
   deprecated_rule:
     check_str: rule:admin_required
     deprecated_reason: The project API is now aware of system scope and default roles.
@@ -2045,7 +2073,8 @@
   - system
   - domain
   - project
-- check_str: rule:admin_required
+- check_str: (rule:admin_required) or (role:manager and domain_id:%(target.project.domain_id)s
+    and not None:%(target.project.domain_id)s)
   deprecated_rule:
     check_str: rule:admin_required
     deprecated_reason: The project API is now aware of system scope and default roles.
@@ -2060,7 +2089,8 @@
   - system
   - domain
   - project
-- check_str: rule:admin_required
+- check_str: (rule:admin_required) or (role:manager and domain_id:%(target.project.domain_id)s
+    and not None:%(target.project.domain_id)s)
   deprecated_rule:
     check_str: rule:admin_required
     deprecated_reason: The project API is now aware of system scope and default roles.
@@ -2075,7 +2105,8 @@
   - system
   - domain
   - project
-- check_str: rule:admin_required
+- check_str: (rule:admin_required) or (role:manager and domain_id:%(target.project.domain_id)s
+    and not None:%(target.project.domain_id)s)
   deprecated_rule:
     check_str: rule:admin_required
     deprecated_reason: The project API is now aware of system scope and default roles.
@@ -2431,7 +2462,8 @@
   scope_types:
   - system
   - project
-- check_str: rule:admin_required or (role:reader and system_scope:all)
+- check_str: (rule:admin_required or (role:reader and system_scope:all)) or (role:manager
+    and rule:domain_managed_target_role)
   deprecated_rule:
     check_str: rule:admin_required
     deprecated_reason: The role API is now aware of system scope and default roles.
@@ -2446,8 +2478,10 @@
     path: /v3/roles/{role_id}
   scope_types:
   - system
+  - domain
   - project
-- check_str: rule:admin_required or (role:reader and system_scope:all)
+- check_str: (rule:admin_required or (role:reader and system_scope:all)) or (role:manager
+    and not domain_id:None)
   deprecated_rule:
     check_str: rule:admin_required
     deprecated_reason: The role API is now aware of system scope and default roles.
@@ -2462,6 +2496,7 @@
     path: /v3/roles
   scope_types:
   - system
+  - domain
   - project
 - check_str: rule:admin_required
   deprecated_rule:
@@ -2613,6 +2648,28 @@
     path: /v3/role_assignments?include_subtree
   - method: HEAD
     path: /v3/role_assignments?include_subtree
+  scope_types:
+  - system
+  - domain
+  - project
+- check_str: rule:service_or_admin
+  description: Validate S3 credentials and create a Keystone token. Restricted to
+    service users or administrators to prevent exploitation via presigned URLs.
+  name: identity:s3tokens_validate
+  operations:
+  - method: POST
+    path: /v3/s3tokens
+  scope_types:
+  - system
+  - domain
+  - project
+- check_str: rule:service_or_admin
+  description: Validate EC2 credentials and create a Keystone token. Restricted to
+    service users or administrators.
+  name: identity:ec2tokens_validate
+  operations:
+  - method: POST
+    path: /v3/ec2tokens
   scope_types:
   - system
   - domain
@@ -2788,7 +2845,7 @@
   scope_types:
   - system
   - project
-- check_str: (role:reader and system_scope:all) or rule:token_subject
+- check_str: rule:admin_required or (role:reader and system_scope:all) or rule:token_subject
   deprecated_rule:
     check_str: rule:admin_or_token_subject
     deprecated_reason: The token API is now aware of system scope and default roles.
@@ -2803,7 +2860,8 @@
   - system
   - domain
   - project
-- check_str: (role:reader and system_scope:all) or rule:service_role or rule:token_subject
+- check_str: rule:admin_required or (role:reader and system_scope:all) or rule:service_role
+    or rule:token_subject
   deprecated_rule:
     check_str: rule:service_admin_or_token_subject
     deprecated_reason: The token API is now aware of system scope and default roles.
@@ -2818,7 +2876,7 @@
   - system
   - domain
   - project
-- check_str: (role:admin and system_scope:all) or rule:token_subject
+- check_str: rule:admin_required or rule:token_subject
   deprecated_rule:
     check_str: rule:admin_or_token_subject
     deprecated_reason: The token API is now aware of system scope and default roles.
@@ -2833,7 +2891,7 @@
   - system
   - domain
   - project
-- check_str: user_id:%(trust.trustor_user_id)s
+- check_str: user_id:%(target.trust.trustor_user_id)s
   description: Create trust.
   name: identity:create_trust
   operations:
@@ -2994,7 +3052,7 @@
   - method: GET
     path: /v3/auth/domains
   scope_types: null
-- check_str: rule:admin_required
+- check_str: (rule:admin_required) or (role:manager and token.domain.id:%(target.user.domain_id)s)
   deprecated_rule:
     check_str: rule:admin_required
     deprecated_reason: The user API is now aware of system scope and default roles.
@@ -3009,7 +3067,7 @@
   - system
   - domain
   - project
-- check_str: rule:admin_required
+- check_str: (rule:admin_required) or (role:manager and token.domain.id:%(target.user.domain_id)s)
   deprecated_rule:
     check_str: rule:admin_required
     deprecated_reason: The user API is now aware of system scope and default roles.
@@ -3024,7 +3082,7 @@
   - system
   - domain
   - project
-- check_str: rule:admin_required
+- check_str: (rule:admin_required) or (role:manager and token.domain.id:%(target.user.domain_id)s)
   deprecated_rule:
     check_str: rule:admin_required
     deprecated_reason: The user API is now aware of system scope and default roles.

@@ -15,6 +15,9 @@
 # Defines the rule for the is_admin:True check.
 #"context_is_admin": "role:admin"
 
+# Default rule for the service-to-service API.
+#"service_api": "role:service or role:admin"
+
 # Create new image
 # POST  /v2/images
 # Intended scope(s): project
@@ -101,6 +104,11 @@
 # 'shared':%(visibility)s))".
 # The image API now supports roles.
 
+# Downloads image from specific store using store selection parameters
+# GET  /v2/images/{image_id}/file
+# Intended scope(s): project
+#"download_from_store": "rule:context_is_admin or (role:member and (project_id:%(project_id)s or project_id:%(member_id)s or 'community':%(visibility)s or 'public':%(visibility)s or 'shared':%(visibility)s))"
+
 # Uploads data to specified image
 # PUT  /v2/images/{image_id}/file
 # Intended scope(s): project
@@ -143,6 +151,16 @@
 # favor of "set_image_location":"rule:context_is_admin or (role:member
 # and project_id:%(project_id)s)".
 # The image API now supports roles.
+
+# Add location URI to given image
+# POST  /v2/images/{image_id}/locations
+# Intended scope(s): project
+#"add_image_location": "rule:service_api or (role:member and project_id:%(project_id)s and project_id:%(owner)s)"
+
+# Show all locations associated to given image
+# GET  /v2/images/{image_id}/locations
+# Intended scope(s): project
+#"fetch_image_location": "rule:service_api"
 
 # Create image member
 # POST  /v2/images/{image_id}/members
@@ -229,6 +247,11 @@
 # POST  /v2/images/{image_id}/import
 # Intended scope(s): project
 #"copy_image": "rule:context_is_admin"
+
+# Get all nodes where specified image is cached
+# GET  /v2/cache/nodes/{image_id}
+# Intended scope(s): project
+#"list_cached_nodes": "rule:context_is_admin"
 
 # Get an image task.
 #
@@ -548,8 +571,24 @@
 # in favor of "cache_delete":"rule:context_is_admin".
 # The image API now supports roles.
 
+# Clean invalid and stalled cached images
+# POST  /v2/cache/clean
+# Intended scope(s): project
+#"cache_clean": "rule:context_is_admin"
+
+# Prune cached images to reduce cache size
+# POST  /v2/cache/prune
+# Intended scope(s): project
+#"cache_prune": "rule:context_is_admin"
+
 # Expose store specific information
 # GET  /v2/info/stores/detail
 # Intended scope(s): project
-#"stores_info_detail": "rule:context_is_admin"
+#"stores_info_detail": "rule:context_is_admin or rule:service_api"
+
+# DEPRECATED
+# "stores_info_detail":"rule:context_is_admin" has been deprecated
+# since 2025.1 in favor of "stores_info_detail":"rule:context_is_admin
+# or rule:service_api".
+# Stores info detail now supports service role.
 

@@ -14,6 +14,8 @@
 
 #"service_admin_or_token_subject": "rule:service_or_admin or rule:token_subject"
 
+#"domain_managed_target_role": "'manager':%(target.role.name)s or 'member':%(target.role.name)s or 'reader':%(target.role.name)s"
+
 # Show access rule details.
 # GET  /v3/users/{user_id}/access_rules/{access_rule_id}
 # HEAD  /v3/users/{user_id}/access_rules/{access_rule_id}
@@ -65,13 +67,13 @@
 # GET  /v3/users/{user_id}/application_credentials/{application_credential_id}
 # HEAD  /v3/users/{user_id}/application_credentials/{application_credential_id}
 # Intended scope(s): system, project
-#"identity:get_application_credential": "(role:reader and system_scope:all) or rule:owner"
+#"identity:get_application_credential": "(rule:admin_required) or (role:reader and system_scope:all) or rule:owner"
 
 # DEPRECATED
 # "identity:get_application_credential":"rule:admin_or_owner" has been
 # deprecated since T in favor of
-# "identity:get_application_credential":"(role:reader and
-# system_scope:all) or rule:owner".
+# "identity:get_application_credential":"(rule:admin_required) or
+# (role:reader and system_scope:all) or rule:owner".
 # The application credential API is now aware of system scope and
 # default roles.
 
@@ -79,13 +81,13 @@
 # GET  /v3/users/{user_id}/application_credentials
 # HEAD  /v3/users/{user_id}/application_credentials
 # Intended scope(s): system, project
-#"identity:list_application_credentials": "(role:reader and system_scope:all) or rule:owner"
+#"identity:list_application_credentials": "(rule:admin_required) or (role:reader and system_scope:all) or rule:owner"
 
 # DEPRECATED
 # "identity:list_application_credentials":"rule:admin_or_owner" has
 # been deprecated since T in favor of
-# "identity:list_application_credentials":"(role:reader and
-# system_scope:all) or rule:owner".
+# "identity:list_application_credentials":"(rule:admin_required) or
+# (role:reader and system_scope:all) or rule:owner".
 # The application credential API is now aware of system scope and
 # default roles.
 
@@ -97,13 +99,12 @@
 # Delete an application credential.
 # DELETE  /v3/users/{user_id}/application_credentials/{application_credential_id}
 # Intended scope(s): system, project
-#"identity:delete_application_credential": "(role:admin and system_scope:all) or rule:owner"
+#"identity:delete_application_credential": "rule:admin_or_owner"
 
 # DEPRECATED
 # "identity:delete_application_credential":"rule:admin_or_owner" has
 # been deprecated since T in favor of
-# "identity:delete_application_credential":"(role:admin and
-# system_scope:all) or rule:owner".
+# "identity:delete_application_credential":"rule:admin_or_owner".
 # The application credential API is now aware of system scope and
 # default roles.
 
@@ -189,60 +190,61 @@
 
 # Show credentials details.
 # GET  /v3/credentials/{credential_id}
-# Intended scope(s): system, project
-#"identity:get_credential": "(role:reader and system_scope:all) or user_id:%(target.credential.user_id)s"
+# Intended scope(s): system, domain, project
+#"identity:get_credential": "(rule:admin_required) or (role:reader and system_scope:all) or user_id:%(target.credential.user_id)s"
 
 # DEPRECATED
 # "identity:get_credential":"rule:admin_required" has been deprecated
-# since S in favor of "identity:get_credential":"(role:reader and
-# system_scope:all) or user_id:%(target.credential.user_id)s".
+# since S in favor of "identity:get_credential":"(rule:admin_required)
+# or (role:reader and system_scope:all) or
+# user_id:%(target.credential.user_id)s".
 # The credential API is now aware of system scope and default roles.
 
 # List credentials.
 # GET  /v3/credentials
-# Intended scope(s): system, project
-#"identity:list_credentials": "(role:reader and system_scope:all) or user_id:%(target.credential.user_id)s"
+# Intended scope(s): system, domain, project
+#"identity:list_credentials": "(rule:admin_required) or (role:reader and system_scope:all) or user_id:%(target.credential.user_id)s"
 
 # DEPRECATED
 # "identity:list_credentials":"rule:admin_required" has been
 # deprecated since S in favor of
-# "identity:list_credentials":"(role:reader and system_scope:all) or
-# user_id:%(target.credential.user_id)s".
+# "identity:list_credentials":"(rule:admin_required) or (role:reader
+# and system_scope:all) or user_id:%(target.credential.user_id)s".
 # The credential API is now aware of system scope and default roles.
 
 # Create credential.
 # POST  /v3/credentials
-# Intended scope(s): system, project
-#"identity:create_credential": "(role:admin and system_scope:all) or user_id:%(target.credential.user_id)s"
+# Intended scope(s): system, domain, project
+#"identity:create_credential": "(rule:admin_required) or user_id:%(target.credential.user_id)s"
 
 # DEPRECATED
 # "identity:create_credential":"rule:admin_required" has been
 # deprecated since S in favor of
-# "identity:create_credential":"(role:admin and system_scope:all) or
+# "identity:create_credential":"(rule:admin_required) or
 # user_id:%(target.credential.user_id)s".
 # The credential API is now aware of system scope and default roles.
 
 # Update credential.
 # PATCH  /v3/credentials/{credential_id}
-# Intended scope(s): system, project
-#"identity:update_credential": "(role:admin and system_scope:all) or user_id:%(target.credential.user_id)s"
+# Intended scope(s): system, domain, project
+#"identity:update_credential": "(rule:admin_required) or user_id:%(target.credential.user_id)s"
 
 # DEPRECATED
 # "identity:update_credential":"rule:admin_required" has been
 # deprecated since S in favor of
-# "identity:update_credential":"(role:admin and system_scope:all) or
+# "identity:update_credential":"(rule:admin_required) or
 # user_id:%(target.credential.user_id)s".
 # The credential API is now aware of system scope and default roles.
 
 # Delete credential.
 # DELETE  /v3/credentials/{credential_id}
-# Intended scope(s): system, project
-#"identity:delete_credential": "(role:admin and system_scope:all) or user_id:%(target.credential.user_id)s"
+# Intended scope(s): system, domain, project
+#"identity:delete_credential": "(rule:admin_required) or user_id:%(target.credential.user_id)s"
 
 # DEPRECATED
 # "identity:delete_credential":"rule:admin_required" has been
 # deprecated since S in favor of
-# "identity:delete_credential":"(role:admin and system_scope:all) or
+# "identity:delete_credential":"(rule:admin_required) or
 # user_id:%(target.credential.user_id)s".
 # The credential API is now aware of system scope and default roles.
 
@@ -395,52 +397,54 @@
 # Show ec2 credential details.
 # GET  /v3/users/{user_id}/credentials/OS-EC2/{credential_id}
 # Intended scope(s): system, project
-#"identity:ec2_get_credential": "(role:reader and system_scope:all) or user_id:%(target.credential.user_id)s"
+#"identity:ec2_get_credential": "(rule:admin_required) or (role:reader and system_scope:all) or user_id:%(target.credential.user_id)s"
 
 # DEPRECATED
 # "identity:ec2_get_credential":"rule:admin_required or (rule:owner
 # and user_id:%(target.credential.user_id)s)" has been deprecated
-# since T in favor of "identity:ec2_get_credential":"(role:reader and
-# system_scope:all) or user_id:%(target.credential.user_id)s".
+# since T in favor of
+# "identity:ec2_get_credential":"(rule:admin_required) or (role:reader
+# and system_scope:all) or user_id:%(target.credential.user_id)s".
 # The EC2 credential API is now aware of system scope and default
 # roles.
 
 # List ec2 credentials.
 # GET  /v3/users/{user_id}/credentials/OS-EC2
 # Intended scope(s): system, project
-#"identity:ec2_list_credentials": "(role:reader and system_scope:all) or rule:owner"
+#"identity:ec2_list_credentials": "(rule:admin_required) or (role:reader and system_scope:all) or rule:owner"
 
 # DEPRECATED
 # "identity:ec2_list_credentials":"rule:admin_or_owner" has been
 # deprecated since T in favor of
-# "identity:ec2_list_credentials":"(role:reader and system_scope:all)
-# or rule:owner".
+# "identity:ec2_list_credentials":"(rule:admin_required) or
+# (role:reader and system_scope:all) or rule:owner".
 # The EC2 credential API is now aware of system scope and default
 # roles.
 
 # Create ec2 credential.
 # POST  /v3/users/{user_id}/credentials/OS-EC2
 # Intended scope(s): system, project
-#"identity:ec2_create_credential": "(role:admin and system_scope:all) or rule:owner"
+#"identity:ec2_create_credential": "(rule:admin_required) or (role:member and user_id:%(target.credential.user_id)s)"
 
 # DEPRECATED
 # "identity:ec2_create_credential":"rule:admin_or_owner" has been
 # deprecated since T in favor of
-# "identity:ec2_create_credential":"(role:admin and system_scope:all)
-# or rule:owner".
+# "identity:ec2_create_credential":"(rule:admin_required) or
+# (role:member and user_id:%(target.credential.user_id)s)".
 # The EC2 credential API is now aware of system scope and default
 # roles.
 
 # Delete ec2 credential.
 # DELETE  /v3/users/{user_id}/credentials/OS-EC2/{credential_id}
 # Intended scope(s): system, project
-#"identity:ec2_delete_credential": "(role:admin and system_scope:all) or user_id:%(target.credential.user_id)s"
+#"identity:ec2_delete_credential": "(rule:admin_required) or (role:member and user_id:%(target.credential.user_id)s)"
 
 # DEPRECATED
 # "identity:ec2_delete_credential":"rule:admin_required or (rule:owner
 # and user_id:%(target.credential.user_id)s)" has been deprecated
-# since T in favor of "identity:ec2_delete_credential":"(role:admin
-# and system_scope:all) or user_id:%(target.credential.user_id)s".
+# since T in favor of
+# "identity:ec2_delete_credential":"(rule:admin_required) or
+# (role:member and user_id:%(target.credential.user_id)s)".
 # The EC2 credential API is now aware of system scope and default
 # roles.
 
@@ -725,7 +729,7 @@
 # PUT  /v3/OS-INHERIT/domains/{domain_id}/users/{user_id}/roles/{role_id}/inherited_to_projects
 # PUT  /v3/OS-INHERIT/domains/{domain_id}/groups/{group_id}/roles/{role_id}/inherited_to_projects
 # Intended scope(s): system, domain, project
-#"identity:create_grant": "(rule:admin_required) or ((role:admin and domain_id:%(target.user.domain_id)s and domain_id:%(target.project.domain_id)s) or (role:admin and domain_id:%(target.user.domain_id)s and domain_id:%(target.domain.id)s) or (role:admin and domain_id:%(target.group.domain_id)s and domain_id:%(target.project.domain_id)s) or (role:admin and domain_id:%(target.group.domain_id)s and domain_id:%(target.domain.id)s)) and (domain_id:%(target.role.domain_id)s or None:%(target.role.domain_id)s)"
+#"identity:create_grant": "(rule:admin_required) or ((role:admin and domain_id:%(target.user.domain_id)s and domain_id:%(target.project.domain_id)s) or (role:admin and domain_id:%(target.user.domain_id)s and domain_id:%(target.domain.id)s) or (role:admin and domain_id:%(target.group.domain_id)s and domain_id:%(target.project.domain_id)s) or (role:admin and domain_id:%(target.group.domain_id)s and domain_id:%(target.domain.id)s)) and (domain_id:%(target.role.domain_id)s or None:%(target.role.domain_id)s) or ((role:manager and domain_id:%(target.user.domain_id)s and domain_id:%(target.project.domain_id)s) or (role:manager and domain_id:%(target.user.domain_id)s and domain_id:%(target.domain.id)s) or (role:manager and domain_id:%(target.group.domain_id)s and domain_id:%(target.project.domain_id)s) or (role:manager and domain_id:%(target.group.domain_id)s and domain_id:%(target.domain.id)s)) and rule:domain_managed_target_role"
 
 # DEPRECATED
 # "identity:create_grant":"rule:admin_required" has been deprecated
@@ -739,7 +743,16 @@
 # domain_id:%(target.group.domain_id)s and
 # domain_id:%(target.domain.id)s)) and
 # (domain_id:%(target.role.domain_id)s or
-# None:%(target.role.domain_id)s)".
+# None:%(target.role.domain_id)s) or ((role:manager and
+# domain_id:%(target.user.domain_id)s and
+# domain_id:%(target.project.domain_id)s) or (role:manager and
+# domain_id:%(target.user.domain_id)s and
+# domain_id:%(target.domain.id)s) or (role:manager and
+# domain_id:%(target.group.domain_id)s and
+# domain_id:%(target.project.domain_id)s) or (role:manager and
+# domain_id:%(target.group.domain_id)s and
+# domain_id:%(target.domain.id)s)) and
+# rule:domain_managed_target_role".
 # The assignment API is now aware of system scope and default roles.
 
 # Revoke a role grant between a target and an actor. A target can be
@@ -758,7 +771,7 @@
 # DELETE  /v3/OS-INHERIT/domains/{domain_id}/users/{user_id}/roles/{role_id}/inherited_to_projects
 # DELETE  /v3/OS-INHERIT/domains/{domain_id}/groups/{group_id}/roles/{role_id}/inherited_to_projects
 # Intended scope(s): system, domain, project
-#"identity:revoke_grant": "(rule:admin_required) or ((role:admin and domain_id:%(target.user.domain_id)s and domain_id:%(target.project.domain_id)s) or (role:admin and domain_id:%(target.user.domain_id)s and domain_id:%(target.domain.id)s) or (role:admin and domain_id:%(target.group.domain_id)s and domain_id:%(target.project.domain_id)s) or (role:admin and domain_id:%(target.group.domain_id)s and domain_id:%(target.domain.id)s)) and (domain_id:%(target.role.domain_id)s or None:%(target.role.domain_id)s)"
+#"identity:revoke_grant": "(rule:admin_required) or ((role:admin and domain_id:%(target.user.domain_id)s and domain_id:%(target.project.domain_id)s) or (role:admin and domain_id:%(target.user.domain_id)s and domain_id:%(target.domain.id)s) or (role:admin and domain_id:%(target.group.domain_id)s and domain_id:%(target.project.domain_id)s) or (role:admin and domain_id:%(target.group.domain_id)s and domain_id:%(target.domain.id)s)) and (domain_id:%(target.role.domain_id)s or None:%(target.role.domain_id)s) or ((role:manager and domain_id:%(target.user.domain_id)s and domain_id:%(target.project.domain_id)s) or (role:manager and domain_id:%(target.user.domain_id)s and domain_id:%(target.domain.id)s) or (role:manager and domain_id:%(target.group.domain_id)s and domain_id:%(target.project.domain_id)s) or (role:manager and domain_id:%(target.group.domain_id)s and domain_id:%(target.domain.id)s)) and rule:domain_managed_target_role"
 
 # DEPRECATED
 # "identity:revoke_grant":"rule:admin_required" has been deprecated
@@ -772,7 +785,16 @@
 # domain_id:%(target.group.domain_id)s and
 # domain_id:%(target.domain.id)s)) and
 # (domain_id:%(target.role.domain_id)s or
-# None:%(target.role.domain_id)s)".
+# None:%(target.role.domain_id)s) or ((role:manager and
+# domain_id:%(target.user.domain_id)s and
+# domain_id:%(target.project.domain_id)s) or (role:manager and
+# domain_id:%(target.user.domain_id)s and
+# domain_id:%(target.domain.id)s) or (role:manager and
+# domain_id:%(target.group.domain_id)s and
+# domain_id:%(target.project.domain_id)s) or (role:manager and
+# domain_id:%(target.group.domain_id)s and
+# domain_id:%(target.domain.id)s)) and
+# rule:domain_managed_target_role".
 # The assignment API is now aware of system scope and default roles.
 
 # List all grants a specific user has on the system.
@@ -910,31 +932,34 @@
 # Create group.
 # POST  /v3/groups
 # Intended scope(s): system, domain, project
-#"identity:create_group": "rule:admin_required"
+#"identity:create_group": "(rule:admin_required) or (role:manager and domain_id:%(target.group.domain_id)s)"
 
 # DEPRECATED
 # "identity:create_group":"rule:admin_required" has been deprecated
-# since S in favor of "identity:create_group":"rule:admin_required".
+# since S in favor of "identity:create_group":"(rule:admin_required)
+# or (role:manager and domain_id:%(target.group.domain_id)s)".
 # The group API is now aware of system scope and default roles.
 
 # Update group.
 # PATCH  /v3/groups/{group_id}
 # Intended scope(s): system, domain, project
-#"identity:update_group": "rule:admin_required"
+#"identity:update_group": "(rule:admin_required) or (role:manager and domain_id:%(target.group.domain_id)s)"
 
 # DEPRECATED
 # "identity:update_group":"rule:admin_required" has been deprecated
-# since S in favor of "identity:update_group":"rule:admin_required".
+# since S in favor of "identity:update_group":"(rule:admin_required)
+# or (role:manager and domain_id:%(target.group.domain_id)s)".
 # The group API is now aware of system scope and default roles.
 
 # Delete group.
 # DELETE  /v3/groups/{group_id}
 # Intended scope(s): system, domain, project
-#"identity:delete_group": "rule:admin_required"
+#"identity:delete_group": "(rule:admin_required) or (role:manager and domain_id:%(target.group.domain_id)s)"
 
 # DEPRECATED
 # "identity:delete_group":"rule:admin_required" has been deprecated
-# since S in favor of "identity:delete_group":"rule:admin_required".
+# since S in favor of "identity:delete_group":"(rule:admin_required)
+# or (role:manager and domain_id:%(target.group.domain_id)s)".
 # The group API is now aware of system scope and default roles.
 
 # List members of a specific group.
@@ -954,12 +979,14 @@
 # Remove user from group.
 # DELETE  /v3/groups/{group_id}/users/{user_id}
 # Intended scope(s): system, domain, project
-#"identity:remove_user_from_group": "rule:admin_required"
+#"identity:remove_user_from_group": "(rule:admin_required) or (role:manager and domain_id:%(target.group.domain_id)s and domain_id:%(target.user.domain_id)s)"
 
 # DEPRECATED
 # "identity:remove_user_from_group":"rule:admin_required" has been
 # deprecated since S in favor of
-# "identity:remove_user_from_group":"rule:admin_required".
+# "identity:remove_user_from_group":"(rule:admin_required) or
+# (role:manager and domain_id:%(target.group.domain_id)s and
+# domain_id:%(target.user.domain_id)s)".
 # The group API is now aware of system scope and default roles.
 
 # Check whether a user is a member of a group.
@@ -980,12 +1007,14 @@
 # Add user to group.
 # PUT  /v3/groups/{group_id}/users/{user_id}
 # Intended scope(s): system, domain, project
-#"identity:add_user_to_group": "rule:admin_required"
+#"identity:add_user_to_group": "(rule:admin_required) or (role:manager and domain_id:%(target.group.domain_id)s and domain_id:%(target.user.domain_id)s)"
 
 # DEPRECATED
 # "identity:add_user_to_group":"rule:admin_required" has been
 # deprecated since S in favor of
-# "identity:add_user_to_group":"rule:admin_required".
+# "identity:add_user_to_group":"(rule:admin_required) or (role:manager
+# and domain_id:%(target.group.domain_id)s and
+# domain_id:%(target.user.domain_id)s)".
 # The group API is now aware of system scope and default roles.
 
 # Create identity provider.
@@ -1429,14 +1458,15 @@
 # Show project details.
 # GET  /v3/projects/{project_id}
 # Intended scope(s): system, domain, project
-#"identity:get_project": "(rule:admin_required) or (role:reader and system_scope:all) or (role:reader and domain_id:%(target.project.domain_id)s) or project_id:%(target.project.id)s"
+#"identity:get_project": "(rule:admin_required) or (role:reader and system_scope:all) or (role:reader and domain_id:%(target.project.domain_id)s and not None:%(target.project.domain_id)s) or project_id:%(target.project.id)s"
 
 # DEPRECATED
 # "identity:get_project":"rule:admin_required or
 # project_id:%(target.project.id)s" has been deprecated since S in
 # favor of "identity:get_project":"(rule:admin_required) or
 # (role:reader and system_scope:all) or (role:reader and
-# domain_id:%(target.project.domain_id)s) or
+# domain_id:%(target.project.domain_id)s and not
+# None:%(target.project.domain_id)s) or
 # project_id:%(target.project.id)s".
 # The project API is now aware of system scope and default roles.
 
@@ -1468,45 +1498,52 @@
 # Create project.
 # POST  /v3/projects
 # Intended scope(s): system, domain, project
-#"identity:create_project": "rule:admin_required"
+#"identity:create_project": "(rule:admin_required) or (role:manager and domain_id:%(target.project.domain_id)s and not None:%(target.project.domain_id)s)"
 
 # DEPRECATED
 # "identity:create_project":"rule:admin_required" has been deprecated
-# since S in favor of "identity:create_project":"rule:admin_required".
+# since S in favor of "identity:create_project":"(rule:admin_required)
+# or (role:manager and domain_id:%(target.project.domain_id)s and not
+# None:%(target.project.domain_id)s)".
 # The project API is now aware of system scope and default roles.
 
 # Update project.
 # PATCH  /v3/projects/{project_id}
 # Intended scope(s): system, domain, project
-#"identity:update_project": "rule:admin_required"
+#"identity:update_project": "(rule:admin_required) or (role:manager and domain_id:%(target.project.domain_id)s and not None:%(target.project.domain_id)s)"
 
 # DEPRECATED
 # "identity:update_project":"rule:admin_required" has been deprecated
-# since S in favor of "identity:update_project":"rule:admin_required".
+# since S in favor of "identity:update_project":"(rule:admin_required)
+# or (role:manager and domain_id:%(target.project.domain_id)s and not
+# None:%(target.project.domain_id)s)".
 # The project API is now aware of system scope and default roles.
 
 # Delete project.
 # DELETE  /v3/projects/{project_id}
 # Intended scope(s): system, domain, project
-#"identity:delete_project": "rule:admin_required"
+#"identity:delete_project": "(rule:admin_required) or (role:manager and domain_id:%(target.project.domain_id)s and not None:%(target.project.domain_id)s)"
 
 # DEPRECATED
 # "identity:delete_project":"rule:admin_required" has been deprecated
-# since S in favor of "identity:delete_project":"rule:admin_required".
+# since S in favor of "identity:delete_project":"(rule:admin_required)
+# or (role:manager and domain_id:%(target.project.domain_id)s and not
+# None:%(target.project.domain_id)s)".
 # The project API is now aware of system scope and default roles.
 
 # List tags for a project.
 # GET  /v3/projects/{project_id}/tags
 # HEAD  /v3/projects/{project_id}/tags
 # Intended scope(s): system, domain, project
-#"identity:list_project_tags": "(rule:admin_required) or (role:reader and system_scope:all) or (role:reader and domain_id:%(target.project.domain_id)s) or project_id:%(target.project.id)s"
+#"identity:list_project_tags": "(rule:admin_required) or (role:reader and system_scope:all) or (role:reader and domain_id:%(target.project.domain_id)s and not None:%(target.project.domain_id)s) or project_id:%(target.project.id)s"
 
 # DEPRECATED
 # "identity:list_project_tags":"rule:admin_required or
 # project_id:%(target.project.id)s" has been deprecated since T in
 # favor of "identity:list_project_tags":"(rule:admin_required) or
 # (role:reader and system_scope:all) or (role:reader and
-# domain_id:%(target.project.domain_id)s) or
+# domain_id:%(target.project.domain_id)s and not
+# None:%(target.project.domain_id)s) or
 # project_id:%(target.project.id)s".
 # The project API is now aware of system scope and default roles.
 
@@ -1514,59 +1551,68 @@
 # GET  /v3/projects/{project_id}/tags/{value}
 # HEAD  /v3/projects/{project_id}/tags/{value}
 # Intended scope(s): system, domain, project
-#"identity:get_project_tag": "(rule:admin_required) or (role:reader and system_scope:all) or (role:reader and domain_id:%(target.project.domain_id)s) or project_id:%(target.project.id)s"
+#"identity:get_project_tag": "(rule:admin_required) or (role:reader and system_scope:all) or (role:reader and domain_id:%(target.project.domain_id)s and not None:%(target.project.domain_id)s) or project_id:%(target.project.id)s"
 
 # DEPRECATED
 # "identity:get_project_tag":"rule:admin_required or
 # project_id:%(target.project.id)s" has been deprecated since T in
 # favor of "identity:get_project_tag":"(rule:admin_required) or
 # (role:reader and system_scope:all) or (role:reader and
-# domain_id:%(target.project.domain_id)s) or
+# domain_id:%(target.project.domain_id)s and not
+# None:%(target.project.domain_id)s) or
 # project_id:%(target.project.id)s".
 # The project API is now aware of system scope and default roles.
 
 # Replace all tags on a project with the new set of tags.
 # PUT  /v3/projects/{project_id}/tags
 # Intended scope(s): system, domain, project
-#"identity:update_project_tags": "rule:admin_required"
+#"identity:update_project_tags": "(rule:admin_required) or (role:manager and domain_id:%(target.project.domain_id)s and not None:%(target.project.domain_id)s)"
 
 # DEPRECATED
 # "identity:update_project_tags":"rule:admin_required" has been
 # deprecated since T in favor of
-# "identity:update_project_tags":"rule:admin_required".
+# "identity:update_project_tags":"(rule:admin_required) or
+# (role:manager and domain_id:%(target.project.domain_id)s and not
+# None:%(target.project.domain_id)s)".
 # The project API is now aware of system scope and default roles.
 
 # Add a single tag to a project.
 # PUT  /v3/projects/{project_id}/tags/{value}
 # Intended scope(s): system, domain, project
-#"identity:create_project_tag": "rule:admin_required"
+#"identity:create_project_tag": "(rule:admin_required) or (role:manager and domain_id:%(target.project.domain_id)s and not None:%(target.project.domain_id)s)"
 
 # DEPRECATED
 # "identity:create_project_tag":"rule:admin_required" has been
 # deprecated since T in favor of
-# "identity:create_project_tag":"rule:admin_required".
+# "identity:create_project_tag":"(rule:admin_required) or
+# (role:manager and domain_id:%(target.project.domain_id)s and not
+# None:%(target.project.domain_id)s)".
 # The project API is now aware of system scope and default roles.
 
 # Remove all tags from a project.
 # DELETE  /v3/projects/{project_id}/tags
 # Intended scope(s): system, domain, project
-#"identity:delete_project_tags": "rule:admin_required"
+#"identity:delete_project_tags": "(rule:admin_required) or (role:manager and domain_id:%(target.project.domain_id)s and not None:%(target.project.domain_id)s)"
 
 # DEPRECATED
 # "identity:delete_project_tags":"rule:admin_required" has been
 # deprecated since T in favor of
-# "identity:delete_project_tags":"rule:admin_required".
+# "identity:delete_project_tags":"(rule:admin_required) or
+# (role:manager and domain_id:%(target.project.domain_id)s and not
+# None:%(target.project.domain_id)s)".
 # The project API is now aware of system scope and default roles.
 
 # Delete a specified tag from project.
 # DELETE  /v3/projects/{project_id}/tags/{value}
 # Intended scope(s): system, domain, project
-#"identity:delete_project_tag": "rule:admin_required"
+#"identity:delete_project_tag": "(rule:admin_required) or (role:manager and domain_id:%(target.project.domain_id)s and not None:%(target.project.domain_id)s)"
 
 # DEPRECATED
 # "identity:delete_project_tag":"rule:admin_required" has been
 # deprecated since T in favor of
-# "identity:delete_project_tag":"rule:admin_required".
+# "identity:delete_project_tag":"(rule:admin_required) or
+# (role:manager and domain_id:%(target.project.domain_id)s and not
+# None:%(target.project.domain_id)s)".
 # The project API is now aware of system scope and default roles.
 
 # List projects allowed to access an endpoint.
@@ -1792,25 +1838,27 @@
 # Show role details.
 # GET  /v3/roles/{role_id}
 # HEAD  /v3/roles/{role_id}
-# Intended scope(s): system, project
-#"identity:get_role": "rule:admin_required or (role:reader and system_scope:all)"
+# Intended scope(s): system, domain, project
+#"identity:get_role": "(rule:admin_required or (role:reader and system_scope:all)) or (role:manager and rule:domain_managed_target_role)"
 
 # DEPRECATED
 # "identity:get_role":"rule:admin_required" has been deprecated since
-# S in favor of "identity:get_role":"rule:admin_required or
-# (role:reader and system_scope:all)".
+# S in favor of "identity:get_role":"(rule:admin_required or
+# (role:reader and system_scope:all)) or (role:manager and
+# rule:domain_managed_target_role)".
 # The role API is now aware of system scope and default roles.
 
 # List roles.
 # GET  /v3/roles
 # HEAD  /v3/roles
-# Intended scope(s): system, project
-#"identity:list_roles": "rule:admin_required or (role:reader and system_scope:all)"
+# Intended scope(s): system, domain, project
+#"identity:list_roles": "(rule:admin_required or (role:reader and system_scope:all)) or (role:manager and not domain_id:None)"
 
 # DEPRECATED
 # "identity:list_roles":"rule:admin_required" has been deprecated
-# since S in favor of "identity:list_roles":"rule:admin_required or
-# (role:reader and system_scope:all)".
+# since S in favor of "identity:list_roles":"(rule:admin_required or
+# (role:reader and system_scope:all)) or (role:manager and not
+# domain_id:None)".
 # The role API is now aware of system scope and default roles.
 
 # Create role.
@@ -1928,6 +1976,19 @@
 # (role:reader and system_scope:all) or (role:reader and
 # domain_id:%(target.domain_id)s)".
 # The assignment API is now aware of system scope and default roles.
+
+# Validate S3 credentials and create a Keystone token. Restricted to
+# service users or administrators to prevent exploitation via
+# presigned URLs.
+# POST  /v3/s3tokens
+# Intended scope(s): system, domain, project
+#"identity:s3tokens_validate": "rule:service_or_admin"
+
+# Validate EC2 credentials and create a Keystone token. Restricted to
+# service users or administrators.
+# POST  /v3/ec2tokens
+# Intended scope(s): system, domain, project
+#"identity:ec2tokens_validate": "rule:service_or_admin"
 
 # Show service details.
 # GET  /v3/services/{service_id}
@@ -2059,41 +2120,42 @@
 # Check a token.
 # HEAD  /v3/auth/tokens
 # Intended scope(s): system, domain, project
-#"identity:check_token": "(role:reader and system_scope:all) or rule:token_subject"
+#"identity:check_token": "rule:admin_required or (role:reader and system_scope:all) or rule:token_subject"
 
 # DEPRECATED
 # "identity:check_token":"rule:admin_or_token_subject" has been
-# deprecated since T in favor of "identity:check_token":"(role:reader
-# and system_scope:all) or rule:token_subject".
+# deprecated since T in favor of
+# "identity:check_token":"rule:admin_required or (role:reader and
+# system_scope:all) or rule:token_subject".
 # The token API is now aware of system scope and default roles.
 
 # Validate a token.
 # GET  /v3/auth/tokens
 # Intended scope(s): system, domain, project
-#"identity:validate_token": "(role:reader and system_scope:all) or rule:service_role or rule:token_subject"
+#"identity:validate_token": "rule:admin_required or (role:reader and system_scope:all) or rule:service_role or rule:token_subject"
 
 # DEPRECATED
 # "identity:validate_token":"rule:service_admin_or_token_subject" has
 # been deprecated since T in favor of
-# "identity:validate_token":"(role:reader and system_scope:all) or
-# rule:service_role or rule:token_subject".
+# "identity:validate_token":"rule:admin_required or (role:reader and
+# system_scope:all) or rule:service_role or rule:token_subject".
 # The token API is now aware of system scope and default roles.
 
 # Revoke a token.
 # DELETE  /v3/auth/tokens
 # Intended scope(s): system, domain, project
-#"identity:revoke_token": "(role:admin and system_scope:all) or rule:token_subject"
+#"identity:revoke_token": "rule:admin_required or rule:token_subject"
 
 # DEPRECATED
 # "identity:revoke_token":"rule:admin_or_token_subject" has been
-# deprecated since T in favor of "identity:revoke_token":"(role:admin
-# and system_scope:all) or rule:token_subject".
+# deprecated since T in favor of
+# "identity:revoke_token":"rule:admin_required or rule:token_subject".
 # The token API is now aware of system scope and default roles.
 
 # Create trust.
 # POST  /v3/OS-TRUST/trusts
 # Intended scope(s): project
-#"identity:create_trust": "user_id:%(trust.trustor_user_id)s"
+#"identity:create_trust": "user_id:%(target.trust.trustor_user_id)s"
 
 # List trusts.
 # GET  /v3/OS-TRUST/trusts
@@ -2215,30 +2277,33 @@
 # Create a user.
 # POST  /v3/users
 # Intended scope(s): system, domain, project
-#"identity:create_user": "rule:admin_required"
+#"identity:create_user": "(rule:admin_required) or (role:manager and token.domain.id:%(target.user.domain_id)s)"
 
 # DEPRECATED
 # "identity:create_user":"rule:admin_required" has been deprecated
-# since S in favor of "identity:create_user":"rule:admin_required".
+# since S in favor of "identity:create_user":"(rule:admin_required) or
+# (role:manager and token.domain.id:%(target.user.domain_id)s)".
 # The user API is now aware of system scope and default roles.
 
 # Update a user, including administrative password resets.
 # PATCH  /v3/users/{user_id}
 # Intended scope(s): system, domain, project
-#"identity:update_user": "rule:admin_required"
+#"identity:update_user": "(rule:admin_required) or (role:manager and token.domain.id:%(target.user.domain_id)s)"
 
 # DEPRECATED
 # "identity:update_user":"rule:admin_required" has been deprecated
-# since S in favor of "identity:update_user":"rule:admin_required".
+# since S in favor of "identity:update_user":"(rule:admin_required) or
+# (role:manager and token.domain.id:%(target.user.domain_id)s)".
 # The user API is now aware of system scope and default roles.
 
 # Delete a user.
 # DELETE  /v3/users/{user_id}
 # Intended scope(s): system, domain, project
-#"identity:delete_user": "rule:admin_required"
+#"identity:delete_user": "(rule:admin_required) or (role:manager and token.domain.id:%(target.user.domain_id)s)"
 
 # DEPRECATED
 # "identity:delete_user":"rule:admin_required" has been deprecated
-# since S in favor of "identity:delete_user":"rule:admin_required".
+# since S in favor of "identity:delete_user":"(rule:admin_required) or
+# (role:manager and token.domain.id:%(target.user.domain_id)s)".
 # The user API is now aware of system scope and default roles.
 
