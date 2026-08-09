@@ -17,11 +17,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: horizon VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2026-04-24 08:10+0000\n"
+"POT-Creation-Date: 2026-08-06 19:16+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2026-01-07 11:19+0000\n"
+"PO-Revision-Date: 2026-08-08 09:21+0000\n"
 "Last-Translator: Andi Chandler <andi@gowling.com>\n"
 "Language-Team: English (United Kingdom)\n"
 "Language: en_GB\n"
@@ -205,6 +205,10 @@ msgstr "-"
 msgid "1 (icmp) should be specified for IPv4 instead of 58."
 msgstr "1 (icmp) should be specified for IPv4 instead of 58."
 
+#. Translators: When the number of free IPs exceeds 10000.
+msgid "10,000+ free IPs"
+msgstr "10,000+ free IPs"
+
 msgid "58 (ipv6-icmp) should be specified for IPv6 instead of 1."
 msgstr "58 (ipv6-icmp) should be specified for IPv6 instead of 1."
 
@@ -299,6 +303,13 @@ msgstr ""
 "applied to all interfaces of the instance. If you have multiple interfaces "
 "on this instance and apply different security groups per port, use \"Edit "
 "Port Security Groups\" action instead."
+
+msgid ""
+"A <b>floating IP</b> is a static, publicly accessible IP address that can be "
+"dynamically assigned to different instances."
+msgstr ""
+"A <b>floating IP</b> is a static, publicly accessible IP address that can be "
+"dynamically assigned to different instances."
 
 msgid "A brief description of the security group rule you are adding"
 msgstr "A brief description of the security group rule you are adding"
@@ -547,6 +558,13 @@ msgstr[1] "Added Users"
 
 msgid "Additional Routes"
 msgstr "Additional Routes"
+
+msgid ""
+"Additional routes announced to the hosts. Each entry is: Destination CIDR "
+"and Next Hop (e.g., 192.168.200.0/24,10.56.1.254) and one entry per line."
+msgstr ""
+"Additional routes announced to the hosts. Each entry is: Destination CIDR "
+"and Next Hop (e.g., 192.168.200.0/24,10.56.1.254) and one entry per line."
 
 msgid ""
 "Additionally, some resource types may require a prefix to be used when "
@@ -2650,6 +2668,9 @@ msgstr ""
 "Encryption information cannot be updated for a volume type if volumes are "
 "currently in use with the volume type."
 
+msgid "End"
+msgstr "End"
+
 msgid "Endpoints"
 msgstr "Endpoints"
 
@@ -3466,6 +3487,14 @@ msgstr "Host Name ="
 msgid "Host Routes"
 msgstr "Host Routes"
 
+#, python-format
+msgid ""
+"Host Routes format error: Destination CIDR and Next Hop must be specified "
+"(value=%s)"
+msgstr ""
+"Host Routes format error: Destination CIDR and Next Hop must be specified "
+"(value=%s)"
+
 msgid ""
 "Host aggregates divide an availability zone into logical units by grouping "
 "together hosts. Create a host aggregate then select the hosts contained in "
@@ -3893,6 +3922,13 @@ msgstr ""
 
 msgid "Is Public ="
 msgstr "Is Public ="
+
+msgid ""
+"It is used for communication with networks outside the cloud, including the "
+"Internet."
+msgstr ""
+"It is used for communication with networks outside the cloud, including the "
+"Internet."
 
 msgid "It specifies the VNIC type bound to the networking port."
 msgstr "It specifies the VNIC type bound to the networking port."
@@ -4759,6 +4795,10 @@ msgstr "None (removes spec)"
 
 msgid "Normal"
 msgstr "Normal"
+
+#. Translators: When there are no free IPs in the subnet.
+msgid "Not Available"
+msgstr "Not Available"
 
 msgid "Not attached"
 msgstr "Not attached"
