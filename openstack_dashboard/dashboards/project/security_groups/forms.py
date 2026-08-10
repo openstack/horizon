@@ -73,7 +73,7 @@ class GroupBase(forms.SelfHandlingForm):
 
 class CreateGroup(GroupBase):
     success_message = _('Successfully created security group: %s')
-    error_message = _('Unable to create security group: %s')
+    error_message = _('Unable to create security group.')
 
     def _call_network_api(self, request, data):
         return api.neutron.security_group_create(request,
@@ -83,7 +83,7 @@ class CreateGroup(GroupBase):
 
 class UpdateGroup(GroupBase):
     success_message = _('Successfully updated security group: %s')
-    error_message = _('Unable to update security group: %s')
+    error_message = _('Unable to update security group.')
 
     id = forms.CharField(widget=forms.HiddenInput())
 
