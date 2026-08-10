@@ -48,11 +48,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: horizon VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2026-07-15 20:54+0000\n"
+"POT-Creation-Date: 2026-08-07 07:40+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2026-07-16 09:30+0000\n"
+"PO-Revision-Date: 2026-08-09 09:17+0000\n"
 "Last-Translator: Dmitriy Chubinidze <dcu995@gmail.com>\n"
 "Language: ru\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
@@ -1745,9 +1745,21 @@ msgstr "Выключен"
 msgid "Data"
 msgstr "Данные"
 
+msgid "Deactivate Image"
+msgid_plural "Deactivate Images"
+msgstr[0] "Деактивировать образ"
+msgstr[1] "Деактивировать образы"
+msgstr[2] "Деактивировать образы"
+
 msgctxt "Current status of an Image"
 msgid "Deactivated"
 msgstr "Отключен"
+
+msgid "Deactivated Image"
+msgid_plural "Deactivated Images"
+msgstr[0] "Деактивированный образ"
+msgstr[1] "Деактивированные образы"
+msgstr[2] "Деактивированные образы"
 
 msgid "Decrypt Password"
 msgstr "Расшифровать пароль"
@@ -3248,9 +3260,6 @@ msgstr "Не удалось обновить маршрутизатор %s"
 #, python-format
 msgid "Failed to update subnet \"%s\"."
 msgstr "Не удалось обновить подсеть \"%s\"."
-
-msgid "False"
-msgstr "False"
 
 msgid "Fault"
 msgstr "Ошибка"
@@ -5018,6 +5027,7 @@ msgid "Normal"
 msgstr "Нормальная"
 
 #. Translators: When there are no free IPs in the subnet.
+#. Translators: User status not set in group users.
 msgid "Not Available"
 msgstr "Недоступно"
 
@@ -5133,6 +5143,9 @@ msgstr "Обзор"
 
 msgid "Owner"
 msgstr "Владелец"
+
+msgid "Owner (Project ID) ="
+msgstr "Владелец (ID проекта) ="
 
 msgid "Owner of the device attached to the port"
 msgstr "Владелец устройства подключенного к порту"
@@ -5535,6 +5548,18 @@ msgstr "Raw"
 msgctxt "Image format for display in table"
 msgid "Raw"
 msgstr "Raw"
+
+msgid "Reactivate Image"
+msgid_plural "Reactivate Images"
+msgstr[0] "Повторно активировать образ"
+msgstr[1] "Повторно активировать образы"
+msgstr[2] "Повторно активировать образы"
+
+msgid "Reactivated Image"
+msgid_plural "Reactivated Images"
+msgstr[0] "Повторно активированный образ"
+msgstr[1] "Повторно активированные образы"
+msgstr[2] "Повторно активированные образы"
 
 msgid "Reason"
 msgstr "Причина"
@@ -9098,6 +9123,9 @@ msgstr "Виртуальный размер"
 
 msgid "Visibility"
 msgstr "Видимость"
+
+msgid "Visibility ="
+msgstr "Видимость ="
 
 msgid "Volume"
 msgstr "Диск"
