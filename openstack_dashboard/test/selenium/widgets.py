@@ -145,3 +145,12 @@ def select_from_transfer_table(element, label):
                 f"[@class='btn btn-default fa fa-arrow-down']")
         except exceptions.NoSuchElementException:
             raise
+
+
+def wait_for_page_ready(driver, config):
+    wait = WebDriverWait(driver, config.selenium.page_timeout)
+    wait.until(lambda d: d.execute_script(
+        "return document.readyState") == "complete")
+    wait.until(lambda d: d.execute_script(
+        "return (typeof jQuery === 'undefined') || (jQuery.active === 0)"
+    ))
