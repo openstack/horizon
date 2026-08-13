@@ -10,16 +10,10 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
-from oslo_utils import uuidutils
 import pytest
 from selenium.webdriver.common.by import By
 
 from openstack_dashboard.test.selenium import widgets
-
-
-@pytest.fixture
-def flavor_name():
-    return 'horizon_flavor_%s' % uuidutils.generate_uuid(dashed=False)
 
 
 @pytest.fixture

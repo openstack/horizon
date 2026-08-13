@@ -23,7 +23,8 @@ from openstack_dashboard.test.selenium.integration import test_volumes
 from openstack_dashboard.test.selenium import widgets
 
 
-def create_conn(username, password, project, domain, auth_url):
+def create_conn(username, password, project, domain, auth_url,
+                region_name=None):
     if not domain:
         domain = 'default'
     conn = openstack_sdk.connection.Connection(
@@ -35,6 +36,7 @@ def create_conn(username, password, project, domain, auth_url):
             "username": username,
             "password": password,
         },
+        region_name=region_name,
         compute_api_version='2',
         verify=False,
     )
@@ -63,6 +65,48 @@ def openstack_demo(config):
         config.identity.home_project,
         config.identity.domain,
         config.dashboard.auth_url,
+    )
+    yield conn
+    conn.close()
+
+
+@pytest.fixture(scope='session')
+def env_services_regions(openstack_admin):
+    services_regions_sdk = list(openstack_admin.identity.regions())
+    yield services_regions_sdk
+
+
+@pytest.fixture(scope='session')
+def require_multiple_regions(env_services_regions):
+    if len(env_services_regions) < 2:
+        pytest.skip(
+            "Test required only when multiple"
+            " services_regions are available.")
+
+
+@pytest.fixture(scope='session')
+def openstack_admin_region_one(config, require_multiple_regions):
+    conn = create_conn(
+        config.identity.admin_username,
+        config.identity.admin_password,
+        config.identity.admin_home_project,
+        config.identity.domain,
+        config.dashboard.auth_url,
+        config.services_regions.region_one_name,
+    )
+    yield conn
+    conn.close()
+
+
+@pytest.fixture(scope='session')
+def openstack_admin_region_two(config, require_multiple_regions):
+    conn = create_conn(
+        config.identity.admin_username,
+        config.identity.admin_password,
+        config.identity.admin_home_project,
+        config.identity.domain,
+        config.dashboard.auth_url,
+        config.services_regions.region_two_name,
     )
     yield conn
     conn.close()
@@ -315,3 +359,8 @@ def clear_volume_admin(volume_name, openstack_admin):
         volume_name[0],
         wait=True,
     )
+
+
+@pytest.fixture
+def flavor_name():
+    return 'horizon_flavor_%s' % uuidutils.generate_uuid(dashed=False)

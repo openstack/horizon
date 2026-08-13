@@ -11,7 +11,6 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
-from contextlib import contextmanager
 import time
 
 import pytest
@@ -21,21 +20,13 @@ from selenium.webdriver.support.ui import Select
 from selenium.webdriver.support.wait import WebDriverWait
 
 from django.conf import settings
-
-
-@contextmanager
-def no_wait(driver, config):
-    driver.implicitly_wait(0)
-    try:
-        yield
-    finally:
-        driver.implicitly_wait(config.selenium.implicit_wait)
+from openstack_dashboard.test.selenium import widgets
 
 
 def wait_for_page_load(driver, config):
     """Wait for the page to finish loading."""
 
-    with no_wait(driver, config):
+    with widgets.no_wait(driver, config):
         def loaded(_):
             result = driver.execute_script("return document.readyState")
             return result == "complete"
@@ -91,7 +82,7 @@ def test_region_switch(login, driver, config):
         region_link = region_list.find_element(By.LINK_TEXT, name)
         region_link.click()
 
-        with no_wait(driver, config):
+        with widgets.no_wait(driver, config):
             WebDriverWait(driver, config.selenium.page_timeout, 0.5).until(
                 EC.visibility_of_element_located((By.ID, 'id_username'))
             )
@@ -106,7 +97,7 @@ def test_region_switch(login, driver, config):
         button = driver.find_element(By.XPATH, '//*[@id="loginBtn"]')
         button.click()
 
-        with no_wait(driver, config):
+        with widgets.no_wait(driver, config):
             WebDriverWait(driver, config.selenium.page_timeout, 0.5).until(
                 EC.invisibility_of_element_located(
                     (By.CSS_SELECTOR, '.modal-body > .loader')

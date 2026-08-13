@@ -196,6 +196,10 @@ ThemeGroup = [
     cfg.StrOpt('project_name_xpath',
                default='.//*[@class="context-project"]//ancestor::ul',
                help='Default xpath for project name dropdown button'),
+    cfg.StrOpt('project_text_xpath',
+               default='.//*[@class="context-project"]',
+               help='Default xpath for element displaying '
+                    'the current project name'),
     cfg.StrOpt('region_name_xpath',
                default='.//span[@class="region-title"]',
                help='Default xpath for region name dropdown button'),
@@ -301,6 +305,26 @@ IdPsOIDCGroup = [
 ]
 
 
+ServicesRegionsGroup = [
+    cfg.StrOpt('region_one_name',
+               default='regionOne',
+               help='Name of the first service region'),
+    cfg.StrOpt('region_two_name',
+               default='regionTwo',
+               help='Name of the second service region.'),
+    cfg.StrOpt('region_name_xpath',
+               default='.//*[@class="context-region"]',
+               help='Default xpath for services regions name dropdown button'),
+    cfg.StrOpt('region_dropdown_xpath',
+               default='.//span[@class="context-region"]/ancestor::li',
+               help='Default xpath for services regions dropdown container'),
+    cfg.StrOpt('region_btn_text_pattern',
+               default='{region}',
+               help='Default text pattern for services regions '
+                    'dropdown button text'),
+]
+
+
 def _get_config_files():
     conf_dir = os.path.join(
         os.path.abspath(os.path.dirname(os.path.dirname(__file__))),
@@ -329,6 +353,7 @@ def get_config():
     cfg.CONF.register_opts(VolumeGroup, group="volume")
     cfg.CONF.register_opts(ThemeGroup, group="theme")
     cfg.CONF.register_opts(IdPsOIDCGroup, group="IdPsOIDC")
+    cfg.CONF.register_opts(ServicesRegionsGroup, group="services_regions")
 
     return cfg.CONF
 
@@ -348,4 +373,5 @@ def list_opts():
         ("volume", VolumeGroup),
         ("theme", ThemeGroup),
         ("IdPsOIDC", IdPsOIDCGroup),
+        ("services_regions", ServicesRegionsGroup),
     ]

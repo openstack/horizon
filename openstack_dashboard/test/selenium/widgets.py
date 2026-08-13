@@ -10,6 +10,7 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
+from contextlib import contextmanager
 from dataclasses import dataclass
 
 from selenium.common import exceptions
@@ -25,6 +26,15 @@ class TableDefinition:
     prev: bool
     count: int
     names: list
+
+
+@contextmanager
+def no_wait(driver, config):
+    driver.implicitly_wait(0)
+    try:
+        yield
+    finally:
+        driver.implicitly_wait(config.selenium.implicit_wait)
 
 
 def get_and_dismiss_messages(driver, config):
