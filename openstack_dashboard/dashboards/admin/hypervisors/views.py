@@ -12,6 +12,7 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
+from django.conf import settings
 from django.utils.translation import gettext_lazy as _
 
 from horizon import exceptions
@@ -37,11 +38,13 @@ class AdminIndexView(tabs.TabbedTableView):
         except Exception:
             exceptions.handle(self.request,
                               _('Unable to retrieve hypervisor statistics.'))
-        try:
-            context["providers"] = api.placement.get_providers(self.request)
-        except Exception:
-            exceptions.handle(self.request,
-                              _('Unable to retrieve providers statistics.'))
+        context["show_provider"] = settings.SHOW_RESOURCE_PROVIDER_SUMMARY
+        if context["show_provider"]:
+            try:
+                context["providers"] = api.placement.get_providers(self.request)
+            except Exception:
+                exceptions.handle(self.request,
+                                  _('Unable to retrieve providers statistics.'))
         return context
 
 

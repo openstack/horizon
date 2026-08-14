@@ -1,0 +1,8 @@
+---
+features:
+  - |
+    Adds a config option ``SHOW_RESOURCE_PROVIDER_SUMMARY`` so one
+    can disable the hypervisor resource provider overview in admin
+    section. This can be useful in an environment with a lot of
+    hypervisor nodes to keep the page small and useful. Default is
+    True to keep current behaviour and show this section.
