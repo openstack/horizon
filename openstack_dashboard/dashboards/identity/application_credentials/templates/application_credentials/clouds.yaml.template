@@ -11,6 +11,7 @@ clouds:
     {% if profile %}
     profile: {{ profile }}
     {% endif %}
+    auth_type: "v3applicationcredential"
     auth:
       {% if not profile %}
       auth_url: {{ auth_url }}
@@ -29,6 +30,4 @@ clouds:
         {% endif %}
       {% endif %}
     interface: "{{ interface }}"
-    identity_api_version: 3
-    auth_type: "v3applicationcredential"
     {% endif %}

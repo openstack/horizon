@@ -33,5 +33,4 @@ clouds:
         {% endif %}
       {% endif %}
     interface: "{{ interface }}"
-    identity_api_version: {{ os_identity_api_version }}
     {% endif %}
