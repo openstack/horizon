@@ -343,26 +343,24 @@
      * @name getProjectName
      * @description
      * Returns the requested project name or id if the project doesn't have a name.
+     * Unlike getProject, this does not raise an error toast on failure: it is used
+     * for best-effort display purposes (e.g. resolving an owner's project name in a
+     * table), and callers may legitimately lack visibility into other projects
+     * under strict RBAC. Falls back to the raw project id in that case, and
+     * suppresses the global 403 toast since that is expected/handled here.
      * @param {string} projectId
      * The project to get
      * @returns {string} The result of the API call
      */
     function getProjectName(projectId) {
-      var deferred = $q.defer();
-
-      service.getProject(projectId)
-        .then(onSuccess, onFailure);
-
-      function onSuccess(response) {
-        deferred.resolve(response.data.name || response.data.id);
-      }
-
-      function onFailure(message) {
-        deferred.promise.catch(angular.noop);
-        deferred.reject(message);
-      }
-
-      return deferred.promise;
+      return apiService.get(
+        '/api/keystone/projects/' + projectId, {suppress403Toast: true})
+        .then(function onSuccess(response) {
+          return response.data.name || response.data.id;
+        })
+        .catch(function onFailure() {
+          return projectId;
+        });
     }
 
     function editProject(updatedProject) {

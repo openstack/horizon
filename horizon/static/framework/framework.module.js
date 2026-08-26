@@ -132,7 +132,7 @@
           var msg = gettext('Unauthorized. Redirecting to login');
           handleRedirectMessage(msg, $rootScope, $window, frameworkEvents, toastService, true);
         }
-        if (error.status === 403) {
+        if (error.status === 403 && !(error.config && error.config.suppress403Toast)) {
           var msg2 = gettext('Forbidden. Insufficient permissions of the requested operation');
           handleRedirectMessage(msg2, $rootScope, $window, frameworkEvents, toastService, false);
         }

@@ -207,10 +207,12 @@ class SecurityGroupsViewTests(test.TestCase):
         self.mock_is_extension_supported.assert_called_once_with(
             test.IsHttpRequest(), 'standard-attr-description')
 
-    @test.create_mocks({api.neutron: ('is_extension_supported',)})
+    @test.create_mocks({api.neutron: ('is_extension_supported',
+                                      'security_group_get')})
     def test_rules_table_has_edit_action(self):
         sec_group = self.security_groups.first()
         self.mock_is_extension_supported.return_value = True
+        self.mock_security_group_get.return_value = sec_group
         req = self.factory.get(self.detail_url)
         kwargs = {'security_group_id': sec_group.id}
         table = tables.RulesTable(req, sec_group.rules, **kwargs)
@@ -219,6 +221,8 @@ class SecurityGroupsViewTests(test.TestCase):
         self.assertIn('update_rule', action_names)
         self.mock_is_extension_supported.assert_called_once_with(
             test.IsHttpRequest(), 'standard-attr-description')
+        self.mock_security_group_get.assert_called_once_with(
+            test.IsHttpRequest(), sec_group.id)
 
     @test.create_mocks({api.neutron: ('security_group_get',)})
     def test_update_security_groups_get(self):

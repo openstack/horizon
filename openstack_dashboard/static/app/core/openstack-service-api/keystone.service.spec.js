@@ -485,18 +485,29 @@
 
         it("it returns the project name when it exists", function () {
           deferred.resolve({data: project});
-          spyOn(service, 'getProject').and.returnValue(deferred.promise);
+          spyOn(apiService, 'get').and.returnValue(deferred.promise);
           service.getProjectName(project.id).then(expectName);
           $timeout.flush();
-          expect(service.getProject).toHaveBeenCalledWith(project.id);
+          expect(apiService.get).toHaveBeenCalledWith(
+            '/api/keystone/projects/' + project.id, {suppress403Toast: true});
         });
 
         it("it returns the project id when name doesn't exist", function () {
           deferred.resolve({data: {id: project.id}});
-          spyOn(service, 'getProject').and.returnValue(deferred.promise);
+          spyOn(apiService, 'get').and.returnValue(deferred.promise);
           service.getProjectName(project.id).then(expectID);
           $timeout.flush();
-          expect(service.getProject).toHaveBeenCalledWith(project.id);
+          expect(apiService.get).toHaveBeenCalledWith(
+            '/api/keystone/projects/' + project.id, {suppress403Toast: true});
+        });
+
+        it("it returns the project id without an error toast when the lookup fails", function () {
+          deferred.reject('boom');
+          spyOn(apiService, 'get').and.returnValue(deferred.promise);
+          spyOn(toastService, 'add');
+          service.getProjectName(project.id).then(expectID);
+          $timeout.flush();
+          expect(toastService.add).not.toHaveBeenCalled();
         });
 
         function expectName(name) {
