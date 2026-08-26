@@ -404,3 +404,8 @@ SECURITY_GROUP_RULES = {
 # Help URL can be made available for the client. To provide a help URL, edit the
 # following attribute to the URL of your choice.
 #HORIZON_CONFIG["help_url"] = "http://openstack.mycompany.org"
+
+# Set to False to disable the resource provider summary overview pie charts
+# on the Admin -> Compute -> Hypervisors page. Recommended for environments
+# with a large number of hypervisors (100+).
+#SHOW_RESOURCE_PROVIDER_SUMMARY = True

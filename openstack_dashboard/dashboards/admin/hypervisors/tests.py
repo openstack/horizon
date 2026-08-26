@@ -12,6 +12,7 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
+from django.test import override_settings
 from django.urls import reverse
 
 from openstack_dashboard import api
@@ -93,6 +94,21 @@ class HypervisorViewTest(test.BaseAdminViewTests):
             test.IsHttpRequest(), binary='nova-compute')
         self.mock_get_providers.assert_called_once_with(
             test.IsHttpRequest())
+
+        self.assertTrue(res.context['show_provider'])
+        self.assertContains(res, 'Resource Providers Summary')
+
+    @test.create_mocks({api.nova: ['hypervisor_list',
+                                   'hypervisor_stats',
+                                   'service_list'],
+                        api.placement: ['get_providers']})
+    @override_settings(SHOW_RESOURCE_PROVIDER_SUMMARY=False)
+    def test_disable_provider_view_summary(self):
+        res = self.client.get(reverse('horizon:admin:hypervisors:index'))
+        self.assertTemplateUsed(res, 'admin/hypervisors/index.html')
+        self.assertFalse(res.context['show_provider'])
+        self.assertNotContains(res, 'Resource Providers Summary')
+        self.mock_get_providers.assert_not_called()
 
     @test.create_mocks({api.nova: ['hypervisor_list',
                                    'hypervisor_stats',

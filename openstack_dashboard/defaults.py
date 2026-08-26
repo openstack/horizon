@@ -582,3 +582,8 @@ KUBECONFIG_CERTIFICATE_AUTHORITY_DATA = ""
 # Services may require a System Scope token for certain operations. This
 # settings enables the use of the system scope token on per-service basis.
 SYSTEM_SCOPE_SERVICES = []
+
+# Set this to False in order to disable the resource provider summary overview
+# pie charts on the Admin -> Compute -> Hypervisors page. Recommended for
+# environments with a large number of hypervisors (100+).
+SHOW_RESOURCE_PROVIDER_SUMMARY = True

@@ -2586,6 +2586,19 @@ usage overview. According to feedbacks to the horizon team, the usage of
 ``SimpleTenantUsage`` can cause performance issues in the nova API in larger
 deployments. Try to set this to ``False`` for such cases.
 
+SHOW_RESOURCE_PROVIDER_SUMMARY
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. versionadded:: 2026.2(Hibiscus)
+
+Default: ``True``
+
+This setting controls whether to show or hide the hypervisor resource provider
+overview on the Admin -> Compute -> Hypervisors page. It is useful to
+hide this in environments with a lot of hypervisor nodes in order to keep the
+page small and useful. If this config is set to ``True`` it will show this
+section and if it is set to ``False`` it will be hidden.
+
 Swift
 -----
 

@@ -22,6 +22,7 @@
        </div>
     </div>
 </div>
+{% if show_provider %}
 <div class="quota-dynamic">
   <h3>{% trans "Resource Providers Summary" %}</h3>
   {% for provider in providers %}
@@ -63,6 +64,7 @@
     </div>
   {% endfor %}
 </div>
+{% endif %}
 <div class="row-fluid">
   <div class="col-sm-12">
     {{ tab_group.render }}
