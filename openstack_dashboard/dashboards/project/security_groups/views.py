@@ -78,6 +78,13 @@ class DetailView(tables.DataTableView):
         context["security_group"] = self._get_data()
         return context
 
+    def get_table(self):
+        table = super().get_table()
+        # Reuse the already-fetched security group for the table's row/
+        # table action policy checks instead of making a second API call.
+        table._security_group = self._get_data()
+        return table
+
 
 class UpdateView(forms.ModalFormView):
     form_class = project_forms.UpdateGroup

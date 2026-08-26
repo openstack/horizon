@@ -1514,7 +1514,7 @@ class DetailProjectViewTests(test.BaseAdminViewTests):
         self.mock_tenant_get.assert_called_once_with(test.IsHttpRequest(),
                                                      self.tenant.id)
         calls = [mock.call(test.IsHttpRequest(), "1"),
-                 mock.call(test.IsHttpRequest(), None), ]
+                 mock.call(test.IsHttpRequest(), "1"), ]
         self.mock_domain_get.assert_has_calls(calls)
         self.mock_enabled_quotas.assert_called_once_with(test.IsHttpRequest())
         self.mock_role_list.assert_called_once_with(test.IsHttpRequest())
@@ -1556,7 +1556,7 @@ class DetailProjectViewTests(test.BaseAdminViewTests):
         self.mock_tenant_get.assert_called_once_with(test.IsHttpRequest(),
                                                      self.tenant.id)
         calls = [mock.call(test.IsHttpRequest(), "1"),
-                 mock.call(test.IsHttpRequest(), None), ]
+                 mock.call(test.IsHttpRequest(), "1"), ]
         self.mock_domain_get.assert_has_calls(calls)
         self.mock_enabled_quotas.assert_called_once_with(test.IsHttpRequest())
         self.mock_get_project_groups_roles.assert_called_once_with(

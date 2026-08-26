@@ -73,6 +73,30 @@
           $httpBackend.flush();
         })
       );
+
+      it('should not add a forbidden toast message when suppress403Toast is set', inject(
+        function($http, $httpBackend, $window, $injector, $rootScope) {
+          $window.WEBROOT = '/dashboard/';
+          $httpBackend.when('GET', '/api').respond(403, '');
+
+          var toastService = $injector.get('horizon.framework.widgets.toast.service');
+          var frameworkEvents = $injector.get('horizon.framework.events');
+          spyOn(toastService, 'add');
+
+          // NOTE: ngRoute broadcasts its own $routeChangeStart/Success
+          // events on the first digest of a fresh $rootScope, unrelated to
+          // this interceptor, so only the AUTH_ERROR broadcast is checked
+          // here rather than any $broadcast call.
+          spyOn($rootScope, '$broadcast').and.callThrough();
+
+          $http.get('/api', {suppress403Toast: true}).catch(function onError() {
+            expect(toastService.add).not.toHaveBeenCalled();
+            expect($rootScope.$broadcast).not.toHaveBeenCalledWith(
+              frameworkEvents.AUTH_ERROR, jasmine.any(String));
+          });
+          $httpBackend.flush();
+        })
+      );
     });
   });
 })();

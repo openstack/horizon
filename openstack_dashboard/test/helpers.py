@@ -234,6 +234,7 @@ class TestCase(horizon_helpers.TestCase):
             'username': self.user.name,
             'domain_id': self.domain.id,
             'user_domain_name': self.domain.name,
+            'user_domain_id': self.domain.id,
             'tenant_id': self.tenant.id,
             'service_catalog': self.service_catalog,
             'authorized_tenants': tenants,
@@ -261,7 +262,7 @@ class TestCase(horizon_helpers.TestCase):
     def setActiveUser(self, id=None, token=None, username=None, tenant_id=None,
                       service_catalog=None, tenant_name=None, roles=None,
                       authorized_tenants=None, enabled=True, domain_id=None,
-                      user_domain_name=None):
+                      user_domain_name=None, user_domain_id=None):
         def get_user(request):
             ret = user.User(
                 id=id,
@@ -269,6 +270,7 @@ class TestCase(horizon_helpers.TestCase):
                 user=username,
                 domain_id=domain_id,
                 user_domain_name=user_domain_name,
+                user_domain_id=user_domain_id,
                 tenant_id=tenant_id,
                 tenant_name=tenant_name,
                 service_catalog=service_catalog,

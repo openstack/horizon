@@ -1,0 +1,10 @@
+---
+upgrade:
+  - |
+    Horizon now enables oslo.policy's ``enforce_scope`` and
+    ``enforce_new_defaults`` by default. The explicit overrides
+    that kept them disabled in Horizon have been removed.
+
+    Deployments that have not yet adopted the new RBAC defaults should review
+    their policy configuration before upgrading, as policy enforcement
+    behaviour will change with this release.

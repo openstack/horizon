@@ -39,11 +39,7 @@ def _get_policy_conf(policy_file, policy_dirs=None):
     conf = cfg.ConfigOpts()
     # Passing [] is required. Otherwise oslo.config looks up sys.argv.
     conf([])
-    # TODO(gmann): Remove setting the default value of 'enforce_new_defaults'
-    # once Horizon is ready with the new RBAC (oslo_policy enabled them by
-    # default).
-    policy_opts.set_defaults(conf,
-                             enforce_new_defaults=False)
+    policy_opts.set_defaults(conf)
     conf.set_default('policy_file', policy_file, 'oslo_policy')
     # Policy Enforcer has been updated to take in a policy directory
     # as a config option. However, the default value in is set to
@@ -198,6 +194,17 @@ def check(actions, request, target=None):
         target = {}
     user = auth_utils.get_user(request)
 
+    enforcer = _get_enforcer()
+    # (gmann): Keystone's new RBAC default rules reference the target's
+    # attributes with a 'target.' prefix (e.g. 'target.user.id'), while
+    # the old, deprecated rules reference them without it (e.g. 'user.id').
+    # Only the identity enforcer's rules use these attributes, so key off
+    # its 'enforce_new_defaults' setting.
+    identity_enforcer = enforcer.get('identity')
+    enforce_new_defaults = bool(
+        identity_enforcer and
+        identity_enforcer.conf.oslo_policy.enforce_new_defaults)
+
     # Several service policy engines default to a project id check for
     # ownership. Since the user is already scoped to a project, if a
     # different project id has not been specified use the currently scoped
@@ -213,25 +220,44 @@ def check(actions, request, target=None):
     # (gmann): Keystone use some of the policy rule as
     # 'target.project.id' so we need to set the project.id
     # attribute also.
-    if target.get('project.id') is None:
-        target['project.id'] = user.project_id
+    project_id_key = ('target.project.id' if enforce_new_defaults
+                      else 'project.id')
+    if target.get(project_id_key) is None:
+        target[project_id_key] = user.project_id
     if target.get('tenant_id') is None:
         target['tenant_id'] = target['project_id']
+    # (gmann): Some service policies (e.g. Glance's add_image) check
+    # ownership via '%(owner)s'. Services like Glance default a new
+    # resource's owner to the requester's project id when not specified
+    # (see glance.api.v2.images: image['owner'] = req.context.project_id),
+    # so mirror that default here.
+    if target.get('owner') is None:
+        target['owner'] = user.project_id
     # same for user_id
     if target.get('user_id') is None:
         target['user_id'] = user.id
     # (gmann): Keystone use some of the policy rule as
     # 'target.user.id' so we need to set the user.id
     # attribute also.
-    if target.get('user.id') is None:
-        target['user.id'] = user.id
+    user_id_key = 'target.user.id' if enforce_new_defaults else 'user.id'
+    if target.get(user_id_key) is None:
+        target[user_id_key] = user.id
 
-    domain_id_keys = [
-        'domain_id',
-        'project.domain_id',
-        'user.domain_id',
-        'group.domain_id'
-    ]
+    if enforce_new_defaults:
+        domain_id_keys = [
+            'domain_id',
+            'target.domain_id',
+            'target.project.domain_id',
+            'target.user.domain_id',
+            'target.group.domain_id',
+        ]
+    else:
+        domain_id_keys = [
+            'domain_id',
+            'project.domain_id',
+            'user.domain_id',
+            'group.domain_id',
+        ]
     # populates domain id keys with user's current domain id
     for key in domain_id_keys:
         if target.get(key) is None:
@@ -239,8 +265,6 @@ def check(actions, request, target=None):
 
     credentials = _user_to_credentials(user)
     domain_credentials = _domain_to_credentials(request, user)
-
-    enforcer = _get_enforcer()
 
     for action in actions:
         scope, action = action[0], action[1]

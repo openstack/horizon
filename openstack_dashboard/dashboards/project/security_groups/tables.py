@@ -22,6 +22,7 @@ from django.utils.translation import ngettext_lazy
 
 from horizon import exceptions
 from horizon import tables
+from horizon.utils import memoized
 
 from openstack_dashboard import api
 from openstack_dashboard import policy
@@ -99,6 +100,14 @@ class ManageRules(policy.PolicyTargetMixin, tables.LinkAction):
     url = "horizon:project:security_groups:detail"
     icon = "pencil"
     policy_rules = (("network", "get_security_group_rule"),)
+    # get_security_group_rule is owner-checked against the security group
+    # (rule:sg_owner) rather than a plain project_id check under RBAC new
+    # defaults, so add the nested target key. datum here is the security
+    # group itself, so its own tenant_id can be reused directly.
+    policy_target_attrs = (
+        policy.PolicyTargetMixin.policy_target_attrs +
+        (("security_group:tenant_id", "tenant_id"),
+         ("security_group:project_id", "tenant_id")))
 
 
 class SecurityGroupsFilterAction(tables.FilterAction):
@@ -140,7 +149,26 @@ class SecurityGroupsTable(tables.DataTable):
         row_actions = (ManageRules, EditGroup, DeleteGroup)
 
 
-class CreateRule(policy.PolicyTargetMixin, tables.LinkAction):
+class SecurityGroupRulePolicyTargetMixin(policy.PolicyTargetMixin):
+    """Adds the "security_group:project_id" target used by RBAC new defaults.
+
+    Rule create/update/delete policies are owner-checked against the
+    parent security group's project (rule:sg_owner), not the rule itself,
+    so the security group's tenant_id must be looked up and added to the
+    policy target under both the deprecated and new default key names.
+    """
+
+    def get_policy_target(self, request, datum=None):
+        policy_target = super().get_policy_target(request, datum)
+        security_group = self.table._get_security_group()
+        if security_group:
+            tenant_id = security_group.tenant_id
+            policy_target["security_group:tenant_id"] = tenant_id
+            policy_target["security_group:project_id"] = tenant_id
+        return policy_target
+
+
+class CreateRule(SecurityGroupRulePolicyTargetMixin, tables.LinkAction):
     name = "add_rule"
     verbose_name = _("Add Rule")
     url = "horizon:project:security_groups:add_rule"
@@ -165,7 +193,7 @@ class CreateRule(policy.PolicyTargetMixin, tables.LinkAction):
         return True
 
 
-class EditRule(policy.PolicyTargetMixin, tables.LinkAction):
+class EditRule(SecurityGroupRulePolicyTargetMixin, tables.LinkAction):
     name = "update_rule"
     verbose_name = _("Edit Rule")
     url = "horizon:project:security_groups:update_rule"
@@ -176,9 +204,10 @@ class EditRule(policy.PolicyTargetMixin, tables.LinkAction):
     def allowed(self, request, rule=None):
         if not rule:
             return False
-        create_allowed = policy.check(self.policy_rules, request)
+        target = self.get_policy_target(request, rule)
+        create_allowed = policy.check(self.policy_rules, request, target)
         delete_allowed = policy.check(
-            (("network", "delete_security_group_rule"),), request)
+            (("network", "delete_security_group_rule"),), request, target)
         return create_allowed and delete_allowed
 
     def get_link_url(self, datum):
@@ -186,7 +215,7 @@ class EditRule(policy.PolicyTargetMixin, tables.LinkAction):
         return reverse(self.url, args=[sg_id, datum.id])
 
 
-class DeleteRule(policy.PolicyTargetMixin, tables.DeleteAction):
+class DeleteRule(SecurityGroupRulePolicyTargetMixin, tables.DeleteAction):
     policy_rules = (("network", "delete_security_group_rule"),)
 
     @staticmethod
@@ -303,6 +332,22 @@ class RulesTable(tables.DataTable):
 
     def sanitize_id(self, obj_id):
         return filters.get_int_or_uuid(obj_id)
+
+    @memoized.memoized_method
+    def _get_security_group(self):
+        # The view already fetches the security group to build the table
+        # data; reuse it here rather than making another API call.
+        cached = getattr(self, '_security_group', None)
+        if cached is not None:
+            return cached
+        sg_id = self.sanitize_id(self.kwargs['security_group_id'])
+        try:
+            return api.neutron.security_group_get(self.request, sg_id)
+        except Exception:
+            exceptions.handle(
+                self.request,
+                _('Unable to retrieve security group.'))
+            return None
 
     def get_object_display(self, rule):
         return str(rule)
