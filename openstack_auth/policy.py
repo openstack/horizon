@@ -29,17 +29,20 @@ LOG = logging.getLogger(__name__)
 
 _ENFORCER = None
 _BASE_PATH = settings.POLICY_FILES_PATH
+_KEYSTONE_USE_DOMAIN_SCOPE = (
+    settings.OPENSTACK_KEYSTONE_PREFER_DOMAIN_TOKEN and
+    settings.OPENSTACK_KEYSTONE_MULTIDOMAIN_SUPPORT
+)
 
 
 def _get_policy_conf(policy_file, policy_dirs=None):
     conf = cfg.ConfigOpts()
     # Passing [] is required. Otherwise oslo.config looks up sys.argv.
     conf([])
-    # TODO(gmann): Remove setting the default value of 'enforce_scope'
-    # and 'enforce_new_defaults' once Horizon is ready with the
-    # new RBAC (oslo_policy enabled them by default).
+    # TODO(gmann): Remove setting the default value of 'enforce_new_defaults'
+    # once Horizon is ready with the new RBAC (oslo_policy enabled them by
+    # default).
     policy_opts.set_defaults(conf,
-                             enforce_scope=False,
                              enforce_new_defaults=False)
     conf.set_default('policy_file', policy_file, 'oslo_policy')
     # Policy Enforcer has been updated to take in a policy directory
@@ -244,7 +247,8 @@ def check(actions, request, target=None):
         if scope in enforcer:
             # this is for handling the v3 policy file and will only be
             # needed when a domain scoped token is present
-            if scope == 'identity' and domain_credentials:
+            if (scope == 'identity' and domain_credentials and
+                    _KEYSTONE_USE_DOMAIN_SCOPE):
                 # use domain credentials
                 if not _check_credentials(enforcer[scope],
                                           action,
@@ -272,10 +276,7 @@ def _check_credentials(enforcer_scope, action, target, credentials):
             credentials,
             do_raise=True,
         )
-    except policy.InvalidScope:
-        # Ignore oslo.policy token scope checks.
-        allowed = True
-    except policy.PolicyNotAuthorized:
+    except (policy.PolicyNotAuthorized, policy.InvalidScope):
         allowed = False
     if not allowed:
         # to match service implementations, if a rule is not found,
@@ -291,10 +292,7 @@ def _check_credentials(enforcer_scope, action, target, credentials):
                     credentials,
                     do_raise=True,
                 )
-            except policy.InvalidScope:
-                # Ignore oslo.policy token scope checks.
-                allowed = True
-            except policy.PolicyNotAuthorized:
+            except (policy.PolicyNotAuthorized, policy.InvalidScope):
                 allowed = False
             if not allowed:
                 if 'default' in enforcer_scope.rules:
