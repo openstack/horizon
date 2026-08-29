@@ -28,6 +28,7 @@ from django.test.utils import override_settings
 from django.urls import reverse
 from django.utils.http import urlencode
 from novaclient import api_versions
+from openstack.compute.v2 import flavor as sdk_flavor
 
 from horizon import exceptions
 from horizon import forms
@@ -2404,6 +2405,38 @@ class InstanceTests2(InstanceTestBase, InstanceTableTestMixin):
         server = self.servers.first()
         self._populate_server_flavor_nova_api_ge_2_47(server)
         self._test_instance_resize_get(server)
+
+    @helpers.create_mocks({api.nova: ('server_get',
+                                      'flavor_list',
+                                      'tenant_absolute_limits',
+                                      'is_feature_available')})
+    def test_instance_resize_get_flavor_name_escaped(self):
+        # A flavor name holding a literal "</script>" must not be able to
+        # close the inline <script> block that _flavors_and_quotas.html
+        # embeds the serialized flavor list into.
+        payload = '</script><script>alert(document.domain)</script>'
+        server = self.servers.first()
+        current = self.flavors.get(id=server.flavor['id'])
+        flavors = [
+            sdk_flavor.Flavor(id=current.id, name=current.name, vcpus=1,
+                              disk=0, ram=512, swap=0, ephemeral=0,
+                              is_public=True, extra_specs={}),
+            sdk_flavor.Flavor(id="cccccccc-cccc-cccc-cccc-cccccccccccc",
+                              name=payload, vcpus=1, disk=1, ram=512, swap=0,
+                              ephemeral=0, is_public=True, extra_specs={}),
+        ]
+        self.mock_server_get.return_value = server
+        self.mock_flavor_list.return_value = flavors
+        self.mock_tenant_absolute_limits.return_value = self.limits['absolute']
+
+        url = reverse('horizon:project:instances:resize', args=[server.id])
+        res = self.client.get(url)
+        content = res.content.decode()
+
+        # The flavor list really did reach the page, it was not swallowed.
+        self.assertIn('initWithFlavors([{', content)
+        self.assertNotIn('</script><script>', content)
+        self.assertIn('\\u003C/script\\u003E', content)
 
     @helpers.create_mocks({api.nova: ('server_get',)})
     def test_instance_resize_get_server_get_exception(self):

@@ -168,6 +168,25 @@ class MetadataDefinitionsView(test.BaseAdminViewTests):
         self.mock_metadefs_resource_types_list.assert_called_once_with(
             test.IsHttpRequest())
 
+    @test.create_mocks({api.glance: ['metadefs_resource_types_list',
+                                     'metadefs_namespace_resource_types']})
+    def test_manage_resource_types_name_escaped(self):
+        # A resource type name holding a literal "</script>" must not be
+        # able to close the inline <script> block that
+        # resource_types.html embeds the serialized list into.
+        payload = '</script><script>alert(document.domain)</script>'
+        self.mock_metadefs_resource_types_list.return_value = [
+            {'name': payload}]
+        self.mock_metadefs_namespace_resource_types.return_value = []
+
+        content = self.client.get(
+            reverse(constants.METADATA_MANAGE_RESOURCES_URL,
+                    kwargs={'id': '1'})).content.decode()
+
+        self.assertIn('var resource_types = [{', content)
+        self.assertNotIn('</script><script>', content)
+        self.assertIn('\\u003C/script\\u003E', content)
+
     @test.create_mocks({api.glance: ['metadefs_namespace_resource_types',
                                      'metadefs_namespace_remove_resource_type',
                                      'metadefs_namespace_add_resource_type']})

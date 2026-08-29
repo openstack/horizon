@@ -1,0 +1,13 @@
+---
+security:
+  - |
+    `Bug 2163088 <https://bugs.launchpad.net/horizon/+bug/2163088>`_: several
+    pages serialized API data with ``json.dumps()`` and embedded the result in
+    an inline ``<script>`` block through the ``safe`` template filter.
+    ``json.dumps()`` does not escape ``<``, ``>`` or ``&``, so a resource named
+    with a literal ``</script>`` closed the script element early and the rest
+    of the name was parsed as markup, running in the session of any user
+    viewing the page. Flavor names in the Resize Instance dialog, volume type
+    names and descriptions in the Create Volume dialog, and metadata
+    definition resource types are now escaped. Creating these resources
+    normally requires an administrator.

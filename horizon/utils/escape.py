@@ -12,6 +12,8 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+import json
+
 import django.utils.html
 
 
@@ -29,3 +31,26 @@ def escape(text, existing=django.utils.html.escape):
 # this will be invoked as early as possible in settings.py
 def monkeypatch_escape():
     django.utils.html.escape = escape
+
+
+# Mirrors django.utils.html._json_script_escapes, which is private and so
+# cannot be imported directly.
+_JSON_SCRIPT_ESCAPES = {
+    ord('>'): '\\u003E',
+    ord('<'): '\\u003C',
+    ord('&'): '\\u0026',
+}
+
+
+def json_dumps_for_script(value):
+    """Serialize a value to JSON safe to embed in an inline <script> block.
+
+    ``json.dumps()`` escapes the characters that matter to a JSON parser, but
+    leaves ``<``, ``>`` and ``&`` untouched. A string value containing a
+    literal ``</script>`` therefore closes the surrounding script element,
+    because a browser tokenizes the element boundaries before any JavaScript
+    runs, and everything after it becomes markup. Escaping those three
+    characters as unicode sequences leaves the decoded JSON value unchanged
+    while making it inert to the HTML parser.
+    """
+    return json.dumps(value).translate(_JSON_SCRIPT_ESCAPES)

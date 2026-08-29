@@ -12,7 +12,6 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
-import json
 
 from django.urls import reverse
 from django.urls import reverse_lazy
@@ -22,6 +21,7 @@ from horizon import exceptions
 from horizon import forms
 from horizon import tables
 from horizon import tabs
+from horizon.utils import escape
 from horizon.utils import memoized
 
 from openstack_dashboard.api import glance
@@ -194,7 +194,8 @@ class ManageResourceTypes(forms.ModalFormView):
 
         context['id'] = self.kwargs['id']
         try:
-            context["resource_types"] = json.dumps(result)
+            context["resource_types"] = (
+                escape.json_dumps_for_script(result))
         except Exception:
             context["resource_types"] = "[]"
             msg = _('Error getting resource type associations.')
