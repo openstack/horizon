@@ -171,6 +171,15 @@ WEBSSO_KEYSTONE_URL = None
 # a token authentication request from Horizon to Keystone which will timeout.
 WEBSSO_USE_HTTP_REFERER = True
 
+# Host names accepted in the Referer header when WEBSSO_USE_HTTP_REFERER is
+# enabled. The header is supplied by the client, so without this list any
+# unauthenticated caller of the WebSSO login endpoint can choose the host
+# horizon sends the token request to. An empty list keeps the previous
+# behaviour and accepts any host. Ports are ignored, only the host name is
+# compared, case insensitively.
+# Example: WEBSSO_ALLOWED_REFERER_HOSTS = ['keystone-public.example.com']
+WEBSSO_ALLOWED_REFERER_HOSTS = []
+
 # The Keystone Provider drop down uses Keystone to Keystone federation
 # to switch between Keystone service providers.
 # Set display name for Identity Provider (dropdown display name)

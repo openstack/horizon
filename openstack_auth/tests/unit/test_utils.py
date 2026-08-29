@@ -82,6 +82,39 @@ class UtilsTestCase(test.TestCase):
         self.assertEqual("RegionOne", default_region)
 
 
+class IsAllowedAuthUrlTestCase(test.TestCase):
+
+    URL = 'https://keystone.example.com:5000/v3'
+
+    def test_empty_list_accepts_anything(self):
+        self.assertTrue(utils.is_allowed_auth_url(self.URL, []))
+        self.assertTrue(utils.is_allowed_auth_url('http://attacker.test', []))
+
+    def test_listed_host_is_accepted(self):
+        self.assertTrue(
+            utils.is_allowed_auth_url(self.URL, ['keystone.example.com']))
+
+    def test_unlisted_host_is_refused(self):
+        self.assertFalse(
+            utils.is_allowed_auth_url('http://attacker.test/v3/auth/tokens',
+                                      ['keystone.example.com']))
+
+    def test_comparison_ignores_case(self):
+        self.assertTrue(
+            utils.is_allowed_auth_url('https://KeyStone.Example.COM/v3',
+                                      ['keystone.EXAMPLE.com']))
+
+    def test_port_is_ignored(self):
+        self.assertTrue(
+            utils.is_allowed_auth_url('https://keystone.example.com:35357/v3',
+                                      ['keystone.example.com']))
+
+    def test_url_without_host_is_refused(self):
+        self.assertFalse(
+            utils.is_allowed_auth_url('/v3/auth/tokens',
+                                      ['keystone.example.com']))
+
+
 class BehindProxyTestCase(test.TestCase):
 
     def setUp(self):

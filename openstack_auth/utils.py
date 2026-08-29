@@ -295,6 +295,22 @@ def clean_up_auth_url(auth_url):
         scheme, netloc, re.sub(r'/auth.*', '', path), '', ''))
 
 
+def is_allowed_auth_url(auth_url, allowed_hosts):
+    """Whether ``auth_url`` points at one of ``allowed_hosts``.
+
+    Only the host name is compared, case insensitively. The port is ignored,
+    a deployment that trusts a host trusts it on whichever port its Keystone
+    listens on. An empty ``allowed_hosts`` accepts everything, which is the
+    behaviour horizon had before the option existed.
+    """
+    if not allowed_hosts:
+        return True
+    host = parse.urlsplit(auth_url).hostname
+    if not host:
+        return False
+    return host.lower() in {h.lower() for h in allowed_hosts}
+
+
 def get_token_auth_plugin(auth_url, token, project_id=None, domain_name=None,
                           system_scope=None, project_name=None,
                           project_domain_id=None):

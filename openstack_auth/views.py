@@ -238,6 +238,11 @@ def websso(request):
         referer = request.META.get('HTTP_REFERER',
                                    settings.OPENSTACK_KEYSTONE_URL)
         auth_url = utils.clean_up_auth_url(referer)
+        if not utils.is_allowed_auth_url(
+                auth_url, settings.WEBSSO_ALLOWED_REFERER_HOSTS):
+            LOG.warning('Referer %s is not in WEBSSO_ALLOWED_REFERER_HOSTS, '
+                        'falling back to OPENSTACK_KEYSTONE_URL.', auth_url)
+            auth_url = settings.OPENSTACK_KEYSTONE_URL
     else:
         auth_url = settings.OPENSTACK_KEYSTONE_URL
     token = request.POST.get('token')

@@ -28,9 +28,11 @@ from keystoneclient.v3 import client as client_v3
 from keystoneclient.v3 import projects
 
 
+from openstack_auth import exceptions
 from openstack_auth.plugin import password
 from openstack_auth.tests import data_v3
 from openstack_auth import utils
+from openstack_auth import views
 
 
 DEFAULT_DOMAIN = settings.OPENSTACK_KEYSTONE_DEFAULT_DOMAIN
@@ -884,6 +886,35 @@ class OpenStackAuthTestsWebSSO(test.TestCase):
         client_unscoped_1.auth.domains.assert_called_once_with()
         client_unscoped_2.federation.projects.list.assert_called_once_with()
         client_scoped.assert_not_called()
+
+    @mock.patch.object(views.auth, 'authenticate')
+    @override_settings(
+        OPENSTACK_KEYSTONE_URL='http://internal.example.com/identity/v3',
+        WEBSSO_ALLOWED_REFERER_HOSTS=['keystone.example.com'])
+    def test_websso_referer_not_in_allowed_hosts(self, mock_authenticate):
+        # An unlisted Referer must not decide where the token request goes.
+        mock_authenticate.side_effect = exceptions.KeystoneAuthException('no')
+
+        self.client.post(
+            reverse('websso'), {'token': 'a-token'},
+            HTTP_REFERER='http://attacker.test/v3/auth/tokens')
+
+        self.assertEqual(settings.OPENSTACK_KEYSTONE_URL,
+                         mock_authenticate.call_args.kwargs['auth_url'])
+
+    @mock.patch.object(views.auth, 'authenticate')
+    @override_settings(
+        OPENSTACK_KEYSTONE_URL='http://internal.example.com/identity/v3',
+        WEBSSO_ALLOWED_REFERER_HOSTS=['keystone.example.com'])
+    def test_websso_referer_in_allowed_hosts(self, mock_authenticate):
+        mock_authenticate.side_effect = exceptions.KeystoneAuthException('no')
+
+        self.client.post(
+            reverse('websso'), {'token': 'a-token'},
+            HTTP_REFERER='https://keystone.example.com/v3/auth/tokens')
+
+        self.assertEqual('https://keystone.example.com/v3',
+                         mock_authenticate.call_args.kwargs['auth_url'])
 
     @mock.patch.object(client_v3, 'Client')
     @mock.patch.object(v3_auth, 'Token')
