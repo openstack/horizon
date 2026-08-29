@@ -1,0 +1,5 @@
+---
+other:
+  - |
+    Python 3.14 is now officially supported. The ``openstack-tox-py314`` unit
+    test job runs as a voting job in the check and gate pipelines.
