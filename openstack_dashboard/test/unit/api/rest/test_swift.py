@@ -203,6 +203,24 @@ class SwiftRestTestCase(test.RestAPITestCase):
             with_data=False
         )
 
+    @test.create_mocks({api.swift: ['swift_get_object']})
+    def test_object_download_filename_is_encoded(self):
+        # A non ASCII object name must reach the browser intact, and a
+        # quote in it must not be able to open a second filename parameter.
+        obj = mock.Mock(name='o', bytes=3, orig_name=None)
+        obj.name = 'rapport été".txt'
+        obj.data = [b'abc']
+        self.mock_swift_get_object.return_value = obj
+
+        request = self.mock_rest_request()
+        response = swift.Object().get(request, 'container',
+                                      'rapport été".txt')
+
+        disposition = response['Content-Disposition']
+        self.assertIn("filename*=utf-8''", disposition)
+        self.assertNotIn('rapport ÃƒÂ©tÃƒÂ©', disposition)
+        self.assertEqual(1, disposition.count('filename'))
+
     @test.create_mocks({api.swift: ['swift_delete_object']})
     def test_object_delete(self):
         request = self.mock_rest_request()

@@ -18,6 +18,7 @@ from django.conf import settings
 from django import http
 from django import shortcuts
 from django.template.loader import render_to_string
+from django.utils.http import content_disposition_header
 from django.utils.translation import gettext_lazy as _
 
 from horizon import exceptions
@@ -94,8 +95,8 @@ def _download_rc_file_for_template(request, context, template, filename=None):
 
         if not filename:
             filename = '%s-openrc.sh' % context['tenant_name']
-        disposition = 'attachment; filename="%s"' % filename
-        response['Content-Disposition'] = disposition.encode('utf-8')
+        response['Content-Disposition'] = content_disposition_header(
+            True, filename)
         response['Content-Length'] = str(len(response.content))
         return response
 

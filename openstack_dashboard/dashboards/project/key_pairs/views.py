@@ -19,6 +19,7 @@ from django.shortcuts import render
 from django.template.defaultfilters import slugify
 from django.urls import reverse
 from django.urls import reverse_lazy
+from django.utils.http import content_disposition_header
 from django.utils.translation import gettext_lazy as _
 
 from horizon import exceptions
@@ -103,7 +104,8 @@ class CreateView(forms.ModalFormView):
                 content_type='text/plain',
             )
             response['Content-Disposition'] = (
-                'attachment; filename=%s.pem' % slugify(form.keypair_name))
+                content_disposition_header(
+                    True, '%s.pem' % slugify(form.keypair_name)))
             # refresh page
             response['X-Horizon-Location'] = self.success_url
         return response

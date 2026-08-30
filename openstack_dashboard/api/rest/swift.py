@@ -18,6 +18,7 @@ from urllib import parse
 
 from django import forms
 from django.http import StreamingHttpResponse
+from django.utils.http import content_disposition_header
 from django.views.decorators.csrf import csrf_exempt
 from django.views import generic
 
@@ -249,8 +250,8 @@ class Object(generic.View):
             name, ext = os.path.splitext(obj.orig_name)
             filename = "%s%s" % (filename, ext)
         response = StreamingHttpResponse(obj.data)
-        safe = filename.replace(",", "")
-        response['Content-Disposition'] = 'attachment; filename="%s"' % safe
+        response['Content-Disposition'] = content_disposition_header(
+            True, filename)
         response['Content-Type'] = 'application/octet-stream'
         if obj.bytes is not None:
             response['Content-Length'] = obj.bytes
