@@ -11,6 +11,11 @@
       - release-notes-jobs-python3
     check:
       jobs:
+        # py3.14 is only non-voting in the openstack-python3-jobs template.
+        # Horizon already passes on py3.14, so make it voting to keep it
+        # that way, as recommended by the 2026.2 testing runtime.
+        - openstack-tox-py314:
+            voting: true
         - horizon-selenium-headless
         - horizon-integration-pytest
         - horizon-ui-pytest
@@ -19,6 +24,7 @@
         - horizon-tempest-plugin-ipv6
     gate:
       jobs:
+        - openstack-tox-py314
         - horizon-dsvm-tempest-plugin
         - horizon-selenium-headless
         - horizon-integration-pytest
