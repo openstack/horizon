@@ -16,6 +16,7 @@ import copy
 from unittest import mock
 from urllib import parse
 
+from cinderclient.v3 import volume_types
 from django.conf import settings
 from django.forms import widgets
 from django.template.defaultfilters import slugify
@@ -394,6 +395,49 @@ class VolumeViewTests(test.ResetImageAPIVersionMixin, test.TestCase):
             snapshot_id=None, group_id=None, image_id=None,
             availability_zone=formData['availability_zone'], source_volid=None)
         self.mock_group_list.assert_called_once_with(test.IsHttpRequest())
+
+    @test.create_mocks({
+        quotas: ['tenant_quota_usages'],
+        api.glance: ['image_list_detailed'],
+        cinder: ['extension_supported',
+                 'availability_zone_list',
+                 'volume_list',
+                 'volume_type_default',
+                 'volume_type_list',
+                 'volume_snapshot_list',
+                 'group_list'],
+    })
+    def test_create_volume_type_name_escaped(self):
+        # A volume type name or description holding a literal "</script>"
+        # must not be able to close the inline <script> block that
+        # _limits.html embeds the serialized volume type list into.
+        payload = '</script><script>alert(document.domain)</script>'
+        hostile_type = volume_types.VolumeType(
+            volume_types.VolumeTypeManager(None),
+            {'id': '99', 'name': payload, 'description': payload})
+
+        self.mock_volume_type_default.return_value = \
+            self.cinder_volume_types.first()
+        self.mock_volume_type_list.return_value = \
+            self.cinder_volume_types.list() + [hostile_type]
+        self.mock_volume_snapshot_list.return_value = \
+            self.cinder_volume_snapshots.list()
+        self.mock_image_list_detailed.return_value = \
+            [self.images.list(), False, False]
+        self.mock_volume_list.return_value = self.cinder_volumes.list()
+        self.mock_tenant_quota_usages.return_value = \
+            self.cinder_quota_usages.first()
+        self.mock_extension_supported.return_value = True
+        self.mock_availability_zone_list.return_value = \
+            self.cinder_availability_zones.list()
+        self.mock_group_list.return_value = []
+
+        url = reverse('horizon:project:volumes:create')
+        content = self.client.get(url).content.decode()
+
+        self.assertIn('initWithTypes([{', content)
+        self.assertNotIn('</script><script>', content)
+        self.assertIn('\\u003C/script\\u003E', content)
 
     @test.create_mocks({
         quotas: ['tenant_quota_usages'],

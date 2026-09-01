@@ -17,7 +17,6 @@ Views for managing volumes.
 """
 
 from collections import OrderedDict
-import json
 
 from django import shortcuts
 from django.template.defaultfilters import slugify
@@ -32,6 +31,7 @@ from horizon import exceptions
 from horizon import forms
 from horizon import tables
 from horizon import tabs
+from horizon.utils import escape
 from horizon.utils import http as http_utils
 from horizon.utils import memoized
 
@@ -301,7 +301,7 @@ class CreateView(forms.ModalFormView):
                               'description': getattr(type, "description", "")}
                              for type in volume_types]
 
-        return json.dumps(type_descriptions)
+        return escape.json_dumps_for_script(type_descriptions)
 
 
 class ExtendView(forms.ModalFormView):

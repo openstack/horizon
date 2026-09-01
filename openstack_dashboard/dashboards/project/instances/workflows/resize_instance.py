@@ -21,6 +21,7 @@ from django.views.decorators.debug import sensitive_variables
 
 from horizon import exceptions
 from horizon import forms
+from horizon.utils import escape
 from horizon import workflows
 from openstack_dashboard import api
 from openstack_dashboard.dashboards.project.instances \
@@ -85,9 +86,9 @@ class SetFlavorChoiceAction(workflows.Action):
             extra['usages'] = api.nova.tenant_absolute_limits(self.request,
                                                               reserved=True)
             extra['usages_json'] = json.dumps(extra['usages'])
-            flavors = json.dumps([api.nova.flavor_to_dict(f)
-                                  for f in instance_utils.flavor_list(
-                                      self.request)])
+            flavors = escape.json_dumps_for_script(
+                [api.nova.flavor_to_dict(f)
+                 for f in instance_utils.flavor_list(self.request)])
             extra['flavors'] = flavors
             extra['resize_instance'] = True
         except Exception:
