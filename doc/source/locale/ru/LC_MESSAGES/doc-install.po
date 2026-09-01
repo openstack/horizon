@@ -1,16 +1,17 @@
 # Dmitriy Chubinidze <dcu995@gmail.com>, 2025. #zanata
 # Ivan Anfimov <lazekteam@gmail.com>, 2025. #zanata
 # Dmitriy Chubinidze <dcu995@gmail.com>, 2026. #zanata
+# Ivan Anfimov <lazekteam@gmail.com>, 2026. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 25.7.2.dev3\n"
+"Project-Id-Version: horizon 25.7.4.dev21\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-04-24 08:10+0000\n"
+"POT-Creation-Date: 2026-08-13 11:28+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2026-04-24 09:50+0000\n"
-"Last-Translator: Dmitriy Chubinidze <dcu995@gmail.com>\n"
+"PO-Revision-Date: 2026-08-31 10:36+0000\n"
+"Last-Translator: Ivan Anfimov <lazekteam@gmail.com>\n"
 "Language-Team: Russian\n"
 "Language: ru\n"
 "X-Generator: Zanata 4.3.3\n"
@@ -717,7 +718,7 @@ msgstr ""
 "только Alias: это режим по умолчанию. Другой режим виртуальный хост удалит и "
 "установит панель управления в webroot. Это был единственный доступный "
 "вариант до версии Liberty. Если вы предпочитаете вручную настроить "
-"конфигурацию Apache вручную, установите пакет ``openstack-dashboard`` вместо "
+"конфигурацию Apache, установите пакет ``openstack-dashboard`` вместо "
 "``openstack-dashboard-apache``."
 
 msgid ""
