@@ -17,6 +17,7 @@ from django import http
 from django.template.loader import render_to_string
 from django.urls import reverse
 from django.urls import reverse_lazy
+from django.utils.http import content_disposition_header
 from django.utils.translation import gettext_lazy as _
 
 from horizon import exceptions
@@ -151,9 +152,9 @@ def _get_context(request):
 
 def _render_attachment(filename, template, context, request):
     content = render_to_string(template, context, request=request)
-    disposition = 'attachment; filename="%s"' % filename
     response = http.HttpResponse(content, content_type="text/plain")
-    response['Content-Disposition'] = disposition.encode('utf-8')
+    response['Content-Disposition'] = content_disposition_header(
+        True, filename)
     response['Content-Length'] = str(len(response.content))
     return response
 

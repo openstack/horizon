@@ -23,6 +23,7 @@ from django.template.defaultfilters import slugify
 from django.urls import reverse
 from django.urls import reverse_lazy
 from django.utils import encoding
+from django.utils.http import content_disposition_header
 from django.utils.translation import gettext_lazy as _
 from django.views import generic
 from oslo_utils import uuidutils
@@ -504,8 +505,8 @@ class ShowTransferView(forms.ModalFormView):
             self.request,
             'project/volumes/download_transfer_creds.html',
             context, content_type='application/text')
-        response['Content-Disposition'] = (
-            'attachment; filename=%s.txt' % slugify(transfer_id))
+        response['Content-Disposition'] = content_disposition_header(
+            True, '%s.txt' % slugify(transfer_id))
         return response
 
 

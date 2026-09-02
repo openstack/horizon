@@ -12,6 +12,8 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
+from urllib import parse
+
 import yaml
 
 from django import template
@@ -68,18 +70,14 @@ class UnicodeTenantNameRCTests(test.TestCase):
 
     @override_settings(OPENSTACK_API_VERSIONS={"identity": 3})
     def test_openrc_credentials_filename(self):
-        expected = ('attachment; filename="%s-openrc.sh"' %
-                    self.TENANT_NAME).encode('utf-8')
         res = self.client.get(OPENRC_URL)
 
         self.assertEqual(res.status_code, 200)
-
-        result_content_disposition = res['content-disposition']
-
-        result_content_disposition = result_content_disposition.\
-            encode('latin-1')
-        self.assertEqual(expected,
-                         result_content_disposition)
+        # RFC 5987, so the name survives the trip. Putting the raw utf-8
+        # bytes in the header made browsers read them back as latin-1.
+        expected = "filename*=utf-8''%s" % parse.quote(
+            '%s-openrc.sh' % self.TENANT_NAME)
+        self.assertIn(expected, res['content-disposition'])
 
 
 class FakeUser(object):

@@ -1,0 +1,12 @@
+---
+fixes:
+  - |
+    Downloaded file names are now built with Django's
+    ``content_disposition_header()`` instead of being interpolated into the
+    header by hand. Names holding non ASCII characters were placed in the
+    header as raw UTF-8 bytes and read back as latin-1 by browsers, so a
+    Swift object, a project or an application credential named in anything
+    other than ASCII was saved under a mangled name. They are now encoded per
+    RFC 5987. A double quote in such a name also used to open a second
+    ``filename`` parameter, letting the name that browsers picked differ from
+    the intended one.

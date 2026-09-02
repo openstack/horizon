@@ -2151,7 +2151,7 @@ class VolumeViewTests(test.ResetImageAPIVersionMixin, test.TestCase):
         self.assertTrue(res.has_header('content-disposition'))
         self.assertTrue(res.has_header('content-type'))
         self.assertEqual(res.get('content-disposition'),
-                         'attachment; filename={}'.format(filename))
+                         'attachment; filename="{}"'.format(filename))
         self.assertEqual(res.get('content-type'), 'application/text')
         self.assertIn(transfer.id, res.content.decode('utf-8'))
         self.assertIn(transfer.auth_key, res.content.decode('utf-8'))

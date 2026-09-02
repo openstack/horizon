@@ -16,6 +16,7 @@ import io
 from django.http import HttpResponse
 from django.http import StreamingHttpResponse
 from django import template as django_template
+from django.utils.http import content_disposition_header
 
 
 class CsvDataMixin(object):
@@ -69,8 +70,8 @@ class BaseCsvResponse(CsvDataMixin, HttpResponse):
 
     def __init__(self, request, template, context, content_type, **kwargs):
         super().__init__()
-        self['Content-Disposition'] = 'attachment; filename="%s"' % (
-            kwargs.get("filename", "export.csv"),)
+        self['Content-Disposition'] = content_disposition_header(
+            True, kwargs.get("filename", "export.csv"))
         self['Content-Type'] = content_type
         self.context = context
         self.header = None
@@ -101,8 +102,8 @@ class BaseCsvStreamingResponse(CsvDataMixin, StreamingHttpResponse):
 
     def __init__(self, request, template, context, content_type, **kwargs):
         super().__init__()
-        self['Content-Disposition'] = 'attachment; filename="%s"' % (
-            kwargs.get("filename", "export.csv"),)
+        self['Content-Disposition'] = content_disposition_header(
+            True, kwargs.get("filename", "export.csv"))
         self['Content-Type'] = content_type
         self.context = context
         self.header = None
