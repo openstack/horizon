@@ -179,9 +179,9 @@ class FlavorAccessAction(workflows.MembershipAction):
 
 class FlavorAccess(workflows.UpdateMembersStep):
     action_class = FlavorAccessAction
-    help_text = _("Select the projects where the flavors will be used. If no "
-                  "projects are selected, then the flavor will be available "
-                  "in all projects.")
+    help_text = _("Select the projects where the flavors will be used. "
+                  "Specifying a project makes the flavor private to "
+                  "only the selected projects.")
     available_list_title = _("All Projects")
     members_list_title = _("Selected Projects")
     no_available_text = _("No projects found.")
