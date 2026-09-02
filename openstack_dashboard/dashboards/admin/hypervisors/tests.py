@@ -143,10 +143,10 @@ class HypervisorDetailViewTest(test.BaseAdminViewTests):
 
         url = reverse('horizon:admin:hypervisors:detail',
                       args=["%s_%s" % (hypervisor.id,
-                                       hypervisor.hypervisor_hostname)])
+                                       hypervisor.name)])
         res = self.client.get(url)
         self.assertTemplateUsed(res, 'admin/hypervisors/detail.html')
         self.assertCountEqual(res.context['table'].data, hypervisor.servers)
 
         self.mock_hypervisor_search.assert_called_once_with(
-            test.IsHttpRequest(), hypervisor.hypervisor_hostname)
+            test.IsHttpRequest(), hypervisor.name)

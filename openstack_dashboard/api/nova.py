@@ -28,6 +28,7 @@ from novaclient import api_versions
 from novaclient import exceptions as nova_exceptions
 from novaclient.v2 import instance_action as nova_instance_action
 from novaclient.v2 import servers as nova_servers
+from openstack import utils as sdk_utils
 
 from horizon import exceptions as horizon_exceptions
 from horizon.utils import memoized
@@ -866,19 +867,70 @@ def instance_volumes_list(request, instance_id):
     return volumes
 
 
+# Nova stopped reporting the hypervisor usage fields (memory, local disk,
+# vcpus and running_vms) in microversion 2.88, and openstacksdk asks for the
+# highest microversion it knows about unless it is told otherwise. Cap the
+# microversion of the hypervisor queries so that the hypervisors table and the
+# summary keep showing usage, as they did with novaclient.
+HYPERVISOR_USAGE_MICROVERSION = '2.87'
+
+
+def _hypervisor_microversion(computeclient):
+    """Return the highest microversion still reporting hypervisor usage."""
+    # Fall back to the capped value when the endpoint does not advertise a
+    # microversion range, otherwise the SDK would pick 2.88 again.
+    return sdk_utils.maximum_supported_microversion(
+        computeclient, HYPERVISOR_USAGE_MICROVERSION
+    ) or HYPERVISOR_USAGE_MICROVERSION
+
+
 @profiler.trace
+@memoized.memoized
 def hypervisor_list(request):
-    return _nova.novaclient(request).hypervisors.list()
+    # The admin hypervisors panel asks for the list twice per page load, once
+    # for the table and once for the usage summary, so memoize it to keep a
+    # page load down to a single listing.
+    computeclient = _nova.computeclient(request)
+    return list(computeclient.hypervisors(
+        details=True,
+        microversion=_hypervisor_microversion(computeclient)))
 
 
 @profiler.trace
 def hypervisor_stats(request):
-    return _nova.novaclient(request).hypervisors.statistics()
+    # The os-hypervisors/statistics API was deprecated in nova microversion
+    # 2.88 and is not exposed by openstacksdk, so aggregate the summary from
+    # the detailed hypervisor list instead.
+    stats = {
+        'count': 0,
+        'vcpus': 0,
+        'vcpus_used': 0,
+        'memory_size': 0,
+        'memory_used': 0,
+        'local_disk_size': 0,
+        'local_disk_used': 0,
+        'running_vms': 0,
+    }
+    for hypervisor in hypervisor_list(request):
+        stats['count'] += 1
+        stats['vcpus'] += hypervisor.vcpus or 0
+        stats['vcpus_used'] += hypervisor.vcpus_used or 0
+        stats['memory_size'] += hypervisor.memory_size or 0
+        stats['memory_used'] += hypervisor.memory_used or 0
+        stats['local_disk_size'] += hypervisor.local_disk_size or 0
+        stats['local_disk_used'] += hypervisor.local_disk_used or 0
+        stats['running_vms'] += hypervisor.running_vms or 0
+    return stats
 
 
 @profiler.trace
 def hypervisor_search(request, query, servers=True):
-    return _nova.novaclient(request).hypervisors.search(query, servers)
+    computeclient = _nova.computeclient(request)
+    return list(computeclient.hypervisors(
+        details=True,
+        hypervisor_hostname_pattern=query,
+        with_servers=servers,
+        microversion=_hypervisor_microversion(computeclient)))
 
 
 @profiler.trace

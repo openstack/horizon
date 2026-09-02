@@ -29,6 +29,7 @@ from novaclient.v2 import servers
 import openstack.compute.v2 as compute_v2
 from openstack.compute.v2 import availability_zone as az_resource
 from openstack.compute.v2 import flavor as flavor_resource
+from openstack.compute.v2 import hypervisor as hypervisor_resource
 from openstack.compute.v2 import keypair as keypair_resource
 from openstack.compute.v2 import service as service_resource
 from openstack.test import fakes
@@ -1056,3 +1057,112 @@ class ServiceApiTests(test.APIMockTestCase):
         self.computeclient.disable_service.assert_called_once_with(
             None, host='devstack001', binary='nova-compute',
             disabled_reason='maintenance')
+
+
+class HypervisorApiTests(test.APIMockTestCase):
+
+    def setUp(self):
+        super().setUp()
+        self.computeclient = mock.create_autospec(
+            compute_v2.Proxy, instance=True)
+        patcher = mock.patch.object(
+            api._nova, 'computeclient', return_value=self.computeclient)
+        self.mock_computeclient = patcher.start()
+        self.addCleanup(patcher.stop)
+
+        microversion_patcher = mock.patch.object(
+            api.nova.sdk_utils, 'maximum_supported_microversion',
+            return_value='2.87')
+        self.mock_max_microversion = microversion_patcher.start()
+        self.addCleanup(microversion_patcher.stop)
+
+    def test_hypervisor_list(self):
+        hypervisors = self.hypervisors.list()
+        self.computeclient.hypervisors.return_value = iter(hypervisors)
+
+        api_hypervisors = api.nova.hypervisor_list(self.request)
+
+        self.assertEqual(len(hypervisors), len(api_hypervisors))
+        self.assertIsInstance(api_hypervisors[0],
+                              hypervisor_resource.Hypervisor)
+        self.mock_computeclient.assert_called_once_with(self.request)
+        # The usage fields are gone from 2.88 on, so the query must be capped.
+        self.computeclient.hypervisors.assert_called_once_with(
+            details=True, microversion='2.87')
+        self.mock_max_microversion.assert_called_once_with(
+            self.computeclient, '2.87')
+
+    def test_hypervisor_list_undiscoverable_microversion(self):
+        # When the endpoint does not advertise a microversion range the SDK
+        # would fall back to 2.88, so the capped value is used instead.
+        self.mock_max_microversion.return_value = None
+        self.computeclient.hypervisors.return_value = iter([])
+
+        api.nova.hypervisor_list(self.request)
+
+        self.computeclient.hypervisors.assert_called_once_with(
+            details=True, microversion='2.87')
+
+    def test_hypervisor_stats(self):
+        hypervisors = self.hypervisors.list()
+        self.computeclient.hypervisors.return_value = iter(hypervisors)
+
+        stats = api.nova.hypervisor_stats(self.request)
+
+        self.assertEqual(len(hypervisors), stats['count'])
+        self.assertEqual(
+            sum(h.vcpus for h in hypervisors), stats['vcpus'])
+        self.assertEqual(
+            sum(h.vcpus_used for h in hypervisors), stats['vcpus_used'])
+        self.assertEqual(
+            sum(h.memory_size for h in hypervisors), stats['memory_size'])
+        self.assertEqual(
+            sum(h.memory_used for h in hypervisors), stats['memory_used'])
+        self.assertEqual(
+            sum(h.local_disk_size for h in hypervisors),
+            stats['local_disk_size'])
+        self.assertEqual(
+            sum(h.local_disk_used for h in hypervisors),
+            stats['local_disk_used'])
+        self.assertEqual(
+            sum(h.running_vms for h in hypervisors), stats['running_vms'])
+        self.mock_computeclient.assert_called_once_with(self.request)
+        self.computeclient.hypervisors.assert_called_once_with(
+            details=True, microversion='2.87')
+
+    def test_hypervisor_stats_reuses_the_memoized_list(self):
+        # The hypervisors panel renders the table and the summary in the same
+        # request, which must not cost two detailed listings.
+        self.computeclient.hypervisors.return_value = iter(
+            self.hypervisors.list())
+
+        hypervisors = api.nova.hypervisor_list(self.request)
+        stats = api.nova.hypervisor_stats(self.request)
+
+        self.assertEqual(len(hypervisors), stats['count'])
+        self.mock_computeclient.assert_called_once_with(self.request)
+        self.computeclient.hypervisors.assert_called_once_with(
+            details=True, microversion='2.87')
+
+    def test_hypervisor_search(self):
+        hypervisors = self.hypervisors.list()
+        self.computeclient.hypervisors.return_value = iter(hypervisors)
+
+        api_hypervisors = api.nova.hypervisor_search(self.request, 'devstack')
+
+        self.assertEqual(len(hypervisors), len(api_hypervisors))
+        self.mock_computeclient.assert_called_once_with(self.request)
+        self.computeclient.hypervisors.assert_called_once_with(
+            details=True, hypervisor_hostname_pattern='devstack',
+            with_servers=True, microversion='2.87')
+
+    def test_hypervisor_search_without_servers(self):
+        hypervisors = self.hypervisors.list()
+        self.computeclient.hypervisors.return_value = iter(hypervisors)
+
+        api.nova.hypervisor_search(self.request, 'devstack', servers=False)
+
+        self.mock_computeclient.assert_called_once_with(self.request)
+        self.computeclient.hypervisors.assert_called_once_with(
+            details=True, hypervisor_hostname_pattern='devstack',
+            with_servers=False, microversion='2.87')

@@ -16,7 +16,6 @@ import json
 
 from novaclient.v2 import aggregates
 from novaclient.v2 import flavor_access
-from novaclient.v2 import hypervisors
 from novaclient.v2 import keypairs
 from novaclient.v2 import quotas
 from novaclient.v2 import server_groups
@@ -26,6 +25,7 @@ from novaclient.v2 import volumes
 
 from openstack.compute.v2 import availability_zone as az_resource
 from openstack.compute.v2 import flavor as sdk_flavor
+from openstack.compute.v2 import hypervisor as hypervisor_resource
 from openstack.compute.v2 import service as service_resource
 from openstack.test import fakes
 
@@ -455,103 +455,86 @@ def data(TEST):
     ))
 
     # hypervisors
-    hypervisor_1 = hypervisors.Hypervisor(
-        hypervisors.HypervisorManager(None),
-        {
-            "service": {"host": "devstack001", "id": 3},
-            "vcpus_used": 1,
-            "hypervisor_type": "QEMU",
-            "local_gb_used": 20,
-            "hypervisor_hostname": "devstack001",
-            "memory_mb_used": 1500,
-            "memory_mb": 2000,
-            "current_workload": 0,
-            "vcpus": 1,
-            "cpu_info": '{"vendor": "Intel", "model": "core2duo",'
-                        '"arch": "x86_64", "features": ["lahf_lm"'
-                        ', "rdtscp"], "topology": {"cores": 1, "t'
-                        'hreads": 1, "sockets": 1}}',
-            "running_vms": 1,
-            "free_disk_gb": 9,
-            "hypervisor_version": 1002000,
-            "disk_available_least": 6,
-            "local_gb": 29,
-            "free_ram_mb": 500,
-            "id": 1,
-            "servers": [{"name": "test_name", "uuid": "test_uuid"}]
-        },
+    cpu_info = ('{"vendor": "Intel", "model": "core2duo",'
+                '"arch": "x86_64", "features": ["lahf_lm"'
+                ', "rdtscp"], "topology": {"cores": 1, "t'
+                'hreads": 1, "sockets": 1}}')
+
+    hypervisor_1 = fakes.generate_fake_resource(
+        hypervisor_resource.Hypervisor,
+        id=1,
+        name="devstack001",
+        hypervisor_type="QEMU",
+        hypervisor_version=1002000,
+        cpu_info=cpu_info,
+        current_workload=0,
+        vcpus=1,
+        vcpus_used=1,
+        memory_size=2000,
+        memory_used=1500,
+        memory_free=500,
+        local_disk_size=29,
+        local_disk_used=20,
+        local_disk_free=9,
+        disk_available=6,
+        running_vms=1,
+        servers=[{"name": "test_name", "uuid": "test_uuid"}],
     )
 
-    hypervisor_2 = hypervisors.Hypervisor(
-        hypervisors.HypervisorManager(None),
-        {
-            "service": {"host": "devstack002", "id": 4},
-            "vcpus_used": 1,
-            "hypervisor_type": "QEMU",
-            "local_gb_used": 20,
-            "hypervisor_hostname": "devstack002",
-            "memory_mb_used": 1500,
-            "memory_mb": 2000,
-            "current_workload": 0,
-            "vcpus": 1,
-            "cpu_info": '{"vendor": "Intel", "model": "core2duo",'
-                        '"arch": "x86_64", "features": ["lahf_lm"'
-                        ', "rdtscp"], "topology": {"cores": 1, "t'
-                        'hreads": 1, "sockets": 1}}',
-            "running_vms": 1,
-            "free_disk_gb": 9,
-            "hypervisor_version": 1002000,
-            "disk_available_least": 6,
-            "local_gb": 29,
-            "free_ram_mb": 500,
-            "id": 2,
-            "servers": [{"name": "test_name_2", "uuid": "test_uuid_2"}]
-        },
+    hypervisor_2 = fakes.generate_fake_resource(
+        hypervisor_resource.Hypervisor,
+        id=2,
+        name="devstack002",
+        hypervisor_type="QEMU",
+        hypervisor_version=1002000,
+        cpu_info=cpu_info,
+        current_workload=0,
+        vcpus=1,
+        vcpus_used=1,
+        memory_size=2000,
+        memory_used=1500,
+        memory_free=500,
+        local_disk_size=29,
+        local_disk_used=20,
+        local_disk_free=9,
+        disk_available=6,
+        running_vms=1,
+        servers=[{"name": "test_name_2", "uuid": "test_uuid_2"}],
     )
-    hypervisor_3 = hypervisors.Hypervisor(
-        hypervisors.HypervisorManager(None),
-        {
-            "service": {"host": "instance-host", "id": 5},
-            "vcpus_used": 1,
-            "hypervisor_type": "QEMU",
-            "local_gb_used": 20,
-            "hypervisor_hostname": "instance-host",
-            "memory_mb_used": 1500,
-            "memory_mb": 2000,
-            "current_workload": 0,
-            "vcpus": 1,
-            "cpu_info": '{"vendor": "Intel", "model": "core2duo",'
-                        '"arch": "x86_64", "features": ["lahf_lm"'
-                        ', "rdtscp"], "topology": {"cores": 1, "t'
-                        'hreads": 1, "sockets": 1}}',
-            "running_vms": 1,
-            "free_disk_gb": 9,
-            "hypervisor_version": 1002000,
-            "disk_available_least": 6,
-            "local_gb": 29,
-            "free_ram_mb": 500,
-            "id": 3,
-        },
+
+    hypervisor_3 = fakes.generate_fake_resource(
+        hypervisor_resource.Hypervisor,
+        id=3,
+        name="instance-host",
+        hypervisor_type="QEMU",
+        hypervisor_version=1002000,
+        cpu_info=cpu_info,
+        current_workload=0,
+        vcpus=1,
+        vcpus_used=1,
+        memory_size=2000,
+        memory_used=1500,
+        memory_free=500,
+        local_disk_size=29,
+        local_disk_used=20,
+        local_disk_free=9,
+        disk_available=6,
+        running_vms=1,
+        servers=[],
     )
     TEST.hypervisors.add(hypervisor_1)
     TEST.hypervisors.add(hypervisor_2)
     TEST.hypervisors.add(hypervisor_3)
 
     TEST.hypervisors.stats = {
-        "hypervisor_statistics": {
-            "count": 5,
-            "vcpus_used": 3,
-            "local_gb_used": 15,
-            "memory_mb": 483310,
-            "current_workload": 0,
-            "vcpus": 160,
-            "running_vms": 3,
-            "free_disk_gb": 12548,
-            "disk_available_least": 12556,
-            "local_gb": 12563,
-            "free_ram_mb": 428014,
-            "memory_mb_used": 55296,
-        }
+        "count": 3,
+        "vcpus": 3,
+        "vcpus_used": 3,
+        "memory_size": 6000,
+        "memory_used": 4500,
+        "local_disk_size": 87,
+        "local_disk_used": 60,
+        "running_vms": 3,
     }
 
     # Services
