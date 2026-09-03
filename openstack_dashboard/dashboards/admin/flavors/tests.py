@@ -196,7 +196,7 @@ class FlavorsViewTests(test.BaseAdminViewTests):
 class BaseFlavorWorkflowTests(test.BaseAdminViewTests):
 
     def _flavor_create_params(self, flavor, id=None):
-        eph = getattr(flavor, 'OS-FLV-EXT-DATA:ephemeral')
+        eph = flavor.ephemeral
         flavor_info = {"name": flavor.name,
                        "vcpu": flavor.vcpus,
                        "memory": flavor.ram,
@@ -209,7 +209,7 @@ class BaseFlavorWorkflowTests(test.BaseAdminViewTests):
         return flavor_info
 
     def _get_workflow_data(self, flavor, id=None, access=None):
-        eph = getattr(flavor, 'OS-FLV-EXT-DATA:ephemeral')
+        eph = flavor.ephemeral
         flavor_info = {"name": flavor.name,
                        "vcpus": flavor.vcpus,
                        "memory_mb": flavor.ram,

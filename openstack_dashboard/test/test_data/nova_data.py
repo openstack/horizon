@@ -16,7 +16,6 @@ import json
 
 from novaclient.v2 import aggregates
 from novaclient.v2 import flavor_access
-from novaclient.v2 import flavors
 from novaclient.v2 import hypervisors
 from novaclient.v2 import keypairs
 from novaclient.v2 import quotas
@@ -26,6 +25,7 @@ from novaclient.v2 import usage
 from novaclient.v2 import volumes
 
 from openstack.compute.v2 import availability_zone as az_resource
+from openstack.compute.v2 import flavor as sdk_flavor
 from openstack.compute.v2 import service as service_resource
 from openstack.test import fakes
 
@@ -224,48 +224,47 @@ def data(TEST):
     TEST.nova_volumes.add(non_bootable_volume)
 
     # Flavors
-    flavor_1 = flavors.Flavor(flavors.FlavorManager(None),
-                              {'id': "aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa",
-                               'name': 'm1.tiny',
-                               'vcpus': 1,
-                               'disk': 0,
-                               'ram': 512,
-                               'swap': 0,
-                               'extra_specs': {},
-                               'os-flavor-access:is_public': True,
-                               'OS-FLV-EXT-DATA:ephemeral': 0})
-    flavor_2 = flavors.Flavor(flavors.FlavorManager(None),
-                              {'id': "bbbbbbbb-bbbb-bbbb-bbbb-bbbbbbbbbbbb",
-                               'name': 'm1.massive',
-                               'vcpus': 1000,
-                               'disk': 1024,
-                               'ram': 10000,
-                               'swap': 0,
-                               'extra_specs': {'Trusted': True, 'foo': 'bar'},
-                               'os-flavor-access:is_public': True,
-                               'OS-FLV-EXT-DATA:ephemeral': 2048})
-    flavor_3 = flavors.Flavor(flavors.FlavorManager(None),
-                              {'id': "dddddddd-dddd-dddd-dddd-dddddddddddd",
-                               'name': 'm1.secret',
-                               'vcpus': 1000,
-                               'disk': 1024,
-                               'ram': 10000,
-                               'swap': 0,
-                               'extra_specs': {},
-                               'os-flavor-access:is_public': False,
-                               'OS-FLV-EXT-DATA:ephemeral': 2048})
-    flavor_4 = flavors.Flavor(flavors.FlavorManager(None),
-                              {'id': "eeeeeeee-eeee-eeee-eeee-eeeeeeeeeeee",
-                               'name': 'm1.metadata',
-                               'vcpus': 1000,
-                               'disk': 1024,
-                               'ram': 10000,
-                               'swap': 0,
-                               'extra_specs': FlavorExtraSpecs(
-                                   {'key': 'key_mock',
-                                    'value': 'value_mock'}),
-                               'os-flavor-access:is_public': False,
-                               'OS-FLV-EXT-DATA:ephemeral': 2048})
+    flavor_1 = sdk_flavor.Flavor(
+        id="aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa",
+        name='m1.tiny',
+        vcpus=1,
+        disk=0,
+        ram=512,
+        swap=0,
+        extra_specs={},
+        is_public=True,
+        ephemeral=0)
+    flavor_2 = sdk_flavor.Flavor(
+        id="bbbbbbbb-bbbb-bbbb-bbbb-bbbbbbbbbbbb",
+        name='m1.massive',
+        vcpus=1000,
+        disk=1024,
+        ram=10000,
+        swap=0,
+        extra_specs={'Trusted': True, 'foo': 'bar'},
+        is_public=True,
+        ephemeral=2048)
+    flavor_3 = sdk_flavor.Flavor(
+        id="dddddddd-dddd-dddd-dddd-dddddddddddd",
+        name='m1.secret',
+        vcpus=1000,
+        disk=1024,
+        ram=10000,
+        swap=0,
+        extra_specs={},
+        is_public=False,
+        ephemeral=2048)
+    flavor_4 = sdk_flavor.Flavor(
+        id="eeeeeeee-eeee-eeee-eeee-eeeeeeeeeeee",
+        name='m1.metadata',
+        vcpus=1000,
+        disk=1024,
+        ram=10000,
+        swap=0,
+        extra_specs=FlavorExtraSpecs({'key': 'key_mock',
+                                      'value': 'value_mock'}),
+        is_public=False,
+        ephemeral=2048)
     TEST.flavors.add(flavor_1, flavor_2, flavor_3, flavor_4)
 
     flavor_access_manager = flavor_access.FlavorAccessManager(None)
