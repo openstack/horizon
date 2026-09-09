@@ -18,7 +18,10 @@ import uuid
 
 from django.conf import settings
 
-import openstack.compute.v2 as compute_v2
+try:
+    from openstack.compute.v2 import Proxy as compute_v2_proxy
+except ImportError:
+    from openstack.compute.v2._proxy import Proxy as compute_v2_proxy
 from openstack.compute.v2 import availability_zone as az_resource
 from openstack.compute.v2 import flavor as flavor_resource
 from openstack.test import fakes
@@ -683,7 +686,7 @@ class FlavorRestTestCase(test.RestAPITestCase):
     def setUp(self):
         super().setUp()
         patcher = mock.patch.object(
-            api._nova, 'computeclient', autospec=compute_v2.Proxy)
+            api._nova, 'computeclient', autospec=compute_v2_proxy)
         self.mock_computeclient = patcher.start()
         self.computeclient = self.mock_computeclient.return_value
         self.addCleanup(patcher.stop)
@@ -1050,7 +1053,7 @@ class AvailabilityZoneRestTestCase(test.RestAPITestCase):
     def setUp(self):
         super().setUp()
         patcher = mock.patch.object(
-            api._nova, 'computeclient', autospec=compute_v2.Proxy)
+            api._nova, 'computeclient', autospec=compute_v2_proxy)
         self.mock_computeclient = patcher.start()
         self.computeclient = self.mock_computeclient.return_value
         self.addCleanup(patcher.stop)
@@ -1112,7 +1115,7 @@ class ServiceRestTestCase(test.RestAPITestCase):
     def setUp(self):
         super().setUp()
         patcher = mock.patch.object(
-            api._nova, 'computeclient', autospec=compute_v2.Proxy)
+            api._nova, 'computeclient', autospec=compute_v2_proxy)
         self.mock_computeclient = patcher.start()
         self.computeclient = self.mock_computeclient.return_value
         self.addCleanup(patcher.stop)
