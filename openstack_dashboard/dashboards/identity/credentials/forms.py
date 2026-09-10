@@ -84,48 +84,64 @@ class CreateCredentialForm(forms.SelfHandlingForm):
 
 
 class UpdateCredentialForm(forms.SelfHandlingForm):
+    # Keystone made type, user_id and project_id immutable, so they are
+    # shown for context but cannot be edited. Django's disabled fields
+    # ignore submitted data and keep their initial value, which is what we
+    # want: a tampered POST cannot change them either.
     id = forms.CharField(label=_("ID"), widget=forms.HiddenInput)
-    user_name = forms.ThemableChoiceField(label=_('User'))
+    user_name = forms.ThemableChoiceField(label=_('User'), disabled=True)
     cred_type = forms.ThemableChoiceField(label=_('Type'),
-                                          choices=TYPE_CHOICES)
+                                          choices=TYPE_CHOICES,
+                                          disabled=True)
     data = forms.CharField(label=_("Data"))
-    project = forms.ThemableChoiceField(label=_('Project'), required=False)
+    project = forms.ThemableChoiceField(label=_('Project'), required=False,
+                                        disabled=True)
     failure_url = 'horizon:identity:credentials:index'
+
+    @staticmethod
+    def _with_current(choices, current):
+        """Guarantee the stored value is selectable.
+
+        A disabled field still validates its initial value against the
+        choices, and the owning user or the project can be absent from the
+        listing, for instance a disabled project or one this operator cannot
+        list. Falling back to the raw id keeps the form usable instead of
+        rejecting it with "Select a valid choice".
+        """
+        if current and current not in [value for value, __ in choices]:
+            return list(choices) + [(current, current)]
+        return choices
 
     def __init__(self, request, *args, **kwargs):
         super().__init__(request, *args, **kwargs)
+        initial = kwargs.get('initial', {})
 
         users = keystone.user_list(request)
         user_choices = [(user.id, user.name) for user in users]
-        self.fields['user_name'].choices = user_choices
+        self.fields['user_name'].choices = self._with_current(
+            user_choices, initial.get('user_name'))
 
-        initial = kwargs.get('initial', {})
         cred_type = initial.get('cred_type')
+        self.fields['cred_type'].choices = self._with_current(
+            TYPE_CHOICES, cred_type)
         self.fields['cred_type'].initial = cred_type
 
-        # Keystone does not change project to None. If this field is left as
-        # "Select a project", the project will not be changed. If this field
-        # is set to another project, the project will be changed.
+        # The project is immutable, so this list exists only to render the
+        # current one by name.
         project_choices = [('', _("Select a project"))]
         projects, __ = keystone.tenant_list(request)
         for project in projects:
             if project.enabled:
                 project_choices.append((project.id, project.name))
-        self.fields['project'].choices = project_choices
 
         project = initial.get('project_name')
+        self.fields['project'].choices = self._with_current(
+            project_choices, project)
         self.fields['project'].initial = project
 
     def handle(self, request, data):
         try:
-            params = {
-                'user': data['user_name'],
-                'type': data["cred_type"],
-                'blob': data["data"],
-            }
-            params['project'] = data['project'] if data['project'] else None
-
-            keystone.credential_update(request, data['id'], **params)
+            keystone.credential_update(request, data['id'], data['data'])
             messages.success(
                 request, _("User credential updated successfully."))
             return True

@@ -529,15 +529,19 @@ def credentials_list(request, user_id=None, filters=None):
 
 
 @profiler.trace
-def credential_update(request, credential_id, user,
-                      type=None, blob=None, project=None):
+def credential_update(request, credential_id, blob):
+    """Update the blob of an existing credential.
+
+    Only the blob can be changed. Keystone made type, user_id and
+    project_id immutable, so sending them is rejected with a 400. To
+    change one of those, delete the credential and create a new one.
+    """
     manager = keystoneclient(request, admin=True).credentials
     try:
-        return manager.update(credential=credential_id,
-                              user=user,
-                              type=type,
-                              blob=blob,
-                              project=project)
+        # user is a required argument of CredentialManager.update(), but
+        # keystoneclient drops null values before building the request body,
+        # so passing None keeps user_id out of the PATCH.
+        return manager.update(credential=credential_id, user=None, blob=blob)
     except keystone_exceptions.Conflict:
         raise exceptions.Conflict()
 

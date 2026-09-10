@@ -20,6 +20,8 @@ from unittest import mock
 
 
 from django.test.utils import override_settings
+from keystoneclient.v3 import credentials
+
 from openstack_dashboard import api
 from openstack_dashboard import policy
 from openstack_dashboard.test import helpers as test
@@ -225,3 +227,40 @@ class ApplicationCredentialsAPITests(test.APIMockTestCase):
         api.keystone.application_credential_create(self.request, None)
         mock_keystoneclient.assert_called_once_with(
             self.request, force_scoped=True)
+
+
+class CredentialsAPITests(test.APIMockTestCase):
+    """The PATCH body is what keystone validates, so assert on the body.
+
+    Mocking api.keystone.credential_update() away, as the panel tests do,
+    cannot catch a mismatch with the keystoneclient contract or an attribute
+    leaking into the request.
+    """
+
+    def _patch_body(self, blob):
+        """Return the body keystoneclient would PATCH for this blob."""
+        manager = credentials.CredentialManager(mock.Mock())
+        captured = {}
+
+        def fake_update(url, body, key, method=None):
+            captured['url'] = url
+            captured['body'] = body
+            captured['method'] = method
+            return mock.Mock()
+
+        manager._update = fake_update
+        client = mock.Mock()
+        client.credentials = manager
+        with mock.patch.object(api.keystone, 'keystoneclient',
+                               return_value=client):
+            api.keystone.credential_update(self.request, 'cred1', blob)
+        return captured
+
+    def test_update_patches_the_blob_alone(self):
+        captured = self._patch_body('NEWBLOB')
+        # type, user_id and project_id are immutable and keystone rejects a
+        # body carrying them with HTTP 400.
+        self.assertEqual({'credential': {'blob': 'NEWBLOB'}},
+                         captured['body'])
+        self.assertEqual('PATCH', captured['method'])
+        self.assertEqual('/credentials/cred1', captured['url'])
