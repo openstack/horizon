@@ -348,6 +348,11 @@ def test_image_filtration_admin(login, driver, new_image_admin, config):
     driver.get(url)
     filter_input_field = driver.find_element(By.CSS_SELECTOR, ".search-input")
     filter_input_field.send_keys(image_name)
+    # The table is re-rendered client side while the filter is typed, so rows
+    # captured before it settles go stale. Wait for the filtered table first.
+    WebDriverWait(driver, config.selenium.page_timeout).until(
+        lambda d: len(d.find_elements(
+            By.CSS_SELECTOR, "td[class='rsp-p1 word-wrap']")) == 1)
     # Fetch page definition after filtration
     current_page_definition = widgets.get_image_table_definition(driver)
     assert vars(current_page_definition)['names'][0].text == image_name
@@ -357,8 +362,10 @@ def test_image_filtration_admin(login, driver, new_image_admin, config):
     random_img_name = 'horizon_img_%s' % uuidutils.generate_uuid(dashed=False)
     filter_input_field.send_keys(random_img_name)
     # Fetch page definition after filtration
-    no_items_present = driver.find_element(
-        By.XPATH, "//*[normalize-space()='No items to display.']")
+    no_items_present = WebDriverWait(
+        driver, config.selenium.page_timeout).until(
+            EC.presence_of_element_located(
+                (By.XPATH, "//*[normalize-space()='No items to display.']")))
     assert no_items_present
 
 
