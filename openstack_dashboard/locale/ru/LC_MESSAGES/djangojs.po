@@ -26,15 +26,16 @@
 # Ivan Anfimov <lazekteam@gmail.com>, 2024. #zanata
 # Dmitriy Chubinidze <dcu995@gmail.com>, 2025. #zanata
 # Ivan Anfimov <lazekteam@gmail.com>, 2025. #zanata
+# Ivan Anfimov <lazekteam@gmail.com>, 2026. #zanata
 msgid ""
 msgstr ""
 "Project-Id-Version: horizon VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2025-11-14 10:22+0000\n"
+"POT-Creation-Date: 2026-08-11 11:21+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2025-11-22 05:01+0000\n"
+"PO-Revision-Date: 2026-09-12 01:12+0000\n"
 "Last-Translator: Ivan Anfimov <lazekteam@gmail.com>\n"
 "Language-Team: Russian\n"
 "Language: ru\n"
@@ -1888,7 +1889,7 @@ msgid "Look, I'm in a small well!"
 msgstr "Смотрите, я в маленьком элементе well!"
 
 msgid "Look, I'm in a well!"
-msgstr "Сморите, я в элементе well!"
+msgstr "Смотрите, я в блоке well!"
 
 msgid "MAC Address"
 msgstr "MAC адрес"
