@@ -32,7 +32,7 @@ Communication
 
 * Mailing list:
   `openstack-discuss
-  <http://lists.openstack.org/cgi-bin/mailman/listinfo/openstack-discuss>`__
+  <https://lists.openstack.org/mailman3/lists/openstack-discuss.lists.openstack.org/>`__
   with ``[horizon]`` tag.
 
   The mailing list would be a good place if you would like to discuss your
