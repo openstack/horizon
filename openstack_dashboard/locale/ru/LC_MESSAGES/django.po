@@ -37,7 +37,6 @@
 # Roman Gorshunov <roman.gorshunov@att.com>, 2021. #zanata
 # Dmitriy Rabotyagov <noonedeadpunk@ya.ru>, 2022. #zanata
 # Roman Gorshunov <roman.gorshunov@att.com>, 2022. #zanata
-# Dmitriy Rabotyagov <noonedeadpunk@ya.ru>, 2024. #zanata
 # Ilya Alekseyev <ilyaalekseyev@acm.org>, 2024. #zanata
 # Ivan Anfimov <lazekteam@gmail.com>, 2024. #zanata
 # Dmitriy Chubinidze <dcu995@gmail.com>, 2025. #zanata
@@ -48,11 +47,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: horizon VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2026-09-03 22:45+0000\n"
+"POT-Creation-Date: 2026-09-12 00:32+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2026-09-04 10:49+0000\n"
+"PO-Revision-Date: 2026-09-12 02:36+0000\n"
 "Last-Translator: Ivan Anfimov <lazekteam@gmail.com>\n"
 "Language: ru\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
@@ -152,11 +151,11 @@ msgstr "%(dev)s в %(instance)s"
 
 #, python-format
 msgid "%(field_name)s: Invalid IP address (value=%(ip)s)"
-msgstr "%(field_name)s: Неверный IP адрес (значение=%(ip)s)"
+msgstr "%(field_name)s: Неверный IP-адрес (значение=%(ip)s)"
 
 #, python-format
 msgid "%(field_name)s: Invalid IP address (value=%(network)s)"
-msgstr "%(field_name)s: Неверный IP адрес (значение=%(network)s)"
+msgstr "%(field_name)s: Неверный IP-адрес (значение=%(network)s)"
 
 #, python-format
 msgid "%(instance_name)s %(fixed_ip)s"
@@ -222,7 +221,7 @@ msgid "%sGiB"
 msgstr "%sГиБ"
 
 msgid "(No IP address)"
-msgstr "(Нет IP адреса)"
+msgstr "(Нет IP-адреса)"
 
 msgid "(Quota exceeded)"
 msgstr "(Превышена квота)"
@@ -390,7 +389,7 @@ msgid ""
 "your quota available."
 msgstr ""
 "Диск размером %(req)iGiB не может быть создан, так как у вас есть только "
-"%(avail)iGiB от вашей квоты."
+"%(avail)iGiB из вашей квоты."
 
 msgid "AKI - Amazon Kernel Image"
 msgstr "AKI - образ Amazon Kernel"
@@ -471,7 +470,7 @@ msgid ""
 "then hypervisor will select a device name."
 msgstr ""
 "Реальное имя устройства может отличаться из-за настроек гипервизора. Если не "
-"указан, то гипервизор выберет имя устройства."
+"указано, то гипервизор выберет имя устройства."
 
 msgid "Add"
 msgstr "Добавить"
@@ -1298,7 +1297,7 @@ msgid "Container Format"
 msgstr "Формат контейнера"
 
 msgid "Container Name"
-msgstr "Название контейнера"
+msgstr "Имя контейнера"
 
 msgid "Containers"
 msgstr "Контейнеры"
@@ -1800,8 +1799,8 @@ msgstr[2] "Удалить домены"
 
 msgid "Delete Encryption"
 msgid_plural "Delete Encryptions"
-msgstr[0] "Удалить шифрованиe"
-msgstr[1] "Удалить шифрование"
+msgstr[0] "Удалить шифрование"
+msgstr[1] "Удалить шифрования"
 msgstr[2] "Удалить шифрования"
 
 msgid "Delete Extra Spec"
@@ -2357,7 +2356,7 @@ msgid "Device ID attached to the port."
 msgstr "ID устройства подключенного к порту."
 
 msgid "Device Name"
-msgstr "Название устройства"
+msgstr "Имя устройства"
 
 msgid "Device Owner"
 msgstr "Владелец устройства"
@@ -3038,7 +3037,7 @@ msgid "External Gateway"
 msgstr "Внешний шлюз"
 
 msgid "External IP address"
-msgstr "Внешний IP адрес"
+msgstr "Внешний IP-адрес"
 
 msgid "External Network"
 msgstr "Внешняя сеть"
@@ -3343,10 +3342,10 @@ msgid "Floating IP"
 msgstr "Плавающий IP"
 
 msgid "Floating IP Address (optional)"
-msgstr "Плавающий IP адрес (необязательно)"
+msgstr "Плавающий IP-адрес (необязательно)"
 
 msgid "Floating IP Address ="
-msgstr "Плавающий IP адрес ="
+msgstr "Плавающий IP-адрес ="
 
 msgid "Floating IP Details"
 msgstr "Детали плавающего IP"
@@ -3735,7 +3734,7 @@ msgid "IP Address"
 msgstr "IP-адрес"
 
 msgid "IP Address (optional)"
-msgstr "IP адрес (опционально)"
+msgstr "IP-адрес (опционально)"
 
 msgid "IP Address or CIDR"
 msgstr "IP-адрес или CIDR"
@@ -3754,7 +3753,7 @@ msgstr "Версия IP"
 
 #, python-format
 msgid "IP address %s associated."
-msgstr "IP адрес %s связан."
+msgstr "IP-адрес %s связан."
 
 msgid ""
 "IP address allocation pools. Each entry is: start_ip_address,end_ip_address "
@@ -3764,12 +3763,12 @@ msgstr ""
 "(напр. 192.168.1.100,192.168.1.120) по одной записи в строке."
 
 msgid "IP address for the new port"
-msgstr "IP адрес для нового порта"
+msgstr "IP-адрес для нового порта"
 
 msgid ""
 "IP address list of DNS name servers for this subnet. One entry per line."
 msgstr ""
-"Список IP адресов DNS серверов для этой подсети. Одна запись на строку."
+"Список IP-адресов DNS-серверов для этой подсети. По одной записи в строку."
 
 msgid ""
 "IP address of Gateway (e.g. 192.168.0.254) If you do not want to use a "
@@ -3784,7 +3783,7 @@ msgid ""
 "2001:DB8::/48). If you use the default, leave blank. If you do not want to "
 "use a gateway, check 'Disable Gateway' below."
 msgstr ""
-"IP-адрес шлюза (например, 192.168.0.254). Значение по умолчанию - первый IP "
+"IP-адрес шлюза (например, 192.168.0.254). Значение по умолчанию - первый IP-"
 "адрес из сетевого адреса (например, 192.168.0.1 для 192.168.0.0/24, 2001:"
 "DB8::1 для 2001:DB8::/48). Если вы используете по умолчанию, оставьте поле "
 "пустым. Если вы не хотите использовать шлюз, выберите \"Отключить шлюз\" "
@@ -3885,9 +3884,9 @@ msgid ""
 "interface of the router. If the gateway's IP address is in use, you must use "
 "a different address which belongs to the selected subnet."
 msgstr ""
-"Если вы не укажите IP адрес здесь, IP адрес шлюза выбранной подсети будет "
-"использован как IP адрес нового интерфейса маршрутизатора. Если IP адрес "
-"шлюза уже используется, вы должны использовать другой IP адрес, который "
+"Если вы не укажите IP-адрес здесь, IP-адрес шлюза выбранной подсети будет "
+"использован как IP-адрес нового интерфейса маршрутизатора. Если IP-адрес "
+"шлюза уже используется, вы должны использовать другой IP-адрес, который "
 "принадлежит выбранной подсети."
 
 msgid ""
@@ -4089,7 +4088,7 @@ msgid "Interfaces"
 msgstr "Интерфейсы"
 
 msgid "Internal IP address"
-msgstr "Внутренний IP адрес"
+msgstr "Внутренний IP-адрес"
 
 msgid "Internal Interface"
 msgstr "Внутренний интерфейс"
@@ -4820,7 +4819,7 @@ msgid ""
 "Next Hop IP must be a part of one of the subnets to which the router "
 "interfaces are connected."
 msgstr ""
-"IP адрес следующего хопа должен находиться в одной из подсетей, к которой "
+"IP-адрес следующего хопа должен находиться в одной из подсетей, к которой "
 "подключены интерфейсы маршрутизатора."
 
 msgid "No"
@@ -4869,7 +4868,7 @@ msgstr ""
 "для загрузки."
 
 msgid "No floating IP addresses allocated"
-msgstr "Нет выделенных плавающих IP адресов"
+msgstr "Нет выделенных плавающих IP-адресов"
 
 msgid "No floating IP pools available"
 msgstr "Нет доступных пулов плавающих IP"
@@ -6082,7 +6081,7 @@ msgid ""
 "interfaces of a VM. After the security group is created, you can add rules "
 "to the security group."
 msgstr ""
-"Группы безопасности это наборы правил фильтрации IP адресов, которые "
+"Группы безопасности это наборы правил фильтрации IP-адресов, которые "
 "применяются к сетевым интерфейсам виртуального сервера. Вы сможете добавить "
 "правила в группу безопасности после ее создания."
 
@@ -6091,7 +6090,7 @@ msgid ""
 "interfaces of a VM. You can edit the name and its description of the "
 "security group."
 msgstr ""
-"Группы безопасности это наборы правил фильтрации IP адресов, которые "
+"Группы безопасности это наборы правил фильтрации IP-адресов, которые "
 "применяются к сетевым интерфейсам виртуального сервера. Вы можете изменить "
 "имя и описание группы безопасности."
 
@@ -6186,10 +6185,10 @@ msgid "Select action and object type"
 msgstr "Выберите действие и тип объекта"
 
 msgid "Select an IP address"
-msgstr "Выберите IP адрес"
+msgstr "Выберите IP-адрес"
 
 msgid "Select an IP-Address"
-msgstr "Выберите IP адрес"
+msgstr "Выберите IP-адрес"
 
 msgid "Select an instance"
 msgstr "Выберите инстанс"
@@ -6546,7 +6545,7 @@ msgid "Specify IP address of gateway or check \"Disable Gateway\" checkbox."
 msgstr "Укажите IP-адрес шлюза или включите опцию \"Не использовать шлюз\"."
 
 msgid "Specify IP address or subnet"
-msgstr "Укажите IP адрес или подсеть"
+msgstr "Укажите IP-адрес или подсеть"
 
 msgid "Specify a metadata definition namespace to import."
 msgstr "Укажите импортируемое пространство имен для определения метаданных."
@@ -6567,7 +6566,7 @@ msgid "Specify the MAC address for the new port"
 msgstr "Укажите MAC адрес нового порта"
 
 msgid "Specify the subnet IP address for the new port"
-msgstr "Укажите IP адрес подсети для нового порта"
+msgstr "Укажите IP-адрес подсети для нового порта"
 
 msgid ""
 "Specify this option to copy image data to the image service. If unspecified, "
@@ -8089,7 +8088,7 @@ msgid "Unable to retrieve flavors."
 msgstr "Не удалось получить шаблоны конфигураций."
 
 msgid "Unable to retrieve floating IP addresses."
-msgstr "Не удалось получить плавающие IP адреса."
+msgstr "Не удалось получить плавающие IP-адреса."
 
 msgid "Unable to retrieve floating IP list."
 msgstr "Не удалось получить список плавающих IP."
@@ -9471,7 +9470,7 @@ msgid ""
 "this rule."
 msgstr ""
 "Вы должны указать источник трафика который будет разрешен этим правилом. Вы "
-"можете указать блок IP адресов (CIDR) или группу безопасности. Выбор группы "
+"можете указать блок IP-адресов (CIDR) или группу безопасности. Выбор группы "
 "безопасности предоставит доступ любым инстансам из указанной группы к любым "
 "инстансам к которым применится это правило."
 
@@ -9496,7 +9495,7 @@ msgid "both"
 msgstr "оба"
 
 msgid "by Network (and IP address)"
-msgstr "через сеть (и IP адрес)"
+msgstr "через сеть (и IP-адрес)"
 
 msgid "by Port"
 msgstr "через порт"
