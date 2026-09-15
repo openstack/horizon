@@ -1,0 +1,6 @@
+---
+fixes:
+  - |
+    Direct image upload to Glance no longer sends ``X-CSRFToken`` on the
+    cross-origin file PUT, which Glance CORS does not allow. CSRF is still
+    used for Horizon's own API.
