@@ -4,9 +4,9 @@
 # suhartono <cloudsuhartono@gmail.com>, 2021. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 26.0.1.dev23\n"
+"Project-Id-Version: horizon 26.0.1.dev84\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-07-15 20:54+0000\n"
+"POT-Creation-Date: 2026-09-14 15:07+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -5493,13 +5493,6 @@ msgstr "Logout pengguna jika dia login. Kemudian dialihkan ke halaman login."
 
 msgid "MANIFEST.in"
 msgstr "MANIFEST.in"
-
-msgid ""
-"Mailing list: `openstack-discuss <http://lists.openstack.org/cgi-bin/mailman/"
-"listinfo/openstack-discuss>`__ with ``[horizon]`` tag."
-msgstr ""
-"Milis: `openstack-discuss <http://lists.openstack.org/cgi-bin/mailman/"
-"listinfo/openstack-discuss>`__ dengan tag `[horizon]`."
 
 msgid "Maintaining accurate, complete, and relevant documentation"
 msgstr "Menjaga dokumentasi yang akurat, lengkap, dan relevan"
