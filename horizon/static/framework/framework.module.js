@@ -80,18 +80,15 @@
     $httpProvider.interceptors.push(stripAjaxHeaderForCORS);
 
     stripAjaxHeaderForCORS.$inject = [];
-    // Standard CORS middleware used in OpenStack services doesn't expect
-    // X-Requested-With header to be set for requests and rejects requests
-    // which have it. Since there is no reason to treat Horizon specially when
-    // dealing handling CORS requests, it's better for Horizon not to set this
-    // header when it sends CORS requests. Detect CORS request by presence of
-    // X-Auth-Token headers which normally should be provided because of
-    // Keystone authentication.
+    // Glance CORS allow_headers does not include X-Requested-With or
+    // X-CSRFToken. Direct image upload sends X-Auth-Token; strip the extra
+    // headers on those requests only.
     function stripAjaxHeaderForCORS() {
       return {
         request: function(config) {
           if ('X-Auth-Token' in config.headers) {
             delete config.headers['X-Requested-With'];
+            delete config.headers['X-CSRFToken'];
           }
           return config;
         }
