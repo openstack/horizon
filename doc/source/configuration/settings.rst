@@ -1881,6 +1881,25 @@ this leads to a time out. ``WEBSSO_USE_HTTP_REFERER`` can be set to False to
 use the ``OPENSTACK_KEYSTONE_URL`` instead, which should be set to an internal
 Keystone endpoint, so that this request will succeed.
 
+.. warning::
+
+    ``Referer`` is supplied by the client and is not validated. While this
+    setting is enabled, anyone who can reach ``/auth/websso/``, which is the
+    login endpoint and therefore requires no authentication, can choose the
+    host Horizon sends the resulting token request to. Horizon then makes a
+    real outbound request from the control plane to that host, carrying the
+    submitted token in the ``X-Auth-Token`` header.
+
+    Set ``WEBSSO_USE_HTTP_REFERER`` to ``False`` and point
+    `WEBSSO_KEYSTONE_URL`_, or `OPENSTACK_KEYSTONE_URL`_, at the intended
+    Keystone endpoint wherever the identity provider flow allows it. The
+    setting exists because some providers need the endpoint to be derived
+    from the request, so it cannot always be turned off. Where it must stay
+    enabled, restrict outbound connectivity from the control plane to the
+    endpoints it legitimately needs.
+
+    See `bug 2163119 <https://bugs.launchpad.net/horizon/+bug/2163119>`_.
+
 Neutron
 -------
 
