@@ -1895,10 +1895,33 @@ Keystone endpoint, so that this request will succeed.
     Keystone endpoint wherever the identity provider flow allows it. The
     setting exists because some providers need the endpoint to be derived
     from the request, so it cannot always be turned off. Where it must stay
-    enabled, restrict outbound connectivity from the control plane to the
-    endpoints it legitimately needs.
+    enabled, list the endpoints you expect in
+    `WEBSSO_ALLOWED_REFERER_HOSTS`_.
 
     See `bug 2163119 <https://bugs.launchpad.net/horizon/+bug/2163119>`_.
+
+WEBSSO_ALLOWED_REFERER_HOSTS
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. versionadded:: 2026.2(Hibiscus)
+
+Default: ``[]``
+
+Host names accepted in the ``Referer`` header when
+`WEBSSO_USE_HTTP_REFERER`_ is enabled. When the header names a host that is
+not listed, horizon logs a warning and falls back to
+`OPENSTACK_KEYSTONE_URL`_ rather than contacting the host.
+
+Only the host name is compared, case insensitively, and the port is ignored.
+An empty list accepts any host, which is the behaviour horizon had before
+this option existed.
+
+Set it to the Keystone endpoints your identity providers actually redirect
+through, usually the host of `WEBSSO_KEYSTONE_URL`_:
+
+.. code-block:: python
+
+    WEBSSO_ALLOWED_REFERER_HOSTS = ['keystone-public.example.com']
 
 Neutron
 -------
