@@ -31,7 +31,7 @@ To modify your settings, you have two options:
   files (appended with ``.example``) can be found there. These must start
   with an underscore, and are evaluated alphabetically, after
   ``local_settings.py``.
-* Modify your ``openstack_dashboard/local/local_settings.py``. There is an
+* Modify your ``openstack_dashboard/local/local_settings.py``. There is a
   file found at ``openstack_dashboard/local/local_settings.py.example``.
 
 General Settings
@@ -257,7 +257,7 @@ Override the dict:
         'admin.volumes': False
     }
 
-Or, if you want to turn this on for an specific panel/view do:
+Or, if you want to turn this on for a specific panel/view do:
 
 .. code-block:: python
 
@@ -408,7 +408,7 @@ Default: ``[]``
 
 A list of javascript source files to be included in the compressed set of files
 that are loaded on every page. This is needed for AngularJS modules that are
-referenced in ``angular_modules`` and therefore need to be include in every
+referenced in ``angular_modules`` and therefore need to be included in every
 page.
 
 js_spec_files
@@ -522,7 +522,7 @@ Default: ``None``
 
 The absolute path to the directory where message files are collected.
 
-When the user logins to horizon, the message files collected are processed
+When the user logs in to horizon, the message files collected are processed
 and displayed to the user. Each message file should contain a JSON formatted
 data and must have a .json file extension. For example:
 
@@ -687,7 +687,7 @@ A template name for a custom user's ``openrc`` file.
 If the default template is not suitable for your deployment,
 for example, if your deployment uses saml2, openid and so on
 for authentication, the default ``openrc`` would not be sufficient.
-You can provide your own clouds.yaml by specifying this setting.
+You can provide your own openrc by specifying this setting.
 
 The default template is defined as :opendev-repo:`openrc.sh.template
 <openstack/horizon/src/branch/master/openstack_dashboard/dashboards/project/api_access/templates/api_access/openrc.sh.template>`
@@ -877,7 +877,7 @@ additional policies specified in ``POLICY_DIRS`` are not loaded.
 .. note::
 
    ``cinder_policy.d`` and ``nova_policy.d`` are registered by default
-   to maintain policies which have ben dropped from nova and cinder
+   to maintain policies which have been dropped from nova and cinder
    but horizon still uses. We recommend not to drop them.
 
 POLICY_FILES
@@ -936,7 +936,7 @@ Default:
         'OPENSTACK_KEYSTONE_DEFAULT_DOMAIN',
     ]
 
-This setting allows you to expose configuration values over Horizons internal
+This setting allows you to expose configuration values over Horizon's internal
 REST API, so that the AngularJS panels can access them. Please be cautious
 about which values are listed here (and thus exposed on the frontend).
 For security purpose, this exposure of settings should be recognized explicitly
@@ -973,7 +973,7 @@ SESSION_TIMEOUT
 
 Default: ``"3600"``
 
-This SESSION_TIMEOUT is a method to supercede the token timeout with a
+This SESSION_TIMEOUT is a method to supersede the token timeout with a
 shorter horizon session timeout (in seconds). If SESSION_REFRESH is True (the
 default) SESSION_TIMEOUT acts like an idle timeout rather than being a hard
 limit, but will never exceed the token expiry. If your token expires in 60
@@ -1000,7 +1000,7 @@ SHOW_OPENRC_FILE
 
 Default: ``True``
 
-Controls whether the keystone openrc file is accesible from the user
+Controls whether the keystone openrc file is accessible from the user
 menu and the api access panel.
 
 .. seealso::
@@ -1014,7 +1014,7 @@ SHOW_OPENSTACK_CLOUDS_YAML
 
 Default: ``True``
 
-Controls whether clouds.yaml is accesible from the user
+Controls whether clouds.yaml is accessible from the user
 menu and the api access panel.
 
 .. seealso::
@@ -1404,7 +1404,7 @@ Example:
         OPENSTACK_KEYSTONE_URL: 'RegionOne'
     }
 
-As of Rocky you can optionally you can set ``'*'`` as the key, and if no
+As of Rocky you can optionally set ``'*'`` as the key, and if no
 matching endpoint is found this will be treated as a global default.
 
 Example:
@@ -1666,7 +1666,7 @@ from request is passed using header variables inside the request. The header
 name depends on a proxy or a load-balancer. This setting specifies the name of
 the header with remote IP address. The main use is for authentication log
 (success or fail) displaying the IP address of the user.
-The commom value for this setting is ``HTTP_X_REAL_IP`` or
+The common value for this setting is ``HTTP_X_REAL_IP`` or
 ``HTTP_X_FORWARDED_FOR``.
 If not present, then ``REMOTE_ADDR`` header is used. (``REMOTE_ADDR`` is the
 field of Django HttpRequest object which contains IP address of the client.)
@@ -1771,7 +1771,7 @@ Default: ``{}``
 
 A dictionary of specific identity provider and federation protocol combinations.
 From the selected authentication mechanism, the value will be looked up as keys
-in the dictionary. If a match is found, it will redirect the user to a identity
+in the dictionary. If a match is found, it will redirect the user to an identity
 provider and federation protocol specific WebSSO endpoint in keystone,
 otherwise it will use the value as the protocol_id when redirecting to the
 WebSSO by protocol endpoint.
@@ -1837,7 +1837,7 @@ WEBSSO_DEFAULT_REDIRECT_REGION
 
 Default: ``OPENSTACK_KEYSTONE_URL``
 
-Allows to specify thee region of the IdP to contact if the
+Allows to specify the region of the IdP to contact if the
 WEBSSO_DEFAULT_REDIRECT is set to True
 
 WEBSSO_DEFAULT_REDIRECT_LOGOUT
@@ -2203,7 +2203,7 @@ Default ``True``
 
 Decides whether the DHCP Agents column should be shown on the Admin Networks
 panel. Retrieving data for that column takes time, and it may be advisable to
-disable it on large deployments with a large number on networks to speed up
+disable it on large deployments with a large number of networks to speed up
 displaying of that view.
 
 
@@ -2476,7 +2476,7 @@ OPENSTACK_SERVER_DEFAULT_USER_DATA
 Default: ``""``
 
 An administrator can specify a default user data (e.g. comments or instructions
-for cloudinit) via this settings. It can be a string or template string that
+for cloudinit) via this setting. It can be a string or template string that
 accepts a request object.
 
 OPENSTACK_ENABLE_PASSWORD_RETRIEVE
@@ -2498,7 +2498,7 @@ Default: ``"False"``
 
 When set, enables the instance action "Change password" allowing to change
 password for root user. The action is allowed if the instance is in one of
-the active states or is shutt off and is enabled in settings.
+the active states or is shut off and is enabled in settings.
 This function requires the QEMU Guest Agent to be running inside the guest
 instance. Without it, password changes cannot be applied from the
 interface.
@@ -2548,7 +2548,7 @@ OPENSTACK_INSTANCE_RETRIEVE_IP_ADDRESSES
 
 Default: ``True``
 
-This settings controls whether IP addresses of servers are retrieved from
+This setting controls whether IP addresses of servers are retrieved from
 neutron in the project instance table. Setting this to ``False`` may mitigate
 a performance issue in the project instance table in large deployments.
 
@@ -2559,7 +2559,7 @@ before setting this to ``False``.
 
 Nova has a mechanism to cache network info but it is not fast enough
 in some cases. For example, when a user associates a floating IP or
-updates an IP address of an server port, it is not reflected to the nova
+updates an IP address of a server port, it is not reflected to the nova
 network info cache immediately. This means an action which a user makes
 from the horizon instance table is not reflected into the table content
 just after the action. To avoid this, horizon retrieves IP address info
@@ -2637,7 +2637,7 @@ Perform full listing of containers and objects in the Swift panel.
 Default: ``True``
 
 Note that the Swift panel does client side pagination and retrieves
-all containers and objects from the API that can have an negative
+all containers and objects from the API that can have a negative
 effect on Horizon's resource consumption if this is True.
 
 Django Settings
