@@ -19,24 +19,24 @@ from horizon.templatetags import sizeformat
 
 
 class AdminHypervisorsTable(tables.DataTable):
-    hostname = tables.WrappingColumn("hypervisor_hostname",
+    hostname = tables.WrappingColumn("name",
                                      link="horizon:admin:hypervisors:detail",
                                      verbose_name=_("Hostname"))
     hypervisor_type = tables.Column("hypervisor_type",
                                     verbose_name=_("Type"))
-    memory_used = tables.Column('memory_mb_used',
+    memory_used = tables.Column('memory_used',
                                 verbose_name=_("RAM (used)"),
                                 attrs={'data-type': 'size'},
                                 filters=(sizeformat.mb_float_format,))
-    memory = tables.Column('memory_mb',
+    memory = tables.Column('memory_size',
                            verbose_name=_("RAM (total)"),
                            attrs={'data-type': 'size'},
                            filters=(sizeformat.mb_float_format,))
-    local_used = tables.Column('local_gb_used',
+    local_used = tables.Column('local_disk_used',
                                verbose_name=_("Local Storage (used)"),
                                attrs={'data-type': 'size'},
                                filters=(sizeformat.diskgbformat,))
-    local = tables.Column('local_gb',
+    local = tables.Column('local_disk_size',
                           verbose_name=_("Local Storage (total)"),
                           attrs={'data-type': 'size'},
                           filters=(sizeformat.diskgbformat,))
@@ -45,7 +45,7 @@ class AdminHypervisorsTable(tables.DataTable):
 
     def get_object_id(self, hypervisor):
         return "%s_%s" % (hypervisor.id,
-                          hypervisor.hypervisor_hostname)
+                          hypervisor.name)
 
     class Meta(object):
         name = "hypervisors"

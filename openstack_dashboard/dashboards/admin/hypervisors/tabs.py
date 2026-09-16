@@ -32,8 +32,10 @@ class HypervisorTab(tabs.TableTab):
     def get_hypervisors_data(self):
         hypervisors = []
         try:
-            hypervisors = nova.hypervisor_list(self.request)
-            hypervisors.sort(key=utils.natural_sort('hypervisor_hostname'))
+            # hypervisor_list is memoized, so sort a copy rather than the
+            # cached list itself.
+            hypervisors = sorted(nova.hypervisor_list(self.request),
+                                 key=utils.natural_sort('name'))
         except Exception:
             exceptions.handle(self.request,
                               _('Unable to retrieve hypervisor information.'))

@@ -19,7 +19,7 @@ from openstack_dashboard.test import helpers as test
 class EvacuateHostViewTest(test.BaseAdminViewTests):
     @test.create_mocks({api.nova: ['service_list']})
     def test_index(self):
-        hypervisor = self.hypervisors.list().pop().hypervisor_hostname
+        hypervisor = self.hypervisors.list().pop().name
         services = [service for service in self.services.list()
                     if service.binary == 'nova-compute']
         self.mock_service_list.return_value = services
@@ -36,7 +36,7 @@ class EvacuateHostViewTest(test.BaseAdminViewTests):
     @test.create_mocks({api.nova: ['service_list',
                                    'evacuate_host']})
     def test_successful_post(self):
-        hypervisor = self.hypervisors.list().pop().hypervisor_hostname
+        hypervisor = self.hypervisors.list().pop().name
         services = [service for service in self.services.list()
                     if service.binary == 'nova-compute']
 
@@ -67,7 +67,7 @@ class EvacuateHostViewTest(test.BaseAdminViewTests):
     @test.create_mocks({api.nova: ['service_list',
                                    'evacuate_host']})
     def test_failing_nova_call_post(self):
-        hypervisor = self.hypervisors.list().pop().hypervisor_hostname
+        hypervisor = self.hypervisors.list().pop().name
         services = [service for service in self.services.list()
                     if service.binary == 'nova-compute']
 
@@ -192,7 +192,7 @@ class MigrateHostViewTest(test.BaseAdminViewTests):
 
 class DisableServiceViewTest(test.BaseAdminViewTests):
     def test_index(self):
-        hypervisor = self.hypervisors.list().pop().hypervisor_hostname
+        hypervisor = self.hypervisors.list().pop().name
 
         url = reverse('horizon:admin:hypervisors:compute:disable_service',
                       args=[hypervisor])
@@ -202,7 +202,7 @@ class DisableServiceViewTest(test.BaseAdminViewTests):
 
     @test.create_mocks({api.nova: ['service_disable']})
     def test_successful_post(self):
-        hypervisor = self.hypervisors.list().pop().hypervisor_hostname
+        hypervisor = self.hypervisors.list().pop().name
         services = [service for service in self.services.list()
                     if service.binary == 'nova-compute']
 
@@ -228,7 +228,7 @@ class DisableServiceViewTest(test.BaseAdminViewTests):
 
     @test.create_mocks({api.nova: ['service_disable']})
     def test_failing_nova_call_post(self):
-        hypervisor = self.hypervisors.list().pop().hypervisor_hostname
+        hypervisor = self.hypervisors.list().pop().name
         services = [service for service in self.services.list()
                     if service.binary == 'nova-compute']
 
