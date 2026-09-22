@@ -1221,7 +1221,7 @@ class UsageViewTests(test.BaseAdminViewTests):
         usage_obj = api.nova.NovaUsage(self.usages.list()[2])
         self.mock_usage_get.return_value = usage_obj
 
-        project_id = self.usages.list()[2].tenant_id
+        project_id = self.usages.list()[2].project_id
         csv_url = reverse('horizon:identity:projects:usage',
                           args=[project_id]) + "?format=csv"
         res = self.client.get(csv_url)

@@ -20,13 +20,13 @@ from novaclient.v2 import keypairs
 from novaclient.v2 import quotas
 from novaclient.v2 import server_groups
 from novaclient.v2 import servers
-from novaclient.v2 import usage
 from novaclient.v2 import volumes
 
 from openstack.compute.v2 import availability_zone as az_resource
 from openstack.compute.v2 import flavor as sdk_flavor
 from openstack.compute.v2 import hypervisor as hypervisor_resource
 from openstack.compute.v2 import service as service_resource
+from openstack.compute.v2 import usage as usage_resource
 from openstack.test import fakes
 
 from openstack_dashboard.api import base
@@ -415,8 +415,8 @@ def data(TEST):
                   "flavor_vcpus": flavor_1.vcpus,
                   "flavor_disk": flavor_1.disk,
                   "flavor_ram": flavor_1.ram}
-    usage_obj = usage.Usage(usage.UsageManager(None),
-                            json.loads(USAGE_DATA % usage_vals))
+    usage_obj = usage_resource.Usage(
+        **json.loads(USAGE_DATA % usage_vals))
     TEST.usages.add(usage_obj)
 
     usage_2_vals = {"tenant_id": tenant3.id,
@@ -425,8 +425,8 @@ def data(TEST):
                     "flavor_vcpus": flavor_1.vcpus,
                     "flavor_disk": flavor_1.disk,
                     "flavor_ram": flavor_1.ram}
-    usage_obj_2 = usage.Usage(usage.UsageManager(None),
-                              json.loads(USAGE_DATA % usage_2_vals))
+    usage_obj_2 = usage_resource.Usage(
+        **json.loads(USAGE_DATA % usage_2_vals))
     TEST.usages.add(usage_obj_2)
 
     usage_3_vals = {"tenant_id": TEST.tenants.first(),
@@ -435,8 +435,8 @@ def data(TEST):
                     "flavor_vcpus": flavor_1.vcpus,
                     "flavor_disk": flavor_1.disk,
                     "flavor_ram": flavor_1.ram}
-    usage_obj_3 = usage.Usage(usage.UsageManager(None),
-                              json.loads(USAGE_DATA % usage_3_vals))
+    usage_obj_3 = usage_resource.Usage(
+        **json.loads(USAGE_DATA % usage_3_vals))
     TEST.usages.add(usage_obj_3)
 
     # Availability Zones

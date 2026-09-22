@@ -23,6 +23,8 @@ from django.test.utils import override_settings
 from django.urls import reverse
 from django.utils import timezone
 
+from openstack.compute.v2 import usage as usage_resource
+
 from openstack_dashboard import api
 from openstack_dashboard.test import helpers as test
 from openstack_dashboard import usage
@@ -194,6 +196,25 @@ class UsageViewTests(test.TestCase):
         self.assertEqual(res.context['usage'].usage_list, [])
 
         self._check_api_calls(stu_exception=self.exceptions.nova)
+
+    def test_usage_without_instances(self):
+        # A project that ran no instances in the period gets an empty usage
+        # from the compute API, where every field is left at None.
+        self._stub_api_calls()
+        self.mock_usage_get.return_value = api.nova.NovaUsage(
+            usage_resource.Usage())
+
+        res = self.client.get(reverse('horizon:project:overview:index'))
+
+        self.assertTemplateUsed(res, 'project/overview/usage.html')
+        self.assertEqual([], res.context['usage'].get_instances())
+        self.assertEqual(
+            {'instances': 0, 'memory_mb': 0, 'vcpus': 0, 'vcpu_hours': 0,
+             'local_gb': 0, 'disk_gb_hours': 0, 'memory_mb_hours': 0},
+            res.context['usage'].summary)
+        self.assertNoMessages(res)
+
+        self._check_api_calls()
 
     def test_usage_default_tenant(self):
         self._stub_api_calls()
