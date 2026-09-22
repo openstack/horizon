@@ -312,7 +312,7 @@ class RulesTable(tables.DataTable):
                                                          " Group"))
     description = tables.Column(
         "description",
-        verbose_name=("Description"),
+        verbose_name=_("Description"),
         # 'default' filter is to hide the difference between empty string
         # and None (null) in description. Both will be displayed as '-'.
         filters=(functools.partial(defaultfilters.default, arg=_("-")),))
