@@ -106,7 +106,7 @@ def temporary_file(tmp_path):
 
     :return: path to the generated file
     """
-    with tempfile.NamedTemporaryFile(suffix='.qcow2',
+    with tempfile.NamedTemporaryFile(suffix='.raw',
                                      dir=tmp_path) as tmp_file:
         tmp_file.write(os.urandom(5000))
         yield tmp_file.name
@@ -161,7 +161,7 @@ def test_image_create_from_local_file_demo(login, driver, image_names,
     select_element.send_keys(temporary_file)
     wizard.find_element(By.ID, "imageForm-format").click()
     wizard.find_element(
-        By.CSS_SELECTOR, "[label='QCOW2 - QEMU Emulator']").click()
+        By.CSS_SELECTOR, "[label='Raw']").click()
     wizard.find_element(By.CSS_SELECTOR, "button.btn-primary.finish").click()
     messages = widgets.get_and_dismiss_messages(driver, config)
     assert (f"Success: Image {image_name} was successfully"
@@ -260,7 +260,7 @@ def test_image_create_from_local_file_admin(login, driver, image_names,
     select_element.send_keys(temporary_file)
     wizard.find_element(By.ID, "imageForm-format").click()
     wizard.find_element(
-        By.CSS_SELECTOR, "[label='QCOW2 - QEMU Emulator']").click()
+        By.CSS_SELECTOR, "[label='Raw']").click()
     wizard.find_element(By.CSS_SELECTOR, "button.btn-primary.finish").click()
     messages = widgets.get_and_dismiss_messages(driver, config)
     assert (f"Success: Image {image_name} was successfully"
