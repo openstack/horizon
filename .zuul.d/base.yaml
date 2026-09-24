@@ -1,6 +1,6 @@
 - job:
     name: horizon-openstack-tox-base
-    parent: openstack-tox-py313
+    parent: openstack-tox-py314
     irrelevant-files:
       - ^.*\.rst$
       - ^doc/.*$
