@@ -19,11 +19,11 @@
         <div class="row">
           <div class="col-sm-6">
             <span class="image-prop-label">{% trans "Visibility" %}</span>
-            <span class="image-prop-value">{{ row.datum.visibility|default:"--"|capfirst }}</span>
+            <span class="image-prop-value">{{ visibility_label|default:"--"|capfirst }}</span>
           </div>
           <div class="col-sm-6">
             <span class="image-prop-label">{% trans "Protected" %}</span>
-            <span class="image-prop-value">{{ row.datum.protected|yesno:"Yes,No" }}</span>
+            <span class="image-prop-value">{{ protected_label|default:"--" }}</span>
           </div>
         </div>
         <div class="row">
