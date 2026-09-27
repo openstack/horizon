@@ -687,6 +687,9 @@ def metadefs_namespace_full_list(request, resource_type, filters=None,
         request, filters, *args, **kwargs
     )
 
+    if not namespaces:
+        return [], has_more_data, has_prev_data
+
     args = ((metadefs_namespace_get, [request, x.namespace, resource_type]) for
             x in namespaces)
     result = futurist_utils.call_functions_parallel(*args)
