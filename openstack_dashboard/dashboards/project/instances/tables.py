@@ -530,7 +530,7 @@ class CreateSnapshot(policy.PolicyTargetMixin, tables.LinkAction):
     url = "horizon:project:images:snapshots:create"
     classes = ("ajax-modal",)
     icon = "camera"
-    policy_rules = (("compute", "os_compute_api:snapshot"),)
+    policy_rules = (("compute", "os_compute_api:servers:create_image"),)
 
     def allowed(self, request, instance=None):
         return instance.status in SNAPSHOT_READY_STATES \
