@@ -13,8 +13,6 @@
 #    under the License.
 
 
-import json
-
 from django.utils import encoding
 from django.utils.translation import gettext_lazy as _
 from django.views.decorators.debug import sensitive_variables
@@ -85,7 +83,6 @@ class SetFlavorChoiceAction(workflows.Action):
         try:
             extra['usages'] = api.nova.tenant_absolute_limits(self.request,
                                                               reserved=True)
-            extra['usages_json'] = json.dumps(extra['usages'])
             flavors = escape.json_dumps_for_script(
                 [api.nova.flavor_to_dict(f)
                  for f in instance_utils.flavor_list(self.request)])
