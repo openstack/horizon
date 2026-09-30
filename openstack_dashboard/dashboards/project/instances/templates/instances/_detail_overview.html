@@ -40,7 +40,7 @@
       <dt>{% trans "Device Name" %}</dt>
       <dd>{{ instance.root_device_name|default:_("-") }}</dd>
       <dt>{% trans "User Data" %}</dt>
-      <dd>{{ instance.user_data|default:_("-") }}</dd>
+      <dd class="word-wrap">{{ instance.user_data|default:_("-") }}</dd>
     {% endif %}
   </dl>
 
