@@ -796,6 +796,7 @@ class UpdateRow(tables.Row):
 
     def get_data(self, request, instance_id):
         instance = api.nova.server_get(request, instance_id)
+        instance_utils.resolve_boot_volume_image(request, instance)
         try:
             instance.full_flavor = instance_utils.resolve_flavor(request,
                                                                  instance)
