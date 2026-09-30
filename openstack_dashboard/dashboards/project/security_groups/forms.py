@@ -104,8 +104,7 @@ class AddRule(forms.SelfHandlingForm):
         label=_('Description'),
         required=False, max_length=255,
         widget=forms.Textarea(attrs={'rows': 2}),
-        help_text=_('A brief description of the security group rule '
-                    'you are adding'))
+        help_text=_('A brief description of the security group rule'))
 
     # "direction" field is enabled only when custom mode.
     # It is because most common rules in local_settings.py is meaningful
