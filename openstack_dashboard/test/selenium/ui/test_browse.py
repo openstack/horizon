@@ -151,16 +151,18 @@ def test_browse_left_panel(live_server, driver, user, dashboard_data,
 
         driver.get(live_server.url + '/settings')
         # First scroll click
-        driver.find_element(
+        widgets.scroll_into_view_and_click(driver, driver.find_element(
             By.XPATH,
-            f".//a[normalize-space()='{main_panel.capitalize()}']").click()
+            f".//a[normalize-space()='{main_panel.capitalize()}']"))
         if sec_panel != 'None':
             sec_line_req_button = config.theme.b_l_p_sec_line_req_btn.format(
                 main_panel=main_panel, sec_panel=sec_panel)
             # Second scroll click
-            WebDriverWait(driver, config.selenium.implicit_wait).until(
-                EC.element_to_be_clickable(
-                    (By.XPATH, sec_line_req_button))).click()
+            widgets.scroll_into_view_and_click(
+                driver,
+                WebDriverWait(driver, config.selenium.implicit_wait).until(
+                    EC.element_to_be_clickable(
+                        (By.XPATH, sec_line_req_button))))
             sidebar_xpath = config.theme.b_l_p_sidebar_xpath.format(
                 main_panel=main_panel, sec_panel=sec_panel)
             # Get tab with output of second scroll
@@ -170,9 +172,10 @@ def test_browse_left_panel(live_server, driver, user, dashboard_data,
             sec_line_xpath = config.theme.b_l_p_sec_line_xpath.format(
                 main_panel=main_panel)
             sidebar = driver.find_element(By.XPATH, sec_line_xpath)
-        WebDriverWait(sidebar, config.selenium.implicit_wait).until(
-            EC.element_to_be_clickable(
-                (By.LINK_TEXT, link_text))).click()
+        widgets.scroll_into_view_and_click(
+            driver,
+            WebDriverWait(sidebar, config.selenium.implicit_wait).until(
+                EC.element_to_be_clickable((By.LINK_TEXT, link_text))))
         assert driver.title == title
         assert driver.find_element(By.CSS_SELECTOR, "h1").text == h1_text
 
