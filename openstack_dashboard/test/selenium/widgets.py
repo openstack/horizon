@@ -54,6 +54,21 @@ def find_already_visible_element_by_xpath(element, driver):
         EC.visibility_of_element_located((By.XPATH, element)))
 
 
+def scroll_into_view_and_click(driver, element):
+    """Click an element after bringing it into the viewport.
+
+    EC.element_to_be_clickable only reports whether an element is displayed
+    and enabled. Scrolling it into view is a separate step the driver
+    performs itself at click time, and it raises
+    ElementNotInteractableException when it cannot. An element at the bottom
+    of a long sidebar can satisfy the wait and still fail that step, so
+    place it first and click afterwards.
+    """
+    driver.execute_script(
+        "arguments[0].scrollIntoView({block: 'center'});", element)
+    element.click()
+
+
 def select_from_dropdown(element, label):
     menu_button = element.find_element(By.CSS_SELECTOR, ".dropdown-toggle")
     menu_button.click()
