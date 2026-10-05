@@ -50,7 +50,8 @@ def test_create_keypair_demo(login, driver, openstack_demo, clear_keypair_demo,
     ))
     driver.get(url)
     driver.find_element(By.LINK_TEXT, "Create Key Pair").click()
-    keypair_form = driver.find_element(By.CSS_SELECTOR, ".modal-content")
+    keypair_form = driver.find_element(
+        By.CSS_SELECTOR, "#create_keypair_modal .modal-content")
     keypair_form.find_element(By.ID, "id_name").send_keys(keypair_name)
     type_options = keypair_form.find_element(By.ID, "id_key_type")
     type_options.click()
