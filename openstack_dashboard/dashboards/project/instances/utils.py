@@ -33,6 +33,30 @@ def flavor_list(request):
         return []
 
 
+def resolve_boot_volume_image(request, instance):
+    if getattr(instance, 'image', None):
+        return
+    try:
+        attachments = api.nova.instance_volumes_list(request, instance.id)
+        if not attachments:
+            return
+        boot_attachment = sorted(
+            attachments, key=lambda a: getattr(a, 'device', None) or '')[0]
+        volume = api.cinder.volume_get(request, boot_attachment.id)
+        metadata = getattr(volume, 'volume_image_metadata', None) or {}
+        image_id = metadata.get('image_id')
+        if image_id:
+            image = {'id': image_id}
+            if metadata.get('image_name'):
+                image['name'] = metadata['image_name']
+            instance.image = image
+    except Exception:
+        exceptions.handle(request,
+                          _('Unable to retrieve image information '
+                            'for instance "%s".') % instance.id,
+                          ignore=True)
+
+
 def sort_flavor_list(request, flavors, with_menu_label=True):
     """Utility method to sort a list of flavors.
 

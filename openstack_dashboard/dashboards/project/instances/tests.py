@@ -1320,6 +1320,92 @@ class InstanceTableTests(InstanceTestBase, InstanceTableTestMixin):
             helpers.IsHttpRequest(), server.id)
 
 
+ROW_UPDATE_MOCKS = {
+    api.nova: ['server_get', 'flavor_get', 'instance_volumes_list',
+               'tenant_absolute_limits', 'is_feature_available'],
+    api.cinder: ['volume_get'],
+    api.network: ['servers_update_addresses'],
+    api.neutron: ['floating_ip_simple_associate_supported',
+                  'floating_ip_supported'],
+}
+
+
+class InstanceRowUpdateTests(InstanceTestBase):
+    def _setup_row_update(self, image):
+        server = api.nova.Server(self.servers.first(), self.request)
+        server.image = image
+        self.mock_server_get.return_value = server
+        self.mock_flavor_get.return_value = self.flavors.first()
+        self.mock_servers_update_addresses.return_value = None
+        self.mock_is_feature_available.return_value = True
+        self.mock_tenant_absolute_limits.return_value = \
+            self.limits['absolute']
+        self.mock_floating_ip_supported.return_value = True
+        self.mock_floating_ip_simple_associate_supported.return_value = True
+        return server
+
+    def _row_update(self, server):
+        url = (INDEX_URL +
+               "?action=row_update&table=instances&obj_id=" + server.id)
+        return self.client.get(url, {}, HTTP_X_REQUESTED_WITH='XMLHttpRequest')
+
+    @helpers.create_mocks(ROW_UPDATE_MOCKS)
+    def test_row_update_boot_from_volume_image_name(self):
+        server = self._setup_row_update(image='')
+        attachment = mock.Mock(id='vol-boot', device='/dev/vda')
+        other_attachment = mock.Mock(id='vol-data', device='/dev/vdb')
+        self.mock_instance_volumes_list.return_value = [other_attachment,
+                                                        attachment]
+        self.mock_volume_get.return_value = mock.Mock(
+            volume_image_metadata={'image_id': 'image-1',
+                                   'image_name': 'cirros-from-volume'})
+
+        res = self._row_update(server)
+
+        self.assertTemplateUsed(res, "horizon/common/_data_table_row.html")
+        self.assertContains(res, "cirros-from-volume", 1, 200)
+        self.mock_instance_volumes_list.assert_called_once_with(
+            helpers.IsHttpRequest(), server.id)
+        self.mock_volume_get.assert_called_once_with(
+            helpers.IsHttpRequest(), 'vol-boot')
+
+    @helpers.create_mocks(ROW_UPDATE_MOCKS)
+    def test_row_update_boot_from_volume_without_image_metadata(self):
+        server = self._setup_row_update(image='')
+        self.mock_instance_volumes_list.return_value = [
+            mock.Mock(id='vol-boot', device='/dev/vda')]
+        self.mock_volume_get.return_value = mock.Mock(
+            volume_image_metadata={'some_other_key': 'value'})
+
+        res = self._row_update(server)
+
+        self.assertTemplateUsed(res, "horizon/common/_data_table_row.html")
+        self.assertEqual(200, res.status_code)
+        self.assertEqual(1, self.mock_volume_get.call_count)
+
+    @helpers.create_mocks(ROW_UPDATE_MOCKS)
+    def test_row_update_boot_from_volume_lookup_failure(self):
+        server = self._setup_row_update(image='')
+        self.mock_instance_volumes_list.side_effect = self.exceptions.nova
+
+        res = self._row_update(server)
+
+        self.assertTemplateUsed(res, "horizon/common/_data_table_row.html")
+        self.assertEqual(200, res.status_code)
+        self.assertEqual(0, self.mock_volume_get.call_count)
+
+    @helpers.create_mocks(ROW_UPDATE_MOCKS)
+    def test_row_update_image_backed_instance_skips_volume_lookup(self):
+        server = self._setup_row_update(
+            image={'id': 'image-1', 'name': 'cirros-from-image'})
+
+        res = self._row_update(server)
+
+        self.assertContains(res, "cirros-from-image", 1, 200)
+        self.assertEqual(0, self.mock_instance_volumes_list.call_count)
+        self.assertEqual(0, self.mock_volume_get.call_count)
+
+
 class InstanceDetailTests(InstanceTestBase):
 
     @helpers.create_mocks({
