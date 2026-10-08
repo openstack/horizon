@@ -57,7 +57,7 @@ class BaseUsage(object):
     def get_instances(self):
         instance_list = []
         for u in self.usage_list:
-            instance_list.extend(u.server_usages)
+            instance_list.extend(u.server_usages or [])
         return instance_list
 
     def get_date_range(self):
@@ -173,19 +173,21 @@ class ProjectUsage(BaseUsage):
         instances = []
         deleted_instances = []
         usage = api.nova.usage_get(self.request, self.project_id, start, end)
-        # Attribute may not exist if there are no instances
-        if hasattr(usage, 'server_usages'):
-            now = self.today
-            for server_usage in usage.server_usages:
-                # This is a way to phrase uptime in a way that is compatible
-                # with the 'timesince' filter. (Use of local time intentional.)
-                server_uptime = server_usage['uptime']
-                total_uptime = now - datetime.timedelta(seconds=server_uptime)
-                server_usage['uptime_at'] = total_uptime
-                if server_usage['ended_at'] and not show_deleted:
-                    deleted_instances.append(server_usage)
-                else:
-                    instances.append(server_usage)
+        now = self.today
+        # The attribute is None if there are no instances
+        for server_usage in usage.server_usages or []:
+            # This is a way to phrase uptime in a way that is compatible
+            # with the 'timesince' filter. (Use of local time intentional.)
+            server_uptime = server_usage['uptime']
+            total_uptime = now - datetime.timedelta(seconds=server_uptime)
+            # A server usage only takes the keys the compute API defines, so
+            # the age is kept as a plain attribute; the usage table falls back
+            # to attribute lookup for it.
+            server_usage.uptime_at = total_uptime
+            if server_usage['ended_at'] and not show_deleted:
+                deleted_instances.append(server_usage)
+            else:
+                instances.append(server_usage)
         usage.server_usages = instances
         return (usage,)
 

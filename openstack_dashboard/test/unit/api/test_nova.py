@@ -21,7 +21,6 @@ from unittest import mock
 from django.conf import settings
 from django.test.utils import override_settings
 
-from novaclient import api_versions
 from novaclient import exceptions as nova_exceptions
 from novaclient.v2 import quotas
 from novaclient.v2 import servers
@@ -32,6 +31,7 @@ from openstack.compute.v2 import flavor as flavor_resource
 from openstack.compute.v2 import hypervisor as hypervisor_resource
 from openstack.compute.v2 import keypair as keypair_resource
 from openstack.compute.v2 import service as service_resource
+from openstack.compute.v2 import usage as usage_resource
 from openstack.test import fakes
 
 from horizon import exceptions as horizon_exceptions
@@ -74,8 +74,6 @@ class ComputeApiTests(test.APIMockTestCase):
         ver.min_version = min_version or '2.1'
         ver.version = version
         mock_novaclient.versions.get_current.return_value = ver
-        # To handle upgrade_api
-        mock_novaclient.api_version = api_versions.APIVersion(version)
 
     @mock.patch.object(api._nova, 'novaclient')
     def test_server_reboot(self, mock_novaclient):
@@ -237,77 +235,6 @@ class ComputeApiTests(test.APIMockTestCase):
              'limit': page_size + 1},
             sort_dirs=['desc', 'desc', 'desc'],
             sort_keys=['created_at', 'display_name', 'uuid'])
-
-    @mock.patch.object(api._nova, 'novaclient')
-    def test_usage_get(self, mock_novaclient):
-        novaclient = mock_novaclient.return_value
-        self._mock_current_version(novaclient, '2.1')
-        novaclient.usages.get.return_value = self.usages.first()
-
-        ret_val = api.nova.usage_get(self.request, self.tenant.id,
-                                     'start', 'end')
-
-        self.assertIsInstance(ret_val, api.nova.NovaUsage)
-        novaclient.versions.get_current.assert_called_once_with()
-        novaclient.usage.get.assert_called_once_with(
-            self.tenant.id, 'start', 'end')
-
-    @mock.patch.object(api._nova, 'novaclient')
-    def test_usage_get_paginated(self, mock_novaclient):
-        novaclient = mock_novaclient.return_value
-        self._mock_current_version(novaclient, '2.40')
-        novaclient.usage.get.side_effect = [
-            self.usages.first(),
-            {},
-        ]
-
-        ret_val = api.nova.usage_get(self.request, self.tenant.id,
-                                     'start', 'end')
-
-        self.assertIsInstance(ret_val, api.nova.NovaUsage)
-        novaclient.versions.get_current.assert_called_once_with()
-        novaclient.usage.get.assert_has_calls([
-            mock.call(self.tenant.id, 'start', 'end'),
-            mock.call(self.tenant.id, 'start', 'end',
-                      marker='063cf7f3-ded1-4297-bc4c-31eae876cc93'),
-        ])
-
-    @mock.patch.object(api._nova, 'novaclient')
-    def test_usage_list(self, mock_novaclient):
-        usages = self.usages.list()
-
-        novaclient = mock_novaclient.return_value
-        self._mock_current_version(novaclient, '2.1')
-        novaclient.usage.list.return_value = usages
-
-        ret_val = api.nova.usage_list(self.request, 'start', 'end')
-
-        for usage in ret_val:
-            self.assertIsInstance(usage, api.nova.NovaUsage)
-        novaclient.versions.get_current.assert_called_once_with()
-        novaclient.usage.list.assert_called_once_with('start', 'end', True)
-
-    @mock.patch.object(api._nova, 'novaclient')
-    def test_usage_list_paginated(self, mock_novaclient):
-        usages = self.usages.list()
-
-        novaclient = mock_novaclient.return_value
-        self._mock_current_version(novaclient, '2.40')
-        novaclient.usage.list.side_effect = [
-            usages,
-            {},
-        ]
-
-        ret_val = api.nova.usage_list(self.request, 'start', 'end')
-
-        for usage in ret_val:
-            self.assertIsInstance(usage, api.nova.NovaUsage)
-        novaclient.versions.get_current.assert_called_once_with()
-        novaclient.usage.list.assert_has_calls([
-            mock.call('start', 'end', True),
-            mock.call('start', 'end', True,
-                      marker='063cf7f3-ded1-4297-bc4c-31eae876cc93'),
-        ])
 
     @mock.patch.object(api._nova, 'novaclient')
     def test_server_get(self, mock_novaclient):
@@ -1166,3 +1093,132 @@ class HypervisorApiTests(test.APIMockTestCase):
         self.computeclient.hypervisors.assert_called_once_with(
             details=True, hypervisor_hostname_pattern='devstack',
             with_servers=False, microversion='2.87')
+
+
+class UsageApiTests(test.APIMockTestCase):
+
+    def setUp(self):
+        super().setUp()
+        self.computeclient = mock.create_autospec(
+            compute_v2.Proxy, instance=True)
+        patcher = mock.patch.object(
+            api._nova, 'computeclient', return_value=self.computeclient)
+        self.mock_computeclient = patcher.start()
+        self.addCleanup(patcher.stop)
+
+        # Clouds older than microversion 2.40 answer with the whole usage at
+        # once; the tests that need the paginated behaviour turn this on.
+        microversion_patcher = mock.patch.object(
+            api.nova.sdk_utils, 'supports_microversion', return_value=False)
+        self.mock_supports_microversion = microversion_patcher.start()
+        self.addCleanup(microversion_patcher.stop)
+
+    @staticmethod
+    def _usage(project_id, instance_ids):
+        return usage_resource.Usage(
+            tenant_id=project_id,
+            total_hours=1.0 * len(instance_ids),
+            total_vcpus_usage=2.0 * len(instance_ids),
+            total_memory_mb_usage=512.0 * len(instance_ids),
+            total_local_gb_usage=10.0 * len(instance_ids),
+            server_usages=[{'instance_id': instance_id, 'ended_at': None,
+                            'vcpus': 2, 'memory_mb': 512, 'local_gb': 10,
+                            'hours': 1.0, 'uptime': 3600}
+                           for instance_id in instance_ids])
+
+    def test_usage_get(self):
+        usage = self.usages.first()
+        self.computeclient.get_usage.return_value = usage
+
+        ret_val = api.nova.usage_get(self.request, self.tenant.id,
+                                     'start', 'end')
+
+        self.assertIsInstance(ret_val, api.nova.NovaUsage)
+        self.assertEqual(usage.project_id, ret_val.project_id)
+        self.mock_computeclient.assert_called_once_with(self.request)
+        self.computeclient.get_usage.assert_called_once_with(
+            self.tenant.id, 'start', 'end')
+        self.mock_supports_microversion.assert_called_once_with(
+            self.computeclient, '2.40')
+
+    def test_usage_get_paginated(self):
+        # From microversion 2.40 on, a usage too big for the compute API page
+        # size is split over several responses that have to be merged back.
+        self.mock_supports_microversion.return_value = True
+        self.computeclient.get_usage.side_effect = [
+            self._usage(self.tenant.id, ['instance-1', 'instance-2']),
+            self._usage(self.tenant.id, ['instance-3']),
+            self._usage(self.tenant.id, []),
+        ]
+
+        ret_val = api.nova.usage_get(self.request, self.tenant.id,
+                                     'start', 'end')
+
+        self.assertEqual(['instance-1', 'instance-2', 'instance-3'],
+                         [s.instance_id for s in ret_val.server_usages])
+        self.assertEqual(3.0, ret_val.total_hours)
+        self.assertEqual(6.0, ret_val.total_vcpus_usage)
+        self.assertEqual(1536.0, ret_val.total_memory_mb_usage)
+        self.assertEqual(30.0, ret_val.total_local_gb_usage)
+        self.computeclient.get_usage.assert_has_calls([
+            mock.call(self.tenant.id, 'start', 'end'),
+            mock.call(self.tenant.id, 'start', 'end', marker='instance-2'),
+            mock.call(self.tenant.id, 'start', 'end', marker='instance-3'),
+        ])
+
+    def test_usage_get_not_paginated_stops_after_one_call(self):
+        self.computeclient.get_usage.return_value = self.usages.first()
+
+        api.nova.usage_get(self.request, self.tenant.id, 'start', 'end')
+
+        # A cloud below 2.40 ignores the marker and would answer with the very
+        # same page again, so the marker must not be followed at all.
+        self.computeclient.get_usage.assert_called_once_with(
+            self.tenant.id, 'start', 'end')
+
+    def test_usage_list(self):
+        usages = self.usages.list()
+        self.computeclient.usages.return_value = iter(usages)
+
+        ret_val = api.nova.usage_list(self.request, 'start', 'end')
+
+        self.assertEqual(len(usages), len(ret_val))
+        for usage in ret_val:
+            self.assertIsInstance(usage, api.nova.NovaUsage)
+        self.assertEqual([u.project_id for u in usages],
+                         [u.project_id for u in ret_val])
+        self.mock_computeclient.assert_called_once_with(self.request)
+        self.computeclient.usages.assert_called_once_with(
+            'start', 'end', detailed=1)
+
+    def test_usage_list_merges_pages_of_the_same_project(self):
+        # The SDK follows the pagination links itself, so a project split over
+        # several pages arrives as several usages of the same project.
+        self.computeclient.usages.return_value = iter([
+            self._usage('project-1', ['instance-1']),
+            self._usage('project-1', ['instance-2']),
+            self._usage('project-2', ['instance-3']),
+        ])
+
+        ret_val = api.nova.usage_list(self.request, 'start', 'end')
+
+        self.assertEqual(['project-1', 'project-2'],
+                         [u.project_id for u in ret_val])
+        self.assertEqual(['instance-1', 'instance-2'],
+                         [s.instance_id for s in ret_val[0].server_usages])
+        self.assertEqual(2.0, ret_val[0].total_hours)
+        self.assertEqual(1.0, ret_val[1].total_hours)
+
+    def test_usage_get_for_a_project_without_instances(self):
+        # The compute API answers a project that ran nothing in the period
+        # with an empty usage, so the SDK leaves every field at None. The
+        # summary still has to be made of numbers, as the overview pages add
+        # the summaries of several projects up.
+        self.computeclient.get_usage.return_value = usage_resource.Usage()
+
+        ret_val = api.nova.usage_get(self.request, self.tenant.id,
+                                     'start', 'end')
+
+        self.assertEqual({'instances': 0, 'memory_mb': 0, 'vcpus': 0,
+                          'vcpu_hours': 0, 'local_gb': 0, 'disk_gb_hours': 0,
+                          'memory_mb_hours': 0}, ret_val.get_summary())

@@ -36,7 +36,7 @@ class GlobalUsageCsvRenderer(csvbase.BaseCsvResponse):
     def get_row_data(self):
 
         for u in self.context['usage'].usage_list:
-            yield (u.project_name or u.tenant_id,
+            yield (u.project_name or u.project_id,
                    u.vcpus,
                    u.memory_mb,
                    u.local_gb,
@@ -64,14 +64,14 @@ class GlobalOverview(usage.UsageView):
             exceptions.handle(self.request,
                               _('Unable to retrieve project list.'))
         for instance in data:
-            project = [t for t in projects if t.id == instance.tenant_id]
-            # If we could not get the project name, show the tenant_id with
+            project = [t for t in projects if t.id == instance.project_id]
+            # If we could not get the project name, show the project_id with
             # a 'Deleted' identifier instead.
             if project:
                 instance.project_name = getattr(project[0], "name", None)
             else:
                 deleted = _("Deleted")
                 instance.project_name = format_lazy(
-                    '{tenant_id} ({deleted})',
-                    tenant_id=instance.tenant_id, deleted=deleted)
+                    '{project_id} ({deleted})',
+                    project_id=instance.project_id, deleted=deleted)
         return data

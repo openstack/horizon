@@ -59,7 +59,7 @@ class GlobalUsageTable(BaseUsageTable):
                                  filters=(lambda v: floatformat(v, 2),))
 
     def get_object_id(self, datum):
-        return datum.tenant_id
+        return datum.project_id
 
     class Meta(object):
         name = "global_usage"

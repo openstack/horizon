@@ -24,7 +24,6 @@ from operator import attrgetter
 
 from django.utils.translation import gettext_lazy as _
 
-from novaclient import api_versions
 from novaclient import exceptions as nova_exceptions
 from novaclient.v2 import instance_action as nova_instance_action
 from novaclient.v2 import servers as nova_servers
@@ -118,9 +117,9 @@ class Hypervisor(base.APIDictWrapper):
 
 
 class NovaUsage(base.APIResourceWrapper):
-    """Simple wrapper around contrib/simple_usage.py."""
+    """Simple wrapper around openstack.compute.v2.usage.Usage."""
 
-    _attrs = ['start', 'server_usages', 'stop', 'tenant_id',
+    _attrs = ['start', 'server_usages', 'stop', 'project_id',
               'total_local_gb_usage', 'total_memory_mb_usage',
               'total_vcpus_usage', 'total_hours']
 
@@ -134,35 +133,38 @@ class NovaUsage(base.APIResourceWrapper):
                 'memory_mb_hours': self.memory_mb_hours}
 
     @property
+    def _active_server_usages(self):
+        # A project that ran no instances in the period gets an empty usage
+        # back, which the SDK hands over with every field left at None.
+        return [s for s in self.server_usages or [] if s['ended_at'] is None]
+
+    @property
     def total_active_instances(self):
-        return sum(1 for s in self.server_usages if s['ended_at'] is None)
+        return len(self._active_server_usages)
 
     @property
     def vcpus(self):
-        return sum(s['vcpus'] for s in self.server_usages
-                   if s['ended_at'] is None)
+        return sum(s['vcpus'] for s in self._active_server_usages)
 
     @property
     def vcpu_hours(self):
-        return getattr(self, "total_vcpus_usage", 0)
+        return self.total_vcpus_usage or 0
 
     @property
     def local_gb(self):
-        return sum(s['local_gb'] for s in self.server_usages
-                   if s['ended_at'] is None)
+        return sum(s['local_gb'] for s in self._active_server_usages)
 
     @property
     def memory_mb(self):
-        return sum(s['memory_mb'] for s in self.server_usages
-                   if s['ended_at'] is None)
+        return sum(s['memory_mb'] for s in self._active_server_usages)
 
     @property
     def disk_gb_hours(self):
-        return getattr(self, "total_local_gb_usage", 0)
+        return self.total_local_gb_usage or 0
 
     @property
     def memory_mb_hours(self):
-        return getattr(self, "total_memory_mb_usage", 0)
+        return self.total_memory_mb_usage or 0
 
 
 class FlavorExtraSpec(object):
@@ -218,15 +220,6 @@ class QuotaSet(base.QuotaSet):
         "security_groups",
         "security_group_rules",
     }
-
-
-def upgrade_api(request, client, version):
-    """Ugrade the nova API to the specified version if possible."""
-
-    min_ver, max_ver = api_versions._get_server_version_range(client)
-    if min_ver <= api_versions.APIVersion(version) <= max_ver:
-        client = _nova.novaclient(request, version)
-    return client
 
 
 @profiler.trace
@@ -759,22 +752,23 @@ def default_quota_update(request, **kwargs):
                                                    **kwargs)
 
 
+# Nova started splitting the os-simple-tenant-usage responses across several
+# pages in microversion 2.40; older clouds answer with the whole usage at once
+# and ignore the marker, so asking them for a second page would loop forever.
+USAGE_PAGINATION_MICROVERSION = '2.40'
+
+
 def _get_usage_marker(usage):
     marker = None
-    if hasattr(usage, 'server_usages') and usage.server_usages:
-        marker = usage.server_usages[-1].get('instance_id')
-    return marker
-
-
-def _get_usage_list_marker(usage_list):
-    marker = None
-    if usage_list:
-        marker = _get_usage_marker(usage_list[-1])
+    if usage.server_usages:
+        marker = usage.server_usages[-1].instance_id
     return marker
 
 
 def _merge_usage(usage, next_usage):
-    usage.server_usages.extend(next_usage.server_usages)
+    # The SDK rebuilds the server usages on every attribute access, so the
+    # merged list has to be assigned back instead of extended in place.
+    usage.server_usages = usage.server_usages + next_usage.server_usages
     usage.total_hours += next_usage.total_hours
     usage.total_memory_mb_usage += next_usage.total_memory_mb_usage
     usage.total_vcpus_usage += next_usage.total_vcpus_usage
@@ -783,23 +777,25 @@ def _merge_usage(usage, next_usage):
 
 def _merge_usage_list(usages, next_usage_list):
     for next_usage in next_usage_list:
-        if next_usage.tenant_id in usages:
-            _merge_usage(usages[next_usage.tenant_id], next_usage)
+        if next_usage.project_id in usages:
+            _merge_usage(usages[next_usage.project_id], next_usage)
         else:
-            usages[next_usage.tenant_id] = next_usage
+            usages[next_usage.project_id] = next_usage
 
 
 @profiler.trace
 def usage_get(request, tenant_id, start, end):
-    client = upgrade_api(request, _nova.novaclient(request), '2.40')
-    usage = client.usage.get(tenant_id, start, end)
-    if client.api_version >= api_versions.APIVersion('2.40'):
+    computeclient = _nova.computeclient(request)
+    usage = computeclient.get_usage(tenant_id, start, end)
+    if sdk_utils.supports_microversion(computeclient,
+                                       USAGE_PAGINATION_MICROVERSION):
         # If the number of instances used to calculate the usage is greater
         # than max_limit, the usage will be split across multiple requests
         # and the responses will need to be merged back together.
         marker = _get_usage_marker(usage)
         while marker:
-            next_usage = client.usage.get(tenant_id, start, end, marker=marker)
+            next_usage = computeclient.get_usage(tenant_id, start, end,
+                                                 marker=marker)
             marker = _get_usage_marker(next_usage)
             if marker:
                 _merge_usage(usage, next_usage)
@@ -808,23 +804,12 @@ def usage_get(request, tenant_id, start, end):
 
 @profiler.trace
 def usage_list(request, start, end):
-    client = upgrade_api(request, _nova.novaclient(request), '2.40')
-    usage_list = client.usage.list(start, end, True)
-    if client.api_version >= api_versions.APIVersion('2.40'):
-        # If the number of instances used to calculate the usage is greater
-        # than max_limit, the usage will be split across multiple requests
-        # and the responses will need to be merged back together.
-        usages = collections.OrderedDict()
-        _merge_usage_list(usages, usage_list)
-        marker = _get_usage_list_marker(usage_list)
-        while marker:
-            next_usage_list = client.usage.list(start, end, True,
-                                                marker=marker)
-            marker = _get_usage_list_marker(next_usage_list)
-            if marker:
-                _merge_usage_list(usages, next_usage_list)
-        usage_list = usages.values()
-    return [NovaUsage(u) for u in usage_list]
+    computeclient = _nova.computeclient(request)
+    # The SDK follows the pagination links on its own, so a project can come
+    # back in more than one chunk and those need merging back together.
+    usages = collections.OrderedDict()
+    _merge_usage_list(usages, computeclient.usages(start, end, detailed=1))
+    return [NovaUsage(u) for u in usages.values()]
 
 
 @profiler.trace
