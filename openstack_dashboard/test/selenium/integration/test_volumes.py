@@ -53,6 +53,14 @@ def wait_for_volume_is_deleted(openstack, volume_name):
             time.sleep(3)
 
 
+def wait_for_volume_specific_status(openstack, volume_name, status):
+    for attempt in range(120):
+        if openstack.block_storage.find_volume(volume_name).status == status:
+            break
+        else:
+            time.sleep(3)
+
+
 def test_create_empty_volume_demo(login, driver, volume_name, openstack_demo,
                                   clear_volume_demo, config):
     volume_name = volume_name[0]
@@ -211,8 +219,10 @@ def test_volume_launch_as_instance_demo(login, driver, openstack_demo,
     network_table = wizard.find_element(
         By.CSS_SELECTOR, "ng-include[ng-form=launchInstanceNetworkForm]")
     widgets.select_from_transfer_table(network_table, network)
-    wizard.find_element(
-        By.CSS_SELECTOR, "button.btn-primary.finish").click()
+    finish_btn = WebDriverWait(wizard, config.selenium.page_timeout).until(
+        EC.element_to_be_clickable(
+            (By.CSS_SELECTOR, "button.btn-primary.finish")))
+    finish_btn.click()
 #   For create instance - message appears earlier than the page is refreshed.
 #   We are unable to ensure that the message will be captured.
 #   Checking of message is skipped, we wait for refresh page
@@ -220,7 +230,8 @@ def test_volume_launch_as_instance_demo(login, driver, openstack_demo,
 #   JJ
     WebDriverWait(driver, config.selenium.explicit_wait).until(
         EC.invisibility_of_element_located(actions_column))
-    wait_for_steady_state_of_volume(openstack_demo, new_volume_demo.name)
+    wait_for_volume_specific_status(
+        openstack_demo, new_volume_demo.name, "in-use")
     assert (openstack_demo.block_storage.find_volume(
         new_volume_demo.name).attachments[0]['server_id'] ==
         openstack_demo.compute.find_server(instance_name).id)
@@ -353,7 +364,8 @@ def test_manage_volume_attachments(login, driver, openstack_demo,
     messages = widgets.get_and_dismiss_messages(driver, config)
     assert (f"Info: Attaching volume {new_volume_demo.name} to instance "
             f"{new_instance_demo.name} on /dev/vdb." in messages)
-    wait_for_steady_state_of_volume(openstack_demo, new_volume_demo.name)
+    wait_for_volume_specific_status(
+        openstack_demo, new_volume_demo.name, "in-use")
     assert (openstack_demo.block_storage.find_volume(
         new_volume_demo.id).attachments[0]['server_id'] ==
         new_instance_demo.id)
@@ -377,7 +389,8 @@ def test_manage_volume_attachments(login, driver, openstack_demo,
     messages = widgets.get_and_dismiss_messages(driver, config)
     assert (f"Success: Detaching Volume: Volume {new_volume_demo.name} "
             f"on instance {new_instance_demo.name}" in messages)
-    wait_for_steady_state_of_volume(openstack_demo, new_volume_demo.name)
+    wait_for_volume_specific_status(
+        openstack_demo, new_volume_demo.name, "available")
     assert (openstack_demo.block_storage.find_volume(
         new_volume_demo.id).attachments == [])
 
