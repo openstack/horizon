@@ -44,25 +44,31 @@ class NetworkTests(test.BaseAdminViewTests):
         self.assertEqual(expected_count, self._feature_call_counts)
 
     @test.create_mocks({api.neutron: ('network_list',
-                                      'list_dhcp_agent_hosting_networks',
+                                      'dhcp_agent_network_counts',
                                       'is_extension_supported'),
                         api.keystone: ('tenant_list',)})
     def test_index(self):
         tenants = self.tenants.list()
+        all_networks = self.networks.list()
 
-        self.mock_network_list.return_value = self.networks.list()
+        self.mock_network_list.return_value = all_networks
         self.mock_tenant_list.return_value = [tenants, False]
         self._stub_is_extension_supported(
             {'network_availability_zone': True,
              'dhcp_agent_scheduler': True})
-        self.mock_list_dhcp_agent_hosting_networks.return_value = \
-            self.agents.list()
+        self.mock_dhcp_agent_network_counts.return_value = \
+            collections.Counter({all_networks[0].id: 2,
+                                 all_networks[1].id: 1})
 
         res = self.client.get(INDEX_URL)
 
         self.assertTemplateUsed(res, INDEX_TEMPLATE)
         networks = res.context['networks_table'].data
-        self.assertCountEqual(networks, self.networks.list())
+        self.assertCountEqual(networks, all_networks)
+        num_agents = {n.id: n.num_agents for n in networks}
+        self.assertEqual(2, num_agents[all_networks[0].id])
+        self.assertEqual(1, num_agents[all_networks[1].id])
+        self.assertEqual(0, num_agents[all_networks[2].id])
 
         self.mock_network_list.assert_called_once_with(
             test.IsHttpRequest(), single_page=True,
@@ -72,11 +78,48 @@ class NetworkTests(test.BaseAdminViewTests):
             'network_availability_zone': 1,
             'dhcp_agent_scheduler': 2,
         })
-        self.mock_list_dhcp_agent_hosting_networks.assert_has_calls(
-            [mock.call(test.IsHttpRequest(), network.id)
-             for network in self.networks.list()])
-        self.assertEqual(len(self.networks.list()),
-                         self.mock_list_dhcp_agent_hosting_networks.call_count)
+        self.mock_dhcp_agent_network_counts.assert_called_once_with(
+            test.IsHttpRequest(), [n.id for n in all_networks])
+
+    @test.create_mocks({api.neutron: ('network_list',
+                                      'dhcp_agent_network_counts',
+                                      'is_extension_supported'),
+                        api.keystone: ('tenant_list',)})
+    def test_index_dhcp_agent_counts_exception(self):
+        self.mock_network_list.return_value = self.networks.list()
+        self.mock_tenant_list.return_value = [self.tenants.list(), False]
+        self._stub_is_extension_supported(
+            {'network_availability_zone': True,
+             'dhcp_agent_scheduler': True})
+        self.mock_dhcp_agent_network_counts.side_effect = \
+            self.exceptions.neutron
+
+        res = self.client.get(INDEX_URL)
+
+        self.assertTemplateUsed(res, INDEX_TEMPLATE)
+        networks = res.context['networks_table'].data
+        self.assertCountEqual(networks, self.networks.list())
+        for n in networks:
+            self.assertEqual('Unknown', n.num_agents)
+        self.assertMessageCount(res, error=1)
+        self.mock_dhcp_agent_network_counts.assert_called_once_with(
+            test.IsHttpRequest(), [n.id for n in self.networks.list()])
+
+    @test.create_mocks({api.neutron: ('network_list',
+                                      'dhcp_agent_network_counts',
+                                      'is_extension_supported')})
+    def test_index_without_dhcp_agent_scheduler(self):
+        self.mock_network_list.return_value = self.networks.list()
+        self._stub_is_extension_supported(
+            {'network_availability_zone': True,
+             'dhcp_agent_scheduler': False})
+
+        res = self.client.get(INDEX_URL)
+
+        self.assertTemplateUsed(res, INDEX_TEMPLATE)
+        self.assertNotIn('num_agents',
+                         res.context['networks_table'].columns)
+        self.mock_dhcp_agent_network_counts.assert_not_called()
 
     @test.create_mocks({api.neutron: ('network_list',
                                       'is_extension_supported',)})
@@ -885,15 +928,15 @@ class NetworkTests(test.BaseAdminViewTests):
 
     @test.create_mocks({api.neutron: ('network_list',
                                       'network_delete',
-                                      'list_dhcp_agent_hosting_networks',
+                                      'dhcp_agent_network_counts',
                                       'is_extension_supported'),
                         api.keystone: ('tenant_list',)})
     def test_delete_network(self):
         tenants = self.tenants.list()
         network = self.networks.first()
 
-        self.mock_list_dhcp_agent_hosting_networks.return_value = \
-            self.agents.list()
+        self.mock_dhcp_agent_network_counts.return_value = \
+            collections.Counter({network.id: 1})
         self._stub_is_extension_supported(
             {'network_availability_zone': True,
              'dhcp_agent_scheduler': True})
@@ -906,8 +949,8 @@ class NetworkTests(test.BaseAdminViewTests):
 
         self.assertRedirectsNoFollow(res, INDEX_URL)
 
-        self.mock_list_dhcp_agent_hosting_networks.assert_called_once_with(
-            test.IsHttpRequest(), network.id)
+        self.mock_dhcp_agent_network_counts.assert_called_once_with(
+            test.IsHttpRequest(), [network.id])
         self._check_is_extension_supported(
             {'network_availability_zone': 1,
              'dhcp_agent_scheduler': 2})
@@ -920,15 +963,15 @@ class NetworkTests(test.BaseAdminViewTests):
 
     @test.create_mocks({api.neutron: ('network_list',
                                       'network_delete',
-                                      'list_dhcp_agent_hosting_networks',
+                                      'dhcp_agent_network_counts',
                                       'is_extension_supported'),
                         api.keystone: ('tenant_list',)})
     def test_delete_network_exception(self):
         tenants = self.tenants.list()
         network = self.networks.first()
 
-        self.mock_list_dhcp_agent_hosting_networks.return_value = \
-            self.agents.list()
+        self.mock_dhcp_agent_network_counts.return_value = \
+            collections.Counter({network.id: 1})
         self._stub_is_extension_supported(
             {'network_availability_zone': True,
              'dhcp_agent_scheduler': True})
@@ -941,8 +984,8 @@ class NetworkTests(test.BaseAdminViewTests):
 
         self.assertRedirectsNoFollow(res, INDEX_URL)
 
-        self.mock_list_dhcp_agent_hosting_networks.assert_called_once_with(
-            test.IsHttpRequest(), network.id)
+        self.mock_dhcp_agent_network_counts.assert_called_once_with(
+            test.IsHttpRequest(), [network.id])
         self._check_is_extension_supported(
             {'network_availability_zone': 1,
              'dhcp_agent_scheduler': 2})

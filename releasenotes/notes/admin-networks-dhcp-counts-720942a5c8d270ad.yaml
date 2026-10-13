@@ -1,0 +1,5 @@
+---
+fixes:
+  - |
+    The DHCP Agents column of the admin Networks panel now needs one request
+    per DHCP agent instead of one per listed network.
