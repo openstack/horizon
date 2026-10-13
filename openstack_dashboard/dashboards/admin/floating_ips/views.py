@@ -19,6 +19,7 @@ from django.urls import reverse
 from django.urls import reverse_lazy
 from django.utils.translation import gettext_lazy as _
 import netaddr
+from oslo_utils import uuidutils
 
 from horizon import exceptions
 from horizon import forms
@@ -27,6 +28,8 @@ from horizon.utils import memoized
 from horizon import views
 
 from openstack_dashboard import api
+from openstack_dashboard import exceptions as dashboard_exception
+from openstack_dashboard.utils import futurist_utils
 
 from openstack_dashboard.dashboards.admin.floating_ips \
     import forms as fip_forms
@@ -34,6 +37,12 @@ from openstack_dashboard.dashboards.admin.floating_ips \
     import tables as fip_tables
 from openstack_dashboard.dashboards.project.floating_ips \
     import tables as project_tables
+
+# Servers the floating IPs are associated with are fetched by ID,
+# SERVER_GET_BATCH_SIZE requests at a time. With more than
+# ASSOCIATED_SERVERS_MAX servers one server list request is used like before.
+SERVER_GET_BATCH_SIZE = 10
+ASSOCIATED_SERVERS_MAX = 50
 
 
 def get_floatingip_pools(request):
@@ -61,6 +70,27 @@ class IndexView(tables.DataTableView):
     table_class = fip_tables.FloatingIPsTable
     page_title = _("Floating IPs")
 
+    def _get_server(self, server_id):
+        try:
+            return api.nova.server_get(self.request, server_id)
+        except dashboard_exception.NOT_FOUND:
+            return None
+
+    def _get_instances(self, instance_ids):
+        instance_ids = sorted(set(instance_ids))
+        if len(instance_ids) > ASSOCIATED_SERVERS_MAX:
+            return api.nova.server_list(
+                self.request,
+                search_opts={'all_tenants': True},
+                detailed=False)[0]
+        instances = []
+        for i in range(0, len(instance_ids), SERVER_GET_BATCH_SIZE):
+            batch = instance_ids[i:i + SERVER_GET_BATCH_SIZE]
+            servers = futurist_utils.call_functions_parallel(
+                *[(self._get_server, [server_id]) for server_id in batch])
+            instances.extend(s for s in servers if s is not None)
+        return instances
+
     @memoized.memoized_method
     def get_data(self):
         floating_ips = []
@@ -77,10 +107,12 @@ class IndexView(tables.DataTableView):
         if floating_ips:
             instances = []
             try:
-                instances, has_more = api.nova.server_list(
-                    self.request,
-                    search_opts={'all_tenants': True},
-                    detailed=False)
+                # instance_id is the port's device_id, which the port owner
+                # can set to anything; server IDs are UUIDs.
+                instances = self._get_instances(
+                    ip.instance_id for ip in floating_ips
+                    if (ip.instance_type == 'compute' and
+                        uuidutils.is_uuid_like(ip.instance_id)))
             except Exception:
                 exceptions.handle(
                     self.request,
