@@ -69,3 +69,15 @@ class PortsTable(project_tables.PortsTable):
 
 class PortsTab(project_port_tab):
     table_classes = (PortsTable,)
+
+    def get_ports_data(self):
+        # Unlike the project panel, list the ports of every project,
+        # including ports without a project such as router gateways.
+        try:
+            network_id = self.tab_group.kwargs['network_id']
+            ports = api.neutron.port_list(self.request, network_id=network_id)
+        except Exception:
+            ports = []
+            msg = _('Port list can not be retrieved.')
+            exceptions.handle(self.request, msg)
+        return ports

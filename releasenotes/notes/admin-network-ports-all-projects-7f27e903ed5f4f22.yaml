@@ -1,0 +1,7 @@
+---
+fixes:
+  - |
+    [:bug:`2122510`] The Ports tab of a network in the admin panel lists the
+    ports of all projects again, including ports without a project such as
+    floating IP and router gateway ports. It showed only the ports of the
+    project the admin was logged into.
