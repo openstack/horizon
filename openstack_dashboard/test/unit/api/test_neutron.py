@@ -1485,6 +1485,27 @@ class NeutronApiTests(test.APIMockTestCase):
         )
 
     @mock.patch.object(api.neutron, 'networkclient')
+    def test_trunk_update_no_changes(self, mock_networkclient):
+        trunk_data = self.api_tp_trunks_sdk[0]
+        trunk_id = trunk_data['id']
+        old_trunk = {'name': trunk_data['name'],
+                     'description': trunk_data['description'],
+                     'id': trunk_data['id'],
+                     'port_id': trunk_data['port_id'],
+                     'sub_ports': trunk_data['sub_ports'],
+                     'is_admin_state_up': trunk_data['is_admin_state_up']}
+        new_trunk = copy.deepcopy(old_trunk)
+
+        ret_val = api.neutron.trunk_update(self.request, trunk_id,
+                                           old_trunk, new_trunk)
+
+        self.assertIsInstance(ret_val, api.neutron.Trunk)
+        self.assertEqual(trunk_id, ret_val.id)
+        self.assertEqual(old_trunk['name'], ret_val.name)
+        self.assertEqual(old_trunk['sub_ports'], ret_val.sub_ports)
+        mock_networkclient.assert_not_called()
+
+    @mock.patch.object(api.neutron, 'networkclient')
     def test_router_list(self, mock_networkclient):
         routers = {'routers': self.api_routers_sdk}
 
