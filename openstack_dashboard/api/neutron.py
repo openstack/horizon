@@ -41,6 +41,7 @@ from openstack_auth import utils as auth_utils
 from horizon import exceptions
 from horizon import messages
 from horizon.utils.memoized import memoized
+from horizon.utils.memoized import TTLCache
 from openstack_dashboard.api import base
 from openstack_dashboard.api import nova
 from openstack_dashboard.contrib.developer.profiler import api as profiler
@@ -2382,6 +2383,11 @@ def list_extensions(request):
     return tuple(extensions_list)
 
 
+# Extension aliases by neutron endpoint URL, kept for 10 minutes. The
+# openstacksdk resources themselves hold the requesting user's connection.
+_extension_aliases = TTLCache(600)
+
+
 @profiler.trace
 def is_extension_supported(request, extension_alias):
     """Check if a specified extension is supported.
@@ -2389,12 +2395,13 @@ def is_extension_supported(request, extension_alias):
     :param request: django request object
     :param extension_alias: neutron extension alias
     """
-    extensions = list_extensions(request)
-    for extension in extensions:
-        if extension['alias'] == extension_alias:
-            return True
-    else:
-        return False
+    neutron_url = base.url_for(request, 'network')
+    aliases = _extension_aliases.get(neutron_url)
+    if aliases is None:
+        aliases = frozenset(ext['alias'] for ext in list_extensions(request))
+        if aliases:
+            _extension_aliases.set(neutron_url, aliases)
+    return extension_alias in aliases
 
 
 @profiler.trace

@@ -140,10 +140,25 @@ class Server(base.APIResourceWrapper):
         return getattr(self, 'OS-EXT-SRV-ATTR:user_data', "")
 
 
+# Microversion ranges by nova endpoint URL, kept for 10 minutes.
+_server_versions = memoized.TTLCache(600)
+
+
+def _get_server_version_range(request):
+    nova_url = base.url_for(request, 'compute')
+    versions = _server_versions.get(nova_url)
+    if versions is None:
+        versions = api_versions._get_server_version_range(
+            novaclient(request))
+        # Null versions mean the endpoint did not report a version.
+        if not versions[1].is_null():
+            _server_versions.set(nova_url, versions)
+    return versions
+
+
 @memoized.memoized
 def get_microversion(request, features):
-    client = novaclient(request)
-    min_ver, max_ver = api_versions._get_server_version_range(client)
+    min_ver, max_ver = _get_server_version_range(request)
     return (microversions.get_microversion_for_features(
         'nova', features, api_versions.APIVersion, min_ver, max_ver))
 

@@ -19,6 +19,7 @@
 from unittest import mock
 
 from django.conf import settings
+from django import http
 from django.test.utils import override_settings
 
 from novaclient import exceptions as nova_exceptions
@@ -74,6 +75,33 @@ class ComputeApiTests(test.APIMockTestCase):
         ver.min_version = min_version or '2.1'
         ver.version = version
         mock_novaclient.versions.get_current.return_value = ver
+
+    def _other_request(self):
+        request = http.HttpRequest()
+        request.user = self.request.user
+        return request
+
+    @mock.patch.object(api._nova, 'novaclient')
+    def test_get_microversion_caches_version_range(self, mock_novaclient):
+        novaclient = mock_novaclient.return_value
+        self._mock_current_version(novaclient, '2.60')
+
+        # get_microversion() is memoized per request, so use two requests.
+        for request in (self.request, self._other_request()):
+            microversion = api.nova.get_microversion(request, 'multiattach')
+            self.assertEqual('2.60', microversion.get_string())
+
+        novaclient.versions.get_current.assert_called_once_with()
+
+    @mock.patch.object(api._nova, 'novaclient')
+    def test_get_microversion_null_version_not_cached(self, mock_novaclient):
+        novaclient = mock_novaclient.return_value
+        novaclient.versions.get_current.return_value = None
+
+        for request in (self.request, self._other_request()):
+            api.nova.get_microversion(request, 'multiattach')
+
+        self.assertEqual(2, novaclient.versions.get_current.call_count)
 
     @mock.patch.object(api._nova, 'novaclient')
     def test_server_reboot(self, mock_novaclient):

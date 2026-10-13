@@ -15,6 +15,7 @@
 import collections
 import functools
 import threading
+import time
 import warnings
 import weakref
 
@@ -148,3 +149,37 @@ def memoized(func=None, max_size=None):
 # it doesn't keep the instances in memory forever. We might want to separate
 # them in the future, however.
 memoized_method = memoized
+
+
+class TTLCache:
+    """Process-wide cache whose entries expire after ``ttl`` seconds.
+
+    Unlike :func:`memoized` it is not bound to a request, so it must only
+    hold data that is the same for every user, such as the API versions
+    or extensions of an endpoint.
+    """
+
+    def __init__(self, ttl):
+        self.ttl = ttl
+        self._data = {}
+        self._lock = threading.Lock()
+
+    def get(self, key):
+        """Return the cached value, or None if it is missing or expired."""
+        entry = self._data.get(key)
+        if entry is None or entry[0] <= time.monotonic():
+            return None
+        return entry[1]
+
+    def set(self, key, value):
+        now = time.monotonic()
+        with self._lock:
+            # Drop expired entries so that keys that are not used any more,
+            # such as per-project endpoint URLs, do not pile up.
+            data = {k: v for k, v in self._data.items() if v[0] > now}
+            data[key] = (now + self.ttl, value)
+            self._data = data
+
+    def clear(self):
+        with self._lock:
+            self._data = {}
