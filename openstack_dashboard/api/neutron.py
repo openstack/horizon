@@ -1225,7 +1225,8 @@ def network_list(request, single_page=False, **params):
     if 'id' in params and isinstance(params['id'], list):
         list_values = params['id']
     if single_page is True:
-        params['retrieve_all'] = False
+        # openstacksdk follows every "next" link unless paginated=False.
+        params['paginated'] = False
 
     networks = []
     if 'tenant_id' in params:

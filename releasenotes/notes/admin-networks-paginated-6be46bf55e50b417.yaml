@@ -1,0 +1,6 @@
+---
+fixes:
+  - |
+    Fixed the Networks panels loading every network instead of one page.
+    Horizon now asks openstacksdk for a single page, so the admin panel
+    paginates again.

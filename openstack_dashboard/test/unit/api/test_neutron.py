@@ -642,6 +642,49 @@ class NeutronApiTests(test.APIMockTestCase):
         self.assertFalse(prev)
         self.assertEqual(page1, result)
 
+    @mock.patch.object(api.neutron, 'networkclient')
+    def test_network_list_single_page(self, mock_networkclient):
+        networks = self.api_networks_sdk
+        networkclient = mock_networkclient.return_value
+        networkclient.networks.return_value = networks
+        networkclient.subnets.return_value = self.api_subnets_sdk
+
+        ret_val = api.neutron.network_list(
+            self.request, single_page=True, limit=21, sort_key='id',
+            sort_dir='asc')
+
+        self.assertEqual([n.id for n in networks], [n.id for n in ret_val])
+        networkclient.networks.assert_called_once_with(
+            paginated=False, limit=21, sort_key='id', sort_dir='asc')
+
+    @mock.patch.object(api.neutron, 'network_get')
+    @mock.patch.object(api.neutron, 'networkclient')
+    def test_network_list_paged_requests_one_page(self, mock_networkclient,
+                                                  mock_net_get):
+        source_networks = neutron_data.source_nets_pagination1
+        marker = source_networks[19]
+        mock_net_get.return_value = marker
+        networkclient = mock_networkclient.return_value
+        networkclient.networks.return_value = source_networks[20:41]
+        networkclient.subnets.return_value = []
+        page_data = {
+            'sort_dir': 'desc',
+            'marker_id': marker['id'],
+        }
+
+        result, more, prev = api.neutron.network_list_paged(
+            self.request, page_data, marker=marker['id'])
+
+        self.assertEqual([n['id'] for n in source_networks[20:40]],
+                         [n['id'] for n in result])
+        self.assertTrue(more)
+        self.assertTrue(prev)
+        mock_net_get.assert_called_once_with(test.IsHttpRequest(),
+                                             marker['id'])
+        networkclient.networks.assert_called_once_with(
+            paginated=False, limit=21, marker=marker['id'], sort_key='id',
+            sort_dir='asc')
+
     @mock.patch.object(api.neutron, 'network_get')
     def test_network_list_paged_second_page_has_more(self, mock_net_get):
         source_networks = neutron_data.source_nets_pagination1
