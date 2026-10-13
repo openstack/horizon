@@ -37,6 +37,7 @@ from openstack_dashboard import api
 from openstack_dashboard.dashboards.project.instances import console
 from openstack_dashboard.dashboards.project.instances import tables
 from openstack_dashboard.dashboards.project.instances import tabs
+from openstack_dashboard.dashboards.project.instances import utils
 from openstack_dashboard.dashboards.project.instances import workflows
 from openstack_dashboard.test import helpers
 from openstack_dashboard.views import get_url_with_pagination
@@ -54,30 +55,18 @@ SNAPSHOT_SEARCH_OPTS = dict(status=AVAILABLE)
 
 class InstanceTestBase(helpers.ResetImageAPIVersionMixin,
                        helpers.TestCase):
-    def _assert_mock_image_list_detailed_calls(self):
-        expected_calls = [
-            mock.call(helpers.IsHttpRequest()),
-            mock.call(
-                helpers.IsHttpRequest(),
-                filters={'visibility': 'community'}
-            )
-        ]
-        self.mock_image_list_detailed.assert_has_calls(expected_calls, False)
+    def _assert_mock_image_list_detailed_calls(self, image_ids=None,
+                                               count=1):
+        # All servers in the test data use the first image.
+        if image_ids is None:
+            image_ids = [self.images.first().id]
+        self.assert_mock_multiple_calls_with_same_arguments(
+            self.mock_image_list_detailed, count,
+            mock.call(helpers.IsHttpRequest(),
+                      filters={'id': 'in:' + ','.join(sorted(image_ids))}))
 
     def _assert_mock_image_list_detailed_calls_double(self):
-        expected_calls = [
-            mock.call(helpers.IsHttpRequest()),
-            mock.call(
-                helpers.IsHttpRequest(),
-                filters={'visibility': 'community'}
-            ),
-            mock.call(helpers.IsHttpRequest()),
-            mock.call(
-                helpers.IsHttpRequest(),
-                filters={'visibility': 'community'}
-            )
-        ]
-        self.mock_image_list_detailed.assert_has_calls(expected_calls, False)
+        self._assert_mock_image_list_detailed_calls(count=2)
 
     def setUp(self):
         super().setUp()
@@ -266,6 +255,26 @@ class InstanceTableTests(InstanceTestBase, InstanceTableTestMixin):
         self.assertNotContains(res, "Launch Instance (Quota exceeded)")
         self._check_get_index(use_servers_update_address=False)
 
+    def test_index_filter_by_image_name(self):
+        image = self.images.first()
+        self.client.post(INDEX_URL,
+                         data={'instances__filter__q_field': 'image_name',
+                               'instances__filter__q': image.name.upper()})
+        res = self._get_index()
+
+        self.assertTemplateUsed(res, INDEX_TEMPLATE)
+        self.mock_image_list_detailed.assert_has_calls([
+            mock.call(helpers.IsHttpRequest()),
+            mock.call(helpers.IsHttpRequest(),
+                      filters={'visibility': 'community'}),
+        ])
+        self.assertEqual(2, self.mock_image_list_detailed.call_count)
+        self.mock_server_list_paged.assert_called_once_with(
+            helpers.IsHttpRequest(),
+            sort_dir='desc',
+            search_opts={'marker': None, 'paginate': True,
+                         'image': image.id})
+
     @helpers.create_mocks({
         api.nova: ('server_list_paged',
                    'tenant_absolute_limits',
@@ -288,7 +297,7 @@ class InstanceTableTests(InstanceTestBase, InstanceTableTestMixin):
         self.assertEqual(len(res.context['instances_table'].data), 0)
         self.assertMessageCount(res, error=1)
         self.mock_flavor_list.assert_called_once_with(helpers.IsHttpRequest())
-        self._assert_mock_image_list_detailed_calls()
+        self.mock_image_list_detailed.assert_not_called()
 
         self.mock_server_list_paged.assert_called_once_with(
             helpers.IsHttpRequest(),
@@ -409,7 +418,10 @@ class InstanceTableTests(InstanceTestBase, InstanceTableTestMixin):
             self.mock_is_feature_available, 10,
             mock.call(helpers.IsHttpRequest(), 'locked_attribute'))
         self.mock_flavor_list.assert_called_once_with(helpers.IsHttpRequest())
-        self._assert_mock_image_list_detailed_calls()
+        image_ids = {self.images.first().id}
+        if 'image_id' in volume_image_metadata:
+            image_ids.add(volume_image_metadata['image_id'])
+        self._assert_mock_image_list_detailed_calls(image_ids)
 
         search_opts = {'marker': None, 'paginate': True}
         self.mock_server_list_paged.assert_called_once_with(
@@ -3191,6 +3203,71 @@ class InstanceAjaxTests(helpers.TestCase):
             helpers.IsHttpRequest(), [server])
         self.mock_tenant_absolute_limits.assert_called_once_with(
             helpers.IsHttpRequest(), reserved=True)
+
+
+class InstanceImagesTests(helpers.TestCase):
+
+    def _image_list_detailed(self, request, filters):
+        image_ids = filters['id'][len('in:'):].split(',')
+        community = filters.get('visibility') == 'community'
+        images = [image for image in self.images.list()
+                  if (image.id in image_ids and
+                      (image.visibility == 'community') == community)]
+        return images, False, False
+
+    @helpers.create_mocks({api.glance: ('image_list_detailed',)})
+    def test_get_instance_images(self):
+        image = self.images.first()
+        community_image = self.images.get(name='community_image 1')
+        servers = self.servers.list()[:2]
+        # The second server boots from the volume attached to it.
+        servers[1].image = ''
+        volumes = self.cinder_volumes.list()
+        volumes[3].volume_image_metadata = {'image_id': community_image.id}
+        self.mock_image_list_detailed.side_effect = self._image_list_detailed
+
+        images = utils.get_instance_images(self.request, servers, volumes)
+
+        self.assertEqual({image.id: image,
+                          community_image.id: community_image}, images)
+        image_ids = ','.join(sorted([image.id, community_image.id]))
+        self.mock_image_list_detailed.assert_has_calls([
+            mock.call(self.request, filters={'id': 'in:' + image_ids}),
+            mock.call(self.request,
+                      filters={'id': 'in:' + community_image.id,
+                               'visibility': 'community'}),
+        ])
+        self.assertEqual(2, self.mock_image_list_detailed.call_count)
+
+    @helpers.create_mocks({api.glance: ('image_list_detailed',)})
+    def test_image_list_by_ids_chunked(self):
+        images = [image for image in self.images.list()
+                  if image.visibility != 'community'][:3]
+        image_ids = sorted(image.id for image in images)
+        deleted_id = 'ffffffff-ffff-ffff-ffff-ffffffffffff'
+        self.mock_image_list_detailed.side_effect = self._image_list_detailed
+
+        with mock.patch.object(utils, 'IMAGE_ID_FILTER_CHUNK_SIZE', 2):
+            result = utils.image_list_by_ids(self.request,
+                                             image_ids + [deleted_id])
+
+        self.assertEqual({image.id: image for image in images}, result)
+        self.mock_image_list_detailed.assert_has_calls([
+            mock.call(self.request,
+                      filters={'id': 'in:' + ','.join(image_ids[:2])}),
+            mock.call(self.request,
+                      filters={'id': 'in:%s,%s' % (image_ids[2],
+                                                   deleted_id)}),
+            mock.call(self.request,
+                      filters={'id': 'in:' + deleted_id,
+                               'visibility': 'community'}),
+        ])
+        self.assertEqual(3, self.mock_image_list_detailed.call_count)
+
+    @helpers.create_mocks({api.glance: ('image_list_detailed',)})
+    def test_image_list_by_ids_empty(self):
+        self.assertEqual({}, utils.image_list_by_ids(self.request, []))
+        self.mock_image_list_detailed.assert_not_called()
 
 
 class ConsoleManagerTests(helpers.ResetImageAPIVersionMixin, helpers.TestCase):

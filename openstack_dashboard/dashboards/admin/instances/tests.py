@@ -31,13 +31,26 @@ INDEX_TEMPLATE = 'horizon/common/_data_table_view.html'
 class InstanceViewTest(test.BaseAdminViewTests):
 
     def _mock_image_list_detailed_side_effect(self, *args, **kwargs):
+        filters = kwargs.get('filters', {})
         images = self.images.list()
-        if 'filters' in kwargs:
+        if 'id' in filters:
+            image_ids = filters['id'][len('in:'):].split(',')
+            images = [image for image in images if image.id in image_ids]
+        if 'name' in filters:
+            images = [image for image in images
+                      if image.name == filters['name']]
+        if filters.get('visibility') == 'community':
             return [[image for image in images if
                      image.visibility == 'community']]
         else:
             return [[image for image in images if
                      image.visibility != 'community']]
+
+    def _check_image_list_detailed(self):
+        # All servers in the test data use the first image.
+        self.mock_image_list_detailed.assert_called_once_with(
+            test.IsHttpRequest(),
+            filters={'id': 'in:' + self.images.first().id})
 
     @test.create_mocks({
         api.nova: ['flavor_list', 'server_list_paged'],
@@ -62,9 +75,81 @@ class InstanceViewTest(test.BaseAdminViewTests):
         self.assertCountEqual(instances, servers)
 
         self.mock_tenant_list.assert_called_once_with(test.IsHttpRequest())
-        self.assertEqual(self.mock_image_list_detailed.call_count, 4)
+        self._check_image_list_detailed()
         self.mock_flavor_list.assert_called_once_with(test.IsHttpRequest())
         search_opts = {'marker': None, 'paginate': True, 'all_tenants': True}
+        self.mock_server_list_paged.assert_called_once_with(
+            test.IsHttpRequest(),
+            sort_dir='desc',
+            search_opts=search_opts)
+
+    @test.create_mocks({
+        api.nova: ['flavor_list', 'server_list_paged'],
+        api.keystone: ['tenant_list'],
+        api.glance: ['image_list_detailed'],
+        api.cinder: ['volume_list']
+    })
+    def test_index_community_and_volume_images(self):
+        community_image = self.images.get(name='community_image 1')
+        volume_image = self.images.get(name='private_image')
+        servers = self.servers.list()[:2]
+        servers[0].image['id'] = community_image.id
+        # The second server boots from the volume attached to it.
+        servers[1].image = ''
+        servers = [api.nova.Server(s, self.request) for s in servers]
+        volumes = self.cinder_volumes.list()
+        volumes[3].volume_image_metadata = {'image_id': volume_image.id}
+
+        self.mock_tenant_list.return_value = [self.tenants.list(), False]
+        self.mock_image_list_detailed.side_effect =\
+            self._mock_image_list_detailed_side_effect
+        self.mock_flavor_list.return_value = self.flavors.list()
+        self.mock_server_list_paged.return_value = [servers, False, False]
+        self.mock_volume_list.return_value = volumes
+
+        res = self.client.get(INDEX_URL)
+        self.assertTemplateUsed(res, INDEX_TEMPLATE)
+        self.assertContains(res, community_image.name)
+        self.assertContains(res, volume_image.name)
+
+        image_ids = sorted([community_image.id, volume_image.id])
+        self.mock_image_list_detailed.assert_has_calls([
+            mock.call(test.IsHttpRequest(),
+                      filters={'id': 'in:' + ','.join(image_ids)}),
+            mock.call(test.IsHttpRequest(),
+                      filters={'id': 'in:' + community_image.id,
+                               'visibility': 'community'}),
+        ])
+        self.assertEqual(2, self.mock_image_list_detailed.call_count)
+
+    @test.create_mocks({
+        api.nova: ['flavor_list', 'server_list_paged'],
+        api.keystone: ['tenant_list'],
+        api.glance: ['image_list_detailed'],
+        api.cinder: ['volume_list']
+    })
+    def test_index_filter_by_image_name(self):
+        image = self.images.first()
+        self.mock_tenant_list.return_value = [self.tenants.list(), False]
+        self.mock_image_list_detailed.side_effect =\
+            self._mock_image_list_detailed_side_effect
+        self.mock_flavor_list.return_value = self.flavors.list()
+        self.mock_server_list_paged.return_value = [
+            self.servers.list(), False, False]
+        self.mock_volume_list.return_value = self.cinder_volumes.list()
+
+        self.client.post(
+            INDEX_URL,
+            data={'instances__filter_admin_instances__q_field': 'image_name',
+                  'instances__filter_admin_instances__q': image.name})
+        res = self.client.get(INDEX_URL)
+        self.assertTemplateUsed(res, INDEX_TEMPLATE)
+        self.assertContains(res, image.name)
+
+        self.mock_image_list_detailed.assert_called_once_with(
+            test.IsHttpRequest(), filters={'name': image.name})
+        search_opts = {'marker': None, 'paginate': True, 'all_tenants': True,
+                       'image': image.id}
         self.mock_server_list_paged.assert_called_once_with(
             test.IsHttpRequest(),
             sort_dir='desc',
@@ -107,7 +192,7 @@ class InstanceViewTest(test.BaseAdminViewTests):
         self.mock_flavor_get.assert_has_calls(
             [mock.call(test.IsHttpRequest(), s.flavor['id']) for s in servers])
         self.assertEqual(len(servers), self.mock_flavor_get.call_count)
-        self.assertEqual(self.mock_image_list_detailed.call_count, 4)
+        self._check_image_list_detailed()
 
     @test.create_mocks({
         api.nova: ['flavor_list', 'flavor_get', 'server_list_paged'],
@@ -135,7 +220,7 @@ class InstanceViewTest(test.BaseAdminViewTests):
         self.assertTemplateUsed(res, INDEX_TEMPLATE)
         self.assertCountEqual(instances, servers)
 
-        self.assertEqual(self.mock_image_list_detailed.call_count, 4)
+        self._check_image_list_detailed()
         self.mock_flavor_list.assert_called_once_with(test.IsHttpRequest())
         search_opts = {'marker': None, 'paginate': True, 'all_tenants': True}
         self.mock_server_list_paged.assert_called_once_with(
@@ -171,7 +256,7 @@ class InstanceViewTest(test.BaseAdminViewTests):
             sort_dir='desc',
             search_opts=search_opts)
         self.mock_tenant_list.assert_called_once_with(test.IsHttpRequest())
-        self.assertEqual(self.mock_image_list_detailed.call_count, 4)
+        self.mock_image_list_detailed.assert_not_called()
         self.mock_flavor_list.assert_called_once_with(test.IsHttpRequest())
 
     @test.create_mocks({api.nova: ['server_get', 'flavor_get'],
@@ -231,7 +316,7 @@ class InstanceViewTest(test.BaseAdminViewTests):
         self.assertNotContains(res, "instances__revert")
 
         self.mock_tenant_list.assert_called_once_with(test.IsHttpRequest())
-        self.assertEqual(self.mock_image_list_detailed.call_count, 4)
+        self._check_image_list_detailed()
         self.mock_flavor_list.assert_called_once_with(test.IsHttpRequest())
         search_opts = {'marker': None, 'paginate': True, 'all_tenants': True}
         self.mock_server_list_paged.assert_called_once_with(
@@ -264,7 +349,7 @@ class InstanceViewTest(test.BaseAdminViewTests):
         self.assertNotContains(res, "instances__migrate")
 
         self.mock_tenant_list.assert_called_once_with(test.IsHttpRequest())
-        self.assertEqual(self.mock_image_list_detailed.call_count, 4)
+        self._check_image_list_detailed()
         self.mock_flavor_list.assert_called_once_with(test.IsHttpRequest())
         search_opts = {'marker': None, 'paginate': True, 'all_tenants': True}
         self.mock_server_list_paged.assert_called_once_with(
@@ -492,7 +577,7 @@ class InstanceViewTest(test.BaseAdminViewTests):
         self.assertEqual(res.status_code, 200)
 
         self.mock_tenant_list.assert_called_once_with(test.IsHttpRequest())
-        self.assertEqual(self.mock_image_list_detailed.call_count, 4)
+        self._check_image_list_detailed()
         self.mock_flavor_list.assert_called_once_with(test.IsHttpRequest())
         search_opts = {'marker': marker, 'paginate': True, 'all_tenants': True}
         self.mock_server_list_paged.assert_called_once_with(

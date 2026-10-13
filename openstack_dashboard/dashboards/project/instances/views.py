@@ -103,6 +103,14 @@ class IndexView(tables.PagedTableMixin, tables.DataTableView):
             exceptions.handle(self.request, ignore=True)
             return {}
 
+    def _get_instance_images(self, instances, volume_dict):
+        try:
+            return instance_utils.get_instance_images(
+                self.request, instances, volume_dict.values())
+        except Exception:
+            exceptions.handle(self.request, ignore=True)
+            return {}
+
     def _get_instances(self, search_opts, sort_dir):
         try:
             instances, self._more, self._prev = api.nova.server_list_paged(
@@ -152,10 +160,19 @@ class IndexView(tables.PagedTableMixin, tables.DataTableView):
         marker, sort_dir = self._get_marker()
         search_opts = self.get_filters({'marker': marker, 'paginate': True})
 
-        image_dict, flavor_dict, volume_dict = \
-            futurist_utils.call_functions_parallel(
-                self._get_images, self._get_flavors, self._get_volumes
-            )
+        # Only the image name filter needs the full image list.
+        filter_by_image_name = 'image_name' in search_opts
+        if filter_by_image_name:
+            image_dict, flavor_dict, volume_dict = \
+                futurist_utils.call_functions_parallel(
+                    self._get_images, self._get_flavors, self._get_volumes
+                )
+        else:
+            image_dict = {}
+            flavor_dict, volume_dict = \
+                futurist_utils.call_functions_parallel(
+                    self._get_flavors, self._get_volumes
+                )
 
         non_api_filter_info = (
             ('image_name', 'image', image_dict.values()),
@@ -166,6 +183,9 @@ class IndexView(tables.PagedTableMixin, tables.DataTableView):
             return []
 
         instances = self._get_instances(search_opts, sort_dir)
+
+        if not filter_by_image_name:
+            image_dict = self._get_instance_images(instances, volume_dict)
 
         # Loop through instances to get flavor info.
         for instance in instances:

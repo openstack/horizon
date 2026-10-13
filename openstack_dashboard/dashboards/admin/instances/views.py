@@ -95,25 +95,10 @@ class AdminIndexView(tables.PagedTableMixin, tables.DataTableView):
             exceptions.handle(self.request, msg)
             return {}
 
-    def _get_images(self):
-        # Gather our images to correlate our instances to them
+    def _get_instance_images(self, instances, volume_dict):
         try:
-            # Community images have to be retrieved separately and merged,
-            # because their visibility has to be explicitly defined in the
-            # API call and the Glance API currently does not support filtering
-            # by multiple values in the visibility field.
-            # TODO(gabriel): Handle pagination.
-            images = api.glance.image_list_detailed(self.request)[0]
-            community_images = api.glance.image_list_detailed(
-                self.request, filters={'visibility': 'community'})[0]
-            image_map = {
-                image.id: image for image in images
-            }
-            # Images have to be filtered by their uuids; some users
-            # have default access to certain community images.
-            for image in community_images:
-                image_map.setdefault(image.id, image)
-            return image_map
+            return instance_utils.get_instance_images(
+                self.request, instances, volume_dict.values())
         except Exception:
             exceptions.handle(self.request, ignore=True)
             return {}
@@ -177,11 +162,10 @@ class AdminIndexView(tables.PagedTableMixin, tables.DataTableView):
         self._needs_filter_first = False
 
         results = futurist_utils.call_functions_parallel(
-            self._get_images,
             self._get_volumes,
             self._get_flavors,
             self._get_tenants)
-        image_dict, volume_dict, flavor_dict, tenant_dict = results
+        volume_dict, flavor_dict, tenant_dict = results
 
         non_api_filter_info = [
             ('project', 'tenant_id', tenant_dict.values()),
@@ -202,7 +186,7 @@ class AdminIndexView(tables.PagedTableMixin, tables.DataTableView):
         instances = self._get_instances(search_opts, sort_dir)
 
         if not filter_by_image_name:
-            image_dict = self._get_images()
+            image_dict = self._get_instance_images(instances, volume_dict)
 
         # Loop through instances to get image, flavor and tenant info.
         for inst in instances:

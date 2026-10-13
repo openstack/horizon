@@ -22,6 +22,11 @@ from openstack_dashboard import api
 
 LOG = logging.getLogger(__name__)
 
+# Image IDs per "id=in:" query. A page of instances rarely needs more than
+# one query, the limit keeps the URL short (about 1.6 KB) when the page
+# size is large.
+IMAGE_ID_FILTER_CHUNK_SIZE = 40
+
 
 def flavor_list(request):
     """Utility method to retrieve a list of flavors."""
@@ -300,3 +305,48 @@ def resolve_flavor(request, instance, flavors=None, **kwargs):
     else:
         instance.flavor['name'] = instance.flavor['original_name']
         return flavor_from_dict(instance.flavor)
+
+
+def image_list_by_ids(request, image_ids):
+    """Return a dict of the given images keyed by image ID.
+
+    Glance lists community images only when they are requested with
+    visibility=community, so IDs missing from the first listing are
+    looked up once more with that filter.
+    """
+    images = {}
+    for visibility in (None, 'community'):
+        missing = sorted(set(image_ids) - set(images))
+        for i in range(0, len(missing), IMAGE_ID_FILTER_CHUNK_SIZE):
+            chunk = missing[i:i + IMAGE_ID_FILTER_CHUNK_SIZE]
+            filters = {'id': 'in:' + ','.join(chunk)}
+            if visibility:
+                filters['visibility'] = visibility
+            found = api.glance.image_list_detailed(request,
+                                                   filters=filters)[0]
+            images.update((image.id, image) for image in found)
+    return images
+
+
+def get_instance_images(request, instances, volumes):
+    """Return the images shown for the given instances, keyed by image ID.
+
+    These are the images of image-backed instances and the source images
+    of the volumes attached to volume-backed instances.
+    """
+    image_ids = set()
+    volume_backed = set()
+    for instance in instances:
+        image = getattr(instance, 'image', None)
+        if isinstance(image, dict):
+            if image.get('id'):
+                image_ids.add(image['id'])
+        else:
+            volume_backed.add(instance.id)
+    for volume in volumes:
+        if any(attachment['server_id'] in volume_backed
+               for attachment in volume.attachments):
+            metadata = getattr(volume, 'volume_image_metadata', None) or {}
+            if metadata.get('image_id'):
+                image_ids.add(metadata['image_id'])
+    return image_list_by_ids(request, image_ids)
