@@ -234,7 +234,7 @@ def port_field_data(request, with_network=False):
              add_more_info_port_name(port, network_dict[port.network_id]))
             for port
             in api.neutron.port_list_with_trunk_types(
-                request, tenant_id=request.user.tenant_id)
+                request, project_id=request.user.tenant_id)
             if (not port.device_owner and
                 not isinstance(port, api.neutron.PortTrunkSubport))
         ]

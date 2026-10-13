@@ -341,7 +341,7 @@ class JSONView(View):
         try:
             neutron_routers = api.neutron.router_list(
                 request,
-                tenant_id=request.user.tenant_id)
+                project_id=request.user.tenant_id)
         except Exception:
             neutron_routers = []
 

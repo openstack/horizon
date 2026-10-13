@@ -3360,7 +3360,7 @@ class ConsoleManagerTests(helpers.ResetImageAPIVersionMixin, helpers.TestCase):
         ])
         self.assertEqual(2, self.mock_network_list_for_tenant.call_count)
         self.mock_port_list_with_trunk_types.assert_called_once_with(
-            helpers.IsHttpRequest(), tenant_id=self.tenant.id)
+            helpers.IsHttpRequest(), project_id=self.tenant.id)
 
     @helpers.create_mocks({api.neutron: ('network_list_for_tenant',
                                          'port_list_with_trunk_types'),
@@ -3404,7 +3404,7 @@ class ConsoleManagerTests(helpers.ResetImageAPIVersionMixin, helpers.TestCase):
         ])
         self.assertEqual(2, self.mock_network_list_for_tenant.call_count)
         self.mock_port_list_with_trunk_types.assert_called_once_with(
-            helpers.IsHttpRequest(), tenant_id=self.tenant.id)
+            helpers.IsHttpRequest(), project_id=self.tenant.id)
         if by_port:
             self.mock_interface_attach.assert_called_once_with(
                 helpers.IsHttpRequest(), server.id,

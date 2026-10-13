@@ -298,7 +298,7 @@ class QoSPolicies(generic.View):
         Each item is a qos policy.
         """
         result = api.neutron.policy_list(request,
-                                         tenant_id=request.user.project_id)
+                                         project_id=request.user.project_id)
         return {'items': [p.to_dict() for p in result]}
 
     @rest_utils.ajax(data_required=True)

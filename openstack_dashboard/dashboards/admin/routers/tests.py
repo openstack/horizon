@@ -339,6 +339,33 @@ class RouterTests(RouterMixin, r_test.RouterTestCase, test.BaseAdminViewTests):
             mock.call(test.IsHttpRequest(), "router_availability_zone"))
         self.mock_tenant_list.assert_called_once_with(test.IsHttpRequest())
 
+    @test.create_mocks({api.neutron: ('router_list',
+                                      'network_list',
+                                      'is_extension_supported'),
+                        api.keystone: ('tenant_list',),
+                        quotas: ('tenant_quota_usages',)})
+    def test_routers_list_with_project_filter(self):
+        tenant = self.tenants.first()
+        routers = [r for r in self.routers.list()
+                   if r.tenant_id == tenant.id]
+        self.mock_router_list.return_value = routers
+        self.mock_is_extension_supported.return_value = True
+        self.mock_tenant_list.return_value = [self.tenants.list(), False]
+        self.mock_tenant_quota_usages.return_value = (
+            self.neutron_quota_usages.first())
+        self._mock_external_network_list()
+
+        self.client.post(
+            self.INDEX_URL,
+            data={'routers__filter_admin_routers__q_field': 'project',
+                  'routers__filter_admin_routers__q': tenant.name})
+        res = self.client.get(self.INDEX_URL)
+        self.assertTemplateUsed(res, INDEX_TEMPLATE)
+        self.assertCountEqual(res.context['table'].data, routers)
+
+        self.mock_router_list.assert_called_once_with(
+            test.IsHttpRequest(), project_id=[tenant.id])
+
 
 class RouterViewTests(r_test.RouterViewTests):
     DASHBOARD = 'admin'

@@ -44,7 +44,7 @@ class IndexView(r_views.IndexView, n_views.IndexView):
             # If the tenant filter selected and the tenant does not exist.
             # We do not need to retrieve the list from neutron,just return
             # an empty list.
-            if 'tenant_id' in filters and not filters['tenant_id']:
+            if 'project_id' in filters and not filters['project_id']:
                 return []
 
             # If admin_filter_first is set and if there are not other filters
@@ -85,12 +85,9 @@ class IndexView(r_views.IndexView, n_views.IndexView):
 
     def get_filters(self, filters=None, filters_map=None):
         filters = super().get_filters(filters, filters_map)
-        if 'project' in filters:
-            tenants = api.keystone.tenant_list(self.request)[0]
-            tenants_filter_ids = [t.id for t in tenants
-                                  if t.name == filters['project']]
-            del filters['project']
-            filters['tenant_id'] = tenants_filter_ids
+        # The networks IndexView turns the project name filter into tenant_id.
+        if 'tenant_id' in filters:
+            filters['project_id'] = filters.pop('tenant_id')
         return filters
 
 

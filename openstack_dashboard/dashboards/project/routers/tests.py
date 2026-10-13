@@ -101,7 +101,7 @@ class RouterTestCase(object):
         self.assertCountEqual(routers, self.routers.list())
 
         self.mock_router_list.assert_called_once_with(
-            test.IsHttpRequest(), tenant_id=self.tenant.id)
+            test.IsHttpRequest(), project_id=self.tenant.id)
         self.assert_mock_multiple_calls_with_same_arguments(
             self.mock_tenant_quota_usages, 2,
             mock.call(test.IsHttpRequest(), targets=('router',)))
@@ -127,7 +127,7 @@ class RouterTestCase(object):
         self.assertMessageCount(res, error=1)
 
         self.mock_router_list.assert_called_once_with(
-            test.IsHttpRequest(), tenant_id=self.tenant.id)
+            test.IsHttpRequest(), project_id=self.tenant.id)
         self.assert_mock_multiple_calls_with_same_arguments(
             self.mock_tenant_quota_usages, 2,
             mock.call(test.IsHttpRequest(), targets=('router',)))
@@ -157,7 +157,7 @@ class RouterTestCase(object):
         self.assertMessageCount(res, error=1)
 
         self.mock_router_list.assert_called_once_with(
-            test.IsHttpRequest(), tenant_id=self.tenant.id)
+            test.IsHttpRequest(), project_id=self.tenant.id)
         self.assert_mock_multiple_calls_with_same_arguments(
             self.mock_tenant_quota_usages, 2,
             mock.call(test.IsHttpRequest(), targets=('router',)))
@@ -220,7 +220,7 @@ class RouterTestCase(object):
 
         self.assert_mock_multiple_calls_with_same_arguments(
             self.mock_router_list, 3,
-            mock.call(test.IsHttpRequest(), tenant_id=self.tenant.id))
+            mock.call(test.IsHttpRequest(), project_id=self.tenant.id))
         self.assert_mock_multiple_calls_with_same_arguments(
             self.mock_tenant_quota_usages, 4,
             mock.call(test.IsHttpRequest(), targets=('router', )))
@@ -264,7 +264,7 @@ class RouterTestCase(object):
 
         self.assert_mock_multiple_calls_with_same_arguments(
             self.mock_router_list, 3,
-            mock.call(test.IsHttpRequest(), tenant_id=self.tenant.id))
+            mock.call(test.IsHttpRequest(), project_id=self.tenant.id))
         self.assert_mock_multiple_calls_with_same_arguments(
             self.mock_tenant_quota_usages, 4,
             mock.call(test.IsHttpRequest(), targets=('router', )))
@@ -1194,7 +1194,7 @@ class RouterViewTests(RouterMixin, test.TestCase):
                          create_action.verbose_name)
 
         self.mock_router_list.assert_called_once_with(
-            test.IsHttpRequest(), tenant_id=self.tenant.id)
+            test.IsHttpRequest(), project_id=self.tenant.id)
         self.assert_mock_multiple_calls_with_same_arguments(
             self.mock_tenant_quota_usages, 3,
             mock.call(test.IsHttpRequest(), targets=('router', )))
@@ -1227,7 +1227,7 @@ class RouterViewTests(RouterMixin, test.TestCase):
                          create_action.verbose_name)
 
         self.mock_router_list.assert_called_once_with(
-            test.IsHttpRequest(), tenant_id=self.tenant.id)
+            test.IsHttpRequest(), project_id=self.tenant.id)
         self.assert_mock_multiple_calls_with_same_arguments(
             self.mock_tenant_quota_usages, 3,
             mock.call(test.IsHttpRequest(), targets=('router', )))
@@ -1261,7 +1261,7 @@ class RouterViewTests(RouterMixin, test.TestCase):
                          create_action.policy_rules)
 
         self.mock_router_list.assert_called_once_with(
-            test.IsHttpRequest(), tenant_id=self.tenant.id)
+            test.IsHttpRequest(), project_id=self.tenant.id)
         self.assert_mock_multiple_calls_with_same_arguments(
             self.mock_tenant_quota_usages, 3,
             mock.call(test.IsHttpRequest(), targets=('router', )))
