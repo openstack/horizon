@@ -101,6 +101,42 @@ class HypervisorViewTest(test.BaseAdminViewTests):
     @test.create_mocks({api.nova: ['hypervisor_list',
                                    'hypervisor_stats',
                                    'service_list'],
+                        api.placement: ['resource_providers',
+                                        'resource_provider_inventories',
+                                        'resource_provider_usages']})
+    def test_index_provider_tab(self):
+        self.mock_hypervisor_list.return_value = self.hypervisors.list()
+        self.mock_hypervisor_stats.return_value = self.hypervisors.stats
+        self.mock_service_list.return_value = [
+            service for service in self.services.list()
+            if service.binary == 'nova-compute']
+        self.mock_resource_providers.return_value = [
+            {'uuid': 'test-provider-uuid', 'name': 'test-host',
+             'parent_provider_uuid': None,
+             'root_provider_uuid': 'test-provider-uuid'}]
+        self.mock_resource_provider_inventories.return_value = \
+            self.TEST_PROVIDER['inventories']
+        self.mock_resource_provider_usages.return_value = \
+            self.TEST_PROVIDER['usages']
+
+        url = reverse('horizon:admin:hypervisors:index')
+        res = self.client.get(url + '?tab=hypervisor_info__provider')
+
+        provider_tab = res.context['tab_group'].get_tab('provider')
+        self.assertEqual([self.TEST_PROVIDER],
+                         provider_tab._tables['providers'].data)
+        self.assertEqual([self.TEST_PROVIDER], res.context['providers'])
+        # The summary and the provider tab use the same placement data.
+        self.mock_resource_providers.assert_called_once_with(
+            test.IsHttpRequest())
+        self.mock_resource_provider_inventories.assert_called_once_with(
+            test.IsHttpRequest(), 'test-provider-uuid')
+        self.mock_resource_provider_usages.assert_called_once_with(
+            test.IsHttpRequest(), 'test-provider-uuid')
+
+    @test.create_mocks({api.nova: ['hypervisor_list',
+                                   'hypervisor_stats',
+                                   'service_list'],
                         api.placement: ['get_providers']})
     @override_settings(SHOW_RESOURCE_PROVIDER_SUMMARY=False)
     def test_disable_provider_view_summary(self):

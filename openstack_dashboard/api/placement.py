@@ -10,7 +10,10 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
+import functools
+
 from django.conf import settings
+import futurist
 from keystoneauth1 import adapter
 from keystoneauth1 import identity
 from keystoneauth1 import session
@@ -18,6 +21,11 @@ from keystoneauth1 import session
 from openstack_dashboard.api import base
 
 from horizon.utils.memoized import memoized
+
+# A keystoneauth session pools 10 connections per host (the requests default).
+# With more workers urllib3 opens extra connections and discards them with a
+# "Connection pool is full" warning.
+PROVIDER_DETAILS_WORKERS = 10
 
 
 class Adapter(adapter.LegacyJsonAdapter):
@@ -96,6 +104,12 @@ def resource_provider_traits(request, uuid):
     return _get_json(request, f'/resource_providers/{uuid}/traits')['traits']
 
 
+def _provider_inventories_and_usages(request, uuid):
+    return (resource_provider_inventories(request, uuid),
+            resource_provider_usages(request, uuid))
+
+
+@memoized
 def get_providers(request):
     providers = resource_providers(request)
     # Filter to root providers only (microversion 1.14+). Nested child
@@ -104,9 +118,16 @@ def get_providers(request):
     # by the number of devices rather than the number of hosts.
     providers = [p for p in providers
                  if p.get('parent_provider_uuid') is None]
-    for p in providers:
-        inventories = resource_provider_inventories(request, p['uuid'])
-        usages = resource_provider_usages(request, p['uuid'])
+    if not providers:
+        return providers
+
+    workers = min(len(providers), PROVIDER_DETAILS_WORKERS)
+    with futurist.ThreadPoolExecutor(max_workers=workers) as executor:
+        details = list(executor.map(
+            functools.partial(_provider_inventories_and_usages, request),
+            [p['uuid'] for p in providers]))
+
+    for p, (inventories, usages) in zip(providers, details):
         vcpus = inventories.get('VCPU')
         pcpus = inventories.get('PCPU')
         memory = inventories.get('MEMORY_MB')
