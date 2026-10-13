@@ -22,12 +22,15 @@ from django.forms import widgets
 from django.template.defaultfilters import slugify
 from django.test.utils import override_settings
 from django.urls import reverse
+from novaclient import exceptions as nova_exceptions
 
 from openstack_dashboard import api
 from openstack_dashboard.api import cinder
 from openstack_dashboard.dashboards.project.volumes \
     import tables as volume_tables
 from openstack_dashboard.dashboards.project.volumes import tabs
+from openstack_dashboard.dashboards.project.volumes \
+    import views as volume_views
 from openstack_dashboard.test import helpers as test
 from openstack_dashboard.usage import quotas
 
@@ -38,7 +41,22 @@ SEARCH_OPTS = dict(status=api.cinder.VOLUME_STATE_AVAILABLE)
 ATTACHMENT_ID = '6061364b-6612-48a9-8fee-1a38fe072547'
 
 
-class VolumeIndexViewTests(test.ResetImageAPIVersionMixin, test.TestCase):
+class AttachedServersMixin(object):
+    def _server_get(self, request, server_id):
+        return self.servers.get(id=server_id)
+
+    def _check_server_get(self, volumes, page_loads=1):
+        server_ids = set(attachment['server_id'] for volume in volumes
+                         for attachment in volume.attachments)
+        self.mock_server_get.assert_has_calls(
+            [mock.call(test.IsHttpRequest(), server_id)
+             for server_id in server_ids], any_order=True)
+        self.assertEqual(len(server_ids) * page_loads,
+                         self.mock_server_get.call_count)
+
+
+class VolumeIndexViewTests(AttachedServersMixin,
+                           test.ResetImageAPIVersionMixin, test.TestCase):
     @test.create_mocks({
         api.nova: ['server_get', 'server_list'],
         api.cinder: ['volume_backup_supported',
@@ -63,9 +81,7 @@ class VolumeIndexViewTests(test.ResetImageAPIVersionMixin, test.TestCase):
 
         self.mock_volume_list_paged.return_value = [volumes, False, False]
         if with_attachments:
-            self.mock_server_get.return_value = server
-
-            self.mock_server_list.return_value = [self.servers.list(), False]
+            self.mock_server_get.side_effect = self._server_get
             self.mock_volume_snapshot_list.return_value = vol_snaps
 
         self.mock_tenant_absolute_limits.return_value = \
@@ -74,9 +90,10 @@ class VolumeIndexViewTests(test.ResetImageAPIVersionMixin, test.TestCase):
         res = self.client.get(INDEX_URL)
 
         if with_attachments:
-            self.mock_server_list.assert_called_once_with(test.IsHttpRequest(),
-                                                          search_opts=None)
+            self.assertContains(res, server.name)
+            self._check_server_get(volumes)
             self.mock_volume_snapshot_list.assert_called_once()
+        self.mock_server_list.assert_not_called()
 
         if with_groups:
             self.mock_group_list.assert_called_once_with(test.IsHttpRequest(),
@@ -101,8 +118,59 @@ class VolumeIndexViewTests(test.ResetImageAPIVersionMixin, test.TestCase):
     def test_index_with_volume_groups(self):
         self._test_index(with_groups=True)
 
+    @test.create_mocks({api.nova: ['server_get', 'server_list']})
+    def test_get_attached_instances(self):
+        server = self.servers.first()
+        deleted_id = '9f6aaf35-5ab8-4fbc-9ae6-a1e7d2a54dc5'
+
+        def server_get(request, server_id):
+            if server_id == server.id:
+                return server
+            raise nova_exceptions.NotFound(404)
+        self.mock_server_get.side_effect = server_get
+
+        mixin = volume_views.VolumeTableMixIn()
+        mixin.request = self.request
+        instances = mixin._get_attached_instances(
+            [server.id, deleted_id, server.id, None])
+
+        self.assertEqual([server], instances)
+        self.assertEqual('-', server.image['name'])
+        self.mock_server_get.assert_has_calls(
+            [mock.call(self.request, server.id),
+             mock.call(self.request, deleted_id)], any_order=True)
+        self.assertEqual(2, self.mock_server_get.call_count)
+        self.mock_server_list.assert_not_called()
+
+    @test.create_mocks({api.nova: ['server_get', 'server_list']})
+    def test_get_attached_instances_above_limit(self):
+        servers = self.servers.list()
+        self.mock_server_list.return_value = [servers, False]
+
+        mixin = volume_views.VolumeTableMixIn()
+        mixin.request = self.request
+        with mock.patch.object(volume_views, 'ATTACHED_SERVERS_MAX', 2):
+            instances = mixin._get_attached_instances(
+                [s.id for s in servers], search_opts={'all_tenants': True})
+
+        self.assertEqual(servers, instances)
+        self.mock_server_list.assert_called_once_with(
+            self.request, search_opts={'all_tenants': True})
+        self.mock_server_get.assert_not_called()
+
+    @test.create_mocks({api.nova: ['server_get']})
+    def test_get_attached_instances_error(self):
+        self.mock_server_get.side_effect = self.exceptions.nova
+
+        mixin = volume_views.VolumeTableMixIn()
+        mixin.request = self.request
+        with mock.patch.object(volume_views.exceptions, 'handle') as handle:
+            instances = mixin._get_attached_instances(['1', '2'])
+
+        self.assertEqual([], instances)
+        handle.assert_called_once_with(self.request, mock.ANY)
+
     @test.create_mocks({
-        api.nova: ['server_list'],
         api.cinder: ['volume_backup_supported',
                      'volume_snapshot_list',
                      'volume_list_paged',
@@ -116,7 +184,6 @@ class VolumeIndexViewTests(test.ResetImageAPIVersionMixin, test.TestCase):
 
         self.mock_volume_list_paged.return_value = [[], True, True]
         self.mock_volume_get.return_value = volume
-        self.mock_server_list.return_value = [[], False]
         self.mock_volume_snapshot_list.return_value = []
         self.mock_tenant_absolute_limits.return_value = \
             self.cinder_limits['absolute']
@@ -151,14 +218,12 @@ class VolumeIndexViewTests(test.ResetImageAPIVersionMixin, test.TestCase):
                               has_more, has_prev):
         backup_supported = True
         vol_snaps = self.cinder_volume_snapshots.list()
-        server = self.servers.first()
 
         self.mock_volume_backup_supported.return_value = backup_supported
         self.mock_volume_list_paged.return_value = [volumes,
                                                     has_more, has_prev]
         self.mock_volume_snapshot_list.return_value = vol_snaps
-        self.mock_server_list.return_value = [self.servers.list(), False]
-        self.mock_server_get.return_value = server
+        self.mock_server_get.side_effect = self._server_get
         self.mock_tenant_absolute_limits.return_value = \
             self.cinder_limits['absolute']
 
@@ -172,8 +237,8 @@ class VolumeIndexViewTests(test.ResetImageAPIVersionMixin, test.TestCase):
             test.IsHttpRequest(), search_opts=None)
         self.mock_tenant_absolute_limits.assert_called_with(
             test.IsHttpRequest())
-        self.mock_server_list.assert_called_once_with(test.IsHttpRequest(),
-                                                      search_opts=None)
+        self._check_server_get(volumes)
+        self.mock_server_list.assert_not_called()
         self.assertEqual(res.status_code, 200)
         self.assertTemplateUsed(res, 'horizon/common/_data_table_view.html')
 
@@ -255,7 +320,8 @@ class VolumeIndexViewTests(test.ResetImageAPIVersionMixin, test.TestCase):
         self.assertIsNone(result)
 
 
-class VolumeViewTests(test.ResetImageAPIVersionMixin, test.TestCase):
+class VolumeViewTests(AttachedServersMixin,
+                      test.ResetImageAPIVersionMixin, test.TestCase):
     def tearDown(self):
         for volume in self.cinder_volumes.list():
             # VolumeTableMixIn._set_volume_attributes mutates data
@@ -1168,7 +1234,7 @@ class VolumeViewTests(test.ResetImageAPIVersionMixin, test.TestCase):
         self.mock_group_list.assert_called_with(test.IsHttpRequest())
 
     @test.create_mocks({
-        api.nova: ['server_list'],
+        api.nova: ['server_get'],
         cinder: ['volume_delete',
                  'volume_snapshot_list',
                  'volume_list_paged',
@@ -1182,7 +1248,7 @@ class VolumeViewTests(test.ResetImageAPIVersionMixin, test.TestCase):
 
         self.mock_volume_list_paged.return_value = [volumes, False, False]
         self.mock_volume_snapshot_list.return_value = []
-        self.mock_server_list.return_value = [self.servers.list(), False]
+        self.mock_server_get.side_effect = self._server_get
         self.mock_volume_list_paged.return_value = [volumes, False, False]
         self.mock_tenant_absolute_limits.return_value = \
             self.cinder_limits['absolute']
@@ -1199,8 +1265,7 @@ class VolumeViewTests(test.ResetImageAPIVersionMixin, test.TestCase):
         self.assertEqual(2, self.mock_volume_snapshot_list.call_count)
         self.mock_volume_delete.assert_called_once_with(test.IsHttpRequest(),
                                                         volume.id)
-        self.mock_server_list.assert_called_with(test.IsHttpRequest(),
-                                                 search_opts=None)
+        self._check_server_get(volumes, page_loads=2)
         self.assertEqual(8, self.mock_tenant_absolute_limits.call_count)
 
     @mock.patch.object(quotas, 'tenant_quota_usages')
@@ -1415,7 +1480,7 @@ class VolumeViewTests(test.ResetImageAPIVersionMixin, test.TestCase):
             mock.call(test.IsHttpRequest()))
 
     @test.create_mocks({
-        api.nova: ['server_list'],
+        api.nova: ['server_get'],
         cinder: ['volume_backup_supported',
                  'volume_snapshot_list',
                  'volume_list_paged',
@@ -1430,7 +1495,7 @@ class VolumeViewTests(test.ResetImageAPIVersionMixin, test.TestCase):
         self.mock_volume_backup_supported.return_value = True
         self.mock_volume_list_paged.return_value = [volumes, False, False]
         self.mock_volume_snapshot_list.return_value = []
-        self.mock_server_list.return_value = [self.servers.list(), False]
+        self.mock_server_get.side_effect = self._server_get
         self.mock_tenant_absolute_limits.return_value = limits
 
         res = self.client.get(INDEX_URL)
@@ -1453,12 +1518,11 @@ class VolumeViewTests(test.ResetImageAPIVersionMixin, test.TestCase):
             paginate=True, search_opts={})
         self.mock_volume_snapshot_list.assert_called_once_with(
             test.IsHttpRequest(), search_opts=None)
-        self.mock_server_list.assert_called_once_with(test.IsHttpRequest(),
-                                                      search_opts=None)
+        self._check_server_get(volumes)
         self.assertEqual(9, self.mock_tenant_absolute_limits.call_count)
 
     @test.create_mocks({
-        api.nova: ['server_list'],
+        api.nova: ['server_get'],
         cinder: ['volume_backup_supported',
                  'volume_snapshot_list',
                  'volume_list_paged',
@@ -1472,7 +1536,7 @@ class VolumeViewTests(test.ResetImageAPIVersionMixin, test.TestCase):
         self.mock_volume_backup_supported.return_value = True
         self.mock_volume_list_paged.return_value = [volumes, False, False]
         self.mock_volume_snapshot_list.return_value = []
-        self.mock_server_list.return_value = [self.servers.list(), False]
+        self.mock_server_get.side_effect = self._server_get
         self.mock_tenant_absolute_limits.return_value = limits
 
         res = self.client.get(INDEX_URL)
@@ -1488,8 +1552,7 @@ class VolumeViewTests(test.ResetImageAPIVersionMixin, test.TestCase):
         self.mock_volume_list_paged.assert_called_once_with(
             test.IsHttpRequest(), marker=None, paginate=True,
             sort_dir='desc', search_opts={})
-        self.mock_server_list.assert_called_once_with(test.IsHttpRequest(),
-                                                      search_opts=None)
+        self._check_server_get(volumes)
         self.assertEqual(9, self.mock_tenant_absolute_limits.call_count)
 
     @test.create_mocks({
@@ -1938,7 +2001,7 @@ class VolumeViewTests(test.ResetImageAPIVersionMixin, test.TestCase):
         self._test_encryption(True)
 
     @test.create_mocks({
-        api.nova: ['server_list'],
+        api.nova: ['server_get'],
         cinder: ['volume_backup_supported',
                  'volume_list_paged',
                  'volume_snapshot_list',
@@ -1955,7 +2018,7 @@ class VolumeViewTests(test.ResetImageAPIVersionMixin, test.TestCase):
                                                     False, False]
         self.mock_volume_snapshot_list.return_value = \
             self.cinder_volume_snapshots.list()
-        self.mock_server_list.return_value = [self.servers.list(), False]
+        self.mock_server_get.side_effect = self._server_get
         self.mock_tenant_absolute_limits.return_value = limits
 
         res = self.client.get(INDEX_URL)
@@ -1966,6 +2029,7 @@ class VolumeViewTests(test.ResetImageAPIVersionMixin, test.TestCase):
         for row in rows:
             self.assertEqual(row.cells['encryption'].data, column_value)
 
+        self._check_server_get(volumes)
         self.assertEqual(10, self.mock_volume_backup_supported.call_count)
         self.mock_volume_list_paged.assert_called_once_with(
             test.IsHttpRequest(), marker=None, sort_dir='desc',
@@ -2002,7 +2066,7 @@ class VolumeViewTests(test.ResetImageAPIVersionMixin, test.TestCase):
         self.assertEqual(2, mock_quotas.call_count)
 
     @test.create_mocks({
-        api.nova: ['server_list'],
+        api.nova: ['server_get'],
         cinder: ['volume_backup_supported',
                  'volume_list_paged',
                  'volume_snapshot_list',
@@ -2015,7 +2079,7 @@ class VolumeViewTests(test.ResetImageAPIVersionMixin, test.TestCase):
         self.mock_volume_list_paged.return_value = [self.cinder_volumes.list(),
                                                     False, False]
         self.mock_volume_snapshot_list.return_value = []
-        self.mock_server_list.return_value = [self.servers.list(), False]
+        self.mock_server_get.side_effect = self._server_get
         self.mock_tenant_absolute_limits.return_value = limits
 
         res = self.client.get(INDEX_URL)
@@ -2034,8 +2098,7 @@ class VolumeViewTests(test.ResetImageAPIVersionMixin, test.TestCase):
             search_opts={}, paginate=True)
         self.mock_volume_snapshot_list.assert_called_once_with(
             test.IsHttpRequest(), search_opts=None)
-        self.mock_server_list.assert_called_once_with(test.IsHttpRequest(),
-                                                      search_opts=None)
+        self._check_server_get(table.data)
         self.assertEqual(13, self.mock_tenant_absolute_limits.call_count)
 
     @mock.patch.object(cinder, 'transfer_get')
@@ -2063,7 +2126,7 @@ class VolumeViewTests(test.ResetImageAPIVersionMixin, test.TestCase):
                                                   transfer.id)
 
     @test.create_mocks({
-        api.nova: ['server_list'],
+        api.nova: ['server_get'],
         cinder: ['volume_backup_supported',
                  'volume_list_paged',
                  'volume_snapshot_list',
@@ -2087,7 +2150,7 @@ class VolumeViewTests(test.ResetImageAPIVersionMixin, test.TestCase):
         self.mock_volume_backup_supported.return_value = False
         self.mock_volume_list_paged.return_value = [volumes, False, False]
         self.mock_volume_snapshot_list.return_value = []
-        self.mock_server_list.return_value = [self.servers.list(), False]
+        self.mock_server_get.side_effect = self._server_get
         self.mock_tenant_absolute_limits.return_value = \
             self.cinder_limits['absolute']
 
@@ -2105,12 +2168,11 @@ class VolumeViewTests(test.ResetImageAPIVersionMixin, test.TestCase):
             test.IsHttpRequest(), search_opts=None)
         self.mock_transfer_delete.assert_called_once_with(test.IsHttpRequest(),
                                                           transfer.id)
-        self.mock_server_list.assert_called_once_with(test.IsHttpRequest(),
-                                                      search_opts=None)
+        self._check_server_get(volumes)
         self.assertEqual(8, self.mock_tenant_absolute_limits.call_count)
 
     @test.create_mocks({
-        api.nova: ['server_list'],
+        api.nova: ['server_get'],
         cinder: ['volume_list_paged',
                  'volume_snapshot_list',
                  'tenant_absolute_limits',
@@ -2130,7 +2192,7 @@ class VolumeViewTests(test.ResetImageAPIVersionMixin, test.TestCase):
                                                           transfer.id,
                                                           transfer.auth_key)
         self.assertEqual(3, self.mock_tenant_absolute_limits.call_count)
-        self.mock_server_list.assert_called_once()
+        self.mock_server_get.assert_not_called()
         self.mock_volume_list_paged.assert_called_once()
         self.mock_volume_snapshot_list.assert_called_once()
         self.mock_transfer_accept.assert_called_once()
@@ -2159,7 +2221,7 @@ class VolumeViewTests(test.ResetImageAPIVersionMixin, test.TestCase):
                                               transfer.id)
 
     @test.create_mocks({
-        api.nova: ['server_list'],
+        api.nova: ['server_get'],
         cinder: ['volume_backup_supported',
                  'volume_list_paged',
                  'volume_snapshot_list',
@@ -2173,7 +2235,7 @@ class VolumeViewTests(test.ResetImageAPIVersionMixin, test.TestCase):
         self.mock_volume_list_paged.return_value = [self.cinder_volumes.list(),
                                                     False, False]
         self.mock_volume_snapshot_list.return_value = []
-        self.mock_server_list.return_value = [self.servers.list(), False]
+        self.mock_server_get.side_effect = self._server_get
         self.mock_tenant_absolute_limits.return_value = limits
 
         res = self.client.get(INDEX_URL)
@@ -2192,6 +2254,5 @@ class VolumeViewTests(test.ResetImageAPIVersionMixin, test.TestCase):
             search_opts={}, paginate=True)
         self.mock_volume_snapshot_list.assert_called_once_with(
             test.IsHttpRequest(), search_opts=None)
-        self.mock_server_list.assert_called_once_with(test.IsHttpRequest(),
-                                                      search_opts=None)
+        self._check_server_get(table.data)
         self.assertEqual(13, self.mock_tenant_absolute_limits.call_count)

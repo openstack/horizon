@@ -83,20 +83,6 @@ class VolumesView(tables.PagedTableMixin, volumes_views.VolumeTableMixIn,
                 msg = _('Unable to retrieve volume project information.')
                 exceptions.handle(self.request, msg)
 
-        def _task_get_instances():
-            # As long as Nova API does not allow passing attached_instance_ids
-            # to nova.server_list, this call can be forged to pass anything
-            # != None
-            instances.extend(self._get_instances(
-                search_opts={'all_tenants': True}))
-
-            # In volumes tab we don't need to know about the assignment
-            # instance-image, therefore fixing it to an empty value
-            for instance in instances:
-                if hasattr(instance, 'image'):
-                    if isinstance(instance.image, dict):
-                        instance.image['name'] = "-"
-
         def _task_get_volumes_snapshots():
             volume_ids_with_snapshots.extend(
                 self._get_volumes_ids_with_snapshots(
@@ -109,11 +95,12 @@ class VolumesView(tables.PagedTableMixin, volumes_views.VolumeTableMixIn,
             self._get_groups(volumes, search_opts={'all_tenants': True})
             attached_instance_ids.extend(
                 self._get_attached_instance_ids(volumes))
+            instances.extend(self._get_attached_instances(
+                attached_instance_ids, search_opts={'all_tenants': True}))
 
         if 'project' in filters:
             futurist_utils.call_functions_parallel(
                 _task_get_tenants,
-                _task_get_instances,
                 _task_get_volumes_snapshots
             )
 
@@ -126,13 +113,14 @@ class VolumesView(tables.PagedTableMixin, volumes_views.VolumeTableMixIn,
                 filters['project_id'] = id
                 volumes += self._get_volumes(search_opts=filters)
             attached_instance_ids = self._get_attached_instance_ids(volumes)
+            instances.extend(self._get_attached_instances(
+                attached_instance_ids, search_opts={'all_tenants': True}))
 
             self._get_groups(volumes)
         else:
             futurist_utils.call_functions_parallel(
                 _task_get_volumes,
                 _task_get_tenants,
-                _task_get_instances,
                 _task_get_volumes_snapshots
             )
 

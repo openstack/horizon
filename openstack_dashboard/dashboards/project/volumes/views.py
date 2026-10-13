@@ -50,6 +50,12 @@ from openstack_dashboard.dashboards.project.volumes \
 from openstack_dashboard.dashboards.project.volumes \
     import tabs as project_tabs
 
+# Servers attached to the listed volumes are fetched by ID,
+# SERVER_GET_BATCH_SIZE requests at a time. With more than
+# ATTACHED_SERVERS_MAX servers one server list request is used like before.
+SERVER_GET_BATCH_SIZE = 10
+ATTACHED_SERVERS_MAX = 50
+
 
 class VolumeTableMixIn(object):
     _has_more_data = False
@@ -91,6 +97,39 @@ class VolumeTableMixIn(object):
                               _("Unable to retrieve volume/instance "
                                 "attachment information"))
             return []
+
+    def _get_server(self, server_id):
+        try:
+            return nova.server_get(self.request, server_id)
+        except dashboard_exception.NOT_FOUND:
+            return None
+
+    def _get_attached_instances(self, instance_ids, search_opts=None):
+        instance_ids = sorted(set(filter(None, instance_ids)))
+        if len(instance_ids) > ATTACHED_SERVERS_MAX:
+            instances = self._get_instances(search_opts=search_opts)
+        else:
+            instances = []
+            try:
+                for i in range(0, len(instance_ids), SERVER_GET_BATCH_SIZE):
+                    batch = instance_ids[i:i + SERVER_GET_BATCH_SIZE]
+                    servers = futurist_utils.call_functions_parallel(
+                        *[(self._get_server, [server_id])
+                          for server_id in batch])
+                    instances.extend(s for s in servers if s is not None)
+            except Exception:
+                instances = []
+                exceptions.handle(self.request,
+                                  _("Unable to retrieve volume/instance "
+                                    "attachment information"))
+
+        # In volumes tab we don't need to know about the assignment
+        # instance-image, therefore fixing it to an empty value
+        for instance in instances:
+            if hasattr(instance, 'image'):
+                if isinstance(instance.image, dict):
+                    instance.image['name'] = "-"
+        return instances
 
     def _get_volumes_ids_with_snapshots(self, search_opts=None):
         try:
@@ -169,19 +208,8 @@ class VolumesView(tables.PagedTableMixin, VolumeTableMixIn,
             volumes.extend(self._get_volumes(search_opts=filters))
             attached_instance_ids.extend(
                 self._get_attached_instance_ids(volumes))
-
-        def _task_get_instances():
-            # As long as Nova API does not allow passing attached_instance_ids
-            # to nova.server_list, this call can be forged to pass anything
-            # != None
-            instances.extend(self._get_instances())
-
-            # In volumes tab we don't need to know about the assignment
-            # instance-image, therefore fixing it to an empty value
-            for instance in instances:
-                if hasattr(instance, 'image'):
-                    if isinstance(instance.image, dict):
-                        instance.image['name'] = "-"
+            instances.extend(
+                self._get_attached_instances(attached_instance_ids))
 
         def _task_get_volumes_snapshots():
             volume_ids_with_snapshots.extend(
@@ -189,7 +217,6 @@ class VolumesView(tables.PagedTableMixin, VolumeTableMixIn,
 
         futurist_utils.call_functions_parallel(
             _task_get_volumes,
-            _task_get_instances,
             _task_get_volumes_snapshots)
 
         self._set_volume_attributes(
