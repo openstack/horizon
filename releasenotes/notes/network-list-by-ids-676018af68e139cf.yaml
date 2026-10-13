@@ -1,0 +1,8 @@
+---
+upgrade:
+  - |
+    openstacksdk 4.7.0 or later is now required.
+fixes:
+  - |
+    The instance list now looks up the networks of the listed instances
+    with one Neutron request instead of one request per network.

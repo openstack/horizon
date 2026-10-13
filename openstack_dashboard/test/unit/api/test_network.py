@@ -132,11 +132,8 @@ class NetworkApiNeutronTests(test.APIMockTestCase):
         else:
             self.assertEqual(0, self.sdk_net_client.ips.call_count)
         self.sdk_net_client.ports.assert_has_calls(expected_list_ports)
-        nets_calls = []
-        for server_net_id in server_network_ids:
-            nets_calls.append(mock.call(id=server_net_id))
-        self.sdk_net_client.networks.assert_has_calls(nets_calls,
-                                                      any_order=True)
+        self.sdk_net_client.networks.assert_called_once_with(
+            id=frozenset(server_network_ids))
         self.sdk_net_client.subnets.assert_called_once_with(
             network_id=tuple(sorted(n['id'] for n in server_networks)))
 

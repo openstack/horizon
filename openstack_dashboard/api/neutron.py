@@ -1248,24 +1248,17 @@ def _subnet_list_for_networks(request, networks):
 @profiler.trace
 def network_list(request, single_page=False, **params):
     LOG.debug("network_list(): params=%s", params)
-    list_values = []
-    if 'id' in params and isinstance(params['id'], frozenset):
-        list_values = list(params['id'])
-    if 'id' in params and isinstance(params['id'], list):
-        list_values = params['id']
+    # An empty id list adds no filter to the query and would match every
+    # network.
+    if 'id' in params and not params['id']:
+        return []
     if single_page is True:
         # openstacksdk follows every "next" link unless paginated=False.
         params['paginated'] = False
 
-    networks = []
     if 'tenant_id' in params:
         params['project_id'] = params.pop('tenant_id')
-    for value in list_values:
-        params['id'] = value
-        for net in networkclient(request).networks(**params):
-            networks.append(net)
-    if not list_values:
-        networks = networkclient(request).networks(**params)
+    networks = networkclient(request).networks(**params)
 
     if not isinstance(networks, (list, types.GeneratorType)):
         networks = [networks]
