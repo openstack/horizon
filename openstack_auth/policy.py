@@ -15,6 +15,7 @@
 
 import logging
 import os.path
+import time
 
 from django.conf import settings
 from oslo_config import cfg
@@ -33,6 +34,22 @@ _KEYSTONE_USE_DOMAIN_SCOPE = (
     settings.OPENSTACK_KEYSTONE_PREFER_DOMAIN_TOKEN and
     settings.OPENSTACK_KEYSTONE_MULTIDOMAIN_SUPPORT
 )
+
+# Enforcer.enforce() calls load_rules() on every check, which stats the
+# policy file and lists the policy directories. Do that at most once per
+# interval for each enforcer.
+_LOAD_RULES_INTERVAL = 1  # seconds
+
+
+class _Enforcer(policy.Enforcer):
+    _last_load = None
+
+    def load_rules(self, force_reload=False):
+        now = time.monotonic()
+        if (force_reload or self._last_load is None or
+                now - self._last_load >= _LOAD_RULES_INTERVAL):
+            self._last_load = now
+            super().load_rules(force_reload=force_reload)
 
 
 def _get_policy_conf(policy_file, policy_dirs=None):
@@ -116,7 +133,7 @@ def _get_enforcer():
         for service in policy_files.keys():
             policy_file, policy_dirs = _get_policy_file_with_full_path(service)
             conf = _get_policy_conf(policy_file, policy_dirs)
-            enforcer = policy.Enforcer(conf)
+            enforcer = _Enforcer(conf)
             enforcer.suppress_default_change_warnings = True
             _load_default_rules(service, enforcer)
             try:

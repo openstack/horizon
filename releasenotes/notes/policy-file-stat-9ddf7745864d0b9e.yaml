@@ -1,0 +1,7 @@
+---
+fixes:
+  - |
+    Policy checks now look for changed policy files at most once per second
+    instead of on every check. Pages with long tables run more than a
+    thousand checks per view. Changes to policy files still apply without a
+    restart.
