@@ -1216,6 +1216,21 @@ def _network_list_paged(request, page_data, params):
     return update_pagination(nets, page_data)
 
 
+# Up to this many networks, subnet_list() is called with a network_id
+# filter, so Neutron returns only the subnets of those networks. For more
+# networks all subnets are listed like before, so the URL stays short.
+_SUBNET_FILTER_MAX_NETWORKS = 100
+
+
+def _subnet_list_for_networks(request, networks):
+    net_ids = sorted(n['id'] for n in networks if n.get('subnet_ids'))
+    if not net_ids:
+        return []
+    if len(net_ids) > _SUBNET_FILTER_MAX_NETWORKS:
+        return subnet_list(request)
+    return subnet_list(request, network_id=tuple(net_ids))
+
+
 @profiler.trace
 def network_list(request, single_page=False, **params):
     LOG.debug("network_list(): params=%s", params)
@@ -1237,38 +1252,38 @@ def network_list(request, single_page=False, **params):
     if not list_values:
         networks = networkclient(request).networks(**params)
 
-    # Get subnet list to expand subnet info in network list.
-    subnets = subnet_list(request)
-    subnet_dict = dict((s['id'], s) for s in subnets)
-
     if not isinstance(networks, (list, types.GeneratorType)):
         networks = [networks]
     nets_with_subnet = []
     net_ids = set()
 
-    # Expand subnet list from subnet_id to values.
-    subnet_l_ready = False
+    nets_ready = False
     runs = 0
     max_runs = 3
-    while not subnet_l_ready and runs < max_runs:
+    while not nets_ready and runs < max_runs:
         networks, cp_nets = itertools.tee(networks, 2)
         try:
             for n in cp_nets:
-                # Due to potential timing issues, we can't assume the
-                # subnet_dict data is in sync with the network data.
                 net_dict = n.to_dict()
-                net_dict['subnets'] = [
-                    subnet_dict[s] for s in net_dict.get('subnet_ids', [])
-                    if s in subnet_dict
-                ]
                 if net_dict['id'] not in net_ids:
                     nets_with_subnet.append(net_dict)
                     net_ids.add(net_dict['id'])
-            subnet_l_ready = True
+            nets_ready = True
         except (requests.exceptions.SSLError, ks_exceptions.SSLError):
             LOG.warning('Retry due to SSLError')
             runs += 1
             continue
+
+    # Expand subnet list from subnet_id to values.
+    subnets = _subnet_list_for_networks(request, nets_with_subnet)
+    subnet_dict = dict((s['id'], s) for s in subnets)
+    for net_dict in nets_with_subnet:
+        # Due to potential timing issues, we can't assume the
+        # subnet_dict data is in sync with the network data.
+        net_dict['subnets'] = [
+            subnet_dict[s] for s in net_dict.get('subnet_ids', [])
+            if s in subnet_dict
+        ]
     return [Network(n) for n in nets_with_subnet]
 
 
