@@ -4,9 +4,9 @@
 # suhartono <cloudsuhartono@gmail.com>, 2021. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 26.0.1.dev84\n"
+"Project-Id-Version: horizon 27.1.0.dev33\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-09-14 15:07+0000\n"
+"POT-Creation-Date: 2026-10-13 21:32+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -4098,15 +4098,6 @@ msgstr "Tes Horizon dan Anda"
 
 msgid "HorizonMiddleware"
 msgstr "HorizonMiddleware"
-
-msgid ""
-"How the authentication headers are obtained is up to the plugin. If the "
-"headers are still valid they may be re-used, retrieved from cache or the "
-"plugin may invoke an authentication request against a server."
-msgstr ""
-"Cara header otentikasi diperoleh hingga ke plugin. Jika header masih valid "
-"mereka dapat digunakan kembali, diambil dari cache atau plugin mungkin "
-"meminta permintaan otentikasi terhadap server."
 
 msgid "How to Utilize RBAC"
 msgstr "Cara Menggunakan RBAC"

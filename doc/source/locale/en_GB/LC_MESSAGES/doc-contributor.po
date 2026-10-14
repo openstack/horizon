@@ -8,9 +8,9 @@
 # Andi Chandler <andi@gowling.com>, 2026. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 27.1.0.dev4\n"
+"Project-Id-Version: horizon 27.1.0.dev33\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-09-23 16:43+0000\n"
+"POT-Creation-Date: 2026-10-13 21:32+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -4161,15 +4161,6 @@ msgstr "Horizon's tests and you"
 
 msgid "HorizonMiddleware"
 msgstr "HorizonMiddleware"
-
-msgid ""
-"How the authentication headers are obtained is up to the plugin. If the "
-"headers are still valid they may be re-used, retrieved from cache or the "
-"plugin may invoke an authentication request against a server."
-msgstr ""
-"How the authentication headers are obtained is up to the plugin. If the "
-"headers are still valid they may be re-used, retrieved from cache or the "
-"plugin may invoke an authentication request against a server."
 
 msgid "How to Utilize RBAC"
 msgstr "How to Utilise RBAC"
