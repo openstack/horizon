@@ -18,6 +18,7 @@
 
 import collections.abc
 import functools
+import logging
 
 from django.conf import settings
 import semantic_version
@@ -27,6 +28,8 @@ from horizon import exceptions
 
 __all__ = ('APIResourceWrapper', 'APIDictWrapper',
            'get_service_from_catalog', 'url_for',)
+
+LOG = logging.getLogger(__name__)
 
 
 @functools.total_ordering
@@ -366,6 +369,18 @@ def is_service_enabled(request, service_type):
                _get_endpoint_region(endpoint) == region:
                 return True
     return False
+
+
+def is_ec2_service_enabled(request):
+    if settings.SHOW_EC2_CREDENTIALS:
+        return True
+    enabled = is_service_enabled(request, 'ec2')
+    if enabled:
+        LOG.warning(
+            'EC2 credential menu will require '
+            'SHOW_EC2_CREDENTIALS=True in settings '
+            'in a future release')
+    return enabled
 
 
 def _get_endpoint_region(endpoint):

@@ -39,7 +39,7 @@ class DownloadEC2(tables.LinkAction):
     url = "horizon:project:api_access:ec2"
 
     def allowed(self, request, datum=None):
-        return api.base.is_service_enabled(request, 'ec2')
+        return api.base.is_ec2_service_enabled(request)
 
 
 class DownloadCloudsYaml(tables.LinkAction):
@@ -84,7 +84,7 @@ class RecreateCredentials(tables.LinkAction):
     def allowed(self, request, datum=None):
         try:
             target = {"target.credential.user_id": request.user.id}
-            if (api.base.is_service_enabled(request, 'ec2') and
+            if (api.base.is_ec2_service_enabled(request) and
                 forms.get_ec2_credentials(request) and
                 policy.check((("identity", "identity:ec2_create_credential"),
                               ("identity", "identity:ec2_delete_credential")),

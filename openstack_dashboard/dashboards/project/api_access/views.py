@@ -179,7 +179,7 @@ class CredentialsView(forms.ModalFormMixin, views.HorizonTemplateView):
         except Exception:
             exceptions.handle(self.request,
                               _('Unable to get openrc credentials'))
-        if api.base.is_service_enabled(self.request, 'ec2'):
+        if api.base.is_ec2_service_enabled(self.request):
             try:
                 context['ec2_creds'] = _get_ec2_credentials(self.request)
             except Exception:
