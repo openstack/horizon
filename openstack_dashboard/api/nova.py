@@ -45,6 +45,33 @@ INSTANCE_ACTIVE_STATE = 'ACTIVE'
 VOLUME_STATE_AVAILABLE = "available"
 DEFAULT_QUOTA_NAME = 'default'
 
+# The names the compute API gives its absolute limits. openstacksdk reads them
+# under names of its own, maxTotalInstances becomes instances, and offers a
+# snake_case alias for each on top of that. Horizon hands the limits to
+# usage.quotas and, through the REST API, to the launch instance workflow, and
+# both of those know them by the names below.
+ABSOLUTE_LIMIT_NAMES = frozenset([
+    'maxImageMeta',
+    'maxPersonality',
+    'maxPersonalitySize',
+    'maxSecurityGroupRules',
+    'maxSecurityGroups',
+    'maxServerGroupMembers',
+    'maxServerGroups',
+    'maxServerMeta',
+    'maxTotalCores',
+    'maxTotalFloatingIps',
+    'maxTotalInstances',
+    'maxTotalKeypairs',
+    'maxTotalRAMSize',
+    'totalCoresUsed',
+    'totalFloatingIpsUsed',
+    'totalInstancesUsed',
+    'totalRAMUsed',
+    'totalSecurityGroupsUsed',
+    'totalServerGroupsUsed',
+])
+
 get_microversion = _nova.get_microversion
 server_get = _nova.server_get
 Server = _nova.Server
@@ -989,21 +1016,33 @@ def tenant_absolute_limits(request, reserved=False, tenant_id=None):
     # even if tenant_id matches a tenant_id of the user.
     if tenant_id == request.user.tenant_id:
         tenant_id = None
-    limits = _nova.novaclient(request).limits.get(reserved=reserved,
-                                                  tenant_id=tenant_id).absolute
+    query = {}
+    if reserved:
+        query['reserved'] = 1
+    if tenant_id:
+        query['tenant_id'] = tenant_id
+    limits = _nova.computeclient(request).get_limits(**query).absolute
+    # original_names asks for the compute API names rather than the SDK ones,
+    # ignore_none leaves out the limits this cloud does not report and
+    # computed=False the location the SDK attaches to every resource.
+    limits = limits.to_dict(original_names=True, computed=False,
+                            ignore_none=True)
     limits_dict = {}
-    for limit in limits:
-        if limit.value < 0:
+    for name, value in limits.items():
+        if name not in ABSOLUTE_LIMIT_NAMES:
+            # One of the SDK's own aliases for a limit already collected.
+            continue
+        if value < 0:
             # Workaround for nova bug 1370867 that absolute_limits
             # returns negative value for total.*Used instead of 0.
             # For such case, replace negative values with 0.
-            if limit.name.startswith('total') and limit.name.endswith('Used'):
-                limits_dict[limit.name] = 0
+            if name.startswith('total') and name.endswith('Used'):
+                limits_dict[name] = 0
             else:
                 # -1 is used to represent unlimited quotas
-                limits_dict[limit.name] = float("inf")
+                limits_dict[name] = float("inf")
         else:
-            limits_dict[limit.name] = limit.value
+            limits_dict[name] = value
     return limits_dict
 
 

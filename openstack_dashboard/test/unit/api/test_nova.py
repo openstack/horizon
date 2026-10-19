@@ -30,8 +30,10 @@ from openstack.compute.v2 import availability_zone as az_resource
 from openstack.compute.v2 import flavor as flavor_resource
 from openstack.compute.v2 import hypervisor as hypervisor_resource
 from openstack.compute.v2 import keypair as keypair_resource
+from openstack.compute.v2 import limits as limits_resource
 from openstack.compute.v2 import service as service_resource
 from openstack.compute.v2 import usage as usage_resource
+from openstack import resource as sdk_resource
 from openstack.test import fakes
 
 from horizon import exceptions as horizon_exceptions
@@ -277,51 +279,6 @@ class ComputeApiTests(test.APIMockTestCase):
                                                   keys)
         self.assertIsNone(ret_val)
         novaclient.servers.delete_meta.assert_called_once_with(server.id, keys)
-
-    @mock.patch.object(api._nova, 'novaclient')
-    def _test_absolute_limits(self, values, expected_results, mock_novaclient):
-        limits = mock.Mock()
-        limits.absolute = []
-        for key, val in values.items():
-            limit = mock.Mock()
-            limit.name = key
-            limit.value = val
-            limits.absolute.append(limit)
-
-        novaclient = mock_novaclient.return_value
-        novaclient.limits.get.return_value = limits
-
-        ret_val = api.nova.tenant_absolute_limits(self.request, reserved=True)
-
-        for key in expected_results:
-            self.assertEqual(expected_results[key], ret_val[key])
-        novaclient.limits.get.assert_called_once_with(reserved=True,
-                                                      tenant_id=None)
-
-    def test_absolute_limits_handle_unlimited(self):
-        values = {"maxTotalCores": -1, "maxTotalInstances": 10}
-        expected_results = {"maxTotalCores": float("inf"),
-                            "maxTotalInstances": 10}
-        self._test_absolute_limits(values, expected_results)
-
-    def test_absolute_limits_negative_used_workaround(self):
-        values = {"maxTotalCores": -1,
-                  "maxTotalInstances": 10,
-                  "totalInstancesUsed": -1,
-                  "totalCoresUsed": -1,
-                  "totalRAMUsed": -2048,
-                  "totalSecurityGroupsUsed": 1,
-                  "totalFloatingIpsUsed": 0,
-                  }
-        expected_results = {"maxTotalCores": float("inf"),
-                            "maxTotalInstances": 10,
-                            "totalInstancesUsed": 0,
-                            "totalCoresUsed": 0,
-                            "totalRAMUsed": 0,
-                            "totalSecurityGroupsUsed": 1,
-                            "totalFloatingIpsUsed": 0,
-                            }
-        self._test_absolute_limits(values, expected_results)
 
     @mock.patch.object(api._nova, 'novaclient')
     def test_cold_migrate_host_succeed(self, mock_novaclient):
@@ -1222,3 +1179,116 @@ class UsageApiTests(test.APIMockTestCase):
         self.assertEqual({'instances': 0, 'memory_mb': 0, 'vcpus': 0,
                           'vcpu_hours': 0, 'local_gb': 0, 'disk_gb_hours': 0,
                           'memory_mb_hours': 0}, ret_val.get_summary())
+
+
+class LimitsApiTests(test.APIMockTestCase):
+
+    # What nova answers /limits with, so that the tests see the absolute
+    # limits arrive under the names the compute API uses rather than the ones
+    # the SDK reads them under.
+    ABSOLUTE_LIMITS = {
+        'maxImageMeta': 128,
+        'maxPersonality': 5,
+        'maxPersonalitySize': 10240,
+        'maxSecurityGroupRules': 20,
+        'maxSecurityGroups': 10,
+        'maxServerGroupMembers': 10,
+        'maxServerGroups': 10,
+        'maxServerMeta': 128,
+        'maxTotalCores': 20,
+        'maxTotalFloatingIps': 10,
+        'maxTotalInstances': 10,
+        'maxTotalKeypairs': 100,
+        'maxTotalRAMSize': 51200,
+        'totalCoresUsed': 2,
+        'totalFloatingIpsUsed': 0,
+        'totalInstancesUsed': 2,
+        'totalRAMUsed': 1024,
+        'totalSecurityGroupsUsed': 0,
+        'totalServerGroupsUsed': 0,
+    }
+
+    def setUp(self):
+        super().setUp()
+        self.computeclient = mock.create_autospec(
+            compute_v2.Proxy, instance=True)
+        patcher = mock.patch.object(
+            api._nova, 'computeclient', return_value=self.computeclient)
+        self.mock_computeclient = patcher.start()
+        self.addCleanup(patcher.stop)
+
+    def _mock_limits(self, absolute):
+        self.computeclient.get_limits.return_value = limits_resource.Limits(
+            absolute=absolute)
+
+    def test_absolute_limits(self):
+        self._mock_limits(self.ABSOLUTE_LIMITS)
+
+        ret_val = api.nova.tenant_absolute_limits(self.request)
+
+        # The SDK offers a snake_case alias for every limit on top of the
+        # compute API name; those must not reach the REST API response.
+        self.assertEqual(self.ABSOLUTE_LIMITS, ret_val)
+        self.mock_computeclient.assert_called_once_with(self.request)
+        self.computeclient.get_limits.assert_called_once_with()
+
+    def test_absolute_limits_names_match_the_sdk(self):
+        # A limit the SDK knows about but Horizon does not list is dropped on
+        # the floor, so the two have to be kept in step.
+        declared = set(limits_resource.AbsoluteLimits._body_mapping())
+        inherited = set(sdk_resource.Resource._body_mapping())
+        self.assertEqual(declared - inherited, api.nova.ABSOLUTE_LIMIT_NAMES)
+
+    def test_absolute_limits_reserved(self):
+        self._mock_limits(self.ABSOLUTE_LIMITS)
+
+        api.nova.tenant_absolute_limits(self.request, reserved=True)
+
+        # novaclient sent reserved as 1 rather than as a boolean.
+        self.computeclient.get_limits.assert_called_once_with(reserved=1)
+
+    def test_absolute_limits_for_another_tenant(self):
+        self._mock_limits(self.ABSOLUTE_LIMITS)
+
+        api.nova.tenant_absolute_limits(self.request, reserved=True,
+                                        tenant_id='another-tenant')
+
+        self.computeclient.get_limits.assert_called_once_with(
+            reserved=1, tenant_id='another-tenant')
+
+    def test_absolute_limits_for_the_own_tenant(self):
+        self._mock_limits(self.ABSOLUTE_LIMITS)
+
+        api.nova.tenant_absolute_limits(self.request, reserved=True,
+                                        tenant_id=self.request.user.tenant_id)
+
+        # Nova does not allow to specify tenant_id for non-admin users even if
+        # tenant_id matches a tenant_id of the user.
+        self.computeclient.get_limits.assert_called_once_with(reserved=1)
+
+    def test_absolute_limits_handle_unlimited(self):
+        self._mock_limits({'maxTotalCores': -1, 'maxTotalInstances': 10})
+
+        ret_val = api.nova.tenant_absolute_limits(self.request, reserved=True)
+
+        self.assertEqual({'maxTotalCores': float('inf'),
+                          'maxTotalInstances': 10}, ret_val)
+
+    def test_absolute_limits_negative_used_workaround(self):
+        self._mock_limits({'maxTotalCores': -1,
+                           'maxTotalInstances': 10,
+                           'totalInstancesUsed': -1,
+                           'totalCoresUsed': -1,
+                           'totalRAMUsed': -2048,
+                           'totalSecurityGroupsUsed': 1,
+                           'totalFloatingIpsUsed': 0})
+
+        ret_val = api.nova.tenant_absolute_limits(self.request, reserved=True)
+
+        self.assertEqual({'maxTotalCores': float('inf'),
+                          'maxTotalInstances': 10,
+                          'totalInstancesUsed': 0,
+                          'totalCoresUsed': 0,
+                          'totalRAMUsed': 0,
+                          'totalSecurityGroupsUsed': 1,
+                          'totalFloatingIpsUsed': 0}, ret_val)
