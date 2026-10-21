@@ -45,7 +45,56 @@ class NeutronApiTests(test.APIMockTestCase):
         for n in ret_val:
             self.assertIsInstance(n, api.neutron.Network)
         networkclient.networks.assert_called_once_with()
+        networkclient.subnets.assert_called_once_with(
+            network_id=tuple(sorted(n['id'] for n in networks
+                                    if n['subnet_ids'])))
+
+    @mock.patch.object(api.neutron, 'networkclient')
+    def test_network_list_subnets_filtered(self, mock_networkclient):
+        networks = self.api_networks_sdk[:5]
+        net_ids = sorted(n['id'] for n in networks)
+
+        networkclient = mock_networkclient.return_value
+        networkclient.networks.return_value = networks
+        networkclient.subnets.return_value = [
+            s for s in self.api_subnets_sdk if s['network_id'] in net_ids]
+
+        ret_val = api.neutron.network_list(self.request)
+
+        for net, sdk_net in zip(ret_val, networks):
+            self.assertEqual(sdk_net['subnet_ids'],
+                             [s['id'] for s in net.subnets])
+        networkclient.subnets.assert_called_once_with(
+            network_id=tuple(net_ids))
+
+    @mock.patch.object(api.neutron, '_SUBNET_FILTER_MAX_NETWORKS', 2)
+    @mock.patch.object(api.neutron, 'networkclient')
+    def test_network_list_many_networks(self, mock_networkclient):
+        networks = self.api_networks_sdk[:3]
+
+        networkclient = mock_networkclient.return_value
+        networkclient.networks.return_value = networks
+        networkclient.subnets.return_value = self.api_subnets_sdk
+
+        ret_val = api.neutron.network_list(self.request)
+
+        for net, sdk_net in zip(ret_val, networks):
+            self.assertEqual(sdk_net['subnet_ids'],
+                             [s['id'] for s in net.subnets])
         networkclient.subnets.assert_called_once_with()
+
+    @mock.patch.object(api.neutron, 'networkclient')
+    def test_network_list_without_subnets(self, mock_networkclient):
+        network = copy.deepcopy(self.api_networks_sdk[0])
+        network['subnet_ids'] = []
+
+        networkclient = mock_networkclient.return_value
+        networkclient.networks.return_value = [network]
+
+        ret_val = api.neutron.network_list(self.request)
+
+        self.assertEqual([], ret_val[0].subnets)
+        networkclient.subnets.assert_not_called()
 
     @override_settings(OPENSTACK_NEUTRON_NETWORK={
         'enable_auto_allocated_network': True})
@@ -2761,7 +2810,8 @@ class NeutronApiFloatingIpTests(test.APIMockTestCase):
             mock.call(is_shared=True),
         ])
         self.netclient.routers.assert_called_once_with()
-        self.netclient.subnets.assert_called_once_with()
+        self.netclient.subnets.assert_called_once_with(
+            network_id=tuple(sorted(n['id'] for n in shared_nets)))
 
     @mock.patch.object(api._nova, 'novaclient')
     def _test_target_floating_ip_port_by_instance(self, server, ports,
@@ -2810,7 +2860,8 @@ class NeutronApiFloatingIpTests(test.APIMockTestCase):
             mock.call(is_shared=True),
         ])
         self.netclient.routers.assert_called_once_with()
-        self.netclient.subnets.assert_called_once_with()
+        self.netclient.subnets.assert_called_once_with(
+            network_id=tuple(sorted(n['id'] for n in shared_nets)))
         novaclient.versions.get_current.assert_called_once_with()
         novaclient.servers.get.assert_called_once_with(server.id)
 

@@ -137,7 +137,8 @@ class NetworkApiNeutronTests(test.APIMockTestCase):
             nets_calls.append(mock.call(id=server_net_id))
         self.sdk_net_client.networks.assert_has_calls(nets_calls,
                                                       any_order=True)
-        self.sdk_net_client.subnets.assert_called_once_with()
+        self.sdk_net_client.subnets.assert_called_once_with(
+            network_id=tuple(sorted(n['id'] for n in server_networks)))
 
     @override_settings(OPENSTACK_NEUTRON_NETWORK={'enable_router': True})
     def test_servers_update_addresses(self):

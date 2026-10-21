@@ -1,0 +1,6 @@
+---
+fixes:
+  - |
+    Pages that list networks now ask Neutron only for the subnets of those
+    networks. Before, admin users downloaded every subnet of the cloud on
+    each of these pages.
