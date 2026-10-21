@@ -1095,6 +1095,18 @@ class NeutronApiTests(test.APIMockTestCase):
         networkclient.get_subnet.assert_called_once_with(subnet_id)
 
     @mock.patch.object(api.neutron, 'networkclient')
+    def test_subnet_get_dhcp_disabled(self, mock_networkclient):
+        subnet = [s for s in self.api_subnets_sdk
+                  if not s.is_dhcp_enabled][0]
+        networkclient = mock_networkclient.return_value
+        networkclient.get_subnet.return_value = subnet
+
+        ret_val = api.neutron.subnet_get(self.request, subnet.id)
+
+        self.assertFalse(ret_val.is_dhcp_enabled)
+        self.assertFalse(ret_val.enable_dhcp)
+
+    @mock.patch.object(api.neutron, 'networkclient')
     def test_subnet_create(self, mock_networkclient):
         subnet_data = self.api_subnets_sdk[0]
         params = {'network_id': subnet_data['network_id'],

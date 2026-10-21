@@ -53,6 +53,33 @@ class NetworkSubnetTests(test.TestCase):
         self.mock_subnet_get.assert_called_once_with(test.IsHttpRequest(),
                                                      subnet.id)
 
+    def _subnet_with_dhcp(self, enabled):
+        return [s for s in self.subnets.list()
+                if s.ip_version == 4 and s.is_dhcp_enabled is enabled][0]
+
+    @test.create_mocks({api.neutron: ('network_get',
+                                      'subnet_get')})
+    def _test_subnet_detail_dhcp(self, enabled):
+        subnet = self._subnet_with_dhcp(enabled)
+        self.mock_network_get.return_value = self.networks.get(
+            id=subnet.network_id)
+        self.mock_subnet_get.return_value = subnet
+
+        url = reverse(DETAIL_URL, args=[subnet.id])
+        res = self.client.get(url)
+
+        self.assertRegex(res.content.decode(),
+                         r'DHCP Enabled</dt>\s*<dd>%s</dd>'
+                         % ('Yes' if enabled else 'No'))
+        self.mock_subnet_get.assert_called_once_with(test.IsHttpRequest(),
+                                                     subnet.id)
+
+    def test_subnet_detail_dhcp_enabled(self):
+        self._test_subnet_detail_dhcp(True)
+
+    def test_subnet_detail_dhcp_disabled(self):
+        self._test_subnet_detail_dhcp(False)
+
     @test.create_mocks({api.neutron: ('subnet_get',)})
     def test_subnet_detail_exception(self):
         subnet = self.subnets.first()
@@ -680,6 +707,32 @@ class NetworkSubnetTests(test.TestCase):
             allocation_pools=subnet.allocation_pools,
             ipv6_address_mode='slaac',
             ipv6_ra_mode='slaac')
+
+    @test.create_mocks({api.neutron: ('subnet_get',
+                                      'is_extension_supported',
+                                      'subnetpool_list')})
+    def _test_subnet_update_get_dhcp(self, enabled):
+        subnet = self._subnet_with_dhcp(enabled)
+        self.mock_subnet_get.return_value = subnet
+        self.mock_is_extension_supported.return_value = True
+        self.mock_subnetpool_list.return_value = self.subnetpools.list()
+
+        url = reverse('horizon:project:networks:editsubnet',
+                      args=[subnet.network_id, subnet.id])
+        res = self.client.get(url)
+
+        self.assertTemplateUsed(res, views.WorkflowView.template_name)
+        fields = [step.action['enable_dhcp']
+                  for step in res.context['workflow'].steps
+                  if 'enable_dhcp' in step.action.fields]
+        self.assertEqual(1, len(fields))
+        self.assertEqual(enabled, fields[0].value())
+
+    def test_subnet_update_get_dhcp_enabled(self):
+        self._test_subnet_update_get_dhcp(True)
+
+    def test_subnet_update_get_dhcp_disabled(self):
+        self._test_subnet_update_get_dhcp(False)
 
     @test.create_mocks({api.neutron: ('subnet_get',
                                       'subnet_update',
