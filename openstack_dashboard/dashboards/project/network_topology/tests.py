@@ -180,7 +180,7 @@ class NetworkTopologyTests(test.TestCase):
             include_pre_auto_allocate=False)
         if router_enable:
             self.mock_router_list.assert_called_once_with(
-                test.IsHttpRequest(), tenant_id=self.tenant.id)
+                test.IsHttpRequest(), project_id=self.tenant.id)
             self.mock_network_list.assert_called_once_with(
                 test.IsHttpRequest(), **{'router:external': True})
         self.mock_port_list.assert_called_once_with(

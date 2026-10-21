@@ -51,7 +51,7 @@ class IndexView(tables.DataTableView):
                 filters=search_opts, filters_map=self.FILTERS_MAPPING)
             tenant_id = self.request.user.tenant_id
             routers = api.neutron.router_list(self.request,
-                                              tenant_id=tenant_id,
+                                              project_id=tenant_id,
                                               **search_opts)
         except Exception:
             routers = []

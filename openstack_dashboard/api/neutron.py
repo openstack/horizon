@@ -1076,6 +1076,15 @@ def _get_excess(filter_len):
     return filter_len - MAX_URI_LEN
 
 
+def _tenant_id_to_project_id(params, caller):
+    # openstacksdk sends tenant_id to neutron only for a few resources. For
+    # the others it lists everything the token can see and filters locally.
+    if 'tenant_id' in params and 'project_id' not in params:
+        params['project_id'] = params.pop('tenant_id')
+        LOG.error("%s() is called with 'tenant_id' filter parameter. "
+                  "Use project_id instead.", caller)
+
+
 @profiler.trace
 def trunk_show(request, trunk_id):
     LOG.debug("trunk_show(): trunk_id=%s", trunk_id)
@@ -1085,6 +1094,7 @@ def trunk_show(request, trunk_id):
 
 @profiler.trace
 def trunk_list(request, **params):
+    _tenant_id_to_project_id(params, 'trunk_list')
     LOG.debug("trunk_list(): params=%s", params)
     trunks = networkclient(request).trunks(**params)
     if not isinstance(trunks, (types.GeneratorType, list)):
@@ -1723,6 +1733,7 @@ def network_delete(request, network_id):
 @profiler.trace
 @memoized
 def subnet_list(request, **params):
+    _tenant_id_to_project_id(params, 'subnet_list')
     LOG.debug("subnet_list(): params=%s", params)
     subnets = networkclient(request).subnets(**params)
     ret_val = [Subnet(s.to_dict()) for s in subnets]
@@ -1784,6 +1795,7 @@ def subnet_delete(request, subnet_id):
 
 @profiler.trace
 def subnetpool_list(request, **params):
+    _tenant_id_to_project_id(params, 'subnetpool_list')
     LOG.debug("subnetpool_list(): params=%s", params)
     subnetpools = networkclient(request).subnet_pools(**params)
     if not isinstance(subnetpools, (types.GeneratorType, list)):
@@ -1854,12 +1866,7 @@ def subnetpool_delete(request, subnetpool_id):
 @profiler.trace
 @memoized
 def port_list(request, **params):
-    # this is a possible fix for horizon plugins that make incorrect filtering
-    if "tenant_id" in params and "project_id" not in params:
-        params["project_id"] = params.pop("tenant_id")
-        LOG.error("port_list() is called with 'tenant_id' filter parameter. "
-                  "Use project_id instead.")
-
+    _tenant_id_to_project_id(params, 'port_list')
     LOG.debug("port_list(): params=%s", params)
     ports = networkclient(request).ports(**params)
     if not isinstance(ports, (types.GeneratorType, list)):
@@ -1880,6 +1887,7 @@ def port_list_with_trunk_types(request, **params):
          handle the inconsistencies caused by non-atomic API requests
          gracefully.
     """
+    _tenant_id_to_project_id(params, 'port_list_with_trunk_types')
     LOG.debug("port_list_with_trunk_types(): params=%s", params)
 
     # When trunk feature is disabled in neutron, we have no need to fetch
@@ -1889,9 +1897,7 @@ def port_list_with_trunk_types(request, **params):
 
     ports = networkclient(request).ports(**params)
     trunk_filters = {}
-    if 'tenant_id' in params:
-        trunk_filters['tenant_id'] = params['tenant_id']
-    elif 'project_id' in params:
+    if 'project_id' in params:
         trunk_filters['project_id'] = params['project_id']
     trunks = list(networkclient(request).trunks(**trunk_filters))
     parent_ports = set(t['port_id'] for t in trunks)
@@ -1989,6 +1995,7 @@ def router_get(request, router_id, **params):
 
 @profiler.trace
 def router_list(request, **params):
+    _tenant_id_to_project_id(params, 'router_list')
     routers = networkclient(request).routers(**params)
     if not isinstance(routers, (types.GeneratorType, list)):
         routers = [routers]
@@ -2558,6 +2565,7 @@ def policy_create(request, **kwargs):
 
 def policy_list(request, **kwargs):
     """List of QoS Policies."""
+    _tenant_id_to_project_id(kwargs, 'policy_list')
     policies = networkclient(request).qos_policies(**kwargs)
     return [QoSPolicy(p.to_dict()) for p in policies]
 
@@ -2773,6 +2781,7 @@ def rbac_policy_create(request, **kwargs):
 
 def rbac_policy_list(request, **kwargs):
     """List of RBAC Policies."""
+    _tenant_id_to_project_id(kwargs, 'rbac_policy_list')
     policies = networkclient(request).rbac_policies(**kwargs)
     return [RBACPolicy(p.to_dict()) for p in policies]
 

@@ -1,0 +1,9 @@
+---
+fixes:
+  - |
+    Subnets, subnet pools, routers, trunks, QoS policies and RBAC policies
+    are now filtered by ``project_id`` on the Neutron side. openstacksdk
+    does not send ``tenant_id`` for these resources, so for admin users
+    Horizon downloaded all of them and filtered locally. This also fixes
+    the project filter of the Admin > Routers panel, which always showed an
+    empty table.

@@ -218,6 +218,20 @@ class NeutronTrunksTestCase(test.RestAPITestCase):
                                                   port_id='1')
 
 
+class NeutronQoSPoliciesTestCase(test.RestAPITestCase):
+
+    @mock.patch.object(api.neutron, 'policy_list')
+    def test_get(self, mock_policy_list):
+        request = self.mock_rest_request()
+        mock_policy_list.return_value = self.qos_policies.list()
+        response = neutron.QoSPolicies().get(request)
+        self.assertStatusCode(response, 200)
+        self.assertItemsCollectionEqual(
+            response, [p.to_dict() for p in self.qos_policies.list()])
+        mock_policy_list.assert_called_once_with(
+            request, project_id=request.user.project_id)
+
+
 class NeutronExtensionsTestCase(test.RestAPITestCase):
 
     @mock.patch.object(api.neutron, 'list_extensions')

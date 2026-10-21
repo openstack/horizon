@@ -1237,6 +1237,25 @@ class NeutronApiTests(test.APIMockTestCase):
             self.assertIsInstance(p, api.neutron.Port)
         network_client.ports.assert_called_once_with(project_id=tenant_id)
 
+    @mock.patch.object(api.neutron, 'networkclient')
+    def test_list_tenant_id_filter_sent_as_project_id(self,
+                                                      mock_networkclient):
+        network_client = mock_networkclient.return_value
+        project_id = str(uuid.uuid4())
+        list_calls = (
+            (api.neutron.subnet_list, network_client.subnets),
+            (api.neutron.subnetpool_list, network_client.subnet_pools),
+            (api.neutron.router_list, network_client.routers),
+            (api.neutron.trunk_list, network_client.trunks),
+            (api.neutron.policy_list, network_client.qos_policies),
+            (api.neutron.rbac_policy_list, network_client.rbac_policies),
+        )
+        for api_method, sdk_method in list_calls:
+            with self.subTest(api_method=api_method):
+                sdk_method.return_value = []
+                api_method(self.request, tenant_id=project_id)
+                sdk_method.assert_called_once_with(project_id=project_id)
+
     @mock.patch.object(api.neutron, 'is_extension_supported')
     @mock.patch.object(api.neutron, 'networkclient')
     def test_port_list_with_trunk_types(
@@ -1306,6 +1325,22 @@ class NeutronApiTests(test.APIMockTestCase):
         mock_is_extension_supported.assert_called_once_with(
             test.IsHttpRequest(), 'trunk')
         networkclient.ports.assert_called_once_with()
+
+    @mock.patch.object(api.neutron, 'is_extension_supported')
+    @mock.patch.object(api.neutron, 'networkclient')
+    def test_port_list_with_trunk_types_tenant_id_filter(
+            self, mock_networkclient, mock_is_extension_supported):
+        mock_is_extension_supported.return_value = True
+        network_client = mock_networkclient.return_value
+        network_client.ports.return_value = []
+        network_client.trunks.return_value = []
+        project_id = str(uuid.uuid4())
+
+        api.neutron.port_list_with_trunk_types(self.request,
+                                               tenant_id=project_id)
+
+        network_client.ports.assert_called_once_with(project_id=project_id)
+        network_client.trunks.assert_called_once_with(project_id=project_id)
 
     @mock.patch.object(api.neutron, 'networkclient')
     def test_port_get(self, mock_networkclient):
