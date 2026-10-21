@@ -1,0 +1,5 @@
+---
+fixes:
+  - |
+    Fixed an internal server error when the Edit Trunk dialog is saved
+    without any changes.

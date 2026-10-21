@@ -1186,7 +1186,11 @@ def trunk_update(request, trunk_id, old_trunk, new_trunk):
     dicts_delete = [subports_old[fs] for fs in delete]
     dicts_create = [subports_new[fs] for fs in create]
 
-    trunk = old_trunk
+    if not (prop_diff or dicts_delete or dicts_create):
+        LOG.debug('trunk_update(): nothing to update for trunk %s', trunk_id)
+        return Trunk(old_trunk)
+
+    trunk = None
     if prop_diff:
         LOG.debug('trunk_update(): update properties of trunk %s: %s',
                   trunk_id, prop_diff)
