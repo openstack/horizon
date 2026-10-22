@@ -27,6 +27,7 @@ from django.utils.translation import pgettext_lazy
 from horizon import tables
 
 from openstack_dashboard import api
+from openstack_dashboard.utils import filters as dashboard_filters
 
 NOT_LAUNCHABLE_FORMATS = ['aki', 'ari']
 
@@ -382,10 +383,15 @@ class ExpandableImageRow(tables.Row):
         my_tenant_id = self.table.request.user.tenant_id
         categories = get_image_categories(self.datum, my_tenant_id)
         category_classes = ' '.join('category-' + c for c in categories)
+        context = {
+            "row": self,
+            "chevron_id": chevron_id,
+            "category_classes": category_classes,
+            "visibility_label": get_visibility_label(self.datum),
+            "protected_label": get_protected_label(self.datum),
+        }
         return render_to_string("images/images/expandable_row.html",
-                                {"row": self,
-                                 "chevron_id": chevron_id,
-                                 "category_classes": category_classes})
+                                context)
 
 
 class UpdateRow(ExpandableImageRow):
@@ -411,6 +417,17 @@ VISIBILITY_DISPLAY_CHOICES = (
     ("shared", pgettext_lazy("Visibility of an Image", "Shared")),
     ("community", pgettext_lazy("Visibility of an Image", "Community")),
 )
+
+
+def get_visibility_label(image):
+    return dashboard_filters.get_display_label(
+        VISIBILITY_DISPLAY_CHOICES,
+        getattr(image, "visibility", None))
+
+
+def get_protected_label(image):
+    return filters.capfirst(
+        filters.yesno(bool(getattr(image, "protected", False))))
 
 
 class ImagesTable(tables.DataTable):

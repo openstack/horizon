@@ -375,6 +375,33 @@ class ImageFilterActionTests(test.TestCase):
                          tables.ImagesTable._meta.table_actions)
 
 
+class ImageDisplayLabelTests(test.TestCase):
+    def test_visibility_label_uses_api_value_mapping(self):
+        expected_labels = {
+            'public': 'Public',
+            'private': 'Private',
+            'shared': 'Shared',
+            'community': 'Community',
+        }
+
+        for visibility, expected in expected_labels.items():
+            image = mock.Mock(visibility=visibility)
+            self.assertEqual(
+                str(tables.get_visibility_label(image)), expected)
+
+    def test_unknown_visibility_is_preserved(self):
+        image = mock.Mock(visibility='future-value')
+
+        self.assertEqual(tables.get_visibility_label(image), 'future-value')
+
+    def test_protected_label_uses_boolean_filter(self):
+        protected = mock.Mock(protected=True)
+        unprotected = mock.Mock(protected=False)
+
+        self.assertEqual(tables.get_protected_label(protected), 'Yes')
+        self.assertEqual(tables.get_protected_label(unprotected), 'No')
+
+
 class OwnerFilterTests(test.TestCase):
     def setUp(self):
         super().setUp()
