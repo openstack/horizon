@@ -403,9 +403,7 @@ def test_remove_protected_image_admin(login, driver, image_names,
     assert f"Success: Image {image_name} was successfully updated." in messages
     wait_for_steady_state_of_unprotected_image(openstack_admin, image_name)
     WebDriverWait(driver, config.selenium.page_timeout).until(
-        EC.invisibility_of_element(
-            (By.CSS_SELECTOR, ".modal.modal-dialog-wizard.fade.ng-scope"
-                ".ng-isolate-scope.ng-animate.ng-leave.ng-leave-active")))
+        lambda d: len(d.find_elements(By.CSS_SELECTOR, "div.modal")) == 0)
     rows = driver.find_elements(By.XPATH, f"//a[text()='{image_name}']")
     actions_column = rows[0].find_element(
         By.XPATH, ".//ancestor::tr/td[contains(@class,'actions_column')]")
