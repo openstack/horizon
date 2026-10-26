@@ -56,6 +56,8 @@ class ImagesAndSnapshotsTests(BaseImagesTestCase):
         self.assertTemplateUsed(res, INDEX_TEMPLATE)
         self.assertContains(res, 'help_text="Deleted images'
                                  ' are not recoverable."')
+        self.assertContains(res, '.image-prop-value code')
+        self.assertContains(res, 'white-space: normal;')
         self.assertIn('images_table', res.context)
         images_table = res.context['images_table']
         images = images_table.data

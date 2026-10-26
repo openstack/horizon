@@ -1,0 +1,8 @@
+---
+fixes:
+  - |
+    When Python is enabled for the Images panel, the Image Update form now
+    supports editing kernel and ramdisk image associations, which were
+    previously displayed as read-only IDs. For Glance v2, the form filters
+    choices to AKI (kernel) and ARI (ramdisk) images while preserving an
+    existing association when its ID is not included in the returned choices.

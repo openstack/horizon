@@ -20,6 +20,7 @@ import tempfile
 from unittest import mock
 
 from django.conf import settings
+from django.core.exceptions import ValidationError
 from django.core.files.uploadedfile import InMemoryUploadedFile
 from django.test.utils import override_settings
 from django.urls import reverse
@@ -66,15 +67,95 @@ class CreateImageFormTests(test.ResetImageAPIVersionMixin, test.TestCase):
 
 
 class UpdateImageFormTests(test.ResetImageAPIVersionMixin, test.TestCase):
-    def test_is_format_field_editable(self):
-        form = forms.UpdateImageForm({})
+    @mock.patch.object(api.glance, 'image_list_detailed',
+                       return_value=[[], False, False])
+    def test_is_format_field_editable(self, mock_image_list):
+        form = forms.UpdateImageForm(self.request)
         disk_format = form.fields['disk_format']
         self.assertFalse(disk_format.widget.attrs.get('readonly', False))
 
+    @mock.patch.object(api.glance, 'image_list_detailed')
+    def test_kernel_ramdisk_choices_preserve_initial_values(self,
+                                                            mock_image_list):
+        kernel = mock.Mock(id='kernel-b', name='kernel-b', size=1024)
+        ramdisk = mock.Mock(id='ramdisk-b', name='ramdisk-b', size=1024)
+        mock_image_list.side_effect = [
+            [[kernel], False, False],
+            [[ramdisk], False, False],
+        ]
+
+        current_kernel = 'kernel-a'
+        current_ramdisk = 'ramdisk-a'
+        form = forms.UpdateImageForm(
+            self.request,
+            initial={'kernel': current_kernel, 'ramdisk': current_ramdisk})
+
+        self.assertEqual(form.initial['kernel'], current_kernel)
+        self.assertEqual(form.initial['ramdisk'], current_ramdisk)
+        kernel_choices = [
+            choice[0] for choice in form.fields['kernel'].choices]
+        ramdisk_choices = [
+            choice[0] for choice in form.fields['ramdisk'].choices]
+        self.assertIn(current_kernel, kernel_choices)
+        self.assertIn(kernel.id, kernel_choices)
+        self.assertIn(current_ramdisk, ramdisk_choices)
+        self.assertIn(ramdisk.id, ramdisk_choices)
+
+    @mock.patch.object(api.glance, 'image_list_detailed',
+                       return_value=[[], False, False])
+    def test_empty_choice_lookup_preserves_current_associations(
+            self, mock_image_list):
+        form = forms.UpdateImageForm(
+            self.request,
+            initial={'kernel': 'kernel-a', 'ramdisk': 'ramdisk-a'})
+
+        self.assertEqual(form.fields['kernel'].choices,
+                         [('kernel-a', 'kernel-a')])
+        self.assertEqual(form.fields['ramdisk'].choices,
+                         [('ramdisk-a', 'ramdisk-a')])
+        self.assertEqual(form.fields['kernel'].clean('kernel-a'), 'kernel-a')
+        self.assertEqual(form.fields['ramdisk'].clean('ramdisk-a'),
+                         'ramdisk-a')
+        self.assertTrue(form.fields['kernel'].widget.attrs['readonly'])
+        self.assertTrue(form.fields['ramdisk'].widget.attrs['readonly'])
+        self.assertEqual(mock_image_list.call_count, 2)
+
+    @mock.patch.object(api.glance, 'image_list_detailed')
+    @mock.patch.object(forms.messages, 'error')
+    def test_glance_choice_lookup_error_uses_readonly_fallback(
+            self, mock_error, mock_image_list):
+        mock_image_list.side_effect = Exception('Glance unavailable')
+
+        form = forms.UpdateImageForm(self.request)
+
+        self.assertTrue(form.fields['kernel'].widget.attrs['readonly'])
+        self.assertTrue(form.fields['ramdisk'].widget.attrs['readonly'])
+        self.assertEqual(mock_error.call_count, 2)
+        for call in mock_error.call_args_list:
+            self.assertIs(call.args[0], self.request)
+
+    @mock.patch.object(api.glance, 'image_list_detailed')
+    def test_invalid_kernel_choice_is_rejected(self, mock_image_list):
+        mock_image_list.side_effect = [
+            [[], False, False],
+            [[], False, False],
+        ]
+        form = forms.UpdateImageForm(self.request)
+        form.fields['kernel'].choices = [
+            ('', 'Choose an image'), ('valid', 'valid')]
+
+        with self.assertRaises(ValidationError):
+            form.fields['kernel'].clean('not-valid')
+
     @mock.patch.object(api.glance, 'image_get')
-    def test_image_update(self, mock_image_get):
+    @mock.patch.object(api.glance, 'image_list_detailed')
+    def test_image_update(self, mock_image_list, mock_image_get):
         image = self.images.first()
         mock_image_get.return_value = image
+        mock_image_list.side_effect = [
+            [self.images.list(), False, False],
+            [self.images.list(), False, False],
+        ]
 
         url = reverse('horizon:project:images:images:update',
                       args=[image.id])
@@ -87,8 +168,10 @@ class UpdateImageFormTests(test.ResetImageAPIVersionMixin, test.TestCase):
                                                image.id)
 
     @mock.patch.object(api.glance, 'image_get')
-    @mock.patch.object(api.glance, 'image_update')
-    def test_image_update_post_v2(self, mock_image_update, mock_image_get):
+    @mock.patch.object(api.glance, 'image_update_properties')
+    @mock.patch.object(api.glance, 'image_list_detailed')
+    def test_image_update_post_v2(self, mock_image_list,
+                                  mock_image_update, mock_image_get):
         image = self.images.first()
         data = {
             'name': 'Ubuntu 11.10',
@@ -104,10 +187,18 @@ class UpdateImageFormTests(test.ResetImageAPIVersionMixin, test.TestCase):
             'min_ram': 512,
             'is_public': False,
             'protected': False,
+            'kernel': 'kernel-id',
+            'ramdisk': 'ramdisk-id',
             'method': 'UpdateImageForm'}
 
         mock_image_get.return_value = image
         mock_image_update.return_value = image
+        kernel = mock.Mock(id=data['kernel'], size=1024)
+        ramdisk = mock.Mock(id=data['ramdisk'], size=1024)
+        mock_image_list.side_effect = [
+            [[kernel], False, False],
+            [[ramdisk], False, False],
+        ]
 
         url = reverse('horizon:project:images:images:update',
                       args=[image.id])
@@ -120,6 +211,7 @@ class UpdateImageFormTests(test.ResetImageAPIVersionMixin, test.TestCase):
         mock_image_update.assert_called_once_with(
             test.IsHttpRequest(),
             image.id,
+            remove_props=[],
             visibility='private',
             protected=data['protected'],
             disk_format=data['disk_format'],
@@ -128,7 +220,31 @@ class UpdateImageFormTests(test.ResetImageAPIVersionMixin, test.TestCase):
             min_ram=data['min_ram'],
             min_disk=data['min_disk'],
             description=data['description'],
-            architecture=data['architecture'])
+            architecture=data['architecture'],
+            kernel_id=data['kernel'],
+            ramdisk_id=data['ramdisk'])
+
+    @mock.patch.object(api.glance, 'image_update_properties')
+    @mock.patch.object(api.glance, 'image_list_detailed')
+    def test_image_update_clears_empty_associations(self, mock_image_list,
+                                                    mock_image_update):
+        mock_image_list.side_effect = [
+            [[], False, False],
+            [[], False, False],
+        ]
+        mock_image_update.return_value = self.images.first()
+        request = self.request
+        form = forms.UpdateImageForm(request)
+
+        with mock.patch.object(forms.messages, 'success'):
+            form.handle(request, {
+                'image_id': 'image-id',
+                'kernel': '',
+                'ramdisk': '',
+            })
+
+        _, kwargs = mock_image_update.call_args
+        self.assertEqual(kwargs['remove_props'], ['kernel_id', 'ramdisk_id'])
 
 
 class ImageViewTests(test.ResetImageAPIVersionMixin, test.TestCase):
@@ -289,9 +405,9 @@ class ImageViewTests(test.ResetImageAPIVersionMixin, test.TestCase):
 
         # Test all custom properties appear in template
         self.assertContains(res, '<dt title="bar">bar</dt>')
-        self.assertContains(res, '<dd>bar val</dd>')
+        self.assertContains(res, '<dd class="word-wrap">bar val</dd>')
         self.assertContains(res, '<dt title="foo">foo</dt>')
-        self.assertContains(res, '<dd>foo val</dd>')
+        self.assertContains(res, '<dd class="word-wrap">foo val</dd>')
 
         mock_image_get.assert_called_once_with(test.IsHttpRequest(), image.id)
 
@@ -332,9 +448,14 @@ class ImageViewTests(test.ResetImageAPIVersionMixin, test.TestCase):
         mock_image_get.assert_called_once_with(test.IsHttpRequest(), image.id)
 
     @mock.patch.object(api.glance, 'image_get')
-    def test_image_update_get(self, mock_image_get):
+    @mock.patch.object(api.glance, 'image_list_detailed')
+    def test_image_update_get(self, mock_image_list, mock_image_get):
         image = self.images.filter(is_public=True)[0]
         mock_image_get.return_value = image
+        mock_image_list.side_effect = [
+            [self.images.list(), False, False],
+            [self.images.list(), False, False],
+        ]
 
         res = self.client.get(
             reverse('horizon:project:images:images:update',
@@ -343,6 +464,9 @@ class ImageViewTests(test.ResetImageAPIVersionMixin, test.TestCase):
         self.assertTemplateUsed(res,
                                 'project/images/images/_update.html')
         self.assertEqual(res.context['image'].name, image.name)
+        self.assertEqual(res.context['form'].initial['kernel'], image.kernel_id)
+        self.assertEqual(
+            res.context['form'].initial['ramdisk'], image.ramdisk_id)
         # Bug 1076216 - is_public checkbox not being set correctly
         self.assertContains(res, "<input type='checkbox' id='id_is_public'"
                                  " name='is_public' checked='checked'>",

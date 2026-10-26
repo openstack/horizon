@@ -306,18 +306,18 @@ class UpdateImageForm(forms.SelfHandlingForm):
         widget=forms.Textarea(attrs={'rows': 4}),
         label=_("Description"),
         required=False)
-    kernel = forms.CharField(
-        max_length=36,
-        label=_("Kernel ID"),
+    kernel = forms.ChoiceField(
+        label=_('Kernel'),
         required=False,
-        widget=forms.TextInput(attrs={'readonly': 'readonly'}),
-    )
-    ramdisk = forms.CharField(
-        max_length=36,
-        label=_("Ramdisk ID"),
+        widget=forms.ThemableSelectWidget(
+            transform=lambda x: "%s (%s)" % (
+                x.name, defaultfilters.filesizeformat(x.size))))
+    ramdisk = forms.ChoiceField(
+        label=_('Ramdisk'),
         required=False,
-        widget=forms.TextInput(attrs={'readonly': 'readonly'}),
-    )
+        widget=forms.ThemableSelectWidget(
+            transform=lambda x: "%s (%s)" % (
+                x.name, defaultfilters.filesizeformat(x.size))))
     architecture = forms.CharField(
         label=_("Architecture"),
         required=False,
@@ -352,13 +352,65 @@ class UpdateImageForm(forms.SelfHandlingForm):
             self.fields['is_public'].help_text = _(
                 'Non admin users are not allowed to make images public.')
 
+        # Populate kernel choices
+        try:
+            kernel_images = api.glance.image_list_detailed(
+                request, filters={'disk_format': 'aki'})[0]
+        except Exception:
+            kernel_images = []
+            messages.error(request, _('Unable to retrieve image list.'))
+
+        if kernel_images:
+            choices = [('', _("Choose an image"))]
+            for image in kernel_images:
+                choices.append((image.id, image))
+            current = self.initial.get('kernel')
+            if current and current not in [choice[0] for choice in choices]:
+                choices.append((current, current))
+            self.fields['kernel'].choices = choices
+        else:
+            current = self.initial.get('kernel')
+            self.fields['kernel'].choices = (
+                [(current, current)] if current else [])
+            self.fields['kernel'].widget = forms.TextInput(
+                attrs={'readonly': 'readonly'})
+
+        # Populate ramdisk choices
+        try:
+            ramdisk_images = api.glance.image_list_detailed(
+                request, filters={'disk_format': 'ari'})[0]
+        except Exception:
+            ramdisk_images = []
+            messages.error(request, _('Unable to retrieve image list.'))
+
+        if ramdisk_images:
+            choices = [('', _("Choose an image"))]
+            for image in ramdisk_images:
+                choices.append((image.id, image))
+            current = self.initial.get('ramdisk')
+            if current and current not in [choice[0] for choice in choices]:
+                choices.append((current, current))
+            self.fields['ramdisk'].choices = choices
+        else:
+            current = self.initial.get('ramdisk')
+            self.fields['ramdisk'].choices = (
+                [(current, current)] if current else [])
+            self.fields['ramdisk'].widget = forms.TextInput(
+                attrs={'readonly': 'readonly'})
+
     def handle(self, request, data):
         image_id = data['image_id']
         error_updating = _('Unable to update image "%s".')
         meta = api.glance.create_image_metadata(data)
+        remove_props = []
+        if not data.get('kernel'):
+            remove_props.append('kernel_id')
+        if not data.get('ramdisk'):
+            remove_props.append('ramdisk_id')
 
         try:
-            image = api.glance.image_update(request, image_id, **meta)
+            image = api.glance.image_update_properties(
+                request, image_id, remove_props=remove_props, **meta)
             messages.success(request, _('Image was successfully updated.'))
             return image
         except Exception:
