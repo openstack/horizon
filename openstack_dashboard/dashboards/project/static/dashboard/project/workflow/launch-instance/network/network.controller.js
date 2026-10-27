@@ -65,9 +65,9 @@
       trackId: 'id',
       detailsTemplateUrl: basePath + 'network/network-details.html',
       columns: [
-        {id: 'name', title: gettext('Network'), priority: 1,
+        {id: 'name', title: gettext('Network'), priority: 1, classes: 'word-break',
           template: '<div>{$ item.name || item.id $}</div>'},
-        {id: 'subnets', title: gettext('Subnets Associated'), priority: 2,
+        {id: 'subnets', title: gettext('Subnets Associated'), priority: 2, classes: 'word-break',
           template: '<div ng-repeat="subnet in item.subnets">{$ subnet.name || subnet.id $}</div>'},
         {id: 'shared', title: gettext('Shared'), filters: ['yesno'], priority: 1},
         {id: 'admin_state', title: gettext('Admin State'), filters: [getAdminState], priority: 1},
