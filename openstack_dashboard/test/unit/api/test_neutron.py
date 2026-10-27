@@ -1003,6 +1003,30 @@ class NeutronApiTests(test.APIMockTestCase):
         query_func.assert_called_once_with(**query_kwargs2)
 
     @mock.patch.object(api.neutron, 'networkclient')
+    def test_network_list_by_ids(self, mock_networkclient):
+        networks = self.api_networks_sdk[:3]
+        net_ids = [n['id'] for n in networks]
+
+        networkclient = mock_networkclient.return_value
+        networkclient.networks.return_value = networks
+        networkclient.subnets.return_value = self.api_subnets_sdk
+
+        ret_val = api.neutron.network_list(self.request, id=net_ids)
+
+        self.assertEqual(net_ids, [n.id for n in ret_val])
+        networkclient.networks.assert_called_once_with(id=net_ids)
+
+    @mock.patch.object(api.neutron, 'networkclient')
+    def test_network_list_by_empty_ids(self, mock_networkclient):
+        networkclient = mock_networkclient.return_value
+
+        ret_val = api.neutron.network_list(self.request, id=frozenset())
+
+        self.assertEqual([], ret_val)
+        networkclient.networks.assert_not_called()
+        networkclient.subnets.assert_not_called()
+
+    @mock.patch.object(api.neutron, 'networkclient')
     def test_network_get(self, mock_networkclient):
         network = self.api_networks_sdk[0]
         subnet = self.api_subnets_sdk[0]
