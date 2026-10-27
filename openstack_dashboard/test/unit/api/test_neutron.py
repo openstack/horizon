@@ -2662,6 +2662,55 @@ class NeutronApiFloatingIpTests(test.APIMockTestCase):
         self.netclient.ips.assert_called_once_with()
         self.netclient.ports.assert_called_once_with()
 
+    def _fips_with_port_details(self):
+        assoc_port = self.api_ports_sdk[1]
+        fips = []
+        for fip in self.api_floating_ips_sdk:
+            fip = copy.deepcopy(fip)
+            if fip['port_id']:
+                fip.port_details = {
+                    'device_id': assoc_port['device_id'],
+                    'device_owner': assoc_port['device_owner']}
+            fips.append(fip)
+        return fips
+
+    def test_floating_ip_list_with_port_details(self):
+        fips = self._fips_with_port_details()
+        self.netclient.ips.return_value = fips
+
+        rets = api.neutron.tenant_floating_ip_list(self.request)
+
+        assoc_port = self.api_ports_sdk[1]
+        self.assertEqual(len(fips), len(rets))
+        for ret, exp in zip(rets, fips):
+            if exp['port_id']:
+                self.assertEqual(assoc_port['device_id'], ret.instance_id)
+                self.assertEqual('compute', ret.instance_type)
+            else:
+                self.assertIsNone(ret.instance_id)
+                self.assertIsNone(ret.instance_type)
+        self.netclient.ips.assert_called_once_with(
+            project_id=self.request.user.tenant_id)
+        self.netclient.ports.assert_not_called()
+
+    def test_floating_ip_list_empty(self):
+        self.netclient.ips.return_value = []
+
+        rets = api.neutron.tenant_floating_ip_list(self.request)
+
+        self.assertEqual([], rets)
+        self.netclient.ports.assert_not_called()
+
+    def test_floating_ip_get_associated_with_port_details(self):
+        fip = self._fips_with_port_details()[1]
+        self.netclient.get_ip.return_value = fip
+
+        ret = api.neutron.tenant_floating_ip_get(self.request, fip['id'])
+
+        self.assertEqual(self.api_ports_sdk[1]['device_id'], ret.instance_id)
+        self.assertEqual('compute', ret.instance_type)
+        self.netclient.get_port.assert_not_called()
+
     def _translate_fip_dict(attr):
         """Helper method as with SDK some FIP attributes names changed"""
         check = attr
