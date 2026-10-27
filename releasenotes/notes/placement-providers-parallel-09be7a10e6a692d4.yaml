@@ -1,0 +1,6 @@
+---
+fixes:
+  - |
+    The Admin > Compute > Hypervisors panel now requests resource provider
+    inventories and usages from Placement in parallel, and only once per
+    page view.
