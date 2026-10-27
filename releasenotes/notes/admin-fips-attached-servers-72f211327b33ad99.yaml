@@ -1,0 +1,6 @@
+---
+fixes:
+  - |
+    The admin Floating IPs panel no longer lists the servers of all projects
+    on every page load. It fetches only the servers of the shown floating
+    IPs, unless there are more than 50.

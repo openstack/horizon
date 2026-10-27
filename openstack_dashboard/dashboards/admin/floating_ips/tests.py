@@ -13,9 +13,14 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
+from unittest import mock
+
 from django.urls import reverse
+from novaclient import exceptions as nova_exceptions
 
 from openstack_dashboard import api
+from openstack_dashboard.dashboards.admin.floating_ips \
+    import views as fip_views
 from openstack_dashboard.test import helpers as test
 
 INDEX_URL = reverse('horizon:admin:floating_ips:index')
@@ -24,8 +29,15 @@ INDEX_TEMPLATE = 'horizon/common/_data_table_view.html'
 
 class AdminFloatingIpViewTest(test.BaseAdminViewTests):
 
+    def setUp(self):
+        super().setUp()
+        # Only UUIDs are looked up as servers; the test data uses '1'.
+        server = self.servers.first()
+        server.id = '0b8bd5bf-6c76-4f5b-8f10-5b4a06d1f8a4'
+        self.floating_ips.list()[1].instance_id = server.id
+
     @test.create_mocks({
-        api.nova: ['server_list'],
+        api.nova: ['server_get'],
         api.keystone: ['tenant_list'],
         api.neutron: ['network_list',
                       'is_extension_supported',
@@ -36,7 +48,7 @@ class AdminFloatingIpViewTest(test.BaseAdminViewTests):
         servers = self.servers.list()
         tenants = self.tenants.list()
         self.mock_tenant_floating_ip_list.return_value = fips
-        self.mock_server_list.return_value = [servers, False]
+        self.mock_server_get.return_value = servers[0]
         self.mock_tenant_list.return_value = [tenants, False]
         self.mock_network_list.return_value = self.networks.list()
         self.mock_is_extension_supported.return_value = True
@@ -48,6 +60,7 @@ class AdminFloatingIpViewTest(test.BaseAdminViewTests):
         floating_ips = floating_ips_table.data
         self.assertEqual(len(floating_ips), 2)
 
+        self.assertContains(res, servers[0].name)
         row_actions = floating_ips_table.get_row_actions(floating_ips[0])
         self.assertEqual(len(row_actions), 1)
         row_actions = floating_ips_table.get_row_actions(floating_ips[1])
@@ -55,16 +68,84 @@ class AdminFloatingIpViewTest(test.BaseAdminViewTests):
         self.mock_tenant_floating_ip_list.assert_called_once_with(
             test.IsHttpRequest(),
             all_tenants=True)
-        self.mock_server_list.assert_called_once_with(
-            test.IsHttpRequest(),
-            detailed=False,
-            search_opts={'all_tenants': True})
+        self.mock_server_get.assert_called_once_with(
+            test.IsHttpRequest(), servers[0].id)
         self.mock_tenant_list.assert_called_once_with(test.IsHttpRequest())
         params = {"router:external": True}
         self.mock_network_list.assert_called_once_with(
             test.IsHttpRequest(), **params)
         self.mock_is_extension_supported.assert_called_once_with(
             test.IsHttpRequest(), 'dns-integration')
+
+    @test.create_mocks({
+        api.nova: ['server_get'],
+        api.keystone: ['tenant_list'],
+        api.neutron: ['network_list',
+                      'is_extension_supported',
+                      'tenant_floating_ip_list']})
+    def test_index_associated_server_not_found(self):
+        fips = self.floating_ips.list()
+        self.mock_tenant_floating_ip_list.return_value = fips
+        self.mock_server_get.side_effect = nova_exceptions.NotFound(404)
+        self.mock_tenant_list.return_value = [self.tenants.list(), False]
+        self.mock_network_list.return_value = self.networks.list()
+        self.mock_is_extension_supported.return_value = True
+
+        res = self.client.get(INDEX_URL)
+
+        self.assertTemplateUsed(res, INDEX_TEMPLATE)
+        self.assertNoMessages()
+        floating_ips = res.context['floating_ips_table'].data
+        self.assertIsNone(floating_ips[1].instance_name)
+        self.mock_server_get.assert_called_once_with(
+            test.IsHttpRequest(), fips[1].instance_id)
+
+    @test.create_mocks({
+        api.nova: ['server_get'],
+        api.keystone: ['tenant_list'],
+        api.neutron: ['network_list',
+                      'is_extension_supported',
+                      'tenant_floating_ip_list']})
+    def test_index_device_id_not_uuid(self):
+        fips = self.floating_ips.list()
+        fips[1].instance_id = 'not-a-server-id'
+        self.mock_tenant_floating_ip_list.return_value = fips
+        self.mock_tenant_list.return_value = [self.tenants.list(), False]
+        self.mock_network_list.return_value = self.networks.list()
+        self.mock_is_extension_supported.return_value = True
+
+        res = self.client.get(INDEX_URL)
+
+        self.assertTemplateUsed(res, INDEX_TEMPLATE)
+        floating_ips = res.context['floating_ips_table'].data
+        self.assertIsNone(floating_ips[1].instance_name)
+        self.mock_server_get.assert_not_called()
+
+    @test.create_mocks({
+        api.nova: ['server_get', 'server_list'],
+        api.keystone: ['tenant_list'],
+        api.neutron: ['network_list',
+                      'is_extension_supported',
+                      'tenant_floating_ip_list']})
+    def test_index_many_associated_servers(self):
+        servers = self.servers.list()
+        self.mock_tenant_floating_ip_list.return_value = \
+            self.floating_ips.list()
+        self.mock_server_list.return_value = [servers, False]
+        self.mock_tenant_list.return_value = [self.tenants.list(), False]
+        self.mock_network_list.return_value = self.networks.list()
+        self.mock_is_extension_supported.return_value = True
+
+        with mock.patch.object(fip_views, 'ASSOCIATED_SERVERS_MAX', 0):
+            res = self.client.get(INDEX_URL)
+
+        self.assertTemplateUsed(res, INDEX_TEMPLATE)
+        self.assertContains(res, servers[0].name)
+        self.mock_server_list.assert_called_once_with(
+            test.IsHttpRequest(),
+            detailed=False,
+            search_opts={'all_tenants': True})
+        self.mock_server_get.assert_not_called()
 
     @test.create_mocks({
         api.neutron: ['network_get',
@@ -213,7 +294,7 @@ class AdminFloatingIpViewTest(test.BaseAdminViewTests):
                       'floating_ip_disassociate',
                       'is_extension_supported',
                       'network_list'],
-        api.nova: ['server_list'],
+        api.nova: ['server_get'],
         api.keystone: ['tenant_list']})
     def test_admin_disassociate_floatingip(self):
         # Use neutron test data
@@ -222,7 +303,7 @@ class AdminFloatingIpViewTest(test.BaseAdminViewTests):
         servers = self.servers.list()
         tenants = self.tenants.list()
         self.mock_tenant_floating_ip_list.return_value = fips
-        self.mock_server_list.return_value = [servers, False]
+        self.mock_server_get.return_value = servers[0]
         self.mock_tenant_list.return_value = [tenants, False]
         self.mock_network_list.return_value = self.networks.list()
         self.mock_floating_ip_disassociate.return_value = None
@@ -236,10 +317,8 @@ class AdminFloatingIpViewTest(test.BaseAdminViewTests):
         self.assertNoFormErrors(res)
         self.mock_tenant_floating_ip_list.assert_called_once_with(
             test.IsHttpRequest(), all_tenants=True)
-        self.mock_server_list.assert_called_once_with(
-            test.IsHttpRequest(),
-            detailed=False,
-            search_opts={'all_tenants': True})
+        self.mock_server_get.assert_called_once_with(
+            test.IsHttpRequest(), servers[0].id)
         self.mock_tenant_list.assert_called_once_with(test.IsHttpRequest())
         params = {"router:external": True}
         self.mock_network_list.assert_called_once_with(
@@ -253,7 +332,7 @@ class AdminFloatingIpViewTest(test.BaseAdminViewTests):
         api.neutron: ['tenant_floating_ip_list',
                       'is_extension_supported',
                       'network_list'],
-        api.nova: ['server_list'],
+        api.nova: ['server_get'],
         api.keystone: ['tenant_list']})
     def test_admin_delete_floatingip(self):
         # Use neutron test data
@@ -262,7 +341,7 @@ class AdminFloatingIpViewTest(test.BaseAdminViewTests):
         servers = self.servers.list()
         tenants = self.tenants.list()
         self.mock_tenant_floating_ip_list.return_value = fips
-        self.mock_server_list.return_value = [servers, False]
+        self.mock_server_get.return_value = servers[0]
         self.mock_tenant_list.return_value = [tenants, False]
         self.mock_network_list.return_value = self.networks.list()
         self.mock_is_extension_supported.return_value = True
@@ -275,10 +354,8 @@ class AdminFloatingIpViewTest(test.BaseAdminViewTests):
         self.assertNoFormErrors(res)
         self.mock_tenant_floating_ip_list.assert_called_once_with(
             test.IsHttpRequest(), all_tenants=True)
-        self.mock_server_list.assert_called_once_with(
-            test.IsHttpRequest(),
-            detailed=False,
-            search_opts={'all_tenants': True})
+        self.mock_server_get.assert_called_once_with(
+            test.IsHttpRequest(), servers[0].id)
         self.mock_tenant_list.assert_called_once_with(test.IsHttpRequest())
         params = {"router:external": True}
         self.mock_network_list.assert_called_once_with(
@@ -290,7 +367,7 @@ class AdminFloatingIpViewTest(test.BaseAdminViewTests):
         api.neutron: ['tenant_floating_ip_list',
                       'is_extension_supported',
                       'network_list'],
-        api.nova: ['server_list'],
+        api.nova: ['server_get'],
         api.keystone: ['tenant_list']})
     def test_floating_ip_table_actions(self):
         # Use neutron test data
@@ -298,7 +375,7 @@ class AdminFloatingIpViewTest(test.BaseAdminViewTests):
         servers = self.servers.list()
         tenants = self.tenants.list()
         self.mock_tenant_floating_ip_list.return_value = fips
-        self.mock_server_list.return_value = [servers, False]
+        self.mock_server_get.return_value = servers[0]
         self.mock_tenant_list.return_value = [tenants, False]
         self.mock_network_list.return_value = self.networks.list()
         self.mock_is_extension_supported.return_value = True
@@ -318,10 +395,8 @@ class AdminFloatingIpViewTest(test.BaseAdminViewTests):
         self.assertContains(res, 'floating_ips__disassociate__%s' % fips[1].id)
         self.mock_tenant_floating_ip_list.assert_called_once_with(
             test.IsHttpRequest(), all_tenants=True)
-        self.mock_server_list.assert_called_once_with(
-            test.IsHttpRequest(),
-            detailed=False,
-            search_opts={'all_tenants': True})
+        self.mock_server_get.assert_called_once_with(
+            test.IsHttpRequest(), servers[0].id)
         params = {"router:external": True}
         self.mock_network_list.assert_called_once_with(
             test.IsHttpRequest(), **params)
