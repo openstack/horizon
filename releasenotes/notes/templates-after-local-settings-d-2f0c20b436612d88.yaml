@@ -1,0 +1,8 @@
+---
+fixes:
+  - |
+    [:bug:`2122800`] ``DEBUG``, ``ADD_TEMPLATE_DIRS`` and
+    ``ADD_TEMPLATE_LOADERS`` set in a ``local_settings.d`` snippet now apply
+    to the template configuration. Deployments that set ``DEBUG = False``
+    only in a snippet, like kolla-ansible does, ran without the cached
+    template loader before.
