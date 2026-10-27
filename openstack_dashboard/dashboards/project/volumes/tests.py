@@ -155,7 +155,7 @@ class VolumeIndexViewTests(AttachedServersMixin,
 
         self.assertEqual(servers, instances)
         self.mock_server_list.assert_called_once_with(
-            self.request, search_opts={'all_tenants': True})
+            self.request, search_opts={'all_tenants': True}, detailed=False)
         self.mock_server_get.assert_not_called()
 
     @test.create_mocks({api.nova: ['server_get']})

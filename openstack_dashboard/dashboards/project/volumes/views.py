@@ -89,8 +89,13 @@ class VolumeTableMixIn(object):
         try:
             # TODO(tsufiev): we should pass attached_instance_ids to
             # nova.server_list as soon as Nova API allows for this
+
+            # The tables only need each server's id and name, so the plain
+            # list is enough; the detailed one also makes Nova look up every
+            # server's ports and security groups in Neutron.
             instances, has_more = nova.server_list(self.request,
-                                                   search_opts=search_opts)
+                                                   search_opts=search_opts,
+                                                   detailed=False)
             return instances
         except Exception:
             exceptions.handle(self.request,
