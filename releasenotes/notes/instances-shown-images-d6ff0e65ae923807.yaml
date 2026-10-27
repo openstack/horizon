@@ -1,0 +1,7 @@
+---
+fixes:
+  - |
+    The Instances panels now ask Glance only for the images of the
+    instances on the page instead of listing all images on every page load.
+    Instances whose image was not among the first ``API_RESULT_LIMIT``
+    images no longer show "-" as image name.
