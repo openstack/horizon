@@ -1,0 +1,6 @@
+---
+fixes:
+  - |
+    The Volumes panels no longer list all servers on every page load. They
+    fetch only the servers the shown volumes are attached to, unless there
+    are more than 50.

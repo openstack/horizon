@@ -13,6 +13,7 @@
 #    under the License.
 
 import copy
+from unittest import mock
 from urllib import parse
 
 from django.conf import settings
@@ -39,8 +40,19 @@ class VolumeTests(test.BaseAdminViewTests):
                     del att['instance']
         super().tearDown()
 
+    def _server_get(self, request, server_id):
+        return self.servers.get(id=server_id)
+
+    def _check_server_get(self, volumes):
+        server_ids = set(attachment['server_id'] for volume in volumes
+                         for attachment in volume.attachments)
+        self.mock_server_get.assert_has_calls(
+            [mock.call(test.IsHttpRequest(), server_id)
+             for server_id in server_ids], any_order=True)
+        self.assertEqual(len(server_ids), self.mock_server_get.call_count)
+
     @test.create_mocks({
-        api.nova: ['server_list'],
+        api.nova: ['server_get'],
         api.cinder: ['volume_snapshot_list', 'volume_list_paged'],
         api.keystone: ['tenant_list']})
     def _test_index(self, instanceless_volumes):
@@ -53,14 +65,16 @@ class VolumeTests(test.BaseAdminViewTests):
         self.mock_volume_snapshot_list.return_value = []
 
         if not instanceless_volumes:
-            self.mock_server_list.return_value = [self.servers.list(), False]
+            self.mock_server_get.side_effect = self._server_get
 
         self.mock_tenant_list.return_value = [[self.tenants.list(), False]]
 
         res = self.client.get(INDEX_URL)
-        if not instanceless_volumes:
-            self.mock_server_list.assert_called_once_with(
-                test.IsHttpRequest(), search_opts={'all_tenants': True})
+        if instanceless_volumes:
+            self.mock_server_get.assert_not_called()
+        else:
+            self.assertContains(res, self.servers.first().name)
+            self._check_server_get(volumes)
 
         self.mock_volume_list_paged.assert_called_once_with(
             test.IsHttpRequest(), sort_dir="desc", marker=None, paginate=True,
@@ -79,7 +93,32 @@ class VolumeTests(test.BaseAdminViewTests):
         self._test_index(False)
 
     @test.create_mocks({
-        api.nova: ['server_list'],
+        api.nova: ['server_get'],
+        api.cinder: ['volume_snapshot_list', 'volume_list_paged'],
+        api.keystone: ['tenant_list']})
+    def test_index_filter_by_project(self):
+        tenant = self.tenants.first()
+        volumes = self.cinder_volumes.list()
+        self.mock_volume_list_paged.return_value = [volumes, False, False]
+        self.mock_volume_snapshot_list.return_value = []
+        self.mock_server_get.side_effect = self._server_get
+        self.mock_tenant_list.return_value = [self.tenants.list(), False]
+
+        self.client.post(
+            INDEX_URL,
+            data={'volumes__volumes_admin_filter__q_field': 'project',
+                  'volumes__volumes_admin_filter__q': tenant.name})
+        res = self.client.get(INDEX_URL)
+
+        self.assertTemplateUsed(res, 'horizon/common/_data_table_view.html')
+        self.assertContains(res, self.servers.first().name)
+        self.mock_volume_list_paged.assert_called_once_with(
+            test.IsHttpRequest(), sort_dir="desc", marker=None, paginate=True,
+            search_opts={'all_tenants': True, 'project_id': tenant.id})
+        self._check_server_get(volumes)
+
+    @test.create_mocks({
+        api.nova: ['server_get'],
         api.cinder: ['volume_snapshot_list', 'volume_list_paged'],
         api.keystone: ['tenant_list']})
     def _test_index_paginated(self, marker, sort_dir, volumes, url,
@@ -89,13 +128,12 @@ class VolumeTests(test.BaseAdminViewTests):
         self.mock_volume_list_paged.return_value = \
             [volumes, has_more, has_prev]
         self.mock_volume_snapshot_list.return_value = vol_snaps
-        self.mock_server_list.return_value = [self.servers.list(), False]
+        self.mock_server_get.side_effect = self._server_get
         self.mock_tenant_list.return_value = [self.tenants.list(), False]
 
         res = self.client.get(parse.unquote(url))
 
-        self.mock_server_list.assert_called_once_with(
-            test.IsHttpRequest(), search_opts={'all_tenants': True})
+        self._check_server_get(volumes)
         self.mock_volume_list_paged.assert_called_once_with(
             test.IsHttpRequest(),
             sort_dir=sort_dir,
