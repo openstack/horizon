@@ -12,8 +12,9 @@
 
 from oslo_utils import uuidutils
 import pytest
-from selenium.common import exceptions
 from selenium.webdriver.common.by import By
+from selenium.webdriver.support import expected_conditions as EC
+from selenium.webdriver.support.wait import WebDriverWait
 
 from openstack_dashboard.test.selenium import widgets
 
@@ -163,15 +164,18 @@ def test_user_credential_filtration(login, driver, openstack_admin,
     filter_input_field.clear()
     filter_input_field.send_keys('demo')
     driver.find_element(By.ID, "credentialstable__action_filter").click()
-    try:
-        driver.find_element(
-            By.XPATH, "//td[text()='No items to display.']")
-    except exceptions.NoSuchElementException:
-        assert False, "Message 'No items to display' not found"
+    no_items_present = WebDriverWait(
+        driver, config.selenium.page_timeout).until(
+            EC.presence_of_element_located(
+                (By.XPATH, "//*[normalize-space()='No items to display.']")))
+    assert no_items_present
     filter_input_field = driver.find_element(By.CSS_SELECTOR, ".form-control")
     filter_input_field.clear()
     filter_input_field.send_keys('admin')
     driver.find_element(By.ID, "credentialstable__action_filter").click()
+    WebDriverWait(driver, config.selenium.page_timeout).until(
+        lambda d: len(d.find_elements(
+            By.CSS_SELECTOR, "table#credentialstable tr[data-display]")) == 1)
     rows = driver.find_elements(
         By.CSS_SELECTOR, "table#credentialstable tr[data-display]")
     assert len(rows) == 1
