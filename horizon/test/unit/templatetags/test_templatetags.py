@@ -135,6 +135,16 @@ class TemplateTagTests(test.TestCase):
                                             context={'test': ctx_string})
         self.assertEqual(expected, rendered_str)
 
+    def test_shellfilter(self):
+        ctx_string = 'a!b\'c"d$(e)`f`\\g'
+        text = '"{{ test|shellfilter }}"'
+        expected = r''' "a!b'c\"d\$(e)\`f\`\\g"'''
+
+        rendered_str = self.render_template(tag_require='shellfilter',
+                                            template_text=text,
+                                            context={'test': ctx_string})
+        self.assertEqual(expected, rendered_str)
+
     def test_horizon_main_nav(self):
         text = "{% horizon_main_nav %}"
         expected = """

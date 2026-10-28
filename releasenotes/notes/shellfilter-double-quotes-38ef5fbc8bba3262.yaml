@@ -1,0 +1,7 @@
+---
+fixes:
+  - |
+    The downloaded OpenStack RC files no longer add a backslash before
+    ``!`` and ``'`` in values. Application credential secrets that contain
+    ``!`` work again, and project names that contain ``!`` or ``'`` are no
+    longer changed.
