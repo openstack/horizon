@@ -24,6 +24,7 @@ except ImportError:
     from openstack.compute.v2._proxy import Proxy as compute_v2_proxy
 from openstack.compute.v2 import availability_zone as az_resource
 from openstack.compute.v2 import flavor as flavor_resource
+from openstack.compute.v2 import server_group as server_group_resource
 from openstack.test import fakes
 
 from openstack_dashboard import api
@@ -367,13 +368,16 @@ class NovaRestTestCase(test.RestAPITestCase):
     def test_server_group_list(self):
         request = self.mock_rest_request()
         self.mock_server_group_list.return_value = [
-            mock.Mock(**{'to_dict.return_value': {'id': '1'}}),
-            mock.Mock(**{'to_dict.return_value': {'id': '2'}}),
+            server_group_resource.ServerGroup(id='1', members=['server-1']),
+            server_group_resource.ServerGroup(id='2', members=[]),
         ]
 
         response = nova.ServerGroups().get(request)
         self.assertStatusCode(response, 200)
-        self.assertEqual({'items': [{'id': '1'}, {'id': '2'}]},
+        # The panel reads the members under the name the compute API gives
+        # them rather than the member_ids openstacksdk keeps them under.
+        self.assertEqual({'items': [{'id': '1', 'members': ['server-1']},
+                                    {'id': '2', 'members': []}]},
                          response.json)
         self.mock_server_group_list.assert_called_once_with(request)
 
@@ -382,12 +386,9 @@ class NovaRestTestCase(test.RestAPITestCase):
         req_data = json.dumps({
             'name': 'server_group', 'policies': ['affinity']})
 
-        self.mock_server_group_create.return_value = mock.Mock(**{
-            'id': '123',
-            'to_dict.return_value': {'id': '123',
-                                     'name': 'server_group',
-                                     'policies': ['affinity']}
-        })
+        self.mock_server_group_create.return_value = \
+            server_group_resource.ServerGroup(
+                id='123', name='server_group', policies=['affinity'])
 
         server_group_data = {'name': 'server_group',
                              'policies': ['affinity']}
@@ -396,6 +397,8 @@ class NovaRestTestCase(test.RestAPITestCase):
 
         self.assertStatusCode(response, 201)
         self.assertEqual('/api/nova/servergroups/123', response['location'])
+        self.assertEqual({'id': '123', 'name': 'server_group',
+                          'policies': ['affinity']}, response.json)
 
         self.mock_server_group_create.assert_called_once_with(
             request, **server_group_data)
@@ -416,7 +419,8 @@ class NovaRestTestCase(test.RestAPITestCase):
         response = nova.ServerGroup().get(request, "1")
 
         self.assertStatusCode(response, 200)
-        self.assertEqual(servergroup.to_dict(), response.json)
+        self.assertEqual(api.nova.server_group_to_dict(servergroup),
+                         response.json)
         self.mock_server_group_get.assert_called_once_with(request, "1")
 
     #

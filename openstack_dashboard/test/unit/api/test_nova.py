@@ -31,6 +31,7 @@ from openstack.compute.v2 import flavor as flavor_resource
 from openstack.compute.v2 import hypervisor as hypervisor_resource
 from openstack.compute.v2 import keypair as keypair_resource
 from openstack.compute.v2 import limits as limits_resource
+from openstack.compute.v2 import server_group as server_group_resource
 from openstack.compute.v2 import service as service_resource
 from openstack.compute.v2 import usage as usage_resource
 from openstack import resource as sdk_resource
@@ -370,58 +371,6 @@ class ComputeApiTests(test.APIMockTestCase):
         novaclient.hypervisors.search.assert_called_once_with('host', True)
         novaclient.servers.get.assert_called_once_with(server_uuid)
         novaclient.servers.migrate.assert_called_once_with(server_uuid)
-
-    @mock.patch.object(api._nova, 'novaclient')
-    def test_server_group_list(self, mock_novaclient):
-        server_groups = self.server_groups.list()
-
-        novaclient = mock_novaclient.return_value
-        novaclient.server_groups.list.return_value = server_groups
-
-        ret_val = api.nova.server_group_list(self.request)
-
-        self.assertIsInstance(ret_val, list)
-        self.assertEqual(len(ret_val), len(server_groups))
-        novaclient.server_groups.list.assert_called_once_with()
-
-    @mock.patch.object(api._nova, 'novaclient')
-    def test_server_group_create(self, mock_novaclient):
-        servergroup = self.server_groups.first()
-        kwargs = {'name': servergroup.name, 'policies': servergroup.policies}
-        novaclient = mock_novaclient.return_value
-        self._mock_current_version(novaclient, '2.45')
-        novaclient.server_groups.create.return_value = servergroup
-
-        ret_val = api.nova.server_group_create(self.request, **kwargs)
-
-        self.assertEqual(servergroup.name, ret_val.name)
-        self.assertEqual(servergroup.policies, ret_val.policies)
-        novaclient.versions.get_current.assert_called_once_with()
-        novaclient.server_groups.create.assert_called_once_with(**kwargs)
-
-    @mock.patch.object(api._nova, 'novaclient')
-    def test_server_group_delete(self, mock_novaclient):
-        servergroup_id = self.server_groups.first().id
-        novaclient = mock_novaclient.return_value
-        novaclient.server_groups.delete.return_value = None
-
-        api_val = api.nova.server_group_delete(self.request, servergroup_id)
-
-        self.assertIsNone(api_val)
-        novaclient.server_groups.delete.assert_called_once_with(servergroup_id)
-
-    @mock.patch.object(api._nova, 'novaclient')
-    def test_server_group_get(self, mock_novaclient):
-        servergroup = self.server_groups.first()
-        novaclient = mock_novaclient.return_value
-        self._mock_current_version(novaclient, '2.45')
-        novaclient.server_groups.get.return_value = servergroup
-
-        ret_val = api.nova.server_group_get(self.request, servergroup.id)
-
-        self.assertEqual(ret_val.id, servergroup.id)
-        novaclient.versions.get_current.assert_called_once_with()
-        novaclient.server_groups.get.assert_called_once_with(servergroup.id)
 
     @mock.patch.object(api._nova, 'novaclient')
     def test_tenant_quota_get(self, mock_novaclient):
@@ -1292,3 +1241,103 @@ class LimitsApiTests(test.APIMockTestCase):
                           'totalRAMUsed': 0,
                           'totalSecurityGroupsUsed': 1,
                           'totalFloatingIpsUsed': 0}, ret_val)
+
+
+class ServerGroupApiTests(test.APIMockTestCase):
+
+    def setUp(self):
+        super().setUp()
+        self.computeclient = mock.create_autospec(
+            compute_v2.Proxy, instance=True)
+        patcher = mock.patch.object(
+            api._nova, 'computeclient', return_value=self.computeclient)
+        self.mock_computeclient = patcher.start()
+        self.addCleanup(patcher.stop)
+
+        microversion_patcher = mock.patch.object(
+            api.nova, 'get_microversion', return_value='2.60')
+        self.mock_get_microversion = microversion_patcher.start()
+        self.addCleanup(microversion_patcher.stop)
+
+        maximum_patcher = mock.patch.object(
+            api.nova.sdk_utils, 'maximum_supported_microversion',
+            return_value='2.63')
+        self.mock_maximum_microversion = maximum_patcher.start()
+        self.addCleanup(maximum_patcher.stop)
+
+    def test_server_group_list(self):
+        server_groups = self.server_groups.list()
+        self.computeclient.server_groups.return_value = iter(server_groups)
+
+        ret_val = api.nova.server_group_list(self.request)
+
+        self.assertEqual(server_groups, ret_val)
+        self.mock_computeclient.assert_called_once_with(self.request)
+        self.computeclient.server_groups.assert_called_once_with(
+            microversion='2.63')
+
+    def test_server_group_list_stays_below_the_policy_switch(self):
+        # Nova swapped the policies list for a single policy string in 2.64
+        # and the server groups panel reads the list, so a listing must not
+        # be left to the version openstacksdk would pick on its own.
+        self.computeclient.server_groups.return_value = iter([])
+
+        api.nova.server_group_list(self.request)
+
+        self.mock_maximum_microversion.assert_called_once_with(
+            self.computeclient, '2.63')
+
+    def test_server_group_create(self):
+        servergroup = self.server_groups.first()
+        kwargs = {'name': servergroup.name, 'policies': servergroup.policies}
+        self.computeclient.create_server_group.return_value = servergroup
+
+        ret_val = api.nova.server_group_create(self.request, **kwargs)
+
+        self.assertEqual(servergroup, ret_val)
+        self.mock_get_microversion.assert_called_once_with(
+            self.request, 'servergroup_soft_policies')
+        self.mock_computeclient.assert_called_once_with(self.request, '2.60')
+        self.computeclient.create_server_group.assert_called_once_with(
+            **kwargs)
+
+    def test_server_group_delete(self):
+        servergroup_id = self.server_groups.first().id
+
+        ret_val = api.nova.server_group_delete(self.request, servergroup_id)
+
+        self.assertIsNone(ret_val)
+        # A group that is already gone has to keep raising, the delete action
+        # reports it back to the user.
+        self.computeclient.delete_server_group.assert_called_once_with(
+            servergroup_id, ignore_missing=False)
+
+    def test_server_group_get(self):
+        servergroup = self.server_groups.first()
+        self.computeclient.get_server_group.return_value = servergroup
+
+        ret_val = api.nova.server_group_get(self.request, servergroup.id)
+
+        self.assertEqual(servergroup, ret_val)
+        self.mock_get_microversion.assert_called_once_with(
+            self.request, 'servergroup_user_info')
+        self.mock_computeclient.assert_called_once_with(self.request, '2.60')
+        self.computeclient.get_server_group.assert_called_once_with(
+            servergroup.id)
+
+    def test_server_group_to_dict(self):
+        # The panel reads members and policies; openstacksdk keeps the first
+        # under member_ids and hangs a computed location off every resource.
+        servergroup = server_group_resource.ServerGroup(
+            id='1', name='server_group_1', policies=['anti-affinity'],
+            members=['server-1', 'server-2'], metadata={},
+            project_id='project-1', user_id='user-1')
+
+        self.assertEqual({'id': '1',
+                          'name': 'server_group_1',
+                          'policies': ['anti-affinity'],
+                          'members': ['server-1', 'server-2'],
+                          'metadata': {},
+                          'project_id': 'project-1',
+                          'user_id': 'user-1'},
+                         api.nova.server_group_to_dict(servergroup))
