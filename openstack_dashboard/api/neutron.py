@@ -1909,7 +1909,7 @@ def port_list_with_trunk_types(request, **params):
             return PortTrunkSubport(port, child_ports[port['id']])
         return Port(port)
 
-    return [_get_port_info(p) for p in ports]
+    return [_get_port_info(p.to_dict()) for p in ports]
 
 
 @profiler.trace
