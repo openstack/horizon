@@ -10,15 +10,16 @@
 # Andi Chandler <andi@gowling.com>, 2022. #zanata
 # Andi Chandler <andi@gowling.com>, 2024. #zanata
 # Andi Chandler <andi@gowling.com>, 2025. #zanata
+# Andi Chandler <andi@gowling.com>, 2026. #zanata
 msgid ""
 msgstr ""
 "Project-Id-Version: horizon VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2025-07-08 23:51+0000\n"
+"POT-Creation-Date: 2026-10-30 00:53+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2025-02-07 12:06+0000\n"
+"PO-Revision-Date: 2026-02-19 02:46+0000\n"
 "Last-Translator: Andi Chandler <andi@gowling.com>\n"
 "Language-Team: English (United Kingdom)\n"
 "Language: en_GB\n"
@@ -446,6 +447,24 @@ msgstr "Are you sure you want to delete container %(name)s?"
 
 msgid "Array"
 msgstr "Array"
+
+msgid ""
+"Attempts to restrict instances belonging to the server group to separate "
+"hosts. Where it is not possible to schedule all instances to separate hosts, "
+"they will be scheduled on as many separate hosts as possible."
+msgstr ""
+"Attempts to restrict instances belonging to the server group to separate "
+"hosts. Where it is not possible to schedule all instances to separate hosts, "
+"they will be scheduled on as many separate hosts as possible."
+
+msgid ""
+"Attempts to restrict instances belonging to the server group to the same "
+"host. Where it is not possible to schedule all instances on one host, they "
+"will be scheduled together on as few hosts as possible."
+msgstr ""
+"Attempts to restrict instances belonging to the server group to the same "
+"host. Where it is not possible to schedule all instances on one host, they "
+"will be scheduled together on as few hosts as possible."
 
 msgid "Automatic"
 msgstr "Automatic"
@@ -1822,6 +1841,13 @@ msgstr[0] "Metadata Definition"
 msgstr[1] "Metadata Definitions"
 
 msgid ""
+"Metadata is a collection of key-value pairs associated with an instance.\n"
+"    The maximum length for each metadata key is 255 characters."
+msgstr ""
+"Metadata is a collection of key-value pairs associated with an instance.\n"
+"    The maximum length for each metadata key is 255 characters."
+
+msgid ""
 "Metadata is used to provide additional information about the\n"
 "    image. Sometimes this information is only used for sorting and viewing.\n"
 "    In some installations this information may affect how the instance is\n"
@@ -1852,6 +1878,12 @@ msgstr "Min Port"
 
 msgid "Min RAM (MB)"
 msgstr "Min RAM (MB)"
+
+msgid "Min. Disk (GB)"
+msgstr "Min. Disk (GB)"
+
+msgid "Min. RAM (MB)"
+msgstr "Min. RAM (MB)"
 
 msgid "Min. Size (bytes)"
 msgstr "Min. Size (bytes)"
@@ -2407,6 +2439,12 @@ msgstr "Remote"
 
 msgid "Resource ID(s)"
 msgstr "Resource ID(s)"
+
+msgid "Restricts instances belonging to the server group to separate hosts."
+msgstr "Restricts instances belonging to the server group to separate hosts."
+
+msgid "Restricts instances belonging to the server group to the same host."
+msgstr "Restricts instances belonging to the server group to the same host."
 
 msgid "Revision Number"
 msgstr "Revision Number"
