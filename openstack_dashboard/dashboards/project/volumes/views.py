@@ -26,6 +26,7 @@ from django.urls import reverse_lazy
 from django.utils import encoding
 from django.utils.translation import gettext_lazy as _
 from django.views import generic
+from oslo_utils import uuidutils
 
 from horizon import exceptions
 from horizon import forms
@@ -60,6 +61,17 @@ class VolumeTableMixIn(object):
                 cinder.volume_list_paged(self.request, marker=marker,
                                          search_opts=search_opts,
                                          sort_dir=sort_dir, paginate=True)
+            name = search_opts.get('name') if search_opts else None
+            if name and uuidutils.is_uuid_like(name) and not any(
+                    getattr(volume, 'id', None) == name
+                    for volume in volumes):
+                try:
+                    volume = cinder.volume_get(self.request, name)
+                    volumes = [volume] + list(volumes)
+                    self._has_more_data = False
+                    self._has_prev_data = False
+                except dashboard_exception.NOT_FOUND:
+                    pass
             return volumes
         except Exception:
             exceptions.handle(self.request,
