@@ -1,4 +1,5 @@
-{% load i18n sizeformat parse_date %}
+{% load i18n sizeformat %}
+{% load horizon %}
 
 <div class="detail">
   <dl class="dl-horizontal">
@@ -44,7 +45,7 @@
     <dd>{% trans "No" %}</dd>
     {% endif %}
     <dt>{% trans "Created" context "Created time" %}</dt>
-    <dd>{{ volume.created_at|parse_date }}</dd>
+    <dd>{{ volume.created_at|parse_isotime|default:_("Not Available") }}</dd>
   </dl>
 
   <h4>{% trans "Attachments" %}</h4>
@@ -102,7 +103,7 @@
   </dl>
   <dl>
       <dt>{% trans "Created" context "Created time" %}</dt>
-      <dd>{{ volume.transfer.created_at|parse_date }}</dd>
+      <dd>{{ volume.transfer.created_at|parse_isotime|default:_("Not Available") }}</dd>
   </dl>
 {% endif %}
 
