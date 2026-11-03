@@ -1,0 +1,15 @@
+---
+upgrade:
+  - |
+    The minimum supported version of ``openstacksdk`` is now 4.21.0. Earlier
+    versions register ``Connection.close`` with ``atexit``, which keeps every
+    SDK connection Horizon builds alive for the life of the worker process.
+fixes:
+  - |
+    Horizon no longer leaks one ``openstacksdk`` connection per request per
+    service. ``openstacksdk`` kept a strong reference to every connection
+    through the ``atexit`` registry, and Horizon builds a connection in
+    ``networkclient()`` and ``computeclient()`` without holding on to it, so
+    each leaked connection retained its keystoneauth session, its connection
+    pools and one ``ssl.SSLContext`` per pooled connection. The fix released
+    in ``openstacksdk`` 4.21.0 is now required.
