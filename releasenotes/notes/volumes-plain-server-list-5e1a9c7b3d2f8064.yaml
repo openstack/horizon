@@ -1,0 +1,8 @@
+---
+fixes:
+  - |
+    When the project or admin volume tables list all servers because more
+    than 50 are attached to the volumes on a page, they now use the plain
+    server list instead of the detailed one. Nova then no longer queries
+    Neutron for the ports and security groups of every listed server, which
+    the tables do not show.
