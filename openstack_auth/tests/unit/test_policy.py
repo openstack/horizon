@@ -11,6 +11,10 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+import json
+import os
+import shutil
+import tempfile
 from unittest import mock
 from unittest import skip
 
@@ -151,6 +155,65 @@ class PolicyTestCheckCredentials(PolicyTestCase):
         is_valid = policy._check_credentials(scope, 'action', target,
                                              credentials)
         self.assertFalse(is_valid)
+
+
+@test.override_settings(POLICY_FILES={'identity': 'keystone_policy.json'})
+class PolicyReloadTestCase(PolicyTestCase):
+    _roles = [{'id': '1', 'name': 'admin'}]
+
+    def setUp(self):
+        super().setUp()
+        policy_dir = tempfile.mkdtemp()
+        self.addCleanup(shutil.rmtree, policy_dir)
+        self.policy_file = os.path.join(policy_dir, 'keystone_policy.json')
+        self._write_policy('role:admin', mtime=1000)
+
+        patcher = mock.patch.object(policy, '_BASE_PATH', policy_dir)
+        patcher.start()
+        self.addCleanup(patcher.stop)
+        patcher = mock.patch.object(policy, 'time')
+        self.mock_time = patcher.start()
+        self.addCleanup(patcher.stop)
+        self.mock_time.monotonic.return_value = 100.0
+
+        policy.reset()
+        self.addCleanup(policy.reset)
+
+    def _write_policy(self, check_str, mtime):
+        with open(self.policy_file, 'w', encoding='utf-8') as f:
+            json.dump({'admin_required': check_str}, f)
+        os.utime(self.policy_file, (mtime, mtime))
+
+    def _check_admin_required(self):
+        return policy.check((("identity", "admin_required"),),
+                            request=self.request)
+
+    def test_policy_file_change(self):
+        self.assertTrue(self._check_admin_required())
+
+        self._write_policy('!', mtime=2000)
+        self.mock_time.monotonic.return_value += 0.5
+        self.assertTrue(self._check_admin_required())
+
+        self.mock_time.monotonic.return_value += 0.5
+        self.assertFalse(self._check_admin_required())
+
+    def test_load_rules_interval(self):
+        enforcer = policy._get_enforcer()['identity']
+        with mock.patch.object(policy.policy.Enforcer,
+                               'load_rules') as mock_load_rules:
+            for _ in range(10):
+                self.assertTrue(self._check_admin_required())
+            mock_load_rules.assert_not_called()
+
+            self.mock_time.monotonic.return_value += 1
+            for _ in range(10):
+                self.assertTrue(self._check_admin_required())
+            mock_load_rules.assert_called_once_with(force_reload=False)
+
+            enforcer.load_rules(force_reload=True)
+            mock_load_rules.assert_called_with(force_reload=True)
+            self.assertEqual(2, mock_load_rules.call_count)
 
 
 class PolicyTestCaseAdmin(PolicyTestCase):
