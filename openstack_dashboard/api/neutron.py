@@ -728,6 +728,14 @@ class FloatingIpManager(object):
         return device_owner
 
     def _set_fip_details(self, fip, port):
+        # Neutron's fip-port-details extension returns device_id and
+        # device_owner of the port with the floating IP.
+        details = fip.get('port_details')
+        if details:
+            fip['instance_id'] = details.get('device_id')
+            fip['instance_type'] = self._get_instance_type_from_device_owner(
+                details.get('device_owner') or '')
+            return
         try:
             if not port:
                 port = port_get(self.request, fip['port_id'])
@@ -763,13 +771,17 @@ class FloatingIpManager(object):
         else:
             port_search_opts = {}
         fips = list(self.net_client.ips(**search_opts))
-        # Get port list to add instance_id to floating IP list
-        # instance_id is stored in device_id attribute
-        ports = port_list(self.request, **port_search_opts)
-        port_dict = collections.OrderedDict([(p['id'], p) for p in ports])
         fips_list = []
         for fip in fips:
             fips_list.append(fip.to_dict())
+        # Get port list to add instance_id to floating IP list
+        # instance_id is stored in device_id attribute. It is only needed
+        # for associated floating IPs without port_details.
+        port_dict = {}
+        if any(fip['port_id'] and not fip.get('port_details')
+               for fip in fips_list):
+            ports = port_list(self.request, **port_search_opts)
+            port_dict = collections.OrderedDict([(p['id'], p) for p in ports])
         for fip in fips_list:
             self._set_instance_info(fip, port_dict.get(fip['port_id']))
         return [FloatingIp(fip) for fip in fips_list]
