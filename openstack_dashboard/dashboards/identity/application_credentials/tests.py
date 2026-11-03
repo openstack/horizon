@@ -14,6 +14,7 @@
 
 from unittest import mock
 
+from django.template import loader
 from django.urls import reverse
 
 from openstack_dashboard import api
@@ -161,3 +162,17 @@ class ApplicationCredentialViewTests(test.TestCase):
         self.assertEqual(res.status_code, 200)
         self.assertTemplateUsed(
             res, 'identity/application_credentials/clouds.yaml.template')
+
+    def test_openrc_secret_with_exclamation_mark(self):
+        context = {
+            'auth_url': 'http://example.com/identity/v3',
+            'interface': 'public',
+            'region': 'RegionOne',
+            'application_credential_id': 'some-id',
+            'application_credential_secret': "Abc!123'def",
+        }
+        out = loader.render_to_string(
+            'identity/application_credentials/openrc.sh.template', context)
+
+        self.assertIn(
+            'export OS_APPLICATION_CREDENTIAL_SECRET="Abc!123\'def"', out)

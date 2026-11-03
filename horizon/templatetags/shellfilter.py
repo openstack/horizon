@@ -20,12 +20,15 @@ register = template.Library()
 @register.filter(is_safe=True)
 @defaultfilters.stringfilter
 def shellfilter(value):
-    """Replace HTML chars for shell usage."""
+    """Escape a value for use inside a double-quoted shell string.
+
+    Within double quotes the shell removes a backslash only before \\, `,
+    $ and ", so a backslash before any other character would end up in
+    the value.
+    """
     replacements = {'\\': '\\\\',
                     '`': '\\`',
                     '$': '\\$',
-                    '!': '\\!',
-                    "'": "\\'",
                     '"': '\\"'}
     for search, repl in replacements.items():
         value = value.replace(search, repl)
