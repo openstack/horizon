@@ -1794,6 +1794,34 @@ class NeutronApiTests(test.APIMockTestCase):
         networkclient.availability_zones.assert_called_once_with()
 
     @mock.patch.object(api.neutron, 'networkclient')
+    def test_dhcp_agent_network_counts(self, mock_networkclient):
+        agent1, agent2 = self.api_agents_sdk
+        net1, net2, net3 = self.api_networks_sdk[:3]
+        networkclient = mock_networkclient.return_value
+        networkclient.agents.return_value = [agent1, agent2]
+        networkclient.dhcp_agent_hosting_networks.side_effect = [
+            [net1, net2], [net1]]
+
+        counts = api.neutron.dhcp_agent_network_counts(
+            self.request, [net1.id, net3.id])
+
+        self.assertEqual(2, counts[net1.id])
+        self.assertNotIn(net2.id, counts)
+        self.assertEqual(0, counts[net3.id])
+        networkclient.agents.assert_called_once_with(agent_type='DHCP agent')
+        networkclient.dhcp_agent_hosting_networks.assert_has_calls(
+            [mock.call(agent1), mock.call(agent2)])
+        self.assertEqual(
+            2, networkclient.dhcp_agent_hosting_networks.call_count)
+
+    @mock.patch.object(api.neutron, 'networkclient')
+    def test_dhcp_agent_network_counts_no_networks(self, mock_networkclient):
+        counts = api.neutron.dhcp_agent_network_counts(self.request, [])
+
+        self.assertEqual({}, dict(counts))
+        mock_networkclient.assert_not_called()
+
+    @mock.patch.object(api.neutron, 'networkclient')
     def test_router_static_route_list(self, mock_networkclient):
         router = self.api_routers_with_routes_sdk[0]
         router_id = self.api_routers_with_routes_sdk[0]['id']

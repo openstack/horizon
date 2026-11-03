@@ -2135,6 +2135,25 @@ def list_dhcp_agent_hosting_networks(request, network, **params):
 
 
 @profiler.trace
+def dhcp_agent_network_counts(request, network_ids):
+    """Return a Counter of DHCP agents hosting each of the given networks.
+
+    Neutron cannot filter the networks of a DHCP agent, so each agent
+    returns all of its networks and only the given ones are counted.
+    """
+    network_ids = set(network_ids)
+    counts = collections.Counter()
+    if not network_ids:
+        return counts
+    client = networkclient(request)
+    for agent in client.agents(agent_type='DHCP agent'):
+        for network in client.dhcp_agent_hosting_networks(agent):
+            if network.id in network_ids:
+                counts[network.id] += 1
+    return counts
+
+
+@profiler.trace
 def list_l3_agent_hosting_router(request, router, **params):
     agents = networkclient(request).routers_hosting_l3_agents(router,
                                                               **params)

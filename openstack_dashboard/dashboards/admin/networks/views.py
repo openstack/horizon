@@ -63,21 +63,14 @@ class IndexView(tables.PagedTableMixin, tables.DataTableView):
         tenant_dict = OrderedDict([(t.id, t) for t in tenants])
         return tenant_dict
 
-    def _get_agents_data(self, network):
-        agents = []
-        data = _("Unknown")
-
+    def _get_agent_counts(self, network_ids):
         try:
-            # This method is called for each network. If agent-list cannot
-            # be retrieved, we will see many pop-ups. So the error message
-            # will be popup-ed in get_data() below.
-            agents = api.neutron.list_dhcp_agent_hosting_networks(
-                self.request, network)
-            data = len(agents)
+            return api.neutron.dhcp_agent_network_counts(self.request,
+                                                         network_ids)
         except Exception:
             msg = _('Unable to list dhcp agents hosting network.')
             exceptions.handle(self.request, msg)
-        return data
+        return None
 
     def needs_filter_first(self, table):
         return getattr(self, "_needs_filter_first", False)
@@ -127,11 +120,15 @@ class IndexView(tables.PagedTableMixin, tables.DataTableView):
                 admin_utils.is_dhcp_agent_scheduler_supported(self.request)):
             self.exception = False
             tenant_dict = self._get_tenant_list()
+            agent_counts = self._get_agent_counts([n.id for n in networks])
             for n in networks:
                 # Set tenant name
                 tenant = tenant_dict.get(n.tenant_id, None)
                 n.tenant_name = getattr(tenant, 'name', None)
-                n.num_agents = self._get_agents_data(n.id)
+                if agent_counts is None:
+                    n.num_agents = _("Unknown")
+                else:
+                    n.num_agents = agent_counts.get(n.id, 0)
         return networks
 
     def get_filters(self, filters=None, filters_map=None):
