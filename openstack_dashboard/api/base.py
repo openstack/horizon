@@ -353,11 +353,14 @@ def url_for(request, service_type, endpoint_type=None, region=None):
 def is_service_enabled(request, service_type):
     service = get_service_from_catalog(request.user.service_catalog,
                                        service_type)
-    if service:
+    if service and 'type' in service:
+        # ec2 api is no longer available but its service type has been used to
+        # enable EC2 credential download
+        if service['type'] == 'ec2':
+            return True
+
         region = request.user.services_region
         for endpoint in service.get('endpoints', []):
-            if 'type' not in service:
-                continue
             # ignore region for identity
             if service['type'] == 'identity' or \
                _get_endpoint_region(endpoint) == region:

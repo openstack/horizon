@@ -1,0 +1,4 @@
+#!/bin/bash
+
+export EC2_ACCESS_KEY={{ ec2_access_key }}
+export EC2_SECRET_KEY={{ ec2_secret_key }}

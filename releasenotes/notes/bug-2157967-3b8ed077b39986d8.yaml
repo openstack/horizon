@@ -1,0 +1,15 @@
+---
+fixes:
+  - |
+    The following features, which were removed in 25.5.0 release, have been
+    restored. These were used in the environment with S3-comaptible API and
+    could work as long as the `ec2` service type and its endpoints are present
+    in keystone catalog.
+
+    - Download EC2 credentials
+    - Recreate EC2 credentials
+
+    Note that infromation required for only EC2 API access is no longer
+    available because it can't be used without actually functionin EC2 API,
+    which is no longer available in OpenStack. Also the feature no longer
+    required endpoints for the ec2 service type.
