@@ -311,6 +311,8 @@ SHOW_OPENRC_FILE = True
 # Controls whether clouds.yaml is accesible from the user
 # menu and the api access panel.
 SHOW_OPENSTACK_CLOUDS_YAML = True
+# Controls whether keystone EC2 credential is accesible the api access panel.
+SHOW_EC2_CREDENTIALS = False
 
 # The size of chunk in bytes for downloading objects from Swift
 SWIFT_FILE_TRANSFER_CHUNK_SIZE = 512 * 1024

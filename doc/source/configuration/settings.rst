@@ -993,6 +993,16 @@ MEMOIZED_MAX_SIZE_DEFAULT allows setting a global default to help control
 memory usage when caching. It should at least be 2 x the number of threads
 with a little bit of extra buffer.
 
+SHOW_EC2_CREDENTIALS
+~~~~~~~~~~~~~~~~~~~~
+
+.. versionadded:: 28.0.0(Indri)
+
+Default: ``False``
+
+Controls whether keystone EC2 credential is accessible from the api access
+panel.
+
 SHOW_OPENRC_FILE
 ----------------
 
