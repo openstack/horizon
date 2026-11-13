@@ -211,6 +211,11 @@ class TestCase(horizon_helpers.TestCase):
 
         self.patchers = _apply_panel_mocks()
 
+        # Version and extension discovery results are cached per process.
+        api.cinder._server_versions.clear()
+        api._nova._server_versions.clear()
+        api.neutron._extension_aliases.clear()
+
         super().setUp()
 
     def _setup_test_data(self):

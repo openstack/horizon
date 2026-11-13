@@ -1,0 +1,7 @@
+---
+fixes:
+  - |
+    Horizon now keeps the Cinder and Nova microversion ranges and the
+    Neutron extension list for 10 minutes per endpoint, instead of asking
+    the services again on every request. After an upgrade it can take up to
+    10 minutes until new microversions or extensions are used.

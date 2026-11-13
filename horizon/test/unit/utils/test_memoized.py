@@ -10,6 +10,8 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
+from unittest import mock
+
 from horizon.test import helpers as test
 from horizon.utils import memoized
 
@@ -80,3 +82,44 @@ class MemoizedTests(test.TestCase):
         cache_calls(4)
         self.assertEqual(9, len(values_list))
         # 4 is readded, 5 is dropped
+
+
+class TTLCacheTests(test.TestCase):
+    def setUp(self):
+        super().setUp()
+        patcher = mock.patch.object(memoized, 'time')
+        self.mock_time = patcher.start()
+        self.addCleanup(patcher.stop)
+        self.mock_time.monotonic.return_value = 1000.0
+
+    def test_get_set(self):
+        cache = memoized.TTLCache(60)
+        self.assertIsNone(cache.get('key'))
+
+        cache.set('key', 'value')
+        self.assertEqual('value', cache.get('key'))
+
+        self.mock_time.monotonic.return_value += 59
+        self.assertEqual('value', cache.get('key'))
+
+        self.mock_time.monotonic.return_value += 1
+        self.assertIsNone(cache.get('key'))
+
+    def test_set_drops_expired_entries(self):
+        cache = memoized.TTLCache(60)
+        cache.set('old', 1)
+        self.mock_time.monotonic.return_value += 30
+        cache.set('current', 2)
+        self.mock_time.monotonic.return_value += 30
+        cache.set('new', 3)
+
+        self.assertEqual({'current', 'new'}, set(cache._data))
+        self.assertIsNone(cache.get('old'))
+        self.assertEqual(2, cache.get('current'))
+        self.assertEqual(3, cache.get('new'))
+
+    def test_clear(self):
+        cache = memoized.TTLCache(60)
+        cache.set('key', 'value')
+        cache.clear()
+        self.assertIsNone(cache.get('key'))

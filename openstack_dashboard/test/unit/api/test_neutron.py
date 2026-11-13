@@ -22,6 +22,7 @@ from openstack.network.v2 import subnet_pool as sdk_subnet_pool
 from openstack.network.v2 import trunk as sdk_trunk
 from oslo_utils import uuidutils
 
+from django import http
 from django.test.utils import override_settings
 
 from openstack_dashboard import api
@@ -1760,6 +1761,34 @@ class NeutronApiTests(test.APIMockTestCase):
             api.neutron.is_extension_supported(self.request, 'doesntexist'))
 
         networkclient.extensions.assert_called_once_with()
+
+    @mock.patch.object(api.neutron, 'networkclient')
+    def test_is_extension_supported_cached_across_requests(
+            self, mock_networkclient):
+        networkclient = mock_networkclient.return_value
+        networkclient.extensions.return_value = self.api_extensions_sdk
+        other_request = http.HttpRequest()
+        other_request.user = self.request.user
+
+        self.assertTrue(
+            api.neutron.is_extension_supported(self.request, 'quotas'))
+        self.assertTrue(
+            api.neutron.is_extension_supported(other_request, 'quotas'))
+        self.assertFalse(
+            api.neutron.is_extension_supported(other_request, 'doesntexist'))
+
+        networkclient.extensions.assert_called_once_with()
+
+    @mock.patch.object(api.neutron, 'list_extensions')
+    def test_is_extension_supported_no_extensions_not_cached(
+            self, mock_list_extensions):
+        mock_list_extensions.return_value = ()
+
+        for _ in range(2):
+            self.assertFalse(
+                api.neutron.is_extension_supported(self.request, 'quotas'))
+
+        self.assertEqual(2, mock_list_extensions.call_count)
 
     @mock.patch.object(api.neutron, 'networkclient')
     def test_list_availability_zones_with_resource_and_state_filters(

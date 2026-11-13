@@ -18,6 +18,7 @@ from django.conf import settings
 from django.test.utils import override_settings
 
 import cinderclient as cinder_client
+from cinderclient import api_versions
 
 from openstack_dashboard import api
 from openstack_dashboard.test import helpers as test
@@ -459,6 +460,35 @@ class CinderApiTests(test.APIMockTestCase):
 
         api.cinder.message_list(self.request, search_opts=search_opts)
         messages_mock.assert_called_once_with(search_opts)
+
+    @mock.patch.object(api.cinder.cinder_client, 'get_server_version')
+    def test_get_microversion_caches_server_version(self,
+                                                    mock_get_server_version):
+        mock_get_server_version.return_value = (
+            api_versions.APIVersion('3.0'), api_versions.APIVersion('3.70'))
+
+        for _ in range(3):
+            microversion = api.cinder.get_microversion(self.request, 'groups')
+            self.assertEqual('3.58', microversion.get_string())
+
+        mock_get_server_version.assert_called_once_with(
+            api.base.url_for(self.request, 'volumev3'),
+            settings.OPENSTACK_SSL_NO_VERIFY,
+            settings.OPENSTACK_SSL_CACERT)
+
+    @mock.patch.object(api.cinder.cinder_client, 'get_server_version')
+    def test_get_microversion_fallback_version_not_cached(
+            self, mock_get_server_version):
+        mock_get_server_version.side_effect = [
+            (api_versions.APIVersion('2.0'), api_versions.APIVersion('2.0')),
+            (api_versions.APIVersion('3.0'), api_versions.APIVersion('3.0')),
+        ]
+
+        for _ in range(2):
+            self.assertIsNone(
+                api.cinder.get_microversion(self.request, 'groups'))
+
+        self.assertEqual(2, mock_get_server_version.call_count)
 
 
 class CinderApiVersionTests(test.TestCase):

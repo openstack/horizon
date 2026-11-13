@@ -32,6 +32,7 @@ from cinderclient.v3.contrib import list_extensions as cinder_list_extensions
 
 from horizon import exceptions
 from horizon.utils.memoized import memoized
+from horizon.utils.memoized import TTLCache
 
 from openstack_dashboard.api import _nova
 from openstack_dashboard.api import base
@@ -250,6 +251,22 @@ def cinderclient(request, version=None):
     return c
 
 
+# Microversion ranges by cinder endpoint URL, kept for 10 minutes.
+_server_versions = TTLCache(600)
+
+
+def _get_server_version(cinder_url, insecure, cacert):
+    versions = _server_versions.get(cinder_url)
+    if versions is None:
+        versions = cinder_client.get_server_version(cinder_url,
+                                                    insecure, cacert)
+        # get_server_version() falls back to 2.0 or 3.0 instead of raising
+        # when it gets no usable version document.
+        if versions[1] > api_versions.APIVersion('3.0'):
+            _server_versions.set(cinder_url, versions)
+    return versions
+
+
 def get_microversion(request, features):
     try:
         version, cinder_url = _find_cinder_url(request)
@@ -259,8 +276,7 @@ def get_microversion(request, features):
     insecure = settings.OPENSTACK_SSL_NO_VERIFY
     cacert = settings.OPENSTACK_SSL_CACERT
 
-    min_ver, max_ver = cinder_client.get_server_version(cinder_url,
-                                                        insecure, cacert)
+    min_ver, max_ver = _get_server_version(cinder_url, insecure, cacert)
     return microversions.get_microversion_for_features(
         'cinder', features, api_versions.APIVersion, min_ver, max_ver)
 
