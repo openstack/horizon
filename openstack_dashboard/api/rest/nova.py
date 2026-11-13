@@ -432,7 +432,7 @@ class ServerGroups(generic.View):
         The listing result is an object with property "items".
         """
         result = api.nova.server_group_list(request)
-        return {'items': [u.to_dict() for u in result]}
+        return {'items': [api.nova.server_group_to_dict(u) for u in result]}
 
     @rest_utils.ajax(data_required=True)
     def post(self, request):
@@ -447,7 +447,8 @@ class ServerGroups(generic.View):
         new_servergroup = api.nova.server_group_create(request, **request.DATA)
         return rest_utils.CreatedResponse(
             '/api/nova/servergroups/%s' % parse.quote(
-                new_servergroup.id), new_servergroup.to_dict()
+                new_servergroup.id),
+            api.nova.server_group_to_dict(new_servergroup)
         )
 
 
@@ -469,7 +470,8 @@ class ServerGroup(generic.View):
 
         http://localhost/api/nova/servergroups/1
         """
-        return api.nova.server_group_get(request, servergroup_id).to_dict()
+        return api.nova.server_group_to_dict(
+            api.nova.server_group_get(request, servergroup_id))
 
 
 @urls.register

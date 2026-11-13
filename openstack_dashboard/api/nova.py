@@ -237,6 +237,18 @@ def flavor_to_dict(flavor, computed=False):
     return result
 
 
+def server_group_to_dict(server_group):
+    """Serialize a server group for Horizon's REST responses.
+
+    openstacksdk reads the members list under member_ids and attaches a
+    computed location to every resource. original_names asks for the names
+    the compute API itself uses, which is what the server groups panel reads,
+    and ignore_none keeps the response to the fields nova answered with.
+    """
+    return server_group.to_dict(original_names=True, computed=False,
+                                ignore_none=True)
+
+
 class QuotaSet(base.QuotaSet):
 
     # We don't support nova-network, so we exclude nova-network related
@@ -1054,27 +1066,48 @@ def availability_zone_list(request, detailed=False):
     return zones
 
 
+# Nova replaced the policies list with a single policy string in microversion
+# 2.64 and dropped the metadata field along with it. The server groups panel
+# reads both, so Horizon has to stay below that version. The two microversion
+# features used here, servergroup_soft_policies and servergroup_user_info,
+# already top out at 2.60, but a listing asks for no feature at all and
+# openstacksdk would otherwise request 2.64, the newest version it knows.
+SERVER_GROUP_POLICIES_MICROVERSION = '2.63'
+
+
+def _server_group_microversion(computeclient):
+    """Return the highest microversion still reporting the policies list."""
+    return sdk_utils.maximum_supported_microversion(
+        computeclient, SERVER_GROUP_POLICIES_MICROVERSION)
+
+
 @profiler.trace
 def server_group_list(request):
-    return _nova.novaclient(request).server_groups.list()
+    computeclient = _nova.computeclient(request)
+    return list(computeclient.server_groups(
+        microversion=_server_group_microversion(computeclient)))
 
 
 @profiler.trace
 def server_group_create(request, **kwargs):
     microversion = get_microversion(request, "servergroup_soft_policies")
-    nc = _nova.novaclient(request, version=microversion)
-    return nc.server_groups.create(**kwargs)
+    return _nova.computeclient(request, microversion).create_server_group(
+        **kwargs)
 
 
 @profiler.trace
 def server_group_delete(request, servergroup_id):
-    _nova.novaclient(request).server_groups.delete(servergroup_id)
+    # novaclient raised a NotFound for a group that is already gone and the
+    # delete action reports that back to the user, so keep doing so rather
+    # than take the SDK default of staying quiet.
+    _nova.computeclient(request).delete_server_group(servergroup_id,
+                                                     ignore_missing=False)
 
 
 @profiler.trace
 def server_group_get(request, servergroup_id):
     microversion = get_microversion(request, "servergroup_user_info")
-    return _nova.novaclient(request, version=microversion).server_groups.get(
+    return _nova.computeclient(request, microversion).get_server_group(
         servergroup_id)
 
 
