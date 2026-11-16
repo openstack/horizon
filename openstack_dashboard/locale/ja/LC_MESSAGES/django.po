@@ -16,7 +16,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: horizon VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2026-10-02 11:57+0000\n"
+"POT-Creation-Date: 2026-11-13 22:30+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -2264,6 +2264,15 @@ msgstr "openrc ファイルのダウンロード"
 msgid "Download transfer credentials"
 msgstr "譲渡認証情報のダウンロード"
 
+msgid "EC2 Access Key"
+msgstr "EC2 アクセスキー"
+
+msgid "EC2 Credentials"
+msgstr "EC2 認証情報"
+
+msgid "EC2 Secret Key"
+msgstr "EC2 秘密鍵"
+
 msgid ""
 "Each QoS Specs entity will have a \"Consumer\" value which indicates where "
 "the administrator would like the QoS policy to be enforced. This value can "
@@ -2613,6 +2622,10 @@ msgstr "名前空間 %s のリソース種別の更新時にエラーが発生�
 
 msgid "Error when adding or removing hosts."
 msgstr "ホストの追加、削除中にエラーがありました。"
+
+#, python-format
+msgid "Error writing zipfile: %(exc)s"
+msgstr "zip ファイルの書き込みに失敗しました: %(exc)s"
 
 msgid "Errors occurred in deleting group."
 msgstr "ボリュームグループの削除でエラーが発生しました。"
@@ -5043,6 +5056,9 @@ msgstr "再作成中"
 msgid "Rebuilding instance %s."
 msgstr "インスタンス %s を再作成中。"
 
+msgid "Recreate EC2 Credentials"
+msgstr "EC2 認証情報の再作成"
+
 msgid "Region"
 msgstr "リージョン"
 
@@ -5369,6 +5385,9 @@ msgstr "実行中"
 
 msgid "Running Instance Migration Type"
 msgstr "実行中のインスタンスのマイグレーション種別"
+
+msgid "S3 URL"
+msgstr "S3 URL"
 
 msgid "SLAAC: Address discovered from OpenStack Router"
 msgstr "SLAAC: アドレスを OpenStack ルーターから取得"
@@ -6064,6 +6083,9 @@ msgstr "公開鍵 %s を正常に取り込みました"
 
 msgid "Successfully modified QoS Spec consumer."
 msgstr "QoS スペックの使用者を正常に更新しました。"
+
+msgid "Successfully recreated ec2 credentials."
+msgstr "EC2 認証情報の再作成に成功しました。"
 
 msgid "Successfully redirected"
 msgid_plural "Successfully redirected"
@@ -7017,6 +7039,9 @@ msgstr "ボリューム種別の追加スペックを更新できません。"
 msgid "Unable to extend volume."
 msgstr "ボリュームを拡張できません。"
 
+msgid "Unable to fetch EC2 credentials."
+msgstr "EC2 認証情報を取得できません"
+
 msgid "Unable to fetch snapshot"
 msgstr "スナップショットを取得できません"
 
@@ -7028,6 +7053,9 @@ msgstr "Floating IP が見つかりません。"
 
 msgid "Unable to find default role."
 msgstr "デフォルトのロールが見つかりません。"
+
+msgid "Unable to get EC2 credentials"
+msgstr "EC2 認証情報を取得できません"
 
 #, python-format
 msgid "Unable to get MKS console for instance \"%s\"."
@@ -7156,6 +7184,12 @@ msgstr "IPアドレス %s の解析に失敗しました。"
 
 msgid "Unable to rebuild instance."
 msgstr "インスタンスを再作成できません。"
+
+msgid "Unable to recreate ec2 credentials. Failed to create ec2 credentials."
+msgstr "EC2 認証情報を再作成できません。EC2 認証情報の作成に失敗しました。"
+
+msgid "Unable to recreate ec2 credentials. Failed to delete ec2 credentials."
+msgstr "EC2 認証情報を再作成できません。EC2 認証情報の削除に失敗しました。"
 
 msgid "Unable to register identity provider."
 msgstr "認証プロバイダーを登録できません。"

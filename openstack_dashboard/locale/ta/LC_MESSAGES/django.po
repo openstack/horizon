@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: horizon VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2026-09-03 22:45+0000\n"
+"POT-Creation-Date: 2026-11-13 22:30+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -935,6 +935,12 @@ msgstr "கீழே"
 msgid "Download CSV Summary"
 msgstr "CSV சுருக்கத்தை பதிவிறக்கவும்"
 
+msgid "EC2 Access Key"
+msgstr "EC2 அணுகல் விசை"
+
+msgid "EC2 Secret Key"
+msgstr "EC2 ரகசிய விசை"
+
 msgid "Edit"
 msgstr "திருத்து"
 
@@ -1096,6 +1102,10 @@ msgstr "QoS விவரக்குறிப்பு தொடர்பை ப
 
 msgid "Error when adding or removing hosts."
 msgstr "புரவலர்களை சேர்க்கும்போது அல்லது நீக்கும்போது பிழை"
+
+#, python-format
+msgid "Error writing zipfile: %(exc)s"
+msgstr "ஜிப்கோப்பை எழுதுவதில் பிழை: %(exc)s"
 
 msgid "Ether Type"
 msgstr "ஈத்தர் வகை"
@@ -2463,6 +2473,9 @@ msgctxt "Power state of an Instance"
 msgid "Running"
 msgstr "இயங்குகிறது"
 
+msgid "S3 URL"
+msgstr "S3 URL"
+
 msgid "SSH key pairs can be generated with the ssh-keygen command:"
 msgstr "SSH விசை ஜோடிகள் ssh-keygen கட்டளையை கொண்டு உருவாக்கப்படலாம்:"
 
@@ -3159,8 +3172,14 @@ msgstr "தொகுதி வகை கூடுதல் விவரக்க
 msgid "Unable to extend volume."
 msgstr "தொகுதி நீட்டிக்க முடியவில்லை."
 
+msgid "Unable to fetch EC2 credentials."
+msgstr "EC2 சான்றுகளை தருவிக்க முடியவில்லை."
+
 msgid "Unable to find default role."
 msgstr "முன்னிருப்பு பங்கை கண்டுபிடிக்க முடியவில்லை."
+
+msgid "Unable to get EC2 credentials"
+msgstr "EC2 சான்றுகளை பெற முடியவில்லை."
 
 #, python-format
 msgid "Unable to get RDP console for instance \"%s\"."

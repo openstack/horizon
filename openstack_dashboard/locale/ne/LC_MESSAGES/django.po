@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: horizon VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2026-09-03 22:45+0000\n"
+"POT-Creation-Date: 2026-11-13 22:30+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -882,6 +882,12 @@ msgstr "तल"
 msgid "Download CSV Summary"
 msgstr "CSV सारांश डाउनलोड गर्नुहोस्"
 
+msgid "EC2 Access Key"
+msgstr "EC2 प्रवेश चाबी"
+
+msgid "EC2 Secret Key"
+msgstr "EC2 सेक्रेट चाबी"
+
 msgid "Edit"
 msgstr "सम्पादन गर्नुहोस्"
 
@@ -1043,6 +1049,10 @@ msgstr "QoS स्पेक सम्बन्ध अपडेट गर्न�
 
 msgid "Error when adding or removing hosts."
 msgstr "होस्टहरू थप्दा बा हटाउँदा त्रुटि"
+
+#, python-format
+msgid "Error writing zipfile: %(exc)s"
+msgstr "जिपफाइल: %(exc)s लेख्ने क्रममा त्रुटि"
 
 msgid "Ether Type"
 msgstr "इदर प्रकार"
@@ -2265,6 +2275,9 @@ msgstr ""
 "नियमले परिभाषित गर्छ कि कुन ट्राफिकलो इन्सचेन्स सुरक्षा दलमा निरूपण गर्न सक्छ। एउटा "
 "सुरक्षा दल नियममा तीनवटा मूख्य भागहरू हुन्छन्ः"
 
+msgid "S3 URL"
+msgstr "S3 URL"
+
 msgid "SSH key pairs can be generated with the ssh-keygen command:"
 msgstr "SSH चाबी जोडाहरू एसएस-केइजेन कमान्डको सहायताले बनाउन सकिन्छः"
 
@@ -2886,8 +2899,14 @@ msgstr "भोल्युम प्रकार अतिरिक्त स्
 msgid "Unable to extend volume."
 msgstr "भोल्युम विस्तार गर्न असमर्थ"
 
+msgid "Unable to fetch EC2 credentials."
+msgstr "EC2 प्रमाणपत्र प्राप्त गर्न असमर्थ।"
+
 msgid "Unable to find default role."
 msgstr "डिफल्ट भुमिका प्राप्त गर्नु असमर्थ"
+
+msgid "Unable to get EC2 credentials"
+msgstr "EC2 प्रमाणपत्र प्राप्त गर्न असमर्थ"
 
 #, python-format
 msgid "Unable to get RDP console for instance \"%s\"."

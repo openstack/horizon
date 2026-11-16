@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: horizon VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2026-09-03 22:45+0000\n"
+"POT-Creation-Date: 2026-11-13 22:30+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -889,6 +889,12 @@ msgstr "ڈاون"
 msgid "Download CSV Summary"
 msgstr "ڈوان لوڈ کئریوCSV  خَلاصہٖ"
 
+msgid "EC2 Access Key"
+msgstr "EC2 ایکسس کی"
+
+msgid "EC2 Secret Key"
+msgstr "EC2 سیکریٹ کی"
+
 msgid "Edit"
 msgstr "شیریئو"
 
@@ -1050,6 +1056,10 @@ msgstr "غَلطی اَپڈیٹ کئرنہ خآطرہ  QoS سِپیک جورہ �
 
 msgid "Error when adding or removing hosts."
 msgstr "غَلطی جمع یا کئڈنہٕ وَقتہٕ ہوس"
+
+#, python-format
+msgid "Error writing zipfile: %(exc)s"
+msgstr "غَلطی زِپ فٲیل لیکھنہ وَقتہ  : %(exc)s"
 
 msgid "Ether Type"
 msgstr "ایتھر قِسم"
@@ -2273,6 +2283,9 @@ msgstr ""
 "رولز یِم وَضا حت چھ کران کوس ٹریفِک چُھ اِجازت اِنسٹنسِز دِتمِت حِفآظتی گروپس خآطرہ۔  "
 "حِفآظتی گروپ رولس مَنز چھ ۳ بیڈہ حِصہ:"
 
+msgid "S3 URL"
+msgstr "S3 URL"
+
 msgid "SSH key pairs can be generated with the ssh-keygen command:"
 msgstr "کی جورہ چھ ssh ہیکان بَناویتہ ssh-keygenکمانڈ سیتھ"
 
@@ -2893,8 +2906,14 @@ msgstr "نا قابِل شئرنہٕ ٕ خآطرہ  والیوم قِسم علا
 msgid "Unable to extend volume."
 msgstr "نا قابِل والئومبئڈراونہٕ  خآطرہ"
 
+msgid "Unable to fetch EC2 credentials."
+msgstr "نا قابِل EC2کئریڈینشل واپس اَنہٕ خآطرہ"
+
 msgid "Unable to find default role."
 msgstr "نا قابِل ڈیفالٹ کئردار ژہانڈنہٕ خآطرہ"
+
+msgid "Unable to get EC2 credentials"
+msgstr "نا قابِل عئوپِن ٲر سی ۲کئریڈینشل واپس اَنہٕ خآطرہ"
 
 #, python-format
 msgid "Unable to get RDP console for instance \"%s\"."

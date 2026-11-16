@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: horizon VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2026-09-03 22:45+0000\n"
+"POT-Creation-Date: 2026-11-13 22:30+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -933,6 +933,12 @@ msgstr "তললৈ"
 msgid "Download CSV Summary"
 msgstr "CSV সাৰাংশ ডাউনলোড কৰক"
 
+msgid "EC2 Access Key"
+msgstr "EC2 প্ৰৱেশ কী"
+
+msgid "EC2 Secret Key"
+msgstr "EC2 গোপন কী"
+
 msgid "Edit"
 msgstr "সম্পাদনা কৰক"
 
@@ -1094,6 +1100,10 @@ msgstr "QoS স্পেক সংস্থা আপডেট কৰোতে �
 
 msgid "Error when adding or removing hosts."
 msgstr "হষ্টবোৰ যোগ বা আতঁৰ কৰোতে ভুল হৈছে."
+
+#, python-format
+msgid "Error writing zipfile: %(exc)s"
+msgstr "জিপফাইল লিখোতে ভুল হৈছে: %(exc)s"
 
 msgid "Ether Type"
 msgstr "দুয়ো প্ৰকাৰৰ"
@@ -2446,6 +2456,9 @@ msgctxt "Power state of an Instance"
 msgid "Running"
 msgstr "চলি আছে"
 
+msgid "S3 URL"
+msgstr "S3 URL"
+
 msgid "SSH key pairs can be generated with the ssh-keygen command:"
 msgstr "ssh-keygen নিৰ্দেশটোৰ সৈতে SSH মুখ্য যোৰাবোৰৰ পাব পাৰি:"
 
@@ -3131,8 +3144,14 @@ msgstr "আয়তন প্ৰকাৰৰ অতিৰিক্ত স্পে
 msgid "Unable to extend volume."
 msgstr "আয়তন প্ৰসাৰ কৰিবলৈ অক্ষম."
 
+msgid "Unable to fetch EC2 credentials."
+msgstr "EC2 পৰিচয়পত্ৰবোৰ পাবলৈ অক্ষম."
+
 msgid "Unable to find default role."
 msgstr "ডিফল্ট ৰোল বিচাৰি উলিয়াবলৈ অক্ষম."
+
+msgid "Unable to get EC2 credentials"
+msgstr "EC2 পৰিচয়পত্ৰবোৰ পাবলৈ অক্ষম"
 
 #, python-format
 msgid "Unable to get RDP console for instance \"%s\"."

@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: horizon VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2026-09-03 22:45+0000\n"
+"POT-Creation-Date: 2026-11-13 22:30+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -928,6 +928,12 @@ msgstr "ડાઉન"
 msgid "Download CSV Summary"
 msgstr "CSV સારાંશ ડાઉનલોડ કરો"
 
+msgid "EC2 Access Key"
+msgstr "EC2 ઍક્સેસ કી"
+
+msgid "EC2 Secret Key"
+msgstr "EC2 ગુપ્ત કી"
+
 msgid "Edit"
 msgstr "ફેરફાર કરો"
 
@@ -1089,6 +1095,10 @@ msgstr "QoS સ્પેક એસોસિયેશનને અદ્યતન
 
 msgid "Error when adding or removing hosts."
 msgstr "યજમાનો ઉમેરતી કે દુર કરતી વખતે ભૂલ."
+
+#, python-format
+msgid "Error writing zipfile: %(exc)s"
+msgstr "ઝિપફાઇલ લખવામાં ક્ષતિ: %(exc)s"
 
 msgid "Ether Type"
 msgstr "ઈથર પ્રકાર"
@@ -2434,6 +2444,9 @@ msgctxt "Power state of an Instance"
 msgid "Running"
 msgstr "ચાલી રહેલ"
 
+msgid "S3 URL"
+msgstr "S3 URL"
+
 msgid "SSH key pairs can be generated with the ssh-keygen command:"
 msgstr "SSH કી જોડીઓ એ ssh-કીજન આદેશ સાથે બનાવી શકાય છે:"
 
@@ -3115,8 +3128,14 @@ msgstr "વોલ્યુમ પ્રકારના વધારાના સ
 msgid "Unable to extend volume."
 msgstr "વોલ્યુમ વિસ્તારવા માટે અસમર્થ."
 
+msgid "Unable to fetch EC2 credentials."
+msgstr "EC2 ઓળખાણપત્ર મેળવવામાં અસમર્થ."
+
 msgid "Unable to find default role."
 msgstr "મૂળભૂત ભૂમિકા શોધવામાં અસમર્થ."
+
+msgid "Unable to get EC2 credentials"
+msgstr "EC2 ઓળખાણપત્ર મેળવવામાં અસમર્થ"
 
 #, python-format
 msgid "Unable to get RDP console for instance \"%s\"."

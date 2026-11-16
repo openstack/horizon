@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: horizon VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2026-10-02 11:57+0000\n"
+"POT-Creation-Date: 2026-11-13 22:30+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -1631,6 +1631,15 @@ msgstr "'openrc' ფაილის გადმოწერა"
 msgid "Download transfer credentials"
 msgstr "გადაცემის შესვლის დეტალების გადმოწერა"
 
+msgid "EC2 Access Key"
+msgstr "EC2-ის წვდომის გასაღები"
+
+msgid "EC2 Credentials"
+msgstr "EC2-ის ავტორიზაციის დეტალები"
+
+msgid "EC2 Secret Key"
+msgstr "EC2-ის საიდუმლო გასაღები"
+
 msgid "Edit"
 msgstr "რედაქტირება"
 
@@ -1915,6 +1924,10 @@ msgstr "შეცდომა რესურსის ტიპების გ
 
 msgid "Error when adding or removing hosts."
 msgstr "ჰოსტების დამატების ა წაშლის შეცდომა."
+
+#, python-format
+msgid "Error writing zipfile: %(exc)s"
+msgstr "შეცდომა zip ფაილის ჩაწერისას: %(exc)s"
 
 msgid "Errors occurred in deleting group."
 msgstr "შეცდომა ჯგუფის წაშლისას."
@@ -3851,6 +3864,9 @@ msgctxt "Task status of an Instance"
 msgid "Rebuilding"
 msgstr "მიმდინარეობს თავიდან აგება"
 
+msgid "Recreate EC2 Credentials"
+msgstr "EC2-ის ავტორიზაციის დეტალების თავიდან შექმნა"
+
 msgid "Region"
 msgstr "რაიონი"
 
@@ -4124,6 +4140,9 @@ msgstr "მიმდინარეობს შესრულება"
 
 msgid "Running Instance Migration Type"
 msgstr "გაშვებული გაშვებული ასლის მიგრაციის ტიპი"
+
+msgid "S3 URL"
+msgstr "S3 URL"
 
 msgid "SLAAC: Address discovered from OpenStack Router"
 msgstr "SLAAC: OpenStack-ის რაუტერიდან აღმოჩენილი მისამართები"
@@ -5166,6 +5185,9 @@ msgstr "სპეცის ჩასწორება შეუძლებე�
 
 msgid "Unable to extend volume."
 msgstr "ტომის გაფართოება შეუძლებელია."
+
+msgid "Unable to fetch EC2 credentials."
+msgstr "EC2-ის ავტორიზაციის დეტალების გამოთხოვა შეუძლებელია."
 
 msgid "Unable to fetch snapshot"
 msgstr "სწრაფი ასლის გამოთხოვა შეუძლებელია"

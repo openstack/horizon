@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: horizon VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2026-09-03 22:45+0000\n"
+"POT-Creation-Date: 2026-11-13 22:30+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -1628,6 +1628,12 @@ msgstr "Disattivo"
 msgid "Download CSV Summary"
 msgstr "Scarica il riepilogo CSV"
 
+msgid "EC2 Access Key"
+msgstr "Chiave di accesso EC2"
+
+msgid "EC2 Secret Key"
+msgstr "Chiave segreta Ec2"
+
 msgid "Edit"
 msgstr "Modifica"
 
@@ -1892,6 +1898,10 @@ msgstr ""
 
 msgid "Error when adding or removing hosts."
 msgstr "Errore durante l'aggiunta o rimozione di host."
+
+#, python-format
+msgid "Error writing zipfile: %(exc)s"
+msgstr "Errore durante la scrittura del file compresso (.zip): %(exc)s"
 
 msgid "Ether Type"
 msgstr "Tipo etere"
@@ -3642,6 +3652,9 @@ msgstr "Creazione nuova build"
 msgid "Rebuilding instance %s."
 msgstr "Creazione nuova build dell'istanza %s."
 
+msgid "Recreate EC2 Credentials"
+msgstr "Ricrea credenziali EC2"
+
 msgid "Regions:"
 msgstr "Regioni:"
 
@@ -3897,6 +3910,9 @@ msgstr "In esecuzione"
 
 msgid "Running Instance Migration Type"
 msgstr "Tipo di migrazione istanza in esecuzione"
+
+msgid "S3 URL"
+msgstr "URL S3"
 
 msgid "SLAAC: Address discovered from OpenStack Router"
 msgstr "SLAAC: indirizzo rilevato dal router OpenStack"
@@ -4423,6 +4439,9 @@ msgstr "Chiave pubblica importata correttamente: %s"
 
 msgid "Successfully modified QoS Spec consumer."
 msgstr "Consumer specifica QoS modificato correttamente."
+
+msgid "Successfully recreated ec2 credentials."
+msgstr "Credenziali ec2 ricreate correttamente."
 
 #, python-format
 msgid ""
@@ -5025,8 +5044,14 @@ msgstr "Impossibile modificare specifiche supplementari del tipo di volume."
 msgid "Unable to extend volume."
 msgstr "Impossibile estendere il volume."
 
+msgid "Unable to fetch EC2 credentials."
+msgstr "Impossibile recuperare le credenziali EC2."
+
 msgid "Unable to find default role."
 msgstr "Impossibile trovare il ruolo predefinito."
+
+msgid "Unable to get EC2 credentials"
+msgstr "Impossibile ottenere le credenziali EC2"
 
 #, python-format
 msgid "Unable to get RDP console for instance \"%s\"."
@@ -5122,6 +5147,16 @@ msgstr "Impossibile analizzare l'indirizzo IP %s."
 
 msgid "Unable to rebuild instance."
 msgstr "Impossibile creare la nuova build dell'istanza."
+
+msgid "Unable to recreate ec2 credentials. Failed to create ec2 credentials."
+msgstr ""
+"Impossibile ricreare le credenziali ec2. Impossibile creare le credenziali "
+"ec2."
+
+msgid "Unable to recreate ec2 credentials. Failed to delete ec2 credentials."
+msgstr ""
+"Impossibile ricreare le credenziali ec2. Impossibile eliminare le "
+"credenziali ec2."
 
 msgid "Unable to register identity provider."
 msgstr "Impossibile registrare il provider di identità."
